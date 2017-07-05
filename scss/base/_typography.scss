@@ -1,0 +1,80 @@
+/* Basic Typography */
+
+html {
+  font-size: 12px;
+  @include md {
+    font-size: 14px;
+  }
+  @include lg {
+    font-size: 14px;
+  }
+  @include xl {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: $font-family-1;
+  line-height: 1.5;
+  color: $color-dark;
+}
+
+p {
+  font-size: 1rem;
+}
+
+a {
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+/* Font Modifers */
+
+.fw-100 {
+  font-weight: 100;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.no-p-m {
+  padding: 0;
+  margin: 0;
+}

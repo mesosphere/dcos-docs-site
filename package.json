@@ -1,0 +1,32 @@
+{
+  "name": "mesosphere-docs",
+  "version": "0.0.1",
+  "description": "Mesosphere docs",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "webpack": "webpack --progress --colors"
+  },
+  "author": "Ettrics",
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.18.12",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "handlebars": "^4.0.10",
+    "metalsmith": "^2.3.0",
+    "metalsmith-assets": "^0.1.0",
+    "metalsmith-browser-sync": "^1.1.1",
+    "metalsmith-layouts": "^1.8.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0",
+    "metalsmith-webpack2": "^1.0.1",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "dependencies": {}
+}

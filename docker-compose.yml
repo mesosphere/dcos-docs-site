@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+   docs:
+    build: .
+    volumes:
+      - "./:/src"
+    ports:
+      - "3000:3000"
