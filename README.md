@@ -6,7 +6,7 @@
     - Docker Compose
     - Git
 
-## Development
+## Development (TODO: Expand)
 
 ### Docker Compose (TODO: Expand)
 
@@ -20,30 +20,20 @@ Go to `http://localhost:3000/{page}`
 
 Develop and page will auto reload on changes
 
-## SCSS
+### SCSS
 
 Scss files are compiled from `scss` into `build/css`
 
-## JS
+### JS
 
 Javascript files are compiled from `js` into `build/js` and must be added to `entry.js`
 
-## Git (TODO: Expand)
+## Contributing (TODO: Expand)
 
-1. Before development always pull
+### Overview (TODO: Expand)
 
-> git pull origin master
+### Styling and Format (TODO: Expand)
 
-2. Make changes, add & commit
+### Git (TODO: Expand)
 
-> git add -A
-
-> git commit -m "my change"
-
-3. Pull before pushing
-
-> git pull origin master
-
-4. Push changes
-
-> git push origin master
+## License and Authors (TODO: Expand)
