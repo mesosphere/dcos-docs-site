@@ -1,4 +1,4 @@
-# Mesosphere Docs
+# DC/OS Documentation
 
 ## Prerequisites (TODO: Expand)
 
