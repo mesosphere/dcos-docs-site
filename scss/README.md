@@ -1,5 +1,15 @@
 # SCSS
 
+## Code Style
+
+Be consistent with code style.
+
+- 2 space indentation.
+
+- Space before first bracket and keep ending brackets on their own line.
+
+- Every attribute on own line.
+
 ## Mobile First
 
 We will be using mobile first approach to our styling
