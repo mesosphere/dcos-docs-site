@@ -8,9 +8,19 @@
 
 ## Development (TODO: Expand)
 
-### Docker Compose (TODO: Expand)
+### Overview
 
-### Local (TODO: Expand)
+1. Read our [JS Guide](/js/README.md)
+
+2. Read our [SCSS Guide](/scss/README.md)
+
+3. Continue on to Docker Compose setup or Local setup below.
+
+4. Read Contributing below on how to commit properly to the project.
+
+### Docker Compose Setup (TODO: Expand)
+
+### Local Setup (TODO: Expand)
 
 Install packages with `npm install`
 
@@ -20,17 +30,9 @@ Go to `http://localhost:3000/{page}`
 
 Develop and page will auto reload on changes
 
-### SCSS
-
-Scss files are compiled from `scss` into `build/css`
-
-### JS
-
-Javascript files are compiled from `js` into `build/js` and must be added to `entry.js`
-
 ## Contributing (TODO: Expand)
 
-### Overview (TODO: Expand)
+## Overview (TODO: Expand)
 
 ### Styling and Format (TODO: Expand)
 
