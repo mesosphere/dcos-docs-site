@@ -3,7 +3,12 @@ html(lang='en')
   head
     include partials/head.pug
   body
-    include partials/header.pug
-    !=contents
+    div(class='layout')
+      div(class='layout__left')
+        include partials/sidebar.pug
+      div(class='layout__right')
+        include partials/header.pug
+          div(class='content')
+            !=contents
+        include partials/footer.pug
     include partials/scripts.pug
-    include partials/footer.pug
