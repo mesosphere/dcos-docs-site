@@ -38,6 +38,8 @@ Javascript files are compiled from `js` into `build/js` and must be added to `en
 
 [You Dont Need jQuery](https://github.com/oneuijs/You-Dont-Need-jQuery)
 
+[Building Technical Documentation With Metalsmith](https://segment.com/blog/building-technical-documentation-with-metalsmith/)
+
 ### Git (TODO: Expand)
 
 ## License and Authors (TODO: Expand)
