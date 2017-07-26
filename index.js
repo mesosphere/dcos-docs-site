@@ -1,10 +1,10 @@
-var Metalsmith    = require('metalsmith');
-var markdown      = require('metalsmith-markdown');
-var layouts       = require('metalsmith-layouts');
-var permalinks    = require('metalsmith-permalinks');
-var assets        = require('metalsmith-assets');
-var browserSync   = require('metalsmith-browser-sync');
-var webpack       = require('metalsmith-webpack2');
+const Metalsmith    = require('metalsmith');
+const markdown      = require('metalsmith-markdown');
+const layouts       = require('metalsmith-layouts');
+const permalinks    = require('metalsmith-permalinks');
+const assets        = require('metalsmith-assets');
+const browserSync   = require('metalsmith-browser-sync');
+const webpack       = require('metalsmith-webpack2');
 
 Metalsmith(__dirname)
   .metadata({
