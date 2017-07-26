@@ -23,16 +23,14 @@ Metalsmith(__dirname)
     destination: 'assets',
   }))
   .use(layouts({
-    engine: 'handlebars',
-    partials: 'partials',
+    engine: 'pug',
   }))
   .use(webpack('./webpack.config.js'))
   .use(browserSync({
     server : 'build',
     files  : [
       'pages/**/*.md',
-      'layouts/**/*.html',
-      'partials/**/*.html',
+      'layouts/**/*.pug',
       'scss/**/*.scss',
       'js/**/*.js',
     ]

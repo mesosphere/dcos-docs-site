@@ -36,6 +36,8 @@ Javascript files are compiled from `js` into `build/js` and must be added to `en
 
 [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
 
+[You Dont Need jQuery](https://github.com/oneuijs/You-Dont-Need-jQuery)
+
 ### Git (TODO: Expand)
 
 ## License and Authors (TODO: Expand)
