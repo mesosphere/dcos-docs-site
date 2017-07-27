@@ -6,46 +6,15 @@ html {
     font-size: 14px;
   }
   @include lg {
-    font-size: 14px;
+    font-size: 12px;
   }
   @include xl {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
 body {
-  font-family: $font-family-1;
-  line-height: 1.5;
   color: $color-dark;
-}
-
-p {
-  font-size: 1rem;
-}
-
-a {
-  font-size: 1rem;
-  text-decoration: none;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.7rem;
-}
-
-h4 {
-  font-size: 1.2rem;
-}
-
-h5 {
-  font-size: 1rem;
 }
 
 label {
