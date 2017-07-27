@@ -1,6 +1,25 @@
 .layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   &__sidebar {
+    display: none;
+    background: blue;
   }
   &__content {
+    background: red;
+  }
+  @include md {
+    flex-direction: row;
+    &__sidebar {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+    &__content {
+      width: 100%;
+      background: red;
+    }
   }
 }
