@@ -1,6 +1,7 @@
 .sidebar {
   background: $color-purple;
   &__header {
+    padding: 2rem;
     &-dropdown {
       &-item {
         color: white;
@@ -10,23 +11,27 @@
 }
 
 .navigation {
+  padding: 1rem;
   &__list {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
+  color: rgba(255, 255, 255, 0.6);
   &__item {
-    // &--selected {
-    //   background: $color-purple-light;
-    //   color: $color-light;
-    // }
-    padding-left: 2rem;
-    background-image: url('/assets/svg/chevron-right.svg');
-    background-position: 0 0;
-    background-size: 1.6rem 1.6rem;
-    background-repeat: no-repeat;
-    // Background is already in .sidebar
-    //background: $color-purple;
-    padding-bottom: 0.5rem;
+    line-height: 1.7;
+    a {
+      display: flex;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.6);
+      // color: $color-light;
+      text-decoration: none;
+    }
+  }
+  &__icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    color: rgba(255, 255, 255, 0.6);
   }
 }
