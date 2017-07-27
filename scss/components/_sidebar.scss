@@ -1,0 +1,24 @@
+.sidebar {
+  
+  &__header {
+    &-dropdown {
+      &-item {
+        color: white;
+      }
+    }
+  }
+}
+
+.navigation {
+  &_list {
+    
+  }
+  &__item {
+    &:before {
+      content: '>'
+    }
+    &--selected {
+      color: $color-dark;
+    }
+  }
+}

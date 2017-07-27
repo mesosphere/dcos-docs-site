@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "webpack": "webpack --progress --colors",
-    "eslint": "eslint js/**",
+    "eslint": "eslint js/**.js",
     "eslint-init": "eslint --init"
   },
   "author": "Ettrics",

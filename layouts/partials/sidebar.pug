@@ -1,1 +1,24 @@
-div(class='sidebar')
+section(class='sidebar')
+  header(class='sidebar__header')
+    select(class='sidebar__dropdown')
+      option(class='sidebar__dropdown-item') Mesosphere DC/OS 1.7
+      option(class='sidebar__dropdown-item') Mesosphere DC/OS 1.8
+      option(class='sidebar__dropdown-item') Mesosphere DC/OS 1.9
+  nav(role='navigation', class='navigation')
+    ul(class='navigation__list')
+      li(class='navigation__item') Release Notes
+      li(class='navigation__item') Overview
+      li(class='navigation__item') Installing & Upgrading
+      li(class='navigation__item') GUI
+      li(class='navigation__item navigation__item--selected') CLI
+        ul(class='navigation__list')
+          li(class='navigation__item') Installing the CLI
+          li(class='navigation__item') Configuring the CLI
+          li(class='navigation__item') Updating the CLI
+          li(class='navigation__item navigation__item--selected') Uninstalling the CLI
+            ul(class='navigation__list')
+              li(class='navigation__item navigation__item--active') dcos
+              li(class='navigation__item') dcos auth
+              li(class='navigation__item') dcos config
+              li(class='navigation__item') dcos experimental
+              li(class='navigation__item') dcos help

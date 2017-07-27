@@ -13,10 +13,9 @@
 @import "base/normalize";
 @import "base/typography";
 @import "base/global";
-@import "base/input";
-@import "base/header";
-@import "base/drawer";
-@import "base/footer";
 @import "base/layout";
-@import "base/sidebar";
-@import "base/content";
+@import "base/footer";
+
+/* Components */
+@import "components/sidebar";
+@import "components/grid";
