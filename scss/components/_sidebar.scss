@@ -21,11 +21,12 @@
     //   color: $color-light;
     // }
     padding-left: 2rem;
-    background-image: url('/svg/chevron-right.svg');
+    background-image: url('/assets/svg/chevron-right.svg');
     background-position: 0 0;
     background-size: 1.6rem 1.6rem;
     background-repeat: no-repeat;
-    background: $color-purple;
+    // Background is already in .sidebar
+    //background: $color-purple;
     padding-bottom: 0.5rem;
   }
 }
