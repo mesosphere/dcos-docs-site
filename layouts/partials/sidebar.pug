@@ -9,32 +9,46 @@ section(class='sidebar')
       li(class='navigation__item')
         a(href='/')
           svg(class='navigation__icon')
-            use(xlink:href='assets/sprite.svg#chevron-right')
+            use(xlink:href='assets/sprite.svg#chevron')
           | Release Notes
-        ul(class='navigation__list')
-          li(class='navigation__item navigation__item--active') dcos
-          li(class='navigation__item') dcos auth
-          li(class='navigation__item') dcos config
-          li(class='navigation__item') dcos experimental
-          li(class='navigation__item') dcos help
       li(class='navigation__item')
         a(href='/')
           svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron-right")
+            use(xlink:href="assets/sprite.svg#chevron")
           | Overview
       li(class='navigation__item')
         a(href='/')
           svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron-right")
+            use(xlink:href="assets/sprite.svg#chevron")
           | Installing & Upgrading
       li(class='navigation__item')
         a(href='/')
           svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron-right")
+            use(xlink:href="assets/sprite.svg#chevron")
           | GUI
-      li(class='navigation__item')
+      li(class='navigation__item navigation__item--active')
         a(href='/')
           svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron-right")
+            use(xlink:href="assets/sprite.svg#chevron")
           | CLI
+        ol(class='navigation__list')
+          li(class='navigation__item')
+            a(href='/') Installing the CLI
+          li(class='navigation__item')
+            a(href='/') Configuring the CLI
+          li(class='navigation__item')
+            a(href='/') Updating the CLI
+          li(class='navigation__item')
+            a(href='/') Uninstalling the CLI
+          li(class='navigation__item')
+            a(href='/')
+              svg(class='navigation__icon')
+                use(xlink:href="assets/sprite.svg#chevron")
+              | Command Reference
+            ol(class='navigation__list')
+              li(class='navigation__item navigation__item--active') dcos
+              li(class='navigation__item') dcos auth
+              li(class='navigation__item') dcos config
+              li(class='navigation__item') dcos experimental
+              li(class='navigation__item') dcos help
           //- li(class='navigation__item navigation__item--selected') Uninstalling the CLI

@@ -11,7 +11,7 @@
 }
 
 .navigation {
-  padding: 1rem;
+  padding: 2rem;
   &__list {
     list-style-type: none;
     margin: 0;
@@ -19,19 +19,31 @@
   }
   color: rgba(255, 255, 255, 0.6);
   &__item {
-    line-height: 1.7;
+    position: relative;
+    line-height: 1.8;
     a {
-      display: flex;
-      align-items: center;
       color: rgba(255, 255, 255, 0.6);
       // color: $color-light;
       text-decoration: none;
     }
+    &--active {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
   }
   &__icon {
+    position: absolute;
     width: 16px;
     height: 16px;
-    margin-right: 5px;
+    top: 5px;
+    left: -20px;
     color: rgba(255, 255, 255, 0.6);
+  }
+  & ol li {
+    margin-left: 1rem;
+    & li {
+      margin-left: 1rem;
+    }
   }
 }
