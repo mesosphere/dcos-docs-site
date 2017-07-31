@@ -1,6 +1,8 @@
 .grid {
   display: grid;
-  grid-template-columns: 50% 50%;
+  @include md {
+    grid-template-columns: 50% 50%;
+  }
   grid-row-gap: 25px;
   grid-column-gap: 25px;
   margin-top: 1.5rem * 2;

@@ -1,9 +1,19 @@
 section(class='sidebar')
   header(class='sidebar__header')
-    select(class='sidebar__dropdown')
-      option(class='sidebar__dropdown-item') Mesosphere DC/OS 1.7
-      option(class='sidebar__dropdown-item') Mesosphere DC/OS 1.8
-      option(class='sidebar__dropdown-item') Mesosphere DC/OS 1.9
+    div(class='sidebar__dropdown')
+      div(class='sidebar__dropdown-toggle')
+        div(class='sidebar__dropdown-text')
+          | Mesosphere DC/OS
+          span 1.7
+        svg(class='sidebar__dropdown-icon')
+          use(xlink:href='assets/sprite.svg#chevron')
+      ul(class='sidebar__dropdown-list')
+        li(class='sidebar__dropdown-item')
+          a(href='/', class='sidebar__dropdown-link') Mesosphere DC/OS 1.7
+        li(class='sidebar__dropdown-item')
+          a(href='/', class='sidebar__dropdown-link') Mesosphere DC/OS 1.8
+        li(class='sidebar__dropdown-item')
+          a(href='/', class='sidebar__dropdown-link') Mesosphere DC/OS 1.9
   nav(role='navigation', class='navigation')
     ul(class='navigation__list')
       li(class='navigation__item navigation__subhead')
