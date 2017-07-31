@@ -3,9 +3,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem 2rem;
+  height: 70px;
+  padding: 0 2rem;
   background: $color-light;
   box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
+  &__main {
+    display: flex;
+    align-items: center;
+  }
   &__logo {
     display: flex;
     & * {
@@ -17,14 +22,50 @@
     position: fixed;
     width: calc(100% - 300px);
   }
-}
-
-.main-menu {
-  &__list {
-    display: flex;
-    list-style-type: none;
+  &__menu {
+    &-list {
+      display: flex;
+      list-style-type: none;
+    }
+    &-item {
+      margin-left: 50px;
+      font-weight: 600;
+    }
   }
-  &__item {
-
+  &__search {
+    &-form {
+      display: flex;
+    }
+    &-input {
+      width: 100px;
+      padding: 0.5rem;
+      border: 0;
+      border-radius: 5px;
+      outline: 0;
+      transition: all 0.4s $ease-in-out-cubic;
+      text-align: right;
+      &:focus {
+        width: 200px;
+        margin-right: 10px;
+        text-align: left;
+        form & {
+          background: $color-purple-light;
+          color: $color-light;
+        }
+      }
+    }
+    &-submit {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+    }
+    &-icon {
+      display: block;
+      width: 20px;
+      height: 20px;
+      color: $color-purple-light;
+    }
   }
 }

@@ -1,5 +1,4 @@
 const sidebarDropdown = document.querySelector('.sidebar__dropdown');
-const sidebarVersions = document.querySelector('.sidebar__dropdown-list');
 
 function toggleDropdown() {
   if (!sidebarDropdown.classList.contains('sidebar__dropdown--active')) {

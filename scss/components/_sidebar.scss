@@ -1,12 +1,13 @@
 .sidebar {
   display: relative;
   &__header {
-    height: 90px;
+    height: 70px;
   }
   &__dropdown {
     position: relative;
     width: 100%;
     background: #1f0036;
+    cursor: pointer;
     &--active {
       background: $color-purple-light;
       & .sidebar__dropdown-list {
@@ -22,8 +23,11 @@
     &-toggle {
       display: flex;
       justify-content: space-between;
-      padding: 2rem;
+      align-items: center;
+      height: 70px;
+      padding: 0 2rem;
       font-weight: 600;
+      user-select: none;
       & span {
         margin-left: 5px;
         color: $color-purple-light;
@@ -37,7 +41,7 @@
     }
     &-list {
       position: absolute;
-      top: 90px;
+      top: 70px;
       margin: 0;
       padding: 0;
       height: 0;
@@ -45,7 +49,6 @@
       background: $color-purple-light;
       opacity: 0;
       box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.4s $ease-in-out-cubic;
       overflow: hidden;
       z-index: 200;
     }
@@ -60,19 +63,35 @@
       padding: 1rem 2rem;
       color: $color-light;
       text-decoration: none;
+      user-select: none;
       &:hover {
         background: $color-purple;
-        text-decoration: underline;
       }
     }
   }
   &__footer {
     position: absolute;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
-    height: 90px;
-    padding: 2rem;
+    padding: 0 2rem;
+    height: 70px;
+    font-size: 0.6rem;
     background: $color-purple;
+    box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.2);
+    &-links {
+      margin-bottom: 0.5rem;
+      & a {
+        margin-right: 1rem;
+        color: $color-light;
+        text-decoration: none;
+      }
+    }
+    &-copyright {
+      color: rgba(255, 255, 255, 0.5);
+    }
   }
 }
 
@@ -81,8 +100,8 @@
     width: 0px;
     background: transparent;
   }
-  height: calc(100vh - 180px);
-  padding: 2rem 0;
+  height: calc(100vh - 140px);
+  padding: 2rem 1rem 2rem 0;
   overflow-y: scroll;
   font-size: 0.9rem;
   &__list {
@@ -97,7 +116,7 @@
   }
   color: rgba(255, 255, 255, 0.6);
   &__subhead {
-    background: $color-purple !important;
+    background: $color-purple;
     &--active {
       > .navigation__link .navigation__icon {
         transform: rotate(90deg);
@@ -126,7 +145,7 @@
     height: 20px;
     padding: 2px 4px;
     top: 2px;
-    left: -24px;
+    left: -20px;
     color: rgba(255, 255, 255, 0.6);
   }
   &__link {

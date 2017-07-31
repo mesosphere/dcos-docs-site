@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-  <symbol id="chevron" viewBox="0 0 24 24">
+  <symbol id="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <title>Chevron Right</title>
-    <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="9 18 15 12 9 6" />
+    <polyline points="9 18 15 12 9 6" />
+  </symbol>
+  <symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <title>Search</title>
+    <circle cx="10.5" cy="10.5" r="7.5"/>
+    <path d="M21 21l-5.2-5.2"/>
   </symbol>
 </svg>

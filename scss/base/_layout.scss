@@ -19,10 +19,12 @@
       flex-direction: column;
       width: 300px;
       height: 100%;
+      z-index: 1;
     }
     &__content {
       margin-left: 300px;
       width: 100%;
+      z-index: 40000;
     }
   }
 }

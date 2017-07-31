@@ -1,11 +1,18 @@
 header(class='header')
-  div(class='header__logo')
-    img(src='/assets/header-logo-color-dark-mark.png', height='24')
-    img(src='/assets/header-logo-color-dark-type.png', height='15')
-  nav(class='main-menu')
-    ul(class='main-menu__list')
-      li(class='main-menu__item') DC/OS Docs
-      li(class='main-menu__item') Service Docs
-      li(class='main-menu__item') Support
-  section(role='search') search
+  div(class='header__main')
+    div(class='header__logo')
+      img(src='/assets/header-logo-color-dark-mark.png', height='24')
+      img(src='/assets/header-logo-color-dark-type.png', height='15')
+    nav(class='header__menu')
+      ul(class='header__menu-list')
+        li(class='header__menu-item') DC/OS Docs
+        li(class='header__menu-item') Service Docs
+        li(class='header__menu-item') Support
+  section(class='header__search', role='search')
+    form(class='header__search-form')
+      input(class='header__search-input', placeholder='Search')
+      button(class='header__search-submit')
+        svg(class='header__search-icon')
+          use(xlink:href="assets/sprite.svg#search")
+        
   //p!= JSON.stringify(collections)
