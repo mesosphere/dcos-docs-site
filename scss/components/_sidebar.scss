@@ -1,6 +1,7 @@
 .sidebar {
-  background: $color-purple;
+  display: relative;
   &__header {
+    height: 90px;
     padding: 2rem;
     &-dropdown {
       &-item {
@@ -8,42 +9,84 @@
       }
     }
   }
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    padding: 2rem;
+    background: $color-purple;
+  }
 }
 
 .navigation {
-  padding: 2rem;
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  height: calc(100vh - 180px);
+  padding: 2rem 0;
+  overflow-y: scroll;
+  font-size: 0.9rem;
   &__list {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    .navigation__subhead & {
+      height: 0;
+      opacity: 0;
+      overflow-y: hidden;
+    }
   }
   color: rgba(255, 255, 255, 0.6);
+  &__subhead {
+    background: $color-purple !important;
+    &--active {
+      > .navigation__link .navigation__icon {
+        transform: rotate(90deg);
+      }
+      > .navigation__list {
+        height: auto;
+        opacity: 1;
+        overflow-y: scroll;
+      }
+    }
+  }
   &__item {
+    background: $color-purple;
+    font-weight: 400;
     position: relative;
-    line-height: 1.8;
     a {
       color: rgba(255, 255, 255, 0.6);
-      // color: $color-light;
       text-decoration: none;
     }
     &--active {
-      svg {
-        transform: rotate(90deg);
-      }
+      background: $color-purple-light;
     }
   }
   &__icon {
     position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 5px;
-    left: -20px;
+    width: 20px;
+    height: 20px;
+    padding: 2px 4px;
+    top: 2px;
+    left: -24px;
     color: rgba(255, 255, 255, 0.6);
   }
-  & ol li {
-    margin-left: 1rem;
-    & li {
-      margin-left: 1rem;
+  &__link {
+    position: relative;
+    display: block;
+    margin-left: 2.5rem;
+    font-weight: 400;
+    ol & {
+      margin-left: 3.5rem;
+    }
+    ol ol & {
+      font-size: 0.8rem;
+      margin-left: 4.5rem;
+    }
+    ol ol ol & {
+      margin-left: 5.5rem;
     }
   }
 }

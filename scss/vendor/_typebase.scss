@@ -2,19 +2,17 @@
 
 // TODO Needs media queries?
 // Typesetting variables. Edit these!
-$baseFontSize:14; // in pixels. This would result in 22px on desktop
+$baseFontSize:12; // in pixels. This would result in 22px on desktop
 $baseLineHeight:1.5; // how large the line height is as a multiple of font size
 $leading:$baseLineHeight * 1rem;
 // Rate of growth for headings
 // I actually like this to be slightly smaller then the leading. Makes for tight headings.
-$scale:1.414;
 
 /* Setup */
 
 html {
     /* Change default typefaces here */
     font-family: $font-family-3;
-    font-size: $baseFontSize / 16 * 100%;
     // Make everything look a little nicer in webkit
     -webkit-font-smoothing: antialiased;
     // -webkit-text-size-adjust: auto
@@ -64,26 +62,27 @@ h6 {
     line-height: $leading;
 }
 h1 {
-    font-size: 2.5 * $scale * 1rem;
+    font-size: 2.5 * 1rem;
     line-height: 2.5 * $leading;
     margin-top: 2 * $leading;
 }
 h2 {
-    font-size: 2 * $scale * 1rem;
+    font-size: 2 * 1rem;
     line-height: 2 * $leading;
     margin-top: 2 * $leading;
 }
 h3 {
-    font-size: 1 * $scale * 1rem;
+    font-size: 1.5 * 1rem;
+    line-height: 1.5 * $leading;
 }
 h4 {
-    font-size: $scale / 2 * 1rem;
+    font-size: 1.25 * 1rem;
 }
 h5 {
-    font-size: $scale / 3 * 1rem;
+    font-size: 1 * 1rem;
 }
 h6 {
-    font-size: $scale / 4 * 1rem;
+    font-size: 0.9 * 1rem;
 }
 /* Tables */
 
@@ -106,7 +105,7 @@ code {
 /* Leading paragraph text */
 
 .lead {
-    font-size: $scale * 1rem;
+    font-size: 1rem;
 }
 /* Hug a the block above you */
 

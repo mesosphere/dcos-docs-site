@@ -13,7 +13,10 @@
       align-self: flex-start;
     }
   }
-  
+  @include md {
+    position: fixed;
+    width: calc(100% - 300px);
+  }
 }
 
 .main-menu {

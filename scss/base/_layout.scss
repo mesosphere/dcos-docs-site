@@ -9,15 +9,19 @@
     color: $color-light;
   }
   &__content {
+    width: 100%;
   }
   @include md {
     flex-direction: row;
     &__sidebar {
-      width: 350px;
+      position: fixed;
       display: flex;
       flex-direction: column;
+      width: 300px;
+      height: 100%;
     }
     &__content {
+      margin-left: 300px;
       width: 100%;
     }
   }

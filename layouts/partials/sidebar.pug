@@ -5,50 +5,95 @@ section(class='sidebar')
       option(class='sidebar__dropdown-item') Mesosphere DC/OS 1.8
       option(class='sidebar__dropdown-item') Mesosphere DC/OS 1.9
   nav(role='navigation', class='navigation')
-    ol(class='navigation__list')
-      li(class='navigation__item')
-        a(href='/')
+    ul(class='navigation__list')
+      li(class='navigation__item navigation__subhead')
+        a(href='/release-notes', class='navigation__link')
           svg(class='navigation__icon')
             use(xlink:href='assets/sprite.svg#chevron')
           | Release Notes
-      li(class='navigation__item')
-        a(href='/')
+        ol(class='navigation__list')
+          li(class='navigation__item')
+            a(href='/', class='navigation__link') Release Notes for 1.9.2
+          li(class='navigation__item')
+            a(href='/', class='navigation__link') Release Notes for 1.9.1
+          li(class='navigation__item')
+            a(href='/', class='navigation__link') Release Notes for 1.9.0
+          li(class='navigation__item')
+            a(href='/', class='navigation__link') Release Notes for 1.9.0 RC1
+          li(class='navigation__item')
+            a(href='/', class='navigation__link') Release Notes for 1.9.0 RC2
+          li(class='navigation__item')
+            a(href='/', class='navigation__link') Release Notes for 1.9.0 RC3
+          li(class='navigation__item')
+            a(href='/', class='navigation__link') Release Notes for 1.9.0 RC4
+          li(class='navigation__item')
+            a(href='/', class='navigation__link') Mesosphere DC/OS Open Source Attribution
+      li(class='navigation__item navigation__subhead')
+        a(href='/overview', class='navigation__link')
           svg(class='navigation__icon')
             use(xlink:href="assets/sprite.svg#chevron")
           | Overview
-      li(class='navigation__item')
-        a(href='/')
+      li(class='navigation__item navigation__subhead')
+        a(href='/install', class='navigation__link')
           svg(class='navigation__icon')
             use(xlink:href="assets/sprite.svg#chevron")
           | Installing & Upgrading
-      li(class='navigation__item')
-        a(href='/')
+        ol(class='navigation__list')
+          li(class='navigation__item navigation__item navigation__subhead')
+            a(href='/install', class='navigation__link')
+              svg(class='navigation__icon')
+                use(xlink:href="assets/sprite.svg#chevron")
+              | Running DC/OS on AWS EC2
+            ol(class='navigation__list')
+              li(class='navigation__item navigation__item')
+                a(href='/', class='navigation__link') Running DC/OS on AWS EC2 Basic
+              li(class='navigation__item navigation__subhead')
+                a(href='/install', class='navigation__link')
+                  svg(class='navigation__icon')
+                    use(xlink:href="assets/sprite.svg#chevron")
+                  | Running DC/OS on AWS EC2 Advanced
+                ol(class='navigation__list')
+                  li(class='navigation__item navigation__item')
+                    a(href='/', class='navigation__link') Installing Using a Custom AMI
+                  li(class='navigation__item')
+                    a(href='/', class='navigation__link') Template Reference
+              li(class='navigation__item')
+                a(href='/', class='navigation__link') Uninstalling DC/OS on AWS EC2
+      li(class='navigation__item navigation__subhead')
+        a(href='/gui', class='navigation__link')
           svg(class='navigation__icon')
             use(xlink:href="assets/sprite.svg#chevron")
           | GUI
-      li(class='navigation__item navigation__item--active')
-        a(href='/')
+      li(class='navigation__item navigation__subhead navigation__subhead')
+        a(href='/cli', class='navigation__link')
           svg(class='navigation__icon')
             use(xlink:href="assets/sprite.svg#chevron")
           | CLI
         ol(class='navigation__list')
           li(class='navigation__item')
-            a(href='/') Installing the CLI
+            a(href='/cli', class='navigation__link') Installing & Uninstalling
           li(class='navigation__item')
-            a(href='/') Configuring the CLI
+            a(href='/', class='navigation__link') Configuring the CLI
           li(class='navigation__item')
-            a(href='/') Updating the CLI
+            a(href='/', class='navigation__link') Updating the CLI
           li(class='navigation__item')
-            a(href='/') Uninstalling the CLI
+            a(href='/', class='navigation__link') Uninstalling the CLI
           li(class='navigation__item')
-            a(href='/')
+            a(href='/', class='navigation__link')
               svg(class='navigation__icon')
                 use(xlink:href="assets/sprite.svg#chevron")
               | Command Reference
             ol(class='navigation__list')
-              li(class='navigation__item navigation__item--active') dcos
-              li(class='navigation__item') dcos auth
-              li(class='navigation__item') dcos config
-              li(class='navigation__item') dcos experimental
-              li(class='navigation__item') dcos help
-          //- li(class='navigation__item navigation__item--selected') Uninstalling the CLI
+              li(class='navigation__item navigation__item')
+                a(href='/', class='navigation__link') dcos
+              li(class='navigation__item')
+                a(href='/', class='navigation__link') dcos auth
+              li(class='navigation__item')
+                a(href='/', class='navigation__link') dcos config
+              li(class='navigation__item')
+                a(href='/', class='navigation__link') dcos experimential
+              li(class='navigation__item')
+                a(href='/', class='navigation__link') dcos help
+          li(class='navigation__item navigation__subhead')
+            a(href='/', class='navigation__link') Enterprise DC/OS CLI
+  footer(class='sidebar__footer') test

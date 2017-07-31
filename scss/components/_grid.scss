@@ -1,0 +1,22 @@
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-row-gap: 25px;
+  grid-column-gap: 25px;
+  margin-top: 1.5rem * 2;
+  &__item {
+    min-height: 200px;
+    padding: 20px;
+    border-top: 5px $color-purple-light solid;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  &__header {
+    color: $color-purple-light;
+  }
+  &__desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+  }
+}
