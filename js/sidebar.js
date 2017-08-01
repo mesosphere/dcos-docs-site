@@ -8,6 +8,13 @@ function toggleDropdown() {
   }
 }
 
+function detectClick(event) {
+  if (sidebarDropdown.classList.contains('sidebar__dropdown--active') && !sidebarDropdown.contains(event.target)) {
+    sidebarDropdown.classList.remove('sidebar__dropdown--active');
+  }
+}
+
+document.addEventListener('click', detectClick);
 sidebarDropdown.addEventListener('click', toggleDropdown);
 
 const sidebarItems = document.querySelectorAll('.navigation__item');

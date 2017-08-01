@@ -6,7 +6,7 @@
   &__dropdown {
     position: relative;
     width: 100%;
-    background: #1f0036;
+    background: $color-purple-dark;
     cursor: pointer;
     &--active {
       background: $color-purple-light;
@@ -80,7 +80,7 @@
     height: 70px;
     font-size: 0.6rem;
     background: $color-purple;
-    box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.15);
     &-links {
       margin-bottom: 0.5rem;
       & a {

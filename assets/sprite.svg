@@ -5,7 +5,11 @@
   </symbol>
   <symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <title>Search</title>
-    <circle cx="10.5" cy="10.5" r="7.5"/>
-    <path d="M21 21l-5.2-5.2"/>
+    <circle cx="10.5" cy="10.5" r="7.5" />
+    <path d="M21 21l-5.2-5.2" />
+  </symbol>
+  <symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <title>Menu</title>
+    <path d="M3 12h18M3 6h18M3 18h18" />
   </symbol>
 </svg>
