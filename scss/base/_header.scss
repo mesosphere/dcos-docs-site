@@ -21,6 +21,9 @@
   @include md {
     position: fixed;
     width: calc(100% - 300px);
+    #search & {
+      width: 100%;
+    }
   }
   &__menu {
     &-list {
@@ -33,7 +36,9 @@
     }
   }
   &__search {
-    display: none;
+    #search & {
+      display: none;
+    }
   }
   @include md {
     &__search {

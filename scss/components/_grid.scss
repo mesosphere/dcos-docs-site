@@ -1,13 +1,10 @@
 .grid {
-  display: grid;
-  @include md {
-    grid-template-columns: 50% 50%;
-  }
-  grid-row-gap: 25px;
-  grid-column-gap: 25px;
-  margin-top: 1.5rem * 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 3rem;
   &__item {
-    min-height: 200px;
+    margin-bottom: 20px;
     padding: 20px;
     border-top: 5px $color-purple-light solid;
     border-radius: 5px;
@@ -20,5 +17,10 @@
     font-size: 0.85rem;
     line-height: 1.5;
     margin-top: 1rem;
+  }
+  @include md {
+    &__item {
+      flex-basis: calc(50% - 10px);
+    }
   }
 }

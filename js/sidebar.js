@@ -30,7 +30,7 @@ function toggleMenu(event) {
   }
 }
 
-sidebarMenus.forEach(menu => {
+sidebarMenus.forEach((menu) => {
   const caret = menu.querySelector('svg');
   caret.addEventListener('click', toggleMenu);
 });

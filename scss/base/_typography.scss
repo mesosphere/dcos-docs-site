@@ -17,8 +17,9 @@ body {
   color: $color-dark;
 }
 
-a:link {
-  color: $color-purple;
+a:link,
+a:visited {
+  color: $color-purple-light;
 }
 
 label {
