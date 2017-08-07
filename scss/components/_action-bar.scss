@@ -1,0 +1,22 @@
+.action-bar {
+  margin: 4rem 0;
+  &__section {
+    display: inline-block;
+    margin-right: 4rem;
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+    padding-right: 1rem;
+    box-sizing: content-box;
+    border-right: 1px $color-grey solid;
+    color: $color-grey;
+    &:last-of-type {
+      border-right: 0;
+    }
+    &:hover {
+      color: $color-purple;
+    }
+  }
+}
