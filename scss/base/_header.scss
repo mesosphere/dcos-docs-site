@@ -13,16 +13,13 @@
   }
   &__logo {
     display: flex;
-    & * {
+    align-items: flex-start;
+    &-icon,
+    &-text {
       margin-right: 10px;
-      align-self: flex-start;
     }
-  }
-  @include md {
-    position: fixed;
-    width: calc(100% - 300px);
-    #search & {
-      width: 100%;
+    &-text {
+      display: none;
     }
   }
   &__menu {
@@ -31,7 +28,7 @@
       list-style-type: none;
     }
     &-item {
-      margin-left: 50px;
+      margin-left: 20px;
       font-weight: 600;
     }
   }
@@ -41,6 +38,11 @@
     }
   }
   @include md {
+    position: fixed;
+    width: calc(100% - 300px);
+    #search & {
+      width: 100%;
+    }
     &__search {
       display: block;
       &-form {
@@ -76,6 +78,21 @@
         width: 20px;
         height: 20px;
         color: $color-purple-light;
+      }
+    }
+  }
+  @include lg {
+    &__logo {
+      &-text {
+        display: inline-block;
+      }
+    }
+    &__menu {
+      &-list {
+        padding-left: 40px;
+      }
+      &-item {
+        margin-left: 30px;
       }
     }
   }

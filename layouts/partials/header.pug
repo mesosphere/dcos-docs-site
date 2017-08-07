@@ -1,8 +1,8 @@
 header(class='header')
   div(class='header__main')
     div(class='header__logo')
-      img(src='/assets/header-logo-color-dark-mark.png', height='24')
-      img(src='/assets/header-logo-color-dark-type.png', height='15')
+      img(class='header__logo-icon', src='/assets/header-logo-color-dark-mark.png', height='24')
+      img(class='header__logo-text', src='/assets/header-logo-color-dark-type.png', height='15')
     nav(class='header__menu')
       ul(class='header__menu-list')
         li(class='header__menu-item') DC/OS Docs
@@ -14,5 +14,5 @@ header(class='header')
       button(class='header__search-submit')
         svg(class='header__search-icon')
           use(xlink:href="assets/sprite.svg#search")
-        
+
   //p!= JSON.stringify(collections)
