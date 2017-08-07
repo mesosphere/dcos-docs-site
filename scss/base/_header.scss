@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 70px;
+  height: 80px;
   padding: 0 2rem;
   background: $color-light;
   box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
@@ -13,24 +13,46 @@
   }
   &__logo {
     display: flex;
+<<<<<<< HEAD
     // incomplete
     & * {
+=======
+    align-items: flex-start;
+    &-icon,
+    &-text {
+>>>>>>> 081e6c46cfc693cbd62c3c72855fd13d7212e119
       margin-right: 10px;
-      align-self: flex-start;
     }
+<<<<<<< HEAD
     &-type {
+=======
+    &-text {
+>>>>>>> 081e6c46cfc693cbd62c3c72855fd13d7212e119
       display: none;
     }
   }
   &__menu {
+<<<<<<< HEAD
     display: none;
+=======
+    opacity: 1;
+    transition: opacity 0.3s $ease-in-out-cubic 0.2s;
+    &--hide {
+      opacity: 0;
+      transition: opacity 0.2s $ease-in-out-cubic;
+    }
+>>>>>>> 081e6c46cfc693cbd62c3c72855fd13d7212e119
     &-list {
       display: flex;
       padding: 0;
       list-style-type: none;
     }
     &-item {
+<<<<<<< HEAD
       margin-left: 25px;
+=======
+      margin-left: 20px;
+>>>>>>> 081e6c46cfc693cbd62c3c72855fd13d7212e119
       font-weight: 600;
     }
   }
@@ -77,10 +99,32 @@
   @include md {
     position: fixed;
     width: calc(100% - 300px);
+<<<<<<< HEAD
+=======
+    #search & {
+      width: 100%;
+    }
+>>>>>>> 081e6c46cfc693cbd62c3c72855fd13d7212e119
     &__search {
       &-input {
         width: 75px;
         padding: 0.5rem;
+<<<<<<< HEAD
+=======
+        border: 0;
+        border-radius: 5px;
+        outline: 0;
+        transition: width 0.2s $ease-in-out-cubic, background 0.1s $ease-in-out-cubic, color 0.1s $ease-in-out-cubic;
+        margin-right: 10px;
+        &:focus {
+          transition: width 0.2s $ease-in-out-cubic .3s;
+          width: 200px;
+          form & {
+            background: $color-purple-light;
+            color: $color-light;
+          }
+        }
+>>>>>>> 081e6c46cfc693cbd62c3c72855fd13d7212e119
       }
     }
     #search & {
@@ -99,6 +143,21 @@
     &__menu {
       &-item {
         margin-left: 50px;
+      }
+    }
+  }
+  @include lg {
+    &__logo {
+      &-text {
+        display: inline-block;
+      }
+    }
+    &__menu {
+      &-list {
+        padding-left: 40px;
+      }
+      &-item {
+        margin-left: 30px;
       }
     }
   }

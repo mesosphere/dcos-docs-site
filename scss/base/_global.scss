@@ -1,7 +1,7 @@
 html {
   height: 100%;
   width: 100%;
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 body {
@@ -20,4 +20,9 @@ body {
 
 .debug * {
   border: 1px red dotted;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
 }
