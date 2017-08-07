@@ -1,4 +1,5 @@
 .header {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,6 +24,7 @@
     }
   }
   &__menu {
+    display: none;
     opacity: 1;
     transition: opacity 0.3s $ease-in-out-cubic 0.2s;
     &--hide {
@@ -40,9 +42,6 @@
     }
   }
   &__search {
-    #search & {
-      display: none;
-    }
     display: block;
     &-form {
       display: flex;
@@ -80,8 +79,7 @@
     }
   }
   @include md {
-    position: fixed;
-    width: calc(100% - 300px);
+    width: calc(100% - 250px);
     &__search {
       &-input {
         width: 75px;
@@ -90,7 +88,7 @@
         border-radius: 5px;
         outline: 0;
         transition: width 0.2s $ease-in-out-cubic, background 0.1s $ease-in-out-cubic, color 0.1s $ease-in-out-cubic;
-        margin-right: 10px;
+        margin-left: 10px;
         &:focus {
           transition: width 0.2s $ease-in-out-cubic .3s;
           width: 200px;
@@ -101,14 +99,12 @@
         }
       }
     }
-    #search & {
-      width: 100%;
-    }
     &__menu {
       display: block;
     }
   }
   @include lg {
+    width: calc(100% - 300px);
     &__logo {
       &-type {
         display: inline;

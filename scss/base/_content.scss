@@ -1,4 +1,7 @@
 .content {
-  margin: 90px auto 0;
-  padding: 4rem;
+  margin: 80px auto 0;
+  padding: 2rem;
+  @include md {
+    padding: 4rem;
+  }
 }
