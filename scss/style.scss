@@ -6,6 +6,9 @@
 @import "variables/animations";
 @import "variables/global";
 
+/* Vendors */
+@import "vendor/typebase";
+
 /* Utils */
 @import "utils/colors";
 
@@ -22,6 +25,3 @@
 /* Components */
 @import "components/sidebar";
 @import "components/grid";
-
-/* Vendors */
-@import "vendor/typebase";
