@@ -1,7 +1,7 @@
 .sidebar {
   display: relative;
   &__header {
-    height: 70px;
+    height: 80px;
   }
   &__dropdown {
     position: relative;
@@ -24,7 +24,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 70px;
+      height: 80px;
       padding: 0 2rem;
       font-weight: 600;
       user-select: none;
@@ -41,7 +41,7 @@
     }
     &-list {
       position: absolute;
-      top: 70px;
+      top: 80px;
       margin: 0;
       padding: 0;
       height: 0;
@@ -77,7 +77,7 @@
     justify-content: center;
     width: 100%;
     padding: 0 2rem;
-    height: 70px;
+    height: 80px;
     font-size: 0.6rem;
     background: $color-purple;
     box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.15);
