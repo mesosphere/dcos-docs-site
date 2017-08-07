@@ -23,6 +23,12 @@
     }
   }
   &__menu {
+    opacity: 1;
+    transition: opacity 0.3s $ease-in-out-cubic 0.2s;
+    &--hide {
+      opacity: 0;
+      transition: opacity 0.2s $ease-in-out-cubic;
+    }
     &-list {
       display: flex;
       list-style-type: none;
@@ -54,12 +60,11 @@
         border: 0;
         border-radius: 5px;
         outline: 0;
-        transition: all 0.4s $ease-in-out-cubic;
-        text-align: right;
+        transition: width 0.2s $ease-in-out-cubic, background 0.1s $ease-in-out-cubic, color 0.1s $ease-in-out-cubic;
+        margin-right: 10px;
         &:focus {
+          transition: width 0.2s $ease-in-out-cubic .3s;
           width: 200px;
-          margin-right: 10px;
-          text-align: left;
           form & {
             background: $color-purple-light;
             color: $color-light;
