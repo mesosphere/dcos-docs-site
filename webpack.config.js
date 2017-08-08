@@ -14,11 +14,17 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'postcss-loader', 'sass-loader']
-        })
-      }
-    ]
+        }),
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: "css-loader"
+        }),
+      },
+    ],
   },
   plugins: [
-    new ExtractTextPlugin('./build/css/styles.css')
-  ]
-}
+    new ExtractTextPlugin('./build/css/styles.css'),
+  ],
+};
