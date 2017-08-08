@@ -1,6 +1,9 @@
 .content {
   margin: 80px auto 0;
   padding: 2rem;
+  &__sections {
+    display: none;
+  }
   @include md {
     padding: 4rem;
   }
@@ -10,8 +13,14 @@
       flex-basis: 80%;
     }
     &__sections {
+      display: block;
       flex-basis: 20%;
       margin-left: 3rem;
+      &-sticky {
+        &--fixed {
+          position: fixed;
+        }
+      }
       &-list {
         list-style-type: none;
       }
