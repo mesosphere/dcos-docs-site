@@ -1,6 +1,7 @@
 ---
 layout: layout.pug
-title: Overview
+title: Home
+navigationTitle: Home
 ---
 
 # Overview

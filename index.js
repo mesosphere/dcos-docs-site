@@ -16,7 +16,8 @@ Metalsmith(__dirname)
 
   // Metadata
   .metadata({
-    title: "Mesosphere",
+    siteTitle: "Mesosphere DC/OS",
+    title: "Mesosphere DC/OS",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
     generator: "Metalsmith",
     url: "http://www.metalsmith.io/"
@@ -33,18 +34,6 @@ Metalsmith(__dirname)
 
   .use(plugin())
 
-  // Collections
-  /*
-  .use(collections({
-    Home: {
-      pattern: ''
-    },
-    Docs: {
-      pattern: ''
-    }
-  }))
-  */
-
   // Markdown
   .use(markdown({
     smartypants: true,
@@ -54,7 +43,7 @@ Metalsmith(__dirname)
   }))
 
   // Headings
-  //.use(headings('h2'))
+  .use(headings('h2'))
 
   // Permalinks
   .use(permalinks())
@@ -95,7 +84,10 @@ Metalsmith(__dirname)
 
 // TEMP: Moving to own npm package
 
-function walk(file, array, newObject, level) {
+function walk(file, files, array, newObject, level) {
+  let pathParts = file.split('/');
+  pathParts.pop()
+  let path = '/' + pathParts.join('/');
   if(!level) {
     level = 0;
   }
@@ -104,13 +96,14 @@ function walk(file, array, newObject, level) {
   }
   if(!newObject[array[0]]) {
     newObject[array[0]] = {
-      path: file,
+      title: files[file].navigationTitle,
+      path: path,
       children: {}
     };
   }
   if(array.length > 1) {
     let childrenArray = array.slice(1, array.length);
-    let children = walk(file, childrenArray, newObject[array[0]].children, level + 1);
+    let children = walk(file, files, childrenArray, newObject[array[0]].children, level + 1);
     newObject[array[0]].children = Object.assign(newObject[array[0]].children, children);
   }
   return newObject;
@@ -119,16 +112,15 @@ function walk(file, array, newObject, level) {
 function plugin() {
   return function(files, metalsmith, done){
     setImmediate(done);
-    let r = { path: '/', children: {} };
+    let r = {
+      title: '',
+      path: '/',
+      children: {}
+    };
     Object.keys(files).forEach(function(file, index) {
-
       var pathParts = file.split('/');
       pathParts.pop();
-
-      var newPath = '/' + pathParts.join('/');
-
-      var data = files[file];
-      let b = walk(newPath, pathParts, r.children);
+      let b = walk(file, files, pathParts, r.children, 0);
       r.children = Object.assign(r.children, b);
     });
     metalsmith.metadata()['hierarchy'] = r;

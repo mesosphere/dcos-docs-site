@@ -2,6 +2,27 @@
 
 - var docs = hierarchy.children.docs
 
+- var versionTitle = ''
+- var version = {}
+each val, index in docs.children
+  if ('/' + path).indexOf(val.path) != -1
+    - versionTitle = index
+    - version = val
+
+// Mixins
+
+mixin render(item)
+  - var classList = {}
+  - classList['navigation__list'] = true
+  - classList['navigation__list--active'] = ('/' + path).indexOf(item.path) !== -1
+  ul(class=classList)
+    each val, index in item.children
+      li(class='navigation__item')
+        svg(class='navigation__icon')
+          use(xlink:href="/assets/sprite.svg#chevron")
+        a(href=val.path, class='navigation__link')!= val.title
+        +render(val)
+
 // Render
 
 section(class='sidebar')
@@ -9,161 +30,20 @@ section(class='sidebar')
     div(class='sidebar__dropdown')
       div(class='sidebar__dropdown-toggle')
         div(class='sidebar__dropdown-text')
-          | Mesosphere DC/OS
-          span 1.7
+          != siteTitle
+          span!= versionTitle
         svg(class='sidebar__dropdown-icon')
-          use(xlink:href='assets/sprite.svg#chevron')
+          use(xlink:href='/assets/sprite.svg#chevron')
       ul(class='sidebar__dropdown-list')
         each val, index in docs.children
           li(class='sidebar__dropdown-item')
             a(href=val.path, class='sidebar__dropdown-link')!= index
+
   nav(role='navigation', class='navigation')
-    ul(class='navigation__list')
-      li(class='navigation__item navigation__subhead')
-        a(href='/release-notes', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href='assets/sprite.svg#chevron')
-          | Release Notes
-        ol(class='navigation__list')
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Release Notes for 1.9.2
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Release Notes for 1.9.1
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Release Notes for 1.9.0
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Release Notes for 1.9.0 RC1
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Release Notes for 1.9.0 RC2
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Release Notes for 1.9.0 RC3
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Release Notes for 1.9.0 RC4
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Mesosphere DC/OS Open Source Attribution
-      li(class='navigation__item navigation__subhead')
-        a(href='/overview', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Overview
-      li(class='navigation__item navigation__subhead')
-        a(href='/install', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Installing & Upgrading
-        ol(class='navigation__list')
-          li(class='navigation__item navigation__item navigation__subhead')
-            a(href='/install', class='navigation__link')
-              svg(class='navigation__icon')
-                use(xlink:href="assets/sprite.svg#chevron")
-              | Running DC/OS on AWS EC2
-            ol(class='navigation__list')
-              li(class='navigation__item navigation__item')
-                a(href='/', class='navigation__link') Running DC/OS on AWS EC2 Basic
-              li(class='navigation__item navigation__subhead')
-                a(href='/install', class='navigation__link')
-                  svg(class='navigation__icon')
-                    use(xlink:href="assets/sprite.svg#chevron")
-                  | Running DC/OS on AWS EC2 Advanced
-                ol(class='navigation__list')
-                  li(class='navigation__item navigation__item')
-                    a(href='/', class='navigation__link') Installing Using a Custom AMI
-                  li(class='navigation__item')
-                    a(href='/', class='navigation__link') Template Reference
-              li(class='navigation__item')
-                a(href='/', class='navigation__link') Uninstalling DC/OS on AWS EC2
-      li(class='navigation__item navigation__subhead')
-        a(href='/gui', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | GUI
-      li(class='navigation__item navigation__subhead navigation__subhead')
-        a(href='/cli', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | CLI
-        ol(class='navigation__list')
-          li(class='navigation__item')
-            a(href='/cli', class='navigation__link') Installing & Uninstalling
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Configuring the CLI
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Updating the CLI
-          li(class='navigation__item')
-            a(href='/', class='navigation__link') Uninstalling the CLI
-          li(class='navigation__item')
-            a(href='/', class='navigation__link')
-              svg(class='navigation__icon')
-                use(xlink:href="assets/sprite.svg#chevron")
-              | Command Reference
-            ol(class='navigation__list')
-              li(class='navigation__item navigation__item')
-                a(href='/', class='navigation__link') dcos
-              li(class='navigation__item')
-                a(href='/', class='navigation__link') dcos auth
-              li(class='navigation__item')
-                a(href='/', class='navigation__link') dcos config
-              li(class='navigation__item')
-                a(href='/', class='navigation__link') dcos experimential
-              li(class='navigation__item')
-                a(href='/', class='navigation__link') dcos help
-          li(class='navigation__item navigation__subhead')
-            a(href='/', class='navigation__link') Enterprise DC/OS CLI
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Administering Clusters
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Networking
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Security
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Storage
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Metrics
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Monitoring, Logging, and Debugging
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Deploying Jobs
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Deploying Services And Pods
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Tutorials
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | API Reference
-      li(class='navigation__item navigation__subhead')
-        a(href='/', class='navigation__link')
-          svg(class='navigation__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
-          | Developing DC/OS Services
+    each val, index in docs.children
+      if ('/' + path).indexOf(val.path) != -1
+        +render(val)
+
   footer(class='sidebar__footer')
     div(class='sidebar__footer-links')
       a(href='/') Terms of Service

@@ -1,9 +1,3 @@
-mixin render(items)
-  h3!= items.path
-  each val, index in items.children
-    h4!= index
-    +render(val)
-
 header(class='header')
   div(class='header__main')
     div(class='header__logo')
