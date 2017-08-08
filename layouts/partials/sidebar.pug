@@ -1,3 +1,9 @@
+// Variables
+
+- var docs = hierarchy.children.docs
+
+// Render
+
 section(class='sidebar')
   header(class='sidebar__header')
     div(class='sidebar__dropdown')
@@ -8,10 +14,9 @@ section(class='sidebar')
         svg(class='sidebar__dropdown-icon')
           use(xlink:href='assets/sprite.svg#chevron')
       ul(class='sidebar__dropdown-list')
-        each val, index in hierarchy.children.docs.children
+        each val, index in docs.children
           li(class='sidebar__dropdown-item')
-            a(href='/', class='sidebar__dropdown-link')!= index
-
+            a(href=val.path, class='sidebar__dropdown-link')!= index
   nav(role='navigation', class='navigation')
     ul(class='navigation__list')
       li(class='navigation__item navigation__subhead')

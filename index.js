@@ -121,10 +121,14 @@ function plugin() {
     setImmediate(done);
     let r = { path: "/", children: {} };
     Object.keys(files).forEach(function(file, index) {
+
       var pathParts = file.split( "/" );
       pathParts.pop();
+
+      var newPath = pathParts.join("/");
+
       var data = files[file];
-      let b = walk(file, pathParts, r.children);
+      let b = walk(newPath, pathParts, r.children);
       r.children = Object.assign(r.children, b);
     });
     metalsmith.metadata()['hierarchy'] = r;
