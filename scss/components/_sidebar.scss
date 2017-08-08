@@ -13,6 +13,7 @@
       & .sidebar__dropdown-list {
         width: 100%;
         height: auto;
+        visibility: visible;
         opacity: 1;
       }
       & .sidebar__dropdown-icon,
@@ -48,6 +49,7 @@
       list-style-type: none;
       background: $color-purple-light;
       opacity: 0;
+      visibility: hidden;
       box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       z-index: 200;
