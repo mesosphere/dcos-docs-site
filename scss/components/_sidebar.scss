@@ -52,7 +52,7 @@
       visibility: hidden;
       box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      z-index: 200;
+      z-index: 1;
     }
     &-item {
       color: $color-light;
