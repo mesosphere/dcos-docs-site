@@ -8,6 +8,50 @@ const assets        = require('metalsmith-assets');
 const browserSync   = require('metalsmith-browser-sync');
 const webpack       = require('metalsmith-webpack2');
 
+//
+// Build Folder Hierarchy
+//
+
+function walk(file, array, newObject, level) {
+  if(!level) {
+    level = 0;
+  }
+  if(!newObject) {
+    newObject = {};
+  }
+  if(!newObject[array[0]]) {
+    newObject[array[0]] = {
+      path: file,
+      children: {}
+    };
+  }
+  if(array.length > 1) {
+    let childrenArray = array.slice(1, array.length);
+    let children = walk(file, childrenArray, newObject[array[0]].children, level + 1);
+    newObject[array[0]].children = Object.assign(newObject[array[0]].children, children);
+  }
+  return newObject;
+}
+
+function plugin() {
+  return function(files, metalsmith, done){
+    setImmediate(done);
+    let r = { path: "/", children: {} };
+    Object.keys(files).forEach(function(file, index) {
+      var pathParts = file.split( "/" );
+      pathParts.pop();
+      var data = files[file];
+      let b = walk(file, pathParts, r.children);
+      r.children = Object.assign(r.children, b);
+    });
+    metalsmith.metadata()['hierarchy'] = r;
+  };
+}
+
+//
+// Metalsmith
+//
+
 Metalsmith(__dirname)
 
   // Metadata
@@ -27,12 +71,19 @@ Metalsmith(__dirname)
   // Clean
   .clean(false)
 
+  .use(plugin())
+
   // Collections
+  /*
   .use(collections({
-    Versions: {
-      pattern: 'docs/1.8/**/*.md'
+    Home: {
+      pattern: ''
+    },
+    Docs: {
+      pattern: ''
     }
   }))
+  */
 
   // Markdown
   .use(markdown({
@@ -43,7 +94,7 @@ Metalsmith(__dirname)
   }))
 
   // Headings
-  .use(headings('h2'))
+  //.use(headings('h2'))
 
   // Permalinks
   .use(permalinks())

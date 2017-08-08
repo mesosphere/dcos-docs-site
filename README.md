@@ -32,6 +32,8 @@ Develop and page will auto reload on changes
 
 ## Contributing (TODO: Expand)
 
+### File Structure (TODO: Expand)
+
 ## Overview (TODO: Expand)
 
 ### Styling and Format (TODO: Expand)
