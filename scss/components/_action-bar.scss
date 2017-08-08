@@ -1,22 +1,43 @@
 .action-bar {
   margin: 4rem 0;
-  &__section {
-    display: inline-block;
-    margin-right: 4rem;
+  &__list {
+    display: flex;
+    list-style-type: none;
+  }
+  &__item {
+    margin: 0;
+    padding: 0 1rem;
+    line-height: 1;
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+  &__link {
+    display: block;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      border-right: 0;
+    }
   }
   &__icon {
     width: 24px;
     height: 24px;
-    margin-right: 1rem;
-    padding-right: 1rem;
-    box-sizing: content-box;
-    border-right: 1px $color-grey solid;
     color: $color-grey;
-    &:last-of-type {
-      border-right: 0;
-    }
     &:hover {
-      color: $color-purple;
+      color: $color-purple-light;
+    }
+  }
+  @include md {
+    &__item {
+      border-right: 1px $color-grey solid;
+      &:nth-of-type(3n) {
+        margin-right: 50px;
+        border-right: 0;
+      }
+    }
+    &__link {
     }
   }
 }
