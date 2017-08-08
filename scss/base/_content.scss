@@ -4,4 +4,20 @@
   @include md {
     padding: 4rem;
   }
+  @include lg {
+    display: flex;
+    &__container {
+      flex-basis: 80%;
+    }
+    &__sections {
+      flex-basis: 20%;
+      margin-left: 3rem;
+      &-list {
+        list-style-type: none;
+      }
+      &-item {
+        padding: 0;
+      }
+    }
+  }
 }

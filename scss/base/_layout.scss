@@ -19,12 +19,10 @@
       flex-direction: column;
       width: 250px;
       height: 100%;
-      z-index: 1;
     }
     &__content {
       margin-left: 250px;
       width: 100%;
-      z-index: 1;
     }
   }
   @include lg {
