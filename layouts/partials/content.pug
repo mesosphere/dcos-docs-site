@@ -1,7 +1,9 @@
 main(class='content')
   div(class='content__container')
-    !=contents
+    h1!= title
+    h4(style="font-weight: 200; color: #888")!= description
     include ../components/action-bar.pug
+    !=contents
     div(class='grid')
       div(class='grid__item')
         h4(class='grid__header no-p-m') What is DC/OS
