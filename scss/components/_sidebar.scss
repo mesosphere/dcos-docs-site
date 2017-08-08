@@ -6,7 +6,7 @@
   &__dropdown {
     position: relative;
     width: 100%;
-    background: $color-purple-dark;
+    background: $color-purple-light;
     cursor: pointer;
     &--active {
       background: $color-purple-light;
@@ -38,7 +38,7 @@
     &-icon {
       width: 20px;
       height: 20px;
-      color: $color-purple-light;
+      color: $color-light;
       transform: rotate(90deg);
     }
     &-list {
@@ -86,7 +86,6 @@
     height: 80px;
     font-size: 0.6rem;
     background: $color-purple;
-    box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.15);
     &-links {
       margin-bottom: 0.5rem;
       & a {
@@ -116,7 +115,8 @@
     margin: 0;
     padding: 0;
     padding-left: 2rem;
-    ul, ol {
+    & ul,
+    & ol {
       padding-left: 1rem;
     }
     &--active {
