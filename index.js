@@ -119,13 +119,13 @@ function walk(file, array, newObject, level) {
 function plugin() {
   return function(files, metalsmith, done){
     setImmediate(done);
-    let r = { path: "/", children: {} };
+    let r = { path: '/', children: {} };
     Object.keys(files).forEach(function(file, index) {
 
-      var pathParts = file.split( "/" );
+      var pathParts = file.split('/');
       pathParts.pop();
 
-      var newPath = pathParts.join("/");
+      var newPath = '/' + pathParts.join('/');
 
       var data = files[file];
       let b = walk(newPath, pathParts, r.children);
