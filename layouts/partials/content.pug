@@ -5,32 +5,37 @@ mixin render(items)
     +render(val)
 
 main(class='content')
-  !=contents
-
-  +render(hierarchy)
-
-  div(class='grid')
-    div(class='grid__item')
-      h4(class='grid__header no-p-m') What is DC/OS
-      p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system. Distributed System As a distributed system...
-    div(class='grid__item')
-      h4(class='grid__header no-p-m') Architecture
-      p(class='grid__desc') DC/OS is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic to the infrastructure layer. T...
-    div(class='grid__item')
-      h4(class='grid__header no-p-m') Features
-      p(class='grid__desc') This is an overview of the features that make DC/OS more than the sum of its parts. High Resource Utilization Mixed Workload Colocation Container Orchestration Extensible Resource ...
-    div(class='grid__item')
-      h4(class='grid__header no-p-m') Concepts
-      p(class='grid__desc') DC/OS Concepts DC/OS is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you...
-    div(class='grid__item')
-      h4(class='grid__header no-p-m') High Availability
-      p(class='grid__desc') This document discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS. Leader/Follower Architecture A common pattern in HA s...
-    div(class='grid__item')
-      h4(class='grid__header no-p-m') Telemetry
-      p(class='grid__desc') To continuously improve the DC/OS experience, a telemetry component is included that reports anonymous usage data to Mesosphere. This data is used to monitor the reliability of cor...
-    div(class='grid__item')
-      h4(class='grid__header no-p-m') Service Delivery
-      p(class='grid__desc') There are two levels of service discovery in DC/OS. Along with every task that runs on DC/OS being provided a well known DNS name, anyone can request a well known VIP that enables ...
-    div(class='grid__item')
-      h4(class='grid__header no-p-m') Feature Maturity
-      p(class='grid__desc') The purpose of the feature maturity phases is to educate customers, partners, and Mesosphere field and support organizations about the maturity and quality of features. Criteria Co...
+  div(class='content__container')
+    !=contents
+    include ../components/action-bar.pug
+    div(class='grid')
+      div(class='grid__item')
+        h4(class='grid__header no-p-m') What is DC/OS
+        p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system. Distributed System As a distributed system...
+      div(class='grid__item')
+        h4(class='grid__header no-p-m') Architecture
+        p(class='grid__desc') DC/OS is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic to the infrastructure layer. T...
+      div(class='grid__item')
+        h4(class='grid__header no-p-m') Features
+        p(class='grid__desc') This is an overview of the features that make DC/OS more than the sum of its parts. High Resource Utilization Mixed Workload Colocation Container Orchestration Extensible Resource ...
+      div(class='grid__item')
+        h4(class='grid__header no-p-m') Concepts
+        p(class='grid__desc') DC/OS Concepts DC/OS is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you...
+      div(class='grid__item')
+        h4(class='grid__header no-p-m') High Availability
+        p(class='grid__desc') This document discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS. Leader/Follower Architecture A common pattern in HA s...
+      div(class='grid__item')
+        h4(class='grid__header no-p-m') Telemetry
+        p(class='grid__desc') To continuously improve the DC/OS experience, a telemetry component is included that reports anonymous usage data to Mesosphere. This data is used to monitor the reliability of cor...
+      div(class='grid__item')
+        h4(class='grid__header no-p-m') Service Delivery
+        p(class='grid__desc') There are two levels of service discovery in DC/OS. Along with every task that runs on DC/OS being provided a well known DNS name, anyone can request a well known VIP that enables ...
+      div(class='grid__item')
+        h4(class='grid__header no-p-m') Feature Maturity
+        p(class='grid__desc') The purpose of the feature maturity phases is to educate customers, partners, and Mesosphere field and support organizations about the maturity and quality of features. Criteria Co...
+  aside(class='content__sections')
+    h4 in this post
+    ul(class='content__sections-list')
+      li(class='content__sections-item') Component Versioning
+      li(class='content__sections-item') Route Versioning
+      li(class='content__sections-item') Resource Versioning

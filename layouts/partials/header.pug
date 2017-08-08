@@ -1,3 +1,9 @@
+mixin render(items)
+  h3!= items.path
+  each val, index in items.children
+    h4!= index
+    +render(val)
+
 header(class='header')
   div(class='header__main')
     div(class='header__logo')
@@ -10,7 +16,7 @@ header(class='header')
         li(class='header__menu-item') Support
   section(class='header__search', role='search')
     form(class='header__search-form')
-      input(class='header__search-input', placeholder='Search')
-      button(class='header__search-submit')
+      label(class='header__search-label', for='search-input')
         svg(class='header__search-icon')
           use(xlink:href="assets/sprite.svg#search")
+      input(id='search-input', class='header__search-input', type='text', placeholder='Search')
