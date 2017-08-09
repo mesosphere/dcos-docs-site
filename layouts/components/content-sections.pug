@@ -1,0 +1,6 @@
+div(class='content__sections')
+  h5(class='content__sections__title') In This Post
+  ul(class='content__sections-list')
+    for heading in headings
+      li(class='content__sections-item')
+        a(href='#' + heading.id)!= heading.text

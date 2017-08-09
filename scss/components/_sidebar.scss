@@ -76,8 +76,6 @@
     }
   }
   &__footer {
-    position: absolute;
-    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,7 +103,6 @@
     width: 0px;
     background: transparent;
   }
-  height: calc(100vh - 140px);
   padding: 2rem 0;
   overflow-y: scroll;
   font-size: 0.9rem;
