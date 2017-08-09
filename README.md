@@ -22,6 +22,8 @@
 
 ### Local Setup (TODO: Expand)
 
+**node `v8.1.2` required**
+
 Install packages with `npm install`
 
 Start with command `npm start`

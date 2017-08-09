@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Mesosphere docs",
   "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": "8.1.2"
+  },
   "scripts": {
     "start": "node index.js",
     "webpack": "webpack --progress --colors",
