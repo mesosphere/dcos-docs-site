@@ -7,13 +7,13 @@
 @import "variables/global";
 
 /* Vendors */
+@import "vendor/normalize";
 @import "vendor/typebase";
 
 /* Utils */
 @import "utils/colors";
 
 /* Base */
-@import "base/normalize";
 @import "base/typography";
 @import "base/global";
 @import "base/layout";

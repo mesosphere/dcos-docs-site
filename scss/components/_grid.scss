@@ -7,7 +7,7 @@
     margin-bottom: 20px;
     padding: 20px;
     border-top: 5px $color-purple-light solid;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     @include sm-only {
       &:nth-of-type(even) {
