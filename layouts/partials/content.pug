@@ -1,7 +1,7 @@
 main(class='content')
   div(class='content__container')
-    h1!= title
-    h4(style="font-weight: 200; color: #888")!= description
+    h1(class='no-p-m')!= title
+    h4(class='no-p-m')!= description
     include ../components/action-bar.pug
     !=contents
     div(class='grid')

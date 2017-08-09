@@ -1,6 +1,9 @@
 .content {
   margin: 80px auto 0;
   padding: 2rem;
+  & h4 {
+    font-weight: 400;
+  }
   &__sections {
     display: none;
   }
@@ -12,10 +15,15 @@
     &__container {
       flex-basis: 80%;
     }
+    & h1,
+    & h2,
+    & h5 {
+      margin-top: 0;
+    }
     &__sections {
       display: block;
       flex-basis: 20%;
-      margin-left: 3rem;
+      margin-left: 2rem;
       &-sticky {
         &--fixed {
           position: fixed;

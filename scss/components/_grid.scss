@@ -9,6 +9,15 @@
     border-top: 5px $color-purple-light solid;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    @include sm-only {
+      &:nth-of-type(even) {
+        background: $color-purple-light;
+        & .grid__header,
+        & .grid__desc {
+          color: $color-light;
+        }
+      }
+    }
   }
   &__header {
     color: $color-purple-light;
@@ -21,6 +30,14 @@
   @include md {
     &__item {
       flex-basis: calc(50% - 10px);
+      &:nth-child(4n+3),
+      &:nth-child(4n+2) {
+        background: $color-purple-light;
+        & .grid__header,
+        & .grid__desc {
+          color: $color-light;
+        }
+      }
     }
   }
 }
