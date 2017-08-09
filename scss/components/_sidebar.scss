@@ -71,6 +71,7 @@
       padding: 1rem 2rem;
       text-decoration: none;
       user-select: none;
+      transition: 0.2s background $ease-in-out-cubic;
       &:link,
       &:visited {
         color: $color-light;
@@ -103,11 +104,11 @@
     &__icon {
       width: 14px;
       height: 14px;
-      margin-right: 5px;
       margin-bottom: 2px;
       color: rgba(255, 255, 255, 0.6);
     }
     &__link {
+      margin-left: 5px;
       font-weight: 400;
       text-decoration: none;
       color: rgba(255, 255, 255, 0.6) !important;

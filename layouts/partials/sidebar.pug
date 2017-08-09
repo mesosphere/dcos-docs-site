@@ -29,12 +29,15 @@ mixin renderSidebarNavListItem(item)
       - var itemClassList = {}
       - itemClassList['sidebar__nav__item'] = true
       - itemClassList['sidebar__nav__item--active'] = ('/' + path).indexOf(val.path) !== -1
+      - var hasChildren = Object.keys(val.children).length !== 0
       li(class=itemClassList)
         div(class='sidebar__nav__item__text')
-          svg(class='sidebar__nav__icon')
-            use(xlink:href="/assets/sprite.svg#chevron")
+          if(hasChildren)
+            svg(class='sidebar__nav__icon')
+              use(xlink:href="/assets/sprite.svg#chevron")
           a(href=val.path, class='sidebar__nav__link')!= val.title
-        +renderSidebarNavListItem(val)
+        if(hasChildren)
+          +renderSidebarNavListItem(val)
 
 mixin renderSidebarNav()
   nav(role='navigation', class='sidebar__nav')
