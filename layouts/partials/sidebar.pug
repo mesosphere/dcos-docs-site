@@ -38,12 +38,10 @@ section(class='sidebar')
         each val, index in docs.children
           li(class='sidebar__dropdown-item')
             a(href=val.path, class='sidebar__dropdown-link')!= index
-
   nav(role='navigation', class='navigation')
     each val, index in docs.children
       if ('/' + path).indexOf(val.path) != -1
         +render(val)
-
   footer(class='sidebar__footer')
     div(class='sidebar__footer-links')
       a(href='/') Terms of Service
