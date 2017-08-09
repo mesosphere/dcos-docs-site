@@ -66,8 +66,11 @@
         border-bottom: 1px $color-light solid;
       }
     }
-    // colors conflicting
     &-link {
+      display: block;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      user-select: none;
       &:link,
       &:visited {
         color: $color-light;
@@ -75,10 +78,60 @@
       &:hover {
         background: $color-purple;
       }
+    }
+  }
+  &__nav {
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    height: 100vh;
+    padding: 2rem 0;
+    overflow-y: scroll;
+    font-size: 0.9rem;
+    &__list {
+      display: none;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      padding-left: 2rem;
+      & ul,
+      & ol {
+        padding-left: 1rem;
+      }
+      &--active {
+        display: block;
+        & > .navigation__item .navigation__icon {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    color: rgba(255, 255, 255, 0.6);
+    &__item {
+      background: $color-purple;
+      font-weight: 400;
+      position: relative;
+      a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+      }
+      &--active {
+        background: $color-purple-light;
+      }
+    }
+    &__icon {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      padding: 2px 4px;
+      top: 2px;
+      left: -20px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    &__link {
+      position: relative;
       display: block;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      user-select: none;
+      font-weight: 400;
     }
   }
   &__footer {
@@ -104,57 +157,3 @@
   }
 }
 
-.navigation {
-  &::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-  height: 100vh;
-  padding: 2rem 0;
-  overflow-y: scroll;
-  font-size: 0.9rem;
-  &__list {
-    display: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-left: 2rem;
-    & ul,
-    & ol {
-      padding-left: 1rem;
-    }
-    &--active {
-      display: block;
-      & > .navigation__item .navigation__icon {
-        transform: rotate(90deg);
-      }
-    }
-  }
-  color: rgba(255, 255, 255, 0.6);
-  &__item {
-    background: $color-purple;
-    font-weight: 400;
-    position: relative;
-    a {
-      color: rgba(255, 255, 255, 0.6);
-      text-decoration: none;
-    }
-    &--active {
-      background: $color-purple-light;
-    }
-  }
-  &__icon {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    padding: 2px 4px;
-    top: 2px;
-    left: -20px;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  &__link {
-    position: relative;
-    display: block;
-    font-weight: 400;
-  }
-}
