@@ -53,6 +53,7 @@
   }
   @include lg {
     display: flex;
+    &__header,
     &__container {
       flex-basis: 80%;
     }
