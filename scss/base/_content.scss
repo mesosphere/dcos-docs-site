@@ -16,6 +16,10 @@ $sections-size: 15rem;
     }
   }
   &__container {
+    > :nth-child(2) {
+      margin-top: 0;
+      padding-top: 0;
+    }
   }
   &__sections {
     width: $sections-size;
