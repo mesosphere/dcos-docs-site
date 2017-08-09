@@ -1,0 +1,16 @@
+@media print {
+  .layout__sidebar,
+  .header,
+  .content__actions,
+  .content__sections {
+    display: none;
+  }
+  .content__container {
+    flex-basis: 100%;
+  }
+  .layout__content,
+  .content {
+    margin: 0;
+    padding: 0;
+  }
+}
