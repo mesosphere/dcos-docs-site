@@ -1,4 +1,3 @@
-require('./js/vendor/clipboard.min.js');
 require('./vendor/prism.css');
 require('./vendor/prism.js');
 require('./scss/style.scss');
