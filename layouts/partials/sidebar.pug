@@ -39,6 +39,10 @@ section(class='sidebar')
           li(class='sidebar__dropdown-item')
             a(href=val.path, class='sidebar__dropdown-link')!= index
 
+        //- For testing swagger docs
+        li(class="sidebar__dropdown-item")
+          a(href="/dist", class="sidebar__dropdown-link") API (Test for Swagger)
+
   nav(role='navigation', class='navigation')
     each val, index in docs.children
       if ('/' + path).indexOf(val.path) != -1
