@@ -29,9 +29,9 @@ section(class='sidebar')
   header(class='sidebar__header')
     div(class='sidebar__dropdown')
       div(class='sidebar__dropdown-toggle')
-        div(class='sidebar__dropdown-text')
-          != siteTitle
-          span!= versionTitle
+        p(class='sidebar__dropdown-text')
+          span(class='sidebar__dropdown-text__title')!= siteTitle
+          span(class='sidebar__dropdown-text__version')!= ' ' + versionTitle
         svg(class='sidebar__dropdown-icon')
           use(xlink:href='/assets/sprite.svg#chevron')
       ul(class='sidebar__dropdown-list')

@@ -1,5 +1,6 @@
 .sidebar {
-  display: relative;
+  display: flex;
+  flex-direction: column;
   &__header {
     height: 80px;
   }
@@ -8,18 +9,26 @@
     width: 100%;
     background: $color-purple-light;
     cursor: pointer;
+    &-text {
+      padding: 0;
+      margin: 0;
+      color: $color-light;
+      &__title {
+        opacity: 0.6;
+      }
+      &__version {
+      }
+    }
+    &-icon {
+      color: $color-light;
+    }
     &--active {
       background: $color-purple-light;
       & .sidebar__dropdown-list {
-        width: 100%;
         height: auto;
         visibility: visible;
         opacity: 1;
         z-index: 1;
-      }
-      & .sidebar__dropdown-icon,
-      & .sidebar__dropdown-toggle span {
-        color: $color-light;
       }
     }
     &-toggle {
@@ -30,10 +39,6 @@
       padding: 0 2rem;
       font-weight: 600;
       user-select: none;
-      & span {
-        margin-left: 5px;
-        color: $color-purple-light;
-      }
     }
     &-icon {
       width: 20px;
@@ -46,6 +51,7 @@
       top: 80px;
       margin: 0;
       padding: 0;
+      width: 100%;
       height: 0;
       list-style-type: none;
       background: $color-purple-light;
@@ -103,6 +109,7 @@
     width: 0px;
     background: transparent;
   }
+  height: 100vh;
   padding: 2rem 0;
   overflow-y: scroll;
   font-size: 0.9rem;
