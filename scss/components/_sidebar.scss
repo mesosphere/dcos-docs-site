@@ -89,49 +89,45 @@
     padding: 2rem 0;
     overflow-y: scroll;
     font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
     &__list {
       display: none;
       list-style-type: none;
       margin: 0;
       padding: 0;
       padding-left: 2rem;
-      & ul,
-      & ol {
-        padding-left: 1rem;
-      }
       &--active {
         display: block;
-        & > .navigation__item .navigation__icon {
-          transform: rotate(90deg);
-        }
-      }
-    }
-    color: rgba(255, 255, 255, 0.6);
-    &__item {
-      background: $color-purple;
-      font-weight: 400;
-      position: relative;
-      a {
-        color: rgba(255, 255, 255, 0.6);
-        text-decoration: none;
-      }
-      &--active {
-        background: $color-purple-light;
       }
     }
     &__icon {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      padding: 2px 4px;
-      top: 2px;
-      left: -20px;
+      width: 14px;
+      height: 14px;
+      margin-right: 5px;
+      margin-bottom: 2px;
       color: rgba(255, 255, 255, 0.6);
     }
     &__link {
-      position: relative;
-      display: block;
       font-weight: 400;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+    &__item {
+      position: relative;
+      &__text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      &--active {
+        > .sidebar__nav__item__text .sidebar__nav__link {
+          color: $color-purple-light !important;
+        }
+        > .sidebar__nav__item__text .sidebar__nav__icon {
+          color: $color-purple-light;
+          transform: rotate(90deg);
+        }
+      }
     }
   }
   &__footer {
