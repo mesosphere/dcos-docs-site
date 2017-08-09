@@ -1,8 +1,15 @@
 main(class='content')
-  div(class='content__container')
-    h1(class='no-p-m')!= title
-    h4(class='no-p-m')!= description
+  div(class='content__header')
+    h1(class='content__header-title')!= title
+    h4(class='content__header-description')!= description
     include ../components/action-bar.pug
+  div(class='content__container')
+    aside(class='content__sections')
+      h5(class='content__sections__title') In This Post
+      ul(class='content__sections-list')
+        li(class='content__sections-item') Component Versioning
+        li(class='content__sections-item') Route Versioning
+        li(class='content__sections-item') Resource Versioning
     !=contents
     div(class='grid')
       div(class='grid__item')
@@ -29,10 +36,3 @@ main(class='content')
       div(class='grid__item')
         h4(class='grid__header no-p-m') Feature Maturity
         p(class='grid__desc') The purpose of the feature maturity phases is to educate customers, partners, and Mesosphere field and support organizations about the maturity and quality of features. Criteria Co...
-  aside(class='content__sections')
-    div(class='content__sections-sticky')
-      h5 In This Post
-      ul(class='content__sections-list')
-        li(class='content__sections-item') Component Versioning
-        li(class='content__sections-item') Route Versioning
-        li(class='content__sections-item') Resource Versioning
