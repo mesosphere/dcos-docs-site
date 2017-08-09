@@ -43,7 +43,7 @@ mixin renderSidebarFooter()
     div(class='sidebar__footer-links')
       a(href='/') Terms of Service
       a(href='/') Privacy Policy
-    div(class='sidebar__footer-copyright') @ 2017 Mesosphere, Inc. All rights reserved.
+    div(class='sidebar__footer-copyright')!= copyright
 
 section(class='sidebar')
   +renderSidebarHeader()
