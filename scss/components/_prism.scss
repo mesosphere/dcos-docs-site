@@ -2,15 +2,29 @@
   margin: 2rem 0 !important;
 }
 
-pre code {
-  font-size: 14px !important;
-  background: rgb(21, 16, 48);
+code {
+  background: rgba($color-purple-light, 0.4);
+  color: $color-purple-light;
+  padding: 0 2px;
+  margin: 0;
 }
 
-code,
+pre {
+  background: rgba($color-purple-light, 0.4);
+  padding: 1rem;
+  border-radius: 3px;
+  code {
+    background: transparent;
+    font-size: 0.8rem;
+  }
+}
+
 pre[class*="language-"] {
   background: rgb(21, 16, 48);
+  line-height: 1;
 }
+
+/* Toolbar */
 
 pre.code-toolbar {
   .toolbar {
@@ -23,7 +37,7 @@ pre.code-toolbar {
     height: 100%;
   }
   .toolbar a {
-    background-color: rgba(21, 16, 48, 1);
+    background-color: transparent;
     transition: background-color 0.3s ease-in-out;
     border-radius: 0;
     height: 100%;
@@ -48,3 +62,4 @@ pre.code-toolbar:hover > .toolbar:hover a:hover {
   background-position-y: 12px, top;
   color: #fff;
 }
+
