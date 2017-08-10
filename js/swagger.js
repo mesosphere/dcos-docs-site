@@ -1,5 +1,5 @@
-const SwaggerUIBundle = require('./vendor/dist/swagger-ui-bundle.js');
-const SwaggerUIStandalonePreset = require('./vendor/dist/swagger-ui-standalone-preset.js');
+const SwaggerUIBundle = require('./vendor/swagger/swagger-ui-bundle.js');
+const SwaggerUIStandalonePreset = require('./vendor/swagger/swagger-ui-standalone-preset.js');
 
 const swagDiv = document.getElementById('swagger-ui');
 
