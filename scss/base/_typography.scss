@@ -18,6 +18,10 @@ body {
   font-family: $font-family-1;
 }
 
+a:link {
+  color: $color-purple-light;
+}
+
 a:visited {
   color: $color-purple-light;
 }

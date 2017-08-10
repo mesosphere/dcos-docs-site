@@ -1,6 +1,5 @@
 const contentHeadings = document.querySelectorAll('.content__container [id]');
 const contentHeadingsArray = [...contentHeadings];
-contentHeadingsArray.forEach(el => el.classList.add('content__anchor'));
 
 if (contentHeadings && window.innerWidth > 1025) {
   document.addEventListener('scroll', () => {
