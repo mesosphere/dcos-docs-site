@@ -20,7 +20,7 @@ pre.code-toolbar {
   }
   .toolbar,
   .toolbar-item {
-    height: 99.9%;
+    height: 100%;
   }
   .toolbar a {
     background-color: rgba(21, 16, 48, 1);
@@ -31,19 +31,20 @@ pre.code-toolbar {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    padding: 3px 20px;
-  }
-  .toolbar a {
+    padding: 8px 16px;
+    transition: 0.3s background-position-y ease;
     background-image: url('https://www.materialui.co/materialIcons/content/content_copy_white_192x192.png');
-    background-size: 20px 20px;
+    background-size: 16px 16px;
     background-repeat: no-repeat;
+    background-position-y: 14px, top;
     background-position: center;
-    font-size: 0px;
+    color: transparent;
+    font-size: 11px;
   }
 }
 
 pre.code-toolbar:hover>.toolbar:hover a:hover {
   background-color: rgba(118, 95, 246, 1);
-  background-position-y: 14px, top;
-  font-size: 12px;
+  background-position-y: 12px, top;
+  color: #fff;
 }
