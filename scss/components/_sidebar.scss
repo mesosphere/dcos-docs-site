@@ -1,5 +1,6 @@
 .sidebar {
-  display: relative;
+  display: flex;
+  flex-direction: column;
   &__header {
     height: 80px;
   }
@@ -8,18 +9,26 @@
     width: 100%;
     background: $color-purple-light;
     cursor: pointer;
+    &-text {
+      padding: 0;
+      margin: 0;
+      color: $color-light;
+      &__title {
+        opacity: 0.6;
+      }
+      &__version {
+      }
+    }
+    &-icon {
+      color: $color-light;
+    }
     &--active {
       background: $color-purple-light;
       & .sidebar__dropdown-list {
-        width: 100%;
         height: auto;
         visibility: visible;
         opacity: 1;
         z-index: 1;
-      }
-      & .sidebar__dropdown-icon,
-      & .sidebar__dropdown-toggle span {
-        color: $color-light;
       }
     }
     &-toggle {
@@ -30,10 +39,6 @@
       padding: 0 2rem;
       font-weight: 600;
       user-select: none;
-      & span {
-        margin-left: 5px;
-        color: $color-purple-light;
-      }
     }
     &-icon {
       width: 20px;
@@ -46,6 +51,7 @@
       top: 80px;
       margin: 0;
       padding: 0;
+      width: 100%;
       height: 0;
       list-style-type: none;
       background: $color-purple-light;
@@ -60,8 +66,12 @@
         border-bottom: 1px $color-light solid;
       }
     }
-    // colors conflicting
     &-link {
+      display: block;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      user-select: none;
+      transition: 0.2s background $ease-in-out-cubic;
       &:link,
       &:visited {
         color: $color-light;
@@ -69,10 +79,56 @@
       &:hover {
         background: $color-purple;
       }
-      display: block;
-      padding: 1rem 2rem;
+    }
+  }
+  &__nav {
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    height: 100vh;
+    padding: 2rem 0;
+    overflow-y: scroll;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    &__list {
+      display: none;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      padding-left: 2rem;
+      &--active {
+        display: block;
+      }
+    }
+    &__icon {
+      width: 14px;
+      height: 14px;
+      margin-bottom: 2px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    &__link {
+      margin-left: 5px;
+      font-weight: 400;
       text-decoration: none;
-      user-select: none;
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+    &__item {
+      position: relative;
+      &__text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      &--active {
+        > .sidebar__nav__item__text .sidebar__nav__link {
+          color: $color-purple-light !important;
+        }
+        > .sidebar__nav__item__text .sidebar__nav__icon {
+          color: $color-purple-light;
+          transform: rotate(90deg);
+        }
+      }
     }
   }
   &__footer {
@@ -80,7 +136,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    padding: 0 2rem;
+    padding: 2rem;
     height: 80px;
     font-size: 0.6rem;
     background: $color-purple;
@@ -98,56 +154,3 @@
   }
 }
 
-.navigation {
-  &::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-  padding: 2rem 0;
-  overflow-y: scroll;
-  font-size: 0.9rem;
-  &__list {
-    display: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-left: 2rem;
-    & ul,
-    & ol {
-      padding-left: 1rem;
-    }
-    &--active {
-      display: block;
-      & > .navigation__item .navigation__icon {
-        transform: rotate(90deg);
-      }
-    }
-  }
-  color: rgba(255, 255, 255, 0.6);
-  &__item {
-    background: $color-purple;
-    font-weight: 400;
-    position: relative;
-    a {
-      color: rgba(255, 255, 255, 0.6);
-      text-decoration: none;
-    }
-    &--active {
-      background: $color-purple-light;
-    }
-  }
-  &__icon {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    padding: 2px 4px;
-    top: 2px;
-    left: -20px;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  &__link {
-    position: relative;
-    display: block;
-    font-weight: 400;
-  }
-}

@@ -1,37 +1,20 @@
-// Variables
-
+- var currentPath = '/' + path
 - var docs = hierarchy.children.docs
-
 - var versionTitle = ''
-- var version = {}
+- var version = { path: '', children: {} }
 each val, index in docs.children
-  if ('/' + path).indexOf(val.path) != -1
+  if currentPath.indexOf(val.path) != -1
     - versionTitle = index
     - version = val
+- var onRootPage = Object.keys(version.children).length == 0
 
-// Mixins
-
-mixin render(item)
-  - var classList = {}
-  - classList['navigation__list'] = true
-  - classList['navigation__list--active'] = ('/' + path).indexOf(item.path) !== -1
-  ul(class=classList)
-    each val, index in item.children
-      li(class='navigation__item')
-        svg(class='navigation__icon')
-          use(xlink:href="/assets/sprite.svg#chevron")
-        a(href=val.path, class='navigation__link')!= val.title
-        +render(val)
-
-// Render
-
-section(class='sidebar')
+mixin renderSidebarHeader()
   header(class='sidebar__header')
     div(class='sidebar__dropdown')
       div(class='sidebar__dropdown-toggle')
-        div(class='sidebar__dropdown-text')
-          != siteTitle
-          span!= versionTitle
+        p(class='sidebar__dropdown-text')
+          span(class='sidebar__dropdown-text__title')!= siteTitle
+          span(class='sidebar__dropdown-text__version')!= ' ' + versionTitle
         svg(class='sidebar__dropdown-icon')
           use(xlink:href='/assets/sprite.svg#chevron')
       ul(class='sidebar__dropdown-list')
@@ -39,13 +22,45 @@ section(class='sidebar')
           li(class='sidebar__dropdown-item')
             a(href=val.path, class='sidebar__dropdown-link')!= index
 
-  nav(role='navigation', class='navigation')
-    each val, index in docs.children
-      if ('/' + path).indexOf(val.path) != -1
-        +render(val)
+mixin renderSidebarNavListItem(item)
+  - var itemClassList = {}
+  - itemClassList['sidebar__nav__item'] = true
+  - itemClassList['sidebar__nav__item--active'] = currentPath.indexOf(item.path) !== -1
+  - var hasChildren = Object.keys(item.children).length !== 0
+  li(class=itemClassList)
+    div(class='sidebar__nav__item__text')
+      if(hasChildren && onRootPage == false)
+        svg(class='sidebar__nav__icon')
+          use(xlink:href="/assets/sprite.svg#chevron")
+      a(href=item.path, class='sidebar__nav__link')!= item.title
+    if(hasChildren)
+      - var listClassList = {}
+      - listClassList['sidebar__nav__list'] = true
+      - listClassList['sidebar__nav__list--active'] = currentPath.indexOf(item.path) !== -1
+      ul(class=listClassList)
+        each val, index in item.children
+          +renderSidebarNavListItem(val)
 
+mixin renderSidebarNav()
+  nav(role='navigation', class='sidebar__nav')
+    - var listClassList = {}
+    - listClassList['sidebar__nav__list'] = true
+    - listClassList['sidebar__nav__list--active'] = true
+    ul(class=listClassList)
+      - var object = docs
+      if(!onRootPage)
+        - object = version
+      each val, index in object.children
+        +renderSidebarNavListItem(val)
+
+mixin renderSidebarFooter()
   footer(class='sidebar__footer')
     div(class='sidebar__footer-links')
       a(href='/') Terms of Service
       a(href='/') Privacy Policy
-    div(class='sidebar__footer-copyright') @ 2017 Mesosphere, Inc. All rights reserved.
+    div(class='sidebar__footer-copyright')!= copyright
+
+section(class='sidebar')
+  +renderSidebarHeader()
+  +renderSidebarNav()
+  +renderSidebarFooter()

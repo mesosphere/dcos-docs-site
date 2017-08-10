@@ -19,8 +19,7 @@ Metalsmith(__dirname)
     siteTitle: "Mesosphere DC/OS",
     title: "Mesosphere DC/OS",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    generator: "Metalsmith",
-    url: "http://www.metalsmith.io/"
+    copyright: "@ 2017 Mesosphere, Inc. All rights reserved."
   })
 
   // Source
