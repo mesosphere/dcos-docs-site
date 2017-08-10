@@ -92,7 +92,19 @@ $sections-size: 15rem;
       }
       &-item {
         padding: 0;
+        & .active {
+          font-weight: 600;
+        }
       }
+    }
+    &__anchor:before {
+      content: '';
+      display: block;
+      position: relative;
+      width: 0;
+      height: 90px;
+      margin-top: -80px;
+      visibility: hidden;
     }
   }
 }

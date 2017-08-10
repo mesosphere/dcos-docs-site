@@ -1,24 +1,34 @@
-const contentHeadings = document.querySelectorAll('.content h2');
+const contentHeadings = document.querySelectorAll('.content__container [id]');
+const contentHeadingsArray = [...contentHeadings];
+contentHeadingsArray.forEach(el => el.classList.add('content__anchor'));
 
 if (contentHeadings && window.innerWidth > 1025) {
-  // create div or part of template?
-  const bodyOffset = document.body.getBoundingClientRect().top;
-  const firstHeading = contentHeadings[0].getBoundingClientRect().top;
-  const offset = firstHeading - bodyOffset;
-
-  const activeElement = document.querySelector('.content__sections-sticky');
-  activeElement.style.top = `${offset}px`;
-
-  const stickyState = () => {
-    const pageScroll = window.scrollY;
-    const offsetY = offset - pageScroll;
-    // wip: set values
-    if (pageScroll > offsetY + 100) {
-      activeElement.style.top = '100px';
-    } else {
-      activeElement.style.top = `${offsetY}px`;
+  document.addEventListener('scroll', () => {
+    const windowOffset = window.pageYOffset + 80;
+    if (windowOffset < contentHeadingsArray[0].offsetTop + 80) {
+      const activeLink = document.querySelector('a.active');
+      if (activeLink) {
+        activeLink.classList.remove('active');
+      }
     }
-  };
-
-  document.addEventListener('scroll', stickyState);
+    contentHeadingsArray.forEach((el) => {
+      const elTopOffset = (el.offsetTop - (el.offsetHeight / 3)) + 80;
+      const elBottomOffset = (el.offsetTop + el.offsetHeight) + 80;
+      if (windowOffset > elTopOffset && elBottomOffset > windowOffset) {
+        const linkSelector = `a[href='#${el.getAttribute('id')}']`;
+        const activeLink = document.querySelector(linkSelector);
+        if (activeLink) {
+          const curActiveLink = document.querySelector('a.active');
+          if (curActiveLink) {
+            if (curActiveLink.getAttribute('href') !== `#${el.getAttribute('id')}`) {
+              curActiveLink.classList.remove('active');
+            }
+          }
+          if (!activeLink.classList.contains('active')) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+    });
+  });
 }
