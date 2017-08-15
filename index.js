@@ -1,12 +1,14 @@
-const Metalsmith    = require('metalsmith');
-const markdown      = require('metalsmith-markdown');
-const layouts       = require('metalsmith-layouts');
-const collections   = require('metalsmith-collections');
-const permalinks    = require('metalsmith-permalinks');
-const headings      = require('metalsmith-headings');
-const assets        = require('metalsmith-assets');
-const browserSync   = require('metalsmith-browser-sync');
-const webpack       = require('metalsmith-webpack2');
+const Metalsmith       = require('metalsmith');
+const markdown         = require('metalsmith-markdown');
+const layouts          = require('metalsmith-layouts');
+const collections      = require('metalsmith-collections');
+const permalinks       = require('metalsmith-permalinks');
+const headings         = require('metalsmith-headings');
+const assets           = require('metalsmith-assets');
+const browserSync      = require('metalsmith-browser-sync');
+const webpack          = require('metalsmith-webpack2');
+const shortcodes       = require('metalsmith-shortcode-parser');
+const shortcodesConfig = require('./shortcodes');
 
 //
 // Metalsmith
@@ -32,6 +34,11 @@ Metalsmith(__dirname)
   .clean(false)
 
   .use(plugin())
+
+  // Shortcodes
+  .use(shortcodes({
+    shortcodes: shortcodesConfig
+  }))
 
   // Markdown
   .use(markdown({
