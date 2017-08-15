@@ -16,7 +16,11 @@ const shortcodes = {
 
   /**
    * Message
-   *
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {boolean} opts.parse
+   * @param {string} opts.header
+   * @param {string} opts.body
    */
   message: (buf, opts) => {
 
