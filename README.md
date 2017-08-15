@@ -36,6 +36,8 @@ Develop and page will auto reload on changes
 
 ### File Structure (TODO: Expand)
 
+### Shortcodes (TODO: Expand)
+
 ## Overview (TODO: Expand)
 
 ### Styling and Format (TODO: Expand)
