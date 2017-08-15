@@ -4,4 +4,7 @@ require('./scss/style.scss');
 require('./js/main.js');
 require('./js/sidebar.js');
 require('./js/header-search.js');
+require('./js/vendor/swagger/index.js');
+require('./js/vendor/swagger/swagger-ui.css');
+require('./js/swagger.js');
 require('./js/sticky-toc.js');
