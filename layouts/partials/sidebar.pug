@@ -1,12 +1,23 @@
+- var paths = path.split('/')
 - var currentPath = '/' + path
 - var docs = hierarchy.children.docs
+- var items = hierarchy
 - var versionTitle = ''
-- var version = { path: '', children: {} }
-each val, index in docs.children
-  if currentPath.indexOf(val.path) != -1
-    - versionTitle = index
-    - version = val
-- var onRootPage = Object.keys(version.children).length == 0
+
+// Service Docs
+if paths[0] === 'service-docs'
+  - items = hierarchy.children[paths[0]]
+
+// Support
+if paths[0] === 'support'
+  - items = hierarchy.children[paths[0]]
+
+// DC/OS Docs
+if paths[0] === 'docs'
+  - items = hierarchy.children[paths[0]]
+  if paths[1]
+    - items = hierarchy.children[paths[0]].children[paths[1]]
+    - versionTitle = paths[1]
 
 mixin renderSidebarHeader()
   header(class='sidebar__header')
@@ -47,10 +58,7 @@ mixin renderSidebarNav()
     - listClassList['sidebar__nav__list'] = true
     - listClassList['sidebar__nav__list--active'] = true
     ul(class=listClassList)
-      - var object = docs
-      if(!onRootPage)
-        - object = version
-      each val, index in object.children
+      each val, index in items.children
         +renderSidebarNavListItem(val)
 
 mixin renderSidebarFooter()
