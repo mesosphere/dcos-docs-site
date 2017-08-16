@@ -1,5 +1,5 @@
 const Metalsmith       = require('metalsmith');
-const markdown         = require('metalsmith-markdown');
+const markdown         = require('metalsmith-markdownit');
 const layouts          = require('metalsmith-layouts');
 const collections      = require('metalsmith-collections');
 const permalinks       = require('metalsmith-permalinks');
@@ -9,6 +9,8 @@ const browserSync      = require('metalsmith-browser-sync');
 const webpack          = require('metalsmith-webpack2');
 const shortcodes       = require('metalsmith-shortcode-parser');
 const shortcodesConfig = require('./shortcodes');
+const anchor           = require('markdown-it-anchor');
+const attrs            = require('markdown-it-attrs');
 
 //
 // Metalsmith
@@ -41,15 +43,19 @@ Metalsmith(__dirname)
   }))
 
   // Markdown
-  .use(markdown({
-    smartypants: true,
-    smartLists: true,
-    gfm: true,
-    tables: true,
-  }))
+  .use(markdown(
+    {
+      typographer: true,
+      html: true,
+    })
+    .use(anchor)
+    .use(attrs),
+  )
 
   // Headings
-  .use(headings('h2'))
+  .use(headings({
+    selectors: ['h2', 'h3'],
+  }))
 
   // Permalinks
   .use(permalinks())
