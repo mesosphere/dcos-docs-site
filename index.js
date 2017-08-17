@@ -122,6 +122,7 @@ function walk(file, files, array, newObject, level) {
   if(!newObject[array[0]]) {
     newObject[array[0]] = {
       title: files[file].navigationTitle,
+      menuWeight: files[file].menuWeight,
       path: path,
       children: {}
     };
