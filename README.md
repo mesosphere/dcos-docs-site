@@ -24,9 +24,11 @@
 
 **node `v8.1.2` required**
 
+Remove node_modules if previously installed.
+
 Install packages with `npm install`
 
-Start with command `npm start`
+Start with command `npm run dev`
 
 Go to `http://localhost:3000/{page}`
 
