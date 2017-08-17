@@ -6,7 +6,7 @@ services:
     volumes:
       - ./:/tmp
     working_dir: /tmp
-    command: --disable-forms --disable-external-links --print-media-type --javascript-delay 5000 ${HTML_FILES} ./build/index.pdf
+    command: --disable-forms --disable-external-links --print-media-type --javascript-delay 5000 ${HTML_FILES} ${OUTPUT_FILE}
    #docs:
    # build: .
    # volumes:
