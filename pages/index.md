@@ -11,7 +11,7 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 
 ## Shortcodes
 
-### Message
+### Message {data-hide=true}
 
 Format
 
