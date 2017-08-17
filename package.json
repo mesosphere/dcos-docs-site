@@ -8,7 +8,9 @@
     "node": "8.1.2"
   },
   "scripts": {
-    "start": "node index.js",
+    "dev": "NODE_ENV=development node index.js",
+    "build": "NODE_ENV=production node index.js",
+    "pdf": "NODE_ENV=pdf node index.js",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
     "eslint-init": "eslint --init"

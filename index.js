@@ -14,62 +14,74 @@ const shortcodesConfig = require('./shortcodes');
 // Metalsmith
 //
 
-Metalsmith(__dirname)
+let MS = Metalsmith(__dirname);
 
-  // Metadata
-  .metadata({
-    siteTitle: "Mesosphere DC/OS",
-    title: "Mesosphere DC/OS",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-    copyright: "@ 2017 Mesosphere, Inc. All rights reserved."
-  })
+// Metadata
+MS.metadata({
+  siteTitle: "Mesosphere DC/OS",
+  title: "Mesosphere DC/OS",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+  copyright: "@ 2017 Mesosphere, Inc. All rights reserved.",
+  env: process.env.NODE_ENV
+})
 
-  // Source
-  .source('./pages')
+// Source
+MS.source('./pages')
 
-  // Destination
-  .destination('./build')
+// Destination
+MS.destination('./build')
 
+if(process.env.NODE_ENV == "development") {
   // Clean
-  .clean(false)
+  MS.clean(false)
+}
+else if(
+  process.env.NODE_ENV == "production" ||
+  process.env.NODE_ENV == "pdf"
+) {
+  // Clean
+  MS.clean(true)
+}
 
-  .use(plugin())
+// Folder Hierarchy
+MS.use(plugin())
 
-  // Shortcodes
-  .use(shortcodes({
-    shortcodes: shortcodesConfig
-  }))
+// Shortcodes
+MS.use(shortcodes({
+  shortcodes: shortcodesConfig
+}))
 
-  // Markdown
-  .use(markdown({
-    smartypants: true,
-    smartLists: true,
-    gfm: true,
-    tables: true,
-  }))
+// Markdown
+MS.use(markdown({
+  smartypants: true,
+  smartLists: true,
+  gfm: true,
+  tables: true,
+}))
 
-  // Headings
-  .use(headings('h2'))
+// Headings
+MS.use(headings('h2'))
 
-  // Permalinks
-  .use(permalinks())
+// Permalinks
+MS.use(permalinks())
 
-  // Assets
-  .use(assets({
-    source: 'assets',
-    destination: 'assets',
-  }))
+// Assets
+MS.use(assets({
+  source: 'assets',
+  destination: 'assets',
+}))
 
-  // Layouts
-  .use(layouts({
-    engine: 'pug',
-  }))
+// Layouts
+MS.use(layouts({
+  engine: 'pug',
+}))
 
-  // Webpack
-  .use(webpack('./webpack.config.js'))
+// Webpack
+MS.use(webpack('./webpack.config.js'))
 
+if(process.env.NODE_ENV == "development") {
   // BrowserSync
-  .use(browserSync({
+  MS.use(browserSync({
     server : 'build',
     files  : [
       'pages/**/*.md',
@@ -78,11 +90,12 @@ Metalsmith(__dirname)
       'js/**/*.js',
     ]
   }))
+}
 
-  // Build
-  .build(function(err, files) {
-    if (err) { throw err; }
-  });
+// Build
+MS.build(function(err, files) {
+  if (err) { throw err; }
+});
 
 //
 // Build Folder Hierarchy
