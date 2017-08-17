@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Home
 navigationTitle: Home
-menuWeight: 0
+menuWeight: -1
 ---
 
 ## Introduction

@@ -6,7 +6,7 @@ header(class='header')
     nav(class='header__menu')
       ul(class='header__menu-list')
         each val, index in hierarchy.children
-          if(val.menuWeight != undefined && val.menuWeight !== 0)
+          if(val.menuWeight !== -1)
             li(class='header__menu-item header__menu-item--active')
               a(href="")!= val.title
   section(class='header__search', role='search')

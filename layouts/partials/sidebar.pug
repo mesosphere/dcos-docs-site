@@ -1,22 +1,23 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
-- var docs = hierarchy.children.docs
+- var docs = hierarchy.children.find(child => child.id === 'docs')
 - var items = hierarchy
 - var versionTitle = ''
 
 // Service Docs
 if paths[0] === 'service-docs'
-  - items = hierarchy.children[paths[0]]
+  - items = hierarchy.children.find(child => child.id === paths[0])
 
 // Support
 if paths[0] === 'support'
-  - items = hierarchy.children[paths[0]]
+  - items = hierarchy.children.find(child => child.id === paths[0])
 
 // DC/OS Docs
 if paths[0] === 'docs'
-  - items = hierarchy.children[paths[0]]
+  - items = hierarchy.children.find(child => child.id === paths[0])
   if paths[1]
-    - items = hierarchy.children[paths[0]].children[paths[1]]
+    - var parent = hierarchy.children.find(child => child.id === paths[0])
+    - items = parent.children.find(child => child.id === paths[1])
     - versionTitle = paths[1]
 
 mixin renderSidebarHeader()
@@ -31,7 +32,7 @@ mixin renderSidebarHeader()
       ul(class='sidebar__dropdown-list')
         each val, index in docs.children
           li(class='sidebar__dropdown-item')
-            a(href=val.path, class='sidebar__dropdown-link')!= index
+            a(href=val.path, class='sidebar__dropdown-link')!= val.navigationTitle
 
 mixin renderSidebarNavListItem(item)
   - var itemClassList = {}
@@ -43,7 +44,7 @@ mixin renderSidebarNavListItem(item)
       if(hasChildren && onRootPage == false)
         svg(class='sidebar__nav__icon')
           use(xlink:href="assets/sprite.svg#chevron")
-      a(href=item.path, class='sidebar__nav__link')!= item.title
+      a(href=item.path, class='sidebar__nav__link')!= item.navigationTitle
     if(hasChildren)
       - var listClassList = {}
       - listClassList['sidebar__nav__list'] = true

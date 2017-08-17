@@ -109,45 +109,55 @@ MS.build(function(err, files) {
 
 // TEMP: Moving to own npm package
 
-function walk(file, files, array, newObject, level) {
+function walk(file, files, array, children, level) {
   let pathParts = file.split('/');
   pathParts.pop()
   let path = '/' + pathParts.join('/');
   if(!level) {
     level = 0;
   }
-  if(!newObject) {
-    newObject = {};
+  if(!children) {
+    children = [];
   }
-  if(!newObject[array[0]]) {
-    newObject[array[0]] = {
-      title: files[file].navigationTitle,
-      menuWeight: files[file].menuWeight,
+  let id = array[0];
+  let child = children.find((c, i) => c.id === id);
+  if(!child) {
+    let child = Object.assign({
+      id: id,
+      menuWeight: 0,
       path: path,
-      children: {}
-    };
+      children: [],
+    }, files[file]);
+    // Remove large data
+    delete child.layout;
+    delete child.stats;
+    delete child.mode;
+    delete child.contents;
+    children.push(child);
   }
   if(array.length > 1) {
-    let childrenArray = array.slice(1, array.length);
-    let children = walk(file, files, childrenArray, newObject[array[0]].children, level + 1);
-    newObject[array[0]].children = Object.assign(newObject[array[0]].children, children);
+    let childChildrenArray = array.slice(1, array.length);
+    let childChildren = walk(file, files, childChildrenArray, child.children, level + 1);
+    child.children = childChildren;
   }
-  return newObject;
+  children.sort((a, b) => a.menuWeight - b.menuWeight);
+  return children;
 }
 
 function plugin() {
   return function(files, metalsmith, done){
     setImmediate(done);
     let r = {
+      id: '',
       title: '',
       path: '/',
-      children: {}
+      children: []
     };
     Object.keys(files).forEach(function(file, index) {
       var pathParts = file.split('/');
       pathParts.pop();
-      let b = walk(file, files, pathParts, r.children, 0);
-      r.children = Object.assign(r.children, b);
+      let children = walk(file, files, pathParts, r.children, 0);
+      r.children = children;
     });
     metalsmith.metadata()['hierarchy'] = r;
   };
