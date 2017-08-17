@@ -5,9 +5,9 @@ header(class='header')
       img(class='header__logo-text', src='assets/header-logo-color-dark-type.png', height='15')
     nav(class='header__menu')
       ul(class='header__menu-list')
-        li(class='header__menu-item header__menu-item--active') DC/OS Docs
-        li(class='header__menu-item') Service Docs
-        li(class='header__menu-item') Support
+        each val, index in hierarchy.children
+          li(class='header__menu-item header__menu-item--active')
+            a(href="")!= val.title
   section(class='header__search', role='search')
     form(class='header__search-form')
       label(class='header__search-label', for='search-input')

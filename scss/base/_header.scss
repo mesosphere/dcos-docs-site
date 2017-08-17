@@ -39,10 +39,15 @@
     }
     &-item {
       margin-left: 20px;
-      font-weight: 600;
-      color: $color-grey;
+      a {
+        font-weight: 600;
+        color: $color-grey;
+        text-decoration: none;
+      }
       &--active {
-        color: $color-dark;
+        a {
+          color: $color-dark;
+        }
       }
     }
   }
