@@ -7,8 +7,11 @@ header(class='header')
       ul(class='header__menu-list')
         each val, index in hierarchy.children
           if(val.menuWeight !== -1)
-            li(class='header__menu-item header__menu-item--active')
-              a(href="")!= val.title
+            - var itemClass = {}
+            - itemClass['header__menu-item'] = true
+            - itemClass['header__menu-item--active'] = ('/' + path).includes(val.path)
+            li(class=itemClass)
+              a(href=val.path)!= val.title
   section(class='header__search', role='search')
     form(class='header__search-form')
       label(class='header__search-label', for='search-input')
