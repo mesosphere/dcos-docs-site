@@ -19,6 +19,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "browser-sync": "^2.18.12",
+    "cheerio": "^1.0.0-rc.2",
     "css-loader": "^0.28.4",
     "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.3.1",

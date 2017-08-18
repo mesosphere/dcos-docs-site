@@ -3,14 +3,15 @@ const markdown         = require('metalsmith-markdownit');
 const layouts          = require('metalsmith-layouts');
 const collections      = require('metalsmith-collections');
 const permalinks       = require('metalsmith-permalinks');
-const headings         = require('metalsmith-headings');
 const assets           = require('metalsmith-assets');
 const browserSync      = require('metalsmith-browser-sync');
 const webpack          = require('metalsmith-webpack2');
 const shortcodes       = require('metalsmith-shortcode-parser');
-const shortcodesConfig = require('./shortcodes');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
+const cheerio          = require('cheerio');
+const extname          = require('path').extname;
+const shortcodesConfig = require('./shortcodes');
 
 //
 // Metalsmith
@@ -64,9 +65,7 @@ MS.use(markdown(
 )
 
 // Headings
-MS.use(headings({
-  selectors: ['h2', 'h3'],
-}))
+MS.use(headings())
 
 // Permalinks
 MS.use(permalinks())
@@ -160,5 +159,30 @@ function plugin() {
       r.children = children;
     });
     metalsmith.metadata()['hierarchy'] = r;
+  };
+};
+
+function headings() {
+  const selectors = ['h2', 'h3'];
+
+  return function(files, metalsmith, done) {
+    setImmediate(done);
+    Object.keys(files).forEach(function(file) {
+      if ('.html' != extname(file)) return;
+      var data = files[file];
+      var contents = data.contents.toString();
+      var $ = cheerio.load(contents);
+      data.headings = [];
+      
+      $(selectors.join(',')).each(function(){
+        if ($(this).data('hide') !== true) {
+          data.headings.push({
+            id: $(this).attr('id'),
+            tag: $(this)[0].name,
+            text: $(this).text()
+          });
+        }
+      });
+    });
   };
 }
