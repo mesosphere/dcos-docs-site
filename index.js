@@ -55,10 +55,12 @@ MS.use(plugin())
 MS.use(timer('Hierarchy'))
 
 // Shortcodes
+/*
 MS.use(shortcodes({
   shortcodes: shortcodesConfig
 }))
 MS.use(timer('Shortcodes'))
+*/
 
 // Markdown
 MS.use(markdown(
@@ -88,7 +90,7 @@ MS.use(timer('Assets'))
 
 // Layouts
 MS.use(layouts({
-  engine: 'pug',
+  engine: 'pug'
 }))
 MS.use(timer('Layouts'))
 
