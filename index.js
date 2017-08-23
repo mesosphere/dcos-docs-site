@@ -121,30 +121,23 @@ function walk(file, files, array, children, level) {
   let id = array[0];
   let child = children.find((c, i) => c.id === id);
   if(!child) {
-    /*
-    let child = Object.assign({
+    let child = {
       id: id,
-      menuWeight: 0,
       path: path,
       children: [],
-    }, files[file]);
-    */
-
-    let child = Object.assign({
-      id: id,
-      title: files[file].title,
-      navigationTitle: files[file].navigationTitle,
-      menuWeight: files[file].menuWeight,
-      path: path,
-      children: [],
-    }, files[file]);
-
-    // Remove large data
-    //delete child.layout;
-    //delete child.stats;
-    //delete child.mode;
-    //delete child.contents;
-
+    };
+    let blacklist = [
+      'layout',
+      'stats',
+      'mode',
+      'contents',
+    ];
+    let fileObj = files[file];
+    for(let key in fileObj) {
+      if(blacklist.indexOf(key) === -1) {
+        child[key] = fileObj[key]
+      }
+    }
     children.push(child);
   }
   if(array.length > 1) {
@@ -175,9 +168,12 @@ function plugin() {
   };
 };
 
+//
+// Headings
+//
+
 function headings() {
   const selectors = ['h2', 'h3'];
-
   return function(files, metalsmith, done) {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
@@ -186,7 +182,6 @@ function headings() {
       var contents = data.contents.toString();
       var $ = cheerio.load(contents);
       data.headings = [];
-
       $(selectors.join(',')).each(function(){
         if ($(this).data('hide') !== true) {
           data.headings.push({
