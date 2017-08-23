@@ -1,7 +1,8 @@
 ---
-post_title: Exposing Apps using Edge Router
-nav_title: Exposing Apps Publicly
-menu_order: 6
+layout: layout.pug
+title: Exposing Apps using Edge Router
+navigationTitle: Exposing Apps Publicly
+menuWeight: 6
 ---
 
 # Prerequisites

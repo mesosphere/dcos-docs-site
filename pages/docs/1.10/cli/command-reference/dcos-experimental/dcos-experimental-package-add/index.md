@@ -1,6 +1,7 @@
 ---
-post_title: dcos experimental
-menu_order: 0
+layout: layout.pug
+title: dcos experimental
+menuWeight: 0
 ---
     
 # Description

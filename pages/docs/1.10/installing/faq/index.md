@@ -1,7 +1,8 @@
 ---
-post_title: Frequently Asked Questions
-nav_title: FAQ
-menu_order: 203
+layout: layout.pug
+title: Frequently Asked Questions
+navigationTitle: FAQ
+menuWeight: 203
 ---
 
 ## Q. Can I install DC/OS on an already running Mesos cluster?

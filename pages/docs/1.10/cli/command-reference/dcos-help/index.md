@@ -1,6 +1,7 @@
 ---
-post_title: dcos help
-menu_order: 3
+layout: layout.pug
+title: dcos help
+menuWeight: 3
 ---
 
 # Description

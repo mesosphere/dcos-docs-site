@@ -1,6 +1,7 @@
 ---
-post_title: Managing AWS
-menu_order: 9
+layout: layout.pug
+title: Managing AWS
+menuWeight: 9
 ---
 
 ## Scaling an AWS cluster

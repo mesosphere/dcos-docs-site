@@ -1,6 +1,7 @@
 ---
-post_title: Marathon API
-menu_order: 40
+layout: layout.pug
+title: Marathon API
+menuWeight: 40
 ---
 
 The Marathon API allows you to manage long-running containerized services (apps and pods).

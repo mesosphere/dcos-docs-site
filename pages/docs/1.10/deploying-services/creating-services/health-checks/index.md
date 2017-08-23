@@ -1,6 +1,7 @@
 ---
-post_title: Health Checks
-menu_order: 1
+layout: layout.pug
+title: Health Checks
+menuWeight: 1
 ---
 
 You can define health checks for your DC/OS services. Health checks are defined on a per application basis, and are run against that application's tasks.

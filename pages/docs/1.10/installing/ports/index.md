@@ -1,6 +1,7 @@
 ---
-post_title: DC/OS Ports
-menu_order: 5
+layout: layout.pug
+title: DC/OS Ports
+menuWeight: 5
 post_excerpt: ""
 feature_maturity: ""
 ---

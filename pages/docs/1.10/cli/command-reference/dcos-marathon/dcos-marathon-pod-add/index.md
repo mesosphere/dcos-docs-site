@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon pod add
-menu_order: 23
+layout: layout.pug
+title: dcos marathon pod add
+menuWeight: 23
 ---
 
 # Description

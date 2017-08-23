@@ -1,7 +1,8 @@
 ---
-post_title: Configuring HAProxy in Front of Admin Router
-nav_title: HAProxy in Front of Admin Router
-menu_order: 6
+layout: layout.pug
+title: Configuring HAProxy in Front of Admin Router
+navigationTitle: HAProxy in Front of Admin Router
+menuWeight: 6
 ---
 
 You can use HAProxy to set up an HTTP proxy in front of the DC/OS [Admin Router](/docs/1.10/overview/architecture/components/#admin-router). For example, this can be useful if you want to present a custom server certificate to user agents connecting to the cluster via HTTPS. DC/OS does not currently support adding your own certificates directly into Admin Router.

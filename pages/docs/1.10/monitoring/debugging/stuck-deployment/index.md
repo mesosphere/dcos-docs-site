@@ -1,6 +1,7 @@
 ---
-post_title: Stuck Deployments
-menu_order: 0
+layout: layout.pug
+title: Stuck Deployments
+menuWeight: 0
 ---
 
 # How Offer Matching Works

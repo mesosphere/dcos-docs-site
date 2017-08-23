@@ -1,7 +1,8 @@
 ---
-post_title: Using Pods
+layout: layout.pug
+title: Using Pods
 feature_maturity: preview
-menu_order: 20
+menuWeight: 20
 ---
 
 You can create and manage your pods via the DC/OS CLI or via the `/v2/pods/` endpoint of the [Marathon REST API](/docs/1.10/deploying-services/marathon-api/).

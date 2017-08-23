@@ -1,7 +1,8 @@
 ---
-post_title: Concepts
-nav_title: Concepts
-menu_order: 5
+layout: layout.pug
+title: Concepts
+navigationTitle: Concepts
+menuWeight: 5
 ---
 
 

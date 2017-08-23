@@ -1,6 +1,7 @@
 ---
-post_title: Load Balancing and Virtual IPs (VIPs)
-menu_order: 00
+layout: layout.pug
+title: Load Balancing and Virtual IPs (VIPs)
+menuWeight: 00
 ---
 
 DC/OS provides an east-west load balancer (minuteman) that enables multi-tier microservices architectures. It acts as a TCP layer 4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency. The features include:

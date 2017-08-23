@@ -1,6 +1,7 @@
 ---
-post_title: dcos experimental service start
-menu_order: 2
+layout: layout.pug
+title: dcos experimental service start
+menuWeight: 2
 ---
     
 # Description

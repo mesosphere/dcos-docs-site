@@ -1,7 +1,8 @@
 ---
-post_title: Debugging from the DC/OS Web Interface
+layout: layout.pug
+title: Debugging from the DC/OS Web Interface
 feature_maturity: preview
-menu_order: 30
+menuWeight: 30
 ---
 
 You can debug your service or pod from the DC/OS web interface.

@@ -1,5 +1,7 @@
 ---
-post_title: Monitoring with Nagios
+layout: layout.pug
+title: Monitoring with Nagios
+menuWeight: 0
 ---
 
 Nagios is a popular monitoring framework for distributed hosts. This guide explains how to monitor a DC/OS cluster with [Nagios Core 4x](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-linux.html) using [NRPE](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/addons.html#nrpe).

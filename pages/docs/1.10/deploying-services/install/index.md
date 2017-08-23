@@ -1,7 +1,8 @@
 ---
-post_title: Installing Services
-nav_title: Installing
-menu_order: 000
+layout: layout.pug
+title: Installing Services
+navigationTitle: Installing
+menuWeight: 000
 ---
 
 ## Installing a service using the CLI

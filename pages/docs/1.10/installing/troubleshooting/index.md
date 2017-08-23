@@ -1,6 +1,7 @@
 ---
-post_title: Troubleshooting
-menu_order: 400
+layout: layout.pug
+title: Troubleshooting
+menuWeight: 400
 ---
 
 # <a name="general"></a>General troubleshooting approach

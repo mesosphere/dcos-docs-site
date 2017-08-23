@@ -1,6 +1,7 @@
 ---
-post_title: dcos node log
-menu_order: 5
+layout: layout.pug
+title: dcos node log
+menuWeight: 5
 ---
     
 # Description

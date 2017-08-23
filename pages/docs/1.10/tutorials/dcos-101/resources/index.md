@@ -1,7 +1,8 @@
 ---
-post_title: Understanding Resources
-nav_title: Understanding Resources
-menu_order: 8
+layout: layout.pug
+title: Understanding Resources
+navigationTitle: Understanding Resources
+menuWeight: 8
 ---
 
 # Prerequisites

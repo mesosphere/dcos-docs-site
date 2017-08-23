@@ -1,6 +1,7 @@
 ---
-post_title: Log Management in DC/OS with ELK
-menu_order: 1
+layout: layout.pug
+title: Log Management in DC/OS with ELK
+menuWeight: 1
 enterprise: 'no'
 ---
 

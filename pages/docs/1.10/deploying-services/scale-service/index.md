@@ -1,7 +1,8 @@
 ---
-post_title: Scaling a Service
-nav_title: Scaling
-menu_order: 003.2
+layout: layout.pug
+title: Scaling a Service
+navigationTitle: Scaling
+menuWeight: 003.2
 ---
 
 This tutorial shows how to scale a service using the web interface and the CLI.

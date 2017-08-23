@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon pod update
-menu_order: 28
+layout: layout.pug
+title: dcos marathon pod update
+menuWeight: 28
 ---
 
 # Description

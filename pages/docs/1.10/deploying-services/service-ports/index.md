@@ -1,6 +1,7 @@
 ---
-post_title: Service Ports
-menu_order: 003.3
+layout: layout.pug
+title: Service Ports
+menuWeight: 003.3
 ---
 
 You can use [virtual addresses (VIPs)](/docs/1.10/networking/load-balancing-vips/virtual-ip-addresses/) to make ports management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.

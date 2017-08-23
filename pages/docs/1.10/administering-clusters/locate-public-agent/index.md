@@ -1,7 +1,8 @@
 ---
-post_title: Finding a Public Agent IP
-nav_title: Finding a Public Agent
-menu_order: 3.1
+layout: layout.pug
+title: Finding a Public Agent IP
+navigationTitle: Finding a Public Agent
+menuWeight: 3.1
 ---
 
 After you have installed DC/OS with a public agent node declared, you can navigate to the public IP address of your public agent node.

@@ -1,6 +1,7 @@
 ---
-post_title: dcos cluster attach
-menu_order: 2
+layout: layout.pug
+title: dcos cluster attach
+menuWeight: 2
 ---
 
 # Description

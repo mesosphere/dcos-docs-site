@@ -1,6 +1,7 @@
 ---
-post_title: dcos task
-menu_order: 9
+layout: layout.pug
+title: dcos task
+menuWeight: 9
 ---
 
 # Description

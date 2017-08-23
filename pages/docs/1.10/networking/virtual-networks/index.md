@@ -1,8 +1,9 @@
 ---
-post_title: Virtual Networks
-nav_title: Virtual Networks
+layout: layout.pug
+title: Virtual Networks
+navigationTitle: Virtual Networks
 feature_maturity: preview
-menu_order: 04
+menuWeight: 04
 ---
 
 DC/OS supports Container Networking Interface (CNI)-compatible virtual networking solutions, including [Calico](https://github.com/dcos/examples/tree/master/calico) and Contrail. DC/OS also provides a native virtual networking solution called DC/OS Overlay. 

@@ -1,7 +1,8 @@
 ---
-post_title: First Steps
-nav_title: First Steps
-menu_order: 1
+layout: layout.pug
+title: First Steps
+navigationTitle: First Steps
+menuWeight: 1
 ---
 
 Welcome to part 1 of the DC/OS 101 Tutorial.

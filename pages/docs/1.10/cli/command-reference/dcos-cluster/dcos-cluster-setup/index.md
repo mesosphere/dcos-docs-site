@@ -1,6 +1,7 @@
 ---
-post_title: dcos cluster setup
-menu_order: 6
+layout: layout.pug
+title: dcos cluster setup
+menuWeight: 6
 ---
 
 # Description

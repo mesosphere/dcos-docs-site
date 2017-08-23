@@ -1,7 +1,8 @@
 ---
-post_title: DC/OS Cloud Installation Options
-nav_title: Cloud
-menu_order: 1
+layout: layout.pug
+title: DC/OS Cloud Installation Options
+navigationTitle: Cloud
+menuWeight: 1
 ---
 
 Looking to install DC/OS on your cloud of choice? Look no further! You can use a template or use our advanced custom installer.

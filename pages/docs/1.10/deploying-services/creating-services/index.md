@@ -1,6 +1,7 @@
 ---
-post_title: Creating Services
-menu_order: 001.2
+layout: layout.pug
+title: Creating Services
+menuWeight: 001.2
 ---
 
 A Marathon application typically represents a long-running service that has many instances running on multiple hosts. An application instance is called a *task*. The *application definition* describes everything needed to start and maintain the tasks. A Marathon application definition creates a DC/OS _service_.

@@ -1,6 +1,7 @@
 ---
-post_title: Command Reference
-menu_order: 5
+layout: layout.pug
+title: Command Reference
+menuWeight: 5
 ---
 
 

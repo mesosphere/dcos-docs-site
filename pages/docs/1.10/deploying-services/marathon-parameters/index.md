@@ -1,6 +1,7 @@
 ---
-post_title: Marathon Configuration Reference
-menu_order: 000
+layout: layout.pug
+title: Marathon Configuration Reference
+menuWeight: 000
 ---
 
 This topic provides all available properties for Marathon application definitions and an [example JSON file with all properties shown](#example).

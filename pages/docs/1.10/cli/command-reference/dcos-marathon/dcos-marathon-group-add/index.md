@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon group add
-menu_order: 17
+layout: layout.pug
+title: dcos marathon group add
+menuWeight: 17
 ---
 
 # Description

@@ -1,6 +1,7 @@
 ---
-post_title: Exposing a Service
-menu_order: 005
+layout: layout.pug
+title: Exposing a Service
+menuWeight: 005
 ---
 
 DC/OS agent nodes can be designated as [public](/docs/1.10/overview/concepts/#public-agent-node) or [private](/docs/1.10/overview/concepts/#private) during [installation](/docs/1.10/installing/). Public agent nodes provide access from outside of the cluster via infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.

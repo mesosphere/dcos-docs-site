@@ -1,7 +1,8 @@
 ---
-post_title: Deploying Jobs
+layout: layout.pug
+title: Deploying Jobs
 feature_maturity: preview
-menu_order: 120
+menuWeight: 120
 ---
 
 You can create scheduled jobs in DC/OS without installing a separate service. Create and administer jobs in the DC/OS web interface, the DC/OS CLI, or via an API.

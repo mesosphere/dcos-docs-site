@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon app remove
-menu_order: 4
+layout: layout.pug
+title: dcos marathon app remove
+menuWeight: 4
 ---
 
 # Description

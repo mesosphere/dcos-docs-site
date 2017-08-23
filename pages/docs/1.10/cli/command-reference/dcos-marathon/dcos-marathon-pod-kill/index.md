@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon pod kill
-menu_order: 24
+layout: layout.pug
+title: dcos marathon pod kill
+menuWeight: 24
 ---
 
 # Description

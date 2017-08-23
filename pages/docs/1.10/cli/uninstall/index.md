@@ -1,7 +1,8 @@
 ---
-post_title: Uninstalling the CLI
-nav_title: Uninstalling
-menu_order: 4
+layout: layout.pug
+title: Uninstalling the CLI
+navigationTitle: Uninstalling
+menuWeight: 4
 ---
 
 You can uninstall the CLI with these commands for your operating system.

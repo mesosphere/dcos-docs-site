@@ -1,6 +1,7 @@
 ---
-post_title: dcos job kill
-menu_order: 2
+layout: layout.pug
+title: dcos job kill
+menuWeight: 2
 ---
     
 # Description

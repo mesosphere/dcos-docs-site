@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon task stop
-menu_order: 31
+layout: layout.pug
+title: dcos marathon task stop
+menuWeight: 31
 ---
 
 # Description

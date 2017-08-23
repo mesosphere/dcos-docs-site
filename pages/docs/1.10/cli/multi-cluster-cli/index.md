@@ -1,7 +1,8 @@
 ---
-post_title: Connecting to Multiple Clusters
-nav_title: Multiple Clusters  
-menu_order: 3.1
+layout: layout.pug
+title: Connecting to Multiple Clusters
+navigationTitle: Multiple Clusters  
+menuWeight: 3.1
 ---
 
 You can connect the CLI to multiple DC/OS clusters at the same time by using the `dcos cluster` command. 

@@ -1,6 +1,7 @@
 ---
-post_title: dcos node diagnostics delete
-menu_order: 2
+layout: layout.pug
+title: dcos node diagnostics delete
+menuWeight: 2
 ---
     
 # Description

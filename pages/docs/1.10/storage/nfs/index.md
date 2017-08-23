@@ -1,6 +1,7 @@
 ---
-post_title: NFS Server
-menu_order: 1
+layout: layout.pug
+title: NFS Server
+menuWeight: 1
 ---
 
 # Overview

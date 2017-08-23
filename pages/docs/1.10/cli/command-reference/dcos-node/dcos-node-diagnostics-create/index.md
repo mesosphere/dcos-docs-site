@@ -1,6 +1,7 @@
 ---
-post_title: dcos node diagnostics create
-menu_order: 1
+layout: layout.pug
+title: dcos node diagnostics create
+menuWeight: 1
 ---
     
 # Description

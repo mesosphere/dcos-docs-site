@@ -1,7 +1,8 @@
 ---
-post_title: Connecting Apps/Service Discovery
-nav_title: Service Discovery
-menu_order: 4
+layout: layout.pug
+title: Connecting Apps/Service Discovery
+navigationTitle: Service Discovery
+menuWeight: 4
 ---
 
 # Prerequisites

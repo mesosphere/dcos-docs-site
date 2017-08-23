@@ -1,7 +1,8 @@
 ---
-post_title: Log Management with Splunk
-nav_title: Splunk
-menu_order: 3
+layout: layout.pug
+title: Log Management with Splunk
+navigationTitle: Splunk
+menuWeight: 3
 ---
 You can pipe system and application logs from a DC/OS cluster to your existing Splunk server.
 

@@ -1,6 +1,7 @@
 ---
-post_title: Quick Start
-menu_order: 0
+layout: layout.pug
+title: Quick Start
+menuWeight: 0
 post_excerpt: ""
 feature_maturity: preview
 enterprise: 'no'

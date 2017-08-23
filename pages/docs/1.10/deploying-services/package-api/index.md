@@ -1,7 +1,8 @@
 ---
-post_title: DC/OS Package Management API
-nav_title: Package API
-menu_order: 10
+layout: layout.pug
+title: DC/OS Package Management API
+navigationTitle: Package API
+menuWeight: 10
 ---
 
 You can install DC/OS services by using the Package Management API. DC/OS services are installed from packages that are stored in a package registry, such as the [Mesosphere Universe](/docs/1.10/overview/concepts/#mesosphere-universe).

@@ -1,6 +1,7 @@
 ---
-post_title: dcos package list
-menu_order: 2
+layout: layout.pug
+title: dcos package list
+menuWeight: 2
 ---
 
 # Description

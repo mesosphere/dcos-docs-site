@@ -1,6 +1,7 @@
 ---
-post_title: Using a Private Docker Registry
-menu_order: 004.5
+layout: layout.pug
+title: Using a Private Docker Registry
+menuWeight: 004.5
 ---
 
 To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In Enterprise DC/OS, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.

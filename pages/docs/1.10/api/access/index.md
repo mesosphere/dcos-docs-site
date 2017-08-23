@@ -1,6 +1,7 @@
 ---
-post_title: Cluster Access
-menu_order: 1
+layout: layout.pug
+title: Cluster Access
+menuWeight: 1
 ---
 
 You can get the cluster URL by using the following methods:

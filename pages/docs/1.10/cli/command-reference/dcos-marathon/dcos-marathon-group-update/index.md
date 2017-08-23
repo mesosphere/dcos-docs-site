@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon group update
-menu_order: 22
+layout: layout.pug
+title: dcos marathon group update
+menuWeight: 22
 ---
 
 # Description

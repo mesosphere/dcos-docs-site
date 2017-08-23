@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon
-menu_order: 5
+layout: layout.pug
+title: dcos marathon
+menuWeight: 5
 ---
 
 # Description

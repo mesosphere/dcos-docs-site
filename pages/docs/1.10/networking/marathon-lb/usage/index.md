@@ -1,6 +1,7 @@
 ---
-post_title: Installing and Customizing
-menu_order: 000
+layout: layout.pug
+title: Installing and Customizing
+menuWeight: 000
 ---
 
 

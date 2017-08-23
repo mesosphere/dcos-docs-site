@@ -1,6 +1,7 @@
 ---
-post_title: dcos node list-components
-menu_order: 4
+layout: layout.pug
+title: dcos node list-components
+menuWeight: 4
 ---
     
 # Description

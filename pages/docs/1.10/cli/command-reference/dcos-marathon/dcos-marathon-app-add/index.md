@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon app add
-menu_order: 1
+layout: layout.pug
+title: dcos marathon app add
+menuWeight: 1
 ---
 
 # Description

@@ -1,6 +1,7 @@
 ---
-post_title: Agent Routes
-menu_order: 11
+layout: layout.pug
+title: Agent Routes
+menuWeight: 11
 ---
 
 Admin Router Agent runs on DC/OS agent nodes and exposes the following API routes.

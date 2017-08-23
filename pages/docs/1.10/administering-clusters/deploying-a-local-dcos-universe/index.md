@@ -1,6 +1,7 @@
 ---
-post_title: Deploying a Local Universe
-menu_order: 1000
+layout: layout.pug
+title: Deploying a Local Universe
+menuWeight: 1000
 feature_maturity: preview
 ---
 

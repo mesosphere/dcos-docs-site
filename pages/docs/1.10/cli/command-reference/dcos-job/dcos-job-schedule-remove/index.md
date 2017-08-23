@@ -1,6 +1,7 @@
 ---
-post_title: dcos job schedule remove
-menu_order: 7
+layout: layout.pug
+title: dcos job schedule remove
+menuWeight: 7
 ---
     
 # Description

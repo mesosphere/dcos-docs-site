@@ -1,7 +1,8 @@
 ---
-post_title: Microscaling based on queue length
-nav_title: Microscaling
-menu_order: 2
+layout: layout.pug
+title: Microscaling based on queue length
+navigationTitle: Microscaling
+menuWeight: 2
 ---
 
 This tutorial walks through setting up a microscaling demonstration from [Microscaling Systems][2] on a DC/OS cluster. 

@@ -1,6 +1,7 @@
 ---
-post_title: Opt-Out
-menu_order: 5
+layout: layout.pug
+title: Opt-Out
+menuWeight: 5
 ---
 
 ## Authentication

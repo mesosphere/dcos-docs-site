@@ -1,7 +1,8 @@
 ---
-post_title: Metrics Reference
+layout: layout.pug
+title: Metrics Reference
 feature_maturity: preview
-menu_order: 2
+menuWeight: 2
 ---
 
 These metrics are automatically collected by DC/OS.

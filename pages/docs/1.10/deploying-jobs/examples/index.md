@@ -1,8 +1,9 @@
 ---
-post_title: Examples
-nav_title: Examples
+layout: layout.pug
+title: Examples
+navigationTitle: Examples
 feature_maturity: preview
-menu_order: 20
+menuWeight: 20
 ---
 
 # <a name="create-job"></a>Creating a Simple Job

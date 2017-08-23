@@ -1,6 +1,7 @@
 ---
-post_title: dcos job show
-menu_order: 10
+layout: layout.pug
+title: dcos job show
+menuWeight: 10
 ---
     
 # Description

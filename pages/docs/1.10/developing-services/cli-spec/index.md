@@ -1,6 +1,7 @@
 ---
-post_title: CLI Specification
-menu_order: 3
+layout: layout.pug
+title: CLI Specification
+menuWeight: 3
 post_excerpt: ""
 feature_maturity: ""
 enterprise: 'yes'

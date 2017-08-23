@@ -1,6 +1,7 @@
 ---
-post_title: dcos package install
-menu_order: 1
+layout: layout.pug
+title: dcos package install
+menuWeight: 1
 ---
 
 # Description

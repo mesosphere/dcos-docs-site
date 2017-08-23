@@ -1,6 +1,7 @@
 ---
-post_title: Telemetry
-menu_order: 7
+layout: layout.pug
+title: Telemetry
+menuWeight: 7
 ---
 
 To continuously improve the DC/OS experience, a telemetry component is included that reports anonymous usage data to Mesosphere. This data is used to monitor the reliability of core DC/OS components, installations, user interface, and to find out which features are most popular.

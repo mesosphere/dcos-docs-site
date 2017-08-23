@@ -1,6 +1,7 @@
 ---
-post_title: Using Containerizers
-menu_order: 40
+layout: layout.pug
+title: Using Containerizers
+menuWeight: 40
 ---
 
 A containerizer is a Mesos agent component responsible for launching containers, within which you can run a service. Running services in containers offers a number of benefits, including the ability to isolate tasks from one another and control task resources programmatically.

@@ -1,7 +1,8 @@
 ---
-post_title: Deploying an Internally and Externally Load Balanced App with Marathon-LB
-nav_title: Marathon-LB for Internal and External Load Balancing
-menu_order: 200
+layout: layout.pug
+title: Deploying an Internally and Externally Load Balanced App with Marathon-LB
+navigationTitle: Marathon-LB for Internal and External Load Balancing
+menuWeight: 200
 ---
 
 In this tutorial, Marathon-LB is used as an internal and external load balancer. The external load balancer is used to route external HTTP traffic into the cluster, and the internal load balancer is used for internal service discovery and load balancing. Since we’ll be doing this on AWS, external traffic will first hit an external load balancer configured to expose our "public" agent nodes.

@@ -1,7 +1,8 @@
 ---
-post_title: Task Types
-nav_title: Task Types
-menu_order: 2
+layout: layout.pug
+title: Task Types
+navigationTitle: Task Types
+menuWeight: 2
 ---
 
 DC/OS can run many different kinds of workloads, which are composed of tasks.

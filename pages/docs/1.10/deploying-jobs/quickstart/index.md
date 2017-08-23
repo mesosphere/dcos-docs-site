@@ -1,7 +1,8 @@
 ---
-post_title: Quick Start
+layout: layout.pug
+title: Quick Start
 feature_maturity: preview
-menu_order: 10
+menuWeight: 10
 ---
 
 You can create and administer jobs in the DC/OS web interface, from the DC/OS CLI, or via the API.

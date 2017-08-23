@@ -1,6 +1,7 @@
 ---
-post_title: Template Reference
-menu_order: 200
+layout: layout.pug
+title: Template Reference
+menuWeight: 200
 ---
 
 

@@ -1,6 +1,7 @@
 ---
-post_title: Updating a User-Created Service
-menu_order: 003.4
+layout: layout.pug
+title: Updating a User-Created Service
+menuWeight: 003.4
 ---
 
 You can easily view and update the configuration of a deployed app by using the `dcos marathon` command.

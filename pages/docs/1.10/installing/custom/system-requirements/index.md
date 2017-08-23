@@ -1,6 +1,7 @@
 ---
-post_title: System Requirements
-menu_order: 000
+layout: layout.pug
+title: System Requirements
+menuWeight: 000
 ---
 
 # Hardware Prerequisites

@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon app kill
-menu_order: 2
+layout: layout.pug
+title: dcos marathon app kill
+menuWeight: 2
 ---
 
 # Description

@@ -1,7 +1,8 @@
 ---
-post_title: Configuring the CLI
-nav_title: Configuring  
-menu_order: 2
+layout: layout.pug
+title: Configuring the CLI
+navigationTitle: Configuring  
+menuWeight: 2
 ---
 
 You can access DC/OS CLI configuration with this command:

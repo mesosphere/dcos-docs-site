@@ -1,8 +1,9 @@
 ---
-post_title: Installing Using a Custom AMI
-nav_title: Custom AMI
+layout: layout.pug
+title: Installing Using a Custom AMI
+navigationTitle: Custom AMI
 feature_maturity: preview
-menu_order: 101
+menuWeight: 101
 ---
 
 You can use customized [Amazon Machine Images (AMI)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) based on CentOS 7 or CoreOS to launch DC/OS with the advanced templates. 

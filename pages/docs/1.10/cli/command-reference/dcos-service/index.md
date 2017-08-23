@@ -1,6 +1,7 @@
 ---
-post_title: dcos service
-menu_order: 8
+layout: layout.pug
+title: dcos service
+menuWeight: 8
 ---
 
 # Description

@@ -1,7 +1,8 @@
 ---
-post_title: DNS Quick Reference
-nav_title: DNS Reference
-menu_order: 20
+layout: layout.pug
+title: DNS Quick Reference
+navigationTitle: DNS Reference
+menuWeight: 20
 ---
 
 This quick reference provides a summary of the available options.

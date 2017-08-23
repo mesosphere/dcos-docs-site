@@ -1,8 +1,9 @@
 ---
-post_title: 'Troubleshooting'
+layout: layout.pug
+title: 'Troubleshooting'
 post_excerpt: ""
 layout: docs.jade
-menu_order: 400
+menuWeight: 400
 ---
 
 # How can I check the Mesos-DNS version?

@@ -1,6 +1,7 @@
 ---
-post_title: Deploying First Application
-menu_order: 3
+layout: layout.pug
+title: Deploying First Application
+menuWeight: 3
 ---
 
 # Prerequisites

@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon task show
-menu_order: 30
+layout: layout.pug
+title: dcos marathon task show
+menuWeight: 30
 ---
 
 # Description

@@ -1,7 +1,8 @@
 ---
-post_title: Updating the CLI
-nav_title: Updating
-menu_order: 3
+layout: layout.pug
+title: Updating the CLI
+navigationTitle: Updating
+menuWeight: 3
 ---
 
 You can update the DC/OS CLI to the latest version or downgrade to an older version.

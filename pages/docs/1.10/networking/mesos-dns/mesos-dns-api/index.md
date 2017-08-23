@@ -1,7 +1,8 @@
 ---
-post_title: Mesos DNS API
+layout: layout.pug
+title: Mesos DNS API
 post_excerpt: ""
-menu_order: 201
+menuWeight: 201
 ---
 
 You can use the Mesos DNS API to discover the IP addresses and ports of other applications.

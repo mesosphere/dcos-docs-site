@@ -1,6 +1,7 @@
 ---
-post_title: dcos task exec
-menu_order: 0
+layout: layout.pug
+title: dcos task exec
+menuWeight: 0
 ---
 
 # Description

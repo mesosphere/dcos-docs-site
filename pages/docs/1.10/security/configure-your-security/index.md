@@ -1,6 +1,7 @@
 ---
-post_title: Configuring Your Security
-menu_order: 1
+layout: layout.pug
+title: Configuring Your Security
+menuWeight: 1
 ---
 
 ### Using your own Auth0 account

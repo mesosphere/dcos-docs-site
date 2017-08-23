@@ -1,6 +1,7 @@
 ---
-post_title: dcos node diagnostics
-menu_order: 0
+layout: layout.pug
+title: dcos node diagnostics
+menuWeight: 0
 ---
     
 # Description

@@ -1,6 +1,7 @@
 ---
-post_title: dcos cluster
-menu_order: 1
+layout: layout.pug
+title: dcos cluster
+menuWeight: 1
 ---
 
 # Description

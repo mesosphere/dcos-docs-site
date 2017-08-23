@@ -1,6 +1,7 @@
 ---
-post_title: Deploying Services and Pods
-menu_order: 130
+layout: layout.pug
+title: Deploying Services and Pods
+menuWeight: 130
 ---
 
 DC/OS uses Marathon to manage processes and services. Marathon is the "init system" for DC/OS. Marathon starts and monitors your applications and services, automatically healing failures.

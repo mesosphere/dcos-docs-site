@@ -1,7 +1,8 @@
 ---
-post_title: Uninstalling DC/OS on AWS EC2
-nav_title: Uninstalling
-menu_order: 299
+layout: layout.pug
+title: Uninstalling DC/OS on AWS EC2
+navigationTitle: Uninstalling
+menuWeight: 299
 ---
 You can uninstall DC/OS running on AWS EC2 with these instructions.
 

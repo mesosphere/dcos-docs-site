@@ -1,7 +1,8 @@
 ---
-post_title: Spaces
-nav_title: Spaces
-menu_order: 3
+layout: layout.pug
+title: Spaces
+navigationTitle: Spaces
+menuWeight: 3
 ---
 
 In DC/OS, services can live in the user space or the system space. These are analogous to the Linux user and kernel spaces.

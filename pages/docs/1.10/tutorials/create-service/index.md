@@ -1,7 +1,8 @@
 ---
-post_title: Creating and Running a Service
-nav_title: Running a Service
-menu_order: 400
+layout: layout.pug
+title: Creating and Running a Service
+navigationTitle: Running a Service
+menuWeight: 400
 ---
 
 This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS web interface and the CLI.

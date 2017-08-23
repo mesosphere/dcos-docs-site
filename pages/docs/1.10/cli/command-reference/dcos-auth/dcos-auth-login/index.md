@@ -1,6 +1,7 @@
 ---
-post_title: dcos auth login
-menu_order: 2
+layout: layout.pug
+title: dcos auth login
+menuWeight: 2
 ---
 
 # Description

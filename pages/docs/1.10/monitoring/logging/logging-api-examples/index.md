@@ -1,7 +1,8 @@
 ---
-post_title: Logging API Examples
+layout: layout.pug
+title: Logging API Examples
 feature_maturity: preview
-menu_order: 4
+menuWeight: 4
 ---
 
 This topic provides common usage examples for the Logging API.

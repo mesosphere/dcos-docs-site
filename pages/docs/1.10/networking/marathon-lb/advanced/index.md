@@ -1,6 +1,7 @@
 ---
-post_title: Marathon LB Reference
-menu_order: 300
+layout: layout.pug
+title: Marathon LB Reference
+menuWeight: 300
 ---
 ## HAProxy configuration
 

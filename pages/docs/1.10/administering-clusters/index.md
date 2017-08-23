@@ -1,6 +1,7 @@
 ---
-post_title: Administering Clusters
-menu_order: 060
+layout: layout.pug
+title: Administering Clusters
+menuWeight: 060
 ---
 
 

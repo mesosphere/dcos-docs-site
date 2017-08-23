@@ -1,7 +1,8 @@
 ---
-post_title: Components
-nav_title: Components
-menu_order: 4
+layout: layout.pug
+title: Components
+navigationTitle: Components
+menuWeight: 4
 ---
 
 DC/OS is composed of many open source microservice components meticulously tuned and configured to work together.

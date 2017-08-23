@@ -1,7 +1,8 @@
 ---
-post_title: Pods
+layout: layout.pug
+title: Pods
 feature_maturity: preview
-menu_order: 85
+menuWeight: 85
 ---
 
 # Overview

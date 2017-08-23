@@ -1,7 +1,8 @@
 ---
-post_title: DC/OS overlay
-nav_title: Overlay
-menu_order: 5
+layout: layout.pug
+title: DC/OS overlay
+navigationTitle: Overlay
+menuWeight: 5
 ---
 
 # DC/OS overlay: An IP-per-Container solution for DC/OS

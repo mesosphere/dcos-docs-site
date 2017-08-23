@@ -1,7 +1,8 @@
 ---
-post_title: Logging API
+layout: layout.pug
+title: Logging API
 feature_maturity: preview
-menu_order: 3
+menuWeight: 3
 ---
 
 The Logging API exposes node, component, and container (task) logs.

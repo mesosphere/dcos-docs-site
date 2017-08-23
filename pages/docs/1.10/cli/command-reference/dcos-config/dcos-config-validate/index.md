@@ -1,6 +1,7 @@
 ---
-post_title: dcos config validate
-menu_order: 4
+layout: layout.pug
+title: dcos config validate
+menuWeight: 4
 ---
 
 # Description

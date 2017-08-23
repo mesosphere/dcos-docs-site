@@ -1,6 +1,7 @@
 ---
-post_title: Securing a Cluster
-menu_order: 7
+layout: layout.pug
+title: Securing a Cluster
+menuWeight: 7
 ---
 
 This topic discusses the security features in DC/OS and

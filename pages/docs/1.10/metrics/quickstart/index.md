@@ -1,7 +1,8 @@
 ---
-post_title: Metrics Quick Start
-nav_title: Quick Start
-menu_order: 0
+layout: layout.pug
+title: Metrics Quick Start
+navigationTitle: Quick Start
+menuWeight: 0
 feature_maturity: preview
 ---
 

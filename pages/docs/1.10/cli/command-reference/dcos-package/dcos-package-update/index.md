@@ -1,6 +1,7 @@
 ---
-post_title: dcos package update
-menu_order: 8
+layout: layout.pug
+title: dcos package update
+menuWeight: 8
 ---
 
 # Description

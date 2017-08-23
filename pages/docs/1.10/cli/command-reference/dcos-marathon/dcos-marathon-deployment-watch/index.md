@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon deployment watch
-menu_order: 16.1
+layout: layout.pug
+title: dcos marathon deployment watch
+menuWeight: 16.1
 ---
 
 # Description

@@ -1,7 +1,8 @@
 ---
-post_title: Converting Agent Node Types
-nav_title: Convert Node Type
-menu_order: 700
+layout: layout.pug
+title: Converting Agent Node Types
+navigationTitle: Convert Node Type
+menuWeight: 700
 ---
 
 You can convert agent nodes to public or private for an existing DC/OS cluster. 

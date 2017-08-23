@@ -1,8 +1,9 @@
 ---
-post_title: >
+layout: layout.pug
+title: >
   Autoscaling Marathon services using CPU and memory
-nav_title: CPU/Memory
-menu_order: 0
+navigationTitle: CPU/Memory
+menuWeight: 0
 ---
 
 A Python service, `marathon-autoscale.py`, autoscales your Marathon application based on the utilization metrics which Mesos reports. You can run this service from within your DC/OS cluster. `marathon-autoscale.py` is intended to demonstrate what is possible when you run your services on DC/OS.

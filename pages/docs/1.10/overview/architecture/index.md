@@ -1,7 +1,8 @@
 ---
-post_title: Architecture
-nav_title: Architecture
-menu_order: 2
+layout: layout.pug
+title: Architecture
+navigationTitle: Architecture
+menuWeight: 2
 ---
 
 DC/OS is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic to the infrastructure layer. This means that the infrastructure may consist of virtual or physical hardware as long as it provides compute, storage, and networking.

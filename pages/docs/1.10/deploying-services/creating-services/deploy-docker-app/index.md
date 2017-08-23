@@ -1,6 +1,7 @@
 ---
-post_title: Deploying a Docker-based Service
-menu_order: 100
+layout: layout.pug
+title: Deploying a Docker-based Service
+menuWeight: 100
 ---
 
 In this tutorial, a custom Docker app is created and added to Marathon.

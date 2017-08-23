@@ -1,6 +1,7 @@
 ---
-post_title: dcos package repo add
-menu_order: 3
+layout: layout.pug
+title: dcos package repo add
+menuWeight: 3
 ---
 
 # Description

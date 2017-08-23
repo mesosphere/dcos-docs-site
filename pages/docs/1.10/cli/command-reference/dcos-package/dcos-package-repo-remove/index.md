@@ -1,6 +1,7 @@
 ---
-post_title: dcos package repo remove
-menu_order: 5
+layout: layout.pug
+title: dcos package repo remove
+menuWeight: 5
 ---
 
 # Description

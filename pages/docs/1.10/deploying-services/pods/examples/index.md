@@ -1,7 +1,8 @@
 ---
-post_title: Examples
+layout: layout.pug
+title: Examples
 feature_maturity: preview
-menu_order: 30
+menuWeight: 30
 ---
 
 This topic provides usage examples for pods.

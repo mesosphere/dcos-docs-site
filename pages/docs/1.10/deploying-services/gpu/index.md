@@ -1,7 +1,8 @@
 ---
-post_title: Using GPUs
+layout: layout.pug
+title: Using GPUs
 feature_maturity: preview
-menu_order: 110
+menuWeight: 110
 ---
 
 DC/OS supports allocating GPUs (Graphics Processing Units) to your long-running DC/OS services. Adding GPUs to your services can dramatically accelerate big data workloads. 

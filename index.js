@@ -121,17 +121,30 @@ function walk(file, files, array, children, level) {
   let id = array[0];
   let child = children.find((c, i) => c.id === id);
   if(!child) {
+    /*
     let child = Object.assign({
       id: id,
       menuWeight: 0,
       path: path,
       children: [],
     }, files[file]);
+    */
+
+    let child = Object.assign({
+      id: id,
+      title: files[file].title,
+      navigationTitle: files[file].navigationTitle,
+      menuWeight: files[file].menuWeight,
+      path: path,
+      children: [],
+    }, files[file]);
+
     // Remove large data
-    delete child.layout;
-    delete child.stats;
-    delete child.mode;
-    delete child.contents;
+    //delete child.layout;
+    //delete child.stats;
+    //delete child.mode;
+    //delete child.contents;
+
     children.push(child);
   }
   if(array.length > 1) {
@@ -173,7 +186,7 @@ function headings() {
       var contents = data.contents.toString();
       var $ = cheerio.load(contents);
       data.headings = [];
-      
+
       $(selectors.join(',')).each(function(){
         if ($(this).data('hide') !== true) {
           data.headings.push({

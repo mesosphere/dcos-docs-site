@@ -1,7 +1,8 @@
 ---
-post_title: Task Handling
-nav_title: Task Handling
-menu_order: 1.5
+layout: layout.pug
+title: Task Handling
+navigationTitle: Task Handling
+menuWeight: 1.5
 ---
 
 Marathon sorts tasks into these categories: initial, non-terminal, and terminal. Tasks within these categories may have one of several statuses, as summarized in the diagram below.

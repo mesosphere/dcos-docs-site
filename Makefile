@@ -10,7 +10,15 @@ pdf:
 	HTML_FILES="$(HTML_FILES)" OUTPUT_FILE="${OUTPUT_FILE}" docker-compose up
 
 migration:
-	./scripts/migration.sh ../../dcos/dcos-docs ./pages/docs
+	rm -rf ./pages/docs/*
+	mkdir ./pages/docs/1.10
+	#mkdir ./pages/docs/1.9
+	#mkdir ./pages/docs/1.8
+	#mkdir ./pages/docs/1.7
+	./scripts/migration.sh ../../dcos/dcos-docs/1.10 ./pages/docs/1.10
+	#./scripts/migration.sh ../../dcos/dcos-docs/1.9 ./pages/docs/1.9
+	#./scripts/migration.sh ../../dcos/dcos-docs/1.8 ./pages/docs/1.8
+	#./scripts/migration.sh ../../dcos/dcos-docs/1.7 ./pages/docs/1.7
 
 reset:
 	docker stop mesospheredocs_docs_1

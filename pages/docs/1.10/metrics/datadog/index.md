@@ -1,7 +1,8 @@
 ---
-post_title: Datadog Metrics for DC/OS
+layout: layout.pug
+title: Datadog Metrics for DC/OS
 feature_maturity: preview
-menu_order: 3.5
+menuWeight: 3.5
 ---
 
 The Datadog metrics plugin for DC/OS supports sending metrics from the DC/OS metrics service on master and agent hosts to a Datadog agent for shipping to DatadogHQ.

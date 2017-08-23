@@ -1,6 +1,7 @@
 ---
-post_title: dcos job schedule update
-menu_order: 9
+layout: layout.pug
+title: dcos job schedule update
+menuWeight: 9
 ---
     
 # Description

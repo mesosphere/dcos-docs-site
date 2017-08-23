@@ -1,6 +1,7 @@
 ---
-post_title: dcos experimental package build
-menu_order: 1
+layout: layout.pug
+title: dcos experimental package build
+menuWeight: 1
 ---
     
 # Description

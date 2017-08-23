@@ -1,7 +1,8 @@
 ---
-nav_title: Access by Proxy and VPN
-post_title: Access by Proxy and VPN using DC/OS Tunnel
-menu_order: 10
+layout: layout.pug
+navigationTitle: Access by Proxy and VPN
+title: Access by Proxy and VPN using DC/OS Tunnel
+menuWeight: 10
 ---
 
 When developing services on DC/OS, you may find it helpful to access your cluster from your local machine via SOCKS proxy, HTTP proxy, or VPN. For instance, you can work from your own development environment and immediately test against your DC/OS cluster.

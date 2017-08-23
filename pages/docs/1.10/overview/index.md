@@ -1,6 +1,7 @@
 ---
-post_title: Overview
-menu_order: 020
+layout: layout.pug
+title: Overview
+menuWeight: 020
 ---
 
 The overview topics help you get started and learn the DC/OS fundamentals.

@@ -1,6 +1,7 @@
 ---
-post_title: Docker Containerizer
-menu_order: 20
+layout: layout.pug
+title: Docker Containerizer
+menuWeight: 20
 ---
 
 Use the Docker containerizer if you need specific features of the Docker package. Refer to the [features matrix](/docs/1.10/deploying-services/containerizers/) to see if the Docker containerizer is the correct choice for your task.

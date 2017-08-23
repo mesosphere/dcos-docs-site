@@ -1,6 +1,7 @@
 ---
-post_title: Networking
-menu_order: 070
+layout: layout.pug
+title: Networking
+menuWeight: 070
 ---
 
 DC/OS provides a number of tools out-of-the-box, ranging from basic network connectivity between containers to more advanced features, such as load balancing and service discovery. 

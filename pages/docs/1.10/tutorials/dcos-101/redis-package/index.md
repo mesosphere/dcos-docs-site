@@ -1,6 +1,7 @@
 ---
-post_title: Installing First Package
-menu_order: 2
+layout: layout.pug
+title: Installing First Package
+menuWeight: 2
 ---
 
 Welcome to part 2 of the DC/OS 101 Tutorial.

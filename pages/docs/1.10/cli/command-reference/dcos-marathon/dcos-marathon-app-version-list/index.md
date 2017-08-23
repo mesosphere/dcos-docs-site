@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon app version list
-menu_order: 10
+layout: layout.pug
+title: dcos marathon app version list
+menuWeight: 10
 ---
 
 # Description

@@ -1,6 +1,7 @@
 ---
-post_title: dcos service log
-menu_order: 0
+layout: layout.pug
+title: dcos service log
+menuWeight: 0
 ---
 
 # Description

@@ -1,6 +1,7 @@
 ---
-post_title: Deploying a Load-Balanced Data Pipeline
-menu_order: 100
+layout: layout.pug
+title: Deploying a Load-Balanced Data Pipeline
+menuWeight: 100
 ---
 
 

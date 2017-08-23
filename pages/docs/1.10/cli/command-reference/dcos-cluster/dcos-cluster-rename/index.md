@@ -1,6 +1,7 @@
 ---
-post_title: dcos cluster rename
-menu_order: 5
+layout: layout.pug
+title: dcos cluster rename
+menuWeight: 5
 ---
 
 # Description

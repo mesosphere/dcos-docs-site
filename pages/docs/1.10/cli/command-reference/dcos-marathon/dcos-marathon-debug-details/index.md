@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon debug details
-menu_order: 11
+layout: layout.pug
+title: dcos marathon debug details
+menuWeight: 11
 ---
 
 # Description

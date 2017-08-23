@@ -1,8 +1,9 @@
 ---
-nav_title: Universal Container Runtime
-post_title: Universal Container Runtime (UCR)
+layout: layout.pug
+navigationTitle: Universal Container Runtime
+title: Universal Container Runtime (UCR)
 feature_maturity: preview
-menu_order: 10
+menuWeight: 10
 ---
 
 The [Universal Container Runtime](http://mesos.apache.org/documentation/latest/container-image) (UCR) extends the Mesos containerizer to support provisioning [Docker](https://docker.com/) container images ([AppC](https://github.com/appc/spec) coming soon). This means that you can use both the Mesos containerizer and other container image types in DC/OS. You can still use the Docker container runtime directly with DC/OS, but the Universal Container Runtime supports running Docker images without depending on the Docker Engine, which allows for better integration with Mesos.

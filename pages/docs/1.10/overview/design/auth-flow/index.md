@@ -1,6 +1,7 @@
 ---
-post_title: Authentication Architecture
-menu_order: 1
+layout: layout.pug
+title: Authentication Architecture
+menuWeight: 1
 ---
 
 

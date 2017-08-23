@@ -1,7 +1,8 @@
 ---
-post_title: Deploying an Externally Load Balanced App with Marathon-LB
-nav_title:  Marathon-LB for Externally Load Balanced App
-menu_order: 100 
+layout: layout.pug
+title: Deploying an Externally Load Balanced App with Marathon-LB
+navigationTitle:  Marathon-LB for Externally Load Balanced App
+menuWeight: 100 
 ---
 
 This tutorial shows you how to use Marathon-LB to run a containerized DC/OS service that serves a website. Specifically, you will use Docker image that contains NGINX, which serves the dcos.io site.

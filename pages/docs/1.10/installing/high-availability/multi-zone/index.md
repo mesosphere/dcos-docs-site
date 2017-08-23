@@ -1,7 +1,8 @@
 ---
-post_title: Multiple Zones
+layout: layout.pug
+title: Multiple Zones
 feature_maturity: preview
-menu_order: 1
+menuWeight: 1
 ---
 
 DC/OS supports multiple zone (multi-AZ) configurations. This topic describes the setup recommendations and caveats.

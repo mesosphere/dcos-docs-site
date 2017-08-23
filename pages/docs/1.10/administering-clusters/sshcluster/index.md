@@ -1,6 +1,7 @@
 ---
-post_title: SSHing into Nodes
-menu_order: 0
+layout: layout.pug
+title: SSHing into Nodes
+menuWeight: 0
 ---
 
 These instructions explain how to set up an SSH connection to your DC/OS cluster from an outside network. If you are on the same network as your cluster or connected by using VPN, you can instead use the `dcos node ssh` command. For more information, see the [dcos node section][1] of the CLI reference.

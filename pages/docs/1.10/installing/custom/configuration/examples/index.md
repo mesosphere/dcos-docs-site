@@ -1,6 +1,7 @@
 ---
-post_title: Examples
-menu_order: 700
+layout: layout.pug
+title: Examples
+menuWeight: 700
 ---
 
 This topic provides common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [Enterprise DC/OS](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.

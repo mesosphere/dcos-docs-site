@@ -1,6 +1,7 @@
 ---
-post_title: Performance Monitoring
-menu_order: 1
+layout: layout.pug
+title: Performance Monitoring
+menuWeight: 1
 ---
 
 Here are some recommendations for monitoring a DC/OS cluster. You can use any monitoring tools. The endpoints listed below will help you troubleshoot when issues occur.

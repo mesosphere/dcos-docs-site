@@ -1,6 +1,7 @@
 ---
-post_title: Exposing Mesos Zones Outside
-menu_order: 300
+layout: layout.pug
+title: Exposing Mesos Zones Outside
+menuWeight: 300
 ---
 
 There are cases where you may want to have services outside of DC/OS that use DNS records inside of the DC/OS cluster.  However, the `.mesos` domain name that DC/OS uses to expose records does not support this. To enable this capability, you can put a BIND server in front of your cluster. 

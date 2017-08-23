@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon group remove
-menu_order: 19
+layout: layout.pug
+title: dcos marathon group remove
+menuWeight: 19
 ---
 
 # Description

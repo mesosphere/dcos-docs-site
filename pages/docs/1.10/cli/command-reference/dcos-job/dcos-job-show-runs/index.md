@@ -1,6 +1,7 @@
 ---
-post_title: dcos job show runs
-menu_order: 11
+layout: layout.pug
+title: dcos job show runs
+menuWeight: 11
 ---
     
 # Description

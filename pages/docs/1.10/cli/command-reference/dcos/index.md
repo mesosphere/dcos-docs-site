@@ -1,6 +1,7 @@
 ---
-post_title: dcos
-menu_order: 0
+layout: layout.pug
+title: dcos
+menuWeight: 0
 ---
 
 # Description

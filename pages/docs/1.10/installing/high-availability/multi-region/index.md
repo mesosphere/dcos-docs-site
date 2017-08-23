@@ -1,6 +1,7 @@
 ---
-post_title: Multiple Regions
-menu_order: 2
+layout: layout.pug
+title: Multiple Regions
+menuWeight: 2
 ---
 
 **Important:** DC/OS does not currently support multiple region configurations. If you would like to experiment with multi-region configurations, this topic provides the setup recommendations and caveats.

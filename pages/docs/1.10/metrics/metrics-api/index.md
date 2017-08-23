@@ -1,7 +1,8 @@
 ---
-post_title: Metrics API
+layout: layout.pug
+title: Metrics API
 feature_maturity: preview
-menu_order: 1
+menuWeight: 1
 ---
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications. You can then pass this data to a third party service of your choice to achieve informative charts, dashboards, and alerts.

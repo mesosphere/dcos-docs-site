@@ -1,6 +1,7 @@
 ---
-post_title: Configuration
-menu_order: 600
+layout: layout.pug
+title: Configuration
+menuWeight: 600
 ---
 
 The DC/OS configuration parameters are specified in YAML format in a config.yaml file. This file is stored on your [bootstrap node](/docs/1.10/installing/custom/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.

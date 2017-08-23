@@ -1,6 +1,7 @@
 ---
-post_title: Load-Balancing
-menu_order: 7
+layout: layout.pug
+title: Load-Balancing
+menuWeight: 7
 ---
 
 # Prerequisites

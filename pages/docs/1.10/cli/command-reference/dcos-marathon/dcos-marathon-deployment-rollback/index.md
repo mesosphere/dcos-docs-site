@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon deployment rollback
-menu_order: 15
+layout: layout.pug
+title: dcos marathon deployment rollback
+menuWeight: 15
 ---
 
 # Description

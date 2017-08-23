@@ -1,6 +1,7 @@
 ---
-post_title: dcos job
-menu_order: 4
+layout: layout.pug
+title: dcos job
+menuWeight: 4
 ---
     
 # Description

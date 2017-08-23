@@ -1,6 +1,7 @@
 ---
-post_title: Adding Users Manually
-menu_order: 4
+layout: layout.pug
+title: Adding Users Manually
+menuWeight: 4
 ---
 
 You can add users to your DC/OS cluster from a terminal by using the `dcos_add_user.py` script. This script is included by default with your DC/OS installation.

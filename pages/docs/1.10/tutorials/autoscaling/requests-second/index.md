@@ -1,8 +1,9 @@
 ---
-post_title: >
+layout: layout.pug
+title: >
   Autoscaling using requests per second
-nav_title: Requests/Second
-menu_order: 1
+navigationTitle: Requests/Second
+menuWeight: 1
 ---
 
 You can use the [marathon-lb-autoscale](https://github.com/mesosphere/marathon-lb-autoscale) application to implement request rate-based autoscaling with Marathon. The marathon-lb-autoscale application works with any application that uses TCP traffic and can be routed through HAProxy.

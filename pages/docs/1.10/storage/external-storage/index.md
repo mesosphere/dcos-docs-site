@@ -1,6 +1,7 @@
 ---
-post_title: External Persistent Volumes
-menu_order: 1
+layout: layout.pug
+title: External Persistent Volumes
+menuWeight: 1
 feature_maturity: experimental
 ---
 

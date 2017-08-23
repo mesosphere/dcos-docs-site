@@ -1,6 +1,7 @@
 ---
-post_title: Configuring Universe Services
-menu_order: 002
+layout: layout.pug
+title: Configuring Universe Services
+menuWeight: 002
 ---
 
 Each Universe service installs with a set of default parameters. You can discover the default parameters and change them as desired.

@@ -1,7 +1,8 @@
 ---
-post_title: Installing the CLI
-nav_title: Installing
-menu_order: 1
+layout: layout.pug
+title: Installing the CLI
+navigationTitle: Installing
+menuWeight: 1
 ---
 
 The recommended method to install the DC/OS CLI is from the DC/OS web interface. Or, you can manually install the CLI by using the instructions [below](#manual). 

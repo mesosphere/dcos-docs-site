@@ -1,7 +1,8 @@
 ---
-post_title: Quick Start
+layout: layout.pug
+title: Quick Start
 feature_maturity: preview
-menu_order: 0
+menuWeight: 0
 ---
 
 ### Prerequisites

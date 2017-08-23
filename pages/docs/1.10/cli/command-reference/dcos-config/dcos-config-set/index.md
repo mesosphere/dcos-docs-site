@@ -1,6 +1,7 @@
 ---
-post_title: dcos config set
-menu_order: 1
+layout: layout.pug
+title: dcos config set
+menuWeight: 1
 ---
 
 # Description

@@ -1,8 +1,9 @@
 ---
-post_title: >
+layout: layout.pug
+title: >
     Design: Distributed DNS
-nav_title: Distributed DNS
-menu_order: 3
+navigationTitle: Distributed DNS
+menuWeight: 3
 ---
 
 ## Background

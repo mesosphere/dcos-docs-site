@@ -1,6 +1,7 @@
 ---
-post_title: dcos task ls
-menu_order: 2
+layout: layout.pug
+title: dcos task ls
+menuWeight: 2
 ---
 
 # Description

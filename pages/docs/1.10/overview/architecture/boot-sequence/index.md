@@ -1,7 +1,8 @@
 ---
-post_title: Boot Sequence
-nav_title: Boot Sequence
-menu_order: 6
+layout: layout.pug
+title: Boot Sequence
+navigationTitle: Boot Sequence
+menuWeight: 6
 ---
 
 During installation, the DC/OS component services are all started in parallel but initialize and become responsive in a relatively consistent sequence because of interdependencies.

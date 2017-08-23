@@ -1,7 +1,8 @@
 ---
-post_title: Virtual Networks
+layout: layout.pug
+title: Virtual Networks
 feature_maturity: preview
-menu_order: 20 
+menuWeight: 20 
 ---
 
 DC/OS enables virtual networking through the use of virtual networks. DC/OS virtual networks enable you to provide each container in the system with a unique IP address (“IP-per-container”) with isolation guarantees amongst subnets. DC/OS virtual networks offer the following advantages:

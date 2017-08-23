@@ -1,8 +1,9 @@
 ---
-post_title: >
+layout: layout.pug
+title: >
     Design: Installation
-nav_title: Installation
-menu_order: 4
+navigationTitle: Installation
+menuWeight: 4
 ---
 
 Building, installing and operating DC/OS must be a repeatable process. Even small error rates are unacceptable when you’re working with 10,000 hosts. Because DC/OS is comprised of more than 30 different libraries, services and support packages, a non-standard approach is required. Trying to treat each of those components as independent artifacts to install and configure on target hosts would introduce failures that would get in the way of relying on the system.

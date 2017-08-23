@@ -1,6 +1,7 @@
 ---
-post_title: dcos config unset
-menu_order: 3
+layout: layout.pug
+title: dcos config unset
+menuWeight: 3
 ---
 
 # Description

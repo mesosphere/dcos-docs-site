@@ -1,7 +1,8 @@
 ---
-post_title: Running DC/OS on Google Compute Engine
-nav_title: GCE
-menu_order: 3
+layout: layout.pug
+title: Running DC/OS on Google Compute Engine
+navigationTitle: GCE
+menuWeight: 3
 ---
 
 You can configure a DC/OS cluster on Google Compute Engine (GCE) by using these scripts.

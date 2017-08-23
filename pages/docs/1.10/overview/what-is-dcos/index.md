@@ -1,6 +1,7 @@
 ---
-post_title: What is DC/OS?
-menu_order: 1
+layout: layout.pug
+title: What is DC/OS?
+menuWeight: 1
 ---
 
 As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.

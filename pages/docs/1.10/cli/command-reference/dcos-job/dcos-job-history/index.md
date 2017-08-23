@@ -1,6 +1,7 @@
 ---
-post_title: dcos job history
-menu_order: 1
+layout: layout.pug
+title: dcos job history
+menuWeight: 1
 ---
     
 # Description

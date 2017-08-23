@@ -1,6 +1,7 @@
 ---
-post_title: dcos node ssh
-menu_order: 6
+layout: layout.pug
+title: dcos node ssh
+menuWeight: 6
 ---
     
 # Description

@@ -1,7 +1,8 @@
 ---
-post_title: Deploying native Applications
-nav_title: Native Applications
-menu_order: 5
+layout: layout.pug
+title: Deploying native Applications
+navigationTitle: Native Applications
+menuWeight: 5
 ---
 
 # Prerequisites

@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon deployment stop
-menu_order: 16
+layout: layout.pug
+title: dcos marathon deployment stop
+menuWeight: 16
 ---
 
 # Description

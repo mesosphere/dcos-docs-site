@@ -1,7 +1,8 @@
 ---
-post_title: Monitoring Services
-nav_title: Monitoring
-menu_order: 003
+layout: layout.pug
+title: Monitoring Services
+navigationTitle: Monitoring
+menuWeight: 003
 ---
 
 You can monitor deployed DC/OS services from the CLI and web interface.

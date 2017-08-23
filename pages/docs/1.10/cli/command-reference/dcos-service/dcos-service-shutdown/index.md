@@ -1,6 +1,7 @@
 ---
-post_title: dcos service shutdown
-menu_order: 1
+layout: layout.pug
+title: dcos service shutdown
+menuWeight: 1
 ---
 
 # Description

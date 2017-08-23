@@ -1,6 +1,7 @@
 ---
-post_title: dcos job update
-menu_order: 12
+layout: layout.pug
+title: dcos job update
+menuWeight: 12
 ---
     
 # Description

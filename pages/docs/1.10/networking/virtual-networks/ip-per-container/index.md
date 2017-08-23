@@ -1,8 +1,9 @@
 ---
-nav_title: Configuring IP-per-Container
-post_title: Configuring IP-per-Container in Virtual Networks
+layout: layout.pug
+navigationTitle: Configuring IP-per-Container
+title: Configuring IP-per-Container in Virtual Networks
 feature_maturity: preview
-menu_order: 10
+menuWeight: 10
 ---
 
 The virtual network feature is enabled by default in DC/OS. The default configuration of DC/OS provides an virtual network, `dcos`, whose YAML configuration is as follows:

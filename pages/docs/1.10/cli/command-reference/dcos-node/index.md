@@ -1,6 +1,7 @@
 ---
-post_title: dcos node
-menu_order: 6
+layout: layout.pug
+title: dcos node
+menuWeight: 6
 ---
     
 # Description

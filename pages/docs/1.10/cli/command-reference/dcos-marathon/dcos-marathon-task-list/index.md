@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon task list
-menu_order: 29
+layout: layout.pug
+title: dcos marathon task list
+menuWeight: 29
 ---
 
 # Description

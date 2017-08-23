@@ -1,6 +1,7 @@
 ---
-post_title: dcos package search
-menu_order: 6
+layout: layout.pug
+title: dcos package search
+menuWeight: 6
 ---
 
 # Description

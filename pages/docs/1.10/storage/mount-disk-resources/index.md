@@ -1,6 +1,7 @@
 ---
-post_title: Mount Disk Resources
-menu_order: 0
+layout: layout.pug
+title: Mount Disk Resources
+menuWeight: 0
 ---
 
 # Overview

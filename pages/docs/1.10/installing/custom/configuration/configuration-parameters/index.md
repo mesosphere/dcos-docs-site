@@ -1,6 +1,7 @@
 ---
-post_title: Configuration Reference
-menu_order: 600
+layout: layout.pug
+title: Configuration Reference
+menuWeight: 600
 ---
 
 This topic provides all available configuration parameters. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [Enterprise DC/OS](https://mesosphere.com/product/).

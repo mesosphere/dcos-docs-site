@@ -1,6 +1,7 @@
 ---
-post_title: dcos package uninstall
-menu_order: 7
+layout: layout.pug
+title: dcos package uninstall
+menuWeight: 7
 ---
 
 # Description

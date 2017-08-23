@@ -1,6 +1,7 @@
 ---
-post_title: dcos job add
-menu_order: 0
+layout: layout.pug
+title: dcos job add
+menuWeight: 0
 ---
     
 # Description

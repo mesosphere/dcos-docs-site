@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon group scale
-menu_order: 20
+layout: layout.pug
+title: dcos marathon group scale
+menuWeight: 20
 ---
 
 # Description

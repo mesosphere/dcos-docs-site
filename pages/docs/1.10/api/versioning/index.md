@@ -1,7 +1,8 @@
 ---
-post_title: API Versioning
-nav_title: Versioning
-menu_order: 2
+layout: layout.pug
+title: API Versioning
+navigationTitle: Versioning
+menuWeight: 2
 ---
 
 The DC/OS API is backed by many loosely coupled components; some are standalone projects and others are designed exclusively for DC/OS. Because of this, a variety of versioning mechanisms are supported: component, route, and resource versioning.

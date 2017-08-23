@@ -1,8 +1,9 @@
 ---
-post_title: CNI Plugin Support
-nav_title: CNI Plugin Support
+layout: layout.pug
+title: CNI Plugin Support
+navigationTitle: CNI Plugin Support
 feature_maturity: preview
-menu_order: 30
+menuWeight: 30
 ---
 
 As of version 1.10, DC/OS works with any type of CNI network. Use CNI to allow your containers to communicate with one another when they are isolated from the hosts they are running on.

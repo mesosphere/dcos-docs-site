@@ -46,6 +46,19 @@ function copy_file
   cp $1 $2
 }
 
+function  reformat_file_frontmatter
+{
+  sed -i -e 's/post_title:/title:/g' $1
+  sed -i -e 's/nav_title:/navigationTitle:/g' $1
+  sed -i -e 's/menu_order:/menuWeight:/g' $1
+  sed -i -e '1s/---/---\nlayout: layout.pug/' $1
+  # If no menuWeight is found, add
+  if ! grep -q "menuWeight:" $1; then
+    sed -i '/---/i\menuWeight: 0' $1
+    sed -i 1d $1
+  fi
+}
+
 function main
 {
   (
@@ -62,6 +75,8 @@ function main
           if [ -f "$f" ] && [ ${f: -8} == "index.md" ]; then
             printf "${GREEN}Index File ${BLUE}$f${NC}\n"
             copy_file $f $2/index.md
+            # Reformat frontmatter
+            reformat_file_frontmatter $2/index.md
           # If .md file
           elif [ -f "$f" ] && [ ${f: -3} == ".md" ]; then
             # Debug
@@ -70,6 +85,8 @@ function main
             create_folder_from_file $2/${fls[-1]::-3}
             # Copy file
             copy_file $f $2/${fls[-1]::-3}/index.md
+            # Reformat frontmatter
+            reformat_file_frontmatter $2/${fls[-1]::-3}/index.md
           fi
         done
       fi
@@ -81,8 +98,15 @@ function main
           # Split path
           IFS='/' read -ra fls <<< "$f"
           new_dir=$2/${fls[-1]}
+          # Skip img
+          if [ -d "$f" ] && [ ${f: -3} == "img" ]; then
+            printf "${GREEN}Skipping Folder ${BLUE}$new_dir${NC}\n"
+            continue
+          # Skip link
+          elif [ -L "$f" ]; then
+            continue
           # If folder
-          if [ -d "$f" ]; then
+          elif [ -d "$f" ]; then
             # Debug
             printf "\n"
             printf "${GREEN}Folder ${BLUE}$new_dir${NC}\n"

@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon pod remove
-menu_order: 26
+layout: layout.pug
+title: dcos marathon pod remove
+menuWeight: 26
 ---
 
 # Description

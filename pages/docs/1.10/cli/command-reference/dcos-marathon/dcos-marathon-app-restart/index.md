@@ -1,6 +1,7 @@
 ---
-post_title: dcos marathon app restart
-menu_order: 5
+layout: layout.pug
+title: dcos marathon app restart
+menuWeight: 5
 ---
 
 # Description
