@@ -41,10 +41,10 @@ mixin renderSidebarNavListItem(item)
   - var hasChildren = Object.keys(item.children).length !== 0
   li(class=itemClassList)
     div(class='sidebar__nav__item__text')
-      if(hasChildren && onRootPage == false)
+      if(hasChildren)
         svg(class='sidebar__nav__icon')
           use(xlink:href="assets/sprite.svg#chevron")
-      a(href=item.path, class='sidebar__nav__link')!= item.navigationTitle
+      a(href=item.path, class='sidebar__nav__link')!= item.navigationTitle || item.title
     if(hasChildren)
       - var listClassList = {}
       - listClassList['sidebar__nav__list'] = true
