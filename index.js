@@ -12,6 +12,7 @@ const attrs            = require('markdown-it-attrs');
 const cheerio          = require('cheerio');
 const extname          = require('path').extname;
 const shortcodesConfig = require('./shortcodes');
+const timer            = require('metalsmith-timer');
 
 //
 // Metalsmith
@@ -46,13 +47,18 @@ else if(
   MS.clean(true)
 }
 
+// Start timer
+MS.use(timer('init'))
+
 // Folder Hierarchy
 MS.use(plugin())
+MS.use(timer('Hierarchy'))
 
 // Shortcodes
 MS.use(shortcodes({
   shortcodes: shortcodesConfig
 }))
+MS.use(timer('Shortcodes'))
 
 // Markdown
 MS.use(markdown(
@@ -63,26 +69,32 @@ MS.use(markdown(
   .use(anchor)
   .use(attrs),
 )
+MS.use(timer('Markdown'))
 
 // Headings
 MS.use(headings())
+MS.use(timer('Headings'))
 
 // Permalinks
 MS.use(permalinks())
+MS.use(timer('Permalinks'))
 
 // Assets
 MS.use(assets({
   source: 'assets',
   destination: 'assets',
 }))
+MS.use(timer('Assets'))
 
 // Layouts
 MS.use(layouts({
   engine: 'pug',
 }))
+MS.use(timer('Layouts'))
 
 // Webpack
 MS.use(webpack('./webpack.config.js'))
+MS.use(timer('Webpack'))
 
 if(process.env.NODE_ENV == "development") {
   // BrowserSync
