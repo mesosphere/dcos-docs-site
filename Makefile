@@ -10,7 +10,10 @@ pdf:
 	HTML_FILES="$(HTML_FILES)" OUTPUT_FILE="${OUTPUT_FILE}" docker-compose up
 
 migration:
-	rm -rf ./pages/docs/*
+	rm -rf ./pages/docs/1.10
+	#rm -rf ./pages/docs/1.9
+	#rm -rf ./pages/docs/1.8
+	#rm -rf ./pages/docs/1.7
 	mkdir ./pages/docs/1.10
 	#mkdir ./pages/docs/1.9
 	#mkdir ./pages/docs/1.8
