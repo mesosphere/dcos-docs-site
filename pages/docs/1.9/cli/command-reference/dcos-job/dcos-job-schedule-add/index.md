@@ -37,8 +37,8 @@ navigationTitle:  dcos job schedule add
 | Command | Description |
 navigationTitle:  dcos job schedule add
 |---------|-------------|
-| [dcos job](/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
-For examples using `job add`, see the [documentation](/1.9/deploying-jobs/examples/#create-job-schedule).
+For examples using `job add`, see the [documentation](/docs/1.9/deploying-jobs/examples/#create-job-schedule).

@@ -281,7 +281,7 @@ If a service launches multiple tasks with the same name, the DNS lookup will ret
 
 **Caution:** It is possible to have a name collision if *different* services launch tasks that have the same hostname. If different services launch tasks with identical Mesos-DNS hostnames, or if Mesos-DNS truncates app IDs to create identical Mesos-DNS hostnames, applications will communicate with the wrong agent nodes and fail unpredictably.
 
- [1]: /1.7/overview/concepts/
+ [1]: /docs/1.7/overview/concepts/
  [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc952
- [4]: /1.7/usage/service-discovery/mesos-dns/service-naming/
+ [4]: /docs/1.7/usage/service-discovery/mesos-dns/service-naming/

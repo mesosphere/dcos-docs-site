@@ -15,7 +15,7 @@ navigationTitle:  Mesos master and agent permissions
 
 # About Mesos master and agent permissions
 
-The Mesos master and agent permissions provide very fine-grained controls and are available only in the `strict` [security mode](/1.8/administration/installing/custom/configuration-parameters/#security). In any other security mode, these permissions will be ignored. 
+The Mesos master and agent permissions provide very fine-grained controls and are available only in the `strict` [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security). In any other security mode, these permissions will be ignored. 
 
 
 # Master permissions

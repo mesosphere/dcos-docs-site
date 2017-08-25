@@ -12,7 +12,7 @@ You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS 
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.8/administration/installing/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/docs/1.8/administration/installing/cloud/aws/advanced/).
 
 # System requirements
 
@@ -21,8 +21,8 @@ For a complete set of DC/OS configuration options, see the [Advanced AWS Install
 An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance.  Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to not work properly.
 
 *   You have the option of 1 or 3 Mesos master nodes.
-*   5 [private](/1.8/overview/concepts/#private) Mesos agent nodes is the default.
-*   1 [public](/1.8/overview/concepts/#public) Mesos agent node is the default.
+*   5 [private](/docs/1.8/overview/concepts/#private) Mesos agent nodes is the default.
+*   1 [public](/docs/1.8/overview/concepts/#public) Mesos agent node is the default.
 
 ## Software
 
@@ -106,9 +106,9 @@ Launch the DC/OS web interface by entering the Mesos Master hostname:
 - [Using your cluster][3]
 - [Scaling considerations][4]
 
- [1]: /1.8/administration/managing-aws/
- [2]: /1.8/usage/cli/install/
- [3]: /1.8/usage/
+ [1]: /docs/1.8/administration/managing-aws/
+ [2]: /docs/1.8/usage/cli/install/
+ [3]: /docs/1.8/usage/
  [4]: https://aws.amazon.com/autoscaling/
- [10]: /1.8/administration/id-and-access-mgt/
+ [10]: /docs/1.8/administration/id-and-access-mgt/
 

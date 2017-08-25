@@ -60,7 +60,7 @@ Tasks running in nested [Marathon app groups](https://mesosphere.github.io/marat
 
 Service health check information can be surfaced in the DC/OS services UI tab by:
 
-1. Defining one or more [healthChecks](/1.10/deploying-services/creating-services/health-checks/) in the service's Marathon template, for example:
+1. Defining one or more [healthChecks](/docs/1.10/deploying-services/creating-services/health-checks/) in the service's Marathon template, for example:
 
         "healthChecks": [
             {
@@ -92,5 +92,5 @@ If you are publishing a DC/OS CLI subcommand for use with your service, the subc
 
 See [dcos-helloworld][6] for an example on how to develop a CLI subcommand.
 
-[3]: /1.10/administering-clusters/
+[3]: /docs/1.10/administering-clusters/
 [6]: https://github.com/mesosphere/dcos-helloworld

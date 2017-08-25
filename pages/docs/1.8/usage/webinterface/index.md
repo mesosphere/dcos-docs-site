@@ -61,7 +61,7 @@ You can click the **Deployments** tab to view all active Marathon deployments.
 
 # <a name="jobs"></a>Jobs
 
-The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a scheduler by using the cron format. For more information, see the [documentation](/1.8/usage/jobs/). 
+The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a scheduler by using the cron format. For more information, see the [documentation](/docs/1.8/usage/jobs/). 
 
 ![Jobs](../img/jobs-ee.png)
 
@@ -81,7 +81,7 @@ Clicking on a node opens the Nodes side panel, which provides CPU, memory, and d
 
 # <a name="network"></a>Network
 
-The Network page provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/).
+The Network page provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/).
 
 ![UI Network](../img/network-2.png)
 

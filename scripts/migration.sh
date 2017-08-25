@@ -87,6 +87,12 @@ function  reformat_file_frontmatter
     sed -i "/---/i\navigationTitle: $title" $1
     sed -i 1d $1
   fi
+
+  ## URL
+  sed -i -e 's/\/1.10\//\/docs\/1.10\//g' $1
+  sed -i -e 's/\/1.9\//\/docs\/1.9\//g' $1
+  sed -i -e 's/\/1.8\//\/docs\/1.8\//g' $1
+  sed -i -e 's/\/1.7\//\/docs\/1.7\//g' $1
 }
 
 function main

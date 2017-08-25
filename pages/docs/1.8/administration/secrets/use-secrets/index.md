@@ -29,7 +29,7 @@ To deploy an application that uses a secret, a user needs the permission to acce
 
 **Tip:** For a user to be able to see the **Task** panel information about a service, the user will also need the `dcos:adminrouter:ops:mesos` permission (`full` action). For the user to be able to view the details about the task, including the logs, the user needs the `dcos:adminrouter:ops:slave` permission (`full` action).
 
-As long as the path of the secret and the path of the group [match up properly](/1.8/administration/secrets/create-secrets/#secret-paths), the service will be able to access the secret value.
+As long as the path of the secret and the path of the group [match up properly](/docs/1.8/administration/secrets/create-secrets/#secret-paths), the service will be able to access the secret value.
 
 A user with the necessary permissions can configure a service to use a secret using either of the following methods.
 
@@ -66,7 +66,7 @@ A user with the necessary permissions can configure a service to use a secret us
 }
    ```
 
-   Because the service and the secret paths match, the service will be able to access the secret. See [About controlling access with secret paths](/1.8/administration/secrets/create-secrets/#secret-paths) for more details about the paths.
+   Because the service and the secret paths match, the service will be able to access the secret. See [About controlling access with secret paths](/docs/1.8/administration/secrets/create-secrets/#secret-paths) for more details about the paths.
 
 1. Click **Deploy**.
 
@@ -79,9 +79,9 @@ A user with the necessary permissions can configure a service to use a secret us
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.8/usage/cli/install/).
+- You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/).
 
-- If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services to use secrets](#about-config) for more information about the permissions.
 
@@ -104,7 +104,7 @@ A user with the necessary permissions can configure a service to use a secret us
 }
    ```
 
-   Because the service group and the secret paths match, the service will be able to access the secret. See [About controlling access with secret paths](/1.8/administration/secrets/create-secrets/#secret-paths) for more details about the paths.
+   Because the service group and the secret paths match, the service will be able to access the secret. See [About controlling access with secret paths](/docs/1.8/administration/secrets/create-secrets/#secret-paths) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `myservice.json`.
 

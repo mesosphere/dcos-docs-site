@@ -324,7 +324,7 @@ In this step you create a custom DC/OS build file on your workstation and then i
     <a href="/wp-content/uploads/2015/12/dashboardsmall.png" rel="attachment wp-att-1120"><img src="/wp-content/uploads/2015/12/dashboardsmall-800x495.png" alt="dashboardsmall" width="800" height="495" class="alignnone size-large wp-image-1120" /></a>
 
  [1]: http://docs.docker.com/engine/installation/
- [2]: /1.7/administration/installing/custom/uninstall/
+ [2]: /docs/1.7/administration/installing/custom/uninstall/
  [3]: /archived-dcos-enterprise-edition/installing-enterprise-edition-1-4/configuration-parameters-1-4/
  [4]: #config-json
  [5]: #create-script

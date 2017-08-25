@@ -46,8 +46,8 @@ navigationTitle:  dcos node ssh
 | Command | Description |
 navigationTitle:  dcos node ssh
 |---------|-------------|
-| [dcos node](/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/docs/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 # Examples
 
-For an example, see the [documentation](/1.10/administering-clusters/sshcluster/).
+For an example, see the [documentation](/docs/1.10/administering-clusters/sshcluster/).

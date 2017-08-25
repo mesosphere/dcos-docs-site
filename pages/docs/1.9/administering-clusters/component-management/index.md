@@ -24,12 +24,12 @@ Component packages built by the package builder are distributed as part of the D
 
 ## Component health
 
-Component health is monitored by the DC/OS Diagnostics (3DT) component. For more information about component monitoring, see [Monitoring](/1.9/monitoring/).
+Component health is monitored by the DC/OS Diagnostics (3DT) component. For more information about component monitoring, see [Monitoring](/docs/1.9/monitoring/).
 
 
 ## Component logs
 
-Component logs are sent to journald and exposed by the DC/OS Log component. For more infromation about component logs, see [Logging](/1.9/monitoring/logging/).
+Component logs are sent to journald and exposed by the DC/OS Log component. For more infromation about component logs, see [Logging](/docs/1.9/monitoring/logging/).
 
 
 ## Routes
@@ -39,4 +39,4 @@ The component management API is exposed through Admin Router and Admin Router Ag
 
 ## Resources
 
-[api-explorer api='/1.9/api/pkgpanda.yaml']
+[api-explorer api='/docs/1.9/api/pkgpanda.yaml']

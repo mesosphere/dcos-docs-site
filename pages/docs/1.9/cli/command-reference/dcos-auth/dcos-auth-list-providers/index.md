@@ -9,7 +9,7 @@ navigationTitle:  dcos auth list-providers
 ---
 
 # Description
-List configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.9/security/service-auth/).
+List configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/docs/1.9/security/service-auth/).
 
 # Usage
 
@@ -29,7 +29,7 @@ navigationTitle:  dcos auth list-providers
 | Command | Description |
 navigationTitle:  dcos auth list-providers
 |---------|-------------|
-| [dcos auth](/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/docs/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
 # Examples
 

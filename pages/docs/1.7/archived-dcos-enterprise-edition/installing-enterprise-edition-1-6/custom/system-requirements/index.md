@@ -332,7 +332,7 @@ You must have a single bootstrap node, Mesos master nodes, and Mesos agent nodes
     
     **Tip:** It may take a few minutes for your node to come back online after reboot.
 
- [1]: /1.7/usage/cli/
+ [1]: /docs/1.7/usage/cli/
  [2]: https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/
  [3]: http://sales@mesosphere.com
  [4]: ../configuration-parameters/

@@ -54,7 +54,7 @@ navigationTitle:  >
 
 1.  Click **Add Directory**.
 
-1.  [Verify your connection](/1.8/administration/id-and-access-mgt/ldap/ldap-verify/).
+1.  [Verify your connection](/docs/1.8/administration/id-and-access-mgt/ldap/ldap-verify/).
 
 
 # Specifying search/bind parameters
@@ -74,4 +74,4 @@ While the simple bind connection takes place in a single step, the search/bind o
 
 1.  Click **Add Directory**.
 
-1.  [Verify your connection](/1.8/administration/id-and-access-mgt/ldap/ldap-verify/).
+1.  [Verify your connection](/docs/1.8/administration/id-and-access-mgt/ldap/ldap-verify/).

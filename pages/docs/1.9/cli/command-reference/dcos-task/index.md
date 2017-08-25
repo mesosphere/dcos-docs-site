@@ -90,5 +90,5 @@ Positional Arguments:
 | Command | Description |
 navigationTitle:  dcos task
 |---------|-------------|
-| [dcos task log](/1.9/cli/command-reference/dcos-task/dcos-task-log/)   | Print the task log. | 
-| [dcos task ls](/1.9/cli/command-reference/dcos-task/dcos-task-ls/)   | Print the list of files in the Mesos task sandbox. | 
+| [dcos task log](/docs/1.9/cli/command-reference/dcos-task/dcos-task-log/)   | Print the task log. | 
+| [dcos task ls](/docs/1.9/cli/command-reference/dcos-task/dcos-task-ls/)   | Print the list of files in the Mesos task sandbox. | 

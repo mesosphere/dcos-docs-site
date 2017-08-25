@@ -8,4 +8,4 @@ enterprise: 'no'
 navigationTitle:  Marathon REST API
 ---
 
-[api-explorer api='/1.8/api/marathon.yaml']
+[api-explorer api='/docs/1.8/api/marathon.yaml']

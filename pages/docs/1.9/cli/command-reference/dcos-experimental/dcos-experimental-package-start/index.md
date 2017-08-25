@@ -41,4 +41,4 @@ navigationTitle:  dcos experimental service start
 | Command | Description |
 navigationTitle:  dcos experimental service start
 |---------|-------------|
-| [dcos experimental](/1.9/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  
+| [dcos experimental](/docs/1.9/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  

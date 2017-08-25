@@ -14,13 +14,13 @@ Edge-LB is installed as a remote DC/OS package. After you add the remote Edge-LB
 dcos package install edge-lb
 ```
 
-**Important:** Edge-LB is not yet supported in strict [security mode](/1.10/overview/security/security-modes/).
+**Important:** Edge-LB is not yet supported in strict [security mode](/docs/1.10/overview/security/security-modes/).
 
 **Prerequisites:**
 
--  [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
+-  [DC/OS CLI installed](/docs/1.10/cli/install/) and be logged in as a superuser.
 -  Access to the remote Edge-LB repository. Contact your sales representative or sales@mesosphere.io for access to this repository.
--  Depending on your [security mode](/1.10/overview/security/security-modes/), you may be able to configure Edge-LB with [service authentication](/1.10/security/service-auth/) before installing and using with DC/OS, allowing you to control what actions your service can take on your cluster. For information on how to configure service authentication for Edge-LB, see the [documentation](/1.10/networking/edge-lb/auth).
+-  Depending on your [security mode](/docs/1.10/overview/security/security-modes/), you may be able to configure Edge-LB with [service authentication](/docs/1.10/security/service-auth/) before installing and using with DC/OS, allowing you to control what actions your service can take on your cluster. For information on how to configure service authentication for Edge-LB, see the [documentation](/docs/1.10/networking/edge-lb/auth).
 
    | Security mode | Service Account |
 navigationTitle:  Installing
@@ -66,5 +66,5 @@ You should receive this message when ready:
 pong
 ```
 
-- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/1.10/networking/edge-lb/configuration) section.
-- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/1.10/cli/command-reference/dcos-edgelb/).
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/docs/1.10/networking/edge-lb/configuration) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/docs/1.10/cli/command-reference/dcos-edgelb/).

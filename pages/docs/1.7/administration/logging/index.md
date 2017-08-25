@@ -127,8 +127,8 @@ journalctl -u dcos-exhibitor -b
     - [ELK][3]
     - [Splunk][4]
 
-[1]: /1.7/administration/logging/service-logs/
-[2]: /1.7/usage/cli/install/
-[3]: /1.7/administration/logging/elk/
-[4]: /1.7/administration/logging/splunk/
-[5]: /1.7/administration/sshcluster/
+[1]: /docs/1.7/administration/logging/service-logs/
+[2]: /docs/1.7/usage/cli/install/
+[3]: /docs/1.7/administration/logging/elk/
+[4]: /docs/1.7/administration/logging/splunk/
+[5]: /docs/1.7/administration/sshcluster/

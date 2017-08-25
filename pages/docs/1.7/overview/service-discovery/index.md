@@ -42,8 +42,8 @@ Every task started by DC/OS gets a well-known DNS name. You can even enumerate e
 
 Take a look at the [mesos-dns documentation][4] for a more in-depth look at how Mesos-DNS is working and what it is doing for you.
 
-[1]: /1.7/usage/service-discovery/
+[1]: /docs/1.7/usage/service-discovery/
 [2]: https://mesosphere.github.io/marathon/docs/ports.html
-[3]: /1.7/administration/sshcluster/
-[4]: /1.7/usage/service-discovery/mesos-dns/
-[5]: /1.7/usage/service-discovery/mesos-dns/service-naming/
+[3]: /docs/1.7/administration/sshcluster/
+[4]: /docs/1.7/usage/service-discovery/mesos-dns/
+[5]: /docs/1.7/usage/service-discovery/mesos-dns/service-naming/

@@ -16,7 +16,7 @@ This document is intended for a developer creating new DC/OS CLI commands.
 See also the [DC/OS Service Specification][1].
 
 ## The DC/OS CLI
-You can [install](/1.8/usage/cli/install/) the DC/OS Command Line Interface (CLI) locally on your machine. The DC/OS CLI communicates with the DC/OS cluster, running either on-premise or with a cloud provider.
+You can [install](/docs/1.8/usage/cli/install/) the DC/OS Command Line Interface (CLI) locally on your machine. The DC/OS CLI communicates with the DC/OS cluster, running either on-premise or with a cloud provider.
 
 The DC/OS CLI uses a single command, `dcos`. All functions are expressed as subcommands, and are shown with the `dcos help` command.
 
@@ -234,7 +234,7 @@ The same [packaging format and repository][11] is used for both DC/OS Services a
 
 
 
-[1]: /1.8/development/service-requirements-spec/
+[1]: /docs/1.8/development/service-requirements-spec/
 [2]: https://github.com/mesosphere/spark-build 
 [3]: https://github.com/mesosphere/dcos-helloworld
 [4]: http://www.pyinstaller.org/

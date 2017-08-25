@@ -17,7 +17,7 @@ This topic lists the ports that are required to launch DC/OS. Additional ports m
 
 ### TCP
 
-|Port   |DC/OS [component](/1.8/overview/components/) and systemd unit   | 
+|Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
 navigationTitle:  DC/OS Ports
 |---|---|
 |  61003 | REX-Ray (`dcos-rexray.service`) (default) |  
@@ -33,7 +33,7 @@ navigationTitle:  DC/OS Ports
 
 ### UDP
 
-|Port   |DC/OS [component](/1.8/overview/components/) and systemd unit   | 
+|Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
 navigationTitle:  DC/OS Ports
 |---|---|
 |61053 | Mesos DNS (`dcos-mesos-dns.service`) |
@@ -44,7 +44,7 @@ navigationTitle:  DC/OS Ports
 
 ### TCP
 
-|Port   |DC/OS [component](/1.8/overview/components/) and systemd unit   | 
+|Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
 navigationTitle:  DC/OS Ports
 |---|---|
 |  53 |  DNS Dispatcher (`dcos-spartan.service`) |  
@@ -72,7 +72,7 @@ navigationTitle:  DC/OS Ports
 
 ### UDP
 
-|Port   |DC/OS [component](/1.8/overview/components/) and systemd unit   | 
+|Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
 navigationTitle:  DC/OS Ports
 |---|---|
 |  53 |  DNS Dispatcher (`dcos-spartan.service`)  |
@@ -81,7 +81,7 @@ navigationTitle:  DC/OS Ports
 
 ### TCP
 
-|Port   |DC/OS [component](/1.8/overview/components/) and systemd unit   | 
+|Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
 navigationTitle:  DC/OS Ports
 |---|---|
 |  5051 |  Mesos Agent (`dcos-mesos-slave.service`) |  

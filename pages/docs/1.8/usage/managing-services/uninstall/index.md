@@ -30,11 +30,11 @@ Services can be uninstalled from either the web interface or the CLI. If the ser
 
 ### Uninstalling a service using the UI
 
-From the DC/OS UI you can uninstall services from the **Services** or **Universe** tab. The Universe tab shows all of the available DC/OS services from package [repositories](/1.8/usage/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
+From the DC/OS UI you can uninstall services from the **Services** or **Universe** tab. The Universe tab shows all of the available DC/OS services from package [repositories](/docs/1.8/usage/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
 
 ### Universe tab
 
-1.  Navigate to the **Universe** page in the DC/OS [UI](/1.8/usage/webinterface/#universe).
+1.  Navigate to the **Universe** page in the DC/OS [UI](/docs/1.8/usage/webinterface/#universe).
 
 2.  Click on the **Installed** tab to see your installed services.
 
@@ -42,7 +42,7 @@ From the DC/OS UI you can uninstall services from the **Services** or **Universe
 
 ### Services tab
 
-1.  Navigate to the [**Services**](/1.8/usage/webinterface/#services) tab in the DC/OS UI.
+1.  Navigate to the [**Services**](/docs/1.8/usage/webinterface/#services) tab in the DC/OS UI.
 1.  Select your application and click **Edit**, then select the **More -> Destroy**.
 
 ## <a name="framework-cleaner"></a>Cleaning up ZooKeeper
@@ -93,7 +93,7 @@ Get the auth token, connect to the leader, and start the script:
 
 Find and note your auth token using the instructions above.
 
-From the DC/OS [**Services**](/1.8/usage/webinterface) tab, use the JSON editor to add the following as a Marathon task. Replace the values passed to `-r`/`-p`/`-z` according to what needs to be cleaned up and the value of `<token>` with your auth token.
+From the DC/OS [**Services**](/docs/1.8/usage/webinterface) tab, use the JSON editor to add the following as a Marathon task. Replace the values passed to `-r`/`-p`/`-z` according to what needs to be cleaned up and the value of `<token>` with your auth token.
 
     {
       "id": "janitor",

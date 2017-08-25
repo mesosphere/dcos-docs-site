@@ -34,7 +34,7 @@ navigationTitle:  dcos node list-components
 | Command | Description |
 navigationTitle:  dcos node list-components
 |---------|-------------|
-| [dcos node](/1.9/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/docs/1.9/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 <!-- # Examples -->
 

@@ -29,6 +29,6 @@ None.
 | Command | Description |
 navigationTitle:  dcos marathon about
 |---------|-------------|
-| [dcos marathon](/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/docs/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 <!-- # Examples -->

@@ -18,9 +18,9 @@ This tutorial shows you how to use Marathon-LB to run a containerized DC/OS serv
 In this tutorial, Marathon-LB is used as the edge load balancer and service discovery mechanism. Marathon-LB is run on a public-facing node to route ingress traffic. 
 
 ### Prerequisites
-- [A DC/OS cluster](/1.8/administration/installing/) with at least one [private](/1.8/overview/concepts/#private) agent and one [public](/1.8/overview/concepts/#public) agent.
-- [DC/OS CLI](/1.8/usage/cli/install/) is installed.
-- Marathon-LB [installed](/1.8/usage/service-discovery/marathon-lb/usage/).
+- [A DC/OS cluster](/docs/1.8/administration/installing/) with at least one [private](/docs/1.8/overview/concepts/#private) agent and one [public](/docs/1.8/overview/concepts/#public) agent.
+- [DC/OS CLI](/docs/1.8/usage/cli/install/) is installed.
+- Marathon-LB [installed](/docs/1.8/usage/service-discovery/marathon-lb/usage/).
 
 # Configure and Run a Containerized Service on a Public Node
 
@@ -28,11 +28,11 @@ In this tutorial, Marathon-LB is used as the edge load balancer and service disc
  
     1.  Go to the [mesosphere/dcos-website](https://hub.docker.com/r/mesosphere/dcos-website/tags/) Docker Hub repository and copy the latest image tag.
     
-        ![Mesosphere Docker Hub](/1.8/usage/tutorials/img/dockerhub.png)
+        ![Mesosphere Docker Hub](/docs/1.8/usage/tutorials/img/dockerhub.png)
         
     1.  Replace `<image-tag>` in the `docker:image` field with the tag. 
         
-    1.  Locate and take note of [your public agent node](/1.8/administration/locate-public-agent/) IP address.
+    1.  Locate and take note of [your public agent node](/docs/1.8/administration/locate-public-agent/) IP address.
     
     1. In the labels field, add an entry for `HAPROXY_0_VHOST` and assign it the value of your public agent IP. Remove the leading `http://` and the trailing `/` from the IP. Remember to add a comma after the preceding field.
 
@@ -81,6 +81,6 @@ In this tutorial, Marathon-LB is used as the edge load balancer and service disc
 
 1.  Go to the **Services** tab of the DC/OS web interface to verify that your application is healthy.
 
-    ![Healthy Service](/1.8/usage/tutorials/img/healthy-dcos-website.png)
+    ![Healthy Service](/docs/1.8/usage/tutorials/img/healthy-dcos-website.png)
 
-1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/1.8/administration/locate-public-agent/).
+1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/docs/1.8/administration/locate-public-agent/).

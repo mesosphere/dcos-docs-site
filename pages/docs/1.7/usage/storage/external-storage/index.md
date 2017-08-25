@@ -194,9 +194,9 @@ The default implicit volume size is 16 GB. If you are using the Mesos containeri
 
 *   For troubleshooting external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the systemd journal.
 
- [1]: /1.7/administration/installing/cloud/aws/
- [2]: /1.7/administration/installing/custom/cli/
- [3]: /1.7/administration/installing/custom/advanced/
+ [1]: /docs/1.7/administration/installing/cloud/aws/
+ [2]: /docs/1.7/administration/installing/custom/cli/
+ [3]: /docs/1.7/administration/installing/custom/advanced/
  [4]: http://rexray.readthedocs.io/en/v0.3.3/user-guide/storage-providers/
  [5]: http://rexray.readthedocs.io/en/v0.3.3/user-guide/config/
  [6]: https://mesosphere.github.io/marathon/docs/application-basics.html

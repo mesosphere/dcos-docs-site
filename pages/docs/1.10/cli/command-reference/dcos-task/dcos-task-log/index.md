@@ -42,8 +42,8 @@ navigationTitle:  dcos task log
 | Command | Description |
 navigationTitle:  dcos task log
 |---------|-------------|
-| [dcos task](/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. | 
+| [dcos task](/docs/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. | 
 
 # Examples
 
-For an example, see the [documentation](/1.10/monitoring/logging/).
+For an example, see the [documentation](/docs/1.10/monitoring/logging/).

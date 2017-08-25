@@ -18,9 +18,9 @@ navigationTitle:  Metrics API
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications.
 You can then pass this data to a third party service of your choice to achieve informative charts, dashboards, and alerts.
 
-The Metrics API is backed by the [DC/OS Metrics component](/1.10/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.
+The Metrics API is backed by the [DC/OS Metrics component](/docs/1.10/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.
 
-For examples of how to use the Metrics API, see the [Metrics Quick Start Guide](/1.10/metrics/quickstart/).
+For examples of how to use the Metrics API, see the [Metrics Quick Start Guide](/docs/1.10/metrics/quickstart/).
 
 
 # Routes
@@ -37,7 +37,7 @@ Access to the Metrics API of the agent nodes is also proxied through the master 
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/1.10/api/access/).
+To determine the URL of your cluster, see [Cluster Access](/docs/1.10/api/access/).
 
 
 # Format
@@ -61,7 +61,7 @@ Content-Type: application/json
 
 All Metrics API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.10/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/docs/1.10/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/docs/1.10/security/iam-api/#passing-an-authentication-token).
 
 The Metrics API also requires authorization via the following permissions:
 
@@ -73,11 +73,11 @@ navigationTitle:  Metrics API
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.10/security/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/docs/1.10/security/perms-reference/).
 
 
 # Resources
 
 The following resources are available under both of the above routes:
 
-[api-explorer api='/1.10/api/metrics.yaml']
+[api-explorer api='/docs/1.10/api/metrics.yaml']

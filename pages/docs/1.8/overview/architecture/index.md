@@ -76,7 +76,7 @@ In detail, here are the steps:
 1. Client/scheduler initialization: the client needs to know how to connect to the scheduler to launch a process, for example via Mesos-DNS or DC/OS CLI. 
 2. Mesos master sends resource offer to scheduler: the resource offers are based on cluster resources managed through agents and the [DRF](https://www.cs.berkeley.edu/~alig/papers/drf.pdf) algorithm in Mesos master.
 3. The scheduler declines resource offers because no process requests from clients are pending. As long as no clients have initiated a process, the scheduler will reject offers from the master. 
-4. Client initiates process launch. For example, this could be a user creating a Marathon app via the DC/OS [Services](/1.8/usage/webinterface) tab or via the HTTP endpoint `/v2/app`. 
+4. Client initiates process launch. For example, this could be a user creating a Marathon app via the DC/OS [Services](/docs/1.8/usage/webinterface) tab or via the HTTP endpoint `/v2/app`. 
 5. Mesos master sends the resource offers. For example, `cpus(*):1; mem(*):128; ports(*):[21452-21452]` 
 6. If resource offer matches the requirements the scheduler has for the process, it accepts the offer and sends a `launchTask` request to the Mesos master. 
 7. The Mesos master directs Mesos agents to launch tasks. 

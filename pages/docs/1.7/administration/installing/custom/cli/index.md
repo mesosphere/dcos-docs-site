@@ -37,7 +37,7 @@ The DC/OS installation creates these folders:
     </tr>
     <tr>
         <td><code>/var/lib/zookeeper<code></td>
-        <td>Contains the <a href="/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
+        <td>Contains the <a href="/docs/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
     </tr>
     <tr>
         <td><code>/var/lib/docker<code></td>
@@ -57,7 +57,7 @@ The DC/OS installation creates these folders:
 
 Before installing DC/OS, your cluster must have the software and hardware [requirements][1].
 
-**Important:** You cannot create a [public](/1.7/overview/concepts/#public) agent by using the CLI installer. If you are using the CLI installer, you must create a public agent [post-installation](/1.7/administration/installing/custom/create-public-agent/). 
+**Important:** You cannot create a [public](/docs/1.7/overview/concepts/#public) agent by using the CLI installer. If you are using the CLI installer, you must create a public agent [post-installation](/docs/1.7/administration/installing/custom/create-public-agent/). 
 
 # Create an IP detection script
 
@@ -239,7 +239,7 @@ You can view all of the automated command line installer options with the `--hel
       --test                Performs tests on the dcos_installer application
     
 
-**Tip:** If something goes wrong and you want to rerun your setup, use these cluster <a href="/1.7/administration/installing/custom/uninstall/" target="_blank">cleanup instructions</a>.
+**Tip:** If something goes wrong and you want to rerun your setup, use these cluster <a href="/docs/1.7/administration/installing/custom/uninstall/" target="_blank">cleanup instructions</a>.
 
 To install DC/OS:
 
@@ -366,7 +366,7 @@ To install DC/OS:
     ![alt text][11]
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
-It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.7/administration/installing/custom/create-public-agent/) node.
+It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/docs/1.7/administration/installing/custom/create-public-agent/) node.
 
 1.  From your bootstrap node, navigate to the `genconf/serve` directory and package the contents as `dcos-install.tar`:
 
@@ -430,18 +430,18 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
         2 out of 2 hosts successfully completed uninstall_dcos stage.
         ====> END OF SUMMARY FOR uninstall_dcos
 
- [1]: /1.7/administration/installing/custom/system-requirements/
- [2]: /1.7/administration/installing/custom/uninstall/
- [3]: /1.7/administration/installing/custom/configuration-parameters/
- [4]: /1.7/administration/installing/custom/advanced/
- [5]: /1.7/administration/installing/custom/configuration-parameters/#rexray-config
+ [1]: /docs/1.7/administration/installing/custom/system-requirements/
+ [2]: /docs/1.7/administration/installing/custom/uninstall/
+ [3]: /docs/1.7/administration/installing/custom/configuration-parameters/
+ [4]: /docs/1.7/administration/installing/custom/advanced/
+ [5]: /docs/1.7/administration/installing/custom/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
- [7]: /1.7/usage/storage/external-storage/
- [8]: /1.7/administration/installing/custom/advanced/#configuration
+ [7]: /docs/1.7/usage/storage/external-storage/
+ [8]: /docs/1.7/administration/installing/custom/advanced/#configuration
  [9]: /assets/images/chef-zk-status.png
  [10]: /assets/images/gui-installer-login-ee.gif
  [11]: /assets/images/dashboard-ee.gif
- [12]: /1.7/administration/id-and-access-mgt/
+ [12]: /docs/1.7/administration/id-and-access-mgt/
  [13]: #hardware
  [14]: #software
  [15]: #two

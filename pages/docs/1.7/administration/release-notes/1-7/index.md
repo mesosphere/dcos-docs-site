@@ -128,7 +128,7 @@ See additional known issues at <a href="https://support.mesosphere.com" target="
 
 Issues fixed:
 
-- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/custom/configuration-parameters/). 
+- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/docs/1.7/administration/installing/custom/configuration-parameters/). 
 - Various bug fixes to enable upgrades. 
 
 ## <a name="1-7-3"></a>1.7.3 - July 27, 2016
@@ -139,7 +139,7 @@ New features and changes:
 - Marathon is upgraded to [1.1.2](https://github.com/mesosphere/marathon/releases/tag/v1.1.2).
 - New Mesos config (`'docker_stop_timeout'`) that allows you to set an explicit Docker timeout. By default this is set to `'docker_stop_timeout': '20secs'`. 
 - Assign disk resources to the Mesos default role, rather than all (`*`).
-- The DC/OS [Admin Router](/1.7/overview/concepts/#adminrouter) now configures the Mesos master cache for less upstream stress.
+- The DC/OS [Admin Router](/docs/1.7/overview/concepts/#adminrouter) now configures the Mesos master cache for less upstream stress.
 - DC/OS installations on Azure now use Docker 1.11.0 (previously version 1.11.2).
 - For better stability, DC/OS installations on Azure are pinned to the Ubuntu 16.04 LTS image.
 
@@ -152,16 +152,16 @@ Issues fixed:
 - [MESOS-5576](https://issues.apache.org/jira/browse/MESOS-5576) - Masters may drop the first message they send between masters after a network partition
 
 
- [1]: /1.7/usage/managing-services/install/
- [2]: /1.7/administration/monitoring/
- [3]: /1.7/usage/service-discovery/virtual-ip-addresses/
+ [1]: /docs/1.7/usage/managing-services/install/
+ [2]: /docs/1.7/administration/monitoring/
+ [3]: /docs/1.7/usage/service-discovery/virtual-ip-addresses/
  [4]: http://mesosphere.github.io/marathon/docs/persistent-volumes.html
- [5]: /1.7/usage/storage/external-storage/
- [6]: /1.7/administration/id-and-access-mgt/managing-permissions/
+ [5]: /docs/1.7/usage/storage/external-storage/
+ [6]: /docs/1.7/administration/id-and-access-mgt/managing-permissions/
  [7]: https://github.com/mesosphere/marathon/releases/edit/v1.0.0-RC1
  [8]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12334661
- [9]: /1.7/administration/installing/custom/advanced/
- [10]: /1.7/usage/tutorials/public-app/
+ [9]: /docs/1.7/administration/installing/custom/advanced/
+ [10]: /docs/1.7/usage/tutorials/public-app/
  [11]: https://github.com/godbus/dbus/issues/45
  [12]: https://issues.apache.org/jira/browse/MESOS-2408
  [13]: https://github.com/emccode/dvdcli/issues/15

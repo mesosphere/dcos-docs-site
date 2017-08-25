@@ -32,6 +32,6 @@ navigationTitle:  dcos marathon group list
 | Command | Description |
 navigationTitle:  dcos marathon group list
 |---------|-------------|
-| [dcos marathon](/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 <!-- # Examples -->

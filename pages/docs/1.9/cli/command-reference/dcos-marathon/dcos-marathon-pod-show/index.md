@@ -36,7 +36,7 @@ navigationTitle:  dcos marathon pod show
 | Command | Description |
 navigationTitle:  dcos marathon pod show
 |---------|-------------|
-| [dcos marathon](/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 

@@ -32,6 +32,6 @@ navigationTitle:  dcos job list
 | Command | Description |
 navigationTitle:  dcos job list
 |---------|-------------|
-| [dcos job](/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 <!-- # Examples -->

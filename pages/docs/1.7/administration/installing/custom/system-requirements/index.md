@@ -170,7 +170,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:** 
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.7/administration/installing/custom/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/docs/1.7/administration/installing/custom/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### DC/OS setup file
@@ -222,7 +222,7 @@ On each of your cluster nodes, use the following command to:
 - [CLI DC/OS Installation Guide][1]
 - [Advanced DC/OS Installation Guide][5]
 
-[1]: /1.7/administration/installing/custom/cli/
-[2]: /1.7/administration/installing/custom/system-requirements/install-docker-centos/
-[4]: /1.7/administration/installing/custom/gui/
-[5]: /1.7/administration/installing/custom/advanced/
+[1]: /docs/1.7/administration/installing/custom/cli/
+[2]: /docs/1.7/administration/installing/custom/system-requirements/install-docker-centos/
+[4]: /docs/1.7/administration/installing/custom/gui/
+[5]: /docs/1.7/administration/installing/custom/advanced/

@@ -16,11 +16,11 @@ enterprise: 'yes'
 navigationTitle:  >
 ---
 
-**Note:** This procedure should be unnecessary if you have [set up a proxy](/1.8/administration/tls-ssl/haproxy-adminrouter/).
+**Note:** This procedure should be unnecessary if you have [set up a proxy](/docs/1.8/administration/tls-ssl/haproxy-adminrouter/).
 
 By default, the DC/OS CLI does not verify the signer of TLS certificates. We recommend completing the following brief procedure to ensure that the DC/OS CLI trusts only your DC/OS CA and refuses connections with other parties. 
 
-**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/1.8/administration/tls-ssl/get-cert/).
+**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/docs/1.8/administration/tls-ssl/get-cert/).
 
 1. Use the following command to change the default and to set the DC/OS CLI to trust your DC/OS CA.
 

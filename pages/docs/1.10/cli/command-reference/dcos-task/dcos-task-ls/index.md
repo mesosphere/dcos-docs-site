@@ -41,4 +41,4 @@ navigationTitle:  dcos task ls
 | Command | Description |
 navigationTitle:  dcos task ls
 |---------|-------------|
-| [dcos task](/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  
+| [dcos task](/docs/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  

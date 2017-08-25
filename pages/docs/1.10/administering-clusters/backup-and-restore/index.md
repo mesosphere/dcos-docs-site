@@ -14,8 +14,8 @@ You may wish to back up your cluster before performing an upgrade or downgrade. 
 
 ### Prerequisites
 - A DC/OS Enterprise cluster.
-- The [DC/OS CLI installed](/1.10/cli/install/).
-- The [DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/) installed.
+- The [DC/OS CLI installed](/docs/1.10/cli/install/).
+- The [DC/OS Enterprise CLI](/docs/1.10/cli/enterprise-cli/) installed.
 
 **Important:** When you perform a backup or restore, Marathon is rebooted in order to be able to perform the operation in a consistent state. This will not affect running tasks, but if a task is launching something at that time, you can experience brief unavailability.
 

@@ -32,9 +32,9 @@ Below is an example of a complete end to end sequence diagram of all the steps i
 
 ![Enterprise DC/OS Authentication Sequence] (/assets/images/dcos-authN-sequence.png)
 
-Besides [adding a user locally](/1.8/administration/id-and-access-mgt/users-groups/add-local-user/) you can use either of the following two mechanisms to authenticate users via an external source: directory-based (using LDAP, for example, Active Directory) as well as identity provider-based (SAML and OIDC).
+Besides [adding a user locally](/docs/1.8/administration/id-and-access-mgt/users-groups/add-local-user/) you can use either of the following two mechanisms to authenticate users via an external source: directory-based (using LDAP, for example, Active Directory) as well as identity provider-based (SAML and OIDC).
 
-Learn more about it in the [directory-based authentication](/1.8/administration/id-and-access-mgt/ldap/) as well as the [identity provider-based authentication](/1.8/administration/id-and-access-mgt/sso/) sections.
+Learn more about it in the [directory-based authentication](/docs/1.8/administration/id-and-access-mgt/ldap/) as well as the [identity provider-based authentication](/docs/1.8/administration/id-and-access-mgt/sso/) sections.
 
 # Access control 
 
@@ -42,21 +42,21 @@ Learn more about it in the [directory-based authentication](/1.8/administration/
 
 During installation, DC/OS creates an initial user account with `superuser` privileges. The person installing DC/OS sets the name and password of this account. As a `superuser` you can manage DC/OS users, groups, permissions, and LDAP configurations either via the DC/OS web interface or the IAM API. At least one account with `superuser` privileges is required at all times.
 
-See also the [managing users and groups](/1.8/administration/id-and-access-mgt/users-groups/) section for more details on this topic.
+See also the [managing users and groups](/docs/1.8/administration/id-and-access-mgt/users-groups/) section for more details on this topic.
 
 ## Service authentication
 
-In strict security mode, each service must authenticate against the Mesos master before it can register. Learn more about service authentication in the [Service Authentication](/1.8/administration/id-and-access-mgt/service-auth/) section, including the Secrets API and service-specific ACLs (such as for Apache Spark). In the default permissive mode, service authentication is optional.
+In strict security mode, each service must authenticate against the Mesos master before it can register. Learn more about service authentication in the [Service Authentication](/docs/1.8/administration/id-and-access-mgt/service-auth/) section, including the Secrets API and service-specific ACLs (such as for Apache Spark). In the default permissive mode, service authentication is optional.
 
 ## Permissions
 
 Permissions define what actions a user, group, or service account may perform on an object. For Marathon services and service groups, you can specify create, read, update, or delete permissions. Mesos provides control over who can view tasks and their sandboxes, as well as which services can register with particular Mesos roles, run tasks as particular Linux users, and create reservations/volumes.
 
-Learn more about permission handling in the [Permissions](/1.8/administration/id-and-access-mgt/permissions/) section.
+Learn more about permission handling in the [Permissions](/docs/1.8/administration/id-and-access-mgt/permissions/) section.
 
 # Programmatic interaction 
 
 Learn more about how to programmatically interact with:
 
-* [IAM Service](/1.8/administration/id-and-access-mgt/iam-api/)
-* [Secret Store](/1.8/administration/secrets/secrets-api/)
+* [IAM Service](/docs/1.8/administration/id-and-access-mgt/iam-api/)
+* [Secret Store](/docs/1.8/administration/secrets/secrets-api/)

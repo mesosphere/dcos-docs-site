@@ -36,4 +36,4 @@ navigationTitle:  dcos service shutdown
 | Command | Description |
 navigationTitle:  dcos service shutdown
 |---------|-------------|
-| [dcos service](/1.10/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 
+| [dcos service](/docs/1.10/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 

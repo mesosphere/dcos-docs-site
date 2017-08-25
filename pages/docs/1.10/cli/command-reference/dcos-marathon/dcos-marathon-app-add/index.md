@@ -29,14 +29,14 @@ None.
 | Name, shorthand | Default | Description |
 navigationTitle:  dcos marathon app add
 |---------|-------------|-------------|
-| `<app-resource>`   |             |  Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from stdin. For a detailed description, see the [documentation](/1.10/deploying-services/marathon-api/). |
+| `<app-resource>`   |             |  Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from stdin. For a detailed description, see the [documentation](/docs/1.10/deploying-services/marathon-api/). |
 
 # Parent command
 
 | Command | Description |
 navigationTitle:  dcos marathon app add
 |---------|-------------|
-| [dcos marathon](/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/docs/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 

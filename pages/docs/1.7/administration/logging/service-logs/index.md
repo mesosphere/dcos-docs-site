@@ -41,7 +41,7 @@ For those who are more comfortable with the GUI, we have a solution as well! By 
 
 Check out some of the DC/OS UI documentation for more details:
 
-- [DC/OS UI](/1.7/usage/webinterface/)
+- [DC/OS UI](/docs/1.7/usage/webinterface/)
 
 # Compliance
 
@@ -50,6 +50,6 @@ Unfortunately, streaming logs from machines in your cluster isn’t always viabl
 - [ELK][2]
 - [Splunk][3]
 
-[1]: /1.7/usage/cli/
+[1]: /docs/1.7/usage/cli/
 [2]: ../elk/
 [3]: ../splunk/

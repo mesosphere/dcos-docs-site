@@ -145,5 +145,5 @@ navigationTitle:  Deploying a Docker-based Service
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /1.8/administration/installing/
- [4]: /1.8/usage/cli/install/
+ [3]: /docs/1.8/administration/installing/
+ [4]: /docs/1.8/usage/cli/install/

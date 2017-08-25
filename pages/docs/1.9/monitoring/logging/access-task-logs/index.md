@@ -10,11 +10,11 @@ navigationTitle:  Controlling Access to Task Logs
 
 You can control user access to task logs by using Marathon groups for jobs and services. You can then assign permissions to access these groups, allowing you to control which logs a user can access.
 
-**Important:** The functionality described in this document is only available in [strict security mode](/1.9/security/#security-modes).
+**Important:** The functionality described in this document is only available in [strict security mode](/docs/1.9/security/#security-modes).
 
 In this procedure, you will deploy services in separate Marathon groups, and grant user permissions to view the tasks for these Marathon groups.
 
-Here is an overview of the [permissions](/1.9/security/perms-reference/) that are required:
+Here is an overview of the [permissions](/docs/1.9/security/perms-reference/) that are required:
 
 |     Permission string     | full | C | R | U | D |
 navigationTitle:  Controlling Access to Task Logs
@@ -32,7 +32,7 @@ navigationTitle:  Controlling Access to Task Logs
 
 **Prerequisites:**
 
-- DC/OS and DC/OS CLI are [installed](/1.9/installing/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/docs/1.9/installing/) and you are logged in as a superuser.
 
 # Via the DC/OS GUI
 
@@ -40,15 +40,15 @@ navigationTitle:  Controlling Access to Task Logs
 
 1.  Select **Organization** and choose **Groups**.
 
-    ![New group](/1.9/img/new-user-group.png)
+    ![New group](/docs/1.9/img/new-user-group.png)
 
 1.  Create a new group.
 
-    ![Prod group](/1.9/img/new-user-group-prod.png)
+    ![Prod group](/docs/1.9/img/new-user-group-prod.png)
 
     1.  Select the group name and from the **Permissions** tab, click **ADD PERMISSION**.
 
-        ![Add permission to prod-group](/1.9/img/new-user-group-prod-permission.png)
+        ![Add permission to prod-group](/docs/1.9/img/new-user-group-prod-permission.png)
 
     1.  Click **INSERT PERMISSION STRING** to toggle the dialog, and then paste in the following permissions and click **ADD PERMISSIONS**.
 
@@ -64,21 +64,21 @@ navigationTitle:  Controlling Access to Task Logs
         dcos:mesos:master:task:app_id:/prod-group/ read
         ```
 
-        ![Add permission](/1.9/img/new-user-group-prod-permission-string.png)
+        ![Add permission](/docs/1.9/img/new-user-group-prod-permission-string.png)
 
         The permissions tab should now look like this:
 
-        ![prod-group permissions complete](/1.9/img/new-user-group-prod-permission-done.png)
+        ![prod-group permissions complete](/docs/1.9/img/new-user-group-prod-permission-done.png)
 
 ### Create the Users and Grant Permission
 
 1.  Select **Organization** and choose **Users**. Select an existing or create a new user.
 
-    ![New user](/1.9/img/new-user-generic.png)
+    ![New user](/docs/1.9/img/new-user-generic.png)
 
 1.  From the **Group Membership** tab, type in the search box and choose the group name. This will grant the group permissions to an individual user.
 
-    ![Add alice to security group](/1.9/img/new-user-alice-add-group.png)
+    ![Add alice to security group](/docs/1.9/img/new-user-alice-add-group.png)
 
 ### Launch Apps in the User Groups
 
@@ -92,18 +92,18 @@ navigationTitle:  Controlling Access to Task Logs
         -  **COMMAND** Specify `sleep 1000000000`.
         -  **Container Runtime** Select **MESOS RUNTIME**.
 
-        ![Define nested service](/1.9/img/new-user-alice-service-group.png)
+        ![Define nested service](/docs/1.9/img/new-user-alice-service-group.png)
 
     1.  Click **REVIEW & RUN** to complete your installation. You should now see a service that is running in a group.
 
-        ![Service running within group](/1.9/img/new-user-alice-service-done.png)
+        ![Service running within group](/docs/1.9/img/new-user-alice-service-done.png)
 
 Now you can [verify access](#verifying-access).
 
 # Via the IAM API
 
 **Prerequisite:**
-If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+If your [security mode](/docs/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 **Tips:**
 

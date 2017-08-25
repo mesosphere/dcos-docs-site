@@ -17,7 +17,7 @@ navigationTitle:  Release Notes for 1.10 Beta 1
 <li>Upgrades from 1.9 are not supported.</li>
 <li>DC/OS 1.10 requires CLI version 0.5.3.
   <ul>
-  <li><a href="/1.10/cli/uninstall/">Uninstall the existing CLI</a>.</li>
+  <li><a href="/docs/1.10/cli/uninstall/">Uninstall the existing CLI</a>.</li>
   <li>Install version 0.5.3 using the <strong>Install CLI</strong> instructions in the dropdown in the upper left hand corner of the 1.10 DC/OS GUI.</li>
   </ul>
 <strong>Note:</strong> CLI version 0.5.3 is not compatible with DC/OS 1.9.</li>
@@ -55,22 +55,22 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
   You can now configure Spartan to delegate a particular domain (e.g. "\*.foo.company.com") to a particular upstream. <!-- I could use more information here -->
 
 - Increased CNI network support.
-  DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
+  DC/OS now supports any type of CNI network. [View the documentation](/docs/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer.
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/1.10/networking/edge-lb/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/docs/1.10/networking/edge-lb/).
 
 ## Security
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/installing/custom/configuration/configuration-parameters/#security-and-authentication) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
+  Installation time [configuration options](/docs/1.10/installing/custom/configuration/configuration-parameters/#security-and-authentication) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
 - Increased Admin Router security. <!-- ie TLS not supported out-of-the-box; where is the doc? is this enterprise-only?-->
 
 - Enhanced secrets management with file-based secrets.
-  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/secrets/use-secrets/).
+  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/docs/1.10/security/secrets/use-secrets/).
 
 - Docker `pullConfig` parameter.
-  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise-dcos-only).
+  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/docs/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise-dcos-only).
 
 ## Updated DC/OS Data Services
 
@@ -92,13 +92,13 @@ The following updated data services packages are also in beta and are compatible
 
 ## Platform
 - Node and Cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/custom/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/docs/1.10/installing/custom/node-cluster-health-check/).
+- Enhanced upgrades with [backup and restore](/docs/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
 - UCR. <!-- have there been updates? -->
 - Scale and performance limits.
 
 ## CLI
-- Multi-cluster support. [View the documentation](/1.10/cli/multi-cluster-cli/).
+- Multi-cluster support. [View the documentation](/docs/1.10/cli/multi-cluster-cli/).
 
 ## GUI
 The GUI sidebar tabs have been updated to offer a more intuitive experience.

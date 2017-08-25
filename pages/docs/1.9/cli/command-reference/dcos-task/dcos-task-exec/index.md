@@ -42,8 +42,8 @@ navigationTitle:  dcos task exec
 | Command | Description |
 navigationTitle:  dcos task exec
 |---------|-------------|
-| [dcos task](/1.9/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  
+| [dcos task](/docs/1.9/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  
 
 # Examples
 
-For examples, see the debugging [documentation](/1.9/monitoring/debugging/).
+For examples, see the debugging [documentation](/docs/1.9/monitoring/debugging/).

@@ -36,7 +36,7 @@ navigationTitle:  dcos node diagnostics delete
 | Command | Description |
 navigationTitle:  dcos node diagnostics delete
 |---------|-------------|
-| [dcos node](/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/docs/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 <!-- # Examples -->
 

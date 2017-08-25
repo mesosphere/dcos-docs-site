@@ -13,7 +13,7 @@ navigationTitle:  Ports
 
 
 
-You can use [virtual addresses (VIPs)](/1.7/usage/service-discovery/virtual-ip-addresses/) to make ports management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.
+You can use [virtual addresses (VIPs)](/docs/1.7/usage/service-discovery/virtual-ip-addresses/) to make ports management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.
 
 # Definitions
 

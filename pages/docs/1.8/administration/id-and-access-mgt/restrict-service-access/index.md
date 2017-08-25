@@ -10,11 +10,11 @@ featureMaturity: preview
 enterprise: 'yes'
 navigationTitle:  'Tutorial &#8211; Restricting Access to DC/OS Service Groups'
 ---
-This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/1.8/administration/installing/custom/configuration-parameters/#security). When you are done you will have multi-tenancy by using DC/OS permissions.  
+This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security). When you are done you will have multi-tenancy by using DC/OS permissions.  
 
 **Prerequisites:**
 
-- Enterprise DC/OS is [installed](/1.8/administration/installing/) in permissive [mode](/1.8/administration/installing/custom/configuration-parameters/#security).
+- Enterprise DC/OS is [installed](/docs/1.8/administration/installing/) in permissive [mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security).
 
 ## Create users and groups
 
@@ -134,7 +134,7 @@ Now let’s look at the **Services** tab from the superuser view.
 
 ## Monitor user accounts in the DC/OS web interface as superuser
 
-1.  Log out of the current user and then back in as a user with [superuser](/1.8/administration/id-and-access-mgt/permissions/superuser-perm/) permission. You will see that both services are running in the prod-a and prod-b groups.  
+1.  Log out of the current user and then back in as a user with [superuser](/docs/1.8/administration/id-and-access-mgt/permissions/superuser-perm/) permission. You will see that both services are running in the prod-a and prod-b groups.  
 
     ![prod-a group](../img/service-group14.png)
 

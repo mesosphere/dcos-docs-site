@@ -13,7 +13,7 @@ navigationTitle:  Updating a User-Created Service
 
 The [DC/OS CLI][1] Marathon sub-command allows you to easily view and update the configuration of existing services that you have created.
 
-**Note:** The process for updating packages from the [DC/OS Universe](/1.8/usage/webinterface/#-a-name-universe-a-universe) is different. Visit the [Managing Services](/1.8/usage/managing-services/config-universe-service/) section for more information.
+**Note:** The process for updating packages from the [DC/OS Universe](/docs/1.8/usage/webinterface/#-a-name-universe-a-universe) is different. Visit the [Managing Services](/docs/1.8/usage/managing-services/config-universe-service/) section for more information.
 
 ## Update an Environment Variable
 
@@ -65,5 +65,5 @@ View the results of your update:
 dcos marathon app show test-app | jq '.env'
 ```
 
- [1]: /1.8/usage/cli/
+ [1]: /docs/1.8/usage/cli/
  [2]: https://mesosphere.github.io/marathon/docs/task-environment-vars.html

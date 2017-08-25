@@ -138,7 +138,7 @@ Docker must be installed on all bootstrap and cluster nodes.
 
 * Run Docker commands as the root user (with `sudo`) or as a user in the <a href="https://docs.docker.com/engine/installation/linux/centos/#create-a-docker-group" target="_blank">docker user group</a>.
 
-* [Virtual networks](/1.8/administration/virtual-networks/) require Docker 1.11.
+* [Virtual networks](/docs/1.8/administration/virtual-networks/) require Docker 1.11.
 
 **Distribution-Specific Installation**
 
@@ -178,7 +178,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:** 
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.8/administration/installing/custom/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/docs/1.8/administration/installing/custom/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### <a name="setup-file"></a>DC/OS setup file
@@ -233,7 +233,7 @@ You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 - [CLI DC/OS Installation Guide][1]
 - [Advanced DC/OS Installation Guide][5]
 
-[1]: /1.8/administration/installing/custom/cli/
-[2]: /1.8/administration/installing/custom/system-requirements/install-docker-centos/
-[4]: /1.8/administration/installing/custom/gui/
-[5]: /1.8/administration/installing/custom/advanced/
+[1]: /docs/1.8/administration/installing/custom/cli/
+[2]: /docs/1.8/administration/installing/custom/system-requirements/install-docker-centos/
+[4]: /docs/1.8/administration/installing/custom/gui/
+[5]: /docs/1.8/administration/installing/custom/advanced/

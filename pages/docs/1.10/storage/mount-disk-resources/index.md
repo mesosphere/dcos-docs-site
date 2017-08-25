@@ -37,13 +37,13 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
 
 3.  Stop the agent.
 
-    On a [private](/1.10/overview/concepts/#private) agent:
+    On a [private](/docs/1.10/overview/concepts/#private) agent:
     
     ```bash
     sudo systemctl stop dcos-mesos-slave.service
     ```
     
-    On a [public](/1.10/overview/concepts/#public-agent-node) agent:
+    On a [public](/docs/1.10/overview/concepts/#public-agent-node) agent:
     
     ```bash
     sudo systemctl stop dcos-mesos-slave-public.service

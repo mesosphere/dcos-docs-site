@@ -35,4 +35,4 @@ navigationTitle:  dcos experimental
 | Command | Description |
 navigationTitle:  dcos experimental
 |---------|-------------|
-| [dcos experimental](/1.9/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  
+| [dcos experimental](/docs/1.9/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  

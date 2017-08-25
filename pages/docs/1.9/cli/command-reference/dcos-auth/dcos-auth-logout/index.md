@@ -29,4 +29,4 @@ None.
 | Command | Description |
 navigationTitle:  dcos auth logout
 |---------|-------------|
-| [dcos auth](/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/docs/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

@@ -129,5 +129,5 @@ navigationTitle:  >
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /1.7/administration/installing/
- [4]: /1.7/usage/cli/install/
+ [3]: /docs/1.7/administration/installing/
+ [4]: /docs/1.7/usage/cli/install/

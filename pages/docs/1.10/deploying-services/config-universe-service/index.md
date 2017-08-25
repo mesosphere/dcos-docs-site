@@ -13,7 +13,7 @@ navigationTitle:  Configuring Universe Services
 
 Each Universe service installs with a set of default parameters. You can discover the default parameters and change them as desired.
 
-This topic describes how to use the DC/OS CLI to configure services. You can also customize services by using the [**Services**](/1.10/gui/#services) tab in the DC/OS UI. 
+This topic describes how to use the DC/OS CLI to configure services. You can also customize services by using the [**Services**](/docs/1.10/gui/#services) tab in the DC/OS UI. 
 
 1. View the available configuration options for the service with the `dcos package describe --config <package-name>` command.
 
@@ -61,4 +61,4 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
     dcos package install --options=marathon-config.json marathon
     ```
 
-For more information, see the [dcos package](/1.10/cli/command-reference/#dcospackage) documentation.
+For more information, see the [dcos package](/docs/1.10/cli/command-reference/#dcospackage) documentation.

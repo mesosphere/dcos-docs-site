@@ -41,7 +41,7 @@ The DC/OS installation creates these folders:
     </tr>
     <tr>
         <td><code>/var/lib/zookeeper<code></td>
-        <td>Contains the <a href="/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
+        <td>Contains the <a href="/docs/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
     </tr>
     <tr>
         <td><code>/var/lib/docker<code></td>
@@ -144,7 +144,7 @@ In this step you create a YAML configuration file that is customized for your en
 
 2.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started.
     
-    The template specifies 3 Mesos masters, static master discovery list, internal storage backend for Exhibitor, and Google DNS resolvers. If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/1.7/administration/installing/custom/configuration-parameters/).
+    The template specifies 3 Mesos masters, static master discovery list, internal storage backend for Exhibitor, and Google DNS resolvers. If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/docs/1.7/administration/installing/custom/configuration-parameters/).
     
         bootstrap_url: http://<bootstrap_ip>:80      
         cluster_name: '<cluster-name>'
@@ -281,11 +281,11 @@ Now you can [assign user roles][8].
     
         sudo -i /opt/mesosphere/bin/pkgpanda uninstall && sudo rm -rf /opt/mesosphere
 
- [1]: /1.7/administration/installing/custom/system-requirements/
- [2]: /1.7/administration/installing/custom/uninstall/
- [3]: /1.7/overview/concepts/#public
- [4]: /1.7/overview/concepts/#private
+ [1]: /docs/1.7/administration/installing/custom/system-requirements/
+ [2]: /docs/1.7/administration/installing/custom/uninstall/
+ [3]: /docs/1.7/overview/concepts/#public
+ [4]: /docs/1.7/overview/concepts/#private
  [5]: /assets/images/chef-zk-status.png
  [6]: /assets/images/ui-installer-auth2.png
  [7]: /assets/images/dashboard-ee.gif
- [8]: /1.7/administration/id-and-access-mgt/
+ [8]: /docs/1.7/administration/id-and-access-mgt/

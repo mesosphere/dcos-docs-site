@@ -637,4 +637,4 @@ If you specify a partial task ID, logs for all task names that contain the parti
 
 If you use a regular expression, you must enclose the task ID in double quotation marks and include an asterisk at the end of the task ID. For example, `dcos task log "spark[13]*"` will display information for tasks `spark1` and `spark3`, but not `spark2`.
 
- [1]: /1.8/administration/logging/service-logs/
+ [1]: /docs/1.8/administration/logging/service-logs/
