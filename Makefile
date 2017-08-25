@@ -8,7 +8,7 @@ HTML_FILES := $(shell find build/docs -type f -name '*.html')
 OUTPUT_FILE := ./build/index.pdf
 
 pdf:
-	docker-compose up
+	docker-compose up -d
 	./scripts/pdf
 
 migration:
