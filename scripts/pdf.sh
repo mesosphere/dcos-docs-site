@@ -1,12 +1,16 @@
 #!/bin/bash
 
+# Formatting colors
+GREEN='\033[0;32m'
+BLUE='\033[0;33m'
+PURPLE='\033[0;35m'
+NC='\033[0m'
+
+# Docker
+DOCKER_HOST_PORT=http://0.0.0.0:8002/
+
 function pdf
 {
-  # Formatting colors
-  GREEN='\033[0;32m'
-  BLUE='\033[0;33m'
-  PURPLE='\033[0;35m'
-  NC='\033[0m'
   # Each argument
   for d in $1; do
     if [ -d "$d" ]; then
@@ -30,7 +34,8 @@ function pdf
             # Debug
             printf "${GREEN}Creating PDF File ${PURPLE}$d/$pdf_file_name${NC}\n"
             # Create PDF
-            HTML_FILES=$f OUTPUT_FILE="$d/$pdf_file_name" docker-compose up
+            #HTML_FILES=$f OUTPUT_FILE="$d/$pdf_file_name" docker-compose up
+            curl -X POST -vv -F "file=@$f" $DOCKER_HOST_PORT -o "$d/$pdf_file_name"
           )
         fi
       done

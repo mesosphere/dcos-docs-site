@@ -6,8 +6,10 @@ rmi:
 
 HTML_FILES := $(shell find build/docs -type f -name '*.html')
 OUTPUT_FILE := ./build/index.pdf
+
 pdf:
-	HTML_FILES="$(HTML_FILES)" OUTPUT_FILE="${OUTPUT_FILE}" docker-compose up
+	docker-compose up
+	./scripts/pdf
 
 migration:
 	rm -rf ./pages/docs/1.10
