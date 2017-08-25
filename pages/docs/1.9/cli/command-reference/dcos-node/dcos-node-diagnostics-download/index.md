@@ -39,7 +39,7 @@ navigationTitle:  dcos node diagnostics download
 | Command | Description |
 navigationTitle:  dcos node diagnostics download
 |---------|-------------|
-| [dcos node](/1.9/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/docs/1.9/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 <!-- # Examples -->
 

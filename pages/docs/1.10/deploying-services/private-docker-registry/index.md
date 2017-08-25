@@ -88,9 +88,9 @@ navigationTitle:  Using a Private Docker Registry
 <a name="secret-store-instructions"></a>
 # Referencing private Docker registry credentials in the secrets store (Enterprise DC/OS only)
 
-Follow these steps to add your Docker registry credentials to the [Enterprise DC/OS secrets store](https://docs.mesosphere.com/1.10/security/secrets/), and then reference that secret in your service definition.
+Follow these steps to add your Docker registry credentials to the [Enterprise DC/OS secrets store](https://docs.mesosphere.com/docs/1.10/security/secrets/), and then reference that secret in your service definition.
 
-**Note:** This functionality is only available with the [Universal Containerizer Runtime](/1.10/deploying-services/containerizers/ucr/). If you need to use the Docker Containerizer, follow the [URI instructions](#uri-instructions) above.
+**Note:** This functionality is only available with the [Universal Containerizer Runtime](/docs/1.10/deploying-services/containerizers/ucr/). If you need to use the Docker Containerizer, follow the [URI instructions](#uri-instructions) above.
 
 ## Step 1: Create a credentials file
 
@@ -125,7 +125,7 @@ Follow these steps to add your Docker registry credentials to the [Enterprise DC
 
     **Note:** If you are using Mac OSX, you will need to manually encode your `username:password` string and modify your `config.json` to match the snippet above.
 
-1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](https://docs.mesosphere.com/1.9/security/secrets/create-secrets/).
+1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](https://docs.mesosphere.com/docs/1.9/security/secrets/create-secrets/).
 
    **Note:** As of DC/OS version 10.0, you can only add a file to the secret store via the DC/OS CLI.
 

@@ -13,7 +13,7 @@ navigationTitle:  Overriding the default Linux user
 
 # About overriding the default Linux user
 
-The default Linux user of a service or job can vary according to the security mode and the container type. See [Linux users](/1.9/security/#linux-users) for more information.
+The default Linux user of a service or job can vary according to the security mode and the container type. See [Linux users](/docs/1.9/security/#linux-users) for more information.
 
 The procedure for overriding the default Linux user varies by the type of service or job.
 
@@ -23,18 +23,18 @@ The procedure for overriding the default Linux user varies by the type of servic
 
 # <a name="universe"></a>Overriding the default Linux user of a Universe service
 
-Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.9/security/service-auth/). Refer to the section that pertains to the service of interest for step-by-step instructions. The procedures also include how to configure the service to use encryption and service accounts.  
+Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/docs/1.9/security/service-auth/). Refer to the section that pertains to the service of interest for step-by-step instructions. The procedures also include how to configure the service to use encryption and service accounts.  
 
 
 # <a name="marathon-app-def"></a>Overriding the default Linux user via Marathon app definition
 
-Marathon app definitions provide a `"user"` key which you can use to override the default Linux user. **Tip:** Reference the [Marathon documentation](/1.9/deploying-services/creating-services/) for more details on writing Marathon services.
+Marathon app definitions provide a `"user"` key which you can use to override the default Linux user. **Tip:** Reference the [Marathon documentation](/docs/1.9/deploying-services/creating-services/) for more details on writing Marathon services.
 
 The following procedure will walk you through a quick tutorial to demonstrate how the ownership works in action. Before you begin, make sure that:
 
 - The Linux user account already exists on the agent.
-- You have installed and are logged into the [DC/OS CLI](/1.9/cli/).
-- If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/#get-dcos-cert) before issuing the curl commands in this section. If your [security mode](/1.9/security/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You have installed and are logged into the [DC/OS CLI](/docs/1.9/cli/).
+- If your [security mode](/docs/1.9/security/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/docs/1.9/networking/tls-ssl/#get-dcos-cert) before issuing the curl commands in this section. If your [security mode](/docs/1.9/security/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user. 
 
@@ -46,13 +46,13 @@ Once you have met these prerequisites, complete the following steps to override 
     "cmd": "whoami && tee file && sleep 1000",
     "user": "<your-test-user-account>",
     "uris": [
-        "https://dcos.io/1.9/img/logos/mesosphere.svg"
+        "https://dcos.io/docs/1.9/img/logos/mesosphere.svg"
     ]
   }
   ```
   **Important:** Don't forget to replace `<your-test-user-account>` with the name of a Linux user that exists on the agent and differs from the default.
 
-1. Deploy the service using the [Marathon REST API](/1.9/deploying-services/marathon-api/).
+1. Deploy the service using the [Marathon REST API](/docs/1.9/deploying-services/marathon-api/).
 
   ```bash
 curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
@@ -79,13 +79,13 @@ curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/mara
 
 Metronome job definitions provide a `"user"` key which you can use to override the default Linux user. 
 
-**Tip:** Refer to the [Jobs documentation](/1.9/deploying-jobs/quickstart/) for more information about creating and deploying jobs.
+**Tip:** Refer to the [Jobs documentation](/docs/1.9/deploying-jobs/quickstart/) for more information about creating and deploying jobs.
 
 The following procedure will walk you through a quick tutorial to demonstrate how the ownership works in action. Before you begin, make sure that:
 
 - The Linux user account already exists on the agent.
-- You have installed and are logged into the [DC/OS CLI](/1.9/cli/).
-- If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/#get-dcos-cert) before issuing the curl commands in this section. If your [security mode](/1.9/security/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You have installed and are logged into the [DC/OS CLI](/docs/1.9/cli/).
+- If your [security mode](/docs/1.9/security/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/docs/1.9/networking/tls-ssl/#get-dcos-cert) before issuing the curl commands in this section. If your [security mode](/docs/1.9/security/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user. 
 
@@ -98,7 +98,7 @@ Once you have met these prerequisites, complete the following steps to override 
   "run": {
     "artifacts": [
       {
-        "uri": "https://dcos.io/1.9/img/logos/mesosphere.svg"
+        "uri": "https://dcos.io/docs/1.9/img/logos/mesosphere.svg"
       }
     ],
     "cmd": "whoami && printf 'iamme' | tee file && sleep 1000",

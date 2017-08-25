@@ -36,8 +36,8 @@ navigationTitle:  dcos job add
 | Command | Description |
 navigationTitle:  dcos job add
 |---------|-------------|
-| [dcos job](/1.10/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/docs/1.10/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
-For job examples, see the [documentation](/1.10/deploying-jobs/examples/#create-job).
+For job examples, see the [documentation](/docs/1.10/deploying-jobs/examples/#create-job).

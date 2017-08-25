@@ -15,7 +15,7 @@ navigationTitle:  >
 
 # About configuring browsers to trust your DC/OS CA
 
-**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/1.8/administration/tls-ssl/get-cert/).
+**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/docs/1.8/administration/tls-ssl/get-cert/).
 
 The procedure for adding your DC/OS CA as a trusted root certificate authority varies by operating system and browser. Refer to the section that corresponds to your browser/operating system pair.
 

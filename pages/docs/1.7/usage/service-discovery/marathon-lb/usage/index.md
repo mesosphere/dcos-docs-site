@@ -220,7 +220,7 @@ Now, if you navigate to the ELB public DNS address in your browser, you should s
 
 ![lb6](../img/lb6.jpg)
 
- [1]: /1.7/administration/installing/
- [2]: /1.7/usage/cli/install/
- [3]: /1.7/administration/managing-aws/
- [4]: /1.7/administration/sshcluster/
+ [1]: /docs/1.7/administration/installing/
+ [2]: /docs/1.7/usage/cli/install/
+ [3]: /docs/1.7/administration/managing-aws/
+ [4]: /docs/1.7/administration/sshcluster/

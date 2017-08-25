@@ -22,7 +22,7 @@ navigationTitle:  CLI Installer
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.10/overview/concepts/#zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/docs/1.10/overview/concepts/#zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -38,7 +38,7 @@ In this step, an IP detect script is created. This script reports the IP address
 
 **Important:** 
 
-- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.10/installing/custom/uninstall/).
+- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/docs/1.10/installing/custom/uninstall/).
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master. 
 
 
@@ -107,7 +107,7 @@ In this step, you create a YAML configuration file that is customized for your e
 
 1.  From your `genconf` directory, create a configuration file and save as `config.yaml`.
     
-    You can use this template to get started. This template specifies three masters, five [private](/1.10/overview/concepts/#private) agents, one [public](/1.10/overview/concepts/#public) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters, descriptions, and configuration examples, see the [documentation][3].
+    You can use this template to get started. This template specifies three masters, five [private](/docs/1.10/overview/concepts/#private) agents, one [public](/docs/1.10/overview/concepts/#public) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters, descriptions, and configuration examples, see the [documentation][3].
    
     **Tips:** 
     
@@ -152,7 +152,7 @@ In this step, you create a YAML configuration file that is customized for your e
     - '.baz.com'    
     ```
 
-1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.10/security/#superuser). The hashed password is automatically appended to `config.yaml`.
+1.  From your home directory, run this command to create a hashed password for superuser [authentication](/docs/1.10/security/#superuser). The hashed password is automatically appended to `config.yaml`.
 
     ```bash
     bash dcos_generate_config.ee.sh --set-superuser-password
@@ -192,8 +192,8 @@ In this step, you create a custom DC/OS build file on your bootstrap node and th
 
 **Important:** 
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.10/installing/troubleshooting/).
-- If something goes wrong and you want to rerun your setup, use these cluster <a href="/1.10/installing/custom/uninstall/" target="_blank">cleanup instructions</a>.
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/docs/1.10/installing/troubleshooting/).
+- If something goes wrong and you want to rerun your setup, use these cluster <a href="/docs/1.10/installing/custom/uninstall/" target="_blank">cleanup instructions</a>.
 
 To install DC/OS:
 
@@ -315,7 +315,7 @@ To install DC/OS:
     Starting new HTTPS connection (1): api.segment.io
     ```
     
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.10/installing/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/docs/1.10/installing/custom/system-requirements/#port-and-protocol).
 
 6.  Monitor Exhibitor and wait for your masters to converge at `http://<master-public-ip>:8181/exhibitor/v1/ui/index.html`.
     
@@ -333,10 +333,10 @@ To install DC/OS:
     
     You are done!
     
-    ![UI dashboard](/1.10/img/dashboard-ee.gif)
+    ![UI dashboard](/docs/1.10/img/dashboard-ee.gif)
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
-It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.10/administering-clusters/convert-agent-type/) node.
+It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/docs/1.10/administering-clusters/convert-agent-type/) node.
 
 1.  From your bootstrap node, navigate to the `genconf/serve` directory and package the contents as `dcos-install.tar`:
 
@@ -384,17 +384,17 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
         
 
 
- [1]: /1.10/installing/custom/system-requirements/
- [2]: /1.10/installing/custom/uninstall/
- [3]: /1.10/installing/custom/configuration/configuration-parameters/
- [5]: /1.10/installing/custom/configuration/configuration-parameters/#rexray-config
+ [1]: /docs/1.10/installing/custom/system-requirements/
+ [2]: /docs/1.10/installing/custom/uninstall/
+ [3]: /docs/1.10/installing/custom/configuration/configuration-parameters/
+ [5]: /docs/1.10/installing/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
- [7]: /1.10/storage/external-storage/
- [8]: /1.10/installing/custom/advanced/#configuration
- [9]: /1.10/img/chef-zk-status.png
- [10]: /1.10/img/gui-installer-login-ee.gif
- [11]: /1.10/img/dashboard-ee.gif
- [12]: /1.10/security/
+ [7]: /docs/1.10/storage/external-storage/
+ [8]: /docs/1.10/installing/custom/advanced/#configuration
+ [9]: /docs/1.10/img/chef-zk-status.png
+ [10]: /docs/1.10/img/gui-installer-login-ee.gif
+ [11]: /docs/1.10/img/dashboard-ee.gif
+ [12]: /docs/1.10/security/
  [13]: #hardware
  [14]: #software
  [15]: #two

@@ -9,31 +9,31 @@ navigationTitle:  Granting Access to the Networking Tab
 ---
 You can grant users access to the **Networking** tab. By default, new users have no permissions.
 
-**Tip:** This procedure grants full user access to the **Networking** tab. If you are running in `strict` or `permissive` [security mode](/1.9/overview/security/security-modes/) and want to configure fine-grained user access, see the [documentation](/1.9/deploying-services/service-groups/).
+**Tip:** This procedure grants full user access to the **Networking** tab. If you are running in `strict` or `permissive` [security mode](/docs/1.9/overview/security/security-modes/) and want to configure fine-grained user access, see the [documentation](/docs/1.9/deploying-services/service-groups/).
 
 ## <a name="network-access-via-ui"></a>Grant Access by using the GUI
 
 **Prerequisites:** 
 
-- A DC/OS user account without the `dcos:superuser` [permission](/1.9/security/users-groups/).
+- A DC/OS user account without the `dcos:superuser` [permission](/docs/1.9/security/users-groups/).
 
 1. Log into the DC/OS GUI as a user with the `superuser` permission.
 
-   ![Login](/1.9/img/gui-installer-login-ee.gif)
+   ![Login](/docs/1.9/img/gui-installer-login-ee.gif)
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.9/img/services-tab-user.png)
+    ![Add permission cory](/docs/1.9/img/services-tab-user.png)
 
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.9/img/services-tab-user3.png)
+    ![Add permission](/docs/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/overview/security/security-modes/) and click **ADD PERMISSIONS** and then **Close**.
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/docs/1.9/overview/security/security-modes/) and click **ADD PERMISSIONS** and then **Close**.
 
     ## Disabled
     
@@ -60,8 +60,8 @@ You can grant users access to the **Networking** tab. By default, new users have
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- You must have the [DC/OS CLI installed](/docs/1.9/cli/install/) and be logged in as a superuser.
+- If your [security mode](/docs/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 

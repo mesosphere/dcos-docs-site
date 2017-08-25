@@ -24,7 +24,7 @@ This installation method requires:
 *   The bootstrap node must have the HTTP(S) ports open from the cluster nodes
 
 ## Prerequisites
-Before installing DC/OS, your cluster must have the software and hardware [requirements](/1.7/administration/installing/custom/system-requirements/).
+Before installing DC/OS, your cluster must have the software and hardware [requirements](/docs/1.7/administration/installing/custom/system-requirements/).
 
 # Create an IP detection script
 
@@ -261,9 +261,9 @@ Now you can [assign user roles][6].
     
         sudo -i /opt/mesosphere/bin/pkgpanda uninstall && sudo rm -rf /opt/mesosphere
 
- [1]: /1.7/administration/installing/custom/configuration-parameters/
- [2]: /1.7/administration/installing/custom/uninstall/
- [3]: /1.7/usage/cli/
- [4]: /1.7/overview/concepts/#public
- [5]: /1.7/overview/concepts/#private
- [6]: /1.7/administration/id-and-access-mgt/
+ [1]: /docs/1.7/administration/installing/custom/configuration-parameters/
+ [2]: /docs/1.7/administration/installing/custom/uninstall/
+ [3]: /docs/1.7/usage/cli/
+ [4]: /docs/1.7/overview/concepts/#public
+ [5]: /docs/1.7/overview/concepts/#private
+ [6]: /docs/1.7/administration/id-and-access-mgt/

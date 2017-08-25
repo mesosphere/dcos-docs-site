@@ -44,6 +44,6 @@ If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--c
 | Command | Description |
 navigationTitle:  dcos auth login
 |---------|-------------|
-| [dcos auth](/1.10/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/docs/1.10/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
 # Examples

@@ -183,8 +183,8 @@ Now you can [assign user roles][5] or [create a public agent][4]
         2 out of 2 hosts successfully completed uninstall_dcos stage.
         ====> END OF SUMMARY FOR uninstall_dcos
 
- [1]: /1.7/administration/installing/custom/system-requirements/
- [2]: /1.7/usage/service-discovery/
- [3]: /1.7/administration/installing/custom/advanced/#scrollNav-2
- [4]: /1.7/administration/installing/custom/create-public-agent/
- [5]: /1.7/administration/id-and-access-mgt/managing-users-and-groups/
+ [1]: /docs/1.7/administration/installing/custom/system-requirements/
+ [2]: /docs/1.7/usage/service-discovery/
+ [3]: /docs/1.7/administration/installing/custom/advanced/#scrollNav-2
+ [4]: /docs/1.7/administration/installing/custom/create-public-agent/
+ [5]: /docs/1.7/administration/id-and-access-mgt/managing-users-and-groups/

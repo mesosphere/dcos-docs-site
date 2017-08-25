@@ -14,14 +14,14 @@ If this upgrade is performed on a supported OS with all prerequisites fulfilled,
 
 **Important:**
 
-- Review the [release notes](/1.8/administration/release-notes) before upgrading DC/OS.
-- Many new security [features](/1.8/administration/release-notes/) were added in 1.8 and the upgrade process has changed significantly.
+- Review the [release notes](/docs/1.8/administration/release-notes) before upgrading DC/OS.
+- Many new security [features](/docs/1.8/administration/release-notes/) were added in 1.8 and the upgrade process has changed significantly.
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. For example, an upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. When this occurs:
 
     - The DC/OS GUI may not provide an accurate list of services.
     - For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
-- The [VIP features](/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
-- Virtual networks require Docker 1.11. For more information, see the [documentation](/1.8/administration/virtual-networks/).
+- The [VIP features](/docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
+- Virtual networks require Docker 1.11. For more information, see the [documentation](/docs/1.8/administration/virtual-networks/).
 - An upgraded DC/OS Marathon leader cannot connect to an non-secure (i.e. not upgraded) leading Mesos master. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
 - `.mesos` domains may fail to resolve during the 1.7 to 1.8 master upgrade, but will eventually recover.
@@ -36,22 +36,22 @@ Only a subset of DC/OS configuration parameters can be modified. The adverse eff
 
 Here is a list of the parameters that you can modify:
 
-- [`dns_search`](/1.8/administration/installing/custom/configuration-parameters/#dns-search)
-- [`docker_remove_delay`](/1.8/administration/installing/custom/configuration-parameters/#docker-remove)
-- [`gc_delay`](/1.8/administration/installing/custom/configuration-parameters/#gc-delay)
-- [`resolvers`](/1.8/administration/installing/custom/configuration-parameters/#resolvers)
-- [`telemetry_enabled`](/1.8/administration/installing/custom/configuration-parameters/#telemetry-enabled)
-- [`use_proxy`](/1.8/administration/installing/custom/configuration-parameters/#use-proxy)
-    - [`http_proxy`](/1.8/administration/installing/custom/configuration-parameters/#use-proxy)
-    - [`https_proxy`](/1.8/administration/installing/custom/configuration-parameters/#use-proxy)
-    - [`no_proxy`](/1.8/administration/installing/custom/configuration-parameters/#use-proxy)
+- [`dns_search`](/docs/1.8/administration/installing/custom/configuration-parameters/#dns-search)
+- [`docker_remove_delay`](/docs/1.8/administration/installing/custom/configuration-parameters/#docker-remove)
+- [`gc_delay`](/docs/1.8/administration/installing/custom/configuration-parameters/#gc-delay)
+- [`resolvers`](/docs/1.8/administration/installing/custom/configuration-parameters/#resolvers)
+- [`telemetry_enabled`](/docs/1.8/administration/installing/custom/configuration-parameters/#telemetry-enabled)
+- [`use_proxy`](/docs/1.8/administration/installing/custom/configuration-parameters/#use-proxy)
+    - [`http_proxy`](/docs/1.8/administration/installing/custom/configuration-parameters/#use-proxy)
+    - [`https_proxy`](/docs/1.8/administration/installing/custom/configuration-parameters/#use-proxy)
+    - [`no_proxy`](/docs/1.8/administration/installing/custom/configuration-parameters/#use-proxy)
 
 The security mode (`security`) can be changed but has special caveats.
 
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `permissive` mode and you want to downgrade to `disabled` mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from `disabled` to `strict` mode. To increase from `disabled` to `strict` mode you must first update to `permissive` mode, and then update from `permissive` to `strict` mode. 
 
-See the security [mode](/1.8/administration/installing/custom/configuration-parameters/#security) for a description of the different security modes and what each means.
+See the security [mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) for a description of the different security modes and what each means.
 
 # Instructions
 These steps must be performed for version upgrades and cluster configuration changes. 
@@ -78,7 +78,7 @@ Choose your desired security mode and then follow the applicable upgrade instruc
 - [Installing DC/OS 1.8 in strict mode](#strict)
 
 # <a name="disabled"></a>Installing DC/OS 1.8 in disabled mode
-This procedure upgrades a cluster running DC/OS 1.7 to DC/OS 1.8 in [disabled security mode](/1.8/administration/installing/custom/configuration-parameters/#security).
+This procedure upgrades a cluster running DC/OS 1.7 to DC/OS 1.8 in [disabled security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer. 
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -86,7 +86,7 @@ This procedure upgrades a cluster running DC/OS 1.7 to DC/OS 1.8 in [disabled se
     **Important:**
     
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.8 `config.yaml` may be different from the 1.7 version. For a detailed description of the 1.8 `config.yaml` syntax and parameters, see the [documentation](/1.8/administration/installing/custom/configuration-parameters/).
+    *  The syntax of the DC/OS 1.8 `config.yaml` may be different from the 1.7 version. For a detailed description of the 1.8 `config.yaml` syntax and parameters, see the [documentation](/docs/1.8/administration/installing/custom/configuration-parameters/).
 1.  **1.7 to 1.8 upgrades only:** Add `security: disabled` to your `config.yaml`.
 1. After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`.  Verify that there are no differences in pathways or configurations as changing these while upgrading can lead to catastrophic cluster failures.
 1.  Modify the `ip-detect` file as desired. 
@@ -116,7 +116,7 @@ This procedure upgrades a cluster running DC/OS 1.7 to DC/OS 1.8 in [disabled se
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="permissive"></a>Installing DC/OS 1.8 in permissive mode
-This procedure upgrades to DC/OS 1.8 in [permissive security mode](/1.8/administration/installing/custom/configuration-parameters/#security). 
+This procedure upgrades to DC/OS 1.8 in [permissive security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security). 
 
 **Prerequisite:**
 
@@ -150,7 +150,7 @@ This procedure upgrades to DC/OS 1.8 in [permissive security mode](/1.8/administ
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="strict"></a>Installing DC/OS 1.8 in strict mode
-This procedure upgrades to DC/OS 1.8 in [strict security mode](/1.8/administration/installing/custom/configuration-parameters/#security). 
+This procedure upgrades to DC/OS 1.8 in [strict security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security). 
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
 
@@ -187,7 +187,7 @@ If you are updating a running DC/OS cluster to run in `security: strict` mode, b
 
 ## <a name="masters"></a>DC/OS Masters
 
-[SSH](/1.8/administration/access-node/sshcluster/) to your master node and identify the ZooKeeper leader among the masters. This node should be the last master node that you upgrade. You can determine whether a master node is a ZooKeeper leader by sending the `stat` command to the ZooKeeper client port.
+[SSH](/docs/1.8/administration/access-node/sshcluster/) to your master node and identify the ZooKeeper leader among the masters. This node should be the last master node that you upgrade. You can determine whether a master node is a ZooKeeper leader by sending the `stat` command to the ZooKeeper client port.
 
 ```bash
 echo stat | /opt/mesosphere/bin/toybox nc localhost 2181 | grep "Mode:"
@@ -284,13 +284,13 @@ On all DC/OS agents:
 
 1.  Run the new DC/OS installer script:
 
-    -  [Private](/1.8/overview/concepts/#private) agent nodes:
+    -  [Private](/docs/1.8/overview/concepts/#private) agent nodes:
 
        ```bash
        sudo bash dcos_install.sh -d slave
        ```
 
-    -  [Public](/1.8/overview/concepts/#public) agent nodes:
+    -  [Public](/docs/1.8/overview/concepts/#public) agent nodes:
 
        ```bash
        sudo bash dcos_install.sh -d slave_public
@@ -338,4 +338,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.8 Universe are newer than those in the DC/OS 1.7 Universe. Services are not automatically upgraded when  DC/OS 1.8 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.8/administration/installing/custom/advanced/
+[advanced-install]: /docs/1.8/administration/installing/custom/advanced/

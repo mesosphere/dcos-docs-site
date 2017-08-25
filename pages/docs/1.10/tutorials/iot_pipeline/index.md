@@ -39,10 +39,10 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 **Prerequisites:**
 
-*  Enterprise DC/OS is [installed](/1.10/installing/) with:
-    - Security [mode](/1.10/installing/custom/configuration/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
+*  Enterprise DC/OS is [installed](/docs/1.10/installing/) with:
+    - Security [mode](/docs/1.10/installing/custom/configuration/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
-*  [DC/OS CLI](/1.10/cli/install/) installed.
+*  [DC/OS CLI](/docs/1.10/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:
     *   **OS X:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
@@ -50,7 +50,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 # Install the DC/OS services you'll need
 
-From the DC/OS web interface [**Catalog**](/1.10/gui/#catalog) tab, install Cassandra, Kafka, and Zeppelin.
+From the DC/OS web interface [**Catalog**](/docs/1.10/gui/#catalog) tab, install Cassandra, Kafka, and Zeppelin.
 
 __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
@@ -90,7 +90,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
            New command available: dcos security
            ```
 
-   1.  Configure service authentication for [Marathon-LB](/1.10/networking/marathon-lb/mlb-auth/).
+   1.  Configure service authentication for [Marathon-LB](/docs/1.10/networking/marathon-lb/mlb-auth/).
 
         1.  Create a public-private key pair by using the security CLI.
 
@@ -198,7 +198,7 @@ navigationTitle:  Deploying a Load-Balanced Data Pipeline
 
 2.  Monitor the Services tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
-    ![Services tab with all services shown.](/1.10/img/tweeter-services6-ee.png)
+    ![Services tab with all services shown.](/docs/1.10/img/tweeter-services6-ee.png)
 
 **Note:** It can take up to 10 minutes for Cassandra to initialize with DC/OS because of race conditions.
 
@@ -250,7 +250,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 1.  Go to the **Services** tab to verify your app is up and healthy.
 
-    ![Tweeter deployed](/1.10/img/tweeter-services7-ee.png)
+    ![Tweeter deployed](/docs/1.10/img/tweeter-services7-ee.png)
 
 1.  Navigate to [public agent][9] node endpoint to see the Tweeter UI and post a tweet!
 
@@ -273,11 +273,11 @@ Deploy the post-tweets containerized app to see DC/OS load balancing in action. 
 
     *  Refresh your browser to see the incoming Shakespeare tweets.
 
-       ![Shakespeare tweets](/1.10/img/tweeter-shakespeare.png)
+       ![Shakespeare tweets](/docs/1.10/img/tweeter-shakespeare.png)
 
     *  Click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action.
 
-       ![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
+       ![Tweeter scaled](/docs/1.10/img/tweeter-services8-ee.png)
 
 The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition.
 
@@ -327,14 +327,14 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [3]: /service-docs/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: /1.10/overview/concepts/
- [7]: /1.10/installing/cloud/
- [8]: /1.10/installing/custom/
- [9]: /1.10/administering-clusters/locate-public-agent/
- [10]: /1.10/img/webui-universe-install.png
- [11]: /1.10/cli/command-reference/
- [12]: /1.10/networking/marathon-lb/
+ [6]: /docs/1.10/overview/concepts/
+ [7]: /docs/1.10/installing/cloud/
+ [8]: /docs/1.10/installing/custom/
+ [9]: /docs/1.10/administering-clusters/locate-public-agent/
+ [10]: /docs/1.10/img/webui-universe-install.png
+ [11]: /docs/1.10/cli/command-reference/
+ [12]: /docs/1.10/networking/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
- [14]: /1.10/img/tweeter.png
- [15]: /1.10/img/network-tab.png
- [16]: /1.10/img/top-tweeters.png
+ [14]: /docs/1.10/img/tweeter.png
+ [15]: /docs/1.10/img/network-tab.png
+ [16]: /docs/1.10/img/top-tweeters.png

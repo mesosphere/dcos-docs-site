@@ -14,7 +14,7 @@ navigationTitle:  Load Balancing and VIPs
 DC/OS comes with an east-west load balancer that's meant to be used to enable multi-tier microservices architectures. It acts as a TCP Layer 4 load balancer, and it's tightly integrated with the kernel. The internal Layer 4 load balancer component (`dcos-minuteman.service`) is also known as [Minuteman](https://github.com/dcos/minuteman). 
 
 ## Usage
-You can use the layer 4 load balancer by assigning a [VIP from the DC/OS web interface](/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/). Alternatively, if you're using something other than Marathon, you can create a label on the [port](https://github.com/apache/mesos/blob/b18f5bf48fda12bce9c2ac8e762a08f537ffb41d/include/mesos/mesos.proto#L1813) protocol buffer while launching a task on Mesos. This label's key must be in the format `VIP_$IDX`, where `$IDX` is replaced by a number, starting from 0. Once you create a task, or a set of tasks, with a VIP, they will automatically become available to all nodes in the cluster, including the masters.
+You can use the layer 4 load balancer by assigning a [VIP from the DC/OS web interface](/docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/). Alternatively, if you're using something other than Marathon, you can create a label on the [port](https://github.com/apache/mesos/blob/b18f5bf48fda12bce9c2ac8e762a08f537ffb41d/include/mesos/mesos.proto#L1813) protocol buffer while launching a task on Mesos. This label's key must be in the format `VIP_$IDX`, where `$IDX` is replaced by a number, starting from 0. Once you create a task, or a set of tasks, with a VIP, they will automatically become available to all nodes in the cluster, including the masters.
 
 ### Details
 When you launch a set of tasks with these labels, DC/OS distributes them to all of the nodes in the cluster. All of the nodes in the cluster act as decision makers in the load balancing process. A process runs on all the agents that the kernel consults when packets are recognized with this destination address. This process keeps track of availability and reachability of these tasks to attempt to send requests to the right backends.
@@ -25,7 +25,7 @@ When you launch a set of tasks with these labels, DC/OS distributes them to all 
 1. Do not firewall traffic between the nodes.
 2. Do not change `ip_local_port_range`.
 3. You must have the `ipset` package installed.
-4. You must use a supported [operating system](/1.8/administration/installing/custom/system-requirements/).
+4. You must use a supported [operating system](/docs/1.8/administration/installing/custom/system-requirements/).
 
 #### Persistent Connections
 It is recommended when you use our VIPs you keep long-running, persistent connections. The reason behind this is that you can very quickly fill up the TCP socket table if you do not. The default local port range on Linux allows source connections from 32768 to 61000. This allows 28232 connections to be established between a given source IP and a destination address, port pair. TCP connections must go through the time wait state prior to being reclaimed. The Linux kernel's default TCP time wait period is 120 seconds. Given this, you would exhaust the connection table by only making 235 new connections / sec.
@@ -144,5 +144,5 @@ These connections are monitored via an adaptive ping algorithm. The adaptive pin
 
 ## Next steps
 
-- [Assign a VIP to your application](/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/)
+- [Assign a VIP to your application](/docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/)
 - [Minuteman repo and documentation](https://github.com/dcos/minuteman)

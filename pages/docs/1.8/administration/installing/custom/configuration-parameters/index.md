@@ -15,7 +15,7 @@ These configuration parameters are specified in [YAML][1] format in your config.
 
 ### agent_list
 
-This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.8/overview/concepts/#private) host names.
+This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/docs/1.8/overview/concepts/#private) host names.
 
 ### <a name="aws_template_storage_bucket"></a>aws_template_storage_bucket
 
@@ -25,7 +25,7 @@ This parameter specifies the name of your S3 bucket. For example:
 aws_template_storage_bucket: dcos-aws-advanced
 ```
 
-For more information, see [Generating Custom AWS CF Templates](/1.8/administration/installing/cloud/aws/advanced/).
+For more information, see [Generating Custom AWS CF Templates](/docs/1.8/administration/installing/cloud/aws/advanced/).
 
 ### aws_template_storage_bucket_path
     
@@ -35,7 +35,7 @@ This parameter specifies the S3 bucket storage path. For example:
 aws_template_storage_bucket_path: templates/dcos
 ```
 
-For more information, see [Generating Custom AWS CF Templates](/1.8/administration/installing/cloud/aws/advanced/).
+For more information, see [Generating Custom AWS CF Templates](/docs/1.8/administration/installing/cloud/aws/advanced/).
 
 ### aws_template_upload
 
@@ -53,7 +53,7 @@ This parameter specifies whether to automatically upload the customized advanced
    aws_template_storage_secret_access_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
    ```
     
-For more information, see [Generating Custom AWS CF Templates](/1.8/administration/installing/cloud/aws/advanced/).
+For more information, see [Generating Custom AWS CF Templates](/docs/1.8/administration/installing/cloud/aws/advanced/).
        
 ### bootstrap_url
 
@@ -111,7 +111,7 @@ This required parameter specifies the Mesos master discovery method. The availab
 *Note*: On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability.
     
 ### <a name="public-agent"></a>public_agent_list
-This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.8/overview/concepts/#public) host names.
+This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [public agent](/docs/1.8/overview/concepts/#public) host names.
     
 ### <a name="rexray-config"></a>rexray_config
 This parameter specifies the <a href="https://rexray.readthedocs.org/en/v0.3.2/user-guide/config/" target="_blank">REX-Ray</a> configuration method for enabling external persistent volumes in Marathon. REX-Ray is a storage orchestration engine. The following is an example configuration.
@@ -128,7 +128,7 @@ This parameter specifies the <a href="https://rexray.readthedocs.org/en/v0.3.2/u
           unmount:
             ignoreusedcount: true
 
-See the external persistent volumes [documentation](/1.8/usage/storage/external-storage/) for information on how to create your configuration.
+See the external persistent volumes [documentation](/docs/1.8/usage/storage/external-storage/) for information on how to create your configuration.
 
 # <a name="security-authentication"></a>Security and Authentication
 
@@ -291,13 +291,13 @@ This parameter specifies your desired security mode. `security: permissive` is t
 
 For more information see the [example](#secure-cluster). For a detailed discussion of the ramifications of each setting, see the following sections.
 
-- [TLS/SSL encryption](/1.8/administration/tls-ssl/)
-- [Service Authentication](/1.8/administration/id-and-access-mgt/service-auth/)
-- [User service permissions](/1.8/administration/id-and-access-mgt/permissions/user-service-perms/)
-- [Mesos master and agent permissions](/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/)
-- [Configuring Linux users](/1.8/administration/id-and-access-mgt/users-groups/config-linux-user/)
+- [TLS/SSL encryption](/docs/1.8/administration/tls-ssl/)
+- [Service Authentication](/docs/1.8/administration/id-and-access-mgt/service-auth/)
+- [User service permissions](/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/)
+- [Mesos master and agent permissions](/docs/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/)
+- [Configuring Linux users](/docs/1.8/administration/id-and-access-mgt/users-groups/config-linux-user/)
 
-**Tip:** You can determine which security mode your cluster is using by [SSHing](/1.8/administration/access-node/sshcluster/) to your master and viewing the contents of `opt/mesosphere/etc/bootstrap-config.json`.
+**Tip:** You can determine which security mode your cluster is using by [SSHing](/docs/1.8/administration/access-node/sshcluster/) to your master and viewing the contents of `opt/mesosphere/etc/bootstrap-config.json`.
 
 ### ssh_key_path
 
@@ -313,11 +313,11 @@ This parameter specifies the SSH username, for example `centos`.
 
 ### superuser_password_hash
 
-This required parameter specifies the hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. For more information, see [Identity and Access Management](/1.8/administration/id-and-access-mgt/).
+This required parameter specifies the hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. For more information, see [Identity and Access Management](/docs/1.8/administration/id-and-access-mgt/).
 
 ### superuser_username
 
-This required parameter specifies the Admin username. For more information, see [Identity and Access Management](/1.8/administration/id-and-access-mgt/).
+This required parameter specifies the Admin username. For more information, see [Identity and Access Management](/docs/1.8/administration/id-and-access-mgt/).
 
 ### <a name="telemetry-enabled"></a>telemetry_enabled
 
@@ -326,7 +326,7 @@ This parameter specifies whether to enable sharing of anonymous data for your cl
 *   `telemetry_enabled: 'true'` Enable anonymous data sharing. This is the default value.
 *   `telemetry_enabled: 'false'` Disable anonymous data sharing.
 
-If you’ve already installed your cluster and would like to disable this in-place, you can go through an [upgrade](/1.8/administration/upgrading/) with the same parameter set.
+If you’ve already installed your cluster and would like to disable this in-place, you can go through an [upgrade](/docs/1.8/administration/upgrading/) with the same parameter set.
 
 ### zk_super_credentials
  
@@ -352,7 +352,7 @@ For more information see the [example](#secure-cluster).
 
 This parameter specifies whether to enable DC/OS virtual networks.
 
-**Important:** Virtual networks require Docker 1.11. If you are using Docker 1.10 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.8/administration/installing/custom/system-requirements/).
+**Important:** Virtual networks require Docker 1.11. If you are using Docker 1.10 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/docs/1.8/administration/installing/custom/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. When the virtual network is enabled you can also specify the following parameters:
@@ -380,11 +380,11 @@ This parameter specifies whether to enable DC/OS virtual networks.
         
             **Important:** The last 3 bytes must be `00`.
         *  __overlays__ 
-            *  `name` This parameter specifies the canonical name (see [limitations](/1.8/administration/virtual-networks/) for constraints on naming virtual networks).
+            *  `name` This parameter specifies the canonical name (see [limitations](/docs/1.8/administration/virtual-networks/) for constraints on naming virtual networks).
             *  `subnet` This parameter specifies the subnet that is allocated to the virtual network.
             *  `prefix` This parameter specifies the size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet. 
             
- For more information see the [example](#overlay) and [documentation](/1.8/administration/virtual-networks/).
+ For more information see the [example](#overlay) and [documentation](/docs/1.8/administration/virtual-networks/).
 
 ### <a name="dns-search"></a>dns_search
 
@@ -414,8 +414,8 @@ This required parameter specifies a YAML nested list (`-`) of DNS resolvers for 
 
 This parameter specifies whether to enable the DC/OS proxy. 
 
-*  `use_proxy: 'false'` Do not configure DC/OS [components](/1.8/overview/components/) to use a custom proxy. This is the default value. 
-*  `use_proxy: 'true'` Configure DC/OS [components](/1.8/overview/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
+*  `use_proxy: 'false'` Do not configure DC/OS [components](/docs/1.8/overview/components/) to use a custom proxy. This is the default value. 
+*  `use_proxy: 'true'` Configure DC/OS [components](/docs/1.8/overview/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
     **Important:** The specified proxies must be resolvable from the provided list of [resolvers](#resolvers).
     *  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` This parameter specifies the HTTP proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` This parameter specifies the HTTPS proxy.

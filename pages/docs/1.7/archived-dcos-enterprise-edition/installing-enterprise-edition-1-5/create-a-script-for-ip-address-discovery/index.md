@@ -79,5 +79,5 @@ In this step you create an IP detect script on your bootstrap node to broadcast 
 
 [Configure and install DC/OS][2]
 
- [1]: /1.7/administration/installing/custom/uninstall/
+ [1]: /docs/1.7/administration/installing/custom/uninstall/
  [2]: /archived-dcos-enterprise-edition/installing-enterprise-edition-1-5/configure-and-install-dcos/

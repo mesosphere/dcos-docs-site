@@ -37,6 +37,6 @@ Every task started by DC/OS gets a well known DNS name. You can even enumerate e
 
 Take a look at the [mesos-DNS documentation][4] for a more in-depth look at how Mesos-DNS is working and what it is doing for you.
 
-[1]: /1.10/networking/
-[4]: /1.10/networking/mesos-dns/
-[5]: /1.10/networking/mesos-dns/service-naming/
+[1]: /docs/1.10/networking/
+[4]: /docs/1.10/networking/mesos-dns/
+[5]: /docs/1.10/networking/mesos-dns/service-naming/

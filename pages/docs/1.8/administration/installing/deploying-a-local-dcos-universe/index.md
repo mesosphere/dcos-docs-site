@@ -19,7 +19,7 @@ You can install and run DC/OS services on a datacenter without internet access w
 **Prerequisites:**
 
 *   8.5 GB of disk space
-*   System must meet bootstrap node hardware [prerequisites](/1.8/administration/installing/custom/system-requirements/)
+*   System must meet bootstrap node hardware [prerequisites](/docs/1.8/administration/installing/custom/system-requirements/)
 *   Network access to port 8082 on all master nodes
 
 # <a name="default"></a>Installing the default Universe packages
@@ -70,7 +70,7 @@ You can install and run DC/OS services on a datacenter without internet access w
 
 7.  To pull from this new repository, you must setup the Docker daemon on every agent to have a valid SSL certificate. For each agent node:
 
-    1.  [SSH](/1.8/administration/access-node/sshcluster/) to your agents node.
+    1.  [SSH](/docs/1.8/administration/access-node/sshcluster/) to your agents node.
 
     1.  Run the following commands:
 

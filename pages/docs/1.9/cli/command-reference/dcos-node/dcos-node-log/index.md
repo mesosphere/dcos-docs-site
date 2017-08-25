@@ -37,7 +37,7 @@ navigationTitle:  dcos node log
 | Command | Description |
 navigationTitle:  dcos node log
 |---------|-------------|
-| [dcos node](/1.9/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/docs/1.9/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 <!-- # Examples -->
 

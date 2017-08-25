@@ -20,9 +20,9 @@ navigationTitle:  >
 
 The default Linux user varies according to your security mode and the type of container the service runs inside of.
 
-- **Container type:** By default, all user services will run inside of Mesos containers. However, a user service can be configured to run inside of a Docker container instead. Please see [Deploying a Docker-based Service to Marathon](/1.8/usage/managing-services/application-basics/deploy-docker-app/) for more information.
+- **Container type:** By default, all user services will run inside of Mesos containers. However, a user service can be configured to run inside of a Docker container instead. Please see [Deploying a Docker-based Service to Marathon](/docs/1.8/usage/managing-services/application-basics/deploy-docker-app/) for more information.
 
-- **Security mode:** By default, DC/OS runs in `permissive` mode. Please review the [Installation section](/1.8/administration/installing/custom/configuration-parameters/#security) for more information on the `security` modes.
+- **Security mode:** By default, DC/OS runs in `permissive` mode. Please review the [Installation section](/docs/1.8/administration/installing/custom/configuration-parameters/#security) for more information on the `security` modes.
 
 The following table identifies the default Linux user in each situation.
 
@@ -77,7 +77,7 @@ The following table identifies the default Linux user in each situation.
   </tr>
 </table>
 
-Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service documentation in the [Usage](/1.8/usage/) section.
+Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service documentation in the [Usage](/docs/1.8/usage/) section.
 
 **Note:** If the fetched file is compressed, the individual files inside will retain the permissions and ownership assigned when the file was compressed and are unaffected by any other configurations or settings.
 
@@ -92,7 +92,7 @@ The following procedure will walk you through a quick tutorial to demonstrate ho
 
 - The Linux user account already exists on the agent
 - You have installed and are logged into the DC/OS CLI
-- If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user. 
 

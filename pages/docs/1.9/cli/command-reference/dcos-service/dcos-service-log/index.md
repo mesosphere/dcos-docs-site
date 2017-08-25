@@ -14,7 +14,7 @@ navigationTitle:  dcos service log
 # Description
 Print the service logs.
 
-**Important:** To view the native DC/OS Marathon logs by using the `dcos service log marathon` command, you must be on the same network or connected by VPN to your cluster. For more information, see [Accessing native DC/OS Marathon logs](/1.9/monitoring/logging/quickstart/).
+**Important:** To view the native DC/OS Marathon logs by using the `dcos service log marathon` command, you must be on the same network or connected by VPN to your cluster. For more information, see [Accessing native DC/OS Marathon logs](/docs/1.9/monitoring/logging/quickstart/).
 
 # Usage
 
@@ -44,4 +44,4 @@ navigationTitle:  dcos service log
 | Command | Description |
 navigationTitle:  dcos service log
 |---------|-------------|
-| [dcos service](/1.9/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 
+| [dcos service](/docs/1.9/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 

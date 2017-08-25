@@ -20,7 +20,7 @@ The advantages of a private Docker registry are:
 - They can be securely deployed in your local environment (DC/OS cluster).
 - Reduced latency for pushing and pulling images, leading to faster deployments.
 
-This article describes how to set up a private Docker registry in a DC/OS cluster and make it accessible through a [VIP](/1.7/usage/service-discovery/virtual-ip-addresses/). 
+This article describes how to set up a private Docker registry in a DC/OS cluster and make it accessible through a [VIP](/docs/1.7/usage/service-discovery/virtual-ip-addresses/). 
 
 ## Security options
 
@@ -34,7 +34,7 @@ For more information on setting up a Docker Trusted registry see [deploying a re
 
 ## Naming and discovery options
 
-After the registry is deployed clients will need to access it. When you create the certificate, you should consider the naming and discovery approach used to access the service.  You can use any of the [service discovery](/1.7/usage/service-discovery/) options available in DC/OS:
+After the registry is deployed clients will need to access it. When you create the certificate, you should consider the naming and discovery approach used to access the service.  You can use any of the [service discovery](/docs/1.7/usage/service-discovery/) options available in DC/OS:
 
 - __Mesos-DNS__ with host port mapping is an easy option, but requires that ports are managed as resources in the cluster.
 - __Minuteman__ provides a stable endpoint and you can use either the VIP or a DNS entry that references the VIP. A DNS entry can add a bit more complexity but improves consumption of the service.

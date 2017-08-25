@@ -75,5 +75,5 @@ Common options: -h, --help - Show this message
         dcos marathon app list
 
  [1]: https://github.com/mesosphere/marathon-lb-autoscale
- [2]: /1.7/administration/installing/
- [3]: /1.7/usage/cli/install/
+ [2]: /docs/1.7/administration/installing/
+ [3]: /docs/1.7/usage/cli/install/

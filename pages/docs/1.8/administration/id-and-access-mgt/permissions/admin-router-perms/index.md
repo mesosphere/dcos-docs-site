@@ -37,7 +37,7 @@ The following tables identify and discuss each of the Admin Router permissions.
   </tr>
   <tr>
     <td colspan="2">
-    Grants a user access to the read-only endpoints of the <a href="/1.8/administration/tls-ssl/#api">DC/OS Certificate Authority API</a> and the read-only <code>dcos security cluster ca</code> commands of the <a href="/1.8/usage/cli/enterprise-cli/">Enterprise DC/OS CLI</a>.
+    Grants a user access to the read-only endpoints of the <a href="/docs/1.8/administration/tls-ssl/#api">DC/OS Certificate Authority API</a> and the read-only <code>dcos security cluster ca</code> commands of the <a href="/docs/1.8/usage/cli/enterprise-cli/">Enterprise DC/OS CLI</a>.
     </td>
   </tr>
 </table>
@@ -62,7 +62,7 @@ The following tables identify and discuss each of the Admin Router permissions.
   </tr>
   <tr>
     <td colspan="2">
-    Grants a user access to all endpoints of the <a href="/1.8/administration/tls-ssl/#api">DC/OS Certificate Authority API</a> and all of the <code>dcos security cluster ca</code> commands of the <a href="/1.8/usage/cli/enterprise-cli/">Enterprise DC/OS CLI</a>.
+    Grants a user access to all endpoints of the <a href="/docs/1.8/administration/tls-ssl/#api">DC/OS Certificate Authority API</a> and all of the <code>dcos security cluster ca</code> commands of the <a href="/docs/1.8/usage/cli/enterprise-cli/">Enterprise DC/OS CLI</a>.
     </td>
   </tr>
 </table>
@@ -136,9 +136,9 @@ The following tables identify and discuss each of the Admin Router permissions.
   <tr>
     <td colspan="2">
      Allows access to:<br/>
-      &#x25cf; <b>Mesos master UI and API:</b> in <code>disabled</code> and <code>permissive</code> <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security modes</a>, the user can view basic information about any task. While the user cannot directly modify app definitions or kill tasks, they can shut down frameworks, set quota/weights/reservations/volumes, or register new Mesos frameworks. To restrict a user's access, you must upgrade to <code>strict</code> mode, where the additional <a href="/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos permissions</a> allow more granular controls.<br/>
-      &#x25cf; <b>Tasks tab of the DC/OS web interface:</b> allows a user read-only access. In <code>disabled</code> <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will be able to see the <b>Tasks</b> tab of any service. However, the user will need explicit <a href="/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#metronome">user service permissions</a> to view the <b>Tasks</b> tab of jobs. In <code>permissive</code> <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will also need <a href="/1.8/administration/id-and-access-mgt/permissions/user-service-perms/">user service permissions</a> to view the <b>Tasks</b> tab. In <code>strict</code> <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will also need <a href="/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos permissions</a> to view the <b>Tasks</b> tab.<br/>
-      &#x25cf; <code>dcos task</code> <b>command of the <a href="https://docs.mesosphere.com/1.8/usage/cli/command-reference/#scrollNav-10">DC/OS CLI</a>:</b> allows you to list tasks and retrieve task information such as sandbox data.
+      &#x25cf; <b>Mesos master UI and API:</b> in <code>disabled</code> and <code>permissive</code> <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security modes</a>, the user can view basic information about any task. While the user cannot directly modify app definitions or kill tasks, they can shut down frameworks, set quota/weights/reservations/volumes, or register new Mesos frameworks. To restrict a user's access, you must upgrade to <code>strict</code> mode, where the additional <a href="/docs/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos permissions</a> allow more granular controls.<br/>
+      &#x25cf; <b>Tasks tab of the DC/OS web interface:</b> allows a user read-only access. In <code>disabled</code> <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will be able to see the <b>Tasks</b> tab of any service. However, the user will need explicit <a href="/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#metronome">user service permissions</a> to view the <b>Tasks</b> tab of jobs. In <code>permissive</code> <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will also need <a href="/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/">user service permissions</a> to view the <b>Tasks</b> tab. In <code>strict</code> <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will also need <a href="/docs/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos permissions</a> to view the <b>Tasks</b> tab.<br/>
+      &#x25cf; <code>dcos task</code> <b>command of the <a href="https://docs.mesosphere.com/docs/1.8/usage/cli/command-reference/#scrollNav-10">DC/OS CLI</a>:</b> allows you to list tasks and retrieve task information such as sandbox data.
     </td>
   </tr>
 </table>
@@ -162,7 +162,7 @@ The following tables identify and discuss each of the Admin Router permissions.
   </tr>
   <tr>
     <td colspan="2">
-     Controls access to the <a href="/1.8/usage/service-discovery/mesos-dns/mesos-dns-api/">Mesos DNS API</a>. This permission does not affect any part of the DC/OS web interface, nor does it control any set of DC/OS CLI commands.
+     Controls access to the <a href="/docs/1.8/usage/service-discovery/mesos-dns/mesos-dns-api/">Mesos DNS API</a>. This permission does not affect any part of the DC/OS web interface, nor does it control any set of DC/OS CLI commands.
     </td>
   </tr>
 </table>
@@ -189,7 +189,7 @@ The following tables identify and discuss each of the Admin Router permissions.
     <td colspan="2">
      Grants access to all of the following endpoints, each of which serves up a different metadata file.<br/>
      &#x25cf; <code>/metadata</code>: DC/OS version, master IP address<br/>
-     &#x25cf; <code>/dcos-metadata/bootstrap-config.json</code>: security-related information such as the <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a> of the cluster<br/>
+     &#x25cf; <code>/dcos-metadata/bootstrap-config.json</code>: security-related information such as the <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a> of the cluster<br/>
      &#x25cf; <code>/pkgpanda/active.buildinfo.full.json</code>: SHAs of the packages
     </td>
   </tr>
@@ -239,9 +239,9 @@ The following tables identify and discuss each of the Admin Router permissions.
   <tr>
     <td colspan="2">
      Allows access to:<br/>
-      &#x25cf; <b>Mesos master UI and API:</b> in <code>disabled</code> and <code>permissive</code> <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security modes</a>, the user can view basic information about any task. While the user cannot directly modify app definitions or kill tasks, they can shut down frameworks, set quota/weights/reservations/volumes, or register new Mesos frameworks. To restrict a user's access, you must upgrade to <code>strict</code> mode, where the additional <a href="/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos permissions</a> allow more granular controls.<br/>
-      &#x25cf; <b>Tasks tab of the DC/OS web interface:</b> allows a user read-only access. In <code>disabled</code> <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will be able to see the <b>Tasks</b> tab of any service or job. In <code>permissive</code> <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will need <a href="/1.8/administration/id-and-access-mgt/permissions/user-service-perms/">user service permissions</a> to view the <b>Tasks</b> tab. In <code>strict</code> <a href="/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will need <a href="/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos permissions</a> to view the <b>Tasks</b> tab.<br/>
-      &#x25cf; <code>dcos task</code> <b>command of the <a href="https://docs.mesosphere.com/1.8/usage/cli/command-reference/#scrollNav-10">DC/OS CLI</a>:</b> allows you to list tasks and retrieve task information such as sandbox data. 
+      &#x25cf; <b>Mesos master UI and API:</b> in <code>disabled</code> and <code>permissive</code> <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security modes</a>, the user can view basic information about any task. While the user cannot directly modify app definitions or kill tasks, they can shut down frameworks, set quota/weights/reservations/volumes, or register new Mesos frameworks. To restrict a user's access, you must upgrade to <code>strict</code> mode, where the additional <a href="/docs/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos permissions</a> allow more granular controls.<br/>
+      &#x25cf; <b>Tasks tab of the DC/OS web interface:</b> allows a user read-only access. In <code>disabled</code> <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will be able to see the <b>Tasks</b> tab of any service or job. In <code>permissive</code> <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will need <a href="/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/">user service permissions</a> to view the <b>Tasks</b> tab. In <code>strict</code> <a href="/docs/1.8/administration/installing/custom/configuration-parameters/#security">security mode</a>, the user will need <a href="/docs/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos permissions</a> to view the <b>Tasks</b> tab.<br/>
+      &#x25cf; <code>dcos task</code> <b>command of the <a href="https://docs.mesosphere.com/docs/1.8/usage/cli/command-reference/#scrollNav-10">DC/OS CLI</a>:</b> allows you to list tasks and retrieve task information such as sandbox data. 
     </td>
   </tr>
 </table>
@@ -289,7 +289,7 @@ The following tables identify and discuss each of the Admin Router permissions.
   </tr>
   <tr>
     <td colspan="2">
-     Provides access to packages and package repos from the <b>Universe</b> tab of the DC/OS web interface, the <code>dcos package</code> commands of the <a href="/1.8/usage/cli/">DC/OS CLI</a>, and the <a href="https://github.com/dcos/cosmos/blob/master/README.md">Cosmos API</a>. Toggles the view of the <b>Universe</b> tab in the DC/OS web interface on and off. Users with this permission should be highly trusted. Not only can such users install any package, they can change the location of the Universe. A bad actor with this permission could point to a repo containing malware or other malicious executables. 
+     Provides access to packages and package repos from the <b>Universe</b> tab of the DC/OS web interface, the <code>dcos package</code> commands of the <a href="/docs/1.8/usage/cli/">DC/OS CLI</a>, and the <a href="https://github.com/dcos/cosmos/blob/master/README.md">Cosmos API</a>. Toggles the view of the <b>Universe</b> tab in the DC/OS web interface on and off. Users with this permission should be highly trusted. Not only can such users install any package, they can change the location of the Universe. A bad actor with this permission could point to a repo containing malware or other malicious executables. 
     </td>
   </tr>
 </table>
@@ -315,9 +315,9 @@ The following tables identify and discuss each of the Admin Router permissions.
     <td colspan="2">
      Controls the ability to access the native Marathon instance via:<br/>
      &#x25cf; The <b>Services</b> tab of the DC/OS web interface. This permission toggles the view of the <b>Services</b> tab in the DC/OS web interface on and off.<br/>
-     &#x25cf; The <code>dcos marathon</code> commands of the <a href="/1.8/usage/cli/">DC/OS CLI</a>.<br/>
-     &#x25cf; The <a href="/1.8/usage/managing-services/rest-api/">Marathon REST API</a>.<br/>
-     In <code>disabled</code> mode, this permission does not just grant access to the native Marathon instance, it also grants access to the Marathon services. In <code>permissive</code> and <code>strict</code> modes, the user will need this permission as well as <a href="/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#marathon">user service permissions</a> to access the services.
+     &#x25cf; The <code>dcos marathon</code> commands of the <a href="/docs/1.8/usage/cli/">DC/OS CLI</a>.<br/>
+     &#x25cf; The <a href="/docs/1.8/usage/managing-services/rest-api/">Marathon REST API</a>.<br/>
+     In <code>disabled</code> mode, this permission does not just grant access to the native Marathon instance, it also grants access to the Marathon services. In <code>permissive</code> and <code>strict</code> modes, the user will need this permission as well as <a href="/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#marathon">user service permissions</a> to access the services.
     </td>
   </tr>
 </table>
@@ -343,9 +343,9 @@ The following tables identify and discuss each of the Admin Router permissions.
     <td colspan="2">
      Controls the ability to access the Metronome instance via:<br/>
      &#x25cf; The <b>Jobs</b> tab of the DC/OS web interface. This permission toggles the view of the <b>Jobs</b> tab in the DC/OS web interface on and off.<br/>
-     &#x25cf; The <code>dcos job</code> commands of the <a href="/1.8/usage/cli/">DC/OS CLI</a>.<br/>
-     &#x25cf; The <a href="/1.8/usage/managing-services/rest-api/">Metronome API</a>.<br/>
-     In <code>disabled</code> mode, this permission does not just grant access to the Metronome instance, it also grants access to the Metronome jobs. In <code>permissive</code> and <code>strict</code> modes, the user will need this permission as well as <a href="/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#metronome">user service permissions</a> to access the jobs.
+     &#x25cf; The <code>dcos job</code> commands of the <a href="/docs/1.8/usage/cli/">DC/OS CLI</a>.<br/>
+     &#x25cf; The <a href="/docs/1.8/usage/managing-services/rest-api/">Metronome API</a>.<br/>
+     In <code>disabled</code> mode, this permission does not just grant access to the Metronome instance, it also grants access to the Metronome jobs. In <code>permissive</code> and <code>strict</code> modes, the user will need this permission as well as <a href="/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#metronome">user service permissions</a> to access the jobs.
     </td>
   </tr>
 </table>

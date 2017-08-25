@@ -33,7 +33,7 @@ dcos package uninstall chronos
 
 ### Uninstalling a service using the web UI
 
-1.  Navigate to the **Universe** page in the DC/OS [UI](/1.7/usage/webinterface/#universe).
+1.  Navigate to the **Universe** page in the DC/OS [UI](/docs/1.7/usage/webinterface/#universe).
 
 2.  Click on the **Installed** tab to see your installed services.
 

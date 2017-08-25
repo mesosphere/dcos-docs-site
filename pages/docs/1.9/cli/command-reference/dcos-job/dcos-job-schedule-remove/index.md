@@ -37,7 +37,7 @@ navigationTitle:  dcos job schedule remove
 | Command | Description |
 navigationTitle:  dcos job schedule remove
 |---------|-------------|
-| [dcos job](/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 

@@ -17,11 +17,11 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 1.  Click **Install CLI** from the top-left corner of the DC/OS web interface.
 
-    ![CLI install UI](/1.9/img/install-cli.png)
+    ![CLI install UI](/docs/1.9/img/install-cli.png)
     
 1.  Copy and paste the code snippets into your terminal.
 
-    ![CLI copy/paste](/1.9/img/install-cli-terminal.png)
+    ![CLI copy/paste](/docs/1.9/img/install-cli-terminal.png)
 
 # <a name="manual"></a>Manually installing the CLI
 
@@ -72,7 +72,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     dcos auth login
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.9/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.9/security/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 
@@ -114,7 +114,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
     **Tip:** If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.9/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.9/security/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 
@@ -144,6 +144,6 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     dcos auth login
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.9/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.9/security/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.

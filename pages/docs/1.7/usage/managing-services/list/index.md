@@ -26,7 +26,7 @@ marathon  <privatenode3>   True     3    2.0   1843.0  100.0  <service-id4>
 
 ## Monitoring services using the DC/OS web interface
 
-From the DC/OS web interface, click the **Services** [**Services**](/1.7/usage/webinterface/#services) tab. 
+From the DC/OS web interface, click the **Services** [**Services**](/docs/1.7/usage/webinterface/#services) tab. 
 
 *   **NAME** Displays the DC/OS service name.
 *   **HOST** Displays the private agent node where the service running.
@@ -37,4 +37,4 @@ From the DC/OS web interface, click the **Services** [**Services**](/1.7/usage/w
 *   **DISK** Displays the amount of disk space used.
 *   **ID** Displays the DC/OS service framework ID. This value is automatically generated and is unique across the cluster.
 
-The [Web Interfaces](/1.7/usage/webinterface/#services) page contains more details about the **Services** tab. 
+The [Web Interfaces](/docs/1.7/usage/webinterface/#services) page contains more details about the **Services** tab. 

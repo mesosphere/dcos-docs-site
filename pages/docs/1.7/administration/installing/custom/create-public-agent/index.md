@@ -25,7 +25,7 @@ These steps must be performed on a machine that is configured as a DC/OS node. A
 ### Prerequisites:
 
 *   DC/OS is installed and you have deployed at least one master and one private agent node.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.7/administration/installing/custom/gui/#backup).     
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/docs/1.7/administration/installing/custom/gui/#backup).     
 
 ### Uninstall the DC/OS private agent software
 
@@ -50,7 +50,7 @@ These steps must be performed on a machine that is configured as a DC/OS node. A
     ```        
 
 ### Install DC/OS and convert to a public agent node
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that that is being converted to a public agent. This archive is created during the GUI or CLI [installation](/1.7/administration/installing/custom/gui/#backup) method.
+Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that that is being converted to a public agent. This archive is created during the GUI or CLI [installation](/docs/1.7/administration/installing/custom/gui/#backup) method.
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory:
 
@@ -91,5 +91,5 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that tha
 
     You should see an output greater than zero to indicate at least one public agent.
 
- [1]: /1.7/administration/installing/custom/gui/
- [2]: /1.7/administration/installing/custom/cli/
+ [1]: /docs/1.7/administration/installing/custom/gui/
+ [2]: /docs/1.7/administration/installing/custom/cli/

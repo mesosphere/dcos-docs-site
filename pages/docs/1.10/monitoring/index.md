@@ -11,23 +11,23 @@ navigationTitle:  Monitoring, Logging, and Debugging
 
 Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshoooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
 
-DC/OS components are the [systemd units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-diagnostics.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/1.10/overview/architecture/components/).
+DC/OS components are the [systemd units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-diagnostics.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/docs/1.10/overview/architecture/components/).
 
 The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit.
 
 ## Getting Started
 
-Launch the [DC/OS UI](/1.10/gui/) and navigate to the **System -> Components** page. You can sort components by health.
+Launch the [DC/OS UI](/docs/1.10/gui/) and navigate to the **System -> Components** page. You can sort components by health.
 
-![system health](/1.10/img/component-system-view.png)
+![system health](/docs/1.10/img/component-system-view.png)
 
 You can click on a DC/OS component to view the details, including role, node, and health.
 
-![node detail](/1.10/img/component-node-detail.png)
+![node detail](/docs/1.10/img/component-node-detail.png)
 
 You can debug further by clicking the node to view the component journald (log) output.
 
-![log](/1.10/img/component-node-output.png)
+![log](/docs/1.10/img/component-node-output.png)
 
 ## Health States
 
@@ -100,8 +100,8 @@ If you have any problems, you can check if the diagnostics service is running by
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /1.10/security/
- [7]: /1.10/networking/load-balancing-vips/
- [8]: /1.10/overview/concepts/#private
- [9]: /1.10/overview/concepts/#public
+ [6]: /docs/1.10/security/
+ [7]: /docs/1.10/networking/load-balancing-vips/
+ [8]: /docs/1.10/overview/concepts/#private
+ [9]: /docs/1.10/overview/concepts/#public
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

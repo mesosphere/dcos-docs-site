@@ -16,7 +16,7 @@ navigationTitle:  Configuring the LDAP connection
 
 1.  Click **Add Directory**.
 
-   ![Add Directory dialog](/1.9/img/ldap-add-dir-conn.png)
+   ![Add Directory dialog](/docs/1.9/img/ldap-add-dir-conn.png)
  
 1.  Type the host name or IP address of the LDAP directory server in the **Host** box. 
 
@@ -53,4 +53,4 @@ navigationTitle:  Configuring the LDAP connection
 
 1. To ensure that your DC/OS cluster does not accept connections from parties other than the designated LDAP directory server, paste the root CA certificate of the LDAP directory server and any intermediate certificates in the **CA certificate chain (Optional)** field. We highly recommend completing this step to establish a secure communication channel with the LDAP directory server.
 
-1.  Specify your authentication method and parameters, as discussed in the [next section](/1.9/security/ldap/ldap-auth/).
+1.  Specify your authentication method and parameters, as discussed in the [next section](/docs/1.9/security/ldap/ldap-auth/).

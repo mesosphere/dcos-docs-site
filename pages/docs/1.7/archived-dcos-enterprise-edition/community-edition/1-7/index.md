@@ -119,14 +119,14 @@ For the full set of changes, please refer to the [Marathon Release Notes][6].
 See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
 
  [1]: /service-docs/install/
- [2]: /1.7/administration/monitoring/
+ [2]: /docs/1.7/administration/monitoring/
  [3]: http://mesosphere.github.io/marathon/docs/persistent-volumes.html
  [4]: http://mesosphere.github.io/marathon/docs/external-volumes.html
- [5]: /1.7/administration/id-and-access-mgt/managing-permissions/
+ [5]: /docs/1.7/administration/id-and-access-mgt/managing-permissions/
  [6]: https://github.com/mesosphere/marathon/releases/edit/v1.0.0-RC1
  [7]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12334661
- [8]: /1.7/administration/installing/custom/advanced/
- [9]: /1.7/usage/tutorials/public-app/
+ [8]: /docs/1.7/administration/installing/custom/advanced/
+ [9]: /docs/1.7/usage/tutorials/public-app/
  [10]: https://github.com/godbus/dbus/issues/45
  [11]: https://issues.apache.org/jira/browse/MESOS-2408
  [12]: https://github.com/emccode/dvdcli/issues/15

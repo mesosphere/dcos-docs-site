@@ -20,7 +20,7 @@ You can opt-out of providing anonymous data by disabling [telemetry][4] for your
 
 If you’ve already installed your cluster and want to disable this in-place, you can go through an upgrade with the same parameter set.
 
- [1]: /1.10/installing/custom/configuration/configuration-parameters/
- [2]: /1.10/installing/custom/cli/
- [3]: /1.10/installing/custom/advanced/
- [4]: /1.10/overview/telemetry/
+ [1]: /docs/1.10/installing/custom/configuration/configuration-parameters/
+ [2]: /docs/1.10/installing/custom/cli/
+ [3]: /docs/1.10/installing/custom/advanced/
+ [4]: /docs/1.10/overview/telemetry/

@@ -8,7 +8,7 @@ enterprise: 'yes'
 navigationTitle:  Configuring DC/OS Access for Edge-LB
 ---
 
-This topic describes how to configure DC/OS access for Edge-LB. Depending on your [security mode](/1.10/overview/security/security-modes/), Edge-LB requires [service authentication](/1.10/security/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Edge-LB. Depending on your [security mode](/docs/1.10/overview/security/security-modes/), Edge-LB requires [service authentication](/docs/1.10/security/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 navigationTitle:  Configuring DC/OS Access for Edge-LB
@@ -18,9 +18,9 @@ navigationTitle:  Configuring DC/OS Access for Edge-LB
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later installed](/1.10/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.10/overview/security/security-modes/) is `permissive`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- [DC/OS CLI installed](/docs/1.10/cli/install/) and be logged in as a superuser.
+- [Enterprise DC/OS CLI 0.4.14 or later installed](/docs/1.10/cli/enterprise-cli/#ent-cli-install).
+- If your [security mode](/docs/1.10/overview/security/security-modes/) is `permissive`, you must [get the root cert](/docs/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 In this step, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI.
@@ -31,7 +31,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.10/security/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/docs/1.10/security/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 
@@ -115,4 +115,4 @@ Use the following curl commands to rapidly provision the Edge-LB service account
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:admin:events/users/edgelb-principal/read
     ```
 
-For more information about the available Edge-LB commands, see the [Edge-LB command reference](/1.10/cli/command-reference/dcos-edgelb/).
+For more information about the available Edge-LB commands, see the [Edge-LB command reference](/docs/1.10/cli/command-reference/dcos-edgelb/).

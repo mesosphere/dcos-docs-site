@@ -11,7 +11,7 @@ navigationTitle:  Docker Containerizer
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-Use the Docker containerizer if you need specific features of the Docker package. Refer to the [features matrix](/1.10/deploying-services/containerizers/) to see if the Docker containerizer is the correct choice for your task.
+Use the Docker containerizer if you need specific features of the Docker package. Refer to the [features matrix](/docs/1.10/deploying-services/containerizers/) to see if the Docker containerizer is the correct choice for your task.
 
 # Specify the Docker Containerizer from the DC/OS Web Interface
 
@@ -37,5 +37,5 @@ To specify the Docker containerizer from the DC/OS CLI, add the following parame
 }
 ```
 
-- [Follow a Docker app tutorial](/1.10/deploying-services/creating-services/deploy-docker-app/).
+- [Follow a Docker app tutorial](/docs/1.10/deploying-services/creating-services/deploy-docker-app/).
 - [View the Mesos docs for the Docker containerizer](http://mesos.apache.org/documentation/latest/docker-containerizer/).

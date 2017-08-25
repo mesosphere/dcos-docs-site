@@ -37,7 +37,7 @@ The DC/OS installation creates these folders:
     </tr>
     <tr>
         <td><code>/var/lib/zookeeper<code></td>
-        <td>Contains the <a href="/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
+        <td>Contains the <a href="/docs/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
     </tr>
     <tr>
         <td><code>/var/lib/docker<code></td>
@@ -57,7 +57,7 @@ The DC/OS installation creates these folders:
     
 Before installing DC/OS, your cluster must have the software and hardware [requirements][1].
     
-**Important:** You cannot create a [public](/1.7/overview/concepts/#public) agent by using the GUI installer. If you are using the GUI installer, you must create a public agent [post-installation](/1.7/administration/installing/custom/create-public-agent/). 
+**Important:** You cannot create a [public](/docs/1.7/overview/concepts/#public) agent by using the GUI installer. If you are using the GUI installer, you must create a public agent [post-installation](/docs/1.7/administration/installing/custom/create-public-agent/). 
 
 # Install DC/OS
 
@@ -131,7 +131,7 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
         
         **Important:** The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
 
-5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the [system requirements](/1.7/administration/installing/custom/system-requirements/). This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
+5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the [system requirements](/docs/1.7/administration/installing/custom/system-requirements/). This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
     
     **Important:** If you exit your GUI installation before launching DC/OS, you must do this before reinstalling:
     
@@ -163,7 +163,7 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
     ![alt text][5]
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
-It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.7/administration/installing/custom/create-public-agent/) node.
+It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/docs/1.7/administration/installing/custom/create-public-agent/) node.
 
 1.  From your bootstrap node, navigate to the `genconf/serve` directory and package the contents as `dcos-install.tar`:
 
@@ -203,9 +203,9 @@ Now you can [assign user roles][6].
     ====> END OF SUMMARY FOR uninstall_dcos
     ```
 
- [1]: /1.7/administration/installing/custom/system-requirements/
+ [1]: /docs/1.7/administration/installing/custom/system-requirements/
  [2]: /assets/images/gui-installer-setup-ee.gif
- [3]: /1.7/usage/service-discovery/
+ [3]: /docs/1.7/usage/service-discovery/
  [4]: /assets/images/ui-installer-auth-1-7.gif
  [5]: /assets/images/dashboard-ee.gif
- [6]: /1.7/administration/id-and-access-mgt/
+ [6]: /docs/1.7/administration/id-and-access-mgt/

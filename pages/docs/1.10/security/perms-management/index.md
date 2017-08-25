@@ -14,7 +14,7 @@ The DC/OS Identity and Access Management system is designed to protect resources
 Each protected resource has one associated ACL that declares which principals may perform which actions on a named resource.
 This is performed according to the whitelisting (deny-by-default) model.
 
-Permissions can be applied to users and groups using either the DC/OS GUI, the [IAM HTTP API](/1.10/security/iam-api/) or the [Enterprise DC/OS CLI](/1.10/cli/enterprise-cli/).
+Permissions can be applied to users and groups using either the DC/OS GUI, the [IAM HTTP API](/docs/1.10/security/iam-api/) or the [Enterprise DC/OS CLI](/docs/1.10/cli/enterprise-cli/).
 Each interface provides a way to manage Access Control Entries (ACEs).
 Each ACE includes the following pieces of information:
 
@@ -29,8 +29,8 @@ The available action identifiers are `create`, `read`, `update`, `delete`, and `
 By convention, `full` indicates that the permission supports all other action identifiers.
 `full` may include actions not supported by any other action identifier.
 
-There are four commands used for managing permissions with the [Enterprise DC/OS CLI](/1.10/cli/enterprise-cli/).
-See the [command reference](/1.10/cli/enterprise-cli/) for details.
+There are four commands used for managing permissions with the [Enterprise DC/OS CLI](/docs/1.10/cli/enterprise-cli/).
+See the [command reference](/docs/1.10/cli/enterprise-cli/) for details.
 
 To manage permissions for groups with the Enterprise DC/OS CLI, use the following commands:
 

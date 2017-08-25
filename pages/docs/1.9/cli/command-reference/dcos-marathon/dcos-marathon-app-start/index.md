@@ -40,6 +40,6 @@ navigationTitle:  dcos marathon app start
 | Command | Description |
 navigationTitle:  dcos marathon app start
 |---------|-------------|
-| [dcos marathon](/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 <!-- # Examples -->

@@ -36,7 +36,7 @@ navigationTitle:  dcos config unset
 | Command | Description |
 navigationTitle:  dcos config unset
 |---------|-------------|
-| [dcos config](/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
+| [dcos config](/docs/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 
 # Examples
 

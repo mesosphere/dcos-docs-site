@@ -94,7 +94,7 @@ Use the `zen.sh` script to create the template dependencies. These dependencies 
 ## Launch the DC/OS template on CloudFormation
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
-1.  On the **Select Template** page, upload the [Zen](/1.7/administration/installing/cloud/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
+1.  On the **Select Template** page, upload the [Zen](/docs/1.7/administration/installing/cloud/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
 1.  On the **Specify Details** page, specify these values and and click **Next**.
 
     ![AWS UI](../img/aws-advanced-1.png)
@@ -151,7 +151,7 @@ Launch the DC/OS web interface by entering the master hostname:
 
     ![DC/OS dashboard](../img/ui-dashboard.gif)
 
-1.  Click the dropup menu on the lower-left side to install the DC/OS [Command-Line Interface (CLI)](/1.7/usage/cli/install/). 
+1.  Click the dropup menu on the lower-left side to install the DC/OS [Command-Line Interface (CLI)](/docs/1.7/usage/cli/install/). 
 
     ![install CLI](../img/ui-dashboard-install-cli.gif)
     
@@ -159,7 +159,7 @@ Launch the DC/OS web interface by entering the master hostname:
 
 ### Add more agent nodes
 
-You can add more agent nodes by creating a new stack by using the [advanced-priv-agent.json](/1.7/administration/installing/cloud/aws/advanced/template-reference/#private-agent) or [advanced-pub-agent.json](/1.7/administration/installing/cloud/aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup. 
+You can add more agent nodes by creating a new stack by using the [advanced-priv-agent.json](/docs/1.7/administration/installing/cloud/aws/advanced/template-reference/#private-agent) or [advanced-pub-agent.json](/docs/1.7/administration/installing/cloud/aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup. 
 
 Use the output values from the `zen.sh` script and your Master and Infra stacks. These new agent nodes will automatically be added to your DC/OS cluster. 
 
@@ -181,7 +181,7 @@ Public agents:
 *  **PublicAgentSecurityGroup** Specify the security group ID for public agents. This group should have limited external access. You can find this value in the **Outputs** tab of the Infrastructure stack (`<stack-name>-Infrastructure-<stack-id>`).
 *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents. 
 
-For all of the advanced configuration options, see the template reference [documentation](/1.7/administration/installing/cloud/aws/advanced/template-reference/). 
+For all of the advanced configuration options, see the template reference [documentation](/docs/1.7/administration/installing/cloud/aws/advanced/template-reference/). 
  
  
 # Limitations

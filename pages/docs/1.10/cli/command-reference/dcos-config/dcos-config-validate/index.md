@@ -29,5 +29,5 @@ None.
 | Command | Description |
 navigationTitle:  dcos config validate
 |---------|-------------|
-| [dcos config](/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
+| [dcos config](/docs/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 

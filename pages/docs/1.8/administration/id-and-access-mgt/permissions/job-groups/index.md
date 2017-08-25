@@ -11,7 +11,7 @@ navigationTitle:  Controlling user access to jobs
 
 # About controlling user access to jobs
 
-The [Metronome permissions](/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
+The [Metronome permissions](/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
 
 **Important:** This section is not relevant to `disabled` mode clusters. In `disabled` mode you either give a user or group access to all jobs or you do not. `disabled` mode does not offer the finer-grained controls of `permissive` and `strict` modes. 
 
@@ -24,7 +24,7 @@ Refer to the section that corresponds to your desired interface.
 
 - A DC/OS user account with the `dcos:superuser` permission.
 
-- A DC/OS user account without the following permissions: `dcos:superuser`, `dcos:adminrouter:service:metronome`, and `dcos:service:metronome:metronome:jobs`. We call this user the unprivileged user or `alice`. If you do not have a user account without these permissions, see [adding local users](/1.8/administration/id-and-access-mgt/users-groups/add-local-user/) or [adding external users](/1.8/administration/id-and-access-mgt/users-groups/add-external-user/). 
+- A DC/OS user account without the following permissions: `dcos:superuser`, `dcos:adminrouter:service:metronome`, and `dcos:service:metronome:metronome:jobs`. We call this user the unprivileged user or `alice`. If you do not have a user account without these permissions, see [adding local users](/docs/1.8/administration/id-and-access-mgt/users-groups/add-local-user/) or [adding external users](/docs/1.8/administration/id-and-access-mgt/users-groups/add-external-user/). 
 
 **Note:** The commands that follow will use a user named `alice`. If you have a group containing the user account without the `dcos:superuser`, `dcos:adminrouter:service:metronome`, and `dcos:service:metronome:metronome:jobs` permissions, you can replace `alice` with the name of the group to achieve the same effect.
 
@@ -103,9 +103,9 @@ Refer to the section that corresponds to your desired interface.
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
+- You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
 
-- If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 **Note:** When using the API to manage permissions, you must first create the permission and then assign it. Sometimes, the permission may already exist. In this case, the API returns an informative message and you can then proceed to assign the permission.
 

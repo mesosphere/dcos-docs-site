@@ -14,17 +14,17 @@ navigationTitle:  Adding local users
 
 1. Log in as a user with the `superuser` permission.
    
-   ![Login](/1.10/img/gui-installer-login-ee.gif)
+   ![Login](/docs/1.10/img/gui-installer-login-ee.gif)
 
 1. Select **Organization > Users** and create a new user. Type in the user's full name, username, and password. 
         
-   ![Create user Cory](/1.10/img/service-group3.png)
+   ![Create user Cory](/docs/1.10/img/service-group3.png)
    
    
 # Adding local users by using the CLI
 
 **Prerequisite:**
-- [Enterprise DC/OS CLI](/1.10/cli/enterprise-cli/)
+- [Enterprise DC/OS CLI](/docs/1.10/cli/enterprise-cli/)
 
 
 1.  Create a user group named `services` with this command.

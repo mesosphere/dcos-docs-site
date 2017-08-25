@@ -82,7 +82,7 @@ The following procedure will take a Google IdP as an example and walk you throug
 
 10. Paste the client ID value from Google into the **Client ID** field.
 
-    ![Google IdP Configuration](/1.8/administration/id-and-access-mgt/sso/img/oidc-google.png) 
+    ![Google IdP Configuration](/docs/1.8/administration/id-and-access-mgt/sso/img/oidc-google.png) 
 
 11. Click **Submit**.
 
@@ -113,5 +113,5 @@ The following procedure will take a Google IdP as an example and walk you throug
 
     **Tip:** Users imported via OpenID Connect will have a series of numbers as their user ID.
 
-11. Go ahead and assign this user the appropriate [permissions](/1.8/administration/id-and-access-mgt/permissions/). 
+11. Go ahead and assign this user the appropriate [permissions](/docs/1.8/administration/id-and-access-mgt/permissions/). 
  

@@ -35,7 +35,7 @@ VIPs follow this naming convention:
 
 ## Create a VIP:
 
-1.  From the DC/OS [web interface](/1.8/usage/webinterface/), click on the **Services** tab and either click your service name or click **Deploy Service** to create a new service.
+1.  From the DC/OS [web interface](/docs/1.8/usage/webinterface/), click on the **Services** tab and either click your service name or click **Deploy Service** to create a new service.
 
     *   Select the **Network** tab.
     *   To edit an existing application, click **Edit**. You can then select the **Network** menu option.
@@ -104,4 +104,4 @@ Here is a sample response:
 
 You can use this VIP to address any one of the Kafka brokers in the cluster.
 
- [1]: /1.8/usage/managing-services/service-ports/
+ [1]: /docs/1.8/usage/managing-services/service-ports/

@@ -164,7 +164,7 @@ Publicly accessible applications are run in the public agent node. Public agent 
 
 **Troubleshooting:**
 
-*   You might not be able to SSH to agent nodes, depending on your cluster network configuration. Alternatively, you can SSH from a master node to your agent nodes. For more information, see <a href="/1.7/administration/sshcluster/" target="_blank">SSHing to a DC/OS cluster</a>.
+*   You might not be able to SSH to agent nodes, depending on your cluster network configuration. Alternatively, you can SSH from a master node to your agent nodes. For more information, see <a href="/docs/1.7/administration/sshcluster/" target="_blank">SSHing to a DC/OS cluster</a>.
 
 *   You can get the IP address of registered agent nodes from the **Nodes** tab in the <a href="/overview/webinterface/#scrollNav-3" target="_blank">DC/OS web interface</a>. Nodes that have not registered are not shown.
 

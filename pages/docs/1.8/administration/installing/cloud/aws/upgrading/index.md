@@ -11,12 +11,12 @@ navigationTitle:  Upgrading
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This document provides instructions for upgrading a DC/OS cluster from version 1.7 to 1.8 using AWS CloudFormation templates. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation on AWS](/1.8/administration/installing/cloud/aws/advanced/) before proceeding.
+This document provides instructions for upgrading a DC/OS cluster from version 1.7 to 1.8 using AWS CloudFormation templates. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation on AWS](/docs/1.8/administration/installing/cloud/aws/advanced/) before proceeding.
 
 **Important**
 
 - This upgrade procedure deletes all node instances, it will NOT save any persistent data.  If you have services which persist data locally to the cluster and the data should be preserved, it is recommended to create a second cluster running the new version of DC/OS and migrate the services and data to the new cluster.
-- The [VIP features](/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
+- The [VIP features](/docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
 - The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster. You can monitor the health of a master during an upgrade by watching Exhibitor on port 8181.
 - Task history in the Mesos UI will not persist through the upgrade.
 
@@ -81,4 +81,4 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
       1. Verify a replacement agent node joins and is healthy. Watch the agent node count in the DC/OS UI to confirm the replacement agent joins the cluster.
       1. Repeat the above steps for all the old agent nodes.
 
-[advanced-aws-custom]: /1.8/administration/installing/cloud/aws/advanced/
+[advanced-aws-custom]: /docs/1.8/administration/installing/cloud/aws/advanced/

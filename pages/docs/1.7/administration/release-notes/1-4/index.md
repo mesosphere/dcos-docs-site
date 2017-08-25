@@ -46,7 +46,7 @@ The release notes provide a list of useful topics and links for Mesosphere DC/OS
 
 <!-- ## System Requirements
 
-The system requirements are documented [here](/1.7/administration/installing/cloud/system-requirements/). -->
+The system requirements are documented [here](/docs/1.7/administration/installing/cloud/system-requirements/). -->
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
