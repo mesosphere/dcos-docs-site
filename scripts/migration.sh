@@ -71,22 +71,28 @@ function main
         for f in $d/*; do
           # Split path
           IFS='/' read -ra fls <<< "$f"
+          # Split file name parts
+          IFS='.' read -ra fnp <<< "${fls[-1]}"
+          file_type=${fnp[-1]^^}
           # If index.md file
           if [ -f "$f" ] && [ ${f: -8} == "index.md" ]; then
-            printf "${GREEN}Index File ${BLUE}$f${NC}\n"
+            printf "${GREEN}$file_type Index File ${BLUE}$f${NC}\n"
             copy_file $f $2/index.md
             # Reformat frontmatter
             reformat_file_frontmatter $2/index.md
           # If .md file
           elif [ -f "$f" ] && [ ${f: -3} == ".md" ]; then
             # Debug
-            printf "${GREEN}File ${BLUE}$f${NC}\n"
+            printf "${GREEN}$file_type File ${BLUE}$f${NC}\n"
             # Create folder
             create_folder_from_file $2/${fls[-1]::-3}
             # Copy file
             copy_file $f $2/${fls[-1]::-3}/index.md
             # Reformat frontmatter
             reformat_file_frontmatter $2/${fls[-1]::-3}/index.md
+          elif [ -f "$f" ]; then
+            printf "${GREEN}$file_type  File ${BLUE}$f${NC}\n"
+            copy_file $f $2/${fls[-1]}
           fi
         done
       fi
@@ -99,11 +105,12 @@ function main
           IFS='/' read -ra fls <<< "$f"
           new_dir=$2/${fls[-1]}
           # Skip img
-          if [ -d "$f" ] && [ ${f: -3} == "img" ]; then
-            printf "${GREEN}Skipping Folder ${BLUE}$new_dir${NC}\n"
-            continue
+          #if [ -d "$f" ] && [ ${f: -3} == "img" ]; then
+          #  printf "${GREEN}Skipping Folder ${BLUE}$new_dir${NC}\n"
+          #  continue
           # Skip link
-          elif [ -L "$f" ]; then
+          #elif [ -L "$f" ]; then
+          if [ -L "$f" ]; then
             continue
           # If folder
           elif [ -d "$f" ]; then

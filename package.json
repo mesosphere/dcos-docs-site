@@ -8,8 +8,8 @@
     "node": "8.1.2"
   },
   "scripts": {
-    "dev": "NODE_ENV=development node index.js",
-    "build": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development DEBUG=metalsmith-timer node index.js",
+    "build": "NODE_ENV=production DEBUG=metalsmith-timer node index.js",
     "pdf": "NODE_ENV=pdf node index.js",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
@@ -48,6 +48,7 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
-    "metalsmith-shortcode-parser": "^1.0.1"
+    "metalsmith-shortcode-parser": "^1.0.1",
+    "metalsmith-timer": "0.0.2"
   }
 }
