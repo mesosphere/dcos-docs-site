@@ -133,9 +133,17 @@ function main
 #
 #
 
-input_folder=$1
-output_folder=$2
-
-main $input_folder $output_folder
+rm -rf ./pages/docs/1.10
+#rm -rf ./pages/docs/1.9
+#rm -rf ./pages/docs/1.8
+#rm -rf ./pages/docs/1.7
+mkdir ./pages/docs/1.10
+#mkdir ./pages/docs/1.9
+#mkdir ./pages/docs/1.8
+#mkdir ./pages/docs/1.7
+main ../../dcos/dcos-docs/1.10 ./pages/docs/1.10
+#main ../../dcos/dcos-docs/1.9 ./pages/docs/1.9
+#main ../../dcos/dcos-docs/1.8 ./pages/docs/1.8
+#main ../../dcos/dcos-docs/1.7 ./pages/docs/1.7
 
 printf "${PURPLE}\nContent Migration finished.${NC}\n"
