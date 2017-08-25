@@ -2,7 +2,14 @@
 layout: layout.pug
 title: Performance Monitoring
 menuWeight: 1
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Performance Monitoring
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 Here are some recommendations for monitoring a DC/OS cluster. You can use any monitoring tools. The endpoints listed below will help you troubleshoot when issues occur.
 
@@ -126,4 +133,4 @@ See the Apache Mesos [documentation](http://mesos.apache.org/documentation/lates
 
  [1]: https://mesosphere.github.io/marathon/docs/metrics.html
  [2]: http://mesos.apache.org/documentation/latest/monitoring/
- [3]: /docs/1.10/deploying-services/marathon-api/#!/apps
+ [3]: /1.10/deploying-services/marathon-api/#!/apps

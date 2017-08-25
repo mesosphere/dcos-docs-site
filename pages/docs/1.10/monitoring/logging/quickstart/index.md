@@ -2,13 +2,18 @@
 layout: layout.pug
 title: Quick Start
 menuWeight: 0
-post_excerpt: ""
-feature_maturity: preview
-enterprise: 'no'
+excerpt: ""
+featureMaturity: preview
+enterprise: 'yes'
+navigationTitle:  Quick Start
 ---
 
-
 Use this guide to get started with DC/OS logging. 
+
+**Prerequisites:**
+
+- You must have DC/OS and the DC/OS CLI [installed](/1.10/installing/).
+- You must be logged in as as a superuser or have been granted user access to logging. For more information, see [Accessing system and component logs](/1.10/monitoring/logging/access-component-logs/) and [Accessing task logs](/1.10/monitoring/logging/access-task-logs/).
 
 # Deploy a sample app
 Deploy a sample Marathon app for use in this quick start guide.
@@ -102,7 +107,7 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
     The output should resemble:
     
     ```bash
-    Thu Dec 15 00:29:28 2016 ip-10-0-6-165.us-west-2.compute.internal [10530] ip-10-0-6-165.us-west-2.compute.internal nginx: 10.0.6.72 - - [15/Dec/2016:00:29:28 +0000] "GET /service/marathon/v2/groups?_timestamp=1481761768409&embed=group.groups&embed=group.apps&embed=group.pods&embed=group.apps.deployments&embed=group.apps.counts&embed=group.apps.tasks&embed=group.apps.taskStats&embed=group.apps.lastTaskFailure HTTP/1.1" 200 1941 "http://joel-logg-elasticl-m6yuis5u674t-297942863.us-west-2.elb.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel macOS 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
+    Thu Dec 15 00:29:28 2016 ip-10-0-6-165.us-west-2.compute.internal [10530] ip-10-0-6-165.us-west-2.compute.internal nginx: 10.0.6.72 - - [15/Dec/2016:00:29:28 +0000] "GET /service/marathon/v2/groups?_timestamp=1481761768409&embed=group.groups&embed=group.apps&embed=group.pods&embed=group.apps.deployments&embed=group.apps.counts&embed=group.apps.tasks&embed=group.apps.taskStats&embed=group.apps.lastTaskFailure HTTP/1.1" 200 1941 "http://joel-logg-elasticl-m6yuis5u674t-297942863.us-west-2.elb.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
     Thu Dec 15 00:29:29 2016 ip-10-0-6-165.us-west-2.compute.internal nginx [2929] 2016/12/15 00:29:29 [notice] 10530#0: *1136 [lua] auth.lua:131: validate_jwt_or_exit(): UID from valid JWT: `email@email.io`, client: 10.0.6.72, server: dcos.*, request: "GET /system/v1/logs/v1/range/?skip_prev=3 HTTP/1.1", host: "joel-logg-elasticl-m6yuis5u674t-297942863.us-west-2.elb.amazonaws.com"
     Thu Dec 15 00:29:29 2016 ip-10-0-6-165.us-west-2.compute.internal dcos-oauth [1505] time="2016-12-15T00:29:29Z" level=info msg="HTTP request received" method=GET uri="/acs/api/v1/users/youremail@email.io"
     ```
@@ -134,7 +139,7 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
         The output should resemble:
         
         ```bash
-        dcos-3dt.service
+        dcos-diagnostics.service
         dcos-adminrouter-reload.service
         dcos-adminrouter-reload.timer
         dcos-adminrouter.service
@@ -156,8 +161,8 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
        The output should resemble:
        
        ```bash
-       dcos-3dt.service
-       dcos-3dt.socket
+       dcos-diagnostics.service
+       dcos-diagnostics.socket
        dcos-adminrouter-agent-reload.service
        dcos-adminrouter-agent-reload.timer
        dcos-adminrouter-agent.service
@@ -181,6 +186,4 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
     Thu Dec 15 00:34:08 2016 ip-10-0-6-165.us-west-2.compute.internal java [2541] [2016-12-15 00:34:08,121] INFO  Received status update for task test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd: TASK_RUNNING (Reconciliation: Latest task state) (mesosphere.marathon.MarathonScheduler$$EnhancerByGuice$$28056dde:Thread-297)
     ...
     ```
-    
-For examples using the logging API, see the [documentation](/docs/1.10/monitoring/logging/logging-api/).
     

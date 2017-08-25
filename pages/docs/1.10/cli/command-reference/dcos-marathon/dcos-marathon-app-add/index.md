@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos marathon app add
 menuWeight: 1
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos marathon app add
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Add an application.
@@ -20,14 +27,16 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos marathon app add
 |---------|-------------|-------------|
-| `<app-resource>`   |             |  Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from stdin. For a detailed description, see the [documentation](/docs/1.10/deploying-services/marathon-api/). |
+| `<app-resource>`   |             |  Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from stdin. For a detailed description, see the [documentation](/1.10/deploying-services/marathon-api/). |
 
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos marathon app add
 |---------|-------------|
-| [dcos marathon](/docs/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 
@@ -74,5 +83,6 @@ In this example, a simple app is deployed to DC/OS Marathon.
     
     ```bash
      ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
+navigationTitle:  dcos marathon app add
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```

@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos service shutdown
 menuWeight: 1
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos service shutdown
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Shutdown a service.
@@ -20,11 +27,13 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos service shutdown
 |---------|-------------|-------------|
 | `<service-id>`   |             | The DC/OS service ID. |
 
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos service shutdown
 |---------|-------------|
-| [dcos service](/docs/1.10/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 
+| [dcos service](/1.10/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 

@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos package install
 menuWeight: 1
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos package install
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Install a package.
@@ -16,6 +23,7 @@ dcos package install <package-name> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos package install
 |---------|-------------|-------------|
 | `--app`   |             |  Application only. |
 | `--app-id=<app-id>`   |             |  The application ID. |
@@ -27,15 +35,17 @@ dcos package install <package-name> [OPTION]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos package install
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |
         
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos package install
 |---------|-------------|
-| [dcos package](/docs/1.10/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.10/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documentation](/docs/1.10/deploying-services/config-universe-service/).
+For an example, see the [documentation](/1.10/deploying-services/config-universe-service/).

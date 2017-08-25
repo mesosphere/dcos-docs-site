@@ -1,46 +1,102 @@
 ---
 layout: layout.pug
-title: Authentication HTTP API Endpoint
-menuWeight: 0
+title: Identity and Access Management API
+menuWeight: 900
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  Identity and Access Management API
 ---
 
-You can make external calls to HTTP API endpoints in your DC/OS cluster.
+The Identity and Access Management API allows you to manage users, user groups, permissions, and LDAP configuration settings through a RESTful interface. It offers more functionality as the DC/OS GUI. 
 
-You must first obtain an authentication token and then include it in your HTTP request.
 
-Authentication tokens expire after 5 days. You can view the expiration time in the ["exp" (Expiration Time) Claim](https://tools.ietf.org/html/rfc7519#section-4.1.4) of the JSON Web Token (JWT). You can refresh your token by re-logging in to DC/OS.
+# Request and response format
 
-# Obtain an authentication token
+The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
 
-You can obtain your authentication token using the DC/OS CLI. When you log into the DC/OS CLI, you paste an OpenID Connect ID token into your terminal prompt. This OpenID Connect ID token logs you into the DC/OS CLI but does not allow you to access the HTTP API endpoints. You must obtain an authentication token to gain access to the HTTP API endpoints. Complete the following steps to obtain your authentication token.
+    Content-Type: application/json
+    
 
-[Log in to the DC/OS CLI](/docs/1.10/security/managing-authentication#log-in-cli).
+# Host name and base path
 
-Logging into the DC/OS CLI causes your authentication token to be written to a configuration file. Type the following command to confirm that this write succeeded and view your authentication token.
+The host name to use will vary depending on where your app is running.
+
+* If your app runs outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS GUI and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters. 
+
+* If your app runs inside of the cluster, use `master.mesos`.
+
+Append `/acs/api/v1` to the host name, as shown below.
+
+    https://<host-ip>/acs/api/v1 
+    
+
+# Authentication and authorization
+
+navigationTitle:  Identity and Access Management API
+All IAM endpoints require an authentication token and the `dcos:superuser` permission---except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login. 
+
+## Obtaining an authentication token
+
+### Via the IAM API
+
+To get an authentication token, pass a user name and password in the body of a request to `/auth/login`. It returns an authentication token as shown below.
+
+```json
+{
+  "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg"
+}
+```
+
+### Via the DC/OS CLI
+
+When you log into the [DC/OS CLI](/1.10/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in curl commands (discussed in the next section).
+
+Alternatively, you can use the following command to get the authentication token value.
 
 ```bash
 dcos config show core.dcos_acs_token
 ```
 
-# Passing your authentication token to DC/OS endpoints
+## Passing an authentication token
 
-DC/OS endpoints expect to find your authentication token in the `Authorization` field of your HTTP header as follows.
+### Via the HTTP header
+
+Copy the token value and pass it in the `Authorization` field of the HTTP header, as shown below. 
 
 ```http
-Authorization: token=<authentication-token>
+Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg
 ```
 
-With cURL, you can use command substitution 
-to extract the token value from your configuration file. The following examples illustrate this syntax.
+### Via curl as a string value
 
-**Sample Marathon request:**
+Using curl, for example, you would pass this value as follows.
 
 ```bash
-curl --header "Authorization: token=$(dcos config show core.dcos_acs_token)" http://<master-host-name>/service/marathon/v2/apps
+curl -H "Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg"
 ```
 
-**Sample Mesos request:**
+### Via curl as a DC/OS CLI variable
+
+You can then reference this value in your curl commands, as shown below.
 
 ```bash
-curl --header "Authorization: token=$(dcos config show core.dcos_acs_token)" http://<master-host-name>/mesos/master/state.json
+curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 ```
+
+## Refreshing the authentication token
+
+Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.10/security/service-auth/custom-service-auth/) for more information.
+
+
+# API reference
+
+[api-explorer api='/1.10/api/iam.yaml']
+
+
+# Logging
+
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.10/monitoring/logging/) for instructions.
+
+
+

@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Debugging from the DC/OS CLI
-feature_maturity: preview
 menuWeight: 10
+excerpt: ""
+featureMaturity: preview
+enterprise: 'no'
+navigationTitle:  Debugging from the DC/OS CLI
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 The DC/OS CLI provides commands to debug services that are not deploying or behaving as expected.
 
@@ -12,11 +18,11 @@ To see full logs, append `--log-level=debug` to any DC/OS CLI command. For examp
 ```bash
 dcos -—log-level="debug" package install hdfs
 ```
-For more information about log levels, consult the [CLI command reference](/docs/1.10/cli/command-reference/) or run `dcos --help`.
+For more information about log levels, consult the [CLI command reference](/1.10/cli/command-reference/) or run `dcos --help`.
 
 # Debug Subcommands for Stuck Deployments
 
-The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS web interface](/docs/1.10/monitoring/debugging/gui-debugging/).
+The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS web interface](/1.10/monitoring/debugging/gui-debugging/).
 
 # Using the debugging commands
 
@@ -26,7 +32,7 @@ The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck se
 - A service or pod that is stuck in deployment.
 
 ## Sample application definitions
-If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/docs/1.10/deploying-services/creating-services/) to test the instructions in this section.
+If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/1.10/deploying-services/creating-services/) to test the instructions in this section.
 
 - mem-app.json
 
@@ -76,6 +82,7 @@ The `dcos marathon debug list` command shows you all services that are in a wait
 dcos marathon debug list
 
 ID            SINCE                     INSTANCES TO LAUNCH  WAITING  PROCESSED OFFERS  UNUSED OFFERS  LAST UNUSED OFFER         LAST USED OFFER           
+navigationTitle:  Debugging from the DC/OS CLI
 /mem-app      2017-02-28T19:08:59.547Z  3                    True     13                13             2017-02-28T19:09:35.607Z  ---                       
 /stuck-sleep  2017-02-28T19:09:25.56Z   9                    True     8                 7              2017-02-28T19:09:35.608Z  2017-02-28T19:09:25.566Z
 ```
@@ -101,7 +108,9 @@ ROLE         [*]                       1 / 2    50.00%
 CONSTRAINTS  [['hostname', 'UNIQUE']]  1 / 1    100.00%     
 CPUS         0.1                       1 / 1    100.00%     
 MEM          12000                     0 / 1    0.00%       
+navigationTitle:  Debugging from the DC/OS CLI
 DISK         0                         0 / 0    ---         
+navigationTitle:  Debugging from the DC/OS CLI
 PORTS        ---                       0 / 0    ---  
 ```
 

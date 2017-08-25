@@ -1,10 +1,17 @@
 ---
 layout: layout.pug
 title: >
-  Autoscaling Marathon services using CPU and memory
-navigationTitle: CPU/Memory
+  Autoscaling Marathon services using CPU
+  and memory
 menuWeight: 0
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  >
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 A Python service, `marathon-autoscale.py`, autoscales your Marathon application based on the utilization metrics which Mesos reports. You can run this service from within your DC/OS cluster. `marathon-autoscale.py` is intended to demonstrate what is possible when you run your services on DC/OS.
 
@@ -74,4 +81,4 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
     
 For more information, see the [Marathon-Autoscale GitHub](https://github.com/mesosphere/marathon-autoscale) repository.
 
- [1]: /docs/1.10/installing/
+ [1]: /1.10/installing/

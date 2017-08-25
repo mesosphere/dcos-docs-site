@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Uninstalling Services
-navigationTitle: Uninstalling
-menuWeight: 007
+menuWeight: 7
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Uninstalling Services
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 Services can be uninstalled from the CLI. If a Universe service has any reserved resources, you also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.
 
@@ -27,10 +33,10 @@ dcos package uninstall chronos
 
 From the DC/OS web interface you can uninstall services from the **Services** tab. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
 
-1.  Navigate to the [**Services**](/docs/1.10/gui/#services) tab in the DC/OS web interface.
+1.  Navigate to the [**Services**](/1.10/gui/#services) tab in the DC/OS web interface.
 1.  Select your service, click the vertical ellipsis at the far right, and select **Delete**.
 
-    ![Destroy app](/docs/1.10/img/service-delete.png)
+    ![Destroy app](/1.10/img/service-delete.png)
 1.  Copy and run the displayed command.
 
 ## Troubleshooting
@@ -65,7 +71,7 @@ Uninstall a user-created service with this command:
 dcos marathon app remove [--force] <app-id>
 ```
 
-For more information, see the [command reference](/docs/1.10/cli/command-reference/#dcos-marathon).
+For more information, see the [command reference](/1.10/cli/command-reference/#dcos-marathon).
 
 ### Web interface
 
@@ -73,7 +79,7 @@ From the DC/OS web interface you can uninstall services from the **Services**. T
 
 ### Services tab
 
-1.  Navigate to the [**Services**](/docs/1.10/gui/#services) tab in the DC/OS web interface.
+1.  Navigate to the [**Services**](/1.10/gui/#services) tab in the DC/OS web interface.
 2.  Click on the **Installed** tab to see your installed services.
 3.  Hover your cursor over the name of the package you wish to uninstall and you will see a red "Uninstall" link to the right. Click this link to uninstall the package.
 
@@ -133,7 +139,7 @@ Connect to the leader and start the script:
 
 ### Running from Marathon
 
-From the DC/OS [**Services**](/docs/1.10/gui/) tab, use the JSON editor to add the following as a Marathon task. Replace the values passed to `-r`/`-p`/`-z` according to what needs to be cleaned up.
+From the DC/OS [**Services**](/1.10/gui/) tab, use the JSON editor to add the following as a Marathon task. Replace the values passed to `-r`/`-p`/`-z` according to what needs to be cleaned up.
 
     {
       "id": "janitor",

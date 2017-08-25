@@ -2,7 +2,14 @@
 layout: layout.pug
 title: Health Checks
 menuWeight: 1
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Health Checks
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 You can define health checks for your DC/OS services. Health checks are defined on a per application basis, and are run against that application's tasks.
 
@@ -11,7 +18,7 @@ Health checks perform periodic checks on the containers distributed across a clu
 Health checks begin immediately when a task is launched. They are locally executed by Mesos on the agent running the corresponding task. Health checks are performed as close to the task as possible, so they are are not affected by networking failures. Health checks are delegated to the agents running the tasks. This allows the number of tasks that are health checked to scale horizontally along with the number of agents in the cluster.
 
 - The default health check leverages Mesos' knowledge of the task state `TASK_RUNNING => healthy`.
-- Marathon provides a `health` member of the task resource via the [REST API](/docs/1.10/deploying-services/marathon-api/) that you can add to your service definition.
+- Marathon provides a `health` member of the task resource via the [REST API](/1.10/deploying-services/marathon-api/) that you can add to your service definition.
 
 A health check is considered passing if both of these conditions are met:
 
@@ -42,6 +49,7 @@ DC/OS supports the following health check protocols:
 When creating a service, you can configure JSON health checks in the DC/OS GUI or directly as JSON. This table shows the equivalent GUI fields and JSON options.
 
 | GUI | JSON | Default | Description |
+navigationTitle:  Health Checks
 |----------------------|--------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GRACE PERIOD** | `gracePeriodSeconds` | `15` | Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. |
 | **INTERVAL (S)** | `intervalSeconds` | `10` | Specifies the amount of time (in seconds) to wait between health checks. |
@@ -68,7 +76,7 @@ For example, here is the health check specified as JSON in an application defini
 
 And here is the same health check specified by using the DC/OS GUI.
 
-![GUI health check](/docs/1.10/img/health-check-gui.png)
+![GUI health check](/1.10/img/health-check-gui.png)
 
 ## More information
 Check out [this blog post](https://mesosphere.com/blog/2017/05/16/13-factor-app-building-releasing-for-cloud-native/) for more information about health checks!

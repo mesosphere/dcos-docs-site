@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos auth login
 menuWeight: 2
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos auth login
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Log in to DC/OS authentication. 
@@ -16,6 +23,7 @@ dcos auth login [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos auth login
 |---------|-------------|-------------|
 |  `--ca-certs=<ca-certs>` |             | (Enterprise DC/OS Only) The path to a list of trusted CAs to verify requests against.  |
 |  `--insecure` |                        | Allow requests to bypass SSL certificate verification. Analogous to `dcos config set core.ssl_verify=False`|
@@ -34,7 +42,8 @@ If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--c
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos auth login
 |---------|-------------|
-| [dcos auth](/docs/1.10/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/1.10/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
 # Examples

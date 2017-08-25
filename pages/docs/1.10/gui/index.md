@@ -1,8 +1,11 @@
 ---
 layout: layout.pug
 title: GUI
-navigationTitle: GUI
-menuWeight: 040
+menuWeight: 40
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  GUI
 ---
 
 The DC/OS web interface provides a rich graphical view of your DC/OS cluster. With the web interface you can view the current state of your entire cluster and DC/OS services. The web interface is installed as a part of your DC/OS installation.
@@ -13,7 +16,9 @@ Additionally, there is a User Menu on the upper-left side of the web interface t
 
 The dashboard is the home page of the DC/OS web interface and provides an overview of your DC/OS cluster.
 
-![Dashboard](/docs/1.10/img/dcos-gui.png)
+![Dashboard](/1.10/img/dashboard-ee.png)
+
+From the dashboard you can easily monitor the health of your cluster.
 
 *   The CPU Allocation panel provides a graph of the current percentage of available general compute units that are being used by your cluster.
 
@@ -33,7 +38,7 @@ The dashboard is the home page of the DC/OS web interface and provides an overvi
 
 The Services tab provides a full-featured interface to the native DC/OS Marathon instance. This Services tab provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
-![Services](/docs/1.10/img/dcos-services.png)
+![Services](/1.10/img/services-ee.png)
 
 By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, CPU, memory, or disk space allocated.
 
@@ -43,63 +48,67 @@ By default, all of your services are displayed, sorted by service name. You can 
 *   **MEM** The amount of memory used.
 *   **DISK** The amount of disk space used.
 
-Click the service name to opens the Instances panel, which provides CPU, memory, and disk usage graphs and lists all tasks using the service. Click a task listed on the Instances panel to see detailed information about the task’s CPU, memory, and disk usage and the task’s files and directory tree.
+Click the service name to open the Instances panel, which provides CPU, memory, and disk usage graphs and lists all tasks using the service. Click a task listed on the Instances panel to see detailed information about the task’s CPU, memory, and disk usage and the task’s files and directory tree.
 
-For services with a web interface, hover over the service name and click ![open service](/docs/1.10/img/open-service.png) to view it.
+For services with a web interface, hover over the service name and click ![open service](/1.10/img/open-service.png) to view it.
 
 **Tip:** You can access the Mesos web interface at `<hostname>/mesos`.
 
 # <a name="jobs"></a>Jobs
 
-The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a schedule in cron format. For more information, see the [documentation](/docs/1.10/deploying-jobs/).
+The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a scheduler by using the cron format. For more information, see the [documentation](/1.10/deploying-jobs/).
 
-![Jobs](/docs/1.10/img/dcos-jobs.png)
+![Jobs](/1.10/img/jobs-ee.png)
 
 # <a name="catalog"></a>Catalog
 
-The Catalog tab shows all of the available DC/OS services from package [repositories](/docs/1.10/administering-clusters/repo/). You can install packages from the DC/OS Universe with a single click. The packages can be installed with defaults or customized directly in the web interface.
+The Catalog tab shows all of the available DC/OS services. You can install packages from the DC/OS Catalog with a single click. The packages can be installed with defaults or customized directly in the web interface.
 
-![Catalog](/docs/1.10/img/ui-dashboard-catalog.png)
+![Catalog](/1.10/img/catalog-ee.png)
+
+# <a name="secrets"></a>Secrets
+
+The Secrets tab provides secret and certificates management. For more information, see the [secrets](/1.10/security/secrets/) and [certificates](/1.10/networking/tls-ssl/) documentation.
+
+![Secrets](/1.10/img/secrets-ee.png)
 
 # <a name="nodes"></a>Nodes
 
 The Nodes tab provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
 
-![Nodes](/docs/1.10/img/dcos-nodes.png)
+![Nodes](/1.10/img/nodes-ee.png)
 
 By default all of your nodes are displayed in **List** view, sorted by hostname. You can filter nodes by service type or hostname. You can also sort the nodes by number of tasks or percentage of CPU, memory, or disk space allocated.
 
 You can switch to **Grid** view to see a "donuts" percentage visualization.
 
-![Nodes](/docs/1.10/img/dcos-donuts.png)
+![Nodes](/1.10/img/nodes-donuts-ee.png)
 
 Clicking on a node opens the Nodes side panel, which provides CPU, memory, and disk usage graphs and lists all tasks on the node. Use the dropdown or a custom filter to sort tasks and click on details for more information. Click on a task listed on the Nodes side panel to see detailed information about the task’s CPU, memory, and disk usage and the task’s files and directory tree.
 
 # <a name="network"></a>Networking
 
-The Network tab provides information for troubleshooting your virtual networks. You can see which containers are on which network and see their IP addresses. For more information, see the [documentation](/docs/1.10/networking/virtual-networks/ip-per-container/).
+The Networking tab provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/1.10/networking/load-balancing-vips/virtual-ip-addresses/).
 
-![Network](/docs/1.10/img/ui-dashboard-network.png)
+![Tweeter scaled](/1.10/img/networking-ee.png)
 
-# <a name="system"></a>Overview
+# <a name="overview"></a>Overview
+
 View the cluster details from the **Overview** tab.
 
-![Overview](/docs/1.10/img/overview.png)
+![Overview](/1.10/img/overview-ee.png)
 
 # Components
 View the system health of your DC/OS components from the **Components** tab.
 
-![Components](/docs/1.10/img/component-system-view.png)
+![Components](/1.10/img/components-ee.png)
 
 # Settings
-Manage your DC/OS package repositories from the **Settings** tab.
+Manage your DC/OS package repositories, secrets stores, LDAP directories, and identity providers from the **Settings** tab.
 
-![Settings](/docs/1.10/img/package-repositories.png)
+![Package repositories](/1.10/img/package-repositories.png)
 
 # Organization
 Manage user access from the **Organization** tab.
 
-![Organization](/docs/1.10/img/organization.png)
-
-
-[3]: https://mesosphere.github.io/marathon/docs/health-checks.html
+![All users](/1.10/img/organization-ee.png)

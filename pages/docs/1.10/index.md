@@ -1,12 +1,11 @@
 ---
 layout: layout.pug
-title: DC/OS Documentation
+title: Documentation for Version 1.10
 menuWeight: 0
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  Documentation for Version 1.10
 ---
 
-Welcome to the DC/OS documentation. The DC/OS documentation can help you set up, learn about the system, and get your applications and workloads running on DC/OS.
-
-
-
-
-
+Welcome to the documentation for DC/OS version 1.10. For information about new and changed features, see the [release notes](/1.9/release-notes/).

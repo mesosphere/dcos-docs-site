@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos node ssh
 menuWeight: 6
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos node ssh
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
     
 # Description
 Establish an SSH connection to the master or agent nodes of your DC/OS cluster.
@@ -16,6 +23,7 @@ dcos node ssh <command> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos node ssh
 |---------|-------------|-------------|
 | `--config-file=<path>`   |             | Path to SSH configuration file. |
 | `--leader`   |             |  The leading master. |
@@ -29,15 +37,17 @@ dcos node ssh <command> [OPTION]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos node ssh
 |---------|-------------|-------------|
 | `<command>`   |             | Command to execute on the DCOS cluster node. |
 
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos node ssh
 |---------|-------------|
-| [dcos node](/docs/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 # Examples
 
-For an example, see the [documentation](/docs/1.10/administering-clusters/sshcluster/).
+For an example, see the [documentation](/1.10/administering-clusters/sshcluster/).

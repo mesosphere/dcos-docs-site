@@ -1,37 +1,46 @@
 ---
 layout: layout.pug
 title: Metrics API
-feature_maturity: preview
 menuWeight: 1
+excerpt: >
+  You can use the Metrics API to
+  periodically poll for data about your
+  cluster, hosts, containers, and
+  applications. You can then pass this
+  data to a third party service of your
+  choice to achieve informative charts,
+  dashboards, and alerts.
+featureMaturity: preview
+enterprise: 'yes'
+navigationTitle:  Metrics API
 ---
 
-You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications. You can then pass this data to a third party service of your choice to achieve informative charts, dashboards, and alerts.
+You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications.
+You can then pass this data to a third party service of your choice to achieve informative charts, dashboards, and alerts.
 
-The Metrics API is backed by the [DC/OS Metrics component](/docs/1.10/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.
+The Metrics API is backed by the [DC/OS Metrics component](/1.10/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.
 
-## Routes
+For examples of how to use the Metrics API, see the [Metrics Quick Start Guide](/1.10/metrics/quickstart/).
 
-From within the cluster, you can access by using this path, where `<resource-path>` is the Metrics API resource path. This method requires [SSH access](/docs/1.10/administering-clusters/sshcluster/) to your cluster.
 
-```bash
-http://localhost:61001/system/v1/metrics/v0/<resource-path>
+# Routes
+
+Access to the Metrics API is proxied through the Admin Router on each node using the following route:
+
+```
+/system/v1/metrics/v0/
 ```
 
-For example, to view host-level metrics, run this command from your agent node:
+Access to the Metrics API of the agent nodes is also proxied through the master nodes:
 
-```bash
-curl -s http://localhost:61001/system/v1/metrics/v0/node | jq
+```
+/system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-From outside of the cluster, you can access by using this path, where `<resource-path>` is the Metrics API resource path.
+To determine the URL of your cluster, see [Cluster Access](/1.10/api/access/).
 
-```bash
-http://<cluster-url>/system/v1/agent/{agent_id}/metrics/v0/<resource-path>
-```
 
-For more examples, see the Metrics [Quick Start Guide](/docs/1.10/metrics/quickstart/).
-
-## Format
+# Format
 
 The Metrics API request and response bodies are formatted in JSON.
 
@@ -47,15 +56,28 @@ Responses will include the content type header:
 Content-Type: application/json
 ```
 
-## Resources
+
+# Auth
+
+All Metrics API routes require authentication to use.
+
+To authenticate API requests, see [Obtaining an authentication token](/1.10/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/iam-api/#passing-an-authentication-token).
+
+The Metrics API also requires authorization via the following permissions:
+
+| Route | Permission |
+navigationTitle:  Metrics API
+|-------|----------|
+| `/system/v1/metrics/v0/` | `dcos:adminrouter:ops:system-metrics` |
+| `/system/v1/agent/{agent_id}/metrics/v0/` | `dcos:adminrouter:system:agent` |
+
+All routes may also be reached by users with the `dcos:superuser` permission.
+
+To assign permissions to your account, see the [permissions reference](/1.10/security/perms-reference/).
+
+
+# Resources
 
 The following resources are available under both of the above routes:
 
-<div class="swagger-section">
-  <div id="message-bar" class="swagger-ui-wrap message-success" data-sw-translate=""></div>
-  <div id="swagger-ui-container" class="swagger-ui-wrap" data-api="/docs/1.10/api/metrics.yaml">
-
-  <div class="info" id="api_info">
-    <div class="info_title">Loading docs...</div>
-  <div class="info_description markdown"></div>
-</div>
+[api-explorer api='/1.10/api/metrics.yaml']

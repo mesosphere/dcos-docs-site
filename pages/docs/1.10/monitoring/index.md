@@ -2,55 +2,53 @@
 layout: layout.pug
 title: Monitoring, Logging, and Debugging
 menuWeight: 110
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  Monitoring, Logging, and Debugging
 ---
+
 
 Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshoooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
 
-DC/OS components are the [systemd units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-3dt.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/docs/1.10/overview/architecture/components/).
+DC/OS components are the [systemd units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-diagnostics.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/1.10/overview/architecture/components/).
 
 The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit.
 
 ## Getting Started
-Launch the [DC/OS UI](/docs/1.10/gui/) and navigate to the **Components** page. You can sort components by health.
 
-![sort](/docs/1.10/img/component-system-view.png)
+Launch the [DC/OS UI](/1.10/gui/) and navigate to the **System -> Components** page. You can sort components by health.
+
+![system health](/1.10/img/component-system-view.png)
 
 You can click on a DC/OS component to view the details, including role, node, and health.
 
-![nodes](/docs/1.10/img/component-node-detail.png)
+![node detail](/1.10/img/component-node-detail.png)
 
-You can debug further by clicking the node to view the component journald (log) output:
+You can debug further by clicking the node to view the component journald (log) output.
 
-![output](/docs/1.10/img/component-node-output.png)
+![log](/1.10/img/component-node-output.png)
 
 ## Health States
 
-Possible health states are unhealthy and healthy. We infer this from codes `0` and `1`.
+Possible health states are unhealthy and healthy. We infer this from codes 0 and 1.
 
-- **Healthy** All cluster nodes are healthy. The units are loaded and not in the "active" or "inactive" state.
-- **Unhealthy** One or more nodes have issues. The units are not loaded or are in the "active" or "inactive" state.
+*   **Healthy** All cluster nodes are healthy. The units are loaded and not in the "active" or "inactive" state.
+*   **Unhealthy** One or more nodes have issues. The units are not loaded or are in the "active" or "inactive" state.
 
-The system health API has four possible states: 0 - 3, OK; CRITICAL; WARNING; UNKNOWN. Future DC/OS iterations will leverage these codes to provide more robust and detailed cluster health state information in the UI.
+The system health API has four possible states: 0 - 3, OK; CRITICAL; WARNING; UNKNOWN. Future DC/OS iterations will leverage these codes to give more robust and detailed cluster health state information in the UI.
 
 ## System health HTTP API endpoint
 
-The system health endpoint is exposed on port `1050` for masters, and through the DC/OS diagnostics utility on the master nodes:
+The system health endpoint is exposed through the DC/OS diagnostics utility on the master nodes:
 
--  Master nodes
-
-   ```bash
-   curl localhost:1050/system/health/v1
-   ```
-   
--  Agent nodes
-
-   ```bash
-   curl --unix-socket /run/dcos/3dt.sock http://localhost/system/health/v1
-   ```
+```bash
+curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1
+```
 
 ## Aggregation
 
-Aggregation of the cluster health endpoints is accomplished by the same diagnostics application, but is only run on the master nodes. You can explore this API further by making a few queries to any master in your cluster:
+Aggregation of the cluster health endpoints is accomplished by the same diagnostics application on the master nodes. You can explore this API further by making a few queries to any master in your cluster:
 
 1.  SSH to your master node:
     
@@ -67,20 +65,20 @@ Aggregation of the cluster health endpoints is accomplished by the same diagnost
     -  System health by unit:
        
        ```bash
-       curl localhost:1050/system/health/v1/units
+       curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/units
        ```
     -  System health by node:
     
        ```bash
-       curl localhost:1050/system/health/v1/nodes
+       curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/nodes
        ```
     -  System health report:
     
        ```bash
-       curl localhost:1050/system/health/v1/report
+       curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/report
        ```
 
-The DC/OS GUI uses these aggregation endpoints to generate the data you explore in the system health console.
+The DC/OS user interface uses these aggregation endpoints to generate the data you explore in the system health console.
 
 ## Known Issues
 
@@ -98,4 +96,12 @@ If you experience this behavior it's most likely your Mesos agent service on the
 
 ## Troubleshooting
 
-If you have any problems, you can check if the diagnostics service is running by SSH’ing to the Mesos leading master and checking the systemd status of the diagnostics component (`dcos-3dt.service`).
+If you have any problems, you can check if the diagnostics service is running by SSH’ing to the Mesos leading master and checking the systemd status of the diagnostics component (`dcos-d3t.service`).
+
+ [4]: https://www.freedesktop.org/wiki/Software/systemd/
+ [5]: http://erlang.org/doc/man/epmd.html
+ [6]: /1.10/security/
+ [7]: /1.10/networking/load-balancing-vips/
+ [8]: /1.10/overview/concepts/#private
+ [9]: /1.10/overview/concepts/#public
+ [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

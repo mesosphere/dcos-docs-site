@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: DNS Quick Reference
-navigationTitle: DNS Reference
 menuWeight: 20
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  DNS Quick Reference
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 This quick reference provides a summary of the available options.
 
@@ -14,7 +20,7 @@ To help explain, we'll use this imaginary application:
 * Port: `555`
  * Port Name: `myport`
  * Load Balanced
-* Running on a [Virtual Network](/docs/1.10/networking/load-balancing-vips/virtual-networks/)
+* Running on a [Virtual Network](/1.10/networking/load-balancing-vips/virtual-networks/)
 * Running on the Marathon framework (if unsure, it's probably this one)
  * If you are running another framework, then replace any instance of `marathon` with the name of your framework.
 
@@ -26,11 +32,11 @@ You should choose the first option that satisfies your requirements:
 1.  `outergroupsubgroupmyapp.marathon.l4lb.thisdcos.directory:555`
  * This is only available when the service is load balanced. `:555` is not a part of the DNS address, but is there to show that this address and port is load balanced as a pair rather than individually.
 1.  `myapp-subgroup-outergroup.marathon.containerip.dcos.thisdcos.directory`
- * This is only available when the service is running on a [virtual network](/docs/1.10/networking/load-balancing-vips/virtual-networks/).
+ * This is only available when the service is running on a [virtual network](/1.10/networking/load-balancing-vips/virtual-networks/).
 1.  `myapp-subgroup-outergroup.marathon.agentip.dcos.thisdcos.directory`
- * This is always available and should be used when the service is not running on a [virtual network](/docs/1.10/networking/load-balancing-vips/virtual-networks/).
+ * This is always available and should be used when the service is not running on a [virtual network](/1.10/networking/load-balancing-vips/virtual-networks/).
 1.  `myapp-subgroup-outergroup.marathon.autoip.dcos.thisdcos.directory`
- * This is always available and should be used to address an application that is transitioning on or off a [virtual network](/docs/1.10/networking/load-balancing-vips/virtual-networks/).
+ * This is always available and should be used to address an application that is transitioning on or off a [virtual network](/1.10/networking/load-balancing-vips/virtual-networks/).
 1.  `myapp-subgroup-outergroup.marathon.mesos`
  * This is always available, and is equivalent for the most part to the `agentip`. However it is less specific and less performant than the `agentip` and thus use is discouraged.
 

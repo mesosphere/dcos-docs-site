@@ -1,10 +1,15 @@
 ---
 layout: layout.pug
 title: CNI Plugin Support
-navigationTitle: CNI Plugin Support
-feature_maturity: preview
 menuWeight: 30
+excerpt: ""
+featureMaturity: preview
+enterprise: 'no'
+navigationTitle:  CNI Plugin Support
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 As of version 1.10, DC/OS works with any type of CNI network. Use CNI to allow your containers to communicate with one another when they are isolated from the hosts they are running on.
 
@@ -40,7 +45,7 @@ Add your plugin and configuration file to each agent on your cluster. Consult th
 
 # Configuring your Service to Use a CNI Plugin
 
-**Note:** Your service must use the [Universal Container Runtime (UCR)](/docs/1.10/deploying-services/containerizers/ucr/).
+**Note:** Your service must use the [Universal Container Runtime (UCR)](/1.10/deploying-services/containerizers/ucr/).
 
 Add the `ipAddress.networkName` parameter to your service definition. `networkName` must match the `name` parameter of the configuration file in the previous step. In our current example, it is `dcos`.
 

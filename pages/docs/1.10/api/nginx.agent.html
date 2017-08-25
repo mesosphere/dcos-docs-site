@@ -22,39 +22,112 @@
     </ul>
   </div>
   <ul class="resources">
-    <li id="resource-pkgpanda" class="resource">
+    <li id="resource-internal" class="resource">
       <div class="heading">
         <h2>
-          <a id="pkgpanda" href="#pkgpanda" aria-hidden="true" class="toggle-route-group" data-id="pkgpanda">
-            <div class="arrow arrow-right"></div>Pkgpanda</a>
+          <a id="internal" href="#internal" aria-hidden="true" class="toggle-route-group" data-id="internal">
+            <div class="arrow arrow-right"></div>Internal</a>
         </h2>
-        <span class="options"><a href="#pkgpanda" class="toggle-route-group" data-id="pkgpanda">Show/Hide</a> </span>
+        <span class="options"><a href="#internal" class="toggle-route-group" data-id="internal">Show/Hide</a> </span>
       </div>
-      <ul id="routes-pkgpanda" class="routes">
+      <ul id="routes-internal" class="routes">
+        <li class="route route-type-proxy">
+          <div class="heading">
+            <h3>
+              <span class="route-type">Proxy</span>
+              <span class="route-path"><code>/internal/acs/api/v1/internal/policyquery</code></span>
+            </h3>
+            <span class="route-desc">Access Control Service policy query (internal-only)</span>
+          </div>
+          <div class="route-meta" style="display:none">
+            <table>
+              <tr>
+                <td>
+                  Rewrite:
+                </td>
+                <td>
+                  <table>
+                    <tr>
+                      <td>
+                        Regex:
+                      </td>
+                      <td>
+                        <code>^/internal/(.*)</code>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Replacement:
+                      </td>
+                      <td>
+                        <code>/$1</code>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Type:
+                      </td>
+                      <td>
+                        <code>break</code>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Proxy:
+                </td>
+                <td>
+                  <table>
+                    <tr>
+                      <td>
+                        Path:
+                      </td>
+                      <td>
+                        <code>$upstream_iam</code>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li id="resource-other" class="resource">
+      <div class="heading">
+        <h2>
+          <a id="other" href="#other" aria-hidden="true" class="toggle-route-group" data-id="other">
+            <div class="arrow arrow-right"></div>Other</a>
+        </h2>
+        <span class="options"><a href="#other" class="toggle-route-group" data-id="other">Show/Hide</a> </span>
+      </div>
+      <ul id="routes-other" class="routes">
         <li class="route route-type-proxy">
           <div class="heading">
             <h3>
               <span class="route-type">Proxy</span>
               <span class="route-path"><code>/pkgpanda/</code></span>
             </h3>
-            <span class="route-desc">DC/OS component package management</span>
           </div>
           <div class="route-meta" style="display:none">
             <table>
               <tr>
                 <td>
-                  Proxy:
+                  Path:
                 </td>
                 <td>
-                  <code>http://&lt;socket&gt;/</code>
+                  <code>http://$backend</code>
                 </td>
               </tr>
               <tr>
                 <td>
-                  Socket:
+                  Server:
                 </td>
                 <td>
-                  <code>/run/dcos/pkgpanda-api.sock</code>
+                  <code>unix:/run/dcos/pkgpanda-api.sock</code>
                 </td>
               </tr>
               <tr>
@@ -62,7 +135,15 @@
                   Backend:
                 </td>
                 <td>
-                  <a href="https://dcos.io/docs/1.9/administration/component-management/">DC/OS Component Package Manager (Pkgpanda)</a>
+                  DC/OS Component Package Manager (Pkgpanda)
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  API Reference:
+                </td>
+                <td>
+                  <a href="https://docs.mesosphere.com/1.9/administering-clusters/component-management/">https://docs.mesosphere.com/1.9/administering-clusters/component-management/</a>
                 </td>
               </tr>
             </table>
@@ -91,18 +172,18 @@
             <table>
               <tr>
                 <td>
-                  Proxy:
+                  Path:
                 </td>
                 <td>
-                  <code>http://&lt;socket&gt;</code>
+                  <code>http://$backend</code>
                 </td>
               </tr>
               <tr>
                 <td>
-                  Socket:
+                  Server:
                 </td>
                 <td>
-                  <code>/run/dcos/3dt.sock</code>
+                  <code>unix:/run/dcos/dcos-diagnostics.sock</code>
                 </td>
               </tr>
               <tr>
@@ -110,7 +191,15 @@
                   Backend:
                 </td>
                 <td>
-                  <a href="https://dcos.io/docs/1.9/administration/monitoring/#system-health-http-api-endpoint">DC/OS Diagnostics (3DT)</a>
+                  DC/OS Diagnostics
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  API Reference:
+                </td>
+                <td>
+                  <a href="https://docs.mesosphere.com/1.9/monitoring/#system-health-http-api-endpoint">https://docs.mesosphere.com/1.9/monitoring/#system-health-http-api-endpoint</a>
                 </td>
               </tr>
             </table>
@@ -128,18 +217,18 @@
             <table>
               <tr>
                 <td>
-                  Proxy:
+                  Path:
                 </td>
                 <td>
-                  <code>http://&lt;socket&gt;/</code>
+                  <code>http://$backend</code>
                 </td>
               </tr>
               <tr>
                 <td>
-                  Socket:
+                  Server:
                 </td>
                 <td>
-                  <code>/run/dcos/dcos-log.sock</code>
+                  <code>unix:/run/dcos/dcos-log.sock</code>
                 </td>
               </tr>
               <tr>
@@ -147,7 +236,60 @@
                   Backend:
                 </td>
                 <td>
-                  <a href="https://dcos.io/docs/1.9/administration/logging/logging-api/">DC/OS Log</a>
+                  DC/OS Log
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  API Reference:
+                </td>
+                <td>
+                  <a href="https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/">https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li class="route route-type-proxy">
+          <div class="heading">
+            <h3>
+              <span class="route-type">Proxy</span>
+              <span class="route-path"><code>/system/v1/logs/v1/(?&lt;type&gt;range|stream)/framework/(?&lt;framework&gt;.*?)/executor/(?&lt;executor&gt;.*?)/container/(?&lt;container&gt;.*?)</code></span>
+            </h3>
+            <span class="route-desc">Container (task) logs</span>
+          </div>
+          <div class="route-meta" style="display:none">
+            <table>
+              <tr>
+                <td>
+                  Path:
+                </td>
+                <td>
+                  <code>http://$backend</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Server:
+                </td>
+                <td>
+                  <code>unix:/run/dcos/dcos-log.sock</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Backend:
+                </td>
+                <td>
+                  DC/OS Log
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  API Reference:
+                </td>
+                <td>
+                  <a href="https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/">https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/</a>
                 </td>
               </tr>
             </table>
@@ -165,18 +307,18 @@
             <table>
               <tr>
                 <td>
-                  Proxy:
+                  Path:
                 </td>
                 <td>
-                  <code>http://&lt;socket&gt;/</code>
+                  <code>http://$backend</code>
                 </td>
               </tr>
               <tr>
                 <td>
-                  Socket:
+                  Server:
                 </td>
                 <td>
-                  <code>/run/dcos/dcos-metrics-agent.sock</code>
+                  <code>unix:/run/dcos/dcos-metrics-agent.sock</code>
                 </td>
               </tr>
               <tr>
@@ -184,7 +326,15 @@
                   Backend:
                 </td>
                 <td>
-                  <a href="https://dcos.io/docs/1.9/administration/monitoring/metrics/metrics-api/">DC/OS Metrics</a>
+                  DC/OS Metrics
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  API Reference:
+                </td>
+                <td>
+                  <a href="https://docs.mesosphere.com/1.9/metrics/metrics-api/">https://docs.mesosphere.com/1.9/metrics/metrics-api/</a>
                 </td>
               </tr>
             </table>

@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Managing Package Repositories
-navigationTitle: Package Repository
-menuWeight: 50 
+menuWeight: 50
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Managing Package Repositories
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 DC/OS comes pre-configured with the [Mesosphere Universe](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages, but other package repositories can also be added.
 
@@ -14,7 +20,7 @@ You can use the web interface or the CLI to:
 * [Add repositories](#adding)
 * [Remove repositories](#removing)
 
-**Tip:** Before you can use the CLI, you need to [install it](/docs/1.10/cli/install/).
+**Tip:** Before you can use the CLI, you need to [install it](/1.10/cli/install/).
 
 ## <a name="listing"></a>Listing repositories
 

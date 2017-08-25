@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Boot Sequence
-navigationTitle: Boot Sequence
 menuWeight: 6
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Boot Sequence
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 During installation, the DC/OS component services are all started in parallel but initialize and become responsive in a relatively consistent sequence because of interdependencies.
 
@@ -92,4 +98,4 @@ The following is the boot sequence of a DC/OS scheduler service.
 
 ### More Information
 
-For more information about tasks and services, see [Distributed Process Management](/docs/1.10/overview/architecture/distributed-process-management/).
+For more information about tasks and services, see [Distributed Process Management](/1.10/overview/architecture/distributed-process-management/).

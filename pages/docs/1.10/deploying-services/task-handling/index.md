@@ -1,17 +1,23 @@
 ---
 layout: layout.pug
 title: Task Handling
-navigationTitle: Task Handling
-menuWeight: 1.5
+menuWeight: 1
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Task Handling
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 Marathon sorts tasks into these categories: initial, non-terminal, and terminal. Tasks within these categories may have one of several statuses, as summarized in the diagram below.
 
 To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon REST API](https://mesosphere.github.io/marathon/docs/generated/api.html) (/v2/events).
 
-You can also  [configure Marathon's behavior when a task is unreachable](/docs/1.10/deploying-services/task-handling/configure-task-handling/).
+You can also  [configure Marathon's behavior when a task is unreachable](/1.10/deploying-services/task-handling/configure-task-handling/).
 
-![Task Handling Flow](/docs/1.10/img/task-handling.png)
+![Task Handling Flow](/1.10/img/task-handling.png)
 
 # Terminal states
 

@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos job show
 menuWeight: 10
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos job show
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
     
 # Description
 Show the job definition.
@@ -20,14 +27,16 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos job show
 |---------|-------------|-------------|
 | `<job-id>`   |             |  Specify the job ID. |
 
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos job show
 |---------|-------------|
-| [dcos job](/docs/1.10/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.10/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 

@@ -2,7 +2,14 @@
 layout: layout.pug
 title: Labeling Tasks and Jobs
 menuWeight: 600
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Labeling Tasks and Jobs
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 This tutorial illustrates how labels can be defined using the DC/OS web interface and the Marathon HTTP API, and how information pertaining to applications and jobs that are running can be queried based on label value criteria.
 
@@ -50,7 +57,7 @@ You can attach labels to jobs either via the **Jobs** tab of the DC/OS web inter
 
 From the DC/OS web interface, click the **Jobs** tab. You can add labels when you deploy a new job or edit an existing one from the **Labels** tab.
 
-![Job label](/docs/1.10/img/job-label.png)
+![Job label](/1.10/img/job-label.png)
 
 ## Assign a Label to a Job from the DC/OS CLI
 

@@ -1,17 +1,20 @@
 ---
 layout: layout.pug
-title: Marathon API
+title: Marathon REST API
 menuWeight: 40
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  Marathon REST API
 ---
 
 The Marathon API allows you to manage long-running containerized services (apps and pods).
 
-The Marathon API is backed by the [Marathon component](/docs/1.10/overview/architecture/components/#marathon), which runs on the master nodes.
+The Marathon API is backed by the [Marathon component](/1.10/overview/architecture/components/#marathon), which runs on the master nodes.
 
 One of the Marathon instances is elected as leader, while the rest are hot backups in case of failure. All API requests must go through the Marathon leader. To enforce this, Admin Router proxies requests from any master node to the Marathon leader.
 
-For more information about using Marathon, see [Managing Services](/docs/1.10/deploying-services/).
-
+For more information about using Marathon, see [Managing Services](/1.10/deploying-services/).
 
 ## Routes
 
@@ -21,14 +24,23 @@ Access to the Marathon API is proxied through the Admin Router on each master no
 /service/marathon/
 ```
 
+## Auth
+
+All Marathon API routes require authentication to use.
+
+To authenticate API requests, see [Obtaining an authentication token](/1.10/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/iam-api/#passing-an-authentication-token).
+
+The Marathon API also requires authorization via the following permissions:
+
+| Route | Permission |
+navigationTitle:  Marathon REST API
+|-------|----------|
+| `/service/marathon/` | `dcos:adminrouter:service:marathon` |
+
+All routes may also be reached by users with the `dcos:superuser` permission.
+
+To assign permissions to your account, see the [permissions reference](/1.10/security/perms-reference/).
 
 ## Resources
 
-<div class="swagger-section">
-  <div id="message-bar" class="swagger-ui-wrap message-success" data-sw-translate=""></div>
-  <div id="swagger-ui-container" class="swagger-ui-wrap" data-api="/docs/1.10/api/marathon.yaml">
-
-  <div class="info" id="api_info">
-    <div class="info_title">Loading docs...</div>
-  <div class="info_description markdown"></div>
-</div>
+[api-explorer api='/1.10/api/marathon.yaml']

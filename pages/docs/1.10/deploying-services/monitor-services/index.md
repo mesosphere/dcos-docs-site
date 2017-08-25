@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Monitoring Services
-navigationTitle: Monitoring
-menuWeight: 003
+menuWeight: 3
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Monitoring Services
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 You can monitor deployed DC/OS services from the CLI and web interface.
 
@@ -23,7 +29,7 @@ kafka     <privatenode3>   True     0    0.0    0.0     0.0   <service-id3>
 
 ## Web interface
 
-See the monitoring [documentation](/docs/1.10/monitoring/).
+See the monitoring [documentation](/1.10/monitoring/).
 
 # Monitoring user-created services
 
@@ -41,4 +47,4 @@ suzanne-simple-service  10.0.3.224  root    R    suzanne-simple-service.47359150
 
 ## Web interface
 
-See the monitoring [documentation](/docs/1.10/monitoring/).
+See the monitoring [documentation](/1.10/monitoring/).

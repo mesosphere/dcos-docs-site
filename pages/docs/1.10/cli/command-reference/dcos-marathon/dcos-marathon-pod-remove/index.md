@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos marathon pod remove
 menuWeight: 26
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos marathon pod remove
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Remove a pod.
@@ -16,20 +23,23 @@ dcos marathon pod remove <pod-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos marathon pod remove
 |---------|-------------|-------------|
 | `--force`   |             | Disable checks in Marathon during updates. |
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos marathon pod remove
 |---------|-------------|-------------|
 | `<pod-id>`   |             | The pod ID. |
 
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos marathon pod remove
 |---------|-------------|
-| [dcos marathon](/docs/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 

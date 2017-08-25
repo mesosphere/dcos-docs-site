@@ -1,13 +1,29 @@
 ---
 layout: layout.pug
 title: Components
-navigationTitle: Components
 menuWeight: 4
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  Components
 ---
+
+<style type="text/css">
+h1 .badge,
+h2 .badge,
+h3 .badge,
+h4 .badge,
+h5 .badge {
+  vertical-align: middle;
+  margin-bottom: auto;
+}
+</style>
 
 DC/OS is composed of many open source microservice components meticulously tuned and configured to work together.
 
-![DC/OS Components](/docs/1.10/img/dcos-components-1.9.png)
+Mesosphere Enterprise DC/OS includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
+
+![Mesosphere Enterprise DC/OS Components](/1.10/img/dcos-enterprise-components-1.9.png)
 
 From the top, DC/OS is a batteries-included container platform that handles container orchestration, package management, and security.
 
@@ -21,7 +37,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <div data-role="collapsible">
 <h2 id="apache-mesos">Apache Mesos</h2>
 <div>
-<p><strong>Description:</strong> Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each <a href="/docs/1.10/overview/concepts/#dcos-agent-node">DC/OS agent node</a>. Mesos Agent Public is a Mesos Agent configured to run on <a href="/docs/1.10/overview/concepts/#public-agent-node-agent-node">DC/OS public agent nodes</a>.</p>
+<p><strong>Description:</strong> Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each <a href="/1.10/overview/concepts/#dcos-agent-node">DC/OS agent node</a>. Mesos Agent Public is a Mesos Agent configured to run on <a href="/1.10/overview/concepts/#public-agent-node">DC/OS public agent nodes</a>.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -42,10 +58,10 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 </div>
 
 <div data-role="collapsible">
-<h2 id="apache-zookeeper">Apache ZooKeeper</h2>
+<h2 id="apache-zookeeper">Apache Zookeeper</h2>
 <div>
-<p><strong>Description:</strong> ZooKeeper provides consistent, highly available, distributed key-value storage for configuration, synchronization, name registration, and cluster state storage.</p>
-<p><strong>System Service(s):</strong> N/A - ZooKeeper is supervised by Exhibitor.</p>
+<p><strong>Description:</strong> Zookeeper provides consistent, highly available, distributed key-value storage for configuration, synchronization, name registration, and cluster state storage.</p>
+<p><strong>System Service(s):</strong> N/A - Zookeeper is supervised by Exhibitor.</p>
 <p>
   <strong>See Also:</strong>
   <ul>
@@ -59,7 +75,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <div data-role="collapsible">
 <h2 id="exhibitor">Exhibitor</h2>
 <div>
-<p><strong>Description:</strong> Exhibitor supervises ZooKeeper and provides a management web interface.</p>
+<p><strong>Description:</strong> Exhibitor supervises Zookeeper and provides a management web interface.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -80,7 +96,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <div data-role="collapsible">
 <h2 id="dcos-installer">DC/OS Installer</h2>
 <div>
-<p><strong>Description:</strong> The DC/OS Installer (dcos_generate_config.sh) generates install artifacts and installs DC/OS. As part of the install process on each node, the DC/OS Download service downloads the install artifacts from the bootstrap machine and the DC/OS Setup service installs components using the DC/OS Component Package Manager (Pkgpanda).</p>
+<p><strong>Description:</strong> The DC/OS Installer (dcos_generate_config.ee.sh) generates install artifacts and installs DC/OS. As part of the install process on each node, the DC/OS Download service downloads the install artifacts from the bootstrap machine and the DC/OS Setup service installs components using the DC/OS Component Package Manager (Pkgpanda).</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -91,7 +107,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/docs/1.10/installing/">Documentation</a></li>
+    <li><a href="/1.10/installing/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos">Source</a></li>
   </ul>
 </p>
@@ -106,7 +122,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/docs/1.10/gui/">Documentation</a></li>
+    <li><a href="/1.10/gui/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos-ui">Source</a></li>
   </ul>
 </p>
@@ -121,7 +137,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/docs/1.10/cli/">Documentation</a></li>
+    <li><a href="/1.10/cli/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos-cli">Source</a></li>
   </ul>
 </p>
@@ -136,9 +152,9 @@ Container orchestration is the continuous, automated scheduling, coordination, a
 DC/OS includes built-in orchestration of the most commonly used high level container-based abstractions: jobs and services. Many use cases are handled directly by these basic abstractions, but they also enable the deployment of custom schedulers for tasks that require more flexible programmatic lifecycle management automation.
 
 <div data-role="collapsible">
-<h2>Marathon</h2>
+<h2 id="marathon">Marathon</h2>
 <div>
-<p><strong>Description:</strong> Marathon orchestrates long-running containerized services (apps and pods).</p>
+<p><strong>Description:</strong> Marathon orchestrates long-lived containerized services (apps and pods).</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -149,9 +165,9 @@ DC/OS includes built-in orchestration of the most commonly used high level conta
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://mesosphere.github.io/marathon/">Website</a></li>
-    <li><a href="/docs/1.10/deploying-services/">Documentation</a></li>
+    <li><a href="/1.10/deploying-services/">Documentation</a></li>
     <li><a href="https://github.com/mesosphere/marathon">Source</a></li>
-    <li><a href="/docs/1.10/deploying-services/marathon-api/">API Reference</a></li>
+    <li><a href="/1.10/deploying-services/marathon-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -170,7 +186,7 @@ DC/OS includes built-in orchestration of the most commonly used high level conta
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/docs/1.10/deploying-jobs/">Documentation</a></li>
+    <li><a href="/1.10/deploying-jobs/">Documentation</a></li>
     <li><a href="https://github.com/dcos/metronome">Source</a></li>
     <li><a href="https://dcos.github.io/metronome/docs/generated/api.html">API Reference</a></li>
   </ul>
@@ -183,7 +199,7 @@ DC/OS includes built-in orchestration of the most commonly used high level conta
 
 Container runtimes execute and manage machine level processes in isolated operating system level environments.
 
-DC/OS supports multiple container runtimes using [Mesos' containerizer abstraction](http://mesos.apache.org/documentation/latest/containerizers/).
+DC/OS supports multiple container runtimes using [Mesos' containerizer abstraction](http://mesos.apache.org/documentation/latest/containerizer/).
 
 <div data-role="collapsible">
 <h2 id="universal-container-runtime">Universal Container Runtime</h2>
@@ -246,21 +262,40 @@ DC/OS supports multiple container runtimes using [Mesos' containerizer abstracti
 No software runs perfectly, especially not the first time. Distribute tasks across a cluster and the normal patterns of analyzing and debugging these services become tedious and painful. So DC/OS includes several components to help ease the pain of debugging distributed systems by aggregating, caching, and streaming logs, metrics, and cluster state metadata.
 
 <div data-role="collapsible">
-<h2 id="dcos-diagnostics">DC/OS Diagnostics (3DT)</h2>
+<h2 id="dcos-network-metrics">DC/OS Network Metrics <span class="small badge enterprise-badge">Enterprise DC/OS</span></h2>
 <div>
-<p><strong>Description:</strong> DC/OS Diagnostics (3DT) aggregates and exposes component health. DC/OS Diagnostics is also known as DC/OS Distributed Diagnostics Tool (3DT).</p>
+<p><strong>Description:</strong> DC/OS Network Metrics exposes networking-related metrics. DC/OS Network Metrics is also known as the DC/OS Networking API.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
-    <li><code class="nowrap">dcos-3dt.service</code></li>
-    <li><code class="nowrap">dcos-3dt.socket</code></li>
+    <li><code class="nowrap">dcos-networking_api.service</code></li>
   </ul>
 </p>
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="https://github.com/dcos/3dt">Source</a></li>
-    <li><a href="/docs/1.10/monitoring/#system-health-http-api-endpoint">API Reference</a></li>
+    <li>(Documentation Coming Soon)</li>
+  </ul>
+</p>
+</div>
+</div>
+
+<div data-role="collapsible">
+<h2 id="dcos-diagnostics">DC/OS Diagnostics</h2>
+<div>
+<p><strong>Description:</strong> DC/OS Diagnostics aggregates and exposes component health. DC/OS Diagnostics is also known as DC/OS Distributed Diagnostics Tool.</p>
+<p>
+  <strong>System Service(s):</strong>
+  <ul>
+    <li><code class="nowrap">dcos-diagnostics.service</code></li>
+    <li><code class="nowrap">dcos-diagnostics.socket</code></li>
+  </ul>
+</p>
+<p>
+  <strong>See Also:</strong>
+  <ul>
+    <li><a href="https://github.com/dcos/dcos-diagnostics">Source</a></li>
+    <li><a href="/1.10/monitoring/#system-health-http-api-endpoint">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -283,7 +318,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/dcos-log">Source</a></li>
-    <li><a href="/docs/1.10/monitoring/logging/logging-api/">API Reference</a></li>
+    <li><a href="/1.10/monitoring/logging/logging-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -305,7 +340,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="https://linux.die.net/man/8/logrotate">Documentation</a></li>
+    <li><a href="http://www.linuxcommand.org/man_pages/logrotate8.html">Documentation</a></li>
     <li><a href="https://github.com/logrotate/logrotate">Source</a></li>
   </ul>
 </p>
@@ -329,7 +364,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/dcos-metrics">Source</a></li>
-    <li><a href="/docs/1.10/metrics/metrics-api/">API Reference</a></li>
+    <li><a href="/1.10/metrics/metrics-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -338,7 +373,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 <div data-role="collapsible">
 <h2 id="dcos-signal">DC/OS Signal</h2>
 <div>
-<p><strong>Description:</strong> The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can <a href="/docs/1.10/installing/opt-out/#telemetry">opt-out of telemetry</a> at install time.</p>
+<p><strong>Description:</strong> The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can <a href="/1.10/installing/custom/opt-out/#telemetry">opt-out of telemetry</a> at install time.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -419,7 +454,7 @@ In a world where machines are are given numbers instead of names, tasks are sche
   <ul>
     <li><a href="http://mesosphere.github.io/mesos-dns/">Documentation</a></li>
     <li><a href="https://github.com/mesosphere/mesos-dns">Source</a></li>
-    <li><a href="/docs/1.10/networking/mesos-dns/mesos-dns-api/">API Reference</a></li>
+    <li><a href="/1.10/networking/mesos-dns/mesos-dns-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -479,7 +514,7 @@ In a world where machines are are given numbers instead of names, tasks are sche
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/docs/1.10/networking/load-balancing-vips/">Documentation</a></li>
+    <li><a href="/1.10/networking/load-balancing-vips/">Documentation</a></li>
     <li><a href="https://github.com/dcos/minuteman">Source</a></li>
   </ul>
 </p>
@@ -489,7 +524,7 @@ In a world where machines are are given numbers instead of names, tasks are sche
 <div data-role="collapsible">
 <h2 id="navstar">Navstar</h2>
 <div>
-<p><strong>Description:</strong> Navstar orchestrates virtual overlay networks using <a href="https://en.wikipedia.org/wiki/Virtual_Extensible_LAN">VXLAN</a>.</p>
+<p><strong>Description:</strong> Navstar orchestrates virtual overlay networks using <a href="https://en.wikipedia.org/wiki/Virtual_Extensible_LAN">VXLAN</a> and manages distributed Layer 4 virtual IP load balancing.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -518,8 +553,7 @@ In a world where machines are are given numbers instead of names, tasks are sche
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="http://erlang.org/doc/man/epmd.html">Documentation</a></li>
-    <li><a href="https://github.com/dcos/otp/tree/master/erts/epmd">Source</a></li>
+    <li><a href="https://github.com/erlang/epmd">Source</a></li>
   </ul>
 </p>
 </div>
@@ -533,7 +567,7 @@ Just as machine operating systems need package management to install, upgrade, c
 <div data-role="collapsible">
 <h2 id="dcos-package-manager">DC/OS Package Manager (Cosmos)</h2>
 <div>
-<p><strong>Description:</strong> DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from <a href="/docs/1.10/administering-clusters/repo/">DC/OS package repositories</a>, such as the <a href="https://github.com/mesosphere/universe">Mesosphere Universe</a>.</p>
+<p><strong>Description:</strong> DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from <a href="/1.10/administering-clusters/repo/">DC/OS package repositories</a>, such as the <a href="https://github.com/mesosphere/universe">Mesosphere Universe</a>.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -544,7 +578,7 @@ Just as machine operating systems need package management to install, upgrade, c
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/cosmos">Source</a></li>
-    <li><a href="/docs/1.10/deploying-services/package-api/">API Reference</a></li>
+    <li><a href="/1.10/deploying-services/package-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -565,7 +599,7 @@ Just as machine operating systems need package management to install, upgrade, c
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/dcos/tree/master/pkgpanda">Source</a></li>
-    <li><a href="/docs/1.10/administering-clusters/component-management/">API Reference</a></li>
+    <li><a href="/1.10/administering-clusters/component-management/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -574,28 +608,88 @@ Just as machine operating systems need package management to install, upgrade, c
 
 # IAM and Security
 
-Identity management in DC/OS is delegated to external identity providers, taking advantage of existing infrastructure to reduce the cost and time to market. Security is provided via OpenID Connect authentication and enforced at the edge by Admin Router's reverse proxy.
+Identity and access management in **Enterprise DC/OS** is governed by an internal database of users, user groups, and permissions. External identity providers can also be attached to take advantage of existing databases. Permissions are enforced both at the edge by Admin Router's reverse proxy and also at the component level for controlling access to specific actions. Secrets, like SSL certificates, can also be securely generated, managed, stored, and injected into user services.
 
 <div data-role="collapsible">
-<h2 id="dcos-authentication">DC/OS Authentication</h2>
+<h2 id="dcos-iam">DC/OS Identity and Access Manager (Bouncer) <span class="small badge enterprise-badge">Enterprise DC/OS</span></h2>
 <div>
-<p><strong>Description:</strong> The DC/OS Authentication (OAuth) service authenticates DC/OS users using [OpenID Connect](http://openid.net/connect/) and [Auth0](https://auth0.com/).</p>
+<p><strong>Description:</strong> DC/OS Identity and Access Manager (Bouncer) controls access to DC/OS components and services by managing users, user groups, service accounts, permissions, and identity providers. In addition to managing a local user database, DC/OS IAM can delegate to external identity providers using LDAP, SAML, or Open ID Connect. For fine grained access control, other DC/OS components, like Mesos and Marathon, integrate with DC/OS IAM directly. DC/OS IAM is also known as Bouncer.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
-    <li><code class="nowrap">dcos-oauth.service</code></li>
+    <li><code class="nowrap">dcos-bouncer.service</code></li>
   </ul>
 </p>
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="https://github.com/dcos/dcos-oauth">Source</a></li>
-    <li><a href="/docs/1.10/security/iam-api/">API Reference</a></li>
+    <li><a href="/1.10/security/">Documentation</a></li>
+    <li><a href="/1.10/security/iam-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
 </div>
 
+<div data-role="collapsible">
+<h2 id="dcos-certificate-authority">DC/OS Certificate Authority <span class="small badge enterprise-badge">Enterprise DC/OS</span></h2>
+<div>
+<p><strong>Description:</strong> DC/OS Certificate Authority (CA) issues signed digital certificates for secure communication. DC/OS CA is based on Cloudflare's <a href="https://github.com/cloudflare/cfssl">Cfssl</a>.</p>
+<p>
+  <strong>System Service(s):</strong>
+  <ul>
+    <li><code class="nowrap">dcos-ca.service</code></li>
+  </ul>
+</p>
+<p>
+  <strong>See Also:</strong>
+  <ul>
+    <li><a href="/1.10/networking/tls-ssl/">Documentation</a></li>
+    <li><a href="/1.10/networking/tls-ssl/ca-api/">API Reference</a></li>
+  </ul>
+</p>
+</div>
+</div>
+
+<div data-role="collapsible">
+<h2 id="dcos-secrets">DC/OS Secrets <span class="small badge enterprise-badge">Enterprise DC/OS</span></h2>
+<div>
+<p><strong>Description:</strong> DC/OS Secrets provides a secure API for storing and retrieving secrets from Vault, a secret store.</p>
+<p>
+  <strong>System Service(s):</strong>
+  <ul>
+    <li><code class="nowrap">dcos-secrets.service</code></li>
+  </ul>
+</p>
+<p>
+  <strong>See Also:</strong>
+  <ul>
+    <li><a href="/1.10/security/secrets/">Documentation</a></li>
+    <li><a href="/1.10/security/secrets/secrets-api/">API Reference</a></li>
+  </ul>
+</p>
+</div>
+</div>
+
+<div data-role="collapsible">
+<h2 id="vault">Vault <span class="small badge enterprise-badge">Enterprise DC/OS</span></h2>
+<div>
+<p><strong>Description:</strong> Vault is a tool for securely managing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, and more. Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.</p>
+<p>
+  <strong>System Service(s):</strong>
+  <ul>
+    <li><code class="nowrap">dcos-vault.service</code></li>
+  </ul>
+</p>
+<p>
+  <strong>See Also:</strong>
+  <ul>
+    <li><a href="https://www.vaultproject.io/docs/">Documentation</a></li>
+    <li><a href="https://github.com/mesosphere/vault/">Source</a></li>
+    <li><a href="https://www.vaultproject.io/api/">API Reference</a></li>
+  </ul>
+</p>
+</div>
+</div>
 
 # Storage
 
@@ -641,7 +735,7 @@ To see the full list of packages managed by the DC/OS installer, see the [packag
 
 # Systemd Services
 
-Most DC/OS components run as [systemd services](/docs/1.10/overview/concepts/#systemd-service) on the DC/OS nodes.
+Most DC/OS components run as [systemd services](/1.10/overview/concepts/#systemd-service) on the DC/OS nodes.
 
 To see a list of the systemd components running on any particular node, list the contents of the `/etc/systemd/system/dcos.target.wants/` directory or execute `systemctl | grep dcos-` to see their current status.
 
@@ -649,29 +743,31 @@ To see a list of the systemd components running on any particular node, list the
 
 ```
 [vagrant@m1 ~]ls /etc/systemd/system/dcos.target.wants/
-dcos-3dt.service                 dcos-mesos-dns.service
+dcos-diagnostics.service         dcos-marathon.service
+dcos-diagnostics.socket          dcos-mesos-dns.service
 dcos-adminrouter-reload.service  dcos-mesos-master.service
 dcos-adminrouter-reload.timer    dcos-metrics-master.service
 dcos-adminrouter.service         dcos-metrics-master.socket
-dcos-cosmos.service              dcos-metronome.service
-dcos-epmd.service                dcos-navstar.service
-dcos-exhibitor.service           dcos-oauth.service
-dcos-gen-resolvconf.service      dcos-pkgpanda-api.service
-dcos-gen-resolvconf.timer        dcos-pkgpanda-api.socket
-dcos-history.service             dcos-signal.service
-dcos-log-master.service          dcos-signal.timer
-dcos-log-master.socket           dcos-spartan.service
-dcos-logrotate-master.service    dcos-spartan-watchdog.service
-dcos-logrotate-master.timer      dcos-spartan-watchdog.timer
-dcos-marathon.service
+dcos-bouncer.service             dcos-metronome.service
+dcos-ca.service                  dcos-navstar.service
+dcos-cosmos.service              dcos-networking_api.service
+dcos-epmd.service                dcos-pkgpanda-api.service
+dcos-exhibitor.service           dcos-pkgpanda-api.socket
+dcos-gen-resolvconf.service      dcos-secrets.service
+dcos-gen-resolvconf.timer        dcos-signal.service
+dcos-history.service             dcos-signal.timer
+dcos-log-master.service          dcos-spartan.service
+dcos-log-master.socket           dcos-spartan-watchdog.service
+dcos-logrotate-master.service    dcos-spartan-watchdog.timer
+dcos-logrotate-master.timer      dcos-vault.service
 ```
 
 ## Private Agent Node
 
 ```
 [vagrant@a1 ~]ls /etc/systemd/system/dcos.target.wants/
-dcos-3dt.service                       dcos-logrotate-agent.timer
-dcos-3dt.socket                        dcos-mesos-slave.service
+dcos-diagnostics.service               dcos-logrotate-agent.timer
+dcos-diagnostics.socket                dcos-mesos-slave.service
 dcos-adminrouter-agent-reload.service  dcos-metrics-agent.service
 dcos-adminrouter-agent-reload.timer    dcos-metrics-agent.socket
 dcos-adminrouter-agent.service         dcos-navstar.service
@@ -689,8 +785,8 @@ dcos-logrotate-agent.service
 
 ```
 [vagrant@p1 ~]ls /etc/systemd/system/dcos.target.wants/
-dcos-3dt.service                       dcos-logrotate-agent.timer
-dcos-3dt.socket                        dcos-mesos-slave-public.service
+dcos-diagnostics.service               dcos-logrotate-agent.timer
+dcos-diagnostics.socket                dcos-mesos-slave-public.service
 dcos-adminrouter-agent-reload.service  dcos-metrics-agent.service
 dcos-adminrouter-agent-reload.timer    dcos-metrics-agent.socket
 dcos-adminrouter-agent.service         dcos-navstar.service

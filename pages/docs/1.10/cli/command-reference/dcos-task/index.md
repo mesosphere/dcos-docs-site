@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos task
 menuWeight: 9
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos task
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Manage DC/OS tasks.
@@ -16,6 +23,7 @@ dcos task [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos task
 |---------|-------------|-------------|
 | `--completed`   |             | Print completed and in-progress tasks. |
 | `--help, h`   |             |  Print usage. |
@@ -26,6 +34,7 @@ dcos task [OPTION]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos task
 |---------|-------------|-------------|
 | `<task>`   |             |  A full task ID, a partial task ID, or a regular expression. |
 
@@ -79,6 +88,7 @@ Positional Arguments:
 # Child commands
 
 | Command | Description |
+navigationTitle:  dcos task
 |---------|-------------|
-| [dcos task log](/docs/1.10/cli/command-reference/dcos-task/dcos-task-log/)   | Print the task log. | 
-| [dcos task ls](/docs/1.10/cli/command-reference/dcos-task/dcos-task-ls/)   | Print the list of files in the Mesos task sandbox. | 
+| [dcos task log](/1.10/cli/command-reference/dcos-task/dcos-task-log/)   | Print the task log. | 
+| [dcos task ls](/1.10/cli/command-reference/dcos-task/dcos-task-ls/)   | Print the list of files in the Mesos task sandbox. | 
