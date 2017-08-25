@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Datadog Metrics for DC/OS
-feature_maturity: preview
-menuWeight: 3.5
+menuWeight: 3
+excerpt: ""
+featureMaturity: preview
+enterprise: 'no'
+navigationTitle:  Datadog Metrics for DC/OS
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 The Datadog metrics plugin for DC/OS supports sending metrics from the DC/OS metrics service on master and agent hosts to a Datadog agent for shipping to DatadogHQ.
 
@@ -13,24 +19,23 @@ The Datadog metrics plugin for DC/OS supports sending metrics from the DC/OS met
 
 **Prerequisite:**
 
-- DC/OS is [installed](/docs/1.10/installing/)
+- DC/OS is [installed](/1.10/installing/)
 - [Go programming environment](https://golang.org/doc/install) <!-- dcos-metrics must be run from within the go directory -->
 -  Git:
    -  **macOS:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
    -  **Unix/Linux:** See these <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">installation instructions</a>.
 
-1. Get the DC/OS metrics repository:
+1. Clone the DC/OS metrics repository:
 
-  ```bash
-  go get github.com/dcos/dcos-metrics
-  ```
-  
+   ```bash
+   git clone git@github.com:dcos/dcos-metrics
+   ```
+
 1. Navigate to the `dcos-metrics` repository and run the build command:
 
-  ```bash
-  cd $(go env GOPATH)/src/github.com/dcos/dcos-metrics
-  make && make plugins
-  ```
+   ```bash
+   cd dcos-metrics && make && make plugins
+   ```
 
    The plugin is available in the build directory:
 
@@ -50,7 +55,7 @@ The Datadog metrics plugin for DC/OS supports sending metrics from the DC/OS met
 Install the `datadog` package in DC/OS:
 
 1.  Go to the **Catalog** tab of the DC/OS GUI and find the **Datadog** package.
-    ![datadog package](/docs/1.10/img/datadog-package.png)
+    ![datadog package](/1.10/img/datadog-package.png)
 1.  Click **INSTALL PACKAGE** -> **ADVANCED INSTALLATION** and enter [your Datadog API_KEY](https://app.datadoghq.com/account/settings#api).
 1.  Click **REVIEW AND INSTALL** to complete your installation.
 
@@ -92,7 +97,7 @@ You will use this auth token below.
     ```
 
 
-1.  [SSH to your master node](/docs/1.10/administering-clusters/sshcluster/) and assign permissions to the plugin.
+1.  [SSH to your master node](/1.10/administering-clusters/sshcluster/) and assign permissions to the plugin.
 
     ```bash
     dcos node ssh --master-proxy --leader

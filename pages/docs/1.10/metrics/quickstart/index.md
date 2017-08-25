@@ -1,20 +1,21 @@
 ---
 layout: layout.pug
-title: Metrics Quick Start
-navigationTitle: Quick Start
+title: Quick Start
 menuWeight: 0
-feature_maturity: preview
+excerpt: ""
+featureMaturity: preview
+enterprise: 'yes'
+navigationTitle:  Quick Start
 ---
 
-Use this guide to get started with the DC/OS metrics component. 
+
+Use this guide to get started with the DC/OS metrics component. The metrics component is natively integrated with DC/OS and no additional setup is required.
 
 **Prerequisites:** 
 
-- At least one [DC/OS service](/docs/1.10/deploying-services/creating-services/) is deployed.
+- You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 - Optional: the CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
-
-The metrics component is natively integrated with DC/OS and no additional setup is required.  
-
+  
 1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 
     1.  Create the following Marathon app definition and save as `test-metrics.json`. 
@@ -34,8 +35,20 @@ The metrics component is natively integrated with DC/OS and no additional setup 
         ```bash
         dcos marathon app add test-metrics.json
         ```
-        
-1.  [SSH to the agent node](/docs/1.10/administering-clusters/sshcluster/) that is running your app, where (`--mesos-id=<mesos-id>`) is the Mesos ID of the node running your app.
+
+1.  Obtain your DC/OS authentication token and copy for later use:
+
+    ```bash
+    dcos config show core.dcos_acs_token
+    ```
+    
+    The output should resemble:
+    
+    ```bash
+    eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIi...
+    ```
+
+1.  [SSH to the agent node](/1.10/administering-clusters/sshcluster/) that is running your app, where (`--mesos-id=<mesos-id>`) is the Mesos ID of the node running your app.
 
     ```
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
@@ -58,15 +71,15 @@ The metrics component is natively integrated with DC/OS and no additional setup 
          HOSTNAME       IP                         ID                    
         10.0.0.193  10.0.0.193  7749eada-4974-44f3-aad9-42e2fc6aedaf-S1  
         ```
-        
+
 1.  View metrics. 
 
     -   **Metrics for all containers running on a host**
 
-        To show all containers that are deployed on the agent node, run this command from your agent node. 
+        To show all containers that are deployed on the agent node, run this command from your agent node with your authentication token (`<auth-token>`) specified. 
         
         ```bash
-        curl -s http://localhost:61001/system/v1/metrics/v0/containers | jq
+        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
         ```
     
         The output should resemble this:
@@ -77,10 +90,10 @@ The metrics component is natively integrated with DC/OS and no additional setup 
 
     -   **<a name="container-metrics"></a>Metrics for a specific container**
         
-        To view the metrics for a specific container, run this command from your agent node container ID (`<container-id>`) specified. 
+        To view the metrics for a specific container, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified. 
     
         ```bash
-        curl -s http://localhost:61001/system/v1/metrics/v0/containers/<container-id>/app | jq
+        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers/<container-id>/app | jq
         ```
 
         The output should resemble:
@@ -113,10 +126,10 @@ The metrics component is natively integrated with DC/OS and no additional setup 
     
     -   **<a name="container-metrics"></a>Metrics from container-level cgroup allocations**
  
-        To view cgroup allocations, run this command from your agent node with your container ID (`<container-id>`) specified.
+        To view cgroup allocations, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified.
       
         ```bash
-        curl -s http://localhost:61001/system/v1/metrics/v0/containers/<container-id> | jq
+        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers/<container-id> | jq
         ```
     
         The output will contain a `datapoints` array that contains information about container resource allocation and utilization provided by Mesos. For example:
@@ -189,7 +202,7 @@ The metrics component is natively integrated with DC/OS and no additional setup 
         To view host-level metrics, run this command from your agent node with your authentication token (`<auth-token>`) specified:
 
         ```bash
-        curl -s http://localhost:61001/system/v1/metrics/v0/node | jq
+        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/node | jq
         ```
         
         The output will contain a `datapoints` array about resource allocation and utilization. For example:

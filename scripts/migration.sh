@@ -48,13 +48,43 @@ function copy_file
 
 function  reformat_file_frontmatter
 {
+  # title:
   sed -i -e 's/post_title:/title:/g' $1
+
+  # navigationTitle:
   sed -i -e 's/nav_title:/navigationTitle:/g' $1
+
+  # menuWeight
   sed -i -e 's/menu_order:/menuWeight:/g' $1
+
+  # excerpt:
+  sed -i -e 's/post_excerpt:/excerpt:/g' $1
+
+  # featureMaturity:
+  sed -i -e 's/feature_maturity:/featureMaturity:/g' $1
+
+  # layout:
   sed -i -e '1s/---/---\nlayout: layout.pug/' $1
+
+  # title:
+  # If no title is found, add
+  if ! grep -q "title:" $1; then
+    sed -i '/---/i\title: Title' $1
+    sed -i 1d $1
+  fi
+
+  # menuWeight:
   # If no menuWeight is found, add
   if ! grep -q "menuWeight:" $1; then
     sed -i '/---/i\menuWeight: 0' $1
+    sed -i 1d $1
+  fi
+
+  # navigationTitle:
+  # If no navigationTitle is found, add
+  if ! grep -q "navigationTitle:" $1; then
+    title=`grep -o -P '(?<=title:).*' $1`
+    sed -i "/---/i\navigationTitle: $title" $1
     sed -i 1d $1
   fi
 }
@@ -104,12 +134,7 @@ function main
           # Split path
           IFS='/' read -ra fls <<< "$f"
           new_dir=$2/${fls[-1]}
-          # Skip img
-          #if [ -d "$f" ] && [ ${f: -3} == "img" ]; then
-          #  printf "${GREEN}Skipping Folder ${BLUE}$new_dir${NC}\n"
-          #  continue
           # Skip link
-          #elif [ -L "$f" ]; then
           if [ -L "$f" ]; then
             continue
           # If folder
@@ -133,17 +158,33 @@ function main
 #
 #
 
-rm -rf ./pages/docs/1.10
-#rm -rf ./pages/docs/1.9
-#rm -rf ./pages/docs/1.8
-#rm -rf ./pages/docs/1.7
+# Clean
+DOCS_1_10_PATH=./pages/docs/1.10
+DOCS_1_9_PATH=./pages/docs/1.9
+DOCS_1_8_PATH=./pages/docs/1.8
+DOCS_1_7_PATH=./pages/docs/1.7
+if [ -d "$DOCS_1_10_PATH" ]; then
+  rm -rf "$DOCS_1_10_PATH"
+fi
+if [ -d "$DOCS_1_9_PATH" ]; then
+  rm -rf "$DOCS_1_9_PATH"
+fi
+if [ -d "$DOCS_1_8_PATH" ]; then
+  rm -rf "$DOCS_1_8_PATH"
+fi
+if [ -d "$DOCS_1_7_PATH" ]; then
+  rm -rf "$DOCS_1_7_PATH"
+fi
 mkdir ./pages/docs/1.10
-#mkdir ./pages/docs/1.9
-#mkdir ./pages/docs/1.8
-#mkdir ./pages/docs/1.7
-main ../../dcos/dcos-docs/1.10 ./pages/docs/1.10
-#main ../../dcos/dcos-docs/1.9 ./pages/docs/1.9
-#main ../../dcos/dcos-docs/1.8 ./pages/docs/1.8
-#main ../../dcos/dcos-docs/1.7 ./pages/docs/1.7
+mkdir ./pages/docs/1.9
+mkdir ./pages/docs/1.8
+mkdir ./pages/docs/1.7
 
+# Migrate
+main ../dcos-docs-enterprise/1.10 ./pages/docs/1.10
+main ../dcos-docs-enterprise/1.9 ./pages/docs/1.9
+main ../dcos-docs-enterprise/1.8 ./pages/docs/1.8
+main ../dcos-docs-enterprise/1.7 ./pages/docs/1.7
+
+# Log
 printf "${PURPLE}\nContent Migration finished.${NC}\n"

@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos package list
 menuWeight: 2
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos package list
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Print a list of the installed DC/OS packages.
@@ -16,6 +23,7 @@ dcos package list <package-name> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos package list
 |---------|-------------|-------------|
 | `--app-id=<app-id>`   |             |  The application ID. |
 | `--cli`   |             |  Command line only. |
@@ -24,15 +32,17 @@ dcos package list <package-name> [OPTION]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos package list
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |
 
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos package list
 |---------|-------------|
-| [dcos package](/docs/1.10/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.10/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documenation](/docs/1.10/deploying-services/install/).
+For an example, see the [documenation](/1.10/deploying-services/install/).

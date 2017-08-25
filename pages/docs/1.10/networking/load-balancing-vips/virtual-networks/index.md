@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Virtual Networks
-feature_maturity: preview
-menuWeight: 20 
+menuWeight: 20
+excerpt: ""
+featureMaturity: preview
+enterprise: 'no'
+navigationTitle:  Virtual Networks
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 DC/OS enables virtual networking through the use of virtual networks. DC/OS virtual networks enable you to provide each container in the system with a unique IP address (“IP-per-container”) with isolation guarantees amongst subnets. DC/OS virtual networks offer the following advantages:
 
@@ -18,7 +24,7 @@ DC/OS enables virtual networking through the use of virtual networks. DC/OS virt
 
 # Using Virtual Networks
 
-First, you or the data center operator needs to [configure the virtual networks](/docs/1.10/networking/virtual-networks/).
+First, you or the data center operator needs to [configure the virtual networks](/1.10/networking/virtual-networks/).
 
 Virtual networks are configured at install time. You or the data center operator will specify a canonical name for each network in the `config.yaml`. When your service needs to launch a container, refer to it by that canonical name.
 
@@ -57,4 +63,4 @@ The following Marathon application definition specifies a network named `dcos-1`
 }
 ```
 
-Learn more about ports and networking in [Marathon](/docs/1.10/deploying-services/service-ports/).
+Learn more about ports and networking in [Marathon](/1.10/deploying-services/service-ports/).

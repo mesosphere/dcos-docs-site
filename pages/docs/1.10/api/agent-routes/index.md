@@ -2,18 +2,20 @@
 layout: layout.pug
 title: Agent Routes
 menuWeight: 11
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  Agent Routes
 ---
 
 Admin Router Agent runs on DC/OS agent nodes and exposes the following API routes.
 
 Admin Router Agent listens on port `61001` (HTTP).
 
-For more detail about how API routing works, see [DC/OS API Reference](/docs/1.10/api/).
+Enterprise DC/OS adds optional SSL encryption of component communication. So in `strict` and `permissive` security modes, Admin Router Agent also listens on port `61002` (HTTPS).
+
+For more detail about how API routing works, see [DC/OS API Reference](/1.10/api/).
 
 <br/>
 
-<div id="html-include" class="html-include" data-api="/docs/1.10/api/nginx.agent.html" data-init="NgindoxInit">
-	<div class="info" id="api_info">
-		<div class="info_title">Loading docs...</div>
-	<div class="info_description markdown"></div>
-</div>
+[html-include src='/1.10/api/nginx.agent.html' init='NgindoxInit']

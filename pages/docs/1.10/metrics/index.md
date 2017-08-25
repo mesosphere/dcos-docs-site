@@ -1,20 +1,26 @@
 ---
 layout: layout.pug
 title: Metrics
-feature_maturity: preview
 menuWeight: 100
+excerpt: ""
+featureMaturity: preview
+enterprise: 'no'
+navigationTitle:  Metrics
 ---
 
-The [metrics component](/docs/1.10/overview/architecture/components/#dcos-metrics) provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS that send statsd metrics to the Mesos Metrics Module. The metrics component is natively integrated with DC/OS and is available per-host from the `/system/v1/metrics/v0` HTTP API endpoint. No additional setup is required.  
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
+
+The [metrics component](/1.10/overview/architecture/components/#dcos-metrics) provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS that send statsd metrics to the Mesos Metrics Module. The metrics component is natively integrated with DC/OS and is available per-host from the `/system/v1/metrics/v0` HTTP API endpoint. No additional setup is required.  
 
 ## Overview
 DC/OS provides these types of metrics: 
 
   * **Host:** metrics about the specific node which is part of the DC/OS cluster. 
   * **Container:** metrics about cgroup allocations from tasks running in Mesos or Docker containerizers. 
-  * **Application:** metrics about a specific application running inside the DC/OS Universal [container runtime](/docs/1.10/deploying-services/containerizers/).
+  * **Application:** metrics about a specific application running inside the DC/OS Universal [container runtime](/1.10/deploying-services/containerizers/).
 
-The [Metrics API](/docs/1.10/metrics/metrics-api/) exposes these areas. 
+The [Metrics API](/1.10/metrics/metrics-api/) exposes these areas. 
 
 All three metrics layers are aggregated by a collector which is shipped as part of the DC/OS distribution. This enables metrics to run on every host in the cluster. It is the main entry point to the metrics ecosystem, aggregating metrics sent to it by the Metrics Mesos module, or gathering host and container level metrics on the box which is runs. 
 
@@ -35,4 +41,4 @@ Per-container metrics tags enable you to arbitrarily group metrics, for example 
 
 DC/OS applications will discover the endpoint via an environment variable (`STATSD_UDP_HOST` or `STATSD_UDP_PORT`). Applications leverage this StatsD interface to send custom profiling metrics to the system.
 
-For more information on which metrics are collected, see the Metrics [Reference](/docs/1.10/metrics/reference/).
+For more information on which metrics are collected, see the Metrics [Reference](/1.10/metrics/reference/).

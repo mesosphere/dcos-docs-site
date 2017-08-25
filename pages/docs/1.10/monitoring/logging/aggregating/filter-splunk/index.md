@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Filtering Logs with Splunk
-navigationTitle: Filtering Splunk
 menuWeight: 4
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Filtering Logs with Splunk
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 The file system paths of DC/OS task logs contain information such as the agent ID, framework ID, and executor ID. You can use this information to filter the log output for specific tasks, applications, or agents.
 
 **Prerequisite**
@@ -50,15 +56,15 @@ The `agent`, `framework`, `executor`, and `run` fields should now be available t
 
 For example, in the Splunk web UI, you can type `framework=*` into the Search field. This will show all of the events where the `framework` field is defined:
 
-![Splunk Framework Exists](/docs/1.10/img/splunk-framework-exists.png)
+![Splunk Framework Exists](/1.10/img/splunk-framework-exists.png)
 
 Click the disclosure triangle next to one of these events to view the details. This will show all of the fields extracted from the task log file path:
 
-![Splunk Fields](/docs/1.10/img/splunk-fields.png)
+![Splunk Fields](/1.10/img/splunk-fields.png)
 
 Finally, let's search for all of the events that reference the framework ID of the event shown in the screenshot above, but that do not contain the chosen `framework` field. This will show us only non-task results:
 
-![Splunk Framework Search](/docs/1.10/img/splunk-framework-search.png)
+![Splunk Framework Search](/1.10/img/splunk-framework-search.png)
 
 # <a name="templates"></a>Template Examples
 

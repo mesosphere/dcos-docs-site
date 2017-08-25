@@ -2,7 +2,14 @@
 layout: layout.pug
 title: Examples
 menuWeight: 700
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Examples
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 This topic provides common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [Enterprise DC/OS](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
 
@@ -138,6 +145,7 @@ no_proxy:
 ## DC/OS cluster with three masters, five private agents, and Exhibitor/ZooKeeper managed internally
 
 ```yaml
+navigationTitle:  Examples
 ---
 agent_list:
 - <agent-private-ip-1>
@@ -167,6 +175,7 @@ ssh_user: <username>
 ## <a name="aws"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by an AWS S3 bucket, AWS DNS, five private agents, and one public agent node
 
 ```yaml
+navigationTitle:  Examples
 ---
 agent_list:
 - <agent-private-ip-1>
@@ -201,6 +210,7 @@ ssh_user: <username>
 ## <a name="zk"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by ZooKeeper, masters that have an HTTP load balancer in front of them, one public agent node, five private agents, and Google DNS
 
 ```yaml
+navigationTitle:  Examples
 ---
 agent_list:
 - <agent-private-ip-1>

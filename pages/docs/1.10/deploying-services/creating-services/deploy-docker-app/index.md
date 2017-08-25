@@ -2,7 +2,14 @@
 layout: layout.pug
 title: Deploying a Docker-based Service
 menuWeight: 100
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Deploying a Docker-based Service
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 In this tutorial, a custom Docker app is created and added to Marathon.
 
@@ -69,8 +76,10 @@ In this tutorial, a custom Docker app is created and added to Marathon.
     a4335300aa89: Pull complete 
     Digest: sha256:54313b5c376892d55205f13d620bc3dcccc8e70e596d083953f95e94f071f6db
     Status: Downloaded newer image for nginx:1.9
+navigationTitle:  Deploying a Docker-based Service
      ---> c8c29d842c09
     Step 2 : COPY index.html /usr/share/nginx/html/index.html
+navigationTitle:  Deploying a Docker-based Service
      ---> 61373621782c
     Removing intermediate container 225910aa385d
     Successfully built 61373621782c
@@ -139,23 +148,24 @@ In this tutorial, a custom Docker app is created and added to Marathon.
     ```bash
     dcos marathon app list
     ID      MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
+navigationTitle:  Deploying a Docker-based Service
     /nginx   64  0.1    0/1    ---      scale       DOCKER   None
     ```
     
-1.  If you used the [AWS CloudFormation templates](/docs/1.10/installing/cloud/aws/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80). 
+1.  If you used the [AWS CloudFormation templates](/1.10/installing/cloud/aws/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80). 
 
-1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/docs/1.10/administering-clusters/locate-public-agent/).
+1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/1.10/administering-clusters/locate-public-agent/).
 
     You should see the following message in your browser: 
     
-    ![Hello Brave World](/docs/1.10/img/helloworld.png)
+    ![Hello Brave World](/1.10/img/helloworld.png)
     
 # Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/docs/1.10/networking/marathon-lb/marathon-lb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/1.10/networking/marathon-lb/marathon-lb-basic-tutorial/).
     
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /docs/1.10/installing/
- [4]: /docs/1.10/cli/install/
+ [3]: /1.10/installing/
+ [4]: /1.10/cli/install/

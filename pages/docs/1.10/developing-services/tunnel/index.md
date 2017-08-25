@@ -1,9 +1,17 @@
 ---
 layout: layout.pug
-navigationTitle: Access by Proxy and VPN
-title: Access by Proxy and VPN using DC/OS Tunnel
+title: >
+  Access by Proxy and VPN using DC/OS
+  Tunnel
 menuWeight: 10
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  >
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 When developing services on DC/OS, you may find it helpful to access your cluster from your local machine via SOCKS proxy, HTTP proxy, or VPN. For instance, you can work from your own development environment and immediately test against your DC/OS cluster.
 
@@ -111,9 +119,9 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
 
 ## Prerequisites
 * Only Linux and macOS are currently supported.
-* The [DC/OS CLI](/docs/1.10/cli/install/).
+* The [DC/OS CLI](/1.10/cli/install/).
 * The DC/OS Tunnel package. Run `dcos package install tunnel-cli --cli`.
-* [SSH access](/docs/1.10/administering-clusters/sshcluster/) (key authentication only).
+* [SSH access](/1.10/administering-clusters/sshcluster/) (key authentication only).
 * [The OpenVPN client](https://openvpn.net/index.php/open-source/downloads.html) for VPN functionality.
 
 ## Example Application
@@ -181,7 +189,7 @@ The `<service-name>` is the entry in the **ID** field of a service you create fr
 To name a port from the DC/OS web interface, go to the **Services > Services** tab, click the name of your service, and then click **Edit**. Enter a name for your port on the **Networking** tab.
 
 #### Add a Named Port in a Marathon Application Definition
-Alternatively, you can add `name` to the `portMappings` or `portDefinitions` field of a Marathon application definition. Whether you use `portMappings` or `portDefinitions` depends on whether you are using `BRIDGE` or `HOST` networking. [Learn more about networking and ports in Marathon](/docs/1.10/deploying-services/service-ports/).
+Alternatively, you can add `name` to the `portMappings` or `portDefinitions` field of a Marathon application definition. Whether you use `portMappings` or `portDefinitions` depends on whether you are using `BRIDGE` or `HOST` networking. [Learn more about networking and ports in Marathon](/1.10/deploying-services/service-ports/).
 
 ```json
 "portMappings": [

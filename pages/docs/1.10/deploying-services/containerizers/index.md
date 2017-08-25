@@ -2,21 +2,29 @@
 layout: layout.pug
 title: Using Containerizers
 menuWeight: 40
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Using Containerizers
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 A containerizer is a Mesos agent component responsible for launching containers, within which you can run a service. Running services in containers offers a number of benefits, including the ability to isolate tasks from one another and control task resources programmatically.
 
 DC/OS supports the following Mesos containerizer types:
 
-- The [DC/OS Universal Container Runtime](/docs/1.10/deploying-services/containerizers/ucr/).
+- The [DC/OS Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/).
 
-- The [Docker containerizer](/docs/1.10/deploying-services/containerizers/docker-containerizer/).
+- The [Docker containerizer](/1.10/deploying-services/containerizers/docker-containerizer/).
 
 The tables below provide a feature comparison of your containerizer choices on DC/OS.
 
 ## DC/OS Features
 
 | Feature																	| Docker			| UCR 			| Comments |
+navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- | -------- |
 | **Command**                             | Yes         | Yes       |          |
 | **Container Images** 										| Yes					| Yes				|					 |
@@ -32,6 +40,7 @@ The tables below provide a feature comparison of your containerizer choices on D
 ## Container Backend
 
 |	Feature																	|	Docker			|	UCR			  |
+navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- |
 | **Overlayfs**                           | Yes         | Yes       |
 | **Aufs**                                | Yes         | Yes       |
@@ -40,6 +49,7 @@ The tables below provide a feature comparison of your containerizer choices on D
 ## Storage
 
 |	Feature																	|	Docker			|	UCR				| Comments  |
+navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- | --------- |
 | **Local Persistent Volumes**						| Yes					| Yes				|						|
 | **Host Volumes**												| Yes					| Yes				| CLI only  |
@@ -48,6 +58,7 @@ The tables below provide a feature comparison of your containerizer choices on D
 ## Service Endpoints
 
 |	Feature																	|	Docker			|	UCR				|
+navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- |
 | **Named Ports**													| Yes					| Yes				|
 | **Numbered Ports**											| Yes					| Yes				|
@@ -55,6 +66,7 @@ The tables below provide a feature comparison of your containerizer choices on D
 ## Networking
 
 |	Feature																	|	Docker			|	UCR				|Comments   |
+navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- | --------- |
 | **Host Networking**       							| Yes					| Yes				|						|
 | **Bridge Networking**       						| Yes					| No				|						|
@@ -65,6 +77,7 @@ The tables below provide a feature comparison of your containerizer choices on D
 ## Private Registry
 
 |	Feature													|	Docker			|	UCR				|
+navigationTitle:  Using Containerizers
 | ------------------------------- | ----------- | --------- |
 | **Token-based Container Auth**	| Yes					| No				|
 | **Token-based Cluster Auth**		| Yes					| Yes				|
@@ -74,6 +87,7 @@ The tables below provide a feature comparison of your containerizer choices on D
 ## Health Checks
 
 |	Feature																	|	Docker			|	UCR				|Comments   |
+navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- | --------- |
 | **TCP**													        | Yes					| Yes				|	CLI only	|
 | **HTTP/HTTPS**                          | Yes         | Yes       | CLI only  |

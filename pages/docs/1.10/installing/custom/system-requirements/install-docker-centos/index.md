@@ -2,7 +2,14 @@
 layout: layout.pug
 title: Install Docker on CentOS
 menuWeight: 2
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Install Docker on CentOS
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 Docker's <a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank">CentOS-specific installation instructions</a> are always going to be the most up to date for the latest version of Docker. However, the following recommendations and instructions should make it easier to manage the Docker installation over time and mitigate several known issues with various other configurations.
 
 # Recommendations
@@ -106,4 +113,4 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 
 For more generic Docker requirements, see [System Requirements: Docker][1].
 
-[1]: /docs/1.10/installing/custom/system-requirements/#docker
+[1]: /1.10/installing/custom/system-requirements/#docker

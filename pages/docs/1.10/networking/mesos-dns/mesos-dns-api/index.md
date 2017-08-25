@@ -1,8 +1,11 @@
 ---
 layout: layout.pug
 title: Mesos DNS API
-post_excerpt: ""
 menuWeight: 201
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  Mesos DNS API
 ---
 
 You can use the Mesos DNS API to discover the IP addresses and ports of other applications.
@@ -12,7 +15,7 @@ You can use the Mesos DNS API to discover the IP addresses and ports of other ap
 Access to the Mesos DNS API is proxied through the Admin Router on each node using the following route:
 
 ```bash
-curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/
+curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/
 ```
 
 Access to the Mesos DNS API of the agent nodes is also proxied through the master nodes:
@@ -37,15 +40,33 @@ Responses will include the content type header:
 Content-Type: application/json
 ```
 
+# Auth
+
+All Metrics API routes require authentication to use.
+
+To authenticate API requests, see [Obtaining an authentication token](/1.10/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/iam-api/#passing-an-authentication-token).
+
+The Metrics API also requires authorization via the following permissions:
+
+| Route | Permission |
+navigationTitle:  Mesos DNS API
+|-------|----------|
+| `/system/mesos_dns/v1/` | `dcos:adminrouter:ops:mesos-dns` |
+| `/system/v1/agent/{agent_id}/mesos_dns/v1/` | `dcos:adminrouter:system:agent` |
+
+All routes may also be reached by users with the `dcos:superuser` permission.
+
+To assign permissions to your account, see the [permissions reference](/1.10/security/perms-reference/).
+
 # Resources
-Mesos-DNS implements a simple REST API for service discovery over HTTP. These examples assume you have an [SSH connection to the node](/docs/1.10/administering-clusters/sshcluster/).
+Mesos-DNS implements a simple REST API for service discovery over HTTP. These examples assume you have an [SSH connection to the node](/1.10/administering-clusters/sshcluster/).
 
 ## <a name="get-version"></a>GET /v1/version
 
 Lists in JSON format the Mesos-DNS version and source code URL.
 
 ```bash
-curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/version
+curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/version
 ```
 
 The output should resemble:
@@ -56,16 +77,17 @@ The output should resemble:
   "URL": "https://github.com/mesosphere/mesos-dns",
   "Version": "dev"
  }
-```
+``` 
+
 
 ## <a name="get-config"></a>GET /v1/config
 
 Lists in JSON format the Mesos-DNS configuration parameters.
 
 ```bash
-curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/config
+curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/config
 ```
-
+    
 The output should resemble:
 
 ```json
@@ -77,7 +99,7 @@ The output should resemble:
   "ZkDetectionTimeout": 30,
   "HttpPort": 8123,
   "TTL": 60,
-  "SOASerial": 1495828138,
+  "SOASerial": 1495828250,
   "SOARefresh": 60,
   "SOARetry": 600,
   "SOAExpire": 86400,
@@ -95,9 +117,9 @@ The output should resemble:
   ],
   "Zk": "zk://zk-1.zk:2181,zk-2.zk:2181,zk-3.zk:2181,zk-4.zk:2181,zk-5.zk:2181/mesos",
   "Domain": "mesos",
-  "File": "/opt/mesosphere/etc/mesos-dns-enterprise.json",
+  "File": "/opt/mesosphere/etc/mesos-dns.json",
   "Listener": "0.0.0.0",
-  "HTTPListener": "127.0.0.1",
+  "HTTPListener": "0.0.0.0",
   "RecurseOn": true,
   "DnsOn": true,
   "HttpOn": true,
@@ -105,16 +127,16 @@ The output should resemble:
   "EnforceRFC952": false,
   "SetTruncateBit": false,
   "EnumerationOn": true,
-  "MesosHTTPSOn": true,
-  "CACertFile": "/run/dcos/pki/CA/certs/ca.crt",
-  "CertFile": "/run/dcos/pki/tls/certs/mesos-dns.crt",
-  "KeyFile": "/run/dcos/pki/tls/private/mesos-dns.key",
+  "MesosHTTPSOn": false,
+  "CACertFile": "",
+  "CertFile": "",
+  "KeyFile": "",
   "MesosCredentials": {
    "Principal": "",
    "Secret": ""
   },
-  "IAMConfigFile": "/run/dcos/etc/mesos-dns/iam.json",
-  "MesosAuthentication": "iam"
+  "IAMConfigFile": "",
+  "MesosAuthentication": ""
  }
 ```
 
@@ -126,7 +148,7 @@ Lists in JSON format the IP addresses that correspond to a hostname. It is the e
 **Note:** The HTTP interface only resolves hostnames in the Mesos domain.
 
 ```bash
-curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/hosts/nginx.marathon.mesos
+curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/hosts/nginx.marathon.mesos
 ```
 
 The output should resemble:
@@ -146,7 +168,7 @@ Lists in JSON format the hostname, IP address, and ports that correspond to a ho
 **Note:** The HTTP interface only resolves service names in the Mesos domain.
 
 ```bash
-curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/services/_nginx._tcp.marathon.mesos
+curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/services/_nginx._tcp.marathon.mesos
 ```
 
 The output should resemble:

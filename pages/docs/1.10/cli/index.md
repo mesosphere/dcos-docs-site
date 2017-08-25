@@ -1,13 +1,19 @@
 ---
 layout: layout.pug
 title: CLI
-navigationTitle: CLI
-menuWeight: 050
+menuWeight: 50
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  CLI
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 You can use the DC/OS command-line interface (CLI) to manage your cluster nodes, install DC/OS packages, inspect the cluster state, and administer the DC/OS service subcommands. 
 
-You can quickly [install](/docs/1.10/cli/install) the CLI from the DC/OS web interface.
+You can quickly [install](/1.10/cli/install) the CLI from the DC/OS web interface.
 
 To list available commands, either run `dcos` with no parameters or run `dcos help`:
 

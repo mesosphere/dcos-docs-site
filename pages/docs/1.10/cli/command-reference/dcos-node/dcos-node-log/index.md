@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos node log
 menuWeight: 5
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos node log
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
     
 # Description
 Print the Mesos logs for the leading master node, agent nodes, or both.
@@ -16,6 +23,7 @@ dcos node log [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos node log
 |---------|-------------|-------------|
 | `--leader`   |             |  The leading master. |
 | `--follow`   |             |  Dynamically update the log. |
@@ -27,8 +35,9 @@ dcos node log [OPTION]
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos node log
 |---------|-------------|
-| [dcos node](/docs/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 <!-- # Examples -->
 

@@ -2,12 +2,19 @@
 layout: layout.pug
 title: dcos service log
 menuWeight: 0
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos service log
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Print the service logs.
 
-**Important:** To view the native DC/OS Marathon logs by using the `dcos service log marathon` command, you must be on the same network or connected by VPN to your cluster. For more information, see [Accessing native DC/OS Marathon logs](/docs/1.10/monitoring/logging/quickstart/).
+**Important:** To view the native DC/OS Marathon logs by using the `dcos service log marathon` command, you must be on the same network or connected by VPN to your cluster. For more information, see [Accessing native DC/OS Marathon logs](/1.10/monitoring/logging/quickstart/).
 
 # Usage
 
@@ -18,6 +25,7 @@ dcos service log <file> <service> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos service log
 |---------|-------------|-------------|
 | `--follow`   |             |  Dynamically update the log. |
 | `--lines=N`   |     10      |  Print the last N lines. |
@@ -26,6 +34,7 @@ dcos service log <file> <service> [OPTION]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos service log
 |---------|-------------|-------------|
 | `<file>`   |             |  The service log filename for the Mesos sandbox. The default is stdout. |
 | `<service>`   |           | The DC/OS service name. |
@@ -33,5 +42,6 @@ dcos service log <file> <service> [OPTION]
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos service log
 |---------|-------------|
-| [dcos service](/docs/1.10/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 
+| [dcos service](/1.10/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 

@@ -1,9 +1,15 @@
 ---
 layout: layout.pug
 title: Examples
-feature_maturity: preview
 menuWeight: 30
+excerpt: ""
+featureMaturity: preview
+enterprise: 'no'
+navigationTitle:  Examples
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 This topic provides usage examples for pods.
 
@@ -43,6 +49,7 @@ This pod, named `simple-pod` has a single container, `simpletask1`. The containe
 ## Basic pod fields
 
 | Field                 | Type    | Value                                                                                                                                                                                                             |
+navigationTitle:  Examples
 |-----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id` (required)         | string  | Unique ID for the pod.                                                                                                                                                                                            |
 | `containers` (required) | array   | See [Basic pod container fields](#basic-pod-container-fields).                                                                                                                                                                                     |
@@ -61,6 +68,7 @@ This pod, named `simple-pod` has a single container, `simpletask1`. The containe
 <a name="basic-pod-container-fields"></a>
 ## Basic pod container fields.
 | Field                    | Type    | Value                                                                                                      |
+navigationTitle:  Examples
 |--------------------------|---------|------------------------------------------------------------------------------------------------------------|
 | `containers` (required)    | array   | Container definitions for all containers that belong to a pod.                                             |
 | `containers.name`                   | string  | Unique name for the container.                                                                             |
@@ -316,6 +324,7 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
 ## Additional pod fields
 
 | Field                       | Type     | Value                                                                                                                          |
+navigationTitle:  Examples
 |-----------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
 | `labels`                      | object   | Pod metadata as key/value pairs.                                                                                               |
 | `environment`                 | object   | Environment variables at the pod level. All pod containers will inherit these environment variables. Must be capitalized.      |
@@ -342,6 +351,7 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
 ## Additional pod container fields
 
 | Field                        | Type    | Value                                                                                                                   |
+navigationTitle:  Examples
 |------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------|
 | `labels`                       | object  | Container metadata as key/value pairs.                                                                                  |
 | `environment`                  | object  | Container environment variables. Can override pod environment variables. Must be capitalized.                           |
@@ -539,7 +549,7 @@ The following pod definition specifies an ephemeral volume called `v1`. <!-- Val
 
 ## IP-per-Pod Networking
 
-The following pod definition specifies a virtual (user) network named `dcos`. The `networks:mode:container` field creates the virtual network. The `name` field is optional. If you have installed DC/OS using [our AWS templates](/docs/1.10/installing/cloud/aws/), the default virtual network name is `dcos`. <!-- Validated by suzanne 6-23-17 -->
+The following pod definition specifies a virtual (user) network named `dcos`. The `networks:mode:container` field creates the virtual network. The `name` field is optional. If you have installed DC/OS using [our AWS templates](/1.10/installing/cloud/aws/), the default virtual network name is `dcos`. <!-- Validated by suzanne 6-23-17 -->
 
 ```json
 {

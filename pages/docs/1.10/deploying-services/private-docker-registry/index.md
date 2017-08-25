@@ -1,8 +1,15 @@
 ---
 layout: layout.pug
 title: Using a Private Docker Registry
-menuWeight: 004.5
+menuWeight: 4
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  Using a Private Docker Registry
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In Enterprise DC/OS, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
 
@@ -31,7 +38,9 @@ To supply credentials to pull from a private Docker registry, create an archive 
     ```bash
       tar -tvf ~/docker.tar.gz
 
+navigationTitle:  Using a Private Docker Registry
       drwx------ root/root         0 2015-07-28 02:54 .docker/
+navigationTitle:  Using a Private Docker Registry
       -rw------- root/root       114 2015-07-28 01:31 .docker/config.json
     ```
 
@@ -81,7 +90,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
 
 Follow these steps to add your Docker registry credentials to the [Enterprise DC/OS secrets store](https://docs.mesosphere.com/1.10/security/secrets/), and then reference that secret in your service definition.
 
-**Note:** This functionality is only available with the [Universal Containerizer Runtime](/docs/1.10/deploying-services/containerizers/ucr/). If you need to use the Docker Containerizer, follow the [URI instructions](#uri-instructions) above.
+**Note:** This functionality is only available with the [Universal Containerizer Runtime](/1.10/deploying-services/containerizers/ucr/). If you need to use the Docker Containerizer, follow the [URI instructions](#uri-instructions) above.
 
 ## Step 1: Create a credentials file
 

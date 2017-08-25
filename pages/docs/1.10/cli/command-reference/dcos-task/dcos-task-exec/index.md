@@ -2,7 +2,14 @@
 layout: layout.pug
 title: dcos task exec
 menuWeight: 0
+excerpt: ""
+featureMaturity: ""
+enterprise: 'no'
+navigationTitle:  dcos task exec
 ---
+
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
 
 # Description
 Launch a process (`<cmd>`) inside of a task's (`<task>`) container.
@@ -16,6 +23,7 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 # Options
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos task exec
 |---------|-------------|-------------|
 | `--interactive, -i`   |             |  Attach a STDIN stream to the remote command for an interactive session. |
 | `--tty, -t`   |             |  Attach a TTY to the remote stream. |
@@ -23,6 +31,7 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
+navigationTitle:  dcos task exec
 |---------|-------------|-------------|
 | `<args>`   |             |  Additional arguments to pass to the command (`<cmd>`). |
 | `<cmd>`   |             |  The command to run inside the remote task's container. For example: `/bin/bash`. |
@@ -31,9 +40,10 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 # Parent command
 
 | Command | Description |
+navigationTitle:  dcos task exec
 |---------|-------------|
-| [dcos task](/docs/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  
+| [dcos task](/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  
 
 # Examples
 
-For examples, see the debugging [documentation](/docs/1.10/monitoring/debugging/).
+For examples, see the debugging [documentation](/1.10/monitoring/debugging/).
