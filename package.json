@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer node index.js",
     "build": "NODE_ENV=production DEBUG=metalsmith-timer node index.js",
-    "pdf": "NODE_ENV=pdf node index.js",
+    "pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer node index.js",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
     "eslint-init": "eslint --init"
