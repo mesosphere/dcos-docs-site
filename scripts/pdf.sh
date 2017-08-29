@@ -36,7 +36,6 @@ function pdf
             # Create PDF
             options='options={"print-media-type":"","javascript-delay":"3000"}'
             curl -X POST -vv -F "file=@$f" -F $options  $DOCKER_HOST_PORT -o "$d/$pdf_file_name"
-            echo $data
           )
         fi
       done
