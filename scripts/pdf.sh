@@ -34,7 +34,9 @@ function pdf
             # Debug
             printf "${GREEN}Creating PDF File ${PURPLE}$d/$pdf_file_name${NC}\n"
             # Create PDF
-            curl -X POST -vv -F "file=@$f" $DOCKER_HOST_PORT -o "$d/$pdf_file_name"
+            options='options={"print-media-type":"","javascript-delay":"3000"}'
+            curl -X POST -vv -F "file=@$f" -F $options  $DOCKER_HOST_PORT -o "$d/$pdf_file_name"
+            echo $data
           )
         fi
       done
