@@ -166,11 +166,30 @@ function walk(file, files, array, children, level) {
 function plugin() {
   return function(files, metalsmith, done){
     setImmediate(done);
+    var find = function(hierarchy, path) {
+      var pathSplit = path.split('/');
+      pathSplit.splice(0, 1);
+      var findById = function(array, id) {
+        return array.find(function(item) {
+          return item.id === id;
+        });
+      }
+      var start = findById(hierarchy.children, pathSplit[0]);
+      pathSplit.splice(0, 1);
+      var index = 0;
+      var currentPage = pathSplit.reduce(function(value, next) {
+        var found = findById(value.children, pathSplit[index])
+        index++;
+        return found;
+      }, start);
+      return currentPage;
+    }
     let r = {
       id: '',
       title: '',
       path: '/',
-      children: []
+      children: [],
+      find: find,
     };
     Object.keys(files).forEach(function(file, index) {
       var pathParts = file.split('/');

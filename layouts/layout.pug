@@ -8,6 +8,9 @@ html(lang='en')
         include partials/sidebar.pug
       div(role='main', class='layout__content')
         include partials/header.pug
-        include partials/content.pug
+        if pdfToc
+          include partials/print-toc.pug
+        else
+          include partials/content.pug
         include partials/footer.pug
     include partials/scripts.pug

@@ -1,0 +1,36 @@
+$sections-size: 15rem;
+
+.print-toc {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  padding: 2rem;
+  &__container {
+    margin-top: 40px;
+  }
+  &__header {
+    &-title {
+      padding: 0;
+      margin: 0;
+    }
+    &-description {
+      color: $color-grey;
+      font-weight: 400;
+    }
+  }
+  ul {
+    margin-left: 1rem;
+  }
+  li {
+    list-style: none;
+    margin-left: 1rem;
+  }
+
+  @include md {
+    padding: 4rem;
+  }
+
+  @include lg {
+    padding-right: $sections-size;
+  }
+}
