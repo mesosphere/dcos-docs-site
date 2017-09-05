@@ -5,7 +5,7 @@ navigationTitle: API
 ---
 
  ## Topic A
-<div id="swagger-ui"></div>
+[api-explorer api='/test/api/marathon.yaml']
 
 ## Topic B
 

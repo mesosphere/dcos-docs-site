@@ -22,7 +22,7 @@ const shortcodes = {
    * @param {string} opts.header
    * @param {string} opts.body
    */
-  message: (buf, opts) => {
+  'message': (buf, opts) => {
 
     // Format
     if(opts.parse == false) {
@@ -39,7 +39,29 @@ const shortcodes = {
       </div>
     `);
 
-  }
+  },
+
+  /**
+   * API Explorer
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {string} opts.api
+   */
+  'api-explorer': (buf, opts) => {
+
+    // Format
+    if(opts.parse == false) {
+      return sanitize(`
+        [api-explorer api="${opts.api}"]
+      `);
+    }
+
+    // Output
+    return sanitize(`
+      <div class="swagger-ui" data-api="${opts.api}"></div>
+    `);
+
+  },
 
 };
 
