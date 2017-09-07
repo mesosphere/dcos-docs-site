@@ -4,7 +4,12 @@ title: Documentation Test for API
 navigationTitle: API
 ---
 
+## Swagger
+
 [swagger api="/test/api/marathon.yaml"]
+
+
+## Ngindox
 
 [ngindox api="/test/api/nginx.master.yaml"]
 

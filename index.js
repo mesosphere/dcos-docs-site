@@ -223,7 +223,7 @@ function headings() {
       var $ = cheerio.load(contents);
       data.headings = [];
       $(selectors.join(',')).each(function(){
-        if ($(this).data('hide') !== true) {
+        if ($(this).data('hide') != true) {
           data.headings.push({
             id: $(this).attr('id'),
             tag: $(this)[0].name,

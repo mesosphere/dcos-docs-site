@@ -83,8 +83,13 @@ const shortcodes = {
     // Read file
     let contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
 
+    // Hide from headings
+    var $ = cheerio.load(contents);
+    $('h1, h2, h3').each(function() { $(this).attr('data-hide', true) });
+
     // Output
-    return sanitize(contents);
+    return sanitize($.html());
+    //return contents;
 
   },
 
@@ -125,7 +130,13 @@ const shortcodes = {
     // Read file
     let contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
 
-    return contents;
+    // Hide from headings
+    var $ = cheerio.load(contents);
+    $('h1, h2, h3').each(function() { $(this).attr('data-hide', true) });
+
+    // Output
+    return sanitize($.html());
+    //return contents;
 
   },
 
