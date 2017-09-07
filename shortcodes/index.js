@@ -147,6 +147,22 @@ const shortcodes = {
     var $ = cheerio.load(contents);
     $('h1, h2, h3').each(function() { $(this).attr('data-hide', true) });
 
+    // PDF
+    if(process.env.NODE_ENV === "pdf") {
+      $('body').append(`
+        <style>
+          #ngindox .route-meta {
+            display: block !important;
+          }
+          #ngindox .legend,
+          #ngindox .options,
+          #ngindox .arrow {
+            display: none !important;
+          }
+        </style>
+      `);
+    }
+
     // Output
     return sanitize($.html());
     //return contents;

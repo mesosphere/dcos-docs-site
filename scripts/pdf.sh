@@ -54,3 +54,4 @@ clean
 npm run pdf
 docker-compose up -d
 pdf ./build/docs
+pdf ./build/test

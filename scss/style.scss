@@ -9,8 +9,6 @@
 /* Vendors */
 @import "vendor/normalize";
 @import "vendor/typebase";
-@import "vendor/swagger";
-@import "vendor/ngindox";
 
 /* Utils */
 @import "utils/colors";
@@ -33,3 +31,8 @@
 
 /* Shortcodes */
 @import "shortcodes/message";
+
+/* Vendors */
+/* No Override */
+@import "vendor/swagger";
+@import "vendor/ngindox";
