@@ -1,6 +1,10 @@
 ---
 layout: layout.pug
 title: Release Notes
-navigationTitle: Release Notes
-menuWeight: 1
+menuWeight: 0
+excerpt: ""
+featureMaturity: ""
+enterprise: 'yes'
+navigationTitle:  Release Notes
 ---
+
