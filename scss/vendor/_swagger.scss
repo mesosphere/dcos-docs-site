@@ -1,23 +1,12 @@
-.swagger-ui {
-  width: 100%;
-  .wrapper {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .scheme-container,
-  .information-container {
-    display: none;
-  }
-  .models {
-    display: none;
-  }
-  .opblock-tag {
-    padding-left: 0;
-    padding-right: 0;
-    border: 0;
-  }
-}
-
-pre.version {
-  line-height: 300%;
+#swagger-ui {
+    width: 100%;
+    .models,
+    .scheme-container,
+    .information-container {
+      display: none;
+    }
+    .wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
 }

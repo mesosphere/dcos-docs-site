@@ -1,5 +1,9 @@
 node_modules
 build
+build-swagger
+build-ngindox
 package-lock.json
 npm-debug.log
 .DS_Store
+./**/*.tmp
+.tmp

@@ -10,6 +10,12 @@ pdf:
 migration:
 	./scripts/migration.sh
 
+swagger:
+	./scripts/swagger.sh
+
+ngindox:
+	./scripts/ngindox.sh
+
 reset:
 	docker stop mesospheredocs_docs_1
 	docker rm -v mesospheredocs_docs_1

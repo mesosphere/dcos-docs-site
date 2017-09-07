@@ -19,7 +19,6 @@
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "browser-sync": "^2.18.12",
-    "cheerio": "^1.0.0-rc.2",
     "css-loader": "^0.28.4",
     "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.3.1",
@@ -28,6 +27,8 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^2.1.2",
+    "js-yaml": "^3.9.1",
+    "jsdom": "^11.2.0",
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-attrs": "^1.0.0",
     "metalsmith": "^2.3.0",
@@ -48,6 +49,8 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "html-minifier": "^3.5.3",
     "metalsmith-shortcode-parser": "^1.0.1",
     "metalsmith-timer": "0.0.2"
   }

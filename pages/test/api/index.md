@@ -4,9 +4,8 @@ title: Documentation Test for API
 navigationTitle: API
 ---
 
- ## Topic A
-[api-explorer api='/test/api/marathon.yaml']
+[swagger api="/test/api/marathon.yaml"]
 
-## Topic B
+[ngindox api="/test/api/nginx.master.yaml"]
 
-## Topic C
+[ngindox api="/test/api/nginx.agent.yaml"]

@@ -86,6 +86,15 @@ MS.use(assets({
 }))
 MS.use(timer('Assets'))
 
+// Build Swagger Assets
+/*
+MS.use(assets({
+  source: 'build-swagger',
+  destination: 'build-swagger',
+}))
+MS.use(timer('Build Swagger Assets'))
+*/
+
 // Layouts
 MS.use(layouts({
   engine: 'pug'
