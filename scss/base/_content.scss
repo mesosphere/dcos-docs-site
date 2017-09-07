@@ -1,4 +1,4 @@
-$sections-size: 15rem;
+$sections-size: 18rem;
 
 .content {
   display: flex;
@@ -68,6 +68,9 @@ $sections-size: 15rem;
   }
   @include md {
     padding: 4rem;
+    &__sections {
+      padding: 0 4rem;
+    }
     &__actions {
       &__item {
         border-right: 1px $color-grey solid;

@@ -4,9 +4,12 @@ title: Documentation Test for API
 navigationTitle: API
 ---
 
- ## Topic A
-<div id="swagger-ui"></div>
+## Swagger
 
-## Topic B
+[swagger api="/test/api/marathon.yaml"]
 
-## Topic C
+## Ngindox
+
+[ngindox api="/test/api/nginx.master.yaml"]
+
+[ngindox api="/test/api/nginx.agent.yaml"]

@@ -6,7 +6,8 @@ const permalinks       = require('metalsmith-permalinks');
 const assets           = require('metalsmith-assets');
 const browserSync      = require('metalsmith-browser-sync');
 const webpack          = require('metalsmith-webpack2');
-const shortcodes       = require('metalsmith-shortcode-parser');
+// TEMP: See below
+//const shortcodes       = require('metalsmith-shortcode-parser');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const cheerio          = require('cheerio');
@@ -55,12 +56,11 @@ MS.use(plugin())
 MS.use(timer('Hierarchy'))
 
 // Shortcodes
-/*
 MS.use(shortcodes({
+  files: ['.md'],
   shortcodes: shortcodesConfig
 }))
 MS.use(timer('Shortcodes'))
-*/
 
 // Markdown
 MS.use(markdown(
@@ -87,6 +87,15 @@ MS.use(assets({
   destination: 'assets',
 }))
 MS.use(timer('Assets'))
+
+// Build Swagger Assets
+/*
+MS.use(assets({
+  source: 'build-swagger',
+  destination: 'build-swagger',
+}))
+MS.use(timer('Build Swagger Assets'))
+*/
 
 // Layouts
 MS.use(layouts({
@@ -216,7 +225,7 @@ function headings() {
       var $ = cheerio.load(contents);
       data.headings = [];
       $(selectors.join(',')).each(function(){
-        if ($(this).data('hide') !== true) {
+        if ($(this).data('hide') != true) {
           data.headings.push({
             id: $(this).attr('id'),
             tag: $(this)[0].name,
@@ -226,4 +235,38 @@ function headings() {
       });
     });
   };
+}
+
+//
+// Shortcode Parser
+//
+// TEMP: Awaiting pull request for bug fix Blake submitted. Original plugin was
+// corrupting all images.
+//
+// Will be using npm package once PR is merged.
+// https://github.com/csmets/metalsmith-shortcode-parser
+//
+
+const parser = require('shortcode-parser');
+const path = require('path');
+function shortcodes(opts) {
+  const wrapper= opts => (files, metalsmith, done) => {
+    setImmediate(done);
+    const shortcodeOpts = opts || {};
+    if (shortcodeOpts.shortcodes !== undefined) {
+      Object.keys(shortcodeOpts.shortcodes).forEach((shortcode) => {
+        parser.add(shortcode, shortcodeOpts.shortcodes[shortcode]);
+      });
+    } else {
+      console.log('No Shortcodes given');
+    }
+    Object.keys(files).forEach((file) => {
+      let ext = path.extname(file);
+      if(!shortcodeOpts.files || (shortcodeOpts.files && shortcodeOpts.files.indexOf(ext) != -1)) {
+        const out = parser.parse(files[file].contents.toString('utf8'));
+        files[file].contents = Buffer.from(out, 'utf8');
+      }
+    });
+  };
+  return wrapper(opts);
 }
