@@ -12,4 +12,6 @@ require('./js/main.js');
 require('./js/sidebar.js');
 require('./js/header-search.js');
 require('./js/sticky-toc.js');
+require('./js/swagger-ui.js');
+
 

@@ -11,7 +11,7 @@ const outputFile = process.argv[3];
 const htmlTemplate = `
   <!DOCTYPE html>
   <div id="main">
-    <div id="swagger-ui">Loading...</div>
+    <div id="swagger-ui" class="swagger-ui" data-api="${inputFile.replace("./pages", "")}">Loading...</div>
   </div>
 `;
 

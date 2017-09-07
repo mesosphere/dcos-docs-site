@@ -6,7 +6,8 @@ if (swagDiv) {
     deepLinking: true,
     presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
     plugins: [SwaggerUIBundle.plugins.DownloadUrl],
+    //layout: "StandaloneLayout"
   });
   window.ui = ui;
-  setTimeout(() => window.onModulesLoaded(), 3000);
+  setTimeout(() => window.onModulesLoaded(), 8000);
 }
