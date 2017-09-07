@@ -88,7 +88,7 @@ const shortcodes = {
     $('h1, h2, h3').each(function() { $(this).attr('data-hide', true) });
 
     // Output
-    return sanitize($.html());
+    return sanitize(`<div class="swagger-ui">${$.html()}</div>`);
     //return contents;
 
   },

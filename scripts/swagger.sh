@@ -50,7 +50,8 @@ function swagger
             printf "${GREEN}Temp Dir${BLUE} $build_dir${NC}\n"
 
             # Run bootprint swagger-ui
-            node ./scripts/swagger.js "$f" "$build_dir/index.html"
+            #node ./scripts/swagger.js "$f" "$build_dir/index.html"
+            bootprint openapi "$f" "$build_dir"
             printf "${GREEN}Created html ${BLUE} $build_dir${NC}\n"
 
           )
@@ -62,8 +63,8 @@ function swagger
 
 function clean
 {
-  rm -rf ./build-swagger
+  rm -rf $BUILD_DIR
 }
 
 clean
-swagger ./pages
+swagger ./pages $1

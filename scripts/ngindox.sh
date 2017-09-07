@@ -64,7 +64,7 @@ function swagger
 
 function clean
 {
-  rm -rf ./build-ngindox
+  rm -rf $BUILD_DIR
 }
 
 clean
