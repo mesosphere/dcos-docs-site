@@ -55,41 +55,54 @@ const shortcodes = {
    */
   'swagger': (buf, opts) => {
 
-    // Format
-    if(opts.parse == false) {
-      return sanitize(`
-        [api-explorer api="${opts.api}"]
-      `);
+    // PDF env will use pre rendered SwaggerUI from build-swagger
+    if(process.env.NODE_ENV === "pdf") {
+
+      // Format
+      if(opts.parse == false) {
+        return sanitize(`
+          [api-explorer api="${opts.api}"]
+        `);
+      }
+
+      // Check if exists
+      let configFilePath = path.join('./pages', opts.api);
+      let configFileExists = fs.existsSync(configFilePath);
+
+      if(!configFileExists) {
+        console.error("Error: SwaggerUI config file %s does not exist", configFilePath);
+        return '<h4>Error loading SwaggerUI</h4>';
+      }
+
+      let buildFileDir = opts.api.replace('.yaml', '');
+      let buildFilePath = path.join('./build-swagger', buildFileDir, 'index.html');
+      let buildFileExists = fs.existsSync(buildFilePath);
+
+      if(!buildFileExists) {
+        console.error("Error: SwaggerUI build file %s does not exist", buildFilePath);
+        return '<h4>Error loading SwaggerUI</h4>';
+      }
+
+      // Read file
+      let contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
+
+      // Hide from headings
+      var $ = cheerio.load(contents);
+      $('h1, h2, h3').each(function() { $(this).attr('data-hide', true) });
+
+      // Output
+      return sanitize(`<div class="swagger-ui-pdf">${$.html()}</div>`);
+      //return contents;
     }
 
-    // Check if exists
-    let configFilePath = path.join('./pages', opts.api);
-    let configFileExists = fs.existsSync(configFilePath);
+    // Regular on-demand rendering of SwaggerUI
+    else {
 
-    if(!configFileExists) {
-      console.error("Error: SwaggerUI config file %s does not exist", configFilePath);
-      return '<h4>Error loading SwaggerUI</h4>';
+      // Output
+      return sanitize(`<div class="swagger-ui" data-api="${opts.api}" ></div>`);
+
     }
 
-    let buildFileDir = opts.api.replace('.yaml', '');
-    let buildFilePath = path.join('./build-swagger', buildFileDir, 'index.html');
-    let buildFileExists = fs.existsSync(buildFilePath);
-
-    if(!buildFileExists) {
-      console.error("Error: SwaggerUI build file %s does not exist", buildFilePath);
-      return '<h4>Error loading SwaggerUI</h4>';
-    }
-
-    // Read file
-    let contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
-
-    // Hide from headings
-    var $ = cheerio.load(contents);
-    $('h1, h2, h3').each(function() { $(this).attr('data-hide', true) });
-
-    // Output
-    return sanitize(`<div class="swagger-ui">${$.html()}</div>`);
-    //return contents;
 
   },
 

@@ -8,7 +8,6 @@ navigationTitle: API
 
 [swagger api="/test/api/marathon.yaml"]
 
-
 ## Ngindox
 
 [ngindox api="/test/api/nginx.master.yaml"]
