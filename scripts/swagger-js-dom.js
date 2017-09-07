@@ -9,5 +9,5 @@ if (swagDiv) {
     //layout: "StandaloneLayout"
   });
   window.ui = ui;
-  setTimeout(() => window.onModulesLoaded(), 8000);
+  setTimeout(() => window.onModulesLoaded(), 12000);
 }

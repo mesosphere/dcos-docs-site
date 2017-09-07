@@ -15,7 +15,7 @@ const htmlTemplate = `
   </div>
 `;
 
-const dom = new JSDOM(htmlTemplate, { runScripts: "outside-only" });
+const dom = new JSDOM(htmlTemplate, { runScripts: "dangerously", resources: "usable" });
 
 const yamlObj = yaml.load(fs.readFileSync(inputFile, {encoding: 'utf-8'}));
 dom.window.spec = yamlObj;
