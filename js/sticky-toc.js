@@ -2,17 +2,25 @@ const contentHeadings = document.querySelectorAll('.content__container [id]');
 const contentHeadingsArray = [...contentHeadings];
 
 if (contentHeadings && window.innerWidth > 1025) {
+  const tableOfContents = document.querySelector('.content__sections');
   document.addEventListener('scroll', () => {
-    const windowOffset = window.pageYOffset + 80;
-    if (windowOffset < contentHeadingsArray[0].offsetTop + 80) {
+    const headerOffset = 120;
+    const windowOffset = window.pageYOffset + headerOffset;
+    console.log(tableOfContents.classList.contains('content__sections--top'));
+    if (headerOffset > tableOfContents.getBoundingClientRect().top) {
+      tableOfContents.classList.add('content__sections--top'); 
+    } else {
+      tableOfContents.classList.remove('content__sections--top');
+    }
+    if (windowOffset < contentHeadingsArray[0].offsetTop + headerOffset) {
       const activeLink = document.querySelector('a.active');
       if (activeLink) {
         activeLink.classList.remove('active');
       }
     }
     contentHeadingsArray.forEach((el) => {
-      const elTopOffset = (el.offsetTop - (el.offsetHeight / 3)) + 80;
-      const elBottomOffset = (el.offsetTop + el.offsetHeight) + 80;
+      const elTopOffset = (el.offsetTop - (el.offsetHeight / 3)) + 120;
+      const elBottomOffset = (el.offsetTop + el.offsetHeight) + 120;
       if (windowOffset > elTopOffset && elBottomOffset > windowOffset) {
         const linkSelector = `a[href='#${el.getAttribute('id')}']`;
         const activeLink = document.querySelector(linkSelector);

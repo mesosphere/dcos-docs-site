@@ -15,23 +15,30 @@ $sections-size: 18rem;
       font-weight: 400;
     }
   }
+  &__container {
+    position: relative;
+    article {
+      > :first-child {
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
+  }
   &__sections {
     width: $sections-size;
     display: none;
-    position: fixed;
+    top: 0;
     right: 0;
     padding: 0 2rem;
+    &--top {
+      position: fixed;
+      top: 120px;
+    }
     &-item {
       a {
         text-decoration: none;
         color: $color-dark;
       }
-    }
-  }
-  &__container {
-    > :nth-child(2) {
-      margin-top: 0;
-      padding-top: 0;
     }
   }
   &__actions {
@@ -69,7 +76,8 @@ $sections-size: 18rem;
   @include md {
     padding: 4rem;
     &__sections {
-      padding: 0 4rem;
+      flex-basis: 20%;
+      padding: 0 0 0 4rem;
     }
     &__actions {
       &__item {
@@ -82,25 +90,28 @@ $sections-size: 18rem;
     }
   }
   @include lg {
-    padding-right: $sections-size;
+    // padding-right: $sections-size;
     &__header,
     &__container {
       flex-basis: 80%;
     }
     &__container {
-      > h1:before,
-      > h2:before,
-      > h3:before,
-      > h4:before,
-      > h5:before,
-      > h6:before {
-        content: '';
-        display: block;
-        position: relative;
-        width: 0;
-        height: 80px;
-        margin-top: -80px;
-        visibility: hidden;
+      display: flex;
+      article {
+        > h1:before,
+        > h2:before,
+        > h3:before,
+        > h4:before,
+        > h5:before,
+        > h6:before {
+          content: '';
+          display: block;
+          position: relative;
+          width: 0;
+          height: 120px;
+          margin-top: -120px;
+          visibility: hidden;
+        }
       }
     }
     &__sections {

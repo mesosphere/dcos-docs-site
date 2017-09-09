@@ -14,6 +14,7 @@ const cheerio          = require('cheerio');
 const extname          = require('path').extname;
 const shortcodesConfig = require('./shortcodes');
 const timer            = require('metalsmith-timer');
+const algolia          = require('./algolia');
 
 //
 // Metalsmith
