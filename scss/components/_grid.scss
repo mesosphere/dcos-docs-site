@@ -3,6 +3,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 3rem;
+  * {
+    text-decoration: none;
+  }
   &__item {
     margin-bottom: 20px;
     padding: 20px;
@@ -19,13 +22,38 @@
       }
     }
   }
+  &__label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    color: $color-grey;
+    &--oss {
+      color: $color-grey;
+    }
+    &--enterprise {
+      color: $color-purple-light;
+    }
+  }
   &__header {
-    color: $color-purple-light;
+    color: $color-dark;
+    padding: 0;
+    margin: 0;
   }
   &__desc {
     font-size: 0.85rem;
     line-height: 1.5;
     margin-top: 1rem;
+  }
+  &__link {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    svg {
+      width: 28px;
+      height: 28px;
+      color: $color-purple-light;
+    }
   }
   @include md {
     &__item {
@@ -36,6 +64,14 @@
         & .grid__header,
         & .grid__desc {
           color: $color-light;
+        }
+        & .grid__label--enterprise {
+          color: $color-dark;
+        }
+        & .grid__link {
+          svg {
+            color: $color-light;
+          }
         }
       }
     }

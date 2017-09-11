@@ -176,6 +176,9 @@ function plugin() {
   return function(files, metalsmith, done){
     setImmediate(done);
     var find = function(hierarchy, path) {
+      if(path[0] !== '/') {
+        path = '/' + path;
+      }
       var pathSplit = path.split('/');
       pathSplit.splice(0, 1);
       var findById = function(array, id) {
