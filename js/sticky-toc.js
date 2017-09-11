@@ -1,6 +1,6 @@
 const contentContainer = document.querySelector('.content__container');
 const contentHeadings = document.querySelectorAll('.content__container [id]');
-const contentHeadingsArray = [...contentHeadings].filter((el) => !el.dataset.hide);
+const contentHeadingsArray = [...contentHeadings].filter(el => !el.dataset.hide);
 
 if (contentHeadings && window.innerWidth > 1025) {
   const tableOfContents = document.querySelector('.content__sections');
@@ -8,8 +8,8 @@ if (contentHeadings && window.innerWidth > 1025) {
     const headerOffset = 120;
     const windowOffset = window.pageYOffset + headerOffset;
     if (headerOffset > contentContainer.getBoundingClientRect().top) {
-      if(!tableOfContents.classList.contains('content__sections--top')) {
-        tableOfContents.classList.add('content__sections--top'); 
+      if (!tableOfContents.classList.contains('content__sections--top')) {
+        tableOfContents.classList.add('content__sections--top');
       }
     } else {
       tableOfContents.classList.remove('content__sections--top');
