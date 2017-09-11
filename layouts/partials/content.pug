@@ -6,3 +6,5 @@ main(class='content')
   div(class='content__container')
     include ../components/content-sections.pug
     !=contents
+    if overviewGrid
+      include ../components/content-grid.pug
