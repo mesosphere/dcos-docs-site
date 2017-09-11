@@ -90,7 +90,7 @@
     }
   }
   @include md {
-    width: calc(100vw - 250px);
+    width: calc(100% - 300px);
     &__search {
       &-input {
         width: 75px;
@@ -115,7 +115,7 @@
     }
   }
   @include lg {
-    width: calc(100vw - 300px);
+    width: calc(100% - 320px);
     &__logo {
       &-type {
         display: inline;
