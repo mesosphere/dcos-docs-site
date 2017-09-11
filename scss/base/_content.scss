@@ -17,7 +17,7 @@ $sections-size: 18rem;
   }
   &__container {
     position: relative;
-    article {
+    .content__contents {
       > :first-child {
         margin-top: 0;
         padding-top: 0;
@@ -32,6 +32,7 @@ $sections-size: 18rem;
     &--top {
       position: fixed;
       top: 120px;
+      right: 0;
     }
     &-item {
       a {
@@ -95,7 +96,7 @@ $sections-size: 18rem;
     }
     &__container {
       display: flex;
-      article {
+      .content__contents {
         max-width: 80%;
         > h1:before,
         > h2:before,

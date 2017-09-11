@@ -19,18 +19,17 @@
       flex-direction: column;
       width: 300px;
       height: 100%;
-    }
-    &__content {
-      margin-left: 300px;
-      width: 100%;
+      + .layout__content {
+        margin-left: 300px;
+      }
     }
   }
   @include lg {
     &__sidebar {
       width: 320px;
-    }
-    &__content {
-      margin-left: 320px;
+      + .layout__content {
+        margin-left: 320px;
+      }
     }
   }
 }
