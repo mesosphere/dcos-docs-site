@@ -28,7 +28,6 @@ $sections-size: 18rem;
     width: $sections-size;
     display: none;
     top: 0;
-    right: 0;
     padding: 0 2rem;
     &--top {
       position: fixed;
@@ -76,7 +75,7 @@ $sections-size: 18rem;
   @include md {
     padding: 4rem;
     &__sections {
-      flex-basis: 20%;
+      max-width: 20%;
       padding: 0 0 0 4rem;
     }
     &__actions {
@@ -93,11 +92,11 @@ $sections-size: 18rem;
     // padding-right: $sections-size;
     &__header,
     &__container {
-      flex-basis: 80%;
     }
     &__container {
       display: flex;
       article {
+        max-width: 80%;
         > h1:before,
         > h2:before,
         > h3:before,
