@@ -1,9 +1,9 @@
 const contentContainer = document.querySelector('.content__container');
 const contentHeadings = document.querySelectorAll('.content__container [id]');
 const contentHeadingsArray = [...contentHeadings].filter(el => !el.dataset.hide);
+const tableOfContents = document.querySelector('.content__sections');
 
-if (contentHeadings && window.innerWidth > 1025) {
-  const tableOfContents = document.querySelector('.content__sections');
+if (contentHeadings && tableOfContents && window.innerWidth > 1025) {
   document.addEventListener('scroll', () => {
     const headerOffset = 120;
     const windowOffset = window.pageYOffset + headerOffset;
