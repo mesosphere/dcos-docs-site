@@ -12,8 +12,7 @@ if(searchForm) {
 
 function onSubmit(event) {
   event.preventDefault();
-  let query = searchInput.value;
-  search(query);
+  search(searchInput.value);
 }
 
 function search(query) {
@@ -39,7 +38,6 @@ function renderResults(res) {
     return html;
   })
   .join(' ');
-  console.log(res);
 
   searchResults.innerHTML = finalHtml;
 }
