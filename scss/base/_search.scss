@@ -1,7 +1,8 @@
 .search {
   width: 100%;
   max-width: 800px;
-  margin: 70px auto 0;
+  margin: calc(4rem + 80px) auto 0;
+  padding: 0 2rem;
   &__form {
     display: flex;
     width: 100%;
@@ -36,17 +37,20 @@
     margin-top: 1.5rem;
   }
   &__results {
+    margin-top: 4rem;
     & mark {
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
       background: #FF007D;
       color: $color-light;
     }
-    margin-top: 1.5rem;
     &-list {
       list-style-type: none;
       margin: 0;
       padding: 0;
+    }
+    &-item {
+      margin-top: 2rem;
     }
   }
   &__title {
@@ -56,10 +60,12 @@
     text-decoration: none;
   }
   &__description {
+    font-size: 0.9rem;
     margin-top: 0.5rem;
   }
   &__meta {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
     &-version {
       margin-right: 10px;
     }
