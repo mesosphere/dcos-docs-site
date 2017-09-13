@@ -1,4 +1,3 @@
-// Algolia Search Test
 const client = algoliasearch('O1RKPTZXK1', '00ad2d0be3e5a7155820357a73730e84');
 const index = client.initIndex('dev_MESOSPHERE');
 
@@ -25,20 +24,25 @@ function onSubmit(event) {
 }
 
 function search(query) {
-  index.search({ query: query }).then(renderResults);
+  index.search({
+    query: query,
+    attributesToSnippet: [
+      'contents:50'
+    ]
+  }).then(renderResults);
 }
 
 function renderResults(res) {
   console.log(res.hits);
 
   let finalHtml = res.hits.map((hit) => {
-    let path = `/${hit.objectID}`;
+    let path = `http://docs.mesosphere.com/${hit.objectID}`;
     let html = `
       <li class="search__results-item">
         <h4 class="search__title">
           <a href="${path}" class="search__link">${hit._highlightResult.title.value}</a>
         </h4>
-        <p class="search__description">${hit._highlightResult.contents.value}</p>
+        <p class="search__description">${hit._snippetResult.contents.value}</p>
         <div class="search__meta">
           <span class="search__meta-version">Mesosphere DC/OS 1.9</span>
           <a href="${path}" class="search__meta-source">${truncateUrl(path)}</a>
@@ -63,8 +67,8 @@ function getQueryVariable(variable) {
 }
 
 function truncateUrl(url) {
-  if (url.length > 50) {
-    return url.substr(0, 35) + '...' + url.substr(url.length - 10, url.length);
+  if (url.length > 60) {
+    return url.substr(0, 40) + '...' + url.substr(url.length - 10, url.length);
   }
   return url;
 }

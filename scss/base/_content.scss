@@ -109,6 +109,7 @@ $sections-size: 20%;
         &--top {
           position: fixed;
           top: 120px;
+          width: inherit;
         }
       }
       &-item {
