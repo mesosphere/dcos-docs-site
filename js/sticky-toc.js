@@ -1,25 +1,44 @@
 const contentContainer = document.querySelector('.content__container');
 const contentHeadings = document.querySelectorAll('.content__container [id]');
-const contentHeadingsArray = [...contentHeadings].filter(el => !el.dataset.hide);
-const tableOfContents = document.querySelector('.content__sections');
+const contentHeadingsArray = [...contentHeadings].filter(heading => !heading.dataset.hide);
+const tableOfContents = document.querySelector('.content__sections-list');
 
-if (contentHeadings && tableOfContents && window.innerWidth > 1025) {
-  document.addEventListener('scroll', () => {
-    const headerOffset = 120;
-    const windowOffset = window.pageYOffset + headerOffset;
+const headerOffset = 120;
+const windowOffset = window.pageYOffset + headerOffset;
+
+if (contentHeadingsArray && window.innerWidth > 1025) {
+  document.addEventListener('scroll', scrollTop);
+  document.addEventListener('scroll', scrollSpy);
+}
+
+/**
+ *
+ *
+ */
+function scrollTop() {
+  if (contentContainer) {
     if (headerOffset > contentContainer.getBoundingClientRect().top) {
-      if (!tableOfContents.classList.contains('content__sections--top')) {
-        tableOfContents.classList.add('content__sections--top');
+      if (!tableOfContents.classList.contains('content__sections-list--top')) {
+        tableOfContents.classList.add('content__sections-list--top');
       }
     } else {
-      tableOfContents.classList.remove('content__sections--top');
+      tableOfContents.classList.remove('content__sections-list--top');
     }
-    if (windowOffset < contentHeadingsArray[0].offsetTop + headerOffset) {
+    if (windowOffset < contentContainer.getBoundingClientRect().top + headerOffset) {
       const activeLink = document.querySelector('a.active');
       if (activeLink) {
         activeLink.classList.remove('active');
       }
     }
+  }
+}
+
+/**
+ *
+ *
+ */
+function scrollSpy() {
+  if(contentHeadingsArray) {
     contentHeadingsArray.forEach((el) => {
       const elTopOffset = el.getBoundingClientRect().top;
       if (headerOffset > elTopOffset) {
@@ -38,5 +57,5 @@ if (contentHeadings && tableOfContents && window.innerWidth > 1025) {
         }
       }
     });
-  });
+  }
 }

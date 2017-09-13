@@ -1,4 +1,4 @@
-$sections-size: 18rem;
+$sections-size: 20%;
 
 .content {
   display: flex;
@@ -25,21 +25,7 @@ $sections-size: 18rem;
     }
   }
   &__sections {
-    width: $sections-size;
     display: none;
-    top: 0;
-    padding: 0 2rem;
-    &--top {
-      position: fixed;
-      top: 120px;
-      right: 0;
-    }
-    &-item {
-      a {
-        text-decoration: none;
-        color: $color-dark;
-      }
-    }
   }
   &__actions {
     margin: 4rem 0;
@@ -75,10 +61,6 @@ $sections-size: 18rem;
   }
   @include md {
     padding: 4rem;
-    &__sections {
-      max-width: 20%;
-      padding: 0 0 0 4rem;
-    }
     &__actions {
       &__item {
         border-right: 1px $color-grey solid;
@@ -91,9 +73,9 @@ $sections-size: 18rem;
   }
   @include lg {
     // padding-right: $sections-size;
-    &__header,
-    &__container {
-    }
+    // &__header,
+    // &__container {
+    // }
     &__container {
       display: flex;
       .content__contents {
@@ -115,18 +97,29 @@ $sections-size: 18rem;
       }
     }
     &__sections {
+      position: relative;
       display: block;
-      &-sticky {
-        position: fixed;
-      }
+      width: 20%;
+      padding: 0 2rem;
       &-list {
+        position: absolute;
         list-style-type: none;
+        top: 0;
+        width: 100%;
+        &--top {
+          position: fixed;
+          top: 120px;
+        }
       }
       &-item {
         padding: 0;
         &--h3 {
           padding-left: 0.5rem;
           margin: 0.25rem 0;
+        }
+        & a {
+          text-decoration: none;
+          color: $color-dark;
         }
         & .active {
           font-weight: 600;

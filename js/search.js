@@ -6,8 +6,17 @@ let searchForm = document.querySelector('#search-form');
 let searchInput = document.querySelector('#search-input');
 let searchResults = document.querySelector('#search-results');
 
-if(searchForm) {
+if (searchForm) {
+  window.addEventListener('load', checkUrlQuery);
   searchForm.addEventListener('submit', onSubmit);
+}
+
+function checkUrlQuery() {
+  const query = getQueryVariable('q');
+  if (query) {
+    search(query);
+    searchInput.value = query;
+  }
 }
 
 function onSubmit(event) {
@@ -16,22 +25,23 @@ function onSubmit(event) {
 }
 
 function search(query) {
-  index.search({query: query}).then(renderResults);
+  index.search({ query: query }).then(renderResults);
 }
 
 function renderResults(res) {
-  console.log(res);
+  console.log(res.hits);
 
   let finalHtml = res.hits.map((hit) => {
+    let path = `/${hit.objectID}`;
     let html = `
       <li class="search__results-item">
         <h4 class="search__title">
-          <a href="/" class="search__link">${hit.title}</a>
+          <a href="${path}" class="search__link">${hit._highlightResult.title.value}</a>
         </h4>
-        <p class="search__description">${hit.contents}</p>
+        <p class="search__description">${hit._highlightResult.contents.value}</p>
         <div class="search__meta">
           <span class="search__meta-version">Mesosphere DC/OS 1.9</span>
-          <a href="/" class="search__meta-source">https://docs.mesosphere.com/1.9/.../deploying-a-local-dcos-universe</a>
+          <a href="${path}" class="search__meta-source">${truncateUrl(path)}</a>
         </div>
       </li>
     `;
@@ -42,4 +52,19 @@ function renderResults(res) {
   searchResults.innerHTML = finalHtml;
 }
 
+function getQueryVariable(variable) {
+  let query = window.location.search.substring(1);
+  let vars = query.split("&");
+  for (let i = 0; i < vars.length; i++) {
+    let pair = vars[i].split("=");
+    if (pair[0] == variable) { return pair[1]; }
+  }
+  return (false);
+}
 
+function truncateUrl(url) {
+  if (url.length > 50) {
+    return url.substr(0, 35) + '...' + url.substr(url.length - 10, url.length);
+  }
+  return url;
+}

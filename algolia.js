@@ -1,6 +1,7 @@
 const algoliasearch = require('algoliasearch')
 const debug = require('debug')('metalsmith-algoliasearch')
 const Bluebird = require('bluebird')
+const extname = require('path').extname;
 
 module.exports = function(options) {
   options = options || {}
@@ -42,10 +43,8 @@ module.exports = function(options) {
         let objects = []
         let indexed = 0
 
-        for (let file in files) {
-          // if (files[file].algolia !== true) {
-          //   continue
-          // }
+        Object.keys(files).forEach(function(file) {
+          if ('.html' != extname(file)) return;
 
           debug(`processing file "${file}"`)
 
@@ -58,32 +57,34 @@ module.exports = function(options) {
             data.objectID = file
 
             for (let key in files[file]) {
-              switch (typeof files[file][key]) {
-                case 'string':
-                case 'boolean':
-                case 'number':
-                  data[key] = files[file][key]
-                  break
-                case 'object':
-                  if (files[file][key] instanceof Buffer) {
-                    data[key] = files[file][key].toString()
-                  }
-                  else {
-                    // we have to detect circular refs before indexing objects
-                  }
-                  break
-                case 'function':
-                case 'symbol':
-                default:
-                  // don't care
-                  console.log(`discarding key ${key}:`, typeof files[file][key])
-                  break;
+              if (key === 'title' || key === 'contents') {
+                switch (typeof files[file][key]) {
+                  case 'string':
+                  case 'boolean':
+                  case 'number':
+                    data[key] = files[file][key]
+                    break
+                  case 'object':
+                    if (files[file][key] instanceof Buffer) {
+                      data[key] = files[file][key].toString()
+                    }
+                    else {
+                      // we have to detect circular refs before indexing objects
+                    }
+                    break
+                  case 'function':
+                  case 'symbol':
+                  default:
+                    // don't care
+                    console.log(`discarding key ${key}:`, typeof files[file][key])
+                    break;
+                }
               }
             }
 
             objects.push(data)
           }
-        }
+        })
 
         debug(`got ${objects.length} objects to index`)
 
