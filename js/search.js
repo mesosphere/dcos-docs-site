@@ -36,6 +36,7 @@ function renderResults(res) {
   console.log(res.hits);
 
   let finalHtml = res.hits.map((hit) => {
+    // TEMP: Temporary path
     let path = `http://docs.mesosphere.com/${hit.objectID}`;
     let html = `
       <li class="search__results-item">

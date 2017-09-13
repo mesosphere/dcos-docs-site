@@ -38,7 +38,7 @@ function scrollTop() {
  *
  */
 function scrollSpy() {
-  if(contentHeadingsArray) {
+  if (contentHeadingsArray) {
     contentHeadingsArray.forEach((el) => {
       const elTopOffset = el.getBoundingClientRect().top;
       if (headerOffset > elTopOffset) {

@@ -100,7 +100,7 @@
         transition: width 0.2s $ease-in-out-cubic, background 0.1s $ease-in-out-cubic, color 0.1s $ease-in-out-cubic;
         margin-left: 10px;
         &:focus {
-          transition: width 0.2s $ease-in-out-cubic .3s;
+          transition: width 0.2s $ease-in-out-cubic;
           width: 200px;
           form & {
             background: $color-purple-light;

@@ -51,6 +51,9 @@
     }
     &-item {
       margin-top: 2rem;
+      &:last-child {
+        margin-bottom: 2rem;
+      }
     }
   }
   &__title {
