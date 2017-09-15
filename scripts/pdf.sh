@@ -52,6 +52,6 @@ function clean
 
 clean
 npm run pdf
-docker-compose up -d
+docker-compose -f ./docker-compose.pdf.yml up -d
 pdf ./build/docs
 pdf ./build/test
