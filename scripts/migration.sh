@@ -1,23 +1,11 @@
 #!/bin/bash
-
 #
-# Migrates markdown folder structure from
-# https://github.com/dcos/dcos-docs
-# to
-# https://github.com/mesosphere/dc-os-docs
+# Usage:       migrate.sh input_folder output_folder
 #
-
-#
-# Usage
-# ./migrate.sh input_folder output_folder
-#
-
-#
-# For each item in directory
-#   If folder, create folder in new dir
-#      Enter old folder, call method
-#   If index.md file, create file in new dir
-#   If file, create folder in new dir
+# Description: Migrates markdown folder structure from
+#              https://github.com/dcos/dcos-docs
+#              to
+#              https://github.com/mesosphere/dc-os-docs
 #
 
 # Formatting colors

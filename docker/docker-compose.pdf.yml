@@ -4,6 +4,6 @@ services:
    pdf:
     image: openlabs/docker-wkhtmltopdf-aas
     volumes:
-      - ./:/tmp/pdf
+      - ../:/tmp/pdf
     ports:
      - "8002:80"

@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+
+  pdf:
+    image: openlabs/docker-wkhtmltopdf-aas
+    volumes:
+      - ../:/tmp/pdf
+    ports:
+     - "8000:80"
+
+  docs:
+    depends_on:
+      - pdf
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+      args:
+        nginx_conf: ./docker/nginx.conf
+    ports:
+      - "3000:80"
+      - "3443:443"
+    volumes:
+      - build:/src
+    links:
+      - pdf
+
+  #link_checker:
+  #  volumes:
+  #    - build:/src
+
+volumes:
+  build:
