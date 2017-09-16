@@ -14,14 +14,12 @@ ADD . /src/
 RUN npm install -g bootprint
 RUN npm install -g bootprint-openapi
 RUN npm install -g ngindox
+RUN npm install
 
 RUN make clean
-RUN make swagger
-RUN make ngindox
+RUN make build
 
-RUN npm install
-RUN npm run build
-
+# Debug
 RUN pwd
 RUN ls ./
 
@@ -33,9 +31,15 @@ FROM nginx:latest
 
 ARG nginx_conf
 
-RUN mkdir /src
-WORKDIR /src
-COPY --from=builder /src/build   .
+RUN mkdir -p /src/build
+RUN mkdir -p /src/build-pdf
+
+WORKDIR /src/build
+COPY --from=builder /src/build ./
+
+WORKDIR /src/build-pdf
+COPY --from=builder /src/build-pdf ./
+
 ADD "$nginx_conf" /etc/nginx/conf.d/default.conf
 RUN service nginx restart
 

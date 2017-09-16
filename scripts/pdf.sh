@@ -78,5 +78,4 @@ OUTPUT_FOLDER=$2
 DOCKER_HOST_PORT=$3
 
 clean $OUTPUT_FOLDER
-docker-compose -f ./docker/docker-compose.pdf.yml up -d
 main $INPUT_FOLDER $OUTPUT_FOLDER $DOCKER_HOST_PORT
