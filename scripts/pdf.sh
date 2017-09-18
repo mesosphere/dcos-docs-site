@@ -59,13 +59,14 @@ function main
             printf "${GREEN}Creating PDF File ${PURPLE}$d/$pdf_file_name${NC}\n"
 
             # Create PDF
+            printf "${GREEN}Using${PURPLE} $3${NC}\n"
+            # Directly use lib in container
+            if [[ -z "$3" ]]; then
+              wkhtmltopdf --print-media-type --javascript-delay 3000 "$f" "$build_dir/$pdf_file_name"
             # Use http service if host is set
-            if [[ -v $3 ]]; then
+            else
               options='options={"print-media-type":"","javascript-delay":"3000"}'
               curl -X POST -vv -F "file=@$f" -F $options  $3 -o "$build_dir/$pdf_file_name"
-            # Else directly use lib in container
-            else
-              wkhtmltopdf --print-media-type --javascript-delay 3000 "$f" "$build_dir/$pdf_file_name"
             fi
 
           )
