@@ -1,6 +1,3 @@
-start:
-	echo "Start"
-
 #
 # Util
 #
