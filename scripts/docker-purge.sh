@@ -12,6 +12,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   docker stop `docker ps -a -q`
   docker rm -v `docker ps -a -q`
-  docker rmi `docker images -a -q`
+  #docker rmi `docker images -a -q`
   docker volume rm $(docker volume ls -f dangling=true -q)
 fi

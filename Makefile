@@ -19,14 +19,13 @@ migration:
 # Build
 #
 
-build: build-pdf-prod build-swagger build-ngindox
+build: build-pdf build-swagger build-ngindox
 	npm run build
 
-build-pdf-prod: build-swagger build-ngindox
-	npm run build-pdf
-	./scripts/pdf.sh ./build ./build-pdf http://docker_pdf_1:8002/
+build-pdf: build-swagger build-ngindox
+	./scripts/pdf.sh ./build ./build-pdf
 
-build-pdf: build-swagger build-ngindox docker-pdf
+build-pdf-dev: build-swagger build-ngindox docker-pdf
 	npm run build-pdf
 	./scripts/pdf.sh ./build ./build-pdf http://0.0.0.0:8002/
 
