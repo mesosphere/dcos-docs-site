@@ -1,5 +1,5 @@
 #
-# Build
+# Build MS PDF
 #
 
 FROM node:8.1.2-slim as ms-pdf-builder
@@ -34,7 +34,7 @@ COPY --from=ms-pdf-builder /src ./
 RUN make build-pdf
 
 #
-# Build
+# Build MS
 #
 
 FROM node:8.1.2-slim as ms-builder
