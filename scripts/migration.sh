@@ -183,6 +183,7 @@ DOCS_1_10_PATH=./pages/docs/1.10
 DOCS_1_9_PATH=./pages/docs/1.9
 DOCS_1_8_PATH=./pages/docs/1.8
 DOCS_1_7_PATH=./pages/docs/1.7
+SERVICE_DOCS_PATH=./pages/service-docs
 if [ -d "$DOCS_1_10_PATH" ]; then
   rm -rf "$DOCS_1_10_PATH"
 fi
@@ -195,16 +196,22 @@ fi
 if [ -d "$DOCS_1_7_PATH" ]; then
   rm -rf "$DOCS_1_7_PATH"
 fi
+
+if [ -d "$SERVICE_DOCS_PATH" ]; then
+  rm -rf "$SERVICE_DOCS_PATH"
+fi
 mkdir ./pages/docs/1.10
 mkdir ./pages/docs/1.9
 mkdir ./pages/docs/1.8
 mkdir ./pages/docs/1.7
+mkdir ./pages/service-docs
 
 # Migrate
 main ../dcos-docs-enterprise/1.10 ./pages/docs/1.10
 main ../dcos-docs-enterprise/1.9 ./pages/docs/1.9
 main ../dcos-docs-enterprise/1.8 ./pages/docs/1.8
 main ../dcos-docs-enterprise/1.7 ./pages/docs/1.7
+main ../dcos-docs-enterprise/service-docs ./pages/service-docs
 
 # Log
 printf "${PURPLE}\nContent Migration finished.${NC}\n"
