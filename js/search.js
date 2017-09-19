@@ -3,6 +3,8 @@ const index = client.initIndex('dev_MESOSPHERE');
 
 let searchForm = document.querySelector('#search-form');
 let searchInput = document.querySelector('#search-input');
+let searchFilterVersion = document.querySelector('.search__filters-version');
+let searchFilterOther = document.querySelector('.search__filters-other');
 let searchResults = document.querySelector('#search-results');
 
 if (searchForm) {
@@ -13,22 +15,32 @@ if (searchForm) {
 function checkUrlQuery() {
   const query = getQueryVariable('q');
   if (query) {
-    search(query);
     searchInput.value = query;
+    search(query);
   }
 }
 
 function onSubmit(event) {
   event.preventDefault();
-  search(searchInput.value);
+  let filter = '';
+  // if (searchFilterVersion || searchFilterOther) {
+  //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}}`;
+  // // } else {
+  // //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}}`;
+  // }
+  // if (searchFilterOther) {
+  //   filter.concat(` AND ${searchFilterOther.value.split(' ')[1]}}`);
+  // }
+  search(searchInput.value, filter);
 }
 
-function search(query) {
+function search(query, filters) {
   index.search({
-    query: query,
+    query,
+    filters,
     attributesToSnippet: [
-      'contents:50'
-    ]
+      'contents:50',
+    ],
   }).then(renderResults);
 }
 
@@ -37,7 +49,7 @@ function renderResults(res) {
 
   let finalHtml = res.hits.map((hit) => {
     // TEMP: Temporary path
-    let path = `http://docs.mesosphere.com/${hit.objectID}`;
+    let path = `http://docs.mesosphere.com/${hit.path}`;
     let html = `
       <li class="search__results-item">
         <h4 class="search__title">

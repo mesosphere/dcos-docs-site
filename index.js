@@ -74,16 +74,6 @@ MS.use(markdown(
 )
 MS.use(timer('Markdown'))
 
-// Search Indexing
-/*
-MS.use(algolia({
-  projectId: 'O1RKPTZXK1',
-  privateKey: '00ad2d0be3e5a7155820357a73730e84',
-  index: 'dev_MESOSPHERE'
-}))
-MS.use(timer('Algolia'))
-*/
-
 // Headings
 MS.use(headings())
 MS.use(timer('Headings'))
@@ -92,12 +82,22 @@ MS.use(timer('Headings'))
 MS.use(permalinks())
 MS.use(timer('Permalinks'))
 
+// Search Indexing
+// MS.use(algolia({
+//   projectId: 'O1RKPTZXK1',
+//   privateKey: '00ad2d0be3e5a7155820357a73730e84',
+//   index: 'dev_MESOSPHERE',
+//   clearIndex: true
+// }))
+// MS.use(timer('Algolia'))
+
 // Assets
 MS.use(assets({
   source: 'assets',
   destination: 'assets',
 }))
 MS.use(timer('Assets'))
+
 
 // Build Swagger Assets
 /*

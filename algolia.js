@@ -44,6 +44,7 @@ module.exports = function(options) {
         let indexed = 0
 
         Object.keys(files).forEach(function(file) {
+          if (files[file].algolia === false) return;
           if ('.html' != extname(file)) return;
 
           debug(`processing file "${file}"`)
@@ -57,7 +58,7 @@ module.exports = function(options) {
             data.objectID = file
 
             for (let key in files[file]) {
-              if (key === 'title' || key === 'contents') {
+              if (key === 'title' || key === 'contents' || key === 'path') {
                 switch (typeof files[file][key]) {
                   case 'string':
                   case 'boolean':

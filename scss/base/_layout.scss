@@ -5,8 +5,15 @@
   flex-direction: column;
   &__sidebar {
     display: none;
+    width: 300px;
     background: $color-purple;
     color: $color-light;
+    transform: translate(0, 0);
+    transition: all 2s $ease-in-out-cubic;
+    &--mobile {
+      transform: translate(100, 0);
+      display: block;
+    }
   }
   &__content {
     width: 100%;
