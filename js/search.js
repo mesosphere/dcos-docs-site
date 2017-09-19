@@ -3,6 +3,8 @@ const index = client.initIndex('dev_MESOSPHERE');
 
 let searchForm = document.querySelector('#search-form');
 let searchInput = document.querySelector('#search-input');
+let searchFilterVersion = document.querySelector('.search__filters-version');
+let searchFilterOther = document.querySelector('.search__filters-other');
 let searchResults = document.querySelector('#search-results');
 
 if (searchForm) {
@@ -20,15 +22,24 @@ function checkUrlQuery() {
 
 function onSubmit(event) {
   event.preventDefault();
-  search(searchInput.value);
+  let filter;
+  if (searchFilterVersion && searchFilterOther) {
+    // Not sure if this line should be AND or TO (see docs)
+  //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}} AND ${searchilterOther.value.split(' ')[1]}}`;
+  // } else {
+  //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}}`;
+  // }
+  filter = '';
+  search(searchInput.value, filter);
 }
 
-function search(query) {
+function search(query, filters) {
   index.search({
     query: query,
     attributesToSnippet: [
       'contents:50'
-    ]
+    ],
+    filters: filters,
   }).then(renderResults);
 }
 
