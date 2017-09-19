@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# Usage:       ngindox.sh input_dir output_dir
+#
+# Description: Builds Ngindox html
+#
 
 # Formatting colors
 GREEN='\033[0;32m'
@@ -6,9 +11,14 @@ BLUE='\033[0;33m'
 PURPLE='\033[0;35m'
 NC='\033[0m'
 
-BUILD_DIR=./build-ngindox
+function clean
+{
+  if [ -d $1 ]; then
+    rm -rf $1
+  fi
+}
 
-function swagger
+function main
 {
   # Each argument
   for d in $1; do
@@ -19,7 +29,7 @@ function swagger
         # If folder
         if [ -d "$f" ]; then
           #( printf "${GREEN}Folder ${BLUE}$f${NC}\n" )
-          ( swagger $f )
+          ( main $f $2 )
         fi
         # If.yaml file
         if [ -f "$f" ] && [ ${f: -5} == ".yaml" ]; then
@@ -42,7 +52,7 @@ function swagger
             # Make build dir
             # Example: ./pages/example/api-1-0.yaml -> ./build-swagger/example/api-1-0
             clean_path=$(echo $d | sed 's/.*\.\/pages\///')
-            build_dir=$BUILD_DIR/$clean_path/$file_basename
+            build_dir=$2/$clean_path/$file_basename
             if [ -d "$build_dir" ]; then
               rm -rf "$build_dir"
             fi
@@ -62,10 +72,12 @@ function swagger
   done
 }
 
-function clean
-{
-  rm -rf $BUILD_DIR
-}
+#
+#
+#
 
-clean
-swagger ./pages
+INPUT_FOLDER=$1
+OUTPUT_FOLDER=$2
+
+clean $OUTPUT_FOLDER
+main $INPUT_FOLDER $OUTPUT_FOLDER

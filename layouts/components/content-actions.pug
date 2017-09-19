@@ -1,3 +1,5 @@
+- var pdfPath = '/pdf/' + path + '/' + path.replace(/\//g, '-') + '.pdf'
+
 div(class='content__actions')
   ul(class='content__actions__list')
     li(class='content__actions__item')
@@ -5,7 +7,7 @@ div(class='content__actions')
         svg(class='content__actions__icon')
           use(xlink:href="/assets/sprite.svg#share")
     li(class='content__actions__item')
-      a(href='/', class='content__actions__link')
+      a(href=pdfPath, class='content__actions__link')
         svg(class='content__actions__icon')
           use(xlink:href="/assets/sprite.svg#download")
     li(class='content__actions__item')

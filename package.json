@@ -10,16 +10,19 @@
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer node index.js",
     "build": "NODE_ENV=production DEBUG=metalsmith-timer node index.js",
-    "pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer node index.js",
+    "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer node index.js",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
     "eslint-init": "eslint --init"
   },
   "author": "Ettrics",
   "devDependencies": {
+    "algoliasearch": "^3.24.3",
     "autoprefixer": "^7.1.1",
+    "bluebird": "^3.5.0",
     "browser-sync": "^2.18.12",
     "css-loader": "^0.28.4",
+    "debug": "^3.0.1",
     "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-plugin-import": "^2.7.0",

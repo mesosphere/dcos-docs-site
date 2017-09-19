@@ -1,26 +1,50 @@
-start:
-	docker-compose up -d
+#
+# Util
+#
 
-rmi:
-	docker rmi mesospheredocs_docs
+clean:
+	./scripts/clean.sh
 
-pdf: swagger ngindox
-	./scripts/pdf.sh
+#
+# Migration
+#
 
 migration:
 	./scripts/migration.sh
 
-swagger:
-	./scripts/swagger.sh
+#
+# Build
+#
 
-ngindox:
-	./scripts/ngindox.sh
+build-dev: build-swagger build-ngindox
+	npm run dev
 
-docker-rm:
-	#docker stop mesospheredocs_docs_1
-	#docker rm -v mesospheredocs_docs_1
-	docker stop dcosdocs_pdf_1
-	docker rm -v dcosdocs_pdf_1
+build-pdf:
+	./scripts/pdf.sh ./build ./build-pdf
 
-build:
+build-pdf-dev: build-swagger build-ngindox docker-pdf
+	npm run build-pdf
+	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
+
+build-swagger:
+	./scripts/swagger.sh ./pages ./build-swagger
+
+build-ngindox:
+	./scripts/ngindox.sh ./pages ./build-ngindox
+
+#
+# Docker
+#
+
+docker-production:
+	docker-compose -f ./docker/docker-compose.production.yml build
+	docker-compose -f ./docker/docker-compose.production.yml up -d
+
+docker-pdf:
+	docker-compose -f ./docker/docker-compose.pdf.yml up -d
+
+docker-purge:
+	./scripts/docker-purge.sh
+
+docker-build:
 	docker-compose build

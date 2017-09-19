@@ -28,7 +28,7 @@ mixin renderSidebarHeader()
           span(class='sidebar__dropdown-text__title')!= siteTitle
           span(class='sidebar__dropdown-text__version')!= ' ' + versionTitle
         svg(class='sidebar__dropdown-icon')
-          use(xlink:href='assets/sprite.svg#chevron')
+          use(xlink:href='/assets/sprite.svg#chevron')
       ul(class='sidebar__dropdown-list')
         each val, index in docs.children
           li(class='sidebar__dropdown-item')
@@ -44,7 +44,7 @@ mixin renderSidebarNavListItem(item)
       div(class='sidebar__nav__item__text')
         if(hasChildren)
           svg(class='sidebar__nav__icon')
-            use(xlink:href="assets/sprite.svg#chevron")
+            use(xlink:href="/assets/sprite.svg#chevron")
         a(href=item.path, class='sidebar__nav__link')!= item.navigationTitle || item.title
       if(hasChildren)
         - var listClassList = {}
