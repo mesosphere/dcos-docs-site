@@ -16,15 +16,15 @@ migration:
 # Build
 #
 
-build: build-pdf build-swagger build-ngindox
-	npm run build
+build-dev: build-swagger build-ngindox
+	npm run dev
 
-build-pdf: build-swagger build-ngindox
+build-pdf:
 	./scripts/pdf.sh ./build ./build-pdf
 
 build-pdf-dev: build-swagger build-ngindox docker-pdf
 	npm run build-pdf
-	./scripts/pdf.sh ./build ./build-pdf http://0.0.0.0:8002/
+	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
 
 build-swagger:
 	./scripts/swagger.sh ./pages ./build-swagger

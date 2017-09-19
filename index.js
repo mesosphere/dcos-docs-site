@@ -53,7 +53,7 @@ else if(
 MS.use(timer('init'))
 
 // Folder Hierarchy
-MS.use(plugin())
+MS.use(hierarchyPlugin())
 MS.use(timer('Hierarchy'))
 
 // Shortcodes
@@ -99,20 +99,17 @@ MS.use(assets({
 }))
 MS.use(timer('Assets'))
 
-// Build Swagger Assets
-/*
-MS.use(assets({
-  source: 'build-swagger',
-  destination: 'build-swagger',
-}))
-MS.use(timer('Build Swagger Assets'))
-*/
-
 // Layouts
 MS.use(layouts({
   engine: 'pug'
 }))
 MS.use(timer('Layouts'))
+
+// WkhtmltopdfLinkResolver
+if(process.env.NODE_ENV == "pdf") {
+  MS.use(wkhtmltopdfLinkResolver())
+  MS.use(timer('WkhtmltopdfLinkResolver'))
+}
 
 // Webpack
 MS.use(webpack('./webpack.config.js'))
@@ -183,7 +180,7 @@ function walk(file, files, array, children, level) {
   return children;
 }
 
-function plugin() {
+function hierarchyPlugin() {
   return function(files, metalsmith, done){
     setImmediate(done);
     var find = function(hierarchy, path) {
@@ -283,4 +280,33 @@ function shortcodes(opts) {
     });
   };
   return wrapper(opts);
+}
+
+//
+// Wkhtmltopdf Link Resolver
+//
+
+function wkhtmltopdfLinkResolver() {
+  return function(files, metalsmith, done) {
+    setImmediate(done);
+    Object.keys(files).forEach(function(file) {
+      if ('.html' != extname(file)) return;
+      var data = files[file];
+      var contents = data.contents.toString();
+      var $ = cheerio.load(contents);
+      $('*').each(function(){
+        let href = $(this).attr('href');
+        if(href && href[0] === '/') {
+          $(this).attr('href', href.slice(1, href.length))
+        }
+        let src = $(this).attr('src');
+        if(src && src[0] === '/') {
+          $(this).attr('src', src.slice(1, src.length))
+        }
+      });
+      $('head').append($('<base href="/tmp/pdf/build">'));
+      files[file].contents = $.html();
+    });
+    return files;
+  };
 }
