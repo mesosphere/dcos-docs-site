@@ -291,20 +291,20 @@ function wkhtmltopdfLinkResolver() {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
       if ('.html' != extname(file)) return;
-      var data = files[file];
-      var contents = data.contents.toString();
-      var $ = cheerio.load(contents);
+      let data = files[file];
+      let contents = data.contents.toString();
+      let $ = cheerio.load(contents);
+      let buildPath = '/tmp/pdf/build';
       $('*').each(function(){
         let href = $(this).attr('href');
         if(href && href[0] === '/') {
-          $(this).attr('href', href.slice(1, href.length))
+          $(this).attr('href', buildPath + href)
         }
         let src = $(this).attr('src');
         if(src && src[0] === '/') {
-          $(this).attr('src', src.slice(1, src.length))
+          $(this).attr('src', buildPath + src)
         }
       });
-      $('head').append($('<base href="/tmp/pdf/build">'));
       files[file].contents = $.html();
     });
     return files;
