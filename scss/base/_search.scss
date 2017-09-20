@@ -38,7 +38,7 @@
   }
   &__results {
     margin-top: 4rem;
-    & mark {
+    & em {
       padding: 0.1rem 0.3rem;
       border-radius: 3px;
       background: #FF007D;
@@ -51,6 +51,9 @@
     }
     &-item {
       margin-top: 2rem;
+      &:last-child {
+        margin-bottom: 2rem;
+      }
     }
   }
   &__title {
