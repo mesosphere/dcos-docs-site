@@ -12,8 +12,29 @@ enterprise: true
 
 DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It enables the management of multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
 
-[OSS]
 ## Shortcodes
+
+### Enterprise Tag {data-hide=true}
+
+Format
+
+`[enterprise parse="false" ]`
+
+Ouput
+
+[enterprise]
+<span></span>
+
+### OSS Tag {data-hide=true}
+
+Format
+
+`[oss parse="false" ]`
+
+Ouput
+
+[oss]
+<span></span>
 
 ### Message {data-hide=true}
 
@@ -25,35 +46,12 @@ Ouput
 
 [message header="Message" body="Hello World"]
 
+
 ## Syntax Highlighting
 
 Inline Example
 
 Inline `code` has `back-ticks around` it.
-
-No Language Example
-
-```
-From github.com:engineapp/dc-os-docs
- * branch            master     -> FETCH_HEAD
-Already up-to-date.
-Counting objects: 5, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (5/5), done.
-
-```
-
-Console Output Example
-
-```bash
-From github.com:engineapp/dc-os-docs
- * branch            master     -> FETCH_HEAD
-Already up-to-date.
-Counting objects: 5, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (5/5), done.
-
-```
 
 Javascript Example
 
@@ -61,6 +59,12 @@ Javascript Example
 function foo() {
   console.log('bar');
 }
+```
+
+No Language Example
+
+```
+dcos[options][<command>][<args>...]
 ```
 
 Bash Example
@@ -73,17 +77,24 @@ dcos[options][<command>][<args>...]
 
 Colons can be used to align columns.
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Tables         | Are           | Cool  |
+| -------------- |:-------------:| -----:|
+| `--debug`      | right-aligned | $1600 |
+| col 3 is       | right-aligned | $1600 |
+| col 2 is       | centered      |   $12 |
+| zebra stripes  | are neat      |    $1 |
 
 
 ## Block Quotes
 
 > Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
+
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+> consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+> proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Quote break.
 

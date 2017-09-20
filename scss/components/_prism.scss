@@ -3,10 +3,16 @@
 }
 
 code {
-  background: rgba($color-purple-light, 0.4);
-  color: $color-purple-light;
-  padding: 0 2px;
+  font-family: $font-family-1;
+  background: rgba($color-grey-medium, 0.4);
+  color: $color-dark;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-weight: 0.9rem;
   margin: 0;
+}
+
+table code {
 }
 
 pre {
@@ -16,6 +22,7 @@ pre {
   code {
     background: transparent;
     font-size: 0.8rem;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 }
 
