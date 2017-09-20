@@ -73,9 +73,9 @@ The response, for both the CLI and the REST API is as below.
     "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
   }
 
-This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/docs/1.9/networking/).
+This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/docs/1.10/networking/).
 
-When [the TLS][15] is enabled you can request details for `broker-tls` port. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/docs/1.9/networking/tls-ssl/get-cert/) is required.
+When [the TLS][15] is enabled you can request details for `broker-tls` port. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/docs/1.10/networking/tls-ssl/get-cert/) is required.
 
 # Configuring the Kafka Client Library
 
@@ -182,7 +182,6 @@ The following code connects to a DC/OS-hosted Kafka instance using `bin/kafka-co
     root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:2181/kafka --topic topic1 --from-beginning
     Hello, World.
 
- [13]: /docs/1.9/security/users-groups/
- [14]: /docs/1.9/security/iam-api/
- [15]: https://docs.mesosphere.com/service-docs/kafka/configure/#tls
-
+ [13]: /docs/1.10/security/ent/users-groups/
+ [14]: /docs/1.10/security/ent/iam-api/
+ [15]: /service-docs/kafka/configure/#tls

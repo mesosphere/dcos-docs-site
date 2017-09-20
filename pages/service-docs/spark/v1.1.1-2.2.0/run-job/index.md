@@ -96,6 +96,6 @@ following the instructions in the "Customize Spark Distribution" section of the 
 [13]: http://spark.apache.org/docs/latest/submitting-applications.html
 [14]: http://spark.apache.org/docs/latest/configuration.html#spark-properties
 [15]: http://spark.apache.org/docs/latest/configuration.html#overriding-configuration-directory
-[16]: https://dcos.io/docs/overview/design/overlay/
-[17]: https://dcos.io/docs/docs/1.9/deploying-services/containerizers/ucr/
+[16]: /docs/1.9/overview/design/overlay/
+[17]: /docs/1.9/deploying-services/containerizers/ucr/
 [18]: http://mesos.apache.org/documentation/latest/endpoints/master/teardown/

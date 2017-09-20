@@ -29,7 +29,7 @@ navigationTitle:  Security
 
 ## Authentication
 
-When running in [DC/OS strict security mode](/docs/1.9/security/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/docs/1.9/security/service-auth/).
+When running in [DC/OS strict security mode](/docs/1.9/security/ent/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/docs/1.9/security/ent/service-auth/).
 
 Follow these instructions to authenticate in strict mode:
 

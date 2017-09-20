@@ -4,7 +4,7 @@ title: DC/OS Package Management API
 menuWeight: 10
 excerpt:
 featureMaturity:
-enterprise: true
+enterprise: false
 navigationTitle:  DC/OS Package Management API
 ---
 
@@ -18,7 +18,6 @@ For information about managing services, see [Managing Services](/docs/1.10/depl
 
 
 ## Routes
-s
 
 | Route | Resource |
 navigationTitle:  DC/OS Package Management API
@@ -28,11 +27,11 @@ navigationTitle:  DC/OS Package Management API
 | `/capabilities` | `/capabilities` |
 
 
-## Auth
+## Authentication
 
-All Package Management API routes require authentication to use.
+Enterprise edition users must authenticate Package Management API requests.
 
-To authenticate API requests, see [Obtaining an authentication token](/docs/1.10/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/docs/1.10/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/docs/1.10/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/docs/1.10/security/ent/iam-api/#passing-an-authentication-token).
 
 The Package Management API also requires authorization via the following permissions:
 
@@ -45,7 +44,7 @@ navigationTitle:  DC/OS Package Management API
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/docs/1.10/security/perms-reference/).
+To assign permissions to your account, see [Assigning permissions](/docs/1.10/security/ent/perms-reference/).
 
 
 ## Resources

@@ -2,24 +2,24 @@
 layout: layout.pug
 title: Install and Customize
 menuWeight: 20
-excerpt:
-featureMaturity:
 enterprise: false
 navigationTitle:  Install and Customize
+excerpt:
 ---
 
 The default DC/OS Kubernetes Service installation provides reasonable defaults for trying out the service. This service is not currently certified for production use.
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you must install the [Enterprise CLI](https://docs.mesosphere.com/docs/1.9/cli/enterprise-cli/) and [provision a service account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) before installing DC/OS Kubernetes Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](https://docs.mesosphere.com/docs/1.10/security/service-auth/) requires a service account.
+- If you are using Enterprise DC/OS, you must install the [Enterprise CLI](/docs/1.10/cli/enterprise-cli/) and [provision a service account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) before installing DC/OS Kubernetes Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](/docs/1.10/security/service-auth/) requires a service account.
   - In `permissive` security mode, a service account is optional.
   - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes with: 6 CPU | 5654 MB MEM | 615 MB Disk. For larger deployments, refer to the resource requirements of each component, on each node.
 
 |                   | cpu   | mem   | disk |
 navigationTitle:  Install and Customize
+excerpt:
 | ----------------- | ----- | ----- | ---- |
 | etcd	            | 0.5	  | 512	  | 512  |
 | kube-scheduler	  | 0.5	  | 256   |    - |

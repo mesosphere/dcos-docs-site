@@ -11,7 +11,7 @@ navigationTitle:  Universal Container Runtime
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) container images. The UCR has many [advantages](/docs/1.10/deploying-services/containerizers/) over the Docker Engine for running Docker images.  Use the Docker Engine only if you need specific [ features](/docs/1.10/deploying-services/containerizers/#container-runtime-features) of the Docker package. 
+The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) container images. The UCR has many [advantages](/docs/1.10/deploying-services/containerizers/) over the Docker Engine for running Docker images.  Use the Docker Engine only if you need specific [ features](/docs/1.10/deploying-services/containerizers/#container-runtime-features) of the Docker package.
 
 # Provision a container with the UCR from the DC/OS web interface
 
@@ -21,7 +21,7 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 
 1. Enter the service ID.
 
-1. In the **CONTAINER IMAGE** field, optionally enter a container image. Otherwise, enter a command in the **COMMAND** field. 
+1. In the **CONTAINER IMAGE** field, optionally enter a container image. Otherwise, enter a command in the **COMMAND** field.
 
 1. Specify the UCR. Click **MORE SETTINGS**. In the **Container Runtime** section, choose the **MESOS RUNTIME** radio button.
 
@@ -64,7 +64,7 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
         "source": "/mesos-docker/pullConfig"
       }
     },
-    "args":[  
+    "args":[
     "<my-arg>"
     ],
     "cpus": 0.5,

@@ -37,7 +37,7 @@ Spark job settings are controlled by configuring [Spark properties][14].
 
 ## Submission
 
-All properties are submitted through the `--submit-args` option to `dcos spark run`. There are a few unique options to DC/OS that are not in Spark Submit (for example `--keytab-secret-path`).  View `dcos spark run --help` for a list of all these options. All `--conf` properties supported by Spark can be passed through the command-line with within the `--submit-args` string. 
+All properties are submitted through the `--submit-args` option to `dcos spark run`. There are a few unique options to DC/OS that are not in Spark Submit (for example `--keytab-secret-path`).  View `dcos spark run --help` for a list of all these options. All `--conf` properties supported by Spark can be passed through the command-line with within the `--submit-args` string.
 
     dcos spark run --submit-args="--conf spark.executor.memory=4g --supervise --class MySampleClass http://external.website/mysparkapp.jar 30`
 
@@ -56,7 +56,7 @@ spark.executors.cores       4
 spark.eventLog.enabled      true
 spark.eventLog.dir          hdfs:///history
 ```
-will set the containerizer to `mesos`, the executor cores to `4` and enable the history server. This file is parsed locally so it will not be available to your driver applications. 
+will set the containerizer to `mesos`, the executor cores to `4` and enable the history server. This file is parsed locally so it will not be available to your driver applications.
 
 
 ## Secrets
@@ -87,7 +87,7 @@ dcos spark run --submit-args="\
 ...
 ```
 
-**Note:** Secrets are available only in Enterprise DC/OS 1.9 onwards. [Learn more about the secrets store](/docs/1.9/security/secrets/).
+**Note:** Secrets are available only in Enterprise DC/OS 1.9 onwards. [Learn more about the secrets store](/docs/1.9/security/ent/secrets/).
 
 ### Authorization for Secrets
 
@@ -115,24 +115,24 @@ navigationTitle:  Run a Spark Job
 
 ### Binary Secrets
 
-When you need to store binary files into DC/OS secrets store, for example a Kerberos keytab file, your file needs to be base64-encoded as specified in RFC 4648. 
+When you need to store binary files into DC/OS secrets store, for example a Kerberos keytab file, your file needs to be base64-encoded as specified in RFC 4648.
 
 You can use standard `base64` command line utility. Take a look at the following example that is using BSD `base64` command.
-``` 
-$  base64 -i krb5.keytab -o kerb5.keytab.base64-encoded 
+```
+$  base64 -i krb5.keytab -o kerb5.keytab.base64-encoded
 ```
 
 `base64` command line utility in Linux inserts line-feeds in the encoded data by default. Disable line-wrapping via  `-w 0` argument.  Here is a sample base64 command in Linux.
-``` 
-$  base64 -w 0 -i krb5.keytab > kerb5.keytab.base64-encoded 
+```
+$  base64 -w 0 -i krb5.keytab > kerb5.keytab.base64-encoded
 ```
 
 Give the secret basename prefixed with `__dcos_base64__`. For example, `some/path/__dcos_base64__mysecret` and `__dcos_base64__mysecret` will be base64-decoded automatically.
 
-``` 
+```
 $  dcos security secrets  create -f kerb5.keytab.base64-encoded  some/path/__dcos_base64__mysecret
 ```
-When you reference the `__dcos_base64__mysecret` secret in your service, the content of the secret will be first base64-decoded, and then copied and made available to your Spark application. Refer to a binary secret only as a file such that it will be automatically decoded and made available as a temporary in-memory file mounted within your container (file-based secrets). 
+When you reference the `__dcos_base64__mysecret` secret in your service, the content of the secret will be first base64-decoded, and then copied and made available to your Spark application. Refer to a binary secret only as a file such that it will be automatically decoded and made available as a temporary in-memory file mounted within your container (file-based secrets).
 
 # DC/OS Overlay Network
 
@@ -145,18 +145,18 @@ the default Docker Containerizer, so you must set `--conf spark.mesos.containeri
 
 # Driver Failover Timeout
 
-The `--conf spark.mesos.driver.failoverTimeout` option specifies the amount of time 
-(in seconds) that the master will wait for the driver to reconnect, after being 
-temporarily disconnected, before it tears down the driver framework by killing 
-all its executors. The default value is zero, meaning no timeout: if the 
+The `--conf spark.mesos.driver.failoverTimeout` option specifies the amount of time
+(in seconds) that the master will wait for the driver to reconnect, after being
+temporarily disconnected, before it tears down the driver framework by killing
+all its executors. The default value is zero, meaning no timeout: if the
 driver disconnects, the master immediately tears down the framework.
 
 To submit a job with a nonzero failover timeout:
 
     dcos spark run --submit-args="--conf spark.mesos.driver.failoverTimeout=60 --class MySampleClass http://external.website/mysparkapp.jar"
 
-**Note:** If you kill a job before it finishes, the framework will persist 
-as an `inactive` framework in Mesos for a period equal to the failover timeout. 
+**Note:** If you kill a job before it finishes, the framework will persist
+as an `inactive` framework in Mesos for a period equal to the failover timeout.
 You can manually tear down the framework before that period is over by hitting
 the [Mesos teardown endpoint][18].
 
@@ -172,7 +172,7 @@ The default DC/OS Apache Spark distribution is compiled against Hadoop 2.6 libra
 [13]: http://spark.apache.org/docs/latest/submitting-applications.html
 [14]: http://spark.apache.org/docs/latest/configuration.html#spark-properties
 [15]: http://spark.apache.org/docs/latest/configuration.html#overriding-configuration-directory
-[16]: https://dcos.io/docs/overview/design/overlay/
-[17]: https://dcos.io/docs/docs/1.9/deploying-services/containerizers/ucr/
+[16]: /docs/1.9/overview/design/overlay/
+[17]: /docs/1.9/deploying-services/containerizers/ucr/
 [18]: http://mesos.apache.org/documentation/latest/endpoints/master/teardown/
 [19]: https://docs.mesosphere.com/service-docs/spark/v2.2.0-2.2.0-1/hdfs/

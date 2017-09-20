@@ -8,7 +8,7 @@ enterprise: true
 navigationTitle:  Configuring DC/OS Access for HDFS
 ---
 
-This topic describes how to configure DC/OS access for HDFS. Depending on your [security mode](/docs/1.9/overview/security/security-modes/), HDFS requires [service authentication](/docs/1.9/security/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for HDFS. Depending on your [security mode](/docs/1.9/overview/security/security-modes/), HDFS requires [service authentication](/docs/1.9/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 navigationTitle:  Configuring DC/OS Access for HDFS
@@ -17,7 +17,7 @@ navigationTitle:  Configuring DC/OS Access for HDFS
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/docs/1.9/security/perms-reference/#superuser).
+If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/docs/1.9/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
 
@@ -34,7 +34,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/docs/1.9/security/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/docs/1.9/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 

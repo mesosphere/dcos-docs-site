@@ -151,9 +151,9 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 
 *   For troubleshooting external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the systemd journal.
 
- [1]: /docs/1.10/installing/cloud/aws/
- [2]: /docs/1.10/installing/custom/cli/
- [3]: /docs/1.10/installing/custom/advanced/
+ [1]: /docs/1.10/installing/oss/cloud/aws/
+ [2]: /docs/1.10/installing/oss/custom/cli/
+ [3]: /docs/1.10/installing/oss/custom/advanced/
  [4]: https://rexray.readthedocs.io/en/v0.3.3/user-guide/config/
  [5]: http://rexray.readthedocs.io/en/v0.3.3/user-guide/storage-providers/
  [6]: /docs/1.10/deploying-services/creating-services/

@@ -10,7 +10,7 @@ navigationTitle:  Accessing system and component logs
 
 You can restrict user access to system and component logs. 
 
-Here is the [permission](/docs/1.10/security/perms-reference/) that is required to view the system and component logs:
+Here is the [permission](/docs/1.10/security/ent/perms-reference/) that is required to view the system and component logs:
 
 |     Permission string     | full | C | R | U | D |
 navigationTitle:  Accessing system and component logs
@@ -19,7 +19,7 @@ navigationTitle:  Accessing system and component logs
 
 **Prerequisites:** 
 
-- DC/OS and DC/OS CLI are [installed](/docs/1.10/installing/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/docs/1.10/installing/ent/) and you are logged in as a superuser.
 
 # Via the DC/OS GUI
 

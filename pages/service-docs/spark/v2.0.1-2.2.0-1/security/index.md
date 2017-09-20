@@ -13,9 +13,9 @@ navigationTitle:  Security
 
 This topic describes how to configure DC/OS service accounts for Spark.
 
-When running in [DC/OS strict security mode](/docs/1.9/security/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/docs/1.9/security/service-auth/).
+When running in [DC/OS strict security mode](/docs/1.10/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/docs/1.10/security/ent/service-auth/).
 
-Follow these instructions to [authenticate in strict mode](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
+Follow these instructions to [authenticate in strict mode](/service-docs/spark/spark-auth/).
 
 # Spark SSL
 
@@ -66,5 +66,5 @@ Make sure to connect the DC/OS cluster only using an SSL connection (i.e. by usi
 
     dcos config set core.dcos_url https://<dcos-url>
 
- [11]: /docs/1.9/overview/architecture/components/
+ [11]: /docs/1.10/overview/architecture/components/
  [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html

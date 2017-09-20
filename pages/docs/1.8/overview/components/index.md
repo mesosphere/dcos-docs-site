@@ -4,18 +4,18 @@ title: Components
 menuWeight: 4
 excerpt:
 featureMaturity:
-enterprise: true
+enterprise: false
 navigationTitle:  Components
 ---
 
 
 
 
-DC/OS is comprised of many individual open source components that are precisely configured to work together. 
+DC/OS is comprised of many individual open source components that are precisely configured to work together.
 
-You can log into any host in the DC/OS cluster and view the currently running services by inspecting the <code>/etc/systemd/system/dcos.target.wants/</code> directory. 
+You can log into any host in the DC/OS cluster and view the currently running services by inspecting the <code>/etc/systemd/system/dcos.target.wants/</code> directory.
 
-You can view the DC/OS component details in the <a href="https://github.com/dcos/dcos/">https://github.com/dcos/dcos/</a> repo in the packages directory. 
+You can view the DC/OS component details in the <a href="https://github.com/dcos/dcos/">https://github.com/dcos/dcos/</a> repo in the packages directory.
 
 
 <table class="table">
@@ -44,7 +44,7 @@ You can view the DC/OS component details in the <a href="https://github.com/dcos
     <td>This component is an open-source Nginx configuration created by Mesosphere that provides central authentication and proxy to DC/OS services within the cluster. The Admin Router service <code>dcos-adminrouter.service </code> is the core internal load balancer for DC/OS. Admin Router is a customized <a href="https://www.nginx.com/resources/wiki/">Nginx</a> that proxies all of the internal services on port <code>80</code>.</td>
   </tr>
   <tr>
-    <td>Certificate Authority</td>
+    <td>Certificate Authority (Enterprise Only)</td>
     <td>This component <code>dcos-ca.service</code> is the DC/OS Certificate Authority feature. For more information, see the <a href="/docs/1.8/administration/id-and-access-mgt/">documentation</a>.</td>
   </tr><tr>
     <td>Cluster ID</td>
@@ -69,7 +69,7 @@ You can view the DC/OS component details in the <a href="https://github.com/dcos
   <tr>
     <td>DNS Dispatcher Watchdog Timer</td>
     <td>This component <code>dcos-spartan-watchdog.timer</code> wakes up the DNS Dispatcher Watchdog every 5 minutes, to see if DC/OS needs to restart DNS Dispatcher.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>Downloads Service
         </td>
@@ -184,5 +184,3 @@ You can view the DC/OS component details in the <a href="https://github.com/dcos
     <td>This component <code>dcos-navstar.service</code> is a daemon that provides virtual networking and DNS services. It is the network overlay orchestrator. For more information, see the <a href="https://github.com/dcos/navstar">documentation</a>.</td>
   </tr>
 </table>
-
-

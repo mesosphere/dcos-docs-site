@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Labeling Tasks and Jobs
-menuWeight: 12
+menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false

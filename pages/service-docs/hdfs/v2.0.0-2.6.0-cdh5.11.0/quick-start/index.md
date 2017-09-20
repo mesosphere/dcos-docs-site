@@ -15,8 +15,8 @@ This tutorial will get you up and running in minutes with HDFS. You will install
 
 **Prerequisites:**
 
--  [DC/OS and DC/OS CLI installed](/docs/1.9/installing/) with a minimum of five private agent nodes, each with at least two CPU shares and eight GB of RAM available to the HDFS service.
--  Depending on your [security mode](/docs/1.9/overview/security/security-modes/), HDFS requires a service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for HDFS](https://docs.mesosphere.com/service-docs/hdfs/hdfs-auth/).
+-  [DC/OS and DC/OS CLI installed](/docs/1.10/installing/) with a minimum of five private agent nodes, each with at least two CPU shares and eight GB of RAM available to the HDFS service.
+-  Depending on your [security mode](/docs/1.10/security/ent/#security-modes), HDFS requires a service authentication token for access to DC/OS. For more information, see [Configuring DC/OS Access for HDFS](/service-docs/hdfs/hdfs-auth/).
 
    | Security mode | Service Account |
 navigationTitle:  Quickstart
@@ -50,7 +50,7 @@ navigationTitle:  Quickstart
 
 1.  Configure HDFS on your nodes.
 
-1.  [SSH](/docs/1.9/administering-clusters/sshcluster/) to the leading master node.
+1.  [SSH](/docs/1.10/administering-clusters/sshcluster/) to the leading master node.
 
     ```bash
     $ dcos node ssh --leader --master-proxy

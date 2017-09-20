@@ -128,5 +128,5 @@ You can get a comprehensive list of the apps being run on your DC/OS cluster nod
              }
             ]
 
- [1]: /docs/1.7/administration/installing/
+ [1]: /docs/1.7/administration/installing/oss/
  [2]: /docs/1.7/administration/sshcluster/

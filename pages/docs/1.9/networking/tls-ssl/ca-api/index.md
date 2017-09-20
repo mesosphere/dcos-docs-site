@@ -53,7 +53,7 @@ If the endpoint you wish to access requires authentication, you will need an aut
 
 ### Via the IAM API
 
-To get an authentication token, pass the user name and password of a user with the necessary permissions in the body of a request to the `/auth/login` endpoint of the [Identity and Access Management Service API](/docs/1.9/security/iam-api/). It returns an authentication token as shown below.
+To get an authentication token, pass the user name and password of a user with the necessary permissions in the body of a request to the `/auth/login` endpoint of the [Identity and Access Management Service API](/docs/1.9/security/ent/iam-api/). It returns an authentication token as shown below.
 
 ```json
 {
@@ -99,7 +99,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/docs/1.9/security/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/docs/1.9/security/ent/service-auth/custom-service-auth/) for more information.
   
 # API reference
 

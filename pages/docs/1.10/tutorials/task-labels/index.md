@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Labeling Tasks and Jobs
-menuWeight: 600
+menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: false
@@ -25,28 +25,28 @@ From the DC/OS web interface, click the **Services** tab. You can add labels whe
 
 ## Assign a Label to an Application or Task from the DC/OS CLI
 
-You can also specify label values in the `labels` parameter of your application definition. 
+You can also specify label values in the `labels` parameter of your application definition `myapp.json`: 
 
-    vi myapp.json
-    
-    {
-        "id": "myapp",
-        "cpus": 0.1,
-        "mem": 16.0,
-        "ports": [
-            0
-        ],
-        "cmd": "/opt/mesosphere/bin/python3 -m http.server $PORT0",
-        "instances": 2,
-        "labels": {
-            "COST_CENTER": "0001"
-        }
-    }
+```json
+  {
+      "id": "myapp",
+      "cpus": 0.1,
+      "mem": 16.0,
+      "ports": [
+          0
+      ],
+      "cmd": "/opt/mesosphere/bin/python3 -m http.server $PORT0",
+      "instances": 2,
+      "labels": {
+          "COST_CENTER": "0001"
+      }
+  }
+```
 
 Then, deploy from the DC/OS CLI:
 
 ```bash
-dcos marathon app add <myapp>.json
+dcos marathon app add myapp.json
 ```
 
 # Assigning Labels to Jobs
@@ -61,30 +61,28 @@ From the DC/OS web interface, click the **Jobs** tab. You can add labels when yo
 
 ## Assign a Label to a Job from the DC/OS CLI
 
-You can also specify label values in the `labels` parameter of your job definition. 
+You can also specify label values in the `labels` parameter of your job definition `myjob.json`:
 
-    vi myjob.json
-    
-     ```json
-        {
-          "id": "my-job",
-          "description": "A job that sleeps",
-          "labels": {
-            "department": "marketing"
-          },
-          "run": {
-            "cmd": "sleep 1000",
-            "cpus": 0.01,
-            "mem": 32,
-            "disk": 0
-          }
-        }
-     ```
+```json
+  {
+    "id": "my-job",
+    "description": "A job that sleeps",
+    "labels": {
+      "department": "marketing"
+    },
+    "run": {
+      "cmd": "sleep 1000",
+      "cpus": 0.01,
+      "mem": 32,
+      "disk": 0
+    }
+  }
+```
 
 Then, deploy from the DC/OS CLI:
 
 ```bash
-dcos job add <myjob>.json
+dcos job add myjob.json
 ```
 
 # Displaying Label Information

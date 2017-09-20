@@ -17,7 +17,7 @@ The standard install provides a reasonable default configuration for trying out 
 
 1. Install DC/OS on your cluster. See [the documentation](/latest/administration/installing/) for instructions.
 
-1. Install the DC/OS [CLI](https://dcos.io/docs/docs/1.10/cli/install/) and point it towards your cluster
+1. Install the DC/OS [CLI](https://docs.mesosphere.com/docs/1.10/cli/install) and point it towards your cluster
 
 ```
 dcos cluster setup http://your-cluster.com

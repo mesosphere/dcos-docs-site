@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 title: Deploying Marathon Apps with Jenkins
-menuWeight: 3
+menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: false
 navigationTitle:  Deploying Marathon Apps with Jenkins
 ---
 
-This tutorial shows how to deploy applications on [Marathon][1] using Jenkins for DC/OS. We'll walk you through creating a new Jenkins job, publishing a Docker container on source code changes, and deploying those changes to Marathon based on the [application definition][3] contained in the project’s `marathon.json` file.
+This tutorial shows how to deploy applications on [Marathon][1] using Jenkins for DC/OS. We'll walk you through creating a new Jenkins job, publishing a Docker container on source code changes, and deploying those changes to Marathon based on the [application definition][3] contained in the project's `marathon.json` file.
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
@@ -27,7 +27,7 @@ This tutorial uses [Docker Hub][6] to store the created image and requires accou
 
 Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/docs/1.10/gui/). 
 
-Click the “Jenkins” service and then "Open Service" to access the Jenkins web interface.
+Click the "Jenkins" service and then "Open Service" to access the Jenkins web interface.
 
 ![dcos-velocity-jenkins-ui.png](/docs/1.10/img/dcos-velocity-jenkins-ui.png)
 
@@ -116,7 +116,7 @@ When the **Status** has changed to **Running**, the deployment is complete and y
 
 ## Visit Your Site
 
-Visit port `80` on the public DC/OS agent to display a jekyll website.
+Visit port `80` on the public DC/OS agent to display a Jekyll website.
 
 ![dcos-jekyll-site1.png](/docs/1.10/img/dcos-jekyll-site1.png)
 

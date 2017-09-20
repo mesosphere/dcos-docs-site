@@ -82,7 +82,7 @@ The response, for both the CLI and the REST API is as below.
 }
 ```
 
-This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/docs/1.9/networking/).
+This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/docs/1.10/networking/).
 
 # Configuring the Kafka Client Library
 
@@ -194,5 +194,5 @@ root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:218
 Hello, World.
 ```
 
- [13]: /docs/1.9/security/users-groups/
- [14]: /docs/1.9/security/iam-api/
+ [13]: /docs/1.10/security/ent/users-groups/
+ [14]: /docs/1.10/security/ent/iam-api/

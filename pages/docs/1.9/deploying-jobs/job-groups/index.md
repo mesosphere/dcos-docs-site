@@ -8,12 +8,12 @@ enterprise: true
 navigationTitle:  Granting Access to Jobs
 ---
 
-You can implement fine-grained user access to jobs by using either the DC/OS GUI or the API. The [Metronome permissions](/docs/1.9/security/perms-reference/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
+You can implement fine-grained user access to jobs by using either the DC/OS GUI or the API. The [Metronome permissions](/docs/1.9/security/ent/perms-reference/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
 
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/docs/1.9/cli/install/) and be logged in as a superuser.
-- A [user account](/docs/1.9/security/users-groups/) to assign permissions to.
+- A [user account](/docs/1.9/security/ent/users-groups/) to assign permissions to.
 - If your [security mode](/docs/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 # <a name="job-group-access-via-ui"></a>Via the DC/OS GUI

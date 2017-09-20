@@ -131,5 +131,5 @@ navigationTitle:  Architecture
 | 11   | Mesos master reports task status to scheduler. |
 | 12   | Scheduler reports process status to client. |
 
-[auth]: /docs/1.7/administration/id-and-access-mgt/
+[auth]: /docs/1.7/administration/id-and-access-mgt/ent/
 [components]: /docs/1.7/overview/components/

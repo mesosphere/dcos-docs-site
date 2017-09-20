@@ -100,7 +100,7 @@ The DSE DC/OS service supports two volume types:
 - `ROOT` volumes are effectively an isolated _directory_ on the root volume, sharing IO/spindles with the rest of the host system.
 - `MOUNT` volumes are a dedicated device or partition on a separate volume, with dedicated IO/spindles.
 
-`MOUNT` volumes require [additional configuration on each DC/OS agent system](https://dcos.io/docs/docs/1.8/administration/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you must configure **two MOUNT volumes** on the machines which will run DSE in your cluster, and then configure the following as `MOUNT` volumes under **dsenode**:
+`MOUNT` volumes require [additional configuration on each DC/OS agent system](https://docs.mesosphere.com/docs/1.8/administration/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you must configure **two MOUNT volumes** on the machines which will run DSE in your cluster, and then configure the following as `MOUNT` volumes under **dsenode**:
 - Persistent data volume type = `MOUNT`
 - Persistent Solr volume type (if `DSE Search` is enabled) = `MOUNT`
 Using `ROOT` volumes for these is not supported in production.

@@ -29,7 +29,7 @@ Component health is monitored by the DC/OS Diagnostics component. For more infor
 
 ## Component logs
 
-Component logs are sent to journald and exposed by the DC/OS Log component. For more infromation about component logs, see [Logging](/docs/1.10/monitoring/logging/).
+Component logs are sent to journald and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/docs/1.10/monitoring/logging/).
 
 
 ## Routes

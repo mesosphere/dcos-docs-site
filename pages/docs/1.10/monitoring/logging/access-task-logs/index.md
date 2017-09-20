@@ -10,11 +10,11 @@ navigationTitle:  Controlling Access to Task Logs
 
 You can control user access to task logs by using Marathon groups for jobs and services. You can then assign permissions to access these groups, allowing you to control which logs a user can access.
 
-**Important:** The functionality described in this document is only available in [strict security mode](/docs/1.10/security/#security-modes).
+**Important:** The functionality described in this document is only available in [strict security mode](/docs/1.10/security/ent/#security-modes).
 
 In this procedure, you will deploy services in separate Marathon groups, and grant user permissions to view the tasks for these Marathon groups.
 
-Here is an overview of the [permissions](/docs/1.10/security/perms-reference/) that are required:
+Here is an overview of the [permissions](/docs/1.10/security/ent/perms-reference/) that are required:
 
 |     Permission string     | full | C | R | U | D |
 navigationTitle:  Controlling Access to Task Logs
@@ -32,7 +32,7 @@ navigationTitle:  Controlling Access to Task Logs
 
 **Prerequisites:**
 
-- DC/OS and DC/OS CLI are [installed](/docs/1.10/installing/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/docs/1.10/installing/ent/) and you are logged in as a superuser.
 
 # Via the DC/OS GUI
 

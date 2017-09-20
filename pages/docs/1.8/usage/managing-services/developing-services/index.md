@@ -4,6 +4,6 @@ title: Developing Services
 menuWeight: 0
 excerpt:
 featureMaturity:
-enterprise: true
+enterprise: false
 navigationTitle:  Developing Services
 ---

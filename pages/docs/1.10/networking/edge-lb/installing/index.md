@@ -20,7 +20,7 @@ dcos package install edgelb
 
 -  [DC/OS CLI installed](/docs/1.10/cli/install/) and be logged in as a superuser.
 -  Access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
--  Depending on your [security mode](/docs/1.10/overview/security/security-modes/), you may be able to configure Edge-LB with [service authentication](/docs/1.10/security/service-auth/) before installing and using with DC/OS, allowing you to control what actions your service can take on your cluster. For information on how to configure service authentication for Edge-LB, see the [documentation](/docs/1.10/networking/edge-lb/auth).
+-  Depending on your [security mode](/docs/1.10/overview/security/security-modes/), you may be able to configure Edge-LB with [service authentication](/docs/1.10/security/ent/service-auth/) before installing and using with DC/OS, allowing you to control what actions your service can take on your cluster. For information on how to configure service authentication for Edge-LB, see the [documentation](/docs/1.10/networking/edge-lb/auth).
 
    | Security mode | Service Account |
 navigationTitle:  Installing Edge-LB

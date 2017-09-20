@@ -102,7 +102,7 @@ For more information, see the [documentation](/docs/1.9/metrics/).
   - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM.
   - Support authentication with service account credentials.
 
-- Introduce various secrets improvements (for more information, see the [secrets documentation](/docs/1.9/security/secrets/)).
+- Introduce various secrets improvements (for more information, see the [secrets documentation](/docs/1.9/security/ent/secrets/)).
 - Security hardening across the platform, including Mesos, Marathon, and Admin Router.
 
 ## Developer Services

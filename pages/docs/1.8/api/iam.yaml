@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.0.0
-  title: 'Identity and Access Management API'
+  title: 'Identity and Access Management API (Enterprise Only)'
 schemes:
   - http
   - https
@@ -43,7 +43,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/definitions/ACL"
-                  
+
   /acls/{rid}:
     get:
       summary: Retrieve the permission for a specific resource
@@ -67,8 +67,8 @@ paths:
     put:
       summary: Create a new permission for a specific resource
       description: >
-        Create a new permission for the specified resource, with actions 
-        specified in the body (if any). 
+        Create a new permission for the specified resource, with actions
+        specified in the body (if any).
       tags:
         - permissions
       consumes:
@@ -78,7 +78,7 @@ paths:
           in: path
           required: true
           description: >
-            The ID of the resource that the permission should be created to 
+            The ID of the resource that the permission should be created to
             control access to.
           type: string
         - name: ACL
@@ -93,7 +93,7 @@ paths:
           description: Already exists, i.e., the resource already has a permission set.
     patch:
       summary: Update a permission
-      description: Update a specified permission. 
+      description: Update a specified permission.
       tags:
         - permissions
       consumes:
@@ -127,7 +127,7 @@ paths:
       responses:
         204:
           description: Success.
-          
+
   /acls/{rid}/groups/{gid}:
     get:
       summary: Get allowed actions for given resource and group.
@@ -176,7 +176,7 @@ paths:
       responses:
         204:
           description: Success.
-          
+
   /acls/{rid}/groups/{gid}/{action}:
     get:
       summary: Query whether action is allowed or not.
@@ -254,7 +254,7 @@ paths:
       responses:
         204:
           description: Success.
-          
+
   /acls/{rid}/permissions:
     get:
       summary: Retrieve all permissions that are set for a specific resource.
@@ -309,8 +309,8 @@ paths:
     delete:
       summary: Forbid all actions for given user to given resource.
       description: >
-        Forbid all actions for given user to given resource. For example, if a user was allowed the `read` and `update` 
-        action for the `dcos:service:marathon:marathon:admin:leader`, this would 
+        Forbid all actions for given user to given resource. For example, if a user was allowed the `read` and `update`
+        action for the `dcos:service:marathon:marathon:admin:leader`, this would
         delete both.
       tags:
         - permissions
@@ -412,11 +412,11 @@ paths:
     get:
       summary: Get the JSON Web Key Set.
       description: >
-        This endpoint provides the IAM's JSON Web Key Set (JWKS), exposing public 
-        key details required for out-of-band authentication. The public key can 
-        be used to verify auth tokens signed by the IAM's private key (JSON Web 
-        Tokens of type RS256). For interpretation of the data provided by the 
-        JWKS endpoint, see https://tools.ietf.org/html/rfc7517 and 
+        This endpoint provides the IAM's JSON Web Key Set (JWKS), exposing public
+        key details required for out-of-band authentication. The public key can
+        be used to verify auth tokens signed by the IAM's private key (JSON Web
+        Tokens of type RS256). For interpretation of the data provided by the
+        JWKS endpoint, see https://tools.ietf.org/html/rfc7517 and
         https://tools.ietf.org/html/rfc7518.
       tags:
           - jwks
@@ -425,14 +425,14 @@ paths:
           description: The response body contains a JSON Web Key Set document.
           schema:
             $ref: "#/definitions/jwks"
-          
+
   /auth/login:
     post:
       summary: Obtain an authentication token.
       description: >
-        This endpoint accepts either a user ID and password (for a user account) 
-        or a service account ID and a service login token. If the credentials are 
-        validated, it returns an authentication token. 
+        This endpoint accepts either a user ID and password (for a user account)
+        or a service account ID and a service login token. If the credentials are
+        validated, it returns an authentication token.
       tags:
         - login
       consumes:
@@ -466,7 +466,7 @@ paths:
     get:
       summary: Authenticate using an external identity provider.
       description: >
-        Authenticate using an external OpenID Connect or SAML 2.0 identity provider, as 
+        Authenticate using an external OpenID Connect or SAML 2.0 identity provider, as
         specified via query parameter.
       tags:
         - login
@@ -479,7 +479,7 @@ paths:
       responses:
         200:
           description: Redirect to the identity provider.
-  
+
 
   /auth/oidc/callback:
     get:
@@ -536,7 +536,7 @@ paths:
     put:
       summary: Configure a new OIDC provider.
       description: >
-        Add a new OIDC provider, assigning it the provider ID supplied in the 
+        Add a new OIDC provider, assigning it the provider ID supplied in the
         URL and the configuration parameters specified in the JSON body of the request.
       tags:
         - oidc
@@ -586,7 +586,7 @@ paths:
     delete:
       summary: Delete provider.
       description: >
-        Delete the specified OIDC provider. This disables authentication with 
+        Delete the specified OIDC provider. This disables authentication with
         the provider.
       tags:
         - oidc
@@ -604,9 +604,9 @@ paths:
     get:
       summary: Get a list of the configured SAML 2.0 providers.
       description: >
-        Get a list of the configured SAML 2.0 providers. The response contains 
-        a JSON object. Each key is a SAML provider ID and its value is the SAML 
-        provider's description. This endpoint does not expose sensitive provider 
+        Get a list of the configured SAML 2.0 providers. The response contains
+        a JSON object. Each key is a SAML provider ID and its value is the SAML
+        provider's description. This endpoint does not expose sensitive provider
         configuration details.
       tags:
         - saml
@@ -629,7 +629,7 @@ paths:
           in: path
           required: true
           description: >
-            The ID of the SAML provider whose configuration should 
+            The ID of the SAML provider whose configuration should
             be retrieved.
           type: string
       responses:
@@ -640,7 +640,7 @@ paths:
     put:
       summary: Configure a new SAML provider.
       description: >
-        Add a new SAML provider, assigning it the provider ID supplied in the URL 
+        Add a new SAML provider, assigning it the provider ID supplied in the URL
         and the configuration parameters specified in the JSON body of the request.
       tags:
         - saml
@@ -702,13 +702,13 @@ paths:
       responses:
         204:
           description: Success.
-          
+
   /auth/saml/providers/{provider-id}/acs-callback:
     post:
       summary: The ACS callback endpoint of the SP.
       description: >
         The IAM acts as SAML service provider (SP). As part of the
-        authentication flow, a SAML identity provider (IdP) makes the end user 
+        authentication flow, a SAML identity provider (IdP) makes the end user
         submit an authentication response to this endpoint.
       tags:
         - saml
@@ -724,15 +724,15 @@ paths:
           description: SAML authentication flow successful.
         401:
           description: Problem in authentication flow.
-          
+
   /auth/saml/providers/{provider-id}/acs-callback-url:
     get:
       summary: Get the ACS callback URL of the SP.
       description: >
         The IAM acts as SAML service provider (SP). A SAML identity provider
-        (IdP) usually requires the Assertion Consumer Service (ACS) callback URL 
-        of the SP. This is where the IdP makes the end user submit the 
-        authentication response. 
+        (IdP) usually requires the Assertion Consumer Service (ACS) callback URL
+        of the SP. This is where the IdP makes the end user submit the
+        authentication response.
       tags:
         - saml
       produces:
@@ -755,9 +755,9 @@ paths:
     get:
       summary: Get SP metadata (XML).
       description: >
-        The IAM acts as SAML service provider (SP). This endpoint provides the 
-        SP metadata as an XML document. Certain identity providers (IdPs) may 
-        want to directly consume this document and can use this resource to do so. 
+        The IAM acts as SAML service provider (SP). This endpoint provides the
+        SP metadata as an XML document. Certain identity providers (IdPs) may
+        want to directly consume this document and can use this resource to do so.
       tags:
         - saml
       produces:
@@ -771,7 +771,7 @@ paths:
       responses:
         200:
           description: >
-            The response body contains the metadata in UTF-8 encoding, setting 
+            The response body contains the metadata in UTF-8 encoding, setting
             the Content-Type to `application/samlmetadata+xml`.
 
   /groups:
@@ -890,7 +890,7 @@ paths:
           description: Success.
           schema:
             $ref: "#/definitions/GroupPermissions"
-  
+
   /groups/{gid}/users:
     get:
       summary: Retrieve members of a group.
@@ -919,7 +919,7 @@ paths:
           schema:
             $ref: "#/definitions/GroupUsers"
 
-  
+
 
   /groups/{gid}/users/{uid}:
     delete:
@@ -1025,16 +1025,16 @@ paths:
           description: Configuration deleted.
         400:
           description: >
-            Various errors. If no config has yet been stored, the custom error 
+            Various errors. If no config has yet been stored, the custom error
             code `ERR_LDAP_CONFIG_NOT_AVAILABLE` is set in the response.
-            
+
   /ldap/config/test:
     post:
       summary: Test connection to the LDAP back-end.
       description: >
           Perform basic feature tests. Verify that the current directory
-          (LDAP) configuration parameters allow for a successful connection to 
-          the directory backend. For instance, this endpoint simulates the 
+          (LDAP) configuration parameters allow for a successful connection to
+          the directory backend. For instance, this endpoint simulates the
           procedure for authentication via LDAP, but provides more useful
           feedback upon failure than the actual login endpoint.
       tags:
@@ -1098,7 +1098,7 @@ paths:
             `ERR_LDAP_IMPORT_GROUP_NOT_FOUND` and
             `ERR_LDAP_IMPORT_SEARCH_FAILED` is set in the response, and a
             description is provided to report the problem specifics.
-            
+
   /ldap/importuser:
     post:
       summary: Import an LDAP user.
@@ -1111,10 +1111,10 @@ paths:
       parameters:
         - name: LDAP username
           description: >
-            A JSON object specifying the username (read: "login" or "user ID") 
-            of the user that should be imported. That string is equivalent to 
-            the `uid` the user is supposed to log in with after successful 
-            import. The exact meaning of this string depends on the configured 
+            A JSON object specifying the username (read: "login" or "user ID")
+            of the user that should be imported. That string is equivalent to
+            the `uid` the user is supposed to log in with after successful
+            import. The exact meaning of this string depends on the configured
             LDAP authentication method.
           in: body
           required: true
@@ -1138,8 +1138,8 @@ paths:
     get:
       summary: List all user or service accounts.
       description: >
-        By default, returns all `User` objects. Passing the `services` parameter 
-        returns all service accounts. 
+        By default, returns all `User` objects. Passing the `services` parameter
+        returns all service accounts.
       tags:
         - users
       parameters:
@@ -1184,8 +1184,8 @@ paths:
     put:
       summary: Create user.
       description: >
-        Create user, assigning it the user ID in the URL and the properties 
-        passed in the body. You must pass one of the following: password, public 
+        Create user, assigning it the user ID in the URL and the properties
+        passed in the body. You must pass one of the following: password, public
         key, or secret.
       tags:
         - users
@@ -1208,7 +1208,7 @@ paths:
           description: User created.
         400:
           description: >
-            Bad request. For example, if you did not pass in a password, public 
+            Bad request. For example, if you did not pass in a password, public
             key, or secret.
         409:
           description: User already exists.
@@ -1365,7 +1365,7 @@ definitions:
         type: string
     additionalProperties: false
 
-  
+
 
   OIDCProviderConfig:
     type: object
@@ -1386,9 +1386,9 @@ definitions:
         type: string
       client_id:
         type: string
-      verify_server_certificate:		
-        type: boolean		
-      ca_certs:		
+      verify_server_certificate:
+        type: boolean
+      ca_certs:
         type: string
     additionalProperties: false
 
@@ -1420,7 +1420,7 @@ definitions:
             group:
               $ref: "#/definitions/Group"
           additionalProperties: false
-  
+
   UserPermissions:
     type: object
     properties:
@@ -1487,7 +1487,7 @@ definitions:
       description:
         type: string
     additionalProperties: false
-  
+
   GroupCreate:
     type: object
     required:
@@ -1505,7 +1505,7 @@ definitions:
       description:
         type: string
     additionalProperties: false
-  
+
   GroupUsers:
     type: object
     properties:
@@ -1547,8 +1547,8 @@ definitions:
               items:
                 $ref: "#/definitions/Action"
     additionalProperties: false
-  
-  
+
+
   ACL:
     type: object
     required:
@@ -1653,7 +1653,7 @@ definitions:
       acs-callback-url:
         type: string
     additionalProperties: false
-    
+
   LDAPUserSearchConfig:
     type: object
     required:
@@ -1665,7 +1665,7 @@ definitions:
       search-filter-template:
         type: string
     additionalProperties: false
-  
+
   LDAPGroupSearchConfig:
     type: object
     required:
@@ -1676,9 +1676,9 @@ definitions:
         type: string
       search-filter-template:
         type: string
-      member-attributes:		
-        type: array		
-        items:		
+      member-attributes:
+        type: array
+        items:
           type: string
     additionalProperties: false
 
@@ -1710,12 +1710,12 @@ definitions:
           $ref: "#/definitions/LDAPUserSearchConfig"
         group-search:
           $ref: "#/definitions/LDAPGroupSearchConfig"
-        ca-certs:		
-          type: string		
-        client-cert:		
+        ca-certs:
+          type: string
+        client-cert:
           type: string
     additionalProperties: false
-  
+
   LDAPImportUserObject:
     type: object
     required:
@@ -1733,7 +1733,7 @@ definitions:
       groupname:
         type: string
     additionalProperties: false
-  
+
   LDAPTestCredentials:
     type: object
     required:
@@ -1757,7 +1757,7 @@ definitions:
       description:
         type: string
     additionalProperties: false
-  
+
   jwks:
     type: object
     properties:

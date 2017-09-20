@@ -56,4 +56,4 @@ DC/OS Apache Spark includes The [Spark History Server][3]. Because the history s
 1.  Visit your job in the dispatcher at `http://<dcos_url>/service/spark/`. It will include a link to the history server entry for that job.
 
  [3]: http://spark.apache.org/docs/latest/monitoring.html#viewing-after-the-fact
- [10]: https://dcos.io/docs/docs/1.9/administering-clusters/sshcluster/
+ [10]: /docs/1.10/administering-clusters/sshcluster/

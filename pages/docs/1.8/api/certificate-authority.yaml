@@ -1,11 +1,11 @@
 swagger: '2.0'
 info:
   version: 2.0.0
-  title: DC/OS Certificate Authority API
+  title: DC/OS Certificate Authority (Enterprise Only)
 schemes:
   - https
 basePath: /ca/api/v2/
-tags: 
+tags:
   - name: info
     description: Get certificate
   - name: certificates

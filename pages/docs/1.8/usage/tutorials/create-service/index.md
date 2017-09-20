@@ -14,7 +14,7 @@ navigationTitle:  Creating and Running a Service
 This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS web interface and the CLI.
 
 ### Prerequisites
-- [A DC/OS cluster](/docs/1.8/administration/installing/)
+- [A DC/OS cluster](/docs/1.8/administration/installing/oss/)
 - [DC/OS CLI installed](/docs/1.8/usage/cli/install/)
 
 ## Create and Run a Simple Service from the DC/OS Web Interface

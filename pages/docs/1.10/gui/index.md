@@ -68,7 +68,7 @@ The Catalog tab shows all of the available DC/OS services. You can install packa
 
 # <a name="secrets"></a>Secrets
 
-The Secrets tab provides secret and certificates management. For more information, see the [secrets](/docs/1.10/security/secrets/) and [certificates](/docs/1.10/networking/tls-ssl/) documentation.
+The Secrets tab provides secret and certificates management. For more information, see the [secrets](/docs/1.10/security/ent/secrets/) and [certificates](/docs/1.10/networking/tls-ssl/) documentation.
 
 ![Secrets](/docs/1.10/img/secrets-ee.png)
 

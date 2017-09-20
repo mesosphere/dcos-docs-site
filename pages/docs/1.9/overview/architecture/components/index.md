@@ -58,10 +58,10 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 </div>
 
 <div data-role="collapsible">
-<h2 id="apache-zookeeper">Apache Zookeeper</h2>
+<h2 id="apache-zookeeper">Apache ZooKeeper</h2>
 <div>
-<p><strong>Description:</strong> Zookeeper provides consistent, highly available, distributed key-value storage for configuration, synchronization, name registration, and cluster state storage.</p>
-<p><strong>System Service(s):</strong> N/A - Zookeeper is supervised by Exhibitor.</p>
+<p><strong>Description:</strong> ZooKeeper provides consistent, highly available, distributed key-value storage for configuration, synchronization, name registration, and cluster state storage.</p>
+<p><strong>System Service(s):</strong> N/A - ZooKeeper is supervised by Exhibitor.</p>
 <p>
   <strong>See Also:</strong>
   <ul>
@@ -75,7 +75,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <div data-role="collapsible">
 <h2 id="exhibitor">Exhibitor</h2>
 <div>
-<p><strong>Description:</strong> Exhibitor supervises Zookeeper and provides a management web interface.</p>
+<p><strong>Description:</strong> Exhibitor supervises ZooKeeper and provides a management web interface.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -107,7 +107,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/docs/1.9/installing/">Documentation</a></li>
+    <li><a href="/docs/1.9/installing/ent/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos">Source</a></li>
   </ul>
 </p>
@@ -199,7 +199,7 @@ DC/OS includes built-in orchestration of the most commonly used high level conta
 
 Container runtimes execute and manage machine level processes in isolated operating system level environments.
 
-DC/OS supports multiple container runtimes using [Mesos' containerizer abstraction](http://mesos.apache.org/documentation/latest/containerizer/).
+DC/OS supports multiple container runtimes using [Mesos' containerizer abstraction](http://mesos.apache.org/documentation/latest/containerizers/).
 
 <div data-role="collapsible">
 <h2 id="universal-container-runtime">Universal Container Runtime</h2>
@@ -342,7 +342,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="http://www.linuxcommand.org/man_pages/logrotate8.html">Documentation</a></li>
+    <li><a href="https://linux.die.net/man/8/logrotate">Documentation</a></li>
     <li><a href="https://github.com/logrotate/logrotate">Source</a></li>
   </ul>
 </p>
@@ -376,7 +376,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 <div data-role="collapsible">
 <h2 id="dcos-signal">DC/OS Signal</h2>
 <div>
-<p><strong>Description:</strong> The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can <a href="/docs/1.9/installing/custom/opt-out/#telemetry">opt-out of telemetry</a> at install time.</p>
+<p><strong>Description:</strong> The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can <a href="/docs/1.9/installing/ent/custom/opt-out/#telemetry">opt-out of telemetry</a> at install time.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -626,8 +626,8 @@ Identity and access management in **Enterprise DC/OS** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/docs/1.9/security/">Documentation</a></li>
-    <li><a href="/docs/1.9/security/iam-api/">API Reference</a></li>
+    <li><a href="/docs/1.9/security/ent/">Documentation</a></li>
+    <li><a href="/docs/1.9/security/ent/iam-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -666,8 +666,8 @@ Identity and access management in **Enterprise DC/OS** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/docs/1.9/security/secrets/">Documentation</a></li>
-    <li><a href="/docs/1.9/security/secrets/secrets-api/">API Reference</a></li>
+    <li><a href="/docs/1.9/security/ent/secrets/">Documentation</a></li>
+    <li><a href="/docs/1.9/security/ent/secrets/secrets-api/">API Reference</a></li>
   </ul>
 </p>
 </div>

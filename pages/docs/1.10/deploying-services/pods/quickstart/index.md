@@ -12,7 +12,7 @@ navigationTitle:  Quick Start
 
 
 ### Prerequisites
-- DC/OS [installed](/docs/1.10/installing/)
+- DC/OS [installed](/docs/1.10/installing/oss/)
 - DC/OS CLI [installed](/docs/1.10/cli/install/)
 
 # Launching a pod from the DC/OS CLI

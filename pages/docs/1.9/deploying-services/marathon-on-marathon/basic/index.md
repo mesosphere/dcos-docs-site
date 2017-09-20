@@ -12,11 +12,11 @@ navigationTitle:  >
 
 This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. 
 
-The basic procedure does not support [secrets](/docs/1.9/security/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/docs/1.9/deploying-services/marathon-on-marathon/advanced/).
+The basic procedure does not support [secrets](/docs/1.9/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/docs/1.9/deploying-services/marathon-on-marathon/advanced/).
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/docs/1.9/installing/).
+-  DC/OS and DC/OS CLI [installed](/docs/1.9/installing/ent/).
 -  [Enterprise DC/OS CLI 0.4.14 or later](/docs/1.9/cli/enterprise-cli/#ent-cli-install).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
@@ -317,4 +317,3 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
     You are done!
     
     ![Marathon on Marathon](/docs/1.9/img/mom-marathon-gui.png)
-

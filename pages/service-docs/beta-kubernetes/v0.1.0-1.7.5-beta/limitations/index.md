@@ -2,10 +2,9 @@
 layout: layout.pug
 title: Limitations
 menuWeight: 60
-excerpt:
-featureMaturity:
 enterprise: false
 navigationTitle:  Limitations
+excerpt:
 ---
 
 # Limitations

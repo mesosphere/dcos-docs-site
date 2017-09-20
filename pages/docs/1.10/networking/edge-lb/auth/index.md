@@ -8,7 +8,7 @@ enterprise: true
 navigationTitle:  Configuring DC/OS Access for Edge-LB
 ---
 
-This topic describes how to configure DC/OS access for Edge-LB. Depending on your [security mode](/docs/1.10/overview/security/security-modes/), Edge-LB requires [service authentication](/docs/1.10/security/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Edge-LB. Depending on your [security mode](/docs/1.10/overview/security/security-modes/), Edge-LB requires [service authentication](/docs/1.10/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 navigationTitle:  Configuring DC/OS Access for Edge-LB
@@ -31,7 +31,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/docs/1.10/security/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/docs/1.10/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 

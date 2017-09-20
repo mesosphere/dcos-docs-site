@@ -17,9 +17,9 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 ## Prerequisites
 
-*   DC/OS installed by using the AWS [cloud templates](/docs/1.8/administration/installing/cloud/aws/) with at least three [private](/docs/1.8/overview/concepts/#private) agent and one [public](/docs/1.8/overview/concepts/#public) agent.
+*   DC/OS installed by using the AWS [cloud templates](/docs/1.8/administration/installing/oss/cloud/aws/) with at least three [private](/docs/1.8/overview/concepts/#private) agent and one [public](/docs/1.8/overview/concepts/#public) agent.
 *   DC/OS CLI [installed][2].
-*   Marathon-LB [installed](/docs/1.8/usage/service-discovery/marathon-lb/usage/).
+*   Marathon-LB [installed](/docs/1.8/usage/service-discovery/marathon-lb/usage-ee/).
 
 ## Deploy an external load balancer with Marathon-LB
 
@@ -46,7 +46,7 @@ Set up your internal load balancer. To do this, we must first specify some confi
     
     In this options file, we’re changing the name of the app instance and the name of the HAProxy group. The options file also disables the HTTP and HTTPS forwarding on ports 80 and 443 because it is not needed.
 
-1.  [Install](/docs/1.8/usage/service-discovery/marathon-lb/usage/) the internal Marathon-LB instance with the custom options specified.
+1.  [Install](/docs/1.8/usage/service-discovery/marathon-lb/usage-ee/) the internal Marathon-LB instance with the custom options specified.
 
     There are now two Marathon-LB load balancers: 
     
@@ -278,7 +278,7 @@ To demonstrate the vhost feature:
 
     ![lb6](../img/lb6.jpg)
 
- [1]: /docs/1.8/administration/installing/
+ [1]: /docs/1.8/administration/installing/oss/
  [2]: /docs/1.8/usage/cli/install/
  [3]: /docs/1.8/administration/locate-public-agent/
  [4]: /docs/1.8/administration/access-node/sshcluster/

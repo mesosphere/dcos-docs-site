@@ -64,4 +64,4 @@ navigationTitle:  Quick Start
         $ curl -s -u elastic:changeme -XGET 'coordinator.elastic.l4lb.thisdcos.directory:9200/customer/external/1?pretty'
 
 
-[1]: /docs/1.9/administering-clusters/sshcluster/
+[1]: /docs/1.10/administering-clusters/sshcluster/

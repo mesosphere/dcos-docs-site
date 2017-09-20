@@ -10,7 +10,7 @@ navigationTitle:  Configuring services to use secrets
 
 # <a name="about-config"></a>About configuring services to use secrets
 
-To deploy an application that uses a secret, a user needs the permission to access Marathon and the permission to deploy services from within the designated service group. 
+To deploy an application that uses a secret, a user needs the permission to access Marathon and the permission to deploy services from within the designated service group.
 
 <table class="table">
   <tr>
@@ -50,16 +50,16 @@ A user with the necessary permissions can configure a service to use a secret us
 1. You can add the secret using the `"env"` and `"secrets"` objects in the JSON as shown below. The following simple application defines a new service inside of the developer group and references a secret stored inside a developer path. It stores the secret under the environment variable `"MY_SECRET"`.
 
    ```json
-{  
+{
    "id":"/developer/service",
    "cmd":"env && sleep 100",
-   "env":{  
-      "MY_SECRET":{  
+   "env":{
+      "MY_SECRET":{
          "secret":"secret0"
       }
    },
-   "secrets":{  
-      "secret0":{  
+   "secrets":{
+      "secret0":{
          "source":"developer/secret"
       }
    }
@@ -77,27 +77,27 @@ A user with the necessary permissions can configure a service to use a secret us
 
 # <a name="deploying-the-service-via-marathon-app-definition"></a>Deploying the service via Marathon app definition
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/).
 
-- If your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services to use secrets](#about-config) for more information about the permissions.
 
 1. Within a text editor, create an application definition for your Marathon service. You can add the secret using the `"env"` and `"secrets"` objects as shown below. The following simple application defines a new service inside of the developer group and references a secret stored inside a developer path. It stores the secret under the environment variable `"MY_SECRET"`.
 
    ```json
-{  
+{
    "id":"/developer/service",
    "cmd":"env && sleep 100",
-   "env":{  
-      "MY_SECRET":{  
+   "env":{
+      "MY_SECRET":{
          "secret":"secret0"
       }
    },
-   "secrets":{  
-      "secret0":{  
+   "secrets":{
+      "secret0":{
          "source":"developer/secret"
       }
    }

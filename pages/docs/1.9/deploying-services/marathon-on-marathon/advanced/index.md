@@ -10,13 +10,13 @@ enterprise: true
 navigationTitle:  >
 ---
 
-This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/docs/1.9/security/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/docs/1.9/deploying-services/marathon-on-marathon/basic/).
+This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/docs/1.9/security/ent/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/docs/1.9/deploying-services/marathon-on-marathon/basic/).
 
 To use this procedure, you must obtain the custom non-native Marathon tarball from your sales representative (<sales@mesosphere.io>). This custom tarball contains Marathon plus a secrets and auth plugin. These additional plugins allow you to use secrets and fine-grained access control in your non-native Marathon folder hierarchy.
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/docs/1.9/installing/).
+-  DC/OS and DC/OS CLI [installed](/docs/1.9/installing/ent/).
 -  [Enterprise DC/OS CLI 0.4.14 or later](/docs/1.9/cli/enterprise-cli/#ent-cli-install).
 -  Custom non-native Marathon tarball. Contact your sales representative or <sales@mesosphere.io> for access to this file.
 -  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/docs/1.9/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)). 

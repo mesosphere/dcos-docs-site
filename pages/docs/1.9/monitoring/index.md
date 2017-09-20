@@ -100,7 +100,7 @@ If you have any problems, you can check if the diagnostics service is running by
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /docs/1.9/security/
+ [6]: /docs/1.9/security/ent/
  [7]: /docs/1.9/networking/load-balancing-vips/
  [8]: /docs/1.9/overview/concepts/#private
  [9]: /docs/1.9/overview/concepts/#public

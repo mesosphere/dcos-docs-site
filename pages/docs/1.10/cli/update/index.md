@@ -47,7 +47,7 @@ You can upgrade an existing DC/OS CLI installation to the latest build.
     dcos cluster setup http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.10/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.10/security/ent/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 

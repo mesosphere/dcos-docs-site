@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-title: Granting Access to Jobs
+title: Granting Access to Jobs (Enterprise Only)
 menuWeight: 200
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to Jobs
+navigationTitle:  Granting Access to Jobs (Enterprise Only)
 ---
 
-You can implement fine-grained user access to jobs by using either the DC/OS GUI or the API. The [Metronome permissions](/docs/1.10/security/perms-reference/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
+You can implement fine-grained user access to jobs by using either the DC/OS GUI or the API. The [Metronome permissions](/docs/1.10/security/ent/perms-reference/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/docs/1.10/cli/install/) and be logged in as a superuser.
-- A [user account](/docs/1.10/security/users-groups/) to assign permissions to.
-- If your [security mode](/docs/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- A [user account](/docs/1.10/security/ent/users-groups/) to assign permissions to.
+- If your [security mode](/docs/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="job-group-access-via-ui"></a>Via the DC/OS GUI
 
@@ -39,52 +39,52 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
     ### Disabled
 
     -  **DC/OS jobs access:**
-    
-       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`. 
-    
+
+       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
+
        ```bash
        dcos:adminrouter:service:metronome full
        dcos:service:metronome:metronome:jobs:<job-group>/<job-name> <action>
        ```
 
     -  **DC/OS service tasks and logs:**
-    
+
        ```bash
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
        ```
-    
+
     ### Permissive
-    
+
     -  **DC/OS jobs access:**
-    
-       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`. 
-    
+
+       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
+
        ```bash
        dcos:adminrouter:service:metronome full
        dcos:service:metronome:metronome:jobs:<job-group>/<job-name> <action>
        ```
 
     -  **DC/OS service tasks and logs:**
-    
+
        ```bash
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
        ```
-       
+
     ### Strict
-    
+
     -  **DC/OS jobs access:**
-    
-       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`. 
-    
+
+       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
+
        ```bash
        dcos:adminrouter:service:metronome full
        dcos:service:metronome:metronome:jobs:<job-group>/<job-name> <action>
        ```
 
     -  **DC/OS service tasks and logs:**
-    
+
        ```bash
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
@@ -95,19 +95,19 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
        dcos:mesos:agent:executor:app_id:/<job-group>/<job-name> read
        dcos:mesos:agent:task:app_id:/<job-group>/<job-name> read
        dcos:mesos:agent:sandbox:app_id:/<job-group>/<job-name> read
-       ```       
+       ```
 
 1.  Click **ADD PERMISSIONS** and then **Close**.
 
 
 # <a name="job-group-access-via-api"></a>Via the IAM API
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/docs/1.10/cli/install/) and be logged in as a superuser.
-- If your [security mode](/docs/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/docs/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
-**Tips:** 
+**Tips:**
 
 - Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
@@ -120,7 +120,7 @@ This mode does not offer fine-grained control.
 -  **DC/OS jobs access:**
 
     1.  Create the permission with job group (`<job-group>`) and job name (`<job-name>`) specified.
-    
+
         ```bash
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -132,25 +132,25 @@ This mode does not offer fine-grained control.
         -H 'Content-Type: application/json' \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs:<job-group>/<job-name>  \
         -d '{"description":"Controls access to <job-group>/<job-name>"}'
-        ```   
-         
+        ```
+
     1.  Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
-            
+
         ```bash
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:metronome/users/<user-name>/full
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-        $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs:<job-group>/<job-name>/users/<user-name>/full    
+        $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs:<job-group>/<job-name>/users/<user-name>/full
         ```
-        
+
         **Tip:** To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
-        
+
 -  **DC/OS service tasks and logs:**
 
    1.  Create the permission.
-   
+
         ```bash
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -162,10 +162,10 @@ This mode does not offer fine-grained control.
         -H 'Content-Type: application/json' \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave  \
         -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-        ```  
-        
+        ```
+
    1.  Grant the permission to the user (`<user-name>`).
-   
+
         ```bash
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -173,14 +173,14 @@ This mode does not offer fine-grained control.
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<user-name>/full
-        ```   
+        ```
 
 ### Strict
 
 -  **DC/OS jobs access:**
 
     1.  Create the permission with job group (`<job-group>`) and job name (`<job-name>`) specified.
-    
+
         ```bash
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -192,25 +192,25 @@ This mode does not offer fine-grained control.
         -H 'Content-Type: application/json' \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs:<job-group>/<job-name>  \
         -d '{"description":"Controls access to <job-group>/<job-name>"}'
-        ```   
-         
+        ```
+
     1.  Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
-    
+
         ```bash
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:metronome/users/<user-name>/full
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-        $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs:<job-group>/<job-name>/users/<user-name>/full    
+        $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs:<job-group>/<job-name>/users/<user-name>/full
         ```
-        
+
         **Tip:** To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
-        
+
 -  **DC/OS service tasks and logs:**
 
    1.  Create the permission.
-   
+
         ```bash
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -222,10 +222,10 @@ This mode does not offer fine-grained control.
         -H 'Content-Type: application/json' \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave  \
         -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-        ```  
-        
+        ```
+
    1.  Grant the permission to the user (`<user-name>`) and group (`<job-group>`).
-   
+
         ```bash
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -289,4 +289,4 @@ This mode does not offer fine-grained control.
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:sandbox:app_id:%252F<job-group>%252F<job-name>/users/<user-name>/read
-        ``` 
+        ```

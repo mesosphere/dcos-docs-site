@@ -8,11 +8,11 @@ post_excerpt: >
 feature_maturity: preview
 enterprise: 'yes'
 ---
-This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/1.8/administration/installing/custom/configuration-parameters/#security). When you are done you will have multi-tenancy by using DC/OS permissions.  
+This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security). When you are done you will have multi-tenancy by using DC/OS permissions.  
 
 **Prerequisites:**
 
-- Enterprise DC/OS is [installed](/1.8/administration/installing/) in permissive [mode](/1.8/administration/installing/custom/configuration-parameters/#security).
+- Enterprise DC/OS is [installed](/1.8/administration/installing/ent/) in permissive [mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
 
 ## Create users and groups
 

@@ -72,5 +72,5 @@ The default DC/OS Spark distribution is compiled against Hadoop 2.6 libraries.  
 [13]: http://spark.apache.org/docs/latest/submitting-applications.html
 [14]: http://spark.apache.org/docs/latest/configuration.html#spark-properties
 [15]: http://spark.apache.org/docs/latest/configuration.html#overriding-configuration-directory
-[16]: https://dcos.io/docs/overview/design/overlay/
-[17]: https://dcos.io/docs/docs/1.9/deploying-services/containerizers/ucr/
+[16]: /docs/1.9/overview/design/overlay/
+[17]: /docs/1.9/deploying-services/containerizers/ucr/

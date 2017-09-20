@@ -156,7 +156,7 @@ navigationTitle:  Deploying a Docker-based Service
     /nginx   64  0.1    0/1    ---      scale       DOCKER   None
     ```
     
-1.  If you used the [AWS CloudFormation templates](/docs/1.10/installing/cloud/aws/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80). 
+1.  If you used the [AWS CloudFormation templates](/docs/1.10/installing/oss/cloud/aws/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80). 
 
 1.  Go to your public agent to see the site running. To find your public agent IP address, see [Finding a Public Agent IP](/docs/1.10/administering-clusters/locate-public-agent/).
 
@@ -171,5 +171,5 @@ Learn how to load balance your app on a public node using [Marathon-LB](/docs/1.
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /docs/1.10/installing/
+ [3]: /docs/1.10/installing/oss/
  [4]: /docs/1.10/cli/install/

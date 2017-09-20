@@ -74,7 +74,7 @@ Steps:
    Select the group or user you created. Select **ADD PERMISSION** and then toggle to **INSERT PERMISSION STRING**. Add each of the following permissions to your user or group, and then click **ADD PERMISSIONS**.
 
    ```
-   dcos:adminrouter:service:marathon full				
+   dcos:adminrouter:service:marathon full
    dcos:service:marathon:marathon:services:/testing full
    dcos:adminrouter:ops:mesos full
    dcos:adminrouter:ops:slave full
@@ -140,7 +140,7 @@ The DSE DC/OS service supports two volume types:
 - `ROOT` volumes are effectively an isolated _directory_ on the root volume, sharing IO/spindles with the rest of the host system.
 - `MOUNT` volumes are a dedicated device or partition on a separate volume, with dedicated IO/spindles.
 
-`MOUNT` volumes require [additional configuration on each DC/OS agent system](https://dcos.io/docs/docs/1.8/administration/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you must configure **two MOUNT volumes** on the machines which will run DSE in your cluster, and then configure the following as `MOUNT` volumes under **dsenode**:
+`MOUNT` volumes require [additional configuration on each DC/OS agent system](/docs/1.10/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you must configure **two MOUNT volumes** on the machines which will run DSE in your cluster, and then configure the following as `MOUNT` volumes under **dsenode**:
 - Persistent data volume type = `MOUNT`
 - Persistent Solr volume type (if `DSE Search` is enabled) = `MOUNT`
 Using `ROOT` volumes for these is not supported in production.

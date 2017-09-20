@@ -12,7 +12,7 @@ Use this guide to get started with DC/OS logging.
 
 **Prerequisites:**
 
-- You must have DC/OS and the DC/OS CLI [installed](/docs/1.9/installing/).
+- You must have DC/OS and the DC/OS CLI [installed](/docs/1.9/installing/ent/).
 - You must be logged in as as a superuser or have been granted user access to logging. For more information, see [Accessing system and component logs](/docs/1.9/monitoring/logging/access-component-logs/) and [Accessing task logs](/docs/1.9/monitoring/logging/access-task-logs/).
 
 # Deploy a sample app
