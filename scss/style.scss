@@ -20,6 +20,7 @@
 @import "base/header";
 @import "base/footer";
 @import "base/content";
+@import "base/table";
 @import "base/print-toc";
 @import "base/search";
 @import "base/print";
@@ -32,6 +33,7 @@
 
 /* Shortcodes */
 @import "shortcodes/message";
+@import "shortcodes/tag";
 
 /* Vendors */
 /* No Override */

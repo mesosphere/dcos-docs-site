@@ -48,6 +48,48 @@ const shortcodes = {
   },
 
   /**
+   * Enterprise
+   * @param {string} buf
+   * @param {Object} opts
+   */
+  'enterprise': (buf, opts) => {
+
+    // Format
+    if(opts.parse == false) {
+      return sanitize(`
+        [Enterprise]
+      `);
+    }
+
+    // Output
+    return sanitize(`
+      <p class="tag tag--shortcode tag--small tag--enterprise">Enterprise</p>
+    `);
+
+  },
+
+  /**
+   * OSS
+   * @param {string} buf
+   * @param {Object} opts
+   */
+  'oss': (buf, opts) => {
+
+    // Format
+    if(opts.parse == false) {
+      return sanitize(`
+        [OSS]
+      `);
+    }
+
+    // Output
+    return sanitize(`
+      <p class="tag tag--shortcode tag--small tag--oss">OSS</p>
+    `);
+
+  },
+
+  /**
    * Swagger
    * @param {string} buf
    * @param {Object} opts

@@ -23,6 +23,7 @@
     }
   }
   &__label {
+    display: inline-block;
     font-size: 0.7rem;
     font-weight: 400;
     padding: 0;
@@ -31,9 +32,8 @@
     border: 1px solid $color-grey;
     border-radius: 3px;
     padding: 0.4rem 0.5rem 0.3rem 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     line-height: 1;
-    display: inline-block;
     &--oss {
       color: $color-grey;
       border: 1px solid $color-grey;
