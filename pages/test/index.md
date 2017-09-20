@@ -7,7 +7,8 @@ overviewGrid: true
 enterprise: true
 ---
 
-[Enterprise]
+[enterprise]
+
 ## Introduction
 
 DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It enables the management of multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
@@ -16,36 +17,37 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 
 ### Enterprise Tag {data-hide=true}
 
-Format
-
-`[enterprise parse="false" ]`
-
-Ouput
-
 [enterprise]
-<span></span>
+
+Enterprise Content
 
 ### OSS Tag {data-hide=true}
 
-Format
-
-`[oss parse="false" ]`
-
-Ouput
-
 [oss]
-<span></span>
+
+OSS Content
 
 ### Message {data-hide=true}
 
-Format
+[message]Test Message[/message]
 
-`[message parse="false" header="Message" body="Hello World"]`
+[message  color="yellow"]Test Message[/message]
 
-Ouput
+[message  color="red"]Test Message[/message]
 
-[message header="Message" body="Hello World"]
+[message  color="black"]Test Message[/message]
 
+[message  color="green"]Test Message[/message]
+
+[message fill="false"]Test Message[/message]
+
+[message  color="yellow" fill="false"]Test Message[/message]
+
+[message  color="red" fill="false"]Test Message[/message]
+
+[message  color="black" fill="false"]Test Message[/message]
+
+[message  color="green" fill="false"]Test Message[/message]
 
 ## Syntax Highlighting
 

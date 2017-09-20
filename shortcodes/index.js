@@ -24,27 +24,22 @@ const shortcodes = {
    * Message
    * @param {string} buf
    * @param {Object} opts
-   * @param {boolean} opts.parse
-   * @param {string} opts.header
-   * @param {string} opts.body
+   * @param {boolean} opts.fill
    */
   'message': (buf, opts) => {
-
-    // Format
-    if(opts.parse == false) {
-      return sanitize(`
-        [Message header="${opts.header}" body="${opts.body}"]
-      `);
+    let colorClass;
+    if(opts.fill == false && opts.color) {
+      colorClass = `message--outline-${opts.color}`;
     }
-
-    // Output
+    else if(opts.fill == false) {
+      colorClass = `message--outline`;
+    }
+    else if(opts.color) {
+      colorClass = `message--${opts.color}`;
+    }
     return sanitize(`
-      <div class="message">
-        <div class="message__header">${opts.header}</div>
-        <div class="message__body">${opts.body}</div>
-      </div>
+      <div class="message ${colorClass}">${buf}</div>
     `);
-
   },
 
   /**
@@ -53,19 +48,9 @@ const shortcodes = {
    * @param {Object} opts
    */
   'enterprise': (buf, opts) => {
-
-    // Format
-    if(opts.parse == false) {
-      return sanitize(`
-        [Enterprise]
-      `);
-    }
-
-    // Output
     return sanitize(`
       <p class="tag tag--shortcode tag--small tag--enterprise">Enterprise</p>
     `);
-
   },
 
   /**
@@ -74,19 +59,9 @@ const shortcodes = {
    * @param {Object} opts
    */
   'oss': (buf, opts) => {
-
-    // Format
-    if(opts.parse == false) {
-      return sanitize(`
-        [OSS]
-      `);
-    }
-
-    // Output
     return sanitize(`
       <p class="tag tag--shortcode tag--small tag--oss">OSS</p>
     `);
-
   },
 
   /**
@@ -99,13 +74,6 @@ const shortcodes = {
 
     // PDF env will use pre rendered SwaggerUI from build-swagger
     if(process.env.NODE_ENV === "pdf") {
-
-      // Format
-      if(opts.parse == false) {
-        return sanitize(`
-          [api-explorer api="${opts.api}"]
-        `);
-      }
 
       // Check if exists
       let configFilePath = path.join('./pages', opts.api);
@@ -134,7 +102,6 @@ const shortcodes = {
 
       // Output
       return sanitize(`<div class="swagger-ui-pdf">${$.html()}</div>`);
-      //return contents;
     }
 
     // Regular on-demand rendering of SwaggerUI
@@ -156,13 +123,6 @@ const shortcodes = {
    * @param {string} opts.api
    */
   'ngindox': (buf, opts) => {
-
-    // Format
-    if(opts.parse == false) {
-      return sanitize(`
-        [api-explorer api="${opts.api}"]
-      `);
-    }
 
     // Check if exists
     let configFilePath = path.join('./pages', opts.api);
@@ -207,7 +167,6 @@ const shortcodes = {
 
     // Output
     return sanitize($.html());
-    //return contents;
 
   },
 
