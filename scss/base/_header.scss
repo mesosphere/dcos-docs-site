@@ -8,7 +8,7 @@
   padding: 0 2rem;
   background: $color-light;
   box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  z-index: 20;
   &__main {
     display: flex;
     align-items: center;
@@ -16,10 +16,6 @@
   &__logo {
     display: flex;
     align-items: flex-start;
-    &-icon,
-    &-text {
-      margin-right: 10px;
-    }
     &-text {
       display: none;
     }
@@ -27,7 +23,7 @@
   &__menu {
     display: none;
     opacity: 1;
-    transition: opacity 0.3s $ease-in-out-cubic 0.2s;
+    transition: opacity 0.2s $ease-in-out-cubic 0.2s;
     &--hide {
       opacity: 0;
       transition: opacity 0.2s $ease-in-out-cubic;
@@ -40,7 +36,7 @@
     &-item {
       margin-left: 20px;
       a {
-        font-weight: 600;
+        font-weight: 500;
         color: $color-grey;
         text-decoration: none;
       }
@@ -65,12 +61,18 @@
       border-radius: 5px;
       outline: 0;
       transition: all 0.4s $ease-in-out-cubic;
+      &::-webkit-input-placeholder {
+        color: $color-grey;
+      }
       &:focus {
         width: 200px;
         margin-left: 0.5rem;
         padding: 0.5rem;
         form & {
           background: $color-purple-light;
+          color: $color-light;
+        }
+        &::-webkit-input-placeholder {
           color: $color-light;
         }
       }
@@ -90,17 +92,26 @@
     }
   }
   @include md {
+    &__drawer {
+      display: none;
+    }
+    &__logo {
+      &-icon,
+      &-text {
+        margin-right: 10px;
+      }
+    }
     &__search {
       &-input {
         width: 75px;
+        margin-left: 10px;
         padding: 0.5rem;
         border: 0;
         border-radius: 5px;
         outline: 0;
         transition: width 0.2s $ease-in-out-cubic, background 0.1s $ease-in-out-cubic, color 0.1s $ease-in-out-cubic;
-        margin-left: 10px;
         &:focus {
-          transition: width 0.2s $ease-in-out-cubic .3s;
+          transition: width 0.2s $ease-in-out-cubic;
           width: 200px;
           form & {
             background: $color-purple-light;
