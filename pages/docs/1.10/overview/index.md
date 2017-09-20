@@ -6,6 +6,7 @@ excerpt:
 featureMaturity:
 enterprise: false
 navigationTitle:  Overview
+overviewGrid: true
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

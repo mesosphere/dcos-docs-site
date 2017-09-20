@@ -9,7 +9,7 @@
   &__item {
     margin-bottom: 20px;
     padding: 20px;
-    border-top: 5px $color-purple-light solid;
+    border-top: 8px $color-purple-light solid;
     border-radius: 2px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     @include sm-only {
@@ -28,15 +28,24 @@
     padding: 0;
     margin: 0;
     color: $color-grey;
+    border: 1px solid $color-grey;
+    border-radius: 3px;
+    padding: 0.4rem 0.5rem 0.3rem 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+    display: inline-block;
     &--oss {
       color: $color-grey;
+      border: 1px solid $color-grey;
     }
     &--enterprise {
       color: $color-purple-light;
+      border: 1px solid $color-purple-light;
     }
   }
   &__header {
     color: $color-dark;
+    font-weight: 500;
     padding: 0;
     margin: 0;
   }
@@ -65,8 +74,9 @@
         & .grid__desc {
           color: $color-light;
         }
-        & .grid__label--enterprise {
-          color: $color-dark;
+        & .grid__label {
+          color: $color-light;
+          border: 1px solid $color-light;
         }
         & .grid__link {
           svg {

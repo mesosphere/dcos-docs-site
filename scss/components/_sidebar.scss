@@ -1,13 +1,15 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  background: $color-purple;
   &__header {
     height: 80px;
+    box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(125, 88, 255, 0.1);
   }
   &__dropdown {
     position: relative;
     width: 100%;
-    background: $color-purple-light;
     cursor: pointer;
     &-text {
       padding: 0;
@@ -37,7 +39,7 @@
       align-items: center;
       height: 80px;
       padding: 0 2rem;
-      font-weight: 600;
+      font-weight: 500;
       user-select: none;
     }
     &-icon {
@@ -138,7 +140,7 @@
     padding: 2rem;
     height: 80px;
     font-size: 0.6rem;
-    background: $color-purple;
+    //background: $color-purple;
     &-links {
       margin-bottom: 0.5rem;
       & a {
