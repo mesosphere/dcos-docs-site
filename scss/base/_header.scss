@@ -61,12 +61,18 @@
       border-radius: 5px;
       outline: 0;
       transition: all 0.4s $ease-in-out-cubic;
+      &::-webkit-input-placeholder {
+        color: $color-grey;
+      }
       &:focus {
         width: 200px;
         margin-left: 0.5rem;
         padding: 0.5rem;
         form & {
           background: $color-purple-light;
+          color: $color-light;
+        }
+        &::-webkit-input-placeholder {
           color: $color-light;
         }
       }
