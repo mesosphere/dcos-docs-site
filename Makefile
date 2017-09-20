@@ -36,15 +36,17 @@ build-ngindox:
 # Docker
 #
 
-docker-production:
-	docker-compose -f ./docker/docker-compose.production.yml build
-	docker-compose -f ./docker/docker-compose.production.yml up -d
+docker-production-build:
+	docker-compose -f ./docker/docker-compose.production.yml build --force-rm --no-cache docs
 
-docker-pdf:
+docker-production-up:
+	docker-compose -f ./docker/docker-compose.production.yml up -d docs
+
+docker-production-test:
+	docker-compose -f ./docker/docker-compose.production.yml up -d linkchecker
+
+docker-development-pdf:
 	docker-compose -f ./docker/docker-compose.pdf.yml up -d
 
 docker-purge:
 	./scripts/docker-purge.sh
-
-docker-build:
-	docker-compose build

@@ -8,5 +8,23 @@ services:
       args:
         nginx_conf: ./docker/nginx.conf
     ports:
-      - "3000:80"
-      - "3443:443"
+      - "80:80"
+      - "443:443"
+  linkchecker:
+    image: mesosphere/linkchecker
+    links:
+      - "docs:docs"
+    working_dir: /workdir
+    command: >
+      bash -c "mkdir -p -m 777 reports && \
+              linkchecker \
+              --complete \
+              --anchors \
+              --check-extern \
+              --user-agent="curl/7.24.0" \
+              --output=text \
+              --file-output="csv/reports/linkchecker.csv" \
+              --file-output="html/reports/linkchecker.html" \
+              http://docs"
+    volumes:
+      - ../linkchecker:/workdir
