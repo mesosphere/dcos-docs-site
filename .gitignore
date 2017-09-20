@@ -3,6 +3,7 @@ build
 build-swagger
 build-ngindox
 build-pdf
+linkchecker
 package-lock.json
 npm-debug.log
 .DS_Store
