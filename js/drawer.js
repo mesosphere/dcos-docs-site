@@ -1,15 +1,26 @@
-const drawerMenu = document.querySelector('.layout__sidebar');
+const layout = document.querySelector('.layout');
+const drawerMenu = document.querySelector('.layout__drawer');
 const drawerOpen = document.querySelector('.header__drawer');
 
-if (drawerMenu && window.innerWidth < 500) {
+if (drawerMenu) {
   drawerOpen.addEventListener('click', drawerToggle);
+  window.addEventListener('resize', checkWindowSize);
+}
+
+function checkWindowSize() {
+  if(window.innerWidth > 500 && drawerMenu.classList.contains('layout__drawer--open')) {
+    drawerMenu.classList.remove('layout__drawer--open');
+    layout.style['overflow-x'] = 'auto';
+  }
 }
 
 function drawerToggle() {
   console.log('drawerToggle()');
-  if (!drawerMenu.classList.contains('layout__sidebar--mobile')) {
-    drawerMenu.classList.add('layout__sidebar--mobile');
+  if (!drawerMenu.classList.contains('layout__drawer--open')) {
+    drawerMenu.classList.add('layout__drawer--open');
+    layout.style['overflow-x'] = 'hidden';
   } else {
-    drawerMenu.classList.remove('layout__sidebar--mobile');
+    drawerMenu.classList.remove('layout__drawer--open');
+    layout.style['overflow-x'] = 'auto';
   }
 }
