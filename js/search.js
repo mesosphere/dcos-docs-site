@@ -22,26 +22,15 @@ function checkUrlQuery() {
 
 function onSubmit(event) {
   event.preventDefault();
-<<<<<<< HEAD
   let filter = '';
   // if (searchFilterVersion || searchFilterOther) {
   //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}}`;
-  // // } else {
-  // //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}}`;
+  // } else {
+  //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}}`;
   // }
   // if (searchFilterOther) {
   //   filter.concat(` AND ${searchFilterOther.value.split(' ')[1]}}`);
   // }
-=======
-  let filter;
-  if (searchFilterVersion && searchFilterOther) {
-    // Not sure if this line should be AND or TO (see docs)
-  //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}} AND ${searchilterOther.value.split(' ')[1]}}`;
-  // } else {
-  //   filter = `version: ${searchFilterVersion.value.split(' ')[1]}}`;
-  // }
-  filter = '';
->>>>>>> 154c0e69c72242dc89ba37f99e1adedb7ad0bf81
   search(searchInput.value, filter);
 }
 
@@ -50,14 +39,8 @@ function search(query, filters) {
     query,
     filters,
     attributesToSnippet: [
-<<<<<<< HEAD
       'contents:50',
     ],
-=======
-      'contents:50'
-    ],
-    filters: filters,
->>>>>>> 154c0e69c72242dc89ba37f99e1adedb7ad0bf81
   }).then(renderResults);
 }
 
