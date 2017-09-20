@@ -3,7 +3,7 @@ layout: layout.pug
 title: Install First Package
 navigationTitle: Installing First Package
 menuWeight: 2
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

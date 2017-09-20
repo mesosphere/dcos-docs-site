@@ -3,7 +3,7 @@ layout: layout.pug
 title: How to use Apache Spark on DC/OS
 navigationTitle: Spark
 menuWeight: 11
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

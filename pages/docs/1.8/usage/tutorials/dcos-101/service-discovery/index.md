@@ -3,7 +3,7 @@ layout: layout.pug
 title: Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
 menuWeight: 4
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

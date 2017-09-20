@@ -3,7 +3,7 @@ layout: layout.pug
 title: Marathon 101
 navigationTitle: 101
 menuWeight: 1
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

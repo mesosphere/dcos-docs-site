@@ -3,7 +3,7 @@ layout: layout.pug
 title: How to use Apache Kafka on DC/OS
 navigationTitle: Kafka
 menuWeight: 7
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

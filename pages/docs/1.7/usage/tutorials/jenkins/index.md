@@ -3,7 +3,7 @@ layout: layout.pug
 title: Using Jenkins on DC/OS
 navigationTitle: Jenkins
 menuWeight: 6
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

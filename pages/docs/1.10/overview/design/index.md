@@ -3,7 +3,7 @@ layout: layout.pug
 title: Design
 navigationTitle: Design
 menuWeight: 10
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

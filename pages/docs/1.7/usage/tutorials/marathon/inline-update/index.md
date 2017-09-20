@@ -3,7 +3,7 @@ layout: layout.pug
 title: Updating Marathon Services Inline
 navigationTitle: Inline Update
 menuWeight: 2
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Distributed DNS
 menuWeight: 3
-oss: 'yes'
+oss: true
 navigationTitle:  Distributed DNS
 excerpt:
 enterprise: false

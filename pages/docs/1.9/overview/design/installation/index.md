@@ -4,7 +4,7 @@ title: >
     Design: Installation
 navigationTitle: Installation
 menuWeight: 4
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

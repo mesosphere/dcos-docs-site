@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS 101
 menuWeight: 0
-oss: 'yes'
+oss: true
 navigationTitle:  DC/OS 101
 excerpt:
 enterprise: false

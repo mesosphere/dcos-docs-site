@@ -2,7 +2,7 @@
 layout: layout.pug
 title: NFS Server
 menuWeight: 1
-oss: 'yes'
+oss: true
 navigationTitle:  NFS Server
 excerpt:
 enterprise: false

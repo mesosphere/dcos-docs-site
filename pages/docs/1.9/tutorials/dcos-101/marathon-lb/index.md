@@ -3,7 +3,7 @@ layout: layout.pug
 title: Exposing Apps Publicly
 navigationTitle: Exposing Apps Publicly
 menuWeight: 6
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

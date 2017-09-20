@@ -3,7 +3,7 @@ layout: layout.pug
 title: Deploying Native Applications
 navigationTitle: Native Applications
 menuWeight: 5
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

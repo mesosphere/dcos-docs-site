@@ -3,7 +3,7 @@ layout: layout.pug
 title: Running ArangoDB on DC/OS
 navigationTitle: ArangoDB
 menuWeight: 0
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

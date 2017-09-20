@@ -3,7 +3,7 @@ layout: layout.pug
 title: Marathon Tutorials
 navigationTitle: Marathon
 menuWeight: 8
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 title: How to use Apache Cassandra
 navigationTitle: Cassandra
 menuWeight: 2
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

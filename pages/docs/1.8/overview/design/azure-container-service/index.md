@@ -4,7 +4,7 @@ title: >
     Reference implementation: The Azure Container Service
 navigationTitle: ACS
 menuWeight: 1
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

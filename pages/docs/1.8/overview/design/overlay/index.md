@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS overlay
 navigationTitle: Overlay
 menuWeight: 5
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

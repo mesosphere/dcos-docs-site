@@ -3,7 +3,7 @@ layout: layout.pug
 title: How to use NGINX
 navigationTitle: NGINX
 menuWeight: 9
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

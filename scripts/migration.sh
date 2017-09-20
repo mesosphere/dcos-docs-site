@@ -57,6 +57,12 @@ function  reformat_file_frontmatter
   # enterprise: 'no'
   sed -i -e "s/enterprise: 'no'/enterprise: false/g" $1
 
+  # oss: 'yes'
+  sed -i -e "s/oss: 'yes'/oss: true/g" $1
+
+  # oss: 'no'
+  sed -i -e "s/oss: 'no'/oss: false/g" $1
+
   # featureMaturity:
   sed -i -e 's/feature_maturity:/featureMaturity:/g' $1
 

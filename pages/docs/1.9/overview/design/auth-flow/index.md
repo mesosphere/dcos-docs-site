@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Authentication Architecture
 menuWeight: 1
-oss: 'yes'
+oss: true
 navigationTitle:  Authentication Architecture
 excerpt:
 enterprise: false

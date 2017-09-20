@@ -3,7 +3,7 @@ layout: layout.pug
 title: Microscaling based on queue length
 navigationTitle: Microscaling
 menuWeight: 2
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

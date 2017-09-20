@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Installation
 menuWeight: 4
-oss: 'yes'
+oss: true
 navigationTitle:  Installation
 excerpt:
 enterprise: false

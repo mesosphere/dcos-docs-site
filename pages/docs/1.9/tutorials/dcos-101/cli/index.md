@@ -3,7 +3,7 @@ layout: layout.pug
 title: First Steps
 navigationTitle: First Steps
 menuWeight: 1
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Azure Container Service
 menuWeight: 1
-oss: 'yes'
+oss: true
 navigationTitle:  Azure Container Service
 excerpt:
 enterprise: false

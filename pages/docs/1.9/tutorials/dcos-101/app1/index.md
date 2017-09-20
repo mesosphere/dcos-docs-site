@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Deploying First Application
 menuWeight: 3
-oss: 'yes'
+oss: true
 navigationTitle:  Deploying First Application
 excerpt:
 enterprise: false

@@ -4,7 +4,7 @@ title: >
     Design: Distributed DNS
 navigationTitle: Distributed DNS
 menuWeight: 3
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

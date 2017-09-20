@@ -3,7 +3,7 @@ layout: layout.pug
 title: How to use Chronos on DC/OS
 navigationTitle: Chronos
 menuWeight: 3
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

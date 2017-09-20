@@ -3,7 +3,7 @@ layout: layout.pug
 title: Understanding Resources
 navigationTitle: Understanding Resources
 menuWeight: 7
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---

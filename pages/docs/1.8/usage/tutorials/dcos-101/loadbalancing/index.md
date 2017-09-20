@@ -3,7 +3,7 @@ layout: layout.pug
 title: Load-balancing
 navigationTitle: Load-balancing
 menuWeight: 7
-oss: 'yes'
+oss: true
 excerpt:
 enterprise: false
 ---
