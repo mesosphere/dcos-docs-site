@@ -93,11 +93,14 @@
     overflow-y: scroll;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.6);
+    a {
+      color: rgba(255, 255, 255, 0.6);
+    }
     &__list {
       display: none;
       list-style-type: none;
       margin: 0;
-      padding: 0 2rem;
+      padding: 0;
       &--active {
         display: block;
       }
@@ -112,22 +115,51 @@
       margin-left: 5px;
       font-weight: 400;
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.6) !important;
+      color: rgba(255, 255, 255, 0.6);
     }
     &__item {
       position: relative;
+      padding: 0 2rem;
       &__text {
         display: flex;
         flex-direction: row;
         align-items: center;
       }
+      &--depth-0 {
+        padding: 0 2rem * 1;
+      }
+      &--depth-1 {
+        padding: 0 1rem * 3;
+      }
+      &--depth-2 {
+        padding: 0 1rem * 4;
+      }
+      &--depth-3 {
+        padding: 0 1rem * 5;
+      }
+      &--depth-4 {
+        padding: 0 1rem * 6;
+      }
+      &--depth-5 {
+        padding: 0 1rem * 7;
+      }
       &--active {
         > .sidebar__nav__item__text .sidebar__nav__link {
-          color: $color-purple-light !important;
+          color: $color-purple-light;
         }
         > .sidebar__nav__item__text .sidebar__nav__icon {
           color: $color-purple-light;
           transform: rotate(90deg);
+        }
+      }
+      &--active-on,
+      &:hover {
+        background: $color-purple-light;
+        > .sidebar__nav__item__text .sidebar__nav__link {
+          color: $color-light;
+        }
+        > .sidebar__nav__item__text .sidebar__nav__icon {
+          color: $color-light;
         }
       }
     }
