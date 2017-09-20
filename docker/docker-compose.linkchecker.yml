@@ -1,9 +1,0 @@
-version: '3.1'
-
-services:
-  linkchecker:
-    image: mesosphere/linkchecker
-    command: linkchecker --complete --anchors --check-extern --user-agent="curl/7.24.0" --output=text --file-output="csv/${REPORT_DIR}/linkchecker.csv" --file-output="html/${REPORT_DIR}/linkchecker.html" "http://0.0.0.0:3000"
-    working_dir: /workdir
-    volumes:
-      - ../linkchecker:/workdir
