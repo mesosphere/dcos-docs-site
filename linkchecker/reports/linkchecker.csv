@@ -1,0 +1,65 @@
+# created by LinkChecker at 2017-09-20 04:34:35+000
+# Get the newest version at http://wummel.github.io/linkchecker/
+# Write comments and bugs to https://github.com/wummel/linkchecker/issues
+# Support this project at http://wummel.github.io/linkchecker/donations.html
+urlname;parentname;baseref;result;warningstring;infostring;valid;url;line;column;name;dltime;size;checktime;cached;level;modified
+/pdf//.pdf;http://docs;;404 Not Found;;;False;http://docs/pdf/.pdf;1;7409;;-1;169;3.61567997932;0;1;
+/pdf//.pdf;http://docs/;;404 Not Found;;;False;http://docs/pdf/.pdf;1;7409;;-1;169;3.61567997932;0;2;
+/pdf//.pdf;http://docs/;;404 Not Found;;;False;http://docs/pdf/.pdf;1;7409;;-1;169;3.61567997932;0;2;
+/docs/1.9/release-notes/;http://docs/docs/1.10/;;404 Not Found;;;False;http://docs/docs/1.9/release-notes/;1;6743;release notes;-1;169;2.8225030899;0;2;
+/docs/1.9/release-notes/;http://docs/docs/1.10/;;404 Not Found;;;False;http://docs/docs/1.9/release-notes/;1;6743;release notes;-1;169;3.04959917068;0;2;
+/docs/1.10/installing/;http://docs/docs/1.10/overview/architecture/;;404 Not Found;;;False;http://docs/docs/1.10/installing/;29;30;Installing;-1;169;2.79312205315;0;2;
+/docs/1.10/gui/;http://docs/docs/1.10/overview/architecture/;;404 Not Found;;;False;http://docs/docs/1.10/gui/;31;129;GUI;-1;169;2.52046513557;0;2;
+/docs/1.10/cli/;http://docs/docs/1.10/overview/architecture/;;404 Not Found;;;False;http://docs/docs/1.10/cli/;31;164;CLI;-1;169;2.53176999092;0;2;
+/docs/1.10/administering-clusters/repo/;http://docs/docs/1.10/overview/architecture/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/repo/;31;199;package repository;-1;169;2.66153001785;0;2;
+/docs/1.10/administering-clusters/;http://docs/docs/1.10/overview/architecture/node-types/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/;35;30;Securing Your Cluster;-1;169;1.85710501671;0;2;
+/docs/1.10/administering-clusters/add-a-node/;http://docs/docs/1.10/overview/architecture/node-types/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/add-a-node/;36;42;Adding Agent Nodes;-1;169;2.31209611893;0;2;
+/docs/1.10/administering-clusters/convert-agent-type/;http://docs/docs/1.10/overview/architecture/node-types/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/convert-agent-type/;37;46;Converting Agent Node Types;-1;169;2.32600998878;0;2;
+/docs/1.10/deploying-services/;http://docs/docs/1.10/overview/architecture/task-types/;;404 Not Found;;;False;http://docs/docs/1.10/deploying-services/;21;43;Services docs;-1;169;2.38612604141;0;2;
+/docs/1.10/installing/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/installing/;88;9;Documentation;-1;169;2.79312205315;0;2;
+/docs/1.10/gui/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/gui/;102;9;Documentation;-1;169;2.52046513557;0;2;
+/docs/1.10/cli/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/cli/;116;9;Documentation;-1;169;2.53176999092;0;2;
+/docs/1.10/deploying-jobs/;http://docs/docs/1.10/overview/architecture/task-types/;;404 Not Found;;;False;http://docs/docs/1.10/deploying-jobs/;22;40;Jobs docs;-1;169;2.34694385529;0;2;
+/docs/1.10/deploying-services/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/deploying-services/;139;9;Documentation;-1;169;2.38612604141;0;2;
+/docs/1.10/deploying-jobs/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/deploying-jobs/;159;9;Documentation;-1;169;2.34694385529;0;2;
+/docs/1.10/deploying-services/marathon-api/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/deploying-services/marathon-api/;141;9;API Reference;-1;169;1.78241300583;0;2;
+/docs/1.10/monitoring/#system-health-http-api-endpoint;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/monitoring/#system-health-http-api-endpoint;256;9;API Reference;-1;169;1.18002891541;0;2;
+/docs/1.10/monitoring/logging/logging-api/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/monitoring/logging/logging-api/;278;9;API Reference;-1;169;1.26959109306;0;2;
+http://mesos.apache.org/documentation/latest/containerizer/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://mesos.apache.org/documentation/latest/containerizer/;168;53;Mesos? containerizer abstraction;-1;233;2.81668496132;0;2;
+/docs/1.10/metrics/metrics-api/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/metrics/metrics-api/;322;9;API Reference;-1;169;0.846993923187;0;2;
+/docs/1.10/installing/custom/opt-out/#telemetry;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/installing/custom/opt-out/#telemetry;330;141;opt-out of telemetry;-1;169;1.18752598763;0;2;
+/docs/1.10/administering-clusters/repo/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/repo/;509;106;DC/OS package repositories;-1;169;2.66153001785;0;2;
+/docs/1.10/networking/mesos-dns/mesos-dns-api/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/networking/mesos-dns/mesos-dns-api/;405;9;API Reference;-1;169;1.12234902382;0;2;
+http://www.linuxcommand.org/man_pages/logrotate8.html;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://www.linuxcommand.org/man_pages/logrotate8.html;299;9;Documentation;-1;1688;1.5567920208;0;2;
+/docs/1.10/networking/load-balancing-vips/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/networking/load-balancing-vips/;462;9;Documentation;-1;169;0.962720155716;0;2;
+/docs/1.10/deploying-services/package-api/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/deploying-services/package-api/;520;9;API Reference;-1;169;0.712943077087;0;2;
+/docs/1.10/administering-clusters/component-management/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/component-management/;540;9;API Reference;-1;169;0.948220968246;0;2;
+/docs/1.10/security/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/security/;560;9;Documentation;-1;169;1.40053486824;0;2;
+/docs/1.10/security/iam-api/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/security/iam-api/;561;9;API Reference;-1;169;1.69085001945;0;2;
+/docs/1.10/networking/tls-ssl/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/networking/tls-ssl/;579;9;Documentation;-1;169;2.07607507706;0;2;
+/docs/1.10/networking/tls-ssl/ca-api/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/networking/tls-ssl/ca-api/;580;9;API Reference;-1;169;2.1873190403;0;2;
+/docs/1.10/security/secrets/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/security/secrets/;598;9;Documentation;-1;169;2.38004398346;0;2;
+/docs/1.10/security/secrets/secrets-api/;http://docs/docs/1.10/overview/architecture/components/;;404 Not Found;;;False;http://docs/docs/1.10/security/secrets/secrets-api/;599;9;API Reference;-1;169;2.41352415085;0;2;
+/docs/1.10/gui/;http://docs/docs/1.10/overview/architecture/distributed-process-management/;;404 Not Found;;;False;http://docs/docs/1.10/gui/;32;110;Services;-1;169;2.52046513557;0;2;
+/docs/1.10/gui/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/gui/;58;8;DC/OS graphical user interface (GUI);-1;169;2.52046513557;0;2;
+/docs/1.10/cli/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/cli/;60;8;DC/OS command line interface (CLI);-1;169;2.53176999092;0;2;
+/docs/1.10/administering-clusters/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/;91;30;Network Security;-1;169;1.85710501671;0;2;
+/docs/1.10/administering-clusters/add-a-node/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/add-a-node/;91;100;Adding Agent Nodes;-1;169;2.31209611893;0;2;
+/docs/1.10/administering-clusters/convert-agent-type/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/convert-agent-type/;106;30;Converting Agent Node Types;-1;169;2.32600998878;0;2;
+/docs/1.10/networking/marathon-lb/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/networking/marathon-lb/;103;100;Marathon-LB;-1;169;1.91195392609;0;2;
+/docs/1.10/administering-clusters/add-a-node/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/administering-clusters/add-a-node/;119;167;add new nodes;-1;169;2.31209611893;0;2;
+/docs/1.10/deploying-services/marathon-api/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/deploying-services/marathon-api/;140;48;DC/OS API (Marathon);-1;169;1.78241300583;0;2;
+/docs/1.10/installing/custom/configuration/configuration-parameters/#exhibitor_storage_backend;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/installing/custom/configuration/configuration-parameters/#exhibitor_storage_backend;118;230;configuring the exhibitor storage backend;-1;169;0.795394897461;0;2;
+/docs/1.10/installing/custom/system-requirements/#bootstrap-node;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/installing/custom/system-requirements/#bootstrap-node;121;34;system requirements;-1;169;0.506263971329;0;2;
+/docs/1.10/installing/cloud/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/installing/cloud/;218;30;Cloud Installation Options;-1;169;0.685878992081;0;2;
+/docs/1.10/networking/mesos-dns/;http://docs/docs/1.10/overview/concepts/;;404 Not Found;;;False;http://docs/docs/1.10/networking/mesos-dns/;303;34;Mesos-DNS documentation;-1;169;0.846100091934;0;2;
+/docs/1.10/networking/marathon-lb/;http://docs/docs/1.10/overview/high-availability/;;404 Not Found;;;False;http://docs/docs/1.10/networking/marathon-lb/;35;36;Marathon-LB;-1;169;1.91195392609;0;2;
+/docs/1.10/networking/load-balancing-vips/;http://docs/docs/1.10/overview/high-availability/;;404 Not Found;;;False;http://docs/docs/1.10/networking/load-balancing-vips/;35;114;Layer 4 load balancer;-1;169;0.962720155716;0;2;
+/docs/1.10/networking/high-availability/;http://docs/docs/1.10/overview/high-availability/;;404 Not Found;;;False;http://docs/docs/1.10/networking/high-availability/;18;358;documentation;-1;169;1.01167297363;0;2;
+/docs/1.10/installing/custom/opt-out/;http://docs/docs/1.10/overview/telemetry/;;404 Not Found;;;False;http://docs/docs/1.10/installing/custom/opt-out/#telemetry;257;92;documentation;-1;169;1.18752598763;0;2;
+/docs/1.10/networking/mesos-dns/;http://docs/docs/1.10/overview/service-discovery/;;404 Not Found;;;False;http://docs/docs/1.10/networking/mesos-dns/;14;23;mesos-DNS documentation;-1;169;0.846100091934;0;2;
+/docs/1.10/networking/;http://docs/docs/1.10/overview/service-discovery/;;404 Not Found;;;False;http://docs/docs/1.10/networking/;9;87;Service Discovery;-1;169;0.593865156174;0;2;
+/docs/1.10/networking/mesos-dns/service-naming/;http://docs/docs/1.10/overview/service-discovery/;;404 Not Found;;;False;http://docs/docs/1.10/networking/mesos-dns/service-naming/;11;89;DNS name;-1;169;0.932429075241;0;2;
+/pdf//.pdf;http://docs/;;404 Not Found;;;False;http://docs/pdf/.pdf;1;7409;;-1;169;3.61567997932;0;2;
+/pdf//.pdf;http://docs/;;404 Not Found;;;False;http://docs/pdf/.pdf;1;7409;;-1;169;3.61567997932;0;2;
+/pdf//.pdf;http://docs/;;404 Not Found;;;False;http://docs/pdf/.pdf;1;7409;;-1;169;3.61567997932;0;2;
