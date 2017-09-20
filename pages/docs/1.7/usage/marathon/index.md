@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Management with Marathon
 title: Service Management with Marathon
 menuWeight: 15
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Service Management with Marathon
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

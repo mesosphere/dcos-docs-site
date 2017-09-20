@@ -5,7 +5,6 @@ menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Mesosphere DC/OS Open Source Attribution
 ---
 
 

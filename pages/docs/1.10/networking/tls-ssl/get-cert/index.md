@@ -5,7 +5,6 @@ menuWeight: 100
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Obtaining the DC/OS CA bundle
 ---
 
 To ensure that you are communicating with your DC/OS cluster and not another potentially malicious party, you must obtain the appropriate trust anchor. This trust anchor is part of the DC/OS CA bundle which is a collection of root CA certificates. In the simplest case, it just contains one item: the root CA certificate corresponding to the DC/OS certificate authority. You can obtain the DC/OS CA bundle, using one of these methods:

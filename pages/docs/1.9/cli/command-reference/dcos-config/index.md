@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos config
 title: dcos config
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos config
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -28,7 +28,6 @@ dcos config
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos config
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
@@ -37,7 +36,6 @@ navigationTitle:  dcos config
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos config
 |---------|-------------|
 | [dcos config set](/docs/1.9/cli/command-reference/dcos-config/dcos-config-set/)   | Add or set a DC/OS configuration property. |  
 | [dcos config show](/docs/1.9/cli/command-reference/dcos-config/dcos-config-show/)    | Print the DC/OS configuration file contents. |  

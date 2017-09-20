@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Configuring Your Security
-menuWeight: 1
 navigationTitle:  Configuring Your Security
 excerpt:
-enterprise: false
+title: Configuring Your Security
+menuWeight: 1
 ---
 
 ### Using your own Auth0 account

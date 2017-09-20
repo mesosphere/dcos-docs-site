@@ -5,7 +5,6 @@ menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Installing DC/OS on AWS
 ---
 
 

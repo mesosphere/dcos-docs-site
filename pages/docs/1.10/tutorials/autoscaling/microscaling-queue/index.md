@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: Microscaling Based on Queue Length
 navigationTitle: Microscaling
 menuWeight: 2
 enterprise: false
-excerpt:
 ---
 
 This tutorial walks through setting up a microscaling demonstration from [Microscaling Systems][2] on a DC/OS cluster. 

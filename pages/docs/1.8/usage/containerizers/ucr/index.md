@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Universal Container Runtime (UCR)
 title: Universal Container Runtime (UCR)
 menuWeight: 20
 excerpt:
 featureMaturity: experimental
 enterprise: false
-navigationTitle:  Universal Container Runtime (UCR)
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

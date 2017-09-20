@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Limitations
 title: Limitations
 menuWeight: 110
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Limitations
 ---
 
 - Multiple DSE Instances on a host is not supported in production.

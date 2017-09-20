@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Logging API
 title: Logging API
 menuWeight: 3
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Logging API
 ---
 
 The Logging API exposes node, component, and container (task) logs.
@@ -61,7 +61,6 @@ To authenticate API requests, see [Obtaining an authentication token](/docs/1.9/
 The Logging API also requires authorization via the following permissions:
 
 | Route | Permission |
-navigationTitle:  Logging API
 |-------|----------|
 | `/system/v1/logs/v0/` | `dcos:adminrouter:ops:system-logs` |
 | `/system/v1/agent/{agent_id}/logs/v0/` | `dcos:adminrouter:system:agent` |

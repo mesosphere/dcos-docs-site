@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 90
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Troubleshooting
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

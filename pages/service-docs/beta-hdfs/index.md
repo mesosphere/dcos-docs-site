@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta HDFS
 title: Beta HDFS
 menuWeight: 100
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta HDFS
 ---
 
 Welcome to the documentation for the DC/OS Apache HDFS Service Beta. Choose a version to get started!

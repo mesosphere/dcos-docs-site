@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Examples
 title: Examples
 menuWeight: 30
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Examples
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -49,7 +49,6 @@ This pod, named `simple-pod` has a single container, `simpletask1`. The containe
 ## Basic pod fields
 
 | Field                 | Type    | Value                                                                                                                                                                                                             |
-navigationTitle:  Examples
 |-----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id` (required)         | string  | Unique ID for the pod.                                                                                                                                                                                            |
 | `containers` (required) | array   | See [Basic pod container fields](#basic-pod-container-fields).                                                                                                                                                                                     |
@@ -68,7 +67,6 @@ navigationTitle:  Examples
 <a name="basic-pod-container-fields"></a>
 ## Basic pod container fields.
 | Field                    | Type    | Value                                                                                                      |
-navigationTitle:  Examples
 |--------------------------|---------|------------------------------------------------------------------------------------------------------------|
 | `containers` (required)    | array   | Container definitions for all containers that belong to a pod.                                             |
 | `containers.name`                   | string  | Unique name for the container.                                                                             |
@@ -324,7 +322,6 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
 ## Additional pod fields
 
 | Field                       | Type     | Value                                                                                                                          |
-navigationTitle:  Examples
 |-----------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
 | `labels`                      | object   | Pod metadata as key/value pairs.                                                                                               |
 | `environment`                 | object   | Environment variables at the pod level. All pod containers will inherit these environment variables. Must be capitalized.      |
@@ -351,7 +348,6 @@ navigationTitle:  Examples
 ## Additional pod container fields
 
 | Field                        | Type    | Value                                                                                                                   |
-navigationTitle:  Examples
 |------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------|
 | `labels`                       | object  | Container metadata as key/value pairs.                                                                                  |
 | `environment`                  | object  | Container environment variables. Can override pod environment variables. Must be capitalized.                           |

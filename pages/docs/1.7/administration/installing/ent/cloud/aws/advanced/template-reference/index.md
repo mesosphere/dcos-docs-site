@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Template Reference
 title: Template Reference
 menuWeight: 200
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  Template Reference
 ---
 
 

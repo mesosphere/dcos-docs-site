@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configure Spark for HDFS
 title: Configure Spark for HDFS
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Configure Spark for HDFS
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

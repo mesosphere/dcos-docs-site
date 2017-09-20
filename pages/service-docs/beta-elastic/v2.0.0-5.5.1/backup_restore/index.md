@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Backup and Restore
 title: Backup and Restore
 menuWeight: 34
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Backup and Restore
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

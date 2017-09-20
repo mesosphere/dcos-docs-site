@@ -5,7 +5,6 @@ menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Log Management in DC/OS with ELK
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

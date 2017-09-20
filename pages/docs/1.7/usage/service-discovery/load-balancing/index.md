@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Load Balancing and VIPs
 title: Load Balancing and VIPs
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Load Balancing and VIPs
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

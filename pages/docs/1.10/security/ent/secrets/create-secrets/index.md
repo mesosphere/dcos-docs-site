@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Creating secrets
 title: Creating secrets
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Creating secrets
 ---
 
 You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid cutting-and-pasting.

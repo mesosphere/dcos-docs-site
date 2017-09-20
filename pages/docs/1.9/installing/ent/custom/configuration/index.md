@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configuration
 title: Configuration
 menuWeight: 600
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Configuration
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -57,7 +57,6 @@ Some parameters are dependent on others. These dependent parameters are ignored 
 # Basic settings
 
 | Parameter                              | Description                                                                                                                                               |
-navigationTitle:  Configuration
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](/docs/1.9/installing/ent/custom/configuration/configuration-parameters/#agent_list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/docs/1.9/overview/concepts/#private-agent-node) host names.                  |
 | [bootstrap_url](/docs/1.9/installing/ent/custom/configuration/configuration-parameters/#bootstrap_url)                          | This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files.                                         |

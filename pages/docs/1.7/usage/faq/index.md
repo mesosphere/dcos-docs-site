@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Usage Frequently Asked Questions
 title: Usage Frequently Asked Questions
 menuWeight: 110
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Usage Frequently Asked Questions
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Cloud
 title: Cloud
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Cloud
 ---
 
 

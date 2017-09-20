@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Exposing Mesos Zones Outside
 title: Exposing Mesos Zones Outside
 menuWeight: 300
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Exposing Mesos Zones Outside
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

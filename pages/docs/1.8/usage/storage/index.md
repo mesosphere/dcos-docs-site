@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Storage
 title: Storage
 menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Storage
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

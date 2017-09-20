@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Controlling Access to Task Logs
 title: Controlling Access to Task Logs
 menuWeight: 2
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Controlling Access to Task Logs
 ---
 
 You can control user access to task logs by using Marathon groups for jobs and services. You can then assign permissions to access these groups, allowing you to control which logs a user can access.
@@ -17,7 +17,6 @@ In this procedure, you will deploy services in separate Marathon groups, and gra
 Here is an overview of the [permissions](/docs/1.10/security/ent/perms-reference/) that are required:
 
 |     Permission string     | full | C | R | U | D |
-navigationTitle:  Controlling Access to Task Logs
 |----------------------------|------|---|---|---|---|
 | `dcos:adminrouter:ops:mesos`<br> Controls access to the Mesos master UI and API.                                                                                                                                                                                                  | x    |   |   |   |   |
 | `dcos:adminrouter:ops:slave`<br>Controls access to the Mesos agent UI and API.                                                                                                                                                                                                    | x    |   |   |   |   |

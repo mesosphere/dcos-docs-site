@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Configuring IP-per-Container in Virtual
   Networks
@@ -7,7 +8,6 @@ menuWeight: 10
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  >
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

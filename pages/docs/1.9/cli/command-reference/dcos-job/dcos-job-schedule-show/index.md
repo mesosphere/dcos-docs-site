@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos job schedule show
 title: dcos job schedule show
 menuWeight: 8
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos job schedule show
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,21 +23,18 @@ dcos job schedule show <job-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job schedule show
 |---------|-------------|-------------|
 | `--json`   |             |  Print JSON-formatted list. |
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job schedule show
 |---------|-------------|-------------|
 | `<job-id>`   |             |  Specify the job ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos job schedule show
 |---------|-------------|
 | [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 

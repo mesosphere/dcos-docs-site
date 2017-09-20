@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Deploying an Externally Load Balanced
   App with Marathon-LB
@@ -7,7 +8,6 @@ menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  >
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

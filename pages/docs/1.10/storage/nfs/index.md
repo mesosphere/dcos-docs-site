@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  NFS Server
+excerpt:
 title: NFS Server
 menuWeight: 1
 oss: true
-navigationTitle:  NFS Server
-excerpt:
-enterprise: false
 ---
 
 # Overview

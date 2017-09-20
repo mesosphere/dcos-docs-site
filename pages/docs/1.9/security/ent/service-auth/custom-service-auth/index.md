@@ -5,7 +5,6 @@ menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Authenticating DC/OS Services
 ---
 
 This topic details how to configure authentication for custom apps and pods launched on DC/OS.

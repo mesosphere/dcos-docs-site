@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 0
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  Performance Monitoring
 ---
 
 

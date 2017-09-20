@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Managing Package Repositories
 title: Managing Package Repositories
 menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Managing Package Repositories
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

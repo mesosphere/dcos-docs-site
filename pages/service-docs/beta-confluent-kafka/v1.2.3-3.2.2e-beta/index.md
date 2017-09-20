@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Confluent Kafka v1.2.3-3.2.2e-beta
 title: Beta Confluent Kafka v1.2.3-3.2.2e-beta
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Beta Confluent Kafka v1.2.3-3.2.2e-beta
 ---
 
 DC/OS Confluent Apache Kafka is an automated service that makes it easy to deploy and manage Apache Kafka on [DC/OS](https://mesosphere.com/product/). Apache Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees. Kafka clusters are highly available, fault tolerant, and very durable. For more information on Confluent Kafka, see its [documentation](http://docs.confluent.io/current/) or its white paper, [Deploying Confluent Platform on Mesosphere Datacenter OS](https://www.confluent.io/whitepaper/deploying-confluent-platform-with-mesosphere/).

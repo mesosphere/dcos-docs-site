@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to the Universe Tab
 title: Granting Access to the Universe Tab
 menuWeight: 80
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to the Universe Tab
 ---
 
 You can grant users access to the **Universe** tab. By default, new users have no permissions.

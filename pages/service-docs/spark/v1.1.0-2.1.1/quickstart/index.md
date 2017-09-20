@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 10
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Quick Start
 ---
 
 This tutorial will get you up and running in minutes with Spark. You will install the DC/OS Apache Spark service.
@@ -19,7 +19,6 @@ service authentication for access to DC/OS. For more information, see [Configuri
 Spark](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
 
    | Security mode | Service Account |
-navigationTitle:  Quick Start
    |---------------|-----------------------|
    | Disabled      | Not available   |
    | Permissive    | Optional   |

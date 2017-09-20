@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 110
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Supported Versions
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

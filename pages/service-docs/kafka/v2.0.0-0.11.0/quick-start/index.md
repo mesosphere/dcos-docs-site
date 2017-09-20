@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Quick Start
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

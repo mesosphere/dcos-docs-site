@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Troubleshooting your DC/OS installation
 navigationTitle: Troubleshooting
 menuWeight: 400
-excerpt:
-enterprise: false
 ---
 
 During DC/OS installation, each of the components will converge from a failing state to a running state in the logs.

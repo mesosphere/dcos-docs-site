@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos node log
 title: dcos node log
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos node log
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos node log [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos node log
 |---------|-------------|-------------|
 | `--leader`   |             |  The leading master. |
 | `--follow`   |             |  Dynamically update the log. |
@@ -35,7 +34,6 @@ navigationTitle:  dcos node log
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos node log
 |---------|-------------|
 | [dcos node](/docs/1.9/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 

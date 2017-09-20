@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Limitations
 title: Limitations
 menuWeight: 50
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Limitations
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

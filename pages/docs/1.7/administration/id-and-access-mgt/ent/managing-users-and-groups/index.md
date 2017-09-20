@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Managing users and groups through the
   web interface
@@ -7,7 +8,6 @@ menuWeight: 0
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  >
 ---
 
 

@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Upgrading
-menuWeight: 299
 navigationTitle:  Upgrading
 excerpt:
-enterprise: false
+title: Upgrading
+menuWeight: 299
 ---
 
 This document provides instructions for upgrading a DC/OS cluster from version 1.7 to 1.8 using AWS CloudFormation templates. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation on AWS](/docs/1.8/administration/installing/oss/cloud/aws/advanced/) before proceeding.

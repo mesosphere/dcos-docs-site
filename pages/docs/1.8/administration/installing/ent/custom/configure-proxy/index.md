@@ -5,7 +5,6 @@ menuWeight: 900
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Configure DC/OS for Proxy
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

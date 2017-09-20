@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb pool artifact
 title: dcos edgelb pool artifact
 menuWeight: 8
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb pool artifact
 ---
 
 # Description
@@ -20,7 +20,6 @@ dcos edgelb [<flags>] pool artifact [<flags>] <name> [<artifact> [<artifactFile>
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool artifact
 |---------|-------------|-------------|
 | `<name>`   |             |  Pool name. |
 | `[<artifact>]`   |             | Artifact name to view. |
@@ -30,7 +29,6 @@ navigationTitle:  dcos edgelb pool artifact
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool artifact
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -45,7 +43,6 @@ navigationTitle:  dcos edgelb pool artifact
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos edgelb pool artifact
 |---------|-------------|
 | [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 

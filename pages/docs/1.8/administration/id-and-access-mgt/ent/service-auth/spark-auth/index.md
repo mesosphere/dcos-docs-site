@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Provisioning Spark
 title: Provisioning Spark
 menuWeight: 800
 excerpt: >
@@ -7,7 +8,6 @@ excerpt: >
   provision Spark with a service account.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Provisioning Spark
 ---
 
 

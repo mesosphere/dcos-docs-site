@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Application Basics
 title: Application Basics
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Application Basics
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

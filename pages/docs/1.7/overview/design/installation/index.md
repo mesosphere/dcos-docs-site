@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  'Design: Installation'
 title: 'Design: Installation'
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  'Design: Installation'
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

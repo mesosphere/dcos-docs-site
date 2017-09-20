@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Original Mesos Containerizer
 title: Original Mesos Containerizer
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Original Mesos Containerizer
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Developing Services
 title: Developing Services
 menuWeight: 5
 excerpt:
 enterprise: false
 featureMaturity:
-navigationTitle:  Developing Services
 ---
 
 

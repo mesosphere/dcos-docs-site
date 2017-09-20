@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  DSE 2.0.0-5.1.2
 title: DSE 2.0.0-5.1.2
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  DSE 2.0.0-5.1.2
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->

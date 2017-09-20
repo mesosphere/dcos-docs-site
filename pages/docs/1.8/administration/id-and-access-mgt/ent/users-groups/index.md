@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Managing users and groups
 title: Managing users and groups
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Managing users and groups
 ---
 
 

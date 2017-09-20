@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Logging
 title: Logging
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Logging
 ---
 
 

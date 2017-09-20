@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Uninstalling on Amazon Web Services
-menuWeight: 300
 navigationTitle:  Uninstalling on Amazon Web Services
 excerpt:
-enterprise: false
+title: Uninstalling on Amazon Web Services
+menuWeight: 300
 ---
 You can uninstall DC/OS running on AWS EC2 with these instructions.
 

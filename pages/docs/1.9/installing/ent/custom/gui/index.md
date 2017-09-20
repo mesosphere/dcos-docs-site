@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  GUI Installer
 title: GUI Installer
 menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  GUI Installer
 ---
 
 
@@ -21,7 +21,6 @@ This installation method uses a bootstrap node to administer the DC/OS installat
 The DC/OS installation creates these folders:
 
 | Folder                                  | Description                                                                                                                                    |
-navigationTitle:  GUI Installer
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |

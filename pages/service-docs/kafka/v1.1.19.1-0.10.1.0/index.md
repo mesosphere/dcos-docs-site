@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Kafka 1.1.19-0.10.1.0
 title: Kafka 1.1.19-0.10.1.0
 menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Kafka 1.1.19-0.10.1.0
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kafka-service -->

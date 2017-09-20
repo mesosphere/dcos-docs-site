@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: Install First Package
 navigationTitle: Installing First Package
 menuWeight: 2
 oss: true
-excerpt:
-enterprise: false
 ---
 
 Welcome to part 2 of the DC/OS 101 Tutorial.

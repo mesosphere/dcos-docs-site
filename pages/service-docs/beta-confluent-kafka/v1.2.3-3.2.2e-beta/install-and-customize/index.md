@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Installing and Customizing
 ---
 
 The standard install provides a reasonable default configuration for trying out the service, but is not necessarily suited for production use. Different custom configurations are recommended depending on the context of your production deployment.

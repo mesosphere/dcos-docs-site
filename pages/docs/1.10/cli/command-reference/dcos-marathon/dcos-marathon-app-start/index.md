@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon app start
 title: dcos marathon app start
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon app start
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos marathon app start <app-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon app start
 |---------|-------------|-------------|
 | `--force`   |             | Disable checks in Marathon during updates. |
 | `--instances`   |             | The number of instances. |
@@ -31,14 +30,12 @@ navigationTitle:  dcos marathon app start
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon app start
 |---------|-------------|-------------|
 | `<app-id>`   |             |  The application ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos marathon app start
 |---------|-------------|
 | [dcos marathon](/docs/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Adding an OpenID Connect identity
   provider
@@ -11,7 +12,6 @@ excerpt: >
   Connect IdP.
 featureMaturity:
 enterprise: true
-navigationTitle:  >
 ---
 
 

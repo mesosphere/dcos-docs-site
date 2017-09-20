@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Master Routes
 title: Master Routes
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Master Routes
 ---
 
 Admin Router runs on DC/OS master nodes and exposes the following API routes.

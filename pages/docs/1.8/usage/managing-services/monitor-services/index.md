@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Monitoring Services
 title: Monitoring Services
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Monitoring Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

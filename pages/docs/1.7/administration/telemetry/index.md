@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Telemetry
 title: Telemetry
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Telemetry
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

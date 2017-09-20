@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Health Checks
 title: Health Checks
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Health Checks
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -49,7 +49,6 @@ DC/OS supports the following health check protocols:
 When creating a service, you can configure JSON health checks in the DC/OS GUI or directly as JSON. This table shows the equivalent GUI fields and JSON options.
 
 | GUI | JSON | Default | Description |
-navigationTitle:  Health Checks
 |----------------------|--------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GRACE PERIOD** | `gracePeriodSeconds` | `15` | Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. |
 | **INTERVAL (S)** | `intervalSeconds` | `10` | Specifies the amount of time (in seconds) to wait between health checks. |

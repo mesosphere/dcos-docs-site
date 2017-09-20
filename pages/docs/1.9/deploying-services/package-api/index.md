@@ -5,7 +5,6 @@ menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  DC/OS Package Management API
 ---
 
 You can install DC/OS services by using the Package Management API. DC/OS services are installed from packages that are stored in a package registry, such as the [Mesosphere Universe](/docs/1.9/overview/concepts/#mesosphere-universe).
@@ -20,7 +19,6 @@ For information about managing services, see [Managing Services](/docs/1.9/deplo
 ## Routes
 
 | Route | Resource |
-navigationTitle:  DC/OS Package Management API
 |-------|----------|
 | `/cosmos/service/` | `/service/` |
 | `/package/` | `/package/` |
@@ -35,7 +33,6 @@ To authenticate API requests, see [Obtaining an authentication token](/docs/1.9/
 The Package Management API also requires authorization via the following permissions:
 
 | Route | Permission |
-navigationTitle:  DC/OS Package Management API
 |-------|----------|
 | `/cosmos/service/` | `dcos:adminrouter:package` |
 | `/package/` | `dcos:adminrouter:package` |

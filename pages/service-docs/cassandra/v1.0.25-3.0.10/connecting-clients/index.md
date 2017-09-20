@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 60
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Connecting Clients
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

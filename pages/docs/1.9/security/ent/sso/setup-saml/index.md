@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Adding a SAML identity provider
 title: Adding a SAML identity provider
 menuWeight: 1
 excerpt: "This topic discusses what's required of SAML IdPs in general and provides a step-by-step procedure for setting up a OneLogin IdP."
 featureMaturity:
 enterprise: true
-navigationTitle:  Adding a SAML identity provider
 ---
 
 

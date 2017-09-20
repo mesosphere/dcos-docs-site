@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Identity and Access Management API
 title: Identity and Access Management API
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Identity and Access Management API
 ---
 
 
@@ -38,7 +38,6 @@ Append `/acs/api/v1` to the host name, as shown below.
 
 ## About authentication and authorization
 
-navigationTitle:  Identity and Access Management API
 All IAM endpoints require an authentication token and the `dcos:superuser` permission---except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login. 
 
 ## Obtaining an authentication token

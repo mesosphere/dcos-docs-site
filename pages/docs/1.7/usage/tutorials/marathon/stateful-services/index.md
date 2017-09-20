@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Running Stateful Services on DC/OS via Marathon
 navigationTitle: Stateful Services
 menuWeight: 3
-excerpt:
-enterprise: false
 ---
 
 A stateful service acts on persistent data. Simple, stateless services in Marathon run in an empty sandbox each time they are launched. In contrast, stateful services on Marathon make use of persistent volumes that reside on agents in a cluster until explicitly destroyed.

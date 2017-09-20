@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  Advanced Installation
+excerpt:
 title: Advanced Installation
 menuWeight: 30
 enterprise: false
-navigationTitle:  Advanced Installation
-excerpt:
 ---
 
 # Advanced Installation
@@ -12,8 +12,6 @@ excerpt:
 For larger deployments, refer to the resource requirements of each component, on each node.
 
 |                   | cpu   | mem   | disk |
-navigationTitle:  Advanced Installation
-excerpt:
 | ----------------- | ----- | ----- | ---- |
 | etcd	            | 0.5	  | 512	  | 512  |
 | kube-scheduler	  | 0.5	  | 256   |    - |

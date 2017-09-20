@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Scaling a Service
 title: Scaling a Service
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Scaling a Service
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

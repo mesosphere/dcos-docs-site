@@ -5,7 +5,6 @@ menuWeight: 9
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Configure DC/OS for Proxy
 ---
 
 

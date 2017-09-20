@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Overriding the default Linux user
 title: Overriding the default Linux user
 menuWeight: 31
 excerpt: >
@@ -7,7 +8,6 @@ excerpt: >
   user of your tasks and sandboxes.
 featureMaturity:
 enterprise: true
-navigationTitle:  Overriding the default Linux user
 ---
 
 

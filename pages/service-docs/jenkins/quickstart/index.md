@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Quickstart
 title: Quickstart
 menuWeight: 0
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Quickstart
 ---
 <h1>About installing Jenkins for DC/OS</h1>
 

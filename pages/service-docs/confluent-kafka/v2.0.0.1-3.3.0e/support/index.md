@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Support
 title: Support
 menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Support
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->

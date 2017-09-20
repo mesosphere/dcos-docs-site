@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Running DC/OS on Packet
 navigationTitle: Packet
 menuWeight: 3
-excerpt:
-enterprise: false
 ---
 
 You can create a DC/OS cluster on Packet bare metal using Terraform.

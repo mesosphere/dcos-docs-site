@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Local
 title: Local
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Local
 ---
 
 

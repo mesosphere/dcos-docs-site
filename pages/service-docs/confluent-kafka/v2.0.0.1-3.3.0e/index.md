@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Confluent Kafka 2.0.0.1-3.3.0e
 title: Confluent Kafka 2.0.0.1-3.3.0e
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Confluent Kafka 2.0.0.1-3.3.0e
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->

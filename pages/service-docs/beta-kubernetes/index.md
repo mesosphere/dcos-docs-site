@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Kubernetes
 title: Beta Kubernetes
 menuWeight: 110
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta Kubernetes
 ---
 
 Welcome to the documentation for Beta Kubernetes. Choose a version to get started!

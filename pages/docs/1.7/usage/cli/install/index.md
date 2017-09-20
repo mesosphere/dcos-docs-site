@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Installing the CLI
 title: Installing the CLI
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Installing the CLI
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -181,9 +181,7 @@ Pip is included with Python, but you must upgrade pip for it to work properly wi
     Directory: C:\
 
     Mode                LastWriteTime         Length Name
-navigationTitle:  Installing the CLI
     ----                -------------         ------ ----
-navigationTitle:  Installing the CLI
     d-----        1/29/2016   2:33 PM                dcos
 
     PS C:\> cd dcos

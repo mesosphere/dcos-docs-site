@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos package
 title: dcos package
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos package
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos package
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos package
 |---------|-------------|-------------|
 | `--config-schema`   |             |  Show the configuration schema for the subcommand. |
 | `--help, h`   |             |  Print usage. |
@@ -33,7 +32,6 @@ navigationTitle:  dcos package
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos package
 |---------|-------------|
 | [dcos package describe](/docs/1.10/cli/command-reference/dcos-package/dcos-package-describe/)   | Get specific details for packages. |  
 | [dcos package install](/docs/1.10/cli/command-reference/dcos-package/dcos-package-install/)   | Install a package. |  

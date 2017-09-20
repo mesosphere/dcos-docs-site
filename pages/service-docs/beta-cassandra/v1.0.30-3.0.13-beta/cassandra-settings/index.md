@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Cassandra Settings
 title: Cassandra Settings
 menuWeight: 40
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Cassandra Settings
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

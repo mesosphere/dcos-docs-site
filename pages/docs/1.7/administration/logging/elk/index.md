@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Log Management with ELK
 title: Log Management with ELK
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Log Management with ELK
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

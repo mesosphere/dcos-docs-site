@@ -5,7 +5,6 @@ menuWeight: 7
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  Security in Enterprise DC/OS
 ---
 
 

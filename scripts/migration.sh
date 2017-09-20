@@ -69,43 +69,35 @@ function  reformat_file_frontmatter
   # featureMaturity: ""
   sed -i -e 's/featureMaturity: ""/featureMaturity:/g' $1
 
-  # layout:
-  sed -i -e '1s/---/---\nlayout: layout.pug/' $1
-
-  # title:
-  # If no title is found, add
-  if ! grep -q "title:" $1; then
-    sed -i '/---/i\title: Title' $1
-    sed -i 1d $1
-  fi
-
-  # navigationTitle:
-  # If no navigationTitle is found, add
-  if ! grep -q "navigationTitle:" $1; then
-    title=`grep -o -P '(?<=title:).*' $1`
-    sed -i "/---/i\navigationTitle: $title" $1
-    sed -i 1d $1
+  # excerpt:
+  # If not found, add
+  if ! grep -q "excerpt:" $1; then
+    sed -i -e '1s/---/---\nexcerpt:/' $1
   fi
 
   # menuWeight:
-  # If no menuWeight is found, add
+  # If not found, add
   if ! grep -q "menuWeight:" $1; then
-    sed -i '/---/i\menuWeight: 0' $1
-    sed -i 1d $1
+    sed -i -e '1s/---/---\nmenuWeight: 0/' $1
   fi
 
-  # excerpt:
-  # If no excerpt is found, add
-  if ! grep -q "excerpt:" $1; then
-    sed -i '/---/i\excerpt:' $1
-    sed -i 1d $1
+  # navigationTitle:
+  # If not found, add
+  if ! grep -q "navigationTitle:" $1; then
+    title=`grep -o -P '(?<=title:).*' $1`
+    sed -i -e "1s/---/---\nnavigationTitle: $title/" $1
   fi
 
-  # enterprise:
-  # If no enterprise is found, add
-  if ! grep -q "enterprise:" $1; then
-    sed -i '/---/i\enterprise: false' $1
-    sed -i 1d $1
+  # title:
+  # If not found, add
+  if ! grep -q "title:" $1; then
+    sed -i -e '1s/---/---\ntitle: Title/' $1
+  fi
+
+  # layout:
+  # If not found, add
+  if ! grep -q "layout:" $1; then
+    sed -i -e '1s/---/---\nlayout: layout.pug/' $1
   fi
 
   ## URL

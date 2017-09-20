@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to the Mesos UI
 title: Granting Access to the Mesos UI
 menuWeight: 31
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to the Mesos UI
 ---
 
 You can grant users access to the Mesos UI. By default, new users have no permissions.

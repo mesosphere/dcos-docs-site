@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Requirements Specification
 title: Service Requirements Specification
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Service Requirements Specification
 ---
 
 

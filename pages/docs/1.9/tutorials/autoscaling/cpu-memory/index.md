@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Autoscaling Marathon services using CPU
   and memory
@@ -7,7 +8,6 @@ menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  >
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

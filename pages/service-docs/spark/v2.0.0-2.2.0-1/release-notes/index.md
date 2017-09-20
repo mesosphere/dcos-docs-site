@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 140
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Release Notes
 ---
 
 ## Version 2.0.0-2.2.0-1

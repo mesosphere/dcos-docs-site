@@ -5,7 +5,6 @@ menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  DC/OS Custom Installation Options
 ---
 
 

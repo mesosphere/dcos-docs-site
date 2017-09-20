@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Provisioning HDFS
 title: Provisioning HDFS
 menuWeight: 500
 excerpt: >
@@ -7,7 +8,6 @@ excerpt: >
   provision HDFS with a service account.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Provisioning HDFS
 ---
 
 

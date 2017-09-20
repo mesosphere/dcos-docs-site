@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon app kill
 title: dcos marathon app kill
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon app kill
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos marathon app kill <app-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon app kill
 |---------|-------------|-------------|
 | `--host=<host>`   |             | The hostname that is running app. |
 | `--scale`   |             | Scale the app down after performing the operation.  |
@@ -31,14 +30,12 @@ navigationTitle:  dcos marathon app kill
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon app kill
 |---------|-------------|-------------|
 | `<app-id>`   |             |  The application ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos marathon app kill
 |---------|-------------|
 | [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

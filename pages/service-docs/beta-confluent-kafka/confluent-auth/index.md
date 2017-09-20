@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Configuring DC/OS Access for Confluent
   Kafka
@@ -7,13 +8,11 @@ menuWeight: 300
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  >
 ---
 
 This topic describes how to configure DC/OS access for Confluent Kafka. Depending on your [security mode](/docs/1.9/overview/security/security-modes/), Confluent Kafka requires [service authentication](/docs/1.9/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
-navigationTitle:  >
 |---------------|-----------------------|
 | Disabled      | Not available   |
 | Permissive    | Optional   |

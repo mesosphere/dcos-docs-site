@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Exposing Apps Publicly
 navigationTitle: Exposing Apps Publicly
 menuWeight: 6
-excerpt:
-enterprise: false
 ---
 
 # Prerequisites

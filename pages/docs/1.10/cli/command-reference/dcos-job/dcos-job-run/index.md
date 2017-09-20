@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos job run
 title: dcos job run
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos job run
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -27,14 +27,12 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job run
 |---------|-------------|-------------|
 | `<job-id>`   |             |  Specify the job ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos job run
 |---------|-------------|
 | [dcos job](/docs/1.10/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 

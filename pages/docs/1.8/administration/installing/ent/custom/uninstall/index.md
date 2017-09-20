@@ -5,7 +5,6 @@ menuWeight: 500
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Uninstalling DC/OS
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  HDFS 1.3.0-2.6.0-cdh5.9.1
 title: HDFS 1.3.0-2.6.0-cdh5.9.1
 menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  HDFS 1.3.0-2.6.0-cdh5.9.1
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/frameworks/hdfs -->

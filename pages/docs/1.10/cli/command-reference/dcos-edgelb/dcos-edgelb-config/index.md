@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb config
 title: dcos edgelb config
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb config
 ---
 
 
@@ -21,7 +21,6 @@ dcos edgelb config <file> [OPTIONS]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb config
 |---------|-------------|-------------|
 | `<file>`   |             | JSON file that contains Edge-LB configuration. |
 
@@ -29,7 +28,6 @@ navigationTitle:  dcos edgelb config
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb config
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -43,7 +41,6 @@ navigationTitle:  dcos edgelb config
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos edgelb config
 |---------|-------------|
 | [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 

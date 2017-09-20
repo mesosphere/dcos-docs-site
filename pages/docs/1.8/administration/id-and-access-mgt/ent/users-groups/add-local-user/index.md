@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Adding local users
 title: Adding local users
 menuWeight: 1
 excerpt: >
@@ -7,7 +8,6 @@ excerpt: >
   account.
 featureMaturity:
 enterprise: true
-navigationTitle:  Adding local users
 ---
 
 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 6
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Uninstalling
 ---
 <h1>About uninstalling Jenkins for DC/OS</h1>
 

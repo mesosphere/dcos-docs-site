@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Superuser permission
 title: Superuser permission
 menuWeight: 300
 excerpt: >
@@ -9,7 +10,6 @@ excerpt: >
   rights all across the DC/OS cluster.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Superuser permission
 ---
 
 

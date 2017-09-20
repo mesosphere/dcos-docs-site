@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta DSE
 title: Beta DSE
 menuWeight: 85
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Beta DSE
 ---
 
 Welcome to the documentation for the DataStax Enterprise (DSE) Beta. Choose a version to get started!

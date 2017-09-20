@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Permission Management
 title: Permission Management
 menuWeight: 25
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Permission Management
 ---
 
 # Permission Management

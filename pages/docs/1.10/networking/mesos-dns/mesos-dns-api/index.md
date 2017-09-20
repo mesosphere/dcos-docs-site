@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Mesos DNS API
 title: Mesos DNS API
 menuWeight: 201
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Mesos DNS API
 ---
 
 You can use the Mesos DNS API to discover the IP addresses and ports of other applications.
@@ -49,7 +49,6 @@ To authenticate API requests, see [Obtaining an authentication token](/docs/1.10
 The Metrics API also requires authorization via the following permissions:
 
 | Route | Permission |
-navigationTitle:  Mesos DNS API
 |-------|----------|
 | `/system/mesos_dns/v1/` | `dcos:adminrouter:ops:mesos-dns` |
 | `/system/v1/agent/{agent_id}/mesos_dns/v1/` | `dcos:adminrouter:system:agent` |

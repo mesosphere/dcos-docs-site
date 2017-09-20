@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Provisioning Kafka
 title: Provisioning Kafka
 menuWeight: 600
 excerpt: >
@@ -7,7 +8,6 @@ excerpt: >
   provision Kafka with a service account.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Provisioning Kafka
 ---
 
 

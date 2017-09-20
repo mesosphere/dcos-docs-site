@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Granting Access to the Settings and
   Organization tabs
@@ -7,7 +8,6 @@ menuWeight: 70
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  >
 ---
 You can grant users access to the **Settings** and **Organization** tabs. By default, new users have no permissions.
 

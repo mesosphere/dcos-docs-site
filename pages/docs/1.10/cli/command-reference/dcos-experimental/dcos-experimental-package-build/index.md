@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos experimental package build
 title: dcos experimental package build
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos experimental package build
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos experimental package build <build-definition> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos experimental package build
 |---------|-------------|-------------|
 | `--json`   |             |  JSON-formatted data. |
 | `--output-directory=<output-directory>`   | current working directory | Path to the directory where the data should be stored.|
@@ -31,13 +30,11 @@ navigationTitle:  dcos experimental package build
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos experimental package build
 |---------|-------------|-------------|
 | `<build-definition>`   |             |  Path to a DC/OS package build definition. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos experimental package build
 |---------|-------------|
 | [dcos experimental](/docs/1.10/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |     

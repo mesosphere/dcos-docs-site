@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Disaster Recovery
 title: Disaster Recovery
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Disaster Recovery
 ---
 
 # Backup/Restore

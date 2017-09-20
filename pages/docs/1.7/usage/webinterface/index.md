@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  GUI
 title: GUI
 menuWeight: 0
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  GUI
 ---
 
 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos config set
 title: dcos config set
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos config set
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -15,7 +15,6 @@ navigationTitle:  dcos config set
 Add or set DC/OS configuration properties. Here are the available properties.
 
 | **Property**  | **Description** |
-navigationTitle:  dcos config set
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `core.dcos_acs_token`   | The DC/OS authentication token. When you log into the DC/OS CLI using `dcos auth login`, it stores the authentication token value locally. For more information, see the [documentation](/docs/1.10/security/ent/iam-api/). |
 | `core.dcos_url`         | The public master URL of your DC/OS cluster.|
@@ -38,7 +37,6 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos config set
 |---------|-------------|-------------|
 | `<name>`   |             |  The name of the property. |
 | `<value>`   |             |  The value of the property. |
@@ -46,7 +44,6 @@ navigationTitle:  dcos config set
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos config set
 |---------|-------------|
 | [dcos config](/docs/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 

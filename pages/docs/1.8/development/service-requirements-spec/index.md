@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Requirements Specification
 title: Service Requirements Specification
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Service Requirements Specification
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

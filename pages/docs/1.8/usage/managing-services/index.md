@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Managing Services
 title: Managing Services
 menuWeight: 70
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Managing Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

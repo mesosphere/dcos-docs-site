@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Virtual Networks
 title: Virtual Networks
 menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Virtual Networks
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

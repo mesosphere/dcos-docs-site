@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Updating Nodes
 title: Updating Nodes
 menuWeight: 801
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Updating Nodes
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

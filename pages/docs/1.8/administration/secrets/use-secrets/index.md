@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configuring services to use secrets
 title: Configuring services to use secrets
 menuWeight: 1
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Configuring services to use secrets
 ---
 
 # <a name="about-config"></a>About configuring services to use secrets

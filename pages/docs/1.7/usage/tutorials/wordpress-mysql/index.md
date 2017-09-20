@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying WordPress and MySQL
 title: Deploying WordPress and MySQL
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Deploying WordPress and MySQL
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

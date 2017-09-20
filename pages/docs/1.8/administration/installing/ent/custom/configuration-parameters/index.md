@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configuration parameters
 title: Configuration parameters
 menuWeight: 600
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Configuration parameters
 ---
 
 These configuration parameters are specified in [YAML][1] format in your config.yaml file. During DC/OS installation the configuration file is used to generate a customized DC/OS build.

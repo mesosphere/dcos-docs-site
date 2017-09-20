@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Log Management with Splunk
 title: Log Management with Splunk
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Log Management with Splunk
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

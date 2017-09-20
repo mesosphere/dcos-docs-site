@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  System Requirements
 ---
 
 
@@ -29,7 +29,6 @@ The cluster nodes are designated Mesos masters and agents during installation.
 Here are the master node hardware requirements.
 
 |             | Minimum   | Recommended |
-navigationTitle:  System Requirements
 |-------------|-----------|-------------|
 | RHEL/CentOS | 7.2, 7.3  | 7.2, 7.3    |
 | CoreOS      | 835.13.0  | 1235.9.0    | 
@@ -49,7 +48,6 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 Here are the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
-navigationTitle:  System Requirements
 |-------------|-----------|-------------|
 | RHEL/CentOS | 7.2, 7.3  | 7.2, 7.3    |
 | CoreOS      | 835.13.0  | 1235.9.0    |

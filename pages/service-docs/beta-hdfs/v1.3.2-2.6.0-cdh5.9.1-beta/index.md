@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta HDFS 1.3.2-2.6.0-cdh5.9.1-beta
 title: Beta HDFS 1.3.2-2.6.0-cdh5.9.1-beta
 menuWeight: 30
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta HDFS 1.3.2-2.6.0-cdh5.9.1-beta
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/frameworks/hdfs -->

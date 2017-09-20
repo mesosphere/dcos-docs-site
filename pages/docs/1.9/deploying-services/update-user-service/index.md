@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Updating a User-Created Service
 title: Updating a User-Created Service
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Updating a User-Created Service
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

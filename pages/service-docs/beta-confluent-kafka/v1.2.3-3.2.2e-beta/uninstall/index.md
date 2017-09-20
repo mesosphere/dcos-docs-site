@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Uninstalling
 ---
 
 Follow these steps to uninstall the service.

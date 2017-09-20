@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Jobs
 title: Jobs
 menuWeight: 80
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Jobs
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

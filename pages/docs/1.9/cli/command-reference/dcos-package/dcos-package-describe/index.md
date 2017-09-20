@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos package describe
 title: dcos package describe
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos package describe
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos package describe <package-name> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos package describe
 |---------|-------------|-------------|
 | `--app`   |             |  Application only. |
 | `--cli`   |             |  Command line only. |
@@ -36,13 +35,11 @@ navigationTitle:  dcos package describe
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos package describe
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |
         
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos package describe
 |---------|-------------|
 | [dcos package](/docs/1.9/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

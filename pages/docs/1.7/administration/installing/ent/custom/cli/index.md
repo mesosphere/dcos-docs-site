@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  CLI Installer
 title: CLI Installer
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  CLI Installer
 ---
 
 

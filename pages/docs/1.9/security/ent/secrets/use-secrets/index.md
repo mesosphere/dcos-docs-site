@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Configuring services and pods to use
   secrets
@@ -7,7 +8,6 @@ menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  >
 ---
 
 The permissions that a user will need to deploy a service or pod that uses a secret vary by [security mode](/docs/1.9/security/ent/#security-modes). 

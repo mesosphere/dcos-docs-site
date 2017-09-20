@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  CLI Command Reference
 title: CLI Command Reference
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  CLI Command Reference
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

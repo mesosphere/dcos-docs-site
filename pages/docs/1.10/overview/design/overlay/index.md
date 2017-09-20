@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: DC/OS Overlay
 navigationTitle: Overlay
 menuWeight: 5
 oss: true
-excerpt:
-enterprise: false
 ---
 
 # DC/OS overlay: An IP-per-Container solution for DC/OS

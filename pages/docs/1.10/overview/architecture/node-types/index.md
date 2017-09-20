@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Node Types
 title: Node Types
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Node Types
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

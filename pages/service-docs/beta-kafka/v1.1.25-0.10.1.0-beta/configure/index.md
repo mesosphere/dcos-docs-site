@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configure
 title: Configure
 menuWeight: 30
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Configure
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-kafka-service -->

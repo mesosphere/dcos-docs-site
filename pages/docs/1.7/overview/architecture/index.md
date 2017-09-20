@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Architecture
 title: Architecture
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Architecture
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -116,7 +116,6 @@ The chronological interaction between the above components looks like this. Noti
 In detail, here are the steps:
 
 | Step | Description |
-navigationTitle:  Architecture
 | ---- | ----------- |
 | 1    | Client/Scheduler init: the Client needs to know how to connect to the Scheduler to launch a process, for example via Mesos-DNS or DC/OS CLI. |
 | 2    | Mesos master sends resource offer to Scheduler: the resource offers are based on cluster resources managed through agents and the [DRF](https://www.cs.berkeley.edu/~alig/papers/drf.pdf) algorithm in Mesos master.|

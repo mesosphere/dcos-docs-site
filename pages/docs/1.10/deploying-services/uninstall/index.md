@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling Services
 title: Uninstalling Services
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Uninstalling Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

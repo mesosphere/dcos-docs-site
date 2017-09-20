@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Provisioning Confluent
 title: Provisioning Confluent
 menuWeight: 300
 excerpt: >
@@ -8,7 +9,6 @@ excerpt: >
   account.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Provisioning Confluent
 ---
 
 

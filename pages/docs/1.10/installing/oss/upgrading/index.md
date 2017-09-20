@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Upgrading
-menuWeight: 3.1
 navigationTitle:  Upgrading
 excerpt:
-enterprise: false
+title: Upgrading
+menuWeight: 3.1
 ---
 
 ## Summary

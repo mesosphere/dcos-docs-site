@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: DC/OS 101
 menuWeight: 0
 oss: true
-navigationTitle:  DC/OS 101
-excerpt:
-enterprise: false
 ---
 
 This DC/OS 101 tutorial will guide you through the steps necessary to get started using DC/OS.

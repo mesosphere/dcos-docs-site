@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Specifying authentication method and
   parameters
@@ -10,7 +11,6 @@ excerpt: >
   LDAP server.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  >
 ---
 
 

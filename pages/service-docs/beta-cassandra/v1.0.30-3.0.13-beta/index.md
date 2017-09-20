@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Cassandra 1.0.30-3.0.13-beta
 title: Beta Cassandra 1.0.30-3.0.13-beta
 menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta Cassandra 1.0.30-3.0.13-beta
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

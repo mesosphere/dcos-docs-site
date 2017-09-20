@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Marathon REST API
 title: Marathon REST API
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Marathon REST API
 ---
 
 The Marathon API allows you to manage long-running containerized services (apps and pods).
@@ -33,7 +33,6 @@ To authenticate API requests, see [Obtaining an authentication token](/docs/1.10
 The Marathon API also requires authorization via the following permissions:
 
 | Route | Permission |
-navigationTitle:  Marathon REST API
 |-------|----------|
 | `/service/marathon/` | `dcos:adminrouter:service:marathon` |
 

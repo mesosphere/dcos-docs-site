@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Architecture
 title: Architecture
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Architecture
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

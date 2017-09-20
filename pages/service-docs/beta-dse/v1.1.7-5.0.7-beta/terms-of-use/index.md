@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Known Issues
 title: Known Issues
 menuWeight: 120
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Known Issues
 ---
 
 - Customers will be at their own risk if any failure arises when using a non-default DSE package settings without a service engagement with DataStax.

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Application Definitions
 title: Application Definitions
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Application Definitions
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

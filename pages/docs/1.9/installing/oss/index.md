@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Installing and Upgrading OSS DC/OS
 navigationTitle: Installing and Upgrading
 menuWeight: 030
-excerpt:
-enterprise: false
 ---
 
 DC/OS can be installed on any cluster of physical or virtual machines.

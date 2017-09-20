@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos task exec
 title: dcos task exec
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos task exec
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos task exec
 |---------|-------------|-------------|
 | `--interactive, -i`   |             |  Attach a STDIN stream to the remote command for an interactive session. |
 | `--tty, -t`   |             |  Attach a TTY to the remote stream. |
@@ -31,7 +30,6 @@ navigationTitle:  dcos task exec
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos task exec
 |---------|-------------|-------------|
 | `<args>`   |             |  Additional arguments to pass to the command (`<cmd>`). |
 | `<cmd>`   |             |  The command to run inside the remote task's container. For example: `/bin/bash`. |
@@ -40,7 +38,6 @@ navigationTitle:  dcos task exec
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos task exec
 |---------|-------------|
 | [dcos task](/docs/1.9/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  
 

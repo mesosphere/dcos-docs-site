@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configure Task Handling
 title: Configure Task Handling
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Configure Task Handling
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

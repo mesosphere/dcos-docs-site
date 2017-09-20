@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Edge-LB Service Deployment Strategies
 title: Edge-LB Service Deployment Strategies
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Edge-LB Service Deployment Strategies
 ---
 
 # <a name="blue-green-deployment"></a>Blue/Green Deployment
@@ -45,7 +45,6 @@ it to load balance "svc-blue".
 `sample-minimal.yaml`:
 
 ```yaml
-navigationTitle:  Edge-LB Service Deployment Strategies
 ---
 pools:
   - name: sample-minimal
@@ -173,7 +172,6 @@ Here, we make another copy of the example service and rename it to "svc-green".
     so the end result is:
 
     ```yaml
-navigationTitle:  Edge-LB Service Deployment Strategies
     ---
     pools:
       - name: sample-minimal

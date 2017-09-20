@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Elastic
 title: Beta Elastic
 menuWeight: 90
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta Elastic
 ---
 
 Welcome to the documentation for the DC/OS Elastic Service Beta. Choose a version to get started!

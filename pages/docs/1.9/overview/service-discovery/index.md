@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Discovery
 title: Service Discovery
 menuWeight: 8
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Service Discovery
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

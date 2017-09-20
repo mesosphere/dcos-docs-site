@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Boot Sequence
 title: Boot Sequence
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Boot Sequence
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

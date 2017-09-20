@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Labeling Tasks and Jobs
 title: Labeling Tasks and Jobs
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Labeling Tasks and Jobs
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

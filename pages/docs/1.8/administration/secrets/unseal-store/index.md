@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Unsealing the Secret Store
 title: Unsealing the Secret Store
 menuWeight: 3
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Unsealing the Secret Store
 ---
 
 # About unsealing the Secret Store
@@ -80,16 +80,13 @@ The procedure for unsealing the Secret Store differs according to the keys used 
 1. This will return the decoded private GPG key, which should look as follows.
 
    ```
-navigationTitle:  Unsealing the Secret Store
    -----BEGIN PGP PRIVATE KEY BLOCK-----
    xcZYBFfr8jEBEACoG/RL2hGhwoUYRpWue4nTZYQYna1Hbm0TaPYWjiek/ScXwgIt
    ...
    =Xc0I
-navigationTitle:  Unsealing the Secret Store
    -----END PGP PRIVATE KEY BLOCK-----
    ```
 
-navigationTitle:  Unsealing the Secret Store
 1. Select everything in between and including `-----BEGIN PGP PRIVATE KEY BLOCK` and `END PGP PRIVATE KEY BLOCK-----`. Copy it to your clipboard and paste it into a new file giving it a name such as `gpg-private.key`.
 
 1. Load the decoded GPG key into GPG as follows.

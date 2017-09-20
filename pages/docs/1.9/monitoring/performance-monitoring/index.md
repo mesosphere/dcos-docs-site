@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Performance Monitoring
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

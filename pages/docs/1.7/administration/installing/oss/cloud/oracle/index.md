@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Install DC/OS on Oracle Cloud Compute
 navigationTitle: Oracle
 menuWeight: 4
-excerpt:
-enterprise: false
 ---
 
 You can install DC/OS on Oracle Cloud Compute.

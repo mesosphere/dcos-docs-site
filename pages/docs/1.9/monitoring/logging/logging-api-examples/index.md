@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Logging API Examples
 title: Logging API Examples
 menuWeight: 4
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Logging API Examples
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

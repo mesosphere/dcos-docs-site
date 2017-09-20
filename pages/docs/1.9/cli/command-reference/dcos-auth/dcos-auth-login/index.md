@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos auth login
 title: dcos auth login
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos auth login
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos auth login [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos auth login
 |---------|-------------|-------------|
 | `--password=<password>`   |             | Specify password on the command line (insecure). |
 | `--password-env=<password_env>`   |             | Specify an environment variable name that contains the password. |
@@ -35,7 +34,6 @@ navigationTitle:  dcos auth login
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos auth login
 |---------|-------------|
 | [dcos auth](/docs/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 

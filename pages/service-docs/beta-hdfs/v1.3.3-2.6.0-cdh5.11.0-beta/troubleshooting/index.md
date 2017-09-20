@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 70
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Troubleshooting
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/ -->

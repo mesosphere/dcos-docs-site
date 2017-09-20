@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 40
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Connecting Clients
 ---
 
 1. [Use `dcos tunnel vpn` to connect](https://docs.mesosphere.com/docs/1.8/administration/access-node/tunnel/) (only needed if the DC/OS nodes are not directly reachable from your local machine).

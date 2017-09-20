@@ -5,7 +5,6 @@ menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  DC/OS Service Certification Criteria
 ---
 
 

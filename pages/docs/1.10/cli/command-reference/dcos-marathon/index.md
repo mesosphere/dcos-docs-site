@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon
 title: dcos marathon
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos marathon
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon
 |---------|-------------|-------------|
 | `--config-schema`   |             |  Show the configuration schema for the Marathon subcommand. |
 | `--help, h`   |             |  Print usage. |
@@ -33,7 +32,6 @@ navigationTitle:  dcos marathon
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos marathon
 |---------|-------------|
 | [dcos marathon about](/docs/1.10/cli/command-reference/dcos-marathon/dcos-marathon-about/)   | Print `info.json` for DC/OS Marathon. | 
 | [dcos marathon app add](/docs/1.10/cli/command-reference/dcos-marathon/dcos-marathon-app-add/)   |  Add an application. | 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 30
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Release Notes
 ---
 
 ## Version 1.3.0-2.6.0-cdh5.9.1-beta 

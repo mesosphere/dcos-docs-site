@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Installing Edge-LB
 title: Installing Edge-LB
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Installing Edge-LB
 ---
 
 Edge-LB is installed as a remote DC/OS package. After you add the remote Edge-LB repository, you can install Edge-LB with the following command from the DC/OS CLI:
@@ -23,7 +23,6 @@ dcos package install edgelb
 -  Depending on your [security mode](/docs/1.10/overview/security/security-modes/), you may be able to configure Edge-LB with [service authentication](/docs/1.10/security/ent/service-auth/) before installing and using with DC/OS, allowing you to control what actions your service can take on your cluster. For information on how to configure service authentication for Edge-LB, see the [documentation](/docs/1.10/networking/edge-lb/auth).
 
    | Security mode | Service Account |
-navigationTitle:  Installing Edge-LB
    |---------------|-----------------------|
    | Disabled      | Not available   |
    | Permissive    | Recommended (Optional)   |

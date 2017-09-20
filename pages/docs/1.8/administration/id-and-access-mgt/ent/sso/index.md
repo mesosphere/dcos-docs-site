@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Identity provider-based authentication
 title: Identity provider-based authentication
 menuWeight: 3
 excerpt:
 featureMaturity: stable
 enterprise: true
-navigationTitle:  Identity provider-based authentication
 ---
 
 

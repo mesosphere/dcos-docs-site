@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Node and Cluster Health Checks
-menuWeight: 1000
 navigationTitle:  Node and Cluster Health Checks
 excerpt:
-enterprise: false
+title: Node and Cluster Health Checks
+menuWeight: 1000
 ---
 
 Node and cluster health checks provide information about your cluster, including available ports, Mesos agent status, and IP detect script validation. A health check is a shell command that reports the status of a DC/OS cluster or node via its exit code. You can write your own custom health checks or use the predefined checks. 
@@ -27,9 +26,6 @@ Custom checks are checks written by a user and specified when installing DC/OS i
 Custom health checks are binary files that you create and store on your filesystem. A custom health check must report its status as one of the exit codes shown in this table. 
 
 | Code         | Status   | Description                                       |
-navigationTitle:  Node and Cluster Health Checks
-excerpt:
-enterprise: false
 |--------------|----------|---------------------------------------------------|
 | 0            | OK       | Check passed. No investigation needed.            |
 | 1            | WARNING  | Check passed, but investigation may be necessary. |

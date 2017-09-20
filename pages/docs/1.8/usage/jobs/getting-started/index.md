@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Getting Started
 title: Getting Started
 menuWeight: 10
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Getting Started
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

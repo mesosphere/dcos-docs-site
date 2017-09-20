@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Naming
 title: Service Naming
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Service Naming
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

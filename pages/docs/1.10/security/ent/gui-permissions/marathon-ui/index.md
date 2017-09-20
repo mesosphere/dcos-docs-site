@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to the Marathon UI
 title: Granting Access to the Marathon UI
 menuWeight: 32
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to the Marathon UI
 ---
 
 You can grant users access to the Marathon UI. By default, new users have no permissions.

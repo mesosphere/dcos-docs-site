@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Running Tomcat in Docker on DC/OS
 navigationTitle: Tomcat
 menuWeight: 12
-excerpt:
-enterprise: false
 ---
 
 [Apache Tomcat](http://tomcat.apache.org/index.html) provides implementations of Servlet, JSP, EL and WebSocket from the Java EE Web Application Container specification.
@@ -90,8 +89,6 @@ Verify that the app is added:
 ```
 dcos marathon app list
 ID       MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
-excerpt:
-enterprise: false
 /tomcat  512   1.0   0/1    ---      scale       DOCKER   None
 ```
 

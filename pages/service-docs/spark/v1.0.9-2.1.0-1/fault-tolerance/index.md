@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Fault Tolerance
 title: Fault Tolerance
 menuWeight: 100
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Fault Tolerance
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

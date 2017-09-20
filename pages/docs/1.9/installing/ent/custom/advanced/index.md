@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Advanced Installer
 title: Advanced Installer
 menuWeight: 300
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Advanced Installer
 ---
 
 With this installation method, you package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
@@ -18,7 +18,6 @@ The advanced installer requires:
 The DC/OS installation creates these folders:
 
 | Folder                                  | Description                                                                                                                                    |
-navigationTitle:  Advanced Installer
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |

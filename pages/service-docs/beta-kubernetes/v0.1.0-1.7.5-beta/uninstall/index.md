@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Uninstall
 ---
 
 You can uninstall Beta Kubernetes from the DC/OS CLI or the GUI.

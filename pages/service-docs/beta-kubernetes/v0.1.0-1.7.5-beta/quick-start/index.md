@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Quick Start
 ---
 
 In this quick start, you will install Kubernetes on DC/OS, set up an SSH tunnel to your master node, and then configure and test your Kubernetes installation.

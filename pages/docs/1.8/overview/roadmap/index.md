@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Roadmap
 title: Roadmap
 menuWeight: 9
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Roadmap
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

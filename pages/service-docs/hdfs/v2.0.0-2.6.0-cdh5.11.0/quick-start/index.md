@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Quickstart
 title: Quickstart
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Quickstart
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/ -->
@@ -19,7 +19,6 @@ This tutorial will get you up and running in minutes with HDFS. You will install
 -  Depending on your [security mode](/docs/1.10/security/ent/#security-modes), HDFS requires a service authentication token for access to DC/OS. For more information, see [Configuring DC/OS Access for HDFS](/service-docs/hdfs/hdfs-auth/).
 
    | Security mode | Service Account |
-navigationTitle:  Quickstart
    |---------------|-----------------------|
    | Disabled      | Not available   |
    | Permissive    | Optional   |
@@ -137,7 +136,6 @@ navigationTitle:  Quickstart
     drwxr-xr-x   - root  root        4096 2014-04-10 22:12 /mnt
     drwxr-xr-x   - root  root        4096 2015-12-08 09:38 /opt
     dr-xr-xr-x   - root  root           0 2017-06-15 18:23 /proc
-navigationTitle:  Quickstart
     drwx------   - root  root        4096 2017-06-15 18:23 /root
     drwxr-xr-x   - root  root        4096 2017-06-15 18:23 /run
     drwxr-xr-x   - root  root        4096 2017-06-15 18:23 /sbin

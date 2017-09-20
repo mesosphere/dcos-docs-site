@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Runtime Configuration Change
 title: Runtime Configuration Change
 menuWeight: 70
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Runtime Configuration Change
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

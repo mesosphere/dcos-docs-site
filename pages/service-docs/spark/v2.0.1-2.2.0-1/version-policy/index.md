@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 125
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Version Policy
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 120
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Release Notes
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->

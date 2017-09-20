@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos cluster attach
 title: dcos cluster attach
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos cluster attach
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,14 +23,12 @@ dcos cluster attach <name>
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos cluster attach
 |---------|-------------|-------------|
 | `<name>`   |             | DC/OS cluster name. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos cluster attach
 |---------|-------------|
 | [dcos cluster](/docs/1.10/cli/command-reference/dcos-cluster/) | Manage connections to DC/OS clusters. |
 

@@ -5,13 +5,11 @@ menuWeight: 500
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Configuring DC/OS Access for HDFS
 ---
 
 This topic describes how to configure DC/OS access for HDFS. Depending on your [security mode](/docs/1.9/overview/security/security-modes/), HDFS requires [service authentication](/docs/1.9/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
-navigationTitle:  Configuring DC/OS Access for HDFS
 |---------------|-----------------------|
 | Disabled      | Not available   |
 | Permissive    | Optional   |

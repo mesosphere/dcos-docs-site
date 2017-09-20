@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Developing Services
 title: Developing Services
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Developing Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -67,7 +67,6 @@ You can provide public access to your service through the Admin Router or by dep
 Each DC/OS service in the Universe repo is comprised of JSON configuration files. These files are used create the packages that are installed on DC/OS.
 
 | Filename               | Description                                                                                              | Required |
-navigationTitle:  Developing Services
 |------------------------|----------------------------------------------------------------------------------------------------------|----------|
 | `config.json`            | Specifies the supported configuration properties, represented as a JSON-schema.                          | No       |
 | `marathon.json.mustache` | Specifies a mustache template that creates a Marathon app definition capable of running your service.    | No       |

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos job
 title: dcos job
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos job
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos job
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
@@ -32,7 +31,6 @@ navigationTitle:  dcos job
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos job
 |---------|-------------|
 | [dcos job add](/docs/1.9/cli/command-reference/dcos-job/dcos-job-add/)   |  Add a job. | 
 | [dcos job history](/docs/1.9/cli/command-reference/dcos-job/dcos-job-history/)   | Show the job run history. | 

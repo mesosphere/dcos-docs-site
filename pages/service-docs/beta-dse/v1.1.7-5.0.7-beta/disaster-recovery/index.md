@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Disaster Recovery
 title: Disaster Recovery
 menuWeight: 70
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Disaster Recovery
 ---
 
 DC/OS does not provide any specific disaster recovery capabilities.  As such, a disaster recovery plan must center around features of DSE.  **Regular backups should be performed via the DSE OpsCenter Backup Service in production environments.  Backups and restores should be tested in a staging environment.**

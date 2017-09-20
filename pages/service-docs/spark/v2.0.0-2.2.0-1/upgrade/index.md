@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Upgrade
 title: Upgrade
 menuWeight: 50
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Upgrade
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

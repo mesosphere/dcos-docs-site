@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Node and Cluster Health Checks
 title: Node and Cluster Health Checks
 menuWeight: 1000
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Node and Cluster Health Checks
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -31,7 +31,6 @@ Custom checks are checks written by a user and specified when installing DC/OS i
 Custom health checks are binary files that you create and store on your filesystem. A custom health check must report its status as one of the exit codes shown in this table. 
 
 | Code         | Status   | Description                                       |
-navigationTitle:  Node and Cluster Health Checks
 |--------------|----------|---------------------------------------------------|
 | 0            | OK       | Check passed. No investigation needed.            |
 | 1            | WARNING  | Check passed, but investigation may be necessary. |

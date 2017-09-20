@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Getting Started with Marathon-LB
 title: Getting Started with Marathon-LB
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Getting Started with Marathon-LB
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

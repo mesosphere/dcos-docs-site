@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Monitoring with Nagios
 title: Monitoring with Nagios
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Monitoring with Nagios
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

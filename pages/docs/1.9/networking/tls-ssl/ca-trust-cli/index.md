@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Configuring the DC/OS CLI to trust your
   DC/OS CA
@@ -13,7 +14,6 @@ excerpt: >
   refuses connections with other parties.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  >
 ---
 
 **Note:** This procedure should be unnecessary if you have [set up a proxy](/docs/1.9/networking/tls-ssl/haproxy-adminrouter/).

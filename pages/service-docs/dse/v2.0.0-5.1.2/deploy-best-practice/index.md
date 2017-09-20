@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deployment Best Practices
 title: Deployment Best Practices
 menuWeight: 21
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Deployment Best Practices
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->

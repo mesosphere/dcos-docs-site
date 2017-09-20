@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Upgrading
 title: Upgrading
 menuWeight: 5
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Upgrading
 ---
 <h1>Upgrading</h1>
 

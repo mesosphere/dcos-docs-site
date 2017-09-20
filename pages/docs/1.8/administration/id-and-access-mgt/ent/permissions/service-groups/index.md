@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Controlling user access to services
 title: Controlling user access to services
 menuWeight: 100
 excerpt: "Learn how to achieve fine-grained control over a user's access to services using either the DC/OS web interface or the API."
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Controlling user access to services
 ---
 
 # About controlling user access to services

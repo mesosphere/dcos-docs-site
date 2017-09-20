@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Using Containerizers
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -26,7 +26,6 @@ The tables below provide a feature comparison of your containerizer choices on D
 ## DC/OS Features
 
 | 																				| Docker			| Original Mesos				| UCR 			| Comments |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------------------- | --------- | -------- |
 | **Command**                             | Yes          | Yes                   | Yes      |          |
 | **Container Images** 										| Yes					| No										| Yes				|					 |
@@ -42,7 +41,6 @@ navigationTitle:  Using Containerizers
 ## Container Backend
 
 |																					|	Docker			|	Original Mesos				|	UCR			  |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------------------- | --------- |
 | **Overlayfs**                           | Yes         | N/A                   | Yes       |
 | **Aufs**                                | Yes         | N/A                   | Yes       |
@@ -51,7 +49,6 @@ navigationTitle:  Using Containerizers
 ## Storage
 
 |																					|	Docker			|	Original Mesos				|	UCR				| Comments  |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------------------- | --------- | --------- |
 | **Local Persistent Volumes**						| Yes					| Yes										| Yes				|						|
 | **Host Volumes**												| Yes					| Yes									  | Yes				| CLI only  |
@@ -60,7 +57,6 @@ navigationTitle:  Using Containerizers
 ## Service Endpoints
 
 |																					|	Docker			|	Original Mesos				|	UCR				|
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------------------- | --------- |
 | **Named Ports**													| Yes					| Yes										| Yes				|
 | **Numbered Ports**											| Yes					| Yes										| Yes				|
@@ -68,7 +64,6 @@ navigationTitle:  Using Containerizers
 ## Networking
 
 |																					|	Docker			|	Original Mesos				|	UCR				|Comments   |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------------------- | --------- | --------- |
 | **Host Networking**       							| Yes					| Yes										| Yes				|						|
 | **Bridge Networking**       						| Yes					| No										| No				|						|
@@ -79,7 +74,6 @@ navigationTitle:  Using Containerizers
 ## Private Registry
 
 |																	|	Docker			|	Original Mesos				|	UCR				|
-navigationTitle:  Using Containerizers
 | ------------------------------- | ----------- | --------------------- | --------- |
 | **Token-based Container Auth**	| Yes					| N/A										| No				|
 | **Token-based Cluster Auth**		| Yes					| N/A										| Yes				|
@@ -89,7 +83,6 @@ navigationTitle:  Using Containerizers
 ## Health Checks
 
 |																					|	Docker			|	Original Mesos				|	UCR				|Comments   |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------------------- | --------- | --------- |
 | **TCP**													        | Yes					| Yes										| Yes				|	CLI only	|
 | **HTTP/HTTPS**                          | Yes         | Yes                   | Yes       | CLI only  |

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Multiple Regions
 title: Multiple Regions
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Multiple Regions
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

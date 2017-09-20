@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos experimental
 title: dcos experimental
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos experimental
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos experimental package add [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos experimental
 |---------|-------------|-------------|
 | `--dcos-package=<dcos-package>`   |             | Path to a DC/OS package. |
 | `--json`   |             |  JSON-formatted data. |
@@ -33,6 +32,5 @@ navigationTitle:  dcos experimental
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos experimental
 |---------|-------------|
 | [dcos experimental](/docs/1.9/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  

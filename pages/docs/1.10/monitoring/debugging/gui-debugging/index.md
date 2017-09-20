@@ -5,7 +5,6 @@ menuWeight: 30
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Debugging from the DC/OS Web Interface
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

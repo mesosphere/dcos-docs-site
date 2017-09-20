@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Connecting clients
 title: Connecting clients
 menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Connecting clients
 ---
 
 One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Because they can be deployed anywhere on the cluster, clients need a way to find the service. This is where service discovery comes in.

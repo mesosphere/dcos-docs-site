@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Upgrade
 title: Upgrade
 menuWeight: 130
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Upgrade
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/frameworks/elastic -->

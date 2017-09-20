@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying Marathon Apps with Jenkins
 title: Deploying Marathon Apps with Jenkins
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Deploying Marathon Apps with Jenkins
 ---
 
 

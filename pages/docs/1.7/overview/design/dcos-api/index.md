@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  API Design
 title: API Design
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  API Design
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

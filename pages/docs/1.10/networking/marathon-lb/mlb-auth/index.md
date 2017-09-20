@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Provisioning Marathon-LB (Enterprise Only)
 title: Provisioning Marathon-LB (Enterprise Only)
 menuWeight: 700
 excerpt: >
@@ -8,7 +9,6 @@ excerpt: >
   account.
 featureMaturity:
 enterprise: true
-navigationTitle:  Provisioning Marathon-LB (Enterprise Only)
 ---
 
 

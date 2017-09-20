@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: Marathon 101
 navigationTitle: 101
 menuWeight: 1
 oss: true
-excerpt:
-enterprise: false
 ---
 
 In this tutorial you'll learn how to use Marathon via the DC/OS UI. We will launch a containerized service using a Docker image.

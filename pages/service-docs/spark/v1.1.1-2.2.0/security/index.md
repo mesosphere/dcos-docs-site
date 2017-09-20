@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Security
 title: Security
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Security
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->
@@ -32,7 +32,6 @@ There are a number of configuration variables relevant to SSL setup. List them w
 Here are the required variables:
 
 | Variable                   | Description                                     |
-navigationTitle:  Security
 |----------------------------|-------------------------------------------------|
 | `spark.ssl.enabled`        | Whether to enable SSL (default: `false`).       |
 | `spark.ssl.keyStoreBase64` | Base64 encoded blob containing a Java keystore. |

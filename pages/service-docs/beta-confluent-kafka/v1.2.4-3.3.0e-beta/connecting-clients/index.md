@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Connecting clients
 title: Connecting clients
 menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Connecting clients
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->

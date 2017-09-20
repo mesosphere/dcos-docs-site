@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Opt-Out
 title: Opt-Out
 menuWeight: 5
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  Opt-Out
 ---
 
 

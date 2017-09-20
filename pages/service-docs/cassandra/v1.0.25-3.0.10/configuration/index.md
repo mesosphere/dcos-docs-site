@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configuring
 title: Configuring
 menuWeight: 50
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Configuring
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

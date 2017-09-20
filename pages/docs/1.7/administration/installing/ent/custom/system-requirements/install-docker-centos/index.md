@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Install Docker on CentOS
 title: Install Docker on CentOS
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Install Docker on CentOS
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

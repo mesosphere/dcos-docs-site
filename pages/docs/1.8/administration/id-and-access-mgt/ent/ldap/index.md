@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Directory-based authentication via LDAP
 title: Directory-based authentication via LDAP
 menuWeight: 2
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Directory-based authentication via LDAP
 ---
 
 

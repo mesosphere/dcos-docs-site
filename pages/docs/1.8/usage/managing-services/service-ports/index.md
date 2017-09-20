@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Ports
 title: Service Ports
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Service Ports
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

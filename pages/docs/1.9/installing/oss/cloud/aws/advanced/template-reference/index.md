@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Template Reference
-menuWeight: 200
 navigationTitle:  Template Reference
 excerpt:
-enterprise: false
+title: Template Reference
+menuWeight: 200
 ---
 
 

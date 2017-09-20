@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Technical Overview
 title: Technical Overview
 menuWeight: 10
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Technical Overview
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

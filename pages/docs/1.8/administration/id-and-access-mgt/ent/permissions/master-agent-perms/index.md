@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Mesos master and agent permissions
 title: Mesos master and agent permissions
 menuWeight: 700
 excerpt: >
@@ -9,7 +10,6 @@ excerpt: >
   only in strict security mode.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Mesos master and agent permissions
 ---
 
 

@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Provisioning custom services
 title: Provisioning custom services
 menuWeight: 100
 excerpt: >
@@ -10,7 +11,6 @@ excerpt: >
   token.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Provisioning custom services
 ---
 
 
@@ -69,7 +69,6 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
 Once you have your public-private key pair, you can create a service account by passing your public key in a `PUT` request to the `users` endpoint of the [IAM API](/docs/1.8/administration/id-and-access-mgt/iam-api/). In this request, you will also assign your service account an ID. A curl sample follows.
 
 ```bash
-navigationTitle:  Provisioning custom services
 curl -X PUT --cacert dcos-ca.crt $(dcos config show core.dcos_url)/acs/api/v1/users/service-acct -d '{"public_key":"-----BEGIN PUBLIC KEY-----\nMIIBIj...IDAQAB\n-----END PUBLIC KEY-----"}' -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 ```
 

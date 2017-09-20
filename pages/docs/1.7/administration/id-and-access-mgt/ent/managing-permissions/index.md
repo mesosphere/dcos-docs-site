@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Managing permissions
 title: Managing permissions
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Managing permissions
 ---
 
 

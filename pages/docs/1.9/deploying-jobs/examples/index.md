@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Examples
 title: Examples
 menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Examples
 ---
 
 These examples provide common usage scenarios for jobs.

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Adding external users
 title: Adding external users
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Adding external users
 ---
 
 After you have configured a directory service or an identity provider, you can add the users to DC/OS so that you can assign permissions.

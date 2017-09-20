@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Cluster Access
 title: Cluster Access
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Cluster Access
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

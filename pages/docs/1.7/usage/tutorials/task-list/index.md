@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Listing Tasks
 title: Listing Tasks
 menuWeight: 15
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Listing Tasks
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

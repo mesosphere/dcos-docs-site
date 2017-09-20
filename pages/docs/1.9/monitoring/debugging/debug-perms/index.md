@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to dcos task exec
 title: Granting Access to dcos task exec
 menuWeight: 4
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Granting Access to dcos task exec
 ---
 
 You can grant users access to containers for debugging sessions.  

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb version
 title: dcos edgelb version
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb version
 ---
 
 
@@ -21,7 +21,6 @@ dcos edgelb [<flags>] version
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb version
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -34,7 +33,6 @@ navigationTitle:  dcos edgelb version
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos edgelb version
 |---------|-------------|
 | [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 

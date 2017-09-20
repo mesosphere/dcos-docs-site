@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Running Stateful Services on DC/OS
 navigationTitle: Running Stateful Services
 menuWeight: 5
-excerpt:
-enterprise: false
 ---
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>

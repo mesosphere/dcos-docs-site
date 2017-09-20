@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Running Stateful Services on DC/OS
 navigationTitle: Running Stateful Services
 menuWeight: 5
-excerpt:
-enterprise: false
 ---
 
 A stateful service acts on persistent data. Simple, stateless services run in an empty sandbox each time they are launched. In contrast, stateful services make use of [persistent volumes](/docs/1.10/storage/persistent-volume) that reside on agents in a cluster until explicitly destroyed.

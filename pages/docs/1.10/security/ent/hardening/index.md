@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Hardening
 title: Hardening
 menuWeight: 800
 excerpt: >
@@ -12,7 +13,6 @@ excerpt: >
   cluster.
 featureMaturity:
 enterprise: true
-navigationTitle:  Hardening
 ---
 
 

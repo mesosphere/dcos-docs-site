@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Managing Authentication
-menuWeight: 1
 navigationTitle:  Managing Authentication
 excerpt:
-enterprise: false
+title: Managing Authentication
+menuWeight: 1
 ---
 
 Authentication is managed in the DC/OS web interface.

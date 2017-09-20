@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos auth
 title: dcos auth
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos auth
 ---
 
 # Description
@@ -20,7 +20,6 @@ dcos auth
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos auth
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
@@ -29,7 +28,6 @@ navigationTitle:  dcos auth
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos auth
 |---------|-------------|
 |[dcos auth list-providers](/docs/1.9/cli/command-reference/dcos-auth/dcos-auth-list-providers/) | List configured authentication providers for your DC/OS cluster. |  
 | [dcos auth login](/docs/1.9/cli/command-reference/dcos-auth/dcos-auth-login/)   |   Log in to DC/OS authentication.  |  

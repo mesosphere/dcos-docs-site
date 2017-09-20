@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service and Task Logging
 title: Service and Task Logging
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Service and Task Logging
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

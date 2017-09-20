@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Marathon LB Reference
 title: Marathon LB Reference
 menuWeight: 300
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Marathon LB Reference
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -16,7 +16,6 @@ Marathon-LB works by automatically generating configuration for HAProxy and then
 
 
 | Components                | Host:Port/URI/                             |
-navigationTitle:  Marathon LB Reference
 |---------------------------|--------------------------------------------|
 | Statistics                | `<public-node>:9090/haproxy?stats`         |
 | Statistics CSV            | `<public-node>:9090/haproxy?stats;csv`     |

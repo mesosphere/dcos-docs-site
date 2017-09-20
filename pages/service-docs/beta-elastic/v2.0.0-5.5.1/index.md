@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Elastic Version 1.0.16-5.5.1-beta
 title: Beta Elastic Version 1.0.16-5.5.1-beta
 menuWeight: 0
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta Elastic Version 1.0.16-5.5.1-beta
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

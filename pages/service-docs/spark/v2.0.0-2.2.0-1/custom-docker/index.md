@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Custom Docker Images
 title: Custom Docker Images
 menuWeight: 95
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Custom Docker Images
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

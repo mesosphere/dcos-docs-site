@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos node list-components
 title: dcos node list-components
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos node list-components
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos node list-components [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos node list-components
 |---------|-------------|-------------|
 | `--json`   |             |  Print JSON-formatted data. |
 | `--leader`   |             |  The leading master. |
@@ -32,7 +31,6 @@ navigationTitle:  dcos node list-components
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos node list-components
 |---------|-------------|
 | [dcos node](/docs/1.9/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 

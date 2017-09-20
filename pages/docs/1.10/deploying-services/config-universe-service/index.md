@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configuring Universe Services
 title: Configuring Universe Services
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Configuring Universe Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Configuring browsers to trust your DC/OS
   CA
@@ -9,7 +10,6 @@ excerpt: >
   trust your DC/OS CA.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  >
 ---
 
 

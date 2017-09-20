@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 70
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Supported Versions
 ---
 
 - Confluent Kafka: 3.2.0

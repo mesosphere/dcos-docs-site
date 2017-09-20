@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying Public Services
 title: Deploying Public Services
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Deploying Public Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -63,7 +63,6 @@ DC/OS agent nodes can be designated as [public](/docs/1.7/overview/concepts/#pub
     ```bash
     dcos marathon app list
     ID      MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
-navigationTitle:  Deploying Public Services
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 

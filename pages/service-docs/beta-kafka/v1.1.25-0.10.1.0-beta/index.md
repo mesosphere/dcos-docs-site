@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Kafka 1.1.25-0.10.1.0-beta
 title: Beta Kafka 1.1.25-0.10.1.0-beta
 menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta Kafka 1.1.25-0.10.1.0-beta
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-kafka-service -->

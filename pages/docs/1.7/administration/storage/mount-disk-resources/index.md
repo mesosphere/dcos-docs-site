@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Mount Disk Resources
 title: Mount Disk Resources
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Mount Disk Resources
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

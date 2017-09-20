@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Secrets (Enterprise Only)
 title: Secrets (Enterprise Only)
 menuWeight: 2
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Secrets (Enterprise Only)
 ---
 
 

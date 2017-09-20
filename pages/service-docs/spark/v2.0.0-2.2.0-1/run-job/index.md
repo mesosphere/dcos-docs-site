@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Run a Spark Job
 title: Run a Spark Job
 menuWeight: 80
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Run a Spark Job
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->
@@ -95,7 +95,6 @@ The path of a secret defines which service IDs can have access to it. You can th
 
 
 | Secret                               | Service ID                          | Can service access secret? |
-navigationTitle:  Run a Spark Job
 |--------------------------------------|-------------------------------------|----------------------------|
 | `secret-svc/Secret_Path1`            | `/user`                             | No                         |
 | `secret-svc/Secret_Path1`            | `/user/dev1`                        | No                         |

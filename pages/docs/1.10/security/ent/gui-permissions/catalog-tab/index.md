@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to the Catalog Tab
 title: Granting Access to the Catalog Tab
 menuWeight: 80
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to the Catalog Tab
 ---
 
 You can grant users access to the **Catalog** tab. By default, new users have no permissions.

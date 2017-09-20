@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  'Design: Distributed DNS'
 title: 'Design: Distributed DNS'
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  'Design: Distributed DNS'
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

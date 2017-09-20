@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Creating a Public Agent
 navigationTitle: Public Agent
 menuWeight: 700
-excerpt:
-enterprise: false
 ---
 
 In DC/OS, agent nodes that are publicly accessible are designated as public and those that are not are designated as private. By default, agent nodes are designated as private during [GUI][1] or [CLI][2] installation.

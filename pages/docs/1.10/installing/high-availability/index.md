@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  High Availability
 title: High Availability
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  High Availability
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

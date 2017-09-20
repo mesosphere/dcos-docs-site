@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Run a Spark Job
 title: Run a Spark Job
 menuWeight: 80
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Run a Spark Job
 ---
 1.  Before submitting your job, upload the artifact (e.g., jar file)
     to a location visible to the cluster (e.g., HTTP, S3, or HDFS). [Learn more][13].

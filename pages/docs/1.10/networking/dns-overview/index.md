@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  DNS Quick Reference
 title: DNS Quick Reference
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  DNS Quick Reference
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Cassandra 2.0.0-3.0.14
 title: Cassandra 2.0.0-3.0.14
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Cassandra 2.0.0-3.0.14
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

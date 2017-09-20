@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Listing Nodes
 title: Listing Nodes
 menuWeight: 14
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Listing Nodes
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

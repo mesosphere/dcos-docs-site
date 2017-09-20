@@ -5,13 +5,11 @@ menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Configuring DC/OS Access for Edge-LB
 ---
 
 This topic describes how to configure DC/OS access for Edge-LB. Depending on your [security mode](/docs/1.10/overview/security/security-modes/), Edge-LB requires [service authentication](/docs/1.10/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
-navigationTitle:  Configuring DC/OS Access for Edge-LB
 |---------------|-----------------------|
 | Disabled      | Not available   |
 | Permissive    | Recommended (optional) |

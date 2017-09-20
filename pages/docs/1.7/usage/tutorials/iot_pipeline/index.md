@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying a Load-Balanced Data Pipeline
 title: Deploying a Load-Balanced Data Pipeline
 menuWeight: 16
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
 ---
 
 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon task stop
 title: dcos marathon task stop
 menuWeight: 31
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon task stop
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,21 +23,18 @@ dcos marathon task stop <task-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon task stop
 |---------|-------------|-------------|
 | `--wipe`   |             | Wipe persistent data. |
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon task stop
 |---------|-------------|-------------|
 | `<task-id>`   |             |  The task ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos marathon task stop
 |---------|-------------|
 | [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

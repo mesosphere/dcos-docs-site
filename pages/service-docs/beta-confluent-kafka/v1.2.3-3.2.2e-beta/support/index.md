@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Support
 title: Support
 menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Support
 ---
 
 Enterprise DC/OS customers can submit support cases via support@mesosphere.com.

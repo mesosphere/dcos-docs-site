@@ -5,7 +5,6 @@ menuWeight: 0
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Securing communication with TLS in Enterprise DC/OS
 ---
 
 

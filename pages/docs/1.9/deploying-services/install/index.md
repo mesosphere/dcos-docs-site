@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Installing Services
 title: Installing Services
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Installing Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

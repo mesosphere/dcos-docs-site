@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Advanced DC/OS Installation Guide
 navigationTitle: Advanced
 menuWeight: 300
-excerpt:
-enterprise: false
 ---
 
 With this installation method, you package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
@@ -17,8 +16,6 @@ The advanced installer requires:
 The DC/OS installation creates these folders:
 
 | Folder                                  | Description                                                                                                                                            |
-excerpt:
-enterprise: false
 |-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `/opt/mesosphere`                       | Contains all the DC/OS binaries, libraries, cluster configuration. Do not modify.                                                                      |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services which start the things that make up systemd. They must live outside of `/opt/mesosphere` because of systemd constraints. |
@@ -46,8 +43,6 @@ enterprise: false
     **Tip:** If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 
     ```yaml
-excerpt:
-enterprise: false
     ---
     bootstrap_url: http://<bootstrap_ip>:<your_port>
     cluster_name: '<cluster-name>'

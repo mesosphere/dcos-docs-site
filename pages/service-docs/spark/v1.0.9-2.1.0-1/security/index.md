@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Security
 title: Security
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Security
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

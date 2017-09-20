@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos cluster
 title: dcos cluster
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos cluster
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos cluster
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos cluster
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
@@ -32,7 +31,6 @@ navigationTitle:  dcos cluster
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos cluster
 |---------|-------------|
 | [dcos cluster attach](/docs/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/)   |  Attach the CLI to a connected DC/OS cluster. |
 | [dcos cluster list](/docs/1.10/cli/command-reference/dcos-cluster/dcos-cluster-list/)       |  List the clusters that are connected to the DC/OS CLI.  |

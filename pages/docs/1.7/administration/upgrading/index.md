@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Upgrading
 title: Upgrading
 menuWeight: 11
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Upgrading
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

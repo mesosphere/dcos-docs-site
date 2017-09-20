@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb ping
 title: dcos edgelb ping
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb ping
 ---
 
 
@@ -21,7 +21,6 @@ dcos edgelb ping [OPTIONS]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb ping
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -34,7 +33,6 @@ navigationTitle:  dcos edgelb ping
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos edgelb ping
 |---------|-------------|
 | [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 

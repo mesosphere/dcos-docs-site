@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying Jobs
 title: Deploying Jobs
 menuWeight: 120
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Deploying Jobs
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

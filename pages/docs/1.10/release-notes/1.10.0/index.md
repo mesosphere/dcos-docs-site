@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Release Notes for 1.10.0
 title: Release Notes for 1.10.0
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Release Notes for 1.10.0
 ---
 
 DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:

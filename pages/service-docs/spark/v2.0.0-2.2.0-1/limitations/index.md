@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Limitations
 title: Limitations
 menuWeight: 130
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Limitations
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

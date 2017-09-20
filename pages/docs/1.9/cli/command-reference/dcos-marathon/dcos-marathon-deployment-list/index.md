@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon deployment list
 title: dcos marathon deployment list
 menuWeight: 14
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon deployment list
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,21 +23,18 @@ dcos marathon deployment list <app-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon deployment list
 |---------|-------------|-------------|
 | `--json`   |             |  Print JSON-formatted data. |
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon deployment list
 |---------|-------------|-------------|
 | `<app-id>`   |             |  The application ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos marathon deployment list
 |---------|-------------|
 | [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

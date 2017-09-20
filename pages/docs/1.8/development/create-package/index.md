@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Creating a Universe Package
 title: Creating a Universe Package
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Creating a Universe Package
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

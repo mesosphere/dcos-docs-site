@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos cluster list
 title: dcos cluster list
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos cluster list
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos cluster list [--attached --json]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos cluster list
 |---------|-------------|-------------|
 | `--attached`   |             | Attached clusters only. |
 | `--json`   |             |  Print JSON-formatted list. |
@@ -32,7 +31,6 @@ navigationTitle:  dcos cluster list
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos cluster list
 |---------|-------------|
 | [dcos cluster](/docs/1.10/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
 

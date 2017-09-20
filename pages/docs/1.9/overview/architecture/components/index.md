@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Components
 title: Components
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Components
 ---
 
 <style type="text/css">

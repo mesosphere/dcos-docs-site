@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta DSE 1.1.8-5.1.2-beta
 title: Beta DSE 1.1.8-5.1.2-beta
 menuWeight: 0
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta DSE 1.1.8-5.1.2-beta
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using dcos task exec
 title: Using dcos task exec
 menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Using dcos task exec
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 10
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Install and Customize
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kafka-service -->
@@ -19,7 +19,6 @@ navigationTitle:  Install and Customize
 - Depending on your [security mode](/docs/1.9/overview/security/security-modes/), Kafka requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Kafka](https://docs.mesosphere.com/service-docs/kafka/kafka-auth/).
   
   | Security mode | Service Account |
-navigationTitle:  Install and Customize
   |---------------|-----------------------|
   | Disabled      | Not available   |
   | Permissive    | Optional   |

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  DSE Authentication
 title: DSE Authentication
 menuWeight: 60
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  DSE Authentication
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->

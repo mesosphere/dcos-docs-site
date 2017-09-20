@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using a Custom Marathon
 title: Using a Custom Marathon
 menuWeight: 39
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Using a Custom Marathon
 ---
 
 This topic describes how to deploy non-native instances of Marathon to isolate Mesos roles, reservations, and quotas for your DC/OS cluster.  

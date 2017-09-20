@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 60
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Uninstalling
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

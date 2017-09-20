@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Troubleshooting a Custom Installation
 title: Troubleshooting a Custom Installation
 menuWeight: 400
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Troubleshooting a Custom Installation
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Obtaining the root certificate of your
   DC/OS CA
@@ -11,7 +12,6 @@ excerpt: >
   certificate of your DC/OS CA.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  >
 ---
 
 # About obtaining the root certificate of your DC/OS CA

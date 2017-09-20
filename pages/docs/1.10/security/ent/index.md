@@ -5,7 +5,6 @@ menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Enterprise DC/OS Security
 ---
 
 Enterprise DC/OS offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster. 
@@ -49,7 +48,6 @@ A typical deployment, including load balancers is shown below:
 You can control Enterprise DC/OS access by resource and operation (create, read, update, delete). The available [security modes](/docs/1.10/overview/security/security-modes/) are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/docs/1.10/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
 
 | Permission Category                                 | Disabled | Permissive | Strict |
-navigationTitle:  Enterprise DC/OS Security
 |-----------------------------------------------------|:--------:|:----------:|:------:|
 | Admin Router permissions (`dcos:adminrouter`)       |     x    |      x     |    x   |
 | Mesos permissions (`dcos:mesos`)                    |          |            |    x   |
@@ -144,7 +142,6 @@ For more information about permissions, refer to [Managing permissions](/docs/1.
 The encryption of DC/OS communications varies according to your [security mode](/docs/1.10/security/ent/#security-modes).
 
 | Security mode | External communications*                                                                                                                                                                                    | Internode communications |
-navigationTitle:  Enterprise DC/OS Security
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | Disabled      | Only HTTP is supported. HTTP connections are not redirected to HTTPS or vice versa. HTTPS connections will be rejected because the Admin Router is not configured to serve them. If you log in to DC/OS with a password, the password will be transmitted insecurely between the user agent (e.g. web browser or DC/OS CLI) and Admin Router.         | Unencrypted              |
 | Permissive    |  HTTP and HTTPS are supported. HTTP requests to the root path (e.g. `http://example.com/`) are redirected to HTTPS. HTTP requests with a target different than the root path (e.g.  `http://example.com/foo`) are not redirected to HTTPS. If you log in to DC/OS with a password, you can choose whether the password is transmitted insecurely or securely (requires proper certificate verification, including hostname verification on the client side). | Encryption enabled       |
@@ -185,7 +182,6 @@ The secret path controls which services can access it. If you do not specify a p
 Secret paths work in conjunction with service groups to control access. However, you do not need to have service groups to control access to secrets, you can also use the name of the service. The following table provides a few examples to show how it works.
 
 | Secret              | Service                  | Can service access secret? |
-navigationTitle:  Enterprise DC/OS Security
 |---------------------|--------------------------|----------------------------|
 | `group/secret`      | `/marathon-user/service` | No                         |
 | `group/secret`      | `/group/hdfs/service`    | Yes                        |
@@ -237,7 +233,6 @@ By default, all tasks will run inside of Mesos containers. However, a user servi
 The following table identifies the default Linux user in each situation.
 
 | Container type | Disabled                                                               | Permissive                                                             | Strict                                                                     |
-navigationTitle:  Enterprise DC/OS Security
 |----------------|------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | Mesos          | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
 | Docker         | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `nobody`.   |

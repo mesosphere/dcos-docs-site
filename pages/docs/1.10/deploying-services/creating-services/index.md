@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Creating Services
 title: Creating Services
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Creating Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Limitations
 title: Limitations
 menuWeight: 80
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Limitations
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
@@ -25,7 +25,6 @@ http://docs.datastax.com/en/cassandra/3.0/cassandra/operations/opsReplaceNode.ht
 The following script automates the DC/OS Cassandra service seed node replace
 procedure and will be used to explain the equivalent manual procedure:
 
-navigationTitle:  Limitations
 <!--- snip{ dcos_cassandra_seed_node_replace.sh -->
 ```shell
 #!/bin/sh
@@ -170,7 +169,6 @@ main () {
 }
 main
 ```
-navigationTitle:  Limitations
 <!--- snip} script dcos_cassandra_seed_node_replace.sh -->
 
 The corresponding manual procedure requires several facts to be repeatedly

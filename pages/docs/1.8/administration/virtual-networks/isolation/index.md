@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Configuring Isolation in Virtual
   Networks
@@ -7,7 +8,6 @@ menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  >
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

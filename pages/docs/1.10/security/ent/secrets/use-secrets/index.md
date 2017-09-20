@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Configuring services and pods to use
   secrets
@@ -7,7 +8,6 @@ menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  >
 ---
 
 Your service definition can reference secrets as environment variables or as a file.

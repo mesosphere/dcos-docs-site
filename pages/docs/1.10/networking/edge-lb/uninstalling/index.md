@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling Edge-LB
 title: Uninstalling Edge-LB
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Uninstalling Edge-LB
 ---
 
 *Do not* use the UI or CLI (marathon) to create or destroy services managed by

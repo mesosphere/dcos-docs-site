@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Multi-Datacenter Deployments
 title: Multi-Datacenter Deployments
 menuWeight: 40
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Multi-Datacenter Deployments
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

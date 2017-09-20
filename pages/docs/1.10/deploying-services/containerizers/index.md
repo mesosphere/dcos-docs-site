@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Using Containerizers
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -36,7 +36,6 @@ The tables below enumerate the features available with each of the supported con
 ## DC/OS Features
 
 | Feature                                 | UCR         | Docker    | Comments |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- | -------- |
 | **Command**                             | Yes         | Yes       |          |
 | **Container Images**                    | Yes         | Yes       |          |
@@ -52,7 +51,6 @@ navigationTitle:  Using Containerizers
 ## Container Backend
 
 |  Feature                                | UCR         | Docker    |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- |
 | **Overlayfs**                           | Yes         | Yes       |
 | **Aufs**                                | Yes         | Yes       |
@@ -61,7 +59,6 @@ navigationTitle:  Using Containerizers
 ## Storage
 
 |  Feature                                | UCR         | Docker    | Comments  |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- | --------- |
 | **Local Persistent Volumes**            | Yes         | Yes       |           |
 | **Host Volumes**                        | Yes         | Yes       | CLI only  |
@@ -70,7 +67,6 @@ navigationTitle:  Using Containerizers
 ## Service Endpoints
 
 |  Feature                                | UCR         | Docker    |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- |
 | **Named Ports**                         | Yes         | Yes       |
 | **Numbered Ports**                      | Yes         | Yes       |
@@ -78,7 +74,6 @@ navigationTitle:  Using Containerizers
 ## Networking
 
 |  Feature                                | UCR         | Docker    | Comments  |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- | --------- |
 | **Host Networking**                     | Yes         | Yes       |           |
 | **Bridge Networking**                   | Yes         | Yes       |           |
@@ -89,7 +84,6 @@ navigationTitle:  Using Containerizers
 ## Private Registry
 
 |  Feature                                | UCR         | Docker    |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- |
 | **Token-based Container Auth**          | No          | Yes       |
 | **Token-based Cluster Auth**            | Yes         | Yes       |
@@ -99,7 +93,6 @@ navigationTitle:  Using Containerizers
 ## Health Checks
 
 |  Feature                                | UCR         | Docker    |Comments   |
-navigationTitle:  Using Containerizers
 | --------------------------------------- | ----------- | --------- | --------- |
 | **TCP**                                 | Yes         | Yes       | CLI only  |
 | **HTTP/HTTPS**                          | Yes         | Yes       | CLI only  |

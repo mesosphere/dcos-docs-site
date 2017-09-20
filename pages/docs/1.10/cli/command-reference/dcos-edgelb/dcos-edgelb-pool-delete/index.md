@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb pool delete
 title: dcos edgelb pool delete
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb pool delete
 ---
 
 # Description
@@ -20,7 +20,6 @@ dcos edgelb [<flags>] pool delete <name>
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool delete
 |---------|-------------|-------------|
 | `<name>`   |             |  Pool name. |
 
@@ -28,7 +27,6 @@ navigationTitle:  dcos edgelb pool delete
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool delete
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -41,7 +39,6 @@ navigationTitle:  dcos edgelb pool delete
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos edgelb pool delete
 |---------|-------------|
 | [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 

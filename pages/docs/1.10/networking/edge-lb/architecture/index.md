@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Edge-LB Architecture
 title: Edge-LB Architecture
 menuWeight: 8
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Edge-LB Architecture
 ---
 
 Edge-LB has a 3-part architecture (API Server, Pool, and Load Balancer) that

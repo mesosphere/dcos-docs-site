@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  X-Pack
 title: X-Pack
 menuWeight: 31
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  X-Pack
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/frameworks/elastic -->

@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Quick Start Guide
-menuWeight: 100
 navigationTitle:  Quick Start Guide
 excerpt:
-enterprise: false
+title: Quick Start Guide
+menuWeight: 100
 ---
 
 You can quickly get up and running with the advanced DC/OS templates.

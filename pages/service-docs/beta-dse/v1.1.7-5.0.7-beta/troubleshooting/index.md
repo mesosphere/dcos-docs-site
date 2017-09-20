@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 90
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Troubleshooting
 ---
 
 ## Accessing Logs

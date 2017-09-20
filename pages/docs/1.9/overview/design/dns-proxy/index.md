@@ -1,12 +1,11 @@
 ---
 layout: layout.pug
+excerpt:
 title: >
     Design: Distributed DNS
 navigationTitle: Distributed DNS
 menuWeight: 3
 oss: true
-excerpt:
-enterprise: false
 ---
 
 ## Background

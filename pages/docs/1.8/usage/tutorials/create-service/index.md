@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Creating and Running a Service
 title: Creating and Running a Service
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Creating and Running a Service
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

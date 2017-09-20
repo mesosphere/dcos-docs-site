@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Task Types
 title: Task Types
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Task Types
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

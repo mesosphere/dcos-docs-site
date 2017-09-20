@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Node Settings
 title: Node Settings
 menuWeight: 27
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Node Settings
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

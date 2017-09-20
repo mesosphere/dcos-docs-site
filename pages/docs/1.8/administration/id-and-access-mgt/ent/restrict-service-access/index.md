@@ -8,7 +8,6 @@ excerpt: >
   permissive mode.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  'Tutorial &#8211; Restricting Access to DC/OS Service Groups'
 ---
 This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security). When you are done you will have multi-tenancy by using DC/OS permissions.  
 

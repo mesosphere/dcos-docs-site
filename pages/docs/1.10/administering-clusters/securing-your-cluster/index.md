@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  Securing an Open Source Cluster
+excerpt:
 title: Securing an Open Source Cluster
 menuWeight: 7
 oss: yes
-navigationTitle:  Securing an Open Source Cluster
-excerpt:
-enterprise: false
 ---
 
 This topic discusses the security features in DC/OS and

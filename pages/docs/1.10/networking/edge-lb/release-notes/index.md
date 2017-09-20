@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Edge-LB Release Notes
 title: Edge-LB Release Notes
 menuWeight: 9
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Edge-LB Release Notes
 ---
 
 # v0.1.7

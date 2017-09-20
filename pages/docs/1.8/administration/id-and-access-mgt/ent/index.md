@@ -5,7 +5,6 @@ menuWeight: 0
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  Identity and Access Management for Enterprise DC/OS
 ---
 
 

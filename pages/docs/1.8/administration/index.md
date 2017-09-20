@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Administration
 title: Administration
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Administration
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

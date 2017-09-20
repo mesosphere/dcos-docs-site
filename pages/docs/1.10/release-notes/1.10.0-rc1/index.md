@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Release Notes for 1.10.0 Release
   Candidate 1
@@ -7,7 +8,6 @@ menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  >
 ---
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">

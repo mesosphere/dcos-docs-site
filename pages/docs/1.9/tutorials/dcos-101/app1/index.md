@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying First Application
+excerpt:
 title: Deploying First Application
 menuWeight: 3
 oss: true
-navigationTitle:  Deploying First Application
-excerpt:
-enterprise: false
 ---
 
 # Prerequisites

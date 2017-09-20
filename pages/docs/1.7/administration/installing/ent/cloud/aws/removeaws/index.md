@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling on Amazon Web Services
 title: Uninstalling on Amazon Web Services
 menuWeight: 300
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Uninstalling on Amazon Web Services
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

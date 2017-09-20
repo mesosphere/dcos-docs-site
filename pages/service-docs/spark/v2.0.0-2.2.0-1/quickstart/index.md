@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Spark Quickstart
 title: Spark Quickstart
 menuWeight: 10
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Spark Quickstart
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->
@@ -19,7 +19,6 @@ This tutorial will get you up and running in minutes with Spark. You will instal
 -  Depending on your [security mode](/docs/1.9/overview/security/security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
 
    | Security mode | Service Account |
-navigationTitle:  Spark Quickstart
    |---------------|-----------------------|
    | Disabled      | Not available   |
    | Permissive    | Optional   |

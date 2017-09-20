@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Managing
 title: Managing
 menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Managing
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/ -->

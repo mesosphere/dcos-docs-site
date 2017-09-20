@@ -5,7 +5,6 @@ menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Installing Enterprise DC/OS
 ---
 
 

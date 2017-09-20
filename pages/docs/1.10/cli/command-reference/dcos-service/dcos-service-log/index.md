@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos service log
 title: dcos service log
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos service log
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -25,7 +25,6 @@ dcos service log <file> <service> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos service log
 |---------|-------------|-------------|
 | `--follow`   |             |  Dynamically update the log. |
 | `--lines=N`   |     10      |  Print the last N lines. |
@@ -34,7 +33,6 @@ navigationTitle:  dcos service log
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos service log
 |---------|-------------|-------------|
 | `<file>`   |             |  The service log filename for the Mesos sandbox. The default is stdout. |
 | `<service>`   |           | The DC/OS service name. |
@@ -42,6 +40,5 @@ navigationTitle:  dcos service log
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos service log
 |---------|-------------|
 | [dcos service](/docs/1.10/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 

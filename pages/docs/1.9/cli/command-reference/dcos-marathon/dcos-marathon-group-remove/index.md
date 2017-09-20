@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon group remove
 title: dcos marathon group remove
 menuWeight: 19
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon group remove
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,21 +23,18 @@ dcos marathon group remove <group-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon group remove
 |---------|-------------|-------------|
 | `--force`   |             | Disable checks in Marathon during updates. |
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon group remove
 |---------|-------------|-------------|
 | `<group-id>`   |             |  The group ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos marathon group remove
 |---------|-------------|
 | [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Upgrade
 title: Upgrade
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Upgrade
 ---
 
 # Overview

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Distributed Process Management
 title: Distributed Process Management
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Distributed Process Management
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

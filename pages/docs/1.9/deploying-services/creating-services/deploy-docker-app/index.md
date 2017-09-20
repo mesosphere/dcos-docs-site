@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying a Docker-based Service
 title: Deploying a Docker-based Service
 menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Deploying a Docker-based Service
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -76,10 +76,8 @@ In this tutorial, a custom Docker app is created and added to Marathon.
     a4335300aa89: Pull complete 
     Digest: sha256:54313b5c376892d55205f13d620bc3dcccc8e70e596d083953f95e94f071f6db
     Status: Downloaded newer image for nginx:1.9
-navigationTitle:  Deploying a Docker-based Service
      ---> c8c29d842c09
     Step 2 : COPY index.html /usr/share/nginx/html/index.html
-navigationTitle:  Deploying a Docker-based Service
      ---> 61373621782c
     Removing intermediate container 225910aa385d
     Successfully built 61373621782c
@@ -148,7 +146,6 @@ navigationTitle:  Deploying a Docker-based Service
     ```bash
     dcos marathon app list
     ID      MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
-navigationTitle:  Deploying a Docker-based Service
     /nginx   64  0.1    0/1    ---      scale       DOCKER   None
     ```
     

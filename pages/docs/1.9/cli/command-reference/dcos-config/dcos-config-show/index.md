@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos config show
 title: dcos config show
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos config show
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -27,14 +27,12 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos config show
 |---------|-------------|-------------|
 | `<name>`   |             |  The name of the property. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos config show
 |---------|-------------|
 | [dcos config](/docs/1.9/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 

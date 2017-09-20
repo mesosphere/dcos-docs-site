@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Adding external users
 title: Adding external users
 menuWeight: 2
 excerpt: >
@@ -9,7 +10,6 @@ excerpt: >
   you can assign them permissions.
 featureMaturity:
 enterprise: true
-navigationTitle:  Adding external users
 ---
 
 

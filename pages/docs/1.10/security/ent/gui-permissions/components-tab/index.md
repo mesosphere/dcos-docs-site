@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to the Components Tab
 title: Granting Access to the Components Tab
 menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to the Components Tab
 ---
 You can grant users access to the **Components** tab. By default, new users have no permissions.
 

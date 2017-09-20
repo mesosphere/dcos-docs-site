@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 120
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Supported Versions
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

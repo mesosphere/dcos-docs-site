@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  History Server
 title: History Server
 menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  History Server
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

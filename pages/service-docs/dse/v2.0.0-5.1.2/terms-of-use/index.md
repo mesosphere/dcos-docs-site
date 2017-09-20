@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Terms of Use
 title: Terms of Use
 menuWeight: 121
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Terms of Use
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->

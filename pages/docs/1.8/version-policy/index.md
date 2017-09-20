@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Mesosphere Versioning and Release Policy
 title: Mesosphere Versioning and Release Policy
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Mesosphere Versioning and Release Policy
 ---
 
 
@@ -48,7 +48,6 @@ For example, if we have 3 pieces of technology: DC/OS, Framework, and Apache Kaf
 Our interoperability guarantees in the scenario above will be as follows:
 
 | **DC/OS Release**                                 | **Current DC/OS Release N**                                                 |
-navigationTitle:  Mesosphere Versioning and Release Policy
 |-----------------------------------------------|-------------------------------------------------------------------------|
 | Framework and Baseline Tech (eg. Apache Kafka ) | Current Framework Version (M+Apache Kafka K) and (M-1+Apache Kafka K-1) |
 

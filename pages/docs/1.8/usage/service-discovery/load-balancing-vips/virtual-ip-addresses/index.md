@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using Virtual IP Addresses
 title: Using Virtual IP Addresses
 menuWeight: 10
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Using Virtual IP Addresses
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

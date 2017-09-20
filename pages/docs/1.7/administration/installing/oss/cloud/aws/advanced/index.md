@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Advanced DC/OS Installation on AWS
 navigationTitle: AWS Advanced
 menuWeight: 200
-excerpt:
-enterprise: false
 ---
 The advanced AWS CloudFormation templates bring power and flexibility to creating and extending DC/OS clusters. With these templates you can choose from the complete set of DC/OS configuration options.
  

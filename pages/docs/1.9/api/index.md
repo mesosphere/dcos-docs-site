@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  API Reference
 title: API Reference
 menuWeight: 150
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  API Reference
 ---
 
 The DC/OS API is a collection of routes backed by [DC/OS components](/docs/1.9/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/docs/1.9/overview/architecture/components/#admin-router).

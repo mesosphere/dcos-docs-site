@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb pool lb
 title: dcos edgelb pool lb
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb pool lb
 ---
 
 # Description
@@ -20,7 +20,6 @@ dcos edgelb [<flags>] pool lb [<flags>] <name> [<lb>]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool lb
 |---------|-------------|-------------|
 | `<name>`   |             |  Pool name. |
 | `[<lb>]`   |             | Name of load balancer instance. |
@@ -29,7 +28,6 @@ navigationTitle:  dcos edgelb pool lb
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool lb
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -44,7 +42,6 @@ navigationTitle:  dcos edgelb pool lb
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos edgelb pool lb
 |---------|-------------|
 | [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 

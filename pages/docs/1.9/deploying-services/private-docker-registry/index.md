@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using a Private Docker Registry
 title: Using a Private Docker Registry
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Using a Private Docker Registry
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -35,9 +35,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
     ```bash
       tar -tvf ~/docker.tar.gz
 
-navigationTitle:  Using a Private Docker Registry
       drwx------ root/root         0 2015-07-28 02:54 .docker/
-navigationTitle:  Using a Private Docker Registry
       -rw------- root/root       114 2015-07-28 01:31 .docker/config.json
     ```
 

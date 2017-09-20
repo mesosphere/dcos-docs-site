@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Deploying Services Using a Custom
   Marathon
@@ -7,7 +8,6 @@ menuWeight: 39
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  >
 ---
 
 This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. 
@@ -155,7 +155,6 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 In this step, a Marathon Service Account is created. Depending on your [security mode](/docs/1.9/overview/security/security-modes/), a Marathon Service Account is either optional or required. 
 
 | Security Mode | Marathon Service Account |
-navigationTitle:  >
 |---------------|----------------------|
 | Disabled | Optional |
 | Permissive | Optional |
@@ -177,7 +176,6 @@ navigationTitle:  >
 In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes. 
 
 | Security Mode | Permissions |
-navigationTitle:  >
 |---------------|----------------------|
 | Disabled | Not available |
 | Permissive | Not available |

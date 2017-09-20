@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos task log
 title: dcos task log
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos task log
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos task log <file> <task> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos task log
 |---------|-------------|-------------|
 | `--completed`   |             | Print completed and in-progress tasks. |
 | `--follow`   |             |  Dynamically update the log. |
@@ -32,7 +31,6 @@ navigationTitle:  dcos task log
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos task log
 |---------|-------------|-------------|
 | `<file>`   |  stdout  |  Specify the sandbox file to print. |
 | `<task>`   |             |  A full task ID, a partial task ID, or a regular expression. |
@@ -40,7 +38,6 @@ navigationTitle:  dcos task log
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos task log
 |---------|-------------|
 | [dcos task](/docs/1.9/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. | 
 

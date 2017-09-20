@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Cassandra 1.0.25-3.0.10
 title: Cassandra 1.0.25-3.0.10
 menuWeight: 20
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Cassandra 1.0.25-3.0.10
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

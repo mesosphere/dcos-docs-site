@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Quickstart
 title: Quickstart
 menuWeight: 0
 excerpt: >
@@ -9,7 +10,6 @@ excerpt: >
   DC/OS web interface or the IAM API.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Quickstart
 ---
 
 # About the quickstart

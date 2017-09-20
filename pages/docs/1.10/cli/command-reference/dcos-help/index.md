@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos help
 title: dcos help
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos help
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos help <subcommand>
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos help
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |

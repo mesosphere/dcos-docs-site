@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Elastic 2.0.0-5.5.1
 title: Elastic 2.0.0-5.5.1
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Elastic 2.0.0-5.5.1
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/frameworks/elastic -->

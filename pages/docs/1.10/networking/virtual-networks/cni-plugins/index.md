@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  CNI Plugin Support
 title: CNI Plugin Support
 menuWeight: 30
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  CNI Plugin Support
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Custom
 title: Custom
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Custom
 ---
 
 

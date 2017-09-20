@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Kafka 2.0.0-0.11.0
 title: Kafka 2.0.0-0.11.0
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Kafka 2.0.0-0.11.0
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

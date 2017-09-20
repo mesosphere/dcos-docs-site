@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Permissions Reference
 title: Permissions Reference
 menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Permissions Reference
 ---
 
 You can control DC/OS access by resource and operation.
@@ -18,7 +18,6 @@ This topic provides a reference for each of the available DC/OS permissions.
 The DC/OS permissions are enforced based on your security mode.
 
 | Permission Category                                 | Disabled | Permissive | Strict |
-navigationTitle:  Permissions Reference
 |-----------------------------------------------------|:--------:|:----------:|:------:|
 | [Admin Router permissions](#admin-router) (`dcos:adminrouter`)       |     x    |      x     |    x   |
 | [Mesos permissions](#mesos) (`dcos:mesos`)                    |          |            |    x   |
@@ -35,7 +34,6 @@ By convention, `full` indicates that the permission supports all other action id
 ## <a name="admin-router"></a>Admin Router Permissions
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
-navigationTitle:  Permissions Reference
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                         | x    |   |   |   |   |
 | `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/docs/1.10/networking/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/docs/1.10/cli/enterprise-cli/).                               | x    |   |   |   |   |
@@ -58,7 +56,6 @@ navigationTitle:  Permissions Reference
 ## <a name="mesos"></a>Mesos Permissions
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
-navigationTitle:  Permissions Reference
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:mesos:agent:container:app_id[:<service-or-job-group>]`<br> Controls access to the [debugging](/docs/1.10/monitoring/debugging/debug-perms/) features for a specific service or job.                                                                                               |      |   |   | x |   |
 | `dcos:mesos:agent:container:role[:<role-name>]`<br>Controls access to the [debugging](/docs/1.10/monitoring/debugging/debug-perms/) features for a specific role.                                                                                                                       |      |   |   | x |   |
@@ -90,7 +87,6 @@ navigationTitle:  Permissions Reference
 ## <a name="marathon-metronome"></a>Marathon and Metronome Permissions
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
-navigationTitle:  Permissions Reference
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/docs/1.10/deploying-services/marathon-api/#!/info).                                                                                                                         |      |   | x |   |   |
 | `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoints [GET v2/events](/docs/1.10/deploying-services/marathon-api/#!/events) and [GET/POST/DELETE /v2/eventSubscriptions](/docs/1.10/deploying-services/marathon-api/#!/eventSubscriptions). |      |   | x |   |   |
@@ -102,7 +98,6 @@ navigationTitle:  Permissions Reference
 ## <a name="secrets"></a>Secret Store Permissions
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
-navigationTitle:  Permissions Reference
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:secrets:default:[<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/docs/1.10/security/ent/secrets/).                                                                                                                                                           | x    | x | x | x | x |
 | `dcos:secrets:list:default:/[<path>]`<br> Controls view access to the names of [secrets](/docs/1.10/security/ent/secrets/).                                                                                                                                                                 |      |   | x |   |   |
@@ -110,7 +105,6 @@ navigationTitle:  Permissions Reference
 ## <a name="superuser"></a>Superuser Permissions
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
-navigationTitle:  Permissions Reference
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:superuser`<br> Controls complete access to the DC/OS cluster.                                                                                                                                                                                                               | x    |   |   |   |   |
 

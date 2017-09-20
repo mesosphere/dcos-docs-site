@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  System Requirements
 ---
 
 

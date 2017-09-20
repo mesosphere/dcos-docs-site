@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Job Scheduling
 title: Job Scheduling
 menuWeight: 110
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Job Scheduling
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

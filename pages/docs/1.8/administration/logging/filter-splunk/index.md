@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Filtering Logs with Splunk
 title: Filtering Logs with Splunk
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Filtering Logs with Splunk
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

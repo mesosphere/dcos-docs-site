@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Uninstalling
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->

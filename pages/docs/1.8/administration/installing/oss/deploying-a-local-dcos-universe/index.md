@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying a local Universe
+excerpt:
 title: Deploying a local Universe
 menuWeight: 1000
 featureMaturity: preview
-navigationTitle:  Deploying a local Universe
-excerpt:
-enterprise: false
 ---
 
 

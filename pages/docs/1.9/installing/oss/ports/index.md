@@ -4,8 +4,6 @@ title: DC/OS Ports
 menuWeight: 5
 excerpt:
 featureMaturity:
-navigationTitle:  DC/OS Ports
-enterprise: false
 ---
 
 [DC/OS components](/docs/1.9/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
@@ -17,8 +15,6 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 ### TCP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|---|
 | 61003 | REX-Ray | `dcos-rexray.service` |
 | 61053 | Mesos DNS | `dcos-mesos-dns.service` |
@@ -31,8 +27,6 @@ enterprise: false
 ### UDP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|---|
 | 61053 | Mesos DNS | `dcos-mesos-dns.service`|
 | 62053 | DNS Forwarder (Spartan) | `dcos-spartan.service` |
@@ -43,8 +37,6 @@ enterprise: false
 ### TCP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|---|
 | 53    | DNS Forwarder (Spartan) | `dcos-spartan.service` |
 | 80    | Admin Router Master (HTTP) | `dcos-adminrouter.service` |
@@ -73,8 +65,6 @@ enterprise: false
 ### UDP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|---|
 | 53 | DNS Forwarder (Spartan) | `dcos-spartan.service` |
 
@@ -83,8 +73,6 @@ enterprise: false
 ### TCP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|---|
 | 5051  | Mesos Agent | `dcos-mesos-slave.service` |
 | 61001 | Admin Router Agent (HTTP) | `dcos-adminrouter-agent` |

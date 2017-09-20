@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: System Requirements
-menuWeight: 000
 navigationTitle:  System Requirements
 excerpt:
-enterprise: false
+title: System Requirements
+menuWeight: 000
 ---
 
 # Hardware Prerequisites
@@ -31,9 +30,6 @@ You must have an odd number of master nodes.
 Here are the master node hardware requirements.
 
 |             | Minimum   | Recommended |
-navigationTitle:  System Requirements
-excerpt:
-enterprise: false
 |-------------|-----------|-------------|
 | RHEL/CentOS | 7.2, 7.3  | 7.2, 7.3    |
 | CoreOS      | 1235.9.0  | 1235.9.0    |
@@ -53,9 +49,6 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 Here are the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
-navigationTitle:  System Requirements
-excerpt:
-enterprise: false
 |-------------|-----------|-------------|
 | RHEL/CentOS | 7.2, 7.3  | 7.2, 7.3    |
 | CoreOS      | 1235.9.0  | 1235.9.0    |

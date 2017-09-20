@@ -5,7 +5,6 @@ menuWeight: 10
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Debugging from the DC/OS CLI
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -82,7 +81,6 @@ The `dcos marathon debug list` command shows you all services that are in a wait
 dcos marathon debug list
 
 ID            SINCE                     INSTANCES TO LAUNCH  WAITING  PROCESSED OFFERS  UNUSED OFFERS  LAST UNUSED OFFER         LAST USED OFFER           
-navigationTitle:  Debugging from the DC/OS CLI
 /mem-app      2017-02-28T19:08:59.547Z  3                    True     13                13             2017-02-28T19:09:35.607Z  ---                       
 /stuck-sleep  2017-02-28T19:09:25.56Z   9                    True     8                 7              2017-02-28T19:09:35.608Z  2017-02-28T19:09:25.566Z
 ```
@@ -108,9 +106,7 @@ ROLE         [*]                       1 / 2    50.00%
 CONSTRAINTS  [['hostname', 'UNIQUE']]  1 / 1    100.00%     
 CPUS         0.1                       1 / 1    100.00%     
 MEM          12000                     0 / 1    0.00%       
-navigationTitle:  Debugging from the DC/OS CLI
 DISK         0                         0 / 0    ---         
-navigationTitle:  Debugging from the DC/OS CLI
 PORTS        ---                       0 / 0    ---  
 ```
 

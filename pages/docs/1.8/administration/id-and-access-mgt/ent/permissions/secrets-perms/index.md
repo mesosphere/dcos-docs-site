@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Secret Store service permissions
 title: Secret Store service permissions
 menuWeight: 500
 excerpt: >
@@ -12,7 +13,6 @@ excerpt: >
   enforces these in all security modes.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Secret Store service permissions
 ---
 
 

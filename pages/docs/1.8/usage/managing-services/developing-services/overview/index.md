@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Overview
 title: Overview
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Overview
 ---
 
 

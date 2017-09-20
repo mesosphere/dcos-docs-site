@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Local Persistent Volumes
 title: Local Persistent Volumes
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Local Persistent Volumes
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Accessing system and component logs
 title: Accessing system and component logs
 menuWeight: 1
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Accessing system and component logs
 ---
 
 You can restrict user access to system and component logs. 
@@ -13,7 +13,6 @@ You can restrict user access to system and component logs.
 Here is the [permission](/docs/1.10/security/ent/perms-reference/) that is required to view the system and component logs:
 
 |     Permission string     | full | C | R | U | D |
-navigationTitle:  Accessing system and component logs
 |----------------------------|------|---|---|---|---|
 | `dcos:adminrouter:ops:system-logs` <br>Controls access to [System logs API](/docs/1.10/api/master-routes/#system).                                                                                                                                                                      | x    |   |   |   |   |
 

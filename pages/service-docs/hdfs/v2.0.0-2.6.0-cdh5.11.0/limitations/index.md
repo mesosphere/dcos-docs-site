@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Limitations
 title: Limitations
 menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Limitations
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/ -->

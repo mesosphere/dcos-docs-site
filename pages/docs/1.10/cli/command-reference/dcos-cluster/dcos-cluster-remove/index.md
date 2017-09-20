@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos cluster remove
 title: dcos cluster remove
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos cluster remove
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,14 +23,12 @@ dcos cluster remove <name>
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos cluster remove
 |---------|-------------|-------------|
 | `<name>`   |             | DC/OS cluster name. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos cluster remove
 |---------|-------------|
 | [dcos cluster](/docs/1.10/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters. |
 

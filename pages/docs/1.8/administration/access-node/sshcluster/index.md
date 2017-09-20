@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  SSHing into Nodes
 title: SSHing into Nodes
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  SSHing into Nodes
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

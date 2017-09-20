@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200
-excerpt:
-enterprise: false
 ---
 
 The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options.
@@ -154,8 +153,6 @@ Your cluster must meet the software and hardware [requirements](/docs/1.9/instal
     - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `/genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <path-to-ip-script>`.
 
     ```yaml
-excerpt:
-enterprise: false
     ---
     agent_list:
     - <agent-private-ip-1>

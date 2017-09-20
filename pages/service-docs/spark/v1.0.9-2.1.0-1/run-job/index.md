@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Run a Spark Job
 title: Run a Spark Job
 menuWeight: 80
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Run a Spark Job
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

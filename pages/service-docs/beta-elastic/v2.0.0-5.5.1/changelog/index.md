@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Changelog
 title: Changelog
 menuWeight: 60
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Changelog
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Filtering Logs with ELK
 title: Filtering Logs with ELK
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Filtering Logs with ELK
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

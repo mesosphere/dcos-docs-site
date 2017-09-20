@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Certificate Authority API
 title: Certificate Authority API
 menuWeight: 500
 excerpt: >
@@ -10,7 +11,6 @@ excerpt: >
   DC/OS CA sign CSRs.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Certificate Authority API
 ---
 
 

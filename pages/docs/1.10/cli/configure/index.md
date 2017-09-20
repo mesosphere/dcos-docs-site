@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Configuring the CLI
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

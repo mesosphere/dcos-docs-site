@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Marathon-LB
 title: Marathon-LB
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Marathon-LB
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

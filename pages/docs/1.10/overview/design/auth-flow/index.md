@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  Authentication Architecture
+excerpt:
 title: Authentication Architecture
 menuWeight: 1
 oss: true
-navigationTitle:  Authentication Architecture
-excerpt:
-enterprise: false
 ---
 
 An authentication operation via the DC/OS UI proceeds as follows:

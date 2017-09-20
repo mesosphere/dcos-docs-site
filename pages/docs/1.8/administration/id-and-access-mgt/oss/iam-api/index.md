@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Authentication HTTP API Endpoint
 navigationTitle:  Authentication HTTP API Endpoint
 menuWeight: 0
 excerpt:
-enterprise: false
+title: Authentication HTTP API Endpoint
 ---
 
 You can make external calls to HTTP API endpoints in your DC/OS cluster.

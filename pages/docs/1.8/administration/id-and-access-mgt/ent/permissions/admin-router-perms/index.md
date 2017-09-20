@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Admin Router permissions
 title: Admin Router permissions
 menuWeight: 400
 excerpt: >
@@ -9,7 +10,6 @@ excerpt: >
   security modes.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Admin Router permissions
 ---
 
 

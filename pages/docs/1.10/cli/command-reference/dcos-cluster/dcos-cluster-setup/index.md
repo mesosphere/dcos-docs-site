@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos cluster setup
 title: dcos cluster setup
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos cluster setup
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos cluster setup <dcos_url> [OPTIONS]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos cluster setup
 |---------|-------------|-------------|
 |  `--ca-certs=<ca-certs>` |             | (Enterprise DC/OS Only) The path to a list of trusted CAs to verify requests against.  |
 |  `--insecure` |                        | Allow requests to bypass SSL certificate verification. Analogous to `dcos config set core.ssl_verify=False`|
@@ -42,7 +41,6 @@ If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--c
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos cluster setup
 |---------|-------------|-------------|
 | `<dcos_url>`   |             | A publicly accessible proxy IP address to a master node. |
 
@@ -50,7 +48,6 @@ navigationTitle:  dcos cluster setup
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos cluster setup
 |---------|-------------|
 | [dcos cluster](/docs/1.10/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
 

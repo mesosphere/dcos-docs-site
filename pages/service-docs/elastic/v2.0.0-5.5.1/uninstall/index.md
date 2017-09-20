@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Uninstall
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/frameworks/elastic -->

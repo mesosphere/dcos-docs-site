@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Metrics Reference
 title: Metrics Reference
 menuWeight: 2
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Metrics Reference
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -18,7 +18,6 @@ These metrics are automatically collected by DC/OS.
 ### Metrics
    
 | Metric            | Description                  |
-navigationTitle:  Metrics Reference
 |-------------------|------------------------------|
 | cpu.cores         |    Percentage of cores used.     |
 | cpu.idle         |     Percentage of CPUs idle.         |
@@ -42,7 +41,6 @@ navigationTitle:  Metrics Reference
 ### Filesystems
    
 | Metric            | Description                  |
-navigationTitle:  Metrics Reference
 |-------------------|------------------------------|
 | filesystem.{{.Name}}.capacity.free    | Amount of available capacity in bytes. |
 | filesystem.{{.Name}}.capacity.total    | Total capacity in bytes. |
@@ -56,7 +54,6 @@ navigationTitle:  Metrics Reference
 ### Network interfaces
    
 | Metric            | Description                  |
-navigationTitle:  Metrics Reference
 |-------------------|------------------------------|
 | network.{{.Name}}.in.bytes    | Number of bytes downloaded. |
 | network.{{.Name}}.in.dropped    | Number of downloaded bytes dropped. |
@@ -77,7 +74,6 @@ The following per-container resource utilization metrics are collected.
    <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
    
 | Metric            | Description                  |
-navigationTitle:  Metrics Reference
 |-------------------|------------------------------|
 | cpus_limit    | The number of CPU shares allocated. |
 | cpus_system_time_secs    | Total CPU time spent in kernel mode in seconds. |
@@ -87,7 +83,6 @@ navigationTitle:  Metrics Reference
 ### Disk info
    
 | Metric            | Description                  |
-navigationTitle:  Metrics Reference
 |-------------------|------------------------------|
 | disk_limit_bytes    | Hard capacity limit for disk in bytes. |
 | disk_used_bytes    | Hard capacity used in bytes.  |
@@ -96,7 +91,6 @@ navigationTitle:  Metrics Reference
    <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
    
 | Metric            | Description                  |
-navigationTitle:  Metrics Reference
 |-------------------|------------------------------|
 | mem_limit_bytes    | Hard memory limit for a container. |
 | mem_total_bytes    | Total memory of a process in RAM (as opposed to in Swap). |   
@@ -106,7 +100,6 @@ navigationTitle:  Metrics Reference
 Dimensions are metadata about the metrics that are contained in a common message format and are broadcast to one or more metrics producers.
    
 | Metric            | Description                  |
-navigationTitle:  Metrics Reference
 |-------------------|------------------------------|
 | net_rx_bytes    | Bytes received. |
 | net_rx_dropped    | Packets dropped on receive.  |

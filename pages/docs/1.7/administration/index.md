@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Administration
 title: Administration
 menuWeight: 2
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  Administration
 ---
 
 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 60
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Uninstall
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

@@ -5,7 +5,6 @@ menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  DC/OS Ports
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -20,7 +19,6 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 ### TCP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
 |---|---|---|
 | 61003 | REX-Ray | `dcos-rexray.service` |
 | 61053 | Mesos DNS | `dcos-mesos-dns.service` |
@@ -33,7 +31,6 @@ navigationTitle:  DC/OS Ports
 ### UDP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
 |---|---|---|
 | 61053 | Mesos DNS | `dcos-mesos-dns.service`|
 | 62053 | DNS Forwarder (Spartan) | `dcos-spartan.service` |
@@ -44,7 +41,6 @@ navigationTitle:  DC/OS Ports
 ### TCP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
 |---|---|---|
 | 53    | DNS Forwarder (Spartan) | `dcos-spartan.service` |
 | 80    | Admin Router Master (HTTP) | `dcos-adminrouter.service` |
@@ -73,7 +69,6 @@ navigationTitle:  DC/OS Ports
 ### UDP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
 |---|---|---|
 | 53 | DNS Forwarder (Spartan) | `dcos-spartan.service` |
 
@@ -82,7 +77,6 @@ navigationTitle:  DC/OS Ports
 ### TCP
 
 | Port | DC/OS component | systemd unit |
-navigationTitle:  DC/OS Ports
 |---|---|---|
 | 5051  | Mesos Agent | `dcos-mesos-slave.service` |
 | 61001 | Admin Router Agent (HTTP) | `dcos-adminrouter-agent` |

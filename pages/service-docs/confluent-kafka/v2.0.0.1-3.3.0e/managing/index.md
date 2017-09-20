@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Managing
 title: Managing
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Managing
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->

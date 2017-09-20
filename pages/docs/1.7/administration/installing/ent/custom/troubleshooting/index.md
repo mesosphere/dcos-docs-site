@@ -5,7 +5,6 @@ menuWeight: 400
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Troubleshooting your DC/OS installation
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

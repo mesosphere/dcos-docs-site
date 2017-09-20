@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  HTTP Interface
 title: HTTP Interface
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  HTTP Interface
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Edge-LB Quickstart
 title: Edge-LB Quickstart
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Edge-LB Quickstart
 ---
 
 In this quickstart you will create an [Edge-LB pool](/docs/1.10/networking/edge-lb/architecture#edge-lb-pool), a sample service to load balance, and then access this service through [Edge-LB](/docs/1.10/networking/edge-lb/architecture#edge-lb).
@@ -19,7 +19,6 @@ In this quickstart you will create an [Edge-LB pool](/docs/1.10/networking/edge-
 1.  Create a [pool](/docs/1.10/networking/edge-lb/architecture#edge-lb-pool) configuration. There are more [examples here](/docs/1.10/networking/edge-lb/examples), and more detailed [configuration documented here](/docs/1.10/networking/edge-lb/configuration), but for this quickstart, you can use this configuration, named `sample-minimal.yaml`:
 
     ```yaml
-navigationTitle:  Edge-LB Quickstart
     ---
     pools:
       - name: sample-minimal

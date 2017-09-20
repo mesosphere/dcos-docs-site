@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Metrics API
 title: Metrics API
 menuWeight: 1
 excerpt: >
@@ -12,7 +13,6 @@ excerpt: >
   dashboards, and alerts.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Metrics API
 ---
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications.
@@ -66,7 +66,6 @@ To authenticate API requests, see [Obtaining an authentication token](/docs/1.9/
 The Metrics API also requires authorization via the following permissions:
 
 | Route | Permission |
-navigationTitle:  Metrics API
 |-------|----------|
 | `/system/v1/metrics/v0/` | `dcos:adminrouter:ops:system-metrics` |
 | `/system/v1/agent/{agent_id}/metrics/v0/` | `dcos:adminrouter:system:agent` |

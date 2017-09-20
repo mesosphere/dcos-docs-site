@@ -5,7 +5,6 @@ menuWeight: 3
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Datadog Metrics for DC/OS
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

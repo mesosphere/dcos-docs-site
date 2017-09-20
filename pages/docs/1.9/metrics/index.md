@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Metrics
 title: Metrics
 menuWeight: 100
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Metrics
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Jenkins
 title: Jenkins
 menuWeight: 45
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Jenkins
 ---
 
 

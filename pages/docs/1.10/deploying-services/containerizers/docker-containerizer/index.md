@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Docker Engine
 title: Docker Engine
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Docker Engine
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

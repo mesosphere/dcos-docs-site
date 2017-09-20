@@ -5,7 +5,6 @@ menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Installing and Customizing on Enterprise DC/OS
 ---
 
 # Installing Marathon-LB

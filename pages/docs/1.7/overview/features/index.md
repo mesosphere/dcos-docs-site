@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Features
 title: Features
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Features
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

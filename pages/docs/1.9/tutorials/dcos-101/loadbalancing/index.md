@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  Load-Balancing
+excerpt:
 title: Load-Balancing
 menuWeight: 8
 oss: true
-navigationTitle:  Load-Balancing
-excerpt:
-enterprise: false
 ---
 
 # Prerequisites

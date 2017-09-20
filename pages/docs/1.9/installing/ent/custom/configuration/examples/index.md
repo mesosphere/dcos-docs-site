@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Examples
 title: Examples
 menuWeight: 700
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Examples
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -125,7 +125,6 @@ no_proxy:
 ## DC/OS cluster with three masters, five private agents, and Exhibitor/ZooKeeper managed internally
 
 ```yaml
-navigationTitle:  Examples
 ---
 agent_list:
 - <agent-private-ip-1>
@@ -155,7 +154,6 @@ ssh_user: <username>
 ## <a name="aws"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by an AWS S3 bucket, AWS DNS, five private agents, and one public agent node
 
 ```yaml
-navigationTitle:  Examples
 ---
 agent_list:
 - <agent-private-ip-1>
@@ -190,7 +188,6 @@ ssh_user: <username>
 ## <a name="zk"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by ZooKeeper, masters that have an HTTP load balancer in front of them, one public agent node, five private agents, and Google DNS
 
 ```yaml
-navigationTitle:  Examples
 ---
 agent_list:
 - <agent-private-ip-1>

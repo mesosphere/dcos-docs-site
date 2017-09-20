@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to Services and Groups
 title: Granting Access to Services and Groups
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to Services and Groups
 ---
 
 You can implement fine-grained user access to services using either the DC/OS GUI or the API.

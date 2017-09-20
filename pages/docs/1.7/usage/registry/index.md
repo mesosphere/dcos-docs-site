@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Deploying a private Docker registry
   using VIPs
@@ -7,7 +8,6 @@ menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  >
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

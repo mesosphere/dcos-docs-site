@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 90
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Tutorials
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

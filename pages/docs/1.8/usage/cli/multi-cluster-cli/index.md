@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Connecting to Multiple Clusters
 navigationTitle: Multiple Clusters  
 menuWeight: 3.1
-excerpt:
-enterprise: false
 ---
 
 You can connect the CLI to multiple DC/OS clusters at the same time by using the `DCOS_CONFIG` environment variable. With this variable you can specify a terminal-specific CLI configurations. 

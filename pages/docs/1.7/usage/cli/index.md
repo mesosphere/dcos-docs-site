@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  CLI
 title: CLI
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  CLI
 ---
 
 

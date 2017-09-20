@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Managing AWS
 title: Managing AWS
 menuWeight: 9
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Managing AWS
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

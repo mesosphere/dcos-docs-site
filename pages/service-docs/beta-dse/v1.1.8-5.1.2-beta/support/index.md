@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Support
 title: Support
 menuWeight: 130
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Support
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->

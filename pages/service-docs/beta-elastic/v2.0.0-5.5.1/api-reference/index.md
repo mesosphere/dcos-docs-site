@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  API Reference
 title: API Reference
 menuWeight: 38
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  API Reference
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

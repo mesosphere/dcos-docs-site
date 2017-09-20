@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Opt-Out
-menuWeight: 5
 navigationTitle:  Opt-Out
 excerpt:
-enterprise: false
+title: Opt-Out
+menuWeight: 5
 ---
 
 ## Authentication

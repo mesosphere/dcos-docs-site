@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Installing the CLI
 title: Installing the CLI
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Installing the CLI
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

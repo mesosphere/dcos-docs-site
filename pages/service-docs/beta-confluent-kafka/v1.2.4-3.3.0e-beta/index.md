@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Confluent Kafka v1.2.4-3.3.0e-beta
 title: Beta Confluent Kafka v1.2.4-3.3.0e-beta
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Beta Confluent Kafka v1.2.4-3.3.0e-beta
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->

@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Establishing trust in your curl commands
 title: Establishing trust in your curl commands
 menuWeight: 400
 excerpt: >
@@ -9,7 +10,6 @@ excerpt: >
   `strict` security modes.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Establishing trust in your curl commands
 ---
 
 **Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/docs/1.10/networking/tls-ssl/get-cert/).

@@ -4,8 +4,6 @@ title: DC/OS Ports
 menuWeight: 4
 excerpt:
 featureMaturity:
-navigationTitle:  DC/OS Ports
-enterprise: false
 ---
 
 This topic lists the ports that are required to launch DC/OS. Additional ports may be required to launch the individual DC/OS services.
@@ -15,8 +13,6 @@ This topic lists the ports that are required to launch DC/OS. Additional ports m
 ### TCP
 
 |Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|
 |  61003 | REX-Ray (`dcos-rexray.service`) (default) |  
 |  61053 |  Mesos DNS (`dcos-mesos-dns.service`) |
@@ -32,8 +28,6 @@ enterprise: false
 ### UDP
 
 |Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|
 |61053 | Mesos DNS (`dcos-mesos-dns.service`) |
 |  62053 |  DNS Dispatcher (`dcos-spartan.service`) |
@@ -44,8 +38,6 @@ enterprise: false
 ### TCP
 
 |Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|
 |  53 |  DNS Dispatcher (`dcos-spartan.service`) |  
 |  80 |  Admin Router Service (`dcos-adminrouter.service`) |  
@@ -73,8 +65,6 @@ enterprise: false
 ### UDP
 
 |Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|
 |  53 |  DNS Dispatcher (`dcos-spartan.service`)  |
 
@@ -83,8 +73,6 @@ enterprise: false
 ### TCP
 
 |Port   |DC/OS [component](/docs/1.8/overview/components/) and systemd unit   | 
-navigationTitle:  DC/OS Ports
-enterprise: false
 |---|---|
 |  5051 |  Mesos Agent (`dcos-mesos-slave.service`) |  
 |  61001 | Admin Router Agent (`dcos-adminrouter-agent`) |  

@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
 menuWeight: 4
-excerpt:
-enterprise: false
 ---
 
 # Prerequisites

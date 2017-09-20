@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Secrets API
 title: Secrets API
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Secrets API
 ---
 
 

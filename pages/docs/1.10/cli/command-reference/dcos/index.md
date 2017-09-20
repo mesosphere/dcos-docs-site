@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos
 title: dcos
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos [options] [<command>] [<args>...]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos
 |---------|-------------|-------------|
 | `--debug`   |             |  Enable debug mode. |
 | `--help, h`   |             |  Print usage. |

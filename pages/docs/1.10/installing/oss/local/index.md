@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Install DC/OS with Vagrant
 navigationTitle: Local
 menuWeight: 3
-excerpt:
-enterprise: false
 ---
 
 DC/OS Vagrant uses Vagrant and VirtualBox to create a cluster of virtual machines on your local machine that can be used for demos, development, and testing with DC/OS.

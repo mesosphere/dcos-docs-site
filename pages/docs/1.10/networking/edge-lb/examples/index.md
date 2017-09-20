@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Edge-LB Examples
 title: Edge-LB Examples
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Edge-LB Examples
 ---
 
 # <a name="sample-certificates"></a>SSL/TLS Certificate Usage
@@ -17,7 +17,6 @@ This example demonstrates 3 different ways to get and use a certificate:
 - (Insecure) Environment variables.
 
 ```yaml
-navigationTitle:  Edge-LB Examples
 ---
 pools:
   - name: sample-certificates
@@ -28,15 +27,11 @@ pools:
         file: mysecretfile
     environmentVariables:
       ELB_FILE_HAPROXY_CERT: |
-navigationTitle:  Edge-LB Examples
         -----BEGIN CERTIFICATE-----
         foo
-navigationTitle:  Edge-LB Examples
         -----END CERTIFICATE-----
-navigationTitle:  Edge-LB Examples
         -----BEGIN RSA PRIVATE KEY-----
         bar
-navigationTitle:  Edge-LB Examples
         -----END RSA PRIVATE KEY-----
     haproxy:
       frontends:
@@ -79,7 +74,6 @@ This example sets the following HTTP/HTTPs paths:
 - `http://<public-ip>/bar` - The `bar-svc` service.
 
 ```yaml
-navigationTitle:  Edge-LB Examples
 ---
 pools:
   - name: sample-path-routing
@@ -145,7 +139,6 @@ This example sets the following VHost routes:
 - `http://bar.example.com` - The `bar-svc` service.
 
 ```yaml
-navigationTitle:  Edge-LB Examples
 ---
 pools:
   - name: sample-vhost-routing
@@ -190,7 +183,6 @@ This example customizes the healthcheck in the following ways:
 - HTTP healthcheck does a HTTP `GET` request on `/health/check/endpoint`.
 
 ```yaml
-navigationTitle:  Edge-LB Examples
 ---
 pools:
   - name: sample-health-check

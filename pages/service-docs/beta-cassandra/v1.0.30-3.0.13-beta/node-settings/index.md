@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Node Settings
 title: Node Settings
 menuWeight: 50
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Node Settings
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta DSE 1.1.7-5.0.7-beta
 title: Beta DSE 1.1.7-5.0.7-beta
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Beta DSE 1.1.7-5.0.7-beta
 ---
 
 DataStax Enterprise (DSE) Service is an automated service that makes it easy to deploy and manage DataStax Enterprise clusters on Mesosphere DC/OS, eliminating nearly all of the complexity traditionally associated with managing a DataStax cluster. DataStax Enterprise helps customers of all sizes build and run cloud-native applications at epic scale.  Our customers have been using our technology to build personalization, IoT, Customer 360 type applications, just to name a few.  Inside DataStax Enterprise, you will find Solr to power our Search capability, Spark for Analytics, and a graph database for highly connected data sets. Multiple DataStax clusters can be installed on DC/OS and managed independently, so you can offer DataStax Enterprise as a managed service to your organization.

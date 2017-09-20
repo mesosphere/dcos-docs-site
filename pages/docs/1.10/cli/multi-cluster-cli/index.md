@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Connecting to Multiple Clusters
 title: Connecting to Multiple Clusters
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Connecting to Multiple Clusters
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

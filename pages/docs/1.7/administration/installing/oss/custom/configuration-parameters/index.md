@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Install Configuration Parameters
 navigationTitle: Config
 menuWeight: 600
-excerpt:
-enterprise: false
 ---
 
 These configuration parameters are specified in [YAML][1] format in your config.yaml file. During DC/OS installation the configuration file is used to generate a customized DC/OS build. <!-- A config.yaml template file is available [here][2]. -->
@@ -151,8 +150,6 @@ If you’ve already installed your cluster and would like to disable this in-pla
 #### DC/OS cluster with 3 masters, 5 agents, and static master list specified.
 
 ```yaml
-excerpt:
-enterprise: false
 ---
 agent_list:
 - <agent-private-ip-1>
@@ -181,8 +178,6 @@ ssh_user: <username>
 #### <a name="shared"></a>DC/OS cluster with 3 masters, an Exhibitor/ZooKeeper shared filesystem storage backend, Internal DNS
 
 ```yaml
-excerpt:
-enterprise: false
 ---
 agent_list:
 - <agent-private-ip-1>
@@ -212,8 +207,6 @@ ssh_user: <username>
 #### <a name="aws"></a>DC/OS Cluster with 3 masters, an Exhibitor/ZooKeeper backed by an AWS S3 bucket, AWS DNS, and a public agent node
 
 ```yaml
-excerpt:
-enterprise: false
 ---
 agent_list:
 - <agent-private-ip-1>
@@ -248,8 +241,6 @@ ssh_user: <username>
 #### <a name="zk"></a>DC/OS cluster with 3 masters, an Exhibitor/ZooKeeper backed by ZooKeeper, http load balancer master discovery, public agent node, and Google DNS
 
 ```yaml
-excerpt:
-enterprise: false
 ---
 agent_list:
 - <agent-private-ip-1>

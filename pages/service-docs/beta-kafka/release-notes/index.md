@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 40
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Release Notes
 ---
 
 ## Kafka 1.1.27-0.11.0-beta

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Discovering Service DNS Names
 title: Discovering Service DNS Names
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Discovering Service DNS Names
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

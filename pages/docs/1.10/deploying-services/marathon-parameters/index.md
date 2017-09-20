@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Marathon Configuration Reference
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

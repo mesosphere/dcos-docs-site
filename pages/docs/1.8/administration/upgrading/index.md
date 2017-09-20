@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Upgrading
 title: Upgrading
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Upgrading
 ---
 
 This document provides instructions for upgrading a DC/OS cluster.  

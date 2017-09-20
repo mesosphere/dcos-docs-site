@@ -5,7 +5,6 @@ menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Enterprise DC/OS CLI
 ---
 
 The Enterprise DC/OS CLI is used to manage security features.

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Adding Agent Nodes
 title: Adding Agent Nodes
 menuWeight: 800
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Adding Agent Nodes
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

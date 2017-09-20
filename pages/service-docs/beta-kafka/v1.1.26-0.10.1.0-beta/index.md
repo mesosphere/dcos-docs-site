@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Kafka 1.1.26-0.10.1.0-beta
 title: Beta Kafka 1.1.26-0.10.1.0-beta
 menuWeight: 10
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta Kafka 1.1.26-0.10.1.0-beta
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

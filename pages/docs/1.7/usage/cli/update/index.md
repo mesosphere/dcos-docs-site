@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Updating the CLI
 title: Updating the CLI
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Updating the CLI
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

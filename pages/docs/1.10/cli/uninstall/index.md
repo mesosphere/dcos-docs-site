@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling the CLI
 title: Uninstalling the CLI
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Uninstalling the CLI
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

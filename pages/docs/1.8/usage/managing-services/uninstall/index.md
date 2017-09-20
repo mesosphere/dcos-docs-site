@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Uninstalling Services
 title: Uninstalling Services
 menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Uninstalling Services
 ---
 
 ## About uninstalling services

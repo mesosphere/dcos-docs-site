@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Sealing the Secret Store
 title: Sealing the Secret Store
 menuWeight: 2
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Sealing the Secret Store
 ---
 
 You may want to manually seal the Secret Store to protect its contents from an intruder.

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Package Versioning
 title: Package Versioning
 menuWeight: 80
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Package Versioning
 ---
 
 Packages are versioned with an `a.b.c-x.y.z` format, where `a.b.c` is the version of the service management layer and `x.y.z` indicates the version of Confluent Kafka. For example, `1.1.20-3.2.0` indicates version `1.1.20` of the service management layer and version `3.2.0` of Confluent Kafka.

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  External Persistent Volumes
 title: External Persistent Volumes
 menuWeight: 1
 excerpt:
 featureMaturity: experimental
 enterprise: false
-navigationTitle:  External Persistent Volumes
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

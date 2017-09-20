@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to the Services Tab
 title: Granting Access to the Services Tab
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to the Services Tab
 ---
 
 You can grant users access to the Services tab. By default, new users have no permissions.

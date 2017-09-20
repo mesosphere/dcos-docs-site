@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Connecting Clients
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/ -->

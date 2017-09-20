@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Release Notes for 1.9.0 RC3
 title: Release Notes for 1.9.0 RC3
 menuWeight: 14
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Release Notes for 1.9.0 RC3
 ---
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:

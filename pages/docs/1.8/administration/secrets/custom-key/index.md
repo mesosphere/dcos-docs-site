@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Reinitializing the Secret Store with a
   custom GPG keypair
@@ -7,7 +8,6 @@ menuWeight: 4
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  >
 ---
 
 **Prerequisites:**

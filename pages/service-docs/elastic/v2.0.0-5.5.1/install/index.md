@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Install and Customize
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/frameworks/elastic -->

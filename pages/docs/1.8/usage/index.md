@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Usage
 title: Usage
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Usage
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

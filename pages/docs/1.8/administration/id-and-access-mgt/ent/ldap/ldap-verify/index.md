@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Verifying the LDAP connection
 title: Verifying the LDAP connection
 menuWeight: 3
 excerpt: >
@@ -8,7 +9,6 @@ excerpt: >
   server.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Verifying the LDAP connection
 ---
 
 

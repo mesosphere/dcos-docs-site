@@ -5,7 +5,6 @@ menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  DC/OS Integration
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

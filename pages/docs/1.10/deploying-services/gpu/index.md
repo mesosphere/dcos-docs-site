@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using GPUs
 title: Using GPUs
 menuWeight: 110
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Using GPUs
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -104,17 +104,14 @@ In this example, a simple sleep app is defined which uses GPUs.
     After your service has deployed, check the contents of `stdout` to verify that the service is producing the proper output from the `nvidia-smi` command. You should see something like the following, repeated once every 5 seconds. Access the log [via the DC/OS CLI](/docs/1.10/monitoring/logging/quickstart/) or from the **Health** page for your service on the DC/OS dashboard.
     
     ```bash
-navigationTitle:  Using GPUs
     +------------------------------------------------------+
     | NVIDIA-SMI 352.79     Driver Version: 352.79         |
-navigationTitle:  Using GPUs
     |-------------------------------+----------------------+----------------------+
     | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
     | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
     |===============================+======================+======================|
     |   0  Tesla M60           Off  | 0000:04:00.0     Off |                    0 |
     | N/A   34C    P0    39W / 150W |     34MiB /  7679MiB |      0%      Default |
-navigationTitle:  Using GPUs
     +-------------------------------+----------------------+----------------------+
     ```
 
@@ -153,17 +150,14 @@ In this example, an app is deployed with GPUs that specifies a Docker container 
     After your service has deployed, check the contents of `stdout` to verify that the service is producing the proper output from the `nvidia-smi` command. You should see something like the following, repeated once every 5 seconds. Access the log [via the DC/OS CLI](/docs/1.10/monitoring/logging/quickstart/) or from the **Health** page for your service on the DC/OS dashboard.
 
     ```
-navigationTitle:  Using GPUs
     +------------------------------------------------------+
     | NVIDIA-SMI 352.79     Driver Version: 352.79         |
-navigationTitle:  Using GPUs
     |-------------------------------+----------------------+----------------------+
     | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
     | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
     |===============================+======================+======================|
     |   0  Tesla M60           Off  | 0000:04:00.0     Off |                    0 |
     | N/A   34C    P0    39W / 150W |     34MiB /  7679MiB |      0%      Default |
-navigationTitle:  Using GPUs
     +-------------------------------+----------------------+----------------------+
     ```
     

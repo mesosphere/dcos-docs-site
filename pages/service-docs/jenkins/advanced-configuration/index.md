@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Advanced Configuration
 title: Advanced Configuration
 menuWeight: 4
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Advanced Configuration
 ---
 <h1>Advanced configuration</h1>
 

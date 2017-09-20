@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb pool config
 title: dcos edgelb pool config
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb pool config
 ---
 
 
@@ -21,7 +21,6 @@ dcos edgelb pool config <name> [<file>] [OPTIONS]
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool config
 |---------|-------------|-------------|
 | `<name>`   |             |  Pool name. |
 | `[<file>]`   |             |  JSON file that contains Edge-LB configuration.  |
@@ -29,7 +28,6 @@ navigationTitle:  dcos edgelb pool config
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool config
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -42,7 +40,6 @@ navigationTitle:  dcos edgelb pool config
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos edgelb pool config
 |---------|-------------|
 | [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 

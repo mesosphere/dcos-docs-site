@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: How to use Chronos on DC/OS
 navigationTitle: Chronos
 menuWeight: 3
 oss: true
-excerpt:
-enterprise: false
 ---
 
 Chronos is the "cron" for your Mesosphere DC/OS. It is a highly-available distributed job scheduler, providing the most robust way to run batch jobs in your datacenter. Chronos schedules jobs across the Mesos cluster and manages dependencies between jobs in an intelligent way.
@@ -61,8 +60,6 @@ Chronos is the "cron" for your Mesosphere DC/OS. It is a highly-available distri
 
     ```bash
     NAME     VERSION  APP               COMMAND  DESCRIPTION
-excerpt:
-enterprise: false
     chronos  2.4.0    /chronos          ---      A fault tolerant job scheduler for Mesos which handles dependencies and ISO8601 based schedules.
     ```
 

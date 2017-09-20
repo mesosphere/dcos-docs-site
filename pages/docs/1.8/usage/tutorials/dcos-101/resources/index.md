@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: Understanding Resources
 navigationTitle: Understanding Resources
 menuWeight: 8
 oss: true
-excerpt:
-enterprise: false
 ---
 
 # Prerequisites

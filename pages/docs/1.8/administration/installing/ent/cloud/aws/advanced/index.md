@@ -5,7 +5,6 @@ menuWeight: 200
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Running DC/OS on AWS EC2 Advanced
 ---
 
 

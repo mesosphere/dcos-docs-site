@@ -1,3 +1,4 @@
+---
 layout: layout.pug
 title: Install And Customize
 excerpt:

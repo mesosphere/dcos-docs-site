@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Multiple Zones
 title: Multiple Zones
 menuWeight: 1
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Multiple Zones
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

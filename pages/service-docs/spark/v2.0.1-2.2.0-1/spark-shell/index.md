@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Interactive Spark Shell
 title: Interactive Spark Shell
 menuWeight: 90
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Interactive Spark Shell
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

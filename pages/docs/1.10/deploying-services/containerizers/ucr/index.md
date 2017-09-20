@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Universal Container Runtime
 title: Universal Container Runtime
 menuWeight: 10
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Universal Container Runtime
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

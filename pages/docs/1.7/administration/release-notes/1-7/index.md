@@ -5,7 +5,6 @@ menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  DC/OS 1.7
 ---
 
 

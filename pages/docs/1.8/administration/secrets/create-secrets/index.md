@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Creating secrets
 title: Creating secrets
 menuWeight: 0
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Creating secrets
 ---
 
 

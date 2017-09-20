@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Telemetry
 title: Telemetry
 menuWeight: 7
 excerpt:
 enterprise: false
 featureMaturity:
-navigationTitle:  Telemetry
 ---
 
 

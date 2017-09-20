@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos node
 title: dcos node
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos node
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos node [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos node
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
@@ -33,7 +32,6 @@ navigationTitle:  dcos node
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos node
 |---------|-------------|
 | [dcos node diagnostics](/docs/1.9/cli/command-reference/dcos-node/dcos-node-diagnostics/)   | View the details of diagnostics bundles. |  
 | [dcos node diagnostics create](/docs/1.9/cli/command-reference/dcos-node/dcos-node-diagnostics-create/)   | Create a diagnostics bundle.|  

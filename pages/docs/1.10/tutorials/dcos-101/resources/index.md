@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+excerpt:
 title: Understanding Resources
 navigationTitle: Understanding Resources
 <<<<<<< HEAD
@@ -7,8 +8,6 @@ menuWeight: 7
 =======
 menuWeight: 7
 >>>>>>> 4f2bccd18019ce3393bf6efbd94321df9ce0a43a
-excerpt:
-enterprise: false
 ---
 
 # Prerequisites

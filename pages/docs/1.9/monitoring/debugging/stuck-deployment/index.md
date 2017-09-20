@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Stuck Deployments
 title: Stuck Deployments
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Stuck Deployments
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

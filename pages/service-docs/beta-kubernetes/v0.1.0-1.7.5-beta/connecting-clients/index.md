@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Connecting Clients
 ---
 
 1. [Install `kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) on your local machine.

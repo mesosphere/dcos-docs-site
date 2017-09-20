@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 0
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Install and Customize
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->
@@ -19,7 +19,6 @@ Spark is available in the Universe and can be installed by using either the GUI 
 - Depending on your [security mode](/1.10security/ent/#security-modes), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](/service-docs/spark/spark-auth/).
 
   | Security mode | Service Account |
-navigationTitle:  Install and Customize
   |---------------|-----------------------|
   | Disabled      | Not available   |
   | Permissive    | Optional   |

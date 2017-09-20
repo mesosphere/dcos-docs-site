@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Assigning permissions
 title: Assigning permissions
 menuWeight: 800
 excerpt: >
@@ -8,7 +9,6 @@ excerpt: >
   interface or the IAM API.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Assigning permissions
 ---
 
 

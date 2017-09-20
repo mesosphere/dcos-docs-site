@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos auth list-providers
 title: dcos auth list-providers
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos auth list-providers
 ---
 
 # Description
@@ -20,14 +20,12 @@ dcos auth list-providers [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos auth list-providers
 |---------|-------------|-------------|
 | `--json`   |             | Specify a JSON-formatted list of authentication providers. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos auth list-providers
 |---------|-------------|
 | [dcos auth](/docs/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Spark 1.1.0-2.1.1
 title: Spark 1.1.0-2.1.1
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Spark 1.1.0-2.1.1
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->

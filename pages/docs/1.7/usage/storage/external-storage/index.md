@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  External Volumes (experimental)
 title: External Volumes (experimental)
 menuWeight: 1
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  External Volumes (experimental)
 ---
 
 

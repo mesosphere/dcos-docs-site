@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Configuring Linux users for user
   services via Marathon app definition
@@ -10,7 +11,6 @@ excerpt: >
   and how to modify it.
 featureMaturity:
 enterprise: true
-navigationTitle:  >
 ---
 
 

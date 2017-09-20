@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Command Reference
 title: Command Reference
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Command Reference
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -13,7 +13,6 @@ navigationTitle:  Command Reference
 
 
 | Command | Description |
-navigationTitle:  Command Reference
 |---------|-------------|
 | [dcos](/docs/1.9/cli/command-reference/dcos-auth/)   | Manage DC/OS environment variables. |
 | [dcos auth](/docs/1.9/cli/command-reference/dcos-auth/)   |  Manage DC/OS identity and access. |

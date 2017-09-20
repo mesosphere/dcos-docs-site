@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb pool status
 title: dcos edgelb pool status
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb pool status
 ---
 
 
@@ -21,7 +21,6 @@ dcos edgelb [<flags>] pool status [<flags>] <name>
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool status
 |---------|-------------|-------------|
 | `<name>`   |             | Pool name. |
 
@@ -29,7 +28,6 @@ navigationTitle:  dcos edgelb pool status
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb pool status
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -44,7 +42,6 @@ navigationTitle:  dcos edgelb pool status
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos edgelb pool status
 |---------|-------------|
 | [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 

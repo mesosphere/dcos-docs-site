@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  CLI Installer
 title: CLI Installer
 menuWeight: 200
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  CLI Installer
 ---
 
 
@@ -18,7 +18,6 @@ This installation method uses a bootstrap node to administer the DC/OS installat
 The DC/OS installation creates these folders:
 
 | Folder                                  | Description                                                                                                                                    |
-navigationTitle:  CLI Installer
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |

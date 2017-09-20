@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying a Local Universe
 title: Deploying a Local Universe
 menuWeight: 1000
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Deploying a Local Universe
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

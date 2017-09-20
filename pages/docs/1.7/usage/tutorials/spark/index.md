@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: How to use Apache Spark on DC/OS
 navigationTitle: Spark
 menuWeight: 11
 oss: true
-excerpt:
-enterprise: false
 ---
 
 [Apache Spark](https://spark.apache.org/) is a general-purpose data processing engine. It supports batch and stream processing and comes with built-in APIs for SQL, machine learning and graph workloads. Spark is storage-layer agnostic, meaning it doesn't come with its own storage system but provides connectors to read data from and write data into, for example, the local filesystem, HDFS, Kafka, Cassandra, Elasticsearch, and HBase.

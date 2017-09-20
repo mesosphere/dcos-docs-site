@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Backup and Restore
 title: Backup and Restore
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Backup and Restore
 ---
 
 As of DC/OS 1.10, you can back up the state of the native Marathon instance of your cluster, and later restore from that backup. Future DC/OS releases will support backing up other DC/OS components as well as select frameworks running on top of DC/OS (including Marathon on Marathon).

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Using Containerizers
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

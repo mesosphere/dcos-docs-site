@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Creating a Public Agent
 title: Creating a Public Agent
 menuWeight: 700
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Creating a Public Agent
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

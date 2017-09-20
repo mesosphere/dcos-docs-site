@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Edge-LB Configuration
 title: Edge-LB Configuration
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Edge-LB Configuration
 ---
 
 # Swagger Specification

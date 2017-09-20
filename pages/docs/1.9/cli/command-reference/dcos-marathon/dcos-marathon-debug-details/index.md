@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon debug details
 title: dcos marathon debug details
 menuWeight: 11
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon debug details
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,21 +23,18 @@ dcos marathon debug details <app-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon debug details
 |---------|-------------|-------------|
 | `--json`   |             |  Print JSON-formatted data. |
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon debug details
 |---------|-------------|-------------|
 | `<app-id>`   |             |  The application ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos marathon debug details
 |---------|-------------|
 | [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

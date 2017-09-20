@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Limitations
 title: Limitations
 menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Limitations
 ---
 
 - Shrinking cluster size (number of brokers) is not supported.

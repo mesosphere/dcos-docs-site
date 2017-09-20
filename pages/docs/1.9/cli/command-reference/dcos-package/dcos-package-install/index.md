@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos package install
 title: dcos package install
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos package install
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos package install <package-name> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos package install
 |---------|-------------|-------------|
 | `--app`   |             |  Application only. |
 | `--app-id=<app-id>`   |             |  The application ID. |
@@ -35,14 +34,12 @@ navigationTitle:  dcos package install
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos package install
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |
         
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos package install
 |---------|-------------|
 | [dcos package](/docs/1.9/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 

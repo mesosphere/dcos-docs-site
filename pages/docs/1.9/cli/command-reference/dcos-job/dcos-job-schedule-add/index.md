@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos job schedule add
 title: dcos job schedule add
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos job schedule add
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -27,7 +27,6 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job schedule add
 |---------|-------------|-------------|
 | `<job-id>`   |             |  Specify the job ID. |
 | `<schedule-file>`   |             |  A JSON formatted job schedule file. |
@@ -35,7 +34,6 @@ navigationTitle:  dcos job schedule add
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos job schedule add
 |---------|-------------|
 | [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 

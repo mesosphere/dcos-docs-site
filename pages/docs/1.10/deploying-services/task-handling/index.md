@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Task Handling
 title: Task Handling
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Task Handling
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

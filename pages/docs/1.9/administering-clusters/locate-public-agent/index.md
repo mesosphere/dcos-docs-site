@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Finding a Public Agent IP
 title: Finding a Public Agent IP
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Finding a Public Agent IP
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Provisioning Jenkins
 title: Provisioning Jenkins
 menuWeight: 550
 excerpt: >
@@ -8,7 +9,6 @@ excerpt: >
   account.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Provisioning Jenkins
 ---
 
 

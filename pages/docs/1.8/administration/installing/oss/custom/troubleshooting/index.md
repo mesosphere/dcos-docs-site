@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Troubleshooting a Custom Installation
 navigationTitle: Troubleshooting
 menuWeight: 400
-excerpt:
-enterprise: false
 ---
 
 # <a name="general"></a>General troubleshooting approach

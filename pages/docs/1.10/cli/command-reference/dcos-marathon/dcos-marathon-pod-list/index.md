@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon pod list
 title: dcos marathon pod list
 menuWeight: 25
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon pod list
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos marathon pod list [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon pod list
 |---------|-------------|-------------|
 | `--config-schema`   |             |  Show the configuration schema for the Marathon subcommand. |
 | `--json`   |             |  Print JSON-formatted data. |
@@ -31,7 +30,6 @@ navigationTitle:  dcos marathon pod list
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos marathon pod list
 |---------|-------------|
 | [dcos marathon](/docs/1.10/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

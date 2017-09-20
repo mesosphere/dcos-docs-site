@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Docker Containerizer
 title: Docker Containerizer
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Docker Containerizer
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -5,7 +5,6 @@ menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Enterprise DC/OS CLI
 ---
 
 # <a name="sys-reqs"></a>Requirements

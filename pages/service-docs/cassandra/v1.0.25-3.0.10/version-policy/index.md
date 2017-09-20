@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 95
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Version Policy
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos package uninstall
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos package uninstall <package-name> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos package uninstall
 |---------|-------------|-------------|
 | `--all`   |             |  All packages. |
 | `--app`   |             |  Application only. |
@@ -33,14 +32,12 @@ navigationTitle:  dcos package uninstall
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos package uninstall
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |
         
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos package uninstall
 |---------|-------------|
 | [dcos package](/docs/1.9/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 

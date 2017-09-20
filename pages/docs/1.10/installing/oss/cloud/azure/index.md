@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Running DC/OS on Azure
 navigationTitle: Azure
 menuWeight: 1
-excerpt:
-enterprise: false
 ---
 
 This topic explains how to install DC/OS using the Azure Resource Manager templates.

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying a Docker-based Service
 title: Deploying a Docker-based Service
 menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Deploying a Docker-based Service
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -139,7 +139,6 @@ In this tutorial, a custom Docker app is created and added to Marathon.
     ```bash
     dcos marathon app list
     ID      MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
-navigationTitle:  Deploying a Docker-based Service
     /nginx   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 

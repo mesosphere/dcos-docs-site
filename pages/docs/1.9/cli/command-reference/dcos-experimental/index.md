@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos experimental
 title: dcos experimental
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos experimental
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos experimental [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos experimental
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
@@ -32,7 +31,6 @@ navigationTitle:  dcos experimental
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos experimental
 |---------|-------------|
 | [dcos experimental package add](/docs/1.9/cli/command-reference/dcos-experimental/dcos-experimental-package-add/)   |  Add a DC/OS package to DC/OS. |     
 | [dcos experimental package build](/docs/1.9/cli/command-reference/dcos-experimental/dcos-experimental-package-build/)   |  Build a package locally to be added to DC/OS or to be shared with Universe. |     

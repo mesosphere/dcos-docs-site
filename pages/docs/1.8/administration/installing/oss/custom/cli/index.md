@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200
-excerpt:
-enterprise: false
 ---
 
 The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options.
@@ -148,8 +147,6 @@ Your cluster must meet the software and hardware [requirements](/docs/1.8/admini
     **Tip:** If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 
     ```yaml
-excerpt:
-enterprise: false
     ---
     agent_list:
     - <agent-private-ip-1>

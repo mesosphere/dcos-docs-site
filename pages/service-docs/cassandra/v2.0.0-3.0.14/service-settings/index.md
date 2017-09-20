@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Settings
 title: Service Settings
 menuWeight: 21
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Service Settings
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  CLI Specification
 title: CLI Specification
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  CLI Specification
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

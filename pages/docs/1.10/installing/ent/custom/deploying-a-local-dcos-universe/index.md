@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying a local package repository
 title: Deploying a local package repository
 menuWeight: 1000
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Deploying a local package repository
 ---
 
 

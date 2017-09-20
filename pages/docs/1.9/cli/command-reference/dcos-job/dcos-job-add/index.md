@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos job add
 title: dcos job add
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos job add
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -27,14 +27,12 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job add
 |---------|-------------|-------------|
 | `<job-file>`   |             |  A JSON-formatted job definition. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos job add
 |---------|-------------|
 | [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 

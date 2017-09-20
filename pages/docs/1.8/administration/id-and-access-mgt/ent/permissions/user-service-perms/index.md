@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  User service permissions
 title: User service permissions
 menuWeight: 600
 excerpt: >
@@ -11,7 +12,6 @@ excerpt: >
   security modes.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  User service permissions
 ---
 
 # About the user service permissions

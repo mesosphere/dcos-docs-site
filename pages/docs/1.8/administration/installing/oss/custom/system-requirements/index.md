@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: System Requirements
-menuWeight: 000
 navigationTitle:  System Requirements
 excerpt:
-enterprise: false
+title: System Requirements
+menuWeight: 000
 ---
 
 # Hardware Prerequisites

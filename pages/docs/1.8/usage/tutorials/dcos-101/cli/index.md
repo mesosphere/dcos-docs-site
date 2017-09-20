@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: First Steps
 navigationTitle: First Steps
 menuWeight: 1
 oss: true
-excerpt:
-enterprise: false
 ---
 
 Welcome to part 1 of the DC/OS 101 Tutorial.

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos marathon deployment rollback
 title: dcos marathon deployment rollback
 menuWeight: 15
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos marathon deployment rollback
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -27,14 +27,12 @@ None.
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos marathon deployment rollback
 |---------|-------------|-------------|
 | `<deployment-id>`   |             |  The deployment ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos marathon deployment rollback
 |---------|-------------|
 | [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

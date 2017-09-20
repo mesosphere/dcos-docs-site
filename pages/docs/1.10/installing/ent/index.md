@@ -5,7 +5,6 @@ menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Installing and Upgrading Enterprise DC/OS
 ---
 
 Enterprise DC/OS is designed to be configured, deployed, managed, scaled, and upgraded on any cluster of physical or virtual machines. You can install DC/OS in the environment of your choice by using a customized setup file or cloud templates.

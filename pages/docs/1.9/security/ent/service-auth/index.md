@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Authentication
 title: Service Authentication
 menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Service Authentication
 ---
 
 Service accounts are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS [services](/docs/1.9/overview/concepts/#dcos-service) to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
@@ -13,7 +13,6 @@ Service accounts are used in conjunction with public-private key pairs, secrets,
 DC/OS services require authentication depending on your security mode.
 
 | Security mode | Intracluster communication | External cluster communication |
-navigationTitle:  Service Authentication
 |---------------|-----------------------|----------------------------|
 | Disabled      | Optional              | Required                   |
 | Permissive    | Optional              | Required                   |

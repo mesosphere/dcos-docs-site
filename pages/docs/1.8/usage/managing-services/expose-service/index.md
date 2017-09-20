@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Exposing a Service
 title: Exposing a Service
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Exposing a Service
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -65,7 +65,6 @@ To launch a service on a public node, you must create a Marathon app definition 
     
     ```bash
     ID      MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
-navigationTitle:  Exposing a Service
         /myapp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
     

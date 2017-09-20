@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos job kill
 title: dcos job kill
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos job kill
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos job kill <job-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job kill
 |---------|-------------|-------------|
 | `run-id`   |             |  The job run ID. |
 | `--all`   |             |  Kill all job runs. |
@@ -31,14 +30,12 @@ navigationTitle:  dcos job kill
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job kill
 |---------|-------------|-------------|
 | `<job-id>`   |             |  Specify the job ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos job kill
 |---------|-------------|
 | [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 

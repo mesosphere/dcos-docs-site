@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Secrets
 title: Secrets
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Secrets
 ---
 
 Use the Enterprise DC/OS Secret Store to secure sensitive information like database passwords, API tokens, and private keys. Storing secrets in secret paths allows you to restrict which services can retrieve the value.

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Pods
 title: Pods
 menuWeight: 85
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Pods
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

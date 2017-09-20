@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: Updating Marathon Services Inline
 navigationTitle: Inline Update
 menuWeight: 2
 oss: true
-excerpt:
-enterprise: false
 ---
 
 The [DC/OS CLI][1] Marathon sub-command allows you to easily view and update the configuration of existing applications.

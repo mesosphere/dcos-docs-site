@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Troubleshooting
-menuWeight: 400
 navigationTitle:  Troubleshooting
 excerpt:
-enterprise: false
+title: Troubleshooting
+menuWeight: 400
 ---
 
 # <a name="general"></a>General troubleshooting approach

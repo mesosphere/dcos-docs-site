@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Kafka
 title: Beta Kafka
 menuWeight: 110
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta Kafka
 ---
 
 Welcome to the documentation for the Apache DC/OS Kafka Beta. Choose a version to get started!

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Storage
 title: Storage
 menuWeight: 8
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  Storage
 ---
 
 

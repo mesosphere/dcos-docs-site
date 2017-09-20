@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos edgelb
 title: dcos edgelb
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  dcos edgelb
 ---
 
 # Description
@@ -20,7 +20,6 @@ dcos edgelb [<flags>] [OPTIONS] [<args> ...]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos edgelb
 |---------|-------------|-------------|
 | `--help, h`   |             |  Print usage. |
 | `--verbose`   |             |  Enable additional logging of requests and responses. |
@@ -33,7 +32,6 @@ navigationTitle:  dcos edgelb
 # Child commands
 
 | Command | Description |
-navigationTitle:  dcos edgelb
 |---------|-------------|
 |[dcos edgelb config](/docs/1.10/cli/command-reference/dcos-edgelb/dcos-edgelb-config/) | View or update the Edge-LB configuration. |
 |[dcos edgelb ping](/docs/1.10/cli/command-reference/dcos-edgelb/dcos-edgelb-ping/) | Test the readiness of the Edge-LB API server. |

@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Installing OSS DC/OS
 navigationTitle: Installing
 menuWeight: 1
-excerpt:
-enterprise: false
 ---
 
 DC/OS can be installed on any cluster of physical or virtual machines.

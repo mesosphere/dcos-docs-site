@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Networking
 title: Networking
 menuWeight: 70
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Networking
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

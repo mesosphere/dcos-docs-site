@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying Marathon Apps with Jenkins
 title: Deploying Marathon Apps with Jenkins
 menuWeight: 7
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Deploying Marathon Apps with Jenkins
 ---
 
 This tutorial shows how to deploy applications on [Marathon][1] using Jenkins for DC/OS. We'll walk you through creating a new Jenkins job, publishing a Docker container on source code changes, and deploying those changes to Marathon based on the [application definition][3] contained in the project’s `marathon.json` file.

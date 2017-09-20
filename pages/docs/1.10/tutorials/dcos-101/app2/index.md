@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: Deploying Native Applications
 navigationTitle: Native Applications
 menuWeight: 5
 oss: true
-excerpt:
-enterprise: false
 ---
 
 # Prerequisites

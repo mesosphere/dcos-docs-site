@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
+excerpt:
 title: Advanced DC/OS Installation Guide
 navigationTitle: Advanced
 menuWeight: 300
-excerpt:
-enterprise: false
 ---
 
 With this installation method, you package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
@@ -76,8 +75,6 @@ Your cluster must meet the software and hardware [requirements](/docs/1.10/insta
     - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `/genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <path-to-ip-script>`.
 
     ```yaml
-excerpt:
-enterprise: false
     ---
     agent_list:
     - <agent-private-ip-1>

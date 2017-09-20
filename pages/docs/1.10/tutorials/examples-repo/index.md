@@ -1,10 +1,8 @@
 ---
 layout: layout.pug
+excerpt:
 title: DC/OS Service Tutorials
 menuWeight: 2
-navigationTitle:  DC/OS Service Tutorials
-excerpt:
-enterprise: false
 ---
 
 These tutorials demonstrate how to install and use DC/OS services. The tutorials are located in the [https://github.com/dcos/examples/](https://github.com/dcos/examples/) repository.

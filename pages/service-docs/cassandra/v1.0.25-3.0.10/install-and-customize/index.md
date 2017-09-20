@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 0
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Install and Customize
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->
@@ -19,7 +19,6 @@ Cassandra for DC/OS is available in the Universe and can be installed by using e
 -  Depending on your [security mode](/docs/1.9/overview/security/security-modes/), Cassandra requires a service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Cassandra](https://docs.mesosphere.com/service-docs/cassandra/cassandra-auth/).
 
    | Security mode | Service Account |
-navigationTitle:  Install and Customize
    |---------------|-----------------------|
    | Disabled      | Not available   |
    | Permissive    | Optional   |

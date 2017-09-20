@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Load Balancing and Virtual IPs (VIPs)
 title: Load Balancing and Virtual IPs (VIPs)
 menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Load Balancing and Virtual IPs (VIPs)
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

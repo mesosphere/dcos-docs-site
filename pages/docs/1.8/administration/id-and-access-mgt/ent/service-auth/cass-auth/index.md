@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Provisioning Cassandra
 title: Provisioning Cassandra
 menuWeight: 200
 excerpt: >
@@ -8,7 +9,6 @@ excerpt: >
   account.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Provisioning Cassandra
 ---
 
 # About provisioning Cassandra with a service account

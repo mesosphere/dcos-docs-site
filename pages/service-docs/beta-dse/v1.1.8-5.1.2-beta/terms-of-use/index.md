@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Known Issues
 title: Known Issues
 menuWeight: 120
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Known Issues
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->

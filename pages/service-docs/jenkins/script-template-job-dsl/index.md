@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Scripting and templating your jobs
 title: Scripting and templating your jobs
 menuWeight: 2
 excerpt:
 featureMaturity: stable
 enterprise: false
-navigationTitle:  Scripting and templating your jobs
 ---
 <h1>About scripting and templating your jobs</h1>
 

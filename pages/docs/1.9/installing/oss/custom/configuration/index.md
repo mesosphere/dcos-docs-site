@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Configuration
-menuWeight: 600
 navigationTitle:  Configuration
 excerpt:
-enterprise: false
+title: Configuration
+menuWeight: 600
 ---
 
 The DC/OS configuration parameters are specified in YAML format in a config.yaml file. This file is stored on your [bootstrap node](/docs/1.9/installing/oss/custom/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
@@ -53,9 +52,6 @@ Some parameters are dependent on others. These dependent parameters are ignored 
 # Basic settings
 
 | Parameter                              | Description                                                                                                                                               |
-navigationTitle:  Configuration
-excerpt:
-enterprise: false
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](/docs/1.9/installing/oss/custom/configuration/configuration-parameters/#agent_list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/docs/1.9/overview/concepts/#private-agent-node) host names.                  |
 | [bootstrap_url](/docs/1.9/installing/oss/custom/configuration/configuration-parameters/#bootstrap_url)                          | This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files.                                         |

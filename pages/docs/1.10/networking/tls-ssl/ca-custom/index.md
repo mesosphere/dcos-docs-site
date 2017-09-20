@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Using a Custom CA Certificate
 title: Using a Custom CA Certificate
 menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Using a Custom CA Certificate
 ---
 
 Each DC/OS cluster has its own DC/OS certificate authority (CA). By default, that CA uses an automatically generated globally unique root CA certificate for signing other certificates. In lieu of using the auto-generated root CA certificate, you can configure Enterprise DC/OS to use a custom CA certificate, which can be a root CA certificate or an intermediate CA certificate.

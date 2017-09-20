@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Granting Access to the Jobs Tab
 title: Granting Access to the Jobs Tab
 menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Granting Access to the Jobs Tab
 ---
 
 You can grant users access to the **Jobs** tab. By default, new users have no permissions.

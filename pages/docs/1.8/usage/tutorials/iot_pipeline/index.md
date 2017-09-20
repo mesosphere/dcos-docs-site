@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying a Load-Balanced Data Pipeline
 title: Deploying a Load-Balanced Data Pipeline
 menuWeight: 2
 excerpt:
 featureMaturity:
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-enterprise: false
 ---
 
 In this tutorial you install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter. This tutorial demonstrates how you can build a complete IoT pipeline on DC/OS in about 15 minutes! You will learn:
@@ -190,12 +189,8 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
         1.  Copy the value of `public-key.pem` for use in the next step.
         
             ```bash
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-enterprise: false
             -----BEGIN PUBLIC KEY-----
             MIIBIjANBgkqhki...
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-enterprise: false
             -----END PUBLIC KEY-----
             ```
             
@@ -252,17 +247,11 @@ enterprise: false
                 < ETag: "57fd0288-4d9"
                 < Accept-Ranges: bytes
                 < 
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-enterprise: false
                 -----BEGIN CERTIFICATE-----
                 MIIDaDCCAlCgAwI...
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-enterprise: false
                 -----END CERTIFICATE-----
                 ```
                 
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-enterprise: false
             1.  Copy the contents of `dcos-ca.crt` between `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, and save as `dcos-cert.pem`.
             
             1.  Create the necessary permissions by using the `dcos-cert.pem` file.

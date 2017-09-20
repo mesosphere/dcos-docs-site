@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  >
 title: >
   Deploying Services using a Custom
   Marathon with Security Features
@@ -7,7 +8,6 @@ menuWeight: 40
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  >
 ---
 
 This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/docs/1.9/security/ent/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/docs/1.9/deploying-services/marathon-on-marathon/basic/).
@@ -170,7 +170,6 @@ curl -i -k \
 In this step, a Marathon Service Account is created. Depending on your [security mode](/docs/1.9/overview/security/security-modes/), a Marathon Service Account is either optional or required. 
 
 | Security Mode | Marathon Service Account |
-navigationTitle:  >
 |---------------|----------------------|
 | Disabled | Optional |
 | Permissive | Optional |
@@ -211,7 +210,6 @@ In this step, the credential tarball is transferred to the local file system of 
    ls -la .docker
    drwxr-xr-x    4 user  group   136 Aug 15 17:29 .
    drwxr-xr-x+ 118 user  group  4012 Jan 26 18:16 ..
-navigationTitle:  >
    -rw-------    1 user  group   217 Jan 25 13:52 config.json
    ```
 
@@ -231,7 +229,6 @@ navigationTitle:  >
 
    ```bash
    drwxr-xr-x  0 user group       0 Jan 23 15:47 .docker/
-navigationTitle:  >
    -rw-------  0 user group     217 Jan 23 15:48 .docker/config.json
    ```
 
@@ -334,7 +331,6 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes. 
 
 | Security Mode | Permissions |
-navigationTitle:  >
 |---------------|----------------------|
 | Disabled | Not available |
 | Permissive | Not available |
@@ -375,7 +371,6 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 1.  Create a custom JSON config file and save as `config.json`. This file is used to install the custom non-native Marathon instance. The JSON file contents vary according to your [security mode](/docs/1.9/overview/security/security-modes/). Replace these variables in the examples with your specific information:
 
     | Variable | Description |
-navigationTitle:  >
     |--------------------------|--------------------------------------------|
     | `<non-native-marathon>` | Non-native Marathon framework name |
     | `<service-account-id>` | Non-native Marathon service account |

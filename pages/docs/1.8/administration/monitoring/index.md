@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Monitoring
 title: Monitoring
 menuWeight: 6
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Monitoring
 ---
 
 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Quick Start
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-cassandra-service -->
@@ -19,7 +19,6 @@ This tutorial will get you up and running with Cassandra in minutes. You will in
 -  Depending on your [security mode](/docs/1.9/overview/security/security-modes/), Cassandra requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Cassandra](https://docs.mesosphere.com/service-docs/cassandra/cassandra-auth/).
 
    | Security mode | Service Account |
-navigationTitle:  Quick Start
    |---------------|-----------------------|
    | Disabled      | Not available   |
    | Permissive    | Optional   |
@@ -125,7 +124,6 @@ navigationTitle:  Quick Start
     
     ```   
      key                  | value
-navigationTitle:  Quick Start
     ----------------------+-------------------------
                 Cassandra |                  Rocks!
      StaticInfrastructure |                 BeGone!

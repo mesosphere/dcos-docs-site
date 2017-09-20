@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Guides
 title: Service Guides
 menuWeight: 81
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Service Guides
 ---
 
 

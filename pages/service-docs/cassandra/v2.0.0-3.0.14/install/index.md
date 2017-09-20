@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Installing and Customizing
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

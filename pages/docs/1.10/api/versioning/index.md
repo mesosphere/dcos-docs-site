@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  API Versioning
 title: API Versioning
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  API Versioning
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

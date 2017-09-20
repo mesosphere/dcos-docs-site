@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos job history
 title: dcos job history
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos job history
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos job history <job-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job history
 |---------|-------------|-------------|
 | `--json`   |             |  Print JSON-formatted list. |
 | `--show-failures`   |             |  Show the failure table and statistics for history. |
@@ -31,14 +30,12 @@ navigationTitle:  dcos job history
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job history
 |---------|-------------|-------------|
 | `<job-id>`   |             |  Specify the job ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos job history
 |---------|-------------|
 | [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 

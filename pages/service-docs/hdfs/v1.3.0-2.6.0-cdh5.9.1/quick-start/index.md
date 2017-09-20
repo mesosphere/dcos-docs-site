@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
 excerpt:
 featureMaturity: experimental
 enterprise: false
-navigationTitle:  Quick Start
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos-commons/frameworks/hdfs -->
@@ -19,7 +19,6 @@ This tutorial will get you up and running in minutes with HDFS. You will install
 -  Depending on your [security mode](/docs/1.9/overview/security/security-modes/), HDFS requires a service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for HDFS](https://docs.mesosphere.com/service-docs/hdfs/hdfs-auth/).
 
    | Security mode | Service Account |
-navigationTitle:  Quick Start
    |---------------|-----------------------|
    | Disabled      | Not available   |
    | Permissive    | Optional   |
@@ -111,7 +110,6 @@ navigationTitle:  Quick Start
     drwxr-xr-x   - root  root        4096 2014-04-10 22:12 /mnt
     drwxr-xr-x   - root  root        4096 2015-12-08 09:38 /opt
     dr-xr-xr-x   - root  root           0 2017-06-15 18:23 /proc
-navigationTitle:  Quick Start
     drwx------   - root  root        4096 2017-06-15 18:23 /root
     drwxr-xr-x   - root  root        4096 2017-06-15 18:23 /run
     drwxr-xr-x   - root  root        4096 2017-06-15 18:23 /sbin

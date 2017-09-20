@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Creating a Scheduled Job
 navigationTitle:  Creating a Scheduled Job
 menuWeight: 0
 excerpt:
-enterprise: false
+title: Creating a Scheduled Job
 ---
 
 This tutorial shows how to create a scheduled job using Chronos.

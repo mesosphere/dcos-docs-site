@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+excerpt:
 title: Using Jenkins on DC/OS
 navigationTitle: Jenkins
 menuWeight: 6
 oss: true
-excerpt:
-enterprise: false
 ---
 
 [Jenkins][jenkins-website] is a popular, open source continuous integration

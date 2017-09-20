@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Service Accounts
 title: Service Accounts
 menuWeight: 4
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Service Accounts
 ---
 
 

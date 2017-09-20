@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos auth logout
 title: dcos auth logout
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos auth logout
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -27,6 +27,5 @@ None.
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos auth logout
 |---------|-------------|
 | [dcos auth](/docs/1.10/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

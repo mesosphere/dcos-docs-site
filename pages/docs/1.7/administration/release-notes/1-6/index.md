@@ -5,7 +5,6 @@ menuWeight: 3
 excerpt:
 enterprise: true
 featureMaturity:
-navigationTitle:  DC/OS 1.6
 ---
 
 

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Mesos-DNS
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

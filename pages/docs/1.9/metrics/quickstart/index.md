@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
 excerpt:
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Quick Start
 ---
 
 

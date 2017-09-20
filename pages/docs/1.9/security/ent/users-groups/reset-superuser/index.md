@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Resetting the Superuser
 title: Resetting the Superuser
 menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Resetting the Superuser
 ---
 
 You can reset an existing user or create a new user with the DC/OS reset superuser script. This is helpful if the superuser account becomes locked or invalid. 

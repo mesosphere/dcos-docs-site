@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deployment Best Practices
 title: Deployment Best Practices
 menuWeight: 80
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Deployment Best Practices
 ---
 
 - Use Mesosphere Enterprise DC/OS's placement rules to map your DSE cluster nodes or DC to different availability zones to achieve high resiliency.

@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle:  Configuring the LDAP connection
 title: Configuring the LDAP connection
 menuWeight: 1
 excerpt: >
@@ -8,7 +9,6 @@ excerpt: >
   connect to the LDAP server.
 featureMaturity: preview
 enterprise: true
-navigationTitle:  Configuring the LDAP connection
 ---
 
 
@@ -39,15 +39,11 @@ navigationTitle:  Configuring the LDAP connection
 1. If the LDAP directory server requires DC/OS to present a [client certificate](https://tools.ietf.org/html/rfc5246#section-7.4.6), paste it into the **Client certificate and private key (Optional)** field. The value should look similar to the following.
 
     ```
-navigationTitle:  Configuring the LDAP connection
     -----BEGIN PRIVATE KEY-----
     MIIDtDCCApy...
-navigationTitle:  Configuring the LDAP connection
     -----END PRIVATE KEY-----
-navigationTitle:  Configuring the LDAP connection
     -----BEGIN CERTIFICATE-----
     OIymBpP...
-navigationTitle:  Configuring the LDAP connection
     -----END CERTIFICATE-----
     ```
 

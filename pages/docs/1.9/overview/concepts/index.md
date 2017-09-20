@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Concepts
 title: Concepts
 menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Concepts
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

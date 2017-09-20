@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Autoscaling using requests per second
 title: Autoscaling using requests per second
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Autoscaling using requests per second
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

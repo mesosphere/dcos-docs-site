@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos job show runs
 title: dcos job show runs
 menuWeight: 11
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos job show runs
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos job show runs <job-id> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job show runs
 |---------|-------------|-------------|
 | `--json`   |             |  Print JSON-formatted list. |
 | `--q`   |             |  Print an array of run IDs only. |
@@ -32,14 +31,12 @@ navigationTitle:  dcos job show runs
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos job show runs
 |---------|-------------|-------------|
 | `<job-id>`   |             |  Specify the job ID. |
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos job show runs
 |---------|-------------|
 | [dcos job](/docs/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 

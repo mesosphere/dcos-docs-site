@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Managing
 title: Managing
 menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Managing
 ---
 
 # Updating Configuration

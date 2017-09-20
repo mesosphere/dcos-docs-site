@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  HDFS
 title: HDFS
 menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  HDFS
 ---
 
 DC/OS Apache HDFS is a managed service that makes it easy to deploy and manage an HA Apache HDFS cluster on Mesosphere

@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Agent Routes
 title: Agent Routes
 menuWeight: 11
 excerpt:
 featureMaturity:
 enterprise: true
-navigationTitle:  Agent Routes
 ---
 
 Admin Router Agent runs on DC/OS agent nodes and exposes the following API routes.

@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Install Docker on CentOS
-menuWeight: 2
 navigationTitle:  Install Docker on CentOS
 excerpt:
-enterprise: false
+title: Install Docker on CentOS
+menuWeight: 2
 ---
 Docker's <a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank">CentOS-specific installation instructions</a> are always going to be the most up to date for the latest version of Docker. However, the following recommendations and instructions should make it easier to manage the Docker installation over time and mitigate several known issues with various other configurations.
 

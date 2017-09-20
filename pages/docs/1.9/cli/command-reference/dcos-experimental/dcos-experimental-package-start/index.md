@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  dcos experimental service start
 title: dcos experimental service start
 menuWeight: 2
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  dcos experimental service start
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -23,7 +23,6 @@ dcos experimental service start <package-name> [OPTION]
 # Options
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos experimental service start
 |---------|-------------|-------------|
 | `--json`   |             |  JSON-formatted data. |
 | `--options=<options-file>`   |             | Path to a JSON file that contains customized package execution options. |
@@ -32,13 +31,11 @@ navigationTitle:  dcos experimental service start
 # Positional arguments
 
 | Name, shorthand | Default | Description |
-navigationTitle:  dcos experimental service start
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |    
 
 # Parent command
 
 | Command | Description |
-navigationTitle:  dcos experimental service start
 |---------|-------------|
 | [dcos experimental](/docs/1.9/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  

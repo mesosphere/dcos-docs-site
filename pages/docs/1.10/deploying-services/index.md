@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Deploying Services and Pods
 title: Deploying Services and Pods
 menuWeight: 130
 excerpt:
 featureMaturity:
 enterprise: false
-navigationTitle:  Deploying Services and Pods
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

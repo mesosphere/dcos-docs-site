@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
+navigationTitle:  Beta Cassandra
 title: Beta Cassandra
 menuWeight: 70
 excerpt:
 featureMaturity: preview
 enterprise: false
-navigationTitle:  Beta Cassandra
 ---
 
 Welcome to the documentation for the Apache DC/OS Cassandra Beta. Choose a version to get started!
