@@ -16,7 +16,7 @@ if (contentHeadingsArray && window.innerWidth > 1025) {
  *
  */
 function scrollTop() {
-  if (contentContainer) {
+  if (tableOfContents) {
     if (headerOffset > contentContainer.getBoundingClientRect().top) {
       if (!tableOfContents.classList.contains('content__sections-list--top')) {
         tableOfContents.classList.add('content__sections-list--top');
@@ -38,14 +38,15 @@ function scrollTop() {
  *
  */
 function scrollSpy() {
-  if (contentHeadingsArray) {
+  if (tableOfContents) {
     contentHeadingsArray.forEach((el) => {
       const elTopOffset = el.getBoundingClientRect().top;
-      if (headerOffset > elTopOffset) {
+			const elBottomOffset = el.getBoundingClientRect().bottom;
+      if (0 > elTopOffset && 0 < elBottomOffset) {
         const linkSelector = `a[href='#${el.getAttribute('id')}']`;
-        const activeLink = document.querySelector(linkSelector);
+        const activeLink = tableOfContents.querySelector(linkSelector);
         if (activeLink) {
-          const curActiveLink = document.querySelector('a.active');
+          const curActiveLink = tableOfContents.querySelector('a.active');
           if (curActiveLink) {
             if (curActiveLink.getAttribute('href') !== `#${el.getAttribute('id')}`) {
               curActiveLink.classList.remove('active');

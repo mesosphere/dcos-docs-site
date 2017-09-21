@@ -84,12 +84,12 @@
       outline: 0;
       background: transparent;
     }
-    &-icon {
-      display: block;
-      width: 20px;
-      height: 20px;
-      color: $color-purple-light;
-    }
+  }
+  &__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: $color-purple-light;
   }
   @include md {
     &__drawer {
@@ -99,7 +99,7 @@
       &-icon,
       &-text {
         margin-right: 10px;
-      }
+      }  
     }
     &__search {
       &-input {

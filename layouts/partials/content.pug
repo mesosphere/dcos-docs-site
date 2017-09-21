@@ -8,7 +8,7 @@ main(class='content')
     h4(class='content__header-description')!= description
     include ../components/content-actions.pug
   div(class='content__container')
-    article(class='content__contents')
+    article(class='content__article')
       != contents
       if overviewGrid
         include ../components/content-grid.pug
