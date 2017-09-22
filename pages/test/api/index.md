@@ -10,24 +10,22 @@ enterprise: true
 
 Content
 
-## Heading
-
-Content
+## API
 
 [switch]
-[case filter="OSS One"]
+[case filter="OSS"]
 [swagger api="/test/api/marathon.yaml"]
 [/case]
-[case filter="Enterprise One"]
+[case filter="Enterprise"]
 [ngindox api="/test/api/nginx.master.yaml"]
 [/case]
 [/switch]
 
 [switch]
-[case filter="OSS Two"]
+[case filter="OSS"]
 ## Some Content Two OSS
 [/case]
-[case filter="Enterprise Two"]
+[case filter="Enterprise"]
 ## Some Content Two Enterprise
 [/case]
 [/switch]

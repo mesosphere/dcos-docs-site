@@ -15,8 +15,9 @@ switches.map((s) => {
     let activeClass = (i == 0) ? 'switch__filter--active' : '';
     return `
       <div class="switch__filter ${activeClass}">${c.dataset.filter}</div>
+      <div class="switch__filter-spacer"></div>
     `;
-  });
+  }).join('');
 
   /**
    * Functionality

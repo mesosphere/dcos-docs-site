@@ -88,7 +88,13 @@ const shortcodes = {
    * @param {Object} opts.filter
    */
   'case': (buf, opts) => {
+    // If filter is enterprise or oss, will style as pill from tag shortcode
+    // Any other text will default to oss tag styling
+    let tag = 'tag--' + opts.filter.toLowerCase();
     return sanitize(`
+      <div class="switch__case-print-tag">
+        <p class="tag tag--shortcode tag--small ${tag}">${opts.filter}</p>
+      </div>
       <div class="switch__case" data-filter="${opts.filter}">${buf}</div>
     `);
   },
@@ -143,7 +149,6 @@ const shortcodes = {
 
 
   },
-
 
   /**
    * Ngindox
