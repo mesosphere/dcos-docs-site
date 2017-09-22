@@ -12,15 +12,6 @@
     border-top: 8px $color-purple-light solid;
     border-radius: 2px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    @include sm-only {
-      &:nth-of-type(even) {
-        background: $color-purple-light;
-        & .grid__header,
-        & .grid__desc {
-          color: $color-light;
-        }
-      }
-    }
   }
   &__label {
     display: inline-block;
@@ -62,6 +53,17 @@
       width: 28px;
       height: 28px;
       color: $color-purple-light;
+    }
+  }
+  @include sm-only {
+    &__item {
+      &:nth-of-type(even) {
+        background: $color-purple-light;
+        & .grid__header,
+        & .grid__desc {
+          color: $color-light;
+        }
+      }
     }
   }
   @include md {

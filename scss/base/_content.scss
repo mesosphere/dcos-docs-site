@@ -5,6 +5,9 @@ $sections-size: 20%;
   flex-direction: column;
   margin-top: 80px;
   padding: 2rem;
+  &__container {
+    position: relative;
+  }
   &__header {
     z-index: 10;
     &-title {
@@ -15,9 +18,6 @@ $sections-size: 20%;
       color: $color-grey;
       font-weight: 400;
     }
-  }
-  &__container {
-    position: relative;
   }
   &__article {
     > .tag:first-of-type {
@@ -89,6 +89,17 @@ $sections-size: 20%;
           font-weight: 600;
         }
       }
+    }
+  }
+  @include print {
+    margin: 0;
+    padding: 0;
+    &__container {
+      width: 100%;
+      margin-top: 3rem;
+    }
+    &__sections {
+      display: none;
     }
   }
 }
