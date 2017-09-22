@@ -65,6 +65,35 @@ const shortcodes = {
   },
 
   /**
+   * Switch
+   * @param {string} buf
+   * @param {Object} opts
+   */
+  'switch': (buf, opts) => {
+    return sanitize(`
+      <div class="switch">
+        <div class="switch__filters">
+        </div>
+        <div class="switch__cases">
+          ${buf}
+        </div>
+      </div>
+    `);
+  },
+
+  /**
+   * Case
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {Object} opts.filter
+   */
+  'case': (buf, opts) => {
+    return sanitize(`
+      <div class="switch__case" data-filter="${opts.filter}">${buf}</div>
+    `);
+  },
+
+  /**
    * Swagger
    * @param {string} buf
    * @param {Object} opts
