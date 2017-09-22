@@ -1,0 +1,30 @@
+.switch {
+  margin-top: 1.5rem;
+  &__filters {
+    display: flex;
+    flex-direction: row;
+  }
+  &__filter {
+    padding: 1rem;
+    border: 1px solid #000;
+    cursor: pointer;
+    &--active {
+      background: $color-purple-light;
+      color: $color-light;
+    }
+  }
+  &__cases {
+  }
+  &__case {
+    display: none;
+    &:nth-child(1) {
+      display: block;
+    }
+    &--show {
+      display: block !important;
+    }
+    &--hide {
+      display: none !important;
+    }
+  }
+}
