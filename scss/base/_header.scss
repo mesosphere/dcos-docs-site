@@ -9,16 +9,16 @@
   background: $color-light;
   box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
   z-index: 20;
-  &__main {
-    display: flex;
-    align-items: center;
-  }
   &__logo {
     display: flex;
     align-items: flex-start;
     &-text {
       display: none;
     }
+  }
+  &__main {
+    display: flex;
+    align-items: center;
   }
   &__menu {
     display: none;
@@ -95,6 +95,9 @@
     &__drawer {
       display: none;
     }
+    &__menu {
+      display: block;
+    }
     &__logo {
       &-icon,
       &-text {
@@ -120,21 +123,6 @@
         }
       }
     }
-    &__menu {
-      display: block;
-    }
-  }
-  @include lg {
-    &__logo {
-      &-type {
-        display: inline;
-      }
-    }
-    &__menu {
-      &-item {
-        margin-left: 50px;
-      }
-    }
   }
   @include lg {
     &__logo {
@@ -150,5 +138,8 @@
         margin-left: 30px;
       }
     }
+  }
+  @include print {
+    display: none;
   }
 }
