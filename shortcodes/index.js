@@ -28,14 +28,14 @@ const shortcodes = {
    */
   'message': (buf, opts) => {
     let colorClass;
-    if(opts.fill == false && opts.color) {
-      colorClass = `message--outline-${opts.color}`;
+    if(opts.fill == false && opts.type) {
+      colorClass = `message--outline-${opts.type}`;
     }
     else if(opts.fill == false) {
       colorClass = `message--outline`;
     }
-    else if(opts.color) {
-      colorClass = `message--${opts.color}`;
+    else if(opts.type) {
+      colorClass = `message--${opts.type}`;
     }
     return sanitize(`
       <div class="message ${colorClass}">${buf}</div>

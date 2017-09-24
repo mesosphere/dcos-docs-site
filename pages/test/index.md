@@ -27,27 +27,31 @@ Enterprise Content
 
 OSS Content
 
+### Support for Opening Images In New Tab
+
+[![Mesosphere Logo](../assets/header-logo-color-dark-mark.png)](../assets/header-logo-color-dark-mark.png){target="_blank"}
+
 ### Message {data-hide=true}
 
 [message]Test Message[/message]
 
-[message  color="yellow"]Test Message[/message]
+[message  type="warning"]Test Message[/message]
 
-[message  color="red"]Test Message[/message]
+[message  type="error"]Test Message[/message]
 
-[message  color="black"]Test Message[/message]
+[message  type="info"]Test Message[/message]
 
-[message  color="green"]Test Message[/message]
+[message  type="success"]Test Message[/message]
 
 [message fill="false"]Test Message[/message]
 
-[message  color="yellow" fill="false"]Test Message[/message]
+[message  type="warning" fill="false"]Test Message[/message]
 
-[message  color="red" fill="false"]Test Message[/message]
+[message  type="error" fill="false"]Test Message[/message]
 
-[message  color="black" fill="false"]Test Message[/message]
+[message  type="info" fill="false"]Test Message[/message]
 
-[message  color="green" fill="false"]Test Message[/message]
+[message  type="success" fill="false"]Test Message[/message]
 
 ## Syntax Highlighting
 

@@ -1,3 +1,7 @@
+.code-container {
+  transform: translateZ(0);
+}
+
 .code-toolbar {
   margin: 2rem 0 !important;
 }
@@ -16,6 +20,7 @@ pre {
   background: rgba($color-purple-light, 0.4);
   padding: 1rem;
   border-radius: 3px;
+  overflow: auto;
   code {
     background: transparent;
     font-size: 0.8rem;
@@ -35,6 +40,7 @@ pre.code-toolbar {
     top: 0;
     right: 0;
     opacity: 0.8;
+    position: fixed;
   }
   .toolbar,
   .toolbar-item {
@@ -52,7 +58,6 @@ pre.code-toolbar {
     justify-content: flex-end;
     padding: 8px 16px;
     transition: 0.3s background-position-y ease;
-    // background-image: url('https://www.materialui.co/materialIcons/content/content_copy_white_192x192.png');
     background-image: url('~/assets/content_copy_white_192x192.png');
     background-size: 16px 16px;
     background-repeat: no-repeat;
@@ -60,6 +65,7 @@ pre.code-toolbar {
     background-position: center;
     color: transparent;
     font-size: 11px;
+    box-shadow: none;
   }
 }
 
@@ -68,4 +74,3 @@ pre.code-toolbar:hover > .toolbar:hover a:hover {
   background-position-y: 12px, top;
   color: #fff;
 }
-
