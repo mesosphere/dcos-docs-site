@@ -33,14 +33,15 @@ pre[class*="language-"] {
   line-height: 1;
 }
 
+
 /* Toolbar */
 
 pre.code-toolbar {
   .toolbar {
+    position: fixed;
     top: 0;
     right: 0;
     opacity: 0.8;
-    position: fixed;
   }
   .toolbar,
   .toolbar-item {
@@ -69,7 +70,7 @@ pre.code-toolbar {
   }
 }
 
-pre.code-toolbar:hover > .toolbar:hover a:hover {
+pre.code-toolbar:hover>.toolbar:hover a:hover {
   background-color: rgba(118, 95, 246, 1);
   background-position-y: 12px, top;
   color: #fff;
