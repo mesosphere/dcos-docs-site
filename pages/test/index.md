@@ -29,7 +29,7 @@ OSS Content
 
 ### Support for Opening Images In New Tab
 
-[![Mesosphere Logo](../assets/header-logo-color-dark-mark.png)](../assets/header-logo-color-dark-mark.png){target="_blank"}
+[image src="../assets/header-logo-color-dark-mark.png" alt="Mesosphere Logo"][/image]
 
 ### Message {data-hide=true}
 
