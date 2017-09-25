@@ -1,5 +1,6 @@
 - var pdfPath = '/pdf/' + path + '/' + path.replace(/\//g, '-') + '.pdf'
-
+- var githubBranch = (env === 'production') ? 'master' : 'develop'
+- var githubPath = 'https://github.com/mesosphere/mesosphere-dcos-documentation/tree/' + githubBranch + '/pages/' + path + '/index.md'
 div(class='actions')
   ul(class='actions__list')
     li(class='actions__item')
@@ -18,7 +19,7 @@ div(class='actions')
           use(xlink:href="/assets/sprite.svg#printer")
         span(class='actions__text') Print
     li(class='actions__item')
-      a(href='/', class='actions__link')
+      a(href=githubPath, class='actions__link')
         svg(class='actions__icon')
           use(xlink:href="/assets/sprite.svg#github")
         span(class='actions__text') Github
