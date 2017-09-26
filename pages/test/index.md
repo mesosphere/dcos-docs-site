@@ -49,6 +49,14 @@ OSS Content
 
 [message  color="green" fill="false"]Test Message[/message]
 
+### Feather Icons {data-hide=true}
+
+[icon glyph="message-square"]
+
+[icon  glyph="message-square"]
+
+All feather icon glyphs are available at [https://feathericons.com](https://feathericons.com)
+
 ## Syntax Highlighting
 
 Inline Example
