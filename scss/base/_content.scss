@@ -1,11 +1,15 @@
-$sections-size: 15rem;
+$sections-size: 20%;
 
 .content {
   display: flex;
   flex-direction: column;
   margin-top: 80px;
   padding: 2rem;
+  &__container {
+    position: relative;
+  }
   &__header {
+    z-index: 10;
     &-title {
       padding: 0;
       margin: 0;
@@ -15,76 +19,35 @@ $sections-size: 15rem;
       font-weight: 400;
     }
   }
-  &__sections {
-    width: $sections-size;
-    display: none;
-    position: fixed;
-    right: 0;
-    padding: 0 2rem;
-    &-item {
-      a {
-        text-decoration: none;
-        color: $color-dark;
-      }
+  &__article {
+    > .tag:first-of-type {
+      margin-top: 0;
     }
-  }
-  &__container {
-    > :nth-child(2) {
+    > :first-child:not(.tag) {
       margin-top: 0;
       padding-top: 0;
     }
+    ul,
+    ol {
+      margin-left: 25px;
+    }
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
   }
-  &__actions {
-    margin: 4rem 0;
-    &__list {
-      display: flex;
-      list-style-type: none;
-    }
-    &__item {
-      margin: 0;
-      padding: 0 1rem;
-      line-height: 1;
-      &:first-of-type {
-        padding-left: 0;
-      }
-    }
-    &__link {
-      display: block;
-      &:first-of-type {
-        margin-left: 0;
-      }
-      &:last-of-type {
-        border-right: 0;
-      }
-    }
-    &__icon {
-      width: 24px;
-      height: 24px;
-      color: $color-grey;
-      &:hover {
-        color: $color-purple-light;
-      }
-    }
+  &__sections {
+    display: none;
   }
   @include md {
     padding: 4rem;
-    &__actions {
-      &__item {
-        border-right: 1px $color-grey solid;
-        &:nth-of-type(3n) {
-          margin-right: 50px;
-          border-right: 0;
-        }
-      }
-    }
   }
   @include lg {
-    padding-right: $sections-size;
-    &__header,
     &__container {
-      flex-basis: 80%;
+      display: flex;
     }
-    &__container {
+    &__article {
+      width: 80%;
       > h1:before,
       > h2:before,
       > h3:before,
@@ -95,18 +58,26 @@ $sections-size: 15rem;
         display: block;
         position: relative;
         width: 0;
-        height: 80px;
-        margin-top: -80px;
+        height: 120px;
+        margin-top: -120px;
         visibility: hidden;
       }
     }
     &__sections {
+      position: relative;
       display: block;
-      &-sticky {
-        position: fixed;
-      }
+      width: 20%;
+      padding: 0 2rem;
       &-list {
+        position: absolute;
         list-style-type: none;
+        top: 0;
+        width: 100%;
+        &--top {
+          position: fixed;
+          top: 120px;
+          width: inherit;
+        }
       }
       &-item {
         padding: 0;
@@ -114,27 +85,25 @@ $sections-size: 15rem;
           padding-left: 0.5rem;
           margin: 0.25rem 0;
         }
+        & a {
+          text-decoration: none;
+          color: $color-dark;
+        }
         & .active {
           font-weight: 600;
         }
       }
     }
   }
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table,
-th,
-td {
-  padding: 0.5rem;
-  border: 1px $color-grey-light solid;
-}
-
-th {
-  background: $color-grey-light;
-  font-weight: 400;
+  @include print {
+    margin: 0;
+    padding: 0;
+    &__container {
+      width: 100%;
+      margin-top: 3rem;
+    }
+    &__sections {
+      display: none;
+    }
+  }
 }

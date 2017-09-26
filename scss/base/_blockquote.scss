@@ -1,0 +1,7 @@
+blockquote {
+  margin-left: 0;
+  padding-left: 2rem;
+  border-left: 6px solid transparent;
+  border-image: linear-gradient(0deg, rgba($color-purple, 0.2), rgba($color-purple, 1.0));
+  border-image-slice: 1;
+}

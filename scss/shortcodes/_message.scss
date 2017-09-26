@@ -1,16 +1,55 @@
 .message {
   margin: 1.5rem 0 0;
   line-height: 1.5rem;
-  border-width: 1px;
-  border-color: $color-purple-light;
-  border-style: solid;
-  border-radius: 2px;
-  &__header {
-    background: $color-purple-light;
-    color: $color-light;
+  padding: 0.8rem 1rem;
+  border: 1px solid $color-dark;
+  border-radius: 3px;
+  color: $color-light;
+  background: $color-dark;
+  font-weight: 500;
+  &--outline {
+    border: 1px solid $color-dark;
+    color: $color-dark;
+    background: transparent;
   }
-  &__header,
-  &__body {
-    padding: 0.5rem;
+  &--yellow {
+    border: 1px solid #F2D98E;
+    color: $color-light;
+    background: #F2D98E;
+  }
+  &--red {
+    border: 1px solid #E77975;
+    color: $color-light;
+    background: #E77975;
+  }
+  &--black {
+    border: 1px solid #505868;
+    color: $color-light;
+    background: #505868;
+  }
+  &--green {
+    border: 1px solid #89DA71;
+    color: $color-light;
+    background: #89DA71;
+  }
+  &--outline-yellow {
+    border: 1px solid #F2D98E;
+    color: #F2D98E;
+    background: transparent;
+  }
+  &--outline-red {
+    border: 1px solid #E77975;
+    color:  #E77975;
+    background: transparent;
+  }
+  &--outline-black {
+    border: 1px solid ;
+    color: #505868;
+    background: transparent;
+  }
+  &--outline-green {
+    border: 1px solid #89DA71;
+    color: #89DA71;
+    background: transparent;
   }
 }

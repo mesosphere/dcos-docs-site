@@ -1,0 +1,22 @@
+- var parentPath = path.split('/')
+- parentPath.pop()
+- parentPath = "/" + parentPath.join('/')
+- var pageHierarchy = hierarchy.find(hierarchy, parentPath)
+
+mixin renderPrintTocListItems(item)
+  if(item.navigationTitle || item.title)
+    li
+      !=item.navigationTitle || item.title
+      ul
+        each val, index in item.children
+          li
+            +renderPrintTocListItems(val)
+
+if pdfToc
+  div(class='print-toc')
+    div(class='print-toc__header')
+      h1(class="print-toc__header-title")!= title
+      h3(class="print-toc__header-description") Table of Contents
+    div(class='print-toc__container')
+      ul
+        +renderPrintTocListItems(pageHierarchy)

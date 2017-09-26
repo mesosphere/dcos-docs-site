@@ -9,7 +9,6 @@
 /* Vendors */
 @import "vendor/normalize";
 @import "vendor/typebase";
-@import "vendor/swagger";
 
 /* Utils */
 @import "utils/colors";
@@ -17,17 +16,27 @@
 /* Base */
 @import "base/typography";
 @import "base/global";
+@import "base/blockquote";
 @import "base/layout";
 @import "base/header";
 @import "base/footer";
 @import "base/content";
+@import "base/table";
+@import "base/print-toc";
 @import "base/search";
-@import "base/print";
 
 /* Components */
 @import "components/sidebar";
+@import "components/actions";
 @import "components/grid";
 @import "components/prism";
 
 /* Shortcodes */
 @import "shortcodes/message";
+@import "shortcodes/tag";
+@import "shortcodes/switch";
+
+/* Vendors */
+/* No Override */
+@import "vendor/swagger";
+@import "vendor/ngindox";

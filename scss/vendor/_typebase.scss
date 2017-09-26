@@ -48,6 +48,7 @@ blockquote {
 }
 /* Headings */
 
+.tag--shortcode,
 h1,
 h2,
 h3,
@@ -58,16 +59,20 @@ h6 {
     margin-bottom: 0;
     line-height: $leading;
 }
+
 h1 {
     font-size: 2.5 * 1rem;
     line-height: 2.5 * $leading;
     margin-top: 2 * $leading;
 }
+
+.tag--shortcode,
 h2 {
     font-size: 2 * 1rem;
     line-height: 2 * $leading;
     margin-top: 2 * $leading;
 }
+
 h3 {
     font-size: 1.5 * 1rem;
     line-height: 1.5 * $leading;
