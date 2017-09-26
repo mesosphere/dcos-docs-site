@@ -179,7 +179,7 @@ const shortcodes = {
 
   },
 
-    /**
+  /**
    * Image
    * @param {string} buf
    * @param {Object} opts
@@ -187,6 +187,18 @@ const shortcodes = {
   'image': (buf, opts) => {
     return sanitize(`
       <a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt}></a>
+    `);
+  },
+
+  /**
+   * Tooltip
+   * @param {string} buf
+   * @param {Object} opts
+   */
+  'tooltip': (buf, opts) => {
+    console.log(opts.content);
+    return sanitize(`
+      <a href="#" class="tooltip" data-tooltip=${opts.content}>${opts.element}</a>
     `);
   },
 

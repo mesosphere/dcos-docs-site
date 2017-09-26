@@ -27,6 +27,9 @@ Enterprise Content
 
 OSS Content
 
+### Support for Tooltip
+
+[tooltip content="Test" element="<button>Test Tooltip Element</button>"][/tooltip]
 ### Support for Opening Images In New Tab
 
 [image src="../assets/header-logo-color-dark-mark.png" alt="Mesosphere Logo"][/image]
