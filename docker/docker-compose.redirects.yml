@@ -1,17 +1,6 @@
 version: '3.1'
 
 services:
-  docs:
-    image: mesosphere/dcos-docs
-    build:
-      context: ../
-      dockerfile: ./docker/Dockerfile
-      args:
-        nginx_conf: ./docker/nginx.default.conf
-        nginx_redirect_map_conf: ./docker/nginx.redirect-map.conf
-    ports:
-      - "80:80"
-      - "443:443"
   linkchecker:
     image: mesosphere/linkchecker
     links:
@@ -27,6 +16,6 @@ services:
               --output=text \
               --file-output="csv/reports/linkchecker.csv" \
               --file-output="html/reports/linkchecker.html" \
-              http://docs"
+              http://"
     volumes:
       - ../linkchecker:/workdir

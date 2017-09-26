@@ -67,6 +67,7 @@ RUN npm run build
 FROM nginx:latest
 
 ARG nginx_conf
+ARG nginx_redirect_map_conf
 
 RUN mkdir -p /src/build
 RUN mkdir -p /src/build-pdf
@@ -78,6 +79,8 @@ WORKDIR /src/build-pdf
 COPY --from=pdf-builder /tmp/pdf/build-pdf ./
 
 ADD "$nginx_conf" /etc/nginx/conf.d/default.conf
+ADD "$nginx_redirect_map_conf" /etc/nginx/conf.d/redirect-map.conf
+
 RUN service nginx restart
 
 EXPOSE 80
