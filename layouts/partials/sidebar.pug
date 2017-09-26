@@ -23,16 +23,15 @@ if paths[0] === 'docs'
 mixin renderSidebarHeader()
   header(class='sidebar__header')
     div(class='sidebar__dropdown')
-      div(class='sidebar__dropdown-toggle')
-        p(class='sidebar__dropdown-text')
-          span(class='sidebar__dropdown-text__title')!= siteTitle
-          span(class='sidebar__dropdown-text__version')!= ' ' + versionTitle
-        svg(class='sidebar__dropdown-icon')
-          use(xlink:href='/assets/sprite.svg#chevron')
-      ul(class='sidebar__dropdown-list')
+      div(class='sidebar__dropdown__toggle')
+        p(class='sidebar__dropdown__text')
+          span(class='sidebar__dropdown__text__title')!= siteTitle
+          span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
+        i(class='sidebar__dropdown__icon', data-feather='chevron-down')
+      ul(class='sidebar__dropdown__list')
         each val, index in docs.children
-          li(class='sidebar__dropdown-item')
-            a(href=val.path, class='sidebar__dropdown-link')!= val.navigationTitle
+          li(class='sidebar__dropdown__item')
+            a(href=val.path, class='sidebar__dropdown__link')!= val.navigationTitle
 
 mixin renderSidebarNavListItem(item, depth)
   - var itemClassList = {}
@@ -46,8 +45,7 @@ mixin renderSidebarNavListItem(item, depth)
     li(class=itemClassList)
       div(class='sidebar__nav__item__text')
         if(hasChildren)
-          svg(class='sidebar__nav__icon')
-            use(xlink:href="/assets/sprite.svg#chevron")
+          i(class='sidebar__nav__icon', data-feather='chevron-right')
         a(href=item.path, class='sidebar__nav__link')!= item.navigationTitle || item.title
     if(hasChildren)
       - var listClassList = {}

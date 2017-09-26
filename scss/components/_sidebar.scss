@@ -11,7 +11,7 @@
     position: relative;
     width: 100%;
     cursor: pointer;
-    &-text {
+    &__text {
       padding: 0;
       margin: 0;
       color: $color-light;
@@ -21,19 +21,7 @@
       &__version {
       }
     }
-    &-icon {
-      color: $color-light;
-    }
-    &--active {
-      background: $color-purple-light;
-      & .sidebar__dropdown-list {
-        height: auto;
-        visibility: visible;
-        opacity: 1;
-        z-index: 1;
-      }
-    }
-    &-toggle {
+    &__toggle {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -42,13 +30,12 @@
       font-weight: 500;
       user-select: none;
     }
-    &-icon {
+    &__icon {
       width: 20px;
       height: 20px;
       color: $color-light;
-      transform: rotate(90deg);
     }
-    &-list {
+    &__list {
       position: absolute;
       top: 80px;
       margin: 0;
@@ -62,13 +49,13 @@
       box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
-    &-item {
+    &__item {
       color: $color-light;
       &:not(:last-of-type) {
         border-bottom: 1px $color-light solid;
       }
     }
-    &-link {
+    &__link {
       display: block;
       padding: 1rem 2rem;
       text-decoration: none;
@@ -80,6 +67,18 @@
       }
       &:hover {
         background: $color-purple;
+      }
+    }
+    &--active {
+      background: $color-purple-light;
+      & .sidebar__dropdown__list {
+          height: auto;
+          visibility: visible;
+          opacity: 1;
+          z-index: 1;
+      }
+      & .sidebar__dropdown__icon {
+        transform: rotate(180deg);
       }
     }
   }

@@ -1,4 +1,6 @@
-if(headings.length)
+- var headings = headings ? headings : ''
+
+if (headings)
   aside(class='content__sections')
     ul(class='content__sections-list')
       for heading in headings

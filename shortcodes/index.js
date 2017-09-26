@@ -26,6 +26,17 @@ const capitalize = (string) => {
 const shortcodes = {
 
   /**
+   * Icons
+   * @param {string} buf
+   * @param {Object} opts
+   */
+  'icon': (buf, opts) => {
+    return sanitize(`
+      <i class="icon" data-feather="${opts.glyph}"></i>
+    `)
+  },
+
+  /**
    * Message
    * @param {string} buf
    * @param {Object} opts
