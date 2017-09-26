@@ -69,7 +69,26 @@ MS.use(markdown(
     typographer: true,
     html: true,
   })
-  .use(anchor)
+  .use(anchor, {
+    permalink: true,
+    renderPermalink: (slug, opts, state, idx) => {
+      const linkTokens = [
+        Object.assign(new state.Token('link_open', 'a', 1), {
+          attrs: [
+            ['class', opts.permalinkClass],
+            ['href', opts.permalinkHref(slug, state)],
+            ['aria-hidden', 'true']
+          ]
+        }),
+        Object.assign(new state.Token('html_block', '', 0), { content: opts.permalinkSymbol }),
+        new state.Token('link_close', 'a', -1)
+      ]
+      state.tokens[idx + 1].children['unshift'](...linkTokens)
+    },
+    permalinkClass: 'content__anchor',
+    permalinkSymbol: '<i data-feather="bookmark"></i>',
+    permalinkBefore: true,
+  })
   .use(attrs),
 )
 MS.use(timer('Markdown'))
