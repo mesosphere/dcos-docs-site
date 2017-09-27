@@ -17,4 +17,5 @@ require('./js/search.js');
 require('./js/actions.js');
 require('./js/sections.js');
 require('./js/switch.js');
+require('./js/image.js');
 require('./js/swagger-ui.js');
