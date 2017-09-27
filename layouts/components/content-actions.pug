@@ -1,6 +1,11 @@
 - var pdfPath = '/pdf/' + path + '/' + path.replace(/\//g, '-') + '.pdf'
 - var githubBranch = (env === 'production') ? 'master' : 'develop'
 - var githubPath = 'https://github.com/mesosphere/mesosphere-dcos-documentation/tree/' + githubBranch + '/pages/' + path + '/index.md'
+
+mixin svg-external(svg_file, svg_id, svg_class, svg_title)
+  svg(class=svg_class,title=svg_title)
+    use(xlink:href= svg_file)
+
 div(class='actions')
   ul(class='actions__list')
     li(class='actions__item')
@@ -23,6 +28,10 @@ div(class='actions')
       a(href='/', class='actions__link')
         i(class='actions__icon', data-feather='slack')
         span(class='actions__text') Slack
+    li(class='actions__item')
+      a(href='/', class='actions__link')
+        include assets/rss.svg
+        span(class='actions__text') RSS
     li(class='actions__item')
       a(href='/', class='actions__link')
         i(class='actions__icon', data-feather='message-square')
