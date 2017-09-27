@@ -5,12 +5,8 @@
     list-style-type: none;
   }
   &__item {
-    margin: 0;
-    padding: 0 1rem;
+    margin-right: 1rem;
     line-height: 1;
-    &:first-of-type {
-      padding-left: 0;
-    }
   }
   &__link {
     display: flex;
@@ -22,23 +18,28 @@
     }
     &:hover {
       color: $color-purple-light;
-    }
-    &:first-of-type {
-      margin-left: 0;
-    }
-    &:last-of-type {
-      border-right: 0;
+      & .actions__icon--rss {
+        fill: $color-purple-light;
+      }
     }
   }
   &__icon {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
+    &--rss {
+      fill: $color-grey;
+    }
   }
   &__text {
     display: none;
   }
   @include md {
     &__item {
+      margin-right: 1.5rem;
+    }
+    &__icon {
+      width: 20px;
+      height: 20px;
     }
     &__text {
       display: inline;

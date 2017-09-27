@@ -5,8 +5,6 @@
   flex-direction: column;
   &__sidebar {
     display: none;
-    //background: $color-purple;
-    //color: $color-light;
   }
   &__drawer {
     position: fixed;
@@ -41,10 +39,12 @@
       width: 300px;
       height: 100%;
       transform: none;
+      transition: none;
       + .layout__content {
         width: calc(100% - 300px);
         margin-left: 300px;
         transform: none;
+        transition: none;
         .header {
           width: calc(100% - 300px);
         }
@@ -57,7 +57,7 @@
       + .layout__content {
         width: calc(100% - 320px);
         margin-left: 320px;
-        .header {
+      .header {
           width: calc(100% - 320px);
         }
       }
@@ -68,7 +68,8 @@
       display: none;
     }
     &__content {
-      margin: 0;
+      width: 100% !important;
+      margin: 0 !important;
       padding: 0;
     }
   }

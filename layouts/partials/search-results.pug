@@ -4,13 +4,8 @@ section(class='search')
     button(class='search__form-submit')
       i(class='search__form-icon', data-feather='search')
   div(class='search__filters')
-    select(class='search__filters-version')
-      option DC/OS 1.7
-      option DC/OS 1.8
-      option DC/OS 1.9
-    select(class='search__filters-other')
-      option Other
-      option DC/OS 1.8
-      option DC/OS 1.9
+    div(id='search-section', class='search__filters-version')
+    div(id='search-version', class='search__filters-version')
   div(class='search__results')
-   ul(id='search-results', class='search__results-list')
+    ul(id='search-results', class='search__results-list')
+  div(id='search-pagination', class='search__pagination')
