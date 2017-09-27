@@ -36,11 +36,36 @@ $sections-size: 20%;
       height: 16px;
     }
   }
+  &__anchor {
+    display: none;
+  }
   &__sections {
     display: none;
   }
   @include md {
     padding: 4rem;
+    &__article {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        &:hover {
+          & .content__anchor {
+            display: inline-block;
+            &:hover .feather {
+              fill: $color-purple-light;
+            }
+          }
+        }
+      }
+    }
+    &__anchor {
+      width: 35px;
+      margin-left: -35px;
+      padding-right: 10px;
+    }
   }
   @include lg {
     &__container {
