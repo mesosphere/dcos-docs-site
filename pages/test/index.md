@@ -27,12 +27,12 @@ Enterprise Content
 
 OSS Content
 
-### Support for Tooltip
+### Tooltips
 
-[tooltip content="Test" element="<button>Test Tooltip Element</button>"][/tooltip]
+Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip] and [tooltip content="Tooltip"]ip-detect[/tooltip] files to...
 ### Support for Opening Images In New Tab
 
-[image src="../assets/header-logo-color-dark-mark.png" alt="Mesosphere Logo"][/image]
+[image src="../assets/header-logo-color-dark-mark.png" style="fluid" alt="Mesosphere Logo"][/image]
 
 ### Message {data-hide=true}
 

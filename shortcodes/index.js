@@ -231,7 +231,7 @@ const shortcodes = {
    */
   'image': (buf, opts) => {
     return sanitize(`
-      <a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt}></a>
+      <a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img-${opts.style}"></a>
     `);
   },
 
@@ -243,7 +243,7 @@ const shortcodes = {
   'tooltip': (buf, opts) => {
     console.log(opts.content);
     return sanitize(`
-      <a href="#" class="tooltip" data-tooltip=${opts.content}>${opts.element}</a>
+      <span class="tooltip" data-tooltip="${opts.content}">${buf}</span>
     `);
   },
 
