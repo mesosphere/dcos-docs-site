@@ -30,16 +30,16 @@ OSS Content
 ### Tooltips
 
 Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip] and [tooltip content="Tooltip"]ip-detect[/tooltip] files to...
-### Support for Opening Images In New Tab
+### Support for Image Types and Opening In New Tab
 
 Inline (original size and inline)
-[image src="../assets/header-logo-color-dark-mark.png" style="inline" alt="Mesosphere Logo"][/image]
+[image src="../assets/header-logo-color-dark-mark.png" type="inline" alt="Mesosphere Logo"][/image]
 
 Fill (fill 100% of parent container)
-[image src="../assets/header-logo-color-dark-mark.png" style="fill" alt="Mesosphere Logo"][/image]
+[image src="../assets/header-logo-color-dark-mark.png" type="fill" alt="Mesosphere Logo"][/image]
 
 Fluid (fill 100% of parent container until reaching original size (min-width = original size))
-[image src="../assets/header-logo-color-dark-mark.png" style="fluid" alt="Mesosphere Logo"][/image]
+[image src="../assets/header-logo-color-dark-mark.png" type="fluid" alt="Mesosphere Logo"][/image]
 
 ### Message {data-hide=true}
 
