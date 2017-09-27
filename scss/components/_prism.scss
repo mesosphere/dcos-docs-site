@@ -18,7 +18,7 @@ code {
 
 pre {
   background: rgba($color-purple-light, 0.4);
-  padding: 1rem;
+  padding: 1.25rem !important;
   border-radius: 3px;
   overflow: auto;
   code {
@@ -52,19 +52,16 @@ pre.code-toolbar {
     background-color: transparent;
     transition: background-color 0.3s ease-in-out;
     border-radius: 0;
-    // width: 90px;
-    height: 110%;
-    max-height: 50px;
+    max-height: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    padding: 8px 16px;
-    transition: 0.3s background-position-y ease;
+    padding: 12px;
+    transition: 0.3s background-position ease;
     background-image: url('~/assets/content_copy_white_192x192.png');
-    background-size: 16px 16px;
+    background-size: 14px 14px;
     background-repeat: no-repeat;
-    background-position-y: 14px, top;
     background-position: center;
     color: transparent;
     font-size: 11px;
@@ -73,10 +70,7 @@ pre.code-toolbar {
 }
 
 pre.code-toolbar:hover>.toolbar:hover a:hover {
-  // background-color: rgba(118, 95, 246, 1);
-  // background-position-x: 50px, left;
-  // color: $color-purple-light;
+  background-position: left;
+  padding-left: 18px;
   color: #fff;
-  width: 100px;
 }
-
