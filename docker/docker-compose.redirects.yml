@@ -3,19 +3,16 @@ version: '3.1'
 services:
   linkchecker:
     image: mesosphere/linkchecker
-    links:
-      - "docs:docs"
     working_dir: /workdir
     command: >
       bash -c "mkdir -p -m 777 reports && \
               linkchecker \
               --complete \
               --anchors \
-              --check-extern \
               --user-agent="curl/7.24.0" \
               --output=text \
-              --file-output="csv/reports/linkchecker.csv" \
-              --file-output="html/reports/linkchecker.html" \
-              http://"
+              --file-output="csv/reports/linkchecker-redirects.csv" \
+              --file-output="html/reports/linkchecker-redirects.html" \
+              https://docs.mesosphere.com/"
     volumes:
       - ../linkchecker:/workdir

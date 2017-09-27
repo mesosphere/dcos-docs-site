@@ -48,5 +48,8 @@ docker-production-test:
 docker-development-pdf:
 	docker-compose -f ./docker/docker-compose.pdf.yml up -d
 
+docker-development-redirects:
+	docker-compose -f ./docker/docker-compose.redirects.yml up -d
+
 docker-purge:
 	./scripts/docker-purge.sh
