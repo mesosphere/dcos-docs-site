@@ -2,13 +2,17 @@ const sidebarDropdown = document.querySelector('.sidebar__dropdown');
 const sidebarItems = document.querySelectorAll('.navigation__item');
 const sidebarMenus = [...sidebarItems].filter(item => item.contains(item.querySelector('.navigation__list')));
 
-document.addEventListener('click', detectClick);
-sidebarDropdown.addEventListener('click', toggleDropdown);
+if(sidebarDropdown) {
+  document.addEventListener('click', detectClick);
+  sidebarDropdown.addEventListener('click', toggleDropdown);
+}
 
-sidebarMenus.forEach((menu) => {
-  const caret = menu.querySelector('svg');
-  caret.addEventListener('click', toggleMenu);
-});
+if(sidebarMenus.length) {
+  sidebarMenus.forEach((menu) => {
+    const caret = menu.querySelector('svg');
+    caret.addEventListener('click', toggleMenu);
+  });
+}
 
 /**
  *
@@ -45,4 +49,3 @@ function toggleMenu(event) {
     subHead.classList.remove('navigation__subhead--active');
   }
 }
-
