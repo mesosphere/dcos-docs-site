@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
+navigationTitle:  Documentation for Version 1.8
 title: Documentation for Version 1.8
-navigationTitle: 1.8
+menuWeight: 0
+excerpt:
+featureMaturity:
+enterprise: true
 ---
 
-## Topic A
 
-## Topic B
-
-## Topic C
+Welcome to the documentation for DC/OS version 1.8. For information about new and changed features, see the [release notes](/docs/1.8/administration/release-notes/).

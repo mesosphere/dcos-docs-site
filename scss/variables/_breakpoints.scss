@@ -33,6 +33,12 @@ $bp-xl: 2000px !default;
   }
 }
 
+@mixin print() {
+  @media print {
+    @content;
+  }
+}
+
 .sm-hide {
   @include sm {
     display: none;
