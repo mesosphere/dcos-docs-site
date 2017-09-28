@@ -1,3 +1,3 @@
 if (feather) {
-  feather.replace()
+  feather.replace();
 }

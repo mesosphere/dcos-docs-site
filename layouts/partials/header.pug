@@ -1,5 +1,3 @@
-- var paths = path.split('/')
-
 header(class='header')
   a(class='header__drawer')
     i(class='header__icon', data-feather='menu')
@@ -16,9 +14,8 @@ header(class='header')
             - itemClass['header__menu-item--active'] = ('/' + path).includes(val.path)
             li(class=itemClass)
               a(href=val.path)!= val.title
-  if paths[0] !== 'search'
-    section(class='header__search', role='search')
-        form(class='header__search-form', action='/search', method='GET')
-          label(class='header__search-label', for='search-input')
-            i(class='header__icon', data-feather='search')
-          input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
+  section(class='header__search', role='search')
+      form(class='header__search-form', action='/search', method='GET')
+        label(class='header__search-label', for='search-input')
+          i(class='header__icon', data-feather='search')
+        input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')

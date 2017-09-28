@@ -1,7 +1,6 @@
 const searchForm = document.querySelector('#search-form');
 
 if (searchForm) {
-  
   /**
    * Algolia Search Page Config
    */
@@ -12,6 +11,9 @@ if (searchForm) {
     urlSync: true,
   });
 
+  /** 
+   * Search result templates
+   */
   const hitTemplate = `
     <li class="search__results-item">
       <h4 class="search__title">
@@ -19,7 +21,7 @@ if (searchForm) {
       </h4>
       <p class="search__description">{{{_snippetResult.contents.value}}}</p>
       <div class="search__meta">
-        <span class="search__meta-version">Mesosphere DC/OS 1.9</span>
+        <span class="search__meta-version">{{version}}</span>
         <a href="/{{path}}" class="search__meta-source">{{truncatedPath}}</a>
       </div>
     </li>
@@ -27,41 +29,10 @@ if (searchForm) {
 
   const noResultsTemplate = '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>';
 
-  function renderFn(
-    renderOptions,
-    isFirstRendering
-  ) {
-		let select;
-		const containerNode = document.querySelector(renderOptions.widgetParams.containerNode);
-    if (isFirstRendering) {
-      const header = document.createElement('span');
-      containerNode.appendChild(header);
-      select = document.createElement('select');
-  
-      select.addEventListener('change', e => renderOptions.refine(e.target.value));
-  
-      containerNode.appendChild(select);
-    } else {
-      select = containerNode.querySelector('select');
-		}
-
-    const options = renderOptions.items.map(item => {
-      const option = document.createElement('option');
-  
-      option.innerText = `${item.label} ${item.count}`;
-      option.value = item.value;
-      option.selected = item.isRefined;
-  
-      return option;
-    });
-  
-    select.textContent = '';
-    options.forEach(el => select.appendChild(el));
-  }
-  
-  // connect `renderFn` to Menu logic
+  // connect `renderFn` to <select> menu logic
   const selectMenu = instantsearch.connectors.connectMenu(renderFn);
 
+  // Render search input widget
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-input',
@@ -73,6 +44,7 @@ if (searchForm) {
     }),
   );
 
+  // Render search results
   search.addWidget(
     instantsearch.widgets.hits({
       container: '#search-results',
@@ -90,32 +62,75 @@ if (searchForm) {
     }),
   );
 
+  // Render search section menu
   search.addWidget(
     selectMenu({
       containerNode: '#search-section',
       attributeName: 'section',
-    })
+      title: 'Section',
+    }),
   );
 
+  // Render search version menu
   search.addWidget(
     selectMenu({
       containerNode: '#search-version',
       attributeName: 'version',
-      limit: 10
-    })
+      title: 'Version',
+      limit: 10,
+    }),
   );
 
+  // Render pagination
   search.addWidget(
     instantsearch.widgets.pagination({
       container: '#search-pagination',
       cssClasses: {
         root: 'pagination',
-        active: 'active'
-      }
+        active: 'active',
+      },
     }),
   );
 
   search.start();
+}
+
+// Render custom <select> menu
+function renderFn(
+  renderOptions,
+  isFirstRendering,
+) {
+  let select;
+  const containerNode = document.querySelector(renderOptions.widgetParams.containerNode);
+  if (isFirstRendering) {
+    const header = document.createElement('span');
+    containerNode.appendChild(header);
+    select = document.createElement('select');
+    const title = document.createElement('option');
+    title.innerText = renderOptions.widgetParams.title;
+
+    select.addEventListener('change', e => renderOptions.refine(e.target.value));
+
+    containerNode.appendChild(select);
+    select.appendChild(title);
+  } else {
+    select = containerNode.querySelector('select');
+  }
+
+  if (renderOptions.items) {
+    const options = renderOptions.items.map((item) => {
+      const option = document.createElement('option');
+
+      option.innerText = `${item.label} ${item.count}`;
+      option.value = item.value;
+      option.selected = item.isRefined;
+
+      return option;
+    });
+
+    select.textContent = '';
+    options.forEach(el => select.appendChild(el));
+  }
 }
 
 // TEMP: Hardcoded path

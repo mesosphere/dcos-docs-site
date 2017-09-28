@@ -35,6 +35,10 @@
   }
   &__filters {
     margin-top: 1.5rem;
+    &-option {
+      display: inline-block;
+      margin-right: 1rem;
+    }
   }
   &__results {
     margin-top: 4rem;

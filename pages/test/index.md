@@ -53,7 +53,7 @@ OSS Content
 
 [icon glyph="message-square"]
 
-[icon  glyph="message-square"]
+[icon&nbsp;glyph="message-square"]
 
 All feather icon glyphs are available at [https://feathericons.com](https://feathericons.com)
 

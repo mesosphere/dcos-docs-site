@@ -2,11 +2,12 @@ $sections-size: 20%;
 
 .content {
   display: flex;
-  flex-direction: column;
   margin-top: 80px;
   padding: 2rem;
   &__container {
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
   &__header {
     z-index: 10;
@@ -27,8 +28,8 @@ $sections-size: 20%;
       margin-top: 0;
       padding-top: 0;
     }
-    ul,
-    ol {
+    ul li,
+    ol li {
       margin-left: 25px;
     }
     .icon {
@@ -44,6 +45,9 @@ $sections-size: 20%;
   }
   @include md {
     padding: 4rem;
+    &__container {
+      width: 80%;
+    }
     &__article {
       h1,
       h2,
@@ -53,7 +57,7 @@ $sections-size: 20%;
       h6 {
         &:hover {
           & .content__anchor {
-            display: inline-block;
+            visibility: visible;
             &:hover .feather {
               fill: $color-purple-light;
             }
@@ -62,17 +66,19 @@ $sections-size: 20%;
       }
     }
     &__anchor {
-      width: 35px;
-      margin-left: -35px;
+      display: inline-block;
+      width: 30px;
+      margin-left: -30px;
       padding-right: 10px;
+      visibility: hidden;
+      .feather {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
   @include lg {
-    &__container {
-      display: flex;
-    }
     &__article {
-      width: 80%;
       > h1:before,
       > h2:before,
       > h3:before,
@@ -92,17 +98,13 @@ $sections-size: 20%;
       position: relative;
       display: block;
       width: 20%;
-      padding: 0 2rem;
+      margin-left: 2rem;
       &-list {
-        position: absolute;
-        list-style-type: none;
-        top: 0;
+        position: sticky;
+        top: 120px;
         width: 100%;
-        &--top {
-          position: fixed;
-          top: 120px;
-          width: inherit;
-        }
+        margin: 0;
+        list-style-type: none;
       }
       &-item {
         padding: 0;
