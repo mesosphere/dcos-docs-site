@@ -1,6 +1,7 @@
 const algoliasearch = require('algoliasearch')
 const debug = require('debug')('metalsmith-algoliasearch')
-const Bluebird = require('bluebird')
+const Bluebird = require('bluebird');
+const sanitizeHtml = require('sanitize-html');
 const extname = require('path').extname;
 
 module.exports = function(options) {
@@ -13,8 +14,24 @@ module.exports = function(options) {
     }
   }
 
-  let client = algoliasearch(options.projectId, options.privateKey)
-  let index = client.initIndex(options.index)
+  const client = algoliasearch(options.projectId, options.privateKey)
+  const index = client.initIndex(options.index)
+
+  index.setSettings({
+    'attributesToSnippet': [
+      'contents:30'
+    ],
+    'searchableAttributes': [
+      'title',
+      'contents',
+      'enterprise'
+    ],
+    'attributesForFaceting': [
+      'section',
+      'product',
+      'version'
+    ]
+  });
 
   return function(files, metalsmith, done) {
     let clearIndex
@@ -44,8 +61,7 @@ module.exports = function(options) {
         let indexed = 0
 
         Object.keys(files).forEach(function(file) {
-          if (files[file].algolia === false) return;
-          if ('.html' != extname(file)) return;
+          if (files[file].algolia === false || '.html' != extname(file)) return;
 
           debug(`processing file "${file}"`)
 
@@ -53,33 +69,38 @@ module.exports = function(options) {
             objects = objects.concat(options.fileParser(file, files[file]))
           }
           else {
+            let pathParts = file.split('/');
             let data = {}
 
-            data.objectID = file
+            // TEMP: Need to fine tune indexing
+            if (pathParts[0] === 'docs') {
+              data.section = 'DC/OS Docs';
+              data.product = 'DC/OS';
+              data.version = 'DC/OS ' + pathParts[1];
+            }
+
+            if (pathParts[0] === 'service-docs') {
+              data.section = 'Service Docs';
+              const product = pathParts[1].charAt(0).toUpperCase() + pathParts[1].slice(1)
+              data.product = product;
+              data.version = `${product} ${pathParts[2]}`;
+            }
+
+            data.objectID = file;
 
             for (let key in files[file]) {
-              if (key === 'title' || key === 'contents' || key === 'path') {
-                switch (typeof files[file][key]) {
-                  case 'string':
-                  case 'boolean':
-                  case 'number':
-                    data[key] = files[file][key]
-                    break
-                  case 'object':
-                    if (files[file][key] instanceof Buffer) {
-                      data[key] = files[file][key].toString()
-                    }
-                    else {
-                      // we have to detect circular refs before indexing objects
-                    }
-                    break
-                  case 'function':
-                  case 'symbol':
-                  default:
-                    // don't care
-                    console.log(`discarding key ${key}:`, typeof files[file][key])
-                    break;
-                }
+              if (key === 'title' || key === 'path') {
+                data[key] = files[file][key]
+              }
+              if (key === 'contents') {
+                const string = files[file][key].toString();
+                const parsedString = sanitizeHtml(string, {
+                  allowedTags: [],
+                  allowedAttributes: [],
+                  selfClosing: [],
+                  nonTextTags: [ 'style', 'script', 'textarea', 'noscript', 'pre' ],
+                });
+                data[key] = parsedString.replace(/\s+/g, " ");
               }
             }
 

@@ -67,7 +67,7 @@ Fluid (fill 100% of parent container until reaching original size (min-width = o
 
 [icon glyph="message-square"]
 
-[icon  glyph="message-square"]
+[icon&nbsp;glyph="message-square"]
 
 All feather icon glyphs are available at [https://feathericons.com](https://feathericons.com)
 
