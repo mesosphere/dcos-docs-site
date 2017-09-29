@@ -6,6 +6,7 @@
   background-color: #eee;
   color: inherit;
   text-decoration: none;
+  padding: 0 6px;
 }
 
 /* Base styles for the entire tooltip */
@@ -41,7 +42,7 @@
 /* Base styles for the tooltip's directional arrow */
 .tooltip:before,
 [data-tooltip]:before {
-  z-index: 1001;
+  z-index: 11;
   border: 6px solid transparent;
   background: transparent;
   content: "";
@@ -50,7 +51,7 @@
 /* Base styles for the tooltip's content area */
 .tooltip:after,
 [data-tooltip]:after {
-  z-index: 1000;
+  z-index: 10;
   padding: 8px;
   width: 100%;
   background-color: hsla(253°, 46%, 18%, 0.9);

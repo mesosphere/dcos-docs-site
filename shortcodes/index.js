@@ -69,10 +69,20 @@ const shortcodes = {
    * Enterprise
    * @param {string} buf
    * @param {Object} opts
+   * @param {string} opts.size
+   * @param {string} opts.type
    */
   'enterprise': (buf, opts) => {
+    let size = opts.size;
+    let type = opts.type;
+    if (!opts.size) {
+      size = 'large';
+    }
+    if (!opts.type) {
+      type = 'block';
+    }
     return sanitize(`
-      <p class="tag tag--shortcode tag--small tag--enterprise">Enterprise</p>
+      <p class="tag tag--shortcode tag--${size} tag--${type} tag--enterprise">Enterprise</p>
     `);
   },
 
@@ -80,10 +90,20 @@ const shortcodes = {
    * OSS
    * @param {string} buf
    * @param {Object} opts
+   * @param {string} opts.size
+   * @param {string} opts.type
    */
   'oss': (buf, opts) => {
+    let size = opts.size;
+    let type = opts.type;
+    if (!opts.size) {
+      size = 'large';
+    }
+    if (!opts.type) {
+      type = 'block';
+    }
     return sanitize(`
-      <p class="tag tag--shortcode tag--small tag--oss">OSS</p>
+      <p class="tag tag--shortcode tag--${size} tag--${type} tag--oss">OSS</p>
     `);
   },
 

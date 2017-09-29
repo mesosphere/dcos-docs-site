@@ -16,14 +16,27 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 ## Shortcodes
 
 ### Enterprise Tag {data-hide=true}
-
+##### Large
 [enterprise]
+
+##### Small
+[enterprise size="small"]
+
+##### Inline
+[enterprise type="inline"] this is an example of an inline badge
 
 Enterprise Content
 
 ### OSS Tag {data-hide=true}
 
+Large
 [oss]
+
+Small
+[oss size="small"]
+
+Inline
+[oss type="inline"] this is an example of an inline badge
 
 OSS Content
 
@@ -33,13 +46,13 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 ### Support for Image Types and Opening In New Tab
 
 Inline (original size and inline)
-[image src="../assets/header-logo-color-dark-mark.png" type="inline" alt="Mesosphere Logo"]
+[image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test"]
 
 Fill (fill 100% of parent container)
-[image src="../assets/header-logo-color-dark-mark.png" type="fill" alt="Mesosphere Logo"]
+[image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test"]
 
 Fluid (fill 100% of parent container until reaching original size (min-width = original size))
-[image src="../assets/header-logo-color-dark-mark.png" type="fluid" alt="Mesosphere Logo"]
+[image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test"]
 
 ### Message {data-hide=true}
 
