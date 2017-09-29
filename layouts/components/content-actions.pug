@@ -2,10 +2,6 @@
 - var githubBranch = (env === 'production') ? 'master' : 'develop'
 - var githubPath = 'https://github.com/mesosphere/mesosphere-dcos-documentation/tree/' + githubBranch + '/pages/' + path + '/index.md'
 
-mixin svg-external(svg_file, svg_id, svg_class, svg_title)
-  svg(class=svg_class,title=svg_title)
-    use(xlink:href= svg_file)
-
 div(class='actions')
   ul(class='actions__list')
     li(class='actions__item')

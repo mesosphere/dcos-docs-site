@@ -1,6 +1,6 @@
 function wrapCodeBlocks() {
-  $('pre').each(() => {
-    $(this).wrapAll('<div class="code-container" />');
+  $('pre').each((index, pre) => {
+    $(pre).wrapAll('<div class="code-container" />');
   });
 }
 

@@ -33,13 +33,13 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 ### Support for Image Types and Opening In New Tab
 
 Inline (original size and inline)
-[image src="../assets/header-logo-color-dark-mark.png" type="inline" alt="Mesosphere Logo"][/image]
+[image src="../assets/header-logo-color-dark-mark.png" type="inline" alt="Mesosphere Logo"]
 
 Fill (fill 100% of parent container)
-[image src="../assets/header-logo-color-dark-mark.png" type="fill" alt="Mesosphere Logo"][/image]
+[image src="../assets/header-logo-color-dark-mark.png" type="fill" alt="Mesosphere Logo"]
 
 Fluid (fill 100% of parent container until reaching original size (min-width = original size))
-[image src="../assets/header-logo-color-dark-mark.png" type="fluid" alt="Mesosphere Logo"][/image]
+[image src="../assets/header-logo-color-dark-mark.png" type="fluid" alt="Mesosphere Logo"]
 
 ### Message {data-hide=true}
 

@@ -18,10 +18,13 @@ const sanitize = (html) => {
   return html.replace(/^ +| +$/gm, "");
 };
 
+
+/**
+ * Capitalize for message label (warning, error, etc)
+ */
 const capitalize = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
-
 
 const shortcodes = {
 
@@ -228,6 +231,9 @@ const shortcodes = {
    * Image
    * @param {string} buf
    * @param {Object} opts
+   * @param {string} opts.src
+   * @param {string} opts.alt
+   * @param {string} opts.type
    */
   'image': (buf, opts) => {
     return sanitize(`
@@ -239,9 +245,9 @@ const shortcodes = {
    * Tooltip
    * @param {string} buf
    * @param {Object} opts
+   * @param {string} opts.content
    */
   'tooltip': (buf, opts) => {
-    console.log(opts.content);
     return sanitize(`
       <span class="tooltip" data-tooltip="${opts.content}">${buf}</span>
     `);
