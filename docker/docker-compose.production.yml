@@ -19,6 +19,6 @@ services:
     image: 18fgsa/html-proofer
     volumes:
       - build:/src
-    command: /src/build
+    command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
 volumes:
   build:
