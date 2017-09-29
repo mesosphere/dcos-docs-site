@@ -54,6 +54,12 @@ Fill (fill 100% of parent container)
 Fluid (fill 100% of parent container until reaching original size (min-width = original size))
 [image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test"]
 
+
+### Buttons
+
+[button color="purple"]Purple[/button] [button color="pink"]Pink[/button] [button color="dark"]Dark[/button] [button color="light"]Light[/button]
+
+[button color="purple" size="small"]Purple[/button]
 ### Message {data-hide=true}
 
 [message]Test Message[/message]
