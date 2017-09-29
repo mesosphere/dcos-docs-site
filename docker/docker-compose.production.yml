@@ -7,8 +7,7 @@ services:
       context: ../
       dockerfile: ./docker/Dockerfile
       args:
-        nginx_conf: ./docker/nginx.default.conf
-        nginx_redirect_map_conf: ./docker/nginx.redirect-map.conf
+        nginx_dir: ./docker/nginx
     ports:
       - "80:80"
       - "443:443"

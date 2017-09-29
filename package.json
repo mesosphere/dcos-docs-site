@@ -13,7 +13,8 @@
     "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer node index.js",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
-    "eslint-init": "eslint --init"
+    "eslint-init": "eslint --init",
+    "crawler": "node ./scripts/crawler.js"
   },
   "author": "Ettrics",
   "devDependencies": {
@@ -21,6 +22,7 @@
     "autoprefixer": "^7.1.1",
     "bluebird": "^3.5.0",
     "browser-sync": "^2.18.12",
+    "crawler": "^1.0.5",
     "css-loader": "^0.28.4",
     "debug": "^3.0.1",
     "eslint": "^4.3.0",
@@ -30,6 +32,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^2.1.2",
+    "fs-finder": "^1.8.1",
     "js-yaml": "^3.9.1",
     "jsdom": "^11.2.0",
     "markdown-it-anchor": "^4.0.0",
