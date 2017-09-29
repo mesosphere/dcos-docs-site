@@ -18,7 +18,7 @@ const OUTPUT_BROKEN_FILE = './crawler/broken';
 
 // Create folders & files
 if (!fs.existsSync(OUTPUT_DIR)){
-	fs.mkdirSync(OUTPUT_DIR);
+  fs.mkdirSync(OUTPUT_DIR);
 }
 fs.writeFileSync(OUTPUT_REDIRECTS_FILE, ``);
 fs.writeFileSync(OUTPUT_BROKEN_FILE, ``);
