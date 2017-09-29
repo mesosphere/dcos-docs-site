@@ -5,6 +5,9 @@
 clean:
 	./scripts/clean.sh
 
+reduce-pages:
+	./scripts/reduce-pages.sh
+
 #
 # Migration
 #
