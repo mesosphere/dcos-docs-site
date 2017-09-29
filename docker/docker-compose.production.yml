@@ -2,29 +2,23 @@ version: '3.1'
 
 services:
   docs:
+    image: mesosphere/dcos-docs
     build:
       context: ../
       dockerfile: ./docker/Dockerfile
       args:
-        nginx_conf: ./docker/nginx.conf
+        nginx_dir: ./docker/nginx
     ports:
       - "80:80"
       - "443:443"
-  linkchecker:
-    image: mesosphere/linkchecker
-    links:
-      - "docs:docs"
-    working_dir: /workdir
-    command: >
-      bash -c "mkdir -p -m 777 reports && \
-              linkchecker \
-              --complete \
-              --anchors \
-              --check-extern \
-              --user-agent="curl/7.24.0" \
-              --output=text \
-              --file-output="csv/reports/linkchecker.csv" \
-              --file-output="html/reports/linkchecker.html" \
-              http://docs"
     volumes:
-      - ../linkchecker:/workdir
+      - build:/src
+  test:
+    depends_on:
+      - docs
+    image: 18fgsa/html-proofer
+    volumes:
+      - build:/src
+    command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
+volumes:
+  build:
