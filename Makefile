@@ -52,8 +52,8 @@ docker-production-up:
 docker-production-test:
 	docker-compose -f ./docker/docker-compose.production.yml up test
 
-docker-development-pdf:
-	docker-compose -f ./docker/docker-compose.pdf.yml up -d
+docker-development-build-pdf:
+	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
 
 docker-purge:
 	./scripts/docker-purge.sh
