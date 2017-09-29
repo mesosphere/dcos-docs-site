@@ -37,27 +37,10 @@ RUN make build-pdf
 # Build MS
 #
 
-FROM node:8.1.2-slim as ms-builder
-
-RUN apt-get update -qq && apt-get install -y build-essential
-
-RUN mkdir /src
-VOLUME ['/src']
-WORKDIR /src
-ADD . /src/
-
-RUN mkdir -p /src/build-swagger
-RUN mkdir -p /src/build-ngindox
-
-WORKDIR /src/build-swagger
-COPY --from=ms-pdf-builder /src/build-swagger ./
-
-WORKDIR /src/build-ngindox
-COPY --from=ms-pdf-builder /src/build-ngindox ./
+FROM ms-pdf-builder as ms-builder
 
 WORKDIR /src
 
-RUN npm install
 RUN npm run build
 
 #
