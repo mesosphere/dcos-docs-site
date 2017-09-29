@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  docs:
+    image: mesosphere/dcos-docs
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+      args:
+        nginx_dir: ./docker/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - build:/src
+  test:
+    depends_on:
+      - docs
+    image: 18fgsa/html-proofer
+    volumes:
+      - build:/src
+    command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
+volumes:
+  build:

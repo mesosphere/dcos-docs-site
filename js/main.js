@@ -1,1 +1,3 @@
-console.log('Hello World!');
+if (feather) {
+  feather.replace();
+}

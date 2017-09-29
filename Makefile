@@ -1,17 +1,59 @@
-start:
-	docker-compose up -d
+#
+# Util
+#
 
-rmi:
-	docker rmi mesospheredocs_docs
+clean:
+	./scripts/clean.sh
 
-HTML_FILES := $(shell find build/docs -type f -name '*.html')
-OUTPUT_FILE := ./build/index.pdf
-pdf:
-	HTML_FILES="$(HTML_FILES)" OUTPUT_FILE="${OUTPUT_FILE}" docker-compose up
+#
+# Migration
+#
 
-reset:
-	docker stop mesospheredocs_docs_1
-	docker rm -v mesospheredocs_docs_1
+migration:
+	./scripts/migration.sh
 
-build:
-	docker-compose build
+#
+# Redirects
+#
+
+build-redirects:
+	npm run crawler
+
+#
+# Build
+#
+
+build-dev: build-swagger build-ngindox
+	npm run dev
+
+build-pdf:
+	./scripts/pdf.sh ./build ./build-pdf
+
+build-pdf-dev: build-swagger build-ngindox docker-pdf
+	npm run build-pdf
+	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
+
+build-swagger:
+	./scripts/swagger.sh ./pages ./build-swagger
+
+build-ngindox:
+	./scripts/ngindox.sh ./pages ./build-ngindox
+
+#
+# Docker
+#
+
+docker-production-build:
+	docker-compose -f ./docker/docker-compose.production.yml build --force-rm --no-cache docs
+
+docker-production-up:
+	docker-compose -f ./docker/docker-compose.production.yml up -d docs
+
+docker-production-test:
+	docker-compose -f ./docker/docker-compose.production.yml up test
+
+docker-development-build-pdf:
+	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
+
+docker-purge:
+	./scripts/docker-purge.sh
