@@ -13,6 +13,13 @@ migration:
 	./scripts/migration.sh
 
 #
+# Redirects
+#
+
+build-redirects:
+	npm run crawler
+
+#
 # Build
 #
 
@@ -43,7 +50,7 @@ docker-production-up:
 	docker-compose -f ./docker/docker-compose.production.yml up -d docs
 
 docker-production-test:
-	docker-compose -f ./docker/docker-compose.production.yml up -d linkchecker
+	docker-compose -f ./docker/docker-compose.production.yml up test
 
 docker-development-pdf:
 	docker-compose -f ./docker/docker-compose.pdf.yml up -d
