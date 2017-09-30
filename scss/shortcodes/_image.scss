@@ -1,9 +1,17 @@
-.img-inline {
-    display: inline;
-}
-
-.img-fill,
-.img-fluid {
-    width: 100%;
-    height: auto;
+.img {
+    &--inline {
+        display: inline;
+    }
+    &--fill,
+    &--fluid {
+        width: 100%;
+        height: auto;
+    }
+    &__caption {
+        display: block;
+        background-color: #eee;
+        color: inherit;
+        padding: 6px;
+        margin-top: 0px;
+    }
 }

@@ -257,7 +257,7 @@ const shortcodes = {
    */
   'image': (buf, opts) => {
     return sanitize(`
-      <a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img-${opts.type}"></a>
+      <a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption">${opts.caption}</p>
     `);
   },
 

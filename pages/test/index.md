@@ -46,20 +46,28 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 ### Support for Image Types and Opening In New Tab
 
 Inline (original size and inline)
-[image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test"]
+[image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Example caption"]
 
 Fill (fill 100% of parent container)
-[image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test"]
+[image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Example caption"]
 
 Fluid (fill 100% of parent container until reaching original size (min-width = original size))
-[image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test"]
+[image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Example caption"]
 
 
 ### Buttons
 
-[button color="purple"]Purple[/button] [button color="pink"]Pink[/button] [button color="dark"]Dark[/button] [button color="light"]Light[/button]
+Large (default)
+[button color="purple"]Purple[/button]
+[button color="pink"]Pink[/button]
+[button color="dark"]Dark[/button]
+[button color="light"]Light[/button]
 
+Small
 [button color="purple" size="small"]Purple[/button]
+[button color="pink" size="small"]Pink[/button]
+[button color="dark" size="small"]Dark[/button]
+[button color="light" size="small"]Light[/button]
 ### Message {data-hide=true}
 
 [message]Test Message[/message]
