@@ -5,6 +5,9 @@
 clean:
 	./scripts/clean.sh
 
+reduce-pages:
+	./scripts/reduce-pages.sh
+
 #
 # Migration
 #
@@ -44,12 +47,16 @@ build-ngindox:
 #
 
 docker-production-build:
+	docker rmi mesosphere/dcos-docs:latest
 	docker-compose -f ./docker/docker-compose.production.yml build --force-rm --no-cache docs
 
 docker-production-up:
 	docker-compose -f ./docker/docker-compose.production.yml up -d docs
 
-docker-production-test:
+docker-production-build-test:
+	./scripts/build-validation.sh
+
+docker-production-link-test:
 	docker-compose -f ./docker/docker-compose.production.yml up test
 
 docker-development-build-pdf:
