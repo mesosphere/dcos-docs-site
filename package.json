@@ -60,7 +60,6 @@
     "cheerio": "^1.0.0-rc.2",
     "html-minifier": "^3.5.3",
     "metalsmith-shortcode-parser": "^1.0.1",
-    "metalsmith-timer": "0.0.2",
-    "sanitize-html": "^1.14.1"
+    "metalsmith-timer": "0.0.2"
   }
 }
