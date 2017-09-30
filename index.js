@@ -1,13 +1,10 @@
 const Metalsmith       = require('metalsmith');
 const markdown         = require('metalsmith-markdownit');
 const layouts          = require('metalsmith-layouts');
-const collections      = require('metalsmith-collections');
 const permalinks       = require('metalsmith-permalinks');
 const assets           = require('metalsmith-assets');
 const browserSync      = require('metalsmith-browser-sync');
 const webpack          = require('metalsmith-webpack2');
-// TEMP: See below
-//const shortcodes       = require('metalsmith-shortcode-parser');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const cheerio          = require('cheerio');
@@ -24,6 +21,7 @@ let MS = Metalsmith(__dirname);
 
 // Metadata
 MS.metadata({
+  url: "https://docs.mesosphere.com",
   siteTitle: "Mesosphere DC/OS",
   title: "Mesosphere DC/OS",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
@@ -55,6 +53,15 @@ MS.use(timer('init'))
 // Folder Hierarchy
 MS.use(hierarchyPlugin())
 MS.use(timer('Hierarchy'))
+
+// RSS Feed
+MS.use(rss({
+  itemOptionsMap: {
+    'title': 'title',
+    'description': 'excerpt'
+  }
+}))
+MS.use(timer('RSS'))
 
 // Shortcodes
 MS.use(shortcodes({
@@ -152,7 +159,7 @@ MS.build(function(err, files) {
 });
 
 //
-// Build Folder Hierarchy
+// Hierarchy
 //
 
 // TEMP: Moving to own npm package
@@ -176,7 +183,7 @@ function walk(file, files, array, children, level) {
       children: [],
     };
     let blacklist = [
-      'layout',
+      //'layout',
       'stats',
       'mode',
       'contents',
@@ -199,34 +206,70 @@ function walk(file, files, array, children, level) {
 }
 
 function hierarchyPlugin() {
-  return function(files, metalsmith, done){
+  return function(files, metalsmith, done) {
     setImmediate(done);
-    var find = function(hierarchy, path) {
+    var findByPath = function(path) {
       if(path[0] !== '/') {
         path = '/' + path;
       }
-      var pathSplit = path.split('/');
-      pathSplit.splice(0, 1);
-      var findById = function(array, id) {
+      var f = function(array, key, value) {
         return array.find(function(item) {
-          return item.id === id;
+          return item[key] == value;
         });
       }
-      var start = findById(hierarchy.children, pathSplit[0]);
+      var pathSplit = path.split('/');
+      pathSplit.splice(0, 1);
+      var start = f(this.children, 'id', pathSplit[0]);
       pathSplit.splice(0, 1);
       var index = 0;
       var currentPage = pathSplit.reduce(function(value, next) {
-        var found = findById(value.children, pathSplit[index])
+        var found = f(value.children, 'id', pathSplit[index])
         index++;
         return found;
       }, start);
       return currentPage;
+    }
+    var find = function(key, value) {
+      let found = [];
+      let w = (node) => {
+        let matches = node.children.filter(function(n) {
+          return n[key] == value;
+        });
+        found = found.concat(matches);
+        node.children.forEach(function(n) {
+          w(n);
+        });
+      };
+      w(this);
+      return found;
+    }
+    var findParent = function(path, key, value) {
+      if(path[0] !== '/') {
+        path = '/' + path;
+      }
+      let pathSplit = path.split('/');
+      pathSplit.splice(0, 1);
+      pathSplit.reverse();
+      let self = this;
+      let parent;
+      pathSplit.forEach(function(id) {
+        let i = path.split('/').indexOf(id);
+        let s = path.split('/').slice(0, i + 1).join('/');
+        let page = this.findByPath(s);
+        if(page && page[key] && page[key] == value) {
+          parent = page;
+        }
+      }, this);
+      return parent;
+
     }
     let r = {
       id: '',
       title: '',
       path: '/',
       children: [],
+      findByPath: findByPath,
+      findParent: findParent,
       find: find,
     };
     Object.keys(files).forEach(function(file, index) {
@@ -238,6 +281,99 @@ function hierarchyPlugin() {
     metalsmith.metadata()['hierarchy'] = r;
   };
 };
+
+//
+// Hierarchy RSS
+//
+
+const fs = require('fs');
+const mkdirp = require('mkdirp');
+//const path = require('path');
+const RSS = require('rss');
+
+function createFeed(opts, metalsmith, page) {
+
+  let metadata = metalsmith.metadata();
+
+  //
+  // Feed
+  //
+
+  let feedOptions = {};
+
+  if(page.title) {
+    feedOptions.title = page.title;
+  }
+  if(metadata.description) {
+    feedOptions.description = metadata.description;
+  }
+  if(metadata.url && page.path) {
+    feedOptions.feed_url = path.join(metadata.url, page.path, 'rss.xml');
+    feedOptions.site_url = path.join(metadata.url, page.path);
+  }
+  if(metadata.copyright) {
+    feedOptions.copyright = metadata.copyright;
+  }
+  if(metadata.language) {
+    feedOptions.language = metadata.language;
+  }
+
+  let feed = new RSS(feedOptions);
+
+  //
+  // Pages
+  //
+
+  let walk = (p) => {
+    p.children.forEach((c) => {
+      let itemOptions = {};
+      for(let key in opts.itemOptionsMap) {
+        let value = c[opts.itemOptionsMap[key]];
+        if(value) {
+          itemOptions[key] = value;
+        }
+      }
+      if(c.path) {
+        itemOptions.url = path.join(metadata.url, c.path);
+      }
+      feed.item(itemOptions);
+      walk(c);
+    });
+  };
+  walk(page);
+
+  //
+  // Export
+  //
+
+  let destinationFolder = path.join(metalsmith.destination(), page.path);
+  let destination = path.join(destinationFolder, '/rss.xml');
+  if (!fs.existsSync(destinationFolder)){
+    mkdirp.sync(destinationFolder);
+  }
+  fs.writeFileSync(destination, feed.xml());
+
+}
+
+function rss(opts) {
+  return function(files, metalsmith, done) {
+    setImmediate(done);
+
+    let metadata = metalsmith.metadata();
+    if(!metadata) {
+      done(new Error('metadata must be configured'));
+    }
+
+    let hierarchy = metadata.hierarchy;
+    if(!hierarchy) {
+      done(new Error('hierarchy must be configured'));
+    }
+
+    let pages = hierarchy.find('rss', true);
+    pages.forEach((page) => createFeed(opts, metalsmith, page));
+
+  }
+}
 
 //
 // Headings

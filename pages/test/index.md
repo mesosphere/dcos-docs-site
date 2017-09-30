@@ -5,6 +5,7 @@ navigationTitle: Home
 menuWeight: -1
 overviewGrid: true
 enterprise: true
+rss: true
 ---
 
 [enterprise]
