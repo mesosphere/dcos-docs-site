@@ -18,57 +18,101 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 
 ### Enterprise Tag {data-hide=true}
 ##### Large
+[enterprise&nbsp;]
 [enterprise]
 
 ##### Small
+[enterprise&nbsp;size="small"]
 [enterprise size="small"]
 
 ##### Inline
+[enterprise&nbsp;type="inline"] this is an example of an inline badge
 [enterprise type="inline"] this is an example of an inline badge
 
 Enterprise Content
 
 ### OSS Tag {data-hide=true}
 
-Large
+##### Large
+[oss&nbsp;]
 [oss]
 
-Small
+##### Small
+[oss&nbsp;size="small"]
 [oss size="small"]
 
-Inline
+##### Inline
+[oss&nbsp;type="inline"] this is an example of an inline badge
 [oss type="inline"] this is an example of an inline badge
 
 OSS Content
 
 ### Tooltips
 
+Copy your existing [tooltip&nbsp;content="This is some content"]config.yaml[/tooltip] and [tooltip&nbsp;content="Tooltip"]ip-detect[/tooltip] files to...
+
 Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip] and [tooltip content="Tooltip"]ip-detect[/tooltip] files to...
 ### Support for Image Types and Opening In New Tab
 
-Inline (original size and inline)
+| Attribute      | Requirement   | Options  |
+| -------------- |:-------------:| -----:|
+| src            | required      | any   |
+| type           | optional (default: inline) | inline (original size and inline), fill (100% of parent container), fluid (100% of parent container and min-width = original size) |
+| alt            | optional      |   text to be displayed if image does not load |
+| caption        | optional      |    text to be displayed below image |
+
+
+##### Inline (original size and inline)
+[image&nbsp;src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Example caption"]
+
 [image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Example caption"]
 
-Fill (fill 100% of parent container)
+
+
+##### Fill (fill 100% of parent container)
+[image&nbsp;src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Example caption"]
 [image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Example caption"]
 
-Fluid (fill 100% of parent container until reaching original size (min-width = original size))
+
+##### Fluid (fill 100% of parent container until reaching original size (min-width = original size))
+[image&nbsp;src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Example caption"]
 [image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Example caption"]
+
 
 
 ### Buttons
 
-Large (default)
+#### Options
+
+| Attribute      | Requirement   | Options  |
+| -------------- |:-------------:| -----:|
+| color          | optional (default: purple) | purple, pink, dark, light|
+| size           | optional (default: large) | large, small |
+
+
+##### Large (default)
+[button&nbsp;color="purple"]Purple[/button]
 [button color="purple"]Purple[/button]
+
+[button&nbsp;color="pink"]Pink[/button]
 [button color="pink"]Pink[/button]
+
+[button&nbsp;color="dark"]Dark[/button]
 [button color="dark"]Dark[/button]
+
+[button&nbsp;color="light"]Light[/button]
 [button color="light"]Light[/button]
 
-Small
+
+##### Small
 [button color="purple" size="small"]Purple[/button]
+
 [button color="pink" size="small"]Pink[/button]
+
 [button color="dark" size="small"]Dark[/button]
+
 [button color="light" size="small"]Light[/button]
+
 ### Message {data-hide=true}
 
 [message]Test Message[/message]
