@@ -7,7 +7,7 @@
   border: 1px solid $color-grey;
   border-radius: 3px;
   padding: 0.5rem 0.7rem 0.5rem 0.7rem;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
   line-height: 1;
   text-transform: uppercase;
   &-shortcode-container {
@@ -33,5 +33,8 @@
   &--small {
     font-size: 0.7rem;
     padding: 0.4rem 0.6rem 0.3rem 0.6rem;
+  }
+  &--inline {
+    display: inline-block;
   }
 }

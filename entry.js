@@ -5,6 +5,7 @@ require('./js/vendor/ngindox/ngindox.js');
 // require('./js/vendor/prism/clipboard.js');
 require('./js/vendor/prism/prism.css');
 require('./js/vendor/prism/prism.js');
+require('./js/code-container.js');
 
 require('./scss/style.scss');
 
@@ -16,4 +17,5 @@ require('./js/search.js');
 require('./js/actions.js');
 require('./js/sections.js');
 require('./js/switch.js');
+require('./js/image.js');
 require('./js/swagger-ui.js');

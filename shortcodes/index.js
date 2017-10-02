@@ -18,6 +18,14 @@ const sanitize = (html) => {
   return html.replace(/^ +| +$/gm, "");
 };
 
+
+/**
+ * Capitalize for message label (warning, error, etc)
+ */
+const capitalize = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 const shortcodes = {
 
   /**
@@ -35,21 +43,25 @@ const shortcodes = {
    * Message
    * @param {string} buf
    * @param {Object} opts
+   * @param {string} opts.type
    * @param {boolean} opts.fill
    */
   'message': (buf, opts) => {
     let colorClass;
-    if(opts.fill == false && opts.color) {
-      colorClass = `message--outline-${opts.color}`;
+    let messageType = '';
+    if(opts.fill == false && opts.type) {
+      colorClass = `message--outline-${opts.type}`;
+      messageType = `${capitalize(opts.type)}: `;
     }
     else if(opts.fill == false) {
       colorClass = `message--outline`;
     }
-    else if(opts.color) {
-      colorClass = `message--${opts.color}`;
+    else if(opts.type) {
+      colorClass = `message--${opts.type}`;
+      messageType = `${capitalize(opts.type)}: `;
     }
     return sanitize(`
-      <div class="message ${colorClass}">${buf}</div>
+      <div class="message ${colorClass}"><strong>${messageType}</strong>${buf}</div>
     `);
   },
 
@@ -57,10 +69,20 @@ const shortcodes = {
    * Enterprise
    * @param {string} buf
    * @param {Object} opts
+   * @param {string} opts.size
+   * @param {string} opts.type
    */
   'enterprise': (buf, opts) => {
+    let size = opts.size;
+    let type = opts.type;
+    if (!opts.size) {
+      size = 'large';
+    }
+    if (!opts.type) {
+      type = 'block';
+    }
     return sanitize(`
-      <p class="tag tag--shortcode tag--small tag--enterprise">Enterprise</p>
+      <p class="tag tag--shortcode tag--${size} tag--${type} tag--enterprise">Enterprise</p>
     `);
   },
 
@@ -68,10 +90,20 @@ const shortcodes = {
    * OSS
    * @param {string} buf
    * @param {Object} opts
+   * @param {string} opts.size
+   * @param {string} opts.type
    */
   'oss': (buf, opts) => {
+    let size = opts.size;
+    let type = opts.type;
+    if (!opts.size) {
+      size = 'large';
+    }
+    if (!opts.type) {
+      type = 'block';
+    }
     return sanitize(`
-      <p class="tag tag--shortcode tag--small tag--oss">OSS</p>
+      <p class="tag tag--shortcode tag--${size} tag--${type} tag--oss">OSS</p>
     `);
   },
 
@@ -213,6 +245,49 @@ const shortcodes = {
     // Output
     return sanitize($.html());
 
+  },
+
+  /**
+   * Image
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {string} opts.src
+   * @param {string} opts.alt
+   * @param {string} opts.type
+   */
+  'image': (buf, opts) => {
+    return sanitize(`
+      <a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption">${opts.caption}</p>
+    `);
+  },
+
+  /**
+   * Tooltip
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {string} opts.content
+   */
+  'tooltip': (buf, opts) => {
+    return sanitize(`
+      <span class="tooltip" data-tooltip="${opts.content}">${buf}</span>
+    `);
+  },
+
+  /**
+   * Button
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {string} opts.size
+   * @param {string} opts.color
+   */
+  'button': (buf, opts) => {
+    if(!opts.color) {
+      console.error('Error: color option is required for buttons');
+    }
+    let classes = `btn--${opts.color} btn--${opts.size}`;
+    return sanitize(`
+      <button class="btn ${classes}">${buf.toUpperCase()}</button>
+    `);
   },
 
 };
