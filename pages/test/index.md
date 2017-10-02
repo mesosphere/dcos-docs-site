@@ -6,6 +6,10 @@ menuWeight: -1
 overviewGrid: true
 enterprise: true
 rss: true
+relatedPages:
+  - /test/overview
+  - /test/api
+  - /test/cli
 ---
 
 [enterprise]
