@@ -252,12 +252,19 @@ const shortcodes = {
    * @param {string} buf
    * @param {Object} opts
    * @param {string} opts.src
+   * @param {string} opts.srcset
+   * @param {string} opts.sizes
    * @param {string} opts.alt
    * @param {string} opts.type
    */
   'image': (buf, opts) => {
+    if (opts.srcset && opts.sizes) {
+      return sanitize(`
+      <div class="img__wrapper"><a href=${opts.src} target="_blank"><img srcset=${opts.srcset} sizes=${opts.sizes} src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption">${opts.caption}</p></div>
+    `)
+    }
     return sanitize(`
-      <a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption">${opts.caption}</p>
+    <div class="img__wrapper"><a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption">${opts.caption}</p></div>
     `);
   },
 
