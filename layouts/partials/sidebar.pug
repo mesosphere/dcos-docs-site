@@ -1,12 +1,12 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
-- var items = hierarchy.children.find(child => child.id === paths[0])
+- var items = hierarchy
 - var dropdown = hierarchy.children.find(child => child.id === 'docs')
-- var dropdownTitle = siteTitle
 - var versionTitle = ''
 
 // Service Docs
 if paths[0] === 'service-docs'
+  - items = hierarchy.children.find(child => child.id === paths[0])
   if paths[1]
     - var parent = hierarchy.children.find(child => child.id === paths[0])
     - dropdown = parent.children.find(child => child.id === paths[1])
@@ -15,6 +15,7 @@ if paths[0] === 'service-docs'
 
 // DC/OS Docs
 if paths[0] === 'docs'
+  - items = hierarchy.children.find(child => child.id === paths[0])
   if paths[1]
     - var parent = hierarchy.children.find(child => child.id === paths[0])
     - items = parent.children.find(child => child.id === paths[1])
@@ -25,7 +26,7 @@ mixin renderSidebarHeader()
     div(class='sidebar__dropdown')
       div(class='sidebar__dropdown__toggle')
         p(class='sidebar__dropdown__text')
-          span(class='sidebar__dropdown__text__title')!= dropdownTitle
+          span(class='sidebar__dropdown__text__title')!= siteTitle
           span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
         i(class='sidebar__dropdown__icon', data-feather='chevron-down')
       ul(class='sidebar__dropdown__list')
@@ -76,6 +77,3 @@ section(class='sidebar')
   +renderSidebarHeader()
   +renderSidebarNav()
   +renderSidebarFooter()
-
-script.
-  console.log(!{JSON.stringify(items)})
