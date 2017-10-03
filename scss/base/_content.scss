@@ -99,11 +99,18 @@ $sections-size: 20%;
       display: block;
       width: 20%;
       margin-left: 2rem;
-      &-list {
+      &-list-container {
         position: sticky;
-        top: 120px;
+        top: calc(80px + 80px);
+        width: 100%;
+      }
+      &-list {
         width: 100%;
         margin: 0;
+        margin-top: 2rem;
+        &:nth-of-type(1) {
+          margin-top: 0;
+        }
         list-style-type: none;
       }
       &-item {
@@ -127,6 +134,9 @@ $sections-size: 20%;
     padding: 0;
     &__container {
       width: 100%;
+      margin-top: 3rem;
+    }
+    &__article {
       margin-top: 3rem;
     }
     &__sections {
