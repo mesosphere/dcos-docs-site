@@ -113,7 +113,8 @@ Copy your existing [tooltip&nbsp;content="This is some content"]config.yaml[/too
 | Attribute      | Requirement   | Options  |
 | -------------- |:-------------:| -----:|
 | src            | required      | url / path to image   |
-| srcset         | optional      | img srcset attribute  |
+| srcset         | optional      | html img srcset attribute  |
+| sizes          | optional (required if using srcset attribute)     | html img sizes attribute  |
 | type           | optional (default: inline) | inline (original size and inline), fill (100% of parent container), fluid (100% of parent container and min-width = original size) |
 | alt            | optional      |   text to be displayed if image does not load |
 | caption        | optional      |    text to be displayed below image |
@@ -123,37 +124,42 @@ Copy your existing [tooltip&nbsp;content="This is some content"]config.yaml[/too
 
 Example:
   
-[image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Example caption"]
+[image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
 
 Usage:  
 
-[image&nbsp;src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Example caption"]
+[image&nbsp;src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
 
 ##### Fill (fill 100% of parent container)
 
 Example:
   
-[image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Example caption"]
+[image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
 
 Usage:  
 
-[image&nbsp;src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Example caption"]
+[image&nbsp;src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
 
 ##### Fluid (fill 100% of parent container until reaching original size (min-width = original size))
 
 Example:
   
-[image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Example caption"]
+[image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
 
 Usage:  
 
-[image&nbsp;src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Example caption"]
+[image&nbsp;src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
+
+##### srcset and sizes
 
 Example:
 
-[image srcset="https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Example caption" type="inline"]
+[image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
 
-<!-- [image srcset="app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Example caption" type="inline"] -->
+Usage:  
+
+[image&nbsp;srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
+
 
 ### Buttons
 
@@ -326,7 +332,8 @@ Inline `code` has `back-ticks around` it.
 
 I.E. `` `some inline code` ``
 
-Use three back-ticks for code blocks
+Use three back-ticks for code blocks  
+
 Javascript Example
 
 Example:
@@ -422,7 +429,7 @@ Quote break.
   
 Usage:  
 
-````
+````markdown
 > Blockquotes are very handy in email to emulate reply text.
 
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

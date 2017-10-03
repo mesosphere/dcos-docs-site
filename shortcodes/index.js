@@ -16,6 +16,7 @@ const minify = require('html-minifier').minify;
 const sanitize = (html) => {
   //let h = html.replace(/ /g, " ").trim().replace(/^ +| +$/gm, "");
   return html.replace(/^ +| +$/gm, "");
+  // return html.replace(/(^\s+|\s+$)/g, '');
 };
 
 
@@ -260,11 +261,11 @@ const shortcodes = {
   'image': (buf, opts) => {
     if (opts.srcset && opts.sizes) {
       return sanitize(`
-      <div class="img__wrapper"><a href=${opts.src} target="_blank"><img srcset=${opts.srcset} sizes=${opts.sizes} src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption">${opts.caption}</p></div>
+      <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img srcset=${opts.srcset} sizes=${opts.sizes} src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
     `)
     }
     return sanitize(`
-    <div class="img__wrapper"><a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption">${opts.caption}</p></div>
+    <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
     `);
   },
 
