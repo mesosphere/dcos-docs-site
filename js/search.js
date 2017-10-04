@@ -8,7 +8,6 @@ if (searchForm) {
     appId: 'O1RKPTZXK1',
     apiKey: '4cc78f4d67f726ba3b2c5bd1ed690fb4',
     indexName: 'dev_MESOSPHERE',
-    urlSync: true,
   });
 
   /** 
@@ -41,6 +40,9 @@ if (searchForm) {
       magnifier: false,
       reset: false,
       wrapInput: false,
+      queryHook: debounce(function(inputValue, search) {
+        search(inputValue);
+      }, 500),
     }),
   );
 
@@ -141,4 +143,21 @@ function truncateUrl(url) {
     return `http://docs.mesosphere.com/${pathParts[0]}/${pathParts[1]}/.../${docTitle}`;
   }
   return `http://docs.mesosphere.com/${url}`;
+}
+
+function debounce(func, wait, immediate) {
+  let timeout;
+  console.log('debouncing')
+  return function() {
+    let context = this,
+    args = arguments;
+    let later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    let callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  }
 }
