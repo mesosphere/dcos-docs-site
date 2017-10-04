@@ -5,4 +5,12 @@ function styleFluidImages() {
   }
 }
 
+function styleInlineImages() {
+  const inlineImages = document.getElementsByClassName('img--inline');
+  for (let i=0; i < inlineImages.length; i++) {
+    inlineImages[i].setAttribute('style', `min-width:${inlineImages[i].naturalWidth}px;`);
+  }
+}
+
 styleFluidImages();
+styleInlineImages();

@@ -16,6 +16,7 @@ const minify = require('html-minifier').minify;
 const sanitize = (html) => {
   //let h = html.replace(/ /g, " ").trim().replace(/^ +| +$/gm, "");
   return html.replace(/^ +| +$/gm, "");
+  // return html.replace(/(^\s+|\s+$)/g, '');
 };
 
 
@@ -252,12 +253,19 @@ const shortcodes = {
    * @param {string} buf
    * @param {Object} opts
    * @param {string} opts.src
+   * @param {string} opts.srcset
+   * @param {string} opts.sizes
    * @param {string} opts.alt
    * @param {string} opts.type
    */
   'image': (buf, opts) => {
+    if (opts.srcset && opts.sizes) {
+      return sanitize(`
+      <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img srcset=${opts.srcset} sizes=${opts.sizes} src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
+    `)
+    }
     return sanitize(`
-      <a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption">${opts.caption}</p>
+    <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
     `);
   },
 

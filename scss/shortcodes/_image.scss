@@ -1,4 +1,12 @@
 .img {
+    width: auto;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        &--inline{
+            display: inline-flex;
+        }
+    }
     &--inline {
         display: inline;
     }
@@ -13,5 +21,8 @@
         color: inherit;
         padding: 6px;
         margin-top: 0px;
+        &--inline {
+            display: inline-block;
+        }
     }
 }
