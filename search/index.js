@@ -49,8 +49,8 @@ module.exports = function(options) {
    * Algolia Indexing Settings
    */
   index.setSettings({
-    attributesToSnippet: ['contents:30'],
-    searchableAttributes: ['title', 'contents', 'enterprise'],
+    attributesToSnippet: ['contents:30', 'excerpt'],
+    searchableAttributes: ['title', 'contents', 'excerpt', 'enterprise'],
     attributesForFaceting: ['section', 'product', 'version']
   });
 
@@ -94,13 +94,14 @@ module.exports = function(options) {
         let data = {};
 
         if (pathParts[0] === 'service-docs') {
-          data[section] = 'Service Docs';
+          let product;
+          data.section = 'Service Docs';
           // If in /service-docs/product/**
           if (pathParts[1]) {
             let productPath = pathParts.slice(0, 2).join('/');
-            let product = hierarchy.findByPath(productPath).title || '';
+            product = hierarchy.findByPath(productPath).title || '';
             if (product) {
-              data[product] = product;
+              data.product = product;
             }
           }
           // If in /service-docs/product/version/**
@@ -108,17 +109,18 @@ module.exports = function(options) {
             let regex = /v[0-9].[0-9](.*)/g;
             let isVersion = regex.test(pathParts[2]);
             if (isVersion) {
-              data[version] = pathParts[2];
+              data.version = product + ' ' + pathParts[2];
             }
           }
         }
 
         if (pathParts[0] === 'docs') {
-          data[section] = 'DC/OS Docs';
-          data[product] = 'DC/OS';
+          product = 'DC/OS';
+          data.section = 'DC/OS Docs';
+          data.product = product;
           // If in /docs/*
           if (pathParts[1]) {
-            data[version] = pathParts[1];
+            data.version = product + ' ' + pathParts[1];
           }
         }
 
@@ -127,7 +129,7 @@ module.exports = function(options) {
         // Loop through front-matter
         for (let key in files[file]) {
           // Retain title, path, enterprise, content
-          if (key === 'title' || key === 'path' || key === 'enterprise') {
+          if (key === 'title' || key === 'path' || key === 'enterprise' || key === 'excerpt') {
             data[key] = files[file][key];
           }
           if (key === 'contents') {
@@ -143,7 +145,7 @@ module.exports = function(options) {
           new Bluebird(resolve => {
             index.addObject(object, (err, content) => {
               if (err) {
-                console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
+                console.error(`Algolia: Skipped "${object.path}": ${err.message}`);
               } else {
                 indexed++;
               }
@@ -154,9 +156,9 @@ module.exports = function(options) {
         );
       }
 
-      Bluebird.all(promises.then(() => {
+      Bluebird.all(promises).then(() => {
         done();
-      }))
+      });
     });
   };
 };
