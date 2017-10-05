@@ -88,8 +88,9 @@ if (searchForm) {
     instantsearch.widgets.pagination({
       container: '#search-pagination',
       cssClasses: {
-        root: 'pagination',
-        active: 'active',
+        root: 'search__pagination',
+        item: 'search__pagination__item',
+        active: 'search__pagination__item--active',
       },
     }),
   );
@@ -147,7 +148,6 @@ function truncateUrl(url) {
 
 function debounce(func, wait, immediate) {
   let timeout;
-  console.log('debouncing')
   return function() {
     let context = this,
     args = arguments;

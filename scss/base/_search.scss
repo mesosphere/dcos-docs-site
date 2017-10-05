@@ -77,4 +77,20 @@
       margin-right: 10px;
     }
   }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    &__item {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+      &--active {
+        font-weight: bold;
+      }
+    }
+  }
 }
