@@ -293,6 +293,9 @@ const shortcodes = {
     if(!opts.color) {
       opts.color = 'purple';
     }
+    if(!opts.type) {
+      opts.type = 'large';
+    }
     let classes = `btn--${opts.color} btn--${opts.size}`;
     return sanitize(`
       <button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button>

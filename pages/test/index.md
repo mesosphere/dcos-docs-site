@@ -469,6 +469,9 @@ Underscores
 
 ## Forms
 
+Example:  
+  
+  
 <form class="form tall-bottom">
   <div class="form-group">
     <label>First Name</label>
@@ -514,3 +517,55 @@ Underscores
     [button type="submit" color="purple"]Submit[/button]
   </div>
 </form>
+
+Usage:  
+  
+  
+
+```css
+  <form class="form tall-bottom">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" class="form-control form-control-rounded" placeholder="email@domain.com">
+      <p class="form-control-feedback">Please provide a valid email.</p>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" placeholder="">
+      <p class="form-control-feedback">Must include at least 1 number and 1 symbol.</p>
+    </div>
+    <div class="form-group">
+      <label>About Me</label>
+      <textarea class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>I am a...</label>
+      <label class="form-control-toggle form-control-toggle-custom">
+        <input type="radio" name="radio-group-a" checked="checked">
+        <span class="form-control-toggle-indicator"></span>
+        Man
+      </label>
+      <label class="form-control-toggle form-control-toggle-custom">
+        <input type="radio" name="radio-group-a">
+        <span class="form-control-toggle-indicator"></span>
+        Woman
+      </label>
+      <label class="form-control-toggle form-control-toggle-custom">
+        <input type="radio" name="radio-group-a">
+        <span class="form-control-toggle-indicator"></span>
+        Unicorn
+      </label>
+    </div>
+    <div class="btn-container" style="display:flex;justify-content:center;">
+      <button type="submit" color="purple" size="large">Submit</button>
+    </div>
+  </form>
+```  
