@@ -1,3 +1,7 @@
+- var pathParts = path.split('/');
+- var gridDisabled = overviewGrid === false
+- var isOverview = pathParts.length === 2;
+
 main(class='content')
   div(class='content__container')
     div(class='content__header')
@@ -10,6 +14,10 @@ main(class='content')
       include ../components/content-actions.pug
     article(class='content__article')
       != contents
-      if overviewGrid
+      if !gridDisabled && isOverview
         include ../components/content-grid.pug
   include ../components/content-sections.pug
+
+script.
+  console.log(!{JSON.stringify(isOverview)})
+  console.log(!{JSON.stringify(gridDisabled)})

@@ -3,7 +3,7 @@ layout: layout.pug
 title: Style Guide
 navigationTitle: Style Guide
 menuWeight: -1
-overviewGrid: false
+overviewGrid: true
 enterprise: false
 ---
 

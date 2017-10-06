@@ -380,7 +380,7 @@ function rss(opts) {
 //
 
 function headings() {
-  const selectors = ['h2', 'h3'];
+  const selectors = ['h1', 'h2', 'h3'];
   return function(files, metalsmith, done) {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
