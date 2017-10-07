@@ -7,11 +7,11 @@ const browserSync      = require('metalsmith-browser-sync');
 const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
-const cheerio          = require('cheerio');
 const extname          = require('path').extname;
 const shortcodesConfig = require('./shortcodes');
 const timer            = require('metalsmith-timer');
 const algolia          = require('./search');
+const cheerio          = require('cheerio');
 
 //
 // Metalsmith
@@ -51,7 +51,10 @@ else if(
 MS.use(timer('init'))
 
 // Folder Hierarchy
-MS.use(hierarchyPlugin())
+MS.use(hierarchyPlugin({
+  files: ['.md'],
+  excerpt: true
+}))
 MS.use(timer('Hierarchy'))
 
 // RSS Feed
@@ -161,13 +164,22 @@ MS.build(function(err, files) {
 //
 // Hierarchy
 //
+//const path = require('path');
+//const cheerio = require('cheerio');
+const md = require('markdown-it')({
+  typographer: true,
+  html: true,
+});
+const { StringDecoder } = require('string_decoder');
+const decoder = new StringDecoder('utf8');
 
 // TEMP: Moving to own npm package
 
-function walk(file, files, array, children, level) {
+function walk(opts, file, files, array, children, level) {
+  // Get path
   let pathParts = file.split('/');
   pathParts.pop()
-  let path = '/' + pathParts.join('/');
+  let urlPath = '/' + pathParts.join('/');
   if(!level) {
     level = 0;
   }
@@ -176,36 +188,54 @@ function walk(file, files, array, children, level) {
   }
   let id = array[0];
   let child = children.find((c, i) => c.id === id);
-  if(!child) {
+  // Only parse specified file types
+  let basename = path.basename(file);
+  let ext = path.extname(basename);
+  let shouldParse = true;
+  if(opts.files) {
+    shouldParse = (opts.files.indexOf(ext) == -1) ? false : shouldParse;
+  }
+  // Build object
+  if(!child && shouldParse) {
     let child = {
       id: id,
-      path: path,
+      path: urlPath,
       children: [],
     };
     let blacklist = [
-      //'layout',
       'stats',
       'mode',
       'contents',
     ];
     let fileObj = files[file];
+    // Add front-matter
     for(let key in fileObj) {
       if(blacklist.indexOf(key) === -1) {
         child[key] = fileObj[key]
       }
     }
+    // Add excerpt
+    if(opts.excerpt && !child.excerpt) {
+      let contents = decoder.write(fileObj.contents);
+      let html = (ext == '.md') ? md.render(contents) : contents;
+      let $ = cheerio.load(html);
+      let elem = $('p').first();
+      child.excerpt = elem.html();
+    }
     children.push(child);
   }
+  // Walk children
   if(array.length > 1) {
     let childChildrenArray = array.slice(1, array.length);
-    let childChildren = walk(file, files, childChildrenArray, child.children, level + 1);
+    let childChildren = walk(opts, file, files, childChildrenArray, child.children, level + 1);
     child.children = childChildren;
   }
+  // Sort
   children.sort((a, b) => a.menuWeight - b.menuWeight);
   return children;
 }
 
-function hierarchyPlugin() {
+function hierarchyPlugin(opts) {
   return function(files, metalsmith, done) {
     setImmediate(done);
     var findByPath = function(path) {
@@ -233,6 +263,9 @@ function hierarchyPlugin() {
       let found = [];
       let w = (node) => {
         let matches = node.children.filter(function(n) {
+          if(!value) {
+            return n[key] != undefined;
+          }
           return n[key] == value;
         });
         found = found.concat(matches);
@@ -275,7 +308,7 @@ function hierarchyPlugin() {
     Object.keys(files).forEach(function(file, index) {
       var pathParts = file.split('/');
       pathParts.pop();
-      let children = walk(file, files, pathParts, r.children, 0);
+      let children = walk(opts, file, files, pathParts, r.children, 0);
       r.children = children;
     });
     metalsmith.metadata()['hierarchy'] = r;
@@ -379,6 +412,8 @@ function rss(opts) {
 // Headings
 //
 
+//const cheerio = require('cheerio');
+
 function headings() {
   const selectors = ['h1', 'h2', 'h3'];
   return function(files, metalsmith, done) {
@@ -439,6 +474,8 @@ function shortcodes(opts) {
 //
 // Wkhtmltopdf Link Resolver
 //
+
+//const cheerio = require('cheerio');
 
 function wkhtmltopdfLinkResolver() {
   return function(files, metalsmith, done) {
