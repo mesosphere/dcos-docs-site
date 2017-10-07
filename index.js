@@ -7,11 +7,11 @@ const browserSync      = require('metalsmith-browser-sync');
 const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
-const cheerio          = require('cheerio');
 const extname          = require('path').extname;
 const shortcodesConfig = require('./shortcodes');
 const timer            = require('metalsmith-timer');
 const algolia          = require('./search');
+const cheerio          = require('cheerio');
 
 //
 // Metalsmith
@@ -52,7 +52,8 @@ MS.use(timer('init'))
 
 // Folder Hierarchy
 MS.use(hierarchyPlugin({
-  files: ['.md']
+  files: ['.md'],
+  excerpt: true
 }))
 MS.use(timer('Hierarchy'))
 
@@ -164,6 +165,13 @@ MS.build(function(err, files) {
 // Hierarchy
 //
 //const path = require('path');
+//const cheerio = require('cheerio');
+const md = require('markdown-it')({
+  typographer: true,
+  html: true,
+});
+const { StringDecoder } = require('string_decoder');
+const decoder = new StringDecoder('utf8');
 
 // TEMP: Moving to own npm package
 
@@ -200,10 +208,19 @@ function walk(opts, file, files, array, children, level) {
       'contents',
     ];
     let fileObj = files[file];
+    // Add front-matter
     for(let key in fileObj) {
       if(blacklist.indexOf(key) === -1) {
         child[key] = fileObj[key]
       }
+    }
+    // Add excerpt
+    if(opts.excerpt && !child.excerpt) {
+      let contents = decoder.write(fileObj.contents);
+      let html = (ext == '.md') ? md.render(contents) : contents;
+      let $ = cheerio.load(html);
+      let elem = $('p').first();
+      child.excerpt = elem.html();
     }
     children.push(child);
   }
@@ -395,6 +412,8 @@ function rss(opts) {
 // Headings
 //
 
+//const cheerio = require('cheerio');
+
 function headings() {
   const selectors = ['h1', 'h2', 'h3'];
   return function(files, metalsmith, done) {
@@ -455,6 +474,8 @@ function shortcodes(opts) {
 //
 // Wkhtmltopdf Link Resolver
 //
+
+//const cheerio = require('cheerio');
 
 function wkhtmltopdfLinkResolver() {
   return function(files, metalsmith, done) {
