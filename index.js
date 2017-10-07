@@ -51,7 +51,9 @@ else if(
 MS.use(timer('init'))
 
 // Folder Hierarchy
-MS.use(hierarchyPlugin())
+MS.use(hierarchyPlugin({
+  files: ['.md']
+}))
 MS.use(timer('Hierarchy'))
 
 // RSS Feed
@@ -161,13 +163,15 @@ MS.build(function(err, files) {
 //
 // Hierarchy
 //
+//const path = require('path');
 
 // TEMP: Moving to own npm package
 
-function walk(file, files, array, children, level) {
+function walk(opts, file, files, array, children, level) {
+  // Get path
   let pathParts = file.split('/');
   pathParts.pop()
-  let path = '/' + pathParts.join('/');
+  let urlPath = '/' + pathParts.join('/');
   if(!level) {
     level = 0;
   }
@@ -176,14 +180,21 @@ function walk(file, files, array, children, level) {
   }
   let id = array[0];
   let child = children.find((c, i) => c.id === id);
-  if(!child) {
+  // Only parse specified file types
+  let basename = path.basename(file);
+  let ext = path.extname(basename);
+  let shouldParse = true;
+  if(opts.files) {
+    shouldParse = (opts.files.indexOf(ext) == -1) ? false : shouldParse;
+  }
+  // Build object
+  if(!child && shouldParse) {
     let child = {
       id: id,
-      path: path,
+      path: urlPath,
       children: [],
     };
     let blacklist = [
-      //'layout',
       'stats',
       'mode',
       'contents',
@@ -196,16 +207,18 @@ function walk(file, files, array, children, level) {
     }
     children.push(child);
   }
+  // Walk children
   if(array.length > 1) {
     let childChildrenArray = array.slice(1, array.length);
-    let childChildren = walk(file, files, childChildrenArray, child.children, level + 1);
+    let childChildren = walk(opts, file, files, childChildrenArray, child.children, level + 1);
     child.children = childChildren;
   }
+  // Sort
   children.sort((a, b) => a.menuWeight - b.menuWeight);
   return children;
 }
 
-function hierarchyPlugin() {
+function hierarchyPlugin(opts) {
   return function(files, metalsmith, done) {
     setImmediate(done);
     var findByPath = function(path) {
@@ -278,7 +291,7 @@ function hierarchyPlugin() {
     Object.keys(files).forEach(function(file, index) {
       var pathParts = file.split('/');
       pathParts.pop();
-      let children = walk(file, files, pathParts, r.children, 0);
+      let children = walk(opts, file, files, pathParts, r.children, 0);
       r.children = children;
     });
     metalsmith.metadata()['hierarchy'] = r;
