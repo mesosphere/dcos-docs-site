@@ -1,28 +1,10 @@
 const algoliasearch = require('algoliasearch');
 const Bluebird = require('bluebird');
-const sanitizeHtml = require('sanitize-html');
 const extname = require('path').extname;
 
 /**
  * Search indexing for algolia
  */
-
-/**
- * Parses buffer to string and sanitizes html.
- * Removes all contained <pre></pre> tags.
- * Removes all tags and replaces with whitespace.
- * @param {Buffer} buffer
- */
-const sanitize = buffer => {
-  let string = buffer.toString();
-  let parsedString = sanitizeHtml(string, {
-    allowedTags: [],
-    allowedAttributes: [],
-    selfClosing: [],
-    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'pre']
-  });
-  return parsedString.replace(/\s+/g, ' ');
-};
 
 module.exports = function(options) {
   /**
