@@ -77,7 +77,7 @@ module.exports = function(options) {
     } else {
       clearIndex = Bluebird.resolve();
     }
-
+    
     // Initialize indexing
     clearIndex.then(() => {
       let promises = [];
@@ -87,10 +87,11 @@ module.exports = function(options) {
       // Loop through metalsmith object
       Object.keys(files).forEach(file => {
         if ('.html' != extname(file)) return;
-
+        
         let pathParts = file.split('/');
         pathParts.pop();
-
+        
+        let fileData = files[file];
         let data = {};
 
         if (pathParts[0] === 'service-docs') {
@@ -125,15 +126,17 @@ module.exports = function(options) {
         }
 
         data.objectID = file;
+        data.title = fileData.title;
+        data.path = fileData.path;
 
-        // Loop through front-matter
-        for (let key in files[file]) {
-          // Retain title, path, enterprise, content
-          if (key === 'title' || key === 'path' || key === 'enterprise' || key === 'excerpt') {
-            data[key] = files[file][key];
-          }
-          if (key === 'contents') {
-            data[key] = sanitize(files[file][key]);
+        if (fileData.excerpt) {
+          data.excerpt = fileData.excerpt;
+        } else {
+          let excerptPath = pathParts.join('/');
+          let objectHierarchy = hierarchy.findByPath(excerptPath) || '';
+          let excerpt = objectHierarchy.excerpt || '';
+          if (objectHierarchy && excerpt) {
+            data.excerpt = excerpt;
           }
         }
 
@@ -146,6 +149,7 @@ module.exports = function(options) {
             index.addObject(object, (err, content) => {
               if (err) {
                 console.error(`Algolia: Skipped "${object.path}": ${err.message}`);
+                console.error(object.excerpt);
               } else {
                 indexed++;
               }

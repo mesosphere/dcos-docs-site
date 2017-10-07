@@ -19,7 +19,9 @@ if (searchForm) {
       <h4 class="search__title">
         <a href="/{{path}}" class="search__link">{{{_highlightResult.title.value}}}</a>
       </h4>
-      <p class="search__description">{{{displayExcerpt}}}</p>
+      {{#excerpt}}
+        <p class="search__description">{{{_highlightResult.excerpt.value}}}</p>
+      {{/excerpt}}
       <div class="search__meta">
         {{#version}}
           <span class="search__meta-version">{{version}}</span>
@@ -56,13 +58,6 @@ if (searchForm) {
         item: hitTemplate,
       },
       transformData: (hit) => {
-        console.log(hit);
-        if (hit._highlightResult.excerpt) {
-					excerpt = hit._highlightResult.excerpt.value;
-				} else {
-					excerpt = hit._snippetResult.contents.value;
-				}
-        hit.displayExcerpt = excerpt;
         hit.truncatedPath = truncateUrl(hit.path);
         return hit;
       },
