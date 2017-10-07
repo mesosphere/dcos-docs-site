@@ -26,15 +26,17 @@ build-redirects:
 # Build
 #
 
-build-dev: build-swagger build-ngindox
+build-dev: build-api
 	npm run dev
 
 build-pdf:
 	./scripts/pdf.sh ./build ./build-pdf
 
-build-pdf-dev: build-swagger build-ngindox docker-pdf
+build-pdf-dev: build-api docker-pdf
 	npm run build-pdf
 	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
+
+build-api: build-swagger build-ngindox
 
 build-swagger:
 	./scripts/swagger.sh ./pages ./build-swagger
