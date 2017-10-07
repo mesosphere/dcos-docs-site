@@ -233,6 +233,9 @@ function hierarchyPlugin() {
       let found = [];
       let w = (node) => {
         let matches = node.children.filter(function(n) {
+          if(!value) {
+            return n[key] != undefined;
+          }
           return n[key] == value;
         });
         found = found.concat(matches);
