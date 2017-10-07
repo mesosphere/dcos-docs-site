@@ -1,5 +1,4 @@
 - var pageHierarchy = hierarchy.findByPath(path)
-- var excerptPlaceholder = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
 div(class='grid')
   each val, index in pageHierarchy.children
@@ -11,6 +10,6 @@ div(class='grid')
     a(href=val.path, class='grid__item')
       h6(class=labelClass)!= label
       h3(class='grid__header')!= val.title
-      p(class='grid__desc')!= val.excerpt || excerptPlaceholder
+      p(class='grid__desc')!= val.excerpt
       div(class="grid__link")
         i(data-feather='chevron-right')
