@@ -2,9 +2,12 @@
 
 div(class='grid')
   each val, index in pageHierarchy.children
-    - var label = (val.enterprise) ? 'ENTERPRISE' : 'OSS'
+    - var label = 'NONE';
+    - label = (val.enterprise) ? 'ENTERPRISE' : label
+    - label = (val.oss) ? 'OSS' : label
     - var labelClass =  {}
     - labelClass['grid__label'] = true
+    - labelClass['grid__label--hidden'] = label === 'NONE'
     - labelClass['grid__label--oss'] = label === 'OSS'
     - labelClass['grid__label--enterprise'] = label === 'ENTERPRISE'
     a(href=val.path, class='grid__item')
