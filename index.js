@@ -228,7 +228,7 @@ function walk(opts, file, files, array, children, level) {
       let html = (ext == '.md') ? md.render(contents) : contents;
       let $ = cheerio.load(html);
       let elem = $('p').first();
-      child.excerpt = elem.html();
+      child.excerpt = elem.text();
     }
     children.push(child);
   }
