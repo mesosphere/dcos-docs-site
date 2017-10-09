@@ -8,8 +8,7 @@
 
 code {
   font-family: $font-family-1;
-  background: rgba($color-grey-medium, 0.4);
-  color: $color-dark;
+  background: #eee;
   padding: 0 6px;
   border-radius: 3px;
   font-weight: 0.9rem;
@@ -17,8 +16,9 @@ code {
 }
 
 pre {
-  background: rgba($color-purple-light, 0.4);
-  padding: 1.25rem !important;
+  background: rgb(21, 16, 48) !important;
+  color: $color-grey-light;
+  padding: 1.75rem !important;
   border-radius: 3px;
   overflow: auto;
   code {
@@ -29,7 +29,6 @@ pre {
 }
 
 pre[class*="language-"] {
-  background: rgb(21, 16, 48);
   line-height: 1;
 }
 

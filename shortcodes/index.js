@@ -285,16 +285,20 @@ const shortcodes = {
    * Button
    * @param {string} buf
    * @param {Object} opts
+   * @param {string} opts.type
    * @param {string} opts.size
    * @param {string} opts.color
    */
   'button': (buf, opts) => {
     if(!opts.color) {
-      console.error('Error: color option is required for buttons');
+      opts.color = 'purple';
+    }
+    if(!opts.type) {
+      opts.type = 'large';
     }
     let classes = `btn--${opts.color} btn--${opts.size}`;
     return sanitize(`
-      <button class="btn ${classes}">${buf.toUpperCase()}</button>
+      <button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button>
     `);
   },
 

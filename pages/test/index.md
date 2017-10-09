@@ -29,31 +29,31 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 | type           | optional (default: block) | block, inline |
 ##### Large
 
-Example:
+###### Example:
 [enterprise]
   
-  
-Usage:  
+
+###### Usage:  
 
 [enterprise&nbsp;]
 
 ##### Small
 
-Example:
+###### Example:
 [enterprise size="small"]
   
-  
-Usage:  
+
+###### Usage:  
 
 [enterprise&nbsp;size="small"]
 
 ##### Inline
 
-Example:
+###### Example:
 [enterprise type="inline"] this is an example of an inline badge
   
-  
-Usage:  
+
+###### Usage:  
 
 [enterprise&nbsp;type="inline"] this is an example of an inline badge
 
@@ -63,31 +63,30 @@ Enterprise Content
 
 ##### Large
 
-Example:
+###### Example:
 [oss]
   
-  
-Usage:  
+
+###### Usage:  
 
 [oss&nbsp;]
 
 ##### Small
 
-Example:
+###### Example:
 [oss size="small"]
   
-  
-Usage:  
+
+###### Usage:  
 
 [oss&nbsp;size="small"]
 
 ##### Inline
 
-Example:
+###### Example:
 [oss type="inline"] this is an example of an inline badge
   
-  
-Usage:  
+###### Usage:  
 
 [oss&nbsp;type="inline"] this is an example of an inline badge
 
@@ -100,11 +99,10 @@ OSS Content
 | -------------- |:-------------:| -----:|
 | content            | required      | text to be displayed in tooltip   |
 
-Example:
+###### Example:
 Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip] and [tooltip content="Tooltip"]ip-detect[/tooltip] files to...
   
-  
-Usage:  
+###### Usage:  
 
 Copy your existing [tooltip&nbsp;content="This is some content"]config.yaml[/tooltip] and [tooltip&nbsp;content="Tooltip"]ip-detect[/tooltip] files to...
 ### Support for Image Types and Opening In New Tab
@@ -122,41 +120,41 @@ Copy your existing [tooltip&nbsp;content="This is some content"]config.yaml[/too
 
 ##### Inline (original size and inline)
 
-Example:
+###### Example:
   
 [image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
 
-Usage:  
+###### Usage:  
 
 [image&nbsp;src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
 
 ##### Fill (fill 100% of parent container)
 
-Example:
+###### Example:
   
 [image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
 
-Usage:  
+###### Usage:  
 
 [image&nbsp;src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
 
 ##### Fluid (fill 100% of parent container until reaching original size (min-width = original size))
 
-Example:
+###### Example:
   
 [image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
 
-Usage:  
+###### Usage:  
 
 [image&nbsp;src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
 
 ##### srcset and sizes
 
-Example:
+###### Example:
 
 [image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
 
-Usage:  
+###### Usage:  
 
 [image&nbsp;srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
 
@@ -166,66 +164,67 @@ Usage:
 #### Options
 | Attribute      | Requirement   | Options  |
 | -------------- |:-------------:| -----:|
+| type           | optional      | submit, reset, button|
 | color          | optional (default: purple) | purple, pink, dark, light|
 | size           | optional (default: large) | large, small |
 
 
 ##### Large (default)
 
-Example:
+###### Example:
   
   [button color="purple"]Purple[/button]
-Usage:  
+###### Usage:  
 
 [button&nbsp;color="purple"]Purple[/button]
 
-Example:
+###### Example:
   
   [button color="pink"]Pink[/button]
-Usage:  
+###### Usage:  
 
 [button&nbsp;color="pink"]Pink[/button]
 
-Example:
+###### Example:
   
   [button color="dark"]Dark[/button]
-Usage:  
+###### Usage:  
 
 [button&nbsp;color="dark"]Dark[/button]
 
-Example:
+###### Example:
   
   [button color="light"]Light[/button]
-Usage:  
+###### Usage:  
 
 [button&nbsp;color="light"]Light[/button]
 
 ##### Small
-Example:
+###### Example:
   
   [button color="purple" size="small"]Purple[/button]
-Usage:  
+###### Usage:  
 
 [button&nbsp;color="purple" size="small"]Purple[/button]
 
-Example:
+###### Example:
   
   [button color="pink" size="small"]Pink[/button]
-Usage:  
+###### Usage:  
 
 [button&nbsp;color="pink" size="small"]Pink[/button]
 
-Example:
+###### Example:
   
   [button color="dark" size="small"]Dark[/button]
-Usage:  
+###### Usage:  
 
 [button&nbsp;color="dark" size="small"]Dark[/button]
 
-Example:
+###### Example:
   
   [button color="light" size="small"]Light[/button]
-Usage:  
+###### Usage:  
 
 [button&nbsp;color="light" size="small"]Light[/button]
 
@@ -237,73 +236,73 @@ Usage:
 | type            | optional      | warning, error, info, success   |
 | fill           | optional (default: true) | boolean |
 
-Example:
+###### Example:
   
   [message]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;]Test Message[/message]
 
-Example:
+###### Example:
   
   [message  type="warning"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;type="warning"]Test Message[/message]
 
-Example:
+###### Example:
   
   [message  type="error"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;type="error"]Test Message[/message]
 
-Example:
+###### Example:
   
   [message  type="info"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;type="info"]Test Message[/message]
 
-Example:
+###### Example:
   
   [message  type="success"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;type="success"]Test Message[/message]
 
-Example:
+###### Example:
   
   [message fill="false"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;fill="false"]Test Message[/message]
 
-Example:
+###### Example:
   
   [message  type="warning" fill="false"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;type="warning" fill="false"]Test Message[/message]
 
-Example:
+###### Example:
   
   [message  type="error" fill="false"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;type="error" fill="false"]Test Message[/message]
 
-Example:
+###### Example:
   
   [message  type="info" fill="false"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;type="info" fill="false"]Test Message[/message]
 
-Example:
+###### Example:
   
   [message  type="success" fill="false"]Test Message[/message]
-Usage:  
+###### Usage:  
 
 [message&nbsp;type="success" fill="false"]Test Message[/message]
 
@@ -314,11 +313,10 @@ Usage:
 | -------------- |:-------------:| -----:|
 | glyph            | required      | icon to be displayed   |
 
-Example:
+###### Example:
 [icon glyph="message-square"]
   
-  
-Usage:  
+###### Usage:  
 
 [icon&nbsp;glyph="message-square"]
 
@@ -336,15 +334,14 @@ Use three back-ticks for code blocks
 
 Javascript Example
 
-Example:
+###### Example:
 ```javascript
 function foo() {
   console.log('bar');
 }
 ```
   
-  
-Usage:  
+###### Usage:  
 
 ````
   ```javascript
@@ -357,13 +354,12 @@ Usage:
 
 No Language Example
 
-Example:
+###### Example:
 ```
 dcos[options][<command>][<args>...]
 ```
   
-  
-Usage:  
+###### Usage:  
 
 ````
   ```
@@ -373,7 +369,7 @@ Usage:
 
 Bash Example
 
-Example:
+###### Example:
 ```bash
 dcos[options][<command>][<args>...]
 ```
@@ -388,7 +384,7 @@ dcos[options][<command>][<args>...]
 
 Colons can be used to align columns.
 
-Example:
+###### Example:
 | Tables         | Are           | Cool  |
 | -------------- |:-------------:| -----:|
 | `--debug`      | right-aligned | $1600 |
@@ -396,8 +392,7 @@ Example:
 | col 2 is       | centered      |   $12 |
 | zebra stripes  | are neat      |    $1 |
   
-  
-Usage:  
+###### Usage:  
 
 ```markdown
   | Tables         | Are           | Cool  |
@@ -412,7 +407,7 @@ Usage:
 
 use ` > ` to denote blockquotes
 
-Example:
+###### Example:
 > Blockquotes are very handy in email to emulate reply text.
 
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -426,8 +421,7 @@ Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy
   
-  
-Usage:  
+###### Usage:  
 
 ````markdown
 > Blockquotes are very handy in email to emulate reply text.
@@ -465,3 +459,105 @@ ___
 ___ &nbsp;
 
 Underscores
+
+## Forms
+
+###### Example:  
+  
+
+<form class="form tall-bottom">
+  <div class="form-group">
+    <label>First Name</label>
+    <input type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label>Last Name</label>
+    <input type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label>Email address</label>
+    <input type="email" class="form-control form-control-rounded" placeholder="email@domain.com">
+    <p class="form-control-feedback">Please provide a valid email.</p>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="">
+    <p class="form-control-feedback">Must include at least 1 number and 1 symbol.</p>
+  </div>
+  <div class="form-group">
+    <label>About Me</label>
+    <textarea class="form-control" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label>I am a...</label>
+    <label class="form-control-toggle form-control-toggle-custom">
+      <input type="radio" name="radio-group-a" checked="checked">
+      <span class="form-control-toggle-indicator"></span>
+      Man
+    </label>
+    <label class="form-control-toggle form-control-toggle-custom">
+      <input type="radio" name="radio-group-a">
+      <span class="form-control-toggle-indicator"></span>
+      Woman
+    </label>
+    <label class="form-control-toggle form-control-toggle-custom">
+      <input type="radio" name="radio-group-a">
+      <span class="form-control-toggle-indicator"></span>
+      Unicorn
+    </label>
+  </div>
+  <div class="btn-container" style="display:flex;justify-content:center;">
+    [button type="submit" color="purple"]Submit[/button]
+  </div>
+</form>
+
+###### Usage:  
+  
+
+```*
+  <form class="form tall-bottom">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" class="form-control form-control-rounded" placeholder="email@domain.com">
+      <p class="form-control-feedback">Please provide a valid email.</p>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" placeholder="">
+      <p class="form-control-feedback">Must include at least 1 number and 1 symbol.</p>
+    </div>
+    <div class="form-group">
+      <label>About Me</label>
+      <textarea class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>I am a...</label>
+      <label class="form-control-toggle form-control-toggle-custom">
+        <input type="radio" name="radio-group-a" checked="checked">
+        <span class="form-control-toggle-indicator"></span>
+        Man
+      </label>
+      <label class="form-control-toggle form-control-toggle-custom">
+        <input type="radio" name="radio-group-a">
+        <span class="form-control-toggle-indicator"></span>
+        Woman
+      </label>
+      <label class="form-control-toggle form-control-toggle-custom">
+        <input type="radio" name="radio-group-a">
+        <span class="form-control-toggle-indicator"></span>
+        Unicorn
+      </label>
+    </div>
+    <div class="btn-container" style="display:flex;justify-content:center;">
+      <button type="submit" color="purple" size="large">Submit</button>
+    </div>
+  </form>
+```  
