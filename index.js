@@ -35,7 +35,10 @@ MS.source('./pages')
 // Destination
 MS.destination('./build')
 
-if(process.env.NODE_ENV == "development") {
+if(
+  process.env.NODE_ENV == "development" ||
+  process.env.NODE_ENV == "development-docs"
+) {
   // Clean
   MS.clean(false)
 }
@@ -112,13 +115,15 @@ MS.use(permalinks())
 MS.use(timer('Permalinks'))
 
 // Search Indexing
-// MS.use(algolia({
-//   projectId: 'O1RKPTZXK1',
-//   privateKey: '00ad2d0be3e5a7155820357a73730e84',
-//   index: 'dev_MESOSPHERE',
-//   clearIndex: true
-// }))
-// MS.use(timer('Algolia'))
+if(process.env.NODE_ENV == 'development-docs') {
+  MS.use(algolia({
+    projectId: 'O1RKPTZXK1',
+    privateKey: '00ad2d0be3e5a7155820357a73730e84',
+    index: 'dev_MESOSPHERE',
+    clearIndex: true
+  }))
+  MS.use(timer('Algolia'))
+}
 
 // Assets
 MS.use(assets({
@@ -143,7 +148,10 @@ if(process.env.NODE_ENV == "pdf") {
 MS.use(webpack('./webpack.config.js'))
 MS.use(timer('Webpack'))
 
-if(process.env.NODE_ENV == "development") {
+if(
+  process.env.NODE_ENV == "development" ||
+  process.env.NODE_ENV == "development-docs"
+) {
   // BrowserSync
   MS.use(browserSync({
     server : 'build',

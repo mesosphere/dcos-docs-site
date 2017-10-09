@@ -7,6 +7,7 @@
     text-decoration: none;
   }
   &__item {
+    width: 100%;
     margin-bottom: 20px;
     padding: 20px;
     border-top: 8px $color-purple-light solid;
@@ -68,7 +69,7 @@
   }
   @include md {
     &__item {
-      flex-basis: calc(50% - 10px);
+      width: calc(50% - 10px);
       &:nth-child(4n+3),
       &:nth-child(4n+2) {
         background: $color-purple-light;
