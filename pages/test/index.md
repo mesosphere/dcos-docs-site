@@ -4,7 +4,7 @@ title: Home
 navigationTitle: Home
 menuWeight: -1
 overviewGrid: true
-enterprise: true
+enterprise: false
 rss: true
 relatedPages:
   - /test/overview
@@ -12,141 +12,191 @@ relatedPages:
   - /test/cli
 ---
 
-[enterprise]
-
 ## Introduction
 
 DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It enables the management of multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
 
 ## Shortcodes
 
+*Note: Examples use a `!` prefix for shortcode syntax to disable parsing.*
+
 ### Enterprise Tag {data-hide=true}
 
 #### Options
-| Attribute      | Requirement   | Options  |
-| -------------- |:-------------:| -----:|
-| size            | optional (default: large)      | large, small   |
+
+| Attribute      | Requirement               | Options       |
+| -------------- |:-------------------------:| -------------:|
+| size           | optional (default: large) | large, small  |
 | type           | optional (default: block) | block, inline |
-##### Large
 
-###### Example:
+###### Usage
+
+```
+[!enterprise]
+```
+
+###### Example
+
 [enterprise]
-  
-
-###### Usage:  
-
-[enterprise&nbsp;]
-
-##### Small
-
-###### Example:
-[enterprise size="small"]
-  
-
-###### Usage:  
-
-[enterprise&nbsp;size="small"]
-
-##### Inline
-
-###### Example:
-[enterprise type="inline"] this is an example of an inline badge
-  
-
-###### Usage:  
-
-[enterprise&nbsp;type="inline"] this is an example of an inline badge
-
-Enterprise Content
 
 ### OSS Tag {data-hide=true}
 
-##### Large
+#### Options
 
-###### Example:
+| Attribute      | Requirement               | Options       |
+| -------------- |:-------------------------:| -------------:|
+| size           | optional (default: large) | large, small  |
+| type           | optional (default: block) | block, inline |
+
+###### Usage
+
+```
+[!oss]
+```
+
+###### Example
+
 [oss]
-  
 
-###### Usage:  
+### Switch {data-hide=true}
 
-[oss&nbsp;]
+#### Options
 
-##### Small
+##### Case
 
-###### Example:
-[oss size="small"]
-  
+| Attribute      | Requirement               | Options                            |
+| -------------- |:-------------------------:| ----------------------------------:|
+| filter         | required                  | text to display and sort by filter |
 
-###### Usage:  
+##### Usage
 
-[oss&nbsp;size="small"]
+```
+[!switch]
 
-##### Inline
-
-###### Example:
-[oss type="inline"] this is an example of an inline badge
-  
-###### Usage:  
-
-[oss&nbsp;type="inline"] this is an example of an inline badge
+[!case filter="OSS"]
 
 OSS Content
 
-### Tooltips
+[/!case]
+
+[!case filter="Enterprise"]
+
+Enterprise Content
+
+[/!case]
+
+[/!switch]
+```
+
+##### Example:
+
+[switch]
+[case filter="OSS"]
+OSS Content
+[/case]
+[case filter="Enterprise"]
+Enterprise Content
+[/case]
+[/switch]
+
+### SwaggerUI {data-hide=true}
 
 #### Options
+
+| Attribute | Requirement | Options             |
+| --------- |:-----------:| -------------------:|
+| api       | requires    | path to config file |
+
+##### Usage
+
+```
+[!swagger api="/test/api/marathon.yaml"]
+```
+
+##### Example:
+
+[swagger api="/test/api/marathon.yaml"]
+
+### Ngindox {data-hide=true}
+
+#### Options
+
+| Attribute | Requirement | Options             |
+| --------- |:-----------:| -------------------:|
+| api       | requires    | path to config file |
+
+##### Usage
+
+```
+[!ngindox api="/test/api/marathon.yaml"]
+```
+
+##### Example:
+
+[ngindox api="/test/api/nginx.master.yaml"]
+
+### Tooltips {data-hide=true}
+
+#### Options
+
 | Attribute      | Requirement   | Options  |
 | -------------- |:-------------:| -----:|
 | content            | required      | text to be displayed in tooltip   |
 
-###### Example:
-Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip] and [tooltip content="Tooltip"]ip-detect[/tooltip] files to...
-  
-###### Usage:  
+###### Usage:
 
-Copy your existing [tooltip&nbsp;content="This is some content"]config.yaml[/tooltip] and [tooltip&nbsp;content="Tooltip"]ip-detect[/tooltip] files to...
-### Support for Image Types and Opening In New Tab
+```
+Copy your existing [!tooltip content="This is some content"]config.yaml[/!tooltip] and [!tooltip content="Tooltip"]ip-detect[/!tooltip] files to...
+```
+
+###### Example:
+
+Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip] and [tooltip content="Tooltip"]ip-detect[/tooltip] files to...
+
+### Support for Image Types and Opening In New Tab {data-hide=true}
 
 #### Options
-| Attribute      | Requirement   | Options  |
-| -------------- |:-------------:| -----:|
-| src            | required      | url / path to image   |
-| srcset         | optional      | html img srcset attribute  |
-| sizes          | optional (required if using srcset attribute)     | html img sizes attribute  |
-| type           | optional (default: inline) | inline (original size and inline), fill (100% of parent container), fluid (100% of parent container and min-width = original size) |
-| alt            | optional      |   text to be displayed if image does not load |
-| caption        | optional      |    text to be displayed below image |
 
+| Attribute      | Requirement                                   | Options                                                                                                                            |
+| -------------- |:---------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------:|
+| src            | required                                      | url / path to image                                                                                                                |
+| srcset         | optional                                      | html img srcset attribute                                                                                                          |
+| sizes          | optional (required if using srcset attribute) | html img sizes attribute                                                                                                           |
+| type           | optional (default: inline)                    | inline (original size and inline), fill (100% of parent container), fluid (100% of parent container and min-width = original size) |
+| alt            | optional                                      | text to be displayed if image does not load                                                                                        |
+| caption        | optional                                      | text to be displayed below image                                                                                                   |
 
 ##### Inline (original size and inline)
 
+###### Usage:
+
+```
+[!image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
+```
+
 ###### Example:
-  
+
 [image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
-
-###### Usage:  
-
-[image&nbsp;src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
 
 ##### Fill (fill 100% of parent container)
 
 ###### Example:
-  
+
 [image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
 
-###### Usage:  
+###### Usage:
 
-[image&nbsp;src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
+[!image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
 
 ##### Fluid (fill 100% of parent container until reaching original size (min-width = original size))
 
 ###### Example:
-  
+
 [image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
 
-###### Usage:  
+###### Usage:
 
-[image&nbsp;src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
+[!image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
 
 ##### srcset and sizes
 
@@ -154,171 +204,158 @@ Copy your existing [tooltip&nbsp;content="This is some content"]config.yaml[/too
 
 [image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
 
-###### Usage:  
+###### Usage:
 
-[image&nbsp;srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
+[!image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
 
-
-### Buttons
+### Buttons {data-hide=true}
 
 #### Options
-| Attribute      | Requirement   | Options  |
-| -------------- |:-------------:| -----:|
-| type           | optional      | submit, reset, button|
-| color          | optional (default: purple) | purple, pink, dark, light|
-| size           | optional (default: large) | large, small |
+| Attribute      | Requirement                | Options                   |
+| -------------- |:--------------------------:| -------------------------:|
+| type           | optional                   | submit, reset, button     |
+| color          | optional (default: purple) | purple, pink, dark, light |
+| size           | optional (default: large)  | large, small              |
 
 
 ##### Large (default)
 
-###### Example:
-  
-  [button color="purple"]Purple[/button]
-###### Usage:  
+###### Usage:
 
-[button&nbsp;color="purple"]Purple[/button]
-
-###### Example:
-  
-  [button color="pink"]Pink[/button]
-###### Usage:  
-
-[button&nbsp;color="pink"]Pink[/button]
+```
+[!button color="purple"]Purple[/button]
+```
 
 ###### Example:
-  
-  [button color="dark"]Dark[/button]
-###### Usage:  
 
-[button&nbsp;color="dark"]Dark[/button]
-
-###### Example:
-  
-  [button color="light"]Light[/button]
-###### Usage:  
-
-[button&nbsp;color="light"]Light[/button]
-
-##### Small
-###### Example:
-  
-  [button color="purple" size="small"]Purple[/button]
-###### Usage:  
-
-[button&nbsp;color="purple" size="small"]Purple[/button]
-
-###### Example:
-  
-  [button color="pink" size="small"]Pink[/button]
-###### Usage:  
-
-[button&nbsp;color="pink" size="small"]Pink[/button]
-
-###### Example:
-  
-  [button color="dark" size="small"]Dark[/button]
-###### Usage:  
-
-[button&nbsp;color="dark" size="small"]Dark[/button]
-
-###### Example:
-  
-  [button color="light" size="small"]Light[/button]
-###### Usage:  
-
-[button&nbsp;color="light" size="small"]Light[/button]
+[button color="purple"]Purple[/button]
 
 ### Message {data-hide=true}
 
 #### Options
-| Attribute      | Requirement   | Options  |
-| -------------- |:-------------:| -----:|
-| type            | optional      | warning, error, info, success   |
-| fill           | optional (default: true) | boolean |
+
+| Attribute      | Requirement              | Options                       |
+| -------------- |:------------------------:| -----------------------------:|
+| type           | optional                 | warning, error, info, success |
+| fill           | optional (default: true) | boolean                       |
 
 ###### Example:
-  
-  [message]Test Message[/message]
-###### Usage:  
 
-[message&nbsp;]Test Message[/message]
+[message]Test Message[/message]
 
-###### Example:
-  
-  [message  type="warning"]Test Message[/message]
-###### Usage:  
+###### Usage:
 
-[message&nbsp;type="warning"]Test Message[/message]
+```
+[!message]Test Message[/!message]
+```
 
 ###### Example:
-  
-  [message  type="error"]Test Message[/message]
-###### Usage:  
 
-[message&nbsp;type="error"]Test Message[/message]
+[message type="warning"]Test Message[/message]
 
-###### Example:
-  
-  [message  type="info"]Test Message[/message]
-###### Usage:  
+###### Usage:
 
-[message&nbsp;type="info"]Test Message[/message]
+```
+[!message type="warning"]Test Message[/!message]
+```
 
 ###### Example:
-  
-  [message  type="success"]Test Message[/message]
-###### Usage:  
 
-[message&nbsp;type="success"]Test Message[/message]
+[message  type="error"]Test Message[/message]
 
-###### Example:
-  
-  [message fill="false"]Test Message[/message]
-###### Usage:  
+###### Usage:
 
-[message&nbsp;fill="false"]Test Message[/message]
+```
+[!message type="error"]Test Message[/!message]
+```
 
 ###### Example:
-  
-  [message  type="warning" fill="false"]Test Message[/message]
-###### Usage:  
 
-[message&nbsp;type="warning" fill="false"]Test Message[/message]
+[message type="info"]Test Message[/message]
 
-###### Example:
-  
-  [message  type="error" fill="false"]Test Message[/message]
-###### Usage:  
+###### Usage:
 
-[message&nbsp;type="error" fill="false"]Test Message[/message]
+```
+[!message type="info"]Test Message[/!message]
+```
 
 ###### Example:
-  
-  [message  type="info" fill="false"]Test Message[/message]
-###### Usage:  
 
-[message&nbsp;type="info" fill="false"]Test Message[/message]
+[message  type="success"]Test Message[/message]
+
+###### Usage:
+
+```
+[!message type="success"]Test Message[/!message]
+```
 
 ###### Example:
-  
-  [message  type="success" fill="false"]Test Message[/message]
-###### Usage:  
 
-[message&nbsp;type="success" fill="false"]Test Message[/message]
+[message fill="false"]Test Message[/message]
+
+###### Usage:
+
+```
+[!message fill="false"]Test Message[/!message]
+```
+
+###### Example:
+
+[message  type="warning" fill="false"]Test Message[/message]
+
+###### Usage:
+
+```
+[!message type="warning" fill="false"]Test Message[/!message]
+```
+
+###### Example:
+
+[message type="error" fill="false"]Test Message[/message]
+
+###### Usage:
+
+```
+[!message type="error" fill="false"]Test Message[/!message]
+```
+
+###### Example:
+
+[message  type="info" fill="false"]Test Message[/message]
+
+###### Usage:
+
+```
+[!message type="info" fill="false"]Test Message[/!message]
+```
+
+###### Example:
+
+[message  type="success" fill="false"]Test Message[/message]
+
+###### Usage:
+
+```
+[!message type="success" fill="false"]Test Message[/!message]
+```
 
 ### Feather Icons {data-hide=true}
 
 #### Options
-| Attribute      | Requirement   | Options  |
-| -------------- |:-------------:| -----:|
-| glyph            | required      | icon to be displayed   |
+
+| Attribute        | Requirement   | Options               |
+| ---------------- |:-------------:| ---------------------:|
+| glyph            | required      | icon to be displayed  |
 
 ###### Example:
-[icon glyph="message-square"]
-  
-###### Usage:  
 
-[icon&nbsp;glyph="message-square"]
+[icon glyph="message-square"]
+
+###### Usage:
+
+```
+[!icon glyph="message-square"]
+```
 
 All feather icon glyphs are available at [https://feathericons.com](https://feathericons.com)
 
@@ -330,18 +367,19 @@ Inline `code` has `back-ticks around` it.
 
 I.E. `` `some inline code` ``
 
-Use three back-ticks for code blocks  
+Use three back-ticks for code blocks
 
 Javascript Example
 
 ###### Example:
+
 ```javascript
 function foo() {
   console.log('bar');
 }
 ```
-  
-###### Usage:  
+
+###### Usage:
 
 ````
   ```javascript
@@ -351,15 +389,15 @@ function foo() {
   ```
 ````
 
-
 No Language Example
 
 ###### Example:
+
 ```
 dcos[options][<command>][<args>...]
 ```
-  
-###### Usage:  
+
+###### Usage:
 
 ````
   ```
@@ -370,6 +408,7 @@ dcos[options][<command>][<args>...]
 Bash Example
 
 ###### Example:
+
 ```bash
 dcos[options][<command>][<args>...]
 ```
@@ -385,14 +424,15 @@ dcos[options][<command>][<args>...]
 Colons can be used to align columns.
 
 ###### Example:
+
 | Tables         | Are           | Cool  |
 | -------------- |:-------------:| -----:|
 | `--debug`      | right-aligned | $1600 |
 | col 3 is       | right-aligned | $1600 |
 | col 2 is       | centered      |   $12 |
 | zebra stripes  | are neat      |    $1 |
-  
-###### Usage:  
+
+###### Usage:
 
 ```markdown
   | Tables         | Are           | Cool  |
@@ -408,6 +448,7 @@ Colons can be used to align columns.
 use ` > ` to denote blockquotes
 
 ###### Example:
+
 > Blockquotes are very handy in email to emulate reply text.
 
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -420,8 +461,8 @@ use ` > ` to denote blockquotes
 Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy
-  
-###### Usage:  
+
+###### Usage:
 
 ````markdown
 > Blockquotes are very handy in email to emulate reply text.
@@ -456,14 +497,13 @@ Asterisks
 
 ___
 
-___ &nbsp;
+___&nbsp;
 
 Underscores
 
 ## Forms
 
-###### Example:  
-  
+###### Example:
 
 <form class="form tall-bottom">
   <div class="form-group">
@@ -511,8 +551,7 @@ Underscores
   </div>
 </form>
 
-###### Usage:  
-  
+###### Usage:
 
 ```*
   <form class="form tall-bottom">
@@ -560,4 +599,4 @@ Underscores
       <button type="submit" color="purple" size="large">Submit</button>
     </div>
   </form>
-```  
+```
