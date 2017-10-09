@@ -239,7 +239,9 @@ function walk(opts, file, files, array, children, level) {
     child.children = childChildren;
   }
   // Sort
-  children.sort((a, b) => a.menuWeight - b.menuWeight);
+  children.sort((a, b) => {
+    return (a.menuWeight > b.menuWeight) ? 1 : (a.menuWeight < b.menuWeight) ? -1 : 0;
+  });
   return children;
 }
 
