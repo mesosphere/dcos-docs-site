@@ -383,6 +383,8 @@ IE:
   ```
 ````
 
+Language styling can be found in scss/vendor/_prism.scss
+
 ###### Javascript Example:
 
 ```javascript
