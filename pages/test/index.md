@@ -31,7 +31,7 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 
 ###### Usage
 
-```
+```*
 [!enterprise]
 ```
 
@@ -50,7 +50,7 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 
 ###### Usage
 
-```
+```*
 [!oss]
 ```
 
@@ -70,7 +70,7 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 
 ##### Usage
 
-```
+```*
 [!switch]
 
 [!case filter="OSS"]
@@ -109,7 +109,7 @@ Enterprise Content
 
 ##### Usage
 
-```
+```*
 [!swagger api="/test/api/marathon.yaml"]
 ```
 
@@ -127,7 +127,7 @@ Enterprise Content
 
 ##### Usage
 
-```
+```*
 [!ngindox api="/test/api/marathon.yaml"]
 ```
 
@@ -145,7 +145,7 @@ Enterprise Content
 
 ###### Usage:
 
-```
+```*
 Copy your existing [!tooltip content="This is some content"]config.yaml[/!tooltip] and [!tooltip content="Tooltip"]ip-detect[/!tooltip] files to...
 ```
 
@@ -170,7 +170,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
 ```
 
@@ -185,8 +185,9 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 [image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
 
 ###### Usage:
-
+```*
 [!image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
+```
 
 ##### Fluid (fill 100% of parent container until reaching original size (min-width = original size))
 
@@ -195,8 +196,9 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 [image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
 
 ###### Usage:
-
+```*
 [!image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
+```
 
 ##### srcset and sizes
 
@@ -205,8 +207,9 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 [image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
 
 ###### Usage:
-
+```*
 [!image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="A rad wolf" caption="Inline Example using srcset" type="inline"]
+```
 
 ### Buttons {data-hide=true}
 
@@ -222,7 +225,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!button color="purple"]Purple[/button]
 ```
 
@@ -245,7 +248,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message]Test Message[/!message]
 ```
 
@@ -255,7 +258,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message type="warning"]Test Message[/!message]
 ```
 
@@ -265,7 +268,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message type="error"]Test Message[/!message]
 ```
 
@@ -275,7 +278,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message type="info"]Test Message[/!message]
 ```
 
@@ -285,7 +288,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message type="success"]Test Message[/!message]
 ```
 
@@ -295,7 +298,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message fill="false"]Test Message[/!message]
 ```
 
@@ -305,7 +308,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message type="warning" fill="false"]Test Message[/!message]
 ```
 
@@ -315,7 +318,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message type="error" fill="false"]Test Message[/!message]
 ```
 
@@ -325,7 +328,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message type="info" fill="false"]Test Message[/!message]
 ```
 
@@ -335,7 +338,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!message type="success" fill="false"]Test Message[/!message]
 ```
 
@@ -353,7 +356,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Usage:
 
-```
+```*
 [!icon glyph="message-square"]
 ```
 
@@ -369,9 +372,18 @@ I.E. `` `some inline code` ``
 
 Use three back-ticks for code blocks
 
-Javascript Example
+Follow this link for a full list of <a href="http://prismjs.com/download.html" target="_blank">supported languages</a>
 
-###### Example:
+For html, xml, and no language blocks, set language to `*`  
+IE:  
+
+````*
+  ```*
+    // some code
+  ```
+````
+
+###### Javascript Example:
 
 ```javascript
 function foo() {
@@ -381,7 +393,7 @@ function foo() {
 
 ###### Usage:
 
-````
+````*
   ```javascript
     function foo() {
       console.log('bar');
@@ -389,35 +401,147 @@ function foo() {
   ```
 ````
 
-No Language Example
+###### JSON Example:
 
-###### Example:
-
-```
-dcos[options][<command>][<args>...]
+```json
+  {
+    "firstName": "foo",
+    "lastName": "bar",
+  }
 ```
 
 ###### Usage:
 
-````
-  ```
-  dcos[options][<command>][<args>...]
+````*
+  ```json
+    {
+      "firstName": "foo",
+      "lastName": "bar",
+    }
   ```
 ````
 
-Bash Example
+###### YAML Example:
 
-###### Example:
+```yaml
+  # Employee records
+  -  martin:
+      name: Martin D'vloper
+      job: Developer
+      skills:
+        - python
+        - perl
+        - pascal
+```
+
+###### Usage:
+
+````*
+  ```yaml
+    # Employee records
+    -  martin:
+        name: Martin D'vloper
+        job: Developer
+        skills:
+          - python
+          - perl
+          - pascal
+  ```
+````
+
+###### XML Example:
+
+```*
+  <?xml version="1.0"?>
+  <BCPFORMAT 
+  xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <RECORD>
+      <FIELD ID="1" xsi:type="CharTerm" TERMINATOR="\t" 
+        MAX_LENGTH="12"/> 
+      <FIELD ID="2" xsi:type="CharTerm" TERMINATOR="\t" 
+        MAX_LENGTH="20" COLLATION="SQL_Latin1_General_CP1_CI_AS"/>
+      <FIELD ID="3" xsi:type="CharTerm" TERMINATOR="\r\n" 
+        MAX_LENGTH="30" 
+        COLLATION="SQL_Latin1_General_CP1_CI_AS"/>
+    </RECORD>
+    <ROW>
+      <COLUMN SOURCE="1" NAME="age" xsi:type="SQLINT"/>
+      <COLUMN SOURCE="2" NAME="firstname" xsi:type="SQLVARYCHAR"/>
+      <COLUMN SOURCE="3" NAME="lastname" xsi:type="SQLVARYCHAR"/>
+    </ROW>
+  </BCPFORMAT>
+```
+
+###### Usage:
+
+````*
+  ```*
+    <?xml version="1.0"?>
+    <BCPFORMAT 
+    xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <RECORD>
+        <FIELD ID="1" xsi:type="CharTerm" TERMINATOR="\t" 
+          MAX_LENGTH="12"/> 
+        <FIELD ID="2" xsi:type="CharTerm" TERMINATOR="\t" 
+          MAX_LENGTH="20" COLLATION="SQL_Latin1_General_CP1_CI_AS"/>
+        <FIELD ID="3" xsi:type="CharTerm" TERMINATOR="\r\n" 
+          MAX_LENGTH="30" 
+          COLLATION="SQL_Latin1_General_CP1_CI_AS"/>
+      </RECORD>
+      <ROW>
+        <COLUMN SOURCE="1" NAME="age" xsi:type="SQLINT"/>
+        <COLUMN SOURCE="2" NAME="firstname" xsi:type="SQLVARYCHAR"/>
+        <COLUMN SOURCE="3" NAME="lastname" xsi:type="SQLVARYCHAR"/>
+      </ROW>
+    </BCPFORMAT>
+  ```
+````
+
+
+###### Bash Example:
 
 ```bash
 dcos[options][<command>][<args>...]
 ```
 
-````
+###### Usage:
+
+````*
   ```bash
   dcos[options][<command>][<args>...]
   ```
 ````
+
+###### PowerShell Example:
+
+```powershell
+  Get-Help –Name <Cmdlet name>
+```
+
+###### Usage:
+
+````*
+  ```powershell
+    Get-Help –Name <Cmdlet name>
+  ```
+````
+
+###### No Language Example:
+
+```*
+dcos[options][<command>][<args>...]
+```
+
+###### Usage:
+
+````*
+  ```
+  dcos[options][<command>][<args>...]
+  ```
+````
+
 
 ## Tables
 
@@ -434,7 +558,7 @@ Colons can be used to align columns.
 
 ###### Usage:
 
-```markdown
+```*
   | Tables         | Are           | Cool  |
   | -------------- |:-------------:| -----:|
   | `--debug`      | right-aligned | $1600 |
@@ -464,7 +588,7 @@ Quote break.
 
 ###### Usage:
 
-````markdown
+````*
 > Blockquotes are very handy in email to emulate reply text.
 
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
