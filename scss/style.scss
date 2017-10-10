@@ -9,6 +9,7 @@
 /* Vendors */
 @import "vendor/normalize";
 @import "vendor/typebase";
+@import "vendor/prism";
 
 /* Utils */
 @import "utils/colors";
@@ -34,7 +35,7 @@
 
 /* Shortcodes */
 @import "shortcodes/message";
-@import "shortcodes/tag";
+@import "shortcodes/badge";
 @import "shortcodes/tooltip";
 @import "shortcodes/switch";
 @import "shortcodes/image";
