@@ -374,7 +374,7 @@ Use three back-ticks for code blocks
 
 Follow this link for a full list of <a href="http://prismjs.com/download.html" target="_blank">supported languages</a>
 
-For html, xml, and no language blocks, set language to `*`  
+For no language blocks, set language to `*` to display copy button  
 IE:  
 
 ````*
@@ -453,7 +453,7 @@ function foo() {
 
 ###### XML Example:
 
-```*
+```markup
   <?xml version="1.0"?>
   <BCPFORMAT 
   xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" 
@@ -478,7 +478,7 @@ function foo() {
 ###### Usage:
 
 ````*
-  ```*
+  ```markup
     <?xml version="1.0"?>
     <BCPFORMAT 
     xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" 
@@ -539,7 +539,7 @@ dcos[options][<command>][<args>...]
 ###### Usage:
 
 ````*
-  ```
+  ```*
   dcos[options][<command>][<args>...]
   ```
 ````
@@ -679,7 +679,7 @@ Underscores
 
 ###### Usage:
 
-```*
+````markup
   <form class="form tall-bottom">
     <div class="form-group">
       <label>First Name</label>
@@ -725,4 +725,4 @@ Underscores
       <button type="submit" color="purple" size="large">Submit</button>
     </div>
   </form>
-```
+````
