@@ -32,9 +32,15 @@ build-dev: build-api
 build-pdf:
 	./scripts/pdf.sh ./build ./build-pdf
 
+build-pdf-concat:
+	./scripts/pdf-concat.sh
+
 build-pdf-dev: build-api docker-pdf
 	npm run build-pdf
 	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
+
+build-pdf-concat-dev: build-pdf-concat-dev
+	./scripts/pdf-concat.sh
 
 build-api: build-swagger build-ngindox
 
@@ -49,8 +55,7 @@ build-ngindox:
 #
 
 docker-production-build:
-	docker rmi mesosphere/dcos-docs:latest
-	docker-compose -f ./docker/docker-compose.production.yml build --force-rm --no-cache docs
+	./scripts/build.sh
 
 docker-production-up:
 	docker-compose -f ./docker/docker-compose.production.yml up -d docs
