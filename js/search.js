@@ -26,7 +26,9 @@ if (searchForm) {
         {{#version}}
           <span class="search__meta-version">{{version}}</span>
         {{/version}}
-        <a href="/{{path}}" class="search__meta-source">{{truncatedPath}}</a>
+        {{#path}}
+          <a href="/{{path}}" class="search__meta-source">{{truncatedPath}}</a>
+        {{/path}}
       </div>
     </li>
   `;
@@ -58,7 +60,9 @@ if (searchForm) {
         item: hitTemplate,
       },
       transformData: (hit) => {
-        hit.truncatedPath = truncateUrl(hit.path);
+        if (hit.path) {
+          hit.truncatedPath = truncateUrl(hit.path);
+        }
         return hit;
       },
     }),
@@ -72,20 +76,22 @@ if (searchForm) {
 			attributeName: 'section',
 			templates: {
 				seeAllOption: 'Section'
-			},
+      },
+      autoHideContainer: false,
       cssClasses: {
         select: 'search__filter__list',
       },
     })
   );
-
+  
   search.addWidget(
     instantsearch.widgets.menuSelect({
       container: '#search-version',
 			attributeName: 'version',
 			templates: {
-				seeAllOption: 'Version'
+        seeAllOption: 'Version'
 			},
+      autoHideContainer: false,
       cssClasses: {
         select: 'search__filter__list',
       },
