@@ -12,11 +12,11 @@ relatedPages:
   - /test/cli
 ---
 
-## Introduction
+# Introduction
 
 DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It enables the management of multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
 
-## Shortcodes
+# Shortcodes
 
 *Note: Examples use a `!` prefix for shortcode syntax to disable parsing.*
 
@@ -362,7 +362,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 All feather icon glyphs are available at [https://feathericons.com](https://feathericons.com)
 
-## Syntax Highlighting
+# Syntax Highlighting
 
 Inline Example
 
@@ -530,6 +530,30 @@ dcos[options][<command>][<args>...]
   ```
 ````
 
+###### .properties Example
+  ```properties
+  # This is a comment
+  ! This is a comment too
+  some_key some_value
+  some\ key\ with\ spaces : some value
+  some_key = some \
+  multiline value
+```
+
+###### Usage
+
+````
+  ```properties
+    # This is a comment
+    ! This is a comment too
+    some_key some_value
+    some\ key\ with\ spaces : some value
+    some_key = some \
+    multiline value
+  ```
+````
+
+
 ###### No Language Example:
 
 ```*
@@ -545,7 +569,7 @@ dcos[options][<command>][<args>...]
 ````
 
 
-## Tables
+# Tables
 
 Colons can be used to align columns.
 
@@ -569,7 +593,7 @@ Colons can be used to align columns.
   | zebra stripes  | are neat      |    $1 |
 ```
 
-## Block Quotes
+# Block Quotes
 
 use ` > ` to denote blockquotes
 
@@ -627,7 +651,7 @@ ___&nbsp;
 
 Underscores
 
-## Forms
+# Forms
 
 ###### Example:
 
