@@ -1,0 +1,40 @@
+.badge {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 0;
+  color: $color-grey;
+  border: 1px solid $color-grey;
+  border-radius: 3px;
+  padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+  margin: 0.5rem 0;
+  line-height: 1;
+  text-transform: uppercase;
+  &-shortcode-container {
+    position: relative;
+  }
+  &--shortcode {
+    + * {
+      margin-top: 0;
+    }
+  }
+  &--content-header {
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+  &--oss {
+    color: $color-grey;
+    border: 1px solid $color-grey;
+  }
+  &--enterprise {
+    color: $color-purple-light;
+    border: 1px solid $color-purple-light;
+  }
+  &--small {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem 0.3rem 0.6rem;
+  }
+  &--inline {
+    display: inline-block;
+  }
+}

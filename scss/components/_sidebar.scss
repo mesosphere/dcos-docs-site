@@ -1,15 +1,17 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  background: $color-purple;
   &__header {
     height: 80px;
+    box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(125, 88, 255, 0.1);
   }
   &__dropdown {
     position: relative;
     width: 100%;
-    background: $color-purple-light;
     cursor: pointer;
-    &-text {
+    &__text {
       padding: 0;
       margin: 0;
       color: $color-light;
@@ -19,34 +21,21 @@
       &__version {
       }
     }
-    &-icon {
-      color: $color-light;
-    }
-    &--active {
-      background: $color-purple-light;
-      & .sidebar__dropdown-list {
-        height: auto;
-        visibility: visible;
-        opacity: 1;
-        z-index: 1;
-      }
-    }
-    &-toggle {
+    &__toggle {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 80px;
       padding: 0 2rem;
-      font-weight: 600;
+      font-weight: 500;
       user-select: none;
     }
-    &-icon {
+    &__icon {
       width: 20px;
       height: 20px;
       color: $color-light;
-      transform: rotate(90deg);
     }
-    &-list {
+    &__list {
       position: absolute;
       top: 80px;
       margin: 0;
@@ -60,13 +49,13 @@
       box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
-    &-item {
+    &__item {
       color: $color-light;
       &:not(:last-of-type) {
         border-bottom: 1px $color-light solid;
       }
     }
-    &-link {
+    &__link {
       display: block;
       padding: 1rem 2rem;
       text-decoration: none;
@@ -80,6 +69,18 @@
         background: $color-purple;
       }
     }
+    &--active {
+      background: $color-purple-light;
+      & .sidebar__dropdown__list {
+          height: auto;
+          visibility: visible;
+          opacity: 1;
+          z-index: 1;
+      }
+      & .sidebar__dropdown__icon {
+        transform: rotate(180deg);
+      }
+    }
   }
   &__nav {
     &::-webkit-scrollbar {
@@ -91,12 +92,14 @@
     overflow-y: scroll;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.6);
+    a {
+      color: rgba(255, 255, 255, 0.6);
+    }
     &__list {
       display: none;
       list-style-type: none;
       margin: 0;
       padding: 0;
-      padding-left: 2rem;
       &--active {
         display: block;
       }
@@ -104,29 +107,60 @@
     &__icon {
       width: 14px;
       height: 14px;
-      margin-bottom: 2px;
+      margin: 1px 3px 0 -17px;
       color: rgba(255, 255, 255, 0.6);
+      user-select: none;
     }
     &__link {
-      margin-left: 5px;
       font-weight: 400;
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.6) !important;
+      color: rgba(255, 255, 255, 0.6);
     }
     &__item {
       position: relative;
+      padding: 0 2rem;
       &__text {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
+        padding: 0.25rem 0;
+        line-height: 1rem;
+      }
+      &--depth-0 {
+        padding-left: 1rem * 2;
+      }
+      &--depth-1 {
+        padding-left: 1rem * 3;
+      }
+      &--depth-2 {
+        padding-left: 1rem * 4;
+      }
+      &--depth-3 {
+        padding-left: 1rem * 5;
+      }
+      &--depth-4 {
+        padding-left: 1rem * 6;
+      }
+      &--depth-5 {
+        padding-left: 1rem * 7;
       }
       &--active {
         > .sidebar__nav__item__text .sidebar__nav__link {
-          color: $color-purple-light !important;
+          color: $color-purple-light;
         }
         > .sidebar__nav__item__text .sidebar__nav__icon {
           color: $color-purple-light;
           transform: rotate(90deg);
+        }
+      }
+      &--active-on,
+      &:hover {
+        background: $color-purple-light;
+        > .sidebar__nav__item__text .sidebar__nav__link {
+          color: $color-light;
+        }
+        > .sidebar__nav__item__text .sidebar__nav__icon {
+          color: $color-light;
         }
       }
     }
@@ -139,7 +173,7 @@
     padding: 2rem;
     height: 80px;
     font-size: 0.6rem;
-    background: $color-purple;
+    //background: $color-purple;
     &-links {
       margin-bottom: 0.5rem;
       & a {

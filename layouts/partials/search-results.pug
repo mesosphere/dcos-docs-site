@@ -1,31 +1,11 @@
 section(class='search')
-  form(class='search__form')
-    input(class='search__form-input', placeholder='Search')
+  form(id='search-form', class='search__form')
+    input(id='search-input', class='search__form-input', placeholder='Search', value='')
     button(class='search__form-submit')
-      svg(class='search__form-icon')
-        use(xlink:href="assets/sprite.svg#search")
+      i(class='search__form-icon', data-feather='search')
   div(class='search__filters')
-    select(class='search__filters-version')
-      option DC/OS 1.7
-      option DC/OS 1.8
-      option DC/OS 1.9
-    select(class='search__filters-other')
-      option Other
-      option DC/OS 1.8
-      option DC/OS 1.9
+    div(id='search-section', class='search__filter')
+    div(id='search-version', class='search__filter')
   div(class='search__results')
-   ul(class='search__results-list')
-    li(class='search__results-item')
-      h4(class='search__title')
-        a(href='/', class='search__link') Deploying a <mark>local</mark> package respository - Mesosphere DC/OS...
-      p(class='search__description') You can install and run DC/OS services on a datacenter without internet access with a <mark>local</mark> Universe. You can install <mark>local</mark> Universe that...
-      div(class='search__meta')
-        span(class='search__meta-version') Mesosphere DC/OS 1.9
-        a(href='/', class='search__meta-source') https://docs.mesosphere.com/1.9/.../deploying-a-local-dcos-universe
-    li(class='search__results-item')
-      h4(class='search__title')
-        a(href='/', class='search__link') Deploying a <mark>local</mark> package respository - Mesosphere DC/OS...
-      p(class='search__description') You can install and run DC/OS services on a datacenter without internet access with a <mark>local</mark> Universe. You can install <mark>local</mark> Universe that...
-      div(class='search__meta')
-        span(class='search__meta-version') Mesosphere DC/OS 1.9
-        a(href='/', class='search__meta-source') https://docs.mesosphere.com/1.9/.../deploying-a-local-dcos-universe
+    ul(id='search-results', class='search__results-list')
+  div(id='search-pagination')

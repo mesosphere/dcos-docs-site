@@ -1,8 +1,19 @@
+- var pathParts = path.split('/');
+- var gridDisabled = overviewGrid === false
+- var isOverview = pathParts.length === 2;
+
 main(class='content')
-  div(class='content__header')
-    h1(class='content__header-title')!= title
-    h4(class='content__header-description')!= description
-    include ../components/content-actions.pug
   div(class='content__container')
-    include ../components/content-sections.pug
-    !=contents
+    div(class='content__header')
+      if oss
+        p(class='tag tag--content-header tag--oss') OSS
+      if enterprise
+        p(class='tag tag--content-header tag--enterprise') Enterprise
+      h1(class='content__header-title')!= title
+      h4(class='content__header-description')!= description
+      include ../components/content-actions.pug
+    article(class='content__article')
+      != contents
+      if !gridDisabled && isOverview
+        include ../components/content-grid.pug
+  include ../components/content-sections.pug

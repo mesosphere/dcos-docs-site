@@ -1,36 +1,52 @@
+.code-container {
+  transform: translateZ(0);
+}
+
 .code-toolbar {
   margin: 2rem 0 !important;
 }
 
 code {
-  background: rgba($color-purple-light, 0.4);
-  color: $color-purple-light;
-  padding: 0 2px;
+  font-family: $font-family-1;
+  background: #eee;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-weight: 0.9rem;
   margin: 0;
 }
 
 pre {
-  background: rgba($color-purple-light, 0.4);
-  padding: 1rem;
+  background: rgb(21, 16, 48) !important;
+  color: $color-grey-light;
+  padding: 1.75rem !important;
   border-radius: 3px;
+  overflow: auto;
   code {
+    padding: 0;
     background: transparent;
     font-size: 0.8rem;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 }
 
 pre[class*="language-"] {
-  background: rgb(21, 16, 48);
   line-height: 1;
 }
+
+code.language-markdown {
+  padding: 0px;
+}
+
 
 /* Toolbar */
 
 pre.code-toolbar {
   .toolbar {
+    position: fixed;
     top: 0;
     right: 0;
     opacity: 0.8;
+    width: auto;
   }
   .toolbar,
   .toolbar-item {
@@ -40,26 +56,25 @@ pre.code-toolbar {
     background-color: transparent;
     transition: background-color 0.3s ease-in-out;
     border-radius: 0;
-    height: 100%;
+    max-height: 40px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    padding: 8px 16px;
-    transition: 0.3s background-position-y ease;
-    background-image: url('https://www.materialui.co/materialIcons/content/content_copy_white_192x192.png');
-    background-size: 16px 16px;
+    padding: 12px;
+    transition: 0.3s background-position ease;
+    background-image: url('~/assets/content_copy_white_192x192.png');
+    background-size: 14px 14px;
     background-repeat: no-repeat;
-    background-position-y: 14px, top;
     background-position: center;
     color: transparent;
     font-size: 11px;
+    box-shadow: none;
   }
 }
 
-pre.code-toolbar:hover > .toolbar:hover a:hover {
-  background-color: rgba(118, 95, 246, 1);
-  background-position-y: 12px, top;
+pre.code-toolbar:hover>.toolbar:hover a:hover {
+  background-position: left;
+  padding-left: 18px;
   color: #fff;
 }
-

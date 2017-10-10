@@ -5,32 +5,72 @@
   flex-direction: column;
   &__sidebar {
     display: none;
-    background: $color-purple;
-    color: $color-light;
+  }
+  &__drawer {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    display: block;
+    width: 300px;
+    transform: translateX(-300px);
+    transition: all 0.2s $ease-in-out-cubic;
+    &--open {
+      height: 100%;
+      z-index: 30;
+      transform: translateX(300px);
+      + .layout__content {
+        transform: translateX(300px);
+      }
+    }
   }
   &__content {
     width: 100%;
+    transform: translateX(0);
+    transition: all 0.2s $ease-in-out-cubic;
   }
   @include md {
     flex-direction: row;
     &__sidebar {
       position: fixed;
+      top: 0;
+      left: 0;
       display: flex;
       flex-direction: column;
-      width: 250px;
+      width: 300px;
       height: 100%;
-    }
-    &__content {
-      margin-left: 250px;
-      width: 100%;
+      transform: none;
+      transition: none;
+      + .layout__content {
+        width: calc(100% - 300px);
+        margin-left: 300px;
+        transform: none;
+        transition: none;
+        .header {
+          width: calc(100% - 300px);
+        }
+      }
     }
   }
   @include lg {
     &__sidebar {
-      width: 300px;
+      width: 320px;
+      + .layout__content {
+        width: calc(100% - 320px);
+        margin-left: 320px;
+      .header {
+          width: calc(100% - 320px);
+        }
+      }
+    }
+  }
+  @include print {
+    &__sidebar {
+      display: none;
     }
     &__content {
-      margin-left: 300px;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0;
     }
   }
 }

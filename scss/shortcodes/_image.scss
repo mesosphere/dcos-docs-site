@@ -1,0 +1,28 @@
+.img {
+    width: auto;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        &--inline{
+            display: inline-flex;
+        }
+    }
+    &--inline {
+        display: inline;
+    }
+    &--fill,
+    &--fluid {
+        width: 100%;
+        height: auto;
+    }
+    &__caption {
+        display: block;
+        background-color: #eee;
+        color: inherit;
+        padding: 6px;
+        margin-top: 0px;
+        &--inline {
+            display: inline-block;
+        }
+    }
+}

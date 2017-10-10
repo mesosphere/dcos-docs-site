@@ -1,11 +1,16 @@
-$sections-size: 15rem;
+$sections-size: 20%;
 
 .content {
   display: flex;
-  flex-direction: column;
   margin-top: 80px;
   padding: 2rem;
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
   &__header {
+    z-index: 10;
     &-title {
       padding: 0;
       margin: 0;
@@ -15,76 +20,65 @@ $sections-size: 15rem;
       font-weight: 400;
     }
   }
-  &__sections {
-    width: $sections-size;
-    display: none;
-    position: fixed;
-    right: 0;
-    padding: 0 2rem;
-    &-item {
-      a {
-        text-decoration: none;
-        color: $color-dark;
-      }
+  &__article {
+    > .tag:first-of-type {
+      margin-top: 0;
     }
-  }
-  &__container {
-    > :nth-child(2) {
+    > :first-child:not(.tag) {
       margin-top: 0;
       padding-top: 0;
     }
+    ul li,
+    ol li {
+      margin-left: 25px;
+    }
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
   }
-  &__actions {
-    margin: 4rem 0;
-    &__list {
-      display: flex;
-      list-style-type: none;
-    }
-    &__item {
-      margin: 0;
-      padding: 0 1rem;
-      line-height: 1;
-      &:first-of-type {
-        padding-left: 0;
-      }
-    }
-    &__link {
-      display: block;
-      &:first-of-type {
-        margin-left: 0;
-      }
-      &:last-of-type {
-        border-right: 0;
-      }
-    }
-    &__icon {
-      width: 24px;
-      height: 24px;
-      color: $color-grey;
-      &:hover {
-        color: $color-purple-light;
-      }
-    }
+  &__anchor {
+    display: none;
+  }
+  &__sections {
+    display: none;
   }
   @include md {
     padding: 4rem;
-    &__actions {
-      &__item {
-        border-right: 1px $color-grey solid;
-        &:nth-of-type(3n) {
-          margin-right: 50px;
-          border-right: 0;
+    &__container {
+      width: 80%;
+    }
+    &__article {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        &:hover {
+          & .content__anchor {
+            visibility: visible;
+            &:hover .feather {
+              fill: $color-purple-light;
+            }
+          }
         }
+      }
+    }
+    &__anchor {
+      display: inline-block;
+      width: 30px;
+      margin-left: -30px;
+      padding-right: 10px;
+      visibility: hidden;
+      .feather {
+        width: 20px;
+        height: 20px;
       }
     }
   }
   @include lg {
-    padding-right: $sections-size;
-    &__header,
-    &__container {
-      flex-basis: 80%;
-    }
-    &__container {
+    &__article {
       > h1:before,
       > h2:before,
       > h3:before,
@@ -95,17 +89,28 @@ $sections-size: 15rem;
         display: block;
         position: relative;
         width: 0;
-        height: 80px;
-        margin-top: -80px;
+        height: 120px;
+        margin-top: -120px;
         visibility: hidden;
       }
     }
     &__sections {
+      position: relative;
       display: block;
-      &-sticky {
-        position: fixed;
+      width: 20%;
+      margin-left: 2rem;
+      &-list-container {
+        position: sticky;
+        top: calc(80px + 80px);
+        width: 100%;
       }
       &-list {
+        width: 100%;
+        margin: 0;
+        margin-top: 2rem;
+        &:nth-of-type(1) {
+          margin-top: 0;
+        }
         list-style-type: none;
       }
       &-item {
@@ -114,27 +119,28 @@ $sections-size: 15rem;
           padding-left: 0.5rem;
           margin: 0.25rem 0;
         }
+        & a {
+          text-decoration: none;
+          color: $color-dark;
+        }
         & .active {
-          font-weight: 600;
+          color: $color-purple-light;
         }
       }
     }
   }
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table,
-th,
-td {
-  padding: 0.5rem;
-  border: 1px $color-grey-light solid;
-}
-
-th {
-  background: $color-grey-light;
-  font-weight: 400;
+  @include print {
+    margin: 0;
+    padding: 0;
+    &__container {
+      width: 100%;
+      margin-top: 3rem;
+    }
+    &__article {
+      margin-top: 3rem;
+    }
+    &__sections {
+      display: none;
+    }
+  }
 }
