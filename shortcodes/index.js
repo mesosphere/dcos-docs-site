@@ -83,7 +83,7 @@ const shortcodes = {
       type = 'block';
     }
     return sanitize(`
-      <p class="tag tag--shortcode tag--${size} tag--${type} tag--enterprise">Enterprise</p>
+      <p class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</p>
     `);
   },
 
@@ -104,7 +104,7 @@ const shortcodes = {
       type = 'block';
     }
     return sanitize(`
-      <p class="tag tag--shortcode tag--${size} tag--${type} tag--oss">OSS</p>
+      <p class="badge badge--shortcode badge--${size} badge--${type} badge--oss">OSS</p>
     `);
   },
 
@@ -132,12 +132,12 @@ const shortcodes = {
    * @param {Object} opts.filter
    */
   'case': (buf, opts) => {
-    // If filter is enterprise or oss, will style as pill from tag shortcode
-    // Any other text will default to oss tag styling
-    let tag = 'tag--' + opts.filter.toLowerCase();
+    // If filter is enterprise or oss, will style as pill from badge shortcode
+    // Any other text will default to oss badge styling
+    let badge = 'badge--' + opts.filter.toLowerCase();
     return sanitize(`
-      <div class="switch__case-print-tag">
-        <p class="tag tag--shortcode tag--small ${tag}">${opts.filter}</p>
+      <div class="switch__case-print-badge">
+        <p class="badge badge--shortcode badge--small ${badge}">${opts.filter}</p>
       </div>
       <div class="switch__case" data-filter="${opts.filter}">${buf}</div>
     `);

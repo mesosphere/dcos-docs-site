@@ -3,7 +3,7 @@
 //require('./js/vendor/ngindox/ngindox.css');
 require('./js/vendor/ngindox/ngindox.js');
 // require('./js/vendor/prism/clipboard.js');
-require('./js/vendor/prism/prism.css');
+// require('./js/vendor/prism/prism.css');
 // require('./js/vendor/prism/prism.js');
 require('./js/code-container.js');
 

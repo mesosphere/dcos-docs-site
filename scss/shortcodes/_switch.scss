@@ -38,7 +38,7 @@
       display: none !important;
     }
   }
-  &__case-print-tag {
+  &__case-print-badge {
     display: none;
   }
   @media print {
@@ -48,7 +48,7 @@
     &__case {
       display: block !important;
     }
-    &__case-print-tag {
+    &__case-print-badge {
       display: block;
     }
   }
