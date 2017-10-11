@@ -18,14 +18,6 @@ if (contentHeadingsArray && window.innerWidth > 1025) {
  */
 function scrollTop() {
   if (tableOfContents) {
-    // TEMP: Disabled for position: sticky implementation
-    // if (headerOffset > contentContainer.getBoundingClientRect().top) {
-    //   if (!tableOfContents.classList.contains('content__sections-list--top')) {
-    //     tableOfContents.classList.add('content__sections-list--top');
-    //   }
-    // } else {
-    //   tableOfContents.classList.remove('content__sections-list--top');
-    // }
     if (windowOffset < articleContainer.getBoundingClientRect().top + headerOffset) {
       const activeLink = document.querySelector('a.active');
       if (activeLink) {
