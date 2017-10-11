@@ -11,4 +11,5 @@ if [[ "$docker_image_build_id" != "" ]]; then
   docker rmi mesosphere/dcos-docs:latest
 fi
 
-docker-compose -f ./docker/docker-compose.production.yml build --force-rm --no-cache docs
+#docker-compose -f ./docker/docker-compose.production.yml build --force-rm --no-cache docs
+docker-compose -f ./docker/docker-compose.production.yml build docs
