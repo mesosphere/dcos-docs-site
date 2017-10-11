@@ -26,7 +26,7 @@ if (searchForm) {
         {{#version}}
           <span class="search__meta-version">{{version}}</span>
         {{/version}}
-        <a href="/{{path}}" class="search__meta-source">{{truncatedPath}}</a>
+        <a href="/{{path}}" class="search__meta-source">{{displayPath}}</a>
       </div>
     </li>
   `;
@@ -58,7 +58,7 @@ if (searchForm) {
         item: hitTemplate,
       },
       transformData: (hit) => {
-        hit.truncatedPath = truncateUrl(hit.path);
+        hit.displayPath = displayPath(hit.path);
         return hit;
       },
     }),
@@ -108,13 +108,8 @@ if (searchForm) {
   search.start();
 }
 
-// TEMP: Hardcoded path
-function truncateUrl(url) {
-  if (url.length > 30) {
-    const pathParts = url.split('/');
-    const docTitle = pathParts.pop();
-    return `http://docs.mesosphere.com/${pathParts[0]}/${pathParts[1]}/.../${docTitle}`;
-  }
+// TEMP: Display path
+function displayPath(url) {
   return `http://docs.mesosphere.com/${url}`;
 }
 
