@@ -44,7 +44,8 @@ if(
 }
 else if(
   process.env.NODE_ENV == "production" ||
-  process.env.NODE_ENV == "pdf"
+  process.env.NODE_ENV == "pdf" ||
+  process.env.NODE_ENV == "pdf-development"
 ) {
   // Clean
   MS.clean(true)
@@ -140,7 +141,9 @@ MS.use(timer('Layouts'))
 
 // WkhtmltopdfLinkResolver
 if(process.env.NODE_ENV == "pdf") {
-  MS.use(wkhtmltopdfLinkResolver())
+  MS.use(wkhtmltopdfLinkResolver({
+    prefix: '/tmp/pdf/build'
+  }))
   MS.use(timer('WkhtmltopdfLinkResolver'))
 }
 
@@ -487,7 +490,7 @@ function shortcodes(opts) {
 
 //const cheerio = require('cheerio');
 
-function wkhtmltopdfLinkResolver() {
+function wkhtmltopdfLinkResolver(opts) {
   return function(files, metalsmith, done) {
     setImmediate(done);
     Object.keys(files).forEach(function(file) {
@@ -495,7 +498,7 @@ function wkhtmltopdfLinkResolver() {
       let data = files[file];
       let contents = data.contents.toString();
       let $ = cheerio.load(contents);
-      let buildPath = '/tmp/pdf/build';
+      let buildPath = opts.prefix;
       $('*').each(function(){
         let href = $(this).attr('href');
         if(href && href[0] === '/') {

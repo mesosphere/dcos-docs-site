@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Home
-navigationTitle: Home
+title: Test
+navigationTitle: Test
 menuWeight: -1
 overviewGrid: true
 enterprise: false
@@ -10,6 +10,7 @@ relatedPages:
   - /test/overview
   - /test/api
   - /test/cli
+pdfConcat: true
 ---
 
 # Introduction
