@@ -1,4 +1,6 @@
-if (headings || relatedPages)
+- var isHeadings = headings.length > 0
+
+if (isHeadings || relatedPages)
   aside(class='content__sections')
     div(class='content__sections-list-container')
       if (headings)
