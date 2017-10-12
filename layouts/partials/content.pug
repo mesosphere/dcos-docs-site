@@ -6,9 +6,9 @@ main(class='content')
   div(class='content__container')
     div(class='content__header')
       if oss
-        p(class='tag tag--content-header tag--oss') OSS
+        p(class='badge badge--content-header badge--oss') OSS
       if enterprise
-        p(class='tag tag--content-header tag--enterprise') Enterprise
+        p(class='badge badge--content-header badge--enterprise') Enterprise
       h1(class='content__header-title')!= title
       h4(class='content__header-description')!= description
       include ../components/content-actions.pug
