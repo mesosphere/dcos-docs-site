@@ -21,10 +21,11 @@ pre {
   padding: 1.75rem !important;
   border-radius: 3px;
   overflow: auto;
+  font-size: 0.8rem;
   code {
     padding: 0;
     background: transparent;
-    font-size: 0.8rem;
+    // font-size: 0.8rem;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 }
