@@ -35,9 +35,6 @@ $sections-size: 20%;
     ol li {
       margin-left: 25px;
     }
-    p {
-      max-width: 60rem;
-    }
     .icon {
       width: 16px;
       height: 16px;
@@ -84,9 +81,6 @@ $sections-size: 20%;
   }
   @include lg {
     padding: 4rem;
-    &__container {
-      width: 80%;
-    }
     &__article {
       > h1:before,
       > h2:before,
@@ -117,6 +111,9 @@ $sections-size: 20%;
       display: block;
       width: 20%;
       margin-left: 2rem;
+      + .content__container {
+        width: 80%;
+      }
       &-list-container {
         position: sticky;
         top: 140px;
