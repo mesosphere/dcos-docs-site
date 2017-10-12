@@ -1,0 +1,42 @@
+#
+# Build MS
+#
+
+FROM node:8.1.2-slim as ms-builder
+
+RUN apt-get update -qq
+RUN apt-get install -y build-essential
+
+RUN mkdir /src
+VOLUME ['/src']
+WORKDIR /src
+ADD . /src/
+
+RUN npm install -g bootprint
+RUN npm install -g bootprint-openapi
+RUN npm install -g ngindox
+RUN npm install
+
+RUN make build-swagger
+RUN make build-ngindox
+RUN npm run build
+
+#
+# Nginx
+#
+
+FROM nginx:latest
+
+ARG nginx_dir
+
+RUN mkdir -p /src/build
+
+WORKDIR /src/build
+COPY --from=ms-builder /src/build ./
+
+ADD "$nginx_dir" /etc/nginx/conf.d
+
+RUN service nginx restart
+
+EXPOSE 80
+EXPOSE 443

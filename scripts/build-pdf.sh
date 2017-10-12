@@ -1,11 +1,11 @@
 #!/bin/bash
 #
-# Usage:       build.sh
+# Usage:       build-pdf.sh
 #
 # Description: Builds docker image
 #
 
-docker_image=mesosphere/dcos-docs:latest
+docker_image=mesosphere/dcos-docs-pdf:latest
 
 docker_image_build_id=$(docker images -q $docker_image)
 
@@ -14,4 +14,4 @@ if [[ "$docker_image_build_id" != "" ]]; then
 fi
 
 #docker-compose -f ./docker/docker-compose.production.yml build --force-rm --no-cache docs
-docker-compose -f ./docker/docker-compose.production.yml build docs
+docker-compose -f ./docker/docker-compose.production.yml build pdf
