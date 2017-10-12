@@ -81,6 +81,11 @@ $sections-size: 20%;
   }
   @include lg {
     padding: 4rem;
+    &__container {
+      &--with-sections {
+        width: 80%;
+      }
+    }
     &__article {
       > h1:before,
       > h2:before,
