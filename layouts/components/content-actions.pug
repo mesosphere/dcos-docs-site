@@ -1,4 +1,4 @@
-- var pdfPath = '/pdf/' + path + '/' + path.replace(/\//g, '-') + '.pdf'
+- var pdfPath = '/pdf/' + path + '/' + path.replace(/\//g, '-') + ((pdfConcat) ? '-complete' : '') + '.pdf'
 - var githubBranch = (env === 'production') ? 'master' : 'develop'
 - var githubPath = 'https://github.com/mesosphere/mesosphere-dcos-documentation/tree/' + githubBranch + '/pages/' + path + '/index.md'
 - var slackPath = 'https://mesosphere.slack.com';

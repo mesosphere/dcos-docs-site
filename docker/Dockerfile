@@ -4,7 +4,9 @@
 
 FROM node:8.1.2-slim as ms-pdf-builder
 
-RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get update -qq
+RUN apt-get install -y build-essential
+RUN apt-get install -y ghostscript
 
 RUN mkdir /src
 VOLUME ['/src']
@@ -31,7 +33,20 @@ RUN mkdir -p /tmp/pdf
 WORKDIR /tmp/pdf
 COPY --from=ms-pdf-builder /src ./
 
-RUN make build-pdf
+RUN make build-pdf-production
+
+#
+# Concat PDF
+#
+
+FROM ms-pdf-builder as pdf-concat
+
+RUN mkdir /src/build-pdf
+
+WORKDIR /src
+COPY --from=pdf-builder /tmp/pdf/build-pdf ./build-pdf
+
+RUN make build-pdf-concat-production
 
 #
 # Build MS
@@ -58,7 +73,7 @@ WORKDIR /src/build
 COPY --from=ms-builder /src/build ./
 
 WORKDIR /src/build-pdf
-COPY --from=pdf-builder /tmp/pdf/build-pdf ./
+COPY --from=pdf-concat /src/build-pdf ./
 
 ADD "$nginx_dir" /etc/nginx/conf.d
 

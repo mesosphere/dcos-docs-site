@@ -72,20 +72,22 @@ if (searchForm) {
 			attributeName: 'section',
 			templates: {
 				seeAllOption: 'Section'
-			},
+      },
+      autoHideContainer: false,
       cssClasses: {
         select: 'search__filter__list',
       },
     })
   );
-
+  
   search.addWidget(
     instantsearch.widgets.menuSelect({
       container: '#search-version',
 			attributeName: 'version',
 			templates: {
-				seeAllOption: 'Version'
+        seeAllOption: 'Version'
 			},
+      autoHideContainer: false,
       cssClasses: {
         select: 'search__filter__list',
       },

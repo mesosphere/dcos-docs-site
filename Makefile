@@ -26,21 +26,29 @@ build-redirects:
 # Build
 #
 
-build-dev: build-api
+build-development: build-api
 	npm run dev
 
-build-pdf:
+#
+# Build PDF
+#
+
+build-pdf-production:
 	./scripts/pdf.sh ./build ./build-pdf
 
-build-pdf-concat:
-	./scripts/pdf-concat.sh
+build-pdf-concat-production:
+	./scripts/pdf-concat.sh ./pages ./build-pdf
 
-build-pdf-dev: build-api docker-pdf
+build-pdf-development: build-api docker-development-up-pdf
 	npm run build-pdf
 	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
 
-build-pdf-concat-dev: build-pdf-concat-dev
-	./scripts/pdf-concat.sh
+build-pdf-concat-development:
+	./scripts/pdf-concat.sh ./pages ./build-pdf
+
+#
+# Build API
+#
 
 build-api: build-swagger build-ngindox
 
@@ -66,7 +74,7 @@ docker-production-build-test:
 docker-production-link-test:
 	docker-compose -f ./docker/docker-compose.production.yml up test
 
-docker-development-build-pdf:
+docker-development-up-pdf:
 	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
 
 docker-purge:
