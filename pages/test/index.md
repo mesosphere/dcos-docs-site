@@ -600,7 +600,7 @@ Quote break.
 > This is a very long line that will still be quoted properly when it wraps. Oh boy
 ````
 
-## Horizontal Rule
+# Horizontal Rule
 
 Three or more...
 
