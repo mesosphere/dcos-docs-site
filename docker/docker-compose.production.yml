@@ -5,7 +5,7 @@ services:
     image: mesosphere/dcos-docs
     build:
       context: ../
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./docker/Dockerfile.docs
       args:
         nginx_dir: ./docker/nginx
     ports:
@@ -13,6 +13,14 @@ services:
       - "443:443"
     volumes:
       - build:/src
+      - build-pdf:/src/build-pdf
+  pdf:
+    image: mesosphere/dcos-docs-pdf
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.pdf
+    volumes:
+      - build-pdf:/src/build-pdf
   test:
     depends_on:
       - docs
@@ -22,3 +30,4 @@ services:
     command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
 volumes:
   build:
+  build-pdf:

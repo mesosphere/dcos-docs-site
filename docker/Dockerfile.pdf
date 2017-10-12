@@ -47,37 +47,3 @@ WORKDIR /src
 COPY --from=pdf-builder /tmp/pdf/build-pdf ./build-pdf
 
 RUN make build-pdf-concat-production
-
-#
-# Build MS
-#
-
-FROM ms-pdf-builder as ms-builder
-
-WORKDIR /src
-
-RUN npm run build
-
-#
-# Nginx
-#
-
-FROM nginx:latest
-
-ARG nginx_dir
-
-RUN mkdir -p /src/build
-RUN mkdir -p /src/build-pdf
-
-WORKDIR /src/build
-COPY --from=ms-builder /src/build ./
-
-WORKDIR /src/build-pdf
-COPY --from=pdf-concat /src/build-pdf ./
-
-ADD "$nginx_dir" /etc/nginx/conf.d
-
-RUN service nginx restart
-
-EXPOSE 80
-EXPOSE 443

@@ -65,13 +65,19 @@ build-ngindox:
 docker-production-build:
 	./scripts/build.sh
 
-docker-production-up:
-	docker-compose -f ./docker/docker-compose.production.yml up -d docs
+docker-production-build-pdf:
+	./scripts/build-pdf.sh
 
 docker-production-build-test:
 	./scripts/build-validation.sh
 
-docker-production-link-test:
+docker-production-up:
+	docker-compose -f ./docker/docker-compose.production.yml up -d docs
+
+docker-production-up-pdf:
+	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
+
+docker-production-up-link-test:
 	docker-compose -f ./docker/docker-compose.production.yml up test
 
 docker-development-up-pdf:
