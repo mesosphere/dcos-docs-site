@@ -1,16 +1,19 @@
+- var page = hierarchy.findByPath('/' + path)
+- var pageDescription = (page && page.excerpt) ? page.excerpt : description
 - var pathParts = path.split('/');
 - var gridDisabled = overviewGrid === false
 - var isOverview = pathParts.length === 2;
+- var containerClass = headings.length > 0 ? 'content__container content__container--with-sections' : 'content__container'
 
 main(class='content')
-  div(class='content__container')
+  div(class=containerClass)
     div(class='content__header')
       if oss
         p(class='badge badge--content-header badge--oss') OSS
       if enterprise
         p(class='badge badge--content-header badge--enterprise') Enterprise
       h1(class='content__header-title')!= title
-      h4(class='content__header-description')!= description
+      h4(class='content__header-description')!= pageDescription
       include ../components/content-actions.pug
     article(class='content__article')
       != contents
