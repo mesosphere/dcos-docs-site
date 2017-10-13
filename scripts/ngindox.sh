@@ -62,7 +62,11 @@ function main
             # Run bootprint swagger-ui
             touch "$build_dir/bundle.js"
             touch "$build_dir/main.css"
-            ngindox ui -c "" -j "" -f "$f" > "$build_dir/index.html"
+            #ngindox ui -c "" -j "" -f "$f" > "$build_dir/index.html"
+
+            # Use npm cmd to avoid npm global packages
+            npm run build-ngindox -- -c "" -j "" -f "$f" > "$build_dir/index.html"
+
             printf "${GREEN}Created html ${BLUE} "$build_dir/index.html"${NC}\n"
 
           )

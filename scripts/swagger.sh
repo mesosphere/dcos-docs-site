@@ -60,8 +60,11 @@ function main
             printf "${GREEN}Temp Dir${BLUE} $build_dir${NC}\n"
 
             # Run bootprint swagger-ui
-            #node ./scripts/swagger.js "$f" "$build_dir/index.html"
-            bootprint openapi "$f" "$build_dir"
+            #bootprint openapi "$f" "$build_dir"
+
+            # Use npm cmd to avoid npm global packages
+            npm run build-swagger "$f" "$build_dir"
+
             printf "${GREEN}Created html ${BLUE} $build_dir${NC}\n"
 
           )

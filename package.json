@@ -12,6 +12,8 @@
     "docs": "NODE_ENV=development-docs DEBUG=metalsmith-timer node index.js",
     "build": "NODE_ENV=production DEBUG=metalsmith-timer node index.js",
     "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer node index.js",
+    "build-ngindox": "ngindox ui",
+    "build-swagger": "bootprint openapi",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
     "eslint-init": "eslint --init",
@@ -22,7 +24,10 @@
     "algoliasearch": "^3.24.3",
     "autoprefixer": "^7.1.1",
     "bluebird": "^3.5.0",
+    "bootprint": "^1.0.0",
+    "bootprint-openapi": "^1.1.0",
     "browser-sync": "^2.18.12",
+    "cheerio": "^1.0.0-rc.2",
     "crawler": "^1.0.5",
     "css-loader": "^0.28.4",
     "debug": "^3.0.1",
@@ -34,6 +39,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^2.1.2",
     "fs-finder": "^1.8.1",
+    "html-minifier": "^3.5.3",
     "js-yaml": "^3.9.1",
     "jsdom": "^11.2.0",
     "markdown-it": "^8.4.0",
@@ -46,8 +52,11 @@
     "metalsmith-layouts": "^1.8.1",
     "metalsmith-markdownit": "^0.4.0",
     "metalsmith-permalinks": "^0.5.0",
+    "metalsmith-shortcode-parser": "^1.0.1",
+    "metalsmith-timer": "0.0.2",
     "metalsmith-webpack2": "^1.0.1",
     "mkdirp": "^0.5.1",
+    "ngindox": "^0.2.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "pug": "^2.0.0-rc.2",
@@ -57,10 +66,5 @@
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
   },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "html-minifier": "^3.5.3",
-    "metalsmith-shortcode-parser": "^1.0.1",
-    "metalsmith-timer": "0.0.2"
-  }
+  "dependencies": {}
 }

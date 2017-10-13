@@ -12,9 +12,6 @@ VOLUME ['/src']
 WORKDIR /src
 ADD . /src/
 
-RUN npm install -g bootprint
-RUN npm install -g bootprint-openapi
-RUN npm install -g ngindox
 RUN npm install
 
 RUN make build-swagger
