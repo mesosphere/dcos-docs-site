@@ -5,7 +5,6 @@ build-ngindox
 build-pdf
 linkchecker
 crawler
-package-lock.json
 npm-debug.log
 .DS_Store
 ./**/*.tmp
