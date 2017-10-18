@@ -114,7 +114,7 @@ module.exports = function(options) {
             let regex = /v[0-9].[0-9](.*)/g;
             let isVersion = regex.test(pathParts[2]);
             if (isVersion) {
-              data.version = product + ' ' + pathParts[2].substr(1);
+              data.version = pathParts[2].substr(1);
             }
           }
         }

@@ -26,9 +26,14 @@ if (searchForm) {
         <p class="search__description">{{{excerpt}}}</p>
       {{/excerpt}}
       <div class="search__meta">
-        {{#version}}
-          <span class="search__meta-version">{{version}}</span>
-        {{/version}}
+        {{#product}}
+          <span class="search__meta-product">
+            {{product}}
+            {{#version}}
+              {{version}}
+            {{/version}}
+          </span>
+        {{/product}}
         <a href="/{{path}}" class="search__meta-source">{{displayPath}}</a>
       </div>
     </li>
