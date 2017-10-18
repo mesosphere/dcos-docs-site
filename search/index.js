@@ -53,9 +53,8 @@ module.exports = function(options) {
    * Algolia Indexing Settings
    */
   index.setSettings({
-    attributesToSnippet: ['contents:30', 'excerpt'],
-    searchableAttributes: ['title', 'contents', 'enterprise'],
-    attributesForFaceting: ['section', 'product', 'version', 'enterprise'],
+    searchableAttributes: ['title', 'contents'],
+    attributesForFaceting: ['section', 'product', 'version', 'type'],
     customRanking: ['asc(section)', 'desc(version)']
   });
 
@@ -130,10 +129,14 @@ module.exports = function(options) {
           }
         }
 
+        let type = false;
+        if (fileData.enterprise) type = 'enterprise';
+        if (fileData.oss) type = 'oss';
+
         data.objectID = file;
         data.title = fileData.title;
         data.path = fileData.path;
-        data.enterprise = fileData.enterprise || false
+        data.type = type;
         data.contents = sanitize(fileData.contents);
 
         if (fileData.excerpt) {
@@ -156,7 +159,6 @@ module.exports = function(options) {
             index.addObject(object, (err, content) => {
               if (err) {
                 console.error(`Algolia: Skipped "${object.path}": ${err.message}`);
-                console.error(object.excerpt);
               } else {
                 indexed++;
               }
