@@ -29,9 +29,9 @@ if (searchForm) {
         {{#product}}
           <span class="search__meta-product">
             {{product}}
-            {{#version}}
-              {{version}}
-            {{/version}}
+            {{#versionNumber}}
+              {{versionNumber}}
+            {{/versionNumber}}
           </span>
         {{/product}}
         <a href="/{{path}}" class="search__meta-source">{{displayPath}}</a>

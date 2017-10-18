@@ -55,7 +55,7 @@ module.exports = function(options) {
   index.setSettings({
     searchableAttributes: ['title', 'contents'],
     attributesForFaceting: ['section', 'product', 'version', 'type'],
-    customRanking: ['asc(section)', 'desc(version)']
+    customRanking: ['asc(section)', 'desc(product)', 'desc(version)']
   });
 
   return function(files, metalsmith, done) {
@@ -114,7 +114,8 @@ module.exports = function(options) {
             let regex = /v[0-9].[0-9](.*)/g;
             let isVersion = regex.test(pathParts[2]);
             if (isVersion) {
-              data.version = pathParts[2].substr(1);
+              data.version = product + ' ' + pathParts[2].substr(1);
+              data.versionNumber = pathParts[2].substr(1);
             }
           }
         }
@@ -126,12 +127,13 @@ module.exports = function(options) {
           // If in /docs/*
           if (pathParts[1]) {
             data.version = product + ' ' + pathParts[1];
+            data.versionNumber = pathParts[1];
           }
         }
 
-        let type = false;
-        if (fileData.enterprise) type = 'enterprise';
-        if (fileData.oss) type = 'oss';
+        let type;
+        if (fileData.enterprise) type = 'Enterprise';
+        if (fileData.oss) type = 'Open Source';
 
         data.objectID = file;
         data.title = fileData.title;
