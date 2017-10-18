@@ -98,19 +98,19 @@ if (searchForm) {
     }),
   );
 
-  // TODO: implement OSS/enterprise facets
-  // search.addWidget(
-  //   instantsearch.widgets.menuSelect({
-  //     container: '#search-type',
-  //     templates: {
-  //       seeAllOption: 'Type'
-  //     },
-  //     autoHideContainer: false,
-  //     cssClasses: {
-  //       select: 'search__filter__list'
-  //     }
-  //   })
-  // )
+  search.addWidget(
+    instantsearch.widgets.menuSelect({
+      container: '#search-type',
+      attributeName: 'type',
+      templates: {
+        seeAllOption: 'Type'
+      },
+      autoHideContainer: false,
+      cssClasses: {
+        select: 'search__filter__list'
+      }
+    })
+  )
 
   // Render pagination
   search.addWidget(
