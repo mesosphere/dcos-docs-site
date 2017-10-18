@@ -1,24 +1,20 @@
 /* Ngindox */
-
 /* Tweaks for dcos-website */
+
 #ngindox {
   h2 {
-    font-family: ClioRegular;
+    font-family: 'Roboto', sans-serif;
     letter-spacing: 0.05rem;
   }
-
   .resource .route .heading {
     width: 100% !important;
-
     code {
       letter-spacing: 0;
     }
   }
-
   .route-type {
     width: 6rem !important;
   }
-
   .arrow {
     transition: 0s;
   }
@@ -26,8 +22,9 @@
 
 /* Ngindox */
 /* Source: https://github.com/karlkfi/ngindox/blob/master/include/ngindox.css */
+
 #ngindox {
-  font-family: "Droid Sans", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.9rem;
 
   .heading {
@@ -35,7 +32,6 @@
     align-items: center;
     justify-content: space-between;
   }
-
   .heading h1 {
     display: inline-block;
     margin: 0;
@@ -43,7 +39,6 @@
     padding: 0.5rem 0rem;
     vertical-align: middle;
   }
-
   .legend {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -87,7 +82,6 @@
     float: initial;
     padding: 0.2rem;
   }
-
   a {
     cursor: pointer;
     text-decoration: none;
@@ -95,7 +89,6 @@
   a:hover {
     text-decoration: underline;
   }
-
   h1, h2, h3 {
     margin: 0;
     margin-top: 2rem;
@@ -111,7 +104,6 @@
   h2, h3 {
     font-size: 1rem;
   }
-
   table {
     border: 1px solid rgba(0,0,0,0.1);
     border-collapse: collapse;
@@ -127,11 +119,9 @@
     padding: 1rem;
     line-height: 125%;
   }
-
   li {
     margin: 0.5rem 0;
   }
-
   code {
     padding: 0;
     padding-top: 0.2em;
@@ -144,8 +134,6 @@
     border: 0;
     word-break: break-word;
   }
-
-
   .resources {
     width: 100%;
     margin: 0;
@@ -156,12 +144,10 @@
   .resource {
     border-bottom: 1px solid #ddd;
   }
-
   .resource .heading {
     display: block;
     width: 100%;
   }
-
   .heading h2 {
     display: inline-block;
     margin: 0;
@@ -178,8 +164,6 @@
     vertical-align: middle;
     color: #aaa;
   }
-
-
   .routes {
     list-style-type: none;
     margin: 0;
@@ -204,7 +188,7 @@
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: "Droid Sans", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 0.8rem;
     color: #fff;
@@ -213,7 +197,6 @@
     cursor: pointer;
     box-shadow: none;
   }
-
   .route-type-proxy {
     background-color: rgba(16, 165, 74, 0.1);
   }
@@ -232,7 +215,6 @@
   .route-type-unknown {
     background-color: rgba(66, 66, 66, 0.1);
   }
-
   .route-type-proxy .route-type {
     background-color: rgba(16, 165, 74, 1.0);
   }
@@ -251,7 +233,6 @@
   .route-type-unknown .route-type {
     background-color: rgba(66, 66, 66, 1.0);
   }
-
   .route-type-proxy .route-type:hover {
     box-shadow: 0 0 5px rgba(16, 165, 74, 1.0), inset 0 0 10px rgba(16, 165, 74, 1.0);
   }
@@ -270,7 +251,6 @@
   .route-type-unknown .route-type:hover {
     box-shadow: 0 0 5px rgba(66, 66, 66, 1.0), inset 0 0 10px rgba(66, 66, 66, 1.0);
   }
-
   .route-type-proxy .route-desc {
     color: rgba(16, 165, 74, 1.0);
   }
@@ -289,7 +269,6 @@
   .route-type-unknown .route-desc {
     color: rgba(66, 66, 66, 1.0);
   }
-
   .route-type-proxy .heading,
   .route-type-proxy .route-meta {
     border-color: rgba(16, 165, 74, 0.3);
@@ -314,8 +293,6 @@
   .route-type-unknown .route-meta {
     border-color: rgba(66, 66, 66, 0.3);
   }
-
-
   .route-path {
     display: inline-block;
     padding: 0.5rem;
@@ -341,26 +318,22 @@
   .route-meta table tr td:first-child {
     width: 4rem;
   }
-
   .arrow {
     width: 0;
     height: 0;
     display: inline-block;
     vertical-align: middle;
   }
-
   .arrow-down {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid black;
     margin: 0 2.5px;
   }
-
   .arrow-right {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     border-left: 5px solid black;
     margin: 0 5px;
   }
-
 }

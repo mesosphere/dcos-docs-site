@@ -62,14 +62,17 @@ build-ngindox:
 # Docker
 #
 
-docker-production-build:
-	./scripts/build.sh
+docker-build-site:
+	./scripts/build-site.sh
 
-docker-production-build-pdf:
+docker-build-pdf:
 	./scripts/build-pdf.sh
 
-docker-production-build-test:
-	./scripts/build-validation.sh
+docker-build-site-test:
+	./scripts/build-site-validation.sh
+
+docker-build-pdf-test:
+	./scripts/build-pdf-validation.sh
 
 docker-production-up:
 	docker-compose -f ./docker/docker-compose.production.yml up -d docs
@@ -77,11 +80,13 @@ docker-production-up:
 docker-production-up-pdf:
 	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
 
-docker-production-up-link-test:
-	docker-compose -f ./docker/docker-compose.production.yml up test
-
 docker-development-up-pdf:
 	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
+
+docker-test-up:
+	docker-compose -f ./docker/docker-compose.test.yml up -d docs
+	docker-compose -f ./docker/docker-compose.test.yml up -d pdf
+	docker-compose -f ./docker/docker-compose.test.yml up test
 
 docker-purge:
 	./scripts/docker-purge.sh
