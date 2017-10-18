@@ -59,6 +59,7 @@
     "postcss-loader": "^2.0.6",
     "pug": "^2.0.0-rc.2",
     "rss": "^1.2.2",
+    "sanitize-html": "^1.14.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.0.0",

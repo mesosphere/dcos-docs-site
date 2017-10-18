@@ -1,10 +1,32 @@
 const algoliasearch = require('algoliasearch');
 const Bluebird = require('bluebird');
+const sanitizeHtml = require('sanitize-html');
 const extname = require('path').extname;
 
 /**
  * Search indexing for algolia
  */
+
+/**
+ * Parses buffer to string and sanitizes html.
+ * Removes all contained <pre></pre> tags.
+ * Removes all tags and replaces with whitespace.
+ * @param {Buffer} buffer
+ */
+const sanitize = buffer => {
+  let string = buffer.toString();
+  let parsedString = sanitizeHtml(string, {
+    allowedTags: [],
+    allowedAttributes: [],
+    selfClosing: [],
+    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'pre']
+  });
+  parsedString = parsedString.replace(/\s+/g, ' ');
+  if (parsedString.length > 2000) {
+    parsedString = parsedString.substring(0, 2000) + '…';
+  }
+  return parsedString;
+};
 
 module.exports = function(options) {
   /**
@@ -31,9 +53,9 @@ module.exports = function(options) {
    * Algolia Indexing Settings
    */
   index.setSettings({
-    attributesToSnippet: ['contents:30', 'excerpt'],
-    searchableAttributes: ['title', 'contents', 'excerpt', 'enterprise'],
-    attributesForFaceting: ['section', 'product', 'version']
+    searchableAttributes: ['title', 'contents'],
+    attributesForFaceting: ['section', 'product', 'version', 'type'],
+    customRanking: ['asc(section)', 'desc(product)', 'desc(version)']
   });
 
   return function(files, metalsmith, done) {
@@ -59,7 +81,7 @@ module.exports = function(options) {
     } else {
       clearIndex = Bluebird.resolve();
     }
-    
+
     // Initialize indexing
     clearIndex.then(() => {
       let promises = [];
@@ -69,10 +91,10 @@ module.exports = function(options) {
       // Loop through metalsmith object
       Object.keys(files).forEach(file => {
         if ('.html' != extname(file)) return;
-        
+
         let pathParts = file.split('/');
         pathParts.pop();
-        
+
         let fileData = files[file];
         let data = {};
 
@@ -92,7 +114,8 @@ module.exports = function(options) {
             let regex = /v[0-9].[0-9](.*)/g;
             let isVersion = regex.test(pathParts[2]);
             if (isVersion) {
-              data.version = product + ' ' + pathParts[2];
+              data.version = product + ' ' + pathParts[2].substr(1);
+              data.versionNumber = pathParts[2].substr(1);
             }
           }
         }
@@ -104,12 +127,19 @@ module.exports = function(options) {
           // If in /docs/*
           if (pathParts[1]) {
             data.version = product + ' ' + pathParts[1];
+            data.versionNumber = pathParts[1];
           }
         }
+
+        let type;
+        if (fileData.enterprise) type = 'Enterprise';
+        if (fileData.oss) type = 'Open Source';
 
         data.objectID = file;
         data.title = fileData.title;
         data.path = fileData.path;
+        data.type = type;
+        data.contents = sanitize(fileData.contents);
 
         if (fileData.excerpt) {
           data.excerpt = fileData.excerpt;
@@ -131,7 +161,6 @@ module.exports = function(options) {
             index.addObject(object, (err, content) => {
               if (err) {
                 console.error(`Algolia: Skipped "${object.path}": ${err.message}`);
-                console.error(object.excerpt);
               } else {
                 indexed++;
               }
