@@ -63,7 +63,7 @@ function main
             #bootprint openapi "$f" "$build_dir"
 
             # Use npm cmd to avoid npm global packages
-            npm run build-swagger "$f" "$build_dir"
+            node ./node_modules/bootprint/bin/bootprint.js openapi "$f" "$build_dir"
 
             printf "${GREEN}Created html ${BLUE} $build_dir${NC}\n"
 
