@@ -57,7 +57,8 @@ mixin renderSidebarNavListItem(item, depth)
       - listClassList['sidebar__nav__list--active'] = currentPath.indexOf(item.path) !== -1
       ul(class=listClassList)
         each val, index in item.children
-          +renderSidebarNavListItem(val, depth + 1)
+          if val.menuWeight != -1
+            +renderSidebarNavListItem(val, depth + 1)
 
 mixin renderSidebarNav()
   nav(role='navigation', class='sidebar__nav')

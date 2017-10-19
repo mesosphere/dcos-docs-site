@@ -65,7 +65,7 @@ function main
             #ngindox ui -c "" -j "" -f "$f" > "$build_dir/index.html"
 
             # Use npm cmd to avoid npm global packages
-            npm run build-ngindox -- -c "" -j "" -f "$f" > "$build_dir/index.html"
+            node ./node_modules/ngindox/bin/cli.js ui -c "" -j "" -f "$f" > "$build_dir/index.html"
 
             printf "${GREEN}Created html ${BLUE} "$build_dir/index.html"${NC}\n"
 
