@@ -1,7 +1,7 @@
 - var pdfPath = '/pdf/' + path + '/' + path.replace(/\//g, '-') + ((pdfConcat) ? '-complete' : '') + '.pdf'
 - var githubBranch = (env === 'production') ? 'master' : 'develop'
 - var githubPath = 'https://github.com/mesosphere/mesosphere-dcos-documentation/tree/' + githubBranch + '/pages/' + path + '/index.md'
-- var slackPath = 'https://mesosphere.slack.com';
+- var slackPath = 'https://dcos-community.slack.com/';
 - var rssPath = (rss) ? '/' + path + '/rss.xml' : ''
 if !rssPath
   - var parent = hierarchy.findParent(path, 'rss', true)
@@ -31,11 +31,11 @@ div(class='actions')
     li(class='actions__item')
       a(href=githubPath, class='actions__link', target="_blank")
         i(class='actions__icon', data-feather='github')
-        span(class='actions__text') Github
+        span(class='actions__text') Contribute
     li(class='actions__item')
       a(href=slackPath, class='actions__link', target="_blank")
         i(class='actions__icon', data-feather='slack')
-        span(class='actions__text') Slack
+        span(class='actions__text') Discuss
     if rssPath
       li(class='actions__item')
         a(href=rssPath, class='actions__link', target="_blank")
