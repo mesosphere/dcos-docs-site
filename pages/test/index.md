@@ -163,7 +163,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 | src            | required                                      | url / path to image                                                                                                                |
 | srcset         | optional                                      | html img srcset attribute                                                                                                          |
 | sizes          | optional (required if using srcset attribute) | html img sizes attribute                                                                                                           |
-| type           | optional (default: inline)                    | inline (original size and inline), fill (100% of parent container), fluid (100% of parent container and min-width = original size) |
+| type           | optional (default: inline)                    | inline (max-width = original size and inline), fill (100% of parent container), fluid (100% of parent container and max-width = original size) |
 | alt            | optional                                      | text to be displayed if image does not load                                                                                        |
 | caption        | optional                                      | text to be displayed below image                                                                                                   |
 
