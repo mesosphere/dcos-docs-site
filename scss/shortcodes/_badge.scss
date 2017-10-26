@@ -14,9 +14,12 @@
     position: relative;
   }
   &--shortcode {
+    margin: 0;
+    /*
     + * {
       margin-top: 0;
     }
+    */
   }
   &--content-header {
     margin: 0;
@@ -36,5 +39,18 @@
   }
   &--inline {
     display: inline-block;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: flex;
+  align-items: center;
+  .badge {
+    margin-left: 0.5rem;
   }
 }

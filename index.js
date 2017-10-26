@@ -80,6 +80,7 @@ MS.use(timer('Shortcodes'))
 // Markdown
 MS.use(markdown(
   {
+    smartList: false,
     typographer: true,
     html: true,
   })

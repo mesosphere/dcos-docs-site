@@ -15,6 +15,39 @@ enterprise: false
 
 #### Heading Title 4
 
+Test Large
+[enterprise]
+
+Test Small
+[enterprise size="small"]
+
+Test Inline [enterprise type="inline"] hello world
+
+Test Inline Small [enterprise type="inline" size="small"]
+
+Test Large
+[enterprise type="inline"]
+
+[enterprise]
+# dcos_audit_logging
+[/enterprise]
+
+[enterprise size="small"]
+# dcos_audit_logging
+[/enterprise]
+
+[enterprise]
+## dcos_audit_logging
+[/enterprise]
+
+[enterprise]
+### dcos_audit_logging
+[/enterprise]
+
+[enterprise size="small"]
+#### dcos_audit_logging
+[/enterprise]
+
 ---
 
 1. Something
@@ -44,6 +77,48 @@ enterprise: false
     1. Click **REVIEW & RUN**.
     1. Optionally click [**EDIT**](/docs/1.10/deploying-services/config-universe-service/), customize parameters, and click **REVIEW & RUN**.
     1. Click **RUN SERVICE**.
+
+
+
+* Item 1
+    * Item 1
+    * Item 2
+    * Item 3
+* Item 2
+
+    Hello World
+
+* Item 3
+* Item 4
+
+
+1. Item 1
+    1. Item 1
+    1. Item 2
+    1. Item 3
+1. Item 2
+
+    Hello World
+
+1. Item 3
+1. Item 4
+
+
+1. Item 1
+
+    1. Item 1
+
+    1. Item 2
+
+    1. Item 3
+
+1. Item 2
+
+    Hello World
+
+1. Item 3
+
+1. Item 4
 
 ---
 
