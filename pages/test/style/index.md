@@ -17,6 +17,36 @@ enterprise: false
 
 ---
 
+1. Something
+    1. Child
+    1. Child
+1. Something
+    1. Child
+    1. Child
+1. Something
+    1. Child
+    1. Child
+1. Something
+    1. Child
+    1. Child
+
+
+1.  Click a package.
+    1. Click **REVIEW & RUN**.
+
+        Some Text
+
+    1. Optionally click [**EDIT**](/docs/1.10/deploying-services/config-universe-service/), customize parameters, and click **REVIEW & RUN**.
+    1. Click **RUN SERVICE**.
+
+
+1.  Click a package.
+    1. Click **REVIEW & RUN**.
+    1. Optionally click [**EDIT**](/docs/1.10/deploying-services/config-universe-service/), customize parameters, and click **REVIEW & RUN**.
+    1. Click **RUN SERVICE**.
+
+---
+
 ## Unordered List
 
 - Item 1
