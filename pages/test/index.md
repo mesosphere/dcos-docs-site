@@ -33,12 +33,29 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 ###### Usage
 
 ```*
-[!enterprise]
+[!enterprise /]
 ```
 
 ###### Example
 
+[enterprise /]
+
+###### Heading Usage
+
+Note: Headers must be wrapped in shortcode tag. This applies to inline badge
+only and does not require the type attribute.
+
+```*
+[!enterprise]
+### Header
+[/!enterprise]
+```
+
+###### Heading Example
+
 [enterprise]
+### Header
+[/enterprise]
 
 ### OSS Tag {data-hide=true}
 
@@ -52,12 +69,29 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 ###### Usage
 
 ```*
-[!oss]
+[!oss /]
 ```
 
 ###### Example
 
+[oss /]
+
+###### Heading Usage
+
+Note: Headers must be wrapped in shortcode tag. This applies to inline badge
+only and does not require the type attribute.
+
+```*
+[!oss]
+### Header
+[/!oss]
+```
+
+###### Heading Example
+
 [oss]
+### Header
+[/oss]
 
 ### Switch {data-hide=true}
 
@@ -111,12 +145,12 @@ Enterprise Content
 ##### Usage
 
 ```*
-[!swagger api="/test/api/marathon.yaml"]
+[!swagger api="/test/api/marathon.yaml" /]
 ```
 
 ##### Example:
 
-[swagger api="/test/api/marathon.yaml"]
+[swagger api="/test/api/marathon.yaml" /]
 
 ### Ngindox {data-hide=true}
 
@@ -129,12 +163,12 @@ Enterprise Content
 ##### Usage
 
 ```*
-[!ngindox api="/test/api/marathon.yaml"]
+[!ngindox api="/test/api/marathon.yaml" /]
 ```
 
 ##### Example:
 
-[ngindox api="/test/api/nginx.master.yaml"]
+[ngindox api="/test/api/nginx.master.yaml" /]
 
 ### Tooltips {data-hide=true}
 
@@ -172,44 +206,44 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 ###### Usage:
 
 ```*
-[!image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
+[!image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption" /]
 ```
 
 ###### Example:
 
-[image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption"]
+[image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption" /]
 
 ##### Fill (fill 100% of parent container)
 
 ###### Example:
 
-[image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
+[image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption" /]
 
 ###### Usage:
 ```*
-[!image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption"]
+[!image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption" /]
 ```
 
 ##### Fluid (fill 100% of parent container until reaching original size (min-width = original size))
 
 ###### Example:
 
-[image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
+[image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption" /]
 
 ###### Usage:
 ```*
-[!image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption"]
+[!image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption" /]
 ```
 
 ##### srcset and sizes
 
 ###### Example:
 
-[image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="Alt text" caption="Inline Example using srcset" type="inline"]
+[image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="Alt text" caption="Inline Example using srcset" type="inline" /]
 
 ###### Usage:
 ```*
-[!image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="Alt text" caption="Inline Example using srcset" type="inline"]
+[!image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="Alt text" caption="Inline Example using srcset" type="inline" /]
 ```
 
 ### Buttons {data-hide=true}
@@ -353,12 +387,12 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 
 ###### Example:
 
-[icon glyph="message-square"]
+[icon glyph="message-square" /]
 
 ###### Usage:
 
 ```*
-[!icon glyph="message-square"]
+[!icon glyph="message-square" /]
 ```
 
 All feather icon glyphs are available at [https://feathericons.com](https://feathericons.com)
@@ -375,8 +409,8 @@ Use three back-ticks for code blocks
 
 Follow this link for a full list of <a href="http://prismjs.com/download.html" target="_blank">supported languages</a>
 
-For no language blocks, set language to `*` to display copy button  
-IE:  
+For no language blocks, set language to `*` to display copy button
+IE:
 
 ````*
   ```*

@@ -83,7 +83,7 @@ const shortcodes = {
       type = 'block';
     }
     return sanitize(`
-      <p class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</p>
+      ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span>
     `);
   },
 
@@ -104,7 +104,7 @@ const shortcodes = {
       type = 'block';
     }
     return sanitize(`
-      <p class="badge badge--shortcode badge--${size} badge--${type} badge--oss">OSS</p>
+      ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">OSS</span>
     `);
   },
 
