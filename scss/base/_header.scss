@@ -9,6 +9,16 @@
   background: $color-light;
   box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
   z-index: 20;
+  &--ddl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  &--sdl {
+
+  }
   &__logo {
     display: flex;
     align-items: flex-start;
@@ -102,7 +112,7 @@
       &-icon,
       &-text {
         margin-right: 10px;
-      }  
+      }
     }
     &__search {
       &-input {

@@ -1,0 +1,73 @@
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body
+
+    header(class='header header--ddl')
+      div(class='header__main')
+        a(href='/', class='header__logo')
+          img(class='header__logo-icon', src='/assets/header-logo-mesosphere.svg', alt='Mesosphere Logo' height='24')
+        nav(class='header__menu')
+          ul(class='header__menu-list')
+            each val, index in hierarchy.children
+              if(val.menuWeight !== -1)
+                - var itemClass = {}
+                - itemClass['header__menu-item'] = true
+                - itemClass['header__menu-item--active'] = ('/' + path).includes(val.path)
+                li(class=itemClass)
+                  a(href=val.path)!= val.title
+
+    div(class='hero')
+
+    div(style='padding: 2rem;')
+      div(class='grid-toc')
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title') Title
+          p(class='grid-toc__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
+          a(class='grid-toc__link') Item One
+          a(class='grid-toc__link') Item Two
+          a(class='grid-toc__link') Item Three
+          a(class='grid-toc__link') Item Four
+          a(class='grid-toc__link-all') View All
+            img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title') Title
+          p(class='grid-toc__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
+          a(class='grid-toc__link') Item One
+          a(class='grid-toc__link') Item Two
+          a(class='grid-toc__link') Item Three
+          a(class='grid-toc__link') Item Four
+          a(class='grid-toc__link-all') View All
+            img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title') Title
+          p(class='grid-toc__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
+          a(class='grid-toc__link') Item One
+          a(class='grid-toc__link') Item Two
+          a(class='grid-toc__link') Item Three
+          a(class='grid-toc__link') Item Four
+          a(class='grid-toc__link-all') View All
+            img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
+      div(class='grid')
+        a(href='', class='grid__item')
+          h6(class='grid__label') Label
+          h3(class='grid__header') Title
+          p(class='grid__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
+          div(class="grid__link")
+            i(data-feather='chevron-right')
+        a(href='', class='grid__item')
+          h6(class='grid__label') Label
+          h3(class='grid__header') Title
+          p(class='grid__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
+          div(class="grid__link")
+            i(data-feather='chevron-right')
+        a(href='', class='grid__item')
+          h6(class='grid__label') Label
+          h3(class='grid__header') Title
+          p(class='grid__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
+          div(class="grid__link")
+            i(data-feather='chevron-right')
+
+    footer(class='')
+    include partials/scripts.pug
