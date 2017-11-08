@@ -1,0 +1,128 @@
+.landing {
+  &__hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    background: #131626 url('/assets/k8-hero.png') bottom no-repeat;
+    background-size: cover;
+    &-input {
+      width: 75%;
+      max-width: 600px;
+      padding: 0.5rem 0;
+      border: 0;
+      border-bottom: 1px $color-purple-light solid;
+      background: transparent;
+      color: $color-light;
+      outline: 0;
+    }
+  }
+  &__container {
+    max-width: $bp-lg;
+    margin: 0 auto;
+    padding: 2rem 2rem 0 2rem;
+  }
+  &__grid {
+    @extend .grid;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-top: 8px $color-purple-light solid;
+      border-radius: 2px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    &__header {
+      @extend .grid__header;
+    }
+    &__desc {
+      @extend .grid__desc;
+    }
+    &__link {
+      @extend .grid__link;
+    }
+  }
+  &__external {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      &:not(:first-of-type) {
+        margin-top: 2rem;
+      }
+    }
+    &-icon {
+      width: 30px;
+      height: 30px;
+    }
+    &-title {
+      margin-top: 1rem;
+    }
+    &-description {
+      margin-top: $leading / 2;
+    }
+  }
+  &__footer {
+    padding: 6rem 0;
+    &__container {
+      margin: 0 auto;
+      text-align: center;
+    }
+    &__logo {
+      width: 83px;
+      height: 30px;
+    }
+    &__menu {
+      margin-top: 2rem;
+      a {
+        display: inline-block;
+        color: $color-dark;
+        font-weight: bold;
+        text-decoration: none;
+        &:first-of-type {
+          margin-right: 1rem;
+        }
+      }
+    }
+    &__copyright {
+      margin-top: 1rem;
+      color: #ACACAC;
+      font-size: 0.8rem; 
+    }
+  }
+  @include md {
+    &__hero {
+      height: 500px;
+      background-position: bottom right;
+      background-size: fill;
+      &-input {
+        font-size: 2rem;
+        padding: 1rem 0;
+      }
+    }
+    &__container {
+      padding: 4rem 2rem 0 2rem;
+    }
+    &__grid {
+      &-item {
+        width: calc(50% - 10px);
+      }
+    }
+    &__external {
+      flex-direction: row;
+      margin-top: 3rem;
+      &-item {
+        &:not(:last-of-type) {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+

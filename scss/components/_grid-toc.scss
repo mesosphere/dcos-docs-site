@@ -1,44 +1,40 @@
 .grid-toc {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   &__item {
-    padding: 2rem;
     display: flex;
     flex-direction: column;
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
   }
   &__title {
     line-height: 1;
     padding: 0;
     margin: 0;
-    margin-bottom: 1rem;
     color: $color-purple-light;
   }
   &__desc {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     color: $color-grey;
   }
   &__link {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     color: $color-purple-light;
   }
   &__link-all {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     color: $color-grey;
     &__arrow {
-      padding-left: 10px;
+      margin-left: 10px;
     }
   }
   @include md {
     flex-direction: row;
-
+    justify-content: space-between;
     &__item {
-      width: 33.33%;
+      width: 30%;
     }
   }
 }

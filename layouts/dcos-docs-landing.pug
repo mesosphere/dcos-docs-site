@@ -18,56 +18,98 @@ html(lang='en')
                 li(class=itemClass)
                   a(href=val.path)!= val.title
 
-    div(class='hero')
+    div(class='landing__hero')
+      input(class='landing__hero-input', placeholder='Search documentation')
 
-    div(style='padding: 2rem;')
+    div(class='landing__container')
       div(class='grid-toc')
         div(class='grid-toc__item')
-          h2(class='grid-toc__title') Title
-          p(class='grid-toc__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
-          a(class='grid-toc__link') Item One
-          a(class='grid-toc__link') Item Two
-          a(class='grid-toc__link') Item Three
-          a(class='grid-toc__link') Item Four
+          h2(class='grid-toc__title') Release Notes
+          p(class='grid-toc__desc') DC/OS includes many new capabilities for Operators, and expands...
+          a(class='grid-toc__link') Release Notes 1.9.4
+          a(class='grid-toc__link') Release Notes 1.9.3
+          a(class='grid-toc__link') Release Notes 1.9.2
+          a(class='grid-toc__link') Release Notes 1.9.1
           a(class='grid-toc__link-all') View All
             img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
         div(class='grid-toc__item')
-          h2(class='grid-toc__title') Title
-          p(class='grid-toc__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
-          a(class='grid-toc__link') Item One
-          a(class='grid-toc__link') Item Two
-          a(class='grid-toc__link') Item Three
-          a(class='grid-toc__link') Item Four
+          h2(class='grid-toc__title') Overview
+          p(class='grid-toc__desc') The overview topics help you get started and learn the DC/OS fundamentals...
+          a(class='grid-toc__link') What is DC/OS?
+          a(class='grid-toc__link') Architecture
+          a(class='grid-toc__link') Features
+          a(class='grid-toc__link') Concepts
           a(class='grid-toc__link-all') View All
             img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
         div(class='grid-toc__item')
-          h2(class='grid-toc__title') Title
-          p(class='grid-toc__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
-          a(class='grid-toc__link') Item One
-          a(class='grid-toc__link') Item Two
-          a(class='grid-toc__link') Item Three
-          a(class='grid-toc__link') Item Four
+          h2(class='grid-toc__title') Installing and Upgrading
+          p(class='grid-toc__desc') Enterprise DC/OS is designed to be configured, deployed, managed, scaled...
+          a(class='grid-toc__link') DC/OS Custom Installation Options
+          a(class='grid-toc__link') DC/OS Cloud Installation Options
+          a(class='grid-toc__link') Local
+          a(class='grid-toc__link') Upgrading
           a(class='grid-toc__link-all') View All
             img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
-      div(class='grid')
-        a(href='', class='grid__item')
-          h6(class='grid__label') Label
-          h3(class='grid__header') Title
-          p(class='grid__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
-          div(class="grid__link")
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title') CLI
+          p(class='grid-toc__desc') You can use the DC/OS command-line interface (CLI) to manage cluster nodes, install...
+          a(class='grid-toc__link') Instsalling the CLI
+          a(class='grid-toc__link') Configuring the CLI
+          a(class='grid-toc__link') Updating the CLI
+          a(class='grid-toc__link') Connecting to Multiple Clusters
+          a(class='grid-toc__link-all') View All
+            img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title') Administering Clusters
+          p(class='grid-toc__desc') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sem mi, malesuada ac...
+          a(class='grid-toc__link') SSHing into Nodes
+          a(class='grid-toc__link') Finding a Public Agent IP
+          a(class='grid-toc__link') Component Management
+          a(class='grid-toc__link') Backup and Restore
+          a(class='grid-toc__link-all') View All
+            img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title') Networking
+          p(class='grid-toc__desc') DC/OS provides a number of tools out-of-the-box, ranging from basic network...
+          a(class='grid-toc__link') Load Balancing and Virtual IPs (VIPs)
+          a(class='grid-toc__link') Marathon-LB
+          a(class='grid-toc__link') Edge-LB
+          a(class='grid-toc__link') Mesos-DNS
+          a(class='grid-toc__link-all') View All
+            img(class='grid-toc__link-all__arrow', src='/assets/right-arrow.svg')
+      div(class='landing__grid')
+        a(href='', class='landing__grid-item')
+          h3(class='landing__grid__header') Install DC/OS
+          p(class='landing__grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
+          div(class="landing__grid__link")
             i(data-feather='chevron-right')
-        a(href='', class='grid__item')
-          h6(class='grid__label') Label
-          h3(class='grid__header') Title
-          p(class='grid__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
-          div(class="grid__link")
+        a(href='', class='landing__grid-item')
+          h3(class='landing__grid__header') Need Support?
+          p(class='landing__grid__desc') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sem mi, malesuada ac...
+          div(class="landing__grid__link")
             i(data-feather='chevron-right')
-        a(href='', class='grid__item')
-          h6(class='grid__label') Label
-          h3(class='grid__header') Title
-          p(class='grid__desc') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
-          div(class="grid__link")
-            i(data-feather='chevron-right')
-
-    footer(class='')
+      div(class='landing__external')
+        div(class='landing__external-item')
+          img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          h3(class='landing__external-title')
+            a(class='landing__external-link') Get DC/OS Training
+          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
+        div(class='landing__external-item')
+          img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          h3(class='landing__external-title')
+            a(class='landing__external-link') Join the Community
+          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
+        div(class='landing__external-item')
+          img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          h3(class='landing__external-title')
+            a(class='landing__external-link') Find us on Slack
+          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
+      
+    footer(class='landing__footer')
+      div(class='landing__footer__container')
+        img(class='landing__footer__logo', src='/assets/footer-logo-logomark.svg')
+        div(class='landing__footer__menu')
+          a(href='/') Terms of Service
+          a(href='/') Privacy Policy
+        div(class='landing__footer__copyright') &copy; 2017 Mesosphere, Inc. All Rights Reserved.
     include partials/scripts.pug
