@@ -57,6 +57,8 @@ $sections-size: 20%;
       h4,
       h5,
       h6 {
+        padding-top: 100px;
+        margin-top: -100px;
         &:hover {
           & .content__anchor {
             visibility: visible;
