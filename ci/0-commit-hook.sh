@@ -6,6 +6,7 @@ project_dir=$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)
 cd "${project_dir}"
 
 # required inputs (fail early w/ nounset)
+GIT_BRANCH="${GIT_BRANCH}"
 DOCKER_USER="${DOCKER_USER}"
 DOCKER_PASS="${DOCKER_PASS}"
 APP_ID="${APP_ID}" # ex: /docs-site/docs2-dev

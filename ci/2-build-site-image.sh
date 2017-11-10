@@ -6,12 +6,12 @@
 
 set -o errexit -o nounset -o pipefail
 
+# requires inputs
+GIT_BRANCH="${GIT_BRANCH}"
+
 # run from repo root
 project_dir=$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)
 cd "${project_dir}"
-
-GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-echo "Branch: ${GIT_BRANCH}"
 
 echo "Building site and docker image..."
 make docker-build-site
