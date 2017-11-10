@@ -56,9 +56,9 @@ rm -rf ~/.dcos/
 echo "Authenticating DC/OS CLI..."
 chmod 600 "${DCOS_USER_PRIVATE_KEY_PATH}"
 echo no | dcos cluster setup "${DCOS_URL}" \
-  --username "${DCOS_USER_NAME}" \
-  --private-key "${DCOS_USER_PRIVATE_KEY_PATH}" \
-  --ca-certs "${DCOS_CRT}"
+  --username="${DCOS_USER_NAME}" \
+  --private-key="${DCOS_USER_PRIVATE_KEY_PATH}" \
+  --ca-certs="${DCOS_CRT}"
 
 echo "Printing DC/OS versions..."
 dcos --version
