@@ -20,7 +20,7 @@ DCOS_CRT="${DCOS_CRT}" # ex: docs-us.crt
 ci/1-setup-env.sh
 
 # capture and print to stdout (tty)
-IMAGE="$(ci/2-build-site.sh | tee /dev/tty | grep "^Image: " | sed "s/^Image: //" )"
+IMAGE="$(ci/2-build-site-image.sh | tee /dev/tty | grep "^Image: " | sed "s/^Image: //" )"
 export IMAGE_NAME="$(echo "${IMAGE}" | sed 's/^\(.*\):\([^:]*\)/\1/')"
 export IMAGE_TAG="$(echo "${IMAGE}" | sed 's/^\(.*\):\([^:]*\)/\2/')"
 
