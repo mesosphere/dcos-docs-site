@@ -15,6 +15,9 @@
     left: 0;
     background: transparent;
     box-shadow: none;
+    .header__menu-item--active a {
+      color: $color-light;
+    }
   }
   &--sdl {
 

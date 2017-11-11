@@ -67,6 +67,32 @@ const shortcodes = {
   },
 
   /**
+   * Landing Item
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {string} opts.type
+   * @param {boolean} opts.fill
+   */
+  // 'landing-item': (buf, opts) => {
+  //   let colorClass;
+  //   let messageType = '';
+  //   if(opts.fill == false && opts.type) {
+  //     colorClass = `message--outline-${opts.type}`;
+  //     messageType = `${capitalize(opts.type)}: `;
+  //   }
+  //   else if(opts.fill == false) {
+  //     colorClass = `message--outline`;
+  //   }
+  //   else if(opts.type) {
+  //     colorClass = `message--${opts.type}`;
+  //     messageType = `${capitalize(opts.type)}: `;
+  //   }
+  //   return sanitize(`
+  //     <div class="message ${colorClass}"><strong>${messageType}</strong>${buf}</div>
+  //   `);
+  // },
+
+  /**
    * Enterprise
    * @param {string} buf
    * @param {Object} opts
