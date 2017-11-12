@@ -13,7 +13,7 @@ if (inPageToc.offsetHeight > document.body.clientHeight) {
     const listLength = listItems.length;
     const mainContent = document.querySelector('.content__container--with-sections').offsetHeight;
 
-    const pos = (inPageToc.scrollHeight / mainContent) * scrollAmount - (mainContent / listLength) + document.body.clientHeight - 140;
+    const pos = (inPageToc.scrollHeight / mainContent) * scrollAmount - (mainContent / listLength) + document.body.clientHeight - 210;
     followScroll(inPageToc, pos);
   };
 }
