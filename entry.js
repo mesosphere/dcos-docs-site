@@ -19,3 +19,5 @@ require('./js/sections.js');
 require('./js/switch.js');
 require('./js/image.js');
 require('./js/swagger-ui.js');
+require('./js/toc-scroll.js');
+
