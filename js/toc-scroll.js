@@ -13,6 +13,8 @@ if (inPageToc.offsetHeight > document.body.clientHeight) {
     const listLength = listItems.length;
     const mainContent = document.querySelector('.content__container--with-sections').offsetHeight;
 
+    // create window to TOC scroll ratio
+    // FIX ME: this is working, but could be cleaned up
     const pos = (inPageToc.scrollHeight / mainContent) * scrollAmount - (mainContent / listLength) + document.body.clientHeight - 210;
     followScroll(inPageToc, pos);
   };
