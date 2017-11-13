@@ -8,14 +8,15 @@ if (inPageToc.offsetHeight > document.body.clientHeight) {
   };
 
   window.onscroll = () => {
-    const scrollAmount = window.pageYOffset || document.documentElement.scrollTop;
-    const listItems = document.querySelectorAll('.content__sections-item');
-    const listLength = listItems.length;
-    const mainContent = document.querySelector('.content__container--with-sections').offsetHeight;
-
     // create window to TOC scroll ratio
-    // FIX ME: this is working, but could be cleaned up
-    const pos = (inPageToc.scrollHeight / mainContent) * scrollAmount - (mainContent / listLength) + document.body.clientHeight - 210;
+    const pos = getScrollRatio(inPageToc.scrollHeight) - 190;
     followScroll(inPageToc, pos);
   };
+}
+
+function getScrollRatio(tocHeight) {
+  const doc = document.documentElement || document.body;
+  const st = 'scrollTop';
+  const sh = 'scrollHeight';
+  return (doc[st] / (doc[sh] - doc.clientHeight)) * tocHeight;
 }
