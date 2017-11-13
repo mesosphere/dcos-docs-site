@@ -224,7 +224,7 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 [!image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption" /]
 ```
 
-##### Fluid (fill 100% of parent container until reaching original size (min-width = original size))
+##### Fluid (fill 100% of parent container until reaching original size (max-width = original size))
 
 ###### Example:
 
