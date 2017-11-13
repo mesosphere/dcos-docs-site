@@ -9,7 +9,7 @@ if (inPageToc.offsetHeight > document.body.clientHeight) {
 
   window.onscroll = () => {
     // create window to TOC scroll ratio
-    const pos = getScrollRatio(inPageToc.scrollHeight) - 190;
+    const pos = getScrollRatio(inPageToc.scrollHeight) - 190; // subtract top offset and padding-top;
     followScroll(inPageToc, pos);
   };
 }
