@@ -1,10 +1,7 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
 - var items = hierarchy.children.find(child => child.id === paths[0])
-- var currentDocs = items.children[0];
-
-if paths[0] === 'service-docs'
-  - currentDocs = items
+- var currentDocs = items
 
 mixin renderGrid()
   div(class='grid-toc')
@@ -71,17 +68,17 @@ html(lang='en')
 
       div(class='landing__external')
         div(class='landing__external-item')
-          img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
           h3(class='landing__external-title')
             a(class='landing__external-link') Get DC/OS Training
           p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
         div(class='landing__external-item')
-          img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
           h3(class='landing__external-title')
             a(class='landing__external-link') Join the Community
           p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
         div(class='landing__external-item')
-          img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
           h3(class='landing__external-title')
             a(class='landing__external-link') Find us on Slack
           p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
