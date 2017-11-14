@@ -1,6 +1,6 @@
-----
- -layout: service-docs-landing.pug
- -title: Test
- -navigationTitle: Test
- -menuWeight: 0
- ----
+---
+ layout: service-docs-landing.pug
+ title: Test
+ navigationTitle: Test
+ menuWeight: 0
+ ---
