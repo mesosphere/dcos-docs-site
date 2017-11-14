@@ -1,0 +1,206 @@
+.landing {
+  &__hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    background: #131626 url('/assets/k8-hero.png') bottom no-repeat;
+    background-size: cover;
+  }
+  &__container {
+    max-width: $bp-lg;
+    margin: 0 auto;
+    padding: 2rem 2rem 0 2rem;
+  }
+  &__search {
+    position: relative;
+    max-width: 600px;
+    width: 75%;
+    border-bottom: 1px $color-purple-light solid;
+    &-label {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      color: $color-purple-light !important;
+    }
+    &-input {
+      width: 100%;
+      padding: 0.5rem 0;
+      border: 0;
+      background: transparent;
+      color: $color-light;
+      outline: 0;
+    }
+  }
+  &__results {
+    width: 100%;
+    &-header {
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 10px;
+      border-bottom: 1px solid rgba(228, 228, 228, 0.6);
+    }
+    &-dropdown-menu {
+      width: 100%;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(228, 228, 228, 0.6);
+      border-radius: 0 0 2px 2px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .35);
+      background: #fff;
+    }
+    &-link {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      &:link {
+        color: $color-dark;
+      }
+      &:hover {
+        background-color: #f9f9f9;
+        & .landing__results-title {
+          color: $color-purple-light;
+        }
+      }
+    }
+    &-title {
+      display: block;
+      margin-bottom: 5px;
+    }
+    &-footer {
+      display: flex;
+      border-top: 1px solid rgba(228, 228, 228, 0.6);
+      padding: 10px;
+      img {
+        height: 20px;
+      }
+    }
+  }
+  &__external {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &-icon {
+      width: 30px;
+      height: 30px;
+    }
+    &-title {
+      color: $color-dark;
+      margin-top: 1rem;
+    }
+    &-description {
+      margin-top: $leading / 2;
+    }
+  }
+  &__footer {
+    padding: 6rem 0;
+    &__container {
+      margin: 0 auto;
+      text-align: center;
+    }
+    &__logo {
+      width: 83px;
+      height: 30px;
+    }
+    &__menu {
+      margin-top: 2rem;
+      a {
+        display: inline-block;
+        color: $color-dark;
+        font-weight: bold;
+        text-decoration: none;
+        &:first-of-type {
+          margin-right: 1rem;
+        }
+      }
+    }
+    &__copyright {
+      margin-top: 1rem;
+      color: #acacac;
+      font-size: 0.8rem;
+    }
+  }
+  @include md {
+    &__hero {
+      height: 500px;
+      background-position: bottom right;
+      background-size: fill;
+    }
+    &__search {
+      &-input {
+        position: relative;
+        font-size: 2rem;
+        padding: 1rem 0;
+      }
+    }
+    &__container {
+      padding: 4rem 2rem 0 2rem;
+    }
+    &__grid {
+      &-item {
+        width: calc(50% - 10px);
+      }
+    }
+    &__external {
+      flex-direction: row;
+      margin-top: 3rem;
+      &-item {
+        &:not(:last-of-type) {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.aa-input-container {
+  display: inline-block;
+  position: relative;
+}
+.aa-input-search {
+  width: 300px;
+  border: 1px solid rgba(228, 228, 228, 0.6);
+  padding: 12px 28px 12px 12px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.aa-input-search::-webkit-search-decoration,
+.aa-input-search::-webkit-search-cancel-button,
+.aa-input-search::-webkit-search-results-button,
+.aa-input-search::-webkit-search-results-decoration {
+  display: none;
+}
+.aa-input-icon {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  fill: #e4e4e4;
+}
+.aa-dropdown-menu {
+  background-color: #fff;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+.aa-suggestion {
+  padding: 12px;
+  cursor: pointer;
+}
+.aa-suggestion + .aa-suggestion {
+  border-top: 1px solid rgba(228, 228, 228, 0.6);
+}
+.aa-suggestion:hover,
+.aa-suggestion.aa-cursor {
+  background-color: rgba(241, 241, 241, 0.35);
+}

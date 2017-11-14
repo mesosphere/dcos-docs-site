@@ -1,3 +1,45 @@
+const landingContainer = document.querySelector('.landing');
+
+if (landingContainer) {
+  const client = algoliasearch('O1RKPTZXK1', '00ad2d0be3e5a7155820357a73730e84');
+  const index = client.initIndex('dev_MESOSPHERE');
+
+  autocomplete(
+    '#landing-search-input',
+    {
+      hint: false,
+      minLength: 3,
+      cssClasses: {
+        root: 'landing__results',
+        prefix: 'landing__results',
+      },
+    },
+    {
+      source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+      displayKey: 'title',
+      templates: {
+        header: '<div class="landing__results-header">Pages</div>',
+        suggestion: function(suggestion) {
+          console.log(suggestion);
+          return `
+            <a href="${suggestion.path}" class="landing__results-link">
+              <strong class="landing__results-title">${suggestion._highlightResult.title.value}</strong>
+              <div class="landing__results-snippet">&hellip; ${suggestion._snippetResult.excerpt.value} &hellip;</div>
+            </a>
+          `;
+        },
+      },
+    },
+  );
+
+  document.addEventListener('scroll', () => {
+    if (autocomplete.autocomplete.getWrapper().style.display === 'block') {
+      autocomplete.autocomplete.close();
+      autocomplete.autocomplete.open();
+    }
+  });
+}
+
 const searchForm = document.querySelector('#search-form');
 
 if (searchForm) {
@@ -50,7 +92,7 @@ if (searchForm) {
       magnifier: false,
       reset: false,
       wrapInput: false,
-      queryHook: debounce(function (inputValue, search) {
+      queryHook: debounce(function(inputValue, search) {
         search(inputValue);
       }, 500),
     }),
@@ -64,7 +106,7 @@ if (searchForm) {
         empty: noResultsTemplate,
         item: hitTemplate,
       },
-      transformData: function (hit) {
+      transformData: function(hit) {
         hit.displayPath = displayPath(hit.path);
         return hit;
       },
@@ -108,14 +150,14 @@ if (searchForm) {
       container: '#search-type',
       attributeName: 'type',
       templates: {
-        seeAllOption: 'Type'
+        seeAllOption: 'Type',
       },
       autoHideContainer: false,
       cssClasses: {
-        select: 'search__filter__list'
-      }
-    })
-  )
+        select: 'search__filter__list',
+      },
+    }),
+  );
 
   // Render pagination
   search.addWidget(
@@ -145,7 +187,7 @@ function debounce(func, wait, immediate) {
   return function() {
     let context = this,
       args = arguments;
-    let later = function () {
+    let later = function() {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
@@ -172,7 +214,7 @@ function sortBy(a, b) {
 }
 
 // Sort semantic versioning
-function sortVersion (a, b) {
+function sortVersion(a, b) {
   let pa = a.split('.');
   let pb = b.split('.');
   for (let i = 0; i < 3; i++) {
@@ -184,4 +226,4 @@ function sortVersion (a, b) {
     if (isNaN(na) && !isNaN(nb)) return -1;
   }
   return 0;
-};
+}

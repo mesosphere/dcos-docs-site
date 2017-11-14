@@ -4,7 +4,7 @@
   background: $color-purple;
   &__header {
     height: 80px;
-    box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 40px -40px rgba(0, 0, 0, 0.1);
     background: rgba(125, 88, 255, 0.1);
   }
   &__dropdown {
@@ -15,7 +15,7 @@
       padding: 0;
       margin: 0;
       color: $color-light;
-      &__title {
+    &__title {
         opacity: 0.6;
       }
       &__version {
@@ -34,6 +34,7 @@
       width: 20px;
       height: 20px;
       color: $color-light;
+      transition: all 0.3s ease-in-out;
     }
     &__list {
       position: absolute;
@@ -46,13 +47,13 @@
       background: $color-purple-light;
       opacity: 0;
       visibility: hidden;
-      box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 40px 40px -40px rgba(0, 0, 0, 0.1), 0 20px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
     &__item {
       color: $color-light;
       &:not(:last-of-type) {
-        border-bottom: 1px $color-light solid;
+        border-bottom: 1px rgba($color-purple, 0.2) solid;
       }
     }
     &__link {
