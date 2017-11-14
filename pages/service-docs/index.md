@@ -1,5 +1,5 @@
 ---
-layout: landing.pug
+layout: layout.pug
 navigationTitle:  Service Guides
 title: Service Guides
 menuWeight: 2
