@@ -13,7 +13,6 @@ if (inPageToc.offsetHeight > document.body.clientHeight) {
     const activeLink = document.querySelector('a.active');
 
     if (activeLink) {
-      // create window to TOC scroll ratio
       followScroll(inPageToc, activeLink.offsetTop);
     }
   };
