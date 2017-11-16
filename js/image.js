@@ -1,7 +1,8 @@
 function styleFluidImages() {
   const fluidImages = document.getElementsByClassName('img--fluid');
+  const fluidImageContainer = document.getElementsByClassName('img__wrapper--fluid');
   for (let i=0; i < fluidImages.length; i++) {
-    fluidImages[i].setAttribute('style', `max-width:${fluidImages[i].naturalWidth}px;`);
+    fluidImageContainer[i].setAttribute('style', `max-width:${fluidImages[i].naturalWidth}px;`);
   }
 }
 
