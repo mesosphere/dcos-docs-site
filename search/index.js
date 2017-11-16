@@ -7,32 +7,11 @@ const extname = require('path').extname;
  * Search indexing for algolia
  */
 
-/**
- * Parses buffer to string and sanitizes html.
- * Removes all contained <pre></pre> tags.
- * Removes all tags and replaces with whitespace.
- * @param {Buffer} buffer
- */
-const sanitize = buffer => {
-  let string = buffer.toString();
-  let parsedString = sanitizeHtml(string, {
-    allowedTags: [],
-    allowedAttributes: [],
-    selfClosing: [],
-    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'pre']
-  });
-  parsedString = parsedString.replace(/\s+/g, ' ');
-  if (parsedString.length > 2000) {
-    parsedString = parsedString.substring(0, 2000) + '…';
-  }
-  return parsedString;
-};
-
 module.exports = function(options) {
   /**
    * Algolia Configuration
    * @param {Object} options
-   * @param {string} options.projectId
+   * @param {string} options.projectIds
    * @param {string} options.privateKey
    * @param {string} options.index
    * @param {boolean} options.clearIndex
@@ -55,7 +34,7 @@ module.exports = function(options) {
   index.setSettings({
     searchableAttributes: ['title', 'contents'],
     attributesForFaceting: ['section', 'product', 'version', 'type'],
-    customRanking: ['asc(section)', 'desc(product)', 'desc(version)']
+    customRanking: ['asc(section)', 'desc(product)', 'desc(version)'],
   });
 
   return function(files, metalsmith, done) {
@@ -92,67 +71,17 @@ module.exports = function(options) {
       Object.keys(files).forEach(file => {
         if ('.html' != extname(file)) return;
 
-        let pathParts = file.split('/');
-        pathParts.pop();
+        const fileData = files[file];
+        const postContent = sanitize(fileData.contents);
+        const postParts = convertStringToArray(postContent, 2000);
 
-        let fileData = files[file];
-        let data = {};
-
-        if (pathParts[0] === 'service-docs') {
-          let product;
-          data.section = 'Service Docs';
-          // If in /service-docs/product/**
-          if (pathParts[1]) {
-            let productPath = pathParts.slice(0, 2).join('/');
-            product = hierarchy.findByPath(productPath).title || '';
-            if (product) {
-              data.product = product;
-            }
-          }
-          // If in /service-docs/product/version/**
-          if (pathParts[2]) {
-            let regex = /v[0-9].[0-9](.*)/g;
-            let isVersion = regex.test(pathParts[2]);
-            if (isVersion) {
-              data.version = product + ' ' + pathParts[2].substr(1);
-              data.versionNumber = pathParts[2].substr(1);
-            }
-          }
-        }
-
-        if (pathParts[0] === 'docs') {
-          product = 'DC/OS';
-          data.section = 'DC/OS Docs';
-          data.product = product;
-          // If in /docs/*
-          if (pathParts[1]) {
-            data.version = product + ' ' + pathParts[1];
-            data.versionNumber = pathParts[1];
-          }
-        }
-
-        let type;
-        if (fileData.enterprise) type = 'Enterprise';
-        if (fileData.oss) type = 'Open Source';
-
-        data.objectID = file;
-        data.title = fileData.title;
-        data.path = fileData.path;
-        data.type = type;
-        data.contents = sanitize(fileData.contents);
-
-        if (fileData.excerpt) {
-          data.excerpt = fileData.excerpt;
-        } else {
-          let excerptPath = pathParts.join('/');
-          let objectHierarchy = hierarchy.findByPath(excerptPath) || '';
-          let excerpt = objectHierarchy.excerpt || '';
-          if (objectHierarchy && excerpt) {
-            data.excerpt = excerpt;
-          }
-        }
-
-        objects.push(data);
+        postParts.forEach((value, index) => {
+          let record = getSharedAttributes(fileData, hierarchy);
+          record.objectID = file + '-' + index;
+          record.content = value;
+          record.record_index = index;
+          objects.push(record);
+        });
       });
 
       for (let object of objects) {
@@ -167,7 +96,7 @@ module.exports = function(options) {
 
               resolve();
             });
-          })
+          }),
         );
       }
 
@@ -176,4 +105,100 @@ module.exports = function(options) {
       });
     });
   };
+};
+
+// Get shared attributes for a record.
+const getSharedAttributes = (fileData, hierarchy) => {
+  const pathParts = fileData.path.split('/')
+
+  let record = {};
+
+  if (pathParts[0] === 'service-docs') {
+    let product;
+    record.section = 'Service Docs';
+    // If in /service-docs/product/**
+    if (pathParts[1]) {
+      let productPath = pathParts.slice(0, 2).join('/');
+      product = hierarchy.findByPath(productPath).title || '';
+      if (product) {
+        record.product = product;
+      }
+    }
+    // If in /service-docs/product/version/**
+    if (pathParts[2]) {
+      let regex = /v[0-9].[0-9](.*)/g;
+      let isVersion = regex.test(pathParts[2]);
+      if (isVersion) {
+        record.version = product + ' ' + pathParts[2].substr(1);
+        record.versionNumber = pathParts[2].substr(1);
+      }
+    }
+  }
+
+  if (pathParts[0] === 'docs') {
+    product = 'DC/OS';
+    record.section = 'DC/OS Docs';
+    record.product = product;
+    // If in /docs/*
+    if (pathParts[1]) {
+      record.version = product + ' ' + pathParts[1];
+      record.versionNumber = pathParts[1];
+    }
+  }
+
+  let type = '';
+  if (fileData.enterprise) type = 'Enterprise';
+  if (fileData.oss) type = 'Open Source';
+
+  record.title = fileData.title;
+  record.path = fileData.path;
+  record.type = type;
+
+  if (fileData.excerpt) {
+    record.excerpt = fileData.excerpt;
+  } else {
+    let excerptPath = pathParts.join('/');
+    let objectHierarchy = hierarchy.findByPath(excerptPath) || '';
+    let excerpt = objectHierarchy.excerpt || '';
+    if (objectHierarchy && excerpt) {
+      record.excerpt = excerpt;
+    }
+  }
+
+  return record;
+};
+
+// Trim whitespace from of string.
+const trim = string => {
+  return string.replace(/^\s+|\s+$/g, '');
+};
+
+/**
+ * Parses buffer to string and sanitizes html.
+ * Removes all contained <pre></pre> tags.
+ * Removes all tags and replaces with whitespace.
+ * @param {Buffer} buffer
+ */
+const sanitize = buffer => {
+  let string = buffer.toString();
+  let parsedString = sanitizeHtml(string, {
+    allowedTags: [],
+    allowedAttributes: [],
+    selfClosing: [],
+    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'pre'],
+  });
+  parsedString = trim(parsedString);
+  return parsedString;
+};
+
+// Push content to array.
+const convertStringToArray = (str, maxPartSize) => {
+  const chunkArr = [];
+  let leftStr = str;
+  do {
+    chunkArr.push(leftStr.substring(0, maxPartSize));
+    leftStr = leftStr.substring(maxPartSize, leftStr.length);
+  } while (leftStr.length > 0);
+
+  return chunkArr;
 };
