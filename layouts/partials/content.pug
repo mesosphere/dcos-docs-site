@@ -7,9 +7,11 @@ main(class='content')
   div(class=containerClass)
     div(class='content__header')
       if oss
-        p(class='badge badge--content-header badge--oss') OSS
+        p(class='badge badge--content-header badge--oss') OPEN SOURCE
       if enterprise
-        p(class='badge badge--content-header badge--enterprise') Enterprise
+        p(class='badge badge--content-header badge--enterprise') ENTERPRISE
+      if beta
+        p(class='badge badge--content-header badge--beta') BETA
       h1(class='content__header-title')!= title
       if excerpt
         h4(class='content__header-description')!= excerpt
