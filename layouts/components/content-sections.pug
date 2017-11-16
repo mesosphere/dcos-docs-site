@@ -1,7 +1,22 @@
-if(headings.length)
-  div(class='content__sections')
-    ul(class='content__sections-list')
-      for heading in headings
-        - var headClass = 'content__sections-item--' + heading.tag
-        li(class=headClass + ' content__sections-item')
-          a(href='#' + heading.id)!= heading.text
+- var isHeadings = headings.length > 0
+
+if (isHeadings || relatedPages)
+  aside(class='content__sections')
+    div(class='content__sections-list-container')
+      if (headings)
+        ul(class='content__sections-list')
+          for heading in headings
+            - var headClass = 'content__sections-item--' + heading.tag
+            li(class=headClass + ' content__sections-item')
+              a(href='#' + heading.id)!= heading.text
+
+      if (relatedPages)
+        ul(class='content__sections-list')
+          li(class='content__sections-item')
+            b Related Pages
+          for relatedPagePath in relatedPages
+            - var page = hierarchy.findByPath(relatedPagePath)
+            if page
+              li(class='content__sections-item')
+                a(href=page.path)!= page.navigationTitle
+

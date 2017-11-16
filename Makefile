@@ -1,17 +1,92 @@
-start:
-	docker-compose up -d
+#
+# Util
+#
 
-rmi:
-	docker rmi mesospheredocs_docs
+clean:
+	./scripts/clean.sh
 
-HTML_FILES := $(shell find build/docs -type f -name '*.html')
-OUTPUT_FILE := ./build/index.pdf
-pdf:
-	HTML_FILES="$(HTML_FILES)" OUTPUT_FILE="${OUTPUT_FILE}" docker-compose up
+reduce-pages:
+	./scripts/reduce-pages.sh
 
-reset:
-	docker stop mesospheredocs_docs_1
-	docker rm -v mesospheredocs_docs_1
+#
+# Migration
+#
 
-build:
-	docker-compose build
+migration:
+	./scripts/migration.sh
+
+#
+# Redirects
+#
+
+build-redirects:
+	npm run crawler
+
+#
+# Build
+#
+
+build-development: build-api
+	npm run dev
+
+#
+# Build PDF
+#
+
+build-pdf-production:
+	./scripts/pdf.sh ./build ./build-pdf
+
+build-pdf-concat-production:
+	./scripts/pdf-concat.sh ./pages ./build-pdf
+
+build-pdf-development: build-api docker-development-up-pdf
+	npm run build-pdf
+	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
+
+build-pdf-concat-development:
+	./scripts/pdf-concat.sh ./pages ./build-pdf
+
+#
+# Build API
+#
+
+build-api: build-swagger build-ngindox
+
+build-swagger:
+	./scripts/swagger.sh ./pages ./build-swagger
+
+build-ngindox:
+	./scripts/ngindox.sh ./pages ./build-ngindox
+
+#
+# Docker
+#
+
+docker-build-site:
+	./scripts/build-site.sh
+
+docker-build-pdf:
+	./scripts/build-pdf.sh
+
+docker-build-site-test:
+	./scripts/build-site-validation.sh
+
+docker-build-pdf-test:
+	./scripts/build-pdf-validation.sh
+
+docker-production-up:
+	docker-compose -f ./docker/docker-compose.production.yml up -d docs
+
+docker-production-up-pdf:
+	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
+
+docker-development-up-pdf:
+	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
+
+docker-test-up:
+	docker-compose -f ./docker/docker-compose.test.yml up -d docs
+	docker-compose -f ./docker/docker-compose.test.yml up -d pdf
+	docker-compose -f ./docker/docker-compose.test.yml up test
+
+docker-purge:
+	./scripts/docker-purge.sh

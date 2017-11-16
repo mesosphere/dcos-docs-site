@@ -1,7 +1,8 @@
 .search {
   width: 100%;
   max-width: 800px;
-  margin: 70px auto 0;
+  margin: calc(4rem + 80px) auto 0;
+  padding: 0 2rem;
   &__form {
     display: flex;
     width: 100%;
@@ -34,19 +35,54 @@
   }
   &__filters {
     margin-top: 1.5rem;
+    // TODO: Waiting on pull request to fix cssClasses in instantsearch.js
+  }
+  &__filter {
+    position: relative;
+    display: inline-block;
+    margin-right: 1rem;
+    padding-right: 0.5rem;
+    & select {
+      width: 100%;
+      padding-right: 1rem;
+      font-weight: bold;
+      color: $color-grey;
+      border: none;
+      appearance: none;
+      &:focus {
+        outline: none
+      }
+    }
+    &:after {
+      content: '\25BC';
+      position: absolute;
+      top: 3px;
+      right: 0;
+      bottom: 0;
+      padding-right: 0.5rem;
+      font-size: 12px;
+      color: $color-grey;
+      pointer-events: none;
+    }
   }
   &__results {
-    & mark {
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
+    margin-top: 4rem;
+    & em {
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
       background: #FF007D;
       color: $color-light;
     }
-    margin-top: 1.5rem;
     &-list {
       list-style-type: none;
       margin: 0;
       padding: 0;
+    }
+    &-item {
+      margin-top: 2rem;
+      &:last-child {
+        margin-bottom: 2rem;
+      }
     }
   }
   &__title {
@@ -56,12 +92,39 @@
     text-decoration: none;
   }
   &__description {
+    font-size: 0.9rem;
     margin-top: 0.5rem;
   }
   &__meta {
-    font-size: 0.7rem;
-    &-version {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    &-product {
       margin-right: 10px;
+    }
+  }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style-type: none;
+    &__item {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+      &--active {
+        font-weight: bold;
+      }
+    }
+    &__link {
+      &:link
+      &:visited {
+        text-decoration: none;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

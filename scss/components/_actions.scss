@@ -1,0 +1,65 @@
+.actions {
+  margin: 2rem 0;
+  &__list {
+    display: flex;
+    list-style-type: none;
+  }
+  &__item {
+    display: inline-block;
+    margin-right: 1rem;
+    line-height: 1;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    &:link,
+    &:visited {
+      color: $color-grey;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $color-purple-light;
+      & .actions__icon--rss {
+        fill: $color-purple-light;
+      }
+    }
+  }
+  &__icon {
+    width: 16px;
+    height: 16px;
+    &--rss {
+      fill: $color-grey;
+    }
+  }
+  &__text {
+    display: none;
+  }
+  @include md {
+    margin: 4rem 0;
+    &__item {
+      margin-right: 1rem;
+    }
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+    &__text {
+      display: inline;
+      margin-left: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+  @include lg {
+    &__text {
+      font-size: 1rem;
+    }
+  }
+  @include xl {
+    &__item {
+      margin-right: 2rem;
+    }
+  }
+  @include print {
+    display: none;
+  }
+}

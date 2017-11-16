@@ -1,0 +1,1993 @@
+.form {
+    display: block;
+    margin-bottom: 12px;
+    &:before {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+    &.short,
+    &.short-bottom {
+        margin-bottom: 6px;
+    }
+    &.tall,
+    &.tall-bottom {
+        margin-bottom: 24px;
+    }
+}
+
+@media (min-width: 480px) {
+    .form {
+        margin-bottom: 12px;
+        &.short,
+        &.short-bottom,
+        &.short-bottom-screen-small {
+            margin-bottom: 6px;
+        }
+        &.tall,
+        &.tall-bottom,
+        &.tall-bottom-screen-small {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .form {
+        margin-bottom: 12px;
+        &.short,
+        &.short-bottom,
+        &.short-bottom-screen-medium {
+            margin-bottom: 6px;
+        }
+        &.tall,
+        &.tall-bottom,
+        &.tall-bottom-screen-medium {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .form {
+        margin-bottom: 12px;
+        &.short,
+        &.short-bottom,
+        &.short-bottom-screen-large {
+            margin-bottom: 6px;
+        }
+        &.tall,
+        &.tall-bottom,
+        &.tall-bottom-screen-large {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .form {
+        margin-bottom: 16px;
+        &.short,
+        &.short-bottom,
+        &.short-bottom-screen-jumbo {
+            margin-bottom: 8px;
+        }
+        &.tall,
+        &.tall-bottom,
+        &.tall-bottom-screen-jumbo {
+            margin-bottom: 32px;
+        }
+    }
+}
+
+.form-control {
+    background-color: #ffffff;
+    border-width: 1px;
+    border-color: #dadde2;
+    border-style: solid;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1b2029;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    border-radius: 4px;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    height: 36px;
+    -ms-flex-pack: center;
+    justify-content: center;
+    transition: all 0.05s ease;
+    width: 100%;
+    &:-ms-input-placeholder[style],
+    &::placeholder[style] {
+        -ms-flex-align: center !important;
+        align-items: center !important;
+        display: -ms-inline-flexbox !important;
+        display: inline-flex !important;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder,
+    &::placeholder {
+        color: rgba(27, 32, 41, 0.4);
+    }
+    &:active,
+    &:focus,
+    &.focus {
+        background-color: #f9f7ff;
+        border-color: #7d58ff;
+    }
+    &:disabled,
+    &.disabled {
+        cursor: not-allowed;
+        color: rgba(27, 32, 41, 0.4);
+        background-color: #e9ebee;
+        border-color: #e9ebee;
+    }
+    &.form-control-inverse {
+        color: #ffffff;
+        background-color: transparent;
+        border-color: #3d4149;
+        &:-ms-input-placeholder,
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+        &:hover {
+            color: #ffffff;
+        }
+        &:active,
+        &:focus,
+        &.focus {
+            color: #ffffff;
+            background-color: rgba(125, 88, 255, 0.05);
+            border-color: #7d58ff;
+        }
+        &:disabled,
+        &.disabled {
+            color: rgba(255, 255, 255, 0.35);
+            background-color: #32363e;
+            border-color: #32363e;
+        }
+    }
+    &.form-control-block {
+        display: -ms-flexbox;
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+    &.form-control-rounded {
+        border-radius: 1000px;
+        padding-left: 21.6px;
+        padding-right: 21.6px;
+    }
+}
+
+textarea.form-control {
+    height: auto !important;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.form-control {
+    select[multiple] {
+        height: auto !important;
+        padding-bottom: 8px;
+        padding-top: 8px;
+    }
+    &.form-control-select-multiple {
+        height: auto;
+    }
+    &.form-control-select {
+        padding: 0 !important;
+        position: relative;
+        &:after {
+            right: 18px;
+            border-style: solid;
+            display: inline-block;
+            height: 0;
+            line-height: 0;
+            width: 0;
+            border-color: #1b2029 transparent transparent transparent;
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 0;
+            border-left-width: 4px;
+            border-right-width: 4px;
+            border-bottom-width: 0;
+            border-top-width: 5px;
+        }
+        select {
+            padding-left: 18px;
+            padding-right: 18px;
+            font-size: 14px;
+            line-height: 20px;
+            color: #1b2029;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-weight: 400;
+            text-rendering: optimizeLegibility;
+            height: 36px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: none;
+            border: none;
+            box-shadow: none;
+            display: block;
+            margin: 0;
+            width: 100%;
+            z-index: 1;
+            padding-right: 36px;
+        }
+        &.form-control-select-multiple:after {
+            display: none;
+        }
+        &:focus select,
+        &.focus select {
+            outline: 0;
+        }
+        &:disabled select,
+        &.disabled select {
+            color: rgba(27, 32, 41, 0.4);
+        }
+        &:disabled:after,
+        &.disabled:after {
+            border-color: rgba(27, 32, 41, 0.4) transparent transparent transparent;
+        }
+        &.form-control-inverse {
+            select {
+                color: #ffffff;
+            }
+            &:after {
+                border-color: #ffffff transparent transparent transparent;
+            }
+            &:hover,
+            &:active {
+                select {
+                    color: #ffffff;
+                }
+                &:after {
+                    border-color: #ffffff transparent transparent transparent;
+                }
+            }
+            &:focus select,
+            &.focus select {
+                color: #ffffff;
+            }
+            &:focus:after,
+            &.focus:after {
+                border-color: #ffffff transparent transparent transparent;
+            }
+            &:disabled select,
+            &.disabled select {
+                color: rgba(255, 255, 255, 0.35);
+            }
+            &:disabled:after,
+            &.disabled:after {
+                border-color: rgba(255, 255, 255, 0.35) transparent transparent transparent;
+            }
+        }
+        &.form-control-rounded {
+            select {
+                padding-left: 21.6px;
+                padding-right: 39.6px;
+            }
+            &:after {
+                right: 21.6px;
+            }
+        }
+    }
+}
+
+/* Form Control Group */
+
+.form-control-group {
+    &.form-control .form-control-group-add-on {
+        &:first-child {
+            padding-right: 8px;
+        }
+        &:last-child {
+            padding-left: 8px;
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    .form-control {
+        &.form-control-block.form-control-block-below-screen-small {
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            width: auto;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .form-control {
+        &.form-control-block.form-control-block-below-screen-medium {
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            width: auto;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .form-control {
+        &.form-control-block.form-control-block-below-screen-large {
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            width: auto;
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .form-control {
+        &.form-control-block.form-control-block-below-screen-jumbo {
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            width: auto;
+        }
+    }
+}
+
+
+/* Rounded form-control */
+
+
+.form-control-small {
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 28px;
+    border-radius: 3px;
+    &.form-control-rounded {
+        border-radius: 1000px;
+        padding-left: 14.4px;
+        padding-right: 14.4px;
+    }
+}
+
+
+.form-control-select.form-control-small {
+    select {
+        font-size: 14px;
+        line-height: 20px;
+        padding-left: 12px;
+        padding-right: 12px;
+        height: 28px;
+        padding-right: 24px;
+    }
+    &:after {
+        right: 12px;
+        border-left-width: 4px;
+        border-right-width: 4px;
+        border-bottom-width: 0;
+        border-top-width: 5px;
+    }
+    &.form-control-small-rounded {
+        select {
+            padding-left: 14.4px;
+            padding-right: 26.4px;
+        }
+        &:after {
+            right: 14.4px;
+        }
+    }
+}
+
+
+/* Form Control Group */
+
+.form-control-group {
+    &.form-control-small .form-control-group-add-on {
+        &:first-child {
+            padding-right: 8px;
+        }
+        &:last-child {
+            padding-left: 8px;
+        }
+    }
+}
+
+.form-control-large {
+    font-size: 16px;
+    line-height: 20px;
+    padding-left: 28px;
+    padding-right: 28px;
+    height: 44px;
+    border-radius: 5px;
+    &.form-control-rounded {
+        border-radius: 1000px;
+        padding-left: 33.6px;
+        padding-right: 33.6px;
+    }
+}
+
+.form-control-select.form-control-large {
+    select {
+        font-size: 16px;
+        line-height: 20px;
+        padding-left: 28px;
+        padding-right: 28px;
+        height: 44px;
+        padding-right: 56px;
+    }
+    &:after {
+        right: 28px;
+        border-left-width: 4px;
+        border-right-width: 4px;
+        border-bottom-width: 0;
+        border-top-width: 5px;
+    }
+    &.form-control-large-rounded {
+        select {
+            padding-left: 33.6px;
+            padding-right: 61.6px;
+        }
+        &:after {
+            right: 33.6px;
+        }
+    }
+}
+
+
+/* Form Control Group */
+
+.form-control-group {
+    /* Nested Form Control */
+    &.form-control-large .form-control-group-add-on {
+        &:first-child {
+            padding-right: 8px;
+        }
+        &:last-child {
+            padding-left: 8px;
+        }
+    }
+}
+
+
+.form-control-success,
+.form-group.form-group-success .form-control {
+    border-color: #14c684;
+    /* Form Control Success Inverse (.form-control-success-inverse) */
+}
+
+.form-control-success:active,
+.form-group.form-group-success .form-control:active,
+.form-control-success:focus,
+.form-group.form-group-success .form-control:focus,
+.form-control-success.focus,
+.form-group.form-group-success .form-control.focus {
+    background-color: #f3fcf9;
+    border-color: #14c684;
+}
+
+.form-control-success:disabled,
+.form-group.form-group-success .form-control:disabled,
+.form-control-success.disabled,
+.form-group.form-group-success .form-control.disabled {
+    background-color: #e9ebee;
+    border-color: #e9ebee;
+}
+
+.form-control-success.form-control-inverse,
+.form-group.form-group-success .form-control.form-control-inverse {
+    color: #ffffff;
+    background-color: transparent;
+    border-color: #14c684;
+}
+
+.form-control-success.form-control-inverse:-ms-input-placeholder,
+.form-group.form-group-success .form-control.form-control-inverse:-ms-input-placeholder,
+.form-control-success.form-control-inverse::placeholder,
+.form-group.form-group-success .form-control.form-control-inverse::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.form-control-success.form-control-inverse:active,
+.form-group.form-group-success .form-control.form-control-inverse:active,
+.form-control-success.form-control-inverse:focus,
+.form-group.form-group-success .form-control.form-control-inverse:focus,
+.form-control-success.form-control-inverse.focus,
+.form-group.form-group-success .form-control.form-control-inverse.focus {
+    background-color: rgba(20, 198, 132, 0.05);
+    border-color: #14c684;
+}
+
+.form-control-success.form-control-inverse:disabled,
+.form-group.form-group-success .form-control.form-control-inverse:disabled,
+.form-control-success.form-control-inverse.disabled,
+.form-group.form-group-success .form-control.form-control-inverse.disabled {
+    background-color: #32363e;
+    border-color: #32363e;
+}
+
+
+/* Form Control Select (.form-control-select) */
+
+.form-control-success.form-control-inverse select,
+.form-group.form-group-success .form-control.form-control-select.form-control-inverse select {
+    color: #ffffff;
+}
+
+.form-control-success.form-control-inverse:after,
+.form-group.form-group-success .form-control.form-control-select.form-control-inverse:after {
+    border-color: #ffffff transparent transparent transparent;
+}
+
+
+.form-control-error:active,
+.form-group.form-group-danger .form-control:active,
+.form-control-error:focus,
+.form-group.form-group-danger .form-control:focus,
+.form-control-error.focus,
+.form-group.form-group-danger .form-control.focus {
+    background-color: #fef4f5;
+    border-color: #eb293a;
+}
+
+.form-control-error:disabled,
+.form-group.form-group-danger .form-control:disabled,
+.form-control-error.disabled,
+.form-group.form-group-danger .form-control.disabled {
+    background-color: #e9ebee;
+    border-color: #e9ebee;
+}
+
+.form-control-error.form-control-inverse,
+.form-group.form-group-danger .form-control.form-control-inverse {
+    color: #ffffff;
+    background-color: transparent;
+    border-color: #eb293a;
+}
+
+.form-control-error.form-control-inverse:-ms-input-placeholder,
+.form-group.form-group-danger .form-control.form-control-inverse:-ms-input-placeholder,
+.form-control-error.form-control-inverse::placeholder,
+.form-group.form-group-danger .form-control.form-control-inverse::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.form-control-error.form-control-inverse:active,
+.form-group.form-group-danger .form-control.form-control-inverse:active,
+.form-control-error.form-control-inverse:focus,
+.form-group.form-group-danger .form-control.form-control-inverse:focus,
+.form-control-error.form-control-inverse.focus,
+.form-group.form-group-danger .form-control.form-control-inverse.focus {
+    background-color: rgba(235, 41, 58, 0.05);
+    border-color: #eb293a;
+}
+
+.form-control-error.form-control-inverse:disabled,
+.form-group.form-group-danger .form-control.form-control-inverse:disabled,
+.form-control-error.form-control-inverse.disabled,
+.form-group.form-group-danger .form-control.form-control-inverse.disabled {
+    background-color: #32363e;
+    border-color: #32363e;
+}
+
+
+/* Form Control Select (.form-control-select) */
+
+.form-control-error.form-control-inverse select,
+.form-group.form-group-danger .form-control.form-control-select.form-control-inverse select {
+    color: #ffffff;
+}
+
+.form-control-error.form-control-inverse:after,
+.form-group.form-group-danger .form-control.form-control-select.form-control-inverse:after {
+    border-color: #ffffff transparent transparent transparent;
+}
+
+
+/* Form Control Group */
+
+.form-control-group {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    &:before {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+    .form-control {
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        &:not(:first-child) {
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+        }
+        &:not(:last-child) {
+            border-top-right-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+        }
+    }
+    .form-control-group-add-on {
+        -ms-flex-positive: 0;
+        flex-grow: 0;
+        >.button {
+            &:hover,
+            &:active,
+            &.active,
+            &.selected {
+                z-index: 1;
+            }
+        }
+        &:first-child>.button:last-child {
+            border-top-right-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+        }
+        &:last-child>.button:first-child {
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+        }
+    }
+    &.form-control .form-control {
+        background: none;
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+
+.form-control-feedback {
+    margin-top: 4px;
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 16px;
+    color: #76797f;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-weight: 400;
+    text-transform: none;
+    text-rendering: geometricPrecision;
+    display: block;
+    &.emphasis,
+    .emphasis {
+        color: #1b2029;
+        font-weight: 600;
+    }
+    &.inverse {
+        color: #aeb1b5;
+        &.emphasis,
+        .emphasis {
+            color: #ffffff;
+        }
+    }
+}
+
+
+/* form-control-feedback-danger */
+
+.form-control-feedback-danger,
+.form-group.form-group-danger .form-control-feedback {
+    color: #eb293a;
+}
+
+
+/* form-control-feedback-success */
+
+.form-control-feedback-success,
+.form-group.form-group-success .form-control-feedback {
+    color: #14c684;
+}
+
+
+/* Toggle */
+
+.form-control-toggle {
+    margin-bottom: 4px;
+    padding-left: 24px;
+    color: #1b2029;
+    font-weight: 400;
+    text-rendering: geometricPrecision;
+    display: block;
+    position: relative;
+}
+
+label {
+    &.form-control-toggle,
+    &:not(.button).form-control-toggle {
+        margin-bottom: 4px;
+        padding-left: 24px;
+        color: #1b2029;
+        font-weight: 400;
+        text-rendering: geometricPrecision;
+        display: block;
+        position: relative;
+    }
+}
+
+.form-control-toggle:before {
+    content: ' ';
+    display: table;
+}
+
+label {
+    &.form-control-toggle:before,
+    &:not(.button).form-control-toggle:before {
+        content: ' ';
+        display: table;
+    }
+}
+
+.form-control-toggle:after {
+    content: ' ';
+    display: table;
+}
+
+label {
+    &.form-control-toggle:after,
+    &:not(.button).form-control-toggle:after {
+        content: ' ';
+        display: table;
+    }
+}
+
+.form-control-toggle:after {
+    clear: both;
+}
+
+label {
+    &.form-control-toggle:after,
+    &:not(.button).form-control-toggle:after {
+        clear: both;
+    }
+}
+
+.form-control-toggle.short {
+    margin-bottom: 2px;
+}
+
+label {
+    &.form-control-toggle.short,
+    &:not(.button).form-control-toggle.short {
+        margin-bottom: 2px;
+    }
+}
+
+.form-control-toggle.short-bottom {
+    margin-bottom: 2px;
+}
+
+label {
+    &.form-control-toggle.short-bottom,
+    &:not(.button).form-control-toggle.short-bottom {
+        margin-bottom: 2px;
+    }
+}
+
+.form-control-toggle.short-bottom {
+    margin-bottom: 2px;
+}
+
+label {
+    &.form-control-toggle.short-bottom,
+    &:not(.button).form-control-toggle.short-bottom {
+        margin-bottom: 2px;
+    }
+}
+
+.form-control-toggle.tall {
+    margin-bottom: 8px;
+}
+
+label {
+    &.form-control-toggle.tall,
+    &:not(.button).form-control-toggle.tall {
+        margin-bottom: 8px;
+    }
+}
+
+.form-control-toggle.tall-bottom {
+    margin-bottom: 8px;
+}
+
+label {
+    &.form-control-toggle.tall-bottom,
+    &:not(.button).form-control-toggle.tall-bottom {
+        margin-bottom: 8px;
+    }
+}
+
+.form-control-toggle.tall-bottom {
+    margin-bottom: 8px;
+}
+
+label {
+    &.form-control-toggle.tall-bottom,
+    &:not(.button).form-control-toggle.tall-bottom {
+        margin-bottom: 8px;
+    }
+}
+
+.form-control-toggle input[type='checkbox'] {
+    height: 16px;
+    top: 2px;
+    width: 16px;
+    left: 0;
+    position: absolute;
+}
+
+label {
+    &.form-control-toggle input[type='checkbox'],
+    &:not(.button).form-control-toggle input[type='checkbox'] {
+        height: 16px;
+        top: 2px;
+        width: 16px;
+        left: 0;
+        position: absolute;
+    }
+}
+
+.form-control-toggle input[type='radio'] {
+    height: 16px;
+    top: 2px;
+    width: 16px;
+    left: 0;
+    position: absolute;
+}
+
+label {
+    &.form-control-toggle input[type='radio'],
+    &:not(.button).form-control-toggle input[type='radio'] {
+        height: 16px;
+        top: 2px;
+        width: 16px;
+        left: 0;
+        position: absolute;
+    }
+}
+
+.form-control-toggle.emphasis {
+    color: #161a21;
+    font-weight: 600;
+}
+
+label {
+    &.form-control-toggle.emphasis,
+    &:not(.button).form-control-toggle.emphasis {
+        color: #161a21;
+        font-weight: 600;
+    }
+}
+
+.form-control-toggle .emphasis {
+    color: #161a21;
+    font-weight: 600;
+}
+
+label {
+    &.form-control-toggle .emphasis,
+    &:not(.button).form-control-toggle .emphasis {
+        color: #161a21;
+        font-weight: 600;
+    }
+}
+
+.form-control-toggle.inverse {
+    color: #dadde2;
+}
+
+label {
+    &.form-control-toggle.inverse,
+    &:not(.button).form-control-toggle.inverse {
+        color: #dadde2;
+    }
+}
+
+.form-control-toggle.inverse.emphasis {
+    color: #ffffff;
+}
+
+label {
+    &.form-control-toggle.inverse.emphasis,
+    &:not(.button).form-control-toggle.inverse.emphasis {
+        color: #ffffff;
+    }
+}
+
+.form-control-toggle.inverse .emphasis {
+    color: #ffffff;
+}
+
+label {
+    &.form-control-toggle.inverse .emphasis,
+    &:not(.button).form-control-toggle.inverse .emphasis {
+        color: #ffffff;
+    }
+}
+
+.form-control-toggle:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    &.form-control-toggle:last-child,
+    &:not(.button).form-control-toggle:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.form-control-toggle.form-control-toggle-inline {
+    margin-left: 0.8rem;
+    float: left;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-inline,
+    &:not(.button).form-control-toggle.form-control-toggle-inline {
+        margin-left: 0.8rem;
+        float: left;
+    }
+}
+
+.form-control-toggle.form-control-toggle-inline:first-child {
+    margin-left: 0;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-inline:first-child,
+    &:not(.button).form-control-toggle.form-control-toggle-inline:first-child {
+        margin-left: 0;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom {
+    min-height: 16px;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom,
+    &:not(.button).form-control-toggle.form-control-toggle-custom {
+        min-height: 16px;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox'] {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox'],
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox'] {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='radio'] {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='radio'],
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='radio'] {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom .form-control-toggle-indicator {
+    background-color: #ffffff;
+    border-width: 1px;
+    border-color: #dadde2;
+    border-style: solid;
+    border-radius: 3px;
+    height: 16px;
+    top: 2px;
+    width: 16px;
+    display: block;
+    left: 0;
+    position: absolute;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom .form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom .form-control-toggle-indicator {
+        background-color: #ffffff;
+        border-width: 1px;
+        border-color: #dadde2;
+        border-style: solid;
+        border-radius: 3px;
+        height: 16px;
+        top: 2px;
+        width: 16px;
+        display: block;
+        left: 0;
+        position: absolute;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom:active .form-control-toggle-indicator {
+    background-color: #7d58ff;
+    border-width: 1px;
+    border-color: #7d58ff;
+    border-style: solid;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom:active .form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom:active .form-control-toggle-indicator {
+        background-color: #7d58ff;
+        border-width: 1px;
+        border-color: #7d58ff;
+        border-style: solid;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input:disabled~.form-control-toggle-indicator {
+    background-color: #e9ebee;
+    border-width: 1px;
+    border-color: #e9ebee;
+    border-style: solid;
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input:disabled~.form-control-toggle-indicator {
+        background-color: #e9ebee;
+        border-width: 1px;
+        border-color: #e9ebee;
+        border-style: solid;
+        opacity: 1;
+        cursor: not-allowed;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input:checked~.form-control-toggle-indicator {
+    background-color: #7d58ff;
+    border-width: 1px;
+    border-color: #7d58ff;
+    border-style: solid;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input:checked~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input:checked~.form-control-toggle-indicator {
+        background-color: #7d58ff;
+        border-width: 1px;
+        border-color: #7d58ff;
+        border-style: solid;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate~.form-control-toggle-indicator {
+    background-color: #7d58ff;
+    border-width: 1px;
+    border-color: #7d58ff;
+    border-style: solid;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate~.form-control-toggle-indicator {
+        background-color: #7d58ff;
+        border-width: 1px;
+        border-color: #7d58ff;
+        border-style: solid;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate~.form-control-toggle-indicator {
+    background-color: #7d58ff;
+    border-width: 1px;
+    border-color: #7d58ff;
+    border-style: solid;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate~.form-control-toggle-indicator {
+        background-color: #7d58ff;
+        border-width: 1px;
+        border-color: #7d58ff;
+        border-style: solid;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input:checked:active~.form-control-toggle-indicator {
+    background-color: #6446cc;
+    border-width: 1px;
+    border-color: #6446cc;
+    border-style: solid;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input:checked:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input:checked:active~.form-control-toggle-indicator {
+        background-color: #6446cc;
+        border-width: 1px;
+        border-color: #6446cc;
+        border-style: solid;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator {
+    background-color: #6446cc;
+    border-width: 1px;
+    border-color: #6446cc;
+    border-style: solid;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator {
+        background-color: #6446cc;
+        border-width: 1px;
+        border-color: #6446cc;
+        border-style: solid;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator {
+    background-color: #6446cc;
+    border-width: 1px;
+    border-color: #6446cc;
+    border-style: solid;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator {
+        background-color: #6446cc;
+        border-width: 1px;
+        border-color: #6446cc;
+        border-style: solid;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input:checked:disabled~.form-control-toggle-indicator {
+    background-color: #aeb1b5;
+    border-color: #aeb1b5;
+    opacity: 1;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input:checked:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input:checked:disabled~.form-control-toggle-indicator {
+        background-color: #aeb1b5;
+        border-color: #aeb1b5;
+        opacity: 1;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator {
+    background-color: #aeb1b5;
+    border-color: #aeb1b5;
+    opacity: 1;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator {
+        background-color: #aeb1b5;
+        border-color: #aeb1b5;
+        opacity: 1;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator {
+    background-color: #aeb1b5;
+    border-color: #aeb1b5;
+    opacity: 1;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator {
+        background-color: #aeb1b5;
+        border-color: #aeb1b5;
+        opacity: 1;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked:active~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked:active~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked:disabled~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:checked:disabled~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='radio']~.form-control-toggle-indicator {
+    border-radius: 500px;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='radio']~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='radio']~.form-control-toggle-indicator {
+        border-radius: 500px;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='radio']:checked~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='radio']:checked~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='radio']:checked~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='radio']:checked:active~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='radio']:checked:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='radio']:checked:active~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom input[type='radio']:checked:disabled~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom input[type='radio']:checked:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom input[type='radio']:checked:disabled~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse .form-control-toggle-indicator {
+    background-color: transparent;
+    border-width: 1px;
+    border-color: #3d4149;
+    border-style: solid;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse .form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse .form-control-toggle-indicator {
+        background-color: transparent;
+        border-width: 1px;
+        border-color: #3d4149;
+        border-style: solid;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse:active .form-control-toggle-indicator {
+    background-color: #7d58ff;
+    border-width: 1px;
+    border-color: #7d58ff;
+    border-style: solid;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse:active .form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse:active .form-control-toggle-indicator {
+        background-color: #7d58ff;
+        border-width: 1px;
+        border-color: #7d58ff;
+        border-style: solid;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input:disabled~.form-control-toggle-indicator {
+    background-color: #32363e;
+    border-color: #32363e;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input:disabled~.form-control-toggle-indicator {
+        background-color: #32363e;
+        border-color: #32363e;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input:checked~.form-control-toggle-indicator {
+    background-color: #7d58ff;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input:checked~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input:checked~.form-control-toggle-indicator {
+        background-color: #7d58ff;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate~.form-control-toggle-indicator {
+    background-color: #7d58ff;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate~.form-control-toggle-indicator {
+        background-color: #7d58ff;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate~.form-control-toggle-indicator {
+    background-color: #7d58ff;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate~.form-control-toggle-indicator {
+        background-color: #7d58ff;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input:checked:disabled~.form-control-toggle-indicator {
+    background-color: #aeb1b5;
+    border-color: #aeb1b5;
+    opacity: 1;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input:checked:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input:checked:disabled~.form-control-toggle-indicator {
+        background-color: #aeb1b5;
+        border-color: #aeb1b5;
+        opacity: 1;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator {
+    background-color: #aeb1b5;
+    border-color: #aeb1b5;
+    opacity: 1;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator {
+        background-color: #aeb1b5;
+        border-color: #aeb1b5;
+        opacity: 1;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator {
+    background-color: #aeb1b5;
+    border-color: #aeb1b5;
+    opacity: 1;
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator {
+        background-color: #aeb1b5;
+        border-color: #aeb1b5;
+        opacity: 1;
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:hover~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:hover~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:hover~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:active~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:active~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:disabled~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:checked:disabled~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23ffffff%22%20points%3D%226%2012.414%2013.707%204.707%2012.293%203.293%206%209.600%203.707%207.294%202.294%208.707%22%3E%3C/polygon%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:hover~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:hover~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:hover~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:hover~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:hover~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:hover~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:active~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:active~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox']:indeterminate:disabled~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='checkbox'].indeterminate:disabled~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22Rectangle%22%20x%3D%223%22%20y%3D%227%22%20width%3D%2210%22%20height%3D%222%22%3E%3C/rect%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:hover~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:hover~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:hover~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:active~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:active~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:active~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+    }
+}
+
+.form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:disabled~.form-control-toggle-indicator {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+}
+
+label {
+    &.form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:disabled~.form-control-toggle-indicator,
+    &:not(.button).form-control-toggle.form-control-toggle-custom.inverse input[type='radio']:checked:disabled~.form-control-toggle-indicator {
+        background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%3E%3C/circle%3E%3C/svg%3E);
+    }
+}
+
+@media (min-width: 768px) {
+    .form-control-toggle.form-control-toggle-inline {
+        margin-left: 0.88rem;
+    }
+    label {
+        &.form-control-toggle.form-control-toggle-inline,
+        &:not(.button).form-control-toggle.form-control-toggle-inline {
+            margin-left: 0.88rem;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .form-control-toggle.form-control-toggle-inline {
+        margin-left: 0.96rem;
+    }
+    label {
+        &.form-control-toggle.form-control-toggle-inline,
+        &:not(.button).form-control-toggle.form-control-toggle-inline {
+            margin-left: 0.96rem;
+        }
+    }
+}
+
+.form-group {
+    margin-bottom: 12px;
+    display: block;
+    &:before {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+    &.short,
+    &.short-bottom {
+        margin-bottom: 6px;
+    }
+    &.tall,
+    &.tall-bottom {
+        margin-bottom: 24px;
+    }
+}
+
+@media (min-width: 480px) {
+    .form-group {
+        margin-bottom: 12px;
+        &.short,
+        &.short-bottom,
+        &.short-bottom-screen-small {
+            margin-bottom: 6px;
+        }
+        &.tall,
+        &.tall-bottom,
+        &.tall-bottom-screen-small {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .form-group {
+        margin-bottom: 12px;
+        &.short,
+        &.short-bottom,
+        &.short-bottom-screen-medium {
+            margin-bottom: 6px;
+        }
+        &.tall,
+        &.tall-bottom,
+        &.tall-bottom-screen-medium {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .form-group {
+        margin-bottom: 12px;
+        &.short,
+        &.short-bottom,
+        &.short-bottom-screen-large {
+            margin-bottom: 6px;
+        }
+        &.tall,
+        &.tall-bottom,
+        &.tall-bottom-screen-large {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .form-group {
+        margin-bottom: 16px;
+        &.short,
+        &.short-bottom,
+        &.short-bottom-screen-jumbo {
+            margin-bottom: 8px;
+        }
+        &.tall,
+        &.tall-bottom,
+        &.tall-bottom-screen-jumbo {
+            margin-bottom: 32px;
+        }
+    }
+}
+
+/* Label */
+
+label:not(.button),
+.label:not(.button) {
+    margin-top: 0;
+    margin-bottom: 4px;
+    color: #1b2029;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-weight: 600;
+    text-rendering: geometricPrecision;
+    display: block;
+}
+
+label:not(.button).short,
+.label:not(.button).short {
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+label:not(.button).short-top,
+.label:not(.button).short-top,
+label:not(.button).short-top,
+.label:not(.button).short-top {
+    margin-top: 0;
+}
+
+label:not(.button).short-bottom,
+.label:not(.button).short-bottom,
+label:not(.button).short-bottom,
+.label:not(.button).short-bottom {
+    margin-bottom: 2px;
+}
+
+label:not(.button).tall,
+.label:not(.button).tall {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+label:not(.button).tall-top,
+.label:not(.button).tall-top,
+label:not(.button).tall-top,
+.label:not(.button).tall-top {
+    margin-top: 0;
+}
+
+label:not(.button).tall-bottom,
+.label:not(.button).tall-bottom,
+label:not(.button).tall-bottom,
+.label:not(.button).tall-bottom {
+    margin-bottom: 8px;
+}
+
+label:not(.button).emphasis,
+.label:not(.button).emphasis,
+label:not(.button) .emphasis,
+.label:not(.button) .emphasis {
+    color: #161a21;
+    font-weight: 800;
+}
+
+label:not(.button).inverse,
+.label:not(.button).inverse,
+label:not(.button).inverse.emphasis,
+.label:not(.button).inverse.emphasis,
+label:not(.button).inverse .emphasis,
+.label:not(.button).inverse .emphasis {
+    color: #ffffff;
+}
+
+
+
+label:not(.button).label-success,
+.label:not(.button).label-success {
+    color: #14c684;
+}
+
+.form-group.form-group-success {
+    label:not(.button),
+    .label:not(.button) {
+        color: #14c684;
+    }
+}
+
+label:not(.button).label-success.emphasis,
+.label:not(.button).label-success.emphasis {
+    color: #14c684;
+}
+
+.form-group.form-group-success {
+    label:not(.button).emphasis,
+    .label:not(.button).emphasis {
+        color: #14c684;
+    }
+}
+
+label:not(.button).label-success .emphasis,
+.label:not(.button).label-success .emphasis {
+    color: #14c684;
+}
+
+.form-group.form-group-success {
+    label:not(.button) .emphasis,
+    .label:not(.button) .emphasis {
+        color: #14c684;
+    }
+}
+
+label:not(.button).label-success.inverse,
+.label:not(.button).label-success.inverse {
+    color: #14c684;
+}
+
+.form-group.form-group-success {
+    label:not(.button).inverse,
+    .label:not(.button).inverse {
+        color: #14c684;
+    }
+}
+
+label:not(.button).label-success.inverse.emphasis,
+.label:not(.button).label-success.inverse.emphasis {
+    color: #14c684;
+}
+
+.form-group.form-group-success {
+    label:not(.button).inverse.emphasis,
+    .label:not(.button).inverse.emphasis {
+        color: #14c684;
+    }
+}
+
+label:not(.button).label-success.inverse .emphasis,
+.label:not(.button).label-success.inverse .emphasis {
+    color: #14c684;
+}
+
+.form-group.form-group-success {
+    label:not(.button).inverse .emphasis,
+    .label:not(.button).inverse .emphasis {
+        color: #14c684;
+    }
+}
+
+
+label:not(.button).label-error,
+.label:not(.button).label-error {
+    color: #eb293a;
+}
+
+.form-group.form-group-danger {
+    label:not(.button),
+    .label:not(.button) {
+        color: #eb293a;
+    }
+}
+
+label:not(.button).label-error.emphasis,
+.label:not(.button).label-error.emphasis {
+    color: #eb293a;
+}
+
+.form-group.form-group-danger {
+    label:not(.button).emphasis,
+    .label:not(.button).emphasis {
+        color: #eb293a;
+    }
+}
+
+label:not(.button).label-error .emphasis,
+.label:not(.button).label-error .emphasis {
+    color: #eb293a;
+}
+
+.form-group.form-group-danger {
+    label:not(.button) .emphasis,
+    .label:not(.button) .emphasis {
+        color: #eb293a;
+    }
+}
+
+label:not(.button).label-error.inverse,
+.label:not(.button).label-error.inverse {
+    color: #eb293a;
+}
+
+.form-group.form-group-danger {
+    label:not(.button).inverse,
+    .label:not(.button).inverse {
+        color: #eb293a;
+    }
+}
+
+label:not(.button).label-error.inverse.emphasis,
+.label:not(.button).label-error.inverse.emphasis {
+    color: #eb293a;
+}
+
+.form-group.form-group-danger {
+    label:not(.button).inverse.emphasis,
+    .label:not(.button).inverse.emphasis {
+        color: #eb293a;
+    }
+}
+
+label:not(.button).label-error.inverse .emphasis,
+.label:not(.button).label-error.inverse .emphasis {
+    color: #eb293a;
+}
+
+.form-group.form-group-danger {
+    label:not(.button).inverse .emphasis,
+    .label:not(.button).inverse .emphasis {
+        color: #eb293a;
+    }
+}

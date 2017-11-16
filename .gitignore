@@ -1,5 +1,11 @@
 node_modules
 build
-package-lock.json
+build-swagger
+build-ngindox
+build-pdf
+linkchecker
+crawler
 npm-debug.log
 .DS_Store
+./**/*.tmp
+.tmp

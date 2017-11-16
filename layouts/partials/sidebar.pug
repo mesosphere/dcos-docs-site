@@ -1,16 +1,19 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
-- var docs = hierarchy.children.find(child => child.id === 'docs')
 - var items = hierarchy
+- var dropdown = hierarchy.children.find(child => child.id === 'docs').children
 - var versionTitle = ''
 
 // Service Docs
 if paths[0] === 'service-docs'
   - items = hierarchy.children.find(child => child.id === paths[0])
-
-// Support
-if paths[0] === 'support'
-  - items = hierarchy.children.find(child => child.id === paths[0])
+  if paths[1]
+    - var parent = hierarchy.children.find(child => child.id === paths[0])
+    - dropdown = parent.children.find(child => child.id === paths[1]).children.filter(x => x.id.startsWith('v'))
+    if paths[2] && dropdown.length
+      - versionTitle = paths[2]
+  if dropdown.length == 0
+    - dropdown = hierarchy.children.find(child => child.id === 'docs').children
 
 // DC/OS Docs
 if paths[0] === 'docs'
@@ -23,35 +26,39 @@ if paths[0] === 'docs'
 mixin renderSidebarHeader()
   header(class='sidebar__header')
     div(class='sidebar__dropdown')
-      div(class='sidebar__dropdown-toggle')
-        p(class='sidebar__dropdown-text')
-          span(class='sidebar__dropdown-text__title')!= siteTitle
-          span(class='sidebar__dropdown-text__version')!= ' ' + versionTitle
-        svg(class='sidebar__dropdown-icon')
-          use(xlink:href='assets/sprite.svg#chevron')
-      ul(class='sidebar__dropdown-list')
-        each val, index in docs.children
-          li(class='sidebar__dropdown-item')
-            a(href=val.path, class='sidebar__dropdown-link')!= val.navigationTitle
+      div(class='sidebar__dropdown__toggle')
+        p(class='sidebar__dropdown__text')
+          span(class='sidebar__dropdown__text__title')!= siteTitle
+          span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
+        i(class='sidebar__dropdown__icon', data-feather='chevron-down')
+      ul(class='sidebar__dropdown__list')
+        each val, index in dropdown
+          if val.navigationTitle || val.title
+            li(class='sidebar__dropdown__item')
+              a(href=val.path, class='sidebar__dropdown__link')!= val.navigationTitle
 
-mixin renderSidebarNavListItem(item)
+mixin renderSidebarNavListItem(item, depth)
   - var itemClassList = {}
   - itemClassList['sidebar__nav__item'] = true
+  - itemClassList['sidebar__nav__item--depth-' +  depth] = true
   - itemClassList['sidebar__nav__item--active'] = currentPath.indexOf(item.path) !== -1
+  - itemClassList['sidebar__nav__item--active-on'] = currentPath == item.path
   - var hasChildren = Object.keys(item.children).length !== 0
-  li(class=itemClassList)
-    div(class='sidebar__nav__item__text')
-      if(hasChildren && onRootPage == false)
-        svg(class='sidebar__nav__icon')
-          use(xlink:href="assets/sprite.svg#chevron")
-      a(href=item.path, class='sidebar__nav__link')!= item.navigationTitle
+  - itemClassList['sidebar__nav__item--parent'] = hasChildren
+  if item.navigationTitle || item.title
+    li(class=itemClassList)
+      div(class='sidebar__nav__item__text')
+        if(hasChildren)
+          i(class='sidebar__nav__icon', data-feather='chevron-right')
+        a(href=item.path, class='sidebar__nav__link')!= item.navigationTitle || item.title
     if(hasChildren)
       - var listClassList = {}
       - listClassList['sidebar__nav__list'] = true
       - listClassList['sidebar__nav__list--active'] = currentPath.indexOf(item.path) !== -1
       ul(class=listClassList)
         each val, index in item.children
-          +renderSidebarNavListItem(val)
+          if val.menuWeight != -1
+            +renderSidebarNavListItem(val, depth + 1)
 
 mixin renderSidebarNav()
   nav(role='navigation', class='sidebar__nav')
@@ -60,7 +67,8 @@ mixin renderSidebarNav()
     - listClassList['sidebar__nav__list--active'] = true
     ul(class=listClassList)
       each val, index in items.children
-        +renderSidebarNavListItem(val)
+        if val.menuWeight != -1
+          +renderSidebarNavListItem(val, 0)
 
 mixin renderSidebarFooter()
   footer(class='sidebar__footer')

@@ -1,0 +1,57 @@
+.grid-toc {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  &__item {
+    margin-bottom: 2rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__title {
+    line-height: 1.25;
+    margin: 0;
+    padding: 0;
+    color: $color-purple-light;
+    a {
+      text-decoration: none;
+    }
+  }
+  &__desc {
+    margin-top: 1rem;
+    color: $color-grey;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    &-item {
+      margin-top: 0.5rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  &__link {
+    color: $color-purple-light;
+    line-height: 1.25em;
+    text-decoration: none;
+    &--all {
+      &:link {
+        color: $color-grey;
+      }
+      &__arrow {
+        margin-left: 10px;
+      }
+    }
+  }
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4rem;
+    &__item {
+      width: 30%;
+      margin-bottom: 4rem;
+    }
+  }
+}

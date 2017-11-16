@@ -1,0 +1,94 @@
+- var paths = path.split('/')
+- var currentPath = '/' + path
+- var items = hierarchy.children.find(child => child.id === 'docs')
+- var currentDocs = items.children[0];
+
+mixin renderGrid()
+  div(class='grid-toc')
+    each val, index in currentDocs.children
+      if val.menuWeight != -1
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title')
+            a(href=val.path)!= val.title
+          if val.excerpt
+            - var displayExcerpt = (val.excerpt.length > 100) ? val.excerpt.substring(0, 100) + '…' : val.excerpt
+            p(class='grid-toc__desc')!= displayExcerpt
+          if val.children
+            ul(class='grid-toc__list')
+              for item in val.children.slice(0, 5)
+                li(class='grid-toc__list-item')
+                  a(href=item.path, class='grid-toc__link')!= item.title
+              if val.children.length > 5
+                li(class='grid-toc__list-item')
+                  a(href=val.path, class='grid-toc__link grid-toc__link--all') View All
+                    img(class='grid-toc__link--all__arrow', src='/assets/right-arrow.svg')
+
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body(class='landing')
+
+    header(class='landing__header')
+      a(href='/')
+        img(class='landing__logo landing__logo--mobile', src='/assets/header-logo-dcos.svg', alt='Mesosphere')
+        img(class='landing__logo landing__logo--desktop', src='/assets/header-logo-mesosphere.svg', alt='Mesosphere')
+      ul(class='landing__menu', role='navigation')
+        each val, index in hierarchy.children
+          if(val.menuWeight !== -1)
+            - var itemClass = {}
+            - itemClass['landing__item'] = true
+            - itemClass['landing__item--active'] = (val.path).includes('/docs')
+            li(class=itemClass)
+              a(href=val.path)!= val.title
+
+    div(class='landing__hero')
+      form(class='landing__search', action='/search', method='GET')
+        label(class='landing__search-label', for='landing__search-input')
+          i(data-feather='search')
+        input(class='landing__search-input', id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')
+
+    div(class='landing__container')
+      +renderGrid()
+
+      div(class='grid')
+        a(href='', class='grid__item')
+          h3(class='grid__header') Install DC/OS
+          p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
+          div(class="grid__link")
+            i(data-feather='chevron-right')
+        a(href='', class='grid__item')
+          h3(class='grid__header') Need Support?
+          p(class='grid__desc') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sem mi, malesuada ac...
+          div(class="grid__link")
+            i(data-feather='chevron-right')
+
+      div(class='landing__external')
+        div(class='landing__external-item')
+          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          h3(class='landing__external-title')
+            a(class='landing__external-link') Get DC/OS Training
+          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
+        div(class='landing__external-item')
+          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          h3(class='landing__external-title')
+            a(class='landing__external-link') Join the Community
+          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
+        div(class='landing__external-item')
+          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+          h3(class='landing__external-title')
+            a(class='landing__external-link') Find us on Slack
+          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
+
+    footer(class='landing__footer')
+      div(class='landing__footer__container')
+        img(class='landing__footer__logo', src='/assets/footer-logo-logomark.svg')
+        div(class='landing__footer__menu')
+          a(href='/') Terms of Service
+          a(href='/') Privacy Policy
+        div(class='landing__footer__copyright') &copy; 2017 Mesosphere, Inc. All Rights Reserved.
+    script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
+    script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
+    include partials/scripts.pug
+    script.
+      console.log(!{JSON.stringify(items)})

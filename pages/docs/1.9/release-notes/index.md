@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
+navigationTitle:  Release Notes
 title: Release Notes
-navigationTitle: Release Notes
+menuWeight: 0
+excerpt:
+featureMaturity:
+enterprise: true
 ---
 
-## Topic A
-
-## Topic B
-
-## Topic C

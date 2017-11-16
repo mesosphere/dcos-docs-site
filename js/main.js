@@ -1,1 +1,4 @@
-console.log('Hello World!');
+// Initialize feather icon replacements
+if (feather) {
+  feather.replace();
+}

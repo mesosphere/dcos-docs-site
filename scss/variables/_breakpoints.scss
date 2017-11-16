@@ -1,7 +1,8 @@
 $bp-sm: 500px !default;
 $bp-md: 769px !default;
 $bp-lg: 1025px !default;
-$bp-xl: 2000px !default;
+$bp-xl: 1500px !default;
+$bp-xxl: 2000px !default;
 
 @mixin sm-only() {
   @media (max-width: $bp-sm) {
@@ -29,6 +30,18 @@ $bp-xl: 2000px !default;
 
 @mixin xl() {
   @media (min-width: $bp-xl) {
+    @content;
+  }
+}
+
+@mixin xxl() {
+  @media (min-width: $bp-xxl) {
+    @content;
+  }
+}
+
+@mixin print() {
+  @media print {
     @content;
   }
 }

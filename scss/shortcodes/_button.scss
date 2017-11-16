@@ -1,0 +1,24 @@
+.btn {
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    padding: 9px 24px;
+    &--small {
+        font-size: 0.8rem;
+        padding: 6px 16px;
+    }
+    &--purple {
+        background-color: $color-purple-light;
+    }
+    &--pink {
+        background-color: $color-pink;
+    }
+    &--dark {
+        background-color: $color-dark;
+    }
+    &--light {
+        background-color: $color-grey;
+    }
+}
