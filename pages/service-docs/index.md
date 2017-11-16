@@ -1,7 +1,7 @@
 ---
-layout: service-docs-landing.pug
-navigationTitle:  Service Docs
-title: Service Docs
+layout: layout.pug
+navigationTitle:  Service Guides
+title: Service Guides
 menuWeight: 2
 excerpt:
 featureMaturity:
