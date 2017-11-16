@@ -9,19 +9,6 @@
   background: $color-light;
   box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
   z-index: 20;
-  &--ddl {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: transparent;
-    box-shadow: none;
-    .header__menu-item--active a {
-      color: $color-light;
-    }
-  }
-  &--sdl {
-
-  }
   &__logo {
     display: flex;
     align-items: center;
