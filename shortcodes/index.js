@@ -130,10 +130,31 @@ const shortcodes = {
       type = 'block';
     }
     return sanitize(`
-      ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">OSS</span>
+      ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span>
     `);
   },
-
+  
+  
+  /**
+   * Beta
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {string} opts.size
+   * @param {string} opts.type
+   */
+  'beta': (buf, opts) => {
+    let size = opts.size;
+    let type = opts.type;
+    if (!opts.size) {
+      size = 'large';
+    }
+    if (!opts.type) {
+      type = 'block';
+    }
+    return sanitize(`
+      ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span>
+    `);
+  },
   /**
    * Switch
    * @param {string} buf
