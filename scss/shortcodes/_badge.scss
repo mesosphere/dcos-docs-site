@@ -33,6 +33,10 @@
     color: $color-purple-light;
     border: 1px solid $color-purple-light;
   }
+  &--beta {
+    color: $color-pink;
+    border: 1px solid $color-pink;
+  }
   &--small {
     font-size: 0.7rem;
     padding: 0.4rem 0.6rem 0.3rem 0.6rem;
