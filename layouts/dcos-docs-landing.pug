@@ -1,9 +1,7 @@
-- var paths = path.split('/')
-- var currentPath = '/' + path
-- var items = hierarchy.children.find(child => child.id === 'docs')
-- var currentDocs = items.children[0];
+- var currentDocs = hierarchy.children.find(child => child.id === '1.10');
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
 
-mixin renderGrid()
+mixin renderGridToc()
   div(class='grid-toc')
     each val, index in currentDocs.children
       if val.menuWeight != -1
@@ -23,6 +21,19 @@ mixin renderGrid()
                   a(href=val.path, class='grid-toc__link grid-toc__link--all') View All
                     img(class='grid-toc__link--all__arrow', src='/assets/right-arrow.svg')
 
+mixin renderGrid()
+  div(class='grid')
+    a(href='/1.10/installing', class='grid__item')
+      h3(class='grid__header') Install DC/OS
+      p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
+      div(class="grid__link")
+        i(data-feather='chevron-right')
+    a(href='/support', class='grid__item')
+      h3(class='grid__header') Need Support?
+      p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
+      div(class="grid__link")
+        i(data-feather='chevron-right')
+
 doctype html
 html(lang='en')
   head
@@ -34,11 +45,11 @@ html(lang='en')
         img(class='landing__logo landing__logo--mobile', src='/assets/header-logo-dcos.svg', alt='Mesosphere')
         img(class='landing__logo landing__logo--desktop', src='/assets/header-logo-mesosphere.svg', alt='Mesosphere')
       ul(class='landing__menu', role='navigation')
-        each val, index in hierarchy.children
+        each val, index in headerItems
           if(val.menuWeight !== -1)
             - var itemClass = {}
             - itemClass['landing__item'] = true
-            - itemClass['landing__item--active'] = (val.path).includes('/docs')
+            - itemClass['landing__item--active'] = val.path == '/'
             li(class=itemClass)
               a(href=val.path)!= val.title
 
@@ -49,20 +60,8 @@ html(lang='en')
         input(class='landing__search-input', id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')
 
     div(class='landing__container')
+      +renderGridToc()
       +renderGrid()
-
-      div(class='grid')
-        a(href='', class='grid__item')
-          h3(class='grid__header') Install DC/OS
-          p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
-          div(class="grid__link")
-            i(data-feather='chevron-right')
-        a(href='', class='grid__item')
-          h3(class='grid__header') Need Support?
-          p(class='grid__desc') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sem mi, malesuada ac...
-          div(class="grid__link")
-            i(data-feather='chevron-right')
-
       div(class='landing__external')
         div(class='landing__external-item')
           //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
@@ -90,5 +89,3 @@ html(lang='en')
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug
-    script.
-      console.log(!{JSON.stringify(items)})

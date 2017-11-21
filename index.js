@@ -35,11 +35,11 @@ MS.source('./pages')
 // Destination
 MS.destination('./build')
 
+// Clean
 if(
   process.env.NODE_ENV == "development" ||
   process.env.NODE_ENV == "development-docs"
 ) {
-  // Clean
   MS.clean(false)
 }
 else if(
@@ -47,7 +47,6 @@ else if(
   process.env.NODE_ENV == "pdf" ||
   process.env.NODE_ENV == "pdf-development"
 ) {
-  // Clean
   MS.clean(true)
 }
 

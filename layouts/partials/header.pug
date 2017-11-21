@@ -1,3 +1,5 @@
+- var pages = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+
 header(class='header')
   a(class='header__drawer')
     i(class='header__icon', data-feather='menu')
@@ -7,11 +9,11 @@ header(class='header')
       img(class='header__logo-text', src='/assets/header-logo-color-dark-type.png', alt='Mesosphere Logo' height='15')
     nav(class='header__menu')
       ul(class='header__menu-list')
-        each val, index in hierarchy.children
+        each val, index in pages
           if(val.menuWeight !== -1)
             - var itemClass = {}
             - itemClass['header__menu-item'] = true
-            - itemClass['header__menu-item--active'] = ('/' + path).includes(val.path)
+            - itemClass['header__menu-item--active'] = (val.path != '/' && ('/' + path).includes(val.path))
             li(class=itemClass)
               a(href=val.path)!= val.title
   section(class='header__search', role='search')
