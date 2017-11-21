@@ -12,8 +12,8 @@ if paths[0] === 'service-docs'
     - dropdown = parent.children.find(child => child.id === paths[1]).children.filter(x => x.id.startsWith('v'))
     if paths[2] && dropdown.length
       - versionTitle = paths[2]
-  if dropdown.length == 0
-    - dropdown = hierarchy.children.find(child => child.id === 'docs').children
+  //if dropdown.length == 0
+  //  - dropdown = hierarchy.children.find(child => child.id === 'docs').children
 
 // DC/OS Docs
 if paths[0] === '1.10' || paths[0] ===  '1.9' || paths[0] ===  '1.8' || paths[0] ===  '1.7'
