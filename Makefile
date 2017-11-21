@@ -2,7 +2,7 @@
 # Util
 #
 
-clean:
+clean: ## Remove all build folders
 	./scripts/clean.sh
 
 reduce-pages:
@@ -62,31 +62,40 @@ build-ngindox:
 # Docker
 #
 
-docker-build-site:
+docker-build-site: ## Build site docker image
 	./scripts/build-site.sh
 
-docker-build-pdf:
+docker-build-pdf: ## Build pdf docker image
 	./scripts/build-pdf.sh
 
-docker-build-site-test:
+docker-build-site-test: ## Validate site docker image build
 	./scripts/build-site-validation.sh
 
-docker-build-pdf-test:
+docker-build-pdf-test: ## Validate pdf docker image build
 	./scripts/build-pdf-validation.sh
 
-docker-production-up:
+docker-production-up: ## Run site container
 	docker-compose -f ./docker/docker-compose.production.yml up -d docs
 
-docker-production-up-pdf:
+docker-production-up-pdf: ## Run pdf container
 	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
 
 docker-development-up-pdf:
 	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
 
-docker-test-up:
+docker-test-up: ## Run linkchecker test
 	docker-compose -f ./docker/docker-compose.test.yml up -d docs
 	docker-compose -f ./docker/docker-compose.test.yml up -d pdf
 	docker-compose -f ./docker/docker-compose.test.yml up test
 
 docker-purge:
 	./scripts/docker-purge.sh
+
+#
+# Help
+#
+
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+.DEFAULT_GOAL := help

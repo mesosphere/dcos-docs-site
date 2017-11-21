@@ -1,8 +1,7 @@
 ---
 layout: dcos-docs-landing.pug
-title: Home
-navigationTitle: Home
-menuWeight: -1
+title: DC/OS Docs
+navigationTitle: DC/OS Docs
+menus: ['header']
+menuWeight: 0
 ---
-
-## Home

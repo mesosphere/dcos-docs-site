@@ -1,22 +1,22 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
 - var items = hierarchy
-- var dropdown = hierarchy.children.find(child => child.id === 'docs').children
+- var dropdown = hierarchy.children
 - var versionTitle = ''
 
 // Service Docs
-if paths[0] === 'service-docs'
+if paths[0] === 'services'
   - items = hierarchy.children.find(child => child.id === paths[0])
   if paths[1]
     - var parent = hierarchy.children.find(child => child.id === paths[0])
     - dropdown = parent.children.find(child => child.id === paths[1]).children.filter(x => x.id.startsWith('v'))
     if paths[2] && dropdown.length
       - versionTitle = paths[2]
-  if dropdown.length == 0
-    - dropdown = hierarchy.children.find(child => child.id === 'docs').children
+  //if dropdown.length == 0
+  //  - dropdown = hierarchy.children.find(child => child.id === 'docs').children
 
 // DC/OS Docs
-if paths[0] === 'docs'
+if paths[0] === '1.10' || paths[0] ===  '1.9' || paths[0] ===  '1.8' || paths[0] ===  '1.7'
   - items = hierarchy.children.find(child => child.id === paths[0])
   if paths[1]
     - var parent = hierarchy.children.find(child => child.id === paths[0])
