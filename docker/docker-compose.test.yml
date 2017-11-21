@@ -12,8 +12,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - build:/src
-      - build-pdf:/src/build-pdf
+      - ./build:/src
+      - ./build-pdf:/src/build-pdf
   pdf:
     image: mesosphere/dcos-docs-pdf
     build:
@@ -26,8 +26,5 @@ services:
       - docs
     image: 18fgsa/html-proofer
     volumes:
-      - build:/src
+      - ./build:/src
     command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
-volumes:
-  build:
-  build-pdf:
