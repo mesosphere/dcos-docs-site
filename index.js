@@ -141,12 +141,18 @@ MS.use(layouts({
 MS.use(timer('Layouts'))
 
 // WkhtmltopdfLinkResolver
+/*
+ * TEMP: Disabled to test for develop build crash
+ */
+/*
 if(process.env.NODE_ENV == "pdf") {
   MS.use(wkhtmltopdfLinkResolver({
     prefix: '/tmp/pdf/build'
   }))
   MS.use(timer('WkhtmltopdfLinkResolver'))
 }
+*/
+console.log('WkhtmltopdfLinkResolver: Disabled');
 
 // Webpack
 MS.use(webpack('./webpack.config.js'))
