@@ -5,7 +5,7 @@
 - var versionTitle = ''
 
 // Service Docs
-if paths[0] === 'service-docs'
+if paths[0] === 'services'
   - items = hierarchy.children.find(child => child.id === paths[0])
   if paths[1]
     - var parent = hierarchy.children.find(child => child.id === paths[0])

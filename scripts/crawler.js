@@ -52,22 +52,22 @@ c.queue({
 
 c.queue({
   uri: 'https://docs.mesosphere.com/1.10',
-  rootFolder: './pages/docs/1.10',
+  rootFolder: './pages/1.10',
 });
 
 c.queue({
   uri: 'https://docs.mesosphere.com/1.9',
-  rootFolder: './pages/docs/1.9',
+  rootFolder: './pages/1.9',
 });
 
 c.queue({
   uri: 'https://docs.mesosphere.com/1.8',
-  rootFolder: './pages/docs/1.8',
+  rootFolder: './pages/1.8',
 });
 
 c.queue({
   uri: 'https://docs.mesosphere.com/1.7',
-  rootFolder: './pages/docs/1.7',
+  rootFolder: './pages/1.7',
 });
 
 /**

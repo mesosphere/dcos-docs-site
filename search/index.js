@@ -113,10 +113,10 @@ const getSharedAttributes = (fileData, hierarchy) => {
 
   let record = {};
 
-  if (pathParts[0] === 'service-docs') {
+  if (pathParts[0] === 'services') {
     let product;
     record.section = 'Service Docs';
-    // If in /service-docs/product/**
+    // If in /services/product/**
     if (pathParts[1]) {
       let productPath = pathParts.slice(0, 2).join('/');
       product = hierarchy.findByPath(productPath).title || '';
@@ -124,7 +124,7 @@ const getSharedAttributes = (fileData, hierarchy) => {
         record.product = product;
       }
     }
-    // If in /service-docs/product/version/**
+    // If in /services/product/version/**
     if (pathParts[2]) {
       let regex = /v[0-9].[0-9](.*)/g;
       let isVersion = regex.test(pathParts[2]);
