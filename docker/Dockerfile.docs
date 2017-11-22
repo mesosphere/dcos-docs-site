@@ -4,6 +4,12 @@
 
 FROM node:8.1.2-slim as ms-builder
 
+ARG algolia_project_id
+ARG algolia_public_key
+ARG algolia_private_key
+ARG algolia_index
+ARG algolia_clear_index
+
 RUN apt-get update -qq
 RUN apt-get install -y build-essential
 
@@ -16,7 +22,13 @@ RUN npm install
 
 RUN make build-swagger
 RUN make build-ngindox
-RUN npm run build
+RUN \
+ALGOLIA_PROJECT_ID=$algolia_project_id \
+ALGOLIA_PUBLIC_KEY=$algolia_private_key \
+ALGOLIA_PRIVATE_KEY=$algolia_private_key \
+ALGOLIA_INDEX=$algolia_index \
+ALGOLIA_CLEAR_INDEX=$algolia_clear_index \
+npm run build
 
 #
 # Nginx

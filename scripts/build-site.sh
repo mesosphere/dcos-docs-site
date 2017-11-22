@@ -13,5 +13,8 @@ if [[ "$docker_image_build_id" != "" ]]; then
   docker rmi $docker_image
 fi
 
-#docker-compose -f ./docker/docker-compose.production.yml build --force-rm --no-cache docs
-docker-compose -f ./docker/docker-compose.production.yml build docs
+ALGOLIA_PROJECT_ID=$ALGOLIA_PROJECT_ID \
+ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
+ALGOLIA_INDEX=$ALGOLIA_INDEX \
+ALGOLIA_CLEAR_INDEX=$ALGOLIA_CLEAR_INDEX \
+docker-compose -f ./docker/docker-compose.production.yml build --no-cache docs

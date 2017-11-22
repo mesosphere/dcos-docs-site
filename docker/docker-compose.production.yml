@@ -8,6 +8,11 @@ services:
       dockerfile: ./docker/Dockerfile.docs
       args:
         nginx_dir: ./docker/nginx
+        algolia_project_id: ${ALGOLIA_PROJECT_ID}
+        algolia_public_key: ${ALGOLIA_PUBLIC_KEY}
+        algolia_private_key: ${ALGOLIA_PRIVATE_KEY}
+        algolia_index: ${ALGOLIA_INDEX}
+        algolia_clear_index: ${ALGOLIA_CLEAR_INDEX}
     ports:
       - "80:80"
       - "443:443"

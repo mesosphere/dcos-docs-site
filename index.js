@@ -18,11 +18,16 @@ const cheerio          = require('cheerio');
 //
 
 const ALGOLIA_PROJECT_ID = process.env.ALGOLIA_PROJECT_ID;
+const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
-const ALGOLIA_UPDATE_INDEX = (ALGOLIA_PROJECT_ID != undefined &&
-  ALGOLIA_PRIVATE_KEY != undefined && ALGOLIA_INDEX != undefined);
+const ALGOLIA_UPDATE_INDEX = (
+  ALGOLIA_PROJECT_ID != undefined &&
+  ALGOLIA_PUBLIC_KEY != undefined &&
+  ALGOLIA_PRIVATE_KEY != undefined &&
+  ALGOLIA_INDEX != undefined
+);
 
 if(process.env.NODE_ENV == "production" && !ALGOLIA_UPDATE_INDEX) {
   console.error("Algolia env variables are not set");
@@ -42,7 +47,7 @@ MS.metadata({
   title: "Mesosphere DC/OS",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
   copyright: "@ 2017 Mesosphere, Inc. All rights reserved.",
-  env: process.env.NODE_ENV
+  env: process.env.NODE_ENV,
 })
 
 // Source
@@ -52,10 +57,7 @@ MS.source('./pages')
 MS.destination('./build')
 
 // Clean
-if(
-  process.env.NODE_ENV == "development" ||
-  ALOGLIA_UPDATE_INDEX
-) {
+if(process.env.NODE_ENV == "development") {
   MS.clean(false)
 }
 else if(
