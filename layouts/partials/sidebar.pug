@@ -6,18 +6,18 @@
 - var dropdown = hierarchy.children.filter(item => semanticVersion.test(item.id))
 
 // Service Docs
-if paths[0] === 'services'
-  - items = hierarchy.children.find(child => child.id === paths[0])
-  if paths[1]
-    - var parent = hierarchy.children.find(child => child.id === paths[0])
-    - var servicesDropdown = parent.children.find(child => child.id === paths[1]).children.filter(x => x.id.startsWith('v'))
-    if paths[2] && servicesDropdown.length
-      - versionTitle = paths[2]
-      - dropdown = servicesDropdown
+if paths[0] === 'services' && paths[1]
+  - items = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
+  - var servicesDropdown = items.children.filter(x => x.id.startsWith('v'))
+  if servicesDropdown.length
+    - dropdown = servicesDropdown
+  if paths[2] && paths[2].startsWith('v')
+    - versionTitle = paths[2]
+    - items = hierarchy.findByPath('/' + paths[0] + '/' + paths[1] + '/' + paths[2])
 
 // DC/OS Docs
 if semanticVersion.test(paths[0])
-  - items = hierarchy.children.find(child => child.id === paths[0])
+  - items = hierarchy.findByPath('/' + paths[0])
   - versionTitle = paths[0]
 
 mixin renderSidebarHeader()
