@@ -1,27 +1,24 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
 - var items = hierarchy
-- var dropdown = hierarchy.children
 - var versionTitle = ''
+- var semanticVersion = /^[0-9]+\.[0-9]+/
+- var dropdown = hierarchy.children.filter(item => semanticVersion.test(item.id))
 
 // Service Docs
 if paths[0] === 'services'
   - items = hierarchy.children.find(child => child.id === paths[0])
   if paths[1]
     - var parent = hierarchy.children.find(child => child.id === paths[0])
-    - dropdown = parent.children.find(child => child.id === paths[1]).children.filter(x => x.id.startsWith('v'))
-    if paths[2] && dropdown.length
+    - var servicesDropdown = parent.children.find(child => child.id === paths[1]).children.filter(x => x.id.startsWith('v'))
+    if paths[2] && servicesDropdown.length
       - versionTitle = paths[2]
-  //if dropdown.length == 0
-  //  - dropdown = hierarchy.children.find(child => child.id === 'docs').children
+      - dropdown = servicesDropdown
 
 // DC/OS Docs
-if paths[0] === '1.10' || paths[0] ===  '1.9' || paths[0] ===  '1.8' || paths[0] ===  '1.7'
+if semanticVersion.test(paths[0])
   - items = hierarchy.children.find(child => child.id === paths[0])
-  if paths[1]
-    - var parent = hierarchy.children.find(child => child.id === paths[0])
-    - items = parent.children.find(child => child.id === paths[1])
-    - versionTitle = paths[1]
+  - versionTitle = paths[0]
 
 mixin renderSidebarHeader()
   header(class='sidebar__header')
