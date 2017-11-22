@@ -14,6 +14,22 @@ const algolia          = require('./search');
 const cheerio          = require('cheerio');
 
 //
+// Environment Variables
+//
+
+const ALGOLIA_PROJECT_ID = process.env.ALGOLIA_PROJECT_ID;
+const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
+const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
+const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
+const ALGOLIA_UPDATE_INDEX = (ALGOLIA_PROJECT_ID != undefined &&
+  ALGOLIA_PRIVATE_KEY != undefined && ALGOLIA_INDEX != undefined);
+
+if(process.env.NODE_ENV == "production" && !ALGOLIA_UPDATE_INDEX) {
+  console.error("Algolia env variables are not set");
+  process.exit(1);
+}
+
+//
 // Metalsmith
 //
 
@@ -38,7 +54,7 @@ MS.destination('./build')
 // Clean
 if(
   process.env.NODE_ENV == "development" ||
-  process.env.NODE_ENV == "development-docs"
+  ALOGLIA_UPDATE_INDEX
 ) {
   MS.clean(false)
 }
@@ -115,17 +131,6 @@ MS.use(timer('Headings'))
 MS.use(permalinks())
 MS.use(timer('Permalinks'))
 
-// Search Indexing
-if(process.env.NODE_ENV == 'development-docs') {
-  MS.use(algolia({
-    projectId: 'O1RKPTZXK1',
-    privateKey: '00ad2d0be3e5a7155820357a73730e84',
-    index: 'dev_MESOSPHERE',
-    clearIndex: true
-  }))
-  MS.use(timer('Algolia'))
-}
-
 // Assets
 MS.use(assets({
   source: 'assets',
@@ -138,6 +143,17 @@ MS.use(layouts({
   engine: 'pug'
 }))
 MS.use(timer('Layouts'))
+
+// Search Indexing
+if(ALGOLIA_UPDATE_INDEX) {
+  MS.use(algolia({
+    projectId: ALGOLIA_PROJECT_ID,
+    privateKey: ALGOLIA_PRIVATE_KEY,
+    index: ALGOLIA_INDEX,
+    clearIndex: (ALGOLIA_CLEAR_INDEX != undefined) ? ALGOLIA_CLEAR_INDEX : true,
+  }))
+  MS.use(timer('Algolia'));
+}
 
 // WkhtmltopdfLinkResolver
 if(process.env.NODE_ENV == "pdf") {
