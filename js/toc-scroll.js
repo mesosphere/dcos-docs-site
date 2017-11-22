@@ -1,6 +1,6 @@
 const inPageToc = document.querySelector('.content__sections-list-container');
 
-if (inPageToc.offsetHeight > document.body.clientHeight) {
+if (inPageToc && inPageToc.offsetHeight > document.body.clientHeight) {
   inPageToc.setAttribute('style', `height: ${document.body.clientHeight - 140}px;`);
 
   const followScroll = (element, position) => {

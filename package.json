@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer node index.js",
-    "docs": "ALGOLIA_PROJECT_ID=O1RKPTZXK1 ALGOLIA_PRIVATE_KEY=00ad2d0be3e5a7155820357a73730e84 ALGOLIA_INDEX=dev_MESOSPHERE NODE_ENV=development DEBUG=metalsmith-timer node index.js",
+    "docs": "NODE_ENV=development DEBUG=metalsmith-timer node index.js",
     "build": "NODE_ENV=production DEBUG=metalsmith-timer node index.js",
     "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer node index.js",
     "webpack": "webpack --progress --colors",

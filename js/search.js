@@ -1,8 +1,30 @@
 const landingContainer = document.querySelector('.landing');
 
+//
+// Env vars injected from webpack config
+//
+
+const algoliaProjectId = ALGOLIA_PROJECT_ID;
+const algoliaPublicKey = ALGOLIA_PUBLIC_KEY;
+const algoliaIndex = ALGOLIA_INDEX;
+
+const algoliaConfigured = (
+  algoliaProjectId != undefined &&
+  algoliaPublicKey != undefined &&
+  algoliaIndex != undefined
+);
+
+if(!algoliaConfigured) {
+  console.error("Algolia not configured.");
+}
+
+//
+//
+//
+
 if (landingContainer) {
-  const client = algoliasearch('O1RKPTZXK1', '00ad2d0be3e5a7155820357a73730e84');
-  const index = client.initIndex('dev_MESOSPHERE');
+  const client = algoliasearch(algoliaProjectId, algoliaPublicKey);
+  const index = client.initIndex(algoliaIndex);
 
   autocomplete(
     '#landing-search-input',
@@ -47,16 +69,16 @@ if (searchForm) {
    * Algolia Search Page Config
    */
   const search = instantsearch({
-    appId: 'O1RKPTZXK1',
-    apiKey: '4cc78f4d67f726ba3b2c5bd1ed690fb4',
-    indexName: 'dev_MESOSPHERE',
+    appId: algoliaProjectId,
+    apiKey: algoliaPublicKey,
+    indexName: algoliaIndex,
     urlSync: true,
     searchParameters: {
       hitsPerPage: 10,
     },
   });
 
-  /** 
+  /**
    * Search result templates
    */
   const hitTemplate = `
