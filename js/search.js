@@ -8,16 +8,6 @@ const algoliaProjectId = ALGOLIA_PROJECT_ID;
 const algoliaPublicKey = ALGOLIA_PUBLIC_KEY;
 const algoliaIndex = ALGOLIA_INDEX;
 
-const algoliaConfigured = (
-  algoliaProjectId != undefined &&
-  algoliaPublicKey != undefined &&
-  algoliaIndex != undefined
-);
-
-if(!algoliaConfigured) {
-  console.error("Algolia not configured.");
-}
-
 //
 //
 //

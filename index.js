@@ -23,15 +23,25 @@ const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 const ALGOLIA_UPDATE_INDEX = (
-  ALGOLIA_PROJECT_ID != undefined &&
-  ALGOLIA_PUBLIC_KEY != undefined &&
-  ALGOLIA_PRIVATE_KEY != undefined &&
+  ALGOLIA_PROJECT_ID != undefined ||
+  ALGOLIA_PUBLIC_KEY != undefined ||
+  ALGOLIA_PRIVATE_KEY != undefined ||
   ALGOLIA_INDEX != undefined
 );
 
-if(process.env.NODE_ENV == "production" && !ALGOLIA_UPDATE_INDEX) {
-  console.error("Algolia env variables are not set");
-  process.exit(1);
+if(process.env.NODE_ENV == "production" || ALGOLIA_UPDATE_INDEX) {
+  if(!ALGOLIA_PROJECT_ID) {
+    throw new Error('Env var ALGOLIA_PROJECT_ID has not been set.');
+  }
+  if(!ALGOLIA_PUBLIC_KEY) {
+    throw new Error('Env var ALGOLIA_PUBLIC_KEY has not been set.');
+  }
+  if(!ALGOLIA_PRIVATE_KEY) {
+    throw new Error('Env var ALGOLIA_PRIVATE_KEY has not been set.');
+  }
+  if(!ALGOLIA_INDEX) {
+    throw new Error('Env var ALGOLIA_INDEX has not been set.');
+  }
 }
 
 //
