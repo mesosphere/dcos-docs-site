@@ -24,7 +24,7 @@ RUN make build-swagger
 RUN make build-ngindox
 RUN \
 ALGOLIA_PROJECT_ID=$algolia_project_id \
-ALGOLIA_PUBLIC_KEY=$algolia_private_key \
+ALGOLIA_PUBLIC_KEY=$algolia_public_key \
 ALGOLIA_PRIVATE_KEY=$algolia_private_key \
 ALGOLIA_INDEX=$algolia_index \
 ALGOLIA_CLEAR_INDEX=$algolia_clear_index \
