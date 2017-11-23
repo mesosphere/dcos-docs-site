@@ -30,6 +30,9 @@ const ALGOLIA_UPDATE_INDEX = (
 );
 
 if(process.env.NODE_ENV == "production" || ALGOLIA_UPDATE_INDEX) {
+  if(process.env.NODE_ENV == "pdf") {
+    throw new Error('Algolia env vars set while build env is pdf');
+  }
   if(!ALGOLIA_PROJECT_ID) {
     throw new Error('Env var ALGOLIA_PROJECT_ID has not been set.');
   }
@@ -43,6 +46,11 @@ if(process.env.NODE_ENV == "production" || ALGOLIA_UPDATE_INDEX) {
     throw new Error('Env var ALGOLIA_INDEX has not been set.');
   }
 }
+
+console.log(ALGOLIA_PROJECT_ID)
+console.log(ALGOLIA_PUBLIC_KEY)
+console.log(ALGOLIA_PRIVATE_KEY)
+console.log(ALGOLIA_INDEX)
 
 //
 // Metalsmith
