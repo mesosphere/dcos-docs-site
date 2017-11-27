@@ -44,9 +44,9 @@ dcos edgelb [<flags>] pool artifact [<flags>] <name> [<artifact> [<artifactFile>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/docs/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
+| [dcos edgelb](/1.10/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 
 
 # Examples
 
-See the [Edge-LB Quick Start Guide](/docs/1.10/networking/edge-lb/quickstart/).
+See the [Edge-LB Quick Start Guide](/1.10/networking/edge-lb/quickstart/).

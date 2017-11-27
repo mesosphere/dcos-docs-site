@@ -14,8 +14,8 @@ enterprise: false
 This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS web interface and the CLI.
 
 ### Prerequisites
-- [A DC/OS cluster](/docs/1.8/administration/installing/oss/)
-- [DC/OS CLI installed](/docs/1.8/usage/cli/install/)
+- [A DC/OS cluster](/1.8/administration/installing/oss/)
+- [DC/OS CLI installed](/1.8/usage/cli/install/)
 
 ## Create and Run a Simple Service from the DC/OS Web Interface
 
@@ -23,11 +23,11 @@ This tutorial shows how to create and deploy a simple one-command service and a 
 1. Enter a name for your service in the **ID** field. In the **Command** field, enter `sleep 10`.
 1. Click **Deploy**.
 
-    ![Create a service in the DC/OS UI](/docs/1.8/usage/tutorials/img/deploy-svs-ui.png)
+    ![Create a service in the DC/OS UI](/1.8/usage/tutorials/img/deploy-svs-ui.png)
 
 1. That's it! Click the name of your service in the **Services** view to see it running and monitor health.
 
-    ![Running service in the DC/OS UI](/docs/1.8/usage/tutorials/img/svc-running-ui.png)
+    ![Running service in the DC/OS UI](/1.8/usage/tutorials/img/svc-running-ui.png)
 
 ## Create and Run a Simple Service from the DC/OS CLI
 
@@ -77,12 +77,12 @@ This tutorial shows how to create and deploy a simple one-command service and a 
 1. Enter a name for your service in the **ID** field.
 1. Click the **Container Settings** tab and enter the following in the **Container Image** field: `mesosphere/hello-dcos:<image-tag>`. Replace `<image-tag>` with the tag you copied in step 1.
 
-    ![Containerized service in the DC/OS UI](/docs/1.8/usage/tutorials/img/deploy-container-ui.png)
+    ![Containerized service in the DC/OS UI](/1.8/usage/tutorials/img/deploy-container-ui.png)
 
 1. Click **Deploy**.
 1. In the **Services** tab, click the name of your service, then choose on of the task instances. Click **Logs**, then toggle to the **Output (stdout)** view to see the output of the service.
 
-    ![Running containerized service in the DC/OS UI](/docs/1.8/usage/tutorials/img/container-running-ui.png)
+    ![Running containerized service in the DC/OS UI](/1.8/usage/tutorials/img/container-running-ui.png)
 
 ## Create and Run a Containerized Service from the DC/OS CLI
 

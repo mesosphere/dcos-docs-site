@@ -30,11 +30,11 @@ To assign permissions:
 
 Refer to the following sections to determine and obtain the permission strings that you need.
 
-- [Admin Router permissions](/docs/1.8/administration/id-and-access-mgt/permissions/admin-router-perms/)
-- [User service permissions](/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/)
-- [Secret Store service permissions](/docs/1.8/administration/id-and-access-mgt/permissions/secrets-perms/)
+- [Admin Router permissions](/1.8/administration/id-and-access-mgt/permissions/admin-router-perms/)
+- [User service permissions](/1.8/administration/id-and-access-mgt/permissions/user-service-perms/)
+- [Secret Store service permissions](/1.8/administration/id-and-access-mgt/permissions/secrets-perms/)
 - [Mesos master and agent permissions](https://docs.mesosphere.com/docs/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/)
-- [Superuser permission](/docs/1.8/administration/id-and-access-mgt/permissions/superuser-perm/)
+- [Superuser permission](/1.8/administration/id-and-access-mgt/permissions/superuser-perm/)
 
 # <a name="assign-perm-via-ui"></a>Assigning permissions via the DC/OS web interface
 
@@ -70,9 +70,9 @@ Refer to the following sections to determine and obtain the permission strings t
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
+- You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
 
-- If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. You must first create the permission, as shown in the following example.
 

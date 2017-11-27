@@ -10,7 +10,7 @@ enterprise: true
 
 # About TLS encryption
 
-The encryption of DC/OS communications varies according to your [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security).
+The encryption of DC/OS communications varies according to your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security).
 
 <table class="table" STYLE="margin-bottom: 25px;">
   <tr>
@@ -75,10 +75,10 @@ Because your DC/OS Certificate Authority does not appear in any lists of trusted
 
 To establish trusted communications with your DC/OS cluster and stop the warning messages:
 
-1. [Obtain the root certificate of your DC/OS CA](/docs/1.8/administration/tls-ssl/ent/get-cert/).
+1. [Obtain the root certificate of your DC/OS CA](/1.8/administration/tls-ssl/ent/get-cert/).
 
 1. Perform one of the following.
 
-     - [Set up a proxy](/docs/1.8/administration/tls-ssl/ent/haproxy-adminrouter/) between DC/OS and requests coming in from outside of the cluster. The proxy terminates the requests and resends them to DC/OS. By configuring this proxy to trust the root certificate of your DC/OS CA, you can ensure that it connects securely to your DC/OS cluster.
+     - [Set up a proxy](/1.8/administration/tls-ssl/ent/haproxy-adminrouter/) between DC/OS and requests coming in from outside of the cluster. The proxy terminates the requests and resends them to DC/OS. By configuring this proxy to trust the root certificate of your DC/OS CA, you can ensure that it connects securely to your DC/OS cluster.
 
-     - Manually add your DC/OS Certificate Authority as a trusted authority in [browser](/docs/1.8/administration/tls-ssl/ent/ca-trust-browser/), [DC/OS CLI](/docs/1.8/administration/tls-ssl/ent/ca-trust-cli/), [curl commands](/docs/1.8/administration/tls-ssl/ent/ca-trust-curl/), and other clients.
+     - Manually add your DC/OS Certificate Authority as a trusted authority in [browser](/1.8/administration/tls-ssl/ent/ca-trust-browser/), [DC/OS CLI](/1.8/administration/tls-ssl/ent/ca-trust-cli/), [curl commands](/1.8/administration/tls-ssl/ent/ca-trust-curl/), and other clients.

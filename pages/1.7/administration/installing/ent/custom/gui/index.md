@@ -57,7 +57,7 @@ The DC/OS installation creates these folders:
     
 Before installing DC/OS, your cluster must have the software and hardware [requirements][1].
     
-**Important:** You cannot create a [public](/docs/1.7/overview/concepts/#public) agent by using the GUI installer. If you are using the GUI installer, you must create a public agent [post-installation](/docs/1.7/administration/installing/ent/custom/create-public-agent/). 
+**Important:** You cannot create a [public](/1.7/overview/concepts/#public) agent by using the GUI installer. If you are using the GUI installer, you must create a public agent [post-installation](/1.7/administration/installing/ent/custom/create-public-agent/). 
 
 # Install DC/OS
 
@@ -131,7 +131,7 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
         
         **Important:** The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
 
-5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the [system requirements](/docs/1.7/administration/installing/ent/custom/system-requirements/). This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
+5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the [system requirements](/1.7/administration/installing/ent/custom/system-requirements/). This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
     
     **Important:** If you exit your GUI installation before launching DC/OS, you must do this before reinstalling:
     
@@ -163,7 +163,7 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
     ![alt text][5]
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
-It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/docs/1.7/administration/installing/ent/custom/create-public-agent/) node.
+It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.7/administration/installing/ent/custom/create-public-agent/) node.
 
 1.  From your bootstrap node, navigate to the `genconf/serve` directory and package the contents as `dcos-install.tar`:
 

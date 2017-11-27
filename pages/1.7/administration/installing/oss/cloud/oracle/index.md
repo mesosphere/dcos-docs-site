@@ -303,7 +303,7 @@ These steps assume that you've spun up the bootstrap instance and that you are l
 
 ## Access the DC/OS Dashboard
 
-If all goes well you can now access the [DC/OS Dashboard](/docs/docs/1.7/usage/webinterface/) at `http://<public-ip-of-a-master-node>`:
+If all goes well you can now access the [DC/OS Dashboard](/1.7/usage/webinterface/) at `http://<public-ip-of-a-master-node>`:
 
 ![DC/OS Dashboard](img/occ05.png)
 

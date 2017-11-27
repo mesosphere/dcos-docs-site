@@ -37,7 +37,7 @@ For more advanced usage, you can check out the CLI documentation:
 
 ## GUI
 
-From the **Services** tab in the [DC/OS UI](/docs/1.8/usage/webinterface/) you can download all the log files for your service. You can also monitor stdout/stderr.
+From the **Services** tab in the [DC/OS UI](/1.8/usage/webinterface/) you can download all the log files for your service. You can also monitor stdout/stderr.
 
 # Compliance
 

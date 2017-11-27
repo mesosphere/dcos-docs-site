@@ -27,7 +27,7 @@ This tutorial covers the basics to get you started with ArangoDB on DC/OS.
 ## Prerequisites
 
 - A running DC/OS cluster
-- [DC/OS CLI](/docs/1.7/usage/cli/install/) installed
+- [DC/OS CLI](/1.7/usage/cli/install/) installed
 
 ## Install ArangoDB on DC/OS
 

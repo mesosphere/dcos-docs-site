@@ -47,7 +47,7 @@ Specifies constraint operators which control where apps can run, to optimize for
 ### container
 The container information. 
 
-- **type** The containerizer runtime type, either `MESOS` or `DOCKER`. For more information, see [Using Containerizers](/docs/1.10/deploying-services/containerizers/).
+- **type** The containerizer runtime type, either `MESOS` or `DOCKER`. For more information, see [Using Containerizers](/1.10/deploying-services/containerizers/).
 
 - **portMappings** The port mappings between host and container.  A port mapping is a tuple that contains a host port (`hostPort`), container port (`containerPort`), service port (`servicePort`), and protocol (`protocol`).  Port mappings are similar to passing `-p` into the Docker command line to specify a relationship between a port on the host machine and a port inside the container. 
 
@@ -70,16 +70,16 @@ The container information.
 - **volumes** The persistent volume.  
  
     - **containerPath** The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`). If your application requires an absolute path, or a relative path with slashes, [use this configuration](#abs-paths).
-    - **external** The external volume. For more information, see the [documentation](/docs/1.10/storage/external-storage/).
+    - **external** The external volume. For more information, see the [documentation](/1.10/storage/external-storage/).
         
         - **name** Name that your volume driver uses to look up your volume.
         - **provider** The storage provider.
-        - **options** Specifies which Docker volume driver to use for storage. The only Docker volume driver provided with [DC/OS is REX-Ray](/docs/1.10/storage/external-storage/). 
+        - **options** Specifies which Docker volume driver to use for storage. The only Docker volume driver provided with [DC/OS is REX-Ray](/1.10/storage/external-storage/). 
         - **size** The size (in GiB) of the external volume. 
         
     - **hostPath** The host path.
     - **mode** The access mode of the volume, either read-write (`RW`) or read-only (`RO`). 
-    - **persistent** The local persistent volume. For more information, see the [documentation](/docs/1.10/storage/persistent-volume/).
+    - **persistent** The local persistent volume. For more information, see the [documentation](/1.10/storage/persistent-volume/).
         
         - **size** The size (in MiBs) of the persistent volume. 
     
@@ -104,7 +104,7 @@ The list of URIs to fetch. For more information, see the [Mesos Fetcher document
 - **cache** Cache fetched artifact, if supported by Mesos fetcher module.
 
 ### healthChecks
-An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/docs/1.10/deploying-services/creating-services/health-checks/).
+An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/1.10/deploying-services/creating-services/health-checks/).
 
 - **gracePeriodSeconds** Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time.
 - **intervalSeconds** Specifies the amount of time (in seconds) to wait between health checks.
@@ -144,7 +144,7 @@ Specify networking modes. Three modes of networking are supported: `host`, `cont
 An array of required port resources on the host. The portDefinitions array serves multiple roles:
 
 - Determines how many dynamic ports are allocated for each task.
-- For every port that is zero, a globally unique (cluster-wide) port is assigned and provided as part of the app definition to be used in load balancing definitions. For more information, see the [Networking documentation](/docs/1.10/networking/).
+- For every port that is zero, a globally unique (cluster-wide) port is assigned and provided as part of the app definition to be used in load balancing definitions. For more information, see the [Networking documentation](/1.10/networking/).
 
 Each port value is exposed to the instance via environment variables `$PORT0`, `$PORT1`, etc. Ports assigned to running instances are also available via the task resource.
 
@@ -153,7 +153,7 @@ Each port value is exposed to the instance via environment variables `$PORT0`, `
 - Configure ports assignment for Docker containers for `BRIDGE` and `USER` networking in `container.docker.portMappings`.
 - If you use the Mesos Containerizer, pass zeros as port values to generate one or more arbitrary free ports for each application instance.
 
-For more information, see the [Containerizers](/docs/1.10/deploying-services/containerizers/) and [Service Ports](/docs/1.10/deploying-services/service-ports/) documentation.
+For more information, see the [Containerizers](/1.10/deploying-services/containerizers/) and [Service Ports](/1.10/deploying-services/service-ports/) documentation.
 
 ### requirePorts
 Whether the host ports of your tasks are automatically assigned. 
@@ -162,7 +162,7 @@ Whether the host ports of your tasks are automatically assigned.
 - `"requirePorts": true` Manually specify ports in advance. Marathon will only schedule the associated tasks on hosts that have the specified ports available. 
 
 ### residency
-Set up a stateful application. For more information, see the [local persistent volumes documentation](/docs/1.10/storage/persistent-volume/).
+Set up a stateful application. For more information, see the [local persistent volumes documentation](/1.10/storage/persistent-volume/).
 
 - **taskLostBehavior** Indicates whether Marathon will launch the task on another node after receiving a `TASK_LOST` status update.
 

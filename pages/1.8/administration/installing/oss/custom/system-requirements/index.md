@@ -142,7 +142,7 @@ Docker must be installed on all bootstrap and cluster nodes. The supported versi
 
 * Run Docker commands as the root user (with `sudo`) or as a user in the <a href="https://docs.docker.com/engine/installation/linux/centos/#create-a-docker-group" target="_blank">docker user group</a>.
 
-* [Virtual networks](/docs/1.8/administration/virtual-networks/) require Docker 1.11.
+* [Virtual networks](/1.8/administration/virtual-networks/) require Docker 1.11.
 
 **Distribution-Specific Installation**
 
@@ -182,7 +182,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:** 
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/docs/1.8/administration/installing/oss/custom/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.8/administration/installing/oss/custom/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### DC/OS setup file

@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The recommended method to install the DC/OS CLI is by clicking the quick-launch icon on the lower-left panel of the DC/OS [web interface](/docs/1.8/usage/webinterface). Or, you can manually install the CLI by following these instructions.
+The recommended method to install the DC/OS CLI is by clicking the quick-launch icon on the lower-left panel of the DC/OS [web interface](/1.8/usage/webinterface). Or, you can manually install the CLI by following these instructions.
 
 *   [Installing the DC/OS CLI on Linux](#linux)
 *   [Installing the DC/OS CLI on macOS](#osx)
@@ -54,7 +54,7 @@ The recommended method to install the DC/OS CLI is by clicking the quick-launch 
     dcos auth login
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.8/administration/id-and-access-mgt/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.8/administration/id-and-access-mgt/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 
@@ -96,7 +96,7 @@ The recommended method to install the DC/OS CLI is by clicking the quick-launch 
     
     **Tip:** If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.    
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.8/administration/id-and-access-mgt/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.8/administration/id-and-access-mgt/).
 
 # <a name="windows"></a>Installing on Windows
 
@@ -124,4 +124,4 @@ The recommended method to install the DC/OS CLI is by clicking the quick-launch 
     dcos auth login
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.8/administration/id-and-access-mgt/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.8/administration/id-and-access-mgt/).

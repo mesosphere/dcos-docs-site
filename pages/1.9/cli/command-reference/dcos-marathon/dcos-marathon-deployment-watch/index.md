@@ -38,6 +38,6 @@ dcos marathon deployment watch <deployment-id> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 <!-- # Examples -->

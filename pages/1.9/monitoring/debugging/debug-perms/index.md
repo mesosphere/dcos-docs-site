@@ -12,9 +12,9 @@ You can grant users access to containers for debugging sessions.
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/docs/1.9/cli/install/) and be logged in as a superuser.
-- A [user account](/docs/1.9/security/ent/users-groups/) to assign permissions to.
-- If your [security mode](/docs/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
+- A [user account](/1.9/security/ent/users-groups/) to assign permissions to.
+- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 

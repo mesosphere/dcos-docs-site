@@ -59,4 +59,4 @@ Each Universe service installs with a set of default parameters. You can discove
     dcos package install --options=marathon-config.json marathon
     ```
 
-For more information, see the [dcos package](/docs/1.7/usage/cli/command-reference/#dcospackage) documentation.
+For more information, see the [dcos package](/1.7/usage/cli/command-reference/#dcospackage) documentation.

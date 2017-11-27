@@ -34,7 +34,7 @@ The DC/OS installation creates these folders:
   </tr>
   <tr>
     <td><code>/var/lib/dcos/exhibitor/zookeeper</code></td>
-    <td>Contains the [ZooKeeper](/docs/1.8/overview/concepts/#zookeeper) data.</td>
+    <td>Contains the [ZooKeeper](/1.8/overview/concepts/#zookeeper) data.</td>
   </tr>
   <tr>
     <td><code>/var/lib/docker</code></td>
@@ -53,7 +53,7 @@ The DC/OS installation creates these folders:
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
 ## Prerequisites
-Your cluster must meet the software and hardware [requirements](/docs/1.8/administration/installing/oss/custom/system-requirements/).
+Your cluster must meet the software and hardware [requirements](/1.8/administration/installing/oss/custom/system-requirements/).
 
 # Configure your cluster
 
@@ -175,7 +175,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 **Important:** 
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/docs/1.8/administration/installing/oss/custom/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.8/administration/installing/oss/custom/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][8].
 
 **Prerequisites**
@@ -279,7 +279,7 @@ To install DC/OS:
 
 1.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/docs/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol).
 
     ![alt text](../img/chef-zk-status.png)
 

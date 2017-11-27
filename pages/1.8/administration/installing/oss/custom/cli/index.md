@@ -33,7 +33,7 @@ The DC/OS installation creates these folders:
   </tr>
   <tr>
     <td><code>/var/lib/dcos/exhibitor/zookeeper</code></td>
-    <td>Contains the [ZooKeeper](/docs/1.8/overview/concepts/#zookeeper) data.</td>
+    <td>Contains the [ZooKeeper](/1.8/overview/concepts/#zookeeper) data.</td>
   </tr>
   <tr>
     <td><code>/var/lib/docker</code></td>
@@ -52,7 +52,7 @@ The DC/OS installation creates these folders:
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
 ## Prerequisites
-Your cluster must meet the software and hardware [requirements](/docs/1.8/administration/installing/oss/custom/system-requirements/).
+Your cluster must meet the software and hardware [requirements](/1.8/administration/installing/oss/custom/system-requirements/).
 
 # Configure your cluster
 
@@ -142,7 +142,7 @@ Your cluster must meet the software and hardware [requirements](/docs/1.8/admini
 
     In this step you create a YAML configuration file that is customized for your environment. DC/OS uses this configuration file during installation to generate your cluster installation files.
 
-    You can use this template to get started. This template specifies 3 masters, 5 [private](/docs/1.8/overview/concepts/#private) agents, 1 [public](/docs/1.8/overview/concepts/#public) agent, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters descriptions and configuration examples, see the [documentation][6].
+    You can use this template to get started. This template specifies 3 masters, 5 [private](/1.8/overview/concepts/#private) agents, 1 [public](/1.8/overview/concepts/#public) agent, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters descriptions and configuration examples, see the [documentation][6].
 
     **Tip:** If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 
@@ -192,7 +192,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 **Important:**
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/docs/1.8/administration/installing/oss/custom/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.8/administration/installing/oss/custom/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][7].
 
 To install DC/OS:
@@ -325,7 +325,7 @@ To install DC/OS:
 
 6.  Monitor Exhibitor and wait for it to converge at `http://<master-public-ip>:8181/exhibitor/v1/ui/index.html`.
 
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/docs/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol).
 
     ![alt text](../img/chef-zk-status.png)
 

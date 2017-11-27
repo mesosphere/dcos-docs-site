@@ -13,7 +13,7 @@ enterprise: false
 
 Follow these steps to uninstall the service.
 1. Stop the service. From the DC/OS CLI, enter `dcos package uninstall datastax-dse`.
-1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. [More information about the framework cleaner script](/docs/1.10/deploying-services/uninstall/#framework-cleaner).
+1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. [More information about the framework cleaner script](/1.10/deploying-services/uninstall/#framework-cleaner).
 
 NOTE: Repeat the above steps if you need to uninstall OpsCenter, but substitute `datastax-ops` for `datastax-dse`.
 

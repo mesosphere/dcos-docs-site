@@ -17,7 +17,7 @@ To uninstall the service, replace `name` with the name of the Elastic instance t
 dcos package uninstall --app-id=<name> elastic
 ```
 
-Then, use the [framework cleaner script](/docs/1.9/deploying-services/uninstall/#framework-cleaner) to remove your Elastic instance from Zookeeper and destroy all data associated with it. The script requires several arguments. The default values to be used are:
+Then, use the [framework cleaner script](/1.9/deploying-services/uninstall/#framework-cleaner) to remove your Elastic instance from Zookeeper and destroy all data associated with it. The script requires several arguments. The default values to be used are:
 
 - `framework_role` is `<service-name>-role`.
 - `framework_principal` is `<service-name>-principal`.

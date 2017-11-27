@@ -35,5 +35,5 @@ dcos service [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos service log](/docs/1.10/cli/command-reference/dcos-service/dcos-service-log/)   | Print the service logs. | 
-| [dcos service shutdown](/docs/1.10/cli/command-reference/dcos-service/dcos-service-shutdown/)   | Shutdown a service. |
+| [dcos service log](/1.10/cli/command-reference/dcos-service/dcos-service-log/)   | Print the service logs. | 
+| [dcos service shutdown](/1.10/cli/command-reference/dcos-service/dcos-service-shutdown/)   | Shutdown a service. |

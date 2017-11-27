@@ -8,8 +8,8 @@ oss: true
 ---
 
 # Prerequisites
-* A [running DC/OS cluster](/docs/1.9/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/docs/1.9/tutorials/dcos-101/cli/).
-* [app2](/docs/1.9/tutorials/dcos-101/app2/) deployed and running in your cluster.
+* A [running DC/OS cluster](/1.9/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.9/tutorials/dcos-101/cli/).
+* [app2](/1.9/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
@@ -39,7 +39,7 @@ You will revisit the topic of load balancing and the different choices for load 
   * You can verify the new key was added in two ways:
     1. Check the total number of keys using app1: `dcos task log app1`
     2. Check redis directly
-       *  [SSH](/docs/1.9/administering-clusters/sshcluster/) into node where redis is running:
+       *  [SSH](/1.9/administering-clusters/sshcluster/) into node where redis is running:
             
            ```bash
            dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')

@@ -17,7 +17,7 @@ These configuration parameters are specified in [YAML][1] format in your config.
 # <a name="cluster-setup"></a>Cluster Setup
 
 ### agent_list
-This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/docs/1.8/overview/concepts/#private) host names.
+This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.8/overview/concepts/#private) host names.
 
 ### bootstrap_url
 This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: file:///opt/dcos_install_tmp` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
@@ -90,7 +90,7 @@ This option specifies that Mesos agents are used to discover the masters by givi
 * On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability.
 
 ### <a name="public-agent"></a>public_agent_list
-This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [public agent](/docs/1.8/overview/concepts/#public) host names.
+This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.8/overview/concepts/#public) host names.
 
 ## <a name="networking"></a>Networking
 
@@ -98,7 +98,7 @@ This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [pub
 
 This parameter specifies whether to enable DC/OS virtual networks.
 
-**Important:** Virtual networks require Docker 1.11. If you are using Docker 1.10 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/docs/1.8/administration/installing/oss/custom/system-requirements/).
+**Important:** Virtual networks require Docker 1.11. If you are using Docker 1.10 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.8/administration/installing/oss/custom/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. When the virtual network is enabled you can also specify the following parameters:
@@ -126,11 +126,11 @@ This parameter specifies whether to enable DC/OS virtual networks.
             
             **Important:** The last 3 bytes must be `00`.
         *  __overlays__
-            *  `name` This parameter specifies the canonical name (see [limitations](/docs/1.8/administration/virtual-networks/) for constraints on naming virtual networks).
+            *  `name` This parameter specifies the canonical name (see [limitations](/1.8/administration/virtual-networks/) for constraints on naming virtual networks).
             *  `subnet` This parameter specifies the subnet that is allocated to the virtual network.
             *  `prefix` This parameter specifies the size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information see the [example](#overlay) and [documentation](/docs/1.8/administration/virtual-networks/).
+ For more information see the [example](#overlay) and [documentation](/1.8/administration/virtual-networks/).
 
 ### <a name="dns-search"></a>dns_search
 This parameter specifies a space-separated list of domains that are tried when an unqualified domain is entered (e.g. domain searches that do not contain &#8216;.&#8217;). The Linux implementation of `/etc/resolv.conf` restricts the maximum number of domains to 6 and the maximum number of characters the setting can have to 256. For more information, see <a href="http://man7.org/linux/man-pages/man5/resolv.conf.5.html">man /etc/resolv.conf</a>.
@@ -154,7 +154,7 @@ This required parameter specifies a YAML nested list (`-`) of DNS resolvers for 
     - 8.8.4.4
     - 8.8.8.8
     ```
--  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/docs/1.8/usage/service-discovery/mesos-dns/).
+-  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/1.8/usage/service-discovery/mesos-dns/).
 
 **Caution:** If you set the `resolvers` parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.
 
@@ -162,8 +162,8 @@ This required parameter specifies a YAML nested list (`-`) of DNS resolvers for 
 
 This parameter specifies whether to enable the DC/OS proxy. 
 
-*  `use_proxy: 'false'` Do not configure DC/OS [components](/docs/1.8/overview/components/) to use a custom proxy. This is the default value.
-*  `use_proxy: 'true'` Configure DC/OS [components](/docs/1.8/overview/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
+*  `use_proxy: 'false'` Do not configure DC/OS [components](/1.8/overview/components/) to use a custom proxy. This is the default value.
+*  `use_proxy: 'true'` Configure DC/OS [components](/1.8/overview/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
     
     *  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` This parameter specifies the HTTP proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` This parameter specifies the HTTPS proxy.

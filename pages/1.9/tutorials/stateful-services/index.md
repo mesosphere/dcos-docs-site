@@ -146,7 +146,7 @@ dcos marathon app remove postgres
 
 ## Appendix
 
-For further information on stateful services in DC/OS, visit the [Storage section of the documentation](/docs/1.9/storage/).
+For further information on stateful services in DC/OS, visit the [Storage section of the documentation](/1.9/storage/).
 
 
 [1]: /docs/1.9/installing/oss/

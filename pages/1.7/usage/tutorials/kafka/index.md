@@ -60,7 +60,7 @@ In this tutorial you will learn how to:
 ## Prerequisites
 
 - A running DC/OS cluster with 3 private agents, each with 2 CPUs and 2 GB of RAM available.
-- [DC/OS CLI](/docs/1.7/usage/cli/install/) installed.
+- [DC/OS CLI](/1.7/usage/cli/install/) installed.
 
 ## Install Kafka
 
@@ -148,7 +148,7 @@ another CTRL-D).
 dcos package uninstall --app-id=kafka kafka
 ```
 
-Then, use the [framework cleaner](/docs/1.7/usage/managing-services/uninstall/#framework-cleaner) script to remove your Kafka instance from ZooKeeper and to destroy all data associated with it. The script requires several arguments, the values for which are derived from your service name:
+Then, use the [framework cleaner](/1.7/usage/managing-services/uninstall/#framework-cleaner) script to remove your Kafka instance from ZooKeeper and to destroy all data associated with it. The script requires several arguments, the values for which are derived from your service name:
 
 `framework-role` is `kafka-role`
 `framework-principal` is `kafka-principal`

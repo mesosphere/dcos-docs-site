@@ -17,17 +17,17 @@ enterprise: false
     
     ## <a name="ip-detect-script"></a>IP detect script
     
-    You must have a valid [ip-detect](/docs/1.10/installing/ent/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+    You must have a valid [ip-detect](/1.10/installing/ent/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
     
     - extra lines
     - white space
     - special or hidden characters 
     
-    It is recommended that you use the `ip-detect` [examples](/docs/1.10/installing/ent/custom/advanced/).
+    It is recommended that you use the `ip-detect` [examples](/1.10/installing/ent/custom/advanced/).
       
     ## DNS resolvers
       
-    You must have working DNS resolvers, specified in your [config.yaml](/docs/1.10/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+    You must have working DNS resolvers, specified in your [config.yaml](/1.10/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
     
     - `hostname -f` returns the FQDN
     - `hostname -s` returns the short hostname
@@ -66,7 +66,7 @@ enterprise: false
 
 1.  Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
 
-    -  [SSH](/docs/1.10/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
+    -  [SSH](/1.10/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
         
         ```bash
         journalctl -flu dcos-exhibitor
@@ -82,7 +82,7 @@ enterprise: false
         
         1.  Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
         
-            For example, [SSH](/docs/1.10/administering-clusters/sshcluster/) to your master node and enter this command:
+            For example, [SSH](/1.10/administering-clusters/sshcluster/) to your master node and enter this command:
             
             ```bash
             curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
@@ -203,7 +203,7 @@ DC/OS Marathon is started on the master nodes. The native Marathon instance that
 
 **Troubleshooting:**
 
-*   Go to the **Services > Services** tab on the [web interface](/docs/1.10/gui/) and view status.
+*   Go to the **Services > Services** tab on the [web interface](/1.10/gui/) and view status.
 
 *   SSH to your master node and enter this command to view the logs from boot time:
 

@@ -20,7 +20,7 @@ Authentication tokens expire by default after five days. Services can use a vari
 
 # About systemd-started services
 
-In `strict` or `permissive` [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security), the DC/OS services that are started by systemd are automatically provisioned with the necessary credentials and permissions during the bootstrap sequence. You can review these service accounts from the **System** -> **Organization** -> **Service Accounts** tab of the DC/OS web interface. 
+In `strict` or `permissive` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security), the DC/OS services that are started by systemd are automatically provisioned with the necessary credentials and permissions during the bootstrap sequence. You can review these service accounts from the **System** -> **Organization** -> **Service Accounts** tab of the DC/OS web interface. 
 
 **Important:** Modifying the permissions of any of the automatically provisioned service accounts may cause the service to fail.
 
@@ -64,12 +64,12 @@ You may need to manually provision your custom service or script with a service 
   </tr>
 </table>
 
-For detailed instructions on how to set up a custom service or script with a service account, refer to [Provisioning custom services with service accounts](/docs/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/).
+For detailed instructions on how to set up a custom service or script with a service account, refer to [Provisioning custom services with service accounts](/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/).
 
 
 # <a name="universe-service-auth"></a>About services in the default Universe
 
-Not all services in the default Universe can be provisioned with a service account. If a service requires a service account and cannot be provisioned with one, you won't be able to deploy the service. This requirement varies according to your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security).
+Not all services in the default Universe can be provisioned with a service account. If a service requires a service account and cannot be provisioned with one, you won't be able to deploy the service. This requirement varies according to your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
 
 The following table lists the Universe services that can be provisioned with service accounts. It also identifies when a service account is optional or required.
 
@@ -182,9 +182,9 @@ You may also want to provision Marathon-LB with a service account in `disabled` 
 
 Refer to the following sections for more details about how and when to provision each service with a service account.
 
-- [Provisioning Cassandra](/docs/1.8/administration/id-and-access-mgt/service-auth/cass-auth/)
-- [Provisioning Confluent](/docs/1.8/administration/id-and-access-mgt/service-auth/confluent-auth/)
-- [Provisioning HDFS](/docs/1.8/administration/id-and-access-mgt/service-auth/hdfs-auth/)
-- [Provisioning Kafka](/docs/1.8/administration/id-and-access-mgt/service-auth/kafka-auth/)
-- [Provisioning Marathon-LB](/docs/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/)
-- [Provisioning Spark](/docs/1.8/administration/id-and-access-mgt/service-auth/spark-auth/)
+- [Provisioning Cassandra](/1.8/administration/id-and-access-mgt/service-auth/cass-auth/)
+- [Provisioning Confluent](/1.8/administration/id-and-access-mgt/service-auth/confluent-auth/)
+- [Provisioning HDFS](/1.8/administration/id-and-access-mgt/service-auth/hdfs-auth/)
+- [Provisioning Kafka](/1.8/administration/id-and-access-mgt/service-auth/kafka-auth/)
+- [Provisioning Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/)
+- [Provisioning Spark](/1.8/administration/id-and-access-mgt/service-auth/spark-auth/)

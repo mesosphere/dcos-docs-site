@@ -11,7 +11,7 @@ enterprise: true
 
 ## About installing Marathon-LB
 
-The installation procedure varies according to your [security mode](/docs/1.10/installing/ent/custom/configuration/configuration-parameters/#security). Refer to the section that corresponds to your security mode for step-by-step instructions.
+The installation procedure varies according to your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security). Refer to the section that corresponds to your security mode for step-by-step instructions.
 
 - [`disabled` and `permissive` [modes](#mlb-disabled-install)
 - [`strict` mode](#mlb-strict-perm-install)
@@ -20,7 +20,7 @@ The installation procedure varies according to your [security mode](/docs/1.10/i
 
 ### Using the DC/OS CLI
 
-**Prerequisite:** [DC/OS CLI installed](/docs/1.10/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/docs/1.10/security/ent/perms-reference/).
+**Prerequisite:** [DC/OS CLI installed](/1.10/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
 
 If you don't want to change any of the default settings, you can install Marathon-LB with the following command.
 
@@ -42,7 +42,7 @@ dcos package install --options=config.json marathon-lb
 
 ### Using the Catalog
 
-To install Marathon-LB from the Catalog in `disabled`and `permissive` modes, log into the DC/OS web interface as a user with the [necessary permissions](/docs/1.10/security/ent/perms-reference/).
+To install Marathon-LB from the Catalog in `disabled`and `permissive` modes, log into the DC/OS web interface as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
 
 Click the **Catalog** tab. Locate the Marathon-LB package. To install with the default settings, click **DEPLOY**. To customize Marathon-LB, click **CONFIGURE**, customize, and then click **REVIEW AND DEPLOY**.
 
@@ -50,11 +50,11 @@ Click the **Catalog** tab. Locate the Marathon-LB package. To install with the d
 
 **Prerequisites:**
 
-- Marathon-LB requires a service account in `strict` [security mode](/docs/1.10/installing/ent/custom/configuration/configuration-parameters/#security). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/docs/1.10/networking/marathon-lb/mlb-auth/) for instructions.
+- Marathon-LB requires a service account in `strict` [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.10/networking/marathon-lb/mlb-auth/) for instructions.
 
-- [DC/OS CLI installed](/docs/1.10/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/docs/1.10/security/ent/perms-reference/).
+- [DC/OS CLI installed](/1.10/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
 
-The parameters shown in [Provisioning Marathon-LB](/docs/1.10/networking/marathon-lb/mlb-auth/) are required to install Marathon-LB. You may wish to modify other default values before installing the service. To view the configuration options and defaults of Marathon-LB, type the following command.
+The parameters shown in [Provisioning Marathon-LB](/1.10/networking/marathon-lb/mlb-auth/) are required to install Marathon-LB. You may wish to modify other default values before installing the service. To view the configuration options and defaults of Marathon-LB, type the following command.
 
 ```bash
 dcos package describe --config marathon-lb
@@ -68,9 +68,9 @@ dcos package install --options=config.json marathon-lb
 
 # Next steps
 
-- [Tutorial - Deploying a Load Balanced App with Marathon-LB](/docs/1.10/networking/marathon-lb/marathon-lb-basic-tutorial/)
-- [Tutorial - Using Marathon-LB for Internal and External Load Balancing](/docs/1.10/networking/marathon-lb/marathon-lb-advanced-tutorial/)
-- See the advanced Marathon-LB [documentation](/docs/1.10/networking/marathon-lb/advanced/).
+- [Tutorial - Deploying a Load Balanced App with Marathon-LB](/1.10/networking/marathon-lb/marathon-lb-basic-tutorial/)
+- [Tutorial - Using Marathon-LB for Internal and External Load Balancing](/1.10/networking/marathon-lb/marathon-lb-advanced-tutorial/)
+- See the advanced Marathon-LB [documentation](/1.10/networking/marathon-lb/advanced/).
 
  [1]: /docs/1.10/installing/ent/
  [2]: /docs/1.10/cli/install/

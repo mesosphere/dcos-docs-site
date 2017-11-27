@@ -23,7 +23,7 @@ The Universal Container Runtime offers the following advantages:
 # Provision Containers with the Universal Container Runtime from the DC/OS Web Interface
 
 ## Prerequisite
-If your service [pulls Docker images from a private registry](/docs/1.9/deploying-services/private-docker-registry/), you must specify the [`cluster_docker_credentials_path` in your `config.yaml`](/docs/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster_docker_credentials) file before installing DC/OS.
+If your service [pulls Docker images from a private registry](/1.9/deploying-services/private-docker-registry/), you must specify the [`cluster_docker_credentials_path` in your `config.yaml`](/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster_docker_credentials) file before installing DC/OS.
 
 1. Specify the UCR from the web interface. Go to **Services**  > **Run a Service** > **Single Container** > **More Settings**. In the **Container Runtime** section, choose the **Universal Container Runtime** radio button.
 
@@ -32,9 +32,9 @@ If your service [pulls Docker images from a private registry](/docs/1.9/deployin
 # Provision Containers with the Universal Container Runtime from the DC/OS CLI
 
 ## Prerequisite
-If your service [pulls Docker images from a private registry](/docs/1.9/deploying-services/private-docker-registry/), you must specify the [`cluster_docker_credentials_path` in your `config.yaml`](/docs/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster_docker_credentials) file before installing DC/OS.
+If your service [pulls Docker images from a private registry](/1.9/deploying-services/private-docker-registry/), you must specify the [`cluster_docker_credentials_path` in your `config.yaml`](/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster_docker_credentials) file before installing DC/OS.
 
-1. Specify the container type `MESOS` and a the appropriate object in your [Marathon application definition](/docs/1.9/deploying-services/creating-services/). Here, we specify a Docker container with the `docker` object.
+1. Specify the container type `MESOS` and a the appropriate object in your [Marathon application definition](/1.9/deploying-services/creating-services/). Here, we specify a Docker container with the `docker` object.
 
 The Mesos containerizer provides a `credential` with a `principal` and an optional `secret` field to authenticate when downloading the Docker image.
 
@@ -63,7 +63,7 @@ The Mesos containerizer provides a `credential` with a `principal` and an option
 **Important:** If you leave the `args` field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the `args` field. If you do not, your service will fail to deploy.
 
 # Limitations
-- The UCR is a [preview](/docs/1.9/overview/feature-maturity/) feature in DC/OS 1.9.
+- The UCR is a [preview](/1.9/overview/feature-maturity/) feature in DC/OS 1.9.
 - The UCR does not support the following: runtime privileges, Docker options, force pull, named ports, numbered ports, bridge networking, port mapping, private registries with container authentication.
 
 # Further Reading

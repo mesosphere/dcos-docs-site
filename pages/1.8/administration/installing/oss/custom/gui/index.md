@@ -33,7 +33,7 @@ The DC/OS installation creates these folders:
   </tr>
   <tr>
     <td><code>/var/lib/dcos/exhibitor/zookeeper</code></td>
-    <td>Contains the [ZooKeeper](/docs/1.8/overview/concepts/#zookeeper) data.</td>
+    <td>Contains the [ZooKeeper](/1.8/overview/concepts/#zookeeper) data.</td>
   </tr>
   <tr>
     <td><code>/var/lib/docker</code></td>
@@ -95,10 +95,10 @@ The DC/OS installation creates these folders:
     Specify a comma-separated list of your internal static master IP addresses.
 
     #### Agent Private IP List
-    Specify a comma-separated list of your internal static [private agent](/docs/1.8/overview/concepts/#private) private IP addresses.
+    Specify a comma-separated list of your internal static [private agent](/1.8/overview/concepts/#private) private IP addresses.
 
     #### Agent Public IP List
-    Specify a comma-separated list of your internal static [public agent](/docs/1.8/overview/concepts/#public) private IP addresses.
+    Specify a comma-separated list of your internal static [public agent](/1.8/overview/concepts/#public) private IP addresses.
 
     #### Master Public IP
     Specify a publicly accessible proxy IP address to one of your master nodes. If you don't have a proxy or already have access to the network where you are deploying this cluster, you can use one of the master IP's that you specified in the master list. This proxy IP address is used to access the DC/OS web interface on the master node after DC/OS is installed.
@@ -120,15 +120,15 @@ The DC/OS installation creates these folders:
     *Caution:* If you set this parameter incorrectly you will have to reinstall DC/OS. For more information about service discovery, see the [documentation][3].
 
     #### IP Detect Script
-    Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced install [documentation](/docs/1.8/administration/installing/oss/custom/advanced/#ip-detect-script).
+    Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced install [documentation](/1.8/administration/installing/oss/custom/advanced/#ip-detect-script).
 
     *Important:* The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
 
     #### Send Anonymous Telemetry
-    Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/docs/1.8/overview/telemetry/).
+    Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/1.8/overview/telemetry/).
 
     #### Enable Authentication
-    Indicate whether to enable authentication for your DC/OS cluster. For more information, see the [documentation](/docs/1.8/administration/id-and-access-mgt/).
+    Indicate whether to enable authentication for your DC/OS cluster. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/).
 
 5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the scripted installer [prerequisites][3]. This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
 
@@ -151,7 +151,7 @@ The DC/OS installation creates these folders:
 
     **Tips:** 
     
-    *  If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/docs/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol).
+    *  If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol).
     *  You can click **Download Logs** to view your logs locally.
     *  If this takes longer than about 10 minutes, you've probably misconfigured your cluster. Go checkout the [troubleshooting documentation][9].
 

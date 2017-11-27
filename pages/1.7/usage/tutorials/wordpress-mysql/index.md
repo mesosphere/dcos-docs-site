@@ -17,7 +17,7 @@ In this tutorial you will learn how to deploy a WordPress and MySQL installation
 
 The goal of this tutorial is to deploy a simple WordPress website that consists of two distinct services: a WordPress installation (`/wordpress`) and a MySQL database (`/mysql`). The web server should be reachable outside of the cluster, but the database should only be accessible internally to the cluster.
 
-[Marathon-LB](/docs/1.7/usage/service-discovery/marathon-lb/) can help you connect the outside world to your app, but how can you reliably enable WordPress to communicate with the MySQL instance?
+[Marathon-LB](/1.7/usage/service-discovery/marathon-lb/) can help you connect the outside world to your app, but how can you reliably enable WordPress to communicate with the MySQL instance?
 
 Thanks to **VIPs** you are only required to specify a virtual address for the database service and then use it as a static configuration in your web app. The traffic is automatically load balanced from the app to the service. Also, when instances of the database service die (due to power failures or other issues), new connections will automatically be directed to healthy instances of the service with a very short reaction time.
 
@@ -31,8 +31,8 @@ You are now going to see how easy it is to make use of this feature in DC/OS.
 
 ## Prerequisites
 
-- A [DC/OS cluster](/docs/1.7/administration/installing/oss) with at least 1 private agent and 1 public agent.
-- The [public IP address](/docs/1.7/administration/locate-public-agent/) of your DCOS public agent.
+- A [DC/OS cluster](/1.7/administration/installing/oss) with at least 1 private agent and 1 public agent.
+- The [public IP address](/1.7/administration/locate-public-agent/) of your DCOS public agent.
 
 ## Deploying your apps
 
@@ -176,7 +176,7 @@ Next, you will use the VIP to tell WordPress how to reach the database, using en
 
 - `"WORDPRESS_DB_HOST": "3.3.0.6:3306"` configures the database host by the `wordpress` Docker container.
 
-- The `acceptedRoles` array specifies the `slave_public` role, which will ensure WordPress will be installed on a public node. For more information, refer to the [Deploying a Containerized App on a Public Node](/docs/1.7/usage/tutorials/public-app/) tutorial.
+- The `acceptedRoles` array specifies the `slave_public` role, which will ensure WordPress will be installed on a public node. For more information, refer to the [Deploying a Containerized App on a Public Node](/1.7/usage/tutorials/public-app/) tutorial.
 
 Now that you have your application definitions ready, let's fire up the DC/OS Marathon web UI and deploy them.
 
@@ -225,4 +225,4 @@ At this address, you will be greeted by the WordPress setup page. From there, yo
 
 ## Conclusions
 
-**Note:** For the purposes of this tutorial, we haven't touched on how to ensure that the MySQL data can be persisted. Head over to the [Cassandra](/docs/1.7/usage/tutorials/iot_pipeline/) tutorial to learn how to deploy stateful applications in DC/OS.
+**Note:** For the purposes of this tutorial, we haven't touched on how to ensure that the MySQL data can be persisted. Head over to the [Cassandra](/1.7/usage/tutorials/iot_pipeline/) tutorial to learn how to deploy stateful applications in DC/OS.

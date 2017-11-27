@@ -16,7 +16,7 @@ To continuously improve the DC/OS experience, a telemetry component is included 
 - [User interface telemetry](#user-interface)
 
 # <a name="core"></a>Core telemetry
-The DC/OS [Signal](/docs/1.8/overview/components/#signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
+The DC/OS [Signal](/1.8/overview/components/#signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
 
 The information collected by the Signal component is separated into these categories: Diagnostics, Mesos, and Package service.
 
@@ -77,14 +77,14 @@ For each category this data is collected:
 
 ## Diagnostics
 
-This information is collected from the DC/OS [Diagnostics](/docs/1.8/overview/components/#diagnostics) component. For every systemd unit, the following information is collected, where `<UNIT_NAME>` is component name:
+This information is collected from the DC/OS [Diagnostics](/1.8/overview/components/#diagnostics) component. For every systemd unit, the following information is collected, where `<UNIT_NAME>` is component name:
 
 ```
 "health-unit-dcos-<UNIT_NAME>-total": 3, "health-unit-dcos-<UNIT_NAME>-unhealthy": 0,
 ```
 
 ## Mesos
-This information is collected from the DC/OS [Mesos Master](/docs/1.8/overview/components/#mesos-master) component.
+This information is collected from the DC/OS [Mesos Master](/1.8/overview/components/#mesos-master) component.
 
 <table class="table">
 <tr>
@@ -117,7 +117,7 @@ This information is collected from the DC/OS [Mesos Master](/docs/1.8/overview/c
 
 
 ## Package service
-This information is collected from the DC/OS [Package service](/docs/1.8/overview/components/#package-service) component.
+This information is collected from the DC/OS [Package service](/1.8/overview/components/#package-service) component.
 
 <table class="table">
 <tr>
@@ -288,4 +288,4 @@ The DC/OS UI sends two types of notifications to [Segment](https://segment.com/d
 
 ## Opt-Out
 
-You can also choose to opt-out of the telemetry features. For more information, see the [documentation](/docs/1.8/administration/installing/oss/opt-out/).
+You can also choose to opt-out of the telemetry features. For more information, see the [documentation](/1.8/administration/installing/oss/opt-out/).

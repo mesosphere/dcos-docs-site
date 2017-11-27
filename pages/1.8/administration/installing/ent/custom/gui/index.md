@@ -23,7 +23,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/docs/1.8/overview/concepts/#zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.8/overview/concepts/#zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -69,10 +69,10 @@ Your cluster must meet the software and hardware [requirements][1].
     Specify a comma-separated list of your internal static master IP addresses.
     
     #### Agent Private IP List
-    Specify a comma-separated list of your internal static [private agent](/docs/1.8/overview/concepts/#private) private IP addresses.
+    Specify a comma-separated list of your internal static [private agent](/1.8/overview/concepts/#private) private IP addresses.
     
     #### Agent Public IP List
-    Specify a comma-separated list of your internal static [public agent](/docs/1.8/overview/concepts/#public) private IP addresses.
+    Specify a comma-separated list of your internal static [public agent](/1.8/overview/concepts/#public) private IP addresses.
     
     #### Master Public IP
     Specify a publicly accessible proxy IP address to one of your master nodes. If you don't have a proxy or already have access to the network where you are deploying this cluster, you can use one of the master IP's that you specified in the master list. This proxy IP address is used to access the DC/OS web interface on the master node after DC/OS is installed.
@@ -92,7 +92,7 @@ Your cluster must meet the software and hardware [requirements][1].
     ### DC/OS Environment Settings
     
     #### Username
-    Specify a user name for the initial superuser account. At least one superuser account is required for Enterprise DC/OS. For more information about security, see the [documentation](/docs/1.8/administration/id-and-access-mgt/).
+    Specify a user name for the initial superuser account. At least one superuser account is required for Enterprise DC/OS. For more information about security, see the [documentation](/1.8/administration/id-and-access-mgt/).
     
     #### Password
     Specify the password of the superuser account.
@@ -103,15 +103,15 @@ Your cluster must meet the software and hardware [requirements][1].
     *Caution:* If you set this parameter incorrectly, you will have to reinstall DC/OS. For more information about service discovery, see the [documentation][3].
     
     #### IP Detect Script
-    Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced installation [documentation](/docs/1.8/administration/installing/ent/custom/advanced/#ip-detect-script).
+    Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced installation [documentation](/1.8/administration/installing/ent/custom/advanced/#ip-detect-script).
         
     *Important:* The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
     
     #### Send Anonymous Telemetry
-    Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/docs/1.8/administration/telemetry/).
+    Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/1.8/administration/telemetry/).
     
 
-5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the [system requirements](/docs/1.8/administration/installing/ent/custom/system-requirements/). This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
+5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the [system requirements](/1.8/administration/installing/ent/custom/system-requirements/). This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
     
     **Important:** If you exit your GUI installation before launching DC/OS, you must do this before reinstalling:
     
@@ -133,7 +133,7 @@ Your cluster must meet the software and hardware [requirements][1].
     **Tips:** 
     
     - You can click **Download Logs** to view your logs locally.
-    - If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/docs/1.8/administration/installing/ent/custom/system-requirements/#port-and-protocol).
+    - If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/ent/custom/system-requirements/#port-and-protocol).
 
 8.  Click **Log In To DC/OS**.
 
@@ -145,14 +145,14 @@ Your cluster must meet the software and hardware [requirements][1].
 
     **Tip:** The default username is `bootstrapuser` and default password is `deleteme`.
     
-    ![alt text](/docs/1.8/administration/installing/ent/custom/img/ui-installer-auth2.png)
+    ![alt text](/1.8/administration/installing/ent/custom/img/ui-installer-auth2.png)
     
     You are done!
     
     ![UI dashboard](../img/dashboard-ee.gif)
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
-It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/docs/1.8/administration/installing/ent/custom/convert-agent-type/) node.
+It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.8/administration/installing/ent/custom/convert-agent-type/) node.
 
 1.  From your bootstrap node, navigate to the `genconf/serve` directory and package the contents as `dcos-install.tar`:
 

@@ -66,5 +66,5 @@ A few seconds after you've you hit the `Scale Application` button in the dialog 
 
 ## Next Steps
 
-- Check out some more [Marathon tutorials](/docs/1.7/usage/tutorials/marathon/)
-- Learn about the [DC/OS architecture](/docs/1.7/overview/architecture/)
+- Check out some more [Marathon tutorials](/1.7/usage/tutorials/marathon/)
+- Learn about the [DC/OS architecture](/1.7/overview/architecture/)

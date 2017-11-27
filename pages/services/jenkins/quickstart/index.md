@@ -11,7 +11,7 @@ enterprise: false
 
 As a package available in the Universe, Jenkins for DC/OS can be installed using either the web interface or the DC/OS CLI. With its sensible defaults, you can get up and running very quickly.
 
-<strong>Note:</strong> Jenkins for DC/OS cannot be installed in `strict` [security mode](/docs/1.8/administration/installing/custom/configuration-parameters/#security).
+<strong>Note:</strong> Jenkins for DC/OS cannot be installed in `strict` [security mode](/1.8/administration/installing/custom/configuration-parameters/#security).
 
 <strong>Important:</strong> The default installation will use a <code>/tmp</code> directory on the local host to store configuration and build data. This configuration will not scale to accommodate multiple Jenkins masters. In addition, it will result in the loss of data when the agent goes down. Before going into production, you must perform a <a href="/service-docs/jenkins/custom-install/">custom install</a> and set up either a shared file system (recommended) or pin to a single agent.
 

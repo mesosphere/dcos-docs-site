@@ -34,7 +34,7 @@ If you are running DC/OS 1.9 or older, or a version of the service that is older
    ```bash
    $ dcos package uninstall --app-id=kafka-dev kafka
    ```
-1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. See [DC/OS documentation](/docs/1.10/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
+1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. See [DC/OS documentation](/1.10/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
 
 For example, to uninstall a Kafka instance named `kakfa-dev`, run:
 

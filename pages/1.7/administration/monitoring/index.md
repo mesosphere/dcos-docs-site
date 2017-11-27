@@ -20,11 +20,11 @@ The component health page provides the health status of all DC/OS system compone
 
 When you launch the DC/OS UI, you'll see the Component Health badge in the main DC/OS UI dashboard:
 
-![UI dashboard](/docs/1.7/administration/img/ui-dashboard-open.gif)
+![UI dashboard](/1.7/administration/img/ui-dashboard-open.gif)
 
 You can click on the System page to go to the main system health user interface and sort by health.
 
-![sort](/docs/1.7/administration/img/ui-system-health-open.gif)
+![sort](/1.7/administration/img/ui-system-health-open.gif)
 
 When a component isn't healthy, you can drill down on it, to view the nodes where the component is running. You can debug more by clicking the node, where you'll be able to see the unhealthy component journald (log) output.
 

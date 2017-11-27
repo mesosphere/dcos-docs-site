@@ -13,7 +13,7 @@ enterprise: true
 
 # About provisioning Kafka with a service account
 
-Whether you can or must provision Kafka with a service account varies by [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security).
+Whether you can or must provision Kafka with a service account varies by [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
 
 - `disabled`: not possible
 - `permissive`: optional
@@ -40,7 +40,7 @@ To set up a service account for Kafka, complete the following steps.
 
 First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the Enterprise DC/OS CLI is the most convenient because it returns the keys in the exact format required.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/) and the [Enterprise DC/OS CLI 0.4.14 or later installed](/docs/1.8/usage/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install).
 
 
 1. From a terminal prompt, use the following command to create a public-private key pair and save each value into a separate file within the current directory.
@@ -62,7 +62,7 @@ Next, you must create a service account. This section describes how to use eithe
 
 ## Using the Enterprise DC/OS CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/docs/1.8/usage/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Use the following command to create a new service account called `kafka-principal` containing the public key you just generated.
 
@@ -98,7 +98,7 @@ Next, you need to create a secret associated with the service account that conta
 
 ## Using the Enterprise DC/OS CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/docs/1.8/usage/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Depending on your security mode, use one of the following commands to create a new secret called `kafka-secret` in the `kafka` path. Locating the secret inside the `kafka` path will ensure that only the Kafka service can access it. The secret will contain the private key, the name of the service account, and other data.
 
@@ -126,7 +126,7 @@ Next, you need to create a secret associated with the service account that conta
     dcos security secrets get /kafka/kafka-secret --json | jq -r .value | jq
     ```
 
-   **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you're in `strict` mode and HTTP if you are in `permissive` mode. If the URL begins with `https` and you are in `permissive` mode, try [upgrading the Enterprise DC/OS CLI](/docs/1.8/usage/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
+   **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you're in `strict` mode and HTTP if you are in `permissive` mode. If the URL begins with `https` and you are in `permissive` mode, try [upgrading the Enterprise DC/OS CLI](/1.8/usage/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
 
 1. Now that you have stored the private key in the Secret Store, we recommend deleting the private key file from your file system. This will prevent bad actors from using the private key to authenticate to DC/OS.
 
@@ -180,7 +180,7 @@ Next, you need to create a secret associated with the service account that conta
 
 ## About the permissions
 
-The permissions needed vary according to your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security). In `permissive` mode, the HDFS service account does not need any permissions. If you plan to upgrade at some point to `strict` mode, we recommending assigning them the permissions needed in `strict` mode to make the upgrade easier. The permissions will not have any effect until the cluster is in `strict` mode. If you plan to remain in `permissive` mode indefinitely, skip to [Create a config.json file](#create-json).
+The permissions needed vary according to your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security). In `permissive` mode, the HDFS service account does not need any permissions. If you plan to upgrade at some point to `strict` mode, we recommending assigning them the permissions needed in `strict` mode to make the upgrade easier. The permissions will not have any effect until the cluster is in `strict` mode. If you plan to remain in `permissive` mode indefinitely, skip to [Create a config.json file](#create-json).
 
 If you are in `strict` mode or want to be ready to upgrade to `strict` mode, continue to the next section.
 
@@ -188,7 +188,7 @@ If you are in `strict` mode or want to be ready to upgrade to `strict` mode, con
 
 With the following curl commands you can rapidly provision the HDFS service account with the permissions required in `strict` mode. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
 
-**Prerequisite:** If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+**Prerequisite:** If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. In `permissive` mode, issue the following command to add the necessary permission. It may already exist. If so, you'll get an informative message and can continue to the next step. This permission will already exist in `strict` mode. If you're running in `strict` mode, you don't need to issue this command and can skip to the next step.
 

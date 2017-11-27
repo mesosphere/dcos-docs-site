@@ -15,8 +15,8 @@ This tutorial will get you up and running in minutes with Spark. You will instal
 
 **Prerequisites:**
 
--  [DC/OS and DC/OS CLI installed](/docs/1.9/installing/) with a minimum of three agent nodes with eight GB of memory and ten GB of disk available on each agent.
--  Depending on your [security mode](/docs/1.9/overview/security/security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
+-  [DC/OS and DC/OS CLI installed](/1.9/installing/) with a minimum of three agent nodes with eight GB of memory and ten GB of disk available on each agent.
+-  Depending on your [security mode](/1.9/overview/security/security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
 
    | Security mode | Service Account |
    |---------------|-----------------------|

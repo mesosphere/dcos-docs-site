@@ -19,10 +19,10 @@ The release notes provide a list of useful topics and links for DC/OS.
 - [Minor Releases](#minor)
 
 # <a name="breaking"></a>Breaking Changes
-- Removed `/marathon` endpoint on masters in favor of `/service/marathon`. Services such as [Marathon-LB](/docs/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/) now require a JSON WebToken to access the Marathon API. For more information, see the [documentation](/docs/1.8/administration/id-and-access-mgt/service-auth/).
-- Manual modifications of Admin Router config are no longer supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/docs/1.8/administration/tls-ssl/ent/haproxy-adminrouter/).
-- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/docs/1.8/administration/installing/custom/system-requirements/).
-- When upgrading from 1.7 to 1.8, you must upgrade all master nodes before proceeding. The master nodes will be unusable until upgrade completes. This changed behavior is because we have upgraded the ZooKeeper security. For more information, see the [documentation](/docs/1.8/administration/upgrading/).
+- Removed `/marathon` endpoint on masters in favor of `/service/marathon`. Services such as [Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/) now require a JSON WebToken to access the Marathon API. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
+- Manual modifications of Admin Router config are no longer supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/1.8/administration/tls-ssl/ent/haproxy-adminrouter/).
+- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/1.8/administration/installing/custom/system-requirements/).
+- When upgrading from 1.7 to 1.8, you must upgrade all master nodes before proceeding. The master nodes will be unusable until upgrade completes. This changed behavior is because we have upgraded the ZooKeeper security. For more information, see the [documentation](/1.8/administration/upgrading/).
 
 # <a name="whats-new"></a>What's New
 
@@ -32,16 +32,16 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 ## Container Orchestration
 #### Services ("Built-In" Marathon)
-Marathon is not just one container orchestrator out of many that we support; it is our default way to run things on DC/OS, supporting the full range of DC/OS features. In this release we'll have a major change in the Services tab in DC/OS. The native DC/OS Marathon instance UI is now fully integrated with the DC/OS UI. You can access it from the [**Services**](/docs/1.8/usage/webinterface/) tab on the DC/OS UI. The new fully integrated UI no longer shows a list of frameworks, but shows an embedded Marathon. This means that all of your services and applications are in one place.
+Marathon is not just one container orchestrator out of many that we support; it is our default way to run things on DC/OS, supporting the full range of DC/OS features. In this release we'll have a major change in the Services tab in DC/OS. The native DC/OS Marathon instance UI is now fully integrated with the DC/OS UI. You can access it from the [**Services**](/1.8/usage/webinterface/) tab on the DC/OS UI. The new fully integrated UI no longer shows a list of frameworks, but shows an embedded Marathon. This means that all of your services and applications are in one place.
 
-For more information, see the [documentation](/docs/1.8/usage/webinterface/#services).
+For more information, see the [documentation](/1.8/usage/webinterface/#services).
 
 #### Jobs - Ability to run scheduled jobs on DC/OS [maturity-badge status='preview']
-There is now built-in support of running scheduled jobs. We created a new Apache Mesos framework called [Metronome](https://github.com/dcos/metronome). Metronome is integrated natively with DC/OS and is available from the [**Jobs**](/docs/1.8/usage/webinterface/) tab on the DC/OS UI. You can create and administer scheduled jobs directly from the Jobs tab. Similar to the Services tab for long-running applications, you can manage all of your Jobs from one centralized place. You can set up jobs with a scheduler by using the cron format.
+There is now built-in support of running scheduled jobs. We created a new Apache Mesos framework called [Metronome](https://github.com/dcos/metronome). Metronome is integrated natively with DC/OS and is available from the [**Jobs**](/1.8/usage/webinterface/) tab on the DC/OS UI. You can create and administer scheduled jobs directly from the Jobs tab. Similar to the Services tab for long-running applications, you can manage all of your Jobs from one centralized place. You can set up jobs with a scheduler by using the cron format.
 
 Additionally, you can specify attributes like the time zone or a starting deadline. We also have a JSON view mode which allows you to specify everything in one file to easily copy and paste it. We will constantly improve and extend the given functionality. Metronome will likely replace Chronos as our DC/OS job framework. If you still need Chronos, you can get it from the DC/OS [Universe](https://github.com/mesosphere/universe). 
 
-For more information, see the [documentation](/docs/1.8/usage/jobs/).
+For more information, see the [documentation](/1.8/usage/jobs/).
 
 ## DC/OS Universal container runtime [maturity-badge status='experimental']
 The Universal container runtime extends the Mesos containerizer to support provisioning Docker and AppC container images. This means that you can use both the Mesos containerizer and other container image types in DC/OS. You can still use the Docker container runtime directly with DC/OS, but the Universal container runtime supports running Docker images independent of the Docker Engine, which allows for better integration with Mesos.
@@ -55,7 +55,7 @@ The Universal container runtime offers the following advantages:
 
 **Note**: The Universal container runtime is in the experimental phase. We encourage you to try it out and [let us know what you think](https://dcos.io/community/).
 
-For more information, see the [documentation](/docs/1.8/usage/containerizers/).
+For more information, see the [documentation](/1.8/usage/containerizers/).
 
 ## Networking Services
 
@@ -64,29 +64,29 @@ For more information, see the [documentation](/docs/1.8/usage/containerizers/).
 #### IP per Container with VxLAN based Virtual Networks  [maturity-badge status='preview']
 DC/OS comes with built-in support for Virtual Networks leveraging the Container Network Interface (CNI) standard, and one default Virtual Network named `dcos`. Any container that attaches to a Virtual Network receives its own dedicated IP. This allows users to run workloads that are not friendly to dynamically assigned ports and would rather bind to the ports in their existing app configuration. Now, with dedicated IP/Container, workloads are free to bind to any port as every container has access to the entire available port range.
 
-For more information, see the [documentation](/docs/1.8/administration/virtual-networks/ip-per-container/).
+For more information, see the [documentation](/1.8/administration/virtual-networks/ip-per-container/).
 
 #### DNS Based Service Addresses for Load Balanced Virtual IPs  [maturity-badge status='preview']
 DC/OS 1.8 introduces DNS Named Service Addresses for VIPs. With DNS Named VIPs, clients connect with a service address instead of an IP address. Due to the way DNS Named VIPs are generated in DC/OS, the risk of collision associated with IP VIPs does not exist. This means that administrators do not need to carefully manage DNS Named VIPs to avoid collision. This also means DNS Named VIPs can be automatically created at the time of service installation. 
 
-For more information, see the [documentation](/docs/1.8/usage/service-discovery/load-balancing-vips/name-based-vips/).
+For more information, see the [documentation](/1.8/usage/service-discovery/load-balancing-vips/name-based-vips/).
 
 #### Network Isolation of Virtual Network Subnets  [maturity-badge status='experimental']
 DC/OS now supports the creation of multiple virtual networks at install time and will associate non-overlapping subnets with each of the virtual networks. Further, DC/OS users can program Network Isolation rules across DC/OS agent nodes to ensure that traffic across Virtual Network subnets is isolated.
 
-For more information, see the [documentation](/docs/1.8/administration/virtual-networks/).
+For more information, see the [documentation](/1.8/administration/virtual-networks/).
 
 ## CLI
 #### Binary CLIs for Linux, Windows, and Mac
 Installing the DC/OS CLI is easier than ever. We’ve replaced the install script with a simple binary CLI.
 
-For more information, see the [documentation](/docs/1.8/usage/cli/install/).
+For more information, see the [documentation](/1.8/usage/cli/install/).
 
 #### Download CLI binaries from DC/OS UI 
-Download the CLI binaries directly from the DC/OS UI. For more information, see the [documentation](/docs/1.8/usage/webinterface/).
+Download the CLI binaries directly from the DC/OS UI. For more information, see the [documentation](/1.8/usage/webinterface/).
     
 ## Package Management Service [maturity-badge status='preview']
-Easy to deploy offline Universe. For more information, see the [documentation](/docs/1.8/administration/installing/deploying-a-local-dcos-universe/).
+Easy to deploy offline Universe. For more information, see the [documentation](/1.8/administration/installing/deploying-a-local-dcos-universe/).
 
 ## Security and Governance Services
 
@@ -96,23 +96,23 @@ Easy to deploy offline Universe. For more information, see the [documentation](/
 
 
 #### Secrets management service (Enterprise Only)  [maturity-badge status='preview']
-Secure important values like private keys, credentials, and database passwords. For more information, see the [documentation](/docs/1.8/administration/secrets/).
+Secure important values like private keys, credentials, and database passwords. For more information, see the [documentation](/1.8/administration/secrets/).
 
 #### SSO with SAML/OpenID Connect (Enterprise Only)  [maturity-badge status='experimental']
 Enterprise DC/OS integrates Identity Providers that support LDAP v3 Interface (including Microsoft Active Directory) and SAML based identity providers such that you can import users external to DC/OS from your existing User Directory and manage authorization on those users and user groups within DC/OS.
 
-For more information, see the [documentation](/docs/1.8/administration/id-and-access-mgt/sso/).
+For more information, see the [documentation](/1.8/administration/id-and-access-mgt/sso/).
 
 #### Cluster-wide encryption with PKI using built-in CA (Enterprise Only)  [maturity-badge status='preview']
 Enterprise DC/OS is designed to run securely on-premises and in the cloud. To ensure cluster security, Enterprise DC/OS supports encrypted communication between DC/OS system components. This is achieved by ensuring that DC/OS runs with a Certificate Authority that issues CA certificates (`CA.crt`) for each system component on the masters and agents installed  at bootstrap time. This mechanism ensures all communication between the various services within DC/OS cluster are over secure SSL/TLS channels.
 
-For more information, see the [documentation](/docs/1.8/administration/tls-ssl/ent/).
+For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
 
 #### Service Accounts for secure service mutual authentication (Enterprise Only)  [maturity-badge status='preview']
-Enterprise DC/OS supports the authentication of services to the Mesos master. For more information, see the [documentation](/docs/1.8/administration/id-and-access-mgt/service-auth/).
+Enterprise DC/OS supports the authentication of services to the Mesos master. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
 
 #### Comprehensive intra-cluster authentication and authorization controls (Mesos, Marathon, ZooKeeper) (Enterprise Only)  [maturity-badge status='preview']
-Enterprise DC/OS can be configured to enable or require TLS/SSL encryption. For more information, see the [documentation](/docs/1.8/administration/tls-ssl/ent/).
+Enterprise DC/OS can be configured to enable or require TLS/SSL encryption. For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
 
 #### Fine-grained container level authorization controls to set-up a secure multi business group cluster access (Enterprise Only)  [maturity-badge status='preview']
 Enterprise DC/OS supports fine-grained workload isolation to enable multiple business groups within an organization to run containers and workloads within a shared cluster but still be guaranteed that there is security isolation in addition to the performance isolation provided by Linux cgroups between different workloads. Workload security isolation is performed by DC/OS Authorization modules on every node that make checks against the DC/OS IAM Service to verify that each user/service is authorized to perform each requested action.
@@ -121,12 +121,12 @@ Enterprise DC/OS supports fine-grained workload isolation to enable multiple bus
 - Marathon HTTP Authentication and Authorization
 - ZooKeeper Authentication and Authorization
 
-For more information, see the [documentation](/docs/1.8/administration/id-and-access-mgt/permissions/).
+For more information, see the [documentation](/1.8/administration/id-and-access-mgt/permissions/).
 
 #### Search/Bind and Client Certificate based authentication for LDAP/AD (Enterprise Only)  [maturity-badge status='preview']
 If your organization has user records stored in a directory server supporting LDAP, you can configure Enterprise DC/OS to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS. 
 
-For more information, see the [documentation](/docs/1.8/administration/id-and-access-mgt/ldap/).
+For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ldap/).
 
 #### Identity and Access Management Service (Enterprise Only) 
 Enterprise DC/OS includes a built-in Identity and Access Management (IAM) Service that allows our users to create Users and Groups and assign various Authorization permissions to each user and group. Enterprise DC/OS supports following types of Users and Groups:
@@ -141,12 +141,12 @@ Enterprise DC/OS includes a built-in Identity and Access Management (IAM) Servic
 
 Enterprise DC/OS IAM Service also includes support for authorization controls that can be assigned to each of the above accounts. As of DC/OS 1.8, users/services can be given specific permissions in the form "‘Subject’ can perform ‘Action’ on ‘Object’" where ‘Object’ can be an API endpoint to a particular DC/OS Service to a Marathon Application group and ‘Action’ enumerates the set of actions that are possible on the Object such as “Create, Read, Update or Delete”.
 
-For more information, see the [documentation](/docs/1.8/administration/id-and-access-mgt/).
+For more information, see the [documentation](/1.8/administration/id-and-access-mgt/).
 
     
 <!-- ## Cloud Installation
-- Advanced AWS and Azure Templates. For more information, see the [documentation](/docs/1.8/administration/installing/cloud/)
-- Auto Scaling for AWS, including GovCloud. For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/). -->
+- Advanced AWS and Azure Templates. For more information, see the [documentation](/1.8/administration/installing/cloud/)
+- Auto Scaling for AWS, including GovCloud. For more information, see the [documentation](/1.8/administration/installing/cloud/aws/). -->
 
 ## DC/OS Data services
 - Scheduler authentication for all services. (Enterprise Only)<!-- [Documentation]() -->
@@ -192,8 +192,8 @@ For more information, see the [documentation](/service-docs/spark/).
 
 ## Enhanced Cloud Templates
 
-- [maturity-badge status='preview'] You can use customized Amazon Machine Images (AMI) based on CentOS 7 or CoreOS to launch DC/OS with the advanced templates. For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/advanced/aws-ami/).
-- You can create custom advanced templates for DC/OS and then deploy and run DC/OS from your own private S3 bucket. For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/advanced/).
+- [maturity-badge status='preview'] You can use customized Amazon Machine Images (AMI) based on CentOS 7 or CoreOS to launch DC/OS with the advanced templates. For more information, see the [documentation](/1.8/administration/installing/cloud/aws/advanced/aws-ami/).
+- You can create custom advanced templates for DC/OS and then deploy and run DC/OS from your own private S3 bucket. For more information, see the [documentation](/1.8/administration/installing/cloud/aws/advanced/).
 
 ## Improved UI & CLI improvements
 - See the CLI [release notes](https://github.com/dcos/dcos-cli/releases).
@@ -308,7 +308,7 @@ For more information, see the [documentation](/service-docs/spark/).
 
 ### Known issues and limitations:
 - DCOS-11000 - ZooKeeper data is destroyed when the storage backend is lost.
-- DCOS-11404 - Unable to resolve `.mesos` domains for a short time period during upgrades from DC/OS 1.7 to 1.8. For more information, see the [documentation](/docs/1.8/administration/upgrading/).
+- DCOS-11404 - Unable to resolve `.mesos` domains for a short time period during upgrades from DC/OS 1.7 to 1.8. For more information, see the [documentation](/1.8/administration/upgrading/).
 
 ## <a name="1-8-6"></a>1.8.6 - Oct 19, 2016
 
@@ -324,12 +324,12 @@ For more information, see the [documentation](/service-docs/spark/).
 ### Fixed issues:
 - CORE-632 - Fixes for logrotation in Mesos. 
 - DCOS-10057 - Destroy services button in the DC/OS UI no longer hangs when users do not have correct permissions.  
-- DCOS-9165 - Strict security mode is now supported. For more information, see [documentation](/docs/1.8/administration/installing/custom/configuration-parameters/#security). (Enterprise Only)
+- DCOS-9165 - Strict security mode is now supported. For more information, see [documentation](/1.8/administration/installing/custom/configuration-parameters/#security). (Enterprise Only)
 - DCOS-9430 - A JWT is no longer required to access the Mesos HTTP API in `permissive` security mode. (Enterprise Only)
 - DCOS-9805 - DC/OS GUI: user/group deletion may "freeze" the GUI.
 - DCOS-9966 - Improved error messages are printed for NTP service startup check.
 - DCOS-10203 - All `/service` endpoints become inaccessible 5 days after cluster install. 
-- HTTP Proxy is now fixed. For more information, see the [documentation](/docs/1.8/administration/installing/custom/configure-proxy/). 
+- HTTP Proxy is now fixed. For more information, see the [documentation](/1.8/administration/installing/custom/configure-proxy/). 
 
 ### Known issues and limitations:
 - DCOS-9705 - Marathon authn/z is still enabled in security-disabled mode.
@@ -339,10 +339,10 @@ For more information, see the [documentation](/service-docs/spark/).
 
 ### New and changed features:
 - DCOS-9173 - The upgrade documentation is updated with instructions for workaround. (Enterprise Only)
-- New simplified hashed-password procedure for custom installation. For more information, see the [documentation](/docs/1.8/administration/installing/custom/cli/). (Enterprise Only)
+- New simplified hashed-password procedure for custom installation. For more information, see the [documentation](/1.8/administration/installing/custom/cli/). (Enterprise Only)
 - DCOS-8848 - Experimental support for unified containerizer in DC/OS.
-- DOCS-1113 - `dcos jobs` command is now available in the CLI. For more information, see the [documentation](/docs/1.8/usage/cli/command-reference/).
-- DCOS-9029 - You can now administer Enterprise DC/OS security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/docs/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/). 
+- DOCS-1113 - `dcos jobs` command is now available in the CLI. For more information, see the [documentation](/1.8/usage/cli/command-reference/).
+- DCOS-9029 - You can now administer Enterprise DC/OS security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/). 
 - DCOS-9166 - You can now install DC/OS in security disabled mode. (Enterprise Only)
 
 ### Fixed issues:
@@ -370,7 +370,7 @@ For more information, see the [documentation](/service-docs/spark/).
 - DCOS-9665 - Support for Enterprise DC/OS Azure templates is coming soon. (Enterprise Only)
 - DCOS-8889 - Certificates are removed from the DC/OS UI for scalability. (Enterprise Only)
 - DCOS-9277 - Disabled HTTP2 in Admin Router. (Enterprise Only)
-- DCOS-4298 - Time synchronization of hosts is now required. For more information, see the [system requirements](/docs/1.8/administration/installing/custom/system-requirements/#port-and-protocol).(Enterprise Only)
+- DCOS-4298 - Time synchronization of hosts is now required. For more information, see the [system requirements](/1.8/administration/installing/custom/system-requirements/#port-and-protocol).(Enterprise Only)
 - DCOS-9783 - Package service broken with `java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty`. The workaround is to restart the Package service (`dcos-cosmos.service`).
 - DCOS-9804 - The Enterprise DC/OS CLI returns a spurious error message: `Failed to execute script dcos-security`.
 
@@ -379,14 +379,14 @@ For more information, see the [documentation](/service-docs/spark/).
 
 ### New and changed features
 
-- You can generate custom AWS Advanced templates from the custom installer file (`dcos_generate_config.ee.sh --aws-cloudformation`) and a configuration file (`config.yaml`). Only a subset of the configuration file options are allowed (e.g. `resolvers` and `exhibitor_backend` cannot be changed). For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/advanced/).
+- You can generate custom AWS Advanced templates from the custom installer file (`dcos_generate_config.ee.sh --aws-cloudformation`) and a configuration file (`config.yaml`). Only a subset of the configuration file options are allowed (e.g. `resolvers` and `exhibitor_backend` cannot be changed). For more information, see the [documentation](/1.8/administration/installing/cloud/aws/advanced/).
 - New version of the Jobs component ([Metronome 0.1.9](https://github.com/dcos/metronome)).
 - To clarify the location of the installed files, the DC/OS installer refers to `genconf/` instead of `/genconf/`.
 - CentOS AMIs are updated to include a fix for a Docker 1.11.2 bug, which caused Docker to not start.
 - DC/OS can now be built using older Docker versions.
 - Mesos-DNS [0.5.3-rc2](https://github.com/mesosphere/mesos-dns/blob/master/CHANGELOG).
 - New custom installer option (`--set-superuser-password-hash`) will append the hashed password directly to `config.yaml`. (Enterprise Only)
-- Now you can now enter a password directly in a prompt. The previous methods (`--set-superuser-password-hash` and `--hash-password`) required you to enter a password on the command line, which meant that it was stored in places such as `~/.bash_history`. For more information, see the [documentation](/docs/1.8/administration/installing/custom/cli/#scrollNav-3). (Enterprise Only)
+- Now you can now enter a password directly in a prompt. The previous methods (`--set-superuser-password-hash` and `--hash-password`) required you to enter a password on the command line, which meant that it was stored in places such as `~/.bash_history`. For more information, see the [documentation](/1.8/administration/installing/custom/cli/#scrollNav-3). (Enterprise Only)
 - Updated DC/OS UI.
 - Marathon 1.3.0-RC6 [release notes](https://github.com/mesosphere/marathon/releases)
 - Updated the DC/OS Diagnostics component (`dcos-3dt.service`) with numerous bug fixes
@@ -429,7 +429,7 @@ For more information, see the [documentation](/service-docs/spark/).
 - Marathon [1.3.0-RC5](https://github.com/mesosphere/marathon/releases)
 - CentOS 7 AMI builder scripts
 - Updated [Cosmos](https://github.com/dcos/cosmos) API for DC/OS services
-- Added a flag to the custom installer, `--cli-telemetry-disabled`, to disable the CLI basic telemetry. For more information, see the [documentation](/docs/1.8/administration/installing/custom/cli/).
+- Added a flag to the custom installer, `--cli-telemetry-disabled`, to disable the CLI basic telemetry. For more information, see the [documentation](/1.8/administration/installing/custom/cli/).
 - Improved handling of `/etc/resolv.conf` around systemd-networkd
 - Moved REX-Ray out of the agent advertised port range
 - The preflight port check is different for masters and agents

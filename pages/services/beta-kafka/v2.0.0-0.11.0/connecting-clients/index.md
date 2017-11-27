@@ -73,9 +73,9 @@ The response, for both the CLI and the REST API is as below.
     "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
   }
 
-This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/docs/1.10/networking/).
+This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/1.10/networking/).
 
-When [the TLS][15] is enabled you can request details for `broker-tls` port. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/docs/1.10/networking/tls-ssl/get-cert/) is required.
+When [the TLS][15] is enabled you can request details for `broker-tls` port. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/1.10/networking/tls-ssl/get-cert/) is required.
 
 # Configuring the Kafka Client Library
 

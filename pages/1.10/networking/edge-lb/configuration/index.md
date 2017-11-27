@@ -12,9 +12,9 @@ enterprise: true
 
 The specification below describes all possible configuration options. The majority of fields have sensible defaults and should be modified with caution. Use the tool at [swagger.io](http://editor.swagger.io/) to render this document in Swagger.
 
-Consult the [Quickstart Guide](/docs/1.10/networking/edge-lb/quickstart) for an example of a real-life Edge-LB configuration.
+Consult the [Quickstart Guide](/1.10/networking/edge-lb/quickstart) for an example of a real-life Edge-LB configuration.
 
-See the [Examples](/docs/1.10/networking/edge-lb/examples) for more common use cases.
+See the [Examples](/1.10/networking/edge-lb/examples) for more common use cases.
 
 ## Edge-LB v0.1.7
 
@@ -569,7 +569,7 @@ A helpful graphical visualization tool for swagger can be found at [editor.swagg
 
 # SSL/TLS certificates
 
-See the [Examples](/docs/1.10/networking/edge-lb/examples#sample-certificates).
+See the [Examples](/1.10/networking/edge-lb/examples#sample-certificates).
 
 # Configuration format FAQ
 

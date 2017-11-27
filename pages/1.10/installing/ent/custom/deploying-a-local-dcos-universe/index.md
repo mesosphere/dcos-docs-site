@@ -15,7 +15,7 @@ enterprise: false
 
 You can install and run DC/OS services on a datacenter without internet access with a local Universe. You can install a local Universe that includes the default packages (easiest), or select your own set of local Universe packages (advanced).
 
-**Important:** This feature is considered [preview](/docs/1.10/overview/feature-maturity/#preview): We might add, change, or delete any functionality as described in this document.
+**Important:** This feature is considered [preview](/1.10/overview/feature-maturity/#preview): We might add, change, or delete any functionality as described in this document.
 
 #### Prerequisites
 

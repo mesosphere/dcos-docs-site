@@ -70,7 +70,7 @@ Clicking the service name opens the Services side panel, which provides CPU, mem
 
 # <a name="jobs"></a>Jobs
 
-The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a schedule in cron format. For more information, see the [documentation](/docs/1.8/usage/jobs/).
+The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a schedule in cron format. For more information, see the [documentation](/1.8/usage/jobs/).
 
 ![Jobs](../img/jobs-ee.png)
 
@@ -90,7 +90,7 @@ Clicking on a node opens the Nodes side panel, which provides CPU, memory, and d
 
 # <a name="network"></a>Network
 
-The Network tab provides information helpful for troubleshooting your virtual networks. You can see which containers are on which network and see their IP addresses. For more information, see the [documentation](/docs/1.8/administration/virtual-networks/ip-per-container/).
+The Network tab provides information helpful for troubleshooting your virtual networks. You can see which containers are on which network and see their IP addresses. For more information, see the [documentation](/1.8/administration/virtual-networks/ip-per-container/).
 
 ![Network](../img/ui-dashboard-network.gif)
 

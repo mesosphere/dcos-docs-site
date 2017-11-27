@@ -16,7 +16,7 @@ You can install and run DC/OS services on a datacenter without internet access w
 
 **Prerequisites:** 
 
-- [DC/OS CLI installed](/docs/1.9/cli/install/).
+- [DC/OS CLI installed](/1.9/cli/install/).
 
 - Logged into the DC/OS CLI via `dcos auth login`. On Enterprise DC/OS, you must be logged in as a user with the `dcos:superuser` permission.
 
@@ -36,7 +36,7 @@ You can install and run DC/OS services on a datacenter without internet access w
     scp dcos-local-universe-registry.service core@<master-IP>:~
     ```
    
-1.  [SSH](/docs/1.9/administering-clusters/sshcluster/) into the master using the following command. Replace `<master-IP>` with the IP address used in the previous commands.
+1.  [SSH](/1.9/administering-clusters/sshcluster/) into the master using the following command. Replace `<master-IP>` with the IP address used in the previous commands.
 
     ```bash
     ssh -A core@<master-IP> 
@@ -115,7 +115,7 @@ You can install and run DC/OS services on a datacenter without internet access w
     scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:~
     ```
      
-1.  [SSH](/docs/1.9/administering-clusters/sshcluster/) into the master that you just copied these files to.
+1.  [SSH](/1.9/administering-clusters/sshcluster/) into the master that you just copied these files to.
 
     ```bash
     ssh -A core@<master_IP>
@@ -194,7 +194,7 @@ You can install and run DC/OS services on a datacenter without internet access w
     dcos package repo add local-universe http://master.mesos:8082/repo
     ```
 
-1.  [SSH into one of your agent nodes.](/docs/1.9/administering-clusters/sshcluster/)
+1.  [SSH into one of your agent nodes.](/1.9/administering-clusters/sshcluster/)
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>

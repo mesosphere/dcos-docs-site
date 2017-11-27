@@ -42,7 +42,7 @@ Each secret must have a name. In addition to a name, you can include a path. Inc
 
 ## About creating secrets
 
-The permissions needed to create a secret vary by interface. To create a secret using the web interface, the `dcos:superuser` permission is required. Creating a secret using the [DC/OS CLI](/docs/1.8/usage/cli/) or the [Secrets API](/docs/1.8/administration/secrets/secrets-api/) requires only the following.
+The permissions needed to create a secret vary by interface. To create a secret using the web interface, the `dcos:superuser` permission is required. Creating a secret using the [DC/OS CLI](/1.8/usage/cli/) or the [Secrets API](/1.8/administration/secrets/secrets-api/) requires only the following.
 
 - **Permission:** <code>dcos:secrets:default:[/<i>path</i>]/<i>name</i></code>
 - **Action:** <code>create</code>
@@ -76,9 +76,9 @@ This procedure describes how to create a secret called `new-secret` inside the `
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/docs/1.8/usage/cli/install/)
+- [DC/OS CLI installed](/1.8/usage/cli/install/)
 
-- If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Using `dcos auth login` log into the CLI as a user with one of the following permissions.
 
@@ -95,7 +95,7 @@ This procedure describes how to create a secret called `new-secret` inside the `
 
 This procedure describes how to create a secret called `new-secret` inside the `developer` path.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/) and the  [Enterprise DC/OS CLI installed](/docs/1.8/usage/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and the  [Enterprise DC/OS CLI installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install).
 
 1. Using `dcos auth login` log into the CLI as a user with one of the following permissions.
 

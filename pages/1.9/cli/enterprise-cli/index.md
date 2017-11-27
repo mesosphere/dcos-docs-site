@@ -15,7 +15,7 @@ A macOS or Linux operating system. Windows is not currently supported.
 
 # <a name="ent-cli-install"></a>Installing the Enterprise DC/OS CLI
 
-**Prerequisite:** The DC/OS CLI must already be [installed](/docs/1.9/cli/install/).
+**Prerequisite:** The DC/OS CLI must already be [installed](/1.9/cli/install/).
 
 **Tip:** The Enterprise DC/OS CLI must be installed from a terminal prompt. You cannot click on the package in the Universe to install it.
 

@@ -38,8 +38,8 @@ dcos marathon app update <app-id> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/docs/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 
-For examples, see the [documentation](/docs/1.9/deploying-services/update-user-service/).
+For examples, see the [documentation](/1.9/deploying-services/update-user-service/).

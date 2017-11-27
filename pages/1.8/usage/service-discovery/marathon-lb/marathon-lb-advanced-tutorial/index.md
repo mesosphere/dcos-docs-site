@@ -17,13 +17,13 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 ## Prerequisites
 
-*   DC/OS installed by using the AWS [cloud templates](/docs/1.8/administration/installing/oss/cloud/aws/) with at least three [private](/docs/1.8/overview/concepts/#private) agent and one [public](/docs/1.8/overview/concepts/#public) agent.
+*   DC/OS installed by using the AWS [cloud templates](/1.8/administration/installing/oss/cloud/aws/) with at least three [private](/1.8/overview/concepts/#private) agent and one [public](/1.8/overview/concepts/#public) agent.
 *   DC/OS CLI [installed][2].
-*   Marathon-LB [installed](/docs/1.8/usage/service-discovery/marathon-lb/usage-ee/).
+*   Marathon-LB [installed](/1.8/usage/service-discovery/marathon-lb/usage-ee/).
 
 ## Deploy an external load balancer with Marathon-LB
 
-1.  Verify that Marathon-LB is working. Find the public IP for your [public node](/docs/1.8/administration/locate-public-agent/) and navigate to `<public-agent-IP>:9090/haproxy?stats`. You will see a statistics report page like this:
+1.  Verify that Marathon-LB is working. Find the public IP for your [public node](/1.8/administration/locate-public-agent/) and navigate to `<public-agent-IP>:9090/haproxy?stats`. You will see a statistics report page like this:
 
     ![lb2](../img/lb2.jpg)
 
@@ -46,7 +46,7 @@ Set up your internal load balancer. To do this, we must first specify some confi
     
     In this options file, we’re changing the name of the app instance and the name of the HAProxy group. The options file also disables the HTTP and HTTPS forwarding on ports 80 and 443 because it is not needed.
 
-1.  [Install](/docs/1.8/usage/service-discovery/marathon-lb/usage-ee/) the internal Marathon-LB instance with the custom options specified.
+1.  [Install](/1.8/usage/service-discovery/marathon-lb/usage-ee/) the internal Marathon-LB instance with the custom options specified.
 
     There are now two Marathon-LB load balancers: 
     
@@ -222,7 +222,7 @@ An important feature of Marathon-LB is support for virtual hosts. This allows yo
 
 To demonstrate the vhost feature:
 
-1.  Find your [public agent IP](/docs/1.8/administration/locate-public-agent/). 
+1.  Find your [public agent IP](/1.8/administration/locate-public-agent/). 
 
 1.  Modify the external NGINX app (`nginx-external.json`) to point to your public agent DNS name. You can modify your app by using the DC/OS CLI or GUI.
 
@@ -265,7 +265,7 @@ To demonstrate the vhost feature:
     
     1.  Enter `HAPROXY_0_VHOST` for **KEY** and specify your public agent DNS name for **VALUE**
     
-        ![Update app](/docs/1.8/usage/service-discovery/marathon-lb/img/nginx-external-gui.png)
+        ![Update app](/1.8/usage/service-discovery/marathon-lb/img/nginx-external-gui.png)
         
     1.  Select **Deploy**.
     

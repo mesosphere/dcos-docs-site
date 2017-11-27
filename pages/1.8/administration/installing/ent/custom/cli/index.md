@@ -20,7 +20,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/docs/1.8/overview/concepts/#zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.8/overview/concepts/#zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -102,7 +102,7 @@ In this step, you create a YAML configuration file that is customized for your e
 
 1.  From your `genconf` directory, create a configuration file and save as `config.yaml`.
     
-    You can use this template to get started. This template specifies three masters, five [private](/docs/1.8/overview/concepts/#private) agents, one [public](/docs/1.8/overview/concepts/#public) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters, descriptions, and configuration examples, see the [documentation][3].
+    You can use this template to get started. This template specifies three masters, five [private](/1.8/overview/concepts/#private) agents, one [public](/1.8/overview/concepts/#public) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters, descriptions, and configuration examples, see the [documentation][3].
     
     **Tip:** If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
     
@@ -143,7 +143,7 @@ In this step, you create a YAML configuration file that is customized for your e
     - '.baz.com'    
     ```
 
-1.  From your home directory, run this command to create a hashed password for superuser [authentication](/docs/1.8/administration/id-and-access-mgt/#superuser). The hashed password is automatically appended to `config.yaml`.
+1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.8/administration/id-and-access-mgt/#superuser). The hashed password is automatically appended to `config.yaml`.
 
     ```bash
     bash dcos_generate_config.ee.sh --set-superuser-password
@@ -183,7 +183,7 @@ In this step, you create a custom DC/OS build file on your bootstrap node and th
 
 **Important:** 
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/docs/1.8/administration/installing/ent/custom/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.8/administration/installing/ent/custom/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster <a href="/docs/1.8/administration/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
 
 To install DC/OS:
@@ -306,7 +306,7 @@ To install DC/OS:
     Starting new HTTPS connection (1): api.segment.io
     ```
     
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/docs/1.8/administration/installing/ent/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/ent/custom/system-requirements/#port-and-protocol).
 
 6.  Monitor Exhibitor and wait for your masters to converge at `http://<master-public-ip>:8181/exhibitor/v1/ui/index.html`.
     
@@ -327,7 +327,7 @@ To install DC/OS:
     ![UI dashboard](../img/dashboard-ee.gif)
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
-It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/docs/1.8/administration/installing/ent/custom/convert-agent-type/) node.
+It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.8/administration/installing/ent/custom/convert-agent-type/) node.
 
 1.  From your bootstrap node, navigate to the `genconf/serve` directory and package the contents as `dcos-install.tar`:
 

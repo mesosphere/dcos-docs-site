@@ -12,7 +12,7 @@ This topic provides all available configuration parameters. Except where explici
 
 | Parameter                              | Description                                                                                                                                               |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [agent_list](#agent_list)                             | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/docs/1.9/overview/concepts/#private-agent-node) host names.                  |
+| [agent_list](#agent_list)                             | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.9/overview/concepts/#private-agent-node) host names.                  |
 | [aws_template_storage_bucket](#aws_template_storage_bucket)            | The name of your S3 bucket.                                                                                                      |
 | [aws_template_storage_bucket_path](#aws_template_storage_bucket_path)       | The S3 bucket storage path.                                                                                                      |
 | [aws_template_upload](#aws_template_upload)                    | Indicates whether to automatically upload the customized advanced templates to your S3 bucket.                                             |
@@ -28,7 +28,7 @@ This topic provides all available configuration parameters. Except where explici
 | [gpus_are_scarce](#gpus_are_scarce)        | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip_detect_public_filename)       | The IP detect file to use in your cluster.  |
 | [master_discovery](#master_discovery)                          | (Required) The Mesos master discovery method.         |
-| [public_agent_list](#public_agent_list)                          | A YAML nested list (-) of IPv4 addresses to your [public agent](/docs/1.9/overview/concepts/#public-agent-node) host names.        |
+| [public_agent_list](#public_agent_list)                          | A YAML nested list (-) of IPv4 addresses to your [public agent](/1.9/overview/concepts/#public-agent-node) host names.        |
 | [platform](#platform)                          | The infrastructure platform.      |
 | [rexray_config](#rexray_config)                          | The [REX-Ray](https://rexray.readthedocs.org/en/v0.3.2/user-guide/config/) configuration method for enabling external persistent volumes in Marathon.    |
 
@@ -74,7 +74,7 @@ This topic provides all available configuration parameters. Except where explici
 | [zk_agent_credentials](#zk_agent_credentials-enterprise-dc-os-only-)               | (Enterprise DC/OS Only) The ZooKeeper agent credentials.                                                                      |
 
 ### agent_list
-A YAML nested list (`-`) of IPv4 addresses to your [private agent](/docs/1.9/overview/concepts/#private-agent-node) host names.
+A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.9/overview/concepts/#private-agent-node) host names.
 
 ### auth_cookie_secure_flag
 
@@ -125,7 +125,7 @@ You can use the following options to further configure the Docker credentials:
     *  `cluster_docker_credentials_enabled: 'true'` Pass the Mesos `--docker_config` option to Mesos. It will point to a file that contains the provided `cluster_docker_credentials` data.
     *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos. 
     
-For more information, see the [examples](/docs/1.9/installing/oss/custom/configuration/examples/#docker-credentials).
+For more information, see the [examples](/1.9/installing/oss/custom/configuration/examples/#docker-credentials).
 
 ### cluster_docker_registry_url
 The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used.
@@ -170,7 +170,7 @@ For more information, see the [security documentation](https://docs.mesosphere.c
 
 Indicates whether to enable DC/OS virtual networks.
 
-**Important:** Virtual networks require Docker version 1.11 or later. If you are using Docker 1.10 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/docs/1.9/installing/oss/custom/system-requirements/).
+**Important:** Virtual networks require Docker version 1.11 or later. If you are using Docker 1.10 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
@@ -198,11 +198,11 @@ Indicates whether to enable DC/OS virtual networks.
             
             **Important:** The last 3 bytes must be `00`.
         *  __overlays__
-            *  `name` The canonical name (see [limitations](/docs/1.9/networking/virtual-networks/) for constraints on naming virtual networks).
+            *  `name` The canonical name (see [limitations](/1.9/networking/virtual-networks/) for constraints on naming virtual networks).
             *  `subnet` The subnet that is allocated to the virtual network.
             *  `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information, see the [example](/docs/1.9/installing/oss/custom/configuration/examples/#overlay) and [documentation](/docs/1.9/networking/virtual-networks/).
+ For more information, see the [example](/1.9/installing/oss/custom/configuration/examples/#overlay) and [documentation](/1.9/networking/virtual-networks/).
  
 ### dns_search
 A space-separated list of domains that are tried when an unqualified domain is entered (e.g., domain searches that do not contain &#8216;.&#8217;). The Linux implementation of `/etc/resolv.conf` restricts the maximum number of domains to 6 and the maximum number of characters the setting can have to 256. For more information, see [man /etc/resolv.conf](http://man7.org/linux/man-pages/man5/resolv.conf.5.html).
@@ -221,8 +221,8 @@ The amount of time to wait before removing stale Docker images stored on the age
 ### enable_docker_gc
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/docs/1.9/installing/oss/cloud/) template installations.
-*  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/docs/1.9/installing/oss/custom/) installations.
+*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.9/installing/oss/cloud/) template installations.
+*  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.9/installing/oss/custom/) installations.
 
 ### exhibitor_storage_backend
 The type of storage backend to use for Exhibitor. You can use internal DC/OS storage (`static`) or specify an external storage system (`zookeeper`, `aws_s3`, and `azure`) for configuring and orchestrating ZooKeeper with Exhibitor on the master nodes. Exhibitor automatically configures your ZooKeeper installation on the master nodes during your DC/OS installation.
@@ -273,13 +273,13 @@ Indicates whether to enable GPU support in DC/OS.
 *  `enable_gpu_isolation: 'true'` Any GPUs that are installed in DC/OS will be automatically discovered and available as consumable resources for DC/OS tasks. This is the default value.
 *  `enable_gpu_isolation: 'false'` GPUs are not available for use in the cluster. 
 
-For more information, see the [GPU documentation](/docs/1.9/deploying-services/gpu/).
+For more information, see the [GPU documentation](/1.9/deploying-services/gpu/).
 
 ### gc_delay
 The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of 2 days.
 
 ### <a name="gpus_are_scarce"></a>gpus_are_scarce
-Indicates whether to treat [GPUs](/docs/1.9/deploying-services/gpu/) as a scarce resource in the cluster. 
+Indicates whether to treat [GPUs](/1.9/deploying-services/gpu/) as a scarce resource in the cluster. 
 
 *  `gpus_are_scarce: 'true'` Treat GPUs as a scarce resource. This reserves the GPUs exclusively for services that opt-in to consume GPUs via the [Mesos `GPU_RESOURCES` framework capability](http://mesos.apache.org/documentation/latest/gpu-support/). This is the default value.
 *  `gpus_are_scarce: 'false'` Treat GPUs like any other resource. GPUs will be offered indiscriminately to all frameworks, regardless of whether they use the [Mesos `GPU_RESOURCES` framework capability](http://mesos.apache.org/documentation/latest/gpu-support/) or not. 
@@ -338,7 +338,7 @@ Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
 If you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.
 
 ### public_agent_list
-A YAML nested list (`-`) of IPv4 addresses to your [public agent](/docs/1.9/overview/concepts/#public-agent-node) host names.
+A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.9/overview/concepts/#public-agent-node) host names.
 
 ### platform
 The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Please supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: `aws`, `azure`, `oneview`, `openstack`, `vsphere`, `vagrant-virtualbox`, `onprem` (default).
@@ -359,7 +359,7 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
     - 8.8.4.4
     - 8.8.8.8
     ```
--  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/docs/1.9/networking/mesos-dns/).
+-  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/1.9/networking/mesos-dns/).
 
 **Caution:** If you set the `resolvers` parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.
 
@@ -378,7 +378,7 @@ The <a href="https://rexray.readthedocs.org/en/v0.3.2/user-guide/config/" target
           unmount:
             ignoreusedcount: true
 
-See the external persistent volumes [documentation](/docs/1.9/storage/external-storage/) for information on how to create your configuration.
+See the external persistent volumes [documentation](/1.9/storage/external-storage/) for information on how to create your configuration.
 
 ### security (Enterprise DC/OS Only)
 Use this parameter to specify a security mode other than `security: permissive` (the default). The possible values follow.
@@ -416,8 +416,8 @@ If you’ve already installed your cluster and would like to disable this in-pla
 
 Indicates whether to enable the DC/OS proxy. 
 
-*  `use_proxy: 'false'` Do not configure DC/OS [components](/docs/1.9/overview/architecture/components/) to use a custom proxy. This is the default value.
-*  `use_proxy: 'true'` Configure DC/OS [components](/docs/1.9/overview/architecture/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
+*  `use_proxy: 'false'` Do not configure DC/OS [components](/1.9/overview/architecture/components/) to use a custom proxy. This is the default value.
+*  `use_proxy: 'true'` Configure DC/OS [components](/1.9/overview/architecture/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
     **Important:** The specified proxies must be resolvable from the provided list of [resolvers](#resolvers).
     *  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` The HTTP proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.

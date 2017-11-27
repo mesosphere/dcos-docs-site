@@ -41,4 +41,4 @@ Requests to the `/auth/login` resource require a DC/OS user name and password in
 
 ## API reference
 
-[api-explorer api='/docs/1.7/api/iam.json']
+[swagger api='/docs/1.7/api/iam.json']

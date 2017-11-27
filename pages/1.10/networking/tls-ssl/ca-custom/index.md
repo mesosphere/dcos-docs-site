@@ -16,7 +16,7 @@ The benefits of using a custom CA certificate for your Enterprise DC/OS cluster 
 - Controlling security properties of the key pair (such as type and strength) used for signing DC/OS component certificates.
 - Ensuring that all DC/OS components (including Admin Router) present browser-trusted certificates.
 
-Custom CA certificate support is enabled by three install time [configuration parameters](/docs/1.10/installing/ent/custom/configuration/#ca_certificate_path):
+Custom CA certificate support is enabled by three install time [configuration parameters](/1.10/installing/ent/custom/configuration/#ca_certificate_path):
 - `ca_certificate_path`
 - `ca_certificate_key_path`
 - `ca_certificate_chain_path`
@@ -28,5 +28,5 @@ Custom CA certificate support is enabled by three install time [configuration pa
 
 # Procedure
 
-1. Using a [custom setup file and the CLI or advanced installer](/docs/1.10/installing), provide the paths to the custom CA certificate, corresponding private key, and optionally corresponding intermediate CA certificates and/or a root CA certificate as part of the chain. All files must be placed in `genconf` directory in the home directory of your bootstrap node. The installer verifies the data.
+1. Using a [custom setup file and the CLI or advanced installer](/1.10/installing), provide the paths to the custom CA certificate, corresponding private key, and optionally corresponding intermediate CA certificates and/or a root CA certificate as part of the chain. All files must be placed in `genconf` directory in the home directory of your bootstrap node. The installer verifies the data.
 1. Before installing DC/OS to all nodes, place the private key file corresponding to the custom CA certificate specified in `ca_certificate_key_path` securely on all master nodes in `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`. The file must be readable by the root user and have 0600 permissions set.

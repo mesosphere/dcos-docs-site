@@ -144,7 +144,7 @@ In this step you create a YAML configuration file that is customized for your en
 
 2.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started.
     
-    The template specifies 3 Mesos masters, static master discovery list, internal storage backend for Exhibitor, and Google DNS resolvers. If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/docs/1.7/administration/installing/ent/custom/configuration-parameters/).
+    The template specifies 3 Mesos masters, static master discovery list, internal storage backend for Exhibitor, and Google DNS resolvers. If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/1.7/administration/installing/ent/custom/configuration-parameters/).
     
         bootstrap_url: http://<bootstrap_ip>:80      
         cluster_name: '<cluster-name>'

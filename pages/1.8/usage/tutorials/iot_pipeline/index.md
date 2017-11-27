@@ -36,12 +36,12 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 **Prerequisites:**
 
-*  [DC/OS](/docs/docs/1.8/administration/installing/oss/) installed with at least 5 [private agents][6] and 1 [public agent][6].
-*  [DC/OS CLI](/docs/docs/1.8/usage/cli/install/) installed.
+*  [DC/OS](/1.8/administration/installing/oss/) installed with at least 5 [private agents][6] and 1 [public agent][6].
+*  [DC/OS CLI](/1.8/usage/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 
 ## Install the DC/OS services you'll need
-From the DC/OS web interface [**Universe**](/docs/docs/1.8/usage/webinterface/#universe) tab, install Cassandra, Kafka, Marathon-LB, and Zeppelin.
+From the DC/OS web interface [**Universe**](/1.8/usage/webinterface/#universe) tab, install Cassandra, Kafka, Marathon-LB, and Zeppelin.
 
 __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
@@ -126,10 +126,10 @@ The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address 
 
 **Prerequisites:**
 
-*  Enterprise DC/OS is [installed](/docs/1.8/administration/installing/ent/) with:
-    - Security [mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
+*  Enterprise DC/OS is [installed](/1.8/administration/installing/ent/) with:
+    - Security [mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
-*  [DC/OS CLI](/docs/1.8/usage/cli/install/) installed.
+*  [DC/OS CLI](/1.8/usage/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:
     *   **OS X:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
@@ -137,21 +137,21 @@ The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address 
 
 ## Install the DC/OS services you'll need
 
-From the DC/OS web interface [**Universe**](/docs/1.8/usage/webinterface/#universe) tab, install Cassandra, Kafka, and Zeppelin. 
+From the DC/OS web interface [**Universe**](/1.8/usage/webinterface/#universe) tab, install Cassandra, Kafka, and Zeppelin. 
 
 __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
 1.  Find the **cassandra** package and click the **Install** button and accept the default installation. Cassandra will spin up to at least 3 nodes. 
-    ![Cassandra](/docs/1.8/usage/tutorials/img/tweeter-services1.png)
+    ![Cassandra](/1.8/usage/tutorials/img/tweeter-services1.png)
 1.  Find the **kafka** package and click the **Install** button and accept the default installation. Kafka will spin up 3 brokers.
-    ![Kafka](/docs/1.8/usage/tutorials/img/tweeter-services2.png)
+    ![Kafka](/1.8/usage/tutorials/img/tweeter-services2.png)
 1.  Install Zeppelin.
     1.  Find the **zeppelin** package and click the **Install** button and then choose the **Advanced Installation** option. 
-        ![Zeppelin](/docs/1.8/usage/tutorials/img/tweeter-services3.png)
+        ![Zeppelin](/1.8/usage/tutorials/img/tweeter-services3.png)
     1.  Click the **spark** tab and set `cores_max` to `8`. 
-        ![Zeppelin](/docs/1.8/usage/tutorials/img/tweeter-services4.png)
+        ![Zeppelin](/1.8/usage/tutorials/img/tweeter-services4.png)
     1.  Click **Review and Install** and **Install** to complete your installation.
-        ![Zeppelin](/docs/1.8/usage/tutorials/img/tweeter-services5.png)
+        ![Zeppelin](/1.8/usage/tutorials/img/tweeter-services5.png)
 
 1.  Install Marathon-LB by using the DC/OS CLI.
 
@@ -176,9 +176,9 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
            dcos package install dcos-enterprise-cli
            ```
            
-           ![DC/OS CLI](/docs/1.8/usage/tutorials/img/tweeter-cli.png)
+           ![DC/OS CLI](/1.8/usage/tutorials/img/tweeter-cli.png)
    
-   1.  Configure service authentication for [Marathon-LB](/docs/1.8/administration/id-and-access-mgt/service-auth/universe-service-auth/). 
+   1.  Configure service authentication for [Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/universe-service-auth/). 
         
         1.  Create a public-private key pair by using the security CLI.
             
@@ -196,7 +196,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
             
         1.  Create a new service account with the ID `marathon-lb-service-acct` and paste the `public-key.pem` value from the previous step.
             
-            ![Service account UI](/docs/1.8/usage/tutorials/img/tweeter-service-account1.png)
+            ![Service account UI](/1.8/usage/tutorials/img/tweeter-service-account1.png)
             
             ```bash
             dcos security org service-accounts create -p public-key.pem -d "Marathon-LB service account" marathon-lb-service-acct
@@ -293,7 +293,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
 
 2.  Monitor the Services tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
-    ![Services tab with all services shown.](/docs/1.8/usage/tutorials/img/tweeter-services6.png)
+    ![Services tab with all services shown.](/1.8/usage/tutorials/img/tweeter-services6.png)
         
 **Note:** It can take up to 10 minutes for Cassandra to initialize with DC/OS because of race conditions.
 
@@ -348,7 +348,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 1.  Go to the **Services** tab to verify your app is up and healthy. 
 
-    ![Tweeter deployed](/docs/1.8/usage/tutorials/img/tweeter-services7.png)
+    ![Tweeter deployed](/1.8/usage/tutorials/img/tweeter-services7.png)
 
 1.  Navigate to [public agent][9] node endpoint to see the Tweeter UI and post a tweet!
 
@@ -370,7 +370,7 @@ Deploy the post-tweets containerized app to see DC/OS load balancing in action. 
     *  Refresh your browser to see the incoming Shakespeare tweets.
     *  Click the **Network** tab in the DC/OS web interface to see the load balancing in action.
 
-    ![Tweeter scaled](/docs/1.8/usage/tutorials/img/tweeter-services8.png)
+    ![Tweeter scaled](/1.8/usage/tutorials/img/tweeter-services8.png)
 
 The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition.
 

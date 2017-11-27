@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The [Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need features[ features](/docs/1.10/deploying-services/containerizers/#container-runtime-features) of the Docker runtime. Otherwise, consider using the [Universal Container Runtime](/docs/1.10/deploying-services/containerizers/ucr).
+The [Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need features[ features](/1.10/deploying-services/containerizers/#container-runtime-features) of the Docker runtime. Otherwise, consider using the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr).
 
 # Provision a container with the Docker Engine from the DC/OS web interface
 
@@ -29,7 +29,7 @@ The [Docker Engine](https://www.docker.com/products/docker-engine) launches Dock
 
 # Provision a container with the Docker Engine from the DC/OS CLI
 
-In your [Marathon application definition](/docs/1.10/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `DOCKER`.
+In your [Marathon application definition](/1.10/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `DOCKER`.
 
 ```json
 {  
@@ -48,7 +48,7 @@ In your [Marathon application definition](/docs/1.10/deploying-services/creating
 
 **Important:**   The default entry point is the launch command for the container. If the entry point accepts arguments, you can specify them in the `args` field. If there is no default entry point, you must specify a command in the `cmd` field. It is invalid to supply both `cmd` and `args` for the same app.
 
-For examples, see [Deploying a Docker-based Service](/docs/1.10/deploying-services/creating-services/deploy-docker-app/).
+For examples, see [Deploying a Docker-based Service](/1.10/deploying-services/creating-services/deploy-docker-app/).
 
 # Further Reading
 

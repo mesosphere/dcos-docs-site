@@ -14,7 +14,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 
 - Review the [release notes](https://dcos.io/releases/) before upgrading DC/OS.
 - The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
-- Virtual networks require minimum Docker version 1.11. For more information, see the [documentation](/docs/1.10/networking/virtual-networks/).
+- Virtual networks require minimum Docker version 1.11. For more information, see the [documentation](/1.10/networking/virtual-networks/).
 - The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster. You can monitor the health of a master during an upgrade by watching Exhibitor on port 8181.
 - Task history in the Mesos UI will not persist through the upgrade.
 - The latest version of Marathon-LB is required for 1.10. Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
@@ -36,7 +36,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 - The full DC/OS version string that you are upgrading from.
   - In 1.9, this can be found under the **Cluster** tab.
   - In 1.10, this can be found under the **Overview** tab.
-- Optional: You can add custom [node and cluster healthchecks] (/docs/1.10/installing/oss/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
+- Optional: You can add custom [node and cluster healthchecks] (/1.10/installing/oss/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
 
 ## Supported upgrade paths
 
@@ -53,7 +53,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
     **Important:**
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.10 `config.yaml` differs from that of DC/OS 1.9. <!-- is this still true for 1.9 to 1.10? -->For a detailed description of the 1.10 `config.yaml` syntax and parameters, see the [documentation](/docs/1.10/installing/oss/custom/configuration/configuration-parameters/).
+    *  The syntax of the DC/OS 1.10 `config.yaml` differs from that of DC/OS 1.9. <!-- is this still true for 1.9 to 1.10? -->For a detailed description of the 1.10 `config.yaml` syntax and parameters, see the [documentation](/1.10/installing/oss/custom/configuration/configuration-parameters/).
 
 1.  After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`.  Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 
@@ -123,7 +123,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-If your upgrade fails because of a [custom node or cluster check](/docs/1.10//administering-clusters/backup-and-restore/), run these commands for more details:
+If your upgrade fails because of a [custom node or cluster check](/1.10//administering-clusters/backup-and-restore/), run these commands for more details:
 
 ```bash
 dcos-diagnostics check node-poststart

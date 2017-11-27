@@ -13,7 +13,7 @@ enterprise: false
 
 This topic describes how to configure DC/OS service accounts for Spark.
 
-When running in [DC/OS strict security mode](/docs/1.10/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/docs/1.10/security/ent/service-auth/).
+When running in [DC/OS strict security mode](/1.10/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/1.10/security/ent/service-auth/).
 
 Follow these instructions to [authenticate in strict mode](/service-docs/spark/spark-auth/).
 

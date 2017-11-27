@@ -49,7 +49,7 @@ the following properies:
 * A reload will occur at most once every 10 seconds.
 
 The properties of this reload enable strategies such as
-[Blue/Green Deployment](/docs/1.10/networking/edge-lb/strategies#blue-green-deployment).
+[Blue/Green Deployment](/1.10/networking/edge-lb/strategies#blue-green-deployment).
 
 ## Load Balancer Relaunch Scenario
 

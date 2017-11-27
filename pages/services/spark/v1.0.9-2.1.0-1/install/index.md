@@ -16,7 +16,7 @@ Spark is available in the Universe and can be installed by using either the web 
 ##  <a name="install-enterprise"></a>Prerequisites
 
 - Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/service-docs/spark/spark-auth/) before installing Spark. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](/docs/1.9/installing/custom/configuration-parameters/#security) requires a service account.  
+	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.  
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 
@@ -31,7 +31,7 @@ This command installs the dispatcher, and, optionally, the history server. See [
 Go to the **Services** > **Deployments** tab of the DC/OS web interface to monitor the deployment. Once it is
 complete, visit Spark at `http://<dcos-url>/service/spark/`.
 
-You can also [install Spark via the DC/OS web interface](/docs/1.9/usage/webinterface/#universe).
+You can also [install Spark via the DC/OS web interface](/1.9/usage/webinterface/#universe).
 
 **Note:** If you install Spark via the web interface, run the following command from the DC/OS CLI to install the Spark CLI:
 

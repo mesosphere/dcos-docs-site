@@ -13,17 +13,17 @@ enterprise: false
 
 This section describes the developer-specific DC/OS components, explaining what is necessary to package and provide your own service on DC/OS.
 
-The Mesosphere Datacenter Operating System (DC/OS) provides the optimal user experience possible for orchestrating and managing a datacenter. If you are an Apache Mesos developer, you are already familiar with developing a framework. DC/OS extends Apache Mesos by including a web interface for health checks and monitoring, a command-line, a service packaging description, and a [repository](/docs/1.8/usage/repo/) that catalogs those packages.
+The Mesosphere Datacenter Operating System (DC/OS) provides the optimal user experience possible for orchestrating and managing a datacenter. If you are an Apache Mesos developer, you are already familiar with developing a framework. DC/OS extends Apache Mesos by including a web interface for health checks and monitoring, a command-line, a service packaging description, and a [repository](/1.8/usage/repo/) that catalogs those packages.
 
 # <a name="universe"></a>Package Repositories
 
 The DC/OS Universe contains all of the services that are installable on DC/OS. For more information on DC/OS Universe, see the [GitHub Universe repository](https://github.com/mesosphere/universe).
 
-All packaged services are required to meet a certain standard as defined by Mesosphere. For details on submitting a DC/OS service, see [Contributing a package](/docs/1.8/development/create-package/).
+All packaged services are required to meet a certain standard as defined by Mesosphere. For details on submitting a DC/OS service, see [Contributing a package](/1.8/development/create-package/).
 
 # <a name="adminrouter"></a>Admin Router and web interface integration
 
-By default, a DC/OS service is deployed on a [private agent node](/docs/1.8/overview/concepts/#private-agent-node). To allow configuration control or monitoring of a service by a user, the Admin Router proxies calls on the master node to the service in a private node on the cluster. The HTTP service endpoint requires relative paths for artifacts and resources. The service endpoint can provide a web interface, a RESTful endpoint, or both. When creating a DC/OS CLI subcommand, it is common to have a RESTful endpoint to communicate with the scheduler service.
+By default, a DC/OS service is deployed on a [private agent node](/1.8/overview/concepts/#private-agent-node). To allow configuration control or monitoring of a service by a user, the Admin Router proxies calls on the master node to the service in a private node on the cluster. The HTTP service endpoint requires relative paths for artifacts and resources. The service endpoint can provide a web interface, a RESTful endpoint, or both. When creating a DC/OS CLI subcommand, it is common to have a RESTful endpoint to communicate with the scheduler service.
 
 The integration to the Admin Router is automatic when a framework scheduler registers a `webui_url` during the registration process with the Mesos master. There are a couple of limitations:
 
@@ -60,7 +60,7 @@ Service health check information is provided from the DC/OS service tab when:
           "framework": true
         
 
-You can provide public access to your service through the Admin Router or by deploying your own proxy or router to the public agent node. It is recommend to use the Admin Router for scheduler configuration and control, allowing integration with the DC/OS web interface. You can also provide a [CLI subcommand](/docs/1.8/development/cli-spec/) for command-line control of a RESTful service endpoint for the scheduler.
+You can provide public access to your service through the Admin Router or by deploying your own proxy or router to the public agent node. It is recommend to use the Admin Router for scheduler configuration and control, allowing integration with the DC/OS web interface. You can also provide a [CLI subcommand](/1.8/development/cli-spec/) for command-line control of a RESTful service endpoint for the scheduler.
 
 # DC/OS service structure
 
@@ -73,4 +73,4 @@ Each DC/OS service in the Universe repo is comprised of JSON configuration files
 | `package.json`          | Specifies the high level metadata about the package.                                                     | Yes      |
 | `resource.json`          | Specifies all of the required externally hosted resources (e.g. Docker images, HTTP objects and images). | No       |
 
-For more information, see the [Creating a Universe Package](/docs/1.8/development/create-package/).
+For more information, see the [Creating a Universe Package](/1.8/development/create-package/).

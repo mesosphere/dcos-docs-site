@@ -23,7 +23,7 @@ DC/OS is composed of many open source microservice components meticulously tuned
 
 Mesosphere Enterprise DC/OS includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
 
-![Mesosphere Enterprise DC/OS Components](/docs/1.10/img/dcos-enterprise-components-1.9.png)
+![Mesosphere Enterprise DC/OS Components](/1.10/img/dcos-enterprise-components-1.9.png)
 
 From the top, DC/OS is a batteries-included container platform that handles container orchestration, package management, and security.
 
@@ -735,7 +735,7 @@ To see the full list of packages managed by the DC/OS installer, see the [packag
 
 # Systemd Services
 
-Most DC/OS components run as [systemd services](/docs/1.10/overview/concepts/#systemd-service) on the DC/OS nodes.
+Most DC/OS components run as [systemd services](/1.10/overview/concepts/#systemd-service) on the DC/OS nodes.
 
 To see a list of the systemd components running on any particular node, list the contents of the `/etc/systemd/system/dcos.target.wants/` directory or execute `systemctl | grep dcos-` to see their current status.
 

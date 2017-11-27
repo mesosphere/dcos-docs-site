@@ -72,7 +72,7 @@ Clicking on a node opens the Nodes side panel, which provides CPU, memory, and d
 
 # <a name="network"></a>Network
 
-The Network page provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/docs/1.7/usage/service-discovery/virtual-ip-addresses/#networking).
+The Network page provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/1.7/usage/service-discovery/virtual-ip-addresses/#networking).
 
 ![UI Network](/assets/images/network-2.png)
 

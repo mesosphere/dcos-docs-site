@@ -37,7 +37,7 @@ dcos config
 
 | Command | Description |
 |---------|-------------|
-| [dcos config set](/docs/1.9/cli/command-reference/dcos-config/dcos-config-set/)   | Add or set a DC/OS configuration property. |  
-| [dcos config show](/docs/1.9/cli/command-reference/dcos-config/dcos-config-show/)    | Print the DC/OS configuration file contents. |  
-| [dcos config unset](/docs/1.9/cli/command-reference/dcos-config/dcos-config-unset/)    | Remove a property from the configuration file. |  
-| [dcos config validate](/docs/1.9/cli/command-reference/dcos-config/dcos-config-validate/)    | Validate changes to the configuration file. |  
+| [dcos config set](/1.9/cli/command-reference/dcos-config/dcos-config-set/)   | Add or set a DC/OS configuration property. |  
+| [dcos config show](/1.9/cli/command-reference/dcos-config/dcos-config-show/)    | Print the DC/OS configuration file contents. |  
+| [dcos config unset](/1.9/cli/command-reference/dcos-config/dcos-config-unset/)    | Remove a property from the configuration file. |  
+| [dcos config validate](/1.9/cli/command-reference/dcos-config/dcos-config-validate/)    | Validate changes to the configuration file. |  

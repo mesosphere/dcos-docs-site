@@ -13,18 +13,18 @@ enterprise: false
 
 You can add agent nodes to an existing DC/OS cluster. 
 
-Agent nodes are designated as [public](/docs/1.8/overview/concepts/#public) or [private](/docs/1.8/overview/concepts/#private) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
+Agent nodes are designated as [public](/1.8/overview/concepts/#public) or [private](/1.8/overview/concepts/#private) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
 
 ### Prerequisites:
 
-*   DC/OS is installed using the [custom](/docs/1.8/administration/installing/ent/custom/) installation method.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/docs/1.8/administration/installing/ent/custom/gui/#backup).
-*   Available agent nodes that satisfy the [system requirements](/docs/1.8/administration/installing/ent/custom/system-requirements/).
+*   DC/OS is installed using the [custom](/1.8/administration/installing/ent/custom/) installation method.
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.8/administration/installing/ent/custom/gui/#backup).
+*   Available agent nodes that satisfy the [system requirements](/1.8/administration/installing/ent/custom/system-requirements/).
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
 ### Install DC/OS agent nodes
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/docs/1.8/administration/installing/ent/custom/gui/#backup) method.
+Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/1.8/administration/installing/ent/custom/gui/#backup) method.
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory:
 

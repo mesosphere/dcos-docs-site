@@ -15,8 +15,8 @@ This tutorial will get you up and running in minutes with Kafka. You will instal
  
 **Prerequisites:**
 
--  [DC/OS and DC/OS CLI installed](/docs/1.9/installing/) with a minimum of four agent nodes.
--  Depending on your [security mode](/docs/1.9/overview/security/security-modes/), Kafka requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Kafka](https://docs.mesosphere.com/service-docs/kafka/kafka-auth/).
+-  [DC/OS and DC/OS CLI installed](/1.9/installing/) with a minimum of four agent nodes.
+-  Depending on your [security mode](/1.9/overview/security/security-modes/), Kafka requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Kafka](https://docs.mesosphere.com/service-docs/kafka/kafka-auth/).
 
    | Security mode | Service Account |
    |---------------|-----------------------|
@@ -74,7 +74,7 @@ This tutorial will get you up and running in minutes with Kafka. You will instal
 
 1.  Produce and consume data.
 
-    1.  [SSH](/docs/1.9/administering-clusters/sshcluster/) to the leading master node.
+    1.  [SSH](/1.9/administering-clusters/sshcluster/) to the leading master node.
     
         ```bash
         dcos node ssh --master-proxy --leader

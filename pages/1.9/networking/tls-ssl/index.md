@@ -15,11 +15,11 @@ Because your DC/OS Certificate Authority does not appear in any lists of trusted
 
 To establish trusted communications with your DC/OS cluster and stop the warning messages:
 
-1. [Obtain the root certificate of your DC/OS CA](/docs/1.9/networking/tls-ssl/get-cert/).
+1. [Obtain the root certificate of your DC/OS CA](/1.9/networking/tls-ssl/get-cert/).
 
 1. Perform one of the following.
    
-     - Manually add your DC/OS Certificate Authority as a trusted authority in [browser](/docs/1.9/networking/tls-ssl/ca-trust-browser/), [DC/OS CLI](/docs/1.9/networking/tls-ssl/ca-trust-cli/), [curl commands](/docs/1.9/networking/tls-ssl/ca-trust-curl/), and other clients.
+     - Manually add your DC/OS Certificate Authority as a trusted authority in [browser](/1.9/networking/tls-ssl/ca-trust-browser/), [DC/OS CLI](/1.9/networking/tls-ssl/ca-trust-cli/), [curl commands](/1.9/networking/tls-ssl/ca-trust-curl/), and other clients.
 
-     - [Set up a proxy](/docs/1.9/networking/tls-ssl/haproxy-adminrouter/) between the Admin Router and user agent requests coming in from outside of the cluster. 
+     - [Set up a proxy](/1.9/networking/tls-ssl/haproxy-adminrouter/) between the Admin Router and user agent requests coming in from outside of the cluster. 
 

@@ -13,7 +13,7 @@ enterprise: true
 ---
 
 
-The `superuser` permission is available in all [security modes](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security).
+The `superuser` permission is available in all [security modes](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
 
 
 <table class="table">

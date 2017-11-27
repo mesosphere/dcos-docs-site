@@ -24,7 +24,7 @@ The required files for this tutorial are `Dockerfile`, `marathon.json`, and the 
 
 # Accessing Jenkins for DC/OS
 
-Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/docs/1.8/usage/webinterface/). 
+Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/1.8/usage/webinterface/). 
 
 Click the “Jenkins” service and then "Open Service" to access the Jenkins web interface.
 

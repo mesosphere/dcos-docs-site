@@ -56,7 +56,7 @@ To manage users:
 
 ## <a name="log-in-cli"></a>Logging in to the DC/OS CLI
 
-Authentication is only supported for DC/OS CLI version 0.4.3 and above. See [here](/docs/docs/1.8/usage/cli/update/) for upgrade instructions.
+Authentication is only supported for DC/OS CLI version 0.4.3 and above. See [here](/1.8/usage/cli/update/) for upgrade instructions.
 
 The DC/OS CLI stores the token in a configuration file in the `.dcos` directory under the home directory of the user running the CLI. This token can be used with the curl command to access DC/OS APIs, using curl or wget. For example, `curl -H 'Authorization: token=<token>' http://cluster`.
 
@@ -115,16 +115,16 @@ sudo journalctl -u dcos-oauth.service
 
 ## Authentication opt-out
 
-If you are doing an [advanced installation](/docs/docs/1.8/administration/installing/custom/advanced/), you can opt out of
-Auth0-based authentication by adding this parameter to your configuration file (`genconf/config.yaml`). For more information, see the configuration [documentation](/docs/docs/1.8/administration/installing/custom/configuration-parameters/).
+If you are doing an [advanced installation](/1.8/administration/installing/custom/advanced/), you can opt out of
+Auth0-based authentication by adding this parameter to your configuration file (`genconf/config.yaml`). For more information, see the configuration [documentation](/1.8/administration/installing/custom/configuration-parameters/).
 
 ```yaml
 oauth_enabled: 'false'
 ```
 
-If you are doing a cloud installation on [AWS](/docs/docs/1.8/administration/installing/cloud/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+If you are doing a cloud installation on [AWS](/1.8/administration/installing/cloud/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
-If you are doing a cloud installation on [Azure](/docs/docs/1.8/administration/installing/cloud/azure/), you currently cannot disable authentication. This will be added in a future release along with other
+If you are doing a cloud installation on [Azure](/1.8/administration/installing/cloud/azure/), you currently cannot disable authentication. This will be added in a future release along with other
 options to customize authentication.
 
 Note that if you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.
@@ -148,8 +148,8 @@ security features as well as on introducing new ones in the coming releases.
 
 ## Next Steps
 
-- [Understand DC/OS security](/docs/docs/1.8/administration/securing-your-cluster/)
-- [Learn how to monitor a DC/OS cluster](/docs/docs/1.8/administration/monitoring/)
+- [Understand DC/OS security](/1.8/administration/securing-your-cluster/)
+- [Learn how to monitor a DC/OS cluster](/1.8/administration/monitoring/)
 
  [1]: https://en.wikipedia.org/wiki/STARTTLS
  

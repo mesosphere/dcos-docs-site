@@ -39,26 +39,26 @@ Please try out the new features and updated data services. Provide any feedback 
   You can now configure Spartan to delegate a particular domain (e.g. "\*.foo.company.com") to a particular upstream. <!-- I could use more information here -->
 
 - Increased CNI network support.
-  DC/OS now supports any type of CNI network. [View the documentation](/docs/1.10/networking/virtual-networks/cni-plugins/).
+  DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer.
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/docs/1.10/networking/edge-lb/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/1.10/networking/edge-lb/).
 
 ## Security
 - Custom CA certificate support.
-  Installation time [configuration options](/docs/1.10/networking/tls-ssl/ca-custom/) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
+  Installation time [configuration options](/1.10/networking/tls-ssl/ca-custom/) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
 
 - Enhanced secrets management with file-based secrets.
-  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/docs/1.10/security/ent/secrets/use-secrets/).
+  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/ent/secrets/use-secrets/).
 
 - Vastly improved IAM scalability and performance characteristics.
   The new system removes hard limits on the number of users, groups, and permissions that can be stored, and shows stable read and write performance as the dataset grows.
 
 - Docker `pullConfig` parameter.
-  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/docs/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise-dcos-only).
+  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise-dcos-only).
 
  - Enterprise CLI permissions management commands.
-   It is now possible to manage permissions to protect resources using the [Enterprise DC/OS CLI](/docs/1.10/security/ent/perms-management/).
+   It is now possible to manage permissions to protect resources using the [Enterprise DC/OS CLI](/1.10/security/ent/perms-management/).
 
 ## Kubernetes on DC/OS
 
@@ -84,8 +84,8 @@ The following updated data services packages are also compatible with DC/OS 1.10
 
 ## Platform
 - Node and cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/docs/1.10/installing/custom/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](/docs/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/custom/node-cluster-health-check/).
+- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
 - Universal Container Runtime (UCR).
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
 - Scale and performance limits.
@@ -93,7 +93,7 @@ The following updated data services packages are also compatible with DC/OS 1.10
 ## CLI
 
 - DC/OS 1.10.0 requires DC/OS CLI 0.5.x.
-- DC/OS CLI 0.5.x adds [multi-cluster support](/docs/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/docs/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
+- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
 
    - DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files. DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
@@ -127,7 +127,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
   Before upgrading to DC/OS 1.10.0, uninstall your existing Marathon-LB package and reinstall the updated version.
 
 - REX-Ray configuration change.
-  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/docs/1.10/installing/custom/configuration/configuration-parameters/#rexray_config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
+  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/custom/configuration/configuration-parameters/#rexray_config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in.
   The new command to set up your cluster URL is `dcos cluster setup <dcos_url>`. For details, see [CLI](#cli).

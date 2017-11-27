@@ -22,7 +22,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/docs/1.8/overview/concepts/#zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.8/overview/concepts/#zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -117,7 +117,7 @@ In this step you create a YAML configuration file that is customized for your en
     
     The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and Google DNS resolvers. If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. 
     
-    For parameters descriptions and configuration examples, see the [documentation](/docs/1.8/administration/installing/ent/custom/configuration-parameters/).
+    For parameters descriptions and configuration examples, see the [documentation](/1.8/administration/installing/ent/custom/configuration-parameters/).
     
     ```json
     bootstrap_url: http://<bootstrap_ip>:80      
@@ -150,7 +150,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 **Important:** 
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/docs/1.8/administration/installing/ent/custom/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.8/administration/installing/ent/custom/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][2].
 
 **Prerequisites**
@@ -240,7 +240,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
             sudo bash dcos_install.sh slave_public
             ```
             
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/docs/1.8/administration/installing/ent/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/ent/custom/system-requirements/#port-and-protocol).
 
 6.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
     

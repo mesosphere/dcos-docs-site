@@ -107,7 +107,7 @@ This required parameter specifies a YAML nested list (`-`) of DNS resolvers for 
     - 8.8.4.4
     - 8.8.8.8
     ```
--  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/docs/docs/1.7/usage/service-discovery/mesos-dns/).
+-  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/1.7/usage/service-discovery/mesos-dns/).
 
 **Caution:** If you set the `resolvers` parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.
 

@@ -19,7 +19,7 @@ enterprise: true
 
 # About custom service authentication
 
-This section details how to configure a custom service that [requires authentication](/docs/1.8/administration/id-and-access-mgt/service-auth/) with a service account and how to request and refresh its token.
+This section details how to configure a custom service that [requires authentication](/1.8/administration/id-and-access-mgt/service-auth/) with a service account and how to request and refresh its token.
 
 1. [Create a key pair.](#create-a-keypair)
 1. [Create a service account.](#create-a-service-account)
@@ -33,7 +33,7 @@ This section details how to configure a custom service that [requires authentica
 
 **Prerequisites:**
 
-- If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 - The following procedures contain curl commands that use variables set by the DC/OS CLI. You must have the DC/OS CLI installed and be logged into the CLI as a superuser to set the variables and execute these commands successfully.
 
@@ -43,7 +43,7 @@ This section details how to configure a custom service that [requires authentica
 
 First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the Enterprise DC/OS CLI is the most convenient because it returns the keys in the exact format required.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/).
 
 1.  If you have not already installed the Enterprise DC/OS CLI, use the following command to do so.
 
@@ -59,14 +59,14 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
 
 1. Type `ls` to view the two new files created by the command. You may also want to open the files themselves and verify their contents.
 
-   **Important:** Since the private key of this pair will allow someone to authenticate to DC/OS, you should take care to store it in a secure place. You can use the [DC/OS Secret Store](/docs/1.8/administration/secrets/) or another tool of your choice to secure this value.
+   **Important:** Since the private key of this pair will allow someone to authenticate to DC/OS, you should take care to store it in a secure place. You can use the [DC/OS Secret Store](/1.8/administration/secrets/) or another tool of your choice to secure this value.
 
 1. Continue to the [next section](#create-a-service-account).
 
 
 # <a name="create-a-service-account"></a>Create a service account
 
-Once you have your public-private key pair, you can create a service account by passing your public key in a `PUT` request to the `users` endpoint of the [IAM API](/docs/1.8/administration/id-and-access-mgt/iam-api/). In this request, you will also assign your service account an ID. A curl sample follows.
+Once you have your public-private key pair, you can create a service account by passing your public key in a `PUT` request to the `users` endpoint of the [IAM API](/1.8/administration/id-and-access-mgt/iam-api/). In this request, you will also assign your service account an ID. A curl sample follows.
 
 ```bash
 curl -X PUT --cacert dcos-ca.crt $(dcos config show core.dcos_url)/acs/api/v1/users/service-acct -d '{"public_key":"-----BEGIN PUBLIC KEY-----\nMIIBIj...IDAQAB\n-----END PUBLIC KEY-----"}' -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
@@ -85,9 +85,9 @@ The following curl will give your new service account the `dcos:superuser` permi
 curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/service-acct/full
 ```
 
-Once you have your service running properly under `dcos:superuser` you should remove the `dcos:superuser` permission and give your service only the permissions that it needs. These permissions will vary according to your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) and the resources that your service needs to access.
+Once you have your service running properly under `dcos:superuser` you should remove the `dcos:superuser` permission and give your service only the permissions that it needs. These permissions will vary according to your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) and the resources that your service needs to access.
 
-If your service includes a scheduler and you are running in `strict` [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security), your service will need **at least** the following.
+If your service includes a scheduler and you are running in `strict` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security), your service will need **at least** the following.
 
 - **Scheduler service minimum permissions:**
      <table>
@@ -140,16 +140,16 @@ If your service includes a scheduler and you are running in `strict` [security m
        </tr>
      </table>
 
-See [Assigning permissions](/docs/1.8/administration/id-and-access-mgt/permissions/assigning-perms/) for information on the mechanics of assigning the permissions.
+See [Assigning permissions](/1.8/administration/id-and-access-mgt/permissions/assigning-perms/) for information on the mechanics of assigning the permissions.
 
 Beyond the above, you must review the permissions reference information located in the following sections.
 
-- [Admin Router permissions](/docs/1.8/administration/id-and-access-mgt/permissions/admin-router-perms/)
-- [User service permissions](/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/)
-- [Secret Store service permissions](/docs/1.8/administration/id-and-access-mgt/permissions/secrets-perms/)
-- [Mesos master and agent permissions (strict mode only)](/docs/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/)
+- [Admin Router permissions](/1.8/administration/id-and-access-mgt/permissions/admin-router-perms/)
+- [User service permissions](/1.8/administration/id-and-access-mgt/permissions/user-service-perms/)
+- [Secret Store service permissions](/1.8/administration/id-and-access-mgt/permissions/secrets-perms/)
+- [Mesos master and agent permissions (strict mode only)](/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/)
 
-In addition to studying the reference documentation, review the [logs](/docs/1.8/administration/logging/). After removing the `dcos:superuser` permission, SSH into each master. Replace `<service-account-id>` with the actual ID of your service account and then issue the following command.
+In addition to studying the reference documentation, review the [logs](/1.8/administration/logging/). After removing the `dcos:superuser` permission, SSH into each master. Replace `<service-account-id>` with the actual ID of your service account and then issue the following command.
 
 ```bash
 journalctl -u "dcos-*" |grep "audit" |grep "<service-account-id>" |grep "deny"

@@ -16,7 +16,7 @@ An Amazon EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.x
 
 ### Software
 
-- The DC/OS advanced AWS [templates](/docs/docs/1.7/administration/installing/oss/cloud/aws/advanced/template-reference/).
+- The DC/OS advanced AWS [templates](/1.7/administration/installing/oss/cloud/aws/advanced/template-reference/).
 - An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the advanced templates. Contact your AWS admin for more information.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/)
 - The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation)
@@ -90,7 +90,7 @@ Use the `zen.sh` script to create the Zen template dependencies. These dependenc
 ## Launch the DC/OS advanced template on CloudFormation
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
-1.  On the **Select Template** page, upload the [Zen](/docs/docs/1.7/administration/installing/oss/cloud/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
+1.  On the **Select Template** page, upload the [Zen](/1.7/administration/installing/oss/cloud/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
 1.  On the **Specify Details** page, specify these values and and click **Next**.
 
     ![AWS UI](../img/aws-advanced-1.png)
@@ -179,7 +179,7 @@ Public agents:
 *  **PublicAgentSecurityGroup** Specify the security group ID for public agents. This group should have limited external access. You can find this value in the **Outputs** tab of the Infrastructure stack (`<stack-name>-Infrastructure-<stack-id>`).
 *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents.
 
-For all of the advanced configuration options, see the template reference [documentation](/docs/docs/1.7/administration/installing/oss/cloud/aws/advanced/template-reference/).
+For all of the advanced configuration options, see the template reference [documentation](/1.7/administration/installing/oss/cloud/aws/advanced/template-reference/).
 
  [2]: /docs/docs/1.7/usage/cli/install/
  [private_agent]: https://downloads.dcos.io/dcos/EarlyAccess/commit/14509fe1e7899f439527fb39867194c7a425c771/cloudformation/advanced-priv-agent.json

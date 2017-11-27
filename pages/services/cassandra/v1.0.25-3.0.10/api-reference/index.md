@@ -18,7 +18,7 @@ The DC/OS Apache Cassandra Service provides a REST API that can be accessed from
 
 REST API requests must be authenticated. This authentication is only applicable for interacting with the Cassandra REST API directly. You do not need the token to access the Cassandra nodes themselves.
 
-If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/docs/1.9/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/docs/1.9/security/ent/iam-api/), but you will need to manually refresh the token.
+If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/1.9/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/1.9/security/ent/iam-api/), but you will need to manually refresh the token.
 
 If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint](https://docs.mesosphere.com/docs/1.9/security/oss/iam-api/).
 
@@ -30,7 +30,7 @@ export auth_token=uSeR_t0k3n
 
 The `curl` examples in this document assume that an auth token has been stored in an environment variable named `auth_token`.
 
-If your DC/OS Enterprise installation requires encryption, you must also use the `ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/docs/1.9/networking/tls-ssl/#get-dcos-cert) for information on how to use the `--cacert` flag. [If encryption is not required](/docs/1.9/networking/tls-ssl/), you can omit the --cacert flags.
+If your DC/OS Enterprise installation requires encryption, you must also use the `ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/#get-dcos-cert) for information on how to use the `--cacert` flag. [If encryption is not required](/1.9/networking/tls-ssl/), you can omit the --cacert flags.
 
 # Configuration
 

@@ -18,5 +18,5 @@ When a user attempts to log on, they will be presented with a list of the third-
 
 Enterprise DC/OS supports two types of identity provider-based authentication methods: [Security Assertion Markup Language (SAML)](https://wiki.oasis-open.org/security/FrontPage) and [OpenID Connect (OIDC)](http://openid.net/connect/):
 
-- Adding a [SAML Identity Provider](/docs/1.8/administration/id-and-access-mgt/sso/setup-saml/)
-- Adding an [OpenID Identity Provider](/docs/1.8/administration/id-and-access-mgt/sso/setup-openid/):
+- Adding a [SAML Identity Provider](/1.8/administration/id-and-access-mgt/sso/setup-saml/)
+- Adding an [OpenID Identity Provider](/1.8/administration/id-and-access-mgt/sso/setup-openid/):

@@ -14,7 +14,7 @@ enterprise: true
 
 # About provisioning Marathon-LB with a service account
 
-Whether you can or must provision Marathon-LB with a service account varies by [security mode](/docs/1.10/security/ent/#security-modes).
+Whether you can or must provision Marathon-LB with a service account varies by [security mode](/1.10/security/ent/#security-modes).
 
 - `disabled`: optional
 - `permissive`: optional
@@ -46,7 +46,7 @@ To set up a service account for Marathon-LB, complete the following steps.
 
 First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the Enterprise DC/OS CLI is the most convenient because it returns the keys in the format needed by DC/OS.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.10/cli/install/) and the [Enterprise DC/OS CLI 0.4.14 or later installed](/docs/1.10/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.10/cli/install/) and the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.10/cli/enterprise-cli/#ent-cli-install).
 
 1.  Use the following command to create a public-private key pair and save each value into a separate file within the current directory.
 
@@ -66,7 +66,7 @@ Next, you must create a service account. This section describes how to use eithe
 
 ## Using the Enterprise DC/OS CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.10/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/docs/1.10/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.10/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.10/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Use the following command to create a new service account called `mlb-principal` containing the public key you just generated.
 
@@ -100,7 +100,7 @@ Next, you need to create a secret associated with the service account that conta
 
 ## Using the Enterprise DC/OS CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.10/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/docs/1.10/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.10/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.10/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Depending on your security mode, use one of the following commands to create a new secret called `mlb-secret` in the `marathon-lb` path. Locating the secret inside the `marathon-lb` path will ensure that only the Marathon-LB service can access it. The secret will contain the private key, the name of the service account, and other data.
 
@@ -128,7 +128,7 @@ Next, you need to create a secret associated with the service account that conta
     dcos security secrets get /marathon-lb/mlb-secret --json | jq -r .value | jq
     ```
 
-   **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you're in `strict` or `permissive` mode and HTTP if you are in `disabled` mode. If the URL begins with `https` and you are in `disabled` mode, try [upgrading the Enterprise DC/OS CLI](/docs/1.10/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
+   **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you're in `strict` or `permissive` mode and HTTP if you are in `disabled` mode. If the URL begins with `https` and you are in `disabled` mode, try [upgrading the Enterprise DC/OS CLI](/1.10/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
 
 1. Now that you have stored the private key in the Secret Store, we recommend deleting the private key file from your file system. This will prevent bad actors from using the private key to authenticate to DC/OS.
 
@@ -182,7 +182,7 @@ Next, you need to create a secret associated with the service account that conta
 
 With the following curl commands you can rapidly provision the Marathon-LB service account with the required permissions. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
 
-**Prerequisite:** If your [security mode](/docs/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/docs/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/docs/1.10/overview/security/security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+**Prerequisite:** If your [security mode](/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.10/overview/security/security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Create the necessary permissions using the following commands.
 
@@ -207,7 +207,7 @@ With the following curl commands you can rapidly provision the Marathon-LB servi
 
 ## About the config.json file
 
-The necessary contents of the `config.json` file vary according to your [security mode](/docs/1.10/security/ent/#security-modes).
+The necessary contents of the `config.json` file vary according to your [security mode](/1.10/security/ent/#security-modes).
 
 ## Strict and permissive mode config.json
 
@@ -248,4 +248,4 @@ To install the service, use the following command.
 dcos package install --options=config.json marathon-lb
 ```
 
-You can also provide the `config.json` file to someone else to install Marathon-LB. Please see the [Marathon-LB documentation](/docs/1.10/networking/marathon-lb/usage-ee/) for more information.
+You can also provide the `config.json` file to someone else to install Marathon-LB. Please see the [Marathon-LB documentation](/1.10/networking/marathon-lb/usage-ee/) for more information.

@@ -28,5 +28,5 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/docs/1.9/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
+| [dcos config](/1.9/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 

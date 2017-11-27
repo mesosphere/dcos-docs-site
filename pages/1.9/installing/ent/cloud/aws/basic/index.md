@@ -11,7 +11,7 @@ You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS 
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/docs/1.9/installing/ent/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.9/installing/ent/cloud/aws/advanced/).
 
 **Important:** Upgrades are not supported with this installation method.
 
@@ -22,8 +22,8 @@ For a complete set of DC/OS configuration options, see the [Advanced AWS Install
 An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance.  Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to not work properly.
 
 *   You have the option of 1 or 3 Mesos master nodes.
-*   5 [private](/docs/1.9/overview/concepts/#private) Mesos agent nodes is the default.
-*   1 [public](/docs/1.9/overview/concepts/#public) Mesos agent node is the default.
+*   5 [private](/1.9/overview/concepts/#private) Mesos agent nodes is the default.
+*   1 [public](/1.9/overview/concepts/#public) Mesos agent node is the default.
 
 ## Software
 
@@ -44,13 +44,13 @@ You must have an AWS EC2 Key Pair for the same region as your cluster. Key pairs
 
 2.  On the **Select Template** page, accept the defaults and click **Next**.
 
-    ![Launch stack](/docs/1.9/img/dcos-aws-step2b.png)
+    ![Launch stack](/1.9/img/dcos-aws-step2b.png)
 
 3.  On the **Specify Details** page, specify a cluster name (`Stack name`), Key Pair (`KeyName`), authentication (`OAuthEnabled`), public agent (`PublicSlaveInstanceCount`), private agent (`SlaveInstanceCount`), and click **Next**.
 
     **Important:** The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
 
-    ![Create stack](/docs/1.9/img/dcos-aws-step2c.png)
+    ![Create stack](/1.9/img/dcos-aws-step2c.png)
 
 4.  On the **Options** page, accept the defaults and click **Next**.
 
@@ -81,23 +81,23 @@ Launch the DC/OS web interface by entering the Mesos Master hostname:
 
     **Tip:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page.
 
-    ![Monitor stack creation](/docs/1.9/img/dcos-aws-step3a.png)
+    ![Monitor stack creation](/1.9/img/dcos-aws-step3a.png)
 
 1.  Click **Log In To DC/OS**.
 
     **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed. 
     
-    ![UI installer success](/docs/1.9/img/gui-installer-success-ee.gif)
+    ![UI installer success](/1.9/img/gui-installer-success-ee.gif)
 
 1.  Enter the username and password of the superuser account. 
 
     **Tip:** The default username is `bootstrapuser` and default password is `deleteme`.
     
-    ![alt text](/docs/1.9/img/ui-installer-auth-1-7.gif)
+    ![alt text](/1.9/img/ui-installer-auth-1-7.gif)
     
     You are done!
     
-    ![UI dashboard](/docs/1.9/img/dashboard-ee.gif)
+    ![UI dashboard](/1.9/img/dashboard-ee.gif)
 
     **Tip:** Click the dropdown menu on the upper-left side to install the DC/OS [Command-Line Interface (CLI)][2]. You must install the CLI to administer your DCOS cluster.
 

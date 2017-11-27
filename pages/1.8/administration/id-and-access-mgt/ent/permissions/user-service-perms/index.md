@@ -16,7 +16,7 @@ enterprise: true
 
 # About the user service permissions
 
-User service permissions allow you to achieve fine-grained control of services and jobs in `strict` and `permissive` [security modes](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security). They are ignored in `disabled` mode.
+User service permissions allow you to achieve fine-grained control of services and jobs in `strict` and `permissive` [security modes](/1.8/administration/installing/ent/custom/configuration-parameters/#security). They are ignored in `disabled` mode.
 
 
 # <a name="marathon"></a>Marathon permissions reference

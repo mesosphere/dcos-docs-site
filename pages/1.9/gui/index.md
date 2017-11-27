@@ -16,7 +16,7 @@ Additionally, there is a User Menu on the upper-left side of the web interface t
 
 The dashboard is the home page of the DC/OS web interface and provides an overview of your DC/OS cluster.
 
-![Dashboard](/docs/1.9/img/dashboard-ee.gif)
+![Dashboard](/1.9/img/dashboard-ee.gif)
 
 From the dashboard you can easily monitor the health of your cluster.
 
@@ -36,7 +36,7 @@ From the dashboard you can easily monitor the health of your cluster.
 
 The Services tab provides a full featured interface to the native DC/OS Marathon instance.
 
-![Services](/docs/1.9/img/tweeter-services6-ee.png)
+![Services](/1.9/img/tweeter-services6-ee.png)
 
 You can click the **Deployments** tab to view all active Marathon deployments.
 
@@ -44,61 +44,61 @@ You can click the **Deployments** tab to view all active Marathon deployments.
 
 # <a name="jobs"></a>Jobs
 
-The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a scheduler by using the cron format. For more information, see the [documentation](/docs/1.9/deploying-jobs/). 
+The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a scheduler by using the cron format. For more information, see the [documentation](/1.9/deploying-jobs/). 
 
-![Jobs](/docs/1.9/img/jobs-ee.png)
+![Jobs](/1.9/img/jobs-ee.png)
 
 # <a name="universe"></a>Universe 
 
 The Universe tab shows all of the available DC/OS services. You can install packages from the DC/OS Universe with a single click. The packages can be installed with defaults or customized directly in the web interface. 
 
-![universe](/docs/1.9/img/ui-universe-ee.gif)
+![universe](/1.9/img/ui-universe-ee.gif)
 
 # <a name="nodes"></a>Nodes
 
 The Nodes tab provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
 
-![Nodes](/docs/1.9/img/nodes-ee.gif)
+![Nodes](/1.9/img/nodes-ee.gif)
 
 By default all of your nodes are displayed in **List** view, sorted by hostname. You can filter nodes by service type or hostname. You can also sort the nodes by number of tasks or percentage of CPU, memory, or disk space allocated.
 
 You can switch to **Grid** view to see a "donuts" percentage visualization.
 
-![Nodes](/docs/1.9/img/nodes-donuts-ee.gif)
+![Nodes](/1.9/img/nodes-donuts-ee.gif)
 
 Clicking on a node opens the Nodes side panel, which provides CPU, memory, and disk usage graphs and lists all tasks on the node. Use the dropdown or a custom filter to sort tasks and click on details for more information. Click on a task listed on the Nodes side panel to see detailed information about the task’s CPU, memory, and disk usage and the task’s files and directory tree.
 
 # <a name="network"></a>Networking
 
-The Networking tab provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/docs/1.9/networking/load-balancing-vips/virtual-ip-addresses/).
+The Networking tab provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/1.9/networking/load-balancing-vips/virtual-ip-addresses/).
 
-![Tweeter scaled](/docs/1.9/img/tweeter-services8-ee.png)
+![Tweeter scaled](/1.9/img/tweeter-services8-ee.png)
 
 # <a name="security"></a>Security
 
-The Security tab provides secret and certificates management. For more information, see the [secrets](/docs/1.9/security/ent/secrets/) and [certificates](/docs/1.9/networking/tls-ssl/) documentation.
+The Security tab provides secret and certificates management. For more information, see the [secrets](/1.9/security/ent/secrets/) and [certificates](/1.9/networking/tls-ssl/) documentation.
 
-![Security](/docs/1.9/img/security.png)
+![Security](/1.9/img/security.png)
 
 # <a name="system"></a>System Overview
 
 View the cluster details from the **System Overview** tab.
 
-![system](/docs/1.9/img/system-overview.png)
+![system](/1.9/img/system-overview.png)
 
 # Components
 View the system health of your DC/OS components from the **Components** tab.
 
-![components](/docs/1.9/img/ui-system-health-ee.gif)
+![components](/1.9/img/ui-system-health-ee.gif)
 
 # Settings
 Manage your DC/OS package repositories, secrets stores, LDAP directories, and identity providers from the **Settings** tab.
 
-![Package repositories](/docs/1.9/img/package-repositories.png)
+![Package repositories](/1.9/img/package-repositories.png)
 
 # Organization
 Manage user access from the **Organization** tab.
 
-![All users](/docs/1.9/img/service-group4.png)
+![All users](/1.9/img/service-group4.png)
 
 

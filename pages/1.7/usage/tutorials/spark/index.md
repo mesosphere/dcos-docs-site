@@ -134,7 +134,7 @@ You can learn about further options on how to run a Spark job via the [DC/OS doc
 
 To interactively work with Spark, you can use [Apache Zeppelin](http://zeppelin.apache.org/) and here's what you need to do to install it.
 
-You typically want to access Zeppelin via a web browser outside of the DC/OS cluster. To access the Zeppelin UI from outside of the DC/OS cluster you have a number of options available: from launching it on a public node to [using Marathon-LB](/docs/1.7/usage/service-discovery/marathon-lb/).
+You typically want to access Zeppelin via a web browser outside of the DC/OS cluster. To access the Zeppelin UI from outside of the DC/OS cluster you have a number of options available: from launching it on a public node to [using Marathon-LB](/1.7/usage/service-discovery/marathon-lb/).
 
 The following section will show you how to launch Zeppelin on a public node. This is fine for testing but be aware that this is going to make Zeppelin available on the public Internet (i.e. access from `0.0.0.0`) and with it, everyone out there can access your data and launch Spark jobs on your DC/OS cluster.
 

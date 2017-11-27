@@ -14,7 +14,7 @@ enterprise: false
 Follow these steps to uninstall the service.
 
 1. Uninstall the service. From the DC/OS CLI, enter `dcos package uninstall`.
-1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. [More information about the framework cleaner script](/docs/1.9/deploying-services/uninstall/#framework-cleaner).
+1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. [More information about the framework cleaner script](/1.9/deploying-services/uninstall/#framework-cleaner).
 
 To uninstall an instance named `cassandra` (the default), run:
 ```

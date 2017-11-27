@@ -23,7 +23,7 @@ In this tutorial you will learn:
 ## Prerequisites
 
 - A running DC/OS cluster, with atleast 1 node having atleast 1 CPUs and 1 GB of RAM available.
-- [DC/OS CLI](/docs/1.7/usage/cli/install/) installed
+- [DC/OS CLI](/1.7/usage/cli/install/) installed
 
 ## Installing NGINX to serve a static website
 

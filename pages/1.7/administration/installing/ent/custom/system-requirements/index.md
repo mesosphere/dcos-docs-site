@@ -170,7 +170,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:** 
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/docs/1.7/administration/installing/ent/custom/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.7/administration/installing/ent/custom/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### DC/OS setup file

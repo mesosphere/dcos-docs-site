@@ -12,12 +12,12 @@ enterprise: true
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/docs/1.8/usage/cli/install/)
+- [DC/OS CLI installed](/1.8/usage/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
 - [GNU Privacy Guard (GPG) installed](http://brewformulas.org/Gnupg)
-- If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
-1. [SSH into your master](/docs/1.8/administration/access-node/sshcluster/).
+1. [SSH into your master](/1.8/administration/access-node/sshcluster/).
 
 2. Open the `dcos-secrets.env` file in your choice of editor.
 
@@ -64,7 +64,7 @@ enterprise: true
 
 12. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-   **Tip:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](/docs/1.8/administration/installing/ent/custom/configuration-parameters/).
+   **Tip:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](/1.8/administration/installing/ent/custom/configuration-parameters/).
 
    ```bash
    addauth digest super:secret
@@ -146,4 +146,4 @@ enterprise: true
    {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
-29. Congratulations! You have successfully reinitialized your Secret Store. To unseal it, refer to [Unsealing a Secret Store sealed with custom keys](/docs/1.8/administration/secrets/unseal-store/#unseal-cust-keys).
+29. Congratulations! You have successfully reinitialized your Secret Store. To unseal it, refer to [Unsealing a Secret Store sealed with custom keys](/1.8/administration/secrets/unseal-store/#unseal-cust-keys).

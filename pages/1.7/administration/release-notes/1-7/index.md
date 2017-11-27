@@ -127,7 +127,7 @@ See additional known issues at <a href="https://support.mesosphere.com" target="
 
 Issues fixed:
 
-- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/docs/1.7/administration/installing/custom/configuration-parameters/). 
+- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/custom/configuration-parameters/). 
 - Various bug fixes to enable upgrades. 
 
 ## <a name="1-7-3"></a>1.7.3 - July 27, 2016
@@ -138,7 +138,7 @@ New features and changes:
 - Marathon is upgraded to [1.1.2](https://github.com/mesosphere/marathon/releases/tag/v1.1.2).
 - New Mesos config (`'docker_stop_timeout'`) that allows you to set an explicit Docker timeout. By default this is set to `'docker_stop_timeout': '20secs'`. 
 - Assign disk resources to the Mesos default role, rather than all (`*`).
-- The DC/OS [Admin Router](/docs/1.7/overview/concepts/#adminrouter) now configures the Mesos master cache for less upstream stress.
+- The DC/OS [Admin Router](/1.7/overview/concepts/#adminrouter) now configures the Mesos master cache for less upstream stress.
 - DC/OS installations on Azure now use Docker 1.11.0 (previously version 1.11.2).
 - For better stability, DC/OS installations on Azure are pinned to the Ubuntu 16.04 LTS image.
 

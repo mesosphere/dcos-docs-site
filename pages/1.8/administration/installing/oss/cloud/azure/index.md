@@ -24,7 +24,7 @@ Selecting fewer VMs will likely cause certain resource-intensive services such a
 ## Software
 
 - An active [Azure subscription](https://azure.microsoft.com/en-us/pricing/purchase-options/)
-- SSH installed and configured. This is required for [accessing nodes](/docs/1.8/administration/access-node/) in the DC/OS cluster.
+- SSH installed and configured. This is required for [accessing nodes](/1.8/administration/access-node/) in the DC/OS cluster.
 
 # Install DC/OS
 
@@ -44,7 +44,7 @@ In the template, click on `Create`:
 
 ![Creating deployment using DC/OS template](../img/dcos-azure-marketplace-step1c.png)
 
-Complete the installation wizard steps. Note: you are only required to fill in the `Basic` section, however it is strongly recommended that you create a new resource group (simplifies installation and cluster teardown). With the `Enable OAuth authentication` you can influence the [security](/docs/1.8/administration/id-and-access-mgt/) settings. By default, no user authentication is performed by DC/OS, and to enable OAuth-based authentication for your cluster, set it to `true`:
+Complete the installation wizard steps. Note: you are only required to fill in the `Basic` section, however it is strongly recommended that you create a new resource group (simplifies installation and cluster teardown). With the `Enable OAuth authentication` you can influence the [security](/1.8/administration/id-and-access-mgt/) settings. By default, no user authentication is performed by DC/OS, and to enable OAuth-based authentication for your cluster, set it to `true`:
 
 ![Filling in DC/OS template](../img/dcos-azure-marketplace-step1d.png)
 
@@ -108,7 +108,7 @@ See "man sudo_root" for details.
 azureuser@dcos-master-01234567-0:~$
 ```
 
-Visit `http://localhost:8000` on your local machine to access the DC/OS Dashboard. Note that if you set `Enable OAuth authentication` to `true` you'll have to first [authenticate](/docs/1.8/administration/id-and-access-mgt/managing-authentication/) using one of the three default OAuth providers (Google, GitHub, Microsoft):
+Visit `http://localhost:8000` on your local machine to access the DC/OS Dashboard. Note that if you set `Enable OAuth authentication` to `true` you'll have to first [authenticate](/1.8/administration/id-and-access-mgt/managing-authentication/) using one of the three default OAuth providers (Google, GitHub, Microsoft):
 
 ![Authenticate](../img/dcos-azure-marketplace-step2c.png)
 

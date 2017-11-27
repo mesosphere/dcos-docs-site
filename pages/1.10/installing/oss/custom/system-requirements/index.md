@@ -59,7 +59,7 @@ Here are the agent node hardware requirements.
 
 The agent nodes must also have: 
 
-- A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/docs/1.10/deploying-services/containerizers/).
+- A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.10/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
 
 *   On RHEL 7 and CentOS 7, firewalld must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that firewalld interacts poorly with Docker. For more information, see the <a href="https://github.com/docker/docker/blob/v1.6.2/docs/sources/installation/centos.md#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
@@ -150,7 +150,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:** 
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/docs/1.10/installing/oss/custom/configuration/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.10/installing/oss/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### DC/OS setup file

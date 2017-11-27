@@ -44,7 +44,7 @@ Content-Type: application/json
 
 Enterprise edition users must authenticate Mesos DNS API requests.
 
-To authenticate API requests, see [Obtaining an authentication token](/docs/1.8/administration/id-and-access-mgt/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/docs/1.8/administration/id-and-access-mgt/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.8/administration/id-and-access-mgt/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.8/administration/id-and-access-mgt/iam-api/#passing-an-authentication-token).
 
 The Mesos DNS API also requires authorization via the following permissions:
 
@@ -55,10 +55,10 @@ The Mesos DNS API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/docs/1.8/administration/id-and-access-mgt/permissions/).
+To assign permissions to your account, see the [permissions reference](/1.8/administration/id-and-access-mgt/permissions/).
 
 # Resources
-Mesos-DNS implements a simple REST API for service discovery over HTTP. These examples assume you have an [SSH connection to the node](/docs/1.8/administration/access-node/sshcluster/).
+Mesos-DNS implements a simple REST API for service discovery over HTTP. These examples assume you have an [SSH connection to the node](/1.8/administration/access-node/sshcluster/).
 
 ## <a name="get-version"></a>GET /v1/version
 

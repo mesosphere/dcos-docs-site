@@ -32,7 +32,7 @@ The root certificate of your DC/OS CA can be found on any master node at the fol
 
 Using curl to retrieve the root certificate of your DC/OS CA requires the use of the `-k` flag, which opens up the possibility of a man-in-the-middle attack. If this risk does not concern you, use the following command to retrieve the certificate file and save it in the current directory.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/docs/1.8/usage/cli/install/).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/).
 
 ```bash
 curl -k -v $(dcos config show core.dcos_url)/ca/dcos-ca.crt -o dcos-ca.crt

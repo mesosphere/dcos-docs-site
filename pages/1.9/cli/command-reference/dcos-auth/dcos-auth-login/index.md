@@ -35,6 +35,6 @@ dcos auth login [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/docs/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
 # Examples

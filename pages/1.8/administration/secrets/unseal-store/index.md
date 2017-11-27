@@ -12,10 +12,10 @@ enterprise: true
 
 The Secret Store can become sealed under the following circumstances.
 
-- [After being manually sealed.](/docs/1.8/administration/secrets/seal-store/)
+- [After being manually sealed.](/1.8/administration/secrets/seal-store/)
 - After a power outage.
 
-A sealed Secret Store cannot be accessed from the web interface. Secret values cannot be retrieved using the [Secrets API](/docs/1.8/administration/secrets/secrets-api/). Services that depend on values provisioned to them via environment variables may fail to deploy.
+A sealed Secret Store cannot be accessed from the web interface. Secret values cannot be retrieved using the [Secrets API](/1.8/administration/secrets/secrets-api/). Services that depend on values provisioned to them via environment variables may fail to deploy.
 
 The procedure for unsealing the Secret Store differs according to the keys used to seal it.
 
@@ -25,9 +25,9 @@ The procedure for unsealing the Secret Store differs according to the keys used 
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/docs/1.8/usage/cli/install/)
+- [DC/OS CLI installed](/1.8/usage/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
-- If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 **Note:** In these procedures, we will use two terminal prompt tabs: one to SSH into the master and use GPG; another to execute curl requests and use xxd. The master does not have xxd installed by default at this time. Nor does it have a package manager. If you do not wish to shuttle between terminal prompt tabs, you can run xxd inside a container on the master.
 
@@ -49,13 +49,13 @@ The procedure for unsealing the Secret Store differs according to the keys used 
 
 1. After confirming that your Secret Store is indeed sealed, open a new terminal prompt tab.
 
-1. From the new tab, [SSH into your master](/docs/1.8/administration/access-node/sshcluster/) and launch the ZooKeeper command line interface as follows.
+1. From the new tab, [SSH into your master](/1.8/administration/access-node/sshcluster/) and launch the ZooKeeper command line interface as follows.
 
    ```bash
    /opt/mesosphere/packages/exhibitor--*/usr/zookeeper/bin/zkCli.sh
    ```
 
-1. Execute the following ZooKeeper command to gain additional privileges, specifying the user name and password of the ZooKeeper superuser. By default, this is set to `super:secret` but we recommend [changing the default](/docs/1.8/administration/installing/ent/custom/configuration-parameters/).
+1. Execute the following ZooKeeper command to gain additional privileges, specifying the user name and password of the ZooKeeper superuser. By default, this is set to `super:secret` but we recommend [changing the default](/1.8/administration/installing/ent/custom/configuration-parameters/).
 
    ```bash
    addauth digest super:secret
@@ -201,9 +201,9 @@ The procedure for unsealing the Secret Store differs according to the keys used 
    scp binary-unseal.key core@<master-IP>:~
    ```
 
-   **Tip:** If you used GPG to generate the custom GPG keypair as described in [Reinitializing the Secret Store with a custom GPG keypair](/docs/1.8/administration/secrets/custom-key/) and you have multiple masters, use the IP address of the master that you used to generate the keypair.
+   **Tip:** If you used GPG to generate the custom GPG keypair as described in [Reinitializing the Secret Store with a custom GPG keypair](/1.8/administration/secrets/custom-key/) and you have multiple masters, use the IP address of the master that you used to generate the keypair.
 
-1. [SSH into your master](/docs/1.8/administration/access-node/sshcluster/)
+1. [SSH into your master](/1.8/administration/access-node/sshcluster/)
 
 1. Confirm that the `binary-unseal.key` file copied over successfully using the following command.
 
@@ -217,7 +217,7 @@ The procedure for unsealing the Secret Store differs according to the keys used 
    gpg --allow-secret-key-import --import gpg.key
    ```
 
-   **Tip:** If you recently completed the [Reinitializing the Secret Store with your own GPG key](/docs/1.8/administration/secrets/custom-key/) procedure, your private key should already be loaded in GPG.
+   **Tip:** If you recently completed the [Reinitializing the Secret Store with your own GPG key](/1.8/administration/secrets/custom-key/) procedure, your private key should already be loaded in GPG.
 
 1. Use the following command to decrypt the unseal key with GPG.
 

@@ -21,13 +21,13 @@ Once you have configured a directory service or an identity provider, you should
 
 Before you can add any external users, you must give DC/OS the information it needs to connect to the directory service or identity provider.
 
-* Visit the [LDAP topic](/docs/1.8/administration/id-and-access-mgt/ldap/) for more information on how to set up an external LDAP directory.
+* Visit the [LDAP topic](/1.8/administration/id-and-access-mgt/ldap/) for more information on how to set up an external LDAP directory.
 
-* Visit the [SSO topic](/docs/1.8/administration/id-and-access-mgt/sso/) for more information on how to set up an OpenID Connect or SAML provider.
+* Visit the [SSO topic](/1.8/administration/id-and-access-mgt/sso/) for more information on how to set up an OpenID Connect or SAML provider.
 
 # Requirements
 
-Please refer to the [introduction of this section](/docs/1.8/administration/id-and-access-mgt/users-groups/) for the user name character requirements.
+Please refer to the [introduction of this section](/1.8/administration/id-and-access-mgt/users-groups/) for the user name character requirements.
 
 # Adding external users via logon attempt
 
@@ -97,14 +97,14 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 ## Importing LDAP groups using the API
 
-You can import a group of LDAP users by using the `/ldap/importuser` [API](/docs/1.8/administration/id-and-access-mgt/iam-api/) endpoint.
+You can import a group of LDAP users by using the `/ldap/importuser` [API](/1.8/administration/id-and-access-mgt/iam-api/) endpoint.
 
 **Prerequisites:**
 
 -  The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
 -  The existing group entries must list their members by using the `member` attribute.
 
--  If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining the root certificate of your DC/OS CA](/docs/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/docs/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+-  If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 In this example a group named `johngroup` is imported.
 
