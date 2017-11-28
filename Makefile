@@ -41,7 +41,7 @@ build-pdf-concat-production:
 
 build-pdf-development: build-api docker-development-up-pdf
 	npm run build-pdf
-	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
+	./scripts/pdf.sh ./build/1.10 ./build-pdf http://0.0.0.0:8002/
 
 build-pdf-concat-development:
 	./scripts/pdf-concat.sh ./pages ./build-pdf
@@ -68,12 +68,6 @@ docker-build-site: ## Build site docker image. Required env vars: ALGOLIA_PROJEC
 docker-build-pdf: ## Build pdf docker image.
 	./scripts/build-pdf.sh
 
-docker-build-site-test: ## Validate site docker image build.
-	./scripts/build-site-validation.sh
-
-docker-build-pdf-test: ## Validate pdf docker image build.
-	./scripts/build-pdf-validation.sh
-
 docker-production-up: ## Run site container.
 	docker-compose -f ./docker/docker-compose.production.yml up -d docs
 
@@ -83,8 +77,14 @@ docker-production-up-pdf: ## Run pdf container.
 docker-development-up-pdf:
 	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
 
-docker-test-up: ## Run link checker test
+docker-test-link-checker: ## Run link checker test
 	docker-compose -f ./docker/docker-compose.production.yml up test
+
+docker-test-build-site: ## Validate site docker image build.
+	./scripts/build-site-validation.sh
+
+docker-test-build-pdf: ## Validate pdf docker image build.
+	./scripts/build-pdf-validation.sh
 
 docker-purge:
 	./scripts/docker-purge.sh
