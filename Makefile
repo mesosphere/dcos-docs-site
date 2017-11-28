@@ -83,10 +83,8 @@ docker-production-up-pdf: ## Run pdf container.
 docker-development-up-pdf:
 	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
 
-docker-test-up: ## Run linkchecker test.
-	docker-compose -f ./docker/docker-compose.test.yml up -d docs
-	docker-compose -f ./docker/docker-compose.test.yml up -d pdf
-	docker-compose -f ./docker/docker-compose.test.yml up test
+docker-test-up: ## Run link checker test
+	docker-compose -f ./docker/docker-compose.production.yml up test
 
 docker-purge:
 	./scripts/docker-purge.sh

@@ -26,3 +26,13 @@ services:
       dockerfile: ./docker/Dockerfile.pdf
     volumes:
       - ./build-pdf:/src/build-pdf
+  test:
+    depends_on:
+      - docs
+    image: 18fgsa/html-proofer
+    volumes:
+      - build:/src
+    command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
+volumes:
+  build:
+  build-pdf:
