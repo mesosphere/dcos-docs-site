@@ -39,4 +39,4 @@ The component management API is exposed through Admin Router and Admin Router Ag
 
 ## Resources
 
-[swagger api='/docs/1.9/api/pkgpanda.yaml']
+[swagger api='/1.9/api/pkgpanda.yaml']

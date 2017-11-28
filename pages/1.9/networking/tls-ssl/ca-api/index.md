@@ -30,7 +30,7 @@ The API supports JSON only. You must include `application/json` as your `Content
 
 The host name will vary depending on where your app is running.
 
-* If your app will run outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the address of the load balancer which sits in front of your masters. 
+* If your app will run outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the address of the load balancer which sits in front of your masters.
 
 * If your app will run inside of the cluster, use `master.mesos`.
 
@@ -43,7 +43,7 @@ Append `/ca/api/v2/` to the host name, as shown below.
 
 ## About authentication and authorization
 
-If the endpoint you wish to access requires authentication, you will need an authentication token with one of the following permissions: 
+If the endpoint you wish to access requires authentication, you will need an authentication token with one of the following permissions:
 
 - `dcos:superuser`
 - `dcos:adminrouter:ops:ca:ro`
@@ -75,7 +75,7 @@ dcos config show core.dcos_acs_token
 
 ### Via the HTTP header
 
-Copy the token value and pass it in the `Authorization` field of the HTTP header, as shown below. 
+Copy the token value and pass it in the `Authorization` field of the HTTP header, as shown below.
 
 ```http
 Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg
@@ -100,10 +100,10 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 ## Refreshing the authentication token
 
 Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.9/security/ent/service-auth/custom-service-auth/) for more information.
-  
+
 # API reference
 
-[swagger api='/docs/1.9/api/certificate-authority.yaml']
+[swagger api='/1.9/api/certificate-authority.yaml']
 
 
 # Logging

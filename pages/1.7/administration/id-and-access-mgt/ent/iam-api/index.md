@@ -21,7 +21,7 @@ The Identity and Access Management API allows you to manage users, user groups, 
 The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
 
     Content-Type: application/json
-    
+
 
 ## Host name and base path
 
@@ -29,16 +29,16 @@ The IP address of the host is available from the DC/OS web interface in the top 
 
 Append `/acs/api/v1` to the host name, as shown below.
 
-    http://<host-ip>/acs/api/v1 
-    
+    http://<host-ip>/acs/api/v1
+
 
 ## Authentication
 
 Requests to the `/auth/login` resource require a DC/OS user name and password in the body and return an API token. All other requests must include this API token in the `Authorization` field of the HTTP header, as shown below.
 
-    Authorization: token=<your-API-token> 
-    
+    Authorization: token=<your-API-token>
+
 
 ## API reference
 
-[swagger api='/docs/1.7/api/iam.json']
+[swagger api='/1.7/api/iam.json']

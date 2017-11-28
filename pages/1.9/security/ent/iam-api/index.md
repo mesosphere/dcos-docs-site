@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: true
 ---
 
-The Identity and Access Management API allows you to manage users, user groups, permissions, and LDAP configuration settings through a RESTful interface. It offers more functionality as the DC/OS GUI. 
+The Identity and Access Management API allows you to manage users, user groups, permissions, and LDAP configuration settings through a RESTful interface. It offers more functionality as the DC/OS GUI.
 
 
 # Request and response format
@@ -16,24 +16,24 @@ The Identity and Access Management API allows you to manage users, user groups, 
 The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
 
     Content-Type: application/json
-    
+
 
 # Host name and base path
 
 The host name to use will vary depending on where your app is running.
 
-* If your app runs outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS GUI and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters. 
+* If your app runs outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS GUI and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters.
 
 * If your app runs inside of the cluster, use `master.mesos`.
 
 Append `/acs/api/v1` to the host name, as shown below.
 
-    https://<host-ip>/acs/api/v1 
-    
+    https://<host-ip>/acs/api/v1
+
 
 # Authentication and authorization
 
-All IAM endpoints require an authentication token and the `dcos:superuser` permission---except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login. 
+All IAM endpoints require an authentication token and the `dcos:superuser` permission---except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login.
 
 ## Obtaining an authentication token
 
@@ -61,7 +61,7 @@ dcos config show core.dcos_acs_token
 
 ### Via the HTTP header
 
-Copy the token value and pass it in the `Authorization` field of the HTTP header, as shown below. 
+Copy the token value and pass it in the `Authorization` field of the HTTP header, as shown below.
 
 ```http
 Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg
@@ -90,7 +90,7 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # API reference
 
-[swagger api='/docs/1.9/api/iam.yaml']
+[swagger api='/1.9/api/iam.yaml']
 
 
 # Logging

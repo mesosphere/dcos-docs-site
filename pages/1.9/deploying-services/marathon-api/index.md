@@ -42,4 +42,4 @@ To assign permissions to your account, see the [permissions reference](/1.9/secu
 
 ## Resources
 
-[swagger api='/docs/1.9/api/marathon.yaml']
+[swagger api='/1.9/api/marathon.yaml']
