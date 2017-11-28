@@ -41,7 +41,7 @@ build-pdf-concat-production:
 
 build-pdf-development: build-api docker-development-up-pdf
 	npm run build-pdf
-	./scripts/pdf.sh ./build/test ./build-pdf http://0.0.0.0:8002/
+	./scripts/pdf.sh ./build/1.10 ./build-pdf http://0.0.0.0:8002/
 
 build-pdf-concat-development:
 	./scripts/pdf-concat.sh ./pages ./build-pdf
