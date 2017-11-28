@@ -47,11 +47,6 @@ if(process.env.NODE_ENV == "production" || ALGOLIA_UPDATE_INDEX) {
   }
 }
 
-console.log(ALGOLIA_PROJECT_ID)
-console.log(ALGOLIA_PUBLIC_KEY)
-console.log(ALGOLIA_PRIVATE_KEY)
-console.log(ALGOLIA_INDEX)
-
 //
 // Metalsmith
 //

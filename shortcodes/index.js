@@ -14,11 +14,8 @@ const minify = require('html-minifier').minify;
  * @param {string} html
  */
 const sanitize = (html) => {
-  //let h = html.replace(/ /g, " ").trim().replace(/^ +| +$/gm, "");
   return html.replace(/^ +| +$/gm, "");
-  // return html.replace(/(^\s+|\s+$)/g, '');
 };
-
 
 /**
  * Capitalize for message label (warning, error, etc)
@@ -67,32 +64,6 @@ const shortcodes = {
   },
 
   /**
-   * Landing Item
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.type
-   * @param {boolean} opts.fill
-   */
-  // 'landing-item': (buf, opts) => {
-  //   let colorClass;
-  //   let messageType = '';
-  //   if(opts.fill == false && opts.type) {
-  //     colorClass = `message--outline-${opts.type}`;
-  //     messageType = `${capitalize(opts.type)}: `;
-  //   }
-  //   else if(opts.fill == false) {
-  //     colorClass = `message--outline`;
-  //   }
-  //   else if(opts.type) {
-  //     colorClass = `message--${opts.type}`;
-  //     messageType = `${capitalize(opts.type)}: `;
-  //   }
-  //   return sanitize(`
-  //     <div class="message ${colorClass}"><strong>${messageType}</strong>${buf}</div>
-  //   `);
-  // },
-
-  /**
    * Enterprise
    * @param {string} buf
    * @param {Object} opts
@@ -133,8 +104,8 @@ const shortcodes = {
       ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span>
     `);
   },
-  
-  
+
+
   /**
    * Beta
    * @param {string} buf
@@ -219,8 +190,7 @@ const shortcodes = {
       let configFileExists = fs.existsSync(configFilePath);
 
       if(!configFileExists) {
-        console.error("Error: SwaggerUI config file %s does not exist", configFilePath);
-        return '<h4>Error loading SwaggerUI</h4>';
+        throw new Error('Error: SwaggerUI config file does not exist ' + configFilePath);
       }
 
       let buildFileDir = opts.api.replace('.yaml', '');
@@ -228,8 +198,7 @@ const shortcodes = {
       let buildFileExists = fs.existsSync(buildFilePath);
 
       if(!buildFileExists) {
-        console.error("Error: SwaggerUI build file %s does not exist", buildFilePath);
-        return '<h4>Error loading SwaggerUI</h4>';
+        throw new Error('Error: SwaggerUI build file does not exist ' + buildFilePath);
       }
 
       // Read file
@@ -267,8 +236,7 @@ const shortcodes = {
     let configFileExists = fs.existsSync(configFilePath);
 
     if(!configFileExists) {
-      console.error("Error: Ngindox config file %s does not exist", configFilePath);
-      return '<h4>Error loading Ngindox</h4>';
+      throw new Error('Error: Ngindox config file does not exist ' + configFilePath);
     }
 
     let buildFileDir = opts.api.replace('.yaml', '');
@@ -276,8 +244,7 @@ const shortcodes = {
     let buildFileExists = fs.existsSync(buildFilePath);
 
     if(!buildFileExists) {
-      console.error("Error: Ngindox build file %s does not exist", buildFilePath);
-      return '<h4>Error loading Ngindox</h4>';
+      throw new Error('Error: Ngindox build file does not exist ' + buildFilePath);
     }
 
     // Read file
@@ -321,11 +288,11 @@ const shortcodes = {
   'image': (buf, opts) => {
     if (opts.srcset && opts.sizes) {
       return sanitize(`
-      <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img srcset=${opts.srcset} sizes=${opts.sizes} src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
-    `)
+        <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img srcset=${opts.srcset} sizes=${opts.sizes} src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
+      `)
     }
     return sanitize(`
-    <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
+      <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
     `);
   },
 
