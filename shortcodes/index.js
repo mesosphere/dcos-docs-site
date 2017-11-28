@@ -190,7 +190,7 @@ const shortcodes = {
       let configFileExists = fs.existsSync(configFilePath);
 
       if(!configFileExists) {
-        throw new Error('Error: SwaggerUI config file does not exist ' + configFilePath);
+        throw new Error('SwaggerUI config file does not exist ' + configFilePath);
       }
 
       let buildFileDir = opts.api.replace('.yaml', '');
@@ -198,7 +198,7 @@ const shortcodes = {
       let buildFileExists = fs.existsSync(buildFilePath);
 
       if(!buildFileExists) {
-        throw new Error('Error: SwaggerUI build file does not exist ' + buildFilePath);
+        throw new Error('SwaggerUI build file does not exist ' + buildFilePath);
       }
 
       // Read file
@@ -236,7 +236,7 @@ const shortcodes = {
     let configFileExists = fs.existsSync(configFilePath);
 
     if(!configFileExists) {
-      throw new Error('Error: Ngindox config file does not exist ' + configFilePath);
+      throw new Error('Ngindox config file does not exist ' + configFilePath);
     }
 
     let buildFileDir = opts.api.replace('.yaml', '');
@@ -244,7 +244,7 @@ const shortcodes = {
     let buildFileExists = fs.existsSync(buildFilePath);
 
     if(!buildFileExists) {
-      throw new Error('Error: Ngindox build file does not exist ' + buildFilePath);
+      throw new Error('Ngindox build file does not exist ' + buildFilePath);
     }
 
     // Read file

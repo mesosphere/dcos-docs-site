@@ -507,8 +507,13 @@ function shortcodes(opts) {
     Object.keys(files).forEach((file) => {
       let ext = path.extname(file);
       if(!shortcodeOpts.files || (shortcodeOpts.files && shortcodeOpts.files.indexOf(ext) != -1)) {
-        const out = parser.parse(files[file].contents.toString('utf8'));
-        files[file].contents = Buffer.from(out, 'utf8');
+        try {
+          const out = parser.parse(files[file].contents.toString('utf8'));
+          files[file].contents = Buffer.from(out, 'utf8');
+        }
+        catch(err) {
+          throw err + ` File: ${file}`;
+        }
       }
     });
   };
