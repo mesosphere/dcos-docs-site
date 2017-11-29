@@ -13,6 +13,10 @@
     }
     &-tag {
         justify-content: space-between !important;
+        small {
+          font-size: inherit !important;
+          color: $color-grey !important;
+        }
     }
 }
 
