@@ -1,5 +1,7 @@
 # DC/OS Documentation
 
+[![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-develop/badge/icon)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-develop/)
+
 ## Environments
 
 | Branch | Site | PDFs | Link |
