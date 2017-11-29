@@ -13,22 +13,30 @@
     }
     &-tag {
         justify-content: space-between !important;
-        small {
-          font-size: inherit !important;
-          color: $color-grey !important;
-        }
-    }
+        font-size: 1rem !important;
+        font-weight: bold;
+            & small {
+                font-size: inherit !important;
+                &:before {
+                    content: ':';
+                    margin-right: 10px;
+                }
+            }
+          }
+}
+
+.swagger-ui .opblock-tag svg {
+    display: block;
+}
+
+.opblock-summary-description {
+    padding-right: 10px;
+    text-align: right;
 }
 
 .swagger-ui .response-col_description__inner span p {
     color: #fff !important;
     code {
         color: #41444e;
-    }
-}
-
-@include md {
-    .opblock-summary-path {
-        font-size: 16px !important;
     }
 }
