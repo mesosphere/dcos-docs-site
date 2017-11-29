@@ -2,11 +2,12 @@
   margin: 2rem 0;
   &__list {
     display: flex;
+    flex-wrap: wrap;
+    padding: 0;
     list-style-type: none;
   }
   &__item {
-    display: inline-block;
-    margin-right: 1rem;
+    margin: 0 1rem 1rem 0;
     line-height: 1;
   }
   &__link {
@@ -36,17 +37,9 @@
   }
   @include md {
     margin: 4rem 0;
-    &__item {
-      margin-right: 1rem;
-    }
-    &__icon {
-      width: 20px;
-      height: 20px;
-    }
     &__text {
       display: inline;
       margin-left: 0.5rem;
-      font-size: 1rem;
     }
   }
   @include lg {
