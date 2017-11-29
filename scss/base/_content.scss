@@ -24,16 +24,9 @@ $sections-size: 20%;
     }
   }
   &__article {
-    > .tag:first-of-type {
+    > :first-child:not(.badge) {
       margin-top: 0;
-    }
-    // > :first-child:not(.tag) {
-    //   margin-top: 0;
-    //   padding-top: 0;
-    // }
-    ul li,
-    ol li {
-      margin-left: 25px;
+      padding-top: 0;
     }
     .icon {
       width: 16px;
@@ -93,7 +86,7 @@ $sections-size: 20%;
       > h4,
       > h5,
       > h6 {
-        padding-top: 100px;
+        padding-top: 120px;
         margin-top: -100px;
         &:before {
           content: '';
@@ -131,8 +124,8 @@ $sections-size: 20%;
       }
       &-list {
         width: 100%;
-        margin: 0;
-        margin-top: 2rem;
+        margin: 2rem 0 0;
+        padding: 0;
         &:nth-of-type(1) {
           margin-top: 0;
         }
