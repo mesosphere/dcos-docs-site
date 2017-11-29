@@ -9,6 +9,9 @@
   background: $color-light;
   box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
   z-index: 20;
+  &__drawer {
+    margin-right: 20px;
+  }
   &__logo {
     display: flex;
     align-items: center;
