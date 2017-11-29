@@ -61,12 +61,12 @@ function main
             # Create PDF
             # Directly use lib in container
             if [[ -z "$3" ]]; then
-              wkhtmltopdf --print-media-type --javascript-delay 1000 "$f" "$build_dir/$pdf_file_name"
+              wkhtmltopdf --print-media-type --disable-internal-links --javascript-delay 1000 "$f" "$build_dir/$pdf_file_name"
 
             # Use http service if host is set
             else
               printf "${GREEN}Using${PURPLE} $3${NC}\n"
-              options='options={"print-media-type":"","javascript-delay":"1000"}'
+              options='options={"print-media-type":"","disable-internal-links":"","javascript-delay":"1000"}'
               curl -X POST -vv -F "file=@$f" -F $options  $3 -o "$build_dir/$pdf_file_name"
             fi
 

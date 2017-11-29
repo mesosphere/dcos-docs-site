@@ -537,11 +537,17 @@ function wkhtmltopdfLinkResolver(opts) {
       let buildPath = opts.prefix;
       $('*').each(function(){
         let href = $(this).attr('href');
-        if(href && href[0] === '/') {
+        let src = $(this).attr('src');
+        // Remove links
+        if($(this).is('a')) {
+          $(this).removeAttr('href');
+        }
+        // Set system file links
+        else if(href && href[0] === '/') {
           $(this).attr('href', buildPath + href)
         }
-        let src = $(this).attr('src');
-        if(src && src[0] === '/') {
+        // Set system file path
+        else if(src && src[0] === '/') {
           $(this).attr('src', buildPath + src)
         }
       });
