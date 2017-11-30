@@ -18,7 +18,7 @@ echo "Reducing Site Content..."
 make reduce-pages
 
 echo "Building PDF docker image..."
-make docker-build-pdf
+make docker-pdf-build
 
 echo "Image Build Success!"
 
