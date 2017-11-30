@@ -62,29 +62,20 @@ build-ngindox:
 # Docker
 #
 
-docker-build-site: ## Build site docker image. Required env vars: ALGOLIA_PROJECT_ID, ALGOLIA_PUBLIC_KEY, ALGOLIA_PRIVATE_KEY, ALGOLIA_INDEX
+docker-site-build: ## Build site docker image. Required env vars: ALGOLIA_PROJECT_ID, ALGOLIA_PUBLIC_KEY, ALGOLIA_PRIVATE_KEY, ALGOLIA_INDEX
 	./scripts/build-site.sh
 
-docker-build-pdf: ## Build pdf docker image.
+docker-pdf-build: ## Build pdf docker image.
 	./scripts/build-pdf.sh
 
-docker-production-up: ## Run site container.
+docker-site-run: ## Run site container.
 	docker-compose -f ./docker/docker-compose.production.yml up -d docs
 
-docker-production-up-pdf: ## Run pdf container.
+docker-pdf-run: ## Run pdf container.
 	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
 
-docker-development-up-pdf:
-	docker-compose -f ./docker/docker-compose.development.yml up -d pdf
-
-docker-test-link-checker: ## Run link checker test
+docker-site-check-links: ## Run link checker test
 	docker-compose -f ./docker/docker-compose.production.yml up test
-
-docker-test-build-site: ## Validate site docker image build.
-	./scripts/build-site-validation.sh
-
-docker-test-build-pdf: ## Validate pdf docker image build.
-	./scripts/build-pdf-validation.sh
 
 docker-purge:
 	./scripts/docker-purge.sh
