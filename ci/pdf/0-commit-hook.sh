@@ -25,10 +25,13 @@ function close_file_descriptor() {
 }
 trap 'close_file_descriptor' EXIT
 
-export DOCKER_IMAGE="$(ci/pdf/2-build-pdf-image.sh | tee >(cat - >&5) | grep "^Image: " | sed "s/^Image: //")"
+DOCKER_IMAGE="$(ci/pdf/2-build-pdf-image.sh | tee >(cat - >&5) | grep "^Image: " | sed "s/^Image: //")"
+export DOCKER_IMAGE # export separately so errexit works :(
 
-export PDF_BUNDLE_PATH="$(ci/pdf/3-extract-pdf-bundle.sh | tee >(cat - >&5) | grep "^PDF Bundle Path: " | sed "s/^PDF Bundle Path: //")"
+PDF_BUNDLE_PATH="$(ci/pdf/3-extract-pdf-bundle.sh | tee >(cat - >&5) | grep "^PDF Bundle Path: " | sed "s/^PDF Bundle Path: //")"
+export PDF_BUNDLE_PATH # export separately so errexit works :(
 
-export PDF_BUNDLE_URL="$(ci/pdf/4-publish-site-image.sh | tee >(cat - >&5) | grep "^PDF Bundle URL: " | sed "s/^PDF Bundle URL: //")"
+PDF_BUNDLE_URL="$(ci/pdf/4-publish-pdf-bundle.sh | tee >(cat - >&5) | grep "^PDF Bundle URL: " | sed "s/^PDF Bundle URL: //")"
+export PDF_BUNDLE_URL # export separately so errexit works :(
 
 ci/pdf/5-deploy-site-update.sh

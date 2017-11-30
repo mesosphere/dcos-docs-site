@@ -28,8 +28,10 @@ function close_file_descriptor() {
 trap 'close_file_descriptor' EXIT
 
 IMAGE=$(ci/2-build-site-image.sh | tee >(cat - >&5) | grep "^Image: " | sed "s/^Image: //")
-export IMAGE_NAME="$(echo "${IMAGE}" | sed 's/^\(.*\):\([^:]*\)/\1/')"
-export IMAGE_TAG="$(echo "${IMAGE}" | sed 's/^\(.*\):\([^:]*\)/\2/')"
+IMAGE_NAME="$(echo "${IMAGE}" | sed 's/^\(.*\):\([^:]*\)/\1/')"
+export IMAGE_NAME # export separately so errexit works :(
+IMAGE_TAG="$(echo "${IMAGE}" | sed 's/^\(.*\):\([^:]*\)/\2/')"
+export IMAGE_TAG # export separately so errexit works :(
 
 ci/3-test-site-image.sh
 
