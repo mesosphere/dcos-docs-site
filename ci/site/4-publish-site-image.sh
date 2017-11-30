@@ -11,7 +11,7 @@ DOCKER_USER="${DOCKER_USER}"
 DOCKER_PASS="${DOCKER_PASS}"
 
 # run from repo root
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 echo "Container Image: ${IMAGE_NAME}:${IMAGE_TAG}"

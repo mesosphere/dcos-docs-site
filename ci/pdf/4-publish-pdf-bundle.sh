@@ -11,7 +11,7 @@ AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"
 AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}"
 
 # run from repo root
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 echo "PDF Bundle: ${PDF_BUNDLE_PATH}"

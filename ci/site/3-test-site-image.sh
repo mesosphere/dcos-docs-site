@@ -10,7 +10,7 @@ IMAGE_NAME="${IMAGE_NAME}"
 IMAGE_TAG="${IMAGE_TAG}"
 
 # run from repo root
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 # optional inputs

@@ -16,7 +16,7 @@ DCOS_USER_PRIVATE_KEY_PATH="${DCOS_USER_PRIVATE_KEY_PATH}" # ex: docs-bot-privat
 DCOS_CRT="${DCOS_CRT}" # ex: docs-us.crt
 
 # run from repo root
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 echo "Detecting DC/OS version..."

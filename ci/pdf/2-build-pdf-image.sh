@@ -10,7 +10,7 @@ set -o errexit -o nounset -o pipefail
 GIT_BRANCH="${GIT_BRANCH}"
 
 # run from repo root
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 # uncomment for testing, to make the build faster

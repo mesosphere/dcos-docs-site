@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail
 
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 # required inputs (fail early w/ nounset)
