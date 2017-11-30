@@ -13,9 +13,9 @@ GIT_BRANCH="${GIT_BRANCH}"
 project_dir=$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)
 cd "${project_dir}"
 
-echo "Reducing Site Content..."
-#TODO: remove this! we're just using it to validate pdf build scripts work
-make reduce-pages
+# uncomment for testing, to make the build faster
+#echo "Reducing Site Content..."
+#make reduce-pages
 
 echo "Building PDF docker image..."
 make docker-build-pdf
