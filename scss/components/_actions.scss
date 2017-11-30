@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     padding: 0;
     list-style-type: none;
+    justify-content: space-between;
   }
   &__item {
     margin: 0 1rem 1rem 0;
@@ -26,8 +27,8 @@
     }
   }
   &__icon {
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     &--rss {
       fill: $color-grey;
     }
@@ -40,6 +41,10 @@
     &__text {
       display: inline;
       margin-left: 0.5rem;
+    }
+    &__icon {
+      width: 16px;
+      height: 16px;
     }
   }
   @include lg {

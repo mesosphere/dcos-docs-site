@@ -21,4 +21,7 @@
     &--light {
         background-color: $color-grey;
     }
+    &:hover {
+      cursor: pointer;
+    }
 }

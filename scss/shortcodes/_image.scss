@@ -19,8 +19,9 @@
     }
     &__caption {
         display: block;
-        background-color: #eee;
-        color: inherit;
+        // background-color: #eee;
+        color: $color-grey;
+        font-style: italic;
         padding: 6px;
         margin-top: 0px;
         &--inline {
