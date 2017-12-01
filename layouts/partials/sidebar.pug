@@ -25,8 +25,13 @@ mixin renderSidebarHeader()
     div(class='sidebar__dropdown')
       div(class='sidebar__dropdown__toggle')
         p(class='sidebar__dropdown__text')
-          span(class='sidebar__dropdown__text__title')!= siteTitle
-          span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
+          if paths[0] === 'services'
+            - var serviceTitle = paths[1].split('-').join(' ').replace(/\b[a-z]/g,function(f){return f.toUpperCase();});
+            span(class='sidebar__dropdown__text__title')!= serviceTitle
+            span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
+          else
+            span(class='sidebar__dropdown__text__title')!= siteTitle
+            span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
         i(class='sidebar__dropdown__icon', data-feather='chevron-down')
       ul(class='sidebar__dropdown__list')
         each val, index in dropdown
