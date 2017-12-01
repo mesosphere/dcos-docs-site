@@ -10,10 +10,12 @@ const serve            = require('metalsmith-serve');
 const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
-const incremental      = require('metalsmith-incremental').default;
+//const incremental      = require('metalsmith-incremental').default;
 const timer            = require('metalsmith-timer');
 
 // Local Plugins
+const reduce                  = require('./plugins/metalsmith-revision').reduce;
+const restore                 = require('./plugins/metalsmith-revision').restore;
 const hierarchy               = require('./plugins/metalsmith-hierarchy');
 const hierarchyRss            = require('./plugins/metalsmith-hierarchy-rss');
 const headings                = require('./plugins/metalsmith-headings');
@@ -115,13 +117,8 @@ CB.use(hierarchyRss({
 CB.use(timer('CB: Hierarchy RSS'))
 
 // Filter unmodified files
-CB.use(incremental({
-  plugin: 'filter',
-  rename: {
-    from: /.md$/,
-    to: '.html',
-  }
-}))
+CB.use(reduce())
+CB.use(timer('CB: Reduce'))
 
 //
 // Slow Plugins
@@ -184,26 +181,27 @@ CB.use(timer('CB: Layouts'))
 //
 
 // Restore unmodified files
-CB.use(incremental({
-  plugin: 'cache'
-}))
+CB.use(restore())
+CB.use(timer('CB: Reduce'))
 
 // Enable watching
 if(process.env.NODE_ENV === 'development') {
+  /*
   CB.use(incremental({
     plugin: 'watch',
     paths: {
-      './layouts/*': '*',
+      'layouts/*': '*',
     }
-    /*
-    paths: {
-      './pages/*': '*',
-      './layouts/*': '*',
-      './scss/*': '*',
-      './js/*': '*',
-    },
-    */
   }))
+  */
+  CB.use(
+    watch({
+      paths: {
+        'pages/**/*': '**/*.md',
+        'layouts/**/*': '**/*.pug',
+      },
+    })
+  )
 }
 
 // Search Indexing
@@ -227,7 +225,9 @@ if(process.env.NODE_ENV == "pdf") {
 
 // In case you have restored all files with cache plugin
 // call filter plugin as last middleware
+/*
 CB.use(incremental({ plugin: 'filter' }))
+*/
 
 // Serve
 if(process.env.NODE_ENV == "development") {
@@ -248,7 +248,8 @@ if(process.env.NODE_ENV === 'development') {
   AB.use(
     watch({
       paths: {
-        "js/**/*": "**/*.js",
+        'js/**/*': '**/*.js',
+        'scss/**/*': '**/*.scss',
       },
     })
   )

@@ -46,7 +46,6 @@
     "metalsmith-assets": "^0.1.0",
     "metalsmith-branch": "0.0.5",
     "metalsmith-headings": "^0.2.0",
-    "metalsmith-incremental": "^0.1.1",
     "metalsmith-layouts": "^1.8.1",
     "metalsmith-markdownit": "^0.4.0",
     "metalsmith-permalinks": "^0.5.0",
