@@ -48,49 +48,6 @@ function plugin(opts) {
 
     fs.writeFileSync(configPath, JSON.stringify(hash_table), 'utf-8')
     done()
-
-    /*
-    if(options.layout){
-      recurse(
-        layoutDirectory
-      , (err, layouts) => {
-          if(err) throw(err)
-          layouts.map(l => {
-            const path = relative(layoutDirectory, l)
-            const content = fs.readFileSync(l, 'utf-8')
-            const hash = checksum(content)
-            hash_table.layouts[path] = hash
-        })
-
-        Object.keys(files).forEach(file => {
-          const hash = checksum(files[file].contents)
-          hash_table.src[file] = hash
-          if(
-            (revision !== null && revision.src[file] === hash) &&
-            ( (!options.layout) ||
-              (options.layout && revision.layouts[files[file].layout] === hash_table.layouts[files[file].layout]) ) )
-            delete files[file]
-        })
-
-        fs.writeFileSync(configPath, JSON.stringify(hash_table), 'utf-8')
-        done()
-      })
-    }
-    else{
-      Object.keys(files).forEach(file => {
-        const hash = checksum(files[file].contents)
-        hash_table.src[file] = hash
-        if(
-          (revision !== null && revision.src[file] === hash) &&
-          ( (!options.layout) ||
-            (options.layout && revision.layouts[files[file].layout] === hash_table.layouts[files[file].layout]) ) )
-          delete files[file]
-      })
-
-      fs.writeFileSync(configPath, JSON.stringify(hash_table), 'utf-8')
-      done()
-    }
-    */
   }
 }
 
