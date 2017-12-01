@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail
 
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 # required inputs (fail early w/ nounset)
@@ -16,7 +16,7 @@ DCOS_USER_NAME="${DCOS_USER_NAME}" # ex: docs-bot
 DCOS_USER_PRIVATE_KEY_PATH="${DCOS_USER_PRIVATE_KEY_PATH}" # ex: docs-bot-private.pem
 DCOS_CRT="${DCOS_CRT}" # ex: docs-us.crt
 
-ci/1-setup-env.sh
+ci/pdf/1-setup-env.sh
 
 # capture output AND print to stdout
 exec 5>&1
@@ -25,10 +25,13 @@ function close_file_descriptor() {
 }
 trap 'close_file_descriptor' EXIT
 
-export DOCKER_IMAGE="$(ci/2-build-pdf-image.sh | tee >(cat - >&5) | grep "^Image: " | sed "s/^Image: //")"
+DOCKER_IMAGE="$(ci/pdf/2-build-pdf-image.sh | tee >(cat - >&5) | grep "^Image: " | sed "s/^Image: //")"
+export DOCKER_IMAGE # export separately so errexit works :(
 
-export PDF_BUNDLE_PATH="$(ci/3-extract-pdf-bundle.sh | tee >(cat - >&5) | grep "^PDF Bundle Path: " | sed "s/^PDF Bundle Path: //")"
+PDF_BUNDLE_PATH="$(ci/pdf/3-extract-pdf-bundle.sh | tee >(cat - >&5) | grep "^PDF Bundle Path: " | sed "s/^PDF Bundle Path: //")"
+export PDF_BUNDLE_PATH # export separately so errexit works :(
 
-export PDF_BUNDLE_URL="$(ci/4-publish-site-image.sh | tee >(cat - >&5) | grep "^PDF Bundle URL: " | sed "s/^PDF Bundle URL: //")"
+PDF_BUNDLE_URL="$(ci/pdf/4-publish-pdf-bundle.sh | tee >(cat - >&5) | grep "^PDF Bundle URL: " | sed "s/^PDF Bundle URL: //")"
+export PDF_BUNDLE_URL # export separately so errexit works :(
 
-ci/5-deploy-site-update.sh
+ci/pdf/5-deploy-site-update.sh

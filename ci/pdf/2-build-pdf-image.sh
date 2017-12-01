@@ -10,15 +10,15 @@ set -o errexit -o nounset -o pipefail
 GIT_BRANCH="${GIT_BRANCH}"
 
 # run from repo root
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
-echo "Reducing Site Content..."
-#TODO: remove this! we're just using it to validate pdf build scripts work
-make reduce-pages
+# uncomment for testing, to make the build faster
+#echo "Reducing Site Content..."
+#make reduce-pages
 
 echo "Building PDF docker image..."
-make docker-build-pdf
+make docker-pdf-build
 
 echo "Image Build Success!"
 

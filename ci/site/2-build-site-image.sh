@@ -10,11 +10,11 @@ set -o errexit -o nounset -o pipefail
 GIT_BRANCH="${GIT_BRANCH}"
 
 # run from repo root
-project_dir=$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)
+project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 echo "Building site and docker image..."
-make docker-build-site
+make docker-site-build
 
 echo "Image Build Success!"
 

@@ -206,44 +206,44 @@ Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip]
 ###### Usage:
 
 ```*
-[!image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption" /]
+[!image src="../1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption" /]
 ```
 
 ###### Example:
 
-[image src="../docs/1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption" /]
+[image src="../1.10/img/auth-login.png" type="inline" alt="Test" caption="Inline image caption" /]
 
 ##### Fill (fill 100% of parent container)
 
 ###### Example:
 
-[image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption" /]
+[image src="../1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption" /]
 
 ###### Usage:
 ```*
-[!image src="../docs/1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption" /]
+[!image src="../1.10/img/auth-login.png" type="fill" alt="Test" caption="Fill image caption" /]
 ```
 
 ##### Fluid (fill 100% of parent container until reaching original size (max-width = original size))
 
 ###### Example:
 
-[image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption" /]
+[image src="../1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption" /]
 
 ###### Usage:
 ```*
-[!image src="../docs/1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption" /]
+[!image src="../1.10/img/auth-login.png" type="fluid" alt="Test" caption="Fluid image caption" /]
 ```
 
 ##### srcset and sizes
 
 ###### Example:
 
-[image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="Alt text" caption="Inline Example using srcset" type="inline" /]
+[image srcset="../1.10/img/app-destroy.png 1x ../1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../1.10/img/auth-login.png" alt="Alt text" caption="Inline Example using srcset" type="inline" /]
 
 ###### Usage:
 ```*
-[!image srcset="../docs/1.10/img/app-destroy.png 1x ../docs/1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../docs/1.10/img/auth-login.png" alt="Alt text" caption="Inline Example using srcset" type="inline" /]
+[!image srcset="../1.10/img/app-destroy.png 1x ../1.10/img/auth-login.png 2x" sizes="(min-width: 36em) 33.3vw, 100vw" src="../1.10/img/auth-login.png" alt="Alt text" caption="Inline Example using srcset" type="inline" /]
 ```
 
 ### Buttons {data-hide=true}
