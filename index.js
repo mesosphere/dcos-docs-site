@@ -10,7 +10,6 @@ const serve            = require('metalsmith-serve');
 const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
-//const incremental      = require('metalsmith-incremental').default;
 const timer            = require('metalsmith-timer');
 
 // Local Plugins
@@ -117,8 +116,10 @@ CB.use(hierarchyRss({
 CB.use(timer('CB: Hierarchy RSS'))
 
 // Filter unmodified files
-CB.use(reduce())
-CB.use(timer('CB: Reduce'))
+if(process.env.NODE_ENV === 'development') {
+  CB.use(reduce())
+  CB.use(timer('CB: Reduce'))
+}
 
 //
 // Slow Plugins
@@ -181,19 +182,13 @@ CB.use(timer('CB: Layouts'))
 //
 
 // Restore unmodified files
-CB.use(restore())
-CB.use(timer('CB: Reduce'))
+if(process.env.NODE_ENV === 'development') {
+  CB.use(restore())
+  CB.use(timer('CB: Reduce'))
+}
 
 // Enable watching
 if(process.env.NODE_ENV === 'development') {
-  /*
-  CB.use(incremental({
-    plugin: 'watch',
-    paths: {
-      'layouts/*': '*',
-    }
-  }))
-  */
   CB.use(
     watch({
       paths: {
@@ -222,12 +217,6 @@ if(process.env.NODE_ENV == "pdf") {
   }))
   CB.use(timer('WkhtmltopdfLinkResolver'))
 }
-
-// In case you have restored all files with cache plugin
-// call filter plugin as last middleware
-/*
-CB.use(incremental({ plugin: 'filter' }))
-*/
 
 // Serve
 if(process.env.NODE_ENV == "development") {
