@@ -52,7 +52,8 @@ html(lang='en')
             - itemClass['landing__item--active'] = val.path == '/'
             li(class=itemClass)
               a(href=val.path)!= val.title
-
+        li(class='landing__item')
+          a(href='https://support.mesosphere.com') Support
     div(class='landing__hero')
       form(class='landing__search', action='/search', method='GET')
         label(class='landing__search-label', for='landing__search-input')

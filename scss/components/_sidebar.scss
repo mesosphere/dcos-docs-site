@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   background: $color-purple;
+  height: 100vh;
   &__header {
     height: 80px;
     box-shadow: 0 0px 40px -40px rgba(0, 0, 0, 0.1);
@@ -60,10 +61,7 @@
       text-decoration: none;
       user-select: none;
       transition: 0.2s background $ease-in-out-cubic;
-      &:link,
-      &:visited {
-        color: $color-light;
-      }
+      color: $color-light;
       &:hover {
         background: $color-purple;
       }
@@ -86,10 +84,10 @@
       width: 0px;
       background: transparent;
     }
-    height: 100vh;
+    flex: 1;
     padding: 2rem 0;
     overflow-y: scroll;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.6);
     a {
       color: rgba(255, 255, 255, 0.6);
@@ -106,7 +104,7 @@
     &__icon {
       width: 14px;
       height: 14px;
-      margin: 1px 3px 0 -17px;
+      margin: 0 3px 0 -17px;
       color: rgba(255, 255, 255, 0.6);
       user-select: none;
     }
@@ -122,7 +120,7 @@
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        padding: 0.25rem 0;
+        padding: 0.3rem 0;
         line-height: 1rem;
       }
       &--depth-0 {
@@ -170,9 +168,7 @@
     justify-content: center;
     width: 100%;
     padding: 2rem;
-    height: 80px;
-    font-size: 0.6rem;
-    //background: $color-purple;
+    font-size: 0.8rem;
     &-links {
       margin-bottom: 0.5rem;
       & a {
@@ -183,6 +179,11 @@
     }
     &-copyright {
       color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  @include md {
+    &__nav {
+      font-size: 0.9rem;
     }
   }
 }

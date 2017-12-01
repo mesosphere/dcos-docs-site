@@ -24,6 +24,7 @@
   }
   &__main {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex: 1;
   }
@@ -101,6 +102,9 @@
   @include md {
     &__drawer {
       display: none;
+    }
+    &__main {
+      justify-content: flex-start;
     }
     &__menu {
       display: block;

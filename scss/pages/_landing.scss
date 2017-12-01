@@ -21,8 +21,10 @@
   }
   &__menu {
     margin: 0;
+    padding: 0;
     list-style-type: none;
-    font-size: 12px;
+    font-size: 1rem;
+    font-weight: bold;
   }
   &__item {
     display: inline-block;
@@ -113,9 +115,7 @@
       display: block;
       padding: 10px;
       text-decoration: none;
-      &:link {
-        color: $color-dark;
-      }
+      color: $color-dark;
       &:hover {
         background-color: #f9f9f9;
         & .landing__results-title {
