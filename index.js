@@ -46,7 +46,7 @@ const ALGOLIA_UPDATE_INDEX = false;
 // Errors
 //
 
-if(process.env.NODE_ENV == "production" || ALGOLIA_UPDATE_INDEX) {
+if(ALGOLIA_UPDATE_INDEX) {
   if(process.env.NODE_ENV == "pdf") {
     throw new Error('Algolia env vars set while build env is pdf');
   }
@@ -243,13 +243,16 @@ if(process.env.NODE_ENV == "development") {
 let AB = branch()
 
 // Watch
-AB.use(
-  watch({
-    paths: {
-      "js/**/*": "**/*.js",
-    },
-  })
-)
+
+if(process.env.NODE_ENV === 'development') {
+  AB.use(
+    watch({
+      paths: {
+        "js/**/*": "**/*.js",
+      },
+    })
+  )
+}
 
 // Start timer
 AB.use(timer('AB: Init'))
