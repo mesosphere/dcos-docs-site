@@ -1,8 +1,9 @@
 const sidebarDropdown = document.querySelector('.sidebar__dropdown');
+const sidebarDropdownList = document.querySelector('.sidebar__dropdown__list');
 let sidebarItems = document.querySelectorAll('.sidebar__nav__item--parent');
 sidebarItems = [...sidebarItems];
 
-if (sidebarDropdown) {
+if (sidebarDropdown && sidebarDropdownList) {
   document.addEventListener('click', detectClick);
   sidebarDropdown.addEventListener('click', toggleDropdown);
 }
@@ -41,6 +42,7 @@ function detectClick(event) {
  *
  */
 function toggleMenu(event) {
+  event.stopPropagation();
   event.preventDefault();
   const childMenu = this.parentNode.parentNode.nextSibling;
   if (!childMenu.classList.contains('sidebar__nav__list--active')) {
