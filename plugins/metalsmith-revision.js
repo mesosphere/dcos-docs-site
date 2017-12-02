@@ -16,13 +16,7 @@ function plugin(opts) {
     const layoutDirectory = resolve(metalsmith._directory, options.layoutDir);
     const revision = fs.existsSync(configPath)
       ? JSON.parse(fs.readFileSync(configPath, 'utf-8'))
-      : null;
-
-    if(revision == null) {
-      fs.writeFileSync(configPath, JSON.stringify(hashTable), 'utf-8');
-      done();
-      return;
-    }
+      : { layouts: {}, src: {} };
 
     if(!metalsmith.revision) {
       metalsmith.revision = {};
