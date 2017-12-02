@@ -1,38 +1,46 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
 - var items = hierarchy
+- var service = null
 - var versionTitle = ''
 - var semanticVersion = /^[0-9]+\.[0-9]+/
-- var dropdown = hierarchy.children.filter(item => semanticVersion.test(item.id))
+- var semanticVersionService = /^v[0-9]+/
+- var dropdown = []
 
 // Service Docs
 if paths[0] === 'services' && paths[1]
   - items = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
   - var servicesDropdown = items.children.filter(x => x.id.startsWith('v'))
-  if servicesDropdown.length
-    - dropdown = servicesDropdown
+  - dropdown = servicesDropdown
+  - service = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
   if paths[2] && paths[2].startsWith('v')
     - versionTitle = paths[2]
     - items = hierarchy.findByPath('/' + paths[0] + '/' + paths[1] + '/' + paths[2])
 
 // DC/OS Docs
 if semanticVersion.test(paths[0])
+  - dropdown = hierarchy.children.filter(item => semanticVersion.test(item.id))
   - items = hierarchy.findByPath('/' + paths[0])
   - versionTitle = paths[0]
 
 mixin renderSidebarHeader()
+  - var showDropdown = true
+  if !dropdown.length || (dropdown.length == 1 && semanticVersionService.test(dropdown[0].id))
+    - showDropdown = false
   header(class='sidebar__header')
     div(class='sidebar__dropdown')
+      if showDropdown
+        ul(class='sidebar__dropdown__list')
+          each val, index in dropdown
+            if val.navigationTitle || val.title
+              li(class='sidebar__dropdown__item')
+                a(href=val.path, class='sidebar__dropdown__link')!= val.navigationTitle
       div(class='sidebar__dropdown__toggle')
         p(class='sidebar__dropdown__text')
-          span(class='sidebar__dropdown__text__title')!= siteTitle
+          span(class='sidebar__dropdown__text__title')!= (service) ? service.title : siteTitle
           span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
-        i(class='sidebar__dropdown__icon', data-feather='chevron-down')
-      ul(class='sidebar__dropdown__list')
-        each val, index in dropdown
-          if val.navigationTitle || val.title
-            li(class='sidebar__dropdown__item')
-              a(href=val.path, class='sidebar__dropdown__link')!= val.navigationTitle
+        if showDropdown
+          i(class='sidebar__dropdown__icon', data-feather='chevron-down')
 
 mixin renderSidebarNavListItem(item, depth)
   - var itemClassList = {}
