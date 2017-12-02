@@ -3,10 +3,18 @@
 - var items = hierarchy.children.find(child => child.id === paths[0])
 - var currentDocs = items
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+- var semanticVersion = /^v[0-9]+/
 
 mixin renderGridToc()
   div(class='grid-toc')
     each val, index in currentDocs.children
+      if val.children
+        each childVal, childIndex in val.children
+          if semanticVersion.test(childVal.id)
+            - versioned = true
+            - childVal.title = val.title
+            - val = childVal
+            - break
       if val.menuWeight != -1
         div(class='grid-toc__item')
           h2(class='grid-toc__title')
