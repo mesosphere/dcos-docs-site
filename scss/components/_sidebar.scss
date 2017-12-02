@@ -111,45 +111,47 @@
       margin: 1px 3px 0 -17px;
       color: rgba(255, 255, 255, 0.6);
       user-select: none;
+      &:hover {
+        opacity: 0.3;
+      }
     }
-    &__link {
+    &__text {
       font-weight: 400;
-      text-decoration: none;
       color: rgba(255, 255, 255, 0.6);
     }
     &__item {
       position: relative;
-      padding: 0 2rem;
-      &__text {
+      &__container {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        padding: 0.25rem 0;
         line-height: 1rem;
-      }
-      &--depth-0 {
-        padding-left: 1rem * 2;
-      }
-      &--depth-1 {
-        padding-left: 1rem * 3;
-      }
-      &--depth-2 {
-        padding-left: 1rem * 4;
-      }
-      &--depth-3 {
-        padding-left: 1rem * 5;
-      }
-      &--depth-4 {
-        padding-left: 1rem * 6;
-      }
-      &--depth-5 {
-        padding-left: 1rem * 7;
+        text-decoration: none;
+        padding: 0.25rem 2rem;
+        &--depth-0 {
+          padding-left: 1rem * 2;
+        }
+        &--depth-1 {
+          padding-left: 1rem * 3;
+        }
+        &--depth-2 {
+          padding-left: 1rem * 4;
+        }
+        &--depth-3 {
+          padding-left: 1rem * 5;
+        }
+        &--depth-4 {
+          padding-left: 1rem * 6;
+        }
+        &--depth-5 {
+          padding-left: 1rem * 7;
+        }
       }
       &--active {
-        > .sidebar__nav__item__text .sidebar__nav__link {
+        > .sidebar__nav__item__container .sidebar__nav__text {
           color: $color-purple-light;
         }
-        > .sidebar__nav__item__text .sidebar__nav__icon {
+        > .sidebar__nav__item__container .sidebar__nav__icon {
           color: $color-purple-light;
           transform: rotate(90deg);
         }
@@ -157,10 +159,10 @@
       &--active-on,
       &:hover {
         background: $color-purple-light;
-        > .sidebar__nav__item__text .sidebar__nav__link {
+        > .sidebar__nav__item__container .sidebar__nav__text {
           color: $color-light;
         }
-        > .sidebar__nav__item__text .sidebar__nav__icon {
+        > .sidebar__nav__item__container .sidebar__nav__icon {
           color: $color-light;
         }
       }
