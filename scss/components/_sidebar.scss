@@ -10,7 +10,6 @@
   &__dropdown {
     position: relative;
     width: 100%;
-    cursor: pointer;
     &__text {
       padding: 0;
       margin: 0;
@@ -47,6 +46,9 @@
       visibility: hidden;
       box-shadow: inset 0 40px 40px -40px rgba(0, 0, 0, 0.1), 0 20px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+      + .sidebar__dropdown__toggle {
+        cursor: pointer;
+      }
     }
     &__item {
       color: $color-light;
@@ -186,4 +188,3 @@
     }
   }
 }
-
