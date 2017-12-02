@@ -142,11 +142,6 @@
         display: inline-block;
       }
     }
-    &__menu {
-      &-item {
-        margin-left: 5%;
-      }
-    }
   }
   @include print {
     display: none;

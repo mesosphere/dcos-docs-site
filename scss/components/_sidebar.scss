@@ -85,7 +85,8 @@
       background: transparent;
     }
     flex: 1;
-    padding: 2rem 0;
+    margin-top: 1rem;
+    padding: 0;
     overflow-y: scroll;
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.6);
@@ -102,9 +103,9 @@
       }
     }
     &__icon {
-      width: 14px;
-      height: 14px;
-      margin: 0 3px 0 -17px;
+      width: 20px;
+      height: 20px;
+      margin: 0 3px 0 -23px;
       color: rgba(255, 255, 255, 0.6);
       user-select: none;
     }
@@ -116,12 +117,12 @@
     &__item {
       position: relative;
       padding: 0 2rem;
+      line-height: 1.5rem;
       &__text {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
-        padding: 0.3rem 0;
-        line-height: 1rem;
+        align-items: center;
+        padding: 0.25rem 0;
       }
       &--depth-0 {
         padding-left: 1rem * 2;
@@ -184,6 +185,9 @@
   @include md {
     &__nav {
       font-size: 0.9rem;
+      &__item {
+        line-height: 1.25rem;
+      }
     }
   }
 }
