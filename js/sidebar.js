@@ -42,6 +42,7 @@ function detectClick(event) {
  *
  */
 function toggleMenu(event) {
+  event.stopPropagation();
   event.preventDefault();
   const childMenu = this.parentNode.parentNode.nextSibling;
   if (!childMenu.classList.contains('sidebar__nav__list--active')) {
