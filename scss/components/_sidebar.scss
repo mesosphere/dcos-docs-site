@@ -107,7 +107,7 @@
     &__icon {
       width: 20px;
       height: 20px;
-      margin: 0 3px 0 -23px;
+      margin: -1px 3px 0 -23px;
       color: rgba(255, 255, 255, 0.6);
       user-select: none;
       &:hover {
@@ -123,10 +123,11 @@
       &__container {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center;
+        height: 28px;
+        padding: 0 2rem;
         line-height: 1rem;
         text-decoration: none;
-        padding: 0.25rem 2rem;
         &--depth-0 {
           padding-left: 1rem * 2;
         }

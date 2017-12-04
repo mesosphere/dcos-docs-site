@@ -111,8 +111,7 @@
       flex: 1;
     }
     &__logo {
-      &-icon,
-      &-text {
+      &-icon {
         margin-right: 10px;
       }
     }
@@ -140,6 +139,11 @@
     &__logo {
       &-text {
         display: inline-block;
+      }
+    }
+    &__menu {
+      &-item {
+        margin-left: 30px;
       }
     }
   }
