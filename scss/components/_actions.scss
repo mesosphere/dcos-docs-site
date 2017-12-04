@@ -10,15 +10,15 @@
   &__item {
     margin: 0 1rem 1rem 0;
     line-height: 1;
+    &:last-child {
+      margin-right: 0;
+    }
   }
   &__link {
     display: flex;
     align-items: center;
-    &:link,
-    &:visited {
-      color: $color-grey;
-      text-decoration: none;
-    }
+    color: $color-grey;
+    text-decoration: none;
     &:hover {
       color: $color-purple-light;
       & .actions__icon--rss {
@@ -38,6 +38,9 @@
   }
   @include md {
     margin: 4rem 0;
+    &__list {
+      justify-content: flex-start;
+    }
     &__text {
       display: inline;
       margin-left: 0.5rem;

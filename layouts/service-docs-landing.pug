@@ -49,51 +49,43 @@ doctype html
 html(lang='en')
   head
     include partials/head.pug
-  body(class='landing')
-    header(class='landing__header')
-      a(href='/')
-        img(class='landing__logo landing__logo--mobile', src='/assets/header-logo-dcos.svg', alt='Mesosphere')
-        img(class='landing__logo landing__logo--desktop', src='/assets/header-logo-mesosphere.svg', alt='Mesosphere')
-      ul(class='landing__menu', role='navigation')
-        each val, index in headerItems
-          if(val.menuWeight !== -1)
-            - var itemClass = {}
-            - itemClass['landing__item'] = true
-            - itemClass['landing__item--active'] = (val.path).includes('/services')
-                li(class=itemClass)
-                  a(href=val.path)!= val.title
+  body(class='landing landing--services')
+    div(class='layout')
+      div(class='layout__sidebar layout__drawer')
+        include partials/sidebar.pug
+      div(role='main', class='layout__content')
+        include partials/header.pug
+        div(class='landing__hero')
+          h1(class='landing__title') Service Docss
 
-    div(class='landing__hero')
-      h1(class='landing__title') Service Docs
+        div(class='landing__container')
+          +renderGridToc()
+          +renderGrid()
 
-    div(class='landing__container')
-      +renderGridToc()
-      +renderGrid()
+          div(class='landing__external')
+            div(class='landing__external-item')
+              //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+              h3(class='landing__external-title')
+                a(class='landing__external-link') Get DC/OS Training
+              p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
+            div(class='landing__external-item')
+              //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+              h3(class='landing__external-title')
+                a(class='landing__external-link') Join the Community
+              p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
+            div(class='landing__external-item')
+              //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
+              h3(class='landing__external-title')
+                a(class='landing__external-link') Find us on Slack
+              p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
 
-      div(class='landing__external')
-        div(class='landing__external-item')
-          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
-          h3(class='landing__external-title')
-            a(class='landing__external-link') Get DC/OS Training
-          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
-        div(class='landing__external-item')
-          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
-          h3(class='landing__external-title')
-            a(class='landing__external-link') Join the Community
-          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
-        div(class='landing__external-item')
-          //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
-          h3(class='landing__external-title')
-            a(class='landing__external-link') Find us on Slack
-          p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
-
-    footer(class='landing__footer')
-      div(class='landing__footer__container')
-        img(class='landing__footer__logo', src='/assets/footer-logo-logomark.svg')
-        div(class='landing__footer__menu')
-          a(href='/') Terms of Service
-          a(href='/') Privacy Policy
-        div(class='landing__footer__copyright') &copy; 2017 Mesosphere, Inc. All Rights Reserved.
+        footer(class='landing__footer')
+          div(class='landing__footer__container')
+            img(class='landing__footer__logo', src='/assets/footer-logo-logomark.svg')
+            div(class='landing__footer__menu')
+              a(href='https://mesosphere.com/terms/') Terms of Service
+              a(href='https://mesosphere.com/privacy/') Privacy Policy
+            div(class='landing__footer__copyright') &copy; 2017 Mesosphere, Inc. All Rights Reserved.
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug

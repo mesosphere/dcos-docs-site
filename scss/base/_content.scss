@@ -8,7 +8,7 @@ $sections-size: 20%;
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    flex: 1;
   }
   &__header {
     z-index: 10;
@@ -111,13 +111,11 @@ $sections-size: 20%;
     &__sections {
       position: relative;
       display: block;
-      width: 20%;
+      flex-basis: 20%;
+      min-width: 150px;
       margin-left: 2rem;
       padding-left: 1.5rem;
       border-left: 1px solid $color-grey-medium;
-      + .content__container {
-        width: 80%;
-      }
       &-list-container {
         position: sticky;
         top: 140px;
