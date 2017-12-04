@@ -120,13 +120,14 @@
     }
     &__item {
       position: relative;
+      margin-bottom: 0.5rem;
+      line-height: 1;
       &__container {
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 28px;
-        padding: 0 2rem;
-        line-height: 1rem;
+        padding: 0.25rem 2rem;
+        line-height: 1.2rem;
         text-decoration: none;
         &--depth-0 {
           padding-left: 1rem * 2;
@@ -192,6 +193,7 @@
       font-size: 0.9rem;
       &__item {
         line-height: 1.25rem;
+        margin-bottom: 0;
       }
     }
   }

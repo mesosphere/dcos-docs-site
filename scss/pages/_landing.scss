@@ -61,12 +61,15 @@
     position: relative;
     max-width: 600px;
     width: 75%;
-    border-bottom: 1px $color-purple-light solid;
-    &-label {
+    border-bottom: 2px $color-purple-light solid;
+    &-button {
       position: absolute;
       top: 50%;
       right: 0;
+      padding: 0;
       transform: translateY(-50%);
+      border: none;
+      background: transparent;
       color: $color-purple-light !important;
     }
     &-input {
@@ -75,6 +78,7 @@
       border: 0;
       background: transparent;
       color: $color-light;
+      font-size: 1.5rem;
       outline: 0;
       &::-webkit-input-placeholder {
         color: $color-light;
@@ -229,8 +233,7 @@
     }
     &__hero {
       height: 400px;
-      background-position: bottom right;
-      background-size: fill;
+      background-size: cover;
     }
     &__title {
       font-size: 48px;

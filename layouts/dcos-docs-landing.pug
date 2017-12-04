@@ -56,9 +56,9 @@ html(lang='en')
           a(href='https://support.mesosphere.com') Support
     div(class='landing__hero')
       form(class='landing__search', action='/search', method='GET')
-        label(class='landing__search-label', for='landing__search-input')
-          i(data-feather='search')
         input(class='landing__search-input', id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')
+        button(class='landing__search-button')
+          i(data-feather='search')
 
     div(class='landing__container')
       +renderGridToc()
