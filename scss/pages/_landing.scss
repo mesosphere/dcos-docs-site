@@ -12,8 +12,7 @@
   }
   &__logo {
     &--mobile {
-      width: 96px;
-      height: 24px;
+      height: 18px;
     }
     &--desktop {
       display: none;
@@ -21,8 +20,11 @@
   }
   &__menu {
     margin: 0;
+    padding: 0;
     list-style-type: none;
-    font-size: 12px;
+    line-height: 1;
+    font-size: 1rem;
+    font-weight: bold;
   }
   &__item {
     display: inline-block;
@@ -59,12 +61,15 @@
     position: relative;
     max-width: 600px;
     width: 75%;
-    border-bottom: 1px $color-purple-light solid;
-    &-label {
+    border-bottom: 2px $color-purple-light solid;
+    &-button {
       position: absolute;
       top: 50%;
       right: 0;
+      padding: 0;
       transform: translateY(-50%);
+      border: none;
+      background: transparent;
       color: $color-purple-light !important;
     }
     &-input {
@@ -73,6 +78,7 @@
       border: 0;
       background: transparent;
       color: $color-light;
+      font-size: 1.5rem;
       outline: 0;
       &::-webkit-input-placeholder {
         color: $color-light;
@@ -113,9 +119,7 @@
       display: block;
       padding: 10px;
       text-decoration: none;
-      &:link {
-        color: $color-dark;
-      }
+      color: $color-dark;
       &:hover {
         background-color: #f9f9f9;
         & .landing__results-title {
@@ -185,6 +189,25 @@
       font-size: 0.8rem;
     }
   }
+  &--services {
+    & .landing {
+      &__hero {
+        padding-top: 80px;
+        height: 330px;
+        background: $color-light;
+      }
+      &__title {
+        margin-top: 0;
+        color: $color-dark;
+      }
+      &__container {
+        padding: 2rem 2rem 0;
+      }
+    }
+    .grid-toc {
+      margin-top: 0;
+    }
+  }
   @include md {
     &__header {
       justify-content: flex-start;
@@ -197,21 +220,20 @@
       }
       &--desktop {
         display: block;
-        width: 280px;
         height: 28px;
       }
     }
     &__menu {
+      flex: 1;
       font-size: initial;      
     }
     &__item {
-      margin-left: 3rem;
+      margin-left: 20px;
       font-weight: bold;
     }
     &__hero {
-      height: 500px;
-      background-position: bottom right;
-      background-size: fill;
+      height: 400px;
+      background-size: cover;
     }
     &__title {
       font-size: 48px;
@@ -249,6 +271,9 @@
   @include xl {
     &__title {
       font-size: 70px;
+    }
+    &__item {
+      margin-left: 30px;
     }
   }
   @include xxl {

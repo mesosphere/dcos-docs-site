@@ -52,12 +52,13 @@ html(lang='en')
             - itemClass['landing__item--active'] = val.path == '/'
             li(class=itemClass)
               a(href=val.path)!= val.title
-
+        li(class='landing__item')
+          a(href='https://support.mesosphere.com') Support
     div(class='landing__hero')
       form(class='landing__search', action='/search', method='GET')
-        label(class='landing__search-label', for='landing__search-input')
-          i(data-feather='search')
         input(class='landing__search-input', id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')
+        button(class='landing__search-button')
+          i(data-feather='search')
 
     div(class='landing__container')
       +renderGridToc()
@@ -83,8 +84,8 @@ html(lang='en')
       div(class='landing__footer__container')
         img(class='landing__footer__logo', src='/assets/footer-logo-logomark.svg')
         div(class='landing__footer__menu')
-          a(href='/') Terms of Service
-          a(href='/') Privacy Policy
+          a(href='https://mesosphere.com/terms/') Terms of Service
+          a(href='https://mesosphere.com/privacy/') Privacy Policy
         div(class='landing__footer__copyright') &copy; 2017 Mesosphere, Inc. All Rights Reserved.
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')

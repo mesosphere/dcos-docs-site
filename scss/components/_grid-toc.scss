@@ -37,9 +37,7 @@
     line-height: 1.25em;
     text-decoration: none;
     &--all {
-      &:link {
-        color: $color-grey;
-      }
+      color: $color-grey;
       &__arrow {
         margin-left: 10px;
       }
