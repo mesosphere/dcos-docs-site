@@ -1,4 +1,5 @@
 const cheerio = require('cheerio');
+const extname = require('path').extname;
 
 function plugin(opts) {
   return function(files, metalsmith, done) {
