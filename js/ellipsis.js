@@ -5,12 +5,9 @@ function checkOverflow(el) {
 }
 
 const handleEllipsis = () => {
-  const cards = document.querySelectorAll('.ellipsis');
+  const cards = document.querySelectorAll('.grid__desc__wrapper');
 
   for (let i = 0; i < cards.length; i += 1) {
-    console.log(cards[i]);
-    console.log(checkOverflow(cards[i]));
-
     if (checkOverflow(cards[i])) {
       cards[i].querySelector('.grid__desc__ellipsis').style.visibility = 'visible';
     } else {

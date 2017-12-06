@@ -56,23 +56,32 @@
     $font-size: 0.85rem;
     $line-height: 1.55;
     $lines-to-show: 3;
-    margin-top: 1rem;
+    // margin-top: 1rem;
+    margin-top: 0;
     justify-content: flex-start;
     text-align: left;
     transform: translateZ(0);
+    &__wrapper {
+      margin-top: 1rem;
+      overflow: hidden;
+      box-sizing: content-box;
+      height: 115px;
+      transform: translateZ(0);
+    }
     &__ellipsis {
       visibility: hidden;
       position: fixed;
       top: 91px;
       right: 2px;
       padding-right: 15px;
-      width: 60px;
+      width: 200px;
       background-size: 100% 100%;
       text-align: right;
-      font-size: 1.35em;
-      color: $color-purple-light !important;
-      line-height: 1.25;
-      font-weight: bold;
+      line-height: 1.75;
+      color: $color-grey;
+      &:hover {
+        color: $color-purple-light;
+      }
       background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
       background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
       background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
@@ -98,16 +107,8 @@
     }
   }
 }
-
-.ellipsis {
-  overflow: hidden;
-  box-sizing: content-box;
-  height: 125px;
-  transform: translateZ(0);
-}
-
 @include lg {
   .grid__desc__ellipsis {
-    top: 80.312px;
+    top: 80.3px;
   }
 }
