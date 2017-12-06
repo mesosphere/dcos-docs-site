@@ -2,10 +2,11 @@ const resolve = require('path').resolve;
 const relative = require('path').relative;
 const fs = require('fs');
 const crypto = require('crypto');
-
-var debug = require('debug')('metalsmith-revision');
+let debug = require('debug')('metalsmith-revision');
 
 const defaultOptions = { layout: false, layoutDir: './layouts' };
+
+let initialized = false;
 
 function plugin(opts) {
   const options = Object.assign({}, defaultOptions, opts);
@@ -14,6 +15,13 @@ function plugin(opts) {
     const configPath = resolve(metalsmith._directory, '.revision');
     const hashTable = { layouts: {}, src: {} };
     const layoutDirectory = resolve(metalsmith._directory, options.layoutDir);
+
+    if(!initialized && fs.existsSync(configPath)) {
+      initialized = true;
+      fs.unlinkSync(configPath)
+      debug('Refreshing revision file');
+    }
+
     const revision = fs.existsSync(configPath)
       ? JSON.parse(fs.readFileSync(configPath, 'utf-8'))
       : { layouts: {}, src: {} };
