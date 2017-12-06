@@ -28,9 +28,8 @@
 }
 [data-tip] {
   background: $color-purple;
-  // width: 100%;
   width: auto;
-  max-width: calc(100% - 10px);
+  max-width: 100%;
   margin-left: 5px;
   margin-right: 5px;
   border: 1px solid rgba(0,0,0,.5);
@@ -92,6 +91,6 @@
   [data-tip] {
     width: auto;
     margin: 0;
-    max-width: calc(300px - 5px);
+    max-width: 300px;
   }
 }
