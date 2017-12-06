@@ -27,7 +27,7 @@ function popTip(e) {
     if (measureLeft(e.target) > window.innerWidth - 300) {
       tip.style.left = nub.style.left = 'auto';
       tip.style.right = window.innerWidth - (measureLeft(e.target) + e.target.offsetWidth) + 'px';
-      nub.style.right = 20 + 'px'
+      nub.style.right = (tip.offsetWidth / 2 - 10) + 'px';
     } else {
       tip.style.left = measureLeft(e.target) + (e.target.offsetWidth / 2 - tip.offsetWidth/2) + 'px';
       nub.style.left = (tip.offsetWidth / 2 - 10) + 'px';
