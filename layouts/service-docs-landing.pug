@@ -3,19 +3,18 @@
 - var items = hierarchy.children.find(child => child.id === paths[0])
 - var currentDocs = items
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
-- var semanticVersion = /^v[0-9]+/
 
 mixin renderGridToc()
   div(class='grid-toc')
     each val, index in currentDocs.children
-      if val.children
-        each childVal, childIndex in val.children
-          if semanticVersion.test(childVal.id)
-            - versioned = true
-            - childVal.title = val.title
-            - val = childVal
-            - break
       if val.menuWeight != -1
+        if val.children
+          each childVal, childIndex in val.children
+            if /^v[0-9]+/.test(childVal.id)
+              - versioned = true
+              - childVal.title = val.title
+              - val = childVal
+              - break
         div(class='grid-toc__item')
           h2(class='grid-toc__title')
             a(href=val.path)!= val.title
@@ -87,5 +86,3 @@ html(lang='en')
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug
-    script.
-      console.log(!{JSON.stringify(items)})
