@@ -304,7 +304,7 @@ const shortcodes = {
    */
   'tooltip': (buf, opts) => {
     return sanitize(`
-      <span class="tooltip" data-tooltip="${opts.content}">${buf}</span>
+      <span class="tooltip" data-tooltip data-content="${opts.content}">${buf}</span>
     `);
   },
 

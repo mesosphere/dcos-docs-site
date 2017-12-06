@@ -138,15 +138,20 @@ $sections-size: 20%;
         &:not(:last-of-type) {
           margin-bottom: 0.5rem;
         }
-        &--h2 {
-          padding-left: 0.5rem;
-        }
         & a {
           text-decoration: none;
           color: $color-dark;
         }
         & .active {
           color: $color-purple-light;
+        }
+        &--h2 {
+          padding-left: 0.5rem;
+          font-size: 0.85rem;
+          > a {
+            // color: $color-grey;
+            color: #43464C;
+          }
         }
       }
     }
