@@ -7,6 +7,7 @@ const assets           = require('metalsmith-assets');
 const watch            = require('metalsmith-watch');
 const branch           = require('metalsmith-branch')
 const serve            = require('metalsmith-serve');
+const redirect         = require('metalsmith-redirect');
 const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
@@ -71,13 +72,15 @@ if(ALGOLIA_UPDATE_INDEX) {
 
 let MS = Metalsmith(__dirname);
 
+let currentYear = (new Date()).getFullYear();
+
 // Metadata
 MS.metadata({
   url: "https://docs.mesosphere.com",
   siteTitle: "Mesosphere DC/OS",
   title: "Mesosphere DC/OS",
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-  copyright: "@ 2017 Mesosphere, Inc. All rights reserved.",
+  copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
 })
 
@@ -166,6 +169,11 @@ CB.use(timer('CB: Markdown'))
 // Headings
 CB.use(headings())
 CB.use(timer('CB: Headings'))
+
+CB.use(redirect({
+  '/support': 'https://support.mesosphere.com'
+}))
+CB.use(timer('CB: Redirects'))
 
 // Permalinks
 CB.use(permalinks())

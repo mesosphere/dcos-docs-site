@@ -30,7 +30,7 @@ mixin renderGridToc()
               if val.children.length > 5
                 li(class='grid-toc__list-item')
                   a(href=val.path, class='grid-toc__link grid-toc__link--all') View All
-                    img(class='grid-toc__link--all__arrow', src='/assets/right-arrow.svg')
+                    i(data-feather='arrow-right')
 
 mixin renderGrid()
   div(class='grid')
@@ -39,7 +39,7 @@ mixin renderGrid()
       p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
       div(class="grid__link")
         i(data-feather='chevron-right')
-    a(href='/support', class='grid__item')
+    a(href='https://support.mesosphere.com', class='grid__item')
       h3(class='grid__header') Need Support?
       p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
       div(class="grid__link")
@@ -79,13 +79,11 @@ html(lang='en')
 
         footer(class='landing__footer')
           div(class='landing__footer__container')
-            img(class='landing__footer__logo', src='/assets/footer-logo-logomark.svg')
+            img(class='landing__footer__logo', src='/assets/logo-logomark.svg')
             div(class='landing__footer__menu')
               a(href='https://mesosphere.com/terms/') Terms of Service
               a(href='https://mesosphere.com/privacy/') Privacy Policy
-            div(class='landing__footer__copyright') &copy; 2017 Mesosphere, Inc. All Rights Reserved.
+            div(class='landing__footer__copyright')!= copyright
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug
-    script.
-      console.log(!{JSON.stringify(items)})

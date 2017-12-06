@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   background: $color-purple;
-  height: 100vh;
+  height: 100%;
   &__header {
     height: 80px;
     box-shadow: 0 0px 40px -40px rgba(0, 0, 0, 0.1);
@@ -60,6 +60,7 @@
     &__link {
       display: block;
       padding: 1rem 2rem;
+      font-size: 0.9rem;
       text-decoration: none;
       user-select: none;
       transition: 0.2s background $ease-in-out-cubic;
@@ -179,9 +180,11 @@
     &-links {
       margin-bottom: 0.5rem;
       & a {
-        margin-right: 1rem;
         color: $color-light;
         text-decoration: none;
+        &:not(:last-of-type) {
+          margin-right: 1rem;
+        }
       }
     }
     &-copyright {
