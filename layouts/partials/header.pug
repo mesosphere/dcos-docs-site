@@ -5,10 +5,14 @@
 header(class='header')
   a(class='header__drawer')
     i(class='header__icon', data-feather='menu')
+  a(href='/', class='header__logo')
+    img(src='/assets/logo-logomark.svg', alt='Mesosphere').header__logo--mobile
+    img(src='/assets/logo-dark.svg', alt='Mesosphere').header__logo--desktop
   div(class='header__main')
-    a(href='/', class='header__logo')
-      img(class='header__logo-icon', src='/assets/header-logo-color-dark-mark.png', alt='Mesosphere Logo' height='24')
-      img(class='header__logo-text', src='/assets/header-logo-color-dark-type.png', alt='Mesosphere Logo' height='15')
+    div(class='header__dropdown')
+      img(class='header__dropdown-icon', src='/assets/logo-logomark.svg', alt='Mesosphere')
+      strong DC/OS Docs
+      i(data-feather='chevron-down')
     nav(class='header__menu')
       ul(class='header__menu-list')
         each val, index in pages
@@ -25,3 +29,4 @@ header(class='header')
         label(class='header__search-label', for='header-search-input')
           i(class='header__icon', data-feather='search')
         input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
+include header-dropdown.pug

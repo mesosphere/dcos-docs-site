@@ -8,7 +8,7 @@ if (drawerMenu) {
 }
 
 function checkWindowSize() {
-  if (window.innerWidth > 500 && drawerMenu.classList.contains('layout__drawer--open')) {
+  if (window.innerWidth > 767 && drawerMenu.classList.contains('layout__drawer--open')) {
     drawerMenu.classList.remove('layout__drawer--open');
     layout.style['overflow-x'] = 'auto';
   }
