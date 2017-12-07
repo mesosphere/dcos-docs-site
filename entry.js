@@ -5,8 +5,9 @@ require('./scss/style.scss');
 
 require('./js/main.js');
 require('./js/sidebar.js');
+require('./js/sidebar-drawer.js');
 require('./js/header.js');
-require('./js/drawer.js');
+require('./js/header-dropdown.js');
 require('./js/search.js');
 require('./js/actions.js');
 require('./js/sections.js');
