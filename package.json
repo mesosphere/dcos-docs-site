@@ -8,9 +8,8 @@
     "node": "8.1.2"
   },
   "scripts": {
-    "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-revision node index.js",
-    "docs": "NODE_ENV=development DEBUG=metalsmith-timer node index.js",
-    "build": "NODE_ENV=production DEBUG=metalsmith-timer node index.js",
+    "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-revision,metalsmith-algolia node index.js",
+    "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia node index.js",
     "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer node index.js",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
@@ -21,7 +20,6 @@
   "devDependencies": {
     "algoliasearch": "^3.24.3",
     "autoprefixer": "^7.1.1",
-    "bluebird": "^3.5.0",
     "bootprint": "^1.0.0",
     "bootprint-openapi": "^1.1.0",
     "browser-sync": "^2.18.12",
