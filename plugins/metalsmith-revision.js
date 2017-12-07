@@ -2,7 +2,7 @@ const resolve = require('path').resolve;
 const relative = require('path').relative;
 const fs = require('fs');
 const crypto = require('crypto');
-let debug = require('debug')('metalsmith-revision');
+const debug = require('debug')('metalsmith-revision');
 
 const defaultOptions = { layout: false, layoutDir: './layouts' };
 
