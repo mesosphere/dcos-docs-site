@@ -1,17 +1,18 @@
-function styleFluidImages() {
-  const fluidImages = document.getElementsByClassName('img--fluid');
-  const fluidImageContainer = document.getElementsByClassName('img__wrapper--fluid');
-  for (let i=0; i < fluidImages.length; i++) {
-    fluidImageContainer[i].setAttribute('style', `max-width:${fluidImages[i].naturalWidth}px;`);
-  }
+function handleImages() {
+  document.querySelectorAll('img').forEach((img) => {
+    if (img.classList.contains('img--fluid')) {
+      const wrapper = img.parentNode;
+      wrapper.setAttribute('style', `max-width:${img.naturalWidth}px;`);
+    } else if (img.classList.contains('img--inline')) {
+      img.setAttribute('style', `max-width:${img.naturalWidth}px;`);
+    } else {
+      const a = document.createElement('a');
+      a.href = img.src;
+      a.setAttribute('target', '_blank');
+      img.parentElement.insertBefore(a, img);
+      a.appendChild(img);
+    }
+  });
 }
 
-function styleInlineImages() {
-  const inlineImages = document.getElementsByClassName('img--inline');
-  for (let i=0; i < inlineImages.length; i++) {
-    inlineImages[i].setAttribute('style', `max-width:${inlineImages[i].naturalWidth}px;`);
-  }
-}
-
-styleFluidImages();
-styleInlineImages();
+handleImages();
