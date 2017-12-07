@@ -9,6 +9,7 @@ $sections-size: 20%;
     display: flex;
     flex-direction: column;
     flex: 1;
+    width: 100%;
   }
   &__header {
     z-index: 10;
@@ -40,9 +41,6 @@ $sections-size: 20%;
     display: none;
   }
   @include md {
-    &__container {
-      width: 100%;
-    }
     &__article {
       h1,
       h2,
