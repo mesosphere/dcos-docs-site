@@ -4,7 +4,8 @@
     justify-content: center;
     align-items: center;
     height: 250px;
-    background: #131626 url('/assets/k8-hero.png') bottom no-repeat;
+    background: #131626 url('/assets/k8-hero.png') no-repeat;
+    background-position: bottom;
     background-size: cover;
   }
   &__title {
@@ -236,12 +237,12 @@
     }
     &__hero {
       height: 400px;
-      background-size: cover;
     }
     &__title {
       font-size: 48px;
     }
     &__search {
+      width: 50%;
       &-input {
         position: relative;
         font-size: 2rem;
@@ -265,9 +266,19 @@
       }
     }
   }
+  @media (min-width: 861px) {
+    &__hero {
+      background-size: contain;
+      background-position: right;
+    }
+  }
+
   @include lg {
     &__title {
       font-size: 60px;
+    }
+    &__search {
+      width: 75%;
     }
   }
   @include xl {
