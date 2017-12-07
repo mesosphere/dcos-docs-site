@@ -7,7 +7,7 @@ const articleContainer = document.querySelector('.content__article');
 const headerOffset = 120;
 const windowOffset = window.pageYOffset + headerOffset;
 
-if (contentHeadingsArray && window.innerWidth > 1025) {
+if (contentHeadingsArray && window.innerWidth > 1024) {
   document.addEventListener('scroll', scrollTop);
   document.addEventListener('scroll', scrollSpy);
 }

@@ -33,12 +33,15 @@
     }
   }
   &__link {
+    display: inline-flex;
     color: $color-purple-light;
     line-height: 1.25em;
     text-decoration: none;
     &--all {
       color: $color-grey;
-      &__arrow {
+      svg {
+        width: 16px;
+        height: 16px;
         margin-left: 10px;
       }
     }
