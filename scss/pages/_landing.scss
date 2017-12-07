@@ -229,6 +229,9 @@
     margin-bottom: 0;
   }
   @include pre-md {
+    &__container {
+      padding: 4rem 2rem 0 2rem;
+    }
     & .grid {
       margin-top: 4rem;
       &__item {

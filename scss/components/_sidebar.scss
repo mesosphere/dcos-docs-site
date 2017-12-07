@@ -130,7 +130,7 @@
         flex-direction: row;
         align-items: center;
         padding: 0.25rem 2rem;
-        line-height: 1.2rem;
+        line-height: 1.25;
         text-decoration: none;
         &--depth-0 {
           padding-left: calc(1rem * 2 + 23px);
@@ -177,7 +177,7 @@
     justify-content: center;
     width: 100%;
     padding: 2rem;
-    font-size: 0.8rem;
+    font-size: 12px;
     &-links {
       margin-bottom: 0.5rem;
       & a {
@@ -195,7 +195,7 @@
   }
   @include md {
     &__nav {
-      font-size: 0.9rem;
+      font-size: 14px;
       &__icon {
         &:hover {
           opacity: 0.3;
