@@ -16,4 +16,9 @@ apk add --update jq
 echo "Installing docker-compose..."
 pip install docker-compose
 
+echo "Install aws-cli..."
+curl -o /usr/local/bin/aws https://raw.githubusercontent.com/mesosphere/aws-cli/master/aws.sh
+chmod a+x /usr/local/bin/aws
+aws --version
+
 echo "Setup Success!"

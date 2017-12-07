@@ -1,5 +1,6 @@
 .grid {
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 3rem;
@@ -10,27 +11,33 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    // justify-content: space-between;
+    position: relative;
     width: 100%;
+    min-height: 275px;
     margin-bottom: 20px;
     padding: 20px;
-    border-top: 8px $color-purple-light solid;
+    border-top: 4px $color-purple-light solid;
     border-radius: 2px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    // &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); //  &:hover {
     //   background: $color-purple-light;
-    // }
+    //   }
   }
   &__label {
     display: inline-block;
     font-size: 0.7rem;
     font-weight: 400;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1em 0;
     color: $color-grey;
     border: 1px solid $color-grey;
     border-radius: 3px;
     padding: 0.4rem 0.5rem 0.3rem 0.5rem;
     line-height: 1rem;
+    &__wrapper {
+      width: 100%;
+      padding: 1em 0;
+    }
     &--hidden {
       opacity: 0;
     }
@@ -43,6 +50,11 @@
       border: 1px solid $color-purple-light;
     }
   }
+  &__text__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   &__header {
     color: $color-dark;
     font-weight: 500;
@@ -50,14 +62,45 @@
     margin: 0;
   }
   &__desc {
-    flex: 1;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    margin-top: 1rem;
+    // flex: 1;
+    margin-top: 0;
+    justify-content: flex-start;
+    text-align: left;
+    transform: translateZ(0);
+    &__wrapper {
+      margin-top: 1rem;
+      overflow: hidden;
+      box-sizing: content-box;
+      height: 115px;
+      margin-bottom: 40px;
+    }
+    &__ellipsis {
+      visibility: hidden;
+      position: fixed;
+      top: 91px;
+      right: 2px;
+      padding-right: 15px;
+      width: 200px;
+      background-size: 100% 100%;
+      text-align: right;
+      line-height: 1.75;
+      color: $color-grey;
+      &:hover {
+        color: $color-purple-light;
+      }
+      background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
+      background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+      background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+      background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    }
   }
   &__link {
     width: 100%;
     margin-top: 2rem;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     svg {
       float: right;
       width: 28px;
@@ -68,6 +111,13 @@
   @include md {
     &__item {
       width: calc(50% - 10px);
+      min-height: calc(50% - 10px);
+      max-height: calc(50% - 10px);
     }
+  }
+}
+@include lg {
+  .grid__desc__ellipsis {
+    top: 80.3px;
   }
 }

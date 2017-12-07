@@ -209,6 +209,9 @@
       margin-top: 0;
     }
   }
+  .grid__desc__wrapper {
+    margin-bottom: 0;
+  }
   @include md {
     &__header {
       justify-content: flex-start;
@@ -255,7 +258,6 @@
     }
     &__external {
       flex-direction: row;
-      margin-top: 3rem;
       &-item {
         &:not(:last-of-type) {
           margin-right: 1rem;

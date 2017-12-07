@@ -15,8 +15,11 @@
       padding: 0;
       margin: 0;
       color: $color-light;
-    &__title {
+      &__title {
         opacity: 0.6;
+      }
+      &__version {
+        white-space: nowrap;
       }
     }
     &__toggle {
@@ -158,8 +161,7 @@
           transform: rotate(90deg);
         }
       }
-      &--active-on,
-      &:hover {
+      &--active-on {
         background: $color-purple-light;
         > .sidebar__nav__item__container .sidebar__nav__text {
           color: $color-light;
@@ -197,6 +199,15 @@
       &__item {
         line-height: 1.25rem;
         margin-bottom: 0;
+        &:hover {
+          background: $color-purple-light;
+          > .sidebar__nav__item__container .sidebar__nav__text {
+            color: $color-light;
+          }
+          > .sidebar__nav__item__container .sidebar__nav__icon {
+            color: $color-light;
+          }
+        }
       }
     }
   }

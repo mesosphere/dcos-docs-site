@@ -27,6 +27,7 @@ const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-r
 const shortcodesConfig = require('./shortcodes');
 
 // Environment Variables
+const ALGOLIA_UPDATE = process.env.ALGOLIA_UPDATE;
 const ALGOLIA_PROJECT_ID = process.env.ALGOLIA_PROJECT_ID;
 const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
@@ -48,7 +49,7 @@ const ALGOLIA_UPDATE_INDEX = false;
 // Errors
 //
 
-if(ALGOLIA_UPDATE_INDEX) {
+if(ALGOLIA_UPDATE) {
   if(process.env.NODE_ENV == "pdf") {
     throw new Error('Algolia env vars set while build env is pdf');
   }

@@ -186,7 +186,7 @@ Copy your existing [!tooltip content="This is some content"]config.yaml[/!toolti
 
 ###### Example:
 
-Copy your existing [tooltip content="This is some content"]config.yaml[/tooltip] and [tooltip content="Tooltip"]ip-detect[/tooltip] files to...
+Copy your existing [tooltip content="This is a really really really really really really really really really really loooooooonnnnnngggg tooltip with a max-width of 300px"]config.yaml[/tooltip] and [tooltip content="Short Tooltip"]ip-detect[/tooltip] files to...
 
 ### Support for Image Types and Opening In New Tab {data-hide=true}
 
