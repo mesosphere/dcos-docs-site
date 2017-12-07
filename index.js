@@ -34,19 +34,11 @@ const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 
-// TEMP: Disabled until updates are made on ./search/index.js indexing script
-const ALGOLIA_UPDATE_INDEX = (
-  ALGOLIA_PROJECT_ID != undefined ||
-  ALGOLIA_PUBLIC_KEY != undefined ||
-  ALGOLIA_PRIVATE_KEY != undefined ||
-  ALGOLIA_INDEX != undefined
-);
-
 //
 // Errors
 //
 
-if(ALGOLIA_UPDATE) {
+if(ALGOLIA_UPDATE == true) {
   if(process.env.NODE_ENV == "pdf") {
     throw new Error('Algolia env vars set while build env is pdf');
   }
@@ -206,7 +198,7 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 // Search Indexing
-if(ALGOLIA_UPDATE_INDEX) {
+if(ALGOLIA_UPDATE == true) {
   CB.use(algolia({
     projectId: ALGOLIA_PROJECT_ID,
     privateKey: ALGOLIA_PRIVATE_KEY,
