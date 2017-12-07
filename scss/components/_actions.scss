@@ -8,7 +8,7 @@
     justify-content: space-around;
   }
   &__item {
-    margin: 0 1rem 0 0;
+    margin: 0 1rem 1rem 0;
     &:last-child {
       margin-right: 0;
     }
@@ -26,8 +26,8 @@
     }
   }
   &__icon {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     &--rss {
       fill: $color-grey;
     }
@@ -43,6 +43,9 @@
     &__icon {
       width: 32px;
       height: 32px;
+    }
+    &__list {
+      justify-content: flex-start;
     }
   }
   @include lg {
