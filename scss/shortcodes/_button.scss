@@ -5,6 +5,9 @@
     border-radius: 3px;
     font-size: 1rem;
     padding: 9px 24px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
     &--small {
         font-size: 0.8rem;
         padding: 6px 16px;
