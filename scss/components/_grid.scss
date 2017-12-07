@@ -11,12 +11,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    // justify-content: space-between;
+    position: relative;
     width: 100%;
     min-height: 275px;
     margin-bottom: 20px;
     padding: 20px;
-    border-top: 8px $color-purple-light solid;
+    border-top: 4px $color-purple-light solid;
     border-radius: 2px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); //  &:hover {
     //   background: $color-purple-light;
@@ -27,12 +28,16 @@
     font-size: 0.7rem;
     font-weight: 400;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1em 0;
     color: $color-grey;
     border: 1px solid $color-grey;
     border-radius: 3px;
     padding: 0.4rem 0.5rem 0.3rem 0.5rem;
     line-height: 1rem;
+    &__wrapper {
+      width: 100%;
+      padding: 1em 0;
+    }
     &--hidden {
       opacity: 0;
     }
@@ -45,6 +50,11 @@
       border: 1px solid $color-purple-light;
     }
   }
+  &__text__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   &__header {
     color: $color-dark;
     font-weight: 500;
@@ -53,10 +63,6 @@
   }
   &__desc {
     // flex: 1;
-    $font-size: 0.85rem;
-    $line-height: 1.55;
-    $lines-to-show: 3;
-    // margin-top: 1rem;
     margin-top: 0;
     justify-content: flex-start;
     text-align: left;
@@ -66,7 +72,7 @@
       overflow: hidden;
       box-sizing: content-box;
       height: 115px;
-      transform: translateZ(0);
+      margin-bottom: 40px;
     }
     &__ellipsis {
       visibility: hidden;
@@ -92,6 +98,9 @@
   &__link {
     width: 100%;
     margin-top: 2rem;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     svg {
       float: right;
       width: 28px;
