@@ -35,15 +35,12 @@ const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 
 // TEMP: Disabled until updates are made on ./search/index.js indexing script
-/*
 const ALGOLIA_UPDATE_INDEX = (
   ALGOLIA_PROJECT_ID != undefined ||
   ALGOLIA_PUBLIC_KEY != undefined ||
   ALGOLIA_PRIVATE_KEY != undefined ||
   ALGOLIA_INDEX != undefined
 );
-*/
-const ALGOLIA_UPDATE_INDEX = false;
 
 //
 // Errors

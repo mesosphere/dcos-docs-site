@@ -1,7 +1,7 @@
 const algoliasearch = require('algoliasearch');
-const Bluebird = require('bluebird');
 const sanitizeHtml = require('sanitize-html');
 const extname = require('path').extname;
+const debug = require('debug')('metalsmith-algolia');
 
 /**
  * Search indexing for algolia
@@ -51,14 +51,14 @@ module.exports = function(options) {
     }
 
     if (options.clearIndex === true) {
-      clearIndex = new Bluebird(resolve => {
+      clearIndex = new Promise((resolve, reject) => {
         index.clearIndex(err => {
           if (err) console.error('Algolia: Error while cleaning index:', err);
         });
         resolve();
       });
     } else {
-      clearIndex = Bluebird.resolve();
+      clearIndex = Promise.resolve();
     }
 
     // Initialize indexing
@@ -70,11 +70,9 @@ module.exports = function(options) {
       // Loop through metalsmith object
       Object.keys(files).forEach(file => {
         if ('.html' != extname(file)) return;
-
         const fileData = files[file];
         const postContent = sanitize(fileData.contents);
-        const postParts = convertStringToArray(postContent, 2000);
-
+        const postParts = convertStringToArray(postContent, 9000);
         postParts.forEach((value, index) => {
           let record = getSharedAttributes(fileData, hierarchy);
           record.objectID = file + '-' + index;
@@ -86,33 +84,40 @@ module.exports = function(options) {
 
       for (let object of objects) {
         promises.push(
-          new Bluebird(resolve => {
+          new Promise((resolve, reject) => {
             index.addObject(object, (err, content) => {
               if (err) {
-                console.error(`Algolia: Skipped "${object.path}": ${err.message}`);
-              } else {
+                debug(`Algolia: Skipped "${object.objectID}": ${err.message}`);
+                reject(err);
+              }
+              else {
+                debug(`Algolia: Updating "${object.objectID}"`);
                 indexed++;
               }
-
               resolve();
             });
           }),
         );
       }
 
-      Bluebird.all(promises).then(() => {
+      promises.reduce((promise, item) => {
+        return promise.then(() => {
+          return item.then();
+        });
+      }, Promise.resolve())
+      .then(() => {
         done();
       });
+
     });
   };
 };
 
 // Get shared attributes for a record.
 const getSharedAttributes = (fileData, hierarchy) => {
+
   const pathParts = fileData.path.split('/')
-
   let record = {};
-
   if (pathParts[0] === 'services') {
     let product;
     record.section = 'Service Docs';
@@ -135,7 +140,8 @@ const getSharedAttributes = (fileData, hierarchy) => {
     }
   }
 
-  if (pathParts[0] === 'docs') {
+  // If semantic version, /1.10/*, /1.9/*, /1.8/*
+  if (/\/[0-9].[0-9](.*)/.test(pathParts[0])) {
     product = 'DC/OS';
     record.section = 'DC/OS Docs';
     record.product = product;
@@ -156,7 +162,8 @@ const getSharedAttributes = (fileData, hierarchy) => {
 
   if (fileData.excerpt) {
     record.excerpt = fileData.excerpt;
-  } else {
+  }
+  else {
     let excerptPath = pathParts.join('/');
     let objectHierarchy = hierarchy.findByPath(excerptPath) || '';
     let excerpt = objectHierarchy.excerpt || '';
@@ -164,6 +171,7 @@ const getSharedAttributes = (fileData, hierarchy) => {
       record.excerpt = excerpt;
     }
   }
+
 
   return record;
 };
@@ -199,6 +207,5 @@ const convertStringToArray = (str, maxPartSize) => {
     chunkArr.push(leftStr.substring(0, maxPartSize));
     leftStr = leftStr.substring(maxPartSize, leftStr.length);
   } while (leftStr.length > 0);
-
   return chunkArr;
 };
