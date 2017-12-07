@@ -315,18 +315,29 @@ const shortcodes = {
    * @param {string} opts.type
    * @param {string} opts.size
    * @param {string} opts.color
+   * @param {string} opts.href
    */
   'button': (buf, opts) => {
-    if(!opts.color) {
+    if (!opts.color) {
       opts.color = 'purple';
     }
-    if(!opts.type) {
-      opts.type = 'large';
+    if (!opts.size) {
+      opts.size = 'large';
+    }
+    if (!opts.type) {
+      opts.type = 'button';
     }
     let classes = `btn--${opts.color} btn--${opts.size}`;
-    return sanitize(`
+    if (opts.href) {
+      return sanitize(`
+      <a href=${opts.href} target="_blank"><button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button></a>
+    `);
+    } else {
+      return sanitize(`
       <button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button>
     `);
+    }
+
   },
 
 };

@@ -254,6 +254,7 @@ Copy your existing [tooltip content="This is a really really really really reall
 | type           | optional                   | submit, reset, button     |
 | color          | optional (default: purple) | purple, pink, dark, light |
 | size           | optional (default: large)  | large, small              |
+| href           | optional                   | url                       |
 
 
 ##### Large (default)
@@ -267,6 +268,18 @@ Copy your existing [tooltip content="This is a really really really really reall
 ###### Example:
 
 [button color="purple"]Purple[/button]
+
+##### Button Link
+
+###### Usage:
+
+```*
+[!button color="dark" href="/"]Home[/button]
+```
+
+###### Example:
+
+[button color="dark" href="/"]Home[/button]
 
 ### Message {data-hide=true}
 
