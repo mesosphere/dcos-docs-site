@@ -67,12 +67,12 @@ $sidebarWidth: 250px;
   }
   @include xl {
     &__sidebar {
-      width: $sidebarWidth + 50px;
+      width: $sidebarWidth + 75px;
       + .layout__content {
-        width: calc(100% - #{$sidebarWidth} - 50px);
-        margin-left: $sidebarWidth + 50px;
+        width: calc(100% - #{$sidebarWidth} - 75px);
+        margin-left: $sidebarWidth + 75px;
       .header {
-          width: calc(100% - #{$sidebarWidth} - 50px);
+          width: calc(100% - #{$sidebarWidth} - 75px);
         }
       }
     }

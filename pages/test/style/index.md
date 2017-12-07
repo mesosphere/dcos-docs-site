@@ -15,6 +15,10 @@ enterprise: false
 
 #### Heading Title 4
 
+##### Heading Title 5
+
+###### Heading Title 6
+
 Test Large
 [enterprise]
 
