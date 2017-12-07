@@ -8,8 +8,7 @@
     justify-content: space-around;
   }
   &__item {
-    margin: 0 1rem 1rem 0;
-    line-height: 1;
+    margin: 0 1rem 0 0;
     &:last-child {
       margin-right: 0;
     }
@@ -37,10 +36,6 @@
     display: none;
   }
   @include md {
-    margin: 4rem 0;
-    // &__list {
-    //   justify-content: space-around;
-    // }
     &__text {
       display: inline;
       margin-left: 0.5rem;
