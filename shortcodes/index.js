@@ -330,7 +330,7 @@ const shortcodes = {
     let classes = `btn--${opts.color} btn--${opts.size}`;
     if (opts.href) {
       return sanitize(`
-      <a href=${opts.href} target="_blank"><button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button></a>
+      <a href="${opts.href}" target="_blank"><button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button></a>
     `);
     } else {
       return sanitize(`
