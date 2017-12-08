@@ -291,6 +291,8 @@ Copy your existing [tooltip content="This is a really really really really reall
 | -------------- |:------------------------:| -----------------------------:|
 | type           | optional                 | warning, error, info, success |
 | fill           | optional (default: true) | boolean                       |
+| fill           | optional (default: true) | boolean                       |
+| fill           | optional (default: true) | boolean                       |
 
 
 [message type="warning"] This release candidate is for testing only and not to be used in production.
@@ -303,7 +305,6 @@ Please try out the new features and updated data services. Provide any feedback 
 
 [/message]
 
-
 [message type="info"] This release candidate is for testing only and not to be used in production.
 
 Limitations:
@@ -313,7 +314,6 @@ Limitations:
 Please try out the new features and updated data services. Provide any feedback through our support channel.
 
 [/message]
-
 
 [message type="error"] This release candidate is for testing only and not to be used in production.
 
