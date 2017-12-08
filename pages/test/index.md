@@ -281,6 +281,8 @@ Copy your existing [tooltip content="This is a really really really really reall
 
 [button color="dark" href="/"]Home[/button]
 
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.0/dcos_generate_config.sh?_ga=2.176217893.1055726118.1512575039-1207888710.1504116514"]Download DC/OS[/button]
+
 ### Message {data-hide=true}
 
 #### Options
