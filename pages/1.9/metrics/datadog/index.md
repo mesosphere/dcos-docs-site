@@ -18,7 +18,7 @@ The Datadog metrics plugin for DC/OS supports sending metrics from the DC/OS met
 
 **Prerequisite:** 
 
-- DC/OS is [installed](/1.9/installing/oss/)
+- DC/OS is [installed](/1.9/installing/)
 - [Go programming environment](https://golang.org/doc/install) <!-- dcos-metrics must be run from within the go directory -->
 -  Git:
    -  **macOS:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
@@ -83,7 +83,7 @@ When you're happy with the test results, you'll need to install the plugin into 
 ### Create a Valid Auth Token for DC/OS
 Follow the instructions based on whether you are using Enterprise or open source DC/OS:
 
-- [Enterprise DC/OS](https://docs.mesosphere.com/docs/1.9/security/ent/service-auth/custom-service-auth/)
+- [Enterprise DC/OS](https://docs.mesosphere.com/1.9/security/service-auth/custom-service-auth/)
 - [Open source DC/OS](/1.9/administration/id-and-access-mgt/managing-authentication/) 
 
 You will use this auth token below.

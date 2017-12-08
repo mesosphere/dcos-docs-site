@@ -4,7 +4,7 @@ navigationTitle:  Node Settings
 title: Node Settings
 menuWeight: 50
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

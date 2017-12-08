@@ -4,7 +4,7 @@ navigationTitle:  Upgrade
 title: Upgrade
 menuWeight: 15
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

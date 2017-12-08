@@ -4,7 +4,7 @@ navigationTitle:  Beta Elastic 1.0.14-5.5.0-beta
 title: Beta Elastic 1.0.14-5.5.0-beta
 menuWeight: 20
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

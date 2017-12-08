@@ -4,7 +4,7 @@ navigationTitle:  Changelog
 title: Changelog
 menuWeight: 60
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

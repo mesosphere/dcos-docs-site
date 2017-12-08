@@ -19,18 +19,23 @@
         <label class="heading"><span class="route-type toggle-route-type">Proxy</span> <span class="route-desc">retrieves resources from another address.</span> </label>
         </input>
       </li>
+      <li class="route route-type-file">
+        <input type="checkbox" data-type="file" checked="checked">
+        <label class="heading"><span class="route-type toggle-route-type">File</span> <span class="route-desc">retrieves static files.</span> </label>
+        </input>
+      </li>
     </ul>
   </div>
   <ul class="resources">
-    <li id="resource-internal" class="resource">
+    <li id="resource-authentication" class="resource">
       <div class="heading">
         <h2>
-          <a id="internal" href="#internal" aria-hidden="true" class="toggle-route-group" data-id="internal">
-            <div class="arrow arrow-right"></div>Internal</a>
+          <a id="authentication" href="#authentication" aria-hidden="true" class="toggle-route-group" data-id="authentication">
+            <div class="arrow arrow-right"></div>Authentication</a>
         </h2>
-        <span class="options"><a href="#internal" class="toggle-route-group" data-id="internal">Show/Hide</a> </span>
+        <span class="options"><a href="#authentication" class="toggle-route-group" data-id="authentication">Show/Hide</a> </span>
       </div>
-      <ul id="routes-internal" class="routes">
+      <ul id="routes-authentication" class="routes">
         <li class="route route-type-proxy">
           <div class="heading">
             <h3>
@@ -96,21 +101,54 @@
         </li>
       </ul>
     </li>
-    <li id="resource-other" class="resource">
+    <li id="resource-metadata" class="resource">
       <div class="heading">
         <h2>
-          <a id="other" href="#other" aria-hidden="true" class="toggle-route-group" data-id="other">
-            <div class="arrow arrow-right"></div>Other</a>
+          <a id="metadata" href="#metadata" aria-hidden="true" class="toggle-route-group" data-id="metadata">
+            <div class="arrow arrow-right"></div>Metadata</a>
         </h2>
-        <span class="options"><a href="#other" class="toggle-route-group" data-id="other">Show/Hide</a> </span>
+        <span class="options"><a href="#metadata" class="toggle-route-group" data-id="metadata">Show/Hide</a> </span>
       </div>
-      <ul id="routes-other" class="routes">
+      <ul id="routes-metadata" class="routes">
+        <li class="route route-type-file">
+          <div class="heading">
+            <h3>
+              <span class="route-type">File</span>
+              <span class="route-path"><code>/dcos-metadata/dcos-version.json</code></span>
+            </h3>
+            <span class="route-desc">DC/OS version (unauthenticated)</span>
+          </div>
+          <div class="route-meta" style="display:none">
+            <table>
+              <tr>
+                <td>
+                  Path:
+                </td>
+                <td>
+                  <code>/opt/mesosphere/active/dcos-metadata/etc/dcos-version.json</code>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li id="resource-pkgpanda" class="resource">
+      <div class="heading">
+        <h2>
+          <a id="pkgpanda" href="#pkgpanda" aria-hidden="true" class="toggle-route-group" data-id="pkgpanda">
+            <div class="arrow arrow-right"></div>Pkgpanda</a>
+        </h2>
+        <span class="options"><a href="#pkgpanda" class="toggle-route-group" data-id="pkgpanda">Show/Hide</a> </span>
+      </div>
+      <ul id="routes-pkgpanda" class="routes">
         <li class="route route-type-proxy">
           <div class="heading">
             <h3>
               <span class="route-type">Proxy</span>
               <span class="route-path"><code>/pkgpanda/</code></span>
             </h3>
+            <span class="route-desc">DC/OS component package management</span>
           </div>
           <div class="route-meta" style="display:none">
             <table>
@@ -143,7 +181,7 @@
                   API Reference:
                 </td>
                 <td>
-                  <a href="https://docs.mesosphere.com/1.9/administering-clusters/component-management/">https://docs.mesosphere.com/1.9/administering-clusters/component-management/</a>
+                  <a href="https://docs.mesosphere.com/1.10/administering-clusters/component-management/">https://docs.mesosphere.com/1.10/administering-clusters/component-management/</a>
                 </td>
               </tr>
             </table>
@@ -199,7 +237,7 @@
                   API Reference:
                 </td>
                 <td>
-                  <a href="https://docs.mesosphere.com/1.9/monitoring/#system-health-http-api-endpoint">https://docs.mesosphere.com/1.9/monitoring/#system-health-http-api-endpoint</a>
+                  <a href="https://docs.mesosphere.com/1.10/monitoring/#system-health-http-api-endpoint">https://docs.mesosphere.com/1.10/monitoring/#system-health-http-api-endpoint</a>
                 </td>
               </tr>
             </table>
@@ -209,7 +247,7 @@
           <div class="heading">
             <h3>
               <span class="route-type">Proxy</span>
-              <span class="route-path"><code>/system/v1/logs/v1/</code></span>
+              <span class="route-path"><code>/system/v1/logs/</code></span>
             </h3>
             <span class="route-desc">Node, component service, and container (task) logs</span>
           </div>
@@ -244,7 +282,7 @@
                   API Reference:
                 </td>
                 <td>
-                  <a href="https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/">https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/</a>
+                  <a href="https://docs.mesosphere.com/1.10/monitoring/logging/logging-api/">https://docs.mesosphere.com/1.10/monitoring/logging/logging-api/</a>
                 </td>
               </tr>
             </table>
@@ -289,7 +327,7 @@
                   API Reference:
                 </td>
                 <td>
-                  <a href="https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/">https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/</a>
+                  <a href="https://docs.mesosphere.com/1.10/monitoring/logging/logging-api/">https://docs.mesosphere.com/1.10/monitoring/logging/logging-api/</a>
                 </td>
               </tr>
             </table>
@@ -334,7 +372,7 @@
                   API Reference:
                 </td>
                 <td>
-                  <a href="https://docs.mesosphere.com/1.9/metrics/metrics-api/">https://docs.mesosphere.com/1.9/metrics/metrics-api/</a>
+                  <a href="https://docs.mesosphere.com/1.10/metrics/metrics-api/">https://docs.mesosphere.com/1.10/metrics/metrics-api/</a>
                 </td>
               </tr>
             </table>

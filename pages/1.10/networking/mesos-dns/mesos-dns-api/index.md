@@ -40,11 +40,11 @@ Responses will include the content type header:
 Content-Type: application/json
 ```
 
-# Authentication (Enterprise Only)
+# Auth
 
-Enterprise edition users must authenticate Metrics API requests.
+All Metrics API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.10/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.10/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/iam-api/#passing-an-authentication-token).
 
 The Metrics API also requires authorization via the following permissions:
 
@@ -55,7 +55,7 @@ The Metrics API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.10/security/ent/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/1.10/security/perms-reference/).
 
 # Resources
 Mesos-DNS implements a simple REST API for service discovery over HTTP. These examples assume you have an [SSH connection to the node](/1.10/administering-clusters/sshcluster/).
@@ -76,7 +76,7 @@ The output should resemble:
   "URL": "https://github.com/mesosphere/mesos-dns",
   "Version": "dev"
  }
-```
+``` 
 
 
 ## <a name="get-config"></a>GET /v1/config
@@ -86,7 +86,7 @@ Lists in JSON format the Mesos-DNS configuration parameters.
 ```bash
 curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/config
 ```
-
+    
 The output should resemble:
 
 ```json

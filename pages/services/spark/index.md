@@ -4,7 +4,7 @@ navigationTitle:  Spark
 title: Spark
 menuWeight: 60
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 

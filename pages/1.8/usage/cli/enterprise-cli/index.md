@@ -46,8 +46,13 @@ dcos package uninstall --cli dcos-enterprise-cli
 
 # Enterprise DC/OS CLI command reference
 
+**Warning:** The following options appear in the 1.8 Enterprise CLI help for the `dcos security secrets` subcommands, but are not supported:
+- -a --author <author>
+- -d --description <description>
+- -l --label <label>
+
 ## dcos security cluster ca
-Manage DC/OS cluster Certificate Authority, including signing certs, generating CSRs, and signing information retrieval.
+Manage DC/OS cluster certificate authority, including signing certs, generating CSRs, and signing information retrieval.
 
 ```
 dcos security cluster ca cacert [OPTIONS]
@@ -467,13 +472,10 @@ dcos security secrets create [OPTIONS] <path>
 Options:
     -s, --store-id <store-id>        
         Secrets backend to use.
-    -a, --author <author>
-    -d, --description <description>
     -v, --value <value>
         Value of the secret.
     -f, --value-file <filename>  
         Use file as value of the secret.
-    -l, --label <label>
     -h, --help         
         Show this message and exit.
 ```
@@ -530,13 +532,10 @@ dcos security secrets update [OPTIONS] <path>
 Options:
     -s, --store-id <store-id>        
         Secrets backend to use
-    -a, --author <author>
-    -d, --description <description>
     -v, --value <value>           
         Value of the secret
     -f, --value-file <filename>  
         Use the file as value of the secret.
-    -l, --label <label>
     -h, --help                 
         Show this message and exit.   
 ```

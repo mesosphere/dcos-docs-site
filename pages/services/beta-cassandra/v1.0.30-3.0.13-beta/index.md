@@ -4,7 +4,7 @@ navigationTitle:  Beta Cassandra 1.0.30-3.0.13-beta
 title: Beta Cassandra 1.0.30-3.0.13-beta
 menuWeight: 20
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

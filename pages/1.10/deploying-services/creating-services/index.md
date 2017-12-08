@@ -118,26 +118,26 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
 1. Choose whether to use the Universal Container Runtime (UCR) or Docker Engine runtime. See [Using Containerizers](/1.10/deploying-services/containerizers/).
    -  To use the Universal Container Runtime (UCR), paste the following JSON into a file named `basic-3-mesos.json`:
 
-    ```json
-    {
-      "id": "basic-3-mesos",
-      "cmd": "cd /;python3 -m http.server 80",
-      "acceptedResourceRoles": ["slave_public"],
-      "container": {
-        "portMappings": [
-          {
-            "containerPort": 80,
-            "hostPort": 0
-          }
-        ],
-        "type": "MESOS",
-        "docker": { "image": "python:3" },
-      },
-      "cpus": 0.5,
-      "mem": 32,
-      "networks": [ { "mode": "container/bridge" } ]
-    }
-    ```
+      ```json
+      {
+        "id": "basic-3-mesos",
+        "cmd": "cd /;python3 -m http.server 80",
+        "acceptedResourceRoles": ["slave_public"],
+        "container": {
+          "portMappings": [
+            {
+              "containerPort": 80,
+              "hostPort": 0
+            }
+          ],
+          "type": "MESOS",
+          "docker": { "image": "python:3" }
+        },
+        "cpus": 0.5,
+        "mem": 32,
+        "networks": [ { "mode": "container/bridge" } ]
+      }
+      ```
 
   - To use the Docker Engine runtime, paste the following JSON into a file named `basic-3-docker.json`:
 
@@ -154,7 +154,14 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
           }
         ],
         "type": "DOCKER",
-        "docker": { "image": "python:3" }
+        "docker": { 
+          "image": "python:3" },
+          "parameters": [
+            {
+              "key": "log-driver",
+              "value": "none"
+            } 
+          ]
       },
       "cpus": 0.5,
       "instances": 1,
@@ -163,7 +170,7 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
     }
     ```
 
-1. Use the [Marathon API](/1.10/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/1.10/security/ent/iam-api/) to learn more about the API token required in the command below.
+1. Use the [Marathon API](/1.10/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/1.10/security/iam-api/) to learn more about the API token required in the command below.
 
     ```sh
      curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POST <master-IP>/service/marathon/v2/apps -d @basic-3-docker.json -H "Content-type: application/json"

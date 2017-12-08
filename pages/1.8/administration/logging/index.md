@@ -128,8 +128,8 @@ journalctl -u dcos-exhibitor -b
     - [ELK][3]
     - [Splunk][4]
 
-[1]: /docs/1.8/administration/logging/service-logs/
-[2]: /docs/1.8/usage/cli/install/
-[3]: /docs/1.8/administration/logging/elk/
-[4]: /docs/1.8/administration/logging/splunk/
-[5]: /docs/1.8/administration/access-node/sshcluster/
+[1]: /1.8/administration/logging/service-logs/
+[2]: /1.8/usage/cli/install/
+[3]: /1.8/administration/logging/elk/
+[4]: /1.8/administration/logging/splunk/
+[5]: /1.8/administration/access-node/sshcluster/

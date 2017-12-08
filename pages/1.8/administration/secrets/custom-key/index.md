@@ -10,12 +10,12 @@ featureMaturity: preview
 enterprise: true
 ---
 
-**Prerequisites:**
+**Prerequisites:** 
 
 - [DC/OS CLI installed](/1.8/usage/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
 - [GNU Privacy Guard (GPG) installed](http://brewformulas.org/Gnupg)
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. [SSH into your master](/1.8/administration/access-node/sshcluster/).
 
@@ -62,9 +62,9 @@ enterprise: true
    /opt/mesosphere/packages/exhibitor--*/usr/zookeeper/bin/zkCli.sh
    ```
 
-12. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
+12. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser. 
 
-   **Tip:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](/1.8/administration/installing/ent/custom/configuration-parameters/).
+   **Tip:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](/1.8/administration/installing/custom/configuration-parameters/).
 
    ```bash
    addauth digest super:secret
@@ -116,13 +116,13 @@ enterprise: true
    gpg --gen-key
    ```
 
-   **Note:** You do not have to use GPG to generate the keypair. We provide these instructions as a convenience. The only requirement is that the keypair can be loaded into GPG. Should you choose to use a different tool, just import the keys into GPG afterwards and skip to step 24.
+   **Note:** You do not have to use GPG to generate the keypair. We provide these instructions as a convenience. The only requirement is that the keypair can be loaded into GPG. Should you choose to use a different tool, just import the keys into GPG afterwards and skip to step 24. 
 
 22. At the first prompt, type `1` to select the `RSA and RSA` option.
 
 23. Complete the remainder of the prompts as desired.
 
-24. Use the following command to export the public key, base64-encode it, and remove the newlines. Before executing the command, replace `<key-ID>` below with the alphanumeric ID of the public key.
+24. Use the following command to export the public key, base64-encode it, and remove the newlines. Before executing the command, replace `<key-ID>` below with the alphanumeric ID of the public key. 
 
    **Tip:** In the following line `gpg: key CCE6A37D marked as ultimately trusted`, `CCE6A37D` represents the ID of the public key.
 

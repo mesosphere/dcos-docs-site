@@ -78,8 +78,8 @@ If you have any problems, you can check if the diagnostics service is running by
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /docs/1.8/administration/id-and-access-mgt/
- [7]: /docs/1.8/usage/service-discovery/load-balancing-vips/
- [8]: /docs/1.8/overview/concepts/#private
- [9]: /docs/1.8/overview/concepts/#public
+ [6]: /1.8/administration/id-and-access-mgt/
+ [7]: /1.8/usage/service-discovery/load-balancing-vips/
+ [8]: /1.8/overview/concepts/#private
+ [9]: /1.8/overview/concepts/#public
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

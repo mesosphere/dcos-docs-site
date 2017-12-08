@@ -4,7 +4,7 @@ navigationTitle:  Fault Tolerance
 title: Fault Tolerance
 menuWeight: 100
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 
@@ -74,21 +74,21 @@ executor failure => **data loss** driver failure => **data loss**
 
 This is an unusual configuration.  By default, Spark Streaming receivers run with a replicated storage level.  But if you happen reduce the storage level to be unreplicated, data stored on the receiver but not yet processed will not survive executor failure.
 
-  executor failure => **data loss**  
+  executor failure => **data loss**
   driver failure => **data loss**
 
 - Reliable receivers, replicated storage level
 
 This is the default configuration.  Data stored in the receiver is replicated, and can thus survive a single executor failure.  Driver failures, however, result in all executors failing, and therefore result in data loss.
 
-  (single) executor failure => **no data loss**  
+  (single) executor failure => **no data loss**
   driver failure => **data loss**
 
 - Reliable receivers, WAL
 
 With a WAL enabled, data stored in the receiver is written to a highly available store such as S3 or HDFS.  This means that an app can recover from even a driver failure.
 
-  executor failure => **no data loss**  
+  executor failure => **no data loss**
   driver failure => **no data loss**
 
 - Direct Kafka Consumer, no checkpointing
@@ -97,14 +97,14 @@ Since Spark 1.3, The Spark+Kafka integration has supported an experimental Direc
 
 However, without checkpointing, driver restarts mean that the driver will start reading from the latest Kafka offset, rather than where the previous driver left off.
 
-  executor failure => **no data loss**  
+  executor failure => **no data loss**
   driver failure => **data loss**
 
 - Direct Kafka Consumer, checkpointing
 
 With checkpointing enabled, Kafka offsets are stored in a reliable store such as HDFS or S3.  This means that an application can restart exactly where it left off.
 
-  executor failure => **no data loss**  
+  executor failure => **no data loss**
   driver failure => **no data loss**
 
 ### Processing semantics

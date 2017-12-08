@@ -104,4 +104,4 @@ Here is a sample response:
 
 You can use this VIP to address any one of the Kafka brokers in the cluster.
 
- [1]: /docs/1.8/usage/managing-services/service-ports/
+ [1]: /1.8/usage/managing-services/service-ports/

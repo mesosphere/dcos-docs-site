@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Labeling Tasks and Jobs
 title: Labeling Tasks and Jobs
-menuWeight: 6
+menuWeight: 600
 excerpt:
 featureMaturity:
 enterprise: false
@@ -25,28 +25,28 @@ From the DC/OS web interface, click the **Services** tab. You can add labels whe
 
 ## Assign a Label to an Application or Task from the DC/OS CLI
 
-You can also specify label values in the `labels` parameter of your application definition `myapp.json`: 
+You can also specify label values in the `labels` parameter of your application definition. 
 
-```json
-  {
-      "id": "myapp",
-      "cpus": 0.1,
-      "mem": 16.0,
-      "ports": [
-          0
-      ],
-      "cmd": "/opt/mesosphere/bin/python3 -m http.server $PORT0",
-      "instances": 2,
-      "labels": {
-          "COST_CENTER": "0001"
-      }
-  }
-```
+    vi myapp.json
+    
+    {
+        "id": "myapp",
+        "cpus": 0.1,
+        "mem": 16.0,
+        "ports": [
+            0
+        ],
+        "cmd": "/opt/mesosphere/bin/python3 -m http.server $PORT0",
+        "instances": 2,
+        "labels": {
+            "COST_CENTER": "0001"
+        }
+    }
 
 Then, deploy from the DC/OS CLI:
 
 ```bash
-dcos marathon app add myapp.json
+dcos marathon app add <myapp>.json
 ```
 
 # Assigning Labels to Jobs
@@ -61,34 +61,36 @@ From the DC/OS web interface, click the **Jobs** tab. You can add labels when yo
 
 ## Assign a Label to a Job from the DC/OS CLI
 
-You can also specify label values in the `labels` parameter of your job definition `myjob.json`:
+You can also specify label values in the `labels` parameter of your job definition. 
 
-```json
-  {
-    "id": "my-job",
-    "description": "A job that sleeps",
-    "labels": {
-      "department": "marketing"
-    },
-    "run": {
-      "cmd": "sleep 1000",
-      "cpus": 0.01,
-      "mem": 32,
-      "disk": 0
-    }
-  }
-```
+    vi myjob.json
+    
+     ```json
+        {
+          "id": "my-job",
+          "description": "A job that sleeps",
+          "labels": {
+            "department": "marketing"
+          },
+          "run": {
+            "cmd": "sleep 1000",
+            "cpus": 0.01,
+            "mem": 32,
+            "disk": 0
+          }
+        }
+     ```
 
 Then, deploy from the DC/OS CLI:
 
 ```bash
-dcos job add myjob.json
+dcos job add <myjob>.json
 ```
 
 # Displaying Label Information
 
 
-Once your applications is deployed and started, you can filter by label from the **Services** tab of the DC/OS UI.
+Once your application is deployed and started, you can filter by label from the **Services** tab of the DC/OS UI.
 
 You can also use the Marathon HTTP API from the DC/OS CLI to query the running applications based on the label value criteria.
  

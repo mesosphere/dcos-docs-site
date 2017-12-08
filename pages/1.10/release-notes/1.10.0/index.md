@@ -2,13 +2,13 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.0
 title: Release Notes for 1.10.0
-menuWeight: 0
+menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: true
 ---
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
+DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on: 
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support.
@@ -18,7 +18,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Rolling configuration update and upgrade support via the CLI.
   - Ability to deploy Data Services into folders to enable multi team deployments.
   - Ability to deploy to CNI-Based virtual networks.
-
+  
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
 ### Contents
@@ -49,7 +49,7 @@ Please try out the new features and updated data services. Provide any feedback 
   Installation time [configuration options](/1.10/networking/tls-ssl/ca-custom/) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
 
 - Enhanced secrets management with file-based secrets.
-  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/ent/secrets/use-secrets/).
+  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/secrets/use-secrets/).
 
 - Vastly improved IAM scalability and performance characteristics.
   The new system removes hard limits on the number of users, groups, and permissions that can be stored, and shows stable read and write performance as the dataset grows.
@@ -58,7 +58,7 @@ Please try out the new features and updated data services. Provide any feedback 
   Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise-dcos-only).
 
  - Enterprise CLI permissions management commands.
-   It is now possible to manage permissions to protect resources using the [Enterprise DC/OS CLI](/1.10/security/ent/perms-management/).
+   It is now possible to manage permissions to protect resources using the [Enterprise DC/OS CLI](/1.10/security/perms-management/).
 
 ## Kubernetes on DC/OS
 
@@ -103,7 +103,7 @@ The following updated data services packages are also compatible with DC/OS 1.10
   - If you have the `DCOS_CONFIG` environment variable configured:
     - After conversion to the new configuration structure, `DCOS_CONFIG` is no longer honored.
     - _Before_ you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
-
+  - CLI modules are cluster-specific and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. Therefore you must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
 
 ## GUI
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
@@ -117,20 +117,29 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 <a name="breaking-changes"></a>
 # Breaking Changes
 
-- Marathon Networking API Changes in 1.5
+- Marathon Networking API Changes in 1.5.
+
   The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md). <!-- linking to the marathon doc until I port the relevant information to the dc/os site -->
 
 - TLS 1.0 is no longer enabled by default in Admin Router.
+
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
 - Latest version of Marathon-LB is required for DC/OS 1.10.0.
+
   Before upgrading to DC/OS 1.10.0, uninstall your existing Marathon-LB package and reinstall the updated version.
 
 - REX-Ray configuration change.
+
   DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/custom/configuration/configuration-parameters/#rexray_config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in.
+
   The new command to set up your cluster URL is `dcos cluster setup <dcos_url>`. For details, see [CLI](#cli).
+
+- Hard CFS CPU limits enabled by default.
+
+  DC/OS 1.10 enforces hard CPU limits with CFS isolation for both the Docker and Universal Container Runtimes. This will give more predictable performance across all tasks but might lead to a slowdown for tasks (and thereby also deployments) who have previously have consumed more CPU cycles than allocated. See [MESOS-6134](https://issues.apache.org/jira/browse/MESOS-6134) for more details.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.

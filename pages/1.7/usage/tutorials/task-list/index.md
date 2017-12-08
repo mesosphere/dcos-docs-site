@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Listing Tasks
 title: Listing Tasks
-menuWeight: 15
+menuWeight: 13
 excerpt:
 featureMaturity:
 enterprise: false
@@ -34,4 +34,4 @@ hdfs  root    F    hdfs.8ac02f4d-00a6-11e5-9926-56847afe9799
 hdfs  root    F    hdfs.8e54528e-00a6-11e5-9926-56847afe9799
 ```
 
- [1]: /docs/1.7/usage/cli/
+ [1]: /1.7/usage/cli/

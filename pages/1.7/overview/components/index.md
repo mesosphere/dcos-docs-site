@@ -81,11 +81,11 @@ Marathon shouldn't need any introduction, it's the distributed init system for t
 
 
 ## Mesos-DNS Service
-Mesos-DNS is the internal DNS service for the DC/OS cluster. Mesos-DNS provides the namespace `$service.mesos` to all cluster hosts. For example, you can login to your leading Mesos master with `ssh leader.mesos`.
+Mesos-DNS is the internal DNS service for the DC/OS cluster. Mesos-DNS provides the namespace `$service.mesos` to all cluster hosts. For example, you can login to your leading mesos master with `ssh leader.mesos`.
 
 
 ## Minuteman Service
-This is our internal layer 4 load balancer.
+This is our internal layer 4 loadbalancer.
 
 
 ## Signal Service

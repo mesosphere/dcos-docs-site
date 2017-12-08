@@ -4,7 +4,7 @@ navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 30
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

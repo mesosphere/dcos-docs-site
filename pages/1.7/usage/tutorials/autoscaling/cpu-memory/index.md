@@ -53,4 +53,4 @@ Enter Autoscale multiplier for triggered Autoscale (ie 1.5) : 2
 Enter the Max instances that should ever exist for this application (ie. 20) : 10
 ```
 
- [1]: /docs/1.7/administration/installing/oss/
+ [1]: /1.7/administration/installing/

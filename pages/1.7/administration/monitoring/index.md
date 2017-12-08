@@ -12,7 +12,7 @@ enterprise: true
 
 
 
-Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components. <!-- In the future we're hoping to expand the usage of the system health API to other metrics as well as exposing a plugins-style architecture to allow operators to customize system health monitoring. -->
+Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshoooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components. <!-- In the future we're hoping to expand the usage of the system health API to other metrics as well as exposing a plugins-style architecture to allow operators to customize system health monitoring. -->
 
 The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit.
 
@@ -20,13 +20,19 @@ The component health page provides the health status of all DC/OS system compone
 
 When you launch the DC/OS UI, you'll see the Component Health badge in the main DC/OS UI dashboard:
 
-![UI dashboard](/1.7/administration/img/ui-dashboard-open.gif)
+![UI dashboard](/assets/images/dashboard-ee.gif)
 
 You can click on the System page to go to the main system health user interface and sort by health.
 
-![sort](/1.7/administration/img/ui-system-health-open.gif)
+![sort][1]
 
-When a component isn't healthy, you can drill down on it, to view the nodes where the component is running. You can debug more by clicking the node, where you'll be able to see the unhealthy component journald (log) output.
+When a component isn't healthy, you can drill down on it, to view the nodes where the component is running:
+
+![view][2] <!-- FIXME -->
+
+You can debug more by clicking the node, where you'll be able to see the unhealthy component journald (log) output:
+
+![log][3] <!-- FIXME -->
 
 ## Health States
 
@@ -191,10 +197,13 @@ If you experience this behavior it's most likely your Mesos slave service on the
 
 If you have any problems, you can check if the diagnostics service is running by SSH’ing to the Mesos leading master and checking the systemd status of the `dcos-ddt.service`.
 
+ [1]: /assets/images/ui-system-health-ee.gif
+ [2]: https://dl.dropboxusercontent.com/u/77193293/systemHealthScreens/sys_unhealthy_view.png
+ [3]: https://dl.dropboxusercontent.com/u/77193293/systemHealthScreens/sys_unhealthy.png
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /docs/1.7/administration/id-and-access-mgt/ent/
- [7]: /docs/1.7/usage/service-discovery/load-balancing/
- [8]: /docs/1.7/overview/concepts/#private
- [9]: /docs/1.7/overview/concepts/#public
+ [6]: /1.7/administration/id-and-access-mgt/
+ [7]: /1.7/usage/service-discovery/load-balancing/
+ [8]: /1.7/overview/concepts/#private
+ [9]: /1.7/overview/concepts/#public
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

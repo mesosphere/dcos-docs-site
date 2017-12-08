@@ -4,7 +4,7 @@ navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 30
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
@@ -13,7 +13,7 @@ enterprise: false
 
 Follow these steps to uninstall the service.
 1. Stop the service. From the DC/OS CLI, enter `dcos package uninstall`.
-1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. [More information about the framework cleaner script](https://docs.mesosphere.com/docs/1.10/deploying-services/uninstall/#framework-cleaner).
+1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. [More information about the framework cleaner script](https://docs.mesosphere.com/1.8/usage/managing-services/uninstall/#framework-cleaner).
 
 To uninstall a DSE instance named `dse` (the default), run:
 ```

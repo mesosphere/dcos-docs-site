@@ -4,7 +4,7 @@ navigationTitle:  Known Issues
 title: Known Issues
 menuWeight: 100
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

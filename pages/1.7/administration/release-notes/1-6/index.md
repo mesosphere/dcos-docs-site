@@ -112,15 +112,15 @@ The Apache Mesos kernel is now at [version 0.27][6].
 *   The Service and Agent panels of the DC/OS Web Interface won't render over 5,000 tasks. If you have a service or agent that has over 5,000 your browser may experience slowness. In this case you can close said browser tab and reopen the DC/OS web interface.
 *   See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
 
- [1]: /docs/1.7/administration/id-and-access-mgt/ent/
- [2]: /docs/1.7/administration/installing/custom/gui/
- [3]: /docs/1.7/administration/installing/custom/cli/
- [4]: /docs/1.7/administration/installing/custom/cli/#scrollNav-4
- [5]: /docs/1.7/administration/id-and-access-mgt/ent/managing-users-and-groups/
+ [1]: /1.7/administration/id-and-access-mgt/
+ [2]: /1.7/administration/installing/custom/gui/
+ [3]: /1.7/administration/installing/custom/cli/
+ [4]: /1.7/administration/installing/custom/cli/#scrollNav-4
+ [5]: /1.7/administration/id-and-access-mgt/managing-users-and-groups/
  [6]: http://mesos.apache.org/blog/mesos-0-27-0-released/
  [7]: https://issues.apache.org/jira/browse/MESOS-1791
  [8]: https://issues.apache.org/jira/browse/MESOS-191
  [9]: https://issues.apache.org/jira/browse/MESOS-4085
  [10]: https://issues.apache.org/jira/browse/MESOS-2353
  [11]: https://git-wip-us.apache.org/repos/asf?p=mesos.git;a=blob_plain;f=CHANGELOG;hb=0.27.0
- [12]: /docs/1.7/administration/installing/custom/advanced/
+ [12]: /1.7/administration/installing/custom/advanced/

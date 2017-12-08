@@ -148,7 +148,9 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
                     ssh core@<agent-node-hostname>
 
- [1]: /docs/1.9/cli/command-reference/
+ [1]: /1.9/cli/command-reference/
  [2]: #unix
  [3]: #windows
- [4]: /docs/1.9/installing/oss/cloud/aws/
+ [4]: /1.9/installing/cloud/aws/
+
+

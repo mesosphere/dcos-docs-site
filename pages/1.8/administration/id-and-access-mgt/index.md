@@ -36,7 +36,7 @@ Besides [adding a user locally](/1.8/administration/id-and-access-mgt/users-grou
 
 Learn more about it in the [directory-based authentication](/1.8/administration/id-and-access-mgt/ldap/) as well as the [identity provider-based authentication](/1.8/administration/id-and-access-mgt/sso/) sections.
 
-# Access control
+# Access control 
 
 ## <a name="superuser"></a>User management
 
@@ -54,7 +54,7 @@ Permissions define what actions a user, group, or service account may perform on
 
 Learn more about permission handling in the [Permissions](/1.8/administration/id-and-access-mgt/permissions/) section.
 
-# Programmatic interaction
+# Programmatic interaction 
 
 Learn more about how to programmatically interact with:
 
