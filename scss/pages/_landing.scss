@@ -1,3 +1,4 @@
+
 .landing {
   &__hero {
     display: flex;
@@ -5,7 +6,7 @@
     align-items: center;
     height: 250px;
     background: #131626 url('/assets/k8-hero.png') no-repeat;
-    // background-position: bottom;
+    background-position: bottom;
     background-size: cover;
   }
   &__title {
@@ -20,13 +21,15 @@
   &__search {
     position: relative;
     max-width: 600px;
-    min-width: 250px;
-    width: 50%;
+    min-width: 275px;
+    width: 75%;
     border-bottom: 2px $color-purple-light solid;
+    background: #131626;
+    border-radius: 20px;
     &-button {
       position: absolute;
       top: 50%;
-      right: 0;
+      right: 1rem;
       padding: 0;
       transform: translateY(-50%);
       border: none;
@@ -36,7 +39,8 @@
     }
     &-input {
       width: 100%;
-      padding: 0.5rem 0;
+      // padding: 0.5rem 0;
+      padding: 1rem;
       border: 0;
       background: transparent;
       color: $color-light;
@@ -55,8 +59,8 @@
         opacity: 1;
       }
       &:-ms-input-placeholder {
-       color: $color-light;
-       opacity: 1;
+        color: $color-light;
+        opacity: 1;
       }
     }
   }
@@ -137,8 +141,7 @@
       margin-top: 2rem;
       a {
         display: inline-block;
-        color: $color-dark;
-        // font-weight: bold;
+        color: $color-dark; // font-weight: bold;
         text-decoration: none;
         &:first-of-type {
           margin-right: 1rem;
@@ -181,7 +184,7 @@
           color: $color-light;
         }
       }
-    }  
+    }
   }
   &--services {
     & .header {
@@ -243,11 +246,11 @@
       font-size: 48px;
     }
     &__search {
-      width: 50%;
+      // width: 50%;
       &-input {
         position: relative;
         font-size: 2rem;
-        padding: 1rem 0;
+        // padding: 1rem 0;
       }
     }
     &__container {
@@ -268,18 +271,17 @@
     }
   }
   @media (min-width: 861px) {
-    &__hero {
-      background-size: contain;
-      background-position: right;
-    }
+    // &__hero {
+    // background-size: contain;
+    // background-position: right;
+    // }
   }
-
   @include lg {
     &__title {
       font-size: 60px;
     }
     &__search {
-      width: 50%;
+      width: 75%;
     }
   }
   @include xl {
@@ -293,9 +295,6 @@
   @include xxl {
     &__title {
       font-size: 80px;
-    }
-    &__search {
-      width: 75%;
     }
   }
 }
