@@ -1,12 +1,17 @@
 .message {
   margin: 1.5rem 0 0;
   line-height: 1.5rem;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1rem !important;
   border: 1px solid $color-dark;
   border-radius: 3px;
   color: $color-light;
   background: $color-dark;
   font-weight: 500;
+   p {
+     a {
+      font-weight: bold;
+     }
+  }
   &--outline {
     border: 1px solid $color-dark;
     color: $color-dark;
@@ -19,13 +24,20 @@
   }
   &--error {
     border: 1px solid #E77975;
-    color: $color-light;
+    // color: $color-light;
+    color: $color-dark;
     background: #E77975;
+    p {
+      // color: $color-light;
+    }
   }
   &--info {
-    border: 1px solid #505868;
+    border: 1px solid $color-dark;
     color: $color-light;
-    background: #505868;
+    background: #303646;
+    p {
+      color: $color-light;
+    }
   }
   &--success {
     border: 1px solid #89DA71;
