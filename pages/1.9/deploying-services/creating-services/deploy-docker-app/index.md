@@ -149,7 +149,7 @@ In this tutorial, a custom Docker app is created and added to Marathon.
     /nginx   64  0.1    0/1    ---      scale       DOCKER   None
     ```
     
-1.  If you used the [AWS CloudFormation templates](/1.9/installing/cloud/aws/) to expose the app to the port specified in your app definition (e.g. port 80), you must reconfigure the health check on the public ELB. 
+1.  If you used the [AWS CloudFormation templates](/1.9/installing/oss/cloud/aws/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
     1. In CloudFormation, check the checkbox next to your stack.
     2. Click the **Resources** tab.
     3. Search for **PublicSlaveLoadBalancer**.
@@ -169,5 +169,5 @@ Learn how to load balance your app on a public node using [Marathon-LB](/1.9/net
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /1.9/installing/
+ [3]: /1.9/installing/oss/
  [4]: /1.9/cli/install/

@@ -22,7 +22,7 @@ A named VIP contains these components:
 
 You can assign a VIP to your application from the DC/OS GUI. The values you enter when you deploy a new service are translated into these Marathon application definition entries:
 
-- `portDefininitions` if not using Docker containers
+- `portDefinitions` if not using Docker containers
 - `portMappings` if using Docker containers
 
 VIPs follow this naming convention:

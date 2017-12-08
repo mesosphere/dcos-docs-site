@@ -86,5 +86,5 @@ In detail, here are the steps:
 </tbody>
 </table>
 
-[auth]: /1.9/security/
+[auth]: /1.9/security/ent/
 [components]: /1.9/overview/architecture/components/

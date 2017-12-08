@@ -30,7 +30,7 @@ Admin Router proxies three routes to the DC/OS Package Manager (Cosmos):
 
 All Package Management API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.11/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/ent/iam-api/#passing-an-authentication-token).
 
 The Package Management API also requires authorization via the following permissions:
 
@@ -42,7 +42,7 @@ The Package Management API also requires authorization via the following permiss
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.11/security/perms-reference/).
+To assign permissions to your account, see [Assigning permissions](/1.11/security/ent/perms-reference/).
 
 
 ## Resources

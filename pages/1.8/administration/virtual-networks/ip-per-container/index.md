@@ -47,7 +47,7 @@ You can override the default network or add additional virtual networks by modif
     - 10.10.0.117
     - 10.10.0.116
     # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-    bootstrap_url: file:///opt/dcos_install_tmp
+    bootstrap_url: http://<bootstrap_ip>:<your_port>
     cluster_name: <cluster-name>
     master_discovery: static
     master_list:

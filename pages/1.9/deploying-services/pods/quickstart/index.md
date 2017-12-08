@@ -12,7 +12,7 @@ enterprise: false
 
 
 ### Prerequisites
-- DC/OS [installed](/1.9/installing/)
+- DC/OS [installed](/1.9/installing/oss/)
 - DC/OS CLI [installed](/1.9/cli/install/)
 
 # Launching a pod from the DC/OS CLI

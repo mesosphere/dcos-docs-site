@@ -130,5 +130,5 @@ In detail, here are the steps:
 | 11   | Mesos master reports task status to scheduler. |
 | 12   | Scheduler reports process status to client. |
 
-[auth]: /1.7/administration/id-and-access-mgt/
+[auth]: /1.7/administration/id-and-access-mgt/ent/
 [components]: /1.7/overview/components/

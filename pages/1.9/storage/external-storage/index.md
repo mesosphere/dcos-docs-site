@@ -11,6 +11,8 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
+**Warning:** Volume size is specified in GiB.
+
 Use external volumes when fault-tolerance is crucial for your app. If a host fails, the native Marathon instance reschedules your app on another host, along with its associated data, without user intervention. External volumes also typically offer a larger amount of storage.
 
 Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL, you’ll want your application to preserve its state. You can use an external storage service, such as Amazon's Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
@@ -149,9 +151,9 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 
 *   For troubleshooting external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the systemd journal.
 
- [1]: /1.9/installing/cloud/aws/
- [2]: /1.9/installing/custom/cli/
- [3]: /1.9/installing/custom/advanced/
+ [1]: /1.9/installing/oss/cloud/aws/
+ [2]: /1.9/installing/oss/custom/cli/
+ [3]: /1.9/installing/oss/custom/advanced/
  [4]: https://rexray.readthedocs.io/en/v0.3.3/user-guide/config/
  [5]: http://rexray.readthedocs.io/en/v0.3.3/user-guide/storage-providers/
  [6]: /1.9/deploying-services/creating-services/

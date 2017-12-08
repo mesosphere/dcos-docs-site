@@ -26,7 +26,7 @@ curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/system/v1/
 
 # Format
 
-The Metrics API request and response bodies are formatted in JSON.
+The Mesos DNS API request and response bodies are formatted in JSON.
 
 Requests must include the accept header:
 
@@ -40,13 +40,13 @@ Responses will include the content type header:
 Content-Type: application/json
 ```
 
-# Auth
+# Authorization (Enterprise Only)
 
-All Metrics API routes require authentication to use.
+All Mesos DNS API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.11/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/ent/iam-api/#passing-an-authentication-token).
 
-The Metrics API also requires authorization via the following permissions:
+The Mesos DNS API also requires authorization via the following permissions:
 
 | Route | Permission |
 |-------|----------|
@@ -55,7 +55,7 @@ The Metrics API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.11/security/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/1.11/security/ent/perms-reference/).
 
 # Resources
 Mesos-DNS implements a simple REST API for service discovery over HTTP. These examples assume you have an [SSH connection to the node](/1.11/administering-clusters/sshcluster/).
@@ -87,7 +87,7 @@ Lists in JSON format the Mesos-DNS configuration parameters.
 curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/config
 ```
     
-The output should resemble:
+The output for Open Source DC/OS should resemble:
 
 ```json
 {
@@ -139,6 +139,57 @@ The output should resemble:
  }
 ```
 
+The output for Entperise DC/OS should resemble:
+
+```json
+{
+  "RefreshSeconds": 30,
+  "Port": 61053,
+  "Timeout": 5,
+  "StateTimeoutSeconds": 300,
+  "ZkDetectionTimeout": 30,
+  "HttpPort": 8123,
+  "TTL": 60,
+  "SOASerial": 1495828138,
+  "SOARefresh": 60,
+  "SOARetry": 600,
+  "SOAExpire": 86400,
+  "SOAMinttl": 60,
+  "SOAMname": "ns1.mesos.",
+  "SOARname": "root.ns1.mesos.",
+  "Masters": null,
+  "ZoneResolvers": {},
+  "Resolvers": [
+   "169.254.169.253"
+  ],
+  "IPSources": [
+   "host",
+   "netinfo"
+  ],
+  "Zk": "zk://zk-1.zk:2181,zk-2.zk:2181,zk-3.zk:2181,zk-4.zk:2181,zk-5.zk:2181/mesos",
+  "Domain": "mesos",
+  "File": "/opt/mesosphere/etc/mesos-dns-enterprise.json",
+  "Listener": "0.0.0.0",
+  "HTTPListener": "127.0.0.1",
+  "RecurseOn": true,
+  "DnsOn": true,
+  "HttpOn": true,
+  "ExternalOn": true,
+  "EnforceRFC952": false,
+  "SetTruncateBit": false,
+  "EnumerationOn": true,
+  "MesosHTTPSOn": true,
+  "CACertFile": "/run/dcos/pki/CA/certs/ca.crt",
+  "CertFile": "/run/dcos/pki/tls/certs/mesos-dns.crt",
+  "KeyFile": "/run/dcos/pki/tls/private/mesos-dns.key",
+  "MesosCredentials": {
+   "Principal": "",
+   "Secret": ""
+  },
+  "IAMConfigFile": "/run/dcos/etc/mesos-dns/iam.json",
+  "MesosAuthentication": "iam"
+ }
+```
 
 ## <a name="get-hosts"></a>GET /v1/hosts/{host}
 

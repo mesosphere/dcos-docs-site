@@ -34,5 +34,5 @@ In addition to this watchdog, we also run genresolv, which checks whether or not
 ## Distributed DNS Proxy Interface
 Distributed DNS Proxy creates its own network interface. This interface is actually a dummy device called `spartan`. This device hosts 3 IPs, `198.51.100.1/32`, `198.51.100.2/32`, `198.51.100.3/32`. You can monitor the system health of the DNS Proxy as the DNS Dispatcher component in the system health [dashboard][2].
 
-[1]: /1.7/administration/installing/custom/configuration-parameters/
+[1]: /1.7/administration/installing/oss/custom/configuration-parameters/
 [2]: /1.7/administration/monitoring/

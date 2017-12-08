@@ -12,11 +12,11 @@ enterprise: true
 
 This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. 
 
-The basic procedure does not support [secrets](/1.11/security/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.11/deploying-services/marathon-on-marathon/advanced/).
+The basic procedure does not support [secrets](/1.11/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.11/deploying-services/marathon-on-marathon/advanced/).
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.11/installing/).
+-  DC/OS and DC/OS CLI [installed](/1.11/installing/oss/).
 -  [Enterprise DC/OS CLI 0.4.14 or later](/1.11/cli/enterprise-cli/#ent-cli-install).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
@@ -152,7 +152,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     ```
 
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/#security-modes), a Marathon Service Account is either optional or required. 
+In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required. 
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -175,7 +175,7 @@ In this step, a Marathon Service Account is created. Depending on your [security
 # Step 4 - Assign Permissions (Strict mode only)
 In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes. 
 
-All CLI commands can also be executed via the [IAM API](/1.11/security/iam-api/).
+All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/).
 
 | Security Mode | Permissions |
 |---------------|----------------------|
@@ -217,7 +217,7 @@ In this step, a user is granted access to the non-native Marathon instance.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
     ### Disabled
     

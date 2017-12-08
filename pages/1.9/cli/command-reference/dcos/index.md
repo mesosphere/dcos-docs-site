@@ -11,6 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
+# Description
 Command line utility for the Mesosphere Datacenter Operating System (DC/OS).
 
 # Usage

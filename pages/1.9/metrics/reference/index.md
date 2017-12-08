@@ -1,15 +1,11 @@
 ---
 layout: layout.pug
 navigationTitle:  Metrics Reference
-title: Metrics Reference
-menuWeight: 2
 excerpt:
+title: Metrics Reference
 featureMaturity: preview
-enterprise: false
+menuWeight: 2
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 These metrics are automatically collected by DC/OS.
 

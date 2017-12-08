@@ -8,13 +8,13 @@ featureMaturity:
 enterprise: true
 ---
 
-**Important:** Edge-LB is not yet supported in strict [security mode](/1.11/security/#security-modes).
+**Important:** Edge-LB is not yet supported in strict [security mode](/1.11/security/ent/#security-modes).
 
 **Prerequisites:**
 
 -  [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 -  Access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
--  Depending on your [security mode](/1.11/security/#security-modes), you may be able to configure Edge-LB with [service authentication](/1.11/security/service-auth/) before installing and using with DC/OS, allowing you to control what actions your service can take on your cluster. For information on how to configure service authentication for Edge-LB, see the [documentation](/1.11/networking/edge-lb/auth).
+-  Depending on your [security mode](/1.11/security/ent/#security-modes), you may be able to configure Edge-LB with [service authentication](/1.11/security/ent/service-auth/) before installing and using with DC/OS, allowing you to control what actions your service can take on your cluster. For information on how to configure service authentication for Edge-LB, see the [documentation](/1.11/networking/edge-lb/auth).
 
    | Security mode | Service Account |
    |---------------|-----------------------|

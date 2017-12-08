@@ -38,7 +38,7 @@ Here we discuss Marathon-LB as an edge load balancer and as an internal and exte
 
 # Next Steps
 
-- [Install](/1.8/usage/service-discovery/marathon-lb/usage/)
+- [Install](/1.8/usage/service-discovery/marathon-lb/usage-ee/)
 
 [1]: https://github.com/mesosphere/marathon-lb
 [2]: https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#templates

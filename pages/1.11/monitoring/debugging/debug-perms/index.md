@@ -13,9 +13,9 @@ You can grant users access to containers for debugging sessions.
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
-- A [user account](/1.11/security/users-groups/) to assign permissions to.
+- A [user account](/1.11/security/ent/users-groups/) to assign permissions to.
 
-All CLI commands can also be executed via the [IAM API](/1.11/security/iam-api/).
+All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/).
 
 ## Disabled
 

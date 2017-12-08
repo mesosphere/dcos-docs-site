@@ -95,7 +95,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
        dcos:mesos:agent:executor:app_id:/<job-group>/<job-name> read
        dcos:mesos:agent:task:app_id:/<job-group>/<job-name> read
        dcos:mesos:agent:sandbox:app_id:/<job-group>/<job-name> read
-       ```       
+       ```
 
 1.  Click **ADD PERMISSIONS** and then **Close**.
 
@@ -160,7 +160,7 @@ This mode does not offer fine-grained control.
         -H 'Content-Type: application/json' \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave  \
         -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-        ```  
+        ```
         
    1.  Grant the permission to the user (`<user-name>`).
    
@@ -171,7 +171,7 @@ This mode does not offer fine-grained control.
         curl -X PUT --cacert dcos-ca.crt \
         -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<user-name>/full
-        ```   
+        ```
 
 ### Strict
 
@@ -190,7 +190,7 @@ This mode does not offer fine-grained control.
         -H 'Content-Type: application/json' \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs:<job-group>/<job-name>  \
         -d '{"description":"Controls access to <job-group>/<job-name>"}'
-        ```   
+        ```
          
     1.  Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
     
@@ -220,7 +220,7 @@ This mode does not offer fine-grained control.
         -H 'Content-Type: application/json' \
         $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave  \
         -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-        ```  
+        ```
         
    1.  Grant the permission to the user (`<user-name>`) and group (`<job-group>`).
    

@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 
-Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshoooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
+Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
 
 DC/OS components are the [systemd units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-3dt.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/1.8/overview/components/).
 

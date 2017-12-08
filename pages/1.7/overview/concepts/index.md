@@ -89,7 +89,7 @@ Private agent nodes run DC/OS apps and services through a non-routable network t
 Public agent nodes run DC/OS apps and services in a publicly accessible network. DC/OS agent nodes can be designated as [public][2] or [private][1] during installation. For more information see:
 
  - [Network Security][11]
- - [Creating a public agent node](/1.7/administration/installing/custom/create-public-agent/)
+ - [Creating a public agent node](/1.7/administration/installing/oss/custom/create-public-agent/)
 
 # <a name="slave"></a>Slave
 
@@ -113,7 +113,7 @@ DC/OS uses ZooKeeper, a high-performance coordination service to manage the inst
 
 [1]: #private
 [2]: #public
-[3]: /1.7/administration/installing/cloud/
+[3]: /1.7/administration/installing/oss/cloud/
 [4]: http://mesos.apache.org/documentation/latest/containerizers/
 [5]: https://github.com/mesosphere/universe
 [6]: http://mesos.apache.org/documentation/latest/app-framework-development-guide/

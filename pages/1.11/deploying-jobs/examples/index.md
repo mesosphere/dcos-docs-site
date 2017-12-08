@@ -12,7 +12,7 @@ These examples provide common usage scenarios for jobs.
 
 **Prerequisite:**
 
-- [DC/OS](/1.11/installing/) and the [DC/OS CLI installed](/1.11/cli/install/).
+- [DC/OS](/1.11/installing/oss/) and the [DC/OS CLI installed](/1.11/cli/install/).
 
 # <a name="create-job"></a>Creating a Simple Job
 
@@ -118,7 +118,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
 **Prerequisites:**
 
-- DC/OS is installed with [security mode](/1.11/security/#security-modes) `permissive` or `strict`.
+- DC/OS is installed with [security mode](/1.11/security/ent/#security-modes) `permissive` or `strict`.
 - You must be logged in as a `superuser`.
 
 1. Log into the DC/OS GUI as a user with the `superuser` permission.
@@ -165,7 +165,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
         
     1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev/batch/job1 read,update`.
     
-        **Important:** Your [security mode](/1.11/security/#security-modes) must be either `permissive` or `strict`.
+        **Important:** Your [security mode](/1.11/security/ent/#security-modes) must be either `permissive` or `strict`.
         
         ```bash
         dcos:adminrouter:service:metronome full

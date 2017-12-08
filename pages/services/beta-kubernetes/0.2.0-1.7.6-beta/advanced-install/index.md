@@ -53,7 +53,7 @@ Enabling TLS for mutual-authentication and encryption between Kubernetes compone
 and a [service-account](/latest/security/service-auth/custom-service-auth/) with
 superuser privileges to:
 - Generate and sign TLS certificates and keys with [DC/OS Certificate Authority](/1.10/networking/tls-ssl/), and
-- Securely store and distribute TLS certificates and keys artifacts with [DC/OS Secrets](/1.10/security/secrets/).
+- Securely store and distribute TLS certificates and keys artifacts with [DC/OS Secrets](/1.10/security/ent/secrets/).
 
 The instructions we are about to provide you below require you to install the
 [enterprise CLI](/1.10/cli/enterprise-cli/) before installing the DC/OS Kubernetes package.

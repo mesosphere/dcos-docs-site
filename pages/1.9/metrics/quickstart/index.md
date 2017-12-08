@@ -1,21 +1,21 @@
 ---
 layout: layout.pug
-navigationTitle:  Quick Start
-title: Quick Start
-menuWeight: 0
 excerpt:
+title: Metrics Quick Start
+navigationTitle: Quick Start
+menuWeight: 0
 featureMaturity: preview
-enterprise: true
 ---
 
-
-Use this guide to get started with the DC/OS metrics component. The metrics component is natively integrated with DC/OS and no additional setup is required.
+Use this guide to get started with the DC/OS metrics component. 
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- At least one [DC/OS service](/1.9/deploying-services/creating-services/) is deployed.
 - Optional: the CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
-  
+
+The metrics component is natively integrated with DC/OS and no additional setup is required.  
+
 1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 
     1.  Create the following Marathon app definition and save as `test-metrics.json`. 
@@ -35,19 +35,7 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         ```bash
         dcos marathon app add test-metrics.json
         ```
-
-1.  Obtain your DC/OS authentication token and copy for later use:
-
-    ```bash
-    dcos config show core.dcos_acs_token
-    ```
-    
-    The output should resemble:
-    
-    ```bash
-    eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIi...
-    ```
-
+        
 1.  [SSH to the agent node](/1.9/administering-clusters/sshcluster/) that is running your app, where (`--mesos-id=<mesos-id>`) is the Mesos ID of the node running your app.
 
     ```
@@ -71,29 +59,29 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
          HOSTNAME       IP                         ID                    
         10.0.0.193  10.0.0.193  7749eada-4974-44f3-aad9-42e2fc6aedaf-S1  
         ```
-
+        
 1.  View metrics. 
 
     -   **Metrics for all containers running on a host**
 
-        To show all containers that are deployed on the agent node, run this command from your agent node with your authentication token (`<auth-token>`) specified. 
+        To show all containers that are deployed on the agent node, run this command from your agent node. 
         
         ```bash
-        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
+        curl -s http://localhost:61001/system/v1/metrics/v0/containers | jq
         ```
     
         The output should resemble this:
         
         ```json
-        ["121f82df-b0a0-424c-aa4b-81626fb2e369","87b10e5e-6d2e-499e-ae30-1692980e669a"]
+        ["28dfb041-42bb-4064-bd4f-bd56c472eb1e","d46f5b51-2adb-4978-bf8a-2a4a85103ab6"]
         ```
 
     -   **<a name="container-metrics"></a>Metrics for a specific container**
         
-        To view the metrics for a specific container, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified. 
+        To view the metrics for a specific container, run this command from your agent node with the container ID (`<container-id>`) specified. 
     
         ```bash
-        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers/<container-id>/app | jq
+        curl -s http://localhost:61001/system/v1/metrics/v0/containers/<container-id>/app | jq
         ```
 
         The output should resemble:
@@ -105,31 +93,34 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
               "name": "dcos.metrics.module.container_received_bytes_per_sec",
               "value": 0,
               "unit": "",
-              "timestamp": "2016-12-15T18:12:24Z"
+              "timestamp": "2017-11-14T18:26:50Z"
             },
             {
               "name": "dcos.metrics.module.container_throttled_bytes_per_sec",
               "value": 0,
               "unit": "",
-              "timestamp": "2016-12-15T18:12:24Z"
+              "timestamp": "2017-11-14T18:26:50Z"
             }
           ],
           "dimensions": {
-            "mesos_id": "",
-            "container_id": "d41ae47f-c190-4072-abe7-24d3468d40f6",
-            "executor_id": "test-metrics.e3a1fe9e-c2f1-11e6-b94b-2e2d1faf2a70",
-            "framework_id": "fd39fe4f-930a-4b89-bb3b-a392e518c9a5-0001",
-            "hostname": ""
+            "mesos_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-S1",
+            "cluster_id": "411bea44-f30a-42f7-be22-b4426dce0163",
+            "container_id": "28dfb041-42bb-4064-bd4f-bd56c472eb1e",
+            "executor_id": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c",
+            "framework_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-0001",
+            "task_name": "test-metrics",
+            "task_id": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c",
+            "hostname": "10.0.1.22"
           }
         }
         ```
     
-    -   **<a name="container-metrics"></a>Metrics from container-level cgroup allocations**
+    -   **<a name="container-metrics"></a>Metrics for container-level cgroup allocations**
  
-        To view cgroup allocations, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified.
+        To view cgroup allocations, run this command from your agent node with the container ID (`<container-id>`) specified.
       
         ```bash
-        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers/<container-id> | jq
+        curl -s http://localhost:61001/system/v1/metrics/v0/containers/<container-id> | jq
         ```
     
         The output will contain a `datapoints` array that contains information about container resource allocation and utilization provided by Mesos. For example:
@@ -138,29 +129,62 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         {
           "datapoints": [
             {
-              "name": "cpus_system_time_secs",
-              "value": 0.68,
-              "unit": "",
-              "timestamp": "2016-12-13T23:15:19Z"
+              "name": "net.tx.errors",
+              "value": 0,
+              "unit": "count",
+              "timestamp": "2017-11-14T18:23:44.463276715Z",
+              "tags": {
+                "container_id": "28dfb041-42bb-4064-bd4f-bd56c472eb1e",
+                "executor_id": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c",
+                "executor_name": "Command Executor (Task: test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c) (Command: sh -c 'while true;d...')",
+                "framework_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-0001",
+                "source": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c"
+              }
             },
             {
-              "name": "cpus_limit",
-              "value": 1.1,
-              "unit": "",
-              "timestamp": "2016-12-13T23:15:19Z"
+              "name": "net.tx.bytes",
+              "value": 0,
+              "unit": "bytes",
+              "timestamp": "2017-11-14T18:23:44.463276715Z",
+              "tags": {
+                "container_id": "28dfb041-42bb-4064-bd4f-bd56c472eb1e",
+                "executor_id": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c",
+                "executor_name": "Command Executor (Task: test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c) (Command: sh -c 'while true;d...')",
+                "framework_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-0001",
+                "source": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c"
+              }
             },
             {
-              "name": "cpus_throttled_time_secs",
-              "value": 23.12437475,
-              "unit": "",
-              "timestamp": "2016-12-13T23:15:19Z"
+              "name": "disk.limit",
+              "value": 0,
+              "unit": "bytes",
+              "timestamp": "2017-11-14T18:23:44.463276715Z",
+              "tags": {
+                "container_id": "28dfb041-42bb-4064-bd4f-bd56c472eb1e",
+                "executor_id": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c",
+                "executor_name": "Command Executor (Task: test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c) (Command: sh -c 'while true;d...')",
+                "framework_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-0001",
+                "source": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c"
+              }
+            },
+            ...
             },
             {
-              "name": "mem_total_bytes",
-              "value": 327262208,
-              "unit": "",
-              "timestamp": "2016-12-13T23:15:19Z"
-            },
+              "name": "cpus.limit",
+              "value": 0.101,
+              "unit": "count",
+              "timestamp": "2017-11-14T18:23:44.463276715Z",
+              "tags": {
+                "container_id": "28dfb041-42bb-4064-bd4f-bd56c472eb1e",
+                "executor_id": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c",
+                "executor_name": "Command Executor (Task: test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c) (Command: sh -c 'while true;d...')",
+                "framework_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-0001",
+                "source": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c"
+              }
+            }
+          ],
+        ...
+        }
         ```
     
         The output will also contain an object named `dimensions` that contains metadata about the `cluster/node/app`.
@@ -168,67 +192,129 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         ```json
         ...
         "dimensions": {
-            "mesos_id": "a29070cd-2583-4c1a-969a-3e07d77ee665-S0",
-            "container_id": "6972ad7c-1701-4970-ae14-4372f76eda37",
-            "executor_id": "confluent-kafka.7aff271b-c182-11e6-a88f-22e5385a5fd7",
-            "framework_name": "marathon",
-            "framework_id": "a29070cd-2583-4c1a-969a-3e07d77ee665-0001",
-            "framework_role": "slave_public",
-            "hostname": "",
-            "labels": {
-              "DCOS_MIGRATION_API_PATH": "/v1/plan",
-              "DCOS_MIGRATION_API_VERSION": "v1",
-              "DCOS_PACKAGE_COMMAND": "eyJwaXAiOlsiaHR0cHM6Ly9kb3dubG9hZHMubWVzb3NwaGVyZS5jb20va2Fma2EvYX...
-              "DCOS_PACKAGE_FRAMEWORK_NAME": "confluent-kafka",
-              "DCOS_PACKAGE_IS_FRAMEWORK": "true",
-              "DCOS_PACKAGE_METADATA": "eyJwYWNrYWdpbmdWZXJzaW9uIjoiMy4wIi...
-              "DCOS_PACKAGE_NAME": "confluent-kafka",
-              "DCOS_PACKAGE_REGISTRY_VERSION": "3.0",
-              "DCOS_PACKAGE_RELEASE": "10",
-              "DCOS_PACKAGE_SOURCE": "https://universe.mesosphere.com/repo",
-              "DCOS_PACKAGE_VERSION": "1.1.16-3.1.1",
-              "DCOS_SERVICE_NAME": "confluent-kafka",
-              "DCOS_SERVICE_PORT_INDEX": "1",
-              "DCOS_SERVICE_SCHEME": "http",
-              "MARATHON_SINGLE_INSTANCE_APP": "true"
-            }
-          }
-        }       
+          "mesos_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-S1",
+          "cluster_id": "411bea44-f30a-42f7-be22-b4426dce0163",
+          "container_id": "28dfb041-42bb-4064-bd4f-bd56c472eb1e",
+          "executor_id": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c",
+          "framework_name": "marathon",
+          "framework_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-0001",
+          "framework_role": "slave_public",
+          "framework_principal": "dcos_marathon",
+          "task_name": "test-metrics",
+          "task_id": "test-metrics.ce1b8027-c968-11e7-865b-1a388d16765c",
+          "hostname": "10.0.1.22"
+        }
         ...
         ```
+        
+        If you run a Universe package such as Spark, the `dimensions` will have information about the package in the `labels`:
+        
+        ```json
+          ...
+          "dimensions": {
+            "mesos_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-S1",
+            "cluster_id": "411bea44-f30a-42f7-be22-b4426dce0163",
+            "container_id": "d46f5b51-2adb-4978-bf8a-2a4a85103ab6",
+            "executor_id": "spark.ffe8a5d8-c96b-11e7-865b-1a388d16765c",
+            "framework_name": "marathon",
+            "framework_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-0001",
+            "framework_role": "slave_public",
+            "framework_principal": "dcos_marathon",
+            "task_name": "spark",
+            "task_id": "spark.ffe8a5d8-c96b-11e7-865b-1a388d16765c",
+            "hostname": "10.0.1.22",
+            "labels": {
+              "DCOS_PACKAGE_FRAMEWORK_NAME": "spark",
+              "DCOS_PACKAGE_NAME": "spark",
+              "DCOS_PACKAGE_SOURCE": "https://universe.mesosphere.com/repo",
+              "DCOS_PACKAGE_VERSION": "2.1.0-2.2.0-1",
+              "DCOS_SERVICE_NAME": "spark",
+              "DCOS_SERVICE_PORT_INDEX": "2",
+              "DCOS_SERVICE_SCHEME": "http",
+              "SPARK_URI": ""
+            }
+          }
+          ...
+        ```
 
-    -   **<a name="host-metrics"></a>Host level metrics**
+    -   **<a name="host-metrics"></a>Node level metrics**
 
-        To view host-level metrics, run this command from your agent node with your authentication token (`<auth-token>`) specified:
+        To view node-level metrics, run this command from your agent node:
 
         ```bash
-        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/node | jq
+        curl -s http://localhost:61001/system/v1/metrics/v0/node | jq
         ```
         
-        The output will contain a `datapoints` array about resource allocation and utilization. For example:
+        The output will contain a `datapoints` array about node resource allocation and utilization. For example:
         
         ```json
         ...
-        "datapoints": [
+        {
+          "datapoints": [
             {
-              "name": "uptime",
-              "value": 23631,
-              "unit": "",
-              "timestamp": "2016-12-14T01:00:19Z"
+              "name": "filesystem.inode.free",
+              "value": 38436612,
+              "unit": "count",
+              "timestamp": "2017-11-14T18:32:44.488816719Z",
+              "tags": {
+                "path": "/"
+              }
             },
             {
-              "name": "processes",
-              "value": 209,
-              "unit": "",
-              "timestamp": "2016-12-14T01:00:19Z"
+              "name": "memory.cached",
+              "value": 1885151232,
+              "unit": "bytes",
+              "timestamp": "2017-11-14T18:32:44.489104374Z"
             },
             {
-              "name": "cpu.cores",
-              "value": 4,
-              "unit": "",
-              "timestamp": "2016-12-14T01:00:19Z"
+              "name": "network.in.dropped",
+              "value": 0,
+              "unit": "count",
+              "timestamp": "2017-11-14T18:32:44.489286319Z",
+              "tags": {
+                "interface": "docker0"
+              }
+            },
+            {
+              "name": "filesystem.inode.total",
+              "value": 32768,
+              "unit": "count",
+              "timestamp": "2017-11-14T18:32:44.488816719Z",
+              "tags": {
+                "path": "/usr/share/oem"
+              }
+            },
+            ...
+            {
+              "name": "cpu.system",
+              "value": 0.09,
+              "unit": "percent",
+              "timestamp": "2017-11-14T18:32:44.488494518Z"
+            },
+            {
+              "name": "swap.total",
+              "value": 0,
+              "unit": "bytes",
+              "timestamp": "2017-11-14T18:32:44.489104374Z"
+            },
+            {
+              "name": "load.5min",
+              "value": 0.02,
+              "unit": "count",
+              "timestamp": "2017-11-14T18:32:44.488791828Z"
+            },
+            {
+              "name": "filesystem.inode.used",
+              "value": 68220,
+              "unit": "count",
+              "timestamp": "2017-11-14T18:32:44.488816719Z",
+              "tags": {
+                "path": "/var/lib/docker/overlay"
+              }
             }
-        ...    
+          ],
+        ...
+        } 
         ```
         
         The output will contain an object named `dimensions` that contains metadata about the cluster and node. For example:
@@ -236,8 +322,9 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         ```json
         ...
         "dimensions": {
-            "mesos_id": "a29070cd-2583-4c1a-969a-3e07d77ee665-S0",
-            "hostname": "10.0.2.255"
-          }
+          "mesos_id": "41932554-feb2-43b3-b5b8-1f61aaa308c1-S1",
+          "cluster_id": "411bea44-f30a-42f7-be22-b4426dce0163",
+          "hostname": "10.0.1.22"
+        }
         ...  
         ```

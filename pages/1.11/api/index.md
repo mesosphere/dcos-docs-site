@@ -64,7 +64,7 @@ For details on the versioning mechanisms, see [Versioning](/1.11/api/versioning/
 
 Some routes are unauthenticated, but most require an authentication token.
 
-For details on how to obtain and use an authentication token, see [Authentication HTTP API Endpoint](/1.11/security/iam-api/).
+For details on how to obtain and use an authentication token, see [Authentication HTTP API Endpoint](/1.11/security/ent/iam-api/).
 
 
 # Authorization
@@ -73,10 +73,10 @@ Most authenticated routes also require authorization via permissions. Permission
 
 Permission enforcement can be performed at two levels.
 
-- **Course-grained permissions** are [enforced by Admin Router](/1.11/security/perms-reference/#admin-router) at the route level.
+- **Course-grained permissions** are [enforced by Admin Router](/1.11/security/ent/perms-reference/#admin-router) at the route level.
 - **Fine-grained permissions** are enforced by individual backend component services.
 
-[Permission management](/1.11/security/permissions/) can be performed by users with the [Superuser permission](/1.11/security/permissions/superuser-perm/) using the [Identity and Access Management API](/1.11/security/iam-api/). Users with the Superuser permission also have implicit permission to access all routes.
+[Permission management](/1.11/security/ent/perms-management/) can be performed by users with the [Superuser permission](/1.11/security/ent/permissions/superuser-perm/) using the [Identity and Access Management API](/1.11/security/ent/iam-api/). Users with the Superuser permission also have implicit permission to access all routes.
 
 
 # Route Usage

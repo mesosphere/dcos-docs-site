@@ -107,7 +107,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.10/installing/">Documentation</a></li>
+    <li><a href="/1.10/installing/oss/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos">Source</a></li>
   </ul>
 </p>
@@ -389,7 +389,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 <div data-role="collapsible">
 <h2 id="dcos-signal">DC/OS Signal</h2>
 <div>
-<p><strong>Description:</strong> The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can <a href="/1.10/installing/custom/opt-out/#telemetry">opt-out of telemetry</a> at install time.</p>
+<p><strong>Description:</strong> The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can <a href="/1.10/installing/oss/custom/opt-out/#telemetry">opt-out of telemetry</a> at install time.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -630,8 +630,8 @@ Identity and access management in **Enterprise DC/OS** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.10/security/">Documentation</a></li>
-    <li><a href="/1.10/security/iam-api/">API Reference</a></li>
+    <li><a href="/1.10/security/ent/">Documentation</a></li>
+    <li><a href="/1.10/security/ent/iam-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -692,8 +692,8 @@ Identity and access management in **Enterprise DC/OS** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.10/security/secrets/">Documentation</a></li>
-    <li><a href="/1.10/security/secrets/secrets-api/">API Reference</a></li>
+    <li><a href="/1.10/security/ent/secrets/">Documentation</a></li>
+    <li><a href="/1.10/security/ent/secrets/secrets-api/">API Reference</a></li>
   </ul>
 </p>
 </div>

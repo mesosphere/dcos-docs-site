@@ -1,15 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:  Mount Disk Resources
+excerpt:
 title: Mount Disk Resources
 menuWeight: 0
-excerpt:
-featureMaturity:
-enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 With DC/OS you can configure Mesos [`Mount` disk resources][1] across your cluster by simply mounting storage resources on agents using a well-known path. 
 

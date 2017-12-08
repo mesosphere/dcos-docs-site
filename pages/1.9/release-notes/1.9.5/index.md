@@ -109,7 +109,7 @@ For more information, see the [documentation](/1.9/metrics/).
   - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM.
   - Support authentication with service account credentials.
 
-- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/secrets/)).
+- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)).
 - Security hardening across the platform, including Mesos, Marathon, and Admin Router.
 
 ## Developer Services
@@ -131,25 +131,25 @@ For more information, see the [documentation](/1.9/metrics/).
 
 ### Expanded OS Support
 
-- If you install DC/OS 1.9 using the [GUI](/1.9/installing/custom/gui/) or [CLI](/1.9/installing/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
+- If you install DC/OS 1.9 using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
 - CoreOS [1235.12.0](https://coreos.com/releases/#1235.12.0).
 
 ### Expanded Docker Engine Support
 
-- Docker 1.12 and 1.13 are now [supported](/1.9/installing/custom/system-requirements/). Docker 1.13 is the default version.
+- Docker 1.12 and 1.13 are now [supported](/1.9/installing/ent/custom/system-requirements/). Docker 1.13 is the default version.
 
 ### Upgrades
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 
-For more information, see the [documentation](/1.9/installing/upgrading/).
+For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
 - DCOS_OSS-691 - DNS becomes unavailable during DC/OS version upgrades.
 - DCOS-14005 - Marathon-LB does not support pods.
 - DCOS-14021 - [Task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
-- DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/1.9/installing/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.ee.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
+- DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/1.9/installing/ent/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.ee.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
 
   ```bash
   $ ./dcos_generate_config.ee.sh --aws-cloudformation
@@ -159,7 +159,7 @@ For more information, see the [documentation](/1.9/installing/upgrading/).
   aws_template_storage_region_name: Unable to determine region location of s3 bucket testbucket: An error occurred (InvalidAccessKeyId) when calling the GetBucketLocation operation: The AWS Access Key Id you provided does not exist in our records.
   ```
 - Marathon-7133 - Marathon application history is lost after Marathon restart.
-- CORE-1191 -  The Mesos master's event queue can get backlogged with the default settings, causing performance problems. These can be mitigated by setting the following configuration parameter in your `config.yaml` file at install time. See the [Configuration Reference](/1.9/installing/custom/configuration/configuration-parameters/) for more information. **Note:** Lowering this parameter also reduces the number of tasks per framework that the `dcos task` subcommands can access for debugging. If you run a framework with many short tasks, such as Spark, you may not want to reduce this value.
+- CORE-1191 -  The Mesos master's event queue can get backlogged with the default settings, causing performance problems. These can be mitigated by setting the following configuration parameter in your `config.yaml` file at install time. See the [Configuration Reference](/1.9/installing/ent/custom/configuration/configuration-parameters/) for more information. **Note:** Lowering this parameter also reduces the number of tasks per framework that the `dcos task` subcommands can access for debugging. If you run a framework with many short tasks, such as Spark, you may not want to reduce this value.
 
   ```yaml
   mesos_max_completed_tasks_per_framework: 20

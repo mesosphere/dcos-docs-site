@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Labeling Tasks
 title: Labeling Tasks
-menuWeight: 12
+menuWeight: 13
 excerpt:
 featureMaturity:
 enterprise: false

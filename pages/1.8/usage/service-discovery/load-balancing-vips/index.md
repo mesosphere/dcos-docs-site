@@ -25,7 +25,7 @@ When you launch a set of tasks with these labels, DC/OS distributes them to all 
 1. Do not firewall traffic between the nodes.
 2. Do not change `ip_local_port_range`.
 3. You must have the `ipset` package installed.
-4. You must use a supported [operating system](/1.8/administration/installing/custom/system-requirements/).
+4. You must use a supported [operating system](/1.8/administration/installing/oss/custom/system-requirements/).
 
 #### Persistent Connections
 It is recommended when you use our VIPs you keep long-running, persistent connections. The reason behind this is that you can very quickly fill up the TCP socket table if you do not. The default local port range on Linux allows source connections from 32768 to 61000. This allows 28232 connections to be established between a given source IP and a destination address, port pair. TCP connections must go through the time wait state prior to being reclaimed. The Linux kernel's default TCP time wait period is 120 seconds. Given this, you would exhaust the connection table by only making 235 new connections / sec.

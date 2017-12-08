@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-List configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.9/security/service-auth/).
+List configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.9/security/ent/service-auth/).
 
 # Usage
 

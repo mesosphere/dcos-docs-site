@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Listing Nodes
 title: Listing Nodes
-menuWeight: 13
+menuWeight: 14
 excerpt:
 featureMaturity:
 enterprise: false
@@ -68,5 +68,3 @@ You can view of all of the nodes that are used across your cluster by using the 
     ```
 
 -   From the [UI](/1.7/usage/webinterface/) you can click on **Nodes** to view of all of the nodes that are used across your cluster.
-
-

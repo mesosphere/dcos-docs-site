@@ -1,15 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:  Recovering Agent Disk Space
+excerpt:
 title: Recovering Agent Disk Space
 menuWeight: 900
-excerpt:
-featureMaturity:
-enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 If tasks fill up the reserved volume of an agent node, there are a few options to recover space:
 

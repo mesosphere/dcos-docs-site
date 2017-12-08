@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Building an IoT Pipeline
-title: Building an IoT Pipeline
-menuWeight: 0
+navigationTitle:  Deploying a Load-Balanced Data Pipeline
+title: Deploying a Load-Balanced Data Pipeline
+menuWeight: 16
 excerpt:
 featureMaturity:
 enterprise: true
@@ -19,7 +19,7 @@ Tweeter:
 <li>Performs real-time analytics with the DC/OS <a href="/service-docs/spark/">Spark</a> and <a href="http://zeppelin.apache.org/">Zeppelin</a> services.</li>
 </ul>
 
-This tutorial demonstrates how you can build a complete IoT pipeline on DC/OS in about 15 minutes! You will learn:
+This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes! You will learn:
 
 <ul>
 <li>How to install DC/OS services.</li>
@@ -32,7 +32,7 @@ This tutorial demonstrates how you can build a complete IoT pipeline on DC/OS in
 <strong>Prerequisites:</strong>
 
 <ul>
-<li>A DC/OS cluster with at least 5 <a href="/1.7/overview/concepts/">private agents</a> and 1 <a href="/1.7/overview/concepts/">public agent</a>. You can <a href="/1.7/administration/installing/cloud/">deploy a cluster to the public cloud</a> or follow the <a href="/1.7/administration/installing/custom/">enterprise installation instructions</a>.</li>
+<li>A DC/OS cluster with at least 5 <a href="/1.7/overview/concepts/">private agents</a> and 1 <a href="/1.7/overview/concepts/">public agent</a>. You can <a href="/1.7/administration/installing/ent/cloud/">deploy a cluster to the public cloud</a> or follow the <a href="/1.7/administration/installing/ent/custom/">enterprise installation instructions</a>.</li>
 <li>The fully qualified domain name of your DC/OS <a href="/1.7/overview/concepts/#public">public agent</a>.</li>
 </ul>
 
@@ -106,7 +106,7 @@ In this step you deploy the containerized Tweeter app.
 </code></pre></li>
 <li>Launch 3 instances of Tweeter with this command:
 
-<pre><code>dcos marathon app add tweeter.json
+<pre><code>dcos marathon app add 1.7/tweeter.json
 </code></pre>
 
 <strong>Tip:</strong> The <code>instances</code> parameter in <code>tweeter.json</code> specifies the number of app instances. Use the following command to scale your app up or down:

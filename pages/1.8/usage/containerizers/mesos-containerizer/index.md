@@ -28,4 +28,4 @@ To specify the original Mesos containerizer, add the following parameter to your
 }
 ```
 
-- [View the Mesos docs for the Mesos containerizer](http://mesos.apache.org/documentation/latest/mesos-containerizer/).
+- [View the Mesos docs for the Mesos containerizer](http://mesos.apache.org/documentation/latest/containerizers/).

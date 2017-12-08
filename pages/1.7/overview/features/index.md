@@ -62,7 +62,7 @@ DC/OS makes it possible to configure multiple resource isolation zones.
 
 Not all tasks have the same requirements. Some require maximum isolation for security or performance guarantees. Others are ephemeral, public, or easily restarted. And most are somewhere in between.
 
-The simplest isolation method is to just delegate to Docker. It’s trivial to run Docker containers on DC/OS, but Docker is a bit of a blunt instrument when it comes to isolation. The [Mesos containerizer](http://mesos.apache.org/documentation/latest/mesos-containerizer/) is much more flexible, with multiple independently configurable isolators, and pluggable custom isolators. The Mesos containerizer can even run Docker containers without being chained to the fragility of `dockerd`.
+The simplest isolation method is to just delegate to Docker. It’s trivial to run Docker containers on DC/OS, but Docker is a bit of a blunt instrument when it comes to isolation. The [Mesos containerizer](http://mesos.apache.org/documentation/latest/containerizers/) is much more flexible, with multiple independently configurable isolators, and pluggable custom isolators. The Mesos containerizer can even run Docker containers without being chained to the fragility of `dockerd`.
 
 
 ## Stateful Storage Support

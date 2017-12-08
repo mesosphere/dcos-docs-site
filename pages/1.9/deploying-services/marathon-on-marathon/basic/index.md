@@ -252,7 +252,7 @@ In this step, a user is granted access to the non-native Marathon instance.
         dcos:service:marathon:<service-name>:services:/ full
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
-        ``` 
+        ```
     
     -  **Access to an individual service or group**
     
@@ -315,4 +315,3 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
     You are done!
     
     ![Marathon on Marathon](/1.9/img/mom-marathon-gui.png)
-

@@ -17,14 +17,14 @@ Agent nodes are designated as [public](/1.9/overview/concepts/#public-agent-node
 
 ### Prerequisites:
 
-*   DC/OS is installed using the [custom](/1.9/installing/custom/) installation method.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.9/installing/custom/gui/#backup).
-*   Available agent nodes that satisfy the [system requirements](/1.9/installing/custom/system-requirements/).
+*   DC/OS is installed using the [custom](/1.9/installing/oss/custom/) installation method.
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.9/installing/oss/custom/gui/#backup).
+*   Available agent nodes that satisfy the [system requirements](/1.9/installing/oss/custom/system-requirements/).
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
 ### Install DC/OS agent nodes
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/1.9/installing/custom/gui/#backup) method.
+Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/1.9/installing/oss/custom/gui/#backup) method.
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory:
 
@@ -78,5 +78,5 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
         dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
         ```
 
- [1]: /1.9/installing/custom/gui/
- [2]: /1.9/installing/custom/cli/
+ [1]: /1.9/installing/oss/custom/gui/
+ [2]: /1.9/installing/oss/custom/cli/

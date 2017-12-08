@@ -34,4 +34,4 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos service](/docs/1.11/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 
+| [dcos service](/1.11/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 

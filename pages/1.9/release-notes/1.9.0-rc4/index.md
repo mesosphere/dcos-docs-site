@@ -102,7 +102,7 @@ For more information, see the [documentation](/1.9/metrics/).
   - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM.
   - Support authentication with service account credentials.
 
-- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/secrets/)).
+- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)).
 - Security hardening across the platform, including Mesos, Marathon, and Admin Router.
 
 ## Developer Services
@@ -124,7 +124,7 @@ For more information, see the [documentation](/1.9/metrics/).
 
 ### Expanded OS Support
 
-- If you install DC/OS 1.9 using the [GUI](/1.9/installing/custom/gui/) or [CLI](/1.9/installing/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
+- If you install DC/OS 1.9 using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/)
 - CoreOS [1235.12.0](https://coreos.com/releases/#1235.12.0).
 
 ### Expanded Docker Engine Support
@@ -149,4 +149,3 @@ For more information, see the [documentation](/1.9/installing/upgrading/).
 - DCOS-OSS-743 - If you are using Docker 1.13 on CentOS 7.3, the custom CLI installation method fails while installing prerequisites (`--install-prereqs`).
 - DCOS-14047 - Marathon is killed during upgrades. This is expected behavior as of Marathon 1.3.6.
 - MARATHON-1713 - Volumes do not persist.
-

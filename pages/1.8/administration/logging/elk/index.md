@@ -1,15 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:  Log Management with ELK
+excerpt:
 title: Log Management with ELK
 menuWeight: 1
-excerpt:
-featureMaturity:
-enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document does not explain how to setup and configure an Elasticsearch server.
 
@@ -114,7 +109,7 @@ For each master node in your DC/OS cluster:
     -u dcos-vault.service \
     -u dcos-logrotate-master.service \
     > /var/log/dcos/dcos.log 2>&1'
-    ExecStartPre=/usr/bin/journalctl
+    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
     
     [Install]
     WantedBy=multi-user.target
@@ -164,7 +159,7 @@ For each agent node in your DC/OS cluster:
     -u dcos-vol-discovery-priv-agent.service \
     -u dcos-logrotate-agent.service \
     > /var/log/dcos/dcos.log 2>&1'
-    ExecStartPre=/usr/bin/journalctl
+    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
     
     [Install]
     WantedBy=multi-user.target

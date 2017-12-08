@@ -62,12 +62,12 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 
 ## Security
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/installing/custom/configuration/configuration-parameters/#security-enterprise-dcos-only-and-authentication) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
+  Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only-and-authentication) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
 - Increased Admin Router security. <!-- ie TLS not supported out-of-the-box; where is the doc? is this enterprise-only?-->
 
 - Enhanced secrets management with file-based secrets.
-  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/secrets/use-secrets/).
+  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/ent/secrets/use-secrets/).
 
 - Docker `pullConfig` parameter.
   Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise-dcos-only).
@@ -92,7 +92,7 @@ The following updated data services packages are also in beta and are compatible
 
 ## Platform
 - Node and Cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/custom/node-cluster-health-check/).
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
 - Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
 - UCR. <!-- have there been updates? -->
 - Scale and performance limits.
