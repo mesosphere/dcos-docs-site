@@ -78,9 +78,13 @@ const shortcodes = {
     }
     if (!opts.type) {
       type = 'block';
+    } else if (opts.type = 'inline' || 'inline-block') {
+      type = 'inline';
     }
     return sanitize(`
+    <span class="badge__container--${type}">
       ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span>
+    </span>
     `);
   },
 
@@ -99,9 +103,13 @@ const shortcodes = {
     }
     if (!opts.type) {
       type = 'block';
+    } else if (opts.type = 'inline' || 'inline-block') {
+      type = 'inline';
     }
     return sanitize(`
+    <span class="badge__container--${type}">
       ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span>
+    </span>
     `);
   },
 
@@ -121,9 +129,13 @@ const shortcodes = {
     }
     if (!opts.type) {
       type = 'block';
+    } else if (opts.type = 'inline' || 'inline-block') {
+      type = 'inline';
     }
     return sanitize(`
+    <span class="badge__container--${type}">
       ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span>
+    </span>
     `);
   },
   /**
