@@ -100,11 +100,6 @@ function  reformat_file_frontmatter
     sed -i -e '1s/---/---\nlayout: layout.pug/' $1
   fi
 
-  ## URL
-  sed -i -e 's/\/1.10\//\/docs\/1.10\//g' $1
-  sed -i -e 's/\/1.9\//\/docs\/1.9\//g' $1
-  sed -i -e 's/\/1.8\//\/docs\/1.8\//g' $1
-  sed -i -e 's/\/1.7\//\/docs\/1.7\//g' $1
 }
 
 function main
@@ -177,11 +172,15 @@ function main
 #
 
 # Clean
+DOCS_1_11_PATH=./pages/1.11
 DOCS_1_10_PATH=./pages/1.10
 DOCS_1_9_PATH=./pages/1.9
 DOCS_1_8_PATH=./pages/1.8
 DOCS_1_7_PATH=./pages/1.7
-SERVICE_DOCS_PATH=./pages/service-docs
+SERVICES_PATH=./pages/services
+if [ -d "$DOCS_1_11_PATH" ]; then
+  rm -rf "$DOCS_1_11_PATH"
+fi
 if [ -d "$DOCS_1_10_PATH" ]; then
   rm -rf "$DOCS_1_10_PATH"
 fi
@@ -195,21 +194,23 @@ if [ -d "$DOCS_1_7_PATH" ]; then
   rm -rf "$DOCS_1_7_PATH"
 fi
 
-if [ -d "$SERVICE_DOCS_PATH" ]; then
-  rm -rf "$SERVICE_DOCS_PATH"
+if [ -d "$SERVICES_PATH" ]; then
+  rm -rf "$SERVICES_PATH"
 fi
+mkdir ./pages/1.11
 mkdir ./pages/1.10
 mkdir ./pages/1.9
 mkdir ./pages/1.8
 mkdir ./pages/1.7
-mkdir ./pages/service-docs
+mkdir ./pages/services
 
 # Migrate
+main ../dcos-docs-enterprise/1.11 ./pages/1.11
 main ../dcos-docs-enterprise/1.10 ./pages/1.10
 main ../dcos-docs-enterprise/1.9 ./pages/1.9
 main ../dcos-docs-enterprise/1.8 ./pages/1.8
 main ../dcos-docs-enterprise/1.7 ./pages/1.7
-main ../dcos-docs-enterprise/service-docs ./pages/service-docs
+main ../dcos-docs-enterprise/service-docs ./pages/services
 
 # Log
 printf "${PURPLE}\nContent Migration finished.${NC}\n"
