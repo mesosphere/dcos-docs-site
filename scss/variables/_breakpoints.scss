@@ -1,17 +1,17 @@
 $bp-sm: 500px !default;
-$bp-md: 768px !default;
-$bp-lg: 1024px !default;
+$bp-md: 769px !default;
+$bp-lg: 1025px !default;
 $bp-xl: 1440px !default;
 $bp-xxl: 2000px !default;
 
-@mixin sm-only() {
-  @media (max-width: $bp-sm) {
+@mixin sm() {
+  @media (min-width: $bp-sm) {
     @content;
   }
 }
 
-@mixin sm() {
-  @media (min-width: $bp-sm) {
+@mixin pre-md() {
+  @media (min-width: $bp-md - 1) {
     @content;
   }
 }
