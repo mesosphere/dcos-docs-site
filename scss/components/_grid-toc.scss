@@ -46,13 +46,21 @@
       }
     }
   }
-  @include md {
+  @include pre-md {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 4rem;
     &__item {
-      width: 30%;
+      width: 48%;
       margin-bottom: 4rem;
+      &:nth-last-child(-n+2) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  @include md {
+    &__item {
+      width: 30%;
     }
   }
 }
