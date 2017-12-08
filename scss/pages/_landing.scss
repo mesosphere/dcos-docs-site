@@ -111,11 +111,16 @@
   }
   & .grid {
     margin-top: 2rem;
+    &__item {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
   &__external {
     display: flex;
     flex-direction: column;
-    padding-top: 1rem;
+    padding-top: 2rem;
     &-item {
       display: flex;
       flex-direction: column;
@@ -226,28 +231,35 @@
   .grid__desc__wrapper {
     margin-bottom: 0;
   }
+  @include pre-md {
+    & .grid {
+      margin-top: 4rem;
+      &__item {
+        &:nth-last-child(-n+2) {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &__external {
+      flex-direction: row;
+      padding-top: 4rem;
+      &-title {
+        margin: 1rem 0 0;
+      }
+      &-item {
+        &:not(:last-of-type) {
+          margin-right: 1rem;
+        }
+      }
+      &-description {
+        text-align: left;
+      }
+    }
+    &__footer {
+      padding-top: 6rem;
+    }
+  }
   @include md {
-    &__header {
-      justify-content: flex-start;
-      align-items: center;
-      padding: 0 2rem;
-    }
-    &__logo {
-      &--mobile {
-        display: none;
-      }
-      &--desktop {
-        display: block;
-        height: 28px;
-      }
-    }
-    &__menu {
-      flex: 1;
-    }
-    &__item {
-      margin-left: 20px;
-      font-weight: bold;
-    }
     &__hero {
       height: 400px;
     }
@@ -270,27 +282,6 @@
         width: calc(50% - 10px);
       }
     }
-    & .grid {
-      margin-top: 4rem;
-    }
-    &__external {
-      flex-direction: row;
-      padding-top: 3rem;
-      &-item {
-        &:not(:last-of-type) {
-          margin-right: 1rem;
-        }
-      }
-    }
-    &__footer {
-      padding-top: 6rem;
-    }
-  }
-  @media (min-width: 861px) {
-    // &__hero {
-    // background-size: contain;
-    // background-position: right;
-    // }
   }
   @include lg {
     &__title {
