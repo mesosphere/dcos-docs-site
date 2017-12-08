@@ -78,11 +78,12 @@ html(lang='en')
 
         footer(class='landing__footer')
           div(class='landing__footer__container')
-            img(class='landing__footer__logo', src='/assets/logo-logomark.svg')
+            a(class='landing__footer__logo__link', href='https://mesosphere.com/')
+              img(class='landing__footer__logo', src='/assets/logo-logomark.svg')
             div(class='landing__footer__menu')
               a(href='https://mesosphere.com/terms/') Terms of Service
               a(href='https://mesosphere.com/privacy/') Privacy Policy
-            div(class='landing__footer__copyright')!= copyright
+            a(class='landing__footer__copyright', href='https://mesosphere.com/')!= copyright
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug
