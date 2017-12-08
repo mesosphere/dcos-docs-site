@@ -35,7 +35,7 @@ Each secret must have a name. In addition to a name, you can include a path. Inc
     <td>No</td>
   </tr>
 </table>
-**Note:** Marathon paths begin with `/`, while secret paths do not.
+**Note:** Marathon paths begin with `/`, while secret paths do not. 
 
 
 # Creating secrets
@@ -47,11 +47,11 @@ The permissions needed to create a secret vary by interface. To create a secret 
 - **Permission:** <code>dcos:secrets:default:[/<i>path</i>]/<i>name</i></code>
 - **Action:** <code>create</code>
 
-The permission must include the name of the secret the user is allowed to create. Each user must have one permission per secret. The secret itself does not need to exist yet.
+The permission must include the name of the secret the user is allowed to create. Each user must have one permission per secret. The secret itself does not need to exist yet. 
 
 It can also optionally include a path. Please see the [previous section](#secret-paths) for more information about secret paths.
 
-## Creating secrets via the web interface
+## Creating secrets via the web interface 
 
 1. Log into the DC/OS web interface as a user with the `dcos:superuser` permission.
 
@@ -59,32 +59,32 @@ It can also optionally include a path. Please see the [previous section](#secret
 
 3. Click **New Secret**.
 
-4. Provide the name of your secret in the **ID** box.
+4. Provide the name of your secret in the **ID** box. 
 
 5. Type or paste the secret into the **Value** box.
 
 6. When you have completed your entries, the secret should look something like the following.
 
     ![Creating the Secret](../img/create-secret.png)
-
-7. Click **Create**.
+    
+7. Click **Create**. 
 
 
 ## Creating secrets via the API
 
-This procedure describes how to create a secret called `new-secret` inside the `developer` path.
+This procedure describes how to create a secret called `new-secret` inside the `developer` path. 
 
-**Prerequisites:**
+**Prerequisites:** 
 
 - [DC/OS CLI installed](/1.8/usage/cli/install/)
 
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Using `dcos auth login` log into the CLI as a user with one of the following permissions.
 
      - `dcos:superuser`
      - `dcos:secrets:default:/developer/new-secret`: `create` or `full` action
-
+   
 2. Use the following command to create a secret. In this
 
    ```bash
@@ -93,7 +93,7 @@ This procedure describes how to create a secret called `new-secret` inside the `
 
 ## Creating secrets via the DC/OS CLI
 
-This procedure describes how to create a secret called `new-secret` inside the `developer` path.
+This procedure describes how to create a secret called `new-secret` inside the `developer` path. 
 
 **Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and the  [Enterprise DC/OS CLI installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install).
 
@@ -101,7 +101,7 @@ This procedure describes how to create a secret called `new-secret` inside the `
 
      - `dcos:superuser`
      - `dcos:secrets:default:/developer/new-secret`: `create` or `full` action
-
+    
 1. Use the following command to create the new secret.
 
    ```bash

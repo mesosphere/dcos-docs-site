@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Provisioning Marathon-LB (Enterprise Only)
-title: Provisioning Marathon-LB (Enterprise Only)
+navigationTitle:  Provisioning Marathon-LB
+title: Provisioning Marathon-LB
 menuWeight: 700
 excerpt: >
   This topic describes when and how to
@@ -14,7 +14,7 @@ enterprise: true
 
 # About provisioning Marathon-LB with a service account
 
-Whether you can or must provision Marathon-LB with a service account varies by [security mode](/1.10/security/ent/#security-modes).
+Whether you can or must provision Marathon-LB with a service account varies by [security mode](/1.10/security/#security-modes).
 
 - `disabled`: optional
 - `permissive`: optional
@@ -22,11 +22,11 @@ Whether you can or must provision Marathon-LB with a service account varies by [
 
 To increase the security of your cluster and conform to the principle of least privilege, we recommend provisioning Marathon-LB with a service account in `permissive` mode. Otherwise, Marathon-LB will use the default `dcos_anonymous` account to authenticate and the `dcos_anonymous` account has the `superuser` permission.
 
-In addition, if you plan to upgrade to `strict` mode, provisioning Marathon-LB with a service account in `disabled` and `permissive` modes will make the upgrade easier.
+In addition, if you plan to upgrade to `strict` mode, provisioning Marathon-LB with a service account in `disabled` and `permissive` modes will make the upgrade easier. 
 
-If you set up multiple Marathon-LB instances that interact with the same Marathon instance, you can use the same service account for each Marathon-LB instance.
+If you set up multiple Marathon-LB instances that interact with the same Marathon instance, you can use the same service account for each Marathon-LB instance. 
 
-This topic describes how to provision a Marathon-LB instance that interacts with the native Marathon instance.
+This topic describes how to provision a Marathon-LB instance that interacts with the native Marathon instance. 
 
 To set up a service account for Marathon-LB, complete the following steps.
 
@@ -38,7 +38,7 @@ To set up a service account for Marathon-LB, complete the following steps.
 
 **Requirement:** In `strict` mode, the name of the service account must match the name that the service uses as its `principal`. By default, Marathon-LB uses `mlb-principal` as the name of its `principal`. That's the value that we use in the following procedures. Should you modify the default, you must change `mlb-principal` throughout to match.
 
-**Note:** We will use `mlb-secret` as the name of the secret, `mlb-private-key.pem` as the name of the file containing the private key, and `mlb-public-key.pem` as the name of the file containing the public key. We recommend sticking to these names as it will make it easier to copy and paste the commands. If you do decide to change the names, make sure to modify the commands before issuing them.
+**Note:** We will use `mlb-secret` as the name of the secret, `mlb-private-key.pem` as the name of the file containing the private key, and `mlb-public-key.pem` as the name of the file containing the public key. We recommend sticking to these names as it will make it easier to copy and paste the commands. If you do decide to change the names, make sure to modify the commands before issuing them. 
 
 **Important:** We store the secret in the `marathon-lb` path. This protects it from other services, so we do not recommend changing this.
 
@@ -53,7 +53,7 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
     ```bash
     dcos security org service-accounts keypair mlb-private-key.pem mlb-public-key.pem
     ```
-
+    
 1. Type `ls` to view the two new files created by the command. You may also want to open the files themselves and verify their contents.
 
 1. Continue to the [next section](#create-a-service-account).
@@ -62,7 +62,7 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
 
 ## About creating a service account
 
-Next, you must create a service account. This section describes how to use either the Enterprise DC/OS CLI or the web interface to accomplish this.
+Next, you must create a service account. This section describes how to use either the Enterprise DC/OS CLI or the web interface to accomplish this. 
 
 ## Using the Enterprise DC/OS CLI
 
@@ -96,7 +96,7 @@ Next, you must create a service account. This section describes how to use eithe
 
 ## About creating a service account secret
 
-Next, you need to create a secret associated with the service account that contains the private key. This section describes how to use either the Enterprise DC/OS CLI or the web interface to accomplish this.
+Next, you need to create a secret associated with the service account that contains the private key. This section describes how to use either the Enterprise DC/OS CLI or the web interface to accomplish this. 
 
 ## Using the Enterprise DC/OS CLI
 
@@ -109,9 +109,9 @@ Next, you need to create a secret associated with the service account that conta
     ```bash
     dcos security secrets create-sa-secret --strict mlb-private-key.pem mlb-principal marathon-lb/mlb-secret
     ```
-
+    
     **disabled:**
-
+    
     ```bash
     dcos security secrets create-sa-secret mlb-private-key.pem mlb-principal marathon-lb/mlb-secret
     ```
@@ -121,7 +121,7 @@ Next, you need to create a secret associated with the service account that conta
     ```bash
     dcos security secrets list /
     ```
-
+    
 1. If you have [jq 1.5 or later](https://stedolan.github.io/jq/download) installed, you can also use the following command to retrieve the secret and ensure that it contains the correct service account ID and private key.
 
     ```bash
@@ -135,7 +135,7 @@ Next, you need to create a secret associated with the service account that conta
    ```bash
    rm -rf mlb-private-key.pem
    ```
-
+    
 1. Continue to [Provision the service account with permissions](#give-perms).
 
 ## Using the web interface
@@ -146,7 +146,7 @@ Next, you need to create a secret associated with the service account that conta
 
 1. Click **New Secret**.
 
-1. Type `marathon-lb/mlb-secret` into the **ID** field to create a new secret called `mlb-secret` in the `marathon-lb` path. Locating the secret inside the `marathon-lb` path will ensure that only the Marathon-LB service can access it.
+1. Type `marathon-lb/mlb-secret` into the **ID** field to create a new secret called `mlb-secret` in the `marathon-lb` path. Locating the secret inside the `marathon-lb` path will ensure that only the Marathon-LB service can access it. 
 
 1. If you have a `strict` or `permissive` cluster, paste the following JSON into the **Value** field.
 
@@ -158,7 +158,7 @@ Next, you need to create a secret associated with the service account that conta
       "login_endpoint": "https://master.mesos/acs/api/v1/auth/login"
   }
   ```
-
+  
   If you have a `disabled` cluster, paste the following JSON into the **Value** field.
 
   ```json
@@ -172,7 +172,7 @@ Next, you need to create a secret associated with the service account that conta
 
 1. Replace `<private-key-value>` with the value of the private key created in [Create a key pair](#create-a-keypair).
 
-1. Click **Create**. Your secret has been stored!
+1. Click **Create**. Your secret has been stored! 
 
    **Tip:** Be sure to copy the path to your secret into a text editor. You will need this later.
 
@@ -180,25 +180,15 @@ Next, you need to create a secret associated with the service account that conta
 
 # <a name="give-perms"></a>Provision the service account with permissions
 
-With the following curl commands you can rapidly provision the Marathon-LB service account with the required permissions. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
+With the following commands you can rapidly provision the Marathon-LB service account with the required permissions. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
 
-**Prerequisite:** If your [security mode](/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.10/overview/security/security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
-
-1. Create the necessary permissions using the following commands.
-
-   **Note:** There is always a chance that the permission has already been added. If so, the API returns an informative message. Consider this a confirmation and continue to the next one.
-
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F -d '{"description":"Allows access to any service launched by the native Marathon instance"}' -H 'Content-Type: application/json'
-   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:admin:events -d '{"description":"Allows access to Marathon events"}' -H 'Content-Type: application/json'
-   ```
+All CLI commands can also be executed via the [IAM API](/1.10/security/iam-api/).
 
 1. Grant the permissions and the allowed action to the service account using the following commands.
 
-
    ```bash
-   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/users/mlb-principal/read
-   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:admin:events/users/mlb-principal/read
+   dcos security org users grant mlb-principal dcos:service:marathon:marathon:services:/ read --description "Allows access to any service launched by the native Marathon instance"
+   dcos security org users grant mlb-principal dcos:service:marathon:marathon:admin:events read --description "Allows access to Marathon events"
    ```
 
 1. Continue to the [next section](#create-json).
@@ -207,7 +197,7 @@ With the following curl commands you can rapidly provision the Marathon-LB servi
 
 ## About the config.json file
 
-The necessary contents of the `config.json` file vary according to your [security mode](/1.10/security/ent/#security-modes).
+The necessary contents of the `config.json` file vary according to your [security mode](/1.10/security/#security-modes). 
 
 ## Strict and permissive mode config.json
 
@@ -229,7 +219,7 @@ Continue to [Install Marathon-LB](#install-mlb).
 ## Disabled mode config.json
 
 If you have called the secret `marathon-lb/mlb-secret`, you can copy and paste the following JSON into a new file and save it with the name `config.json`. Otherwise, change the name `marathon-lb/mlb-secret` as needed.
-
+ 
 ```json
 {
     "marathon-lb": {
@@ -248,4 +238,4 @@ To install the service, use the following command.
 dcos package install --options=config.json marathon-lb
 ```
 
-You can also provide the `config.json` file to someone else to install Marathon-LB. Please see the [Marathon-LB documentation](/1.10/networking/marathon-lb/usage-ee/) for more information.
+You can also provide the `config.json` file to someone else to install Marathon-LB. Please see the [Marathon-LB documentation](/1.10/networking/marathon-lb/usage/) for more information.

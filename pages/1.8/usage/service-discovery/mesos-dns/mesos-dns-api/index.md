@@ -5,7 +5,7 @@ title: Mesos DNS API
 menuWeight: 201
 excerpt:
 featureMaturity:
-enterprise: false
+enterprise: true
 ---
 
 You can use the Mesos DNS API to discover the IP addresses and ports of other applications.
@@ -26,7 +26,7 @@ curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/system/v1/
 
 # Format
 
-The Mesos DNS API request and response bodies are formatted in JSON.
+The Metrics API request and response bodies are formatted in JSON.
 
 Requests must include the accept header:
 
@@ -40,13 +40,13 @@ Responses will include the content type header:
 Content-Type: application/json
 ```
 
-# Authentication (Enterprise Only)
+# Auth
 
-Enterprise edition users must authenticate Mesos DNS API requests.
+All Metrics API routes require authentication to use.
 
 To authenticate API requests, see [Obtaining an authentication token](/1.8/administration/id-and-access-mgt/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.8/administration/id-and-access-mgt/iam-api/#passing-an-authentication-token).
 
-The Mesos DNS API also requires authorization via the following permissions:
+The Metrics API also requires authorization via the following permissions:
 
 | Route | Permission |
 |-------|----------|
@@ -76,7 +76,7 @@ The output should resemble:
   "URL": "https://github.com/mesosphere/mesos-dns",
   "Version": "dev"
  }
-```
+``` 
 
 
 ## <a name="get-config"></a>GET /v1/config
@@ -86,7 +86,7 @@ Lists in JSON format the Mesos-DNS configuration parameters.
 ```bash
 curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/config
 ```
-
+    
 The output should resemble:
 
 ```json

@@ -26,7 +26,7 @@ When you specify a local volume or volumes, tasks and their associated data are 
 
 ## Prerequisites
 
-See the [DC/OS system requirements](/1.7/administration/installing/oss/custom/system-requirements/).
+See the [DC/OS system requirements](/1.7/administration/installing/custom/system-requirements/).
 
 ## Configuration options
 

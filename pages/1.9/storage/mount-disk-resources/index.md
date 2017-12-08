@@ -11,9 +11,9 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-# Overview
+With DC/OS you can configure Mesos [`Mount` disk resources][1] across your cluster by simply mounting storage resources on agents using a well-known path. 
 
-With DC/OS you can configure [Mesos mount disk resources][1] across your cluster by simply mounting storage resources on agents using a well-known path. When a DC/OS agent initially starts, it scans for volumes that match the pattern `/dcos/volumeN`, where `N` is an integer. The agent is then automatically configured to offer these disk resources to other services.
+When a DC/OS agent initially starts, it scans for volumes that match the pattern `/dcos/volume<N>`, where `<N>` is an integer. The agent is then automatically configured to offer these disk resources to other services.
 
 # Example using loopback device
 
@@ -37,7 +37,7 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
 
 3.  Stop the agent.
 
-    On a [private](/1.9/overview/concepts/#private) agent:
+    On a [private](/1.9/overview/concepts/#private-agent-node) agent:
     
     ```bash
     sudo systemctl stop dcos-mesos-slave.service
@@ -103,7 +103,81 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
     May 05 19:18:58 dcos-agent-public-01234567000001 mesos-slave[1891]: " --oversubscribed_resources_interval="15secs" --perf_duration="10secs" --perf_interval="1mins" --port="5051" --qos_correction_interval_min="0ns" --quiet="false" --recover="reconnect" --recovery_timeout="15mins" --registration_backoff_factor="1secs" --resources="[{"name": "ports", "type": "RANGES", "ranges": {"range": [{"end": 21, "begin": 1}, {"end": 5050, "begin": 23}, {"end": 32000, "begin": 5052}]}}, {"name": "disk", "type": "SCALAR", "disk": {"source": {"mount": {"root": "/dcos/volume0"}, "type": "MOUNT"}}, "role": "*", "scalar": {"value": 74}}, {"name": "disk", "type": "SCALAR", "role": "*", "scalar": {"value": 47540}}]" --revocable_cpu_low_priority="true" --sandbox_directory="/mnt/mesos/sandbox" --slave_subsystems="cpu,memory" --strict="true" --switch_user="true" --systemd_enable_support="true" --systemd_runtime_directory="/run/systemd/system" --version="false" --work_dir="/var/lib/mesos/slave"
     ```
 
-# Cloud Provider Resources
+
+# Example using a mount volume within Marathon and from within a framework
+
+```json
+{
+  "id": "/mount-test-svc1",
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 128,
+  "disk": 0,
+  "gpus": 0,
+  "backoffSeconds": 1,
+  "backoffFactor": 1.15,
+  "maxLaunchDelaySeconds": 3600,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "persistent": {
+          "size": 25,
+          "type": "mount"
+        },
+        "mode": "RW",
+        "containerPath": "volume0"
+      }
+    ],
+    "docker": {
+      "image": "nginx",
+      "network": "BRIDGE",
+      "privileged": false,
+      "forcePullImage": false,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 0,
+          "servicePort": 10101,
+          "protocol": "tcp",
+          "name": "httpport",
+          "labels": {
+            "VIP_0": "/mount-test-svc1:80"
+          }
+        }
+      ]
+    }
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "path": "/",
+      "protocol": "MESOS_HTTP",
+      "delaySeconds": 15
+    }
+  ],
+  "upgradeStrategy": {
+    "minimumHealthCapacity": 0.5,
+    "maximumOverCapacity": 0
+  },
+  "residency": {
+    "relaunchEscalationTimeoutSeconds": 10,
+    "taskLostBehavior": "WAIT_FOREVER"
+  },
+  "unreachableStrategy": "disabled",
+  "killSelection": "YOUNGEST_FIRST",
+  "requirePorts": true,
+  "labels": {
+    "HAPROXY_GROUP": "external"
+  }
+}
+```
+
+# Cloud provider resources
 
 Cloud provider storage services are typically used to back DC/OS Mount Volumes. This reference material can be useful when designing a production DC/OS deployment:
 

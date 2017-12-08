@@ -2,9 +2,9 @@
 layout: layout.pug
 navigationTitle:  Cassandra 1.0.25-3.0.10
 title: Cassandra 1.0.25-3.0.10
-menuWeight: 20
+menuWeight: 70
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

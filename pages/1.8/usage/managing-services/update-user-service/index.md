@@ -65,5 +65,5 @@ View the results of your update:
 dcos marathon app show test-app | jq '.env'
 ```
 
- [1]: /docs/1.8/usage/cli/
+ [1]: /1.8/usage/cli/
  [2]: https://mesosphere.github.io/marathon/docs/task-environment-vars.html

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon LB Reference
-title: Marathon LB Reference
+navigationTitle:  Marathon-LB Reference
+title: Marathon-LB Reference
 menuWeight: 300
 excerpt:
 featureMaturity:

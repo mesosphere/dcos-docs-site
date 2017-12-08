@@ -11,10 +11,10 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS agent nodes can be designated as [public](/1.7/overview/concepts/#public) or [private](/1.7/overview/concepts/#private) during [advanced](/1.7/administration/installing/oss/custom/) or [cloud](/1.7/administration/installing/oss/cloud/) installations. Public agent nodes provide public access to your DC/OS applications. By default apps are launched on private agent nodes. To launch an app on a public node, you must create a Marathon app definition with the `"acceptedResourceRoles":["slave_public"]` parameter specified.
+DC/OS agent nodes can be designated as [public](/1.7/overview/concepts/#public) or [private](/1.7/overview/concepts/#private) during [advanced](/1.7/administration/installing/custom/) or [cloud](/1.7/administration/installing/cloud/) installations. Public agent nodes provide public access to your DC/OS applications. By default apps are launched on private agent nodes. To launch an app on a public node, you must create a Marathon app definition with the `"acceptedResourceRoles":["slave_public"]` parameter specified.
 
 
-1.  Install DC/OS and DC/OS CLI by using the [advanced installation](/1.7/administration/installing/oss/custom/) or [cloud installation](/1.7/administration/installing/oss/cloud/) instructions. You must declare at least one agent node as public.
+1.  Install DC/OS and DC/OS CLI by using the [advanced installation](/1.7/administration/installing/custom/) or [cloud installation](/1.7/administration/installing/cloud/) instructions. You must declare at least one agent node as public.
 
     For example, with advanced installation you can designate an agent node with this command:
 
@@ -66,6 +66,6 @@ DC/OS agent nodes can be designated as [public](/1.7/overview/concepts/#public) 
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 
- [1]: /docs/1.7/tutorials/containerized-app/
- [3]: /docs/1.7/administration/installing/oss/
- [4]: /docs/1.7/usage/cli/install/
+ [1]: /1.7/tutorials/containerized-app/
+ [3]: /1.7/administration/installing/
+ [4]: /1.7/usage/cli/install/

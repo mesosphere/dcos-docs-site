@@ -14,7 +14,7 @@ enterprise: false
 This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS web interface and the CLI.
 
 ### Prerequisites
-- [A DC/OS cluster](/1.8/administration/installing/oss/)
+- [A DC/OS cluster](/1.8/administration/installing/)
 - [DC/OS CLI installed](/1.8/usage/cli/install/)
 
 ## Create and Run a Simple Service from the DC/OS Web Interface

@@ -20,7 +20,7 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 # <a name="breaking"></a>Breaking Changes
 - Removed `/marathon` endpoint on masters in favor of `/service/marathon`. Services such as [Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/) now require a JSON WebToken to access the Marathon API. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
-- Manual modifications of Admin Router config are no longer supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/1.8/administration/tls-ssl/ent/haproxy-adminrouter/).
+- Manual modifications of Admin Router config are no longer supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/1.8/administration/tls-ssl/haproxy-adminrouter/).
 - Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/1.8/administration/installing/custom/system-requirements/).
 - When upgrading from 1.7 to 1.8, you must upgrade all master nodes before proceeding. The master nodes will be unusable until upgrade completes. This changed behavior is because we have upgraded the ZooKeeper security. For more information, see the [documentation](/1.8/administration/upgrading/).
 
@@ -106,13 +106,13 @@ For more information, see the [documentation](/1.8/administration/id-and-access-
 #### Cluster-wide encryption with PKI using built-in CA (Enterprise Only)  [maturity-badge status='preview']
 Enterprise DC/OS is designed to run securely on-premises and in the cloud. To ensure cluster security, Enterprise DC/OS supports encrypted communication between DC/OS system components. This is achieved by ensuring that DC/OS runs with a Certificate Authority that issues CA certificates (`CA.crt`) for each system component on the masters and agents installed  at bootstrap time. This mechanism ensures all communication between the various services within DC/OS cluster are over secure SSL/TLS channels.
 
-For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
+For more information, see the [documentation](/1.8/administration/tls-ssl/).
 
 #### Service Accounts for secure service mutual authentication (Enterprise Only)  [maturity-badge status='preview']
 Enterprise DC/OS supports the authentication of services to the Mesos master. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
 
 #### Comprehensive intra-cluster authentication and authorization controls (Mesos, Marathon, ZooKeeper) (Enterprise Only)  [maturity-badge status='preview']
-Enterprise DC/OS can be configured to enable or require TLS/SSL encryption. For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
+Enterprise DC/OS can be configured to enable or require TLS/SSL encryption. For more information, see the [documentation](/1.8/administration/tls-ssl/).
 
 #### Fine-grained container level authorization controls to set-up a secure multi business group cluster access (Enterprise Only)  [maturity-badge status='preview']
 Enterprise DC/OS supports fine-grained workload isolation to enable multiple business groups within an organization to run containers and workloads within a shared cluster but still be guaranteed that there is security isolation in addition to the performance isolation provided by Linux cgroups between different workloads. Workload security isolation is performed by DC/OS Authorization modules on every node that make checks against the DC/OS IAM Service to verify that each user/service is authorized to perform each requested action.
@@ -199,6 +199,17 @@ For more information, see the [documentation](/service-docs/spark/).
 - See the CLI [release notes](https://github.com/dcos/dcos-cli/releases).
 
 # <a name="minor"></a>Minor releases
+
+## <a name="1-8-10"></a>1.8.10 - November 3, 2017
+
+### Fixed issues
+
+- CORE-1292 - 1.8+ agents no longer explicitly depend on `leader.mesos`, so the systemd prereq has been removed.
+- DCOS-18166 - Mesos tasks now inherit the `SSL_ENABLE_DOWNGRADE` environment variable. This allows libmesos-based tasks to use non-SSL connections in permissive mode.
+- DCOS-18348 - Update to Marathon version 1.3.13.
+- DCOS-18955 - Marathon on Marathon no longer fails on permissive clusters.
+- DCOS_OSS-1617 - Update to version of Apache Mesos 1.0.4 with [Critical backports from Mesos 1.1.x and 1.2.x branches](https://github.com/dcos/dcos/blob/1.8.10/packages/mesos/README.md#critical-backports-from-mesos-11x-and-12x-branches). This fixes DCOS-18345 - OOM due to LibeventSSLSocket incorrectly returning 0 after shutdown.
+- MESOS-7766 - There is no longer a segfault when trying to accept an inverse offer with an unknown `offerId`.
 
 ## <a name="1-8-9"></a>1.8.9 - June 30, 2017
 
@@ -351,7 +362,7 @@ For more information, see the [documentation](/service-docs/spark/).
 - DCOS-8536 - DC/OS does not currently prevent the deletion of the last user with the `dcos: superuser` permission. (Enterprise Only)
 - DCOS-8768 - The self-signed certificates used by Enterprise DC/OS to achieve TLS encryption do not include the host name. As a result, you cannot use the `--cacert` option in curl commands and instead must use the `-k` flag. (Enterprise Only)
 - DCOS-9029- Enterprise based security-enabled CLI is coming soon. (Enterprise Only)
-- DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](https://docs.mesosphere.com/docs/1.8/usage/service-discovery/marathon-lb/usage-ee/).
+- DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-discovery/marathon-lb/usage/).
 - DCOS-7872 - The Secret Store may unexpectedly become sealed. (Enterprise Only)
  - DCOS-9048 - The Secrets Store may fail to initialize. To resolve this issue, SSH into the master and issue the following command to restart the services: `sudo systemctl restart dcos-vault dcos-secrets`. (Enterprise Only)
 - DCOS-8214 – In multi-master configurations, only one Secrets Store will initialize. (Enterprise Only)
@@ -486,6 +497,6 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
  - DCOS-8536 - DC/OS does not currently prevent the deletion of the last user with the `dcos: superuser` permission. (Enterprise Only)
  - DCOS-8768 - The self-signed certificates used by Enterprise DC/OS to achieve TLS encryption do not include the host name. As a result, you cannot use the `--cacert` option in curl commands and instead must use the `-k` flag. (Enterprise Only)
  - DCOS-9029- Enterprise based security-enabled CLI is coming soon. (Enterprise Only)
- - DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](https://docs.mesosphere.com/docs/1.8/usage/service-discovery/marathon-lb/usage-ee/).
+ - DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-discovery/marathon-lb/usage/).
  - DCOS-7872 - The Secret Store may unexpectedly become sealed. (Enterprise Only)
 - DCOS-9048 - The Secrets Store may fail to initialize. To resolve this issue, SSH into the master and issue the following command to restart the services: `sudo systemctl restart dcos-vault dcos-secrets`. (Enterprise Only)

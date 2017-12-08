@@ -10,7 +10,7 @@ enterprise: true
 
 You can restrict user access to system and component logs. 
 
-Here is the [permission](/1.9/security/ent/perms-reference/) that is required to view the system and component logs:
+Here is the [permission](/1.9/security/perms-reference/) that is required to view the system and component logs:
 
 |     Permission string     | full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
@@ -18,7 +18,7 @@ Here is the [permission](/1.9/security/ent/perms-reference/) that is required to
 
 **Prerequisites:** 
 
-- DC/OS and DC/OS CLI are [installed](/1.9/installing/ent/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/1.9/installing/) and you are logged in as a superuser.
 
 # Via the DC/OS GUI
 
@@ -69,7 +69,7 @@ Here is the [permission](/1.9/security/ent/perms-reference/) that is required to
 # Via the IAM API
 
 **Prerequisite:** 
-If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 

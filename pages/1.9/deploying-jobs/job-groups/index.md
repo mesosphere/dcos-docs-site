@@ -8,13 +8,13 @@ featureMaturity:
 enterprise: true
 ---
 
-You can implement fine-grained user access to jobs by using either the DC/OS GUI or the API. The [Metronome permissions](/1.9/security/ent/perms-reference/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
+You can implement fine-grained user access to jobs by using either the DC/OS GUI or the API. The [Metronome permissions](/1.9/security/perms-reference/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
 
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- A [user account](/1.9/security/ent/users-groups/) to assign permissions to.
-- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- A [user account](/1.9/security/users-groups/) to assign permissions to.
+- If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 # <a name="job-group-access-via-ui"></a>Via the DC/OS GUI
 
@@ -34,7 +34,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
 
     ![Add permission](/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/overview/security/security-modes/).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/#security-modes).
 
     ### Disabled
 
@@ -103,7 +103,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
 # <a name="job-group-access-via-api"></a>Via the IAM API
 
 **Prerequisite:** 
-If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 

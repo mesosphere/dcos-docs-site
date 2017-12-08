@@ -16,9 +16,9 @@ DC/OS provides a number of tools out of the box for service discovery and load b
 | [Marathon-LB][3] | Marathon-LB is an HAProxy based load balancer for Marathon only. | When you require external routing or layer 7 load balancing features. Examples of layer 7 features include: TLS termination, zero-downtime deployments, HTTP sticky sessions, load balancing algorithm customization, network ACLs, HTTP basic auth, gzip compression, and more. |
 | [Mesos-DNS][4] | Mesos-DNS is a basic DNS-based service discovery tool that works with any Mesos task. | When VIPs or Marathon-LB are not adequate, you can use the auto-generated [Mesos-DNS names][5]. For example, to discover Marathon-LB you'd use Mesos-DNS by connecting to Marathon-LB with `marathon-lb.marathon.mesos`. Or, if you have UDP services such as StatsD. |
 
-[1]: /docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/
-[2]: /docs/1.8/usage/service-discovery/load-balancing-vips/
-[3]: /docs/1.8/usage/service-discovery/marathon-lb/
-[4]: /docs/1.8/usage/service-discovery/mesos-dns/
-[5]: /docs/1.8/usage/service-discovery/mesos-dns/service-naming/#dns-naming
-[6]: /docs/1.8/usage/service-discovery/third-party-solution/
+[1]: /1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/
+[2]: /1.8/usage/service-discovery/load-balancing-vips/
+[3]: /1.8/usage/service-discovery/marathon-lb/
+[4]: /1.8/usage/service-discovery/mesos-dns/
+[5]: /1.8/usage/service-discovery/mesos-dns/service-naming/#dns-naming
+[6]: /1.8/usage/service-discovery/third-party-solution/

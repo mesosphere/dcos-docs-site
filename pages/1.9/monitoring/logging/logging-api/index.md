@@ -56,7 +56,7 @@ The API request header can be any the following:
 
 All Logging API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.9/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.9/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.9/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.9/security/iam-api/#passing-an-authentication-token).
 
 The Logging API also requires authorization via the following permissions:
 
@@ -67,11 +67,11 @@ The Logging API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.9/security/ent/perms-reference/).
+To assign permissions to your account, see [Assigning permissions](/1.9/security/perms-reference/).
 
 
 # Resources
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.9/api/logs.yaml']
+[api-explorer api='/1.9/api/logs.yaml']

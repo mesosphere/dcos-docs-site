@@ -44,7 +44,7 @@ Content-Type: application/json
 
 All Metrics API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.9/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.9/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.9/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.9/security/iam-api/#passing-an-authentication-token).
 
 The Metrics API also requires authorization via the following permissions:
 
@@ -55,7 +55,7 @@ The Metrics API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.9/security/ent/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/1.9/security/perms-reference/).
 
 # Resources
 Mesos-DNS implements a simple REST API for service discovery over HTTP. These examples assume you have an [SSH connection to the node](/1.9/administering-clusters/sshcluster/).

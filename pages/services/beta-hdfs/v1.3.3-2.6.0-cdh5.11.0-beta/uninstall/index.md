@@ -4,7 +4,7 @@ navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 20
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
@@ -14,7 +14,7 @@ enterprise: false
 Uninstalling a cluster is straightforward. Replace `hdfs` with the name of the HDFS instance to be uninstalled.
 
 ```
-dcos package uninstall --app-id=beta-hdfs
+dcos package uninstall beta-hdfs --app-id=/hdfs
 ```
 
 **Note:** Alternatively, you can [uninstall HDFS from the DC/OS GUI](/1.9/deploying-services/uninstall/).

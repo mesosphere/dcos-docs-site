@@ -68,7 +68,7 @@ The Catalog tab shows all of the available DC/OS services. You can install packa
 
 # <a name="secrets"></a>Secrets
 
-The Secrets tab provides secret and certificates management. For more information, see the [secrets](/1.10/security/ent/secrets/) and [certificates](/1.10/networking/tls-ssl/) documentation.
+The Secrets tab provides secret and certificates management. For more information, see the [secrets](/1.10/security/secrets/) and [certificates](/1.10/networking/tls-ssl/) documentation.
 
 ![Secrets](/1.10/img/secrets-ee.png)
 
@@ -106,7 +106,7 @@ View the system health of your DC/OS components from the **Components** tab.
 # Settings
 Manage your DC/OS package repositories, secrets stores, LDAP directories, and identity providers from the **Settings** tab.
 
-![Package repositories](/1.10/img/package-repositories.png)
+![Package repositories](/1.10/img/package-repositories-ee.png)
 
 # Organization
 Manage user access from the **Organization** tab.

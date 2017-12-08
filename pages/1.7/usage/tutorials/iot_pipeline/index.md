@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-title: Deploying a Load-Balanced Data Pipeline
-menuWeight: 16
+navigationTitle:  Building an IoT Pipeline
+title: Building an IoT Pipeline
+menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: true
@@ -19,7 +19,7 @@ Tweeter:
 <li>Performs real-time analytics with the DC/OS <a href="/service-docs/spark/">Spark</a> and <a href="http://zeppelin.apache.org/">Zeppelin</a> services.</li>
 </ul>
 
-This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes! You will learn:
+This tutorial demonstrates how you can build a complete IoT pipeline on DC/OS in about 15 minutes! You will learn:
 
 <ul>
 <li>How to install DC/OS services.</li>
@@ -32,8 +32,8 @@ This tutorial demonstrates how you can build a complete load-balanced data pipel
 <strong>Prerequisites:</strong>
 
 <ul>
-<li>A DC/OS cluster with at least 5 <a href="/docs/1.7/overview/concepts/">private agents</a> and 1 <a href="/docs/1.7/overview/concepts/">public agent</a>. You can <a href="/docs/1.7/administration/installing/ent/cloud/">deploy a cluster to the public cloud</a> or follow the <a href="/docs/1.7/administration/installing/ent/custom/">enterprise installation instructions</a>.</li>
-<li>The fully qualified domain name of your DC/OS <a href="/docs/1.7/overview/concepts/#public">public agent</a>.</li>
+<li>A DC/OS cluster with at least 5 <a href="/1.7/overview/concepts/">private agents</a> and 1 <a href="/1.7/overview/concepts/">public agent</a>. You can <a href="/1.7/administration/installing/cloud/">deploy a cluster to the public cloud</a> or follow the <a href="/1.7/administration/installing/custom/">enterprise installation instructions</a>.</li>
+<li>The fully qualified domain name of your DC/OS <a href="/1.7/overview/concepts/#public">public agent</a>.</li>
 </ul>
 
 <h1>Install the DC/OS services you'll need</h1>
@@ -43,12 +43,12 @@ This tutorial demonstrates how you can build a complete load-balanced data pipel
 
 <img src="/assets/images/webui-universe-install.png" alt="Universe UI" />
 
-<strong>Tip:</strong> You can also install DC/OS packages from the DC/OS CLI with the <a href="/docs/1.7/usage/cli/command-reference/"><code>dcos package install</code></a> command.
+<strong>Tip:</strong> You can also install DC/OS packages from the DC/OS CLI with the <a href="/1.7/usage/cli/command-reference/"><code>dcos package install</code></a> command.
 
 <ul>
 <li><strong>Cassandra</strong> The Cassandra database is used on the backend to store the Tweeter app data. Cassandra will spin up to at least 3 nodes. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.</p></li>
 <li><strong>Kafka</strong> The Kafka publish-subscribe message service receives tweets from Cassandra and routes them to Zeppelin for real-time analytics. Kafka will spin up 3 brokers.</p></li>
-<li><p><strong>Marathon-LB</strong> The <a href="/docs/1.7/usage/service-discovery/marathon-lb/">Marathon load balancer (Marathon-LB)</a> is a supplementary service discovery tool that can work in conjunction with native Mesos-DNS.</p></li>
+<li><p><strong>Marathon-LB</strong> The <a href="/1.7/usage/service-discovery/marathon-lb/">Marathon load balancer (Marathon-LB)</a> is a supplementary service discovery tool that can work in conjunction with native Mesos-DNS.</p></li>
 <li><p><strong>Zeppelin:</strong> Zeppelin is an interactive analytics notebook that works with DC/OS Spark on the backend to enable interactive analytics and visualization. Because it's possible for Spark and Zeppelin to consume all of your cluster resources, you must specify a maximum number of cores for the Zeppelin service. Choose the <strong>Advanced Installation</strong> option when you install Zeppelin. Then, click the <strong>spark</strong> tab and set <code>cores_max</code> to <code>8</code>. Click <strong>Review and Install</strong>.
 
 <strong>Tip:</strong> You can also do this from the DC/OS CLI:

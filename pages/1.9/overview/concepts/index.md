@@ -79,7 +79,7 @@ An infrastructure network is a physical or virtual network provided by the infra
 
 #### <a name="dcos-virtual-network"></a>Virtual Network
 
-A DC/OS virtual network is specifically an virtual network internal to the cluster that connects DC/OS components and containerized tasks running on DC/OS.
+A DC/OS virtual network is specifically a virtual network internal to the cluster that connects DC/OS components and containerized tasks running on DC/OS.
 
 - The virtual network provided by DC/OS is VXLAN managed by the Virtual Network Service (Navstar).
 - Virtual networks must be configured by an administrator before being used by tasks.
@@ -139,10 +139,10 @@ A bootstrap machine is the machine on which the DC/OS installer artifacts are co
 
 - The bootstrap machine is not technically considered part of the cluster since it does not have DC/OS installed on it (this may change in the future). For most installation methods, the bootstrap node must be accessible to and from the machines in the cluster via infrastructure networking.
 - The bootstrap machine is sometimes used as a jumpbox to control SSH access into other nodes in the cluster for added security and logging.
-- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see [configuring the exhibitor storage backend](/1.9/installing/oss/custom/configuration/configuration-parameters/#exhibitor_storage_backend).
+- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see [configuring the exhibitor storage backend](/1.9/installing/custom/configuration/configuration-parameters/#exhibitor_storage_backend).
 - If a bootstrap machine is not required for managing master node IP changes or as an SSH jumpbox, it can be shut down after bootstrapping and spun up on demand to [add new nodes](/1.9/administering-clusters/add-a-node/) to the cluster.
 
-For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#bootstrap-node).
+For more information, see the [system requirements](/1.9/installing/custom/system-requirements/#bootstrap-node).
 
 ### <a name="dcos-service"></a>Service
 
@@ -264,7 +264,7 @@ The [Docker Runtime](#mesos-docker-runtime) and [Mesos Container Runtime](#mesos
 
 A cloud template is an infrastructure-specific method of declaratively describing a DC/OS cluster.
 
-For more information, see [Cloud Installation Options](/1.9/installing/oss/cloud/).
+For more information, see [Cloud Installation Options](/1.9/installing/cloud/).
 
 
 # <a name="mesos-concepts"></a>Mesos Concepts

@@ -81,7 +81,7 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
       # perform server certificate verification (including hostname verification).
       # If you are using the community-supported version of DC/OS, you must 
       # configure Admin Router with a custom TLS server certificate, see 
-      # https://dcos.io/docs/1.9/administering-clusters/. This step 
+      # https://dcos.io/1.9/administering-clusters/. This step 
       # is not required for Enterprise DC/OS.
       #
       # Explanation for the parameters in the following `server` definition line:

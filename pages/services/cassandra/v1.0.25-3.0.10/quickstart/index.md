@@ -4,7 +4,7 @@ navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
@@ -132,4 +132,4 @@ This tutorial will get you up and running with Cassandra in minutes. You will in
     (3 rows)
     ```
 
- [2]: https://docs.mesosphere.com/docs/1.8/administration/access-node/sshcluster/
+ [2]: https://docs.mesosphere.com/1.8/administration/access-node/sshcluster/

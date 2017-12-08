@@ -17,9 +17,9 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 ## Prerequisites
 
-*   DC/OS installed by using the AWS [cloud templates](/1.9/installing/oss/cloud/aws/) with at least three [private](/1.9/overview/concepts/#private) agent and one [public](/1.9/overview/concepts/#public-agent-node) agent.
+*   DC/OS installed by using the AWS [cloud templates](/1.9/installing/cloud/aws/) with at least three [private](/1.9/overview/concepts/#private) agent and one [public](/1.9/overview/concepts/#public-agent-node) agent.
 *   DC/OS CLI [installed][2].
-*   Marathon-LB [installed](/1.9/networking/marathon-lb/usage-ee/).
+*   Marathon-LB [installed](/1.9/networking/marathon-lb/usage/).
 
 ## Deploy an external load balancer with Marathon-LB
 
@@ -46,7 +46,7 @@ Set up your internal load balancer. To do this, we must first specify some confi
     
     In this options file, we’re changing the name of the app instance and the name of the HAProxy group. The options file also disables the HTTP and HTTPS forwarding on ports 80 and 443 because it is not needed.
 
-1.  [Install](/1.9/networking/marathon-lb/usage-ee/) the internal Marathon-LB instance with the custom options specified.
+1.  [Install](/1.9/networking/marathon-lb/usage/) the internal Marathon-LB instance with the custom options specified.
 
     There are now two Marathon-LB load balancers: 
     
@@ -281,7 +281,7 @@ To demonstrate the vhost feature:
 
     ![lb6](/1.9/img/lb6.jpg)
 
- [1]: /docs/1.9/installing/oss/
- [2]: /docs/1.9/cli/install/
- [3]: /docs/1.9/administering-clusters/locate-public-agent/
- [4]: /docs/1.9/administering-clusters/sshcluster/
+ [1]: /1.9/installing/
+ [2]: /1.9/cli/install/
+ [3]: /1.9/administering-clusters/locate-public-agent/
+ [4]: /1.9/administering-clusters/sshcluster/

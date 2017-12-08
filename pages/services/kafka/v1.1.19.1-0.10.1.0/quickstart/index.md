@@ -4,7 +4,7 @@ navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
@@ -124,4 +124,4 @@ This tutorial will get you up and running in minutes with Kafka. You will instal
 
 See also [Connecting clients][1].
 
- [1]: https://docs.mesosphere.com/docs/1.8/usage/service-guides/kafka/connecting-clients
+ [1]: https://docs.mesosphere.com/1.8/usage/service-guides/kafka/connecting-clients

@@ -48,7 +48,7 @@ For more information, see [Components](/1.9/overview/architecture/components/), 
 
 At the infrastructure layer, DC/OS can be installed on public clouds, private clouds, or on-premises hardware. Some of these install targets have automated provisioning tools, but almost any infrastructure can be used, as long as it includes multiple x86 machines on a shared IPv4 network.
 
-For more information, see [Installing](/1.9/installing/oss/).
+For more information, see [Installing](/1.9/installing/).
 
 ## External Components
 

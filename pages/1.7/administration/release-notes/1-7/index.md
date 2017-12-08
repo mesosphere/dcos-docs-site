@@ -151,16 +151,16 @@ Issues fixed:
 - [MESOS-5576](https://issues.apache.org/jira/browse/MESOS-5576) - Masters may drop the first message they send between masters after a network partition
 
 
- [1]: /docs/1.7/usage/managing-services/install/
- [2]: /docs/1.7/administration/monitoring/
- [3]: /docs/1.7/usage/service-discovery/virtual-ip-addresses/
+ [1]: /1.7/usage/managing-services/install/
+ [2]: /1.7/administration/monitoring/
+ [3]: /1.7/usage/service-discovery/virtual-ip-addresses/
  [4]: http://mesosphere.github.io/marathon/docs/persistent-volumes.html
- [5]: /docs/1.7/usage/storage/external-storage/
- [6]: /docs/1.7/administration/id-and-access-mgt/ent/managing-permissions/
+ [5]: /1.7/usage/storage/external-storage/
+ [6]: /1.7/administration/id-and-access-mgt/managing-permissions/
  [7]: https://github.com/mesosphere/marathon/releases/edit/v1.0.0-RC1
  [8]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12334661
- [9]: /docs/1.7/administration/installing/custom/advanced/
- [10]: /docs/1.7/usage/tutorials/public-app/
+ [9]: /1.7/administration/installing/custom/advanced/
+ [10]: /1.7/usage/tutorials/public-app/
  [11]: https://github.com/godbus/dbus/issues/45
  [12]: https://issues.apache.org/jira/browse/MESOS-2408
  [13]: https://github.com/emccode/dvdcli/issues/15

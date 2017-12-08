@@ -10,15 +10,15 @@ enterprise: true
 
 You can implement fine-grained user access to services using either the DC/OS GUI or the API.
 
-The [Marathon permissions](/1.9/security/ent/perms-reference/#marathon) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
+The [Marathon permissions](/1.9/security/perms-reference/#marathon) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
 
-[Marathon permissions](/1.9/security/ent/perms-reference/#marathon) and [Mesos permissions](/1.9/security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique. 
+[Marathon permissions](/1.9/security/perms-reference/#marathon) and [Mesos permissions](/1.9/security/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique. 
 
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- A [user account](/1.9/security/ent/users-groups/) to assign permissions to.
-- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- A [user account](/1.9/security/users-groups/) to assign permissions to.
+- If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 # <a name="root-service"></a>Granting access to a service
 
@@ -40,7 +40,7 @@ The [Marathon permissions](/1.9/security/ent/perms-reference/#marathon) allow yo
 
     ![Add permission](/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/overview/security/security-modes/).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/#security-modes).
 
     ### Disabled
     This mode does not offer fine-grained control.
@@ -54,7 +54,7 @@ The [Marathon permissions](/1.9/security/ent/perms-reference/#marathon) allow yo
        ```bash
        dcos:adminrouter:service:marathon full
        dcos:service:marathon:marathon:services:/<service-name> <action>
-       ```  
+       ```
     -  **DC/OS service tasks and logs:**
     
        ```bash
@@ -70,7 +70,7 @@ The [Marathon permissions](/1.9/security/ent/perms-reference/#marathon) allow yo
        ```bash
        dcos:adminrouter:service:marathon full
        dcos:service:marathon:marathon:services:/<service-name> <action>
-       ```  
+       ```
     -  **DC/OS service tasks and logs:**
   
        ```bash
@@ -91,7 +91,7 @@ The [Marathon permissions](/1.9/security/ent/perms-reference/#marathon) allow yo
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 
@@ -121,7 +121,7 @@ This mode does not offer fine-grained control.
        
        **Tips:** 
        
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
      
 -  **DC/OS service tasks and logs:**
@@ -160,7 +160,7 @@ This mode does not offer fine-grained control.
        
        **Tips:** 
        
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
      
 -  **DC/OS service tasks and logs:**
@@ -195,7 +195,7 @@ This mode does not offer fine-grained control.
        
        **Tips:** 
        
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.       
 
 # <a name="service-in-group"></a>Granting access to a service in a service group
@@ -218,7 +218,7 @@ This mode does not offer fine-grained control.
 
     ![Add permission](/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/overview/security/security-modes/).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/#security-modes).
 
     ### Disabled
     This mode does not offer fine-grained control.
@@ -227,7 +227,7 @@ This mode does not offer fine-grained control.
     
     -  **DC/OS service access:**
     
-       Specify your service (<service-name>), group (`<group-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
+       Specify your service (`<service-name>`), group (`<group-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
        
        ```bash
        dcos:adminrouter:service:marathon full
@@ -245,7 +245,7 @@ This mode does not offer fine-grained control.
     
     -  **DC/OS service access:**
     
-       Specify your service (<service-name>), group (`<group-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
+       Specify your service (`<service-name>`), group (`<group-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
        
        ```bash
        dcos:adminrouter:service:marathon full
@@ -273,7 +273,7 @@ This mode does not offer fine-grained control.
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 
@@ -292,18 +292,18 @@ This mode does not offer fine-grained control.
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon -d '{"description":"Controls access to Marathon services"}'
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252Fgroup%252F<service-name> -d '{"description":"Controls access to a service, job, service group, or job group named <service-name> inside a group called group"}'
-       ```   
+       ```
    
    1.  Grant the permission to a user (`<user-name>`).
    
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<user-name>/full
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252Fgroup%252F<service-name>/users/<user-name>/full
-       ```   
+       ```
        
        **Tips:** 
        
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.         
        
 
@@ -314,7 +314,7 @@ This mode does not offer fine-grained control.
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos -d '{"description":"Grants access to the Mesos master API/UI and task details"}'
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-       ```   
+       ```
        
    1.  Grant the permission to a user (`<user-name>`).
           
@@ -325,7 +325,7 @@ This mode does not offer fine-grained control.
        
        **Tips:** 
        
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
        
 ### Strict
@@ -337,18 +337,18 @@ This mode does not offer fine-grained control.
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon -d '{"description":"Controls access to Marathon services"}'
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252Fgroup%252F<service-name> -d '{"description":"Controls access to a service, job, service group, or job group named <service-name> inside a group called group"}'
-       ```   
+       ```
    
    1.  Grant the permission to a user (`<user-name>`).
    
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<user-name>/full
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252Fgroup%252F<service-name>/users/<user-name>/full
-       ```   
+       ```
        
        **Tips:** 
        
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.         
        
 
@@ -359,7 +359,7 @@ This mode does not offer fine-grained control.
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos -d '{"description":"Grants access to the Mesos master API/UI and task details"}'
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-       ```   
+       ```
        
    1.  Grant the permission to a user (`<user-name>`).
           
@@ -384,7 +384,7 @@ This mode does not offer fine-grained control.
        
        **Tips:** 
        
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
 
 # <a name="service-group"></a>Granting a user access to a service group
@@ -407,7 +407,7 @@ This mode does not offer fine-grained control.
 
     ![Add permission](/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/overview/security/security-modes/).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/#security-modes).
 
     ### Disabled
     This mode does not offer fine-grained control. 
@@ -428,7 +428,7 @@ This mode does not offer fine-grained control.
        ```bash
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
-       ```    
+       ```
     
     ### Strict
 
@@ -453,7 +453,7 @@ This mode does not offer fine-grained control.
        dcos:mesos:master:executor:app_id:/<group-name> read
        dcos:mesos:master:framework:role:slave_public read
        dcos:mesos:master:task:app_id:/<group-name> read
-       ```   
+       ```
     
 1.  Click **ADD PERMISSIONS** and then **Close**.   
 
@@ -462,7 +462,7 @@ This mode does not offer fine-grained control.
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 
@@ -481,18 +481,18 @@ This mode does not offer fine-grained control.
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon -d '{"description":"Controls access to Marathon services"}'
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252Fgroup -d '{"description":"Controls access to a service, job, service group, or job group named group"}'
-       ```   
+       ```
    
    1.  Grant the permission to a user (`<user-name>`).
    
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<user-name>/full
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252Fgroup/users/<user-name>/full
-       ```   
+       ```
        
        **Tips:** 
       
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
    
 -  **Group tasks and logs:**
@@ -508,7 +508,7 @@ This mode does not offer fine-grained control.
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<user-name>/full
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<user-name>/full
-       ```   
+       ```
 
 ### Strict
 
@@ -519,18 +519,18 @@ This mode does not offer fine-grained control.
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon -d '{"description":"Controls access to Marathon services"}'
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252Fgroup -d '{"description":"Controls access to a service, job, service group, or job group named group"}'
-       ```   
+       ```
    
    1.  Grant the permission to a user (`<user-name>`).
    
        ```bash
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<user-name>/full
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252Fgroup/users/<user-name>/full
-       ```   
+       ```
        
       **Tips:** 
       
-      - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+      - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
       - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
    
 -  **Group tasks and logs:**
@@ -561,11 +561,11 @@ This mode does not offer fine-grained control.
        s config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:slave_public/users/<user-name>/read
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:app_id:%252Fgroup -d '{"description":"Controls access to tasks of a service, job, service group, or job group named group"}'
        curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:app_id:%252Fgroup/users/<user-name>/read
-       ```   
+       ```
        
        **Tips:** 
       
-       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/<group-name>/<group-name>`. 
+       - To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`. 
        - To give the user a different level of access, replace `full` with the desired access level: `create`, `read`, `update`, or `delete`.
        
    

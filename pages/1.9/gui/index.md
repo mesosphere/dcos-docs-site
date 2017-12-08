@@ -76,7 +76,7 @@ The Networking tab provides a comprehensive view of the health of your VIPs. For
 
 # <a name="security"></a>Security
 
-The Security tab provides secret and certificates management. For more information, see the [secrets](/1.9/security/ent/secrets/) and [certificates](/1.9/networking/tls-ssl/) documentation.
+The Security tab provides secret and certificates management. For more information, see the [secrets](/1.9/security/secrets/) and [certificates](/1.9/networking/tls-ssl/) documentation.
 
 ![Security](/1.9/img/security.png)
 

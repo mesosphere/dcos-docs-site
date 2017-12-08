@@ -289,7 +289,7 @@ If a service launches multiple tasks with the same name, the DNS lookup will ret
 
 You can get a comprehensive list of the apps running on your DC/OS cluster nodes.
 
-**Prerequisites:** [DC/OS and DC/OS CLI](/1.8/administration/installing/oss/) are installed.
+**Prerequisites:** [DC/OS and DC/OS CLI](/1.8/administration/installing/) are installed.
 
 1.  SSH into your node. For example, use this CLI command to SSH to your master:
 
@@ -413,6 +413,6 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
 
 
 
- [1]: /docs/1.8/overview/concepts/
+ [1]: /1.8/overview/concepts/
  [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc952

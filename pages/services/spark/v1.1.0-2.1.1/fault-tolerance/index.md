@@ -4,7 +4,7 @@ navigationTitle:  Fault Tolerance
 title: Fault Tolerance
 menuWeight: 100
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 

@@ -17,7 +17,7 @@ To learn the state of a task, you can consult the DC/OS logs or query the [event
 
 You can also  [configure Marathon's behavior when a task is unreachable](/1.10/deploying-services/task-handling/configure-task-handling/).
 
-![Task Handling Flow](/1.10/deploying-services/task-handling/img/task-handling.png)
+![Task Handling Flow](/1.10/img/task-handling.png)
 
 # Terminal states
 

@@ -4,7 +4,7 @@ navigationTitle:  Beta Kubernetes
 title: Beta Kubernetes
 menuWeight: 110
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

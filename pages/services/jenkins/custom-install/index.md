@@ -4,7 +4,7 @@ navigationTitle:  Customizing your install
 title: Customizing your install
 menuWeight: 1
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 <h1>About customizing your installation parameters</h1>

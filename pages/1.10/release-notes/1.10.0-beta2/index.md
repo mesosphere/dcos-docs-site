@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.0 Beta 2
 title: Release Notes for 1.10.0 Beta 2
-menuWeight: 20
+menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: true
@@ -17,7 +17,7 @@ enterprise: true
 <li>Upgrades from 1.10 Beta 1 to 1.10 Beta 2 are not currently supported.</li>
 <li>DC/OS 1.10 requires CLI version 0.5.3.
   <ul>
-  <li><a href="/docs/1.10/cli/uninstall/">Uninstall the existing CLI</a>.</li>
+  <li><a href="/1.10/cli/uninstall/">Uninstall the existing CLI</a>.</li>
   <li>Install version 0.5.3 using the <strong>Install CLI</strong> instructions in the dropdown in the upper left hand corner of the 1.10 DC/OS GUI.</li>
   </ul>
 <li>You must upgrade Marathon-LB _before_ upgrading to DC/OS 1.10. See the [upgrade section](/1.10/installing/upgrading/) for more information.</li>
@@ -62,12 +62,12 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 
 ## Security
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/installing/custom/configuration/configuration-parameters/#security-and-authentication) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
+  Installation time [configuration options](/1.10/installing/custom/configuration/configuration-parameters/#security-enterprise-dcos-only-and-authentication) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
 - Increased Admin Router security. <!-- ie TLS not supported out-of-the-box; where is the doc? is this enterprise-only?-->
 
 - Enhanced secrets management with file-based secrets.
-  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/ent/secrets/use-secrets/).
+  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/secrets/use-secrets/).
 
 - Docker `pullConfig` parameter.
   Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise-dcos-only).

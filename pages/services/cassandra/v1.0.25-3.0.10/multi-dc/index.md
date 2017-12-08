@@ -4,7 +4,7 @@ navigationTitle:  Multi-Datacenter Deployments
 title: Multi-Datacenter Deployments
 menuWeight: 40
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
