@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Security in DC/OS
+title: Security in Enterprise DC/OS
 menuWeight: 7
 excerpt:
 enterprise: true
@@ -47,5 +47,4 @@ Access to the admin zone is controlled by the Admin Router.
 
 HTTP requests incoming to your DC/OS cluster are proxied through the Admin Router (using [Nginx](http://nginx.org) with [OpenResty](https://openresty.org) at its core). The Admin Router denies access to most HTTP endpoints for unauthenticated requests. In order for a request to be authenticated, it needs to present a valid authentication token in its `Authorization` header. A token can be obtained by going through the authentication flow.
 
-See the [Identity and Access Management](/1.7/administration/id-and-access-mgt/) topic for more information.
-
+See the [Identity and Access Management](/1.7/administration/id-and-access-mgt/ent/) topic for more information.

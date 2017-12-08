@@ -7,7 +7,7 @@ featureMaturity:
 enterprise: true
 ---
 
-This topic describes how to configure DC/OS access for Edge-LB. Depending on your [security mode](/1.10/security/#security-modes), Edge-LB requires [service authentication](/1.10/security/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Edge-LB. Depending on your [security mode](/1.10/security/ent/#security-modes), Edge-LB requires [service authentication](/1.10/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -28,7 +28,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.10/security/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/1.10/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 
@@ -66,7 +66,7 @@ dcos security secrets list /
 # <a name="give-perms"></a>Create and Assign Permissions
 Use the following CLI commands to rapidly provision the Edge-LB service account with the required permissions.
 
-All CLI commands can also be executed via the [IAM API](/1.10/security/iam-api/).
+All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-api/).
 
 1.  Grant the permissions and the allowed actions to the service account using the following commands.
 

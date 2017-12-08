@@ -20,7 +20,7 @@ Use the Docker containerizer if you need specific features of the Docker package
 * When you run a Docker image in the Docker Engine, the underlying Docker log files are not truncated or rotated. These files can become arbitrarily large (and often go to a system disk rather than a storage disk). This can cause a server with limited disk space to run out of disk space. Mesosphere recommends that you disable Docker logging if you are using Docker Engine. To do this, set the `log-driver` parameter to `none` in the `containers.docker.parameters` field of your app definition. If you are provisioning the container using the DC/OS web interface:
   1. Click the **JSON EDITOR** toggle.
 
-     ![json editor](/1.10/img/json-editor-toggle.png)
+     ![json editor](/1.9/img/json-editor-toggle.png)
 
   1. Enter the `parameters` field in the JSON configuration.
 

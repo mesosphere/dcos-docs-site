@@ -15,13 +15,17 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 # Installing CLI from the web interface
 
-1.  Click **Install CLI** from the top-left corner of the DC/OS web interface.
+1.  At the top-left corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
-    ![CLI install UI](/docs/1.11/img/install-cli.png)
+    ![open cluster popup](/1.11/img/open-cluster-popup.png)
+
+1.  Select **Install CLI**.
+
+    ![CLI install UI](/1.11/img/install-cli.png)
     
 1.  Copy and paste the code snippets into your terminal.
 
-    ![CLI copy/paste](/docs/1.11/img/install-cli-terminal.png)
+    ![CLI copy/paste](/1.11/img/install-cli-terminal.png)
 
 # <a name="manual"></a>Manually installing the CLI
 
@@ -66,7 +70,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     dcos cluster setup http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.11/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.11/security/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 
@@ -102,7 +106,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     ```
     **Tip:** If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.11/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.11/security/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 
@@ -126,6 +130,6 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     dcos cluster setup http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/docs/1.11/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.11/security/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.

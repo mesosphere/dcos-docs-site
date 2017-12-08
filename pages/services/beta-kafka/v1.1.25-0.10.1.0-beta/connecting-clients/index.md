@@ -184,5 +184,5 @@ The following code connects to a DC/OS-hosted Kafka instance using `bin/kafka-co
     root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:2181/kafka --topic topic1 --from-beginning
     Hello, World.
 
- [13]: /1.9/security/users-groups/
- [14]: /1.9/security/iam-api/
+ [13]: /1.10/security/ent/users-groups/
+ [14]: /1.10/security/ent/iam-api/

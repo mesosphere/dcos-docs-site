@@ -14,7 +14,7 @@ enterprise: true
 
 # About provisioning Marathon-LB with a service account
 
-Whether you can or must provision Marathon-LB with a service account varies by [security mode](/1.10/security/#security-modes).
+Whether you can or must provision Marathon-LB with a service account varies by [security mode](/1.10/security/ent/#security-modes).
 
 - `disabled`: optional
 - `permissive`: optional
@@ -182,7 +182,7 @@ Next, you need to create a secret associated with the service account that conta
 
 With the following commands you can rapidly provision the Marathon-LB service account with the required permissions. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
 
-All CLI commands can also be executed via the [IAM API](/1.10/security/iam-api/).
+All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-api/).
 
 1. Grant the permissions and the allowed action to the service account using the following commands.
 
@@ -197,7 +197,7 @@ All CLI commands can also be executed via the [IAM API](/1.10/security/iam-api/)
 
 ## About the config.json file
 
-The necessary contents of the `config.json` file vary according to your [security mode](/1.10/security/#security-modes). 
+The necessary contents of the `config.json` file vary according to your [security mode](/1.10/security/ent/#security-modes). 
 
 ## Strict and permissive mode config.json
 
@@ -238,4 +238,4 @@ To install the service, use the following command.
 dcos package install --options=config.json marathon-lb
 ```
 
-You can also provide the `config.json` file to someone else to install Marathon-LB. Please see the [Marathon-LB documentation](/1.10/networking/marathon-lb/usage/) for more information.
+You can also provide the `config.json` file to someone else to install Marathon-LB. Please see the [Marathon-LB documentation](/1.10/networking/marathon-lb/usage-ent/) for more information.

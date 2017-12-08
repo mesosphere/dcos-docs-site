@@ -7,7 +7,7 @@ featureMaturity:
 enterprise: true
 ---
 
-This topic describes how to configure DC/OS access for Cassandra. Depending on your [security mode](/1.9/overview/security/security-modes/), Cassandra requires [service authentication](/1.9/security/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Cassandra. Depending on your [security mode](/1.9/overview/security/security-modes/), Cassandra requires [service authentication](/1.10/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -15,7 +15,7 @@ This topic describes how to configure DC/OS access for Cassandra. Depending on y
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.9/security/perms-reference/#superuser).
+If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.10/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
 
@@ -32,7 +32,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.9/security/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/1.10/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 

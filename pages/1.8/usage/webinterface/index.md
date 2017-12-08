@@ -55,19 +55,28 @@ The Services tab provides a full featured interface to the native DC/OS Marathon
 
 ![Services](../img/services-ee.gif)
 
-You can click the **Deployments** tab to view all active Marathon deployments.
+By default all of your services are displayed, sorted by service name. You can also sort the services by health status, number of tasks, CPU, memory, or disk space allocated.
+
+*   **SERVICE NAME** Displays the DC/OS service name.
+*   **HEALTH** Displays the [Marathon health check][3] status for the service.
+*   **TASKS** Display the number of running tasks.
+*   **CPU** Displays the percentage of CPU in use.
+*   **MEM** Displays the amount of memory used.
+*   **DISK** Displays the amount of disk space used.
+
+Clicking the service name opens the Services side panel, which provides CPU, memory, and disk usage graphs and lists all tasks using the service. Use the dropdown or a custom filter to sort tasks and click on details for more information. For services with a web interface, you can click **Open Service** to view it. Click on a task listed on the Services side panel to see detailed information about the task’s CPU, memory, and disk usage and the task’s files and directory tree.
 
 **Tip:** You can access the Mesos web interface at `<hostname>/mesos`.
 
 # <a name="jobs"></a>Jobs
 
-The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a scheduler by using the cron format. For more information, see the [documentation](/1.8/usage/jobs/). 
+The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a schedule in cron format. For more information, see the [documentation](/1.8/usage/jobs/).
 
 ![Jobs](../img/jobs-ee.png)
 
 # <a name="nodes"></a>Nodes
 
-The Nodes page provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
+The Nodes tab provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
 
 ![Nodes](../img/nodes-ee.gif)
 
@@ -81,22 +90,24 @@ Clicking on a node opens the Nodes side panel, which provides CPU, memory, and d
 
 # <a name="network"></a>Network
 
-The Network page provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/).
+The Network tab provides information helpful for troubleshooting your virtual networks. You can see which containers are on which network and see their IP addresses. For more information, see the [documentation](/1.8/administration/virtual-networks/ip-per-container/).
+
+![Network](../img/ui-dashboard-network.gif)
 
 ![UI Network](../img/network-2.png)
 
 # <a name="universe"></a>Universe
 
-The Universe page shows all of the available DC/OS services. You can install packages from the DC/OS Universe with a single click. The packages can be installed with defaults or customized directly in the web interface. 
+The Universe tab shows all of the available DC/OS services. You can install packages from the DC/OS Universe with a single click. The packages can be installed with defaults or customized directly in the web interface.
 
 ![universe](../img/ui-universe-ee.gif)
 
 # <a name="system"></a>System
 
-The System page provides access to the administration controls of DC/OS. From this page you can:
- 
+The System tab provides access to the administration controls of DC/OS. From this page you can:
+
 - View the system health of your DC/OS components
 - Manage your DC/OS package repositories
-- Manage user access 
+- Manage user access
 
 ![system](../img/ui-system-health-ee.gif)

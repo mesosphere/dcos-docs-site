@@ -1,15 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:  Log Management with ELK
+excerpt:
 title: Log Management with ELK
 menuWeight: 1
-excerpt:
-featureMaturity:
-enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document does not explain how to setup and configure an Elasticsearch server.
 
@@ -65,12 +60,12 @@ For all nodes in your DC/OS cluster:
 
 For each master node in your DC/OS cluster:
 
-1.  Create a script that parses the output of the DC/OS master `journalctl` logs and funnels them to `/var/log/dcos/dcos/dcos.log`.
+1.  Create a script that parses the output of the DC/OS master `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
 
     **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
 
     ```bash
-    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF 
+    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF
     [Unit]
     Description=DCOS journalctl parser to filebeat
     Wants=filebeat.service
@@ -89,15 +84,15 @@ For each master node in your DC/OS cluster:
     -u dcos-ca.service \
     -u dcos-cfn-signal.service \
     -u dcos-cosmos.service \
-    -u dcos-download.service  \
+    -u dcos-download.service \
     -u dcos-epmd.service \
     -u dcos-exhibitor.service \
     -u dcos-gen-resolvconf.service \
     -u dcos-gen-resolvconf.timer \
     -u dcos-history.service \
-    -u dcos-link-env.service  \
+    -u dcos-link-env.service \
     -u dcos-logrotate-master.timer \
-    -u dcos-marathon.service  \
+    -u dcos-marathon.service \
     -u dcos-mesos-dns.service \
     -u dcos-mesos-master.service \
     -u dcos-metronome.service \
@@ -114,7 +109,7 @@ For each master node in your DC/OS cluster:
     -u dcos-vault.service \
     -u dcos-logrotate-master.service \
     > /var/log/dcos/dcos.log 2>&1'
-    ExecStartPre=/usr/bin/journalctl
+    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
     
     [Install]
     WantedBy=multi-user.target
@@ -125,7 +120,7 @@ For each master node in your DC/OS cluster:
 
 For each agent node in your DC/OS cluster:
 
-1.  Create a script that parses the output of the DC/OS agent `journalctl` logs and funnels them to `/var/log/dcos/dcos/dcos.log`.
+1.  Create a script that parses the output of the DC/OS agent `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
 
     **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
 
@@ -147,7 +142,7 @@ For each agent node in your DC/OS cluster:
     -u dcos-adminrouter-agent.service \
     -u dcos-minuteman.service \
     -u dcos-adminrouter-reload.service \
-    -u dcos-navstar.service  \
+    -u dcos-navstar.service \
     -u dcos-adminrouter-reload.timer \
     -u dcos-rexray.service \
     -u dcos-cfn-signal.service \
@@ -156,15 +151,15 @@ For each agent node in your DC/OS cluster:
     -u dcos-signal.timer \
     -u dcos-epmd.service \
     -u dcos-spartan-watchdog.service \
-    -u dcos-gen-resolvconf.service  \
-    -u dcos-spartan-watchdog.timer  \
+    -u dcos-gen-resolvconf.service \
+    -u dcos-spartan-watchdog.timer \
     -u dcos-gen-resolvconf.timer \
-    -u dcos-spartan.service  \
+    -u dcos-spartan.service \
     -u dcos-link-env.service \
     -u dcos-vol-discovery-priv-agent.service \
     -u dcos-logrotate-agent.service \
     > /var/log/dcos/dcos.log 2>&1'
-    ExecStartPre=/usr/bin/journalctl
+    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
     
     [Install]
     WantedBy=multi-user.target
@@ -178,10 +173,10 @@ For each agent node in your DC/OS cluster:
     ```bash
     sudo chmod 0755 /etc/systemd/system/dcos-journalctl-filebeat.service
     sudo systemctl daemon-reload
-    sudo systemctl start dcos-journalctl-filebeat.service
     sudo systemctl enable dcos-journalctl-filebeat.service
-    sudo systemctl start filebeat
+    sudo systemctl start dcos-journalctl-filebeat.service
     sudo systemctl enable filebeat
+    sudo systemctl start filebeat
     ```
 
 [2]: https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html

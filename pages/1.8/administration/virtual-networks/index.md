@@ -42,7 +42,7 @@ The components of the virtual network interact in the following ways:
 
 - For intra-node IP discovery we use an overlay orchestrator called Virtual Network Service. This operator-facing system component is responsible for programming the overlay backend using a library called [lashup](https://github.com/dcos/lashup) that implements a gossip protocol to disseminate and coordinate overlay routing information among all Mesos agents in the DC/OS cluster.
 
-**Note:** Your network must adhere to the [DC/OS system requirements](/1.8/administration/installing/custom/system-requirements/) to use DC/OS virtual networks.
+**Note:** Your network must adhere to the [DC/OS system requirements](/1.8/administration/installing/oss/custom/system-requirements/) to use DC/OS virtual networks.
 
 # Virtual Network Service: DNS
 

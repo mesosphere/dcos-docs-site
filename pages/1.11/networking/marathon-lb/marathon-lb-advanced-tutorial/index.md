@@ -1,9 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Deploying an Internally and Externally
-  Load Balanced App with Marathon-LB
+navigationTitle:  Deploying an Internally and Externally Load Balanced App with Marathon-LB
+title: Deploying an Internally and Externally Load Balanced App with Marathon-LB
 menuWeight: 200
 excerpt:
 featureMaturity:
@@ -17,15 +15,15 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 ## Prerequisites
 
-*   DC/OS installed by using the AWS [cloud templates](/docs/1.11/installing/cloud/aws/) with at least three [private](/docs/1.11/overview/concepts/#private) agent and one [public](/docs/1.11/overview/concepts/#public-agent-node) agent.
+*   DC/OS installed by using the AWS [cloud templates](/1.11/installing/ent/cloud/aws/) with at least three [private](/1.11/overview/concepts/#private) agent and one [public](/1.11/overview/concepts/#public-agent-node) agent.
 *   DC/OS CLI [installed][2].
-*   Marathon-LB [installed](/docs/1.11/networking/marathon-lb/usage/).
+*   Marathon-LB [installed](/1.11/networking/marathon-lb/usage-ee/).
 
 ## Deploy an external load balancer with Marathon-LB
 
-1.  Verify that Marathon-LB is working. Find the public IP for your [public node](/docs/1.11/administering-clusters/locate-public-agent/) and navigate to `<public-agent-IP>:9090/haproxy?stats`. You will see a statistics report page like this:
+1.  Verify that Marathon-LB is working. Find the public IP for your [public node](/1.11/administering-clusters/locate-public-agent/) and navigate to `<public-agent-IP>:9090/haproxy?stats`. You will see a statistics report page like this:
 
-    ![lb2](/docs/1.11/img/lb2.jpg)
+    ![lb2](/1.11/img/lb2.jpg)
 
 
 ## Deploy an internal load balancer with Marathon-LB
@@ -46,7 +44,11 @@ Set up your internal load balancer. To do this, we must first specify some confi
 
     In this options file, we’re changing the name of the app instance and the name of the HAProxy group. The options file also disables the HTTP and HTTPS forwarding on ports 80 and 443 because it is not needed.
 
-1.  [Install](/docs/1.11/networking/marathon-lb/usage/) the internal Marathon-LB instance with the custom options specified.
+<<<<<<< Updated upstream
+1.  [Install](/1.11/networking/marathon-lb/usage-ee/) the internal Marathon-LB instance with the custom options specified.
+=======
+1.  [Install](/1.11/networking/marathon-lb/usage/) the internal Marathon-LB instance with the custom options specified.
+>>>>>>> Stashed changes
 
     There are now two Marathon-LB load balancers:
 
@@ -218,7 +220,7 @@ Set up your internal load balancer. To do this, we must first specify some confi
 
     Each of these should return the NGINX ‘Welcome’ page:
 
-    ![lb3](/docs/1.11/img/lb3.jpg)
+    ![lb3](/1.11/img/lb3.jpg)
 
 ## Virtual hosts
 
@@ -226,7 +228,7 @@ An important feature of Marathon-LB is support for virtual hosts. This allows yo
 
 To demonstrate the vhost feature:
 
-1.  Find your [public agent IP](/docs/1.11/administering-clusters/locate-public-agent/).
+1.  Find your [public agent IP](/1.11/administering-clusters/locate-public-agent/).
 
 1.  Modify the external nginx app (`nginx-external.json`) to point to your public agent DNS name. You can modify your app by using the DC/OS CLI or GUI.
 
@@ -270,7 +272,7 @@ To demonstrate the vhost feature:
 
     1.  Enter `HAPROXY_0_VHOST` for **KEY** and specify your public agent DNS name for **VALUE**.
 
-        ![Update app](/docs/1.11/img/nginx-external-gui.png)
+        ![Update app](/1.11/img/nginx-external-gui.png)
 
         **Important:** Do not include the leading `http://`trailing slash (`/`) in your public DNS name.
         
@@ -283,9 +285,13 @@ To demonstrate the vhost feature:
 
 1.  Navigate to the public agent in your browser and you should see the following:
 
-    ![lb6](/docs/1.11/img/lb6.jpg)
+    ![lb6](/1.11/img/lb6.jpg)
 
- [1]: /docs/1.11/installing/
- [2]: /docs/1.11/cli/install/
- [3]: /docs/1.11/administering-clusters/locate-public-agent/
- [4]: /docs/1.11/administering-clusters/sshcluster/
+<<<<<<< Updated upstream
+ [1]: /1.11/installing/
+=======
+ [1]: /1.11/installing/oss/
+>>>>>>> Stashed changes
+ [2]: /1.11/cli/install/
+ [3]: /1.11/administering-clusters/locate-public-agent/
+ [4]: /1.11/administering-clusters/sshcluster/

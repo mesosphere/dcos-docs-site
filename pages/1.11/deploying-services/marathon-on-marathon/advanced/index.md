@@ -10,13 +10,13 @@ featureMaturity: preview
 enterprise: true
 ---
 
-This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.11/security/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/1.11/deploying-services/marathon-on-marathon/basic/).
+This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.11/security/ent/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/1.11/deploying-services/marathon-on-marathon/basic/).
 
 To use this procedure, you must obtain the custom non-native Marathon tarball from your sales representative (<sales@mesosphere.io>). This custom tarball contains Marathon plus a secrets and auth plugin. These additional plugins allow you to use secrets and fine-grained access control in your non-native Marathon folder hierarchy.
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.11/installing/).
+-  DC/OS and DC/OS CLI [installed](/1.11/installing/oss/).
 -  [Enterprise DC/OS CLI 0.4.14 or later](/1.11/cli/enterprise-cli/#ent-cli-install).
 -  Custom non-native Marathon tarball. Contact your sales representative or <sales@mesosphere.io> for access to this file.
 -  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.11/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)). 
@@ -167,7 +167,7 @@ curl -i -k \
 ```
 
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/#security-modes), a Marathon Service Account is either optional or required. 
+In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required. 
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -246,7 +246,7 @@ In this step, the credential tarball is transferred to the local file system of 
    dcos node ssh --master-proxy --mesos-id=<master-id>
    ```
 
-1. Store the IP address of each private agent in an environment variable. <!-- What is this step for -->The steps required depend on your [security mode](/1.11/security/#security-modes).
+1. Store the IP address of each private agent in an environment variable. <!-- What is this step for -->The steps required depend on your [security mode](/1.11/security/ent/#security-modes).
 
    ### Disabled
    
@@ -336,7 +336,7 @@ In this step, permissions are assigned to the Marathon-on-Marathon instance. Per
 | Permissive | Not available |
 | Strict | Required |
 
-All CLI commands can also be executed via the [IAM API](/1.11/security/iam-api).
+All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api).
 
 Grant service account `<service-account-id>` permission to launch Mesos tasks that will execute as Linux user `nobody`.
 To allow executing tasks as a different Linux user, replace `nobody` with that user's Linux user ID. For example, to launch tasks as Linux user `bob`, replace `nobody` with `bob` below.
@@ -355,7 +355,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 # Step 7 - Install a Non-Native Marathon Instance with Assigned Role
 In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned. 
 
-1.  Create a custom JSON config file and save as `config.json`. This file is used to install the custom non-native Marathon instance. The JSON file contents vary according to your [security mode](/1.11/security/#security-modes). Replace these variables in the examples with your specific information:
+1.  Create a custom JSON config file and save as `config.json`. This file is used to install the custom non-native Marathon instance. The JSON file contents vary according to your [security mode](/1.11/security/ent/#security-modes). Replace these variables in the examples with your specific information:
 
     | Variable | Description |
     |--------------------------|--------------------------------------------|
@@ -665,7 +665,7 @@ In this step, a user is granted access to the non-native Marathon instance.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
     ### Disabled
     

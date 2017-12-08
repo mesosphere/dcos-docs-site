@@ -5,7 +5,7 @@ title: Marathon REST API
 menuWeight: 40
 excerpt:
 featureMaturity:
-enterprise: true
+enterprise: false
 ---
 
 The Marathon API allows you to manage long-running containerized services (apps and pods).
@@ -24,11 +24,11 @@ Access to the Marathon API is proxied through the Admin Router on each master no
 /service/marathon/
 ```
 
-## Auth
+## Authentication (Enterprise Only)
 
-All Marathon API routes require authentication to use.
+Enterprise edition users must authenticate Marathon API requests.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.9/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.9/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.9/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.9/security/ent/iam-api/#passing-an-authentication-token).
 
 The Marathon API also requires authorization via the following permissions:
 
@@ -38,7 +38,7 @@ The Marathon API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.9/security/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/1.9/security/ent/perms-reference/).
 
 ## Resources
 

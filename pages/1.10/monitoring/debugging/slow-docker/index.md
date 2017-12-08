@@ -25,7 +25,7 @@ Your services or deployments are likely running slowly because they require more
 
 ## Increase CPU allocation
 
-If you have slow-running Docker services or deployments due to DC/OS upgrade or configuring `MESOS_CGROUPS_ENABLE_CFS=true`, increase the required CPU amount in your service definition. [From the CLI](/1.10/deploying-services/update-user-service/) or the **Services** tab of the DC/OS GUI, change the `"cpus"` property of your service definition to a higher value and test if increaded CPU allocation solves your issues.
+If you have slow-running Docker services or deployments due to DC/OS upgrade or configuring `MESOS_CGROUPS_ENABLE_CFS=true`, increase the required CPU amount in your service definition. [From the CLI](/1.10/deploying-services/update-user-service/) or the **Services** tab of the DC/OS GUI, change the `"cpus"` property of your service definition to a higher value and test if increased CPU allocation solves your issues.
 
 ## Change Mesos agent configuration
 
@@ -37,9 +37,9 @@ You will need to change the configurations for your DC/OS installation (if you a
 
 ### Reinstallation method
 
-1. Change this line in your [dcos-config.yaml]( https://github.com/dcos/dcos/blob/a7a30779663081198649caecb4d27165836e73ae/gen/dcos-config.yaml#L431) to `MESOS_CGROUPS_ENABLE_CFS=false`.
+1. In your [dcos-config.yaml](https://raw.githubusercontent.com/dcos/dcos/master/gen/dcos-config.yaml) set `MESOS_CGROUPS_ENABLE_CFS=false`.
 
-1. [Reinstall DC/OS](https://dcos.io/1.10/installing/).
+1. [Reinstall](/1.10/installing/oss/) DC/OS.
 
 ### Reconfiguration method
 

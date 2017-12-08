@@ -2,8 +2,7 @@
 layout: layout.pug
 navigationTitle:  >
 title: >
-  Autoscaling Marathon services using CPU
-  and memory
+  Autoscaling Marathon services using CPU and memory
 menuWeight: 0
 excerpt:
 featureMaturity:
@@ -81,4 +80,4 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
     
 For more information, see the [Marathon-Autoscale GitHub](https://github.com/mesosphere/marathon-autoscale) repository.
 
- [1]: /docs/1.11/installing/
+ [1]: /1.11/installing/

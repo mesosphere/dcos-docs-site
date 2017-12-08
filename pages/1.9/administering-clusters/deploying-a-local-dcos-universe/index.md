@@ -1,15 +1,11 @@
 ---
 layout: layout.pug
 navigationTitle:  Deploying a Local Universe
+excerpt:
 title: Deploying a Local Universe
 menuWeight: 1000
-excerpt:
 featureMaturity: preview
-enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 
 You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe). You can install a local Universe that includes the default packages (easiest), or select your own set of local Universe packages (advanced).

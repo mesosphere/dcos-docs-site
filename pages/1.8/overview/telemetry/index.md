@@ -4,7 +4,7 @@ navigationTitle:  Telemetry
 title: Telemetry
 menuWeight: 7
 excerpt:
-enterprise: true
+enterprise: false
 featureMaturity:
 ---
 
@@ -16,9 +16,9 @@ To continuously improve the DC/OS experience, a telemetry component is included 
 - [User interface telemetry](#user-interface)
 
 # <a name="core"></a>Core telemetry
-The DC/OS [Signal](/1.8/overview/components/#signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.  
+The DC/OS [Signal](/1.8/overview/components/#signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
 
-The information collected by the Signal component is separated into these categories: Diagnostics, Mesos, and Package service. 
+The information collected by the Signal component is separated into these categories: Diagnostics, Mesos, and Package service.
 
 For each category this data is collected:
 
@@ -38,7 +38,7 @@ For each category this data is collected:
 "clusterId": "70b28f00-e38f-41b2-a723-aab344f535b9"
 </pre>
 </td></tr>
-<tr><td>customerKey (Enterprise DC/OS)</td>
+<tr><td>customerKey (Enterprise Only)</td>
 <td>This is the Enterprise DC/OS customer key. Customer keys are delivered via email to the Authorized Support Contact. For example:
 <pre>
 "customerKey": "ab1c23de-45f6-7g8h-9012-i345j6k7lm8n",
@@ -115,7 +115,7 @@ This information is collected from the DC/OS [Mesos Master](/1.8/overview/compon
 </tr>
 </table>
 
-    
+
 ## Package service
 This information is collected from the DC/OS [Package service](/1.8/overview/components/#package-service) component.
 
@@ -126,7 +126,7 @@ This information is collected from the DC/OS [Package service](/1.8/overview/com
 </tr>
 <tr>
 <td>package_list</td>
-<td>Which packages are installed. For example, if you had Kafka and Spark: 
+<td>Which packages are installed. For example, if you had Kafka and Spark:
 <pre>"package_list": [
 {
 "name": "kafka"
@@ -285,3 +285,7 @@ The DC/OS UI sends two types of notifications to [Segment](https://segment.com/d
 
 - Login information
 - The pages you’ve viewed while navigating the UI
+
+## Opt-Out
+
+You can also choose to opt-out of the telemetry features. For more information, see the [documentation](/1.8/administration/installing/oss/opt-out/).
