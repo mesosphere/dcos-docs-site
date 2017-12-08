@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Documentation for Version 1.7
 title: Documentation for Version 1.7
-menuWeight: 0
+menuWeight: 4
 excerpt:
 featureMaturity:
 enterprise: true
