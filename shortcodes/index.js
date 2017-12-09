@@ -81,11 +81,17 @@ const shortcodes = {
     } else if (opts.type = 'inline' || 'inline-block') {
       type = 'inline';
     }
-    return sanitize(`
-    <span class="badge__container--${type}">
-      ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span>
-    </span>
-    `);
+    if (buf) {
+      return sanitize(`
+      ${buf} <span class="badge badge--shortcode badge--${size}badge--${type} badge--enterprise">Enterprise</span>
+      `);
+      } else {
+        return sanitize(`
+          <span class="badge__container badge__container--${type}">
+            <span class="badge badge--shortcode badge--${size}badge--${type} badge--enterprise">Enterprise</span>
+          </span>
+        `)
+      }
   },
 
   /**
@@ -106,11 +112,17 @@ const shortcodes = {
     } else if (opts.type = 'inline' || 'inline-block') {
       type = 'inline';
     }
+    if (buf) {
     return sanitize(`
-    <span class="badge__container--${type}">
-      ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span>
-    </span>
+    ${buf} <span class="badge badge--shortcode badge--${size}badge--${type} badge--oss">Open Source</span>
     `);
+    } else {
+      return sanitize(`
+        <span class="badge__container badge__container--${type}">
+          <span class="badge badge--shortcode badge--${size}badge--${type} badge--oss">Open Source</span>
+        </span>
+      `)
+    }
   },
 
 
@@ -132,11 +144,17 @@ const shortcodes = {
     } else if (opts.type = 'inline' || 'inline-block') {
       type = 'inline';
     }
-    return sanitize(`
-    <span class="badge__container--${type}">
-      ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span>
-    </span>
-    `);
+    if (buf) {
+      return sanitize(`
+      ${buf} <span class="badge badge--shortcode badge--${size}badge--${type} badge--beta">Beta</span>
+      `);
+      } else {
+        return sanitize(`
+          <span class="badge__container badge__container--${type}">
+            <span class="badge badge--shortcode badge--${size}badge--${type} badge--beta">Beta</span>
+          </span>
+        `)
+      }
   },
   /**
    * Switch

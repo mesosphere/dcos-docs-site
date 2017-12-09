@@ -323,6 +323,16 @@ Please try out the new features and updated data services. Provide any feedback 
 
 [/message]
 
+[message type="success"] This release candidate is for testing only and not to be used in production.
+
+Limitations:
+
+  * You must upgrade Marathon-LB before upgrading to DC/OS 1.10.0. See the <a href="#">upgrade section</a> for more information.
+  * During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
+Please try out the new features and updated data services. Provide any feedback through our support channel.
+
+[/message]
+
 ###### Example:
 
 [message]Test Message[/message]

@@ -7,10 +7,9 @@
   color: $color-light;
   background: $color-dark;
   font-weight: 500;
-  *:not(a):not(.badge) {
+  *:not(a):not(.badge):not(.tooltip) {
     color: inherit;
   }
-
   &--warning {
     border: 1px solid #F2D98E;
     color: $color-dark;
@@ -18,7 +17,6 @@
   }
   &--error {
     border: 1px solid #E77975;
-    // color: $color-light;
     color: $color-dark;
     background: #E77975;
   }
@@ -29,7 +27,7 @@
   }
   &--success {
     border: 1px solid #89DA71;
-    color: $color-light;
+    color: $color-dark;
     background: #89DA71;
   }
   &--outline {
@@ -44,11 +42,11 @@
   }
   &--outline-error {
     border: 1px solid #E77975;
-    color:  #E77975;
+    color: #E77975;
     background: transparent;
   }
   &--outline-info {
-    border: 1px solid ;
+    border: 1px solid;
     color: #505868;
     background: transparent;
   }
