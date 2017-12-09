@@ -11,17 +11,17 @@ $sidebarWidth: 250px;
   &__drawer {
     position: fixed;
     top: 0;
-    left: -80%;
+    left: -300px;
     display: block;
-    width: 80%;
-    transform: translateX(-80%);
+    width: 300px;
+    transform: translateX(-300px);
     transition: all 0.2s $ease-in-out-cubic;
     &--open {
       height: 100%;
       z-index: 30;
       transform: translateX(100%);
       + .layout__content {
-        transform: translateX(80%);
+        transform: translateX(300px);
       }
     }
   }
@@ -55,12 +55,12 @@ $sidebarWidth: 250px;
   }
   @include lg {
     &__sidebar {
-      width: $sidebarWidth + 20px;
+      width: $sidebarWidth + 25px;
       + .layout__content {
-        width: calc(100% - #{$sidebarWidth} - 20px);
-        margin-left: $sidebarWidth + 20px;
+        width: calc(100% - #{$sidebarWidth} - 25px);
+        margin-left: $sidebarWidth + 25px;
       .header {
-          width: calc(100% - #{$sidebarWidth} - 20px);
+          width: calc(100% - #{$sidebarWidth} - 25px);
         }
       }
     }
