@@ -68,7 +68,7 @@ For more information, see the installation [documentation](/1.7/administration/i
 
 We recommend using CoreOS, matched with its correct versions and sensible defaults of Docker, filesystem, and other settings.
 
-[1]: /docs/1.7/usage/service-discovery/load-balancing/
-[2]: /docs/1.7/usage/service-discovery/
+[1]: /1.7/usage/service-discovery/load-balancing/
+[2]: /1.7/usage/service-discovery/
 [4]: https://support.mesosphere.com/hc/en-us/articles/206474745-How-to-reserve-resources-for-certain-frameworks-in-Mesos-cluster-
-[5]: /docs/1.7/administration/installing/oss/custom/create-public-agent/
+[5]: /1.7/administration/installing/oss/custom/create-public-agent/

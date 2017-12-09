@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  Distributed DNS
 excerpt:
-title: Distributed DNS
+title: >
+    Design: Distributed DNS
+navigationTitle: Distributed DNS
 menuWeight: 3
 oss: true
 ---
-
 
 ## Background
 Tasks move around frequently in DC/OS, resources must be dynamically resolved by an application protocol, and they are referred to by name. This means that DNS is an integral part of DC/OS. Rather than implementing a ZooKeeper or Mesos client in every project, we've chosen DNS as the lingua franca for discovery amongst all of our components in DC/OS.
@@ -31,5 +31,5 @@ In addition to this watchdog, we also run genresolv, which checks whether or not
 ## DNS Forwarder Interface
 DNS Forwarder (Spartan) creates its own network interface. This interface is actually a dummy device called `spartan`. This device hosts 3 IPs, `198.51.100.1/32`, `198.51.100.2/32`, `198.51.100.3/32`. You can monitor the health of the DNS Forwarder (Spartan) component in the system health [dashboard][2].
 
-[1]: /docs/1.10/installing/oss/custom/configuration/configuration-parameters/
-[2]: /docs/1.10/monitoring/
+[1]: /1.10/installing/oss/custom/configuration/configuration-parameters/
+[2]: /1.10/monitoring/

@@ -17,6 +17,7 @@ For information about managing services, see [Managing Services](/1.10/deploying
 
 
 ## Routes
+Admin Router proxies three routes to the DC/OS Package Manager (Cosmos):
 
 | Route | Resource |
 |-------|----------|
@@ -25,9 +26,9 @@ For information about managing services, see [Managing Services](/1.10/deploying
 | `/capabilities` | `/capabilities` |
 
 
-## Authentication
+## Authorization (Enterprise Only)
 
-Enterprise edition users must authenticate Package Management API requests.
+All Package Management API routes require authentication to use.
 
 To authenticate API requests, see [Obtaining an authentication token](/1.10/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/ent/iam-api/#passing-an-authentication-token).
 
@@ -48,4 +49,4 @@ To assign permissions to your account, see [Assigning permissions](/1.10/securit
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.10/api/package-manager.yaml']
+[api-explorer api='/1.10/api/package-manager.yaml']

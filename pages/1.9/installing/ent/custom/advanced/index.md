@@ -272,10 +272,10 @@ To install DC/OS:
 Now you can [assign user roles][8].
 
 
- [1]: /docs/1.9/installing/ent/custom/system-requirements/
- [2]: /docs/1.9/installing/ent/custom/uninstall/
- [3]: /docs/1.9/overview/concepts/#public
- [4]: /docs/1.9/overview/concepts/#private
- [5]: /docs/1.9/img/chef-zk-status.png
- [7]: /docs/1.9/img/dashboard-ee.gif
- [8]: /docs/1.9/security/ent/
+ [1]: /1.9/installing/ent/custom/system-requirements/
+ [2]: /1.9/installing/ent/custom/uninstall/
+ [3]: /1.9/overview/concepts/#public
+ [4]: /1.9/overview/concepts/#private
+ [5]: /1.9/img/chef-zk-status.png
+ [7]: /1.9/img/dashboard-ee.gif
+ [8]: /1.9/security/ent/

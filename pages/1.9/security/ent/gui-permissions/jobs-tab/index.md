@@ -10,7 +10,7 @@ enterprise: true
 
 You can grant users access to the **Jobs** tab. By default, new users have no permissions.
 
-**Tip:** This procedure grants full user access to the **Jobs** tab and all the jobs inside of it. If you are running in `strict` or `permissive` [security mode](/1.9/overview/security/security-modes/) and want to configure fine-grained user access, see the [documentation](/1.9/deploying-services/service-groups/).
+**Tip:** This procedure grants full user access to the **Jobs** tab and all the jobs inside of it. If you are running in `strict` or `permissive` [security mode](/1.9/security/ent/#security-modes) and want to configure fine-grained user access, see the [documentation](/1.9/deploying-services/service-groups/).
 
 # <a name="jobs-access-via-ui"></a>Grant Access by using the GUI
 
@@ -34,7 +34,7 @@ You can grant users access to the **Jobs** tab. By default, new users have no pe
 
     ![Add permission](/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/overview/security/security-modes/) and click **ADD PERMISSIONS** and then **Close**.
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
     ## Disabled
     
@@ -98,7 +98,7 @@ You can grant users access to the **Jobs** tab. By default, new users have no pe
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/1.9/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:**
 

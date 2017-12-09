@@ -10,7 +10,7 @@ You can add users to your DC/OS cluster from a terminal by using the `dcos_add_u
 
 **Prerequisites:**
 
-- DC/OS is [installed](/1.10/installing/ent/)
+- DC/OS is [installed](/1.10/installing/oss/)
 
 
 1.  [SSH](/1.10/administering-clusters/sshcluster/) to a master node and run this command, where `<email>` is the user's email:
@@ -20,3 +20,8 @@ You can add users to your DC/OS cluster from a terminal by using the `dcos_add_u
     ```
     
 1.  Send the URL of your DC/OS cluster (e.g. `http://<public-master-ip>/`) to the new user. The user specified by `<email>` can now login and access the cluster.
+
+
+
+
+

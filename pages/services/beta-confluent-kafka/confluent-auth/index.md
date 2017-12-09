@@ -10,7 +10,7 @@ featureMaturity:
 enterprise: true
 ---
 
-This topic describes how to configure DC/OS access for Confluent Kafka. Depending on your [security mode](/1.9/overview/security/security-modes/), Confluent Kafka requires [service authentication](/1.9/security/ent/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Confluent Kafka. Depending on your [security mode](/1.9/overview/security/security-modes/), Confluent Kafka requires [service authentication](/1.10/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -18,7 +18,7 @@ This topic describes how to configure DC/OS access for Confluent Kafka. Dependin
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.9/security/ent/perms-reference/#superuser).
+If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.10/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
 
@@ -35,7 +35,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.9/security/ent/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/1.10/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 
@@ -97,7 +97,7 @@ Use the following curl commands to rapidly provision the Confluent Kafka service
 **Tips:**
 
 - Any `/` character in a resource must be replaced with `%252F` before it can be passed in a curl command.
-- When using the API to manage permissions, you must first create the permission and then assign it. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation and continue to the next command.
+- When using the API to manage permissions, you must first create the permissions and then assign them. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation and continue to the next command.
 
 1.  Create the permission.
 

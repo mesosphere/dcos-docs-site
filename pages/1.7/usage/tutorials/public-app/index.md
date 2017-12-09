@@ -66,6 +66,6 @@ DC/OS agent nodes can be designated as [public](/1.7/overview/concepts/#public) 
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 
- [1]: /docs/1.7/tutorials/containerized-app/
- [3]: /docs/1.7/administration/installing/oss/
- [4]: /docs/1.7/usage/cli/install/
+ [1]: /1.7/tutorials/containerized-app/
+ [3]: /1.7/administration/installing/oss/
+ [4]: /1.7/usage/cli/install/

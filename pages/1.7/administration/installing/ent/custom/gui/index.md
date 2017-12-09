@@ -37,7 +37,7 @@ The DC/OS installation creates these folders:
     </tr>
     <tr>
         <td><code>/var/lib/zookeeper<code></td>
-        <td>Contains the <a href="/docs/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
+        <td>Contains the <a href="/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
     </tr>
     <tr>
         <td><code>/var/lib/docker<code></td>
@@ -203,9 +203,9 @@ Now you can [assign user roles][6].
     ====> END OF SUMMARY FOR uninstall_dcos
     ```
 
- [1]: /docs/1.7/administration/installing/ent/custom/system-requirements/
+ [1]: /1.7/administration/installing/ent/custom/system-requirements/
  [2]: /assets/images/gui-installer-setup-ee.gif
- [3]: /docs/1.7/usage/service-discovery/
+ [3]: /1.7/usage/service-discovery/
  [4]: /assets/images/ui-installer-auth-1-7.gif
  [5]: /assets/images/dashboard-ee.gif
- [6]: /docs/1.7/administration/id-and-access-mgt/ent/
+ [6]: /1.7/administration/id-and-access-mgt/ent/

@@ -4,7 +4,7 @@ navigationTitle:  Limitations
 title: Limitations
 menuWeight: 80
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

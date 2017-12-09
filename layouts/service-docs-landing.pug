@@ -31,19 +31,6 @@ mixin renderGridToc()
                   a(href=val.path, class='grid-toc__link grid-toc__link--all') View All
                     img(class='grid-toc__link--all__arrow', src='/assets/right-arrow.svg')
 
-mixin renderGrid()
-  div(class='grid')
-    a(href='/1.10/installing', class='grid__item')
-      h3(class='grid__header') Install DC/OS
-      p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
-      div(class="grid__link")
-        i(data-feather='arrow-right')
-    a(href='https://support.mesosphere.com', class='grid__item')
-      h3(class='grid__header') Need Support?
-      p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
-      div(class="grid__link")
-        i(data-feather='arrow-right')
-
 doctype html
 html(lang='en')
   head
@@ -54,36 +41,16 @@ html(lang='en')
         include partials/header.pug
         div(class='landing__hero')
           h1(class='landing__title') DC/OS Service Docs
-
         div(class='landing__container')
           +renderGridToc()
-          +renderGrid()
-
-          div(class='landing__external')
-            div(class='landing__external-item')
-              //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
-              h3(class='landing__external-title')
-                a(class='landing__external-link') Get DC/OS Training
-              p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
-            div(class='landing__external-item')
-              //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
-              h3(class='landing__external-title')
-                a(class='landing__external-link') Join the Community
-              p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
-            div(class='landing__external-item')
-              //- img(class='landing__external-icon', src='http://via.placeholder.com/30x30')
-              h3(class='landing__external-title')
-                a(class='landing__external-link') Find us on Slack
-              p(class='landing__external-description') Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis vitae erat..
-
         footer(class='landing__footer')
           div(class='landing__footer__container')
-            img(class='landing__footer__logo', src='/assets/logo-logomark.svg')
+            a(class='landing__footer__logo__link', href='https://mesosphere.com/')
+              img(class='landing__footer__logo', src='/assets/logo-logomark.svg')
             div(class='landing__footer__menu')
               a(href='https://mesosphere.com/terms/') Terms of Service
               a(href='https://mesosphere.com/privacy/') Privacy Policy
-            div(class='landing__footer__copyright')!= copyright
+            a(class='landing__footer__copyright', href='https://mesosphere.com/')!= copyright
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
-
     include partials/scripts.pug

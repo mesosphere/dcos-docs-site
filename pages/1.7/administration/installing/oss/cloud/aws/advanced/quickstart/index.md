@@ -181,6 +181,6 @@ Public agents:
 
 For all of the advanced configuration options, see the template reference [documentation](/1.7/administration/installing/oss/cloud/aws/advanced/template-reference/).
 
- [2]: /docs/docs/1.7/usage/cli/install/
+ [2]: /1.7/usage/cli/install/
  [private_agent]: https://downloads.dcos.io/dcos/EarlyAccess/commit/14509fe1e7899f439527fb39867194c7a425c771/cloudformation/advanced-priv-agent.json
  [public_agent]: https://downloads.dcos.io/dcos/EarlyAccess/commit/14509fe1e7899f439527fb39867194c7a425c771/cloudformation/advanced-priv-agent.json

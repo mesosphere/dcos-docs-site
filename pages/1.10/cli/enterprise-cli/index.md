@@ -7,22 +7,18 @@ featureMaturity:
 enterprise: true
 ---
 
-The Enterprise DC/OS CLI is used to manage security features.
-
-# <a name="sys-reqs"></a>Requirements
-
-A macOS or Linux operating system. Windows is not currently supported.
+The Enterprise DC/OS CLI provides commands for DC/OS Enterprise features: `dcos security` and `dcos backup`.
 
 # <a name="ent-cli-install"></a>Installing the Enterprise DC/OS CLI
 
 **Prerequisite:** The DC/OS CLI must already be [installed](/1.10/cli/install/).
 
-**Tip:** The Enterprise DC/OS CLI must be installed from a terminal prompt. You cannot click on the package in the Catalog to install it.
+**Tip:** The Enterprise DC/OS CLI must be installed from the DC/OS CLI. You cannot install from the Catalog in the GUI.
 
 To install the Enterprise DC/OS CLI, issue the following command from a terminal prompt.
 
 ```bash
-dcos package install --cli dcos-enterprise-cli
+dcos package install dcos-enterprise-cli
 ```
 
 **Note:** Do not use `sudo`.
@@ -33,7 +29,7 @@ dcos package install --cli dcos-enterprise-cli
 A reinstall of the Enterprise DC/OS CLI upgrades the package.
 
 ```bash
-dcos package install --cli dcos-enterprise-cli
+dcos package install dcos-enterprise-cli
 ```
 
 
@@ -42,7 +38,7 @@ dcos package install --cli dcos-enterprise-cli
 To uninstall the Enterprise DC/OS CLI, issue the following command.
 
 ```bash
-dcos package uninstall --cli dcos-enterprise-cli
+dcos package uninstall dcos-enterprise-cli
 ```
 
 
@@ -582,13 +578,10 @@ Usage: dcos security secrets create [OPTIONS] PATH
 
 Options:
   -s, --store-id TEXT        Secrets backend to use.
-  -a, --author TEXT          Author.
-  -d, --description TEXT     Description.
   -v, --value TEXT           Value of the secret.
   -f, --value-file FILENAME  Treat contents of the file as value of the secret.
                              The contents are assumed to be text encoded via
                              UTF-8.
-  -l, --label TEXT           Label.
   -h, --help                 Show this message and exit.
 ```
 
@@ -654,13 +647,10 @@ Usage: dcos security secrets update [OPTIONS] PATH
 
 Options:
   -s, --store-id TEXT        Secrets backend to use.
-  -a, --author TEXT          Author.
-  -d, --description TEXT     Description.
   -v, --value TEXT           Value of the secret.
   -f, --value-file FILENAME  Treat contents of the file as value of the secret.
                              The contents are assumed to be text encoded via
                              UTF-8.
-  -l, --label TEXT           Label.
   -h, --help                 Show this message and exit.
 ```
 

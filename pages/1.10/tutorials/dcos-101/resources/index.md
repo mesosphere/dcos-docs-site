@@ -3,18 +3,17 @@ layout: layout.pug
 excerpt:
 title: Understanding Resources
 navigationTitle: Understanding Resources
-<<<<<<< HEAD
 menuWeight: 7
-=======
-menuWeight: 7
->>>>>>> 4f2bccd18019ce3393bf6efbd94321df9ce0a43a
+oss: true
 ---
+
+Welcome to part 7 of the DC/OS 101 Tutorial
+
+<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
 
 # Prerequisites
 * A [running DC/OS cluster](/1.10/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.10/tutorials/dcos-101/cli/).
 * [app2](/1.10/tutorials/dcos-101/app2/) deployed and running in your cluster.
-
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
 # Objective
 
@@ -24,8 +23,7 @@ Resource management and resource isolation between tasks are core functions of a
 
 ## Review App Definition
 
-
-* Take another look at the app definition for [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go).
+* Take another look at the app defintion for [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go).
 
 ```
   {
@@ -59,7 +57,7 @@ Horizontal scaling involves increasing the number of instances of an application
 
 **Scale dcos-101 application group:** 
 
-Since both app1 and app2 share the same app group, we can scale them together.
+Since both appl and app2 share the same app group, we can scale them together.
 
 * Scale up by a factor of 2: 
 
@@ -194,7 +192,7 @@ So, check your app for correct behavior and/or increase the allocated memory.
   
 * Remove the app:
 
-`dcos marathon app remove /dcos-101/oom-app`
+`dcos marathon app remove /dcoc-101/oom-app`
 
 # Outcome
 

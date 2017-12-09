@@ -278,7 +278,7 @@ To demonstrate the vhost feature:
 
     ![lb6](../img/lb6.jpg)
 
- [1]: /docs/1.8/administration/installing/oss/
- [2]: /docs/1.8/usage/cli/install/
- [3]: /docs/1.8/administration/locate-public-agent/
- [4]: /docs/1.8/administration/access-node/sshcluster/
+ [1]: /1.8/administration/installing/oss/
+ [2]: /1.8/usage/cli/install/
+ [3]: /1.8/administration/locate-public-agent/
+ [4]: /1.8/administration/access-node/sshcluster/

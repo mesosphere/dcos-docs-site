@@ -18,7 +18,7 @@ Here is the [permission](/1.10/security/ent/perms-reference/) that is required t
 
 **Prerequisites:** 
 
-- DC/OS and DC/OS CLI are [installed](/1.10/installing/ent/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/1.10/installing/oss/) and you are logged in as a superuser.
 
 # Via the DC/OS GUI
 
@@ -69,7 +69,7 @@ Here is the [permission](/1.10/security/ent/perms-reference/) that is required t
 # Via the IAM API
 
 **Prerequisite:** 
-If your [security mode](/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 
@@ -78,21 +78,10 @@ If your [security mode](/1.10/overview/security/security-modes/) is `permissive`
 
 ### <a name="grant-perm"></a>Create and Grant the Permissions
 
-   
-1. Use the following command to create the permission. 
+1. Grant the permission to the user (`<username>`).
 
    ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-logs \
-   -d '{"description":"Grants access to system and component logs."}'
-   ```
-
-1. Use the following command to grant the permission to the user (`<username>`).
-
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-logs/users/<username>/full
+   dcos security org users grant <username> dcos:adminrouter:ops:system-logs full --description "Grants access to system and component logs."
    ```
    
 ### <a name="verify-perms"></a>Log In to the CLI As User

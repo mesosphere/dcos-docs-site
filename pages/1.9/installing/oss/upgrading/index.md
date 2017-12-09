@@ -35,6 +35,9 @@ Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, bu
 - The full DC/OS version string that you are upgrading from.
   - In 1.8 this can be found in the lower left corner of the DC/OS UI when screen is maximized.
   - In 1.9 this can be found under the Cluster menu.
+- Verify that all your masters are in a healthy state: 
+   - Check the Exhibitor UI to confirm that all masters have joined the quorum successfully (the status indicator will show green). The Exhibitor UI is available at `http://<dcos_master>:8181/`.
+   - Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1` for each master.
 
 ## Supported upgrade paths
 
@@ -140,4 +143,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.9 Universe are newer than those in the DC/OS 1.8 Universe. Services are not automatically upgraded when DC/OS 1.9 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /docs/1.9/installing/oss/custom/advanced/
+[advanced-install]: /1.9/installing/oss/custom/advanced/

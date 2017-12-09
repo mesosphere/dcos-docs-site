@@ -113,12 +113,12 @@ DC/OS uses ZooKeeper, a high-performance coordination service to manage the inst
 
 [1]: #private
 [2]: #public
-[3]: /docs/1.7/administration/installing/oss/cloud/
+[3]: /1.7/administration/installing/oss/cloud/
 [4]: http://mesos.apache.org/documentation/latest/containerizers/
 [5]: https://github.com/mesosphere/universe
 [6]: http://mesos.apache.org/documentation/latest/app-framework-development-guide/
 [8]: #agent
 [9]: http://mesos.apache.org/documentation/latest/configuration/
 [10]: https://github.com/mesosphere/mesos-dns
-[11]: /docs/1.7/administration/securing-your-cluster/
+[11]: /1.7/administration/securing-your-cluster/
 [12]: https://en.wikipedia.org/wiki/Dynamic_Analysis_and_Replanning_Tool

@@ -131,7 +131,7 @@ In this step you create a YAML configuration file that is customized for your en
     customer_key: <customer-key>
     exhibitor_storage_backend: static
     master_discovery: static 
-    ip_detect_public_filename: <path-to-ip-script>
+    ip_detect_public_filename: <relative-path-to-ip-script>
     master_list:
     - <master-private-ip-1>
     - <master-private-ip-2>
@@ -141,8 +141,7 @@ In this step you create a YAML configuration file that is customized for your en
     - 8.8.8.8
     # Choose your security mode: permissive, strict, or disabled
     security: <security-mode>
-    superuser_password_hash: <hashed-password>
-    superuser_username: <username>
+    # A custom proxy is optional. For details, see the config documentation.
     use_proxy: 'true'
     http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
     https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
@@ -265,17 +264,17 @@ To install DC/OS:
     
     You are done!
     
-    ![UI dashboard](/1.10/img/dashboard-ee.gif)
+    ![UI dashboard](/1.10/img/dashboard-ee.png)
 
 ### Next Steps
 
 Now you can [assign user roles][8].
 
 
- [1]: /docs/1.10/installing/ent/custom/system-requirements/
- [2]: /docs/1.10/installing/ent/custom/uninstall/
- [3]: /docs/1.10/overview/concepts/#public
- [4]: /docs/1.10/overview/concepts/#private
- [5]: /docs/1.10/img/chef-zk-status.png
- [7]: /docs/1.10/img/dashboard-ee.gif
- [8]: /docs/1.10/security/
+ [1]: /1.10/installing/ent/custom/system-requirements/
+ [2]: /1.10/installing/ent/custom/uninstall/
+ [3]: /1.10/overview/concepts/#public
+ [4]: /1.10/overview/concepts/#private
+ [5]: /1.10/img/chef-zk-status.png
+ [7]: /1.10/img/dashboard-ee.png
+ [8]: /1.10/security/ent/

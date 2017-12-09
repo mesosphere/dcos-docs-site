@@ -4,7 +4,7 @@ navigationTitle:  Beta DSE 1.1.8-5.1.2-beta
 title: Beta DSE 1.1.8-5.1.2-beta
 menuWeight: 0
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

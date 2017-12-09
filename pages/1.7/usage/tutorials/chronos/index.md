@@ -89,7 +89,7 @@ Chronos is the "cron" for your Mesosphere DC/OS. It is a highly-available distri
 
  [1]: #chronosinstall
  [2]: #uninstall
- [3]: /docs/1.7/usage/cli/install/
- [4]: /docs/1.7/usage/cli/command-reference/
- [5]: /docs/1.7/administration/installing/
- [6]: /docs/1.7/usage/tutorials/chronos/creating-a-scheduled-job/
+ [3]: /1.7/usage/cli/install/
+ [4]: /1.7/usage/cli/command-reference/
+ [5]: /1.7/administration/installing/
+ [6]: /1.7/usage/tutorials/chronos/creating-a-scheduled-job/

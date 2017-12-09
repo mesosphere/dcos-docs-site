@@ -22,7 +22,7 @@ A named VIP contains these components:
 
 You can assign a VIP to your application from the DC/OS GUI. The values you enter when you deploy a new service are translated into these Marathon application definition entries:
 
-- `portDefininitions` if not using Docker containers
+- `portDefinitions` if not using Docker containers
 - `portMappings` if using Docker containers
 
 VIPs follow this naming convention:
@@ -80,7 +80,7 @@ Follow these steps to view the VIP for Kafka.
 1.  Run this command: 
 
     ```bash
-    dcos kafka connection
+    dcos kafka endpoints broker
     ```
     
     The output should resemble:
@@ -106,4 +106,4 @@ You can use this VIP to address any one of the Kafka brokers in the cluster.
 
 This behavior is often experienced with applications that have long lived connections, such as databases (e.g. PostgreSQL). To fix, try turning on keepalives. The keepalive can be an application specific mechanism like a heartbeat, or something in the protocol like a TCP keepalive. A keepalive is required because a load balancer cannot differentiate between idle or dead connections as no packets are sent in either case. The default timeout depends on the kernel configuration, but is usually 5 minutes.
 
- [1]: /docs/1.10/deploying-services/service-ports/
+ [1]: /1.10/deploying-services/service-ports/

@@ -201,11 +201,11 @@ Publicly accessible applications are run in the public agent node. Public agent 
     mesos-slave[1080]: I1118 14:00:43.697928  1080 slave.cpp:395] Slave checkpoint: true
     ```
 
- [1]: /docs/docs/1.7/administration/installing/oss/custom/configuration-parameters/#scrollNav-5
+ [1]: /1.7/administration/installing/oss/custom/configuration-parameters/#scrollNav-5
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /docs/docs/1.7/administration/installing/oss/custom/configuration-parameters/#scrollNav-7
- [4]: /docs/docs/1.7/overview/architecture/#boot
- [5]: /docs/docs/1.7/administration/installing/oss/custom/configuration-parameters
- [6]: /docs/docs/1.7/administration/sshcluster/
- [7]: /docs/docs/1.7/usage/webinterface/
+ [3]: /1.7/administration/installing/oss/custom/configuration-parameters/#scrollNav-7
+ [4]: /1.7/overview/architecture/#boot
+ [5]: /1.7/administration/installing/oss/custom/configuration-parameters
+ [6]: /1.7/administration/sshcluster/
+ [7]: /1.7/usage/webinterface/
 

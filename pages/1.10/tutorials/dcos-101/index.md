@@ -3,6 +3,7 @@ layout: layout.pug
 excerpt:
 title: DC/OS 101
 menuWeight: 0
+oss: true
 ---
 
 This DC/OS 101 tutorial will guide you through the steps necessary to get started using DC/OS.
@@ -23,11 +24,11 @@ The DC/OS 101 tutorial includes the following sessions:
 1. [Understanding Resources][7]
 1. [Load-Balancing][8]
 
-[1]: /docs/1.10/tutorials/dcos-101/cli/
-[2]: /docs/1.10/tutorials/dcos-101/redis-package/
-[3]: /docs/1.10/tutorials/dcos-101/app1/
-[4]: /docs/1.10/tutorials/dcos-101/service-discovery/
-[5]: /docs/1.10/tutorials/dcos-101/app2/
-[6]: /docs/1.10/tutorials/dcos-101/marathon-lb/
-[7]: /docs/1.10/tutorials/dcos-101/resources/
-[8]: /docs/1.10/tutorials/dcos-101/loadbalancing/
+[1]: /1.10/tutorials/dcos-101/cli/
+[2]: /1.10/tutorials/dcos-101/redis-package/
+[3]: /1.10/tutorials/dcos-101/app1/
+[4]: /1.10/tutorials/dcos-101/service-discovery/
+[5]: /1.10/tutorials/dcos-101/app2/
+[6]: /1.10/tutorials/dcos-101/marathon-lb/
+[7]: /1.10/tutorials/dcos-101/resources/
+[8]: /1.10/tutorials/dcos-101/loadbalancing/

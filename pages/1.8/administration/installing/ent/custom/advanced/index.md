@@ -267,10 +267,10 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 Now you can [assign user roles][8].
 
 
- [1]: /docs/1.8/administration/installing/ent/custom/system-requirements/
- [2]: /docs/1.8/administration/installing/ent/custom/uninstall/
- [3]: /docs/1.8/overview/concepts/#public
- [4]: /docs/1.8/overview/concepts/#private
+ [1]: /1.8/administration/installing/ent/custom/system-requirements/
+ [2]: /1.8/administration/installing/ent/custom/uninstall/
+ [3]: /1.8/overview/concepts/#public
+ [4]: /1.8/overview/concepts/#private
  [5]: /assets/images/chef-zk-status.png
  [7]: /assets/images/dashboard-ee.gif
- [8]: /docs/1.8/administration/id-and-access-mgt/
+ [8]: /1.8/administration/id-and-access-mgt/

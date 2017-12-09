@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos experimental
-title: dcos experimental
+navigationTitle:  dcos experimental add
+title: dcos experimental add
 menuWeight: 0
 excerpt:
 featureMaturity:

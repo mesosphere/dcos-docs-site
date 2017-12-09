@@ -100,7 +100,7 @@ If you've created a new resource group in the deployment step, it is as easy as 
 - [Use your cluster][4]
 - [Scaling considerations][3]
 
-[1]: /docs/docs/1.7/usage/cli/install/
+[1]: /1.7/usage/cli/install/
 [3]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/
-[4]: /docs/docs/1.7/usage/
-[10]: /docs/docs/1.7/administration/user-management/
+[4]: /1.7/usage/
+[10]: /1.7/administration/user-management/

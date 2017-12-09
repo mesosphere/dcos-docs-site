@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.0 Beta 2
 title: Release Notes for 1.10.0 Beta 2
-menuWeight: 20
+menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: true
@@ -17,10 +17,10 @@ enterprise: true
 <li>Upgrades from 1.10 Beta 1 to 1.10 Beta 2 are not currently supported.</li>
 <li>DC/OS 1.10 requires CLI version 0.5.3.
   <ul>
-  <li><a href="/docs/1.10/cli/uninstall/">Uninstall the existing CLI</a>.</li>
+  <li><a href="/1.10/cli/uninstall/">Uninstall the existing CLI</a>.</li>
   <li>Install version 0.5.3 using the <strong>Install CLI</strong> instructions in the dropdown in the upper left hand corner of the 1.10 DC/OS GUI.</li>
   </ul>
-<li>You must upgrade Marathon-LB _before_ upgrading to DC/OS 1.10. See the [upgrade section](/1.10/installing/upgrading/) for more information.</li>
+<li>You must upgrade Marathon-LB _before_ upgrading to DC/OS 1.10. See the [upgrade section](/1.10/installing/oss/upgrading/) for more information.</li>
 <strong>Note:</strong> CLI version 0.5.3 is not compatible with DC/OS 1.9.</li>
 </ul>
 <br />
@@ -62,7 +62,7 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 
 ## Security
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/installing/custom/configuration/configuration-parameters/#security-and-authentication) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
+  Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only-and-authentication) have been added that allow you to configure Enterprise DC/OS to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
 - Increased Admin Router security. <!-- ie TLS not supported out-of-the-box; where is the doc? is this enterprise-only?-->
 
@@ -92,7 +92,7 @@ The following updated data services packages are also in beta and are compatible
 
 ## Platform
 - Node and Cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/custom/node-cluster-health-check/).
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
 - Enhanced upgrades with [backup and restore](1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
 - UCR. <!-- have there been updates? -->
 - Scale and performance limits.
@@ -125,7 +125,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
 
 - REX-Ray configuration change
-  DC/OS 1.10 upgrades REX-Ray from v03.3. to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/custom/configuration/configuration-parameters/#rexray_config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
+  DC/OS 1.10 upgrades REX-Ray from v03.3. to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray_config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in
   The new command to set up your cluster URL is `dcos cluster setup <dcos_url>`. This change breaks any existing tooling that uses the former command `dcos config set core.dcos_url <dcos_url>`. Backwards compatibility is slated for a future patch release.

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Installing and Customizing on Enterprise DC/OS
-menuWeight: 0
+title: Install and Customize on Enterprise DC/OS
+menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: true
@@ -11,9 +11,9 @@ enterprise: true
 
 ## About installing Marathon-LB
 
-The installation procedure varies according to your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security). Refer to the section that corresponds to your security mode for step-by-step instructions.
+The installation procedure varies according to your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only). Refer to the section that corresponds to your security mode for step-by-step instructions.
 
-- [`disabled` and `permissive` [modes](#mlb-disabled-install)
+- [`disabled` and `permissive` modes](#mlb-disabled-install)
 - [`strict` mode](#mlb-strict-perm-install)
 
 ## <a name="mlb-disabled-install"></a>Installing in disabled and permissive modes
@@ -42,15 +42,19 @@ dcos package install --options=config.json marathon-lb
 
 ### Using the Catalog
 
-To install Marathon-LB from the Catalog in `disabled`and `permissive` modes, log into the DC/OS web interface as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
+To install Marathon-LB from the Catalog in `disabled` and `permissive` modes, log into the DC/OS web interface as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
 
-Click the **Catalog** tab. Locate the Marathon-LB package. To install with the default settings, click **DEPLOY**. To customize Marathon-LB, click **CONFIGURE**, customize, and then click **REVIEW AND DEPLOY**.
+1. Click the **Catalog** tab. 
+2. Locate the **marathon-lb** package. 
+3. Click **REVIEW & RUN**. 
+4. To optionally customize Marathon-LB, click **EDIT**, customize parameters, then click **REVIEW AND RUN**.
+5. Click **RUN SERVICE**.
 
 ## <a name="mlb-strict-perm-install"></a>Installing in strict mode
 
 **Prerequisites:**
 
-- Marathon-LB requires a service account in `strict` [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.10/networking/marathon-lb/mlb-auth/) for instructions.
+- Marathon-LB requires a service account in `strict` [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.10/networking/marathon-lb/mlb-auth/) for instructions.
 
 - [DC/OS CLI installed](/1.10/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
 
@@ -72,7 +76,7 @@ dcos package install --options=config.json marathon-lb
 - [Tutorial - Using Marathon-LB for Internal and External Load Balancing](/1.10/networking/marathon-lb/marathon-lb-advanced-tutorial/)
 - See the advanced Marathon-LB [documentation](/1.10/networking/marathon-lb/advanced/).
 
- [1]: /docs/1.10/installing/ent/
- [2]: /docs/1.10/cli/install/
- [3]: /docs/1.10/administering-clusters/managing-aws/
- [4]: /docs/1.10/administering-clusters/sshcluster/
+ [1]: /1.10/installing/oss/
+ [2]: /1.10/cli/install/
+ [3]: /1.10/administering-clusters/managing-aws/
+ [4]: /1.10/administering-clusters/sshcluster/

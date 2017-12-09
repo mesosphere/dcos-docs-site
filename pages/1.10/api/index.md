@@ -5,13 +5,13 @@ title: API Reference
 menuWeight: 150
 excerpt:
 featureMaturity:
-enterprise: true
+enterprise: false
 ---
 
 The DC/OS API is a collection of routes backed by [DC/OS components](/1.10/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/1.10/overview/architecture/components/#admin-router).
 
 <!-- Use html img for horizontal centering -->
-<img src="/docs/1.10/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
+<img src="/1.10/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 
 
 # API Gateway

@@ -20,7 +20,7 @@ A named VIP contains 3 components:
 
 You can assign a VIP to your application from the DC/OS web interface. The values you enter when you deploy a new service are translated into these Marathon application definition entries:
 
-- `portDefininitions` if not using Docker containers
+- `portDefinitions` if not using Docker containers
 - `portMappings` if using Docker containers
 
 VIPs follow this naming convention:
@@ -104,4 +104,4 @@ Here is a sample response:
 
 You can use this VIP to address any one of the Kafka brokers in the cluster.
 
- [1]: /docs/1.8/usage/managing-services/service-ports/
+ [1]: /1.8/usage/managing-services/service-ports/

@@ -4,7 +4,7 @@ navigationTitle:  >
 title: >
   Reinitializing the Secret Store with a
   custom GPG keypair
-menuWeight: 4
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: true

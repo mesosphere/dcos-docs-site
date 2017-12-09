@@ -31,6 +31,6 @@ Your new machines will take a few minutes to initialize; you can watch them in t
 
 See the upgrade [documentation](/1.8/administration/installing/oss/cloud/aws/upgrading/).
 
- [1]: /docs/1.8/administration/securing-your-cluster/
- [2]: /docs/1.8/administration/installing/oss/cloud/aws/
+ [1]: /1.8/administration/securing-your-cluster/
+ [2]: /1.8/administration/installing/oss/cloud/aws/
  [3]: https://console.aws.amazon.com/cloudformation/home

@@ -20,7 +20,7 @@ These configuration parameters are specified in [YAML][1] format in your config.
 This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.8/overview/concepts/#private) host names.
 
 ### bootstrap_url
-This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: file:///opt/dcos_install_tmp` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
+This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: http://<bootstrap_ip>:<your_port>` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
 
 ### cluster_name
 This parameter specifies the name of your cluster.
@@ -103,13 +103,13 @@ This parameter specifies whether to enable DC/OS virtual networks.
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. When the virtual network is enabled you can also specify the following parameters:
 
-    *  `dcos_overlay_config_attempts` This parameter specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure an virtual network.
+    *  `dcos_overlay_config_attempts` This parameter specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure a virtual network.
 
         __Tip:__ The failures might be related to a malfunctioning Docker daemon.
 
     *  `dcos_overlay_mtu` This parameter specifies the maximum transmission unit (MTU) of the Virtual Ethernet (vEth) on the containers that are launched on the overlay.
 
-    *  `dcos_overlay_network` This group of parameters define an virtual network for DC/OS.  The default configuration of DC/OS provides an virtual network named `dcos` whose YAML configuration is as follows:
+    *  `dcos_overlay_network` This group of parameters define a virtual network for DC/OS.  The default configuration of DC/OS provides a virtual network named `dcos` whose YAML configuration is as follows:
 
         ```
         dcos_overlay_network:
@@ -314,7 +314,7 @@ ssh_user: <username>
     - <agent-private-ip-2>
     - <agent-private-ip-3>
     # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-    bootstrap_url: file:///opt/dcos_install_tmp
+    bootstrap_url: http://<bootstrap_ip>:<your_port>
     cluster_name: <cluster-name>
     master_discovery: static
     master_list:
@@ -351,7 +351,7 @@ ssh_user: <username>
     - <agent-private-ip-2>
     - <agent-private-ip-3>
     # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-    bootstrap_url: file:///opt/dcos_install_tmp
+    bootstrap_url: http://<bootstrap_ip>:<your_port>
     cluster_name: <cluster-name>
     master_discovery: static
     master_list:

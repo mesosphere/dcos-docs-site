@@ -128,5 +128,5 @@ In this tutorial, a custom Docker app is created and added to Marathon.
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /docs/1.7/administration/installing/oss/
- [4]: /docs/1.7/usage/cli/install/
+ [3]: /1.7/administration/installing/oss/
+ [4]: /1.7/usage/cli/install/

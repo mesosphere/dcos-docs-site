@@ -4,7 +4,7 @@ navigationTitle:  Kafka
 title: Kafka
 menuWeight: 60
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

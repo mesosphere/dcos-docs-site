@@ -48,4 +48,4 @@ To manage users:
 
 ## Next Steps
 
-For more information on security, check out [Security and Authentication](/1.10/security/)
+For more information on security, check out [Security and Authentication](/1.10/security/ent/oss/)

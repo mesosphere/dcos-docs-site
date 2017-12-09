@@ -4,7 +4,7 @@ navigationTitle:  Cassandra
 title: Cassandra
 menuWeight: 0
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

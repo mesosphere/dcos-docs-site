@@ -50,6 +50,6 @@ Unfortunately, streaming logs from machines in your cluster isn’t always viabl
 - [ELK][2]
 - [Splunk][3]
 
-[1]: /docs/1.7/usage/cli/
+[1]: /1.7/usage/cli/
 [2]: ../elk/
 [3]: ../splunk/

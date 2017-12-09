@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Debugging from the DC/OS Web Interface
-menuWeight: 30
+menuWeight: 0
 excerpt:
 featureMaturity: preview
 enterprise: false

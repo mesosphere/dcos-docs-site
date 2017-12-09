@@ -22,11 +22,11 @@ The DC/OS 101 tutorial includes the following sessions:
 * [Understanding Resources][7]
 * [Load-balancing][8]
 
-[1]: /docs/1.8/usage/tutorials/dcos-101/cli/
-[2]: /docs/1.8/usage/tutorials/dcos-101/redis-package/
-[3]: /docs/1.8/usage/tutorials/dcos-101/app1/
-[4]: /docs/1.8/usage/tutorials/dcos-101/service-discovery/
-[5]: /docs/1.8/usage/tutorials/dcos-101/app2/
-[6]: /docs/1.8/usage/tutorials/dcos-101/marathon-lb/
-[7]: /docs/1.8/usage/tutorials/dcos-101/resources/
-[8]: /docs/1.8/usage/tutorials/dcos-101/loadbalancing/
+[1]: /1.8/usage/tutorials/dcos-101/cli/
+[2]: /1.8/usage/tutorials/dcos-101/redis-package/
+[3]: /1.8/usage/tutorials/dcos-101/app1/
+[4]: /1.8/usage/tutorials/dcos-101/service-discovery/
+[5]: /1.8/usage/tutorials/dcos-101/app2/
+[6]: /1.8/usage/tutorials/dcos-101/marathon-lb/
+[7]: /1.8/usage/tutorials/dcos-101/resources/
+[8]: /1.8/usage/tutorials/dcos-101/loadbalancing/

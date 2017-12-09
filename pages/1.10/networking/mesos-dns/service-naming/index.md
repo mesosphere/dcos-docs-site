@@ -260,7 +260,7 @@ Mesos-DNS generates a few special records:
 
 *   For the leading master: A record (`leader.mesos`) and SRV records (`_leader._tcp.mesos` and `_leader._udp.mesos`)
 *   For all service schedulers: A records (`myservice.mesos`) and SRV records (`_myservice._tcp.myservice.mesos`)
-*   For every known DC/OS master: A records (`master.mesos`) and SRV records (`_master._tcp.mesos` and `_master._udp.mesos`)
+*   For every known DC/OS master: A records (`master.mesos`)
 *   For every known DC/OS agent: A records (`slave.mesos`) and SRV records (`_slave._tcp.mesos`)
 
 **Important:** To query the leading master node, always query `leader.mesos`, not `master.mesos`. See [this FAQ entry][2] for more information.
@@ -413,6 +413,6 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
 
 
 
- [1]: /docs/1.10/overview/concepts/
+ [1]: /1.10/overview/concepts/
  [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc952

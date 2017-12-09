@@ -4,7 +4,7 @@ navigationTitle:  Disaster Recovery
 title: Disaster Recovery
 menuWeight: 90
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

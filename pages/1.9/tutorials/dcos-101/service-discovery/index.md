@@ -35,7 +35,7 @@ SSH into the Mesos master node in your cluster to see how these different servic
   
   [Mesos-DNS](/1.9/networking/mesos-dns/) assigns DNS entries for every task, which are resolvable from any node in the cluster. The naming pattern for these entries is  *task.scheduler.mesos*
   
-  The default scheduler for jobs is [Marathon](https://dcos.io/docs/1.9/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
+  The default scheduler for jobs is [Marathon](https://dcos.io/1.9/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
   
   Let's use the [dig](https://linux.die.net/man/1/dig) command to retrieve the address record (also called the A record). Dig is a command line utility to query DNS servers. When used without argument, it will use the system-wide configured DNS servers to query against, which in a DC/OS cluster is configured to point at Mesos-DNS: 
 

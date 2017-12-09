@@ -1,66 +1,185 @@
 ---
 layout: layout.pug
-navigationTitle:  Filtering Logs with ELK
-title: Filtering Logs with ELK
-menuWeight: 2
+navigationTitle:  Log Management with ELK
 excerpt:
-featureMaturity:
-enterprise: false
+title: Log Management with ELK
+menuWeight: 1
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document does not explain how to setup and configure an Elasticsearch server.
 
-The file system paths of DC/OS task logs contain information such as the agent ID, framework ID, and executor ID. You can use this information to filter the log output for specific tasks, applications, or agents.
+These instructions are based on CentOS 7 and might differ substantially from other Linux distributions.
 
-**Prerequisite**
+**Important:**
+- This document describes how to directly stream from Filebeat into Elasticsearch. Logstash is not used in this architecture. If you're interested in filtering, parsing and grok'ing the logs with an intermediate Logstash stage, see the Logstash [documentation][8] and the example in [Filtering logs with ELK][3].
+- This document does not describe how to set up secure TLS communication between the Filebeat instances and Elasticsearch. For details on how to achieve this, see the [Filebeat][2] and [Elasticsearch][5] documentation.
 
-*   [An ELK stack that aggregates DC/OS logs][1]
+**Prerequisites**
 
-# <a name="usage"></a>Usage Example
+*   An existing Elasticsearch installation that can ingest data for indexing.
+*   All DC/OS nodes must be able to connect to your Elasticsearch server on the port used for communication between Elasticsearch and Filebeat (9200 by default).
 
-In the screenshots below, we are using Kibana hosted by [logz.io][2], but your Kibana interface will look similar.
+# <a name="all"></a>Step 1: All nodes
 
-For example, you can type `framework:*` into the Search field. This will show all of the events where the `framework` field is defined:
+For all nodes in your DC/OS cluster:
 
-![Logstash Example](../img/logstash-framework-exists.png)
+1.  Install Elastic's [Filebeat][2].
 
-Click the disclosure triangle next to one of these events to view the details. This will show all of the fields extracted from the task log file path:
+    ```bash
+    curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.0-x86_64.rpm
+    sudo rpm -vi filebeat-5.0.0-x86_64.rpm
+    ```
 
-![Logstash Example2](../img/logstash-fields.png)
+1.  Create the `/var/log/dcos` directory:
 
-Finally, let's search for all of the events that reference the framework ID of the event shown in the screenshot above, but that do not contain the chosen `framework` field. This will show only non-task results:
+    ```bash
+    sudo mkdir -p /var/log/dcos
+    ```
+1.  Move the default Filebeat configuration file to a backup copy:
 
-![Logstash Framework Search](../img/logstash-framework-search.png)
+    ```bash
+    sudo mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.BAK
+    ```
+    
+1.  Populate a new `filebeat.yml` configuration file, including an additional input entry for the file `/var/log/dcos/dcos.log`. The additional log file will be used to capture the DC/OS logs in a later step. Remember to substitute the variables `$ELK_HOSTNAME` and `$ELK_PORT` below for the actual values of the host and port where your Elasticsearch is listening on.
 
-# <a name="templates"></a>Template Examples
+    ```bash
+    filebeat.prospectors:
+    - input_type: log
+      paths:
+        - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stdout*
+        - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stderr*
+        - /var/log/mesos/*.log
+        - /var/log/dcos/dcos.log
+    tail_files: true
+    output.elasticsearch:
+      hosts: ["$ELK_HOSTNAME:$ELK_PORT"]
+    ```
 
-Here are some example query templates. Replace the template parameters `$executor1`, `$framework2`, and any others with the actual values from your cluster.
+# <a name="master"></a>Step 2a: Master nodes
 
-**Important:** Do not change the quotation marks in these examples or the queries will not work. If you create custom queries, be careful with the placement of quotation marks.
+For each master node in your DC/OS cluster:
 
-*   Logs related to a specific executor `$executor1`, including logs for tasks run from that executor:
+1.  Create a script that parses the output of the DC/OS master `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
 
-        "$executor1"
+    **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
 
-*   Non-task logs related to a specific executor `$executor1`:
+    ```bash
+    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF
+    [Unit]
+    Description=DCOS journalctl parser to filebeat
+    Wants=filebeat.service
+    After=filebeat.service
+    
+    [Service]
+    Restart=always
+    RestartSec=5
+    ExecStart=/bin/sh -c '/usr/bin/journalctl --no-tail -f \
+    -u dcos-3dt.service \
+    -u dcos-3dt.socket \
+    -u dcos-adminrouter-reload.service \
+    -u dcos-adminrouter-reload.timer \
+    -u dcos-adminrouter.service \
+    -u dcos-bouncer.service \
+    -u dcos-ca.service \
+    -u dcos-cfn-signal.service \
+    -u dcos-cosmos.service \
+    -u dcos-download.service \
+    -u dcos-epmd.service \
+    -u dcos-exhibitor.service \
+    -u dcos-gen-resolvconf.service \
+    -u dcos-gen-resolvconf.timer \
+    -u dcos-history.service \
+    -u dcos-link-env.service \
+    -u dcos-logrotate-master.timer \
+    -u dcos-marathon.service \
+    -u dcos-mesos-dns.service \
+    -u dcos-mesos-master.service \
+    -u dcos-metronome.service \
+    -u dcos-minuteman.service \
+    -u dcos-navstar.service \
+    -u dcos-networking_api.service \
+    -u dcos-secrets.service \
+    -u dcos-setup.service \
+    -u dcos-signal.service \
+    -u dcos-signal.timer \
+    -u dcos-spartan-watchdog.service \
+    -u dcos-spartan-watchdog.timer \
+    -u dcos-spartan.service \
+    -u dcos-vault.service \
+    -u dcos-logrotate-master.service \
+    > /var/log/dcos/dcos.log 2>&1'
+    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
+    
+    [Install]
+    WantedBy=multi-user.target
+    EOF
+    ```
 
-        "$executor1" AND NOT executor:$executor1
+# <a name="agent"></a>Step 2b: Agent nodes
 
-*   Logs (including task logs) for a framework `$framework1`, if `$executor1` and `$executor2` are that framework's executors:
+For each agent node in your DC/OS cluster:
 
-        "$framework1" OR "$executor1" OR "$executor2"
+1.  Create a script that parses the output of the DC/OS agent `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
 
-*   Non-task logs for a framework `$framework1`, if `$executor1` and `$executor2` are that framework's executors:
+    **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
 
-        ("$framework1" OR "$executor1" OR "$executor2") AND NOT (framework:$framework1 OR executor:$executor1 OR executor:$executor2)
+    ```bash
+    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF 
+    [Unit]
+    Description=DCOS journalctl parser to filebeat
+    Wants=filebeat.service
+    After=filebeat.service
+    
+    [Service]
+    Restart=always
+    RestartSec=5
+    ExecStart=/bin/sh -c '/usr/bin/journalctl --no-tail -f \
+    -u dcos-3dt.service \
+    -u dcos-logrotate-agent.timer \
+    -u dcos-3dt.socket \
+    -u dcos-mesos-slave.service \
+    -u dcos-adminrouter-agent.service \
+    -u dcos-minuteman.service \
+    -u dcos-adminrouter-reload.service \
+    -u dcos-navstar.service \
+    -u dcos-adminrouter-reload.timer \
+    -u dcos-rexray.service \
+    -u dcos-cfn-signal.service \
+    -u dcos-setup.service \
+    -u dcos-download.service \
+    -u dcos-signal.timer \
+    -u dcos-epmd.service \
+    -u dcos-spartan-watchdog.service \
+    -u dcos-gen-resolvconf.service \
+    -u dcos-spartan-watchdog.timer \
+    -u dcos-gen-resolvconf.timer \
+    -u dcos-spartan.service \
+    -u dcos-link-env.service \
+    -u dcos-vol-discovery-priv-agent.service \
+    -u dcos-logrotate-agent.service \
+    > /var/log/dcos/dcos.log 2>&1'
+    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
+    
+    [Install]
+    WantedBy=multi-user.target
+    EOF
+    ```
 
-*   Logs for a framework `$framework1` on a specific agent host `$agent_host1`:
+# <a name="all-3"></a>Step 3: All nodes
 
-        host:$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2")
+1.  For all nodes, start and enable the Filebeat log parsing services created above:
 
-*   Non-task logs for a framework `$framework1` on a specific agent `$agent1` with host `$agent_host1`:
+    ```bash
+    sudo chmod 0755 /etc/systemd/system/dcos-journalctl-filebeat.service
+    sudo systemctl daemon-reload
+    sudo systemctl enable dcos-journalctl-filebeat.service
+    sudo systemctl start dcos-journalctl-filebeat.service
+    sudo systemctl enable filebeat
+    sudo systemctl start filebeat
+    ```
 
-        host:$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2") AND NOT agent:$agent
-
- [1]: ../elk/
- [2]: http://logz.io
+[2]: https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html
+[3]: ../filter-elk/
+[5]: https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+[8]: https://www.elastic.co/guide/en/logstash/current/index.html

@@ -72,7 +72,7 @@ dcos package install --options=config.json marathon-lb
 - [Tutorial - Using Marathon-LB for Internal and External Load Balancing](/1.9/networking/marathon-lb/marathon-lb-advanced-tutorial/)
 - See the advanced Marathon-LB [documentation](/1.9/networking/marathon-lb/advanced/).
 
- [1]: /docs/1.9/installing/ent/
- [2]: /docs/1.9/cli/install/
- [3]: /docs/1.9/administering-clusters/managing-aws/
- [4]: /docs/1.9/administering-clusters/sshcluster/
+ [1]: /1.9/installing/ent/
+ [2]: /1.9/cli/install/
+ [3]: /1.9/administering-clusters/managing-aws/
+ [4]: /1.9/administering-clusters/sshcluster/

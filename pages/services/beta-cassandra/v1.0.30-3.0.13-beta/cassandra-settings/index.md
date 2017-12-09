@@ -4,7 +4,7 @@ navigationTitle:  Cassandra Settings
 title: Cassandra Settings
 menuWeight: 40
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

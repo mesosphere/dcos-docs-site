@@ -78,5 +78,5 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
         dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
         ```
 
- [1]: /docs/1.8/administration/installing/ent/custom/gui/
- [2]: /docs/1.8/administration/installing/ent/custom/cli/
+ [1]: /1.8/administration/installing/ent/custom/gui/
+ [2]: /1.8/administration/installing/ent/custom/cli/

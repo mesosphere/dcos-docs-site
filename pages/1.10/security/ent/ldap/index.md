@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Directory-based authentication via LDAP
 title: Directory-based authentication via LDAP
-menuWeight: 30
+menuWeight: 50
 excerpt:
 featureMaturity: preview
 enterprise: true
@@ -27,5 +27,3 @@ To set up an LDAP connection:
 2. [Configure your authentication](/1.10/security/ent/ldap/ldap-auth/).
 
 3. [Verify the connection](/1.10/security/ent/ldap/ldap-verify/).
-
-

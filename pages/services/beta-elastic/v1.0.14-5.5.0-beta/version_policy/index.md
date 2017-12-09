@@ -4,7 +4,7 @@ navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 48
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

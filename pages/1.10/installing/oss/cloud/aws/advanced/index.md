@@ -244,4 +244,4 @@ Public agents:
 ### Template reference
 For the complete advanced configuration options, see the template reference [documentation](/1.10/installing/oss/cloud/aws/advanced/template-reference/).
 
- [2]: /docs/1.10/cli/install/
+ [2]: /1.10/cli/install/

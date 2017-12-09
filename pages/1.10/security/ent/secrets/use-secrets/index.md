@@ -30,7 +30,7 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 
 - [DC/OS CLI installed](/1.10/cli/install/) and the [Enterprise DC/OS CLI installed](/1.10/cli/enterprise-cli/#ent-cli-install).
 
-- If your [security mode](/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.10/overview/security/security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.10/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 - The appropriate permissions for your [security mode](/1.10/security/ent/#security-modes).
 
