@@ -1,6 +1,11 @@
+- var paths = path.split('/')
 - var semanticVersion = /^[0-9]\.[0-9].*$/
 - var currentDocs = hierarchy.children.filter(child => semanticVersion.test(child.id))[0]
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+- var sectionTitle = 'DC/OS Docs'
+
+if paths[0] === 'services'
+  - sectionTitle = 'Service Docs'
 
 mixin renderGridToc()
   div(class='grid-toc')
@@ -52,7 +57,7 @@ html(lang='en')
         div(class='header__main')
           div(class='header__dropdown')
             img(class='header__dropdown-icon', src='/assets/logo-logomark.svg', alt='Mesosphere')
-            strong DC/OS Docs
+            strong!= sectionTitle
             i(data-feather='chevron-down')
           nav(class='header__menu')
             ul(class='header__menu-list')
