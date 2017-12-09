@@ -4,7 +4,7 @@ navigationTitle:  Quickstart
 title: Quickstart
 menuWeight: 0
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 <h1>About installing Jenkins for DC/OS</h1>
@@ -33,7 +33,7 @@ DC/OS 1.4 or later
 
 <h2>Using the CLI</h2>
 
-<p><strong>Tip:</strong> To install Jenkins using the CLI, you must have the <a href="/docs/1.8/usage/cli/install/">CLI installed</a>.
+<p><strong>Tip:</strong> To install Jenkins using the CLI, you must have the <a href="/1.8/usage/cli/install/">CLI installed</a>.
 
 From the CLI, type the following command to install Jenkins for DC/OS.
 

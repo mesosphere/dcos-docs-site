@@ -4,7 +4,7 @@ navigationTitle:  Managing
 title: Managing
 menuWeight: 80
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

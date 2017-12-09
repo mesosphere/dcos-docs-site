@@ -14,7 +14,7 @@ The DC/OS configuration parameters are specified in YAML format in a config.yaml
 The config.yaml file is formatted as a list of key-value pairs. For example:
 
 ```yaml
-bootstrap_url: file:///opt/dcos_install_tmp
+bootstrap_url: http://<bootstrap_ip>:<your_port>
 ```
 
 ## Config blocks and lists

@@ -43,23 +43,23 @@ Only a subset of DC/OS configuration parameters can be modified. The adverse eff
 
 Here is a list of the parameters that you can modify:
 
-- [`check_time`](/1.10/installing/ent/custom/configuration-parameters/#check-time)
-- [`dns_search`](/1.10/installing/ent/custom/configuration-parameters/#dns-search)
-- [`docker_remove_delay`](/1.10/installing/ent/custom/configuration-parameters/#docker-remove)
-- [`gc_delay`](/1.10/installing/ent/custom/configuration-parameters/#gc-delay)
-- [`resolvers`](/1.10/installing/ent/custom/configuration-parameters/#resolvers)
-- [`telemetry_enabled`](/1.10/installing/ent/custom/configuration-parameters/#telemetry-enabled)
-- [`use_proxy`](/1.10/installing/ent/custom/configuration-parameters/#use-proxy)
-    - [`http_proxy`](/1.10/installing/ent/custom/configuration-parameters/#use-proxy)
-    - [`https_proxy`](/1.10/installing/ent/custom/configuration-parameters/#use-proxy)
-    - [`no_proxy`](/1.10/installing/ent/custom/configuration-parameters/#use-proxy)
+- [`check_time`](/1.10/installing/ent/custom/configuration/configuration-parameters/#check-time)
+- [`dns_search`](/1.10/installing/ent/custom/configuration/configuration-parameters/#dns-search)
+- [`docker_remove_delay`](/1.10/installing/ent/custom/configuration/configuration-parameters/#docker-remove)
+- [`gc_delay`](/1.10/installing/ent/custom/configuration/configuration-parameters/#gc-delay)
+- [`resolvers`](/1.10/installing/ent/custom/configuration/configuration-parameters/#resolvers)
+- [`telemetry_enabled`](/1.10/installing/ent/custom/configuration/configuration-parameters/#telemetry-enabled)
+- [`use_proxy`](/1.10/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`http_proxy`](/1.10/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`https_proxy`](/1.10/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`no_proxy`](/1.10/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
 
 The security mode (`security`) can be changed but has special caveats.
 
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `permissive` mode and you want to downgrade to `disabled` mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from `disabled` to `strict` mode. To increase from `disabled` to `strict` mode you must first update to `permissive` mode, and then update from `permissive` to `strict` mode.
 
-See the security [mode](/1.10/installing/ent/custom/configuration-parameters/#security) for a description of the different security modes and what each means.
+See the security [mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only) for a description of the different security modes and what each means.
 
 # Instructions
 These steps must be performed for version upgrades and cluster configuration changes.
@@ -89,7 +89,7 @@ Choose your desired security mode and then follow the applicable upgrade instruc
 - [Installing DC/OS 1.10 in strict mode](#strict)
 
 # <a name="current-security"></a>Installing DC/OS 1.10 without changing security mode
-This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the cluster's [security mode](/1.10/installing/ent/custom/configuration-parameters/#security).
+This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the cluster's [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -97,7 +97,7 @@ This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the c
     **Important:**
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.10/installing/ent/custom/configuration-parameters/).
+    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/).
 1. After updating the format of the config.yaml, compare the old config.yaml and new config.yaml. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 1.  Modify the `ip-detect` file as desired.
 1.  Build your installer package.
@@ -113,11 +113,11 @@ This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the c
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="permissive"></a>Installing DC/OS 1.10 in permissive mode
-This procedure upgrades to DC/OS 1.10 in [permissive security mode](/1.10/installing/ent/custom/configuration-parameters/#security).
+This procedure upgrades to DC/OS 1.10 in [permissive security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only).
 
 **Prerequisite:**
 
-- Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [disabled security mode](/1.10/installing/ent/custom/configuration-parameters/#security) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
+- Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [disabled security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
 
 **Important:** Any [custom node or cluster healthchecks](/1.10/installing/ent/custom/node-cluster-health-check/#custom-health-checks) you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the healthchecks.
 
@@ -138,7 +138,7 @@ To update a cluster from disabled security to permissive security, complete the 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="strict"></a>Installing DC/OS 1.10 in strict mode
-This procedure upgrades to DC/OS 1.10 in security strict [mode](/1.10/installing/ent/custom/configuration-parameters/#security).
+This procedure upgrades to DC/OS 1.10 in security strict [mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only).
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
 
@@ -256,4 +256,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.10 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /docs/1.10/installing/ent/custom/advanced/
+[advanced-install]: /1.10/installing/ent/custom/advanced/

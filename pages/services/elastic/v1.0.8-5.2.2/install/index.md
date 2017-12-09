@@ -4,7 +4,7 @@ navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 0
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

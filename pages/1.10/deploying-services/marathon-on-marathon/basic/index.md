@@ -16,7 +16,7 @@ The basic procedure does not support [secrets](/1.10/security/ent/secrets/) or f
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.10/installing/ent/).
+-  DC/OS and DC/OS CLI [installed](/1.10/installing/oss/).
 -  [Enterprise DC/OS CLI 0.4.14 or later](/1.10/cli/enterprise-cli/#ent-cli-install).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
@@ -152,7 +152,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     ```
 
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.10/overview/security/security-modes/), a Marathon Service Account is either optional or required. 
+In this step, a Marathon Service Account is created. Depending on your [security mode](/1.10/security/ent/#security-modes), a Marathon Service Account is either optional or required. 
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -175,38 +175,25 @@ In this step, a Marathon Service Account is created. Depending on your [security
 # Step 4 - Assign Permissions (Strict mode only)
 In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes. 
 
+All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-api/).
+
 | Security Mode | Permissions |
 |---------------|----------------------|
 | Disabled | Not available |
 | Permissive | Not available |
 | Strict | Required |
 
-The forward-slash (`/`) characters are replaced with `%252F` in the commands. 
 
-**Prerequisite:** You must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
-
-1.  Create the permission for user (`<user-name>`) with the `nobody` Linux user account specified. To use a different user account, replace `nobody` with the name of the user account. 
+1.  Grant the permission for user (`<user-name>`) with the `nobody` Linux user account specified. To use a different user account, replace `nobody` with the name of the user account. 
 
     ```bash
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody -d '{"description":"Allows Linux user nobody to execute tasks"}' -H 'Content-Type: application/json'
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:<myrole> -d '{"description":"Controls the ability of <myrole> to register as a framework with the Mesos master"}' -H 'Content-Type: application/json'
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:role:<myrole> -d '{"description":"Controls the ability of <myrole> to reserve resources"}' -H 'Content-Type: application/json'
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:role:<myrole> -d '{"description":"Controls the ability of <myrole> to access volumes"}' -H 'Content-Type: application/json'
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:principal:<user-name> -d '{"description":"Controls the ability of <user-name> to reserve resources"}' -H 'Content-Type: application/json'
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:app_id:%252F -d '{"description":"Controls the ability to launch tasks"}' -H 'Content-Type: application/json'
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:principal:<user-name> -d '{"description":"Controls the ability of <user-name> to access volumes"}' -H 'Content-Type: application/json'
-    ```
-    
-1.  Grant the permission to user (`<user-name>`) with role specified (`<myrole>`).
-
-    ```bash
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:<myrole>/users/<user-name>/create
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:role:<myrole>/users/<user-name>/create
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:role:<myrole>/users/<user-name>/create
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody/users/<user-name>/create
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:principal:<user-name>/users/<user-name>/delete
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:app_id:%252F/users/<user-name>/create
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:principal:<user-name>/users/<user-name>/delete
+    dcos security org users grant <user-name> dcos:mesos:master:task:user:nobody create --description "Allows Linux user nobody to execute tasks"
+    dcos security org users grant <user-name> dcos:mesos:master:framework:role:<myrole> create --description "Controls the ability of <myrole> to register as a framework with the Mesos master"
+    dcos security org users grant <user-name> dcos:mesos:master:reservation:role:<myrole> create --description "Controls the ability of <myrole> to reserve resources"
+    dcos security org users grant <user-name> dcos:mesos:master:volume:role:<myrole> create --description "Controls the ability of <myrole> to access volumes"
+    dcos security org users grant <user-name> dcos:mesos:master:reservation:principal:<user-name> delete --description "Controls the ability of <user-name> to reserve resources"
+    dcos security org users grant <user-name> dcos:mesos:master:task:app_id:/ create--description "Controls the ability to launch tasks"
+    dcos security org users grant <user-name> dcos:mesos:master:volume:principal:<user-name> delete --description "Controls the ability of <user-name> to access volumes"
     ```
 
 # Step 5 - Grant User Access to Non-Native Marathon
@@ -228,7 +215,7 @@ In this step, a user is granted access to the non-native Marathon instance.
 
     ![Add permission](/1.10/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.10/overview/security/security-modes/).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.10/security/ent/#security-modes).
 
     ### Disabled
     
@@ -315,3 +302,4 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
     You are done!
     
     ![Marathon on Marathon](/1.10/img/mom-marathon-gui.png)
+

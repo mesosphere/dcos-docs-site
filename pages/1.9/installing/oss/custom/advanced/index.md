@@ -83,7 +83,7 @@ Your cluster must meet the software and hardware [requirements](/1.9/installing/
     - <agent-private-ip-4>
     - <agent-private-ip-5>
     # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-    bootstrap_url: file:///opt/dcos_install_tmp
+    bootstrap_url: http://<bootstrap_ip>:<your_port>
     cluster_name: <cluster-name>
     exhibitor_storage_backend: static
     master_discovery: static
@@ -106,7 +106,7 @@ Your cluster must meet the software and hardware [requirements](/1.9/installing/
     - 'foo.bar.com'
     - '.baz.com'
     ```
-
+<a id="ip-detect-script"></a>
 2.  Create an `ip-detect` script.
 
     In this step, an IP detect script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
@@ -313,11 +313,11 @@ To install DC/OS:
 - [Troubleshooting DC/OS installation][9]
 - [Uninstalling DC/OS][8]
 
-[1]: /docs/1.9/installing/oss/custom/configuration/configuration-parameters/
-[2]: /docs/1.9/cli/install/
+[1]: /1.9/installing/oss/custom/configuration/configuration-parameters/
+[2]: /1.9/cli/install/
 [4]: https://downloads.dcos.io/dcos/stable/1.9.4/dcos_generate_config.sh
-[6]: /docs/1.9/overview/concepts/#public-agent-node
-[7]: /docs/1.9/overview/concepts/#private
-[8]: /docs/1.9/installing/oss/custom/uninstall/
-[9]: /docs/1.9/installing/oss/troubleshooting/
-[10]: /docs/1.9/security/user-management/
+[6]: /1.9/overview/concepts/#public-agent-node
+[7]: /1.9/overview/concepts/#private
+[8]: /1.9/installing/oss/custom/uninstall/
+[9]: /1.9/installing/oss/troubleshooting/
+[10]: /1.9/security/user-management/

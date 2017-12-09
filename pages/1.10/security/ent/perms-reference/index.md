@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Permissions Reference
 title: Permissions Reference
-menuWeight: 30
+menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: true
@@ -107,4 +107,3 @@ By convention, `full` indicates that the permission supports all other action id
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:superuser`<br> Controls complete access to the DC/OS cluster.                                                                                                                                                                                                               | x    |   |   |   |   |
-

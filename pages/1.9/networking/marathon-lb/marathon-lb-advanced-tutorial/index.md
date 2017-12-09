@@ -281,7 +281,7 @@ To demonstrate the vhost feature:
 
     ![lb6](/1.9/img/lb6.jpg)
 
- [1]: /docs/1.9/installing/oss/
- [2]: /docs/1.9/cli/install/
- [3]: /docs/1.9/administering-clusters/locate-public-agent/
- [4]: /docs/1.9/administering-clusters/sshcluster/
+ [1]: /1.9/installing/oss/
+ [2]: /1.9/cli/install/
+ [3]: /1.9/administering-clusters/locate-public-agent/
+ [4]: /1.9/administering-clusters/sshcluster/

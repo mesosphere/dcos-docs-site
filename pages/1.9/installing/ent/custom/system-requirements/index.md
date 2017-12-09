@@ -59,6 +59,11 @@ Here are the agent node hardware requirements.
 The agent nodes must also have: 
 
 - A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.9/deploying-services/containerizers/).
+- The agent's work directory, `/var/lib/mesos/slave`, should be on a separate device. This protects all the other services from a task overflowing the disk.
+
+  - To maintain backwards compatibility with frameworks written before the disk resource was introduced, by default the disk resource is not enforced.
+  - You can enable resource enforcement by inserting the environment variable MESOS_ENFORCE_CONTAINER_DISK_QUOTA=true into one of the Mesos agent extra config files (e.g. `/var/lib/dcos/mesos-slave-common`).
+  - Disk quotas are not supported by Docker tasks, so these can overflow the disk regardless of configuration.
 - Network Access to a public Docker repository or to an internal Docker registry.
 
 *   On RHEL 7 and CentOS 7, firewalld must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that firewalld interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
@@ -66,7 +71,8 @@ The agent nodes must also have:
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
     ```
-*   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` cannot be on a partition that is on an LVM logical volume or shared storage.
+
+*   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` must be on the same mountpoint as `/`.  This is required because DC/OS installs systemd unit files under `/opt/mesosphere`. All systemd units must be available for enumeration during the initializing of the initial ramdisk at boot. If `/opt` is on a different partition or volume, systemd will fail to discover these units during the initialization of the ramdisk and DC/OS will not automatically restart upon reboot.
 
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
@@ -136,7 +142,25 @@ Add the following line to your `/etc/sudoers` file. This disables the sudo passw
 
 Alternatively, you can SSH as the root user.
 
-### Enable NTP
+### Enable Time synchronization
+
+Time synchronization is a core requirement of DC/OS. There are various methods
+of ensuring time sync. NTP is the typical approach on bare-metal.
+Many cloud providers use hypervisors, which push time
+down to the VM guest operating systems. In certain circumstances, hypervisor
+time-sync may conflict with NTP.
+
+You must understand how to properly configure time synchronization for your
+environment. When in doubt, enable NTP and check using `/opt/mesosphere/bin/check-time`.
+
+#### Enable Check Time
+
+You must set the `ENABLE_CHECK_TIME` environment variable in order for
+ `/opt/mesosphere/bin/check-time` to function. It's recommended
+that you enable this globally. e.g. on CoreOS an entry in `/etc/profile.env`
+of `export ENABLE_CHECK_TIME=true` with set the appropriate variable.
+
+#### Using NTP
 
 Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
 
@@ -152,7 +176,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:** 
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.9/installing/ent/custom/configuration/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.9/installing/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### <a name="setup-file"></a>DC/OS setup file
@@ -208,7 +232,7 @@ You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 - [CLI DC/OS Installation Guide][1]
 - [Advanced DC/OS Installation Guide][5]
 
-[1]: /docs/1.9/installing/ent/custom/cli/
-[2]: /docs/1.9/installing/ent/custom/system-requirements/install-docker-centos/
-[4]: /docs/1.9/installing/ent/custom/gui/
-[5]: /docs/1.9/installing/ent/custom/advanced/
+[1]: /1.9/installing/custom/cli/
+[2]: /1.9/installing/custom/system-requirements/install-docker-centos/
+[4]: /1.9/installing/custom/gui/
+[5]: /1.9/installing/custom/advanced/

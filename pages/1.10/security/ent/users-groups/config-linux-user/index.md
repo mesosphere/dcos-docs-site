@@ -46,7 +46,7 @@ Once you have met these prerequisites, complete the following steps to override 
     "cmd": "whoami && tee file && sleep 1000",
     "user": "<your-test-user-account>",
     "uris": [
-        "https://dcos.io/docs/1.10/img/logos/mesosphere.svg"
+        "https://dcos.io/1.10/img/logos/mesosphere.svg"
     ]
   }
   ```
@@ -98,7 +98,7 @@ Once you have met these prerequisites, complete the following steps to override 
   "run": {
     "artifacts": [
       {
-        "uri": "https://dcos.io/docs/1.10/img/logos/mesosphere.svg"
+        "uri": "https://dcos.io/1.10/img/logos/mesosphere.svg"
       }
     ],
     "cmd": "whoami && printf 'iamme' | tee file && sleep 1000",

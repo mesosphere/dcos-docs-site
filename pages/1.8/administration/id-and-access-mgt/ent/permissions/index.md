@@ -20,27 +20,27 @@ The permissions of Enterprise DC/OS allow you to control access by resource and 
     <th>Enforced in</th>
   </tr>
   <tr>
-    <td><a href="/docs/1.8/administration/id-and-access-mgt/permissions/superuser-perm/">Superuser</a></td>
+    <td><a href="/1.8/administration/id-and-access-mgt/permissions/superuser-perm/">Superuser</a></td>
     <td>All</td>
     <td>All security modes</td>
   </tr>
   <tr>
-    <td><a href="/docs/1.8/administration/id-and-access-mgt/permissions/admin-router-perms/">Admin Router</a></td>
+    <td><a href="/1.8/administration/id-and-access-mgt/permissions/admin-router-perms/">Admin Router</a></td>
     <td>Admin Router</td>
     <td>All security modes</td>
   </tr>
   <tr>
-    <td><a href="/docs/1.8/administration/id-and-access-mgt/permissions/secrets-perms/">Secret Store service</a></td>
+    <td><a href="/1.8/administration/id-and-access-mgt/permissions/secrets-perms/">Secret Store service</a></td>
     <td>Secret Store service</td>
     <td>All security modes</td>
   </tr>
   <tr>
-    <td><a href="/docs/1.8/administration/id-and-access-mgt/permissions/user-service-perms/">User service</a></td>
+    <td><a href="/1.8/administration/id-and-access-mgt/permissions/user-service-perms/">User service</a></td>
     <td>Native Marathon and Metronome</td>
     <td><code>permissive</code> and <code>strict</code> security modes</td>
   </tr>
   <tr>
-    <td><a href="/docs/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos master and agent</a></td>
+    <td><a href="/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/">Mesos master and agent</a></td>
     <td>Mesos master and agent</td>
     <td><code>strict</code> security mode</td>
   </tr>

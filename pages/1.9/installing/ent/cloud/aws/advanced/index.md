@@ -64,7 +64,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
     aws_template_storage_bucket_path: <path-to-directory>
     aws_template_upload: true
     aws_template_storage_access_key_id: <your-access-key-id>
-    aws_template_storage_secret_access_key: <your-secret-access_key>]
+    aws_template_storage_secret_access_key: <your-secret-access_key>
     cluster_name: <cluster-name>
     security: [permissive|strict|disabled]
     superuser_password_hash: <hashed-password>

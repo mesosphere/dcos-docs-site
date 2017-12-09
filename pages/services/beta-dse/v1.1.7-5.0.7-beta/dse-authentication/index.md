@@ -4,7 +4,7 @@ navigationTitle:  DSE Authentication
 title: DSE Authentication
 menuWeight: 60
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

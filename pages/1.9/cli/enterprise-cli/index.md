@@ -9,10 +9,6 @@ enterprise: true
 
 The Enterprise DC/OS CLI is used to manage security features.
 
-# <a name="sys-reqs"></a>Requirements
-
-A macOS or Linux operating system. Windows is not currently supported.
-
 # <a name="ent-cli-install"></a>Installing the Enterprise DC/OS CLI
 
 **Prerequisite:** The DC/OS CLI must already be [installed](/1.9/cli/install/).
@@ -22,7 +18,7 @@ A macOS or Linux operating system. Windows is not currently supported.
 To install the Enterprise DC/OS CLI, issue the following command from a terminal prompt.
 
 ```bash
-dcos package install --cli dcos-enterprise-cli
+dcos package install dcos-enterprise-cli
 ```
 
 **Note:** Do not use `sudo`.
@@ -33,7 +29,7 @@ dcos package install --cli dcos-enterprise-cli
 A reinstall of the Enterprise DC/OS CLI upgrades the package. 
 
 ```bash
-dcos package install --cli dcos-enterprise-cli
+dcos package install dcos-enterprise-cli
 ```
 
 
@@ -42,14 +38,19 @@ dcos package install --cli dcos-enterprise-cli
 To uninstall the Enterprise DC/OS CLI, issue the following command.
 
 ```bash
-dcos package uninstall --cli dcos-enterprise-cli
+dcos package uninstall dcos-enterprise-cli
 ```
 
 
 # Enterprise DC/OS CLI command reference
 
+**Warning:** The following options appear in the 1.9 Enterprise CLI help for the `dcos security secrets` subcommands, but are not supported:
+- -a --author <author>
+- -d --description <description>
+- -l --label <label>
+
 ## dcos security cluster ca
-Manage the DC/OS Certificate Authority, including signing certs, generating CSRs, and signing information retrieval.
+Manage the DC/OS certificate authority, including signing certs, generating CSRs, and signing information retrieval.
 
 ```
 dcos security cluster ca cacert [OPTIONS]
@@ -469,13 +470,10 @@ dcos security secrets create [OPTIONS] <path>
 Options:
     -s, --store-id <store-id>        
         Secrets backend to use.
-    -a, --author <author>
-    -d, --description <description>
     -v, --value <value>
         Value of the secret.
     -f, --value-file <filename>  
         Use file as value of the secret.
-    -l, --label <label>
     -h, --help         
         Show this message and exit.
 ```
@@ -532,13 +530,10 @@ dcos security secrets update [OPTIONS] <path>
 Options:
     -s, --store-id <store-id>        
         Secrets backend to use
-    -a, --author <author>
-    -d, --description <description>
     -v, --value <value>           
         Value of the secret
     -f, --value-file <filename>  
         Use the file as value of the secret.
-    -l, --label <label>
     -h, --help                 
         Show this message and exit.   
 ```

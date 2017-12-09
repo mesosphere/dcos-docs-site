@@ -34,4 +34,4 @@ To specify the Mesos containerizer from the DC/OS CLI, add the following paramet
 }
 ```
 
-- [View the Mesos docs for the Mesos containerizer](http://mesos.apache.org/documentation/latest/mesos-containerizer/).
+- [View the Mesos docs for the Mesos containerizer](http://mesos.apache.org/documentation/latest/containerizers/).

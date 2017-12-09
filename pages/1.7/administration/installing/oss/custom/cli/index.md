@@ -29,7 +29,7 @@ The DC/OS installation creates these folders:
     ```bash
     mkdir -p genconf
     ```
-
+<a id="ip-detect-script"></a>
 2. Create an `ip-detect` script.
 
     In this step you create an IP detect script to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
@@ -123,7 +123,7 @@ The DC/OS installation creates these folders:
     - <agent-private-ip-4>
     - <agent-private-ip-5>
     # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-    bootstrap_url: file:///opt/dcos_install_tmp
+    bootstrap_url: http://<bootstrap_ip>:<your_port>
     cluster_name: <cluster-name>
     master_discovery: static
     master_list:
@@ -381,13 +381,13 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
     18:17:14:: ====> 10.10.0.160:22 FAILED
     ```
 
- [2]: /docs/docs/1.7/usage/cli/install/
- [3]: /docs/docs/1.7/administration/installing/oss/custom/advanced/
- [4]: /docs/docs/1.7/administration/installing/oss/custom/system-requirements/
+ [2]: /1.7/usage/cli/install/
+ [3]: /1.7/administration/installing/oss/custom/advanced/
+ [4]: /1.7/administration/installing/oss/custom/system-requirements/
  [5]: https://downloads.dcos.io/dcos/EarlyAccess/commit/14509fe1e7899f439527fb39867194c7a425c771/dcos_generate_config.sh
- [6]: /docs/docs/1.7/administration/installing/oss/custom/configuration-parameters/
- [7]: /docs/docs/1.7/administration/installing/oss/custom/uninstall/
- [8]: /docs/docs/1.7/usage/
- [9]: /docs/docs/1.7/administration/installing/oss/custom/troubleshooting/
- [10]: /docs/docs/1.7/administration/user-management/
- [11]: /docs/docs/1.7/administration/installing/oss/custom/create-public-agent/
+ [6]: /1.7/administration/installing/oss/custom/configuration-parameters/
+ [7]: /1.7/administration/installing/oss/custom/uninstall/
+ [8]: /1.7/usage/
+ [9]: /1.7/administration/installing/oss/custom/troubleshooting/
+ [10]: /1.7/administration/user-management/
+ [11]: /1.7/administration/installing/oss/custom/create-public-agent/

@@ -43,7 +43,8 @@ You can determine the node type by running this command from the DC/OS CLI.
 1.  Uninstall DC/OS on the agent node.
 
     ```bash
-    sudo -i /opt/mesosphere/bin/pkgpanda uninstall
+    sudo /opt/mesosphere/bin/dcos-shell
+    sudo -i pkgpanda uninstall
     sudo systemctl stop dcos-mesos-slave
     sudo systemctl disable dcos-mesos-slave
     ```
@@ -101,5 +102,5 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that tha
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```
 
- [1]: /docs/1.9/installing/oss/custom/gui/
- [2]: /docs/1.9/installing/oss/custom/cli/
+ [1]: /1.9/installing/oss/custom/gui/
+ [2]: /1.9/installing/oss/custom/cli/

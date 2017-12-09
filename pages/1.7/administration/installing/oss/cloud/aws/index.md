@@ -90,9 +90,9 @@ Launch the DC/OS web interface by entering the Mesos Master hostname:
 - [Using your cluster][3]
 - [Scaling considerations][4]
 
- [1]: /docs/docs/1.7/administration/managing-aws/
- [2]: /docs/docs/1.7/usage/cli/install/
- [3]: /docs/docs/1.7/usage/
+ [1]: /1.7/administration/managing-aws/
+ [2]: /1.7/usage/cli/install/
+ [3]: /1.7/usage/
  [4]: https://aws.amazon.com/autoscaling/
- [10]: /docs/docs/1.7/administration/user-management/
+ [10]: /1.7/administration/user-management/
 

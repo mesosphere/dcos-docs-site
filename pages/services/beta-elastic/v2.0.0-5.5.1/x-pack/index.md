@@ -4,7 +4,7 @@ navigationTitle:  X-Pack
 title: X-Pack
 menuWeight: 31
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

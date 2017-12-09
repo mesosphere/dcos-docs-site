@@ -18,17 +18,17 @@ This document describes:
 
 ## Benefits of DC/OS
 
-DC/OS is powered by Apache Mesos used as the distributed kernel of a set of computers that you can treat as one unit, though you retain control of each and every one. In DC/OS, the kernel of the system is in fact any number of mesos masters and agents both publicly available and private; failed mesos masters are replaced by a standby master transparently, and handles leader election. Masters, of course, handle failed agents and processes.
+DC/OS is powered by Apache Mesos used as the distributed kernel of a set of computers that you can treat as one unit, though you retain control of each and every one. In DC/OS, the kernel of the system is in fact any number of Mesos masters and agents both publicly available and private; failed Mesos masters are replaced by a standby master transparently, and handles leader election. Masters, of course, handle failed agents and processes.
 
-DC/OS applications function as system components in its distributed user space. The most obivous is the system marathon component, which is the distributed `init` for DC/OS; but this also includes the Admin Router service, the Mesos-DNS service, Exhibitor, and other system-wide components that are used by user processes and manage the masters and agents.
+DC/OS applications function as system components in its distributed user space. The most obvious is the system marathon component, which is the distributed `init` for DC/OS; but this also includes the Admin Router service, the Mesos-DNS service, Exhibitor, and other system-wide components that are used by user processes and manage the masters and agents.
 
-For a more comprehensive architecturel description of DC/OS, see [The Architecture of DC/OS](../../architecture/); for a more complete discussion of components, see [An Introduction to DC/OS Components](../../components/).
+For a more comprehensive architectural description of DC/OS, see [The Architecture of DC/OS](../../architecture/); for a more complete discussion of components, see [An Introduction to DC/OS Components](../../components/).
 
 ### Why DC/OS and not Mesos?
 
-Using Mesos directly is in fact what [many companies do successfully](https://mesos.apache.org/documentation/latest/powered-by-mesos/), so there's every chance you might want or need to deploy mesos yourself. DC/OS, however, has several important features above and beyond the set of open-source mesos features that you can use yourself:
+Using Mesos directly is in fact what [many companies do successfully](https://Mesos.apache.org/documentation/latest/powered-by-Mesos/), so there's every chance you might want or need to deploy Mesos yourself. DC/OS, however, has several important features above and beyond the set of open-source Mesos features that you can use yourself:
 
-1. Deploying and managing mesos can be complex, precisely because it can manage very complex environments; DC/OS makes that complexity straightforward to use and supported by the community.
+1. Deploying and managing Mesos can be complex, precisely because it can manage very complex environments; DC/OS makes that complexity straightforward to use and supported by the community.
 2. DC/OS implements fault tolerance across not just industrial but internet scale.
 3. The DC/OS universe of packages for easy installation supports developers, data scientists, and system administrators alike with all their favorite open source packages.
 4. The real-time metrics "firehouse" is open for use by your favorite diagnostics and analytics packages.
@@ -78,7 +78,7 @@ Deploying DC/OS yourself may also be what you want to do, but you can start with
 
 ## Azure Container Service infrastructure and optimizations
 
-The Azure Container Service is built with DC/OS as one of the critical orchestration options and the DC/OS implementation is optimized for easy creation and usage on Microsoft Azure and on-premise, eventually with Azure Stack, and is one of the best ways to get started with DC/OS, mesos, and a distributed cluster that can be used and managed like one large system whether in your datacenter or in Azure.
+The Azure Container Service is built with DC/OS as one of the critical orchestration options and the DC/OS implementation is optimized for easy creation and usage on Microsoft Azure and on-premise, eventually with Azure Stack, and is one of the best ways to get started with DC/OS, Mesos, and a distributed cluster that can be used and managed like one large system whether in your datacenter or in Azure.
 
 The Azure Container Service implementation brings several more benefits to you:
 
@@ -119,16 +119,16 @@ The following list shows the components used by DC/OS itself. You'll note that t
 - exhibitor
 - flask
 - hadoop
-- hdfs-mesos
+- hdfs-Mesos
 - java
 - libevent
 - logrotate
 - marathon
-- mesos
-- mesos-buildenv
-- mesos-dns
-- mesos-metrics-module
-- mesos-modules-private
+- Mesos
+- Mesos-buildenv
+- Mesos-dns
+- Mesos-metrics-module
+- Mesos-modules-private
 - minuteman
 - ncurses
 - networking_api

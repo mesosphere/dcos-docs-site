@@ -1,22 +1,26 @@
 ---
 layout: layout.pug
 navigationTitle:  System Requirements
-excerpt:
 title: System Requirements
-menuWeight: 000
+menuWeight: 0
+excerpt:
+featureMaturity:
+enterprise: true
 ---
+
+
 
 
 # Hardware Prerequisites
 
-You must have a single bootstrap node, an odd number of Mesos master nodes, and any number Mesos of agent nodes.
+You must have a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
 
 ## Bootstrap node
 
 1 node with 2 Cores, 16 GB RAM, 60 GB HDD. This is the node where DC/OS installation is run. This bootstrap node must also have:
 
-*   Python, pip, and virtualenv must be installed for the DC/OS [CLI][1]. pip must be configured to pull packages from PyPI or your private PyPI, if applicable.
-*   A High-availability (HA) TCP/Layer 3 load balancer, such as HAProxy, to balance the following TCP ports to all master nodes: 80, 443, 8080, 8181, 2181, 5050.
+*  Python, pip, and virtualenv must be installed for the DC/OS [CLI][1]. pip must be configured to pull packages from PyPI or your private PyPI, if applicable.
+*  A high-availability (HA) TCP/Layer 3 load balancer, such as HAProxy, to balance the following TCP ports to all master nodes: 80, 443.
 *  An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
 
 **Important:** The bootstrap node must be separate from your cluster nodes.
@@ -26,8 +30,6 @@ You must have a single bootstrap node, an odd number of Mesos master nodes, and 
 The cluster nodes are designated Mesos masters and agents during installation.
 
 ### Master nodes
-
-You must have an odd number of master nodes.
 
 Here are the master node hardware requirements.
 
@@ -90,7 +92,7 @@ Here are the agent node hardware requirements.
   </tr>
 </table>
 
-*   On RHEL 7 and CentOS 7, firewalld must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that firewalld interacts poorly with Docker. For more information, see the <a href="https://github.com/docker/docker/blob/v1.6.2/docs/sources/installation/centos.md#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
+*   On RHEL 7 and CentOS 7, firewalld must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that firewalld interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
@@ -102,8 +104,10 @@ Here are the agent node hardware requirements.
 *   Secure Shell (SSH) must be enabled on all nodes.
 *   Internet Control Message Protocol (ICMP) must be enabled on all nodes.
 *   Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization.
+*   All hostnames (FQDN and short hostnames) must be resolvable in DNS; both forward and reverse lookups must succeed.
 *   Each node is network accessible from the bootstrap node.
 *   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
+*   All ports should be open for communication from the master nodes to the agent nodes and vice versa.
 *   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
 
 ### High Speed Internet Access
@@ -150,7 +154,7 @@ For more more information, see Docker's <a href="http://docs.docker.com/engine/i
 
 ### Disable sudo password prompts
 
-To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo.
+To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo. 
 
 Add the following line to your `/etc/sudoers` file. This disables the sudo password prompt.
 
@@ -166,16 +170,16 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:** 
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.7/administration/installing/oss/custom/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.7/administration/installing/ent/custom/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### DC/OS setup file
 
-Download and save the [DC/OS setup file][3] to your bootstrap node. This file is used to create your customized DC/OS build file.
+Download and save the DC/OS setup file to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to obtain this file.
 
-### Docker NGINX (advanced installer)
+### Docker Nginx (advanced installer)
 
-For advanced install only, install the Docker NGINX image with this command:
+For advanced install only, install the Docker Nginx image with this command:
 
 ```bash
 sudo docker pull nginx
@@ -218,8 +222,7 @@ On each of your cluster nodes, use the following command to:
 - [CLI DC/OS Installation Guide][1]
 - [Advanced DC/OS Installation Guide][5]
 
-[1]: /docs/docs/1.7/administration/installing/oss/custom/cli/
-[2]: /docs/docs/1.7/administration/installing/oss/custom/system-requirements/install-docker-centos/
-[3]: https://downloads.dcos.io/dcos/EarlyAccess/commit/14509fe1e7899f439527fb39867194c7a425c771/dcos_generate_config.sh
-[4]: /docs/docs/1.7/administration/installing/oss/custom/gui/
-[5]: /docs/docs/1.7/administration/installing/oss/custom/advanced/
+[1]: /1.7/administration/installing/ent/custom/cli/
+[2]: /1.7/administration/installing/ent/custom/system-requirements/install-docker-centos/
+[4]: /1.7/administration/installing/ent/custom/gui/
+[5]: /1.7/administration/installing/ent/custom/advanced/

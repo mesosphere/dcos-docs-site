@@ -13,10 +13,10 @@ This topic details how to configure authentication for custom apps and pods laun
 
 - [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14 or later installed](/1.10/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
-In this step, a 2048-bit RSA public-private key pair is created uses the Enterprise DC/OS CLI.
+In this step, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI.
 
 Create a public-private key pair and save each value into a separate file within the current directory.
 
@@ -112,24 +112,17 @@ For more information, see the [permissions reference](/1.10/security/ent/perms-r
 ## Assign the Permissions
 Using the [permissions reference](/1.10/security/ent/perms-reference/) and the log output, assign permissions to your service. 
 
+All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-api/).
+
 ### Using the CLI
 
-You can assign permissions using curl commands. To assign permissions you must create the folder and then assign permissions to it. For example, to authorize the [Cassandra service](/service-docs/cassandra/cass-auth/) to be uninstalled on DC/OS:
+You can assign permissions using the CLI.
+For example, to authorize the [Cassandra service](/service-docs/cassandra/cass-auth/) to be uninstalled on DC/OS:
 
-1.  Create a folder for the permission (`dcos:mesos:master:framework:role:cassandra-role`).
-
-    ```bash
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:cassandra-role \
-    -d '{"description":"Controls the ability of cassandra-role to register as a framework with the Mesos master"}' \
-    -H 'Content-Type: application/json'
-    ```
-    
 1.  Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and the allowed actions (`create`).
 
     ```bash
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:cassandra-role/users/<service-account-id>/create
+    dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:cassandra-role create --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
     ```
 
 ### Using the GUI
@@ -148,14 +141,14 @@ You can assign permissions using curl commands. To assign permissions you must c
 
 # <a name="req-auth-tok"></a>Request an Authentication Token
 
-Generate a [service login token](/1.10/service-auth/)), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified. 
+Generate a [service login token](/1.10/security/ent/service-auth/)), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified. 
 
 ```bash
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem
 ```
 
 # <a name="pass-tok"></a>Pass the Authentication Token in Subsequent Requests
-After the service has successfully logged in, an [authentication token](/1.10/service-auth/) is created. The authentication token should used in subsequent requests to DC/OS endpoints. You can reference the authentication token as a shell variable, for example:
+After the service has successfully logged in, an [authentication token](/1.10/security/ent/service-auth/) is created. The authentication token should used in subsequent requests to DC/OS endpoints. You can reference the authentication token as a shell variable, for example:
 
 ```
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"

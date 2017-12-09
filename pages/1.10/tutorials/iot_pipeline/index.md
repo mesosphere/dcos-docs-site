@@ -105,7 +105,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 4.  Install and deploy Tweeter to your DC/OS cluster.
 
     ```bash
-    dcos marathon app add tweeter.json
+    dcos marathon app add 1.10/tweeter.json
     ```
 
     **Tip:** The `instances` parameter in `tweeter.json` specifies the number of app instances. Use the following command to scale your app up or down:
@@ -188,94 +188,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
 1.  Click the **Catalog** tab. Click the **zeppelin** package and click the **CONFIGURE** button.
     1.  Click the **spark** tab and set `cores_max` to `8`.
     1.  Click **REVIEW AND DEPLOY** and click **DEPLOY**. Click **GO TO SERVICE**.
-1.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
-1.  Install Marathon-LB.
-
-     1.  Install the security CLI (`dcos-enterprise-cli`) by using the DC/OS CLI package install commands. You will use this to partially configure the Marathon-LB security.
-
-         1.  Search for the security CLI package repository by using the `dcos package search` command. In this example the partial value `enterprise*` is used as an argument.
-
-             ```bash
-             dcos package search enterprise*
-             ```
-
-             Here is the output:
-
-             ```bash
-             NAME                 VERSION  SELECTED  FRAMEWORK  DESCRIPTION
-             dcos-enterprise-cli  1.0.7    False     False      Enterprise DC/OS CLI
-             ```
-
-         1.  Install the security CLI package.
-
-             ```bash
-             dcos package install dcos-enterprise-cli
-             ```
-
-             Here is the output:
-
-             ```bash
-             Installing CLI subcommand for package [dcos-enterprise-cli] version [1.0.7]
-             New command available: dcos security
-             ```
-
-     1.  Configure service authentication for [Marathon-LB](/1.10/networking/marathon-lb/mlb-auth/).
-
-          1.  Create a public-private key pair by using the security CLI.
-
-              ```bash
-              dcos security org service-accounts keypair private-key.pem public-key.pem
-              ```
-
-          1.  Create a new service account with the ID `marathon-lb-service-acct`. This command uses the `public-key.pem` created in the previous step.
-
-              ```bash
-              dcos security org service-accounts create -p public-key.pem -d "Marathon-LB service account" marathon-lb-service-acct
-              ```
-
-          1.  Create a new secret (`marathon-lb-secret`) using the private key (`private-key.pem`) and the name of the service account (`marathon-lb-service-acct`).
-
-              ```bash
-              dcos security secrets create-sa-secret private-key.pem marathon-lb-service-acct marathon-lb-secret
-              ```
-
-              You can verify that the secret was created successfully with this command.
-
-              ```bash
-              dcos security secrets list /
-              ```
-
-              You should see output similar to this:
-
-              ```bash
-              - marathon-lb-secret
-              ```
-
-      1.  Grant the Marathon-LB permissions and the allowed action to the service account using the CLI.
-
-          ```bash
-          dcos security org users grant marathon-lb-service-acct dcos:service:marathon:marathon:services:/ read --description "Allows access to any service launched by the native Marathon instance"
-          dcos security org users grant marathon-lb-service-acct dcos:service:marathon:marathon:admin:events read --description "Allows access to Marathon events"
-          ```
-
-      1.  Install the Marathon-LB package by using the DC/OS CLI.
-
-          1.  Create a `config.json` Marathon app definition file with these contents. A Marathon app definition file specifies the required parameters for launching a containerized app with Marathon.
-
-              ```bash
-              {
-                  "marathon-lb": {
-                      "secret_name": "marathon-lb-secret"
-                  }
-              }
-              ```
-
-          1.  Install Marathon-LB from the DC/OS CLI with the `config.json` file specified.
-
-              ```bash
-              dcos package install --options=config.json marathon-lb
-              ```
-
+1.  Install Marathon-LB by following [these instructions](/1.10/networking/marathon-lb/mlb-auth/). Depending on your [security mode](/1.10/security/ent/#security-modes), Marathon-LB requires service authentication for access to DC/OS. 
 2.  Monitor the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
     ![Services tab with all services shown.](/1.10/img/tweeter-services6-ee.png)
@@ -317,7 +230,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 4.  Install and deploy Tweeter to your DC/OS cluster with this CLI command.
 
     ```bash
-    dcos marathon app add tweeter.json
+    dcos marathon app add 1.10/tweeter.json
     ```
 
     **Tip:** The `instances` parameter in `tweeter.json` specifies the number of app instances. Use the following command to scale your app up or down:
@@ -379,7 +292,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
   "servicePort": 10000,
   "labels": {
     "VIP_0": "1.1.1.1:30000"
-  }
+    }
 }
 ...
 ```
@@ -410,14 +323,14 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [3]: /service-docs/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: /docs/1.10/overview/concepts/
- [7]: /docs/1.10/installing/cloud/
- [8]: /docs/1.10/installing/custom/
- [9]: /docs/1.10/administering-clusters/locate-public-agent/
- [10]: /docs/1.10/img/webui-universe-install.png
- [11]: /docs/1.10/cli/command-reference/
- [12]: /docs/1.10/networking/marathon-lb/
+ [6]: /1.10/overview/concepts/
+ [7]: /1.10/installing/cloud/
+ [8]: /1.10/installing/custom/
+ [9]: /1.10/administering-clusters/locate-public-agent/
+ [10]: /1.10/img/webui-universe-install.png
+ [11]: /1.10/cli/command-reference/
+ [12]: /1.10/networking/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
- [14]: /docs/1.10/img/tweeter.png
- [15]: /docs/1.10/img/network-tab.png
- [16]: /docs/1.10/img/top-tweeters.png
+ [14]: /1.10/img/tweeter.png
+ [15]: /1.10/img/network-tab.png
+ [16]: /1.10/img/top-tweeters.png

@@ -222,7 +222,7 @@ On each of your cluster nodes, use the following command to:
 - [CLI DC/OS Installation Guide][1]
 - [Advanced DC/OS Installation Guide][5]
 
-[1]: /docs/1.7/administration/installing/ent/custom/cli/
-[2]: /docs/1.7/administration/installing/ent/custom/system-requirements/install-docker-centos/
-[4]: /docs/1.7/administration/installing/ent/custom/gui/
-[5]: /docs/1.7/administration/installing/ent/custom/advanced/
+[1]: /1.7/administration/installing/ent/custom/cli/
+[2]: /1.7/administration/installing/ent/custom/system-requirements/install-docker-centos/
+[4]: /1.7/administration/installing/ent/custom/gui/
+[5]: /1.7/administration/installing/ent/custom/advanced/

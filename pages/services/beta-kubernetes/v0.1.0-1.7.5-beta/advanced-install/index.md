@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:  Advanced Installation
-excerpt:
 title: Advanced Installation
 menuWeight: 30
+excerpt:
+featureMaturity:
 enterprise: false
 ---
 
@@ -40,7 +41,7 @@ dcos package install beta-kubernetes --options=options.json
 # Enabling TLS for Kubernetes Components (Enterprise DC/OS Only)
 
 **Prerequisites**
-- The [DC/OS CLI](/1.10/cli/install/) and [Enterprise CLI](/1.10/cli/enterprise-cli/) installed.
+- The [DC/OS CLI](https://docs.mesosphere.com/1.10/cli/install/) and [Enterprise CLI](https://docs.mesosphere.com/1.10/cli/enterprise-cli/) installed.
 
 To enable TLS, you must first create the service accounts you need, and then a secret store to bootstrap the PKI of the Kubernetes cluster.
 

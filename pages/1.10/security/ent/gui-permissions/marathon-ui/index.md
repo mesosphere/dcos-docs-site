@@ -32,7 +32,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
     ![Add permission](/1.10/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.10/overview/security/security-modes/) and click **ADD PERMISSIONS** and then **Close**.
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.10/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
     ## Disabled
     
@@ -83,7 +83,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.10/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 

@@ -174,8 +174,8 @@ It is recommended that you save your DC/OS installer file immediately after inst
 Now you can [assign user roles][6].
 
 
- [1]: /docs/1.8/administration/installing/ent/custom/system-requirements/
+ [1]: /1.8/administration/installing/ent/custom/system-requirements/
  [2]: /assets/images/gui-installer-setup-ee.gif
- [3]: /docs/1.8/usage/service-discovery/
+ [3]: /1.8/usage/service-discovery/
  [4]: /assets/images/ui-installer-auth-1-7.gif
- [6]: /docs/1.8/administration/id-and-access-mgt/
+ [6]: /1.8/administration/id-and-access-mgt/

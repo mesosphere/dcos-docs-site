@@ -151,7 +151,7 @@ In this step, you create a YAML configuration file that is customized for your e
     - '.baz.com'    
     ```
 
-1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.10/security/#superuser). The hashed password is automatically appended to `config.yaml`.
+1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.10/security/ent/#superuser). The hashed password is automatically appended to `config.yaml`.
 
     ```bash
     bash dcos_generate_config.ee.sh --set-superuser-password
@@ -192,7 +192,7 @@ In this step, you create a custom DC/OS build file on your bootstrap node and th
 **Important:** 
 
 - Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.10/installing/ent/troubleshooting/).
-- If something goes wrong and you want to rerun your setup, use these cluster <a href="/docs/1.10/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
+- If something goes wrong and you want to rerun your setup, use these cluster <a href="/1.10/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
 
 To install DC/OS:
 
@@ -332,7 +332,7 @@ To install DC/OS:
     
     You are done!
     
-    ![UI dashboard](/1.10/img/dashboard-ee.gif)
+    ![UI dashboard](/1.10/img/dashboard-ee.png)
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.10/administering-clusters/convert-agent-type/) node.
@@ -383,17 +383,17 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
         
 
 
- [1]: /docs/1.10/installing/ent/custom/system-requirements/
- [2]: /docs/1.10/installing/ent/custom/uninstall/
- [3]: /docs/1.10/installing/ent/custom/configuration/configuration-parameters/
- [5]: /docs/1.10/installing/ent/custom/configuration/configuration-parameters/#rexray-config
+ [1]: /1.10/installing/ent/custom/system-requirements/
+ [2]: /1.10/installing/ent/custom/uninstall/
+ [3]: /1.10/installing/ent/custom/configuration/configuration-parameters/
+ [5]: /1.10/installing/ent/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
- [7]: /docs/1.10/storage/external-storage/
- [8]: /docs/1.10/installing/ent/custom/advanced/#configuration
- [9]: /docs/1.10/img/chef-zk-status.png
- [10]: /docs/1.10/img/gui-installer-login-ee.gif
- [11]: /docs/1.10/img/dashboard-ee.gif
- [12]: /docs/1.10/security/
+ [7]: /1.10/storage/external-storage/
+ [8]: /1.10/installing/ent/custom/advanced/#configuration
+ [9]: /1.10/img/chef-zk-status.png
+ [10]: /1.10/img/gui-installer-login-ee.gif
+ [11]: /1.10/img/dashboard-ee.png
+ [12]: /1.10/security/ent/
  [13]: #hardware
  [14]: #software
  [15]: #two

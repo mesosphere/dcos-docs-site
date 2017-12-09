@@ -14,7 +14,7 @@ The Marathon API is backed by the [Marathon component](/1.10/overview/architectu
 
 One of the Marathon instances is elected as leader, while the rest are hot backups in case of failure. All API requests must go through the Marathon leader. To enforce this, Admin Router proxies requests from any master node to the Marathon leader.
 
-For more information about using Marathon, see [Deploying Services and Pods](/1.10/deploying-services/).
+For more information about using Marathon, see [Managing Services](/1.10/deploying-services/).
 
 ## Routes
 
@@ -24,9 +24,9 @@ Access to the Marathon API is proxied through the Admin Router on each master no
 /service/marathon/
 ```
 
-## Authentication (Enterprise Only)
+## Authorization (Enterprise Only)
 
-Enterprise edition users must authenticate Marathon API requests.
+All Marathon API routes require authentication to use.
 
 To authenticate API requests, see [Obtaining an authentication token](/1.10/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/ent/iam-api/#passing-an-authentication-token).
 
@@ -42,4 +42,4 @@ To assign permissions to your account, see the [permissions reference](/1.10/sec
 
 ## Resources
 
-[swagger api='/1.10/api/marathon.yaml']
+[api-explorer api='/1.10/api/marathon.yaml']

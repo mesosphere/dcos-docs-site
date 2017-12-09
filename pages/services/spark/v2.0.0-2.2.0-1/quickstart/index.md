@@ -4,7 +4,7 @@ navigationTitle:  Spark Quickstart
 title: Spark Quickstart
 menuWeight: 10
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 
@@ -47,7 +47,7 @@ This tutorial will get you up and running in minutes with Spark. You will instal
     
     -  You can view the status of your Spark installation from the DC/OS GUI **Services** tab.
        
-       ![Verify spark installation](/service-docs/spark/v2.0.0-2.2.0-1/img/spark-gui-install.png)
+       ![Verify spark installation](/service-docs/spark/v2.0.0-2.2.0-1/img/spark-gui-install.gif)
        
     -  Type `dcos spark` to view the Spark CLI options.
     -  You can install the Spark CLI with this command:

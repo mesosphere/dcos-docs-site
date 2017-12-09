@@ -4,7 +4,7 @@ navigationTitle:  >
 title: >
   Release Notes for 1.10.0 Release
   Candidate 1
-menuWeight: 10
+menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: true
@@ -16,7 +16,7 @@ enterprise: true
 <h3>Limitations:</h3>
 
 <ul>
-<li>You must upgrade Marathon-LB <em>before</em> upgrading to DC/OS 1.10.0. See the <a href="/docs/1.10/installing/upgrading/">upgrade section</a> for more information.</li>
+<li>You must upgrade Marathon-LB <em>before</em> upgrading to DC/OS 1.10.0. See the <a href="/1.10/installing/oss/upgrading/">upgrade section</a> for more information.</li>
 
 <li>During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.</li>
 
@@ -94,7 +94,7 @@ The following updated data services packages are also in beta and are compatible
 
 ## Platform
 - Node and cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/custom/node-cluster-health-check/).
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
 - Enhanced upgrades with [backup and restore](1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
 - Universal Container Runtime (UCR).
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
@@ -137,7 +137,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
   Before upgrading to 1.10.0, uninstall your existing Marathon-LB package and reinstall the updated version.
 
 - REX-Ray configuration change.
-  DC/OS 1.10.0 upgrades REX-Ray from v03.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/custom/configuration/configuration-parameters/#rexray_config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
+  DC/OS 1.10.0 upgrades REX-Ray from v03.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray_config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in.
   The new command to set up your cluster URL is `dcos cluster setup <dcos_url>`. For details, see [CLI](#cli).

@@ -97,7 +97,7 @@ Next, add this [service][4] to your cluster:
 
 
 ```
-dcos marathon app add /docs/1.8/usage/tutorials/marathon/stateful-services/postgres.marathon.json
+dcos marathon app add /1.8/usage/tutorials/marathon/stateful-services/postgres.marathon.json
 ```
 
 Once the service has been scheduled and the Docker container has downloaded, PostgreSQL will become healthy and be ready to use. You can verify this from the DC/OS CLI:
@@ -147,6 +147,6 @@ dcos marathon app remove postgres
 For further information on stateful services in DC/OS, visit the [Storage section of the documentation](/1.8/usage/storage/).
 
 
-[1]: /docs/1.8/administration/installing/
-[2]: /docs/1.8/usage/cli/install/
+[1]: /1.8/administration/installing/
+[2]: /1.8/usage/cli/install/
 [4]: postgres.marathon.json

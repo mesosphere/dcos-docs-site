@@ -2,9 +2,9 @@
 layout: layout.pug
 navigationTitle:  HDFS 1.3.0-2.6.0-cdh5.9.1
 title: HDFS 1.3.0-2.6.0-cdh5.9.1
-menuWeight: 20
+menuWeight: 110
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

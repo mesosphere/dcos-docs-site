@@ -29,7 +29,7 @@ enterprise: false
 
 ## Authentication
 
-When running in [DC/OS strict security mode](/1.9/security/ent/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/1.9/security/ent/service-auth/).
+When running in [DC/OS strict security mode](/1.10/security/ent/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/1.10/security/ent/service-auth/).
 
 Follow these instructions to authenticate in strict mode:
 
@@ -176,5 +176,5 @@ In addition to the described configuration, make sure to connect the DC/OS clust
 
     $ dcos config set core.dcos_url https://<dcos-url>
 
- [11]: /docs/1.9/overview/architecture/components/
+ [11]: /1.9/overview/architecture/components/
  [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html

@@ -42,4 +42,4 @@ By the end of this session we will have installed our first service - Redis - fr
   It enables you to easily install services such as Apache Spark or Apache Cassandra in your cluster without having to deal with manual configuration. Universe packages are by many different contributors. There are two categories of packages right now:
   First, selected packages that have undergone testing and certification. Second, community packages, which are not as well tested.
 
-  You can also add your own repo that includes your custom packages. See [the documentation](https://docs.mesosphere.com/docs/1.8/usage/repo/) for details.
+  You can also add your own repo that includes your custom packages. See [the documentation](https://docs.mesosphere.com/1.8/usage/repo/) for details.

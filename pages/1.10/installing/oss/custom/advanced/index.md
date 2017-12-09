@@ -76,14 +76,7 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
 
     ```yaml
     ---
-    agent_list:
-    - <agent-private-ip-1>
-    - <agent-private-ip-2>
-    - <agent-private-ip-3>
-    - <agent-private-ip-4>
-    - <agent-private-ip-5>
-    # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-    bootstrap_url: file:///opt/dcos_install_tmp
+    bootstrap_url: http://<bootstrap_ip>:<your_port>
     cluster_name: <cluster-name>
     exhibitor_storage_backend: static
     master_discovery: static
@@ -92,13 +85,9 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
     - <master-private-ip-1>
     - <master-private-ip-2>
     - <master-private-ip-3>
-    public_agent_list:
-    - <public-agent-private-ip>
     resolvers:
     - 8.8.4.4
     - 8.8.8.8
-    ssh_port: 22
-    ssh_user: <username>
     use_proxy: 'true'
     http_proxy: http://<proxy_host>:<http_proxy_port>
     https_proxy: https://<proxy_host>:<https_proxy_port>
@@ -107,6 +96,7 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
     - '.baz.com'
     ```
 
+<a id="ip-detect-script"></a>
 2.  Create an `ip-detect` script.
 
     In this step, an IP detect script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
@@ -313,11 +303,11 @@ To install DC/OS:
 - [Troubleshooting DC/OS installation][9]
 - [Uninstalling DC/OS][8]
 
-[1]: /docs/1.10/installing/oss/custom/configuration/configuration-parameters/
-[2]: /docs/1.10/cli/install/
+[1]: /1.10/installing/oss/custom/configuration/configuration-parameters/
+[2]: /1.10/cli/install/
 [4]: https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
-[6]: /docs/1.10/overview/concepts/#public-agent-node
-[7]: /docs/1.10/overview/concepts/#private
-[8]: /docs/1.10/installing/oss/custom/uninstall/
-[9]: /docs/1.10/installing/oss/troubleshooting/
-[10]: /docs/1.10/security/user-management/
+[6]: /1.10/overview/concepts/#public-agent-node
+[7]: /1.10/overview/concepts/#private
+[8]: /1.10/installing/oss/custom/uninstall/
+[9]: /1.10/installing/oss/troubleshooting/
+[10]: /1.10/security/user-management/

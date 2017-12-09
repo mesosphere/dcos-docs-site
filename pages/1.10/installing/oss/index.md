@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
 excerpt:
-title: Installing and Upgrading OSS DC/OS
+title: Installing and Upgrading DC/OS Open Source
 navigationTitle: Installing and Upgrading
 menuWeight: 030
+oss: true
 ---
 
 DC/OS can be installed on any cluster of physical or virtual machines.
@@ -24,10 +25,10 @@ For new users installing to existing virtual or physical machines, on-premises o
 
 For advanced users installing to existing virtual or physical machines, on-premises or in the cloud, the [Advanced Installer][5] provides a scriptable, automatable interface to integrate with your preferred configuration management system.
 
-[1]: /docs/1.10/installing/oss/local/
-[2]: /docs/1.10/installing/oss/cloud/aws/
-[3]: /docs/1.10/installing/oss/cloud/azure/
-[4]: /docs/1.10/installing/oss/custom/gui/
-[5]: /docs/1.10/installing/oss/custom/advanced/
-[6]: /docs/1.10/installing/oss/cloud/
-[7]: /docs/1.10/installing/oss/custom/
+[1]: /1.10/installing/oss/local/
+[2]: /1.10/installing/oss/cloud/aws/
+[3]: /1.10/installing/oss/cloud/azure/
+[4]: /1.10/installing/oss/custom/gui/
+[5]: /1.10/installing/oss/custom/advanced/
+[6]: /1.10/installing/oss/cloud/
+[7]: /1.10/installing/oss/custom/

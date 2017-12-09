@@ -4,7 +4,7 @@ navigationTitle:  Backup and Restore
 title: Backup and Restore
 menuWeight: 34
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

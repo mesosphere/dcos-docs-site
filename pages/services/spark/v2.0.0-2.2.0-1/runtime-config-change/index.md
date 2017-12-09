@@ -4,7 +4,7 @@ navigationTitle:  Runtime Configuration Change
 title: Runtime Configuration Change
 menuWeight: 70
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 

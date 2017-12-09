@@ -1,4 +1,5 @@
-- var currentDocs = hierarchy.children.find(child => child.id === '1.10');
+- var semanticVersion = /^[0-9]\.[0-9].*$/
+- var currentDocs = hierarchy.children.filter(child => semanticVersion.test(child.id))[0]
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
 
 mixin renderGridToc()
@@ -23,7 +24,7 @@ mixin renderGridToc()
 
 mixin renderGrid()
   div(class='grid')
-    a(href='/1.10/installing', class='grid__item')
+    a(href=currentDocs.path + '/installing', class='grid__item')
       h3(class='grid__header') Install DC/OS
       div(class='grid__desc__wrapper')
         p(class='grid__desc') As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.

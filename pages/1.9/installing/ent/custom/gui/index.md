@@ -176,8 +176,8 @@ It is recommended that you save your DC/OS installer file immediately after inst
 Now you can [assign user roles][6].
 
 
- [1]: /docs/1.9/installing/ent/custom/system-requirements/
- [2]: /docs/1.9/img/gui-installer-setup-ee.gif
- [3]: /docs/1.9/networking/
- [4]: /docs/1.9/img/ui-installer-auth-1-7.gif
- [6]: /docs/1.9/security/ent/
+ [1]: /1.9/installing/ent/custom/system-requirements/
+ [2]: /1.9/img/gui-installer-setup-ee.gif
+ [3]: /1.9/networking/
+ [4]: /1.9/img/ui-installer-auth-1-7.gif
+ [6]: /1.9/security/ent/

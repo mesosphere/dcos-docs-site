@@ -1,15 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:  Configuration Reference
+excerpt:
 title: Configuration Reference
 menuWeight: 600
-excerpt:
-featureMaturity:
-enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 This topic provides all available configuration parameters. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [Enterprise DC/OS](https://mesosphere.com/product/).
 
@@ -25,6 +20,7 @@ This topic provides all available configuration parameters. Except where explici
 | [aws_template_storage_secret_access_key](#aws_template_storage_secret_access_key) | The AWS [Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html). |
 | [bootstrap_url](#bootstrap_url)                          | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files.                                         |
 | [cluster_docker_credentials](#cluster_docker_credentials)             | The dictionary of Docker credentials to pass.                                                                                      |
+| [cluster_docker_credentials_enabled](#cluster_docker_credentials_enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
 | [cluster_docker_registry_url](#cluster_docker_registry_url)            | The custom URL that Mesos uses to pull Docker images from.                                                                         |
 | [cluster_name](#cluster_name)                           | The name of your cluster.                                                                                                        |
 | [cosmos_config](#cosmos_config)                          | The dictionary of packaging configuration to pass to the [DC/OS Package Manager (Cosmos)](https://github.com/dcos/cosmos).         |
@@ -33,6 +29,7 @@ This topic provides all available configuration parameters. Except where explici
 | [gpus_are_scarce](#gpus_are_scarce)        | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip_detect_public_filename)       | The IP detect file to use in your cluster.  |
 | [master_discovery](#master_discovery)                          | (Required) The Mesos master discovery method.         |
+| [mesos_container_log_sink](#mesos_container_log_sink)                 | The log manager for containers (tasks). |
 | [public_agent_list](#public_agent_list)                          | A YAML nested list (-) of IPv4 addresses to your [public agent](/1.9/overview/concepts/#public-agent-node) host names.        |
 | [platform](#platform)                          | The infrastructure platform.      |
 | [rexray_config](#rexray_config)                          | The [REX-Ray](https://rexray.readthedocs.org/en/v0.3.2/user-guide/config/) configuration method for enabling external persistent volumes in Marathon.    |
@@ -41,7 +38,8 @@ This topic provides all available configuration parameters. Except where explici
 
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [dcos_overlay_enable](#dcos_overlay_enable)          | This block of parameters specifies whether to enable DC/OS virtual networks.                                                                                      |
+| [dcos_overlay_enable](#dcos_overlay_enable)          | This block of parameters specifies whether to enable DC/OS virtual networks.                                                              |
+| [dns_forward_zones](#dns_forward_zones)              | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers. |
 | [dns_search](#dns_search)                   | A space-separated list of domains that are tried when an unqualified domain is entered.                                                  |
 | [resolvers](#resolvers)                    | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.                                                |
 | [master_dns_bindall](#master_dns_bindall)                    | Indicates whether the master DNS port is open.                                               |
@@ -52,7 +50,7 @@ This topic provides all available configuration parameters. Except where explici
 | Parameter           | Description                                                                                                                                                                                                                                                        |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [docker_remove_delay](#docker_remove_delay) | The amount of time to wait before removing stale Docker images stored on the agent nodes and the Docker image generated by the installer.                                                                                                 |
-| [dcos_audit_logging](#dcos_audit_logging-enterprise-dcos-only)      | (Enterprise DC/OS Only) Indicates whether security decisions (authentication, authorization) are logged for Mesos, Marathon, and Jobs.                  |
+| [dcos_audit_logging](#dcos_audit_logging-enterprise-dc-os-only-)      | (Enterprise DC/OS Only) Indicates whether security decisions (authentication, authorization) are logged for Mesos, Marathon, and Jobs.                  |
 | [enable_docker_gc](#enable_docker_gc)    | Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. |
 | [gc_delay](#gc_delay)            | The maximum amount of time to wait before cleaning up the executor directories.                                                                                                                                                           |
 | [log_directory](#log_directory)       | The path to the installer host logs from the SSH processes.                                                                                                                                                                               |
@@ -63,20 +61,20 @@ This topic provides all available configuration parameters. Except where explici
 
 | Parameter                          | Description                                                                                                                                                |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [auth_cookie_secure_flag](#auth_cookie_secure_flag-enterprise-dcos-only)            | (Enterprise DC/OS Only) Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
-| [bouncer_expiration_auth_token_days](#bouncer_expiration_auth_token_days-enterprise-dcos-only) | (Enterprise DC/OS Only) Sets the auth token time-to-live (TTL) for Identity and Access Management.                                      |
-| [customer_key](#customer_key-enterprise-dcos-onlyenterprise-dcos-only-)                       | (Enterprise DC/OS Only) (required) The Enterprise DC/OS customer key.                                                                     |
+| [auth_cookie_secure_flag](#auth_cookie_secure_flag-enterprise-dc-os-only-)            | (Enterprise DC/OS Only) Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
+| [bouncer_expiration_auth_token_days](#bouncer_expiration_auth_token_days-enterprise-dc-os-only-) | (Enterprise DC/OS Only) Sets the auth token time-to-live (TTL) for Identity and Access Management.                                      |
+| [customer_key](#customer_key-enterprise-dc-os-only-enterprise-dcos-only-)                       | (Enterprise DC/OS Only) (required) The Enterprise DC/OS customer key.                                                                     |
 | [oauth_enabled](#oauth_enabled)                      | (DC/OS Only) Indicates whether to enable authentication for your cluster.                                                               |
-| [security](#security-enterprise-dcos-only)                           | (Enterprise DC/OS Only) The security mode: disabled, permissive, or strict.                                                      |
+| [security](#security-enterprise-dc-os-only-)                           | (Enterprise DC/OS Only) The security mode: disabled, permissive, or strict.                                                      |
 | [ssh_key_path](#ssh_key_path)                       | The path to the installer uses to log into the target nodes.                                                                      |
 | [ssh_port](#ssh_port)                           | The port to SSH to, for example 22.                                                                                               |
 | [ssh_user](#ssh_user)                           | The SSH username, for example `centos`.                                                                                           |
-| [superuser_password_hash](#superuser_password_hash-enterprise-dcos-only)            | (Enterprise DC/OS Only) (Required) The hashed superuser password.                                                               |
-| [superuser_username](#superuser_username-enterprise-dcos-only)                 | (Enterprise DC/OS Only) (Required) The user name of the superuser.                                                              |
-| [telemetry_enabled](#telemetry_enabled-enterprise-dcos-only)                  | Indicates whether to enable sharing of anonymous data for your cluster.                                                                     |
-| [zk_super_credentials](#zk_super_credentials-enterprise-dcos-only)               | (Enterprise DC/OS Only) The ZooKeeper superuser credentials.                                                                  |
-| [zk_master_credentials](#zk_master_credentials-enterprise-dcos-only)              | (Enterprise DC/OS Only) The ZooKeeper master credentials.                                                                     |
-| [zk_agent_credentials](#zk_agent_credentials-enterprise-dcos-only)               | (Enterprise DC/OS Only) The ZooKeeper agent credentials.                                                                      |
+| [superuser_password_hash](#superuser_password_hash-enterprise-dc-os-only-)            | (Enterprise DC/OS Only) (Required) The hashed superuser password.                                                               |
+| [superuser_username](#superuser_username-enterprise-dc-os-only-)                 | (Enterprise DC/OS Only) (Required) The user name of the superuser.                                                              |
+| [telemetry_enabled](#telemetry_enabled-enterprise-dc-os-only-)                  | Indicates whether to enable sharing of anonymous data for your cluster.                                                                     |
+| [zk_super_credentials](#zk-superuser)            | (Enterprise DC/OS Only) The ZooKeeper superuser credentials.  |
+| [zk_master_credentials](#zk-master)          | (Enterprise DC/OS Only) The ZooKeeper master credentials.  |
+| [zk_agent_credentials](#zk-agent)           | (Enterprise DC/OS Only) The ZooKeeper agent credentials. |
 
 ### agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.9/overview/concepts/#private-agent-node) host names.
@@ -104,33 +102,35 @@ This parameter sets the auth token time-to-live (TTL) for Identity and Access Ma
 bouncer_expiration_auth_token_days: '0.5'
 ```
 
-For more information, see the [security documentation](https://docs.mesosphere.com/docs/1.9/security/ent/).
+For more information, see the [security documentation](https://docs.mesosphere.com/1.9/security/).
 
 ### cluster_docker_credentials
-The dictionary of Docker credentials to pass. 
+The dictionary of Docker credentials to pass.
 
 - If unset, a default empty credentials file is created at `/etc/mesosphere/docker_credentials` during DC/OS install. A sysadmin can change credentials as needed. A `systemctl restart dcos-mesos-slave` or `systemctl restart dcos-mesos-slave-public` is required for changes to take effect.
-- You can also specify by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you. This will store the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS internal configuration.
+- You can also specify by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you. This stores the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS internal configuration.
+
+**Note:**
+- `cluster_docker_credentials` takes effect only when [`cluster_docker_credentials_enabled`](#cluster_docker_credentials_enabled) is set to `'true'`
+- `cluster_docker_credentials` takes effect during an upgrade only when `cluster_docker_credentials_dcos_owned` is set to `'true'`.
 
 You can use the following options to further configure the Docker credentials:
 
-*  **cluster_docker_credentials_dcos_owned** Indicates whether to store the credentials file in `/opt/mesosphere` or `/etc/mesosphere/docker_credentials`. A sysadmin cannot edit `/opt/mesosphere` directly.
-
+*  `cluster_docker_credentials_dcos_owned` Indicates whether to store the credentials file in `/opt/mesosphere` or `/etc/mesosphere/docker_credentials`. A sysadmin cannot edit `/opt/mesosphere` directly.
     *  `cluster_docker_credentials_dcos_owned: 'true'` The credentials file is stored in `/opt/mesosphere`.
-    
-        *  **cluster_docker_credentials_write_to_etc** Indicates whether to write a cluster credentials file.
-        
+        *  `cluster_docker_credentials_write_to_etc` Whether to write a cluster credentials file.
             *  `cluster_docker_credentials_write_to_etc: 'true'` Write a credentials file. This can be useful if overwriting your credentials file will cause problems (e.g., if it is part of a machine image or AMI). This is the default value.
             *  `cluster_docker_credentials_write_to_etc: 'false'` Do not write a credentials file.
-            
     *  `cluster_docker_credentials_dcos_owned: 'false'` The credentials file is stored in `/etc/mesosphere/docker_credentials`.
 
-*  **cluster_docker_credentials_enabled** Indicates whether to pass the Mesos `--docker_config` option to Mesos. 
+For more information, see the [examples](/1.9/installing/custom/configuration/examples/#docker-credentials).
 
-    *  `cluster_docker_credentials_enabled: 'true'` Pass the Mesos `--docker_config` option to Mesos. It will point to a file that contains the provided `cluster_docker_credentials` data.
-    *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos. 
-    
-For more information, see the [examples](/1.9/installing/ent/custom/configuration/examples/#docker-credentials).
+### cluster_docker_credentials_enabled
+Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_credentials`](#cluster_docker_credentials) to Mesos.
+
+*  `cluster_docker_credentials_enabled: 'true'` Pass the Mesos `--docker_config` option to Mesos. It will point to a file that contains the provided `cluster_docker_credentials` data.
+*  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos.
+
 
 ### cluster_docker_registry_url
 The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used.
@@ -160,7 +160,7 @@ Customer keys look like this:
 ab1c23de-45f6-7g8h-9012-i345j6k7lm8n
 ```
 
-For more information, see the [security documentation](https://docs.mesosphere.com/docs/1.9/security/ent/).
+For more information, see the [security documentation](https://docs.mesosphere.com/1.9/security/).
   
 ### dcos_audit_logging (Enterprise DC/OS Only)
 
@@ -169,13 +169,13 @@ Indicates whether security decisions (authentication, authorization) are logged 
 * `'dcos_audit_logging': 'true'` Mesos, Marathon, and Jobs are logged. This is the default value.
 * `'dcos_audit_logging': 'false'` Mesos, Marathon, and Jobs are not logged.
 
-For more information, see the [security documentation](https://docs.mesosphere.com/docs/1.9/security/ent/).
+For more information, see the [security documentation](https://docs.mesosphere.com/1.9/security/).
 
 ### dcos_overlay_enable
 
 Indicates whether to enable DC/OS virtual networks.
 
-**Important:** Virtual networks require Docker version 1.11 or later. If you are using Docker 1.10 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.9/installing/ent/custom/system-requirements/).
+**Important:** Virtual networks require Docker version 1.11 or later. If you are using Docker 1.10 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.9/installing/custom/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
@@ -202,12 +202,38 @@ Indicates whether to enable DC/OS virtual networks.
         *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node.
             
             **Important:** The last 3 bytes must be `00`.
-        *  __overlays__
+        *  `overlays`
             *  `name` The canonical name (see [limitations](/1.9/networking/virtual-networks/) for constraints on naming virtual networks).
             *  `subnet` The subnet that is allocated to the virtual network.
             *  `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information, see the [example](/1.9/installing/ent/custom/configuration/examples/#overlay) and [documentation](/1.9/networking/virtual-networks/).
+For more information, see the [example](/1.9/installing/custom/configuration/examples/#overlay) and [documentation](/1.9/networking/virtual-networks/).
+ 
+
+### dns_forward_zones
+
+**Important:** Available for DC/OS 1.9.1 and higher.
+
+A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
+
+A sample definition is as follows:
+
+```
+dns_forward_zones:
+- - "a.contoso.com"
+ - - - "1.1.1.1"
+     - 53
+   - - "2.2.2.2"
+     - 53
+- - "b.contoso.com"
+ - - - "3.3.3.3"
+     - 53
+   - - "4.4.4.4"
+     - 53
+```
+
+In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
+
  
 ### dns_search
 A space-separated list of domains that are tried when an unqualified domain is entered (e.g., domain searches that do not contain &#8216;.&#8217;). The Linux implementation of `/etc/resolv.conf` restricts the maximum number of domains to 6 and the maximum number of characters the setting can have to 256. For more information, see [man /etc/resolv.conf](http://man7.org/linux/man-pages/man5/resolv.conf.5.html).
@@ -226,8 +252,8 @@ The amount of time to wait before removing stale Docker images stored on the age
 ### enable_docker_gc
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.9/installing/ent/cloud/) template installations.
-*  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.9/installing/ent/custom/) installations.
+*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.9/installing/cloud/) template installations.
+*  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.9/installing/custom/) installations.
 
 ### exhibitor_storage_backend
 The type of storage backend to use for Exhibitor. You can use internal DC/OS storage (`static`) or specify an external storage system (`zookeeper`, `aws_s3`, and `azure`) for configuring and orchestrating ZooKeeper with Exhibitor on the master nodes. Exhibitor automatically configures your ZooKeeper installation on the master nodes during your DC/OS installation.
@@ -314,7 +340,7 @@ The path to the installer host logs from the SSH processes. By default this is s
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
     *  **exhibitor_address** 
-       (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For Enterprise DC/OS, this address is included in [DC/OS certificates](https://docs.mesosphere.com/docs/1.9/networking/tls-ssl/).
+       (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For Enterprise DC/OS, this address is included in [DC/OS certificates](https://docs.mesosphere.com/1.9/networking/tls-ssl/).
        
        The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
     *  **num_masters**
@@ -330,6 +356,16 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 
 *  `'master_dns_bindall': 'true'` The master DNS port is open. This is the default value.
 *  `'master_dns_bindall': 'false'` The master DNS port is closed.
+
+### mesos_container_log_sink
+
+The log manager for containers (tasks). The options are:
+
+* `'journald'` - send task logs only to journald.
+* `'logrotate'` - send task logs only to the file system (i.e. a stdout/err file).
+* `'journald+logrotate'` - Send logs to both journald and the file system.
+
+The default is `logrotate`. Due to performance issues, `journald` is not recommended. For details, see [Logging API](/1.10/monitoring/logging/logging-api/#compatibility).
 
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
@@ -392,7 +428,7 @@ Use this parameter to specify a security mode other than `security: permissive` 
 - `security: permissive`
 - `security: strict`
 
-Refer to the [security modes](https://docs.mesosphere.com/docs/1.9/security/ent/#security-modes) section for a detailed discussion of each parameter. 
+Refer to the [security modes](https://docs.mesosphere.com/1.9/security/#security-modes) section for a detailed discussion of each parameter. 
 
 ### ssh_key_path
 The path that the installer uses to log into the target nodes. By default this is set to `/genconf/ssh_key`. This parameter should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
@@ -404,10 +440,10 @@ The port to SSH to, for example `22`.
 The SSH username, for example `centos`.
 
 ### superuser_password_hash (Enterprise DC/OS Only)
-(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. For more information, see the [security documentation](https://docs.mesosphere.com/docs/1.9/security/ent/).
+(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. For more information, see the [security documentation](https://docs.mesosphere.com/1.9/security/).
 
 ### superuser_username (Enterprise DC/OS Only)
-(Required) The user name of the superuser. For more information, see the [security documentation](https://docs.mesosphere.com/docs/1.9/security/ent/).
+(Required) The user name of the superuser. For more information, see the [security documentation](https://docs.mesosphere.com/1.9/security/).
 
 ### telemetry_enabled
 Indicates whether to enable sharing of anonymous data for your cluster. <!-- DC/OS auth -->
@@ -430,4 +466,32 @@ Indicates whether to enable the DC/OS proxy.
     
         **Important:** Wildcards characters (`*`) are not supported. 
 
-**Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy). 
+**Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
+
+<a id="zk-superuser"></a> 
+### zk_super_credentials (Enterprise DC/OS Only)
+
+On DC/OS `strict` and `permissive` mode clusters the information stored in ZooKeeper is protected using access control lists (ACLs) so that a malicious user cannot connect to the ZooKeeper Quorum and directly modify service metadata. ACLs specify sets of resource IDs (RIDs) and actions that are associated with those IDs. ZooKeeper supports pluggable authentication schemes and has a few built in schemes: `world`, `auth`, `digest`, `host`, and `ip`. 
+
+DC/OS ZooKeeper credentials `zk_super_credentials`, `zk_master_credentials`, and `zk_agent_credentials` use `digest` authentication, which requires a `<uid>:<password>` string which is then used as an ID while checking if a client can access a particular resource.
+
+`zk_super_credentials` enables access to ZooKeeper's equivalent of the `root` or `superuser` account, which has access to all resources regardless of existing ACLs. This credential allows an operator to access all the metadata stored in the ZooKeeper Quorum and is used by the DC/OS bootstrap script while initializing the cluster. Default: `'super:secret'`.
+
+To harden clusters, Mesosphere recommends that you change the defaults of all credentials to long, complex values. Once set, you can verify the settings using `/opt/mesosphere/active/exhibitor/usr/zookeeper/bin/zkCli.sh` available on DC/OS master nodes. By default, `zkCli` does not authenticate, so the nodes in the `/dcos` tree will not be accessible. After invoking `addauth digest <zk_super_credentials>` in `zkCli`, all the nodes in ZooKeeper will be accessible, with `zk_master_credentials` and `zk_agent_credentials` providing access to a subset of them. For example:
+
+```
+[zk: localhost:2181(CONNECTED) 0] addauth digest super:secret
+[zk: localhost:2181(CONNECTED) 1] ls /dcos
+[backup, agent, RootCA, secrets, vault, CAChainInclRoot, CAChain, CACertKeyType, ca, master]
+[zk: localhost:2181(CONNECTED) 2] ls /dcos/secrets
+[core, init, system, bootstrap_user, keys]
+```
+<a id="zk-master"></a> 
+### zk_master_credentials (Enterprise DC/OS Only)
+
+Credentials used by the bootstrapping processes to access the credentials of the services that will be running on the DC/OS master nodes.
+
+<a id="zk-agent"></a> 
+### zk_agent_credentials (Enterprise DC/OS Only)
+
+Credentials used by the bootstrapping processes to access the credentials of the services that will be running on the DC/OS agent nodes.

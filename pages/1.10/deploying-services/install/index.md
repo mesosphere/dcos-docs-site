@@ -38,9 +38,13 @@ From the DC/OS GUI you can install services from the **Services** or **Catalog**
 
     ![universe](/1.10/img/ui-dashboard-catalog.png)
 
-2.  Click a package. Do one of the following:
-    - Click **DEPLOY**.
-    - Click [**CONFIGURE**](/1.10/deploying-services/config-universe-service/), customize, then click **REVIEW AND DEPLOY**.
+2.  Click a package.
+    1. Click **REVIEW & RUN**.
+
+       This is some text.
+
+    2. Optionally click [**EDIT**](/1.10/deploying-services/config-universe-service/), customize parameters, and click **REVIEW & RUN**.
+    3. Click **RUN SERVICE**.
 
 ### Services tab
 
@@ -63,4 +67,4 @@ Go to the **Services** tab and confirm that the service is running. For more inf
 
 ![Services](/1.10/img/tweeter-services6.png)
 
-**Tip:** Some services from the **Community Services** section of the Catalog will not show up in the DC/OS service listing. For these, inspect the service's Marathon app in the Marathon GUI to verify that the service is running and healthy.
+**Tip:** Some services from the **Community** section of the Catalog will not show up in the DC/OS service listing. For these, inspect the service's Marathon app in the Marathon GUI to verify that the service is running and healthy.

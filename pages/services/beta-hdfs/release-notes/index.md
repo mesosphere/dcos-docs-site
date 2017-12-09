@@ -4,7 +4,7 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 30
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Service Settings
 title: Service Settings
 menuWeight: 30
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

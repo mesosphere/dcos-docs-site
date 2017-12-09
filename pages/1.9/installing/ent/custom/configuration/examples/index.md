@@ -224,7 +224,7 @@ agent_list:
 - <agent-private-ip-1>
 - <agent-private-ip-2>
 # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-bootstrap_url: file:///opt/dcos_install_tmp
+bootstrap_url: http://<bootstrap_ip>:<your_port>
 cluster_name: <cluster-name>
 master_discovery: static
 master_list:
@@ -260,7 +260,7 @@ agent_list:
 - <agent-private-ip-1>
 - <agent-private-ip-2>
 # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-bootstrap_url: file:///opt/dcos_install_tmp
+bootstrap_url: http://<bootstrap_ip>:<your_port>
 cluster_name: <cluster-name>
 master_discovery: static
 master_list:
@@ -289,7 +289,7 @@ agent_list:
 - <agent-private-ip-1>
 - <agent-private-ip-2>
 # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-bootstrap_url: file:///opt/dcos_install_tmp
+bootstrap_url: http://<bootstrap_ip>:<your_port>
 cluster_docker_credentials:
   auths:
     'https://registry.example.com/v1/':
@@ -320,7 +320,7 @@ agent_list:
 - <agent-private-ip-2>
 - <agent-private-ip-3>
 # Use this bootstrap_url value unless you have moved the DC/OS installer assets.
-bootstrap_url: file:///opt/dcos_install_tmp
+bootstrap_url: http://<bootstrap_ip>:<your_port>
 cluster_name: <cluster-name>
 master_discovery: static
 master_list:

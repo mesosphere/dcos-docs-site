@@ -14,7 +14,7 @@ These configuration parameters are specified in [YAML][1] format in your config.
 This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your agent host names.
 
 ### bootstrap_url
-This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: file:///opt/dcos_install_tmp` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
+This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: http://<bootstrap_ip>:<your_port>` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
 
 ### cluster_name
 This parameter specifies the name of your cluster.

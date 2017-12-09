@@ -1,14 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Securing an Open Source Cluster
+navigationTitle:  Securing a Cluster
 excerpt:
-title: Securing an Open Source Cluster
+title: Securing a Cluster
 menuWeight: 7
-oss: yes
 ---
 
 This topic discusses the security features in DC/OS and
-best practices for deploying Open Source DC/OS securely.
+best practices for deploying DC/OS securely.
 
 ## General security concepts
 
@@ -40,9 +39,9 @@ all HTTP traffic to HTTPS to properly secure access to your cluster.
 
 After you have a valid TLS certificate, install the certificate on each master.
 Copy the certificate and private key to a well known location, such as under
-`/etc/ssl/certs`.
+`/etc/ssl/certs`. 
 
-If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/1.10/networking/tls-ssl/haproxy-adminrouter/).
+If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/1.10/security/oss/tls-ssl/haproxy-adminrouter/).
 
 ### Private zone
 

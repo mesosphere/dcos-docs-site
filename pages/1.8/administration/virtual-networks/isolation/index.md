@@ -57,7 +57,7 @@ Use ipset to get onto the isolation chain. Create a `hash:net` type ipset named 
 
     iptables -I FORWARD -m set --match-set overlays src -m set --match-set overlays dst -j dcos-isolation
 
-This rule says that if a given packet is from any of the overlays and is destined to any other overlay, send it to the `dcos-isolation` rule. In most environments, the system does not prevent an virtual network's outbound packets from reentering the same virtual network. To prevent this, add an exception set of type `hash:net,net` and add entries for networks that should not be filtered. Modify the rule to:
+This rule says that if a given packet is from any of the overlays and is destined to any other overlay, send it to the `dcos-isolation` rule. In most environments, the system does not prevent a virtual network's outbound packets from reentering the same virtual network. To prevent this, add an exception set of type `hash:net,net` and add entries for networks that should not be filtered. Modify the rule to:
 
     iptables -I FORWARD -m set --match-set overlays src -m set --match-set overlays dst -m set ! --match-set src,dst overlay-exceptions -j dcos-isolation
 
