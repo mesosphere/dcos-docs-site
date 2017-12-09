@@ -117,9 +117,6 @@
       margin: -1px 3px 0 -23px;
       color: rgba(255, 255, 255, 0.6);
       user-select: none;
-      &:hover {
-        opacity: 0.3;
-      }
     }
     &__text {
       font-weight: 400;
@@ -199,6 +196,11 @@
   @include md {
     &__nav {
       font-size: 0.9rem;
+      &__icon {
+        &:hover {
+          opacity: 0.3;
+        }
+      }
       &__item {
         line-height: 1.25rem;
         margin-bottom: 0;
