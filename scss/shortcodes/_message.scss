@@ -1,17 +1,16 @@
 .message {
   margin: 1.5rem 0 0;
   line-height: 1.5rem;
-  padding: 0.8rem 1rem;
+  padding: 1rem;
   border: 1px solid $color-dark;
   border-radius: 3px;
   color: $color-light;
   background: $color-dark;
   font-weight: 500;
-  &--outline {
-    border: 1px solid $color-dark;
-    color: $color-dark;
-    background: transparent;
+  *:not(a):not(.badge) {
+    color: inherit;
   }
+
   &--warning {
     border: 1px solid #F2D98E;
     color: $color-dark;
@@ -19,18 +18,24 @@
   }
   &--error {
     border: 1px solid #E77975;
-    color: $color-light;
+    // color: $color-light;
+    color: $color-dark;
     background: #E77975;
   }
   &--info {
-    border: 1px solid #505868;
+    border: 1px solid $color-dark;
     color: $color-light;
-    background: #505868;
+    background: #303646;
   }
   &--success {
     border: 1px solid #89DA71;
     color: $color-light;
     background: #89DA71;
+  }
+  &--outline {
+    border: 1px solid $color-dark;
+    color: $color-dark;
+    background: transparent;
   }
   &--outline-warning {
     border: 1px solid #F2D98E;

@@ -10,6 +10,13 @@
   margin: 0.5rem 0;
   line-height: 1;
   text-transform: uppercase;
+  &__container {
+    position: relative;
+    display: block;
+    &--inline {
+      display: inline;
+    }
+  }
   &-shortcode-container {
     position: relative;
   }

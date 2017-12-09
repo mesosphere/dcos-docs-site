@@ -22,7 +22,7 @@
     color: $color-grey;
   }
   &__list {
-    margin: 0;
+    margin: 1rem 0 0;
     padding: 0;
     list-style-type: none;
     &-item {
@@ -39,20 +39,28 @@
     text-decoration: none;
     &--all {
       color: $color-grey;
-      svg {
-        width: 16px;
-        height: 16px;
+      img {
+        width: 13px;
+        height: 17px;
         margin-left: 10px;
       }
     }
   }
-  @include md {
+  @include pre-md {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 4rem;
     &__item {
-      width: 30%;
+      width: 48%;
       margin-bottom: 4rem;
+      &:nth-last-child(-n+2) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  @include md {
+    &__item {
+      width: 30%;
     }
   }
 }

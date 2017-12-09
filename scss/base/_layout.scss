@@ -65,6 +65,18 @@ $sidebarWidth: 250px;
       }
     }
   }
+  @include xl {
+    &__sidebar {
+      width: $sidebarWidth + 50px;
+      + .layout__content {
+        width: calc(100% - #{$sidebarWidth} - 50px);
+        margin-left: $sidebarWidth + 50px;
+      .header {
+          width: calc(100% - #{$sidebarWidth} - 50px);
+        }
+      }
+    }
+  }
   @include print {
     &__sidebar {
       display: none;

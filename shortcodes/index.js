@@ -78,9 +78,13 @@ const shortcodes = {
     }
     if (!opts.type) {
       type = 'block';
+    } else if (opts.type = 'inline' || 'inline-block') {
+      type = 'inline';
     }
     return sanitize(`
+    <span class="badge__container--${type}">
       ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span>
+    </span>
     `);
   },
 
@@ -99,9 +103,13 @@ const shortcodes = {
     }
     if (!opts.type) {
       type = 'block';
+    } else if (opts.type = 'inline' || 'inline-block') {
+      type = 'inline';
     }
     return sanitize(`
+    <span class="badge__container--${type}">
       ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span>
+    </span>
     `);
   },
 
@@ -121,9 +129,13 @@ const shortcodes = {
     }
     if (!opts.type) {
       type = 'block';
+    } else if (opts.type = 'inline' || 'inline-block') {
+      type = 'inline';
     }
     return sanitize(`
+    <span class="badge__container--${type}">
       ${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span>
+    </span>
     `);
   },
   /**
@@ -330,7 +342,7 @@ const shortcodes = {
     let classes = `btn--${opts.color} btn--${opts.size}`;
     if (opts.href) {
       return sanitize(`
-      <a href=${opts.href} target="_blank"><button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button></a>
+      <a href="${opts.href}" target="_blank"><button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button></a>
     `);
     } else {
       return sanitize(`

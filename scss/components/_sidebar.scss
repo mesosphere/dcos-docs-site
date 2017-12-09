@@ -94,8 +94,7 @@
       background: transparent;
     }
     flex: 1;
-    margin-top: 1rem;
-    padding: 0;
+    padding-top: 1rem;
     overflow-y: scroll;
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.6);
@@ -134,22 +133,22 @@
         line-height: 1.2rem;
         text-decoration: none;
         &--depth-0 {
-          padding-left: 1rem * 2;
+          padding-left: calc(1rem * 2 + 23px);
         }
         &--depth-1 {
-          padding-left: 1rem * 3;
+          padding-left: calc(1rem * 3 + 23px);
         }
         &--depth-2 {
-          padding-left: 1rem * 4;
+          padding-left: calc(1rem * 4 + 23px);
         }
         &--depth-3 {
-          padding-left: 1rem * 5;
+          padding-left: calc(1rem * 5 + 23px);
         }
         &--depth-4 {
-          padding-left: 1rem * 6;
+          padding-left: calc(1rem * 6 + 23px);
         }
         &--depth-5 {
-          padding-left: 1rem * 7;
+          padding-left: calc(1rem * 7 + 23px);
         }
       }
       &--active {
@@ -191,6 +190,7 @@
     }
     &-copyright {
       color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
     }
   }
   @include md {

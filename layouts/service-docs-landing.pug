@@ -29,7 +29,7 @@ mixin renderGridToc()
               if val.children.length > 5
                 li(class='grid-toc__list-item')
                   a(href=val.path, class='grid-toc__link grid-toc__link--all') View All
-                    i(data-feather='arrow-right')
+                    img(class='grid-toc__link--all__arrow', src='/assets/right-arrow.svg')
 
 doctype html
 html(lang='en')
@@ -40,16 +40,17 @@ html(lang='en')
       div(role='main', class='layout__content')
         include partials/header.pug
         div(class='landing__hero')
-          h1(class='landing__title') Service Docs
+          h1(class='landing__title') DC/OS Service Docs
         div(class='landing__container')
           +renderGridToc()
         footer(class='landing__footer')
           div(class='landing__footer__container')
-            img(class='landing__footer__logo', src='/assets/logo-logomark.svg')
+            a(class='landing__footer__logo__link', href='https://mesosphere.com/')
+              img(class='landing__footer__logo', src='/assets/logo-logomark.svg')
             div(class='landing__footer__menu')
               a(href='https://mesosphere.com/terms/') Terms of Service
               a(href='https://mesosphere.com/privacy/') Privacy Policy
-            div(class='landing__footer__copyright')!= copyright
+            a(class='landing__footer__copyright', href='https://mesosphere.com/')!= copyright
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug

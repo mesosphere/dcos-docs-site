@@ -62,7 +62,6 @@
     margin: 0;
   }
   &__desc {
-    // flex: 1;
     margin-top: 0;
     justify-content: flex-start;
     text-align: left;
@@ -88,10 +87,6 @@
       &:hover {
         color: $color-purple-light;
       }
-      background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
-      background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
-      background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
-      background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
       background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
     }
   }
@@ -108,7 +103,7 @@
       color: $color-purple-light;
     }
   }
-  @include md {
+  @include pre-md {
     &__item {
       width: calc(50% - 10px);
       min-height: calc(50% - 10px);

@@ -281,6 +281,8 @@ Copy your existing [tooltip content="This is a really really really really reall
 
 [button color="dark" href="/"]Home[/button]
 
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.0/dcos_generate_config.sh?_ga=2.176217893.1055726118.1512575039-1207888710.1504116514"]Download DC/OS[/button]
+
 ### Message {data-hide=true}
 
 #### Options
@@ -289,6 +291,37 @@ Copy your existing [tooltip content="This is a really really really really reall
 | -------------- |:------------------------:| -----------------------------:|
 | type           | optional                 | warning, error, info, success |
 | fill           | optional (default: true) | boolean                       |
+
+
+[message type="warning"] This release candidate is for testing only and not to be used in production.
+
+Limitations:
+
+  * You must upgrade Marathon-LB before upgrading to DC/OS 1.10.0. See the <a href="#">upgrade section</a> for more information.
+  * During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
+Please try out the new features and updated data services. Provide any feedback through our support channel.
+
+[/message]
+
+[message type="info"] This release candidate is for testing only and not to be used in production.
+
+Limitations:
+
+  * You must upgrade Marathon-LB before upgrading to DC/OS 1.10.0. See the <a href="#">upgrade section</a> for more information.
+  * During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
+Please try out the new features and updated data services. Provide any feedback through our support channel.
+
+[/message]
+
+[message type="error"] This release candidate is for testing only and not to be used in production.
+
+Limitations:
+
+  * You must upgrade Marathon-LB before upgrading to DC/OS 1.10.0. See the <a href="#">upgrade section</a> for more information.
+  * During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
+Please try out the new features and updated data services. Provide any feedback through our support channel.
+
+[/message]
 
 ###### Example:
 

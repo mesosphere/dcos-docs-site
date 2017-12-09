@@ -7,7 +7,7 @@ header(class='header')
     i(class='header__icon', data-feather='menu')
   a(href='/', class='header__logo')
     img(src='/assets/logo-logomark.svg', alt='Mesosphere').header__logo--mobile
-    img(src='/assets/logo-dark.svg', alt='Mesosphere').header__logo--desktop
+    img(src='/assets/logo-dcos-dark.svg', alt='Mesosphere').header__logo--desktop
   div(class='header__main')
     div(class='header__dropdown')
       img(class='header__dropdown-icon', src='/assets/logo-logomark.svg', alt='Mesosphere')
@@ -26,7 +26,7 @@ header(class='header')
           a(href='https://support.mesosphere.com') Support
   section(class='header__search', role='search')
       form(class='header__search-form', action='/search', method='GET')
+        input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
         label(class='header__search-label', for='header-search-input')
           i(class='header__icon', data-feather='search')
-        input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
 include header-dropdown.pug
