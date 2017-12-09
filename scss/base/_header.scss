@@ -16,11 +16,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 160px;
     font-size: 18px;
     line-height: 1;
     &-icon {
       height: 18px;
+    }
+    strong {
+      margin: 0 0.5rem;
     }
     svg {
       display: block;
