@@ -76,6 +76,16 @@ function plugin(opts) {
       if(path[0] !== '/') {
         path = '/' + path;
       }
+      // Check if exists
+      let listOfPaths = Object.keys(files).map(f => {
+        let array = f.split('/');
+        array.pop();
+        return '/' + array.join('/');
+      });
+      if(listOfPaths.indexOf(path) == -1) {
+        return;
+      }
+      // Find
       var f = function(array, key, value) {
         return array.find(function(item) {
           return item[key] == value;
@@ -87,8 +97,10 @@ function plugin(opts) {
       pathSplit.splice(0, 1);
       var index = 0;
       var currentPage = pathSplit.reduce(function(value, next) {
-        var found = f(value.children, 'id', pathSplit[index])
-        index++;
+        if(value.children && value.children.length) {
+          var found = f(value.children, 'id', pathSplit[index]);
+          index++;
+        }
         return found;
       }, start);
       return currentPage;

@@ -1,15 +1,21 @@
 - var page = hierarchy.findByPath('/' + path)
 - var pageDescription = (page && page.excerpt) ? page.excerpt : description
 
+
 - // Canonical URL
 - var semanticVersion = /^[0-9]+\.[0-9]+/
 - var currentDocs = hierarchy.children.filter(child => semanticVersion.test(child.id))[0]
 - var paths = path.split('/')
 - var canonicalHref = null
-if currentDocs && paths[0] != currentDocs.id
+
+if currentDocs && paths[0] != currentDocs.id && semanticVersion.test(paths[0])
   - var p = path.split('/')
   - p[0] = currentDocs.id
-  - canonicalHref = url + '/' + p.join('/')
+  - var newUrl = '/' + p.join('/')
+  script.
+    console.log(!{JSON.stringify(newUrl)})
+  if hierarchy.findByPath(newUrl)
+    - canonicalHref = url + newUrl
 
 meta(charset='UTF-8')
 meta(name='viewport', content='width=device-width', initial-scale='1', user-scalable='no')
