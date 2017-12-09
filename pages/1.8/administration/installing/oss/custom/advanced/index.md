@@ -92,7 +92,7 @@ Your cluster must meet the software and hardware [requirements](/1.8/administrat
     - 'foo.bar.com'
     - '.baz.com'
     ```
-
+<a id="ip-detect-script"></a>
 2. Create an `ip-detect` script.
 
     In this step you create an IP detect script to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
@@ -295,12 +295,12 @@ To install DC/OS:
 - [Use your cluster][3]
 - [Uninstalling DC/OS][8]
 
-[1]: /docs/1.8/administration/installing/oss/custom/configuration-parameters/
-[2]: /docs/1.8/usage/cli/install/
-[3]: /docs/1.8/usage/
+[1]: /1.8/administration/installing/oss/custom/configuration-parameters/
+[2]: /1.8/usage/cli/install/
+[3]: /1.8/usage/
 [4]: https://downloads.dcos.io/dcos/stable/1.8.9/dcos_generate_config.sh
-[6]: /docs/1.8/overview/concepts/#public
-[7]: /docs/1.8/overview/concepts/#private
-[8]: /docs/1.8/administration/installing/oss/custom/uninstall/
-[9]: /docs/1.8/administration/installing/oss/custom/troubleshooting/
-[10]: /docs/1.8/administration/id-and-access-mgt/user-management/
+[6]: /1.8/overview/concepts/#public
+[7]: /1.8/overview/concepts/#private
+[8]: /1.8/administration/installing/oss/custom/uninstall/
+[9]: /1.8/administration/installing/oss/custom/troubleshooting/
+[10]: /1.8/administration/id-and-access-mgt/user-management/

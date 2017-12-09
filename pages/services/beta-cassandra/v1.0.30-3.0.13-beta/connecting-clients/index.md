@@ -4,7 +4,7 @@ navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 70
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

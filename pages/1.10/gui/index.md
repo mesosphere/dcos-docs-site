@@ -106,7 +106,7 @@ View the system health of your DC/OS components from the **Components** tab.
 # Settings
 Manage your DC/OS package repositories, secrets stores, LDAP directories, and identity providers from the **Settings** tab.
 
-![Package repositories](/1.10/img/package-repositories.png)
+![Package repositories](/1.10/img/package-repositories-ee.png)
 
 # Organization
 Manage user access from the **Organization** tab.

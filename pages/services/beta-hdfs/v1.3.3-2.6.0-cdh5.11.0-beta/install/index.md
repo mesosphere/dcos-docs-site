@@ -4,7 +4,7 @@ navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 0
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
@@ -16,7 +16,7 @@ Beta-HDFS is available in the Universe and can be installed by using either the 
 ## Prerequisites
 
 - Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/service-docs/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.  
+	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - A minimum of five agent nodes with eight GiB of memory and ten GiB of disk available on each agent.
@@ -40,7 +40,7 @@ dcos package install beta-hdfs --cli
 
 ## Service Name
 
-Each instance of Beta-HDFS in a given DC/OS cluster must be configured with a different service name. You can configure the service name in the service section of the advanced installation section of the DC/OS web interface or with a JSON options file when installing from the DC/OS CLI. See [Multiple HDFS Cluster Installation](#multiple-install) for more information. The default service name (used in many examples here) is `beta-hdfs`.
+Each instance of Beta-HDFS in a given DC/OS cluster must be configured with a different service name. You can configure the service name in the service section of the advanced installation section of the DC/OS web interface or with a JSON options file when installing from the DC/OS CLI. See [Multiple HDFS Cluster Installation](#multiple-install) for more information. The default service name (used in many examples here) is `hdfs`.
 
 ## Custom Installation
 
@@ -59,7 +59,7 @@ Sample JSON options file named `sample-hdfs.json`:
 The command below creates a cluster using `sample-hdfs.json`:
 
 ```
-dcos package install --options=sample-hdfs.json hdfs
+dcos package install --options=sample-hdfs.json beta-hdfs
 ```
 
 This cluster will have 10 data nodes instead of the default value of 3.
@@ -83,10 +83,10 @@ cat hdfs1.json
    }
 }
 
-dcos package install hdfs --options=hdfs1.json
+dcos package install beta-hdfs --options=hdfs1.json
 ```
 
-Use the `--name` argument after install time to specify which HDFS instance to query. All `dcos hdfs` CLI commands accept the `--name` argument. If you do not specify a service name, the CLI assumes the default value, `hdfs`.
+Use the `--name` argument after install time to specify which HDFS instance to query. All `dcos beta-hdfs` CLI commands accept the `--name` argument. If you do not specify a service name, the CLI assumes the default value, `hdfs`.
 
 # Colocation
 

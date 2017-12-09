@@ -12,7 +12,7 @@ enterprise: false
 
     
 # Description
-Manage commands that under development and subject to change.
+Manage commands under development and subject to change.
 
 # Usage
 

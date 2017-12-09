@@ -7,12 +7,12 @@ menuWeight: 1
 oss: true
 ---
 
-Welcome to part 1 of the DC/OS 101 Tutorial.
+Welcome to part 1 of the DC/OS 101 Tutorial
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
 
 # Prerequisites
-To get started with this tutorial, you should have access to a running DC/OS cluster with at least a single master node and 3 agent nodes (of which one is a public agent node). If you don't have these requirements set up, please follow the [setup instructions](/1.10/installing/oss/) for various cloud providers, on-premise, or vagrant setups.
+To get started with this tutorial, you should have access to a running DC/OS cluster with at least a single master node and 3 agent nodes (of which one is a public agent node). If you don't have these requirements set up, please follow the [setup instructions](/1.10/installing/) for various cloud providers, on-premise, or vagrant setups.
 If you are unsure which option to choose, then we recommend using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">AWS templates</a>.
 
 **Note**: For this tutorial a setup with a single master node is sufficient, but for running production workloads you should have multiple master nodes.
@@ -23,14 +23,14 @@ By the end of this section you will have installed the DC/OS CLI and used it to 
 
 # Steps
   * Install the DC/OS CLI
-    * Follow the steps [here](/1.10/cli/install/oss/) or the `Install CLI` instruction in the lower left corner of the DC/OS GUI.
+    * Follow the steps [here](/1.10/cli/install/) or the `Install CLI` instruction in the lower left corner of the DC/OS GUI.
     * Make sure you are authorized to connect to your cluster by running `dcos auth login`. This is necessary to prevent access from unauthorized people to your cluster.
-    * You can also add/invite friends and co-workers to your cluster. See [user management documentation](/1.10/security/ent/user-management/) for details
+    * You can also add/invite friends and co-workers to your cluster. See [user management documentation](/1.10/security/user-management/) for details
 
   * Explore the cluster:
       * Check the running services with `dcos service`. Unless you already installed additional services, there should be two services running on your cluster: Marathon (basically the DC/OS init system) and metronome (basically the DC/OS cron scheduler).
       * Check the connected nodes with `dcos node`. You should be able to see your connected agents nodes (i.e., not the master nodes) in your cluster.
-      * Explore the logs of the leading Mesos master with `dcos node log --leader`. Mesos is basically the kernel of DC/OS and this tutorial explores the Mesos logs at multiple times during this tutorial.
+      * Explore the logs of the leading mesos master with `dcos node log --leader`. Mesos is basically the kernel of DC/OS and this tutorial explores the Mesos logs at multiple times during this tutorial.
       * To explore more CLI options, enter the `dcos help` command. There are also help options of the individual commands available e.g., `dcos node --help`. Alternatively, check the [CLI documentation](/1.10/cli/).
 
 # Outcome

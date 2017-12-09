@@ -330,11 +330,11 @@ DC/OS uses ZooKeeper, a high-performance coordination service to manage the inst
     ```
 
 
- [1]: /docs/1.8/administration/installing/ent/custom/configuration-parameters/#scrollNav-5
+ [1]: /1.8/administration/installing/ent/custom/configuration-parameters/#scrollNav-5
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /docs/1.8/administration/installing/ent/custom/configuration-parameters/#scrollNav-7
- [4]: /docs/1.8/overview/architecture/#boot
- [5]: /docs/1.8/administration/installing/ent/custom/configuration-parameters
- [6]: /docs/1.8/administration/access-node/sshcluster/
- [7]: /docs/1.8/usage/webinterface/
+ [3]: /1.8/administration/installing/ent/custom/configuration-parameters/#scrollNav-7
+ [4]: /1.8/overview/architecture/#boot
+ [5]: /1.8/administration/installing/ent/custom/configuration-parameters
+ [6]: /1.8/administration/access-node/sshcluster/
+ [7]: /1.8/usage/webinterface/
 

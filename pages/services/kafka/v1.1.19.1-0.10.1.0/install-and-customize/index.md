@@ -4,7 +4,7 @@ navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 10
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
@@ -112,4 +112,4 @@ dcos package install kafka --options=kafka1.json
 
 [4]: #custom-installation
 [5]: https://github.com/mesosphere/dcos-vagrant
-[6]: /docs/1.9/usage/service-guides/kafka/configure#configuration-options
+[6]: /1.9/usage/service-guides/kafka/configure#configuration-options

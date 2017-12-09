@@ -26,6 +26,6 @@ Not all clouds have template support, but not worry, you can still configure the
 
 - [Custom Installation Guides][3]
 
-[1]: /docs/1.10/installing/oss/cloud/aws/
-[2]: /docs/1.10/installing/oss/cloud/azure/
-[3]: /docs/1.10/installing/oss/custom/
+[1]: /1.10/installing/oss/cloud/aws/
+[2]: /1.10/installing/oss/cloud/azure/
+[3]: /1.10/installing/oss/custom/

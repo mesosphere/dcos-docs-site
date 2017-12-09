@@ -18,6 +18,8 @@ For information about managing services, see [Managing Services](/1.9/deploying-
 
 ## Routes
 
+Admin Router proxies three routes to the DC/OS Package Manager (Cosmos):
+
 | Route | Resource |
 |-------|----------|
 | `/cosmos/service/` | `/service/` |
@@ -47,4 +49,4 @@ To assign permissions to your account, see [Assigning permissions](/1.9/security
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.9/api/package-manager.yaml']
+[api-explorer api='/1.9/api/package-manager.yaml']

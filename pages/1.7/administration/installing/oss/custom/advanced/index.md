@@ -57,7 +57,7 @@ The DC/OS installation creates these folders:
     - 8.8.4.4
     - 8.8.8.8
     ```
-
+<a id="ip-detect-script"></a>
 2. Create an `ip-detect` script.
 
     In this step you create an IP detect script to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
@@ -255,12 +255,12 @@ To install DC/OS:
 - [Use your cluster][3]
 - [Uninstalling DC/OS][8]
 
-[1]: /docs/docs/1.7/administration/installing/oss/custom/configuration-parameters/
-[2]: /docs/docs/1.7/usage/cli/install/
-[3]: /docs/docs/1.7/usage/
+[1]: /1.7/administration/installing/oss/custom/configuration-parameters/
+[2]: /1.7/usage/cli/install/
+[3]: /1.7/usage/
 [4]: https://downloads.dcos.io/dcos/EarlyAccess/commit/14509fe1e7899f439527fb39867194c7a425c771/dcos_generate_config.sh
-[6]: /docs/docs/1.7/overview/concepts/#public
-[7]: /docs/docs/1.7/overview/concepts/#private
-[8]: /docs/docs/1.7/administration/installing/oss/custom/uninstall/
-[9]: /docs/docs/1.7/administration/installing/oss/custom/troubleshooting/
-[10]: /docs/docs/1.7/administration/user-management/
+[6]: /1.7/overview/concepts/#public
+[7]: /1.7/overview/concepts/#private
+[8]: /1.7/administration/installing/oss/custom/uninstall/
+[9]: /1.7/administration/installing/oss/custom/troubleshooting/
+[10]: /1.7/administration/user-management/

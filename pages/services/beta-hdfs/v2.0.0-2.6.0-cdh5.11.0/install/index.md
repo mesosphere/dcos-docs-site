@@ -4,7 +4,7 @@ navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 0
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
@@ -15,8 +15,8 @@ Beta-HDFS is available in the Universe and can be installed by using either the 
 
 ## Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/service-docs/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](/1.10/security/ent/#security-modes) requires a service account.
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/service-docs/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
+	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - A minimum of five agent nodes with eight GiB of memory and ten GiB of disk available on each agent.

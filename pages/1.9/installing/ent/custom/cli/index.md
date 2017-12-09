@@ -122,7 +122,7 @@ In this step, you create a YAML configuration file that is customized for your e
     - <agent-private-ip-4>
     - <agent-private-ip-5>
     # Use this bootstrap_url value unless you have moved the DC/OS installer assets.   
-    bootstrap_url: file:///opt/dcos_install_tmp
+    bootstrap_url: http://<bootstrap_ip>:<your_port>
     customer_key: <customer-key>
     cluster_name: <cluster-name>
     exhibitor_storage_backend: static
@@ -193,7 +193,7 @@ In this step, you create a custom DC/OS build file on your bootstrap node and th
 **Important:** 
 
 - Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.9/installing/ent/troubleshooting/).
-- If something goes wrong and you want to rerun your setup, use these cluster <a href="/docs/1.9/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
+- If something goes wrong and you want to rerun your setup, use these cluster <a href="/1.9/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
 
 To install DC/OS:
 
@@ -384,17 +384,17 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
         
 
 
- [1]: /docs/1.9/installing/ent/custom/system-requirements/
- [2]: /docs/1.9/installing/ent/custom/uninstall/
- [3]: /docs/1.9/installing/ent/custom/configuration/configuration-parameters/
- [5]: /docs/1.9/installing/ent/custom/configuration/configuration-parameters/#rexray-config
+ [1]: /1.9/installing/ent/custom/system-requirements/
+ [2]: /1.9/installing/ent/custom/uninstall/
+ [3]: /1.9/installing/ent/custom/configuration/configuration-parameters/
+ [5]: /1.9/installing/ent/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
- [7]: /docs/1.9/storage/external-storage/
- [8]: /docs/1.9/installing/ent/custom/advanced/#configuration
- [9]: /docs/1.9/img/chef-zk-status.png
- [10]: /docs/1.9/img/gui-installer-login-ee.gif
- [11]: /docs/1.9/img/dashboard-ee.gif
- [12]: /docs/1.9/security/ent/
+ [7]: /1.9/storage/external-storage/
+ [8]: /1.9/installing/ent/custom/advanced/#configuration
+ [9]: /1.9/img/chef-zk-status.png
+ [10]: /1.9/img/gui-installer-login-ee.gif
+ [11]: /1.9/img/dashboard-ee.gif
+ [12]: /1.9/security/ent/
  [13]: #hardware
  [14]: #software
  [15]: #two

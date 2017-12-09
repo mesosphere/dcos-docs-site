@@ -101,5 +101,5 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that tha
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```
 
- [1]: /docs/1.8/administration/installing/ent/custom/gui/
- [2]: /docs/1.8/administration/installing/ent/custom/cli/
+ [1]: /1.8/administration/installing/ent/custom/gui/
+ [2]: /1.8/administration/installing/ent/custom/cli/

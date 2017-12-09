@@ -82,4 +82,4 @@ By the end of this session you will have installed your first service - [Redis](
   1. Curated packages that have undergone testing and certification.
   1. Community contributed packages, which may not be as well tested.
   
-  You can also add your own repo that includes your custom packages. See the [documentation](https://docs.mesosphere.com/docs/1.9/administering-clusters/repo/) for details.
+  You can also add your own repo that includes your custom packages. See the [documentation](https://docs.mesosphere.com/1.9/administering-clusters/repo/) for details.

@@ -19,12 +19,12 @@ You configure a pod via a pod definition, which is similar to a Marathon applica
 
 - You must specify an endpoint (not a port number) in order for other applications to communicate with your pod.
 - Pods have a separate REST API.
-- Pods support only Mesos-level health checks. with the DC/OS CLI or via the /v2/pods/ endpoint of the [Marathon REST API](/1.10/deploying-services/marathon-api/).
+- Pods support only Mesos-level health checks.
 
 # Networking
 Marathon pods only support the [DC/OS Universal container runtime](/1.10/deploying-services/containerizers/), which supports multiple image formats, including Docker.
 
-The Universal container runtime simplifies networking by allowing the containers of each pod instance to share a network namespace and communicate over a VLAN or private network. If you specify a container network without a name in a pod definition, it will be assigned to the default network. If you have installed DC/OS using [AWS templates](/1.10/installing/cloud/aws/), the default network is `dcos`.
+The Universal container runtime simplifies networking by allowing the containers of each pod instance to share a network namespace and communicate over a VLAN or private network. If you specify a container network without a name in a pod definition, it will be assigned to the default network. If you have installed DC/OS using [AWS templates](/1.10/installing/oss/cloud/aws/), the default network is `dcos`.
 
 If other applications need to communicate with your pod, specify an endpoint in your pod definition. Other applications will communicate with your pod by addressing those endpoints. See [the Examples section](/1.10/deploying-services/pods/examples/) for more information.
 
@@ -45,7 +45,7 @@ Pods are configured via a JSON pod definition, which is similar to a Marathon [a
 # Environment variables
 Environment variables defined at the pod level are propagated to all pod containers. Pod-level environment variables are overridden by environment variables defined at the pod container level.
 
-Environment variables for ports are defined using the pod container endpoint names ( i.e ENDPOINT_<ENDPOINT_NAME>=<PORT>)
+Environment variables for ports are defined using the pod container endpoint names (i.e, ENDPOINT_<ENDPOINT_NAME>=<PORT>).
 
 Below are example environment variables reflecting the [multi-pod JSON pod definition example](/1.10/deploying-services/pods/examples/#multi-pod).
 

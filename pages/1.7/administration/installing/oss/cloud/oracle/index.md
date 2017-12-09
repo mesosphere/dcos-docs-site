@@ -82,7 +82,7 @@ These steps assume that you've spun up the bootstrap instance and that you are l
 1. Download and execute the generator script (`orchestration-generator.sh`):
 
   ```bash
-  curl -O https://dcos.io/docs/docs/1.7/administration/installing/oss/cloud/oracle/orchestration-generator.sh
+  curl -O https://dcos.io/1.7/administration/installing/oss/cloud/oracle/orchestration-generator.sh
   ./orchestration-generator.sh
   ```
 
@@ -204,7 +204,7 @@ These steps assume that you've spun up the bootstrap instance and that you are l
   - <agent-public-local-ip-1>
   - <agent-public-local-ip-2>
   - <agent-public-local-ip-3>
-  bootstrap_url: file:///opt/dcos_install_tmp
+  bootstrap_url: http://<bootstrap_ip>:<your_port>
   cluster_name: dcoscluster
   master_discovery: static
   master_list:
@@ -297,7 +297,7 @@ These steps assume that you've spun up the bootstrap instance and that you are l
 2. Download and execute the public agent script (`install_public_slave.sh`) script:
 
   ```bash
-  curl -O https://dcos.io/docs/docs/1.7/administration/installing/oss/cloud/oracle/install_public_slave.sh
+  curl -O https://dcos.io/1.7/administration/installing/oss/cloud/oracle/install_public_slave.sh
   ./install_public_slave.sh
   ```
 
@@ -313,8 +313,8 @@ If all goes well you can now access the [DC/OS Dashboard](/1.7/usage/webinterfac
 - [Add users to your cluster][2]
 - [Use your cluster][3]
 
-[1]: /docs/docs/1.7/usage/cli/install/
-[2]: /docs/docs/1.7/administration/user-management/
-[3]: /docs/docs/1.7/usage/
-[install_public_slave.sh]: /docs/docs/1.7/administration/installing/oss/cloud/oracle/install_public_slave.sh
-[orchestration-generator.sh]: /docs/docs/1.7/administration/installing/oss/cloud/oracle/orchestration-generator.sh
+[1]: /1.7/usage/cli/install/
+[2]: /1.7/administration/user-management/
+[3]: /1.7/usage/
+[install_public_slave.sh]: /1.7/administration/installing/oss/cloud/oracle/install_public_slave.sh
+[orchestration-generator.sh]: /1.7/administration/installing/oss/cloud/oracle/orchestration-generator.sh

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  DSE
-title: DSE
+navigationTitle:  DataStax Enterprise
+title: DataStax Enterprise
 menuWeight: 30
 excerpt:
 featureMaturity:

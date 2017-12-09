@@ -136,7 +136,7 @@ After you've finished with the demo you should delete the Azure resources so tha
 [2]: http://microscaling.com
 [3]: http://azure.microsoft.com
 [4]: https://azure.microsoft.com/en-us/pricing/free-trial/
-[5]: /docs/1.9/installing/
+[5]: /1.9/installing/
 [6]: https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
 [7]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-dcos/docs/SSHKeyManagement.md#create-port-80-tunnel-to-the-master
 [8]: https://www.ruby-lang.org/en/documentation/installation/

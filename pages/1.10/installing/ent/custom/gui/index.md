@@ -91,7 +91,7 @@ Your cluster must meet the software and hardware [requirements][1].
     ### DC/OS Environment Settings
     
     #### Username
-    Specify a user name for the initial superuser account. At least one superuser account is required for Enterprise DC/OS. For more information about security, see the [documentation](/1.10/security/).
+    Specify a user name for the initial superuser account. At least one superuser account is required for Enterprise DC/OS. For more information about security, see the [documentation](/1.10/security/ent/).
     
     #### Password
     Specify the password of the superuser account.
@@ -148,7 +148,7 @@ Your cluster must meet the software and hardware [requirements][1].
     
     You are done!
     
-    ![UI dashboard](/1.10/img/dashboard-ee.gif)
+    ![UI dashboard](/1.10/img/dashboard-ee.png)
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.10/administering-clusters/convert-agent-type/) node.
@@ -173,8 +173,8 @@ It is recommended that you save your DC/OS installer file immediately after inst
 Now you can [assign user roles][6].
 
 
- [1]: /docs/1.10/installing/ent/custom/system-requirements/
- [2]: /docs/1.10/img/gui-installer-setup-ee.gif
- [3]: /docs/1.10/networking/
- [4]: /docs/1.10/img/ui-installer-auth-1-7.gif
- [6]: /docs/1.10/security/
+ [1]: /1.10/installing/ent/custom/system-requirements/
+ [2]: /1.10/img/gui-installer-setup-ee.gif
+ [3]: /1.10/networking/
+ [4]: /1.10/img/ui-installer-auth-1-7.gif
+ [6]: /1.10/security/ent/

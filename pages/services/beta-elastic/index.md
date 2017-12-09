@@ -4,7 +4,7 @@ navigationTitle:  Beta Elastic
 title: Beta Elastic
 menuWeight: 90
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

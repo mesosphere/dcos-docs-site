@@ -86,5 +86,5 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that tha
 
     You should see an output greater than zero to indicate at least one public agent.
 
- [1]: /docs/docs/1.7/administration/installing/oss/custom/gui/
- [2]: /docs/docs/1.7/administration/installing/oss/custom/cli/
+ [1]: /1.7/administration/installing/oss/custom/gui/
+ [2]: /1.7/administration/installing/oss/custom/cli/

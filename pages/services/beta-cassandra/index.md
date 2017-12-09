@@ -4,7 +4,7 @@ navigationTitle:  Beta Cassandra
 title: Beta Cassandra
 menuWeight: 70
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

@@ -76,5 +76,5 @@ If you would like to publish a DC/OS CLI subcommand for use with your service, i
 
 See [dcos-helloworld][6] for an example on how to develop a CLI Subcommand.
 
-[3]: /docs/1.8/administration/securing-your-cluster/
+[3]: /1.8/administration/securing-your-cluster/
 [6]: https://github.com/mesosphere/dcos-helloworld

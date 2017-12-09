@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 excerpt:
-title: DC/OS Overlay
+title: DC/OS overlay
 navigationTitle: Overlay
 menuWeight: 5
 oss: true
@@ -13,7 +13,7 @@ oss: true
 
 From a networking standpoint, to provide an end-user experience similar to that provided by a virtual machine environment it’s important to provide each container with its own IP address and network namespace. Providing containers with an isolated network stack ensures logical network isolation as well as network performance isolation between containers. Further, an IP-per-container allows the user/developer to use the traditional network operational tools (traceroute, tcpdump, wireshark) and processes they are familiar with, and helps their productivity in debugging network connectivity/performance issues. From an operational standpoint it becomes much easier to identify container specific traffic, and hence simplifies enforcement of network performance and security policies for containers.
 
-A default IP-per-container solution for DC/OS needs to be agnostic of the network on which DC/OS runs. Thus, to achieve IP-per-container we need to use an virtual network. Overlays make the container network topology independent of the underlying host network. Further, overlays provide complete segregation of container traffic from host traffic making policy enforcement on container traffic much simpler and independent of the host traffic. The challenge with implementing overlays is the cost of encapsulating and decapsulating container traffic, when containers send and receive traffic. To minimize the impact of these encap and decap operations on container network throughput, it is imperative that the overlay implements the encap/decap operations as part of the packet processing pipeline within the kernel. 
+A default IP-per-container solution for DC/OS needs to be agnostic of the network on which DC/OS runs. Thus, to achieve IP-per-container we need to use a virtual network. Overlays make the container network topology independent of the underlying host network. Further, overlays provide complete segregation of container traffic from host traffic making policy enforcement on container traffic much simpler and independent of the host traffic. The challenge with implementing overlays is the cost of encapsulating and decapsulating container traffic, when containers send and receive traffic. To minimize the impact of these encap and decap operations on container network throughput, it is imperative that the overlay implements the encap/decap operations as part of the packet processing pipeline within the kernel. 
 
 To achieve an IP-per-container solution for DC/OS, using overlays, we therefore need to choose an overlay technology that is actively supported by the Linux kernel. The most common overlay supported by the linux kernel is the VxLAN.
 
@@ -37,7 +37,7 @@ We can explain the operation of the overlay with an example. Figure 1 shows a 2 
 
 Ideally we would like an IPAM to perform address allocation for all containers on the overlay. However, it’s hard to solve reliability and consistency issues with a global IPAM. E.g., how do we notify the IPAM when the slave dies? What should be the availability of the IPAM to guarantee a 99% uptime of the cluster (without IPAM containers cannot function)? Given the complications arising from a global IPAM, we choose to go with a simpler architecture of carving out the address space into smaller chunks, and allowing the agent to own this chunk. In the example, the 9.0.0.0/8 space has been split into /24 subnets, with each subnet being owned by the agent. In the example Agent 1 has been allocated 9.0.1.0/24 and Agent 2 has been allocated 9.0.2.0/24. 
 
-Given a /24 subnet for the agent, the subnet needs to be further split into smaller chunks since the mesos agent might need to launch Mesos containers, as well as Docker containers. As with the agents, we could have a static allocation between Mesos containers and Docker containers. In the example we have statically carved out the /24 space into a /25 space for Mesos containers and Docker containers. Also, it’s important to note that the Mesos containers are launched by the _MesosContainerizer_ on the “m-dcos” bridge and the Docker container are launched by the _DockerContainerizer_, using the Docker daemon, on the “d-dcos’ bridge.  Let us describe the packet flow for container-to-container communication.
+Given a /24 subnet for the agent, the subnet needs to be further split into smaller chunks since the Mesos agent might need to launch Mesos containers, as well as Docker containers. As with the agents, we could have a static allocation between Mesos containers and Docker containers. In the example we have statically carved out the /24 space into a /25 space for Mesos containers and Docker containers. Also, it’s important to note that the Mesos containers are launched by the _MesosContainerizer_ on the “m-dcos” bridge and the Docker container are launched by the _DockerContainerizer_, using the Docker daemon, on the “d-dcos’ bridge.  Let us describe the packet flow for container-to-container communication.
 
 ### Container-to-Container communication on the same host
 
@@ -85,14 +85,14 @@ To configure the underlying DC/OS overlay we need an entity that can allocate su
 
 We plan to achieve all the above requirements for the DC/OS overlay by having two Mesos modules, a master DC/OS module and an Agent DC/OS module. We list the responsibilities of both these modules below:
 
-#### Master mesos overlay module:
+#### Master Mesos overlay module:
 
 The master module will be run as part of the Mesos master and will have the following responsibilities:
 1. It will be responsible for allocating the subnet to each of the agents. We will describe in more detail how the master module will use the replicated log to checkpoint this information for recovery during failover to a new Master.
 2. It will listen for the agent overlay modules to register and recover their allocated subnet. The agent overlay module will also use this endpoint to learn about the overlay subnets allocated to it (in case of multiple virtual networks), the subnets allocated to each of the Mesos and Docker bridges within an overlay and the VTEP IP and MAC address allocated to it.
 3. It exposes an HTTP endpoint “overlay-master/state” that presents the state of all the virtual networks in DC/OS. The response of this endpoint is backed by the following protobuf: https://github.com/dcos/mesos-overlay-modules/blob/master/include/overlay/overlay.proto#L86
 
-#### Agent mesos overlay module:
+#### Agent Mesos overlay module:
 
 The agent overlay module runs as part of the Mesos agents and has the following responsibilities:
 1. It is responsible for registering with the master overlay module. After registration it retrieves the allocated agent subnet, the subnet allocated to its Mesos and Docker bridges and VTEP information (IP and MAC address of the VTEP).

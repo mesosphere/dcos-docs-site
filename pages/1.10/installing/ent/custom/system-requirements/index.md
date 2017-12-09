@@ -30,9 +30,9 @@ Here are the master node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2, 7.3  | 7.2, 7.3    |
+| RHEL/CentOS | 7.2       |       7.4   |
 | CoreOS      | 835.13.0  | 1235.9.0    | 
-| Nodes       | 1         | 3 or 5   |
+| Nodes       | 1         | 3 or 5      |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
@@ -49,7 +49,7 @@ Here are the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2, 7.3  | 7.2, 7.3    |
+| RHEL/CentOS | 7.2       | 7.4         |
 | CoreOS      | 835.13.0  | 1235.9.0    |
 | Nodes       | 1         | 6 or more   |
 | Processor   | 2 cores   | 2 cores     |
@@ -66,7 +66,8 @@ The agent nodes must also have:
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
     ```
-*   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` cannot be on a partition that is on an LVM logical volume or shared storage.
+
+*   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` must be on the same mountpoint as `/`.  This is required because DC/OS installs systemd unit files under `/opt/mesosphere`. All systemd units must be available for enumeration during the initializing of the initial ramdisk at boot. If `/opt` is on a different partition or volume, systemd will fail to discover these units during the initialization of the ramdisk and DC/OS will not automatically restart upon reboot.
 
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
@@ -90,7 +91,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 # Software Prerequisites
 
-**Tip:** Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/docs/1.10/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
+**Tip:** Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
 
 ## All Nodes
 
@@ -208,7 +209,7 @@ You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 - [CLI DC/OS Installation Guide][1]
 - [Advanced DC/OS Installation Guide][5]
 
-[1]: /docs/1.10/installing/ent/custom/cli/
-[2]: /docs/1.10/installing/ent/custom/system-requirements/install-docker-centos/
-[4]: /docs/1.10/installing/ent/custom/gui/
-[5]: /docs/1.10/installing/ent/custom/advanced/
+[1]: /1.10/installing/ent/custom/cli/
+[2]: /1.10/installing/ent/custom/system-requirements/install-docker-centos/
+[4]: /1.10/installing/ent/custom/gui/
+[5]: /1.10/installing/ent/custom/advanced/

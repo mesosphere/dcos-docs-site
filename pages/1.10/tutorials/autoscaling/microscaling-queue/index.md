@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
 excerpt:
-title: Microscaling Based on Queue Length
+title: Microscaling based on queue length
 navigationTitle: Microscaling
 menuWeight: 2
-enterprise: false
 ---
 
 This tutorial walks through setting up a microscaling demonstration from [Microscaling Systems][2] on a DC/OS cluster. 
@@ -137,7 +136,7 @@ After you've finished with the demo you should delete the Azure resources so tha
 [2]: http://microscaling.com
 [3]: http://azure.microsoft.com
 [4]: https://azure.microsoft.com/en-us/pricing/free-trial/
-[5]: /docs/1.10/installing/
+[5]: /1.10/installing/
 [6]: https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
 [7]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-dcos/docs/SSHKeyManagement.md#create-port-80-tunnel-to-the-master
 [8]: https://www.ruby-lang.org/en/documentation/installation/

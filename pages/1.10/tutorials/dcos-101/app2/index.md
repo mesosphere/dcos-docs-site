@@ -1,20 +1,23 @@
 ---
 layout: layout.pug
 excerpt:
-title: Deploying Native Applications
+title: Deploying native Applications
 navigationTitle: Native Applications
 menuWeight: 5
 oss: true
 ---
 
+Welcome to part 5 of the DC/OS 101 Tutorial
+
+<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
+
 # Prerequisites
 * A [running DC/OS cluster](/1.10/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.10/tutorials/dcos-101/cli/).
 * [app1](/1.10/tutorials/dcos-101/app1/) deployed and running in your cluster.
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
 # Objective
-[Earlier](/1.10/tutorials/dcos-101/app1/) in this tutorial you deployed an app that operates internally in your cluster, interfacing with other applications in the cluster as opposed to interacting externally. In this part you will deploy an app which provides a web GUI to users. You will also deploy this app natively, without relying on Docker as a dependency and therefore reducing complexity.
+[Earlier](https://dcos.io/1.10/tutorials/dcos-101/app1/) in this tutorial you deployed an app that operates internally in your cluster, interfacing with other applications in the cluster as opposed to interacting externally. In this part you will deploy an app which provides a GUI to users. You will also deploy this app natively, without relying on Docker as a dependency and therefore reducing complexity.
 
 # Steps
   * Understand the application
@@ -23,7 +26,7 @@ oss: true
     * Take a short look at the [app definition](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json). In this case, the app is a binary without external dependencies.
     Because of this, you no longer need to deploy it in a Docker container. 
     * Deploy app2: `dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json`
-  * You have multiple options to check app 2 is successfully running:
+  * You have multiple options to check app 2 is sucessfully running:
     * By looking at all DC/OS tasks: `dcos task`
     * By looking at all Marathon apps: `dcos marathon app list`
     * Curl the http server from within the cluster (in this case from the leading master):

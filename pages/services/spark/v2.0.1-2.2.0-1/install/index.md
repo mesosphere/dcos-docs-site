@@ -4,7 +4,7 @@ navigationTitle:  Install and Customize
 title: Install and Customize
 menuWeight: 0
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 
@@ -15,9 +15,9 @@ Spark is available in the Universe and can be installed by using either the GUI 
 
 **Prerequisites:**
 
-- [DC/OS and DC/OS CLI installed](/1.10/installing/).
-- Depending on your [security mode](/1.10security/ent/#security-modes), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](/service-docs/spark/spark-auth/).
-
+- [DC/OS and DC/OS CLI installed](/1.9/installing/).
+- Depending on your [security mode](/1.9/overview/security/security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
+  
   | Security mode | Service Account |
   |---------------|-----------------------|
   | Disabled      | Not available   |
@@ -33,11 +33,11 @@ dcos package install spark
 
 Go to the **Services** > **Deployments** tab of the DC/OS GUI to monitor the deployment. When it has finished deploying , visit Spark at `http://<dcos-url>/service/spark/`.
 
-You can also [install Spark via the DC/OS GUI](/1.10/deploying-services/install/).
+You can also [install Spark via the DC/OS GUI](/1.9/usage/webinterface/#universe).
 
 
 ## Spark CLI
-You can install the Spark CLI with this command. This is useful if you already have a Spark cluster running, but need the Spark CLI.
+You can install the Spark CLI with this command. This is useful if you already have a Spark cluster running, but need the Spark CLI. 
 
 **Important:** If you install Spark via the DC/OS GUI, you must install the Spark CLI as a separate step from the DC/OS CLI.
 
@@ -73,7 +73,7 @@ dcos package describe spark --config
 
 ## Customize Spark Distribution
 
-DC/OS Apache Spark does not support arbitrary Spark distributions, but Mesosphere does provide multiple pre-built distributions, primarily used to select Hadoop versions.
+DC/OS Apache Spark does not support arbitrary Spark distributions, but Mesosphere does provide multiple pre-built distributions, primarily used to select Hadoop versions.  
 
 To use one of these distributions, select your Spark distribution from [here](https://github.com/mesosphere/spark-build/blob/master/docs/spark-versions.md), then select the corresponding Docker image from [here](https://hub.docker.com/r/mesosphere/spark/tags/), then use those values to set the following configuration variables:
 

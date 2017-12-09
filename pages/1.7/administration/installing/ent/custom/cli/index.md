@@ -37,7 +37,7 @@ The DC/OS installation creates these folders:
     </tr>
     <tr>
         <td><code>/var/lib/zookeeper<code></td>
-        <td>Contains the <a href="/docs/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
+        <td>Contains the <a href="/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
     </tr>
     <tr>
         <td><code>/var/lib/docker<code></td>
@@ -153,7 +153,7 @@ In this step you create a YAML configuration file that is customized for your en
         - <agent-private-ip-4>
         - <agent-private-ip-5>
         # Use this bootstrap_url value unless you have moved the DC/OS installer assets.   
-        bootstrap_url: file:///opt/dcos_install_tmp
+        bootstrap_url: http://<bootstrap_ip>:<your_port>
         customer_key: <customer-key>
         cluster_name: <cluster-name>
         master_discovery: static 
@@ -239,7 +239,7 @@ You can view all of the automated command line installer options with the `--hel
       --test                Performs tests on the dcos_installer application
     
 
-**Tip:** If something goes wrong and you want to rerun your setup, use these cluster <a href="/docs/1.7/administration/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
+**Tip:** If something goes wrong and you want to rerun your setup, use these cluster <a href="/1.7/administration/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
 
 To install DC/OS:
 
@@ -430,18 +430,18 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
         2 out of 2 hosts successfully completed uninstall_dcos stage.
         ====> END OF SUMMARY FOR uninstall_dcos
 
- [1]: /docs/1.7/administration/installing/ent/custom/system-requirements/
- [2]: /docs/1.7/administration/installing/ent/custom/uninstall/
- [3]: /docs/1.7/administration/installing/ent/custom/configuration-parameters/
- [4]: /docs/1.7/administration/installing/ent/custom/advanced/
- [5]: /docs/1.7/administration/installing/ent/custom/configuration-parameters/#rexray-config
+ [1]: /1.7/administration/installing/ent/custom/system-requirements/
+ [2]: /1.7/administration/installing/ent/custom/uninstall/
+ [3]: /1.7/administration/installing/ent/custom/configuration-parameters/
+ [4]: /1.7/administration/installing/ent/custom/advanced/
+ [5]: /1.7/administration/installing/ent/custom/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
- [7]: /docs/1.7/usage/storage/external-storage/
- [8]: /docs/1.7/administration/installing/ent/custom/advanced/#configuration
+ [7]: /1.7/usage/storage/external-storage/
+ [8]: /1.7/administration/installing/ent/custom/advanced/#configuration
  [9]: /assets/images/chef-zk-status.png
  [10]: /assets/images/gui-installer-login-ee.gif
  [11]: /assets/images/dashboard-ee.gif
- [12]: /docs/1.7/administration/id-and-access-mgt/ent/
+ [12]: /1.7/administration/id-and-access-mgt/ent/
  [13]: #hardware
  [14]: #software
  [15]: #two

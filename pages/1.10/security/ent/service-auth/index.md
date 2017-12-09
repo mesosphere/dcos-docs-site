@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Service Authentication
 title: Service Authentication
-menuWeight: 60
+menuWeight: 80
 excerpt:
 featureMaturity:
 enterprise: true
@@ -39,4 +39,4 @@ DC/OS services supply a principal when they register with the Mesos masters. In 
 
 The following diagram illustrates this sequence.
 
-![Service authentication](/1.10/img/authn-service.png) 
+![Service authentication](/1.10/img/authn-service.png)

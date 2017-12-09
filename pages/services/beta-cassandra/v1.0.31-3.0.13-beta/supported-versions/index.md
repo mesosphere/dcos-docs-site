@@ -4,7 +4,7 @@ navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 120
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

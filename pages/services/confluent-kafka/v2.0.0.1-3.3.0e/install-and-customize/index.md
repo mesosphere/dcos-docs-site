@@ -17,14 +17,14 @@ The standard install provides a reasonable default configuration for trying out 
 
 1. Install DC/OS on your cluster. See [the documentation](/latest/administration/installing/) for instructions.
 
-1. Install the DC/OS [CLI](https://docs.mesosphere.com/docs/1.10/cli/install) and point it towards your cluster
+1. Install the DC/OS [CLI](https://dcos.io/docs/1.10/cli/install/) and point it towards your cluster
 
 ```
 dcos cluster setup http://your-cluster.com
 ```
 
 - Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/1.10/administration/id-and-access-mgt/service-auth/kafka-auth/) before installing Kafka. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](https://docs.mesosphere.com/docs/1.10/administration/installing/custom/configuration-parameters/#security) requires a service account.
+	- `strict` [security mode](https://docs.mesosphere.com/1.10/administration/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - Your cluster must have at least three private nodes.
@@ -97,7 +97,7 @@ The service supports two volume types:
 - `ROOT` volumes are effectively an isolated directory on the root volume, sharing IO/spindles with the rest of the host system.
 - `MOUNT` volumes are a dedicated device or partition on a separate volume, with dedicated IO/spindles.
 
-Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](https://docs.mesosphere.com/docs/1.10/administration/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default.
+Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](https://docs.mesosphere.com/1.10/administration/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default.
 
 ### Placement Constraints
 

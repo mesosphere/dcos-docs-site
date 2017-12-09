@@ -1,8 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Installation
 excerpt:
-title: Installation
+title: >
+    Design: Installation
+navigationTitle: Installation
 menuWeight: 4
 oss: true
 ---

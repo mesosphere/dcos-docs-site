@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 
-Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshoooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
+Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
 
 DC/OS components are the [systemd units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-3dt.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/1.9/overview/architecture/components/).
 
@@ -100,8 +100,8 @@ If you have any problems, you can check if the diagnostics service is running by
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /docs/1.9/security/ent/
- [7]: /docs/1.9/networking/load-balancing-vips/
- [8]: /docs/1.9/overview/concepts/#private
- [9]: /docs/1.9/overview/concepts/#public
+ [6]: /1.9/security/ent/
+ [7]: /1.9/networking/load-balancing-vips/
+ [8]: /1.9/overview/concepts/#private
+ [9]: /1.9/overview/concepts/#public
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

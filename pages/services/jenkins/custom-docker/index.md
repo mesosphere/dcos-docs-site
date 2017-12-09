@@ -4,7 +4,7 @@ navigationTitle:  Customizing your Docker container
 title: Customizing your Docker container
 menuWeight: 3
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 <h1>About customizing your Docker container</h1>

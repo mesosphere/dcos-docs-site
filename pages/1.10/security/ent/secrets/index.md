@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Secrets
 title: Secrets
-menuWeight: 40
+menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: true

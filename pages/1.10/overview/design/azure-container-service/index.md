@@ -1,13 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle:  Azure Container Service
 excerpt:
-title: Azure Container Service
+title: >
+    Reference implementation: The Azure Container Service
+navigationTitle: ACS
 menuWeight: 1
 oss: true
 ---
 
-[DC/OS](https://github.com/dcos) is a distributed operating system -- powered by [Apache Mesos](https://mesos.apache.org) -- that treats collections of CPUs, RAM, networking and so on as a distributed kernel and then implements core distributed system components that handle system-wide tasks such as scheduling, DNS, service discovery, and others without regard to the underlying infrastructure. The [Azure Container Service](https://azure.microsoft.com/documentation/articles/container-service-deployment/) is a reference implementation of DC/OS optimized to take advantage of the features of Microsoft Azure infrastructure. If you already have an Azure account, you can try out a reference implementation of DC/OS built on Microsoft Azure by [creating an Azure Container Service cluster](https://aka.ms/acscreate). (Grab a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/) first if you don't have one.)
+[DC/OS](https://github.com/dcos) is a distributed operating system -- powered by [Apache Mesos](https://mesos.apache.org) -- that treats collections of CPUs, RAM, networking and so on as a distributed kernel and then implements core distributed system components that handle system-wide tasks such as scheduling, dns, service discovery, and others without regard to the underlying infrastructure. The [Azure Container Service](https://azure.microsoft.com/documentation/articles/container-service-deployment/) is a reference implementation of DC/OS optimized to take advantage of the features of Microsoft Azure infrastructure. If you already have an Azure account, you can try out a reference implementation of DC/OS built on Microsoft Azure by [creating an Azure Container Service cluster](https://aka.ms/acscreate). (Grab a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/) first if you don't have one.)
 
 This document describes:
 
@@ -19,7 +20,7 @@ This document describes:
 
 DC/OS is powered by Apache Mesos used as the distributed kernel of a set of computers that you can treat as one unit, though you retain control of each and every one. In DC/OS, the kernel of the system is in fact any number of Mesos masters and agents both publicly available and private; failed Mesos masters are replaced by a standby master transparently, and handles leader election. Masters, of course, handle failed agents and processes.
 
-DC/OS applications function as system components in its distributed user space. The most obivous is the system marathon component, which is the distributed `init` for DC/OS; but this also includes the Admin Router service, the Mesos-DNS service, Exhibitor, and other system-wide components that are used by user processes and manage the masters and agents.
+DC/OS applications function as system components in its distributed user space. The most obvious is the system marathon component, which is the distributed `init` for DC/OS; but this also includes the Admin Router service, the Mesos-DNS service, Exhibitor, and other system-wide components that are used by user processes and manage the masters and agents.
 
 For a more comprehensive architectural description of DC/OS, see [The Architecture of DC/OS](/1.10/overview/architecture/); for a more complete discussion of components, see [An Introduction to DC/OS Components](/1.10/overview/architecture/components/).
 
@@ -77,7 +78,7 @@ Deploying DC/OS yourself may also be what you want to do, but you can start with
 
 ## Azure Container Service infrastructure and optimizations
 
-The Azure Container Service is built with DC/OS as one of the critical orchestration options and the DC/OS implementation is optimized for easy creation and usage on Microsoft Azure and on-premise, eventually with Azure Stack, and is one of the best ways to get started with DC/OS, Mesos, and a distributed cluster that can be used and managed like one large system whether in your datacenter or in Azure.
+The Azure Container Service is built with DC/OS as one of the critical orchestration options and the DC/OS implementation is optimized for easy creation and usage on Microsoft Azure and on-premise, eventually with Azure Stack, and is one of the best ways to get started with DC/OS, mesos, and a distributed cluster that can be used and managed like one large system whether in your datacenter or in Azure.
 
 The Azure Container Service implementation brings several more benefits to you:
 
@@ -96,8 +97,6 @@ The default ACS architecture looks like this:
 
 The following list shows the components used by DC/OS itself. You'll note that the core components center around Mesos, Marathon, Python, and so on.
 
-
-- dcos-diagnostics
 - adminrouter
 - boost-system
 - boto
@@ -105,11 +104,13 @@ The following list shows the components used by DC/OS itself. You'll note that t
 - cosmos
 - curl
 - dcos-cluster-id
+- dcos-diagnostics
 - dcos-history-service
 - dcos-image
 - dcos-image-deps
 - dcos-installer
 - dcos-installer-ui
+- dcos-metrics
 - dcos-oauth
 - dcos-signal
 - dcos-ui

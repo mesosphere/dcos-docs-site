@@ -26,7 +26,7 @@ Private agent nodes are usually only accessible inside the cluster, while public
 
 By default, Marathon starts applications and services on private agent nodes, which cannot be accessed from the outside the cluster. To expose an app to the outside you usually use a load balancer running on one of the public nodes. 
 
-You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](https://dcos.io/docs/1.9/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HA-Proxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
+You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](https://dcos.io/1.9/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HA-Proxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
 
   * Install Marathon-LB: `dcos package install marathon-lb`
   * Check that it is running using `dcos task` and identify the IP address of the public agent node (Host) where Marathon-LB is running

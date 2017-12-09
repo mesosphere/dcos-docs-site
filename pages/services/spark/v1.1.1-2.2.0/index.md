@@ -2,9 +2,9 @@
 layout: layout.pug
 navigationTitle:  Spark 1.1.1-2.2.0
 title: Spark 1.1.1-2.2.0
-menuWeight: 10
+menuWeight: 50
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 

@@ -4,13 +4,17 @@ excerpt:
 title: Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
 menuWeight: 4
+oss: true
 ---
+
+Welcome to part 4 of the DC/OS 101 Tutorial
+
+<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
 
 # Prerequisites
 * A [running DC/OS cluster](/1.10/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.10/tutorials/dcos-101/cli/).
 * [app1](/1.10/tutorials/dcos-101/app1/) deployed and running in your cluster.
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
 # Objective
 Your [app](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) in the previous part of this tutorial used `redis.marathon.l4lb.thisdcos.directory` as the address for connecting to Redis, with port 6379. As Redis might be running on any agent in the cluster, and potentially on different ports, how does this address resolve to the actual running Redis instance?
@@ -32,9 +36,9 @@ SSH into the Mesos master node in your cluster to see how these different servic
 
 # Mesos-DNS
   
-  [Mesos-DNS](/1.10/networking/mesos-dns/) assigns DNS entries for every task. The naming pattern for these entries is  *task.scheduler.mesos*
+  [Mesos-DNS](/1.10/networking/mesos-dns/) assigns DNS entries for every task, which are resolvable from any node in the cluster. The naming pattern for these entries is  *task.scheduler.mesos*
   
-  The default scheduler for jobs is [Marathon](/1.10/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
+  The default scheduler for jobs is [Marathon](https://dcos.io/1.10/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
   
   Let's use the [dig](https://linux.die.net/man/1/dig) command to retrieve the address record (also called the A record). Dig is a command line utility to query DNS servers. When used without argument, it will use the system-wide configured DNS servers to query against, which in a DC/OS cluster is configured to point at Mesos-DNS: 
 
@@ -95,4 +99,4 @@ Mesos-DNS is a simple solution to finding applications inside the cluster. While
 
 
 ## Named VIPs
-Named VIPs load balance the IP address/port pair using an intelligent algorithm to ensure optimal routing of the traffic in relation to the original requestor, and also provide a local caching layer for high performance. They also allow you to give your apps meaningful names and select a specific port. Because of these advantages over Mesos-DNS, we suggest using Named VIPs as the default service discovery method in DC/OS.
+Named VIPs load balance the IP address/port pair using an intelligent algorithm to ensure optimal routing of the traffic in relation to the original requestor, and also provide a local caching layer for high perfornance. They also allow you to give your apps meaningful names and select a specific port. Because of these advantages over Mesos-DNS, we suggest using Named VIPs as the default service discovery method in DC/OS.

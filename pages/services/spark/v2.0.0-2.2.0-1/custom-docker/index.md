@@ -4,7 +4,7 @@ navigationTitle:  Custom Docker Images
 title: Custom Docker Images
 menuWeight: 95
 excerpt:
-featureMaturity: stable
+featureMaturity:
 enterprise: false
 ---
 

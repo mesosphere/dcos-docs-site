@@ -10,13 +10,13 @@ enterprise: false
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-Docker's <a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank">CentOS-specific installation instructions</a> are always going to be the most up to date for the latest version of Docker. However, the following recommendations and instructions should make it easier to manage the Docker installation over time and mitigate several known issues with various other configurations.
 
-# Recommendations
 
-In addition to the general [Docker requirements and recommendations for DC/OS][1], the following CentOS-specific recommendations will improve your DC/OS experience.
+# Requirements and Recommendations
 
-* Use Docker's yum repository to install Docker on CentOS. The yum repository makes it easy to upgrade and automatically manages dependency installation.
+Before installing Docker on CentOS, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS-specific recommendations:
+
+* Use the Docker yum repository to install Docker on CentOS. The yum repository makes it easy to upgrade and automatically manages dependency installation.
 
 * Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if they want.
 
@@ -27,12 +27,17 @@ In addition to the general [Docker requirements and recommendations for DC/OS][1
   ```bash
   mkfs -t xfs -n ftype=1 /dev/sdc1
   ```
-  
-# Instructions
+
+# Installation Procedure
+
+Follow the Docker <a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank">CentOS-specific installation instructions</a>.
+
+
+# Example: Installing Docker with OverlayFS
 
 The following instructions demonstrate how to use Docker with OverlayFS on CentOS 7.
 
-1.  Upgrade CentOS to 7.3:
+1.  Upgrade CentOS to 7.4:
 
     ```bash
     sudo yum upgrade --assumeyes --tolerant
@@ -113,4 +118,4 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 
 For more generic Docker requirements, see [System Requirements: Docker][1].
 
-[1]: /docs/1.10/installing/ent/custom/system-requirements/#docker
+[1]: /1.10/installing/ent/custom/system-requirements/#docker

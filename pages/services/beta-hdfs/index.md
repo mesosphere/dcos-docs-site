@@ -4,7 +4,7 @@ navigationTitle:  Beta HDFS
 title: Beta HDFS
 menuWeight: 100
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

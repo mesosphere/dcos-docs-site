@@ -79,7 +79,7 @@ An infrastructure network is a physical or virtual network provided by the infra
 
 #### <a name="dcos-virtual-network"></a>Virtual Network
 
-A DC/OS virtual network is specifically an virtual network internal to the cluster that connects DC/OS components and containerized tasks running on DC/OS.
+A DC/OS virtual network is specifically a virtual network internal to the cluster that connects DC/OS components and containerized tasks running on DC/OS.
 
 - The virtual network provided by DC/OS is VXLAN managed by the Virtual Network Service (Navstar).
 - Virtual networks must be configured by an administrator before being used by tasks.
@@ -258,7 +258,7 @@ For more information, see the [Universe repository](https://github.com/mesospher
 
 A container registry is a repository of pre-built container images.
 
-The [Docker Runtime](#mesos-docker-runtime) and [Mesos Container Runtime](#mesos-universal-container-runtime) can both pull and run Docker images from public or private Docker container registries.
+The [Universal Container Runtime](#mesos-containerizer-universal-container-runtime) and [Docker Engine](#mesos-containerizer-docker-runtime) can both run Docker images from public or private Docker container registries.
 
 ### <a name="cloud-template"></a>Cloud Template
 

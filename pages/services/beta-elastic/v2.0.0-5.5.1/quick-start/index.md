@@ -4,7 +4,7 @@ navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 10
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 
@@ -64,4 +64,4 @@ enterprise: false
         $ curl -s -u elastic:changeme -XGET 'coordinator.elastic.l4lb.thisdcos.directory:9200/customer/external/1?pretty'
 
 
-[1]: /docs/1.10/administering-clusters/sshcluster/
+[1]: /1.9/administering-clusters/sshcluster/

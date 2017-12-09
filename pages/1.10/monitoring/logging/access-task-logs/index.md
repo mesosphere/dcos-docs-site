@@ -31,7 +31,7 @@ Here is an overview of the [permissions](/1.10/security/ent/perms-reference/) th
 
 **Prerequisites:**
 
-- DC/OS and DC/OS CLI are [installed](/1.10/installing/ent/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/1.10/installing/oss/) and you are logged in as a superuser.
 
 # Via the DC/OS GUI
 
@@ -89,11 +89,11 @@ Here is an overview of the [permissions](/1.10/security/ent/perms-reference/) th
 
         -  **SERVICE ID** Specify `/<group-name>/<service-name>`. This creates a service within a service group.
         -  **COMMAND** Specify `sleep 1000000000`.
-        -  **Container Runtime** Select **MESOS RUNTIME**.
+        -  **Container Runtime** Select **UNIVERSAL CONTAINER RUNTIME (UCR)**.
 
         ![Define nested service](/1.10/img/new-user-alice-service-group.png)
 
-    1.  Click **REVIEW & RUN** to complete your installation. You should now see a service that is running in a group.
+    1.  Click **REVIEW & RUN** and **RUN SERVICE** to complete your installation. You should now see a service that is running in a group.
 
         ![Service running within group](/1.10/img/new-user-alice-service-done.png)
 

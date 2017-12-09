@@ -95,7 +95,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 4.  Install and deploy Tweeter with this command.
     
     ```bash
-    dcos marathon app add tweeter.json
+    dcos marathon app add 1.8/tweeter.json
     ```
     
     **Tip:** The `instances` parameter in `tweeter.json` specifies the number of app instances. Use the following command to scale your app up or down:
@@ -335,7 +335,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 4.  Install and deploy Tweeter to your DC/OS cluster with this CLI command. 
     
     ```bash
-    dcos marathon app add tweeter.json
+    dcos marathon app add 1.8/tweeter.json
     ```
     
     **Tip:** The `instances` parameter in `tweeter.json` specifies the number of app instances. Use the following command to scale your app up or down:
@@ -422,14 +422,14 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [3]: /service-docs/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: /docs/1.8/overview/concepts/
- [7]: /docs/1.8/administration/installing/oss/cloud/
- [8]: /docs/1.8/administration/installing/oss/custom/
- [9]: /docs/1.8/administration/locate-public-agent/
- [10]: /docs/1.8/usage/tutorials/img/webui-universe-install.png
- [11]: /docs/1.8/usage/cli/command-reference/
- [12]: /docs/1.8/usage/service-discovery/marathon-lb/
+ [6]: /1.8/overview/concepts/
+ [7]: /1.8/administration/installing/oss/cloud/
+ [8]: /1.8/administration/installing/oss/custom/
+ [9]: /1.8/administration/locate-public-agent/
+ [10]: /1.8/usage/tutorials/img/webui-universe-install.png
+ [11]: /1.8/usage/cli/command-reference/
+ [12]: /1.8/usage/service-discovery/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
- [14]: /docs/1.8/usage/tutorials/img/tweeter.png
- [15]: /docs/1.8/usage/tutorials/img/network-tab.png
- [16]: /docs/1.8/usage/tutorials/img/top-tweeters.png
+ [14]: /1.8/usage/tutorials/img/tweeter.png
+ [15]: /1.8/usage/tutorials/img/network-tab.png
+ [16]: /1.8/usage/tutorials/img/top-tweeters.png

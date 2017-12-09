@@ -71,8 +71,8 @@ Unfortunately, streaming logs from machines in your cluster isn’t always viabl
 - [Splunk](/1.9/monitoring/logging/aggregating/splunk/)
 
 
-[1]: /docs/1.9/monitoring/logging/quickstart/
-[2]: /docs/1.9/cli/install/
-[3]: /docs/1.9/monitoring/logging/aggregating/elk/
-[4]: /docs/1.9/monitoring/logging/aggregating/splunk/
-[5]: /docs/1.9/administering-clusters/sshcluster/
+[1]: /1.9/monitoring/logging/quickstart/
+[2]: /1.9/cli/install/
+[3]: /1.9/monitoring/logging/aggregating/elk/
+[4]: /1.9/monitoring/logging/aggregating/splunk/
+[5]: /1.9/administering-clusters/sshcluster/

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Hardening
 title: Hardening
-menuWeight: 800
+menuWeight: 100
 excerpt: >
   Your cluster will become more secure as
   you move from disabled to permissive to
@@ -24,19 +24,16 @@ However, there are a number of settings that you can modify independent of your 
 
 - <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-superuser), [`zk_master_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-master), and [`zk_agent_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-agent).
 
-- [Implement IPsec encryption of ZooKeeper communications](https://datatracker.ietf.org/wg/ipsec/documents/).
-
 - [Get the root certificate of your DC/OS CA](/1.10/networking/tls-ssl/get-cert/#oob) and manually provision [browsers](/1.10/networking/tls-ssl/ca-trust-browser/), [DC/OS CLI](/1.10/networking/tls-ssl/ca-trust-cli/), [curl](/1.10/networking/tls-ssl/ca-trust-curl/), and other clients with it.
-
-- [Reinitialize your Secret Store with a custom keypair](/1.10/security/ent/secrets/custom-key/) and store the custom key in a very secure location.
-
+<!--
+- [Reinitialize your Secret Store with a custom keypair](/1.10/security/ent/secrets/custom-key/) and store the custom key in a very secure location. -->
 - [Provision services with service accounts even when optional](/1.10/security/ent/service-auth/).
 
 - [Use secrets to store and pass sensitive information to services](/1.10/security/ent/secrets/).
 
 - [Use spaces to restrict service access to secrets](/1.10/overview/security/spaces/).
 
-- Tightly restrict the distribution of SSH keys. For debugging, consider using [`dcos task exec`](/1.10/monitoring/debugging/) instead. 
+- Tightly restrict the distribution of SSH keys. For debugging, consider using [`dcos task exec`](/1.10/monitoring/debugging/) instead.
 
 - Adhere to the [principle of least privilege](http://searchsecurity.techtarget.com/definition/principle-of-least-privilege-POLP) and give your users only the minimum [permissions](/1.10/security/ent/perms-reference/) that they need. Avoid granting users or service accounts the `dcos:superuser` permission.
 

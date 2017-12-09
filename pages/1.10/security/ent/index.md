@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
 title: Enterprise DC/OS Security
-menuWeight: 0
+menuWeight: 80
 excerpt:
 featureMaturity:
 enterprise: true
 ---
 
-Enterprise DC/OS offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster. 
+Enterprise DC/OS offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster.
 
 The goals of DC/OS security are:
 
@@ -45,7 +45,7 @@ A typical deployment, including load balancers is shown below:
 
 # <a name="security-modes"></a>Security Modes
 
-You can control Enterprise DC/OS access by resource and operation (create, read, update, delete). The available [security modes](/1.10/overview/security/security-modes/) are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.10/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
+You can control Enterprise DC/OS access by resource and operation (create, read, update, delete). The available security modes are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.10/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
 
 | Permission Category                                 | Disabled | Permissive | Strict |
 |-----------------------------------------------------|:--------:|:----------:|:------:|
@@ -57,16 +57,16 @@ You can control Enterprise DC/OS access by resource and operation (create, read,
 See the [permissions reference](/1.10/security/ent/perms-reference/) for a complete description.
 
 ### Disabled
-This mode is designed to ensure smooth upgrades from earlier versions of DC/OS, but only provides minimal security features and is not intended for production environments. Disabled mode does not provide Marathon or Mesos permissions. 
+This mode is designed to ensure smooth upgrades from earlier versions of DC/OS, but only provides minimal security features and is not intended for production environments. Disabled mode does not provide Marathon or Mesos permissions.
 
 ### Permissive
 This mode provides some of the security features, but does not include the Mesos permissions.
 
 ### Strict
-This mode provides the most robust security posture and requires a significant amount of configuration. 
+This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting Your Security Mode
-The security mode is set during [DC/OS installation](/1.10/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.10/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.10/installing/ent/custom/configuration-parameters/#security).
+The security mode is set during [DC/OS installation](/1.10/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.10/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only).
 
 **Important:** You can only move from `disabled` to `permissive`, and from `permissive` to `strict` during an upgrade.
 
@@ -81,32 +81,38 @@ You can use either of the following methods to determine the security mode of an
 # <a name="authentication"></a>Authentication
 All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/1.10/security/ent/service-auth/).
 
-The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.10/installing/ent/custom/configuration-parameters/#auth-token-expiry).
+The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.10/installing/ent/custom/configuration/configuration-parameters/#auth-token-expiry).
 
-DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders. 
+DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
 **Important:** Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See [Hardening](/1.10/security/ent/hardening/#zk) for more information.
 
 ## <a name="user"></a>User Login
-Users can log in by using the DC/OS GUI, the DC/OS CLI, or a programmatic client. 
+Users can log in by using the DC/OS GUI, the DC/OS CLI, or a programmatic client.
 
-- If you have configured an LDAP directory server, DC/OS will pass the user's credentials to the LDAP directory server for verification. 
-- If you have configured a SAML or an OpenID Connect identity provider (IdP), the user passes their credentials directly to the IdP. 
+- If you have configured an LDAP directory server, DC/OS will pass the user's credentials to the LDAP directory server for verification.
+- If you have configured a SAML or an OpenID Connect identity provider (IdP), the user passes their credentials directly to the IdP.
 
 **Tip:** If the user is logging in with the DC/OS GUI, SAML and OpenID Connect providers may discover the necessary login details in a browser cookie. In this case, users will not need to pass their credentials.
 
 The following diagram details the sequence.
 
-![User authentication](/1.10/img/authn-user.png) 
+![User authentication](/1.10/img/authn-user.png)
 
-When the authentication token expires, the user can re-authenticate to receive another. 
+When the authentication token expires, the user can re-authenticate to receive another.
 
-When a user logs in with the DC/OS GUI, the Identity and Access Manager plants a cookie that contains the authentication token. While it is protected with an [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) flag, users should **Sign Out** at the end of their browser session to clear this cookie. 
+When a user logs in with the DC/OS GUI, the Identity and Access Manager plants a cookie that contains the authentication token. While it is protected with an [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) flag, users should **Sign Out** at the end of their browser session to clear this cookie.
 
 Note that clearing the cookie does not invalidate the authentication token. If sniffed over an unencrypted connection or extracted from the cookie, someone could use the authentication token to log into DC/OS. To mitigate this risk,  we recommend setting  the [secure flag](https://www.owasp.org/index.php/SecureFlag) on the cookie in `permissive` and `strict` modes, as discussed in [Hardening](/1.10/security/ent/hardening/#auth-cookie).
 
+## <a name="passwords"></a>Passwords
+
+Credentials for cluster-local user accounts (those not using LDAP, SAML, or OpenID Connect) consist of a user name and password that can be used to validate, but not reproduce, user passwords. Passwords are individually salted and cryptographically hashed using [crypt(3)](http://man7.org/linux/man-pages/man3/crypt.3.html) SHA-512. This results in one-way hashes that can be used to validate but not reproduce user passwords. To further impede brute force attacks and meet or exceed NIST FIPS security requirements, the hash function performs many iterations using a 128 bit salt length.
+
+Once DC/OS IAM has validated user credentials, an authentication token is returned to the user. The authentication token is then used for further request authentication during the user session. This way the password does not need to be stored in the client and is only sent over the wire immediately after the user enters it. Over the wire, the authentication request is encrypted using TLS. TLS is required and enforced in strict mode, but optional in permissive mode. For more information, see [Security Modes](/1.10/security/ent/#security-modes).
+
 ## <a name="service"></a>Service Authentication
-Service accounts provide an identity for [services](/1.10/overview/concepts/#dcos-service) to authenticate with DC/OS. Service accounts control communication between services and DC/OS components. DC/OS services may require [service accounts](/1.10/security/ent/service-auth/) depending on your security mode. 
+Service accounts provide an identity for [services](/1.10/overview/concepts/#dcos-service) to authenticate with DC/OS. Service accounts control communication between services and DC/OS components. DC/OS services may require [service accounts](/1.10/security/ent/service-auth/) depending on your security mode.
 
 ## <a name="sysd"></a>Component Authentication
 In strict and permissive [security modes](/1.10/security/ent/#security-modes), DC/OS automatically provisions DC/OS components ([systemd services on the DC/OS nodes](/1.10/overview/concepts/#systemd-service)) with service accounts during the bootstrap sequence. Service accounts are not available in disabled security mode.
@@ -123,7 +129,7 @@ In addition to authenticating requests, DC/OS also checks the permissions associ
 
 The following diagram describes the authorization sequence.
 
-![Authorization sequence](/1.10/img/authz.png) 
+![Authorization sequence](/1.10/img/authz.png)
 
 The `OPT` sequence in the diagram illustrates how permission enforcement varies by security mode.
 
@@ -155,7 +161,7 @@ Not all existing user services support encryption at this time. If the service s
 
 Internode communications occur over TLS 1.2. To ensure browser support, external communications currently accept TLS 1.0, 1.1, and 1.2. These settings  are configurable.
 
-For more information, see [Securing communication with TLS](/1.9/networking/tls-ssl/).
+For more information, see [Securing communication with TLS](/1.10/security/ent/tls-ssl/).
 
 # <a name="spaces"></a>Spaces
 
@@ -171,7 +177,7 @@ At a minimum, we recommend using spaces to restrict service access to secrets.
 
 One aspect of spaces involves service and job groups. You can put services and jobs into groups in any security mode. This can help users find the jobs or services that pertain to them.
 
-In `strict` and `permissive` security modes, you can use [permissions](/1.10/security/ent/perms-reference/#marathon-metronome) to restrict user's access on a per service/job or service/job group basis. 
+In `strict` and `permissive` security modes, you can use [permissions](/1.10/security/ent/perms-reference/#marathon-metronome) to restrict user's access on a per service/job or service/job group basis.
 
 To learn how to do this, see [Controlling user access to services](/1.10/deploying-services/service-groups/) and [Controlling user access to jobs](/1.10/deploying-jobs/job-groups/).
 
@@ -188,10 +194,10 @@ Secret paths work in conjunction with service groups to control access. However,
 | `group/hdfs/secret` | `/group/spark/service`   | No                         |
 | `hdfs/secret`       | `/hdfs`                  | Yes                        |
 
-**Tips:** 
+**Tips:**
 
 - If only a single service requires access to a secret, store the secret in a path that matches the name of the service (e.g. `hdfs/secret`). This prevents it from being accessed by other services.
-- Service groups begin with `/`, while secret paths do not. 
+- Service groups begin with `/`, while secret paths do not.
 
 # Secrets
 
@@ -202,19 +208,19 @@ To secure sensitive values like private keys, API tokens, and database passwords
 
 ## <a name="storage-transport"></a>Secure Storage and Transport of Secrets
 
-DC/OS stores Secret Store data in ZooKeeper encrypted under an unseal key using the Advanced Encryption Standard (AES) algorithm in Galois Counter Mode (GCM). The Secret Store uses the unseal key to encrypt secrets before sending them to ZooKeeper and to decrypt secrets after receiving them from ZooKeeper. This ensures that secrets are encrypted both at rest and in transit. TLS provides an additional layer of encryption on the secrets in transit from ZooKeeper to the Secret Store. 
+DC/OS stores Secret Store data in ZooKeeper encrypted under an unseal key using the Advanced Encryption Standard (AES) algorithm in Galois Counter Mode (GCM). The Secret Store uses the unseal key to encrypt secrets before sending them to ZooKeeper and to decrypt secrets after receiving them from ZooKeeper. This ensures that secrets are encrypted both at rest and in transit. TLS provides an additional layer of encryption on the secrets in transit from ZooKeeper to the Secret Store.
 
 The unseal key is encrypted under a public GPG key. Requests to the [Secrets API](/1.10/security/ent/secrets/secrets-api/) return only the encrypted unseal key. When the Secret Store becomes sealed, either manually or due to a failure, the private GPG key must be used to decrypt the unseal key and unseal the Secret Store.
 
-As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper. 
+As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
 If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.10/security/ent/secrets/custom-key/).
 
-The Secret Store is available in all security modes. 
+The Secret Store is available in all security modes.
 
 By default, you cannot store a secret larger than one megabyte. If you need to exceed this limit, contact Mesosphere support.
 
-We do not support alternate or additional Secret Stores at this time. You should use only the `default` Secret Store provided by Mesosphere. 
+We do not support alternate or additional Secret Stores at this time. You should use only the `default` Secret Store provided by Mesosphere.
 
 ## <a name="access"></a>Fine-grained Access Control of Secrets
 

@@ -4,7 +4,7 @@ navigationTitle:  Beta Kafka
 title: Beta Kafka
 menuWeight: 110
 excerpt:
-featureMaturity: preview
+featureMaturity:
 enterprise: false
 ---
 

@@ -185,4 +185,4 @@ For more information about the JSON files, see the [Universe Readme][1] page. <!
 
  [1]: https://github.com/mesosphere/universe
  [2]: https://github.com/mesosphere/universe#contributing-a-package
- [3]: /docs/1.8/overview/security/#scrollNav-2
+ [3]: /1.8/overview/security/#scrollNav-2

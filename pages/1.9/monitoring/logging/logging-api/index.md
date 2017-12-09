@@ -74,4 +74,4 @@ To assign permissions to your account, see [Assigning permissions](/1.9/security
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.9/api/logs.yaml']
+[api-explorer api='/1.9/api/logs.yaml']
