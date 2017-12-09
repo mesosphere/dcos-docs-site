@@ -3,7 +3,7 @@
 if pageHierarchy.children.length > 0
   div(class='grid')
     each val, index in pageHierarchy.children
-      - var label;
+      - var label = null;
       - label = (val.enterprise) ? 'ENTERPRISE' : label
       - label = (val.oss) ? 'OPEN SOURCE' : label
       - label = (val.beta) ? 'BETA' : label
@@ -20,6 +20,4 @@ if pageHierarchy.children.length > 0
           p(class='grid__desc')!= val.excerpt
             span(class='grid__desc__ellipsis') &#8230;Read More
         div(class="grid__link")
-          //- if label
-            h6(class=labelClass)!= label
           i(data-feather='arrow-right')
