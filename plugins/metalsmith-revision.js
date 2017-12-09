@@ -13,7 +13,7 @@ function plugin(opts) {
   return (files, metalsmith, done) => {
 
     const configPath = resolve(metalsmith._directory, '.revision');
-    const hashTable = { layouts: {}, src: {} };
+    const hashTable = { layouts: {}, src: {}, frontmatter: {} };
     const layoutDirectory = resolve(metalsmith._directory, options.layoutDir);
 
     if(!initialized && fs.existsSync(configPath)) {
@@ -24,7 +24,7 @@ function plugin(opts) {
 
     const revision = fs.existsSync(configPath)
       ? JSON.parse(fs.readFileSync(configPath, 'utf-8'))
-      : { layouts: {}, src: {} };
+      : { layouts: {}, src: {}, frontmatter: {} };
 
     if(!metalsmith.revision) {
       metalsmith.revision = {};
@@ -33,11 +33,25 @@ function plugin(opts) {
     metalsmith.revision.cachedFiles = Object.assign({}, files);
 
     Object.keys(files).forEach(file => {
+
+      // Src hash
       const hash = checksum(files[file].contents);
       hashTable.src[file] = hash;
-      if(revision.src[file] === hash) {
+
+      // Front-matter hash
+      let frontmatter = Object.assign({}, files[file]);
+      delete frontmatter.contents;
+      delete frontmatter.stats;
+      delete frontmatter.mode;
+      const frontmatterString = JSON.stringify(frontmatter);
+      const frontmatterHash = checksum(frontmatterString);
+      hashTable.frontmatter[file] = frontmatterHash;
+
+      // Do not process file if hash are the same
+      if(revision.src[file] === hash && revision.frontmatter[file] == frontmatterHash) {
         delete files[file];
       }
+
     });
 
     debug('%s files updated', Object.keys(files).length);
