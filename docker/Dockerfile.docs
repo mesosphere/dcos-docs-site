@@ -4,6 +4,7 @@
 
 FROM node:8.1.2-slim as ms-builder
 
+ARG algolia_update
 ARG algolia_project_id
 ARG algolia_public_key
 ARG algolia_private_key
