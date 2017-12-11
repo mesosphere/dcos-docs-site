@@ -8,5 +8,4 @@ featureMaturity:
 enterprise: true
 ---
 
-Release notes for DC/OS 1.10.
-
+Release notes for DC/OS 1.11.
