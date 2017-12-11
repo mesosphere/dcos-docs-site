@@ -1,12 +1,11 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
 - var items = hierarchy.children.find(child => child.id === paths[0])
-- var currentDocs = items
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
 
 mixin renderGridToc()
   div(class='grid-toc')
-    each val, index in currentDocs.children
+    each val, index in items.children
       if val.menuWeight != -1
         if val.children
           each childVal, childIndex in val.children
