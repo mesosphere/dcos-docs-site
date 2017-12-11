@@ -72,4 +72,4 @@ To assign permissions to your account, see [Assigning permissions](/1.10/securit
 
 The following resources are available under both of the above routes:
 
-[api-explorer api='/1.10/api/logs.yaml']
+[swagger api='/1.10/api/logs.yaml']

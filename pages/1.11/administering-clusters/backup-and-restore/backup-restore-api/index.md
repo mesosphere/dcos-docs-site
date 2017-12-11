@@ -59,4 +59,4 @@ To assign permissions to your account, see the [permissions reference](/1.11/sec
 
 The Backup and Restore API allows you to manage backup and restore operations on your DC/OS cluster.
 
-[api-explorer api='/1.11/api/backup-restore.yaml']
+[swagger api='/1.11/api/backup-restore.yaml']

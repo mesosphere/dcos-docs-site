@@ -79,4 +79,4 @@ To assign permissions to your account, see the [permissions reference](/1.10/sec
 
 The following resources are available under both of the above routes:
 
-[api-explorer api='/1.10/api/metrics.yaml']
+[swagger api='/1.10/api/metrics.yaml']

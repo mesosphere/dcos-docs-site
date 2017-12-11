@@ -8,4 +8,4 @@ featureMaturity:
 enterprise: false
 ---
 
-[api-explorer api='/1.8/api/marathon.yaml']
+[swagger api='/1.8/api/marathon.yaml']

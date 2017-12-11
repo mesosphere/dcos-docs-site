@@ -103,7 +103,7 @@ Authentication tokens expire after five days by default. If your program needs t
   
 # API reference
 
-[api-explorer api='/1.11/api/certificate-authority.yaml']
+[swagger api='/1.11/api/certificate-authority.yaml']
 
 
 # Logging

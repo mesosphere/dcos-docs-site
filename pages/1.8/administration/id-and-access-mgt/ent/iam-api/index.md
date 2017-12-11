@@ -95,7 +95,7 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # API reference
 
-[api-explorer api='/1.8/api/iam.yaml']
+[swagger api='/1.8/api/iam.yaml']
 
 
 # Logging

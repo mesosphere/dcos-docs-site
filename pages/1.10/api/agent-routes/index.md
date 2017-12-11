@@ -18,4 +18,4 @@ For more detail about how API routing works, see [DC/OS API Reference](/1.10/api
 
 <br/>
 
-[html-include src='/1.10/api/nginx.agent.html' init='NgindoxInit']
+[ngindox api='/1.10/api/nginx.agent.yaml']

@@ -16,4 +16,4 @@ For more detail about how API routing works, see [DC/OS API Reference](/1.10/api
 
 <br/>
 
-[html-include src='/1.10/api/nginx.master.html' init='NgindoxInit']
+[ngindox api='/1.10/api/nginx.master.yaml']

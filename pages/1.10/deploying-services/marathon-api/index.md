@@ -42,4 +42,4 @@ To assign permissions to your account, see the [permissions reference](/1.10/sec
 
 ## Resources
 
-[api-explorer api='/1.10/api/marathon.yaml']
+[swagger api='/1.10/api/marathon.yaml']
