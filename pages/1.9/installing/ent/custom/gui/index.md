@@ -94,7 +94,7 @@ Your cluster must meet the software and hardware [requirements][1].
     ### DC/OS Environment Settings
     
     #### Username
-    Specify a user name for the initial superuser account. At least one superuser account is required for Enterprise DC/OS. For more information about security, see the [documentation](/1.9/security/ent/).
+    Specify a user name for the initial superuser account. At least one superuser account is required for DC/OS Enterprise. For more information about security, see the [documentation](/1.9/security/ent/).
     
     #### Password
     Specify the password of the superuser account.

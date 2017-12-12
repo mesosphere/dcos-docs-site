@@ -23,7 +23,7 @@ If this upgrade is performed on a supported OS with all prerequisites fulfilled,
 - Virtual networks require Docker 1.11 or later. For more information, see the [documentation](/1.9/networking/virtual-networks/).
 - An upgraded DC/OS Marathon leader cannot connect to an non-secure (i.e. not upgraded) leading Mesos master. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
-- Enterprise DC/OS downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
+- DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
 
 ## Supported upgrade paths
 

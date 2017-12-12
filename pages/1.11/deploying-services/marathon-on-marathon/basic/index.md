@@ -16,7 +16,7 @@ The basic procedure does not support [secrets](/1.11/security/ent/secrets/) or f
 **Prerequisites:**
 
 -  DC/OS and DC/OS CLI [installed](/1.11/installing/oss/).
--  [Enterprise DC/OS CLI 0.4.14 or later](/1.11/cli/enterprise-cli/#ent-cli-install).
+-  [DC/OS Enterprise CLI 0.4.14 or later](/1.11/cli/enterprise-cli/#ent-cli-install).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 

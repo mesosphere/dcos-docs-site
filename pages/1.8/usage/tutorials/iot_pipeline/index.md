@@ -122,11 +122,11 @@ The app will post more than 100k tweets one by one, so you'll see them coming in
 The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition. The app uses the service discovery and load balancer service that is installed on every DC/OS node. You can see the Tweeter app defined with this VIP in the json definition under `VIP_0`.
 
 
-# Enterprise DC/OS procedure
+# DC/OS Enterprise procedure
 
 **Prerequisites:**
 
-*  Enterprise DC/OS is [installed](/1.8/administration/installing/ent/) with:
+*  DC/OS Enterprise is [installed](/1.8/administration/installing/ent/) with:
     - Security [mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/1.8/usage/cli/install/) installed.
@@ -167,7 +167,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
            
            ```bash
            NAME                 VERSION  SELECTED  FRAMEWORK  DESCRIPTION           
-           dcos-enterprise-cli  1.0.3    False     False      Enterprise DC/OS CLI 
+           dcos-enterprise-cli  1.0.3    False     False      DC/OS Enterprise CLI 
            ```
        
        1.  Install the security CLI package.

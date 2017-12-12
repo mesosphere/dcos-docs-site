@@ -69,7 +69,7 @@ For details on how to obtain and use an authentication token, see [Authenticatio
 
 # Authorization
 
-Most authenticated routes also require authorization via permissions. Permissions in Enterprise DC/OS consist of a hierarchical resource identifier and an action (create, read, update, delete, full).
+Most authenticated routes also require authorization via permissions. Permissions in DC/OS Enterprise consist of a hierarchical resource identifier and an action (create, read, update, delete, full).
 
 Permission enforcement can be performed at two levels.
 

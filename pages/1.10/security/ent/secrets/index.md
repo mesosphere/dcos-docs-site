@@ -8,7 +8,7 @@ excerpt:
 enterprise: true
 ---
 
-Use the Enterprise DC/OS Secret Store to secure sensitive information like database passwords, API tokens, and private keys. Storing secrets in secret paths allows you to restrict which services can retrieve the value.
+Use the DC/OS Enterprise Secret Store to secure sensitive information like database passwords, API tokens, and private keys. Storing secrets in secret paths allows you to restrict which services can retrieve the value.
 
 [Authorized Marathon services](/1.10/overview/security/spaces/) can retrieve the secrets at deployment and store their values under environment variables.
 

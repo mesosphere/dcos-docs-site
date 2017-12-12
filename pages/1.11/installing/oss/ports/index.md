@@ -41,25 +41,25 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 53    | DNS Forwarder (Spartan) | `dcos-spartan.service` |
 | 80    | Admin Router Master (HTTP) | `dcos-adminrouter.service` |
 | 443   | Admin Router Master (HTTPS) | `dcos-adminrouter.service` |
-| 1337  | DC/OS Secrets |  `dcos-secrets.service` (Enterprise DC/OS Only) | <!-- Enterprise -->
+| 1337  | DC/OS Secrets |  `dcos-secrets.service` (DC/OS Enterprise Only) | <!-- Enterprise -->
 | 2181  | ZooKeeper | `dcos-exhibitor.service` |
 | 3888  | Exhibitor, or ZooKeeper and Exhibitor | `dcos-exhibitor.service` |
 | 5050  | Mesos Master | `dcos-mesos-master.service` |
 | 7070  | DC/OS Package Manager (Cosmos) | `dcos-cosmos.service` |
 | 8080  | Marathon | `dcos-marathon.service` |
-| 8101  | DC/OS Identity and Access Manager | `dcos-bouncer.service` (Enterprise DC/OS Only) | <!-- Enterprise -->
+| 8101  | DC/OS Identity and Access Manager | `dcos-bouncer.service` (DC/OS Enterprise Only) | <!-- Enterprise -->
 | 8123  | Mesos DNS | `dcos-mesos-dns.service` |
 | 8181  | Exhibitor and ZooKeeper | `dcos-exhibitor.service` |
-| 8200  | Vault | `dcos-vault.service` (Enterprise DC/OS Only) |  <!-- Enterprise -->
+| 8200  | Vault | `dcos-vault.service` (DC/OS Enterprise Only) |  <!-- Enterprise -->
 | 8443  | Marathon SSL | `dcos-marathon.service` |
-| 8888  | DC/OS Certificate Authority | `dcos-ca.service` (Enterprise DC/OS Only) | <!-- Enterprise -->
+| 8888  | DC/OS Certificate Authority | `dcos-ca.service` (DC/OS Enterprise Only) | <!-- Enterprise -->
 | 9090 | DC/OS Jobs (Metronome) | `dcos-metronome.service`|
 | 9443 | DC/OS Jobs (Metronome) SSL | `dcos-metronome.service`|
 | 9990  | DC/OS Package Manager (Cosmos) | `dcos-cosmos.service` |
 | 15055 | DC/OS History | `dcos-history-service.service` |
 | 15101 | Marathon libprocess | `dcos-marathon.service` |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`|
-| 62500 | DC/OS Network Metrics | `dcos-networking_api.service` (Enterprise DC/OS Only) | <!-- Enterprise -->
+| 62500 | DC/OS Network Metrics | `dcos-networking_api.service` (DC/OS Enterprise Only) | <!-- Enterprise -->
 | Ephemeral | DC/OS Component Package Manager (Pkgpanda) | `dcos-pkgpanda-api.service` |
 
 ### UDP

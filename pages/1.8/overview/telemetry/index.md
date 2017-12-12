@@ -39,7 +39,7 @@ For each category this data is collected:
 </pre>
 </td></tr>
 <tr><td>customerKey (Enterprise Only)</td>
-<td>This is the Enterprise DC/OS customer key. Customer keys are delivered via email to the Authorized Support Contact. For example:
+<td>This is the DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact. For example:
 <pre>
 "customerKey": "ab1c23de-45f6-7g8h-9012-i345j6k7lm8n",
 </pre>
@@ -67,7 +67,7 @@ For each category this data is collected:
 "source": "cluster",
 </pre></td></tr>
 <tr><td>variant</td>
-<td>This indicates whether the cluster is DC/OS or Enterprise DC/OS. For example, if you are using DC/OS:
+<td>This indicates whether the cluster is DC/OS or DC/OS Enterprise. For example, if you are using DC/OS:
 <pre>
 "variant": "open"
 </pre>

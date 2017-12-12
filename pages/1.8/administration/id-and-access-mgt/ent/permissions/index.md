@@ -11,7 +11,7 @@ enterprise: true
 
 # About permissions
 
-The permissions of Enterprise DC/OS allow you to control access by resource and sometimes by operation (create, read, update, delete). The number of permissions enforced increases as you move from `disabled` to `permissive` and from `permissive` to `strict` [security modes](/1.8/administration/installing/ent/custom/configuration-parameters/#security). `permissive` security mode provides finer-grained controls and `strict` security mode provides the finest-grained controls. See the following table for details.
+The permissions of DC/OS Enterprise allow you to control access by resource and sometimes by operation (create, read, update, delete). The number of permissions enforced increases as you move from `disabled` to `permissive` and from `permissive` to `strict` [security modes](/1.8/administration/installing/ent/custom/configuration-parameters/#security). `permissive` security mode provides finer-grained controls and `strict` security mode provides the finest-grained controls. See the following table for details.
 
 <table class="table" STYLE="margin-bottom: 30px;">
   <tr>

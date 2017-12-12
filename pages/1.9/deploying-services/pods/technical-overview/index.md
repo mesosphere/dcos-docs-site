@@ -158,7 +158,7 @@ The following JSON specifies a Docker image for a pod:
 
 # Limitations
 
-- Pods are not supported in Enterprise DC/OS [strict security mode](https://docs.mesosphere.com/1.9/security/ent/#security-modes).
+- Pods are not supported in DC/OS Enterprise [strict security mode](https://docs.mesosphere.com/1.9/security/ent/#security-modes).
 - Only Mesos-based health checks are currently supported.
 - Readiness checks are not supported.
 - Service ports are not supported.

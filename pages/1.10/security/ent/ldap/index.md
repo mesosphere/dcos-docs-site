@@ -10,7 +10,7 @@ enterprise: true
 
 
 
-If your organization has user records stored in a directory server supporting LDAP, you can configure Enterprise DC/OS to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS.
+If your organization has user records stored in a directory server supporting LDAP, you can configure DC/OS Enterprise to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS.
 
 When the user attempts to login, DC/OS will ask the remote LDAP server to validate the credentials. DC/OS never receives or stores the passwords of remote users. For this reason, if DC/OS cannot connect to the remote LDAP, such as because someone has changed or deleted the LDAP configuration, the user's login will fail. DC/OS does store an internal representation of the user to allow the DC/OS administrator to put the user into a group and assign permissions.
 

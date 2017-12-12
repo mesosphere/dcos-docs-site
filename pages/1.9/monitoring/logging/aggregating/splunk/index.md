@@ -62,7 +62,7 @@ For each master node in your DC/OS cluster:
 
 1.  Create a script that parses the output of the DC/OS master `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
 
-    **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
+    **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
 
     ```bash
     sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF
@@ -122,7 +122,7 @@ For each agent node in your DC/OS cluster:
 
 1.  Create a script that parses the output of the DC/OS agent `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
 
-    **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
+    **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
 
     ```bash
     sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF 

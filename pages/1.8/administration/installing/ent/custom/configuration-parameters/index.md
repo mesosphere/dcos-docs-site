@@ -154,7 +154,7 @@ bouncer_expiration_auth_token_days: '0.5'
 
 ### customer_key
 
-This parameter specifies the Enterprise DC/OS customer key. Customer keys are delivered via email to the Authorized Support Contact. 
+This parameter specifies the DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact. 
 
 This key is a 128-bit hyphen-delimited hexadecimal identifier used to distinguish an individual cluster. The customer key serves as the Universally Unique Identifier (UUID) for a given installation. 
 

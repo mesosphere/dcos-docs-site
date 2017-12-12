@@ -26,11 +26,11 @@ Managing access to services is a basic requirement in any enterprise-grade setup
 
 # Authentication
 
-Enterprise DC/OS user authentication is performed in the Admin security zone and any communication to DC/OS Admin Router from an external client is over an SSL Channel. DC/OS Admin Router presents an SSL certificate issued by the DC/OS certificate authority (CA) to external clients. Clients can then validate all requests originating from DC/OS Admin Router to have come from a valid server by validating the server’s certificate with the DC/OS certificate authority.
+DC/OS Enterprise user authentication is performed in the Admin security zone and any communication to DC/OS Admin Router from an external client is over an SSL Channel. DC/OS Admin Router presents an SSL certificate issued by the DC/OS certificate authority (CA) to external clients. Clients can then validate all requests originating from DC/OS Admin Router to have come from a valid server by validating the server’s certificate with the DC/OS certificate authority.
 
 Below is an example of a complete end to end sequence diagram of all the steps in authenticating any user request.
 
-![Enterprise DC/OS Authentication Sequence] (/assets/images/dcos-authN-sequence.png)
+![DC/OS Enterprise Authentication Sequence] (/assets/images/dcos-authN-sequence.png)
 
 Besides [adding a user locally](/1.8/administration/id-and-access-mgt/users-groups/add-local-user/) you can use either of the following two mechanisms to authenticate users via an external source: directory-based (using LDAP, for example, Active Directory) as well as identity provider-based (SAML and OIDC).
 

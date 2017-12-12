@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Enterprise DC/OS CLI
+title: DC/OS Enterprise CLI
 menuWeight: 6
 excerpt:
 
@@ -11,13 +11,13 @@ enterprise: true
 
 A macOS or Linux operating system. Windows is not currently supported.
 
-# <a name="ent-cli-install"></a>Installing the Enterprise DC/OS CLI
+# <a name="ent-cli-install"></a>Installing the DC/OS Enterprise CLI
 
 **Prerequisite:** The DC/OS CLI must already be [installed](/1.8/usage/cli/install/).
 
-**Tip:** The Enterprise DC/OS CLI must be installed from a terminal prompt. You cannot click on the package in the Universe to install it.
+**Tip:** The DC/OS Enterprise CLI must be installed from a terminal prompt. You cannot click on the package in the Universe to install it.
 
-To install the Enterprise DC/OS CLI, issue the following command from a terminal prompt.
+To install the DC/OS Enterprise CLI, issue the following command from a terminal prompt.
 
 ```bash
 dcos package install --cli dcos-enterprise-cli
@@ -26,25 +26,25 @@ dcos package install --cli dcos-enterprise-cli
 **Note:** Do not use `sudo`.
 
 
-# <a name="ent-cli-upgrade"></a>Upgrading the Enterprise DC/OS CLI
+# <a name="ent-cli-upgrade"></a>Upgrading the DC/OS Enterprise CLI
 
-A reinstall of the Enterprise DC/OS CLI upgrades the package. 
+A reinstall of the DC/OS Enterprise CLI upgrades the package. 
 
 ```bash
 dcos package install --cli dcos-enterprise-cli
 ```
 
 
-# <a name="ent-cli-uninstall"></a>Uninstalling the Enterprise DC/OS CLI
+# <a name="ent-cli-uninstall"></a>Uninstalling the DC/OS Enterprise CLI
     
-To uninstall the Enterprise DC/OS CLI, issue the following command.
+To uninstall the DC/OS Enterprise CLI, issue the following command.
 
 ```bash
 dcos package uninstall --cli dcos-enterprise-cli
 ```
 
 
-# Enterprise DC/OS CLI command reference
+# DC/OS Enterprise CLI command reference
 
 **Warning:** The following options appear in the 1.8 Enterprise CLI help for the `dcos security secrets` subcommands, but are not supported:
 - -a --author <author>

@@ -6,7 +6,7 @@ menuWeight: 500
 excerpt: >
   The Certificate Authority API allows you
   to view the TLS certificates used by
-  Enterprise DC/OS, create Certificate
+  DC/OS Enterprise, create Certificate
   Signing Requests (CSRs), and have the
   DC/OS CA sign CSRs.
 beta: true
@@ -16,7 +16,7 @@ enterprise: true
 
 # About the Certificate Authority API
 
-The Certificate Authority API allows you to view the TLS certificates used by Enterprise DC/OS, create Certificate Signing Requests (CSRs), and have the DC/OS CA sign CSRs.
+The Certificate Authority API allows you to view the TLS certificates used by DC/OS Enterprise, create Certificate Signing Requests (CSRs), and have the DC/OS CA sign CSRs.
 
 
 # Request and response format

@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In Enterprise DC/OS, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
+To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In DC/OS Enterprise, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
 
 <a name="uri-instructions"></a>
 # Referencing private Docker registry credentials as a URI
@@ -87,9 +87,9 @@ To supply credentials to pull from a private Docker registry, create an archive 
     The Docker image will now pull using the provided security credentials.
 
 <a name="secret-store-instructions"></a>
-# Referencing private Docker registry credentials in the secrets store (Enterprise DC/OS only)
+# Referencing private Docker registry credentials in the secrets store (DC/OS Enterprise only)
 
-Follow these steps to add your Docker registry credentials to the [Enterprise DC/OS secrets store](https://docs.mesosphere.com/1.10/security/ent/secrets/), and then reference that secret in your service definition.
+Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](https://docs.mesosphere.com/1.10/security/ent/secrets/), and then reference that secret in your service definition.
 
 **Note:** This functionality is available only with the [Universal Containerizer Runtime](/1.10/deploying-services/containerizers/ucr/). If you need to use the Docker Engine, follow the [URI instructions](#uri-instructions) above.
 
