@@ -4,7 +4,7 @@ navigationTitle:  Health Checks
 title: Health Checks
 menuWeight: 200
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

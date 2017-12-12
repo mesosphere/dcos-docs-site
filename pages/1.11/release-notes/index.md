@@ -4,7 +4,7 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 ---
 
 Release notes for DC/OS 1.11.

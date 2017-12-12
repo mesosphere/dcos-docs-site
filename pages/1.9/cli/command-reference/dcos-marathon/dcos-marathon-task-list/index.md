@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon task list
 title: dcos marathon task list
 menuWeight: 29
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

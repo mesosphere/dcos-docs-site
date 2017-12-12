@@ -4,7 +4,7 @@ navigationTitle:  Using a Private Docker Registry
 title: Using a Private Docker Registry
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

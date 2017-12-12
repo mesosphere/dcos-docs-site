@@ -4,7 +4,7 @@ navigationTitle:  Unsealing the Secret Store
 title: Unsealing the Secret Store
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

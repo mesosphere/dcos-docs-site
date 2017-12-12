@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon
 title: dcos marathon
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

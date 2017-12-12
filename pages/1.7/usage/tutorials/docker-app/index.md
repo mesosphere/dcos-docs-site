@@ -6,7 +6,7 @@ title: >
   Marathon
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

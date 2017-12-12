@@ -4,7 +4,7 @@ navigationTitle:  Deploying a Docker-based Service
 title: Deploying a Docker-based Service
 menuWeight: 100
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

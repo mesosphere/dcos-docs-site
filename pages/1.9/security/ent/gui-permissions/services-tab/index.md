@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Services Tab
 title: Granting Access to the Services Tab
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

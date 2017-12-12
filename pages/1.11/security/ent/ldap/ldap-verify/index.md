@@ -7,7 +7,6 @@ excerpt: >
   Lastly, verify that the parameters you
   provided allow DC/OS to connect the LDAP
   server.
-featureMaturity: preview
 enterprise: true
 ---
 
@@ -26,5 +25,3 @@ enterprise: true
 1. Click **Test Connection**.
 
 1. You should see this message: `Connection with LDAP server was successful!`. If the test fails, read the error message to determine and fix the issue.
-
-

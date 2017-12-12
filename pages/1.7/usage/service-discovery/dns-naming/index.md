@@ -4,7 +4,7 @@ navigationTitle:  Discovering Service DNS Names
 title: Discovering Service DNS Names
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

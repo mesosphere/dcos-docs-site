@@ -4,7 +4,7 @@ navigationTitle:  dcos service shutdown
 title: dcos service shutdown
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

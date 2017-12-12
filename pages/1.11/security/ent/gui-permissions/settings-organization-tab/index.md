@@ -6,7 +6,7 @@ title: >
   Organization tabs
 menuWeight: 70
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 You can grant users access to the **Settings** and **Organization** tabs. By default, new users have no permissions.

@@ -4,7 +4,7 @@ navigationTitle:  Deploying a local package repository
 title: Deploying a local package repository
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

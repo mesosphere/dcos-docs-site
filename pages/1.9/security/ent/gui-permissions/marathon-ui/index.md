@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Marathon UI
 title: Granting Access to the Marathon UI
 menuWeight: 32
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

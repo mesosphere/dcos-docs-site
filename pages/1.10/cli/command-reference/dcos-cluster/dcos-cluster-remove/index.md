@@ -4,7 +4,7 @@ navigationTitle:  dcos cluster remove
 title: dcos cluster remove
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

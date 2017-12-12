@@ -4,7 +4,7 @@ navigationTitle:  Shut Down and Decommission Nodes
 title: Shut Down and Decommission Nodes
 menuWeight: 810
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

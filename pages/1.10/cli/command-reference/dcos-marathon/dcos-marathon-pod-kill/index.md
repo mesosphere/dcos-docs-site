@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon pod kill
 title: dcos marathon pod kill
 menuWeight: 24
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

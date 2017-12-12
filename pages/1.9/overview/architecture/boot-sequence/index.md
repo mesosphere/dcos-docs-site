@@ -4,7 +4,7 @@ navigationTitle:  Boot Sequence
 title: Boot Sequence
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

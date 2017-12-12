@@ -4,7 +4,7 @@ navigationTitle:  Deploying WordPress and MySQL
 title: Deploying WordPress and MySQL
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

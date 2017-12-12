@@ -4,7 +4,7 @@ navigationTitle:  dcos edgelb pool status
 title: dcos edgelb pool status
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos config
 title: dcos config
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

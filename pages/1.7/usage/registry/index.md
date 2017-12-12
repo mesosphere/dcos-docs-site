@@ -6,7 +6,7 @@ title: >
   using VIPs
 menuWeight: 40
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

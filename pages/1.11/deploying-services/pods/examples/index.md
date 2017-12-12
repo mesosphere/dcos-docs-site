@@ -4,7 +4,6 @@ navigationTitle:  Examples
 title: Examples
 menuWeight: 30
 excerpt:
-featureMaturity: preview
 enterprise: false
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: >
   Describes how to add a local user
   account.
-featureMaturity:
+
 enterprise: true
 ---
 

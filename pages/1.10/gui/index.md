@@ -4,7 +4,7 @@ navigationTitle:  GUI
 title: GUI
 menuWeight: 40
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

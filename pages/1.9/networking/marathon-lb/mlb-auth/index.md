@@ -4,7 +4,7 @@ navigationTitle:  Provisioning Marathon-LB
 title: Provisioning Marathon-LB
 menuWeight: 700
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

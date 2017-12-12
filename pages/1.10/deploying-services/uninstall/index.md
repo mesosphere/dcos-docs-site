@@ -4,7 +4,7 @@ navigationTitle:  Uninstalling Services
 title: Uninstalling Services
 menuWeight: 7
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

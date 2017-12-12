@@ -4,7 +4,7 @@ navigationTitle:  dcos job add
 title: dcos job add
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

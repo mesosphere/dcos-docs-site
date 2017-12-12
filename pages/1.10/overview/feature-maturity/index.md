@@ -4,7 +4,7 @@ navigationTitle:  Feature Maturity
 title: Feature Maturity
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

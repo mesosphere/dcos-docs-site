@@ -4,7 +4,7 @@ navigationTitle:  Sealing the Secret Store
 title: Sealing the Secret Store
 menuWeight: 2
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

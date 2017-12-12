@@ -5,7 +5,7 @@ title: Service Discovery and Load Balancing
 menuWeight: 60
 excerpt:
 enterprise: false
-featureMaturity:
+
 ---
 
 DC/OS provides a number of tools out of the box for service discovery and load balancing. Here's an overview of the options, with some general guidelines on what to use in which situations.

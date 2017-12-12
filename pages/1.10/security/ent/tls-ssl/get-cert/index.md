@@ -3,7 +3,7 @@ layout: layout.pug
 title: Obtaining the DC/OS CA bundle
 menuWeight: 100
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

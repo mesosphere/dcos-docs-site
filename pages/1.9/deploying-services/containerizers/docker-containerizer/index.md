@@ -4,7 +4,7 @@ navigationTitle:  Docker Containerizer
 title: Docker Containerizer
 menuWeight: 20
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

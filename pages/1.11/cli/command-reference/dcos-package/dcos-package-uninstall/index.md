@@ -4,7 +4,7 @@ navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

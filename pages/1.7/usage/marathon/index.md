@@ -4,7 +4,7 @@ navigationTitle:  Service Management with Marathon
 title: Service Management with Marathon
 menuWeight: 15
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

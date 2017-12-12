@@ -4,7 +4,7 @@ navigationTitle:  Service Discovery
 title: Service Discovery
 menuWeight: 8
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

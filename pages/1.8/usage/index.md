@@ -4,7 +4,7 @@ navigationTitle:  Usage
 title: Usage
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

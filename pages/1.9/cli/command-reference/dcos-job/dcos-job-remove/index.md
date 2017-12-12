@@ -4,7 +4,7 @@ navigationTitle:  dcos job remove
 title: dcos job remove
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Advanced Configuration
 title: Advanced Configuration
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

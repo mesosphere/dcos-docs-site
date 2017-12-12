@@ -5,7 +5,7 @@ title: GUI
 menuWeight: 0
 excerpt:
 enterprise: true
-featureMaturity:
+
 ---
 
 

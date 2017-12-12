@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon app version list
 title: dcos marathon app version list
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

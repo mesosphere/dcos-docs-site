@@ -6,7 +6,7 @@ title: >
   Router
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

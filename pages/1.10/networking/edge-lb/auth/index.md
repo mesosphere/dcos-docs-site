@@ -3,7 +3,7 @@ layout: layout.pug
 title: Configuring DC/OS Access for Edge-LB
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

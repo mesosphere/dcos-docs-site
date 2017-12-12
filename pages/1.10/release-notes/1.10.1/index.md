@@ -4,7 +4,7 @@ navigationTitle:  Release Notes for 1.10.1
 title: Release Notes for 1.10.1
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

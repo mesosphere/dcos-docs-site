@@ -4,7 +4,7 @@ navigationTitle:  dcos cluster attach
 title: dcos cluster attach
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

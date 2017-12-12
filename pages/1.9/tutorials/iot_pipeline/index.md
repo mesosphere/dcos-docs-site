@@ -4,7 +4,7 @@ navigationTitle:  Deploying a Load-Balanced Data Pipeline
 title: Deploying a Load-Balanced Data Pipeline
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 ---
 
 In this tutorial you install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.

@@ -4,7 +4,7 @@ navigationTitle:  dcos auth logout
 title: dcos auth logout
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

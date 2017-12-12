@@ -6,7 +6,7 @@ title: >
   Tunnel
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

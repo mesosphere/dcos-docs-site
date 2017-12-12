@@ -4,7 +4,7 @@ navigationTitle:  Multiple Regions
 title: Multiple Regions
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

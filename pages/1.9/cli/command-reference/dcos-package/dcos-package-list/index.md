@@ -4,7 +4,7 @@ navigationTitle:  dcos package list
 title: dcos package list
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

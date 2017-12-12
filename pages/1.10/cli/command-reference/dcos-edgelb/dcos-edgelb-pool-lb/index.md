@@ -4,7 +4,7 @@ navigationTitle:  dcos edgelb pool lb
 title: dcos edgelb pool lb
 menuWeight: 7
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Finding a public agent IP
 title: Finding a public agent IP
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -8,7 +8,7 @@ excerpt: >
   enforced by the Mesos master and Mesos
   agent. They enforce these permissions
   only in strict security mode.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

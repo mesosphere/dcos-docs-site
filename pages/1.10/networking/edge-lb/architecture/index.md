@@ -4,7 +4,7 @@ navigationTitle:  Edge-LB Architecture
 title: Edge-LB Architecture
 menuWeight: 8
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

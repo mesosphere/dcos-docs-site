@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon app start
 title: dcos marathon app start
 menuWeight: 7
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

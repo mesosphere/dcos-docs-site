@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Secrets Tab
 title: Granting Access to the Secrets Tab
 menuWeight: 50
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 You can grant users access to the **Secrets** tab. By default, new users have no permissions.

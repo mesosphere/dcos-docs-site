@@ -3,7 +3,7 @@ layout: layout.pug
 title: Datadog Metrics for DC/OS
 menuWeight: 3
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

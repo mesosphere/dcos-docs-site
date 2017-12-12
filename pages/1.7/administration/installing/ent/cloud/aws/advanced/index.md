@@ -3,7 +3,7 @@ layout: layout.pug
 title: Advanced DC/OS Installation on AWS
 menuWeight: 200
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

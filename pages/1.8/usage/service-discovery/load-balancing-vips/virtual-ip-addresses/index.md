@@ -4,7 +4,7 @@ navigationTitle:  Using Virtual IP Addresses
 title: Using Virtual IP Addresses
 menuWeight: 10
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

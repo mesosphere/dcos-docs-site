@@ -4,7 +4,7 @@ navigationTitle:  Usage Frequently Asked Questions
 title: Usage Frequently Asked Questions
 menuWeight: 110
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

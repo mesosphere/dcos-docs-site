@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon pod remove
 title: dcos marathon pod remove
 menuWeight: 26
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

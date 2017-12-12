@@ -3,7 +3,7 @@ layout: layout.pug
 title: Mesosphere DC/OS Open Source Attribution
 menuWeight: 100
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

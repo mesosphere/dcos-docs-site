@@ -4,7 +4,7 @@ navigationTitle:  Upgrading
 title: Upgrading
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

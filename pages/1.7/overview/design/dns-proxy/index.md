@@ -4,7 +4,7 @@ navigationTitle:  'Design: Distributed DNS'
 title: 'Design: Distributed DNS'
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

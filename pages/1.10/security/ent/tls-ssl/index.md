@@ -4,7 +4,7 @@ navigationTitle:  Securing communication with TLS
 title: Securing communication with TLS
 menuWeight: 120
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

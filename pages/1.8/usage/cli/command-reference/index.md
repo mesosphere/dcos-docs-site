@@ -4,7 +4,7 @@ navigationTitle:  CLI Command Reference
 title: CLI Command Reference
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

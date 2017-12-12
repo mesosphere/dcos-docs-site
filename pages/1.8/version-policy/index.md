@@ -4,7 +4,7 @@ navigationTitle:  Mesosphere Versioning and Release Policy
 title: Mesosphere Versioning and Release Policy
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

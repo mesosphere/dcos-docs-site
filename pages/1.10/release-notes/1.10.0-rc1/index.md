@@ -6,7 +6,7 @@ title: >
   Candidate 1
 menuWeight: 20
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

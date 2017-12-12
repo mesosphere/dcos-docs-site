@@ -5,7 +5,7 @@ title: Features
 menuWeight: 3
 excerpt:
 enterprise: false
-featureMaturity:
+
 ---
 
 

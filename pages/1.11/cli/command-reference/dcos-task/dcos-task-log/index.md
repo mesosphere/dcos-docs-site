@@ -4,7 +4,7 @@ navigationTitle:  dcos task log
 title: dcos task log
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

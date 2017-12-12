@@ -4,7 +4,7 @@ navigationTitle:  Exposing a Service
 title: Exposing a Service
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

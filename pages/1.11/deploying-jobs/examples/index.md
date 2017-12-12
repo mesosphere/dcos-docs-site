@@ -4,7 +4,7 @@ navigationTitle:  Examples
 title: Examples
 menuWeight: 20
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

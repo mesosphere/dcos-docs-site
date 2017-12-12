@@ -4,7 +4,7 @@ navigationTitle:  Security
 title: Security
 menuWeight: 80
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

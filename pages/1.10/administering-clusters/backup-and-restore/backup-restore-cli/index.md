@@ -4,7 +4,7 @@ navigationTitle:  Backup and Restore CLI
 title: Backup and Restore CLI
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos help
 title: dcos help
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

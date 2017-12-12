@@ -4,7 +4,6 @@ navigationTitle:  Using Custom Marathon
 title: Using Custom Marathon
 menuWeight: 39
 excerpt:
-featureMaturity: preview
 enterprise: true
 ---
 
@@ -34,4 +33,3 @@ You can reserve cluster resources for specific agent nodes. You can reserve reso
 -  **Dynamic:** Reserve and unreserve resources by specifying in your non-native Marathon app definition.
 
 For more information, see [Mesos reservations](http://mesos.apache.org/documentation/latest/reservation/).
-

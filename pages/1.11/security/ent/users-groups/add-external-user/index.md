@@ -4,7 +4,7 @@ navigationTitle:  Adding external users
 title: Adding external users
 menuWeight: 20
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

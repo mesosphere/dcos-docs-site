@@ -4,7 +4,7 @@ navigationTitle:  Components
 title: Components
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

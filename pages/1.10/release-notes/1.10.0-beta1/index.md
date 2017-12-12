@@ -4,7 +4,7 @@ navigationTitle:  Release Notes for 1.10 Beta 1
 title: Release Notes for 1.10 Beta 1
 menuWeight: 40
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

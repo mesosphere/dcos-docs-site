@@ -4,7 +4,7 @@ title: DC/OS 1.4
 menuWeight: 1
 excerpt:
 enterprise: true
-featureMaturity:
+
 ---
 
 

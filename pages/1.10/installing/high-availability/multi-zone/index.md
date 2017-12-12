@@ -4,7 +4,7 @@ navigationTitle:  Multiple Zones
 title: Multiple Zones
 menuWeight: 1
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

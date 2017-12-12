@@ -4,7 +4,7 @@ navigationTitle:  Service Requirements Specification
 title: Service Requirements Specification
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

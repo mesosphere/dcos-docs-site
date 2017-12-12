@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS Custom Installation Options
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

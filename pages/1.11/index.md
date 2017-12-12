@@ -4,7 +4,7 @@ title: Documentation for Mesosphere DC/OS 1.11
 navigationTitle:  Mesosphere DC/OS 1.11
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Release Notes for 1.10.0 Beta 2
 title: Release Notes for 1.10.0 Beta 2
 menuWeight: 30
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  High Availability
 title: High Availability
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

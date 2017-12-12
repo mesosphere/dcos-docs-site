@@ -4,7 +4,7 @@ navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
 menuWeight: 120
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

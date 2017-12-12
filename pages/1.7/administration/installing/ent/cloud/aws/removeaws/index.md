@@ -4,7 +4,7 @@ navigationTitle:  Uninstalling on Amazon Web Services
 title: Uninstalling on Amazon Web Services
 menuWeight: 300
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Storage
 title: Storage
 menuWeight: 90
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Uninstalling the CLI
 title: Uninstalling the CLI
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

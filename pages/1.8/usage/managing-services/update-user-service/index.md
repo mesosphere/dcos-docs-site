@@ -4,7 +4,7 @@ navigationTitle:  Updating a User-Created Service
 title: Updating a User-Created Service
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

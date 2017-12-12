@@ -4,7 +4,7 @@ navigationTitle:  Service Naming
 title: Service Naming
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

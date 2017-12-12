@@ -4,7 +4,7 @@ navigationTitle:  dcos auth list-providers
 title: dcos auth list-providers
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

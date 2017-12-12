@@ -9,7 +9,7 @@ excerpt: >
   Discusses what Linux user owns the
   sandbox and executes tasks by default
   and how to modify it.
-featureMaturity:
+
 enterprise: true
 ---
 

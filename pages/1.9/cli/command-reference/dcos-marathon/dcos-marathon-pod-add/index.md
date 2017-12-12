@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon pod add
 title: dcos marathon pod add
 menuWeight: 23
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

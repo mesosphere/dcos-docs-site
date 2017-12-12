@@ -6,7 +6,7 @@ title: >
   App with Marathon-LB
 menuWeight: 100
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

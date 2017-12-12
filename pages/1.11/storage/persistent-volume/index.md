@@ -4,7 +4,7 @@ navigationTitle:  Local Persistent Volumes
 title: Local Persistent Volumes
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

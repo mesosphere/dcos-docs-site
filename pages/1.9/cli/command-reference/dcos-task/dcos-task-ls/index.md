@@ -4,7 +4,7 @@ navigationTitle:  dcos task ls
 title: dcos task ls
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

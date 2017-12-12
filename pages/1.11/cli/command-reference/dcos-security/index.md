@@ -4,7 +4,7 @@ navigationTitle:  dcos security
 title: dcos security
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

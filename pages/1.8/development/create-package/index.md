@@ -4,7 +4,7 @@ navigationTitle:  Creating a Universe Package
 title: Creating a Universe Package
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

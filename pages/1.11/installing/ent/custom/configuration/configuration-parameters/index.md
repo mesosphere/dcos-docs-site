@@ -4,7 +4,7 @@ navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 600
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

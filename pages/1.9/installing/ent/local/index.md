@@ -4,7 +4,7 @@ navigationTitle:  Local
 title: Local
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos auth
 title: dcos auth
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -5,7 +5,7 @@ title: Telemetry
 menuWeight: 7
 excerpt:
 enterprise: false
-featureMaturity:
+
 ---
 
 

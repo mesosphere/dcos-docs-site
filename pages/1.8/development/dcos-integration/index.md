@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS Integration
 menuWeight: 20
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

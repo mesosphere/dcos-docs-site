@@ -6,7 +6,7 @@ title: >
   Extension
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

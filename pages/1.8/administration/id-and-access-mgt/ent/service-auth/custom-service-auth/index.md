@@ -9,7 +9,7 @@ excerpt: >
   authentication with a service account
   and how to request and refresh its
   token.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos job history
 title: dcos job history
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

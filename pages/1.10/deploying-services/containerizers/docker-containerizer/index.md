@@ -4,7 +4,7 @@ navigationTitle:  Docker Engine
 title: Docker Engine
 menuWeight: 20
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -3,7 +3,7 @@ layout: layout.pug
 title: Developing DC/OS Services
 menuWeight: 160
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

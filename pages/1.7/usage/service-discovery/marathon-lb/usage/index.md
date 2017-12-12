@@ -4,7 +4,7 @@ navigationTitle:  Getting Started with Marathon-LB
 title: Getting Started with Marathon-LB
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

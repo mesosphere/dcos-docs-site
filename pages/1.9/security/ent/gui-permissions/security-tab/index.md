@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Security Tab
 title: Granting Access to the Security Tab
 menuWeight: 50
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 You can grant users access to the **Security** tab. By default, new users have no permissions.

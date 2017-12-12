@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Components Tab
 title: Granting Access to the Components Tab
 menuWeight: 60
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 You can grant users access to the **Components** tab. By default, new users have no permissions.

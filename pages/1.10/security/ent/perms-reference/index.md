@@ -4,7 +4,7 @@ navigationTitle:  Permissions Reference
 title: Permissions Reference
 menuWeight: 40
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

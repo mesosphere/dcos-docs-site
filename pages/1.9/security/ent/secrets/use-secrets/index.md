@@ -6,7 +6,7 @@ title: >
   secrets
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

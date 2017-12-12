@@ -4,7 +4,7 @@ navigationTitle:  dcos edgelb ping
 title: dcos edgelb ping
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

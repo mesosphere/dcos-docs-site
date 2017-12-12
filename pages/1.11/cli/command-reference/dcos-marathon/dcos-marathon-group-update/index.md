@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon group update
 title: dcos marathon group update
 menuWeight: 22
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

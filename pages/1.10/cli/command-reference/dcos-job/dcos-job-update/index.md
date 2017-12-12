@@ -4,7 +4,7 @@ navigationTitle:  dcos job update
 title: dcos job update
 menuWeight: 12
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

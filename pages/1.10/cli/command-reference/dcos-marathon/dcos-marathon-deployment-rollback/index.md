@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon deployment rollback
 title: dcos marathon deployment rollback
 menuWeight: 15
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

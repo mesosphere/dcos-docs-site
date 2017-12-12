@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS 1.7
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

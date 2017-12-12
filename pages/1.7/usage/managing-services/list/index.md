@@ -4,7 +4,7 @@ navigationTitle:  Monitoring Services
 title: Monitoring Services
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

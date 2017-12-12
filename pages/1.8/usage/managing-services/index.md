@@ -4,7 +4,7 @@ navigationTitle:  Managing Services
 title: Managing Services
 menuWeight: 70
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

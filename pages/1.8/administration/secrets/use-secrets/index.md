@@ -4,7 +4,7 @@ navigationTitle:  Configuring services to use secrets
 title: Configuring services to use secrets
 menuWeight: 1
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

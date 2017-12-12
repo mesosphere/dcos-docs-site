@@ -4,7 +4,7 @@ navigationTitle:  Installing Edge-LB
 title: Installing Edge-LB
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

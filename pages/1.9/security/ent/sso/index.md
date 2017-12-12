@@ -4,7 +4,7 @@ navigationTitle:  Identity provider-based authentication
 title: Identity provider-based authentication
 menuWeight: 50
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

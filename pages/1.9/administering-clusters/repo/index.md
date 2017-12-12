@@ -4,7 +4,7 @@ navigationTitle:  Managing Package Repositories
 title: Managing Package Repositories
 menuWeight: 50
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

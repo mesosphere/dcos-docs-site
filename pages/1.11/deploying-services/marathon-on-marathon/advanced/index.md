@@ -6,7 +6,6 @@ title: >
   Marathon with Security Features
 menuWeight: 40
 excerpt:
-featureMaturity: preview
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  CLI
 title: CLI
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

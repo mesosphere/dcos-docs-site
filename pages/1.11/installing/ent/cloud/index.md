@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS Cloud Installation Options
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

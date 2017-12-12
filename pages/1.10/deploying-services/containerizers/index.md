@@ -4,7 +4,7 @@ navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Monitoring with Nagios
 title: Monitoring with Nagios
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

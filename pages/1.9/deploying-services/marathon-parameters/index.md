@@ -4,7 +4,7 @@ navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

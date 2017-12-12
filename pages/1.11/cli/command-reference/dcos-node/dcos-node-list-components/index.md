@@ -4,7 +4,7 @@ navigationTitle:  dcos node list-components
 title: dcos node list-components
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

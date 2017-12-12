@@ -4,7 +4,7 @@ navigationTitle:  Marathon-LB
 title: Marathon-LB
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -3,7 +3,7 @@ layout: layout.pug
 title: Enterprise DC/OS Security
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

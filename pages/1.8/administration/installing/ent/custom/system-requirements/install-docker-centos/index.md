@@ -4,7 +4,7 @@ navigationTitle:  Install Docker on CentOS
 title: Install Docker on CentOS
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

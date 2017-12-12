@@ -4,7 +4,7 @@ navigationTitle:  dcos job schedule show
 title: dcos job schedule show
 menuWeight: 8
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

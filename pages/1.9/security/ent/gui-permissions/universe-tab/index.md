@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Universe Tab
 title: Granting Access to the Universe Tab
 menuWeight: 80
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 
