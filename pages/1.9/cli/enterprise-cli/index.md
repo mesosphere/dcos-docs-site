@@ -3,7 +3,7 @@ layout: layout.pug
 title: Enterprise DC/OS CLI
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

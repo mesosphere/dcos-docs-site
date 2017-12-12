@@ -4,7 +4,7 @@ navigationTitle:  Load Balancing and VIPs
 title: Load Balancing and VIPs
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

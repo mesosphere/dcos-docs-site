@@ -4,7 +4,7 @@ navigationTitle:  Log Aggregation
 title: Log Aggregation
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

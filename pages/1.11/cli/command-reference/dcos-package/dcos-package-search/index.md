@@ -4,7 +4,7 @@ navigationTitle:  dcos package search
 title: dcos package search
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

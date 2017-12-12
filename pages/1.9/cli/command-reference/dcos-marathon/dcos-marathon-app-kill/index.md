@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon app kill
 title: dcos marathon app kill
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

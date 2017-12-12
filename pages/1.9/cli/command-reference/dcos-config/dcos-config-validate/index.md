@@ -4,7 +4,7 @@ navigationTitle:  dcos config validate
 title: dcos config validate
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

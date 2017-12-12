@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon group scale
 title: dcos marathon group scale
 menuWeight: 20
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

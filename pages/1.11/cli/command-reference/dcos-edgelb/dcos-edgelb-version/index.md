@@ -4,7 +4,7 @@ navigationTitle:  dcos edgelb version
 title: dcos edgelb version
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

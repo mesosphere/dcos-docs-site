@@ -6,7 +6,7 @@ title: >
   Load Balanced App with Marathon-LB
 menuWeight: 200
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  CLI Specification
 title: CLI Specification
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

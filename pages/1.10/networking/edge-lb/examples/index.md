@@ -4,7 +4,7 @@ navigationTitle:  Edge-LB Examples
 title: Edge-LB Examples
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

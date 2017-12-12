@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon pod update
 title: dcos marathon pod update
 menuWeight: 28
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

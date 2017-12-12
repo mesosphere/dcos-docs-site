@@ -4,7 +4,7 @@ navigationTitle:  Design
 title: Design
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

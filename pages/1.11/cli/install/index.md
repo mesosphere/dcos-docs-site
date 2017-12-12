@@ -4,7 +4,7 @@ navigationTitle:  Installing the CLI
 title: Installing the CLI
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

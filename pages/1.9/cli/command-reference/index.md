@@ -4,7 +4,7 @@ navigationTitle:  Command Reference
 title: Command Reference
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

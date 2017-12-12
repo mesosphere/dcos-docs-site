@@ -4,7 +4,7 @@ navigationTitle:  Edge-LB Release Notes
 title: Edge-LB Release Notes
 menuWeight: 9
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

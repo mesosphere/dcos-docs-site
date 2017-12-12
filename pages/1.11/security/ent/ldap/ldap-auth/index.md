@@ -9,7 +9,6 @@ excerpt: >
   Next, set up the authentication method
   and parameters needed to connect to the
   LDAP server.
-featureMaturity: preview
 enterprise: true
 ---
 

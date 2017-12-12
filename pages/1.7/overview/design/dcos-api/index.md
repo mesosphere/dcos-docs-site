@@ -4,7 +4,7 @@ navigationTitle:  API Design
 title: API Design
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

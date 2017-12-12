@@ -3,7 +3,7 @@ layout: layout.pug
 title: Installing DC/OS on AWS
 menuWeight: 100
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

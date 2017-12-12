@@ -4,7 +4,7 @@ navigationTitle:  Release Notes for 1.9.5
 title: Release Notes for 1.9.5
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -3,7 +3,7 @@ layout: layout.pug
 title: Access by Proxy and VPN using DC/OS Tunnel
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

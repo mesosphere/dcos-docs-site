@@ -3,7 +3,7 @@ layout: layout.pug
 title: Troubleshooting your DC/OS installation
 menuWeight: 400
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

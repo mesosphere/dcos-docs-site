@@ -4,7 +4,7 @@ navigationTitle:  Scaling a Service
 title: Scaling a Service
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

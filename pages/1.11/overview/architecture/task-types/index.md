@@ -4,7 +4,7 @@ navigationTitle:  Task Types
 title: Task Types
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

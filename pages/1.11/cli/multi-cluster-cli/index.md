@@ -4,7 +4,7 @@ navigationTitle:  Connecting to Multiple Clusters
 title: Connecting to Multiple Clusters
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

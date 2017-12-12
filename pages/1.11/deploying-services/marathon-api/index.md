@@ -4,7 +4,7 @@ navigationTitle:  Marathon REST API
 title: Marathon REST API
 menuWeight: 40
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

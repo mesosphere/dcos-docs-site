@@ -5,7 +5,7 @@ title: >
   Autoscaling Marathon services using CPU and memory
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

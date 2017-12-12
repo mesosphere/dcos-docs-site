@@ -4,7 +4,7 @@ navigationTitle:  Edge-LB Service Deployment Strategies
 title: Edge-LB Service Deployment Strategies
 menuWeight: 7
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

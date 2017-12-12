@@ -7,7 +7,7 @@ excerpt: >
   This topic describes when and how to
   provision Confluent with a service
   account.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

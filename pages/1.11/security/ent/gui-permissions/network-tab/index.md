@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Networking Tab
 title: Granting Access to the Networking Tab
 menuWeight: 40
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 You can grant users access to the **Networking** tab. By default, new users have no permissions.

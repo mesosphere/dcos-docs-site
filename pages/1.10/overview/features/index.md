@@ -4,7 +4,7 @@ navigationTitle:  Features
 title: Features
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

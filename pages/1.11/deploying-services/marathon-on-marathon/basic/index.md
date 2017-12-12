@@ -6,7 +6,6 @@ title: >
   Marathon
 menuWeight: 39
 excerpt:
-featureMaturity: preview
 enterprise: true
 ---
 
@@ -304,4 +303,3 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
     You are done!
     
     ![Marathon on Marathon](/1.11/img/mom-marathon-gui.png)
-

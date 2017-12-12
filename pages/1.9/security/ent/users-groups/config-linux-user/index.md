@@ -6,7 +6,7 @@ menuWeight: 31
 excerpt: >
   Learn how to override the default Linux
   user of your tasks and sandboxes.
-featureMaturity:
+
 enterprise: true
 ---
 

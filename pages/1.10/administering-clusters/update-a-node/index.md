@@ -4,7 +4,7 @@ navigationTitle:  Updating Nodes
 title: Updating Nodes
 menuWeight: 801
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

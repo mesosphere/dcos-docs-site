@@ -4,7 +4,7 @@ navigationTitle:  Administering Clusters
 title: Administering Clusters
 menuWeight: 60
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

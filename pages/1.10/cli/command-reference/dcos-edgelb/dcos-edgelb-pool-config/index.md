@@ -4,7 +4,7 @@ navigationTitle:  dcos edgelb pool config
 title: dcos edgelb pool config
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

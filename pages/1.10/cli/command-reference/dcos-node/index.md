@@ -4,7 +4,7 @@ navigationTitle:  dcos node
 title: dcos node
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

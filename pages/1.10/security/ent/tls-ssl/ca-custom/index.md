@@ -4,7 +4,7 @@ navigationTitle:  Using a Custom CA Certificate
 title: Using a Custom CA Certificate
 menuWeight: 50
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

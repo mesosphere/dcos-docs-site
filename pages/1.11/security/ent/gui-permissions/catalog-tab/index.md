@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Catalog Tab
 title: Granting Access to the Catalog Tab
 menuWeight: 80
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

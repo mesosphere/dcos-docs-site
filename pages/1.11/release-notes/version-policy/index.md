@@ -4,7 +4,7 @@ navigationTitle:  Mesosphere Versioning and Release Policy
 title: Mesosphere Versioning and Release Policy
 menuWeight: 110
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 The format of Mesosphere DC/OS version number is: <code>&lt;Release&gt;.&lt;Version&gt;.&lt;Minor&gt;</code>.

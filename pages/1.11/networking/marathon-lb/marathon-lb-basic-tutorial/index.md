@@ -4,7 +4,7 @@ navigationTitle:  Deploying an Externally Load Balanced App with Marathon-LB
 title: Deploying an Externally Load Balanced App with Marathon-LB
 menuWeight: 100
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

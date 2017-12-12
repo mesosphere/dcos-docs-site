@@ -4,7 +4,7 @@ navigationTitle:  Filtering Logs with Splunk
 title: Filtering Logs with Splunk
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

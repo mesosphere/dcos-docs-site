@@ -4,7 +4,7 @@ navigationTitle:  Managing users and groups
 title: Managing users and groups
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

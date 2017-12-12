@@ -3,7 +3,7 @@ layout: layout.pug
 title: Install and Customize on Enterprise DC/OS
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

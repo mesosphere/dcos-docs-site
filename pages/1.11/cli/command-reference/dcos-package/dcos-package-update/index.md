@@ -4,7 +4,7 @@ navigationTitle:  dcos package update
 title: dcos package update
 menuWeight: 8
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

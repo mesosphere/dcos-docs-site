@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to dcos task exec
 title: Granting Access to dcos task exec
 menuWeight: 4
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

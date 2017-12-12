@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon app stop
 title: dcos marathon app stop
 menuWeight: 8
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

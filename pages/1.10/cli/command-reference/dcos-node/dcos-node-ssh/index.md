@@ -4,7 +4,7 @@ navigationTitle:  dcos node ssh
 title: dcos node ssh
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

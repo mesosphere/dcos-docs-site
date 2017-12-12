@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Metrics Reference
 excerpt:
 title: Metrics Reference
-featureMaturity: preview
+beta: true
 menuWeight: 2
 ---
 

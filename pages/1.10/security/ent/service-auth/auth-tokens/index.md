@@ -4,7 +4,7 @@ navigationTitle:  Managing JSON Web Tokens
 title: Managing JSON Web Tokens
 menuWeight: 200
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

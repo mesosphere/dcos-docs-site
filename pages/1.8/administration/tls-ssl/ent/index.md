@@ -3,7 +3,7 @@ layout: layout.pug
 title: Securing communication with TLS in Enterprise DC/OS
 menuWeight: 0
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

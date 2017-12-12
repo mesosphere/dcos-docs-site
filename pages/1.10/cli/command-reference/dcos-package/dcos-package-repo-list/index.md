@@ -4,7 +4,7 @@ navigationTitle:  dcos package repo list
 title: dcos package repo list
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

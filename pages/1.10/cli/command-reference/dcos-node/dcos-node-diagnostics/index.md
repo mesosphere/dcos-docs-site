@@ -4,7 +4,7 @@ navigationTitle:  dcos node diagnostics
 title: dcos node diagnostics
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos cluster setup
 title: dcos cluster setup
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

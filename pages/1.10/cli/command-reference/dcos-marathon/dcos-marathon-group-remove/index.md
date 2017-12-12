@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon group remove
 title: dcos marathon group remove
 menuWeight: 19
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon group show
 title: dcos marathon group show
 menuWeight: 21
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

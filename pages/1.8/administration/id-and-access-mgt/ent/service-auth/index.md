@@ -4,7 +4,7 @@ navigationTitle:  Service Accounts
 title: Service Accounts
 menuWeight: 4
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

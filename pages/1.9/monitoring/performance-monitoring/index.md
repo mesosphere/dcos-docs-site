@@ -4,7 +4,7 @@ navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

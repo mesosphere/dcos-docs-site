@@ -4,7 +4,7 @@ navigationTitle:  Autoscaling with Marathon
 title: Autoscaling with Marathon
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

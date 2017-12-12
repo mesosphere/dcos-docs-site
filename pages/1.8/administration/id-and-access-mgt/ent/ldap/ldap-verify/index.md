@@ -7,7 +7,7 @@ excerpt: >
   Lastly, verify that the parameters you
   provided allow you to connect the LDAP
   server.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

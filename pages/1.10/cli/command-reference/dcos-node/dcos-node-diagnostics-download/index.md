@@ -4,7 +4,7 @@ navigationTitle:  dcos node diagnostics download
 title: dcos node diagnostics download
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

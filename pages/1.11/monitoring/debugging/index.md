@@ -4,7 +4,7 @@ navigationTitle:  Debugging
 title: Debugging
 menuWeight: 115
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

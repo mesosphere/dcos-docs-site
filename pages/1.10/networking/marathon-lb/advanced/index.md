@@ -4,7 +4,7 @@ navigationTitle:  Marathon-LB Reference
 title: Marathon-LB Reference
 menuWeight: 300
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

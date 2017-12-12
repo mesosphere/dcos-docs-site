@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS Ports
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 ---
 
 This topic lists the ports that are required to launch DC/OS. Additional ports may be required to launch the individual DC/OS services.

@@ -4,7 +4,7 @@ navigationTitle:  Telemetry
 title: Telemetry
 menuWeight: 7
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

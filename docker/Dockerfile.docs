@@ -4,6 +4,7 @@
 
 FROM node:8.1.2-slim as ms-builder
 
+ARG algolia_update
 ARG algolia_project_id
 ARG algolia_public_key
 ARG algolia_private_key
@@ -22,6 +23,7 @@ RUN npm install
 RUN make build-swagger
 RUN make build-ngindox
 RUN \
+ALGOLIA_UPDATE=$algolia_update \
 ALGOLIA_PROJECT_ID=$algolia_project_id \
 ALGOLIA_PUBLIC_KEY=$algolia_public_key \
 ALGOLIA_PRIVATE_KEY=$algolia_private_key \

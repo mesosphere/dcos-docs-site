@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS Service Certification Criteria
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

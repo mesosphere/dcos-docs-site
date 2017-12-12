@@ -4,7 +4,7 @@ navigationTitle:  Service Authentication
 title: Service Authentication
 menuWeight: 80
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

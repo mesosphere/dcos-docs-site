@@ -4,7 +4,7 @@ navigationTitle:  Edge-LB
 title: Edge-LB
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

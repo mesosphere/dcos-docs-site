@@ -4,7 +4,7 @@ navigationTitle:  Managing AWS
 title: Managing AWS
 menuWeight: 9
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

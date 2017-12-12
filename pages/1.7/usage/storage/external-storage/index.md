@@ -5,7 +5,7 @@ title: External Volumes (experimental)
 menuWeight: 1
 excerpt:
 enterprise: true
-featureMaturity:
+
 ---
 
 

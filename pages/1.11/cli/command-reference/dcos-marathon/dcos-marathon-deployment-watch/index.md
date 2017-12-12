@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon deployment watch
 title: dcos marathon deployment watch
 menuWeight: 16
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

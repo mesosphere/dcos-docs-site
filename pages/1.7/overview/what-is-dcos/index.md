@@ -3,7 +3,7 @@ layout: layout.pug
 title: What is DC/OS?
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

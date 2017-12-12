@@ -6,7 +6,7 @@ title: >
   custom GPG keypair
 menuWeight: -1
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

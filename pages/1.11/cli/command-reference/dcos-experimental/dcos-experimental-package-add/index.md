@@ -4,7 +4,7 @@ navigationTitle:  dcos experimental
 title: dcos experimental
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

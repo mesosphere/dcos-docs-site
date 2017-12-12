@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon task stop
 title: dcos marathon task stop
 menuWeight: 31
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

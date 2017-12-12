@@ -4,7 +4,6 @@ navigationTitle:  CNI Plugin Support
 title: CNI Plugin Support
 menuWeight: 30
 excerpt:
-featureMaturity: preview
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Application Definitions
 title: Application Definitions
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

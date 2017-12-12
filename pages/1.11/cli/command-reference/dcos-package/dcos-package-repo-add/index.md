@@ -4,7 +4,7 @@ navigationTitle:  dcos package repo add
 title: dcos package repo add
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

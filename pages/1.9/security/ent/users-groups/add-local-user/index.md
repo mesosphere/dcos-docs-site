@@ -4,7 +4,7 @@ navigationTitle:  Adding local users
 title: Adding local users
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

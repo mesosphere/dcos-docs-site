@@ -38,7 +38,7 @@ const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 // Errors
 //
 
-if(ALGOLIA_UPDATE == true) {
+if(ALGOLIA_UPDATE == "true") {
   if(process.env.NODE_ENV == "pdf") {
     throw new Error('Algolia env vars set while build env is pdf');
   }
@@ -198,12 +198,12 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 // Search Indexing
-if(ALGOLIA_UPDATE == true) {
+if(ALGOLIA_UPDATE == "true") {
   CB.use(algolia({
     projectId: ALGOLIA_PROJECT_ID,
     privateKey: ALGOLIA_PRIVATE_KEY,
     index: ALGOLIA_INDEX,
-    clearIndex: (ALGOLIA_CLEAR_INDEX != undefined) ? ALGOLIA_CLEAR_INDEX : true,
+    clearIndex: (ALGOLIA_CLEAR_INDEX != undefined) ? (ALGOLIA_CLEAR_INDEX == "true") : true,
   }))
   CB.use(timer('Algolia'));
 }

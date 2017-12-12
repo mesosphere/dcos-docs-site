@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon app add
 title: dcos marathon app add
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

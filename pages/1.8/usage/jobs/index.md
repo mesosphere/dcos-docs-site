@@ -4,7 +4,7 @@ navigationTitle:  Jobs
 title: Jobs
 menuWeight: 80
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

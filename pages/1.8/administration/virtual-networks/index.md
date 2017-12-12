@@ -4,7 +4,7 @@ navigationTitle:  Virtual Networks
 title: Virtual Networks
 menuWeight: 11
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

@@ -8,7 +8,7 @@ excerpt: >
   service or an identity provider, you
   should add the users to DC/OS so that
   you can assign them permissions.
-featureMaturity:
+
 enterprise: true
 ---
 

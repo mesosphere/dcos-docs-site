@@ -4,7 +4,7 @@ navigationTitle:  dcos config unset
 title: dcos config unset
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

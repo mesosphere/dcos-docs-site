@@ -4,7 +4,7 @@ navigationTitle:  Logging
 title: Logging
 menuWeight: 3
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

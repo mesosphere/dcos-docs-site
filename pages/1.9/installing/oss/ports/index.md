@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS Ports
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 ---
 
 [DC/OS components](/1.9/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.

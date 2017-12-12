@@ -3,7 +3,7 @@ layout: layout.pug
 title: Running DC/OS on AWS EC2 Basic
 menuWeight: 100
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 
@@ -80,9 +80,7 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
     ![DC/OS GUI auth](/1.10/img/dc-os-gui-login-ee.png)
 
-1.  Enter the username and password of the superuser account. The default username is `bootstrapuser` and default password is `deleteme`. Click **LOG IN**. 
-
-    ![DC/OS GUI](/1.10/img/dashboard-new-ee.png)
+1.  Enter the username and password of the superuser account. The default username is `bootstrapuser` and default password is `deleteme`. Click **LOG IN**.
 
 # Install the DC/OS CLI
 

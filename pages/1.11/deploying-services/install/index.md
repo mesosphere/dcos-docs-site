@@ -4,7 +4,7 @@ navigationTitle:  Installing Services
 title: Installing Services
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 
@@ -34,21 +34,18 @@ From the DC/OS GUI you can install services from the **Services** or **Catalog**
 
 ### Catalog tab
 
-1.  Navigate to the [**Catalog**](/1.11/gui/#catalog) tab in the DC/OS GUI.
+1.  Navigate to the [**Catalog**](/1.11/gui/catalog) tab in the DC/OS GUI.
 
     ![universe](/1.11/img/ui-dashboard-catalog.png)
 
 2.  Click a package.
     1. Click **REVIEW & RUN**.
-
-       This is some text.
-
     2. Optionally click [**EDIT**](/1.11/deploying-services/config-universe-service/), customize parameters, and click **REVIEW & RUN**.
     3. Click **RUN SERVICE**.
 
 ### Services tab
 
-1.  Navigate to the [**Services**](/1.11/gui/#services) tab in the DC/OS GUI.
+1.  Navigate to the [**Services**](/1.11/gui/services) tab in the DC/OS GUI.
 1.  Click **RUN A SERVICE** and specify your Marathon app definition.
 
     ![service tab](/1.11/img/run-a-service.png)
@@ -63,7 +60,7 @@ dcos package list
 
 ### Web GUI
 
-Go to the **Services** tab and confirm that the service is running. For more information, see the GUI [documentation](/1.11/gui/#services).
+Go to the **Services** tab and confirm that the service is running. For more information, see the GUI [documentation](/1.11/gui/services).
 
 ![Services](/1.11/img/tweeter-services6.png)
 

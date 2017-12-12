@@ -6,7 +6,7 @@ excerpt: >
   Demonstrates how to use the DC/OS web
   interface to achieve multi-tenancy in
   permissive mode.
-featureMaturity:
+
 enterprise: true
 ---
 This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/1.9/security/ent/#security-modes). When you are done you will have multi-tenancy by using DC/OS permissions.  

@@ -4,7 +4,7 @@ navigationTitle:  'Reference implementation: The Azure Container Service'
 title: 'Reference implementation: The Azure Container Service'
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

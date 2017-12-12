@@ -3,7 +3,7 @@ layout: layout.pug
 title: Debugging from the DC/OS CLI
 menuWeight: 10
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

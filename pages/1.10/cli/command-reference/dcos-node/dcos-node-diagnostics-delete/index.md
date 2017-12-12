@@ -4,7 +4,7 @@ navigationTitle:  dcos node diagnostics delete
 title: dcos node diagnostics delete
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

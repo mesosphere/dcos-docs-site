@@ -4,7 +4,7 @@ navigationTitle:  dcos service log
 title: dcos service log
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

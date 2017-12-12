@@ -4,7 +4,7 @@ navigationTitle:  'Design: Installation'
 title: 'Design: Installation'
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

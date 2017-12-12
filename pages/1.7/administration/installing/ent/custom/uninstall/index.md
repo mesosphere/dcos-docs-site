@@ -3,7 +3,7 @@ layout: layout.pug
 title: Uninstalling DC/OS
 menuWeight: 500
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

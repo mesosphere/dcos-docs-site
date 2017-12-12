@@ -4,7 +4,7 @@ navigationTitle:  dcos auth login
 title: dcos auth login
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

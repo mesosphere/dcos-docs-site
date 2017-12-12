@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon pod show
 title: dcos marathon pod show
 menuWeight: 27
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Deploying Services and Pods
 title: Deploying Services and Pods
 menuWeight: 130
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

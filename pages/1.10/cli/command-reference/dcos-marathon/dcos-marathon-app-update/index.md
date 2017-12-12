@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon app update
 title: dcos marathon app update
 menuWeight: 9
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

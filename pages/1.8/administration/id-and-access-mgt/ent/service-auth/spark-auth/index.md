@@ -6,7 +6,7 @@ menuWeight: 800
 excerpt: >
   This topic describes when and how to
   provision Spark with a service account.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

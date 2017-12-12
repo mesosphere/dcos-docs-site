@@ -5,7 +5,7 @@ title: >
   Autoscaling using requests per second
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

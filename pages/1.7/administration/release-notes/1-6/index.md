@@ -4,7 +4,7 @@ title: DC/OS 1.6
 menuWeight: 3
 excerpt:
 enterprise: true
-featureMaturity:
+
 ---
 
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon app remove
 title: dcos marathon app remove
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

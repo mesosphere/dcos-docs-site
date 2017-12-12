@@ -4,7 +4,7 @@ navigationTitle:  Overview
 title: Overview
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

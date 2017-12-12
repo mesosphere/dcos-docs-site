@@ -3,7 +3,7 @@ layout: layout.pug
 title: Authenticating DC/OS Services
 menuWeight: 100
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

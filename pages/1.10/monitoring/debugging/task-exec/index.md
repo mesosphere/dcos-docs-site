@@ -4,7 +4,7 @@ navigationTitle:  Using dcos task exec
 title: Using dcos task exec
 menuWeight: 20
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

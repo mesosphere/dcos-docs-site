@@ -4,7 +4,7 @@ navigationTitle:  dcos job schedule update
 title: dcos job schedule update
 menuWeight: 9
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

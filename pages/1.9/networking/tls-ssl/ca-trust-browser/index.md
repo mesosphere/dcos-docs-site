@@ -8,7 +8,7 @@ menuWeight: 200
 excerpt: >
   How to configure Chrome and Firefox to
   trust your DC/OS CA.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

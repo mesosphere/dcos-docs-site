@@ -4,7 +4,7 @@ navigationTitle:  Architecture
 title: Architecture
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

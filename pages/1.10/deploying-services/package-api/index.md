@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS Package Management API
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

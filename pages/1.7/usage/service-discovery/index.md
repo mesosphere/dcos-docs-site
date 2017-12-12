@@ -4,7 +4,7 @@ navigationTitle:  Service Discovery and Load Balancing
 title: Service Discovery and Load Balancing
 menuWeight: 60
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

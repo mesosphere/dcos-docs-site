@@ -8,7 +8,7 @@ excerpt: >
   permission to access one or more tabs in
   the DC/OS web interface using either the
   DC/OS web interface or the IAM API.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

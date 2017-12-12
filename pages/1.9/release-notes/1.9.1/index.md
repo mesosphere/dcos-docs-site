@@ -4,7 +4,7 @@ navigationTitle:  Release Notes for 1.9.1
 title: Release Notes for 1.9.1
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

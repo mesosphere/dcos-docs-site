@@ -4,7 +4,7 @@ navigationTitle:  Metrics
 title: Metrics
 menuWeight: 100
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: false
 ---
 

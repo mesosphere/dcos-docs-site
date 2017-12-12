@@ -4,7 +4,7 @@ navigationTitle:  Service Endpoints
 title: Service Endpoints
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

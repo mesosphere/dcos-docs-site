@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon group add
 title: dcos marathon group add
 menuWeight: 17
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

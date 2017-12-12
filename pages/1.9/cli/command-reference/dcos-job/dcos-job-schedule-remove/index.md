@@ -4,7 +4,7 @@ navigationTitle:  dcos job schedule remove
 title: dcos job schedule remove
 menuWeight: 7
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

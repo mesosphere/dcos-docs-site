@@ -7,7 +7,7 @@ excerpt: >
   First, you specify the address,
   protocol, and certificates to be used to
   connect to the LDAP server.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

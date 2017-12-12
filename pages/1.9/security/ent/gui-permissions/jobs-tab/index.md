@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Jobs Tab
 title: Granting Access to the Jobs Tab
 menuWeight: 30
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

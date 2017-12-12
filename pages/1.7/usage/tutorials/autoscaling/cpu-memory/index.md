@@ -6,7 +6,7 @@ title: >
   and memory
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Recovering Agent Disk Space
 title: Recovering Agent Disk Space
 menuWeight: 900
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

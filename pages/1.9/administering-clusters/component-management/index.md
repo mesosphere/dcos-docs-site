@@ -4,7 +4,7 @@ navigationTitle:  Component Management
 title: Component Management
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

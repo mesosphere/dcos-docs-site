@@ -4,7 +4,7 @@ navigationTitle:  Autoscaling using requests per second
 title: Autoscaling using requests per second
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos marathon debug list
 title: dcos marathon debug list
 menuWeight: 12
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Installing Using a Custom AMI
 navigationTitle: Custom AMI
-featureMaturity: preview
+beta: true
 menuWeight: 101
 ---
 

@@ -5,7 +5,7 @@ title: Autoscaling with Marathon
 menuWeight: 1
 excerpt:
 enterprise: true
-featureMaturity:
+
 ---
 
 

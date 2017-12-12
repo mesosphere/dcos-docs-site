@@ -4,7 +4,7 @@ navigationTitle:  dcos job schedule add
 title: dcos job schedule add
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

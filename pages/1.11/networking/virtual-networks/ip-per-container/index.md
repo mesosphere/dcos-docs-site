@@ -4,7 +4,6 @@ navigationTitle:  Configuring IP-per-Container in Virtual Networks
 title: Configuring IP-per-Container in Virtual Networks
 menuWeight: 10
 excerpt:
-featureMaturity: preview
 enterprise: false
 ---
 
@@ -199,4 +198,3 @@ To replace your virtual network, uninstall DC/OS and delete the overlay replicat
 # Troubleshooting
 
 The **Networking** tab of the DC/OS web interface provides information helpful for troubleshooting. You can see which containers are on which network and see their IP addresses.
-

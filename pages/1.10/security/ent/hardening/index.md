@@ -11,7 +11,7 @@ excerpt: >
   modify independent of your security mode
   to increase the security of your
   cluster.
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

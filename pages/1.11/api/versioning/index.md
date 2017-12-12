@@ -4,7 +4,7 @@ navigationTitle:  API Versioning
 title: API Versioning
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

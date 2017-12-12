@@ -4,7 +4,7 @@ navigationTitle:  Creating and Running a Service
 title: Creating and Running a Service
 menuWeight: 400
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

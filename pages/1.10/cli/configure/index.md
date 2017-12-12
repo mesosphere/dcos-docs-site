@@ -4,7 +4,7 @@ navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

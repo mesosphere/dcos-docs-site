@@ -4,7 +4,7 @@ navigationTitle:  Secrets
 title: Secrets
 menuWeight: 40
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Administration
 title: Administration
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

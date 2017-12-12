@@ -4,7 +4,7 @@ navigationTitle:  Configuration parameters
 title: Configuration parameters
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

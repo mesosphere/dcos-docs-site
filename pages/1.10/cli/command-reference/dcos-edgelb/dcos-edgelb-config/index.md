@@ -4,7 +4,7 @@ navigationTitle:  dcos edgelb config
 title: dcos edgelb config
 menuWeight: 2
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

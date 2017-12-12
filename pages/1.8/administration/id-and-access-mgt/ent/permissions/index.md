@@ -4,7 +4,7 @@ navigationTitle:  Managing permissions
 title: Managing permissions
 menuWeight: 1
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

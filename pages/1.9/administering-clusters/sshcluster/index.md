@@ -4,7 +4,7 @@ navigationTitle:  SSHing into Nodes
 title: SSHing into Nodes
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

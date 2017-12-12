@@ -4,7 +4,7 @@ navigationTitle:  dcos edgelb pool artifact
 title: dcos edgelb pool artifact
 menuWeight: 8
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

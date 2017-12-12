@@ -4,7 +4,7 @@ navigationTitle:  Advanced Features
 title: Advanced Features
 menuWeight: 20
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

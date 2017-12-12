@@ -4,7 +4,7 @@ navigationTitle:  Creating a Public Agent
 title: Creating a Public Agent
 menuWeight: 700
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

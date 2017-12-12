@@ -4,7 +4,7 @@ navigationTitle:  Monitoring
 title: Monitoring
 menuWeight: 4
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

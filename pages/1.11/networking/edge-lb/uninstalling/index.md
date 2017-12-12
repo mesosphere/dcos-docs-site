@@ -4,7 +4,7 @@ navigationTitle:  Uninstalling Edge-LB
 title: Uninstalling Edge-LB
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

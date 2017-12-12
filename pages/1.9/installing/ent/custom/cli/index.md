@@ -4,7 +4,7 @@ navigationTitle:  CLI Installer
 title: CLI Installer
 menuWeight: 200
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

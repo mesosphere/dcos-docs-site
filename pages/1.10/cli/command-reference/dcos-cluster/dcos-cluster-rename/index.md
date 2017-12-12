@@ -4,7 +4,7 @@ navigationTitle:  dcos cluster rename
 title: dcos cluster rename
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Controlling Access to Task Logs
 title: Controlling Access to Task Logs
 menuWeight: 2
 excerpt:
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

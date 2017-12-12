@@ -4,7 +4,7 @@ navigationTitle:  dcos node log
 title: dcos node log
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

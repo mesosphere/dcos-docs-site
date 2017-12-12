@@ -4,7 +4,7 @@ navigationTitle:  dcos service
 title: dcos service
 menuWeight: 8
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

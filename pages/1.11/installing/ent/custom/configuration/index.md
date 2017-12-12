@@ -4,7 +4,7 @@ navigationTitle:  Configuration
 title: Configuration
 menuWeight: 600
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

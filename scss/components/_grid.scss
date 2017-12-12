@@ -49,6 +49,10 @@
       color: $color-purple-light;
       border: 1px solid $color-purple-light;
     }
+    &--beta {
+      color: $color-pink;
+      border: 1px solid $color-pink;
+    }
   }
   &__text__wrapper {
     display: flex;

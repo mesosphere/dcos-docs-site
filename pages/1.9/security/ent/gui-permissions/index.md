@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the GUI
 title: Granting Access to the GUI
 menuWeight: 20
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  dcos edgelb pool delete
 title: dcos edgelb pool delete
 menuWeight: 6
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

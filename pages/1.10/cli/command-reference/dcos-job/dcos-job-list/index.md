@@ -4,7 +4,7 @@ navigationTitle:  dcos job list
 title: dcos job list
 menuWeight: 3
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Edge-LB Quickstart
 title: Edge-LB Quickstart
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

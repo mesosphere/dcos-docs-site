@@ -4,7 +4,7 @@ navigationTitle:  GUI Installer
 title: GUI Installer
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

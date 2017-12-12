@@ -3,7 +3,7 @@ layout: layout.pug
 title: Configure DC/OS for Proxy
 menuWeight: 900
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

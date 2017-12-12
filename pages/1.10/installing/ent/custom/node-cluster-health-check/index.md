@@ -4,7 +4,7 @@ navigationTitle:  Node and Cluster Health Checks
 title: Node and Cluster Health Checks
 menuWeight: 1000
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

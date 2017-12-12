@@ -7,7 +7,7 @@ excerpt: >
   This topic describes how to assign a
   permission using either the DC/OS web
   interface or the IAM API.
-featureMaturity: preview
+beta: true
 enterprise: true
 ---
 

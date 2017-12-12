@@ -82,15 +82,9 @@ const shortcodes = {
       type = 'inline';
     }
     if (buf) {
-      return sanitize(`
-      ${buf} <span class="badge badge--shortcode badge--${size}badge--${type} badge--enterprise">Enterprise</span>
-      `);
+      return `<span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span>`;
       } else {
-        return sanitize(`
-          <span class="badge__container badge__container--${type}">
-            <span class="badge badge--shortcode badge--${size}badge--${type} badge--enterprise">Enterprise</span>
-          </span>
-        `)
+        return `<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span></span>`
       }
   },
 
@@ -113,15 +107,9 @@ const shortcodes = {
       type = 'inline';
     }
     if (buf) {
-    return sanitize(`
-    ${buf} <span class="badge badge--shortcode badge--${size}badge--${type} badge--oss">Open Source</span>
-    `);
+    return `<span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span>`
     } else {
-      return sanitize(`
-        <span class="badge__container badge__container--${type}">
-          <span class="badge badge--shortcode badge--${size}badge--${type} badge--oss">Open Source</span>
-        </span>
-      `)
+      return `<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span></span>`
     }
   },
 
@@ -145,15 +133,9 @@ const shortcodes = {
       type = 'inline';
     }
     if (buf) {
-      return sanitize(`
-      ${buf} <span class="badge badge--shortcode badge--${size}badge--${type} badge--beta">Beta</span>
-      `);
+      return `<span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span>`
       } else {
-        return sanitize(`
-          <span class="badge__container badge__container--${type}">
-            <span class="badge badge--shortcode badge--${size}badge--${type} badge--beta">Beta</span>
-          </span>
-        `)
+        return `<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span></span>`
       }
   },
   /**

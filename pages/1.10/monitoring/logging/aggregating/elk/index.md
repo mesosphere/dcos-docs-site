@@ -4,7 +4,7 @@ navigationTitle:  Log Management with ELK
 title: Log Management with ELK
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

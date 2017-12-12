@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to the Mesos UI
 title: Granting Access to the Mesos UI
 menuWeight: 31
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

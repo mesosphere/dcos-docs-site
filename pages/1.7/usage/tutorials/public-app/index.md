@@ -4,7 +4,7 @@ navigationTitle:  Deploying Public Services
 title: Deploying Public Services
 menuWeight: 10
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

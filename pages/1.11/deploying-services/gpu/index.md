@@ -4,7 +4,6 @@ navigationTitle:  Using GPUs
 title: Using GPUs
 menuWeight: 110
 excerpt:
-featureMaturity: preview
 enterprise: false
 ---
 

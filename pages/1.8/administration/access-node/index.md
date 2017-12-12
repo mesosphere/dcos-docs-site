@@ -4,7 +4,7 @@ navigationTitle:  Accessing the Cluster
 title: Accessing the Cluster
 menuWeight: 5
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

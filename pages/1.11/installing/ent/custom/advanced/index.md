@@ -4,7 +4,7 @@ navigationTitle:  Advanced Installer
 title: Advanced Installer
 menuWeight: 300
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

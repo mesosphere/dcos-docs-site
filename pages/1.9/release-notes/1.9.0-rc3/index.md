@@ -4,7 +4,7 @@ navigationTitle:  Release Notes for 1.9.0 RC3
 title: Release Notes for 1.9.0 RC3
 menuWeight: 14
 excerpt:
-featureMaturity:
+
 enterprise: true
 ---
 

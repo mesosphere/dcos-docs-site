@@ -4,7 +4,7 @@ navigationTitle:  Node Types
 title: Node Types
 menuWeight: 1
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 

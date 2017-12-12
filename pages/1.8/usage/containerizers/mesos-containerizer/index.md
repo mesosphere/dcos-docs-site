@@ -4,7 +4,7 @@ navigationTitle:  Original Mesos Containerizer
 title: Original Mesos Containerizer
 menuWeight: 0
 excerpt:
-featureMaturity:
+
 enterprise: false
 ---
 
