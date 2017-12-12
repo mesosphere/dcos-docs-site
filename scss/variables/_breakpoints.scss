@@ -1,8 +1,8 @@
 $bp-sm: 500px !default;
 $bp-md: 769px !default;
 $bp-lg: 1025px !default;
-$bp-xl: 1440px !default;
-$bp-xxl: 2000px !default;
+$bp-xl: 1280px !default;
+$bp-xxl: 1440px !default;
 
 @mixin sm() {
   @media (min-width: $bp-sm) {

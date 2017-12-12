@@ -26,8 +26,8 @@
     }
   }
   &__icon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     &--rss {
       fill: $color-grey;
     }
@@ -38,7 +38,7 @@
   @include md {
     &__text {
       display: inline;
-      margin-left: 0.5rem;
+      margin-left: 10px;
     }
     &__list {
       justify-content: flex-start;
@@ -46,12 +46,20 @@
   }
   @include lg {
     &__text {
-      font-size: 1rem;
+      margin-left: 5px;
     }
   }
   @include xl {
     &__item {
-      margin-right: 2rem;
+      margin-right: 15px;
+    }
+  }
+  @include xxl {
+    &__text {
+      margin-left: 10px;
+    }
+    &__item {
+      margin-right: 20px;
     }
   }
   @include print {
