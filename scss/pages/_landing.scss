@@ -254,6 +254,7 @@
       }
       &-item {
         margin-top: 0 !important;
+        flex: 1;
         &:not(:last-of-type) {
           margin-right: 1rem;
         }
