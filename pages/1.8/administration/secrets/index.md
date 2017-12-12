@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 
-Use the Enterprise DC/OS Secret Store to secure sensitive information like private keys, API tokens, and database passwords. You can make these values available to authorized services launched by Marathon under environment variables.
+Use the DC/OS Enterprise Secret Store to secure sensitive information like private keys, API tokens, and database passwords. You can make these values available to authorized services launched by Marathon under environment variables.
 
 DC/OS stores Secret Store data in ZooKeeper encrypted under an unseal key using the Advanced Encryption Standard (AES) algorithm in Galois Counter Mode (GCM). The Secret Store uses the unseal key to encrypt secrets before sending them to ZooKeeper and to decrypt secrets after receiving them from ZooKeeper. This ensures that secrets are encrypted both at rest and in transit. TLS provides an additional layer of encryption on the secrets in transit from ZooKeeper to the Secret Store.
 

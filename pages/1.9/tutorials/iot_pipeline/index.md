@@ -164,11 +164,11 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ...
 ```
 
-# Enterprise DC/OS procedure
+# DC/OS Enterprise procedure
 
 ## Prerequisites
 
-*  [Enterprise DC/OS](/1.9/installing/ent/) installed with:
+*  [DC/OS Enterprise](/1.9/installing/ent/) installed with:
     - Security [mode](/1.9/installing/custom/configuration/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/1.9/cli/install/) installed.

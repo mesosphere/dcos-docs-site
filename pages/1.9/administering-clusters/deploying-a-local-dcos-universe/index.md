@@ -14,7 +14,7 @@ You can install and run DC/OS services on a datacenter without internet access w
 
 - [DC/OS CLI installed](/1.9/cli/install/).
 
-- Logged into the DC/OS CLI via `dcos auth login`. On Enterprise DC/OS, you must be logged in as a user with the `dcos:superuser` permission.
+- Logged into the DC/OS CLI via `dcos auth login`. On DC/OS Enterprise, you must be logged in as a user with the `dcos:superuser` permission.
 
 **Note:** As the Universe tarball is over two gigabytes in size it may take some time to download it to your local drive and upload it to each master.
 

@@ -10,7 +10,7 @@ enterprise: false
 
 In Open Source DC/OS, you can set up secure HTTPS communication using a custom server certificate with your DC/OS cluster by [setting up a proxy](/1.9/networking/tls-ssl/haproxy-adminrouter/) between the Admin Router and user agent requests coming in from outside of the cluster.
 
-In Enterprise DC/OS `permissive` and `strict` security modes, your DC/OS Certificate Authority signs the TLS certificates and provisions them to systemd-started services during the bootstrap sequence. This accomplishes encrypted communications with no manual intervention. Each DC/OS cluster has its own DC/OS Certificate Authority and a unique root certificate to protect DC/OS clusters from each other. 
+In DC/OS Enterprise `permissive` and `strict` security modes, your DC/OS Certificate Authority signs the TLS certificates and provisions them to systemd-started services during the bootstrap sequence. This accomplishes encrypted communications with no manual intervention. Each DC/OS cluster has its own DC/OS Certificate Authority and a unique root certificate to protect DC/OS clusters from each other. 
 
 Because your DC/OS Certificate Authority does not appear in any lists of trusted certificate authorities, requests coming in from outside the cluster, such as from a browser or curl, will result in warning messages. 
 

@@ -11,10 +11,10 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This topic provides common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [Enterprise DC/OS](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
+This topic provides common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
 
 - `# DC/OS Only` - Applies to DC/OS only.
-- `# Enterprise DC/OS Only` - Applies to Enterprise DC/OS only.
+- `# DC/OS Enterprise Only` - Applies to DC/OS Enterprise only.
 
 # All parameters
 This sample config.yaml file includes all of the available configuration parameters for DC/OS. 
@@ -24,10 +24,10 @@ agent_list:
 - <agent-private-ip-1>
 - <agent-private-ip-2>
 - <agent-private-ip-3>
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 auth_cookie_secure_flag: `<true|false>`
 bootstrap_url: <path-to-installer>
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 bouncer_expiration_auth_token_days: `<time>`
 cluster_docker_credentials:
   auths:
@@ -42,7 +42,7 @@ cluster_name: '<cluster-name>'
 cosmos_config:
 staged_package_storage_uri: <temp-path-to-files>
 package_storage_uri: <permanent-path-to-files>
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 ca_certificate: <path-to-certificate>
 ca_certificate_key: <path-to-private-key>
 ca_certificate_chain: <path-to-certificate-chain>
@@ -125,16 +125,16 @@ rexray_config:
       server:
         tasks:
           logTimeout: 5m
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 security: <security-mode>
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 superuser_username: <username>
 ssh_key_path: <path-to-ssh-key>
 ssh_port: '<port-number>'
 ssh_user: <username>
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 superuser_password_hash: <hashed-password>
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 superuser_username: <username>
 telemetry_enabled: `<true|false>`
 use_proxy: `<true|false>`
@@ -143,7 +143,7 @@ https_proxy: https://<proxy_host>:<https_proxy_port>
 no_proxy:
 - '<blocked.address1.com>'
 - '<blocked.address2.com>'
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 zk_super_credentials: 'super:<long, random string>'
 zk_master_credentials: 'dcos-master:<long, random string>'
 zk_agent_credentials: 'dcos-agent:<long, random string>'
@@ -163,7 +163,7 @@ agent_list:
 - <agent-private-ip-4>
 - <agent-private-ip-5>
 bootstrap_url: 'file:///opt/dcos_install_tmp'
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 customer_key: <customer-key>
 cluster_name: '<cluster-name>'
 log_directory: /genconf/logs
@@ -227,7 +227,7 @@ agent_list:
 - <agent-private-ip-5>
 bootstrap_url: file:///tmp/dcos
 cluster_name: zk-example
-# Enterprise DC/OS Only
+# DC/OS Enterprise Only
 customer_key: <customer-key>
 exhibitor_storage_backend: zookeeper
 exhibitor_zk_hosts: 10.0.0.1:2181, 10.0.0.2:2181, 10.0.0.3:2181

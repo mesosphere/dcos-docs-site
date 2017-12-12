@@ -8,9 +8,9 @@ excerpt:
 enterprise: true
 ---
 
-Each DC/OS cluster has its own DC/OS certificate authority (CA). By default, that CA uses an automatically generated globally unique root CA certificate for signing other certificates. In lieu of using the auto-generated root CA certificate, you can configure Enterprise DC/OS to use a custom CA certificate, which can be a root CA certificate or an intermediate CA certificate.
+Each DC/OS cluster has its own DC/OS certificate authority (CA). By default, that CA uses an automatically generated globally unique root CA certificate for signing other certificates. In lieu of using the auto-generated root CA certificate, you can configure DC/OS Enterprise to use a custom CA certificate, which can be a root CA certificate or an intermediate CA certificate.
 
-The benefits of using a custom CA certificate for your Enterprise DC/OS cluster include:
+The benefits of using a custom CA certificate for your DC/OS Enterprise cluster include:
 
 - Ensuring that all X.509 certificates used within the DC/OS cluster (for both signing and encrypting) derive from your organization's X.509 certification hierarchy.
 - Controlling security properties of the key pair (such as type and strength) used for signing DC/OS component certificates.

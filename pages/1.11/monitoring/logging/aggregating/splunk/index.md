@@ -34,7 +34,7 @@ For each master node in your DC/OS cluster:
 
 1.  Create a script `$SPLUNK_HOME/bin/scripts/journald-master.sh` that will obtain the Mesos master logs from `journald`.
 
-      **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
+      **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
 
         #!/bin/sh
 
@@ -89,7 +89,7 @@ For each agent node in your DC/OS cluster:
 
 1.  Create a script `$SPLUNK_HOME/bin/scripts/journald-agent.sh` that will obtain the Mesos agent logs from `journald`.
     
-    **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
+    **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
 
         #!/bin/sh
 

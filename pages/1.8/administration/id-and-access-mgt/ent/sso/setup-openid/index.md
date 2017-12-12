@@ -18,7 +18,7 @@ enterprise: true
 
 # About adding an OpenID Connect identity provider
 
-Enterprise DC/OS can integrate with any identity provider (IdP) that uses OpenID Connect 1.0. 
+DC/OS Enterprise can integrate with any identity provider (IdP) that uses OpenID Connect 1.0. 
 
 The following procedure will take a Google IdP as an example and walk you through each step of the set up process.
 

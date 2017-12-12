@@ -83,7 +83,7 @@ When you're happy with the test results, you'll need to install the plugin into 
 ### Create a valid auth token for DC/OS
 Follow the instructions based on whether you are using Enterprise or open source DC/OS:
 
-- [Enterprise DC/OS](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/)
+- [DC/OS Enterprise](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/)
 - [Open source DC/OS](/1.10/security/ent/managing-authentication/)
 
 You will use this auth token below.

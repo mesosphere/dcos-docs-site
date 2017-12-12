@@ -58,7 +58,7 @@ DC/OS is a [distributed operating system](https://en.wikipedia.org/wiki/Distribu
 - Unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
 - DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#mesos)) and a container orchestration engine ([Marathon](#marathon)).
 - Prior to version 1.6, DC/OS was known as The Datacenter Operating System (DCOS). With version 1.6 the platform was renamed to DC/OS and open sourced.
-- While DC/OS itself is open source, premium distributions like [Mesosphere Enterprise DC/OS](https://mesosphere.com/product/) may include additional closed-source components and features (e.g. multitenancy, fine-grained permissions, secrets management, and end-to-end encryption).
+- While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features (e.g. multitenancy, fine-grained permissions, secrets management, and end-to-end encryption).
 
 ### <a name="dcos-gui"></a>DC/OS GUI
 
@@ -183,7 +183,7 @@ Examples: Most DC/OS components, (system) Marathon.
 A system service is a service that implements or enhances the functionality of DC/OS itself, run as either a Marathon service or a systemd service, owned by the system (admin) user or DC/OS itself.
 
 - A system service may require special permissions to interact with other system services.
-- Permission to operate as a system service on an Enterprise DC/OS cluster requires specific fine-grained permissions, while on open DC/OS all logged in users have the same administrative permissions.
+- Permission to operate as a system service on an DC/OS Enterprise cluster requires specific fine-grained permissions, while on open DC/OS all logged in users have the same administrative permissions.
 
 Examples: All DC/OS components.
 
@@ -216,7 +216,7 @@ A DC/OS scheduler is a Mesos scheduler that runs as a systemd service on master 
 - Some schedulers come pre-installed as DC/OS components (e.g. Marathon, Metronome).
 - Some schedulers can be installed by users as user services (e.g Kafka, Cassandra).
 - Some schedulers run as multiple service instances to provide high availability (e.g. Marathon).
-- In certain security modes within Enterprise DC/OS, a DC/OS scheduler must authenticate and be authorized using a service account to register with Mesos as a framework.
+- In certain security modes within DC/OS Enterprise, a DC/OS scheduler must authenticate and be authorized using a service account to register with Mesos as a framework.
 
 ### <a name="dcos-scheduler-service"></a>Scheduler Service
 

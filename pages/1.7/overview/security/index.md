@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Security in Enterprise DC/OS
+title: Security in DC/OS Enterprise
 menuWeight: 7
 excerpt:
 enterprise: true

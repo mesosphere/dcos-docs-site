@@ -75,7 +75,7 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
       # If you are using the community-supported version of DC/OS, you must 
       # configure Admin Router with a custom TLS server certificate, see 
       # https://dcos.io/1.8/administration/securing-your-cluster/. This step 
-      # is not required for Enterprise DC/OS.
+      # is not required for DC/OS Enterprise.
       #
       # Explanation for the parameters in the following `server` definition line:
       # 
@@ -94,7 +94,7 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
       #
       #   The local file `dcos-ca.crt` is expected to contain the CA certificate
       #   that Admin Router's certificate will be verified against. It must be
-      #   retrieved out-of-band (on Mesosphere Enterprise DC/OS this can be
+      #   retrieved out-of-band (on Mesosphere DC/OS Enterprise this can be
       #   obtained via https://dcoshost/ca/dcos-ca.crt)
       #
       # verifyhost frontend-xxx.eu-central-1.elb.amazonaws.com

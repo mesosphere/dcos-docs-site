@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-title: Enterprise DC/OS Security
+title: DC/OS Enterprise Security
 menuWeight: 80
 excerpt:
 
 enterprise: true
 ---
 
-Enterprise DC/OS offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster.
+DC/OS Enterprise offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster.
 
 The goals of DC/OS security are:
 
@@ -45,7 +45,7 @@ A typical deployment, including load balancers is shown below:
 
 # <a name="security-modes"></a>Security Modes
 
-You can control Enterprise DC/OS access by resource and operation (create, read, update, delete). The available security modes are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.10/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
+You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.10/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
 
 | Permission Category                                 | Disabled | Permissive | Strict |
 |-----------------------------------------------------|:--------:|:----------:|:------:|

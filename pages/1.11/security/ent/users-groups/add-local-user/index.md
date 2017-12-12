@@ -24,7 +24,7 @@ enterprise: true
 # Adding local users by using the CLI
 
 **Prerequisite:**
-- [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/)
+- [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/)
 
 
 1.  Create a user group named `services` with this command.

@@ -38,9 +38,9 @@ To set up a service account for HDFS, complete the following steps.
 
 # <a name="create-a-keypair"></a>Create a key pair
 
-First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the Enterprise DC/OS CLI is the most convenient because it returns the keys in the exact format required.
+First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the DC/OS Enterprise CLI is the most convenient because it returns the keys in the exact format required.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and the [DC/OS Enterprise CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install).
 
 
 1.  Use the following command to create a public-private key pair and save each value into a separate file within the current directory.
@@ -58,11 +58,11 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
 
 ## About creating a service account
 
-Next, you must create a service account. This section describes how to use either the Enterprise DC/OS CLI or the web interface to accomplish this.
+Next, you must create a service account. This section describes how to use either the DC/OS Enterprise CLI or the web interface to accomplish this.
 
-## Using the Enterprise DC/OS CLI
+## Using the DC/OS Enterprise CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/), the [DC/OS Enterprise CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Use the following command to create a new service account called `hdfs-principal` containing the public key you just generated.
 
@@ -94,11 +94,11 @@ Next, you must create a service account. This section describes how to use eithe
 
 ## About creating a service account secret
 
-Next, you need to create a secret associated with the service account that contains the private key. This section describes how to use either the Enterprise DC/OS CLI or the web interface to accomplish this.
+Next, you need to create a secret associated with the service account that contains the private key. This section describes how to use either the DC/OS Enterprise CLI or the web interface to accomplish this.
 
-## Using the Enterprise DC/OS CLI
+## Using the DC/OS Enterprise CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/), the [DC/OS Enterprise CLI 0.4.14 or later installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Use the following command to create a new secret called `hdfs-secret` in the `hdfs` path. Locating the secret inside the `hdfs` path will ensure that only the HDFS service can access it. The secret will contain the private key, the name of the service account, and other data.
 

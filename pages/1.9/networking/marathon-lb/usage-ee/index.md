@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Installing and Customizing on Enterprise DC/OS
+title: Installing and Customizing on DC/OS Enterprise
 menuWeight: 10
 excerpt:
 

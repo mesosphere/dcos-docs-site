@@ -44,9 +44,9 @@ To set up a service account for Marathon-LB, complete the following steps.
 
 # <a name="create-a-keypair"></a>Create a key pair
 
-First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the Enterprise DC/OS CLI is the most convenient because it returns the keys in the format needed by DC/OS.
+First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the DC/OS Enterprise CLI is the most convenient because it returns the keys in the format needed by DC/OS.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.11/cli/install/) and the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.11/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.11/cli/install/) and the [DC/OS Enterprise CLI 0.4.14 or later installed](/1.11/cli/enterprise-cli/#ent-cli-install).
 
 1.  Use the following command to create a public-private key pair and save each value into a separate file within the current directory.
 
@@ -62,11 +62,11 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
 
 ## About creating a service account
 
-Next, you must create a service account. This section describes how to use either the Enterprise DC/OS CLI or the web interface to accomplish this. 
+Next, you must create a service account. This section describes how to use either the DC/OS Enterprise CLI or the web interface to accomplish this. 
 
-## Using the Enterprise DC/OS CLI
+## Using the DC/OS Enterprise CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.11/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.11/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.11/cli/install/), the [DC/OS Enterprise CLI 0.4.14 or later installed](/1.11/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Use the following command to create a new service account called `mlb-principal` containing the public key you just generated.
 
@@ -96,11 +96,11 @@ Next, you must create a service account. This section describes how to use eithe
 
 ## About creating a service account secret
 
-Next, you need to create a secret associated with the service account that contains the private key. This section describes how to use either the Enterprise DC/OS CLI or the web interface to accomplish this. 
+Next, you need to create a secret associated with the service account that contains the private key. This section describes how to use either the DC/OS Enterprise CLI or the web interface to accomplish this. 
 
-## Using the Enterprise DC/OS CLI
+## Using the DC/OS Enterprise CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.11/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/1.11/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.11/cli/install/), the [DC/OS Enterprise CLI 0.4.14 or later installed](/1.11/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Depending on your security mode, use one of the following commands to create a new secret called `mlb-secret` in the `marathon-lb` path. Locating the secret inside the `marathon-lb` path will ensure that only the Marathon-LB service can access it. The secret will contain the private key, the name of the service account, and other data.
 
@@ -128,7 +128,7 @@ Next, you need to create a secret associated with the service account that conta
     dcos security secrets get /marathon-lb/mlb-secret --json | jq -r .value | jq
     ```
 
-   **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you're in `strict` or `permissive` mode and HTTP if you are in `disabled` mode. If the URL begins with `https` and you are in `disabled` mode, try [upgrading the Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
+   **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you're in `strict` or `permissive` mode and HTTP if you are in `disabled` mode. If the URL begins with `https` and you are in `disabled` mode, try [upgrading the DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
 
 1. Now that you have stored the private key in the Secret Store, we recommend deleting the private key file from your file system. This will prevent bad actors from using the private key to authenticate to DC/OS.
 

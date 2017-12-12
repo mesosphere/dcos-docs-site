@@ -13,7 +13,7 @@ enterprise: true
 
 # About service authentication
 
-Enterprise DC/OS uses public-private key cryptography and [JSON web tokens (JWT)](https://jwt.io/introduction/) to authenticate services. Services required to authenticate must  create a public-private key pair and then create a service account with their public key. The service will then generate a JWT signed with their private key and pass this to DC/OS. DC/OS uses the public key in the service account to verify the service's signature, then returns a DC/OS authentication token signed by the Identity and Access Management Service. The service can use the DC/OS authentication token to gain access to the necessary resources.
+DC/OS Enterprise uses public-private key cryptography and [JSON web tokens (JWT)](https://jwt.io/introduction/) to authenticate services. Services required to authenticate must  create a public-private key pair and then create a service account with their public key. The service will then generate a JWT signed with their private key and pass this to DC/OS. DC/OS uses the public key in the service account to verify the service's signature, then returns a DC/OS authentication token signed by the Identity and Access Management Service. The service can use the DC/OS authentication token to gain access to the necessary resources.
 
 Authentication tokens expire by default after five days. Services can use a variety of means to refresh their tokens. Ideally, a service should calculate the length of time until the token expires, which is embedded within the token itself, and request a new one before it expires. However, a service can also wait until it receives a `401` to request a new token. 
 

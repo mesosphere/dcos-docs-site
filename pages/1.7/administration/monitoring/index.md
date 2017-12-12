@@ -115,7 +115,7 @@ Periodically updates the systemd-resolved for Mesos DNS.<!-- dcos-gen-resolvconf
 
 ### Identity and Access Management
 
-Enterprise DC/OS access control service. For more information, see the [documentation][6].
+DC/OS Enterprise access control service. For more information, see the [documentation][6].
 
 ### Layer 4 Load Balancer
 

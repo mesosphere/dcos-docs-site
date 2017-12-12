@@ -11,9 +11,9 @@ enterprise: true
 
 # About adding a SAML identity provider
 
-Enterprise DC/OS requires the SAML identity provider (IdP) to return an email attribute and sign the authentication assertion. The IdP must support `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` as a `NameIDFormat`. DC/OS receives this email value as an attribute from the IdP and uses it as a user ID.
+DC/OS Enterprise requires the SAML identity provider (IdP) to return an email attribute and sign the authentication assertion. The IdP must support `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` as a `NameIDFormat`. DC/OS receives this email value as an attribute from the IdP and uses it as a user ID.
 
-While Enterprise DC/OS supports the full range of SAML 2.0 IdPs, the following procedure will take the OneLogin IdP as an example and provide step-by-step instructions.
+While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following procedure will take the OneLogin IdP as an example and provide step-by-step instructions.
 
 # Adding a OneLogin identity provider
 

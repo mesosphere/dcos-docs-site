@@ -114,7 +114,7 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
     ### DC/OS Environment Settings
     
     **Username (Enterprise)**
-    :   Specify a user name for the initial superuser account. At least one superuser account is required for Enterprise DC/OS.
+    :   Specify a user name for the initial superuser account. At least one superuser account is required for DC/OS Enterprise.
     
     **Password (Enterprise)**
     :   Specify the password of the superuser account.

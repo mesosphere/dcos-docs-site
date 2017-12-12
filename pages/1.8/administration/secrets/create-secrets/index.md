@@ -95,7 +95,7 @@ This procedure describes how to create a secret called `new-secret` inside the `
 
 This procedure describes how to create a secret called `new-secret` inside the `developer` path.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and the  [Enterprise DC/OS CLI installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and the  [DC/OS Enterprise CLI installed](/1.8/usage/cli/enterprise-cli/#ent-cli-install).
 
 1. Using `dcos auth login` log into the CLI as a user with one of the following permissions.
 
