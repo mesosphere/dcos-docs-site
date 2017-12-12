@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Documentation for Version 1.8
+navigationTitle:  Mesosphere DC/OS 1.8
 title: Documentation for Version 1.8
 menuWeight: 3
 excerpt:
-
-enterprise: true
 ---
 
 

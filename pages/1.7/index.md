@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Documentation for Version 1.7
+navigationTitle:  Mesosphere DC/OS 1.7
 title: Documentation for Version 1.7
 menuWeight: 4
 excerpt:
-
-enterprise: true
 ---
 
 
