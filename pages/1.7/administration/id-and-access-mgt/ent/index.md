@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Identity and Access Management in Enterprise DC/OS
+title: Identity and Access Management in DC/OS Enterprise
 menuWeight: 0 
 excerpt:
 enterprise: true

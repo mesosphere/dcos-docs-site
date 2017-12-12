@@ -46,7 +46,7 @@ In this step, an IP detect script is created. This script reports the IP address
         mkdir -p genconf
         
 
-2.  Create an IP detection script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix&#41;) line. You can use the examples below.
+2.  Create an IP detection script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) line. You can use the examples below.
     
     *   #### Use the AWS Metadata Server
         

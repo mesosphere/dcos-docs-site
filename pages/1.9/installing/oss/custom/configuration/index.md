@@ -56,16 +56,16 @@ Some parameters are dependent on others. These dependent parameters are ignored 
 | [agent_list](/1.9/installing/oss/custom/configuration/configuration-parameters/#agent_list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.9/overview/concepts/#private-agent-node) host names.                  |
 | [bootstrap_url](/1.9/installing/oss/custom/configuration/configuration-parameters/#bootstrap_url)                          | This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files.                                         |
 | [cluster_name](/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster_name)                           | This parameter specifies the name of your cluster.    |
-| [customer_key](/1.9/installing/oss/custom/configuration/configuration-parameters/#customer_key)                  | (Enterprise DC/OS Only) This parameter specifies the Enterprise DC/OS customer key.   |
+| [customer_key](/1.9/installing/oss/custom/configuration/configuration-parameters/#customer_key)                  | (DC/OS Enterprise Only) This parameter specifies the DC/OS Enterprise customer key.   |
 | [exhibitor_storage_backend](/1.9/installing/oss/custom/configuration/configuration-parameters/#exhibitor_storage_backend)         | This parameter specifies the type of storage backend to use for Exhibitor.          |
 | [master_discovery](/1.9/installing/oss/custom/configuration/configuration-parameters/#master_discovery)                          | This required parameter specifies the Mesos master discovery method.         |
 | [public_agent_list](/1.9/installing/oss/custom/configuration/configuration-parameters/#public_agent_list)       | This parameter specifies a YAML nested list (-) of IPv4 addresses to your [public agent](/1.9/overview/concepts/#public-agent-node) host names.    |
 | [resolvers](/1.9/installing/oss/custom/configuration/configuration-parameters/#resolvers)       | This required parameter specifies a block of YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.   |
-| [security](/1.9/installing/oss/custom/configuration/configuration-parameters/#security)                           | (Enterprise DC/OS Only) This parameter specifies the security mode: disabled, permissive, strict.  |
+| [security](/1.9/installing/oss/custom/configuration/configuration-parameters/#security)                           | (DC/OS Enterprise Only) This parameter specifies the security mode: disabled, permissive, strict.  |
 | [ssh_port](/1.9/installing/oss/custom/configuration/configuration-parameters/#ssh_port)                           | This parameter specifies the port to SSH to, for example 22.          |
 | [ssh_user](/1.9/installing/oss/custom/configuration/configuration-parameters/#ssh_user)                           | This parameter specifies the SSH username, for example `centos`.     |
-| [superuser_password_hash](/1.9/installing/oss/custom/configuration/configuration-parameters/#superuser_password_hash)            | (Enterprise DC/OS Only) This required parameter specifies the hashed superuser password.      |
-| [superuser_username](/1.9/installing/oss/custom/configuration/configuration-parameters/#superuser_username)               | (Enterprise DC/OS Only) This required parameter specifies the user name of the superuser.    |
+| [superuser_password_hash](/1.9/installing/oss/custom/configuration/configuration-parameters/#superuser_password_hash)            | (DC/OS Enterprise Only) This required parameter specifies the hashed superuser password.      |
+| [superuser_username](/1.9/installing/oss/custom/configuration/configuration-parameters/#superuser_username)               | (DC/OS Enterprise Only) This required parameter specifies the user name of the superuser.    |
 | [use_proxy](/1.9/installing/oss/custom/configuration/configuration-parameters/#use_proxy)        | This parameter specifies whether to enable the DC/OS proxy.     |
 
 

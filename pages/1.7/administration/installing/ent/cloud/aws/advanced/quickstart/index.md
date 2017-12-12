@@ -21,7 +21,7 @@ An Amazon EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.x
 
 ### Software
 
-- Enterprise DC/OS advanced AWS templates. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to obtain these files.
+- DC/OS Enterprise advanced AWS templates. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to obtain these files.
 - An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the templates. Contact your AWS admin for more information.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/)
 - [jq](https://github.com/stedolan/jq/wiki/Installation)

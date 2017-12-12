@@ -9,7 +9,7 @@ excerpt: >
   which control the ability of users to
   create, read, update, and delete secrets
   using either the Secrets API or
-  Enterprise DC/OS CLI. The Secret Store
+  DC/OS Enterprise CLI. The Secret Store
   enforces these in all security modes.
 beta: true
 enterprise: true
@@ -20,7 +20,7 @@ enterprise: true
 
 # About Secret Store service permissions
 
-The Secret Store service permissions control the ability of users to create, read, update, and delete secrets using either the [Secrets API](/1.8/administration/secrets/secrets-api/) or the `dcos security secrets` commands of the [Enterprise DC/OS CLI](/1.8/usage/cli/enterprise-cli/). These permissions are available in all [security modes](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
+The Secret Store service permissions control the ability of users to create, read, update, and delete secrets using either the [Secrets API](/1.8/administration/secrets/secrets-api/) or the `dcos security secrets` commands of the [DC/OS Enterprise CLI](/1.8/usage/cli/enterprise-cli/). These permissions are available in all [security modes](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
 
 **Note:** The Secret Store service permissions do not affect access to secrets from the DC/OS web interface. At present, only users with the `dcos:superuser` permission can view or modify secrets from the DC/OS web interface.
 

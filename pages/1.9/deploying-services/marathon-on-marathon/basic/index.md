@@ -17,7 +17,7 @@ The basic procedure does not support [secrets](/1.9/security/secrets/) or fine-g
 **Prerequisites:**
 
 -  DC/OS and DC/OS CLI [installed](/1.9/installing/).
--  [Enterprise DC/OS CLI 0.4.14 or later](/1.9/cli/enterprise-cli/#ent-cli-install).
+-  [DC/OS Enterprise CLI 0.4.14 or later](/1.9/cli/enterprise-cli/#ent-cli-install).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 

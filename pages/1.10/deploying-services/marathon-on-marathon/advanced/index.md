@@ -17,7 +17,7 @@ To use this procedure, you must obtain the custom non-native Marathon tarball fr
 **Prerequisites:**
 
 -  DC/OS and DC/OS CLI [installed](/1.10/installing/oss/).
--  [Enterprise DC/OS CLI 0.4.14 or later](/1.10/cli/enterprise-cli/#ent-cli-install).
+-  [DC/OS Enterprise CLI 0.4.14 or later](/1.10/cli/enterprise-cli/#ent-cli-install).
 -  Custom non-native Marathon tarball. Contact your sales representative or <sales@mesosphere.io> for access to this file.
 -  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.10/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)). 
 -  You must be logged in as a superuser.
@@ -313,7 +313,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 
 #### Recommendations
 
--  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `disabled` or `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the Enterprise DC/OS CLI](/1.10/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it. You can use this commands to view the contents:
+-  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `disabled` or `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it. You can use this commands to view the contents:
    
    ```bash
    dcos security secrets list /

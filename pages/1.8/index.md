@@ -1,12 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Documentation for Version 1.8
-title: Documentation for Version 1.8
+navigationTitle:  Mesosphere DC/OS 1.8
+title: Documentation for Mesosphere DC/OS 1.8
 menuWeight: 3
 excerpt:
-
-enterprise: true
 ---
 
 
-Welcome to the documentation for DC/OS version 1.8. For information about new and changed features, see the [release notes](/1.8/administration/release-notes/).
+Welcome to the documentation for DC/OS 1.8. For information about new and changed features, see the [release notes](/1.8/administration/release-notes/).

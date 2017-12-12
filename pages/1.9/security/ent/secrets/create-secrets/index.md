@@ -23,7 +23,7 @@ The procedure for creating a secret varies by interface. Refer to the section th
 
 - [GUI](#ui)
 - [Secrets API](#api)
-- [Enterprise DC/OS CLI](#cli)
+- [DC/OS Enterprise CLI](#cli)
 
 # <a name="ui"></a>Creating secrets via the GUI 
 
@@ -65,11 +65,11 @@ This procedure describes how to create a secret called `my-secret` inside the `d
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -d '{"value":"very-secret"}' $(dcos config show core.dcos_url)/secrets/v1/secret/default/developer/my-secret -H 'Content-Type: application/json'
    ```
 
-# <a name="cli"></a>Creating secrets via the Enterprise DC/OS CLI
+# <a name="cli"></a>Creating secrets via the DC/OS Enterprise CLI
 
-This procedure describes how to create a secret called `my-secret` inside the `developer` path using the Enterprise DC/OS CLI.
+This procedure describes how to create a secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.9/cli/install/) and the  [Enterprise DC/OS CLI installed](/1.9/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/1.9/cli/install/) and the  [DC/OS Enterprise CLI installed](/1.9/cli/enterprise-cli/#ent-cli-install).
 
 1. Using `dcos auth login` log into the CLI as a user with one of the following permissions.
 

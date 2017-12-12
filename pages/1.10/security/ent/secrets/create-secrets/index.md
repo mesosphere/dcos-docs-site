@@ -27,7 +27,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
 - See [Secret Store Permissions](/1.10/security/ent/perms-reference/#secrets) for the permissions needed to create secrets from the CLI or API. The permissions you configure must include the name of the secret the user is allowed to create. You must have one permission per secret. The secret name and permission name must match.
 
-- [DC/OS CLI installed](/1.10/cli/install/) and the [Enterprise DC/OS CLI installed](/1.10/cli/enterprise-cli/#ent-cli-install).
+- [DC/OS CLI installed](/1.10/cli/install/) and the [DC/OS Enterprise CLI installed](/1.10/cli/enterprise-cli/#ent-cli-install).
 
 # <a name="ui"></a>Creating key-value pair secrets using the GUI
 
@@ -65,9 +65,9 @@ This procedure describes how to create a secret called `my-secret` inside the `d
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -d '{"value":"very-secret"}' $(dcos config show core.dcos_url)/secrets/v1/secret/default/developer/my-secret -H 'Content-Type: application/json'
    ```
 
-# <a name="cli"></a>Creating key/value pair secrets via the Enterprise DC/OS CLI
+# <a name="cli"></a>Creating key/value pair secrets via the DC/OS Enterprise CLI
 
-This procedure describes how to create a key/value pair secret called `my-secret` inside the `developer` path using the Enterprise DC/OS CLI.
+This procedure describes how to create a key/value pair secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
 
 1. Use `dcos auth login` to log into the CLI.
 
@@ -77,9 +77,9 @@ This procedure describes how to create a key/value pair secret called `my-secret
    dcos security secrets create --value=top-secret developer/my-secret
    ```
 
-# Creating secrets from a file via the Enterprise DC/OS CLI
+# Creating secrets from a file via the DC/OS Enterprise CLI
 
-This procedure describes how to use a file to create a secret called `my-secret` inside the `developer` path using the Enterprise DC/OS CLI.
+This procedure describes how to use a file to create a secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
 
 The contents of the file (referred to below as `my-secret.txt`) can be any text value.
 

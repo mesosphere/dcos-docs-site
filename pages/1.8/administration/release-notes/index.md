@@ -99,23 +99,23 @@ Easy to deploy offline Universe. For more information, see the [documentation](/
 Secure important values like private keys, credentials, and database passwords. For more information, see the [documentation](/1.8/administration/secrets/).
 
 #### SSO with SAML/OpenID Connect (Enterprise Only)  [maturity-badge status='experimental']
-Enterprise DC/OS integrates Identity Providers that support LDAP v3 Interface (including Microsoft Active Directory) and SAML based identity providers such that you can import users external to DC/OS from your existing User Directory and manage authorization on those users and user groups within DC/OS.
+DC/OS Enterprise integrates Identity Providers that support LDAP v3 Interface (including Microsoft Active Directory) and SAML based identity providers such that you can import users external to DC/OS from your existing User Directory and manage authorization on those users and user groups within DC/OS.
 
 For more information, see the [documentation](/1.8/administration/id-and-access-mgt/sso/).
 
 #### Cluster-wide encryption with PKI using built-in CA (Enterprise Only)  [maturity-badge status='preview']
-Enterprise DC/OS is designed to run securely on-premises and in the cloud. To ensure cluster security, Enterprise DC/OS supports encrypted communication between DC/OS system components. This is achieved by ensuring that DC/OS runs with a Certificate Authority that issues CA certificates (`CA.crt`) for each system component on the masters and agents installed  at bootstrap time. This mechanism ensures all communication between the various services within DC/OS cluster are over secure SSL/TLS channels.
+DC/OS Enterprise is designed to run securely on-premises and in the cloud. To ensure cluster security, DC/OS Enterprise supports encrypted communication between DC/OS system components. This is achieved by ensuring that DC/OS runs with a Certificate Authority that issues CA certificates (`CA.crt`) for each system component on the masters and agents installed  at bootstrap time. This mechanism ensures all communication between the various services within DC/OS cluster are over secure SSL/TLS channels.
 
 For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
 
 #### Service Accounts for secure service mutual authentication (Enterprise Only)  [maturity-badge status='preview']
-Enterprise DC/OS supports the authentication of services to the Mesos master. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
+DC/OS Enterprise supports the authentication of services to the Mesos master. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
 
 #### Comprehensive intra-cluster authentication and authorization controls (Mesos, Marathon, ZooKeeper) (Enterprise Only)  [maturity-badge status='preview']
-Enterprise DC/OS can be configured to enable or require TLS/SSL encryption. For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
+DC/OS Enterprise can be configured to enable or require TLS/SSL encryption. For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
 
 #### Fine-grained container level authorization controls to set-up a secure multi business group cluster access (Enterprise Only)  [maturity-badge status='preview']
-Enterprise DC/OS supports fine-grained workload isolation to enable multiple business groups within an organization to run containers and workloads within a shared cluster but still be guaranteed that there is security isolation in addition to the performance isolation provided by Linux cgroups between different workloads. Workload security isolation is performed by DC/OS Authorization modules on every node that make checks against the DC/OS IAM Service to verify that each user/service is authorized to perform each requested action.
+DC/OS Enterprise supports fine-grained workload isolation to enable multiple business groups within an organization to run containers and workloads within a shared cluster but still be guaranteed that there is security isolation in addition to the performance isolation provided by Linux cgroups between different workloads. Workload security isolation is performed by DC/OS Authorization modules on every node that make checks against the DC/OS IAM Service to verify that each user/service is authorized to perform each requested action.
 
 - Mesos HTTP Authentication and Authorization
 - Marathon HTTP Authentication and Authorization
@@ -124,12 +124,12 @@ Enterprise DC/OS supports fine-grained workload isolation to enable multiple bus
 For more information, see the [documentation](/1.8/administration/id-and-access-mgt/permissions/).
 
 #### Search/Bind and Client Certificate based authentication for LDAP/AD (Enterprise Only)  [maturity-badge status='preview']
-If your organization has user records stored in a directory server supporting LDAP, you can configure Enterprise DC/OS to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS. 
+If your organization has user records stored in a directory server supporting LDAP, you can configure DC/OS Enterprise to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS. 
 
 For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ldap/).
 
 #### Identity and Access Management Service (Enterprise Only) 
-Enterprise DC/OS includes a built-in Identity and Access Management (IAM) Service that allows our users to create Users and Groups and assign various Authorization permissions to each user and group. Enterprise DC/OS supports following types of Users and Groups:
+DC/OS Enterprise includes a built-in Identity and Access Management (IAM) Service that allows our users to create Users and Groups and assign various Authorization permissions to each user and group. DC/OS Enterprise supports following types of Users and Groups:
 
 * Local User Accounts
 * Local Service Accounts
@@ -139,7 +139,7 @@ Enterprise DC/OS includes a built-in Identity and Access Management (IAM) Servic
 * External SAML Users
 * External OAuth Users
 
-Enterprise DC/OS IAM Service also includes support for authorization controls that can be assigned to each of the above accounts. As of DC/OS 1.8, users/services can be given specific permissions in the form "‘Subject’ can perform ‘Action’ on ‘Object’" where ‘Object’ can be an API endpoint to a particular DC/OS Service to a Marathon Application group and ‘Action’ enumerates the set of actions that are possible on the Object such as “Create, Read, Update or Delete”.
+DC/OS Enterprise IAM Service also includes support for authorization controls that can be assigned to each of the above accounts. As of DC/OS 1.8, users/services can be given specific permissions in the form "‘Subject’ can perform ‘Action’ on ‘Object’" where ‘Object’ can be an API endpoint to a particular DC/OS Service to a Marathon Application group and ‘Action’ enumerates the set of actions that are possible on the Object such as “Create, Read, Update or Delete”.
 
 For more information, see the [documentation](/1.8/administration/id-and-access-mgt/).
 
@@ -160,7 +160,7 @@ DC/OS Universe has an updated DC/OS Kafka Service. The updated DC/OS Kafka Servi
 For more information, see the [documentation](/service-docs/kafka/).
 
 #### Confluent Kafka Service [maturity-badge status='preview']
-DC/OS Universe has a DC/OS Confluent Platform Service that is based on the DC/OS Kafka Service. Confluent offers support for the DC/OS Confluent Platform Service on Enterprise DC/OS. 
+DC/OS Universe has a DC/OS Confluent Platform Service that is based on the DC/OS Kafka Service. Confluent offers support for the DC/OS Confluent Platform Service on DC/OS Enterprise. 
 
 For more information, see the Universe [documentation](https://github.com/mesosphere/universe/tree/version-3.x/repo/packages/C/confluent-kafka).
  
@@ -170,7 +170,7 @@ DC/OS Universe has an updated DC/OS Cassandra Service. The updated DC/OS Cassand
 For more information, see the [documentation](/service-docs/cassandra/).
 
 #### Datastax Enterprise (DSE) Service [maturity-badge status='preview']
-DC/OS Universe has a DC/OS DataStax Enterprise Service that is based on the DC/OS Cassandra Service. DataStax offers support for the DC/OS DataStax Enterprise Service on Enterprise DC/OS. 
+DC/OS Universe has a DC/OS DataStax Enterprise Service that is based on the DC/OS Cassandra Service. DataStax offers support for the DC/OS DataStax Enterprise Service on DC/OS Enterprise. 
 
 For more information, see the Universe [documentation](https://github.com/mesosphere/universe/tree/version-3.x/repo/packages/D/dse). 
 
@@ -296,7 +296,7 @@ For more information, see the [documentation](/service-docs/spark/).
 - DCOS-9773 - DC/OS GUI: early request termination (after 2 seconds) can often result in false negatives. (Enterprise Only)
 - DCOS-10696 - HTTP requests to Marathon time out. (Enterprise Only)
 - DCOS-10871 - Admin Router's JWT validation does not respect the expiration claim. The issue is not present in DC/OS 1.7. (Enterprise Only)
-- DCOS-10874 - 100% CPU usage with Enterprise DC/OS 1.8.5 with Exhibitor, Vault, and Secrets. (Enterprise Only)
+- DCOS-10874 - 100% CPU usage with DC/OS Enterprise 1.8.5 with Exhibitor, Vault, and Secrets. (Enterprise Only)
 - DCOS-10959 - Update 1.8 Java to 8u112.
 - DCOS-11002 - Azure OIDC login fails. (Enterprise Only)
 - DCOS-11027 - Network performance improvements for 1,000 node clusters.
@@ -319,7 +319,7 @@ For more information, see the [documentation](/service-docs/spark/).
 ## <a name="1-8-5"></a>1.8.5 - Oct 13, 2016
 
 ### New and changed features:
-- DCOS-8154 - Enterprise Marathon is upgraded to support secure Enterprise DC/OS clusters. (Enterprise Only)
+- DCOS-8154 - Enterprise Marathon is upgraded to support secure DC/OS Enterprise clusters. (Enterprise Only)
 
 ### Fixed issues:
 - CORE-632 - Fixes for logrotation in Mesos. 
@@ -342,14 +342,14 @@ For more information, see the [documentation](/service-docs/spark/).
 - New simplified hashed-password procedure for custom installation. For more information, see the [documentation](/1.8/administration/installing/custom/cli/). (Enterprise Only)
 - DCOS-8848 - Experimental support for unified containerizer in DC/OS.
 - DOCS-1113 - `dcos jobs` command is now available in the CLI. For more information, see the [documentation](/1.8/usage/cli/command-reference/).
-- DCOS-9029 - You can now administer Enterprise DC/OS security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/). 
+- DCOS-9029 - You can now administer DC/OS Enterprise security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/). 
 - DCOS-9166 - You can now install DC/OS in security disabled mode. (Enterprise Only)
 
 ### Fixed issues:
 - DCOS-8208 - If you are using the CloudFormation templates to install, you will not be able to configure your ZooKeeper credentials. If you do not want to use the default credentials that DC/OS supplies, you must install via command line on each VPC instance.
 - DCOS-8456 - `security: strict` and `security: disabled` modes have not yet been tested exhaustively. To avoid issues in the early access release, use the `security: permissive` mode. As `security: permissive` is the default, no action is necessary. (Enterprise Only)
 - DCOS-8536 - DC/OS does not currently prevent the deletion of the last user with the `dcos: superuser` permission. (Enterprise Only)
-- DCOS-8768 - The self-signed certificates used by Enterprise DC/OS to achieve TLS encryption do not include the host name. As a result, you cannot use the `--cacert` option in curl commands and instead must use the `-k` flag. (Enterprise Only)
+- DCOS-8768 - The self-signed certificates used by DC/OS Enterprise to achieve TLS encryption do not include the host name. As a result, you cannot use the `--cacert` option in curl commands and instead must use the `-k` flag. (Enterprise Only)
 - DCOS-9029- Enterprise based security-enabled CLI is coming soon. (Enterprise Only)
 - DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-discovery/marathon-lb/usage-ee/).
 - DCOS-7872 - The Secret Store may unexpectedly become sealed. (Enterprise Only)
@@ -367,12 +367,12 @@ For more information, see the [documentation](/service-docs/spark/).
 ### Known issues and limitations:
 - DCOS-9706 - In permissive mode Marathon cannot operate anonymously. (Enterprise Only)
 - DCOS-9705 - After upgrading from 1.7 to 1.8 Marathon ACLs are not disabled. (Enterprise Only)
-- DCOS-9665 - Support for Enterprise DC/OS Azure templates is coming soon. (Enterprise Only)
+- DCOS-9665 - Support for DC/OS Enterprise Azure templates is coming soon. (Enterprise Only)
 - DCOS-8889 - Certificates are removed from the DC/OS UI for scalability. (Enterprise Only)
 - DCOS-9277 - Disabled HTTP2 in Admin Router. (Enterprise Only)
 - DCOS-4298 - Time synchronization of hosts is now required. For more information, see the [system requirements](/1.8/administration/installing/custom/system-requirements/#port-and-protocol).(Enterprise Only)
 - DCOS-9783 - Package service broken with `java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty`. The workaround is to restart the Package service (`dcos-cosmos.service`).
-- DCOS-9804 - The Enterprise DC/OS CLI returns a spurious error message: `Failed to execute script dcos-security`.
+- DCOS-9804 - The DC/OS Enterprise CLI returns a spurious error message: `Failed to execute script dcos-security`.
 
 
 ## <a name="1-8-3"></a>1.8.3 - Sept 6, 2016
@@ -413,7 +413,7 @@ For more information, see the [documentation](/service-docs/spark/).
     - DCOS-8835 - Bouncer LDAP module: log ldap3 Tls obj __str__
     - DCOS-9008 - Bouncer LDAP client: make unbind() more resilient
     - DCOS-8117 - Get secrets and bouncer into ee without list + small fixes
-- Bug fix for `dcos_audit_logging` so that Enterprise DC/OS Mesos Modules properly write info to the logs. (Enterprise Only)
+- Bug fix for `dcos_audit_logging` so that DC/OS Enterprise Mesos Modules properly write info to the logs. (Enterprise Only)
 
 
 ## Known issues and limitations
@@ -484,7 +484,7 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
  - DCOS-8208 - If you are using the CloudFormation templates to install, you will not be able to configure your ZooKeeper credentials. If you do not want to use the default credentials that DC/OS supplies, you must install via command line on each VPC instance.
  - DCOS-8456 - `security: strict` and `security: disabled` modes have not yet been tested exhaustively. To avoid issues in the early access release, use the `security: permissive` mode. As `security: permissive` is the default, no action is necessary. (Enterprise Only)
  - DCOS-8536 - DC/OS does not currently prevent the deletion of the last user with the `dcos: superuser` permission. (Enterprise Only)
- - DCOS-8768 - The self-signed certificates used by Enterprise DC/OS to achieve TLS encryption do not include the host name. As a result, you cannot use the `--cacert` option in curl commands and instead must use the `-k` flag. (Enterprise Only)
+ - DCOS-8768 - The self-signed certificates used by DC/OS Enterprise to achieve TLS encryption do not include the host name. As a result, you cannot use the `--cacert` option in curl commands and instead must use the `-k` flag. (Enterprise Only)
  - DCOS-9029- Enterprise based security-enabled CLI is coming soon. (Enterprise Only)
  - DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-discovery/marathon-lb/usage-ee/).
  - DCOS-7872 - The Secret Store may unexpectedly become sealed. (Enterprise Only)

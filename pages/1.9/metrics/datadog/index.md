@@ -81,10 +81,10 @@ As a stopgap during testing, you may be able to manually run the Datadog plugin 
 When you're happy with the test results, you'll need to install the plugin into your cluster. For each host in your cluster, transfer your binary for the plugin and then add a systemd unit to manage the service. This unit differs slightly between agent and master hosts.
 
 ### Create a Valid Auth Token for DC/OS
-Follow the instructions based on whether you are using Enterprise or open source DC/OS:
+Follow the instructions based on whether you are using DC/OS Enterprise or open source:
 
-- [Enterprise DC/OS](https://docs.mesosphere.com/1.9/security/ent/service-auth/custom-service-auth/)
-- [Open source DC/OS](/1.9/administration/id-and-access-mgt/managing-authentication/) 
+- [DC/OS Enterprise](https://docs.mesosphere.com/1.9/security/ent/service-auth/custom-service-auth/)
+- [DC/OS open source](/1.9/administration/id-and-access-mgt/managing-authentication/) 
 
 You will use this auth token below.
 

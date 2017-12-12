@@ -12,7 +12,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 **Prerequisites:**
 
-- Enterprise DC/OS is [installed](/1.8/administration/installing/ent/) in permissive [mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
+- DC/OS Enterprise is [installed](/1.8/administration/installing/ent/) in permissive [mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
 
 ## Create users and groups
 

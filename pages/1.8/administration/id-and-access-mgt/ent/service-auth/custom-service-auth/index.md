@@ -41,11 +41,11 @@ This section details how to configure a custom service that [requires authentica
 # <a name="create-a-keypair"></a>Create a key pair
 
 
-First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the Enterprise DC/OS CLI is the most convenient because it returns the keys in the exact format required.
+First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the DC/OS Enterprise CLI is the most convenient because it returns the keys in the exact format required.
 
 **Prerequisite:** You must have the [DC/OS CLI installed](/1.8/usage/cli/install/).
 
-1.  If you have not already installed the Enterprise DC/OS CLI, use the following command to do so.
+1.  If you have not already installed the DC/OS Enterprise CLI, use the following command to do so.
 
     ```bash
     dcos package install dcos-enterprise-cli

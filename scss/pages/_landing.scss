@@ -135,12 +135,13 @@
     &-title {
       color: $color-dark;
       margin: 1rem auto 0;
-      a {
-        color: inherit;
-      }
+    }
+    &-link {
+      color: $color-dark;
+      text-decoration: none;
     }
     &-description {
-      margin-top: $leading / 2;
+      margin-top: 0.5rem;
       text-align: center;
     }
   }
@@ -154,7 +155,7 @@
       height: 30px;
     }
     &__menu {
-      margin-top: 2rem;
+      margin: 2rem auto 0.5rem;
       a {
         display: inline-block;
         color: $color-dark; // font-weight: bold;
@@ -165,7 +166,6 @@
       }
     }
     &__copyright {
-      margin-top: 1rem;
       color: #acacac;
       font-size: 0.8rem;
       text-decoration: none;
@@ -231,9 +231,6 @@
       margin-top: 0;
     }
   }
-  .grid__desc__wrapper {
-    margin-bottom: 0;
-  }
   @include pre-md {
     &__container {
       padding: 4rem 2rem 0 2rem;
@@ -248,12 +245,14 @@
     }
     &__external {
       flex-direction: row;
+      align-items: flex-start;
       padding-top: 4rem;
       &-title {
         margin: 1rem 0 0;
       }
       &-item {
         margin-top: 0 !important;
+        flex: 1;
         &:not(:last-of-type) {
           margin-right: 1rem;
         }

@@ -28,7 +28,7 @@ An Amazon EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.x
 
 ## Software
 
-- Enterprise DC/OS AWS templates. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to obtain these files.
+- DC/OS Enterprise AWS templates. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to obtain these files.
 - An Amazon Web Services account.
 - SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
