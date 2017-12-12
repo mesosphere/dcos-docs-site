@@ -43,59 +43,65 @@ In this step, an IP detect script is created. This script reports the IP address
 
 1.  Create a directory named `genconf` on your bootstrap node and navigate to it.
     
-        mkdir -p genconf
-        
+    ```bash
+    mkdir -p genconf
+    ```
 
-2.  Create an IP detection script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix&#41;) line. You can use the examples below.
-    
-    *   #### Use the AWS Metadata Server
+2.  Create an IP detection script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) line. You can use the examples below.
+
+    -   **Use the AWS Metadata Server**
         
         This method uses the AWS Metadata service to get the IP address:
         
-            #!/bin/sh
-            # Example ip-detect script using an external authority
-            # Uses the AWS Metadata Service to get the node's internal
-            # ipv4 address
-            curl -fsSL http://169.254.169.254/latest/meta-data/local-ipv4
-            
-    
-    *   #### Use the GCE Metadata Server
+        ```bash
+        #!/bin/sh
+        # Example ip-detect script using an external authority
+        # Uses the AWS Metadata Service to get the node's internal
+        # ipv4 address
+        curl -fsSL http://169.254.169.254/latest/meta-data/local-ipv4
+        ```
+
+    -   **Use the GCE Metadata Server**
         
         This method uses the GCE Metadata Server to get the IP address:
         
-            #!/bin/sh
-            # Example ip-detect script using an external authority
-            # Uses the GCE metadata server to get the node's internal
-            # ipv4 address
-            
-            curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
-            
-    
-    *   #### Use the IP address of an existing interface
+        ```bash
+        #!/bin/sh
+        # Example ip-detect script using an external authority
+        # Uses the GCE metadata server to get the node's internal
+        # ipv4 address
+        
+        curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
+        ```
+
+    -   **Use the IP address of an existing interface**
         
         This method discovers the IP address of a particular interface of the node.
         
         If you have multiple generations of hardware with different internals, the interface names can change between hosts. The IP detection script must account for the interface name changes. The example script could also be confused if you attach multiple IP addresses to a single interface, or do complex Linux networking, etc.
         
-            #!/usr/bin/env bash
-            set -o nounset -o errexit
-            export PATH=/usr/sbin:/usr/bin:$PATH
-            echo $(ip addr show eth0 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
-            
-    
-    *   #### Use the network route to the Mesos master
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit
+        export PATH=/usr/sbin:/usr/bin:$PATH
+        echo $(ip addr show eth0 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
+        ```
+
+    -   **Use the network route to the Mesos master**
         
         This method uses the route to a Mesos master to find the source IP address to then communicate with that node.
         
         In this example, we assume that the Mesos master has an IP address of `172.28.128.3`. You can use any language for this script. Your Shebang line must be pointed at the correct environment for the language used and the output must be the correct IP address.
         
-            #!/usr/bin/env bash
-            set -o nounset -o errexit
-            
-            MASTER_IP=172.28.128.3
-            
-            echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
-            
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit
+        
+        MASTER_IP=172.28.128.3
+        
+        echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
+        ```
+
 
 # Create a configuration file
 
@@ -103,18 +109,20 @@ In this step you create a YAML configuration file that is customized for your en
 
 1.  From the bootstrap node, run this command to create a hashed password for superuser authentication, where `<superuser_password>` is the superuser password. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file.
     
-        sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
-        
+    ```bash
+    sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
+    ```
     
     Here is an example of a hashed password output.
     
-        Extracting image from this script and loading into docker daemon, this step can take a few minutes
-        dcos-genconf.9eda4ae45de5488c0c-c40556fa73a00235f1.tar
-        Running mesosphere/dcos-genconf docker with BUILD_DIR set to /home/centos/genconf
-        00:42:10 dcos_installer.action_lib.prettyprint:: ====> HASHING PASSWORD TO SHA512
-        00:42:11 root:: Hashed password for 'password' key:
-        $6$rounds=656000$v55tdnlMGNoSEgYH$1JAznj58MR.Bft2wd05KviSUUfZe45nsYsjlEl84w34pp48A9U2GoKzlycm3g6MBmg4cQW9k7iY4tpZdkWy9t1
-        
+    ```
+    Extracting image from this script and loading into docker daemon, this step can take a few minutes
+    dcos-genconf.9eda4ae45de5488c0c-c40556fa73a00235f1.tar
+    Running mesosphere/dcos-genconf docker with BUILD_DIR set to /home/centos/genconf
+    00:42:10 dcos_installer.action_lib.prettyprint:: ====> HASHING PASSWORD TO SHA512
+    00:42:11 root:: Hashed password for 'password' key:
+    $6$rounds=656000$v55tdnlMGNoSEgYH$1JAznj58MR.Bft2wd05KviSUUfZe45nsYsjlEl84w34pp48A9U2GoKzlycm3g6MBmg4cQW9k7iY4tpZdkWy9t1
+    ```
 
 2.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started.
     
@@ -194,42 +202,49 @@ To install DC/OS:
     **Tip:** Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
     
     1.  SSH to your master nodes:
-        
-            ssh <master-ip>
-            
-    
+
+        ```bash
+        ssh <master-ip>
+        ```
+
     2.  Make a new directory and navigate to it:
-        
-            mkdir /tmp/dcos && cd /tmp/dcos
-            
-    
+
+        ```bash
+        mkdir /tmp/dcos && cd /tmp/dcos
+        ```
+
     3.  Download the DC/OS installer from the NGINX Docker container, where `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`:
-        
-            curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
-            
+
+        ```bash
+        curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
+        ```
     
     4.  Run this command to install DC/OS on your master nodes:
         
+        ```bash
             sudo bash dcos_install.sh master
-            
+        ```
 
 5.  <A name="slaveinstall"></A> Run these commands on each of your agent nodes to install DC/OS using your custom build file.
     
     1.  SSH to your agent nodes:
         
-            ssh <agent-ip>
-            
-    
+        ```bash
+        ssh <agent-ip>
+        ```
+
     2.  Make a new directory and navigate to it:
         
-            mkdir /tmp/dcos && cd /tmp/dcos
-            
-    
+        ```bash
+        mkdir /tmp/dcos && cd /tmp/dcos
+        ```
+
     3.  Download the DC/OS installer from the NGINX Docker container, where `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`:
-        
-            curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
-            
-    
+
+        ```bash
+        curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
+        ```
+
     4.  Run this command to install DC/OS on your agent nodes. You must designate your agent nodes as [public][3] or [private][4].
         
         *   Private agent nodes:
