@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Title
 excerpt:
-navigationTitle: Identity and Access Management in Open Source DC/OS
+navigationTitle: Identity and Access Management in DC/OS Open Source
 menuWeight: 10 
 ---
 You can enable authentication in your datacenter with DC/OS [oauth](https://github.com/dcos/dcos-oauth). Authentication is managed through the DC/OS web interface. The Admin Router enforces access control.
