@@ -145,10 +145,9 @@ const getSharedAttributes = (fileData, hierarchy) => {
     product = 'DC/OS';
     record.section = 'DC/OS Docs';
     record.product = product;
-    // If in /docs/*
     if (pathParts[1]) {
-      record.version = product + ' ' + pathParts[1];
-      record.versionNumber = pathParts[1];
+      record.version = product + ' ' + pathParts[0];
+      record.versionNumber = pathParts[0];
     }
   }
 
