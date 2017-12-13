@@ -23,3 +23,4 @@ aws s3 cp "${PDF_BUNDLE_PATH}" "s3://downloads.mesosphere.io/dcos-docs-site/${PD
 echo "PDF Bundle Publish Success!"
 PDF_BUNDLE_URL="https://downloads.mesosphere.com/dcos-docs-site/${PDF_BUNDLE_NAME}"
 echo "PDF Bundle URL: ${PDF_BUNDLE_URL}"
+echo "${PDF_BUNDLE_URL}" > ".pdf-bundle-url"

@@ -18,20 +18,16 @@ DCOS_CRT="${DCOS_CRT}" # ex: docs-us.crt
 
 ci/pdf/1-setup-env.sh
 
-# capture output AND print to stdout
-exec 5>&1
-function close_file_descriptor() {
-  exec 5>&-
-}
-trap 'close_file_descriptor' EXIT
-
-DOCKER_IMAGE="$(ci/pdf/2-build-pdf-image.sh | tee >(cat - >&5) | grep "^Image: " | sed "s/^Image: //")"
+ci/pdf/2-build-pdf-image.sh
+DOCKER_IMAGE="$(cat ".pdf-image")"
 export DOCKER_IMAGE # export separately so errexit works :(
 
-PDF_BUNDLE_PATH="$(ci/pdf/3-extract-pdf-bundle.sh | tee >(cat - >&5) | grep "^PDF Bundle Path: " | sed "s/^PDF Bundle Path: //")"
+ci/pdf/3-extract-pdf-bundle.sh
+PDF_BUNDLE_PATH="$(cat ".pdf-bundle-path")"
 export PDF_BUNDLE_PATH # export separately so errexit works :(
 
-PDF_BUNDLE_URL="$(ci/pdf/4-publish-pdf-bundle.sh | tee >(cat - >&5) | grep "^PDF Bundle URL: " | sed "s/^PDF Bundle URL: //")"
+ci/pdf/4-publish-pdf-bundle.sh
+PDF_BUNDLE_PATH="$(cat ".pdf-bundle-url")"
 export PDF_BUNDLE_URL # export separately so errexit works :(
 
 ci/pdf/5-deploy-site-update.sh
