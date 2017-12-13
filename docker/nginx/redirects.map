@@ -634,3 +634,4 @@
 /overview/components/index.html /docs/1.7/overview/components/;
 /press /brand/;
 /support /community/;
+~^/docs/(?<path>.*)$ /$path;
