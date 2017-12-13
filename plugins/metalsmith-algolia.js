@@ -32,6 +32,8 @@ module.exports = function(options) {
    * Algolia Indexing Settings
    */
   index.setSettings({
+    distinct: true,
+    attributeForDistinct: 'path',
     searchableAttributes: ['title', 'contents'],
     attributesForFaceting: ['section', 'product', 'version', 'type'],
     customRanking: ['asc(section)', 'desc(product)', 'desc(version)'],
@@ -111,7 +113,6 @@ module.exports = function(options) {
       });
 
     });
-
   };
 
 };
