@@ -13,10 +13,16 @@ $sections-size: 20%;
   }
   &__header {
     z-index: 10;
+    &__row {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+    }
     &-title {
       padding: 0;
       margin: 0;
       font-weight: 700;
+      font-size: 36px;
     }
     &-description {
       color: $color-grey;
@@ -31,6 +37,9 @@ $sections-size: 20%;
     .icon {
       width: 16px;
       height: 16px;
+    }
+    h1 {
+      font-size: 30px;
     }
   }
   &__anchor {

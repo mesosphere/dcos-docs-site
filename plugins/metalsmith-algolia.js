@@ -32,6 +32,8 @@ module.exports = function(options) {
    * Algolia Indexing Settings
    */
   index.setSettings({
+    distinct: true,
+    attributeForDistinct: 'path',
     searchableAttributes: ['title', 'contents'],
     attributesForFaceting: ['section', 'product', 'version', 'type'],
     customRanking: ['asc(section)', 'desc(product)', 'desc(version)'],
@@ -54,8 +56,9 @@ module.exports = function(options) {
       clearIndex = new Promise((resolve, reject) => {
         index.clearIndex(err => {
           if (err) console.error('Algolia: Error while cleaning index:', err);
+          console.log('Algolia: Cleared index');
+          resolve();
         });
-        resolve();
       });
     } else {
       clearIndex = Promise.resolve();
@@ -111,6 +114,7 @@ module.exports = function(options) {
 
     });
   };
+
 };
 
 // Get shared attributes for a record.
@@ -118,7 +122,17 @@ const getSharedAttributes = (fileData, hierarchy) => {
 
   const pathParts = fileData.path.split('/')
   let record = {};
-  if (pathParts[0] === 'services') {
+
+  if (pathParts[0] === 'test') {
+    return record;
+  }
+
+  else if (pathParts[0] === '404') {
+    return record;
+  }
+
+  // Services
+  else if (pathParts[0] === 'services') {
     let product;
     record.section = 'Service Docs';
     // If in /services/product/**
@@ -140,8 +154,8 @@ const getSharedAttributes = (fileData, hierarchy) => {
     }
   }
 
-  // If semantic version, /1.10/*, /1.9/*, /1.8/*
-  if (/[0-9]\.[0-9](.*)/.test(pathParts[0])) {
+  // Docs version
+  else if (/[0-9]\.[0-9](.*)/.test(pathParts[0])) {
     product = 'DC/OS';
     record.section = 'DC/OS Docs';
     record.product = product;
@@ -160,6 +174,7 @@ const getSharedAttributes = (fileData, hierarchy) => {
   record.path = fileData.path;
   record.type = type;
 
+  // Excerpt
   if (fileData.excerpt) {
     record.excerpt = fileData.excerpt;
   }
@@ -171,7 +186,6 @@ const getSharedAttributes = (fileData, hierarchy) => {
       record.excerpt = excerpt;
     }
   }
-
 
   return record;
 };

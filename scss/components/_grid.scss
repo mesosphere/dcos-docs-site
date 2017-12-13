@@ -28,12 +28,13 @@
     font-size: 10px;
     font-weight: 400;
     padding: 0;
-    margin: 0 0 1em 0;
     color: $color-grey;
     border: 1px solid $color-grey;
     border-radius: 3px;
     padding: 0.4rem 0.5rem 0.3rem 0.5rem;
     line-height: 1rem;
+    margin: 0.5em 1em 0;
+    white-space: nowrap;
     &__wrapper {
       width: 100%;
       padding: 1em 0;
@@ -53,6 +54,14 @@
       color: $color-pink;
       border: 1px solid $color-pink;
     }
+    &--preview {
+      color: $color-pink;
+      border: 1px solid $color-pink;
+    }
+    &--experimental {
+      color: $color-pink;
+      border: 1px solid $color-pink;
+    }
   }
   &__text__wrapper {
     display: flex;
@@ -64,6 +73,12 @@
     font-weight: 500;
     padding: 0;
     margin: 0;
+    &__wrapper {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
   }
   &__desc {
     margin-top: 0;
