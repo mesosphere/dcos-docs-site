@@ -4,8 +4,6 @@ navigationTitle:  Release Notes for 1.9.3
 title: Release Notes for 1.9.3
 menuWeight: 2
 excerpt:
-
-enterprise: true
 ---
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:

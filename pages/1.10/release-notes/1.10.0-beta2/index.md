@@ -4,8 +4,6 @@ navigationTitle:  Release Notes for 1.10.0 Beta 2
 title: Release Notes for 1.10.0 Beta 2
 menuWeight: 30
 excerpt:
-
-enterprise: true
 ---
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">

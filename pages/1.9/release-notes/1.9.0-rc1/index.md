@@ -4,8 +4,6 @@ navigationTitle:  Release Notes for 1.9.0 RC1
 title: Release Notes for 1.9.0 RC1
 menuWeight: 12
 excerpt:
-
-enterprise: true
 ---
 
 

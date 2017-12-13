@@ -4,8 +4,6 @@ navigationTitle:  Release Notes for 1.10 Beta 1
 title: Release Notes for 1.10 Beta 1
 menuWeight: 40
 excerpt:
-
-enterprise: true
 ---
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
