@@ -10,3 +10,9 @@ npm-debug.log
 ./**/*.tmp
 .tmp
 .revision
+
+# files used by CI
+.site-image
+.pdf-image
+.pdf-bundle-path
+.pdf-bundle-url

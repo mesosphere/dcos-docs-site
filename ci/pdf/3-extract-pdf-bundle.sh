@@ -31,3 +31,4 @@ mv "${PDF_BUNDLE_DIR}/${PDF_BUNDLE_NAME}" "${PDF_BUNDLE_DIR}/${NEW_PDF_BUNDLE_NA
 
 echo "PDF Bundle Tag Success!"
 echo "PDF Bundle Path: ${PDF_BUNDLE_DIR}/${NEW_PDF_BUNDLE_NAME}"
+echo "${PDF_BUNDLE_DIR}/${NEW_PDF_BUNDLE_NAME}" > ".pdf-bundle-path"

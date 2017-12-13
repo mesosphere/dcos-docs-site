@@ -24,3 +24,4 @@ echo "Image Build Success!"
 
 DOCKER_IMAGE="mesosphere/dcos-docs-pdf:latest"
 echo "Image: ${DOCKER_IMAGE}"
+echo "${IMAGE_NAME}:${IMAGE_TAG}" > ".pdf-image"
