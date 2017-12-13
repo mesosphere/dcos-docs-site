@@ -29,8 +29,8 @@
     */
   }
   &--content-header {
-    margin: 0;
-    margin-bottom: 0.5rem;
+    margin: 0.75rem 1rem 0;
+    white-space: nowrap;
   }
   &--oss {
     color: $color-grey;

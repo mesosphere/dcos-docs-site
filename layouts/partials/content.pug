@@ -5,17 +5,18 @@
 main(class='content')
   div(class=containerClass)
     div(class='content__header')
-      if oss
-        p(class='badge badge--content-header badge--oss') OPEN SOURCE
-      if enterprise
-        p(class='badge badge--content-header badge--enterprise') ENTERPRISE
-      if beta
-        p(class='badge badge--content-header badge--beta') BETA
-      if preview
-        p(class='badge badge--content-header badge--preview') PREVIEW
-      if experimental
-        p(class='badge badge--content-header badge--beta') EXPERIMENTAL
-      h1(class='content__header-title')!= title
+      div(class='content__header__row')
+        h1(class='content__header-title')!= title
+        if oss
+          p(class='badge badge--content-header badge--oss') OPEN SOURCE
+        if enterprise
+          p(class='badge badge--content-header badge--enterprise') ENTERPRISE
+        if beta
+          p(class='badge badge--content-header badge--beta') BETA
+        if preview
+          p(class='badge badge--content-header badge--preview') PREVIEW
+        if experimental
+          p(class='badge badge--content-header badge--beta') EXPERIMENTAL
       if excerpt
         h4(class='content__header-description')!= excerpt
       include ../components/content-actions.pug
