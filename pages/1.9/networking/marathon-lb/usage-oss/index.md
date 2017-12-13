@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 excerpt:
-title: Installing and Customizing on Open Source DC/OS
+title: Installing and Customizing on DC/OS Open Source
 menuWeight: 000
 ---
 

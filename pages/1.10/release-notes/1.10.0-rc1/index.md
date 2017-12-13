@@ -6,8 +6,6 @@ title: >
   Candidate 1
 menuWeight: 20
 excerpt:
-
-enterprise: true
 ---
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">

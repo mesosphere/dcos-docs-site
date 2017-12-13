@@ -12,9 +12,6 @@ html {
 p {
   line-height: $baseLineHeight;
   margin: $leading 0 0;
-  @include lg {
-    font-size: 16px;
-  }
 }
 
 ul,

@@ -2,14 +2,8 @@
 
 html {
   font-size: 14px;
-  @include md {
-    font-size: 14px;
-  }
   @include lg {
     font-size: 16px;
-  }
-  @include xxl {
-    font-size: 18px;
   }
 }
 

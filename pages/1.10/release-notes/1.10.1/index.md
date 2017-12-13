@@ -2,10 +2,8 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.1
 title: Release Notes for 1.10.1
-menuWeight: 0
+menuWeight: 1
 excerpt:
-
-enterprise: true
 ---
 
 # Major Issues Fixed in DC/OS 1.10.1

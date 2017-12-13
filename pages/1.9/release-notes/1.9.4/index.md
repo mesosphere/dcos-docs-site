@@ -2,10 +2,8 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.4
 title: Release Notes for 1.9.4
-menuWeight: 0
+menuWeight: 1
 excerpt:
-
-enterprise: true
 ---
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:

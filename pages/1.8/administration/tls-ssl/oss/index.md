@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 excerpt:
-title: Securing communication with TLS on Open Source DC/OS
+title: Securing communication with TLS on DC/OS Open Source
 menuWeight: 10 
 ---
 

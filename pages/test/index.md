@@ -27,7 +27,7 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 
 | Attribute      | Requirement               | Options       |
 | -------------- |:-------------------------:| -------------:|
-| size           | optional (default: large) | large, small  [enterprise size="small" type="inline" /] |
+| size           | optional (default: large) | large, small  [enterprise size="small" type="inline" /] [oss size="small" type="inline" /] [beta size="small" type="inline" /] |
 | type           | optional (default: block) | block, inline |
 
 ###### Usage

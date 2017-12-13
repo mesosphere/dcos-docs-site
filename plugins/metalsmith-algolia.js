@@ -141,7 +141,7 @@ const getSharedAttributes = (fileData, hierarchy) => {
   }
 
   // If semantic version, /1.10/*, /1.9/*, /1.8/*
-  if (/\/[0-9].[0-9](.*)/.test(pathParts[0])) {
+  if (/[0-9]\.[0-9](.*)/.test(pathParts[0])) {
     product = 'DC/OS';
     record.section = 'DC/OS Docs';
     record.product = product;

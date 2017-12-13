@@ -87,7 +87,7 @@ Lists in JSON format the Mesos-DNS configuration parameters.
 curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/config
 ```
     
-The output for Open Source DC/OS should resemble:
+The output for DC/OS open source should resemble:
 
 ```json
 {

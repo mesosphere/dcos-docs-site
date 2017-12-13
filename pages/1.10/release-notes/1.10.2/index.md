@@ -4,9 +4,11 @@ navigationTitle:  Release Notes for 1.10.2
 title: Release Notes for 1.10.2
 menuWeight: 0
 excerpt:
-
-enterprise: true
 ---
+
+These are the release notes for DC/OS 1.10.2.
+
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.2/dcos_generate_config.sh?_ga=2.35647400.804658989.1513010878-1207888710.1504116514"]Download DC/OS Open Source[/button]
 
 # Issues Fixed in DC/OS 1.10.2
 
