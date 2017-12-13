@@ -9,10 +9,10 @@ excerpt:
 # Major Issues Fixed in DC/OS 1.10.1
 
 - COPS-974 - Master node fails to start after configuration change. This was was due to tmp mountpoints being marked as noexec. Bug fixed.
-- COPS-1293 - Timeout creating service account. The timeout was due to tmp mountpoints being marked as noexec. Bug fixed.
-- DCOS-17600 - Fix security CLI secret creation following wrong secret schema. This fix clarifies which fields the secrets service stores.
+- COPS-1293 - Timeout creating service account. The timeout was due to tmp mountpoints being marked as noexec. Bug fixed. [enterprise type="inline" size="small" /]
+- DCOS-17600 - Fix security CLI secret creation following wrong secret schema. This fix clarifies which fields the secrets service stores. [enterprise type="inline" size="small" /]
 - DCOS-18212 - In the UI, the name of the containerizer runtime in the service creation form has been changed from MESOS RUNTIME to UNIVERSAL CONTAINER RUNTIME (UCR).
-- DCOS-18634 - DC/OS authenticator fails to cache Bouncer's public key, causing an increase in request rates against Bouncer's JWKS endpoint. Bug fixed.
+- DCOS-18634 - DC/OS authenticator fails to cache Bouncer's public key, causing an increase in request rates against Bouncer's JWKS endpoint. Bug fixed. [enterprise type="inline" size="small" /]
 - DCOS-18694 - Pod Endpoints protocol json parser adds 0 to json. Bug fixed.
 - DCOS-18788 - The JSON editor duplicates and fails to properly parse app definition. Bug fixed.
 - DCOS-19197 - DC/OS UI deletes environment variables with non-string values from Marathon app/pod definitions. Bug fixed.
@@ -33,21 +33,21 @@ excerpt:
 - DCOS-13988 - Filter/Search Design Update.
 - DCOS-16029 - Addition of new pullConfig properties break validation.
 - DCOS-10863 - Launch containers on `DockerContainerizer` if network mode is "NONE".
-- DCOS_OSS-1340 - Spartan "autoip" DNS should resolve to host IP for UCR in bridge network.
-- INFINITY-1143 - Update / Uninstall. DSE does not support rolling upgrade.
-- MARATHON_EE-734 - Marathon needs to support a default "bridge" network for UCR. The default bridge network for the UCR is "mesos-bridge". Marathon should now launches the container on the "mesos-bridge" network if that networking option is selected.
+- DCOS_OSS-1340 - Spartan "autoip" DNS should resolve to host IP for UCR in bridge network. [enterprise type="inline" size="small" /]
+- INFINITY-1143 - Update / Uninstall. DSE does not support rolling upgrade. [enterprise type="inline" size="small" /]
+- MARATHON_EE-734 - Marathon needs to support a default "bridge" network for UCR. [enterprise type="inline" size="small" /]
 
 # About DC/OS 1.10
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
+DDC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on: 
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
-- Robust security - Custom CA certificate & file-based secrets support.
-- Enterprise-ready networking - New DC/OS Edge-LB for higher availability and security.
+- Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
+- Enterprise-ready networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
 - Kubernetes is now available on DC/OS.
 - Data services enhancements across the board.
-  - Rolling configuration update and upgrade support via the CLI.
-  - Ability to deploy Data Services into folders to enable multi team deployments.
+  - Rolling configuration update and upgrade support via the CLI. [enterprise type="inline" size="small" /]
+  - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
   
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
@@ -72,10 +72,13 @@ Please try out the new features and updated data services. Provide any feedback 
 - Increased CNI network support.
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
-- Edge-LB load balancer.
+- Edge-LB load balancer. [enterprise type="inline" size="small" /]
   Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/1.10/networking/edge-lb/).
 
+[enterprise type="block" size="large"]
 ## Security
+[/ enterprise]
+
 - Custom CA certificate support.
   Installation time [configuration options](/1.10/networking/tls-ssl/ca-custom/) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
 
@@ -97,11 +100,11 @@ Please try out the new features and updated data services. Provide any feedback 
 
 ## Updated DC/OS Data Services
 
-- Rolling Configuration Update and Upgrades support via the CLI.
+- Rolling Configuration Update and Upgrades support via the CLI. [enterprise type="inline" size="small" /]
 - Ability to deploy Data Services into Folders to enable multi team deployments.
 - Ability to deploy to CNI-Based Virtual Networks.
 
-The following updated data services packages are also compatible with DC/OS 1.10.0.
+The following updated data services packages are compatible with DC/OS 1.10.0.
 
 - Cassandra. [Documentation](/service-docs/cassandra/). [Release Notes](/service-docs/cassandra/v2.0.0-3.0.14/release-notes/).
 
@@ -140,7 +143,7 @@ The following updated data services packages are also compatible with DC/OS 1.10
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - The "Deployments" subpage under the "Services" tab has been moved to a toggle-able modal in the "Services" page.
-- The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab.
+- The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab. [enterprise type="inline" size="small" /]
 - The "Universe" tab has been renamed to "Catalog" and the "Installed" subpage has been removed.
 - The "System Overview" tab has been renamed to "Overview".
 
@@ -150,11 +153,11 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - Marathon Networking API Changes in 1.5.
 
-  The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md). <!-- linking to the marathon doc until I port the relevant information to the dc/os site -->
+  The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md).
 
-- TLS 1.0 is no longer enabled by default in Admin Router.
+- TLS 1.0 is no longer enabled by default in Admin Router. [enterprise type="inline" size="small" /]
 
-  TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
+  TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`. [enterprise type="inline" size="small" /]
 
 - Latest version of Marathon-LB is required for DC/OS 1.10.0.
 
@@ -174,8 +177,8 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
-- Marathon-LB does not work with secrets.
+- Marathon-LB does not work with secrets. [enterprise type="inline" size="small" /]
 - CORE-1125 - Docker image pull config is re-used.
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
-- INFINITY-1809 - [Data Svc] DC/OS Service Update / Config Update / Maintenance.
+- INFINITY-1809 - [Data Svc] DC/OS Service Update / Config Update / Maintenance. [enterprise type="inline" size="small" /]
 - MARATHON-7736 - Marathon Client Java library does NOT work with Marathon 1.5.

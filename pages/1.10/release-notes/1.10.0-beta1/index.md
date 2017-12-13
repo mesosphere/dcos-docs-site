@@ -28,11 +28,11 @@ Please try out the new features and updated data services. Provide any feedback 
 DC/OS 1.10 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
 
 - Core DC/OS Service Continuity - System resilience, IAM Scalability & simplified upgrades.
-- Robust Security - Custom CA & File-Based Secrets Support.
-- Enterprise-Ready Networking - New DC/OS Edge-LB for higher availability and security.
+- Robust Security - Custom CA & File-Based Secrets Support. [enterprise type="inline" size="small" /]
+- Enterprise-Ready Networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
 - Data services enhancements across the board.
   - Rolling Configuration Update and Upgrades support via CLI.
-  - Ability to deploy Data Services into Folders to enable multi team deployments.
+  - Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based Virtual Networks.
 
 ### Contents
@@ -55,10 +55,12 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 - Increased CNI network support.
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
-- Edge-LB load balancer.
+- Edge-LB load balancer. [enterprise type="inline" size="small" /]
   Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/1.10/networking/edge-lb/).
 
-## Security
+  [enterprise type="block" size="large"]
+  ## Security
+  [/ enterprise]
 - Custom CA certificate support.
   Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only-and-authentication) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
@@ -73,7 +75,7 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 ## Updated DC/OS Data Services
 
 - Rolling Configuration Update and Upgrades support via CLI.
-- Ability to deploy Data Services into Folders to enable multi team deployments.
+- Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
 - Ability to deploy to CNI-Based Virtual Networks.
 
 The following updated data services packages are also in beta and are compatible with DC/OS 1.10.
@@ -91,7 +93,8 @@ The following updated data services packages are also in beta and are compatible
 ## Platform
 - Node and Cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
+- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
+- Enhanced upgrades with pre/post flight checks.
 - UCR. <!-- have there been updates? -->
 - Scale and performance limits.
 
@@ -102,7 +105,7 @@ The following updated data services packages are also in beta and are compatible
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - The "Deployments" subpage under the "Services" tab has been moved to a toggle-able modal in the "Services" page.
-- The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab.
+- The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab. [enterprise type="inline" size="small" /]
 - The "Universe" tab has been renamed to "Catalog" and the "Installed" subpage has been removed.
 - The "System Overview" tab has been renamed to "Overview".
 
@@ -116,7 +119,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - Marathon Networking API Changes in 1.5
   The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md). <!-- linking to the marathon doc until I port the relevant information to the dc/os site -->
 
-- TLS 1.0 is no longer enabled by default in Admin Router.
+- TLS 1.0 is no longer enabled by default in Admin Router. [enterprise type="inline" size="small" /]
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
 <!-- relevant to beta 2
@@ -134,7 +137,7 @@ Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinst
 
 - CASSANDRA-613 - Replace of Cassandra Nodes doesn't work with duplicate Hostname/IPs.
 - DCOS-9444 - Task Remaining on Marathon 15.7 from guano backup. <!-- unclear from the Jira if this has been resolved or is even relevant -->
-- DCOS-13762 - SDK Integration with DC/OS Folders.
+- DCOS-13762 - SDK Integration with DC/OS Folders. [enterprise type="inline" size="small" /]
 - DCOS-14534 - Marathon: Verbose Server Banner.
 - DCOS-14535 - Marathon GUI: Error Messages are Too Verbose.
 - DCOS-14536 - UI Vulnerable to Clickjacking (aka UI Redressing).
@@ -151,9 +154,9 @@ Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinst
 - DCOS_OSS-1486 - Metrics agent crashes when the mesos containers endpoint is missing fields.
 - INFINITY-213 - Integrate with DC/OS access controls.
 - INFINITY-1143 - Update / Uninstall. DSE does not support rolling upgrade.
-- INFINITY-1356 - Support strict mode for DSE.
+- INFINITY-1356 - Support strict mode for DSE. [enterprise type="inline" size="small" /]
 - INFINITY-1809 - [Data Svc] DC/OS Service Update / Config Update / Maintenance.
-- INFINITY-2003 - Make C* backup and restore tests work in strict mode.
+- INFINITY-2003 - Make C* backup and restore tests work in strict mode. [enterprise type="inline" size="small" /]
 - INFINITY-2054	- Extend --replace={true|false} for <framework> CLI. <!-- this doesn't seem like a known issue? -->
 - MARATHON-7654 - Marathon cannot replace persistent tasks for rebooted hosts until the Mesos Master forgets about the old agent.
 - MESOS-6950 - Launching two tasks with the same Docker image simultaneously may cause a staging dir never cleaned up.

@@ -26,11 +26,11 @@ Please try out the new features and updated data services. Provide any feedback 
 DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
-- Robust security - Custom CA certificate & file-based secrets support.
-- Enterprise-ready networking - New DC/OS Edge-LB for higher availability and security.
+- Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
+- Enterprise-ready networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
 - Data services enhancements across the board.
-  - Rolling configuration update and upgrade support via the CLI.
-  - Ability to deploy Data Services into folders to enable multi team deployments.
+  - Rolling configuration update and upgrade support via the CLI. [enterprise type="inline" size="small" /]
+  - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
 
 ### Contents
@@ -53,10 +53,12 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
 - Increased CNI network support.
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
-- Edge-LB load balancer.
+- Edge-LB load balancer. [enterprise type="inline" size="small" /]
   Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/1.10/networking/edge-lb/).
 
-## Security
+  [enterprise type="block" size="large"]
+  ## Security
+  [/ enterprise]
 - Custom CA certificate support.
   Installation time [configuration options](/1.10/networking/tls-ssl/ca-custom/) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
 
@@ -75,7 +77,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
 ## Updated DC/OS Data Services
 
 - Rolling Configuration Update and Upgrades support via the CLI.
-- Ability to deploy Data Services into Folders to enable multi team deployments.
+- Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
 - Ability to deploy to CNI-Based Virtual Networks.
 
 The following updated data services packages are also in beta and are compatible with DC/OS 1.10.0.
@@ -93,7 +95,8 @@ The following updated data services packages are also in beta and are compatible
 ## Platform
 - Node and cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
+- Enhanced upgrades with [backup and restore](1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
+- Enhanced upgrades with pre/post flight checks.
 - Universal Container Runtime (UCR).
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
 - Scale and performance limits.
@@ -117,7 +120,7 @@ The following updated data services packages are also in beta and are compatible
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - The "Deployments" subpage under the "Services" tab has been moved to a toggle-able modal in the "Services" page.
-- The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab.
+- The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab. [enterprise type="inline" size="small" /]
 - The "Universe" tab has been renamed to "Catalog" and the "Installed" subpage has been removed.
 - The "System Overview" tab has been renamed to "Overview".
 
@@ -128,7 +131,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - Marathon Networking API Changes in 1.5
   The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md). <!-- linking to the marathon doc until I port the relevant information to the dc/os site -->
 
-- TLS 1.0 is no longer enabled by default in Admin Router.
+- TLS 1.0 is no longer enabled by default in Admin Router. [enterprise type="inline" size="small" /]
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
 - Latest version of Marathon-LB is required for 1.10.0.
@@ -145,7 +148,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrade: During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
-- Marathon-LB does not work with secrets.
+- Marathon-LB does not work with secrets. [enterprise type="inline" size="small" /]
 - DCOS-14534 - Marathon: Verbose Server Banner.
 - DCOS-14536 - UI Vulnerable to Clickjacking (aka UI Redressing).
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
@@ -157,7 +160,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 # <a name="fixed-issues"></a>Major Issues Fixed Since 1.10.0 Beta 2
 
 - DCOS-15590 - DCOS cli confirm() is not non-interactive safe.
-- INFINITY-213 - Integrate with DC/OS access controls.
-- INFINITY-1356 - Support strict mode for DSE.
-- INFINITY-2003 - Make C/* backup and restore tests work in strict mode.
+- INFINITY-213 - Integrate with DC/OS access controls. [enterprise type="inline" size="small" /]
+- INFINITY-1356 - Support strict mode for DSE. [enterprise type="inline" size="small" /]
+- INFINITY-2003 - Make C/* backup and restore tests work in strict mode. [enterprise type="inline" size="small" /]
 - INFINITY-2054	- Extend --replace={true|false} for <framework> CLI.

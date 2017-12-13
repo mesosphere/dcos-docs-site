@@ -28,11 +28,11 @@ Please try out the new features and updated data services. Provide any feedback 
 DC/OS 1.10 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
 
 - Core DC/OS Service Continuity - System resilience, IAM Scalability & simplified upgrades.
-- Robust Security - Custom CA & File-Based Secrets Support.
-- Enterprise-Ready Networking - New DC/OS Edge-LB for higher availability and security.
+- Robust Security - Custom CA & File-Based Secrets Support. [enterprise type="inline" size="small" /]
+- Enterprise-Ready Networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
 - Data services enhancements across the board.
-  - Rolling Configuration Update and Upgrades support via CLI.
-  - Ability to deploy Data Services into Folders to enable multi team deployments.
+  - Rolling Configuration Update and Upgrades support via CLI. [enterprise type="inline" size="small" /]
+  - Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based Virtual Networks.
 
 ### Contents
@@ -55,10 +55,12 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 - Increased CNI network support.
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
-- Edge-LB load balancer.
+- Edge-LB load balancer. [enterprise type="inline" size="small" /]
   Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/1.10/networking/edge-lb/).
 
-## Security
+  [enterprise type="block" size="large"]
+  ## Security
+  [/ enterprise]
 - Custom CA certificate support.
   Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only-and-authentication) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
@@ -72,8 +74,8 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 
 ## Updated DC/OS Data Services
 
-- Rolling Configuration Update and Upgrades support via CLI.
-- Ability to deploy Data Services into Folders to enable multi team deployments.
+- Rolling Configuration Update and Upgrades support via CLI. 
+- Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
 - Ability to deploy to CNI-Based Virtual Networks.
 
 The following updated data services packages are also in beta and are compatible with DC/OS 1.10.
@@ -91,7 +93,8 @@ The following updated data services packages are also in beta and are compatible
 ## Platform
 - Node and Cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
+- Enhanced upgrades with [backup and restore](1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
+- Enhanced upgrades with pre/post flight checks.
 - UCR. <!-- have there been updates? -->
 - Scale and performance limits.
 
@@ -102,7 +105,7 @@ The following updated data services packages are also in beta and are compatible
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - The "Deployments" subpage under the "Services" tab has been moved to a toggle-able modal in the "Services" page.
-- The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab.
+- The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab. [enterprise type="inline" size="small" /]
 - The "Universe" tab has been renamed to "Catalog" and the "Installed" subpage has been removed.
 - The "System Overview" tab has been renamed to "Overview".
 
@@ -116,7 +119,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - Marathon Networking API Changes in 1.5
   The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md). <!-- linking to the marathon doc until I port the relevant information to the dc/os site -->
 
-- TLS 1.0 is no longer enabled by default in Admin Router.
+- TLS 1.0 is no longer enabled by default in Admin Router. [enterprise type="inline" size="small" /]
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
 ## Latest version of Marathon-LB is required for 1.10
@@ -130,18 +133,18 @@ Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinst
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
-- Marathon-LB does not work with secrets.
-- DCOS-13762 - SDK Integration with DC/OS Folders. <!-- resolved? -->
+- Marathon-LB does not work with secrets. [enterprise type="inline" size="small" /]
+- DCOS-13762 - SDK Integration with DC/OS Folders. [enterprise type="inline" size="small" /]
 - DCOS-14534 - Marathon: Verbose Server Banner.
 - DCOS-14536 - UI Vulnerable to Clickjacking (aka UI Redressing).
 - DCOS-15590 - DCOS cli confirm() is not non-interactive safe.
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
 - DCOS_OSS-1340 - Spartan "autoip" DNS should resolve to host IP for UCR in bridge network.
-- INFINITY-213 - Integrate with DC/OS access controls.
+- INFINITY-213 - Integrate with DC/OS access controls. [enterprise type="inline" size="small" /]
 - INFINITY-1143 - Update / Uninstall. DSE does not support rolling upgrade.
-- INFINITY-1356 - Support strict mode for DSE.
+- INFINITY-1356 - Support strict mode for DSE. [enterprise type="inline" size="small" /]
 - INFINITY-1809 - [Data Svc] DC/OS Service Update / Config Update / Maintenance.
-- INFINITY-2003 - Make C* backup and restore tests work in strict mode.
+- INFINITY-2003 - Make C* backup and restore tests work in strict mode. [enterprise type="inline" size="small" /]
 - INFINITY-2054	- Extend --replace={true|false} for <framework> CLI. <!-- this doesn't seem like a known issue? -->
 
 # <a name="fixed-issues"></a>Major Issues Fixed Since 1.10.0 Beta 1
@@ -149,10 +152,10 @@ Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinst
 - Upgrades from DC/OS 1.9 are supported.
 - CASSANDRA-613 - Replace of Cassandra Nodes doesn't work with duplicate Hostname/IPs.
 - DCOS-5809	- Admin Router: use "variables approach" for DNS name re-resolution instead of periodic worker process reload.
-- DCOS-9794	- secrets CLI subcommand: bad error handling when an unauthorized user tries to fetch a secret.
+- DCOS-9794	- secrets CLI subcommand: bad error handling when an unauthorized user tries to fetch a secret. [enterprise type="inline" size="small" /]
 - DCOS-14469 - Pods displaying duplicate image of same container.
 - DCOS-14535 - Marathon GUI: Error Messages are Too Verbose.
-- DCOS-15902 - Add documentation for the dcos-backup CLI.
+- DCOS-15902 - Add documentation for the dcos-backup CLI. [enterprise type="inline" size="small" /]
 - DCOS-15937 - Pods do not receive SIGTERM.
 - DCOS-16088 - The flow for changing the dcos_url and login has changed.
 - DCOS-16144 - DC/OS CLI: AttributeError: 'str' object has no attribute 'status_code'.
@@ -160,23 +163,23 @@ Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinst
 - DCOS-16225 - Edit modal for SDK services should mention the CLI.
 - DCOS-16528 - Incorrect command in Edit Service modal.
 - DCOS-16564 - UI error message references Marathon command.
-- DCOS-16643 - dcos tunnel doesn't work with DC/OS CLI 0.5.x.
-- DCOS-16658 - Move "Secrets" back to "Resources" menu section.
+- DCOS-16643 - dcos tunnel doesn't work with DC/OS CLI 0.5.x. [enterprise type="inline" size="small" /]
+- DCOS-16658 - Move "Secrets" back to "Resources" menu section. [enterprise type="inline" size="small" /]
 - DCOS-17219 - Marathon-LB broken in DC/OS 1.10.
 - DCOS-17284 - [1.10] GUI bug: container type must be defined.
 - DCOS-17294 - Unable to curl (resolve) applications using Mesos DNS names.
 - DCOS-17321 - Fix upgrade of Marathon-lb from 1.9-1.10.
-- DCOS-17412 - bouncer: aces must be unique for [user,resource] and [group,resource].
-- DCOS-17430 - bouncer: policyquery is slow against cockroachdb.
-- DCOS-17473 - bouncer: stay close to official transaction retry logic.
+- DCOS-17412 - bouncer: aces must be unique for [user,resource] and [group,resource]. [enterprise type="inline" size="small" /]
+- DCOS-17430 - bouncer: policyquery is slow against cockroachdb. [enterprise type="inline" size="small" /]
+- DCOS-17473 - bouncer: stay close to official transaction retry logic. [enterprise type="inline" size="small" /]
 - DCOS-17502 - Marathon cannot retrieve JSON web key set: 'the trustAnchors parameter must be non-empty'.
 - DCOS-17511 - cockroachdb: upgrade to v1.0.4.
-- DCOS-17553 - dcos-backup should prevent concurrent backup/restores.
-- DCOS-17560 - bouncer: bump ldap3 to 2.2.4 (2017.05.07).
-- DCOS-17581 - bootstrap: consolidate write_java_truststore_with_dcos_ca_bundle for concurrent execution.
-- DCOS-17593 - bouncer: optimize policyquery endpoint.
-- DCOS-17631 - Bouncer: fix transaction retry rollback condition.
-- DCOS-17844 - 1.10 disabled->permissive upgrade fails due to node health checks when upgrading masters.
+- DCOS-17553 - dcos-backup should prevent concurrent backup/restores. [enterprise type="inline" size="small" /]
+- DCOS-17560 - bouncer: bump ldap3 to 2.2.4 (2017.05.07). [enterprise type="inline" size="small" /]
+- DCOS-17581 - bootstrap: consolidate write_java_truststore_with_dcos_ca_bundle for concurrent execution. [enterprise type="inline" size="small" /]
+- DCOS-17593 - bouncer: optimize policyquery endpoint. [enterprise type="inline" size="small" /]
+- DCOS-17631 - Bouncer: fix transaction retry rollback condition. [enterprise type="inline" size="small" /]
+- DCOS-17844 - 1.10 disabled->permissive upgrade fails due to node health checks when upgrading masters. [enterprise type="inline" size="small" /]
 - DCOS-17979 - Remove "Open Service" from UI for SDK-based Services.
 - DCOS-17982 - Remove the suspend button for SDK services.
 - DCOS_OSS-1014	- Admin Router: Document /service endpoint behaviour and limitations.
