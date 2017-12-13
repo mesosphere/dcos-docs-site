@@ -11,6 +11,10 @@ main(class='content')
         p(class='badge badge--content-header badge--enterprise') ENTERPRISE
       if beta
         p(class='badge badge--content-header badge--beta') BETA
+      if preview
+        p(class='badge badge--content-header badge--preview') PREVIEW
+      if experimental
+        p(class='badge badge--content-header badge--beta') EXPERIMENTAL
       h1(class='content__header-title')!= title
       if excerpt
         h4(class='content__header-description')!= excerpt
