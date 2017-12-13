@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
 excerpt:
-title: Install an OSS DC/OS cluster
-navigationTitle: Install
+title: Installing DC/OS Open Source
+navigationTitle: Installing DC/OS Open Source
 menuWeight: 1
+oss: true
 ---
 
 DC/OS can be installed on any cluster of physical or virtual machines.

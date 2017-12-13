@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.2
 title: Release Notes for 1.9.2
-menuWeight: 10
+menuWeight: 3
 excerpt:
 
 enterprise: true

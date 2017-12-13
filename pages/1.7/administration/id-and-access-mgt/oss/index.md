@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-title: Title
+title: Identity and Access Management in DC/OS Open Source
 excerpt:
-navigationTitle: Identity and Access Management in DC/OS Open Source
-menuWeight: 10 
+menuWeight: 10
+oss: true
 ---
 You can enable authentication in your datacenter with DC/OS [oauth](https://github.com/dcos/dcos-oauth). Authentication is managed through the DC/OS web interface. The Admin Router enforces access control.
 
@@ -17,4 +17,3 @@ DC/OS uses the JSON Web Token (JWT) format for its authentication tokens. JWT is
 DC/OS OAuth provides an HTTP API for managing local users in a RESTful fashion.
 
 ![Auth0 badge](/1.7/administration/id-and-access-mgt/oss/img/a0-badge-light.png)
-
