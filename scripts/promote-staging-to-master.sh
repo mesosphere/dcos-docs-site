@@ -10,10 +10,18 @@ git fetch origin
 
 scripts/validate-clean-workspace.sh
 
-echo "Checking out master branch..."
+echo "Pulling staging branch..."
+git checkout staging
+git pull
+
+echo "Pulling master branch..."
 git checkout master
-echo "Rebasing staging changes to master..."
+git pull
+
+echo "Rebasing staging changes to master branch..."
+# rebasing will fail if master has any commits that aren't in staging
 git pull --rebase origin staging
+
 echo "Pushing master branch..."
 git push
 

@@ -10,18 +10,27 @@ git fetch origin
 
 scripts/validate-clean-workspace.sh
 
-echo "Checking out develop branch..."
+echo "Pulling develop branch..."
 git checkout develop
-echo "Rebasing staging changes to develop..."
-git pull --rebase origin staging
-echo "Pushing develop branch..."
-git push --force
+git pull
 
-echo "Checking out staging branch..."
+echo "Pulling staging branch..."
 git checkout staging
-echo "Rebasing develop changes to staging..."
-git pull --rebase origin develop
+git pull
+
+echo "Merging develop changes to staging branch..."
+git merge develop --no-edit # use auto-generated merge commit message
+
 echo "Pushing staging branch..."
 git push
+
+echo "Checking out develop branch..."
+git checkout develop
+
+echo "Rebasing staging changes to develop..."
+git pull --rebase origin staging
+
+echo "Pushing develop branch..."
+git push --force # force required in case staging had new content commits (expected)
 
 echo "Promotion Complete!"
