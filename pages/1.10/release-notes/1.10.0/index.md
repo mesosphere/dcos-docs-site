@@ -44,9 +44,10 @@ Please try out the new features and updated data services. Provide any feedback 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
   Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/1.10/networking/edge-lb/).
 
-[!enterprise]
+[enterprise type="block" size="large"]
 ## Security
 [/ enterprise]
+
 - Custom CA certificate support.
   Installation time [configuration options](/1.10/networking/tls-ssl/ca-custom/) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
 
