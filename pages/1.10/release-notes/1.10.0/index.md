@@ -40,6 +40,7 @@ Please try out the new features and updated data services. Provide any feedback 
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
+
   Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/1.10/networking/edge-lb/).
 
 [enterprise type="block" size="large"]

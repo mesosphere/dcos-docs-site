@@ -54,12 +54,14 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
+
   Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/1.10/networking/edge-lb/).
 
-  [enterprise type="block" size="large"]
-  ## Security
-  [/ enterprise]
-- Custom CA certificate support.
+[enterprise type="block" size="large"]
+## Security
+[/ enterprise]
+
+  - Custom CA certificate support.
   Installation time [configuration options](/1.10/networking/tls-ssl/ca-custom/) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
 
 - Enhanced secrets management with file-based secrets.
@@ -132,6 +134,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
   The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md). <!-- linking to the marathon doc until I port the relevant information to the dc/os site -->
 
 - TLS 1.0 is no longer enabled by default in Admin Router. [enterprise type="inline" size="small" /]
+
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
 - Latest version of Marathon-LB is required for 1.10.0.

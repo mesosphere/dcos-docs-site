@@ -99,6 +99,7 @@ Please try out the new features and updated data services. Provide any feedback 
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
+  
   Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/1.10/networking/edge-lb/).
 
 [enterprise type="block" size="large"]
@@ -183,7 +184,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - TLS 1.0 is no longer enabled by default in Admin Router. [enterprise type="inline" size="small" /]
 
-  TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`. [enterprise type="inline" size="small" /]
+  TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
 - Latest version of Marathon-LB is required for DC/OS 1.10.0.
 
