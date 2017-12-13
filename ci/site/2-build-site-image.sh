@@ -35,3 +35,4 @@ docker tag ${IMAGE_NAME}:${TEMP_IMAGE_TAG} ${IMAGE_NAME}:${IMAGE_TAG}
 
 echo "Image Tag Success!"
 echo "Image: ${IMAGE_NAME}:${IMAGE_TAG}"
+echo "${IMAGE_NAME}:${IMAGE_TAG}" > ".site-image"
