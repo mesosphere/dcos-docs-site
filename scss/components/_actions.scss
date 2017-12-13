@@ -36,17 +36,14 @@
     display: none;
   }
   @include md {
-    &__text {
-      display: inline;
-      margin-left: 10px;
-    }
     &__list {
       justify-content: flex-start;
     }
   }
   @include lg {
     &__text {
-      margin-left: 5px;
+      display: inline;
+      margin-left: 10px;
     }
   }
   @include xl {
