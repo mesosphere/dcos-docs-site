@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 You can control DC/OS access by resource and operation.
-See [Permission Management](/1.11/security/ent/perms-management/) for details how to control permissions.
+See [Permission Management](/1.11/security/perms-management/) for details how to control permissions.
 
 This topic provides a reference for each of the available DC/OS permissions.
 
@@ -23,6 +23,7 @@ The DC/OS permissions are enforced based on your security mode.
 | [Mesos permissions](#mesos) (`dcos:mesos`)                    |          |            |    x   |
 | [Marathon and Metronome permissions](#marathon-metronome) (`dcos:service`) |          |      x     |    x   |
 | [Secret store permissions](#secrets) (`dcos:secrets`)           |     x    |      x     |    x   |
+| [Cluster linker permissions](#cluster-linker) (`dcos:cluster:linker`)  | x  | x  | x  |
 | [Superuser permissions](#superuser) (`dcos:superuser`)            |     x    |      x     |    x   |
 
 # Permissions
@@ -36,8 +37,8 @@ By convention, `full` indicates that the permission supports all other action id
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                         | x    |   |   |   |   |
-| `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/1.11/networking/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/).                               | x    |   |   |   |   |
-| `dcos:adminrouter:ops:ca:rw`<br>Controls user access to all endpoints of the [Certificate Authority API](/1.11/networking/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/).                                    | x    |   |   |   |   |
+| `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/1.11/networking/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                               | x    |   |   |   |   |
+| `dcos:adminrouter:ops:ca:rw`<br>Controls user access to all endpoints of the [Certificate Authority API](/1.11/networking/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                                    | x    |   |   |   |   |
 | `dcos:adminrouter:ops:exhibitor`<br> Controls access to the Exhibitor UI and API. This permission allows users to [remove the ZooKeeper state](/1.11/deploying-services/uninstall/#framework-cleaner) after uninstalling a service.                                                | x    |   |   |   |   |
 | `dcos:adminrouter:ops:historyservice`<br>Controls access to the [History Service](/1.11/overview/architecture/components/#dcos-history).                                                                                                                                           | x    |   |   |   |   |
 | `dcos:adminrouter:ops:mesos-dns`<br> Controls access to the [Mesos DNS API](/1.11/networking/mesos-dns/mesos-dns-api/).                                                                                                                                                           | x    |   |   |   |   |
@@ -49,7 +50,7 @@ By convention, `full` indicates that the permission supports all other action id
 | `dcos:adminrouter:ops:system-logs` <br>Controls access to [System logs API](/1.11/api/master-routes/#system).                                                                                                                                                                      | x    |   |   |   |   |
 | `dcos:adminrouter:ops:system-metrics`<br> Controls access to [System metrics API](/1.11/api/master-routes/#system).                                                                                                                                                                | x    |   |   |   |   |
 | `dcos:adminrouter:package` <br> Controls access to the [Cosmos API](/1.11/api/master-routes/#cosmos), which provides access to the DC/OS Universe.                                                                                                                                 | x    |   |   |   |   |
-| `dcos:adminrouter:service[:<gid>]:<service-name>`<br> Controls access the UI and API of an installed DC/OS service.                                                                                                                                                                       | x    |   |   |   |   |
+| `dcos:adminrouter:service[:<group-name>]:<service-name>`<br> Controls access the UI and API of an installed DC/OS service.                                                                                                                                                                       | x    |   |   |   |   |
 | `dcos:adminrouter:service:marathon` <br>Controls access to the native Marathon instance.                                                                                                                                                                                          | x    |   |   |   |   |
 | `dcos:adminrouter:service:metronome`<br>  Controls access to [DC/OS Jobs (Metronome)](/1.11/deploying-jobs/).                                                                                                                                                                      | x    |   |   |   |   |
 
@@ -99,8 +100,16 @@ By convention, `full` indicates that the permission supports all other action id
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:secrets:default:[<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.11/security/ent/secrets/).                                                                                                                                                           | x    | x | x | x | x |
-| `dcos:secrets:list:default:/[<path>]`<br> Controls view access to the names of [secrets](/1.11/security/ent/secrets/).                                                                                                                                                                 |      |   | x |   |   |
+| `dcos:secrets:default:[<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.11/security/secrets/).                                                                                                                                                           | x    | x | x | x | x |
+| `dcos:secrets:list:default:/[<path>]`<br> Controls view access to the names of [secrets](/1.11/security/secrets/).                                                                                                                                                                 |      |   | x |   |   |
+
+## <a name="cluster-linker"></a> Cluster Linker Permissions
+
+|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
+| `dcos:cluster:linker:<cluster-id>`<br> Controls access to individual [cluster links](/1.11/administering-clusters/multiple-clusters/cluster-links/).                                                                                                                                                           |     |  | x |  | |
+| `dcos:cluster:linker:*`<br> Controls access to [cluster links](/1.11/administering-clusters/multiple-clusters/cluster-links/).                                                                                                                                                                 |      |  x | x | x | x  |
+
 
 ## <a name="superuser"></a>Superuser Permissions
 

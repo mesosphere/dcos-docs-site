@@ -12,20 +12,20 @@ enterprise: false
 
 
 # Description
-Rename a cluster in the DC/OS CLI.
+Rename a cluster.
 
 # Usage
 
 ```bash
-dcos cluster rename <name> <new_name>
+dcos cluster rename <name> <new-name>
 ```
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<name>`   |             | DC/OS cluster name. |
-| `<new_name>`   |             | New DC/OS cluster name. |
+| `<name>`   |             | Name of connected cluster. |
+| `<new-name>`   |             | New name of connected cluster. |
 
 # Parent command
 
@@ -34,4 +34,4 @@ dcos cluster rename <name> <new_name>
 | [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters. |
 
 # Examples
-For examples, see the [Connecting to Multiple Clusters](/1.11/cli/multi-cluster-cli/) documentation.
+For examples, see [Cluster Connections](/1.11/administering-clusters/multiple-clusters/cluster-connections/).
