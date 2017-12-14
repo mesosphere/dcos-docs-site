@@ -1,0 +1,166 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: 'DC/OS Licensing Component'
+schemes:
+  - https
+basePath: '/licensing/v1'
+paths:
+  /ping:
+    get:
+      summary: Return 'pong' if service is up.
+      description: Return 'pong' if service is up.
+      responses:
+        200:
+          description: Response body contains pong response.
+        503:
+          description: Service Unavailable.
+  /version:
+    get:
+      summary: Return service version.
+      description: Return service version.
+      responses:
+        200:
+          description: Response body contains service version.
+        503:
+          description: Service Unavailable.
+  /license/{id}:
+    get:
+      summary: Read a license document by id.
+      description: Read a license document by id.
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: The license id.
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Response body contains license document corresponding to the path id.
+          schema:
+            $ref: "#/definitions/License"
+        403:
+          description: Forbidden.
+        404:
+          description: License not found.
+  /license:
+    get:
+      summary: Read active license document.
+      description: Read active license document.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Response body contains license document.
+          schema:
+            $ref: "#/definitions/License"
+        403:
+          description: Forbidden.
+    patch:
+      summary: Update license.
+      description: Update active license.
+      consumes:
+        - application/octet-stream
+      parameters:
+        - name: License document.
+          description: License base64 encoded encrypted document.
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/License"
+      responses:
+        204:
+          description: License updated.
+        403:
+          description: Forbidden.
+  /license/events:
+    get:
+      summary: Returns summary of licensing events.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: License events summary.
+          schema:
+            $ref: "#/definitions/Events"
+  /license/audit:
+    get:
+      summary: Get audit data archive tar file.
+      produces:
+        - application/gzip
+      responses:
+        200:
+          description: Response contains all history of license data.
+  /license/audit/{id}:
+    get:
+      summary: Get license audit file by Id.
+      produces:
+        - application/json
+      parameters: 
+        - name: id
+          description: The license id.
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Response contains all license data by id.
+      
+definitions:
+  License:
+    type: object
+    properties:
+      uuid:
+        type: string
+        description: License unique Id.
+      version:
+        type: string
+        description: License version.
+      license_terms:
+        type: object
+        properties:
+          node_capacity:
+            type: integer
+            description: Maximum number of nodes allowed.
+          end_date:
+            type: string
+            format: date
+            description: License expiraton date.
+          start_date:
+            type: string
+            format: date
+            description: License start date.
+      decryption_key:
+        type: string
+        format: base64
+        description: License audit data checksum decryption key.
+    additionalProperties: false
+  Events:
+    type: object
+    properties:
+      uuid:
+        type: string
+        description: Active license uuid.
+      number_of_breaches:
+        type: integer
+        description: Number of breach of license terms.
+      number_of_nodes:
+        type: integer
+        description: Current number of nodes.
+      node_capacity:
+        type: integer
+        description: Maximum number of nodes allowed.
+      end_date:
+        type: string
+        format: date
+        description: License expiraton date.
+      start_date:
+        type: string
+        format: date
+        description: License start date.
+      timestamp:
+        type: string
+        format: date-time
+        description: Server response timestamp.
