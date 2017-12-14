@@ -71,10 +71,10 @@ Your cluster must meet the software and hardware [requirements][1].
     Specify a comma-separated list of your internal static master IP addresses.
     
     #### Agent Private IP List
-    Specify a comma-separated list of your internal static [private agent](/1.9/overview/concepts/#private) private IP addresses.
+    Specify a comma-separated list of your internal static [private agent](/1.9/overview/concepts/#private-agent-node) private IP addresses.
     
     #### Agent Public IP List
-    Specify a comma-separated list of your internal static [public agent](/1.9/overview/concepts/#public) private IP addresses.
+    Specify a comma-separated list of your internal static [public agent](/1.9/overview/concepts/#public-agent-node) private IP addresses.
     
     #### Master Public IP
     Specify a publicly accessible proxy IP address to one of your master nodes. If you don't have a proxy or already have access to the network where you are deploying this cluster, you can use one of the master IP's that you specified in the master list. This proxy IP address is used to access the DC/OS web interface on the master node after DC/OS is installed.

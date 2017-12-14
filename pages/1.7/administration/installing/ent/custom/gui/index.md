@@ -57,7 +57,7 @@ The DC/OS installation creates these folders:
     
 Before installing DC/OS, your cluster must have the software and hardware [requirements][1].
     
-**Important:** You cannot create a [public](/1.7/overview/concepts/#public) agent by using the GUI installer. If you are using the GUI installer, you must create a public agent [post-installation](/1.7/administration/installing/ent/custom/create-public-agent/). 
+**Important:** You cannot create a [public](/1.7/overview/concepts/#public-agent-node) agent by using the GUI installer. If you are using the GUI installer, you must create a public agent [post-installation](/1.7/administration/installing/ent/custom/create-public-agent/). 
 
 # Install DC/OS
 

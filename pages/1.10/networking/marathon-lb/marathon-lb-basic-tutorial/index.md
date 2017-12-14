@@ -18,7 +18,7 @@ This tutorial shows you how to use Marathon-LB to run a containerized DC/OS serv
 In this tutorial, Marathon-LB is used as the edge load balancer and service discovery mechanism. Marathon-LB is run on a public-facing node to route ingress traffic. 
 
 ### Prerequisites
-- [A DC/OS cluster](/1.10/installing/oss/) with at least one [private](/1.10/overview/concepts/#private) agent and one [public](/1.10/overview/concepts/#public-agent-node) agent.
+- [A DC/OS cluster](/1.10/installing/oss/) with at least one [private](/1.10/overview/concepts/#private-agent-node) agent and one [public](/1.10/overview/concepts/#public-agent-node) agent.
 - [DC/OS CLI](/1.10/cli/install/) is installed.
 - Marathon-LB [installed](/1.10/networking/marathon-lb/usage-ent/).
 

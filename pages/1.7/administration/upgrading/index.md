@@ -132,13 +132,13 @@ Proceed with upgrading every master node using the following procedure. When you
 
 1.  Install DC/OS 1.7:
 
-    -  [Private](/1.7/overview/concepts/#private) agents (default)
+    -  [Private](/1.7/overview/concepts/#private-agent-node) agents (default)
 
        ```
        sudo bash dcos_install.sh -d slave
        ```
 
-    -  [Public](/1.7/overview/concepts/#public) Agents
+    -  [Public](/1.7/overview/concepts/#public-agent-node) Agents
 
        ```
        sudo bash dcos_install.sh -d slave_public

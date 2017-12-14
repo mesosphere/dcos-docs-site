@@ -15,7 +15,7 @@ After you have installed DC/OS with a public agent node declared, you can naviga
 
 **Prerequisites**
 
-- DC/OS is installed with at least 1 master and [public agent](/1.8/overview/concepts/#public) node
+- DC/OS is installed with at least 1 master and [public agent](/1.8/overview/concepts/#public-agent-node) node
 - DC/OS [CLI](/1.8/usage/cli/) 0.4.6 or later
 - [jq](https://github.com/stedolan/jq/wiki/Installation)
 - [SSH](/1.8/administration/access-node/sshcluster/) configured
