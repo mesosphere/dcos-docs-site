@@ -349,7 +349,7 @@ For more information, see the [documentation](/service-docs/spark/).
 - DCOS-8536 - DC/OS does not currently prevent the deletion of the last user with the `dcos: superuser` permission. (Enterprise Only)
 - DCOS-8768 - The self-signed certificates used by DC/OS Enterprise to achieve TLS encryption do not include the host name. As a result, you cannot use the `--cacert` option in curl commands and instead must use the `-k` flag. (Enterprise Only)
 - DCOS-9029- Enterprise based security-enabled CLI is coming soon. (Enterprise Only)
-- DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-discovery/marathon-lb/usage-ee/).
+- DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](/1.8/usage/service-discovery/marathon-lb/usage-ee/).
 - DCOS-7872 - The Secret Store may unexpectedly become sealed. (Enterprise Only)
  - DCOS-9048 - The Secrets Store may fail to initialize. To resolve this issue, SSH into the master and issue the following command to restart the services: `sudo systemctl restart dcos-vault dcos-secrets`. (Enterprise Only)
 - DCOS-8214 – In multi-master configurations, only one Secrets Store will initialize. (Enterprise Only)
@@ -484,6 +484,6 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
  - DCOS-8536 - DC/OS does not currently prevent the deletion of the last user with the `dcos: superuser` permission. (Enterprise Only)
  - DCOS-8768 - The self-signed certificates used by DC/OS Enterprise to achieve TLS encryption do not include the host name. As a result, you cannot use the `--cacert` option in curl commands and instead must use the `-k` flag. (Enterprise Only)
  - DCOS-9029- Enterprise based security-enabled CLI is coming soon. (Enterprise Only)
- - DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-discovery/marathon-lb/usage-ee/).
+ - DCOS-9090 Marathon-LB does not install with default options on an auth-enabled DC/OS cluster. For a workaround, see the [documentation](/1.8/usage/service-discovery/marathon-lb/usage-ee/).
  - DCOS-7872 - The Secret Store may unexpectedly become sealed. (Enterprise Only)
 - DCOS-9048 - The Secrets Store may fail to initialize. To resolve this issue, SSH into the master and issue the following command to restart the services: `sudo systemctl restart dcos-vault dcos-secrets`. (Enterprise Only)

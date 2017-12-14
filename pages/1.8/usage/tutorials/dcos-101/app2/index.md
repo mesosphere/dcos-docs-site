@@ -31,7 +31,7 @@ We want to deploy this app natively, i.e., not relying on Docker (which is third
        * `curl dcos-101app2.marathon.l4lb.thisdcos.directory:10000`
        This should return you raw html code from app2's webserver.
   * Make app2 available to the public
-    * Curling the app from within the cluster and viewing the raw html is a nice thing (more or less), but in reality, we want to expose the app to the public. DC/OS has two different [node types](https://docs.mesosphere.com/1.8/overview/concepts/#dcos-agent-node): private and public. Private agent nodes (usually) do not have access from outside of the cluster, while public agent nodes allow for access from outside the cluster.
+    * Curling the app from within the cluster and viewing the raw html is a nice thing (more or less), but in reality, we want to expose the app to the public. DC/OS has two different [node types](/1.8/overview/concepts/#dcos-agent-node): private and public. Private agent nodes (usually) do not have access from outside of the cluster, while public agent nodes allow for access from outside the cluster.
     * By default, Marathon will start applications and services on private agent nodes, which prevents them from being accessed from outside the cluster. To expose an app to the outside we usually use a load balancer running on one of the public nodes. We will revisit the topic of load balancing (and load balancer options) later in this tutorial, but for now, we choose Marathon-LB as our load-balancer.
       * Install marathon-lb: `dcos package install marathon-lb`
       * Check that it is running: `dcos task` and identify the IP adress of the public agent node (Host) where marathon-lb is running on.

@@ -39,4 +39,4 @@ In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from 
 
 ## Connecting clients to endpoints
 
-Refer to [the "Connecting Clients" documentation](https://docs.mesosphere.com/service-docs/), if available, for the DC/OS service you are running.
+Refer to [the "Connecting Clients" documentation](/service-docs/), if available, for the DC/OS service you are running.

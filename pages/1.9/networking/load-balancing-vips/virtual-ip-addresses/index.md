@@ -75,7 +75,7 @@ Follow these steps to view the VIP for Kafka.
 
 ### Via the CLI
 
-**Prerequisite:** The Kafka service and CLI must be [installed](https://docs.mesosphere.com/service-docs/kafka/). 
+**Prerequisite:** The Kafka service and CLI must be [installed](/service-docs/kafka/). 
 
 1.  Run this command: 
 
