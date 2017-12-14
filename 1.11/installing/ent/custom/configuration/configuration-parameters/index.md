@@ -24,19 +24,20 @@ This topic provides all available configuration parameters. Except where explici
 | aws_template_storage_region_name           | The region containing the S3 bucket.  |
 | aws_template_storage_secret_access_key     | The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
 | aws_template_upload                        | Whether to upload the customized advanced AWS templates to an S3 bucket. |
-| [bootstrap_url](#bootstrap_url)                                       | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files. |
-| [cluster_docker_credentials](#cluster_docker_credentials)             | The dictionary of Docker credentials to pass. |
-| [cluster_docker_credentials_enabled](#cluster_docker_credentials_enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
-| [cluster_docker_registry_url](#cluster_docker_registry_url)           | The custom URL that Mesos uses to pull Docker images from. |
-| [cluster_name](#cluster_name)                                         | The name of your cluster. |
-| [cosmos_config](#cosmos_config)                                       | The dictionary of packaging configuration to pass to the [DC/OS Package Manager (Cosmos)](https://github.com/dcos/cosmos). |
-| [custom_checks](#custom_checks)                                       | Custom installation checks that are added to the default check configuration process. |
-| [exhibitor_storage_backend](#exhibitor_storage_backend)               | The type of storage backend to use for Exhibitor. |
-| [enable_gpu_isolation](#enable_gpu_isolation)                         | Indicates whether to enable GPU support in DC/OS.  |
-| [gpus_are_scarce](#gpus_are_scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
-| [ip_detect_public_filename](#ip_detect_public_filename)               | The IP detect file to use in your cluster.  |
-| [master_discovery](#master_discovery)                                 | (Required) The Mesos master discovery method.         |
-| [mesos_container_log_sink](#mesos_container_log_sink)                 | The log manager for containers (tasks). |
+| [bootstrap_url](#bootstrap-url)                                       | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files. |
+| [cluster_docker_credentials](#cluster-docker-credentials)             | The dictionary of Docker credentials to pass. |
+| [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
+| [cluster_docker_registry_url](#cluster-docker-registry-url)           | The custom URL that Mesos uses to pull Docker images from. |
+| [cluster_name](#cluster-name)                                         | The name of your cluster. |
+| [cosmos_config](#cosmos-config)                                       | The dictionary of packaging configuration to pass to the [DC/OS Package Manager (Cosmos)](https://github.com/dcos/cosmos). |
+| [custom_checks](#custom-checks)                                       | Custom installation checks that are added to the default check configuration process. |
+| [dcos_license](#dcos-license-enterprise-dcos-only)                    | (Enterprise DC/OS Only) The DC/OS Enterprise license.  |
+| [exhibitor_storage_backend](#exhibitor-storage-backend)               | The type of storage backend to use for Exhibitor. |
+| [enable_gpu_isolation](#enable-gpu-isolation)                         | Indicates whether to enable GPU support in DC/OS.  |
+| [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
+| [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
+| [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
+| [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public_agent_list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.  |
 | [rexray_config](#rexray_config)                                       | The [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) configuration method for enabling external persistent volumes in Marathon. You cannot specify both `rexray_config` and `rexray_config_preset`.|
@@ -221,6 +222,20 @@ Custom installation checks that are added to the default check configuration pro
     - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`.
 
 For more information on how these custom checks are used, see the [examples](/1.11/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.11/installing/ent/custom/node-cluster-health-check/) documentation.
+
+
+### dcos_license (Enterprise DC/OS Only)
+(Required) The DC/OS Enterprise license. Licenses are delivered via email to the Authorized Support Contact.
+
+The `dcos_license` field is a base64 encoded JSON string, composed of the following subfields:
+
+- A globally unique [customer key](#customer_key)
+- A private key used by the DC/OS licensing component to sign audit data.
+- A public key used to decrypt the audit data.
+- The terms of the license:
+  - The maximum number of nodes allowed to be connected at any time.
+  - The start and end dates of the license.
+
 
 ### dcos_audit_logging (DC/OS Enterprise Only)
 
