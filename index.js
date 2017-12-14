@@ -27,6 +27,7 @@ const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-r
 const shortcodesConfig = require('./shortcodes');
 
 // Environment Variables
+const GIT_BRANCH = process.env.GIT_BRANCH;
 const ALGOLIA_UPDATE = process.env.ALGOLIA_UPDATE;
 const ALGOLIA_PROJECT_ID = process.env.ALGOLIA_PROJECT_ID;
 const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
@@ -37,6 +38,10 @@ const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 //
 // Errors
 //
+
+if(!process.env.GIT_BRANCH && process.env.NODE_ENV != "dev") {
+  throw new Error('Env var GIT_BRANCH has not been set.');
+}
 
 if(ALGOLIA_UPDATE == "true") {
   if(process.env.NODE_ENV == "pdf") {
@@ -72,6 +77,7 @@ MS.metadata({
   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
   copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
+  gitBranch: process.env.GIT_BRANCH,
 })
 
 // Source
