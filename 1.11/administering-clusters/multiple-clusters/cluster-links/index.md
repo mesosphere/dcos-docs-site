@@ -29,6 +29,7 @@ As superuser:
     3. Click **Add Permission**.
     4. In the top right, click **Insert Permission String**.
     5. Paste in the permissions:
+
         ```
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
@@ -36,6 +37,7 @@ As superuser:
         dcos:service:marathon:marathon:services:/ full
         dcos:cluster:linker:* read
         ```
+
     6. Click **Add Permission**.
 
 # Add a link to a cluster
@@ -80,15 +82,15 @@ If you run `dcos cluster list`, `<linked-cluster-name>` will have an asterisk by
 
 1.  At the top-left corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/docs/1.11/img/open-cluster-popup.png)
+    ![open cluster popup](/1.11/img/open-cluster-popup.png)
 
 1.  Select **Switch Cluster**.
 
-    ![switch cluster](/docs/1.11/img/switch-cluster.png)
+    ![switch cluster](/1.11/img/switch-cluster.png)
 
 1. Click the name of the cluster to switch to.
 
-    ![switch linked cluster](/docs/1.11/img/switch-linked-cluster.png)
+    ![switch linked cluster](/1.11/img/switch-linked-cluster.png)
 
 If you are superuser you can also switch to a linked cluster in the Linked Clusters tab.
 
@@ -96,8 +98,8 @@ If you are superuser you can also switch to a linked cluster in the Linked Clust
     
 1. At the far right of the cluster to switch to, click the vertical ellipsis and select **Switch**.
 
-   ![switch linked cluster2](/docs/1.11/img/switch-linked-cluster2.png)
-   
+   ![switch linked cluster2](/1.11/img/switch-linked-cluster2.png)
+
 
 
 # Linking and switching cluster examples
@@ -206,13 +208,7 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
    ![switch cluster](/1.11/img/switch-cluster.png)
 
-1. Click **Switch Cluster**. In the Linked Clusters pane, select cluster `cluster-b`.
-
-    ![Launch stack](/1.11/img/choose-cluster.png)
-
-    Cluster `cluster-b`’s UI displays.
-
-    ![Launch stack](/1.11/img/linked-cluster.png)
+1. Click **Switch Cluster**. In the Linked Clusters pane, select cluster `cluster-b`. Cluster `cluster-b`’s UI displays.
 
 
 ### Switch clusters using the CLI with Google SSO
