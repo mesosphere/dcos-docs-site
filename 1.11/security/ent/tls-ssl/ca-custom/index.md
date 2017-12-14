@@ -16,7 +16,7 @@ The benefits of using a custom CA certificate for your DC/OS Enterprise cluster 
 - Controlling security properties of the key pair (such as type and strength) used for signing DC/OS component certificates.
 - Ensuring that all DC/OS components (including Admin Router) present browser-trusted certificates.
 
-Custom CA certificate support is enabled by three install time [configuration parameters](/1.11/installing/ent/custom/configuration/configuration-parameters/#ca_certificate_path-enterprise-dcos-only):
+Custom CA certificate support is enabled by three install time [configuration parameters](/1.11/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise-dcos-only):
 
 - `ca_certificate_path`
 - `ca_certificate_key_path`

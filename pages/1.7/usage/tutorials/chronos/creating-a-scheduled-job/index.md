@@ -40,7 +40,7 @@ We're going to create a job that runs every 10 seconds and prints the current da
     * OWNER(S): Enter your email address.
     * SCHEDULE: Enter "T10S" in the "P" field
 
-    Chronos uses ISO 8601 Interval Notation to describe job schedules. "T10S" means run this job every 10 seconds. For details, see the [ISO 8601 Wikipedia article](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals).
+    Chronos uses ISO 8601 Interval Notation to describe job schedules. "T10S" means run this job every 10 seconds. For details, see the [ISO 8601 Wikipedia article](https://en.wikipedia.org/wiki/ISO_8601#Time-intervals).
 
     Click the **Create** button at the top to submit the job to Chronos.
 

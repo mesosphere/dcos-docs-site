@@ -172,7 +172,7 @@ For more information, see the [documentation](/1.9/installing/upgrading/).
 - DCOS_OSS-796 - Navstar unhealthy in 1000 node cluster.
 - DCOS_OSS-804 - Log messages do not contain the originating module or function name.
 - DCOS_OSS-812 - Minuteman crashes for non-TCP protocol.
-- DCOS_OSS-876 - Unable to designate whether GPUs (or any other type of resource) should be considered a "scarce" resource in their cluster or not. For more information, see the [`gpus_are_scarce` parameter for config.yaml](/1.9/installing/custom/configuration/configuration-parameters/#gpus_are_scarce).
+- DCOS_OSS-876 - Unable to designate whether GPUs (or any other type of resource) should be considered a "scarce" resource in their cluster or not. For more information, see the [`gpus_are_scarce` parameter for config.yaml](/1.9/installing/custom/configuration/configuration-parameters/#gpus-are-scarce).
 - DCOS_OSS-947 - When upgrading from 1.8 to 1.9, `/etc/profile.d/dcos.sh` symlink is not updated.
 - DCOS_OSS-1064 - Unable to configure Exhibitor to use HTTP basic auth.
 - DCOS_OSS-1102 - `dcos-signal` sends the packaging version of installed package rather than packaging version.
