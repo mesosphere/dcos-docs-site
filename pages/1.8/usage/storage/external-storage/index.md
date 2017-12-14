@@ -4,7 +4,7 @@ navigationTitle:  External Persistent Volumes
 title: External Persistent Volumes
 menuWeight: 1
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

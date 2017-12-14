@@ -4,7 +4,7 @@ navigationTitle:  Installing Using a Custom AMI
 title: Installing Using a Custom AMI
 menuWeight: 101
 excerpt:
-beta: true
+preview: true
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Deploying a local Universe
 excerpt:
 title: Deploying a local Universe
 menuWeight: 1000
-beta: true
+preview: true
 ---
 
 

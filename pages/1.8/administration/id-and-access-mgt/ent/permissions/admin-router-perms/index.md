@@ -8,7 +8,7 @@ excerpt: >
   the Admin Router enforces. Admin Router
   enforces these permissions in all
   security modes.
-beta: true
+preview: true
 enterprise: true
 ---
 

@@ -11,7 +11,7 @@ excerpt: >
   using either the Secrets API or
   DC/OS Enterprise CLI. The Secret Store
   enforces these in all security modes.
-beta: true
+preview: true
 enterprise: true
 ---
 

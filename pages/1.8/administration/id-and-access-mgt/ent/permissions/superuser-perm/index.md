@@ -8,7 +8,7 @@ excerpt: >
   permission, which is available in all
   security modes and gives a user full
   rights all across the DC/OS cluster.
-beta: true
+preview: true
 enterprise: true
 ---
 

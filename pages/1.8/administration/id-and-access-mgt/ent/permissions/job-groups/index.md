@@ -4,7 +4,7 @@ navigationTitle:  Controlling user access to jobs
 title: Controlling user access to jobs
 menuWeight: 200
 excerpt: "Learn how to achieve fine-grained control over a user's access to jobs using either the DC/OS web interface or the API."
-beta: true
+preview: true
 enterprise: true
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Deploying Jobs
 title: Deploying Jobs
 menuWeight: 120
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

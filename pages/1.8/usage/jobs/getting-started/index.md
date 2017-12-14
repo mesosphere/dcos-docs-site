@@ -4,7 +4,7 @@ navigationTitle:  Getting Started
 title: Getting Started
 menuWeight: 10
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

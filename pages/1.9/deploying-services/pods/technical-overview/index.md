@@ -4,7 +4,7 @@ navigationTitle:  Technical Overview
 title: Technical Overview
 menuWeight: 10
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

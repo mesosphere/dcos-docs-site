@@ -4,7 +4,7 @@ navigationTitle:  Logging API Examples
 title: Logging API Examples
 menuWeight: 4
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

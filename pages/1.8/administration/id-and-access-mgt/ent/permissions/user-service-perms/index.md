@@ -10,7 +10,7 @@ excerpt: >
   services and jobs. These permissions are
   only enforced in permissive and strict
   security modes.
-beta: true
+preview: true
 enterprise: true
 ---
 

@@ -5,6 +5,7 @@ title: Deploying a Local Universe
 menuWeight: 1000
 excerpt:
 enterprise: false
+preview: true
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Multiple Zones
 excerpt:
 title: Multiple Zones
-beta: true
+preview: true
 menuWeight: 1
 ---
 

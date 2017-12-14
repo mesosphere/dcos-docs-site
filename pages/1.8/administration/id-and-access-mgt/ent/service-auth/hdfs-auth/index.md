@@ -6,7 +6,7 @@ menuWeight: 500
 excerpt: >
   This topic describes when and how to
   provision HDFS with a service account.
-beta: true
+preview: true
 enterprise: true
 ---
 

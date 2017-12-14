@@ -4,7 +4,7 @@ navigationTitle:  Universal Container Runtime (UCR)
 title: Universal Container Runtime (UCR)
 menuWeight: 20
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

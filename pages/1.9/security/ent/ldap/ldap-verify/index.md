@@ -7,7 +7,7 @@ excerpt: >
   Lastly, verify that the parameters you
   provided allow DC/OS to connect the LDAP
   server.
-beta: true
+preview: true
 enterprise: true
 ---
 

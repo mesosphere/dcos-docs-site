@@ -4,7 +4,7 @@ navigationTitle:  Creating Jobs
 title: Creating Jobs
 menuWeight: 10
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

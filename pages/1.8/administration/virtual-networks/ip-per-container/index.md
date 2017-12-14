@@ -6,7 +6,7 @@ title: >
   Networks
 menuWeight: 10
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

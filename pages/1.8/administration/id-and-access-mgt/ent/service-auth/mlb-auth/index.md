@@ -7,7 +7,7 @@ excerpt: >
   This topic describes when and how to
   provision Marathon-LB with a service
   account.
-beta: true
+preview: true
 enterprise: true
 ---
 

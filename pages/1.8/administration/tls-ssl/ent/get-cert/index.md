@@ -10,7 +10,7 @@ excerpt: >
   communicate with your DC/OS cluster and
   not another party, obtain the root
   certificate of your DC/OS CA.
-beta: true
+preview: true
 enterprise: true
 ---
 

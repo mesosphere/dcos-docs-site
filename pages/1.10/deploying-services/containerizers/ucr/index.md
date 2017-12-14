@@ -4,7 +4,7 @@ navigationTitle:  Universal Container Runtime
 title: Universal Container Runtime
 menuWeight: 10
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

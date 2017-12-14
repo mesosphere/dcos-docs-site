@@ -12,7 +12,7 @@ excerpt: >
   brief procedure to ensure that the DC/OS
   CLI trusts only your DC/OS CA and
   refuses connections with other parties.
-beta: true
+preview: true
 enterprise: true
 ---
 

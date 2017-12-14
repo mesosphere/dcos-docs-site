@@ -4,7 +4,7 @@ navigationTitle:  Creating secrets
 title: Creating secrets
 menuWeight: 0
 excerpt:
-beta: true
+preview: true
 enterprise: true
 ---
 
