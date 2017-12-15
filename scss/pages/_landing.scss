@@ -6,8 +6,9 @@
     height: 250px;
     padding: 0 1rem;
     background: #131626 url('/assets/k8-hero.png') no-repeat;
-    background-position: bottom;
+    // background-position: 80px bottom;
     background-size: cover;
+    background-position: 50% 70%;
   }
   &__title {
     font-size: 40px;
@@ -33,7 +34,7 @@
       transform: translateY(-50%);
       border: none;
       background: transparent;
-      color: $color-light !important;
+      color: $color-purple-light !important;
       cursor: pointer;
       svg {
         stroke-width: 3px;
@@ -231,6 +232,11 @@
       margin-top: 0;
     }
   }
+  @include sm {
+    &__hero {
+      background-position: 70px 55%;
+    }
+  }
   @include pre-md {
     &__container {
       padding: 4rem 2rem 0 2rem;
@@ -292,6 +298,9 @@
     }
   }
   @include lg {
+    &__hero {
+      background-position: 75px 75%;
+    }
     &__title {
       font-size: 60px;
     }

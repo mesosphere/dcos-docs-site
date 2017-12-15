@@ -4,6 +4,8 @@
 
 FROM node:8.1.2-slim as ms-pdf-builder
 
+ARG git_branch
+
 RUN apt-get update -qq
 RUN apt-get install -y build-essential
 RUN apt-get install -y ghostscript
@@ -16,7 +18,10 @@ RUN npm install
 
 RUN make build-swagger
 RUN make build-ngindox
-RUN npm run build-pdf
+
+RUN \
+GIT_BRANCH=$git_branch \
+npm run build-pdf
 
 #
 # Build PDF

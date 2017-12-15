@@ -1,4 +1,4 @@
-.search {
+  .search {
   width: 100%;
   max-width: 800px;
   margin: calc(4rem + 80px) auto 0;
@@ -34,8 +34,7 @@
     }
   }
   &__filters {
-    margin-top: 1.5rem;
-    // TODO: Waiting on pull request to fix cssClasses in instantsearch.js
+    margin-top: 1.5rem; // TODO: Waiting on pull request to fix cssClasses in instantsearch.js
   }
   &__filter {
     width: 100%;
@@ -48,6 +47,7 @@
       padding: 5px;
       padding-right: 20px;
       color: $color-grey;
+      background: transparent;
       border: none;
       appearance: none;
       &:focus {
@@ -61,9 +61,9 @@
       content: '\25BC';
       position: absolute;
       top: 0;
-      right: 5px;
+      right: 10px;
       bottom: 0;
-      width: 10px;
+      width: 5px;
       height: 100%;
       font-size: 12px;
       color: $color-grey;
@@ -72,7 +72,7 @@
     }
   }
   &__results {
-    margin-top: 4rem;
+    margin-top: 3rem;
     & em {
       /*
       padding: 0.1rem 0.3rem;
@@ -89,7 +89,12 @@
       padding: 0;
     }
     &-item {
-      margin-top: 2rem;
+      margin-top: 1rem;
+      a {
+        word-wrap: break-word;
+      }
+    }
+    .ais-hits--item {
       &:last-child {
         margin-bottom: 2rem;
       }
@@ -134,28 +139,17 @@
       }
     }
   }
-
   @include md {
     &__filter {
-      width: 33.33%;
+      width: auto;
       padding: 0 10px;
+      margin-right: 10px;
       &:after {
-        padding: 0;
-        right: 15px;
+        right: 35px;
       }
-      &:nth-of-type(1) {
-        padding: 0;
-        padding-right: 10px;
-      }
-      &:nth-last-of-type(1) {
-        padding: 0;
-        padding-left: 10px;
-        &:after {
-          padding: 0;
-          right: 5px;
-        }
+      & select {
+        width: auto;
       }
     }
   }
-
 }

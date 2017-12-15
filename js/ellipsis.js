@@ -1,6 +1,5 @@
 function checkOverflow(el) {
   const isOverflowing = el.offsetWidth < el.scrollWidth || el.offsetHeight < el.scrollHeight;
-
   return isOverflowing;
 }
 
