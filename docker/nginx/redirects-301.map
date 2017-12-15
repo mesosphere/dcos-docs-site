@@ -27,7 +27,7 @@
 /docs/1.10/administration/id-and-access-mgt/iam-api/index.html /docs/1.10/security/iam-api/;
 /docs/1.10/administration/id-and-access-mgt/index.html /docs/1.10/security/;
 /docs/1.10/administration/id-and-access-mgt/managing-authentication/index.html /docs/1.10/security/managing-authentication/;
-/docs/1.10/administration/id-and-access-mgt/user-management/index.html /docs/1.10/security/user-management/;
+/docs/1.10/administration/id-and-access-mgt/user-management/index.html /docs/1.10/security/ent/users-groups/;
 /docs/1.10/administration/index.html /docs/1.10/administering-clusters/;
 /docs/1.10/administration/installing/cloud/aws/advanced/aws-ami/index.html /docs/1.10/installing/cloud/aws/advanced/aws-ami/;
 /docs/1.10/administration/installing/cloud/aws/advanced/aws-custom/index.html /docs/1.10/administration/installing/cloud/aws/advanced/;
@@ -364,7 +364,7 @@
 /docs/1.9/administration/id-and-access-mgt/iam-api/index.html /docs/1.9/security/iam-api/;
 /docs/1.9/administration/id-and-access-mgt/index.html /docs/1.9/security/;
 /docs/1.9/administration/id-and-access-mgt/managing-authentication/index.html /docs/1.9/security/managing-authentication/;
-/docs/1.9/administration/id-and-access-mgt/user-management/index.html /docs/1.9/security/user-management/;
+/docs/1.9/administration/id-and-access-mgt/user-management/index.html /docs/1.9/security/ent/users-groups/;
 /docs/1.9/administration/index.html /docs/1.9/administering-clusters/;
 /docs/1.9/administration/installing/cloud/aws/advanced/aws-ami/index.html /docs/1.9/installing/cloud/aws/advanced/aws-ami/;
 /docs/1.9/administration/installing/cloud/aws/advanced/aws-custom/index.html /docs/1.9/administration/installing/cloud/aws/advanced/;

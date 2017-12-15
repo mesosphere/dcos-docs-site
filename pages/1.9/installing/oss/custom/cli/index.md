@@ -331,7 +331,7 @@ To install DC/OS:
 
 6.  Monitor Exhibitor and wait for it to converge at `http://<master-public-ip>:8181/exhibitor/v1/ui/index.html`.
 
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration-configuration).
 
     ![alt text](/1.9/img/chef-zk-status.png)
 
@@ -403,5 +403,5 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [6]: /1.9/installing/oss/custom/configuration/configuration-parameters/
  [7]: /1.9/installing/oss/custom/uninstall/
  [9]: /1.9/installing/oss/troubleshooting/
- [10]: /1.9/security/user-management/
+ [10]: /1.9/security/ent/users-groups/
  [11]: /1.9/administering-clusters/convert-agent-type/

@@ -296,7 +296,7 @@ To install DC/OS:
 
 1.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration-configuration).
 
     ![alt text](/1.9/img/chef-zk-status.png)
 
@@ -320,4 +320,4 @@ To install DC/OS:
 [7]: /1.9/overview/concepts/#private-agent-node
 [8]: /1.9/installing/oss/custom/uninstall/
 [9]: /1.9/installing/oss/troubleshooting/
-[10]: /1.9/security/user-management/
+[10]: /1.9/security/ent/users-groups/
