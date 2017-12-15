@@ -36,7 +36,7 @@ module.exports = function(options) {
   index.setSettings({
     distinct: true,
     attributeForDistinct: 'path',
-    searchableAttributes: ['title', 'contents'],
+    searchableAttributes: ['title', 'content'],
     attributesForFaceting: ['section', 'product', 'version', 'type'],
     customRanking: ['asc(section)', 'desc(product)', 'asc(versionWeight)'],
   });
