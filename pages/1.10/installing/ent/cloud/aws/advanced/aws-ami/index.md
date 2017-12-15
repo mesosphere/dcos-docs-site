@@ -43,7 +43,7 @@ After you have successfully built and deployed the unmodified DC/OS cloud_images
 
 **Troubleshooting:**
 
-- Familiarize yourself with the DC/OS service startup [process](/1.10/overview/architecture/#boot). 
+- Familiarize yourself with the DC/OS service startup [process](/1.10/overview/architecture/boot-sequence/). 
 - See the installation troubleshooting [documentation](/1.10/installing/ent/troubleshooting/). To troubleshoot you must have [SSH access](/1.10/administering-clusters/sshcluster/) to all of the cluster nodes. 
 - The [DC/OS Slack](/support/) community is another a good place to get help.
 

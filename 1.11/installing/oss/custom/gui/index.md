@@ -33,7 +33,7 @@ The DC/OS installation creates these folders:
   </tr>
   <tr>
     <td><code>/var/lib/dcos/exhibitor/zookeeper</code></td>
-    <td>Contains the [ZooKeeper](/1.11/overview/concepts/#zookeeper) data.</td>
+    <td>Contains the [ZooKeeper](/1.11/overview/concepts/#exhibitor-zookeeper) data.</td>
   </tr>
   <tr>
     <td><code>/var/lib/docker</code></td>

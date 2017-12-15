@@ -52,7 +52,7 @@ export DCOS_CONFIG=/home/jdoe/config/dcos.toml
 ```
     
 #### DCOS_SSL_VERIFY
-Indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
+Indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](/1.8/cli/#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
 
 ```bash
 export DCOS_SSL_VERIFY=false

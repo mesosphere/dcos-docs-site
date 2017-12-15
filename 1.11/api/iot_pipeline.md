@@ -38,7 +38,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 **Prerequisites:**
 
 *  DC/OS Enterprise is [installed](/1.9/installing/) with:
-    - Security [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-enterprise-dcos-only) set to permissive or strict. By default, DC/OS installs in permissive security mode.
+    - Security [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-dcos-enterprise-only) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/1.9/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.

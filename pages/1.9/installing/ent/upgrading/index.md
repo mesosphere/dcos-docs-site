@@ -59,7 +59,7 @@ The [security mode](/1.9/security/#security-modes) can be changed but has specia
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in permissive mode and you want to downgrade to disabled mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from disabled to strict mode. To increase from disabled to strict mode, you must first update to permissive mode, and then update from permissive to strict mode. 
 
-See the security [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-enterprise-dcos-only) parameter for a description of the different security modes and what each means.
+See the security [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-dcos-enterprise-only) parameter for a description of the different security modes and what each means.
 
 ### IP detect script
 The [IP detect script](/1.9/installing/custom/advanced/#ip-detect-script) can be modified during an upgrade.
@@ -90,7 +90,7 @@ Choose your desired security mode and then follow the applicable upgrade instruc
 - [Installing DC/OS 1.9 in strict mode](#strict)
 
 # <a name="current-security"></a>Installing DC/OS 1.9 without changing security mode
-This procedure upgrades a DC/OS 1.8 cluster to DC/OS 1.9 without changing the cluster's [security mode](/1.9/installing/custom/configuration/configuration-parameters/#security-enterprise-dcos-only).
+This procedure upgrades a DC/OS 1.8 cluster to DC/OS 1.9 without changing the cluster's [security mode](/1.9/installing/custom/configuration/configuration-parameters/#security-dcos-enterprise-only).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer. 
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -116,11 +116,11 @@ This procedure upgrades a DC/OS 1.8 cluster to DC/OS 1.9 without changing the cl
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="permissive"></a>Installing DC/OS 1.9 in permissive mode
-This procedure upgrades to DC/OS 1.9 in [permissive security mode](/1.9/installing/custom/configuration/configuration-parameters/#security-enterprise-dcos-only).
+This procedure upgrades to DC/OS 1.9 in [permissive security mode](/1.9/installing/custom/configuration/configuration-parameters/#security-dcos-enterprise-only).
 
 **Prerequisite:**
 
-- Your cluster must be [upgraded to DC/OS 1.9](#current-security) and running in [disabled security mode](/1.9/installing/custom/configuration/configuration-parameters/#security-enterprise-dcos-only) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.9, you can skip this procedure. 
+- Your cluster must be [upgraded to DC/OS 1.9](#current-security) and running in [disabled security mode](/1.9/installing/custom/configuration/configuration-parameters/#security-dcos-enterprise-only) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.9, you can skip this procedure. 
 
 To update a 1.9 cluster from disabled security to permissive security, complete the following procedure:
 
@@ -140,7 +140,7 @@ To update a 1.9 cluster from disabled security to permissive security, complete 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="strict"></a>Installing DC/OS 1.9 in strict mode
-This procedure upgrades to DC/OS 1.9 in security strict [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-enterprise-dcos-only). 
+This procedure upgrades to DC/OS 1.9 in security strict [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-dcos-enterprise-only). 
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
 

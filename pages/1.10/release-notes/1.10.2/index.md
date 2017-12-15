@@ -28,7 +28,7 @@ These are the release notes for DC/OS 1.10.2.
 - Updated to Mesos 1.4.0 ([changelog](https://git-wip-us.apache.org/repos/asf?p=mesos.git;a=blob_plain;f=CHANGELOG;hb=1.4.0)).
 - Updated to Marathon 1.5.2 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.2)).
 - DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/custom/configuration/examples/#docker-credentials).
-- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise-dcos-only).
+- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/custom/configuration/configuration-parameters/#ca-certificate-path-dcos-enterprise-only).
 - DOCS-1925 - Clarified how operators can [recover from a full agent disk](/1.10/administering-clusters/recovering-agent-disk-space/).
 - DOCS-2153 - Updated [Metrics names](/1.10/metrics/reference/).
 
@@ -116,7 +116,7 @@ Please try out the new features and updated data services. Provide any feedback 
   The new system removes hard limits on the number of users, groups, and permissions that can be stored, and shows stable read and write performance as the dataset grows.
 
 - Docker `pullConfig` parameter.
-  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise-dcos-only).
+  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-dcos-enterprise-only).
 
  - Enterprise CLI permissions management commands.
    It is now possible to manage permissions to protect resources using the [DC/OS Enterprise CLI](/1.10/security/ent/perms-management/).
