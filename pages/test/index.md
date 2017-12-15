@@ -27,20 +27,20 @@ DC/OS is a distributed operating system based on the Apache Mesos distributed sy
 
 | Attribute      | Requirement               | Options       |
 | -------------- |:-------------------------:| -------------:|
-| size           | optional (default: large) | large, small  [enterprise size="small" type="inline" /] [oss size="small" type="inline" /] [beta size="small" type="inline" /] |
+| size           | optional (default: large) | large, small  [badge-enterprise size="small" type="inline" /] [badge-oss size="small" type="inline" /] [badge-beta size="small" type="inline" /] |
 | type           | optional (default: block) | block, inline |
 
 ###### Usage
 
 ```*
-[!enterprise /]
+[!badge-enterprise /]
 ```
 
 ###### Example
 
-large badge [enterprise /]
+large badge [badge-enterprise /]
 
-- small inline badge [enterprise size="small" type="inline" /]
+- small inline badge [badge-enterprise size="small" type="inline" /]
 
 ###### Heading Usage
 
@@ -48,16 +48,16 @@ Note: Headers must be wrapped in shortcode tag. This applies to inline badge
 only and does not require the type attribute.
 
 ```*
-[!enterprise]
+[!badge-enterprise]
 ### Header
-[/!enterprise]
+[/badge-!enterprise]
 ```
 
 ###### Heading Example
 
-[enterprise]
+[badge-enterprise]
 ### Header
-[/enterprise]
+[/badge-enterprise]
 
 ### OSS Tag {data-hide=true}
 
@@ -71,12 +71,12 @@ only and does not require the type attribute.
 ###### Usage
 
 ```*
-[!oss /]
+[!badge-oss /]
 ```
 
 ###### Example
 
-[oss /]
+[badge-oss /]
 
 ###### Heading Usage
 
@@ -84,16 +84,16 @@ Note: Headers must be wrapped in shortcode tag. This applies to inline badge
 only and does not require the type attribute.
 
 ```*
-[!oss]
+[!badge-oss]
 ### Header
-[/!oss]
+[/!badge-oss]
 ```
 
 ###### Heading Example
 
-[oss]
+[badge-oss]
 ### Header
-[/oss]
+[/badge-oss]
 
 ### Switch {data-hide=true}
 
