@@ -64,13 +64,13 @@ const shortcodes = {
   },
 
   /**
-   * Enterprise
+   * Badge Enterprise
    * @param {string} buf
    * @param {Object} opts
    * @param {string} opts.size
    * @param {string} opts.type
    */
-  'enterprise': (buf, opts) => {
+  'badge-enterprise': (buf, opts) => {
     let size = opts.size;
     let type = opts.type;
     if (!opts.size) {
@@ -89,13 +89,13 @@ const shortcodes = {
   },
 
   /**
-   * OSS
+   * Badge OSS
    * @param {string} buf
    * @param {Object} opts
    * @param {string} opts.size
    * @param {string} opts.type
    */
-  'oss': (buf, opts) => {
+  'badge-oss': (buf, opts) => {
     let size = opts.size;
     let type = opts.type;
     if (!opts.size) {
@@ -115,13 +115,13 @@ const shortcodes = {
 
 
   /**
-   * Beta
+   * Badge Beta
    * @param {string} buf
    * @param {Object} opts
    * @param {string} opts.size
    * @param {string} opts.type
    */
-  'beta': (buf, opts) => {
+  'badge-beta': (buf, opts) => {
     let size = opts.size;
     let type = opts.type;
     if (!opts.size) {
@@ -138,72 +138,15 @@ const shortcodes = {
       return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span></span>`)
     }
   },
+
   /**
-   * Switch
-   * @param {string} buf
-   * @param {Object} opts
-   */
-  'switch': (buf, opts) => {
-    return sanitize(`
-      <div class="switch">
-        <div class="switch__filters">
-        </div>
-        <div class="switch__cases">
-          ${buf}
-        </div>
-      </div>
-    `);
-  },
-  
-  /**
-   * Preview
+   * Badge Experimental
    * @param {string} buf
    * @param {Object} opts
    * @param {string} opts.size
    * @param {string} opts.type
    */
-  'preview': (buf, opts) => {
-    let size = opts.size;
-    let type = opts.type;
-    if (!opts.size) {
-      size = 'large';
-    }
-    if (!opts.type) {
-      type = 'block';
-    } else if (opts.type = 'inline' || 'inline-block') {
-      type = 'inline';
-    }
-    if (buf) {
-      return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--preview">Preview</span>`)
-    } else {
-      return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--preview">Preview</span></span>`)
-    }
-  },
-  /**
-   * Switch
-   * @param {string} buf
-   * @param {Object} opts
-   */
-  'switch': (buf, opts) => {
-    return sanitize(`
-      <div class="switch">
-        <div class="switch__filters">
-        </div>
-        <div class="switch__cases">
-          ${buf}
-        </div>
-      </div>
-    `);
-  },
-  
-  /**
-   * Experimental
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.size
-   * @param {string} opts.type
-   */
-  'experimental': (buf, opts) => {
+  'badge-experimental': (buf, opts) => {
     let size = opts.size;
     let type = opts.type;
     if (!opts.size) {
@@ -220,6 +163,32 @@ const shortcodes = {
       return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--experimental">Experimental</span></span>`)
     }
   },
+
+  /**
+   * Badge Preview
+   * @param {string} buf
+   * @param {Object} opts
+   * @param {string} opts.size
+   * @param {string} opts.type
+   */
+  'badge-preview': (buf, opts) => {
+    let size = opts.size;
+    let type = opts.type;
+    if (!opts.size) {
+      size = 'large';
+    }
+    if (!opts.type) {
+      type = 'block';
+    } else if (opts.type = 'inline' || 'inline-block') {
+      type = 'inline';
+    }
+    if (buf) {
+      return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--preview">Preview</span>`)
+    } else {
+      return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--preview">Preview</span></span>`)
+    }
+  },
+
   /**
    * Switch
    * @param {string} buf
@@ -236,7 +205,6 @@ const shortcodes = {
       </div>
     `);
   },
-
 
   /**
    * Case
