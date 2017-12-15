@@ -4,7 +4,7 @@ excerpt:
 title: Metrics Quick Start
 navigationTitle: Quick Start
 menuWeight: 0
-beta: true
+preview: true
 ---
 
 Use this guide to get started with the DC/OS metrics component. 

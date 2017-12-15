@@ -9,7 +9,7 @@ excerpt: >
   Next, set up the authentication method
   and parameters needed to connect to the
   LDAP server.
-beta: true
+preview: true
 enterprise: true
 ---
 

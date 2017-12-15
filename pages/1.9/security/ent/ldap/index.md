@@ -4,7 +4,7 @@ navigationTitle:  Directory-based authentication via LDAP
 title: Directory-based authentication via LDAP
 menuWeight: 30
 excerpt:
-beta: true
+preview: true
 enterprise: true
 ---
 

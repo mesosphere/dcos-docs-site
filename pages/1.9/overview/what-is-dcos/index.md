@@ -14,7 +14,7 @@ As a datacenter operating system, DC/OS is itself a distributed system, a cluste
 
 ## Distributed System
 
-As a distributed system, DC/OS includes a group of agent nodes that are coordinated by a group of master nodes. Like other distributed systems, several of the components running on the master nodes perform [leader election](https://en.wikipedia.org/wiki/Distributed_computing#Coordinator_election) with their peers.
+As a distributed system, DC/OS includes a group of agent nodes that are coordinated by a group of master nodes. Like other distributed systems, several of the components running on the master nodes perform [leader election](https://en.wikipedia.org/wiki/Distributed_computing#Coordinator-election) with their peers.
 
 ## Cluster Manager
 

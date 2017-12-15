@@ -22,7 +22,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.11/overview/concepts/#zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.11/overview/concepts/#exhibitor-zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -68,10 +68,10 @@ Your cluster must meet the software and hardware [requirements][1].
     Specify a comma-separated list of your internal static master IP addresses.
     
     #### Agent Private IP List
-    Specify a comma-separated list of your internal static [private agent](/1.11/overview/concepts/#private) private IP addresses.
+    Specify a comma-separated list of your internal static [private agent](/1.11/overview/concepts/#private-agent-node) private IP addresses.
     
     #### Agent Public IP List
-    Specify a comma-separated list of your internal static [public agent](/1.11/overview/concepts/#public) private IP addresses.
+    Specify a comma-separated list of your internal static [public agent](/1.11/overview/concepts/#public-agent-node) private IP addresses.
     
     #### Master Public IP
     Specify a publicly accessible proxy IP address to one of your master nodes. If you don't have a proxy or already have access to the network where you are deploying this cluster, you can use one of the master IP's that you specified in the master list. This proxy IP address is used to access the DC/OS web interface on the master node after DC/OS is installed.

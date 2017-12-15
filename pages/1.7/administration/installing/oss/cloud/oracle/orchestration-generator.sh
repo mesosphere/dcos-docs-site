@@ -123,7 +123,7 @@ ipres_json=$ipres_json'{"name":"/Compute-'"${identity_domian}"'/'"${userid}"'/ip
 done
 #For Bootstrap
 ipres_json=$ipres_json'{"name":"/Compute-'"${identity_domian}"'/'"${userid}"'/ipres_boot","parentpool":"/oracle/public/ippool","permanent":true}'
-#ipres_json=`echo "$ipres_json"|sed '$s/.$//'`
+#ipres-json=`echo "$ipres_json"|sed '$s/.$//'`
 ipres_json='{"description":"IP reservations","name":"/Compute-'"${identity_domian}"'/'"${userid}"'/ipreservations","oplans":[{"label":"IP reservations","obj_type":"ip/reservation","objects": ['$ipres_json']}]}'
 echo $ipres_json > conf/ipreservations.json
 
@@ -148,7 +148,7 @@ volume_json=$volume_json'{"label":"private_'"${c}"'_volume","obj_type":"storage/
 done
 #For Bootstrap
 volume_json=$volume_json'{"label":"boot_volume","obj_type":"storage/volume","ha_policy":"monitor","objects":[{"name":"/Compute-'"${identity_domian}"'/'"${userid}"'/boot_volume","size":"'"${instance_size}"'G","index":1,"properties":["/oracle/public/storage/default"]}]}'
-#volume_json=`echo "$volume_json"|sed '$s/.$//'`
+#volume-json=`echo "$volume_json"|sed '$s/.$//'`
 
 volume_json='{"description":"Volumes","name":"/Compute-'"${identity_domian}"'/'"${userid}"'/Volumes","oplans": ['$volume_json']}'
 echo $volume_json > conf/volumes.json
@@ -181,7 +181,7 @@ instance_json=$instance_json'{"label":"private_agent_'"${c}"'","obj_type":"launc
 done
 #For Bootstrap
 instance_json=$instance_json'{"label":"bootstrap","obj_type":"launchplan","ha_policy":"active","objects":[{"instances":[{"imagelist":"'"${selected_image}"'","label":"bootstrap","name":"/Compute-'"${identity_domian}"'/'"${userid}"'/bootstrap","hostname":"bootstrap","storage_attachments":[{"index":1,"volume":"/Compute-'"${identity_domian}"'/'"${userid}"'/boot_volume"}],"networking":{"eth0":{"seclists":["/Compute-'"${identity_domian}"'/default/default","/Compute-'"${identity_domian}"'/'"${userid}"'/boot_seclist"],"nat":"ipreservation:/Compute-'"${identity_domian}"'/'"${userid}"'/ipres_boot"}},"shape":"oc1m","sshkeys":["'"${selected_ssh_key}"'"]}]}]}'
-#instance_json=`echo "$instance_json"|sed '$s/.$//'`
+#instance-json=`echo "$instance_json"|sed '$s/.$//'`
 
 instance_json='{"description":"Instances","name":"/Compute-'"${identity_domian}"'/'"${userid}"'/instances","oplans": ['$instance_json']}'
 echo $instance_json > conf/instances.json

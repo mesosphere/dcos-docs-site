@@ -3,7 +3,7 @@ layout: layout.pug
 title: Datadog Metrics for DC/OS
 menuWeight: 3
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 
@@ -83,7 +83,7 @@ When you're happy with the test results, you'll need to install the plugin into 
 ### Create a valid auth token for DC/OS
 Follow the instructions based on whether you are using DC/OS Enterprise or open source:
 
-- [DC/OS Enterprise](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/)
+- [DC/OS Enterprise](/1.10/security/ent/service-auth/custom-service-auth/)
 - [DC/OS open source](/1.10/security/ent/managing-authentication/)
 
 You will use this auth token below.

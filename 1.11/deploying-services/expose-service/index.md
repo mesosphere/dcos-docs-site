@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS agent nodes can be designated as [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private) during [installation](/1.11/installing/oss/). Public agent nodes provide access from outside of the cluster via infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.
+DC/OS agent nodes can be designated as [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) during [installation](/1.11/installing/oss/). Public agent nodes provide access from outside of the cluster via infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.
 
 To launch a service on a public node, you must create a Marathon app definition with the `"acceptedResourceRoles":["slave_public"]` parameter specified and configure an edge load balancer and service discovery mechanism.
 
@@ -61,7 +61,7 @@ To launch a service on a public node, you must create a Marathon app definition 
 
     If this is added successfully, there is no output.
 
-     **Tip:** You can also add your app by using the **Services** tab of DC/OS [GUI](/1.11/gui/services).
+     **Tip:** You can also add your app by using the **Services** tab of DC/OS [GUI](/1.11/gui/services/).
 
 1.  Verify that the app is added with this command:
 
@@ -76,7 +76,7 @@ To launch a service on a public node, you must create a Marathon app definition 
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 
-    **Tip:** You can also view deployed apps by using the **Services** tab of DC/OS [GUI](/1.11/gui/services).
+    **Tip:** You can also view deployed apps by using the **Services** tab of DC/OS [GUI](/1.11/gui/services/).
 
 1.  Configure an edge load balancer and service discovery mechanism.
 

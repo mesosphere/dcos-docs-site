@@ -33,7 +33,7 @@ The DC/OS installation creates these folders:
   </tr>
   <tr>
     <td><code>/var/lib/dcos/exhibitor/zookeeper</code></td>
-    <td>Contains the [ZooKeeper](/1.11/overview/concepts/#zookeeper) data.</td>
+    <td>Contains the [ZooKeeper](/1.11/overview/concepts/#exhibitor-zookeeper) data.</td>
   </tr>
   <tr>
     <td><code>/var/lib/docker</code></td>
@@ -95,7 +95,7 @@ The DC/OS installation creates these folders:
     Specify a comma-separated list of your internal static master IP addresses.
 
     #### Agent Private IP List
-    Specify a comma-separated list of your internal static [private agent](/1.11/overview/concepts/#private) private IP addresses.
+    Specify a comma-separated list of your internal static [private agent](/1.11/overview/concepts/#private-agent-node) private IP addresses.
 
     #### Agent Public IP List
     Specify a comma-separated list of your internal static [public agent](/1.11/overview/concepts/#public-agent-node) private IP addresses.

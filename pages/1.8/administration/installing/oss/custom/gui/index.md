@@ -33,7 +33,7 @@ The DC/OS installation creates these folders:
   </tr>
   <tr>
     <td><code>/var/lib/dcos/exhibitor/zookeeper</code></td>
-    <td>Contains the [ZooKeeper](/1.8/overview/concepts/#zookeeper) data.</td>
+    <td>Contains the [ZooKeeper](/1.8/overview/concepts/#exhibitor-zookeeper) data.</td>
   </tr>
   <tr>
     <td><code>/var/lib/docker</code></td>
@@ -95,10 +95,10 @@ The DC/OS installation creates these folders:
     Specify a comma-separated list of your internal static master IP addresses.
 
     #### Agent Private IP List
-    Specify a comma-separated list of your internal static [private agent](/1.8/overview/concepts/#private) private IP addresses.
+    Specify a comma-separated list of your internal static [private agent](/1.8/overview/concepts/#private-agent-node) private IP addresses.
 
     #### Agent Public IP List
-    Specify a comma-separated list of your internal static [public agent](/1.8/overview/concepts/#public) private IP addresses.
+    Specify a comma-separated list of your internal static [public agent](/1.8/overview/concepts/#public-agent-node) private IP addresses.
 
     #### Master Public IP
     Specify a publicly accessible proxy IP address to one of your master nodes. If you don't have a proxy or already have access to the network where you are deploying this cluster, you can use one of the master IP's that you specified in the master list. This proxy IP address is used to access the DC/OS web interface on the master node after DC/OS is installed.

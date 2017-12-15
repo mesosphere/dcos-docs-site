@@ -11,7 +11,7 @@ excerpt: >
   data to a third party service of your
   choice to achieve informative charts,
   dashboards, and alerts.
-beta: true
+preview: true
 enterprise: true
 ---
 

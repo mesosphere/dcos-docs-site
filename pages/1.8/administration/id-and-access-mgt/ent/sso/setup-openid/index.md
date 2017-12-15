@@ -10,7 +10,7 @@ excerpt: >
   in general and provides a step-by-step
   procedure for setting up a Google OpenID
   Connect IdP.
-beta: true
+preview: true
 enterprise: true
 ---
 

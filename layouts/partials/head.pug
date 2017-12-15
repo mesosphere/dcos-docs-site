@@ -1,6 +1,8 @@
 - var page = hierarchy.findByPath('/' + path)
-- var pageDescription = (page && page.excerpt) ? page.excerpt : description
 
+- // Meta
+- var pageTitle = (title && path != '') ? (title + ' - ' + siteTitle) : siteTitle
+- var pageDescription = (page && page.excerpt) ? page.excerpt : siteDescription
 
 - // Canonical URL
 - var semanticVersion = /^[0-9]+\.[0-9]+/
@@ -17,9 +19,10 @@ if currentDocs && paths[0] != currentDocs.id && semanticVersion.test(paths[0])
   if hierarchy.findByPath(newUrl)
     - canonicalHref = url + newUrl
 
+
 meta(charset='UTF-8')
 meta(name='viewport', content='width=device-width', initial-scale='1', user-scalable='no')
-title!= title
+title!= pageTitle
 meta(name='description', content=pageDescription)
 link(rel='icon' href='/assets/favicon.ico')
 link(rel='stylesheet', type='text/css', href='/css/styles.css')

@@ -17,7 +17,7 @@ These configuration parameters are specified in [YAML][1] format in your config.
 # <a name="cluster-setup"></a>Cluster Setup
 
 ### agent_list
-This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.8/overview/concepts/#private) host names.
+This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.8/overview/concepts/#private-agent-node) host names.
 
 ### bootstrap_url
 This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: http://<bootstrap_ip>:<your_port>` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
@@ -31,7 +31,7 @@ This parameter specifies the type of storage backend to use for Exhibitor. You c
 *   `exhibitor_storage_backend: static`
     This option specifies that the Exhibitor storage backend is managed internally within your cluster.
     
-    **Important:** If [master_discovery](#master_discovery) is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.
+    **Important:** If [master_discovery](#master-discovery) is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.
     
 *   `exhibitor_storage_backend: zookeeper`
     This option specifies a ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
@@ -86,11 +86,11 @@ This option specifies that Mesos agents are used to discover the masters by givi
 
 **Important:**
  
-* If master_discovery is set to `master_http_loadbalancer`, then [exhibitor_storage_backend](#exhibitor_storage_backend) cannot be set to `static`.
+* If master_discovery is set to `master_http_loadbalancer`, then [exhibitor_storage_backend](#exhibitor-storage-backend) cannot be set to `static`.
 * On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability.
 
 ### <a name="public-agent"></a>public_agent_list
-This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.8/overview/concepts/#public) host names.
+This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.8/overview/concepts/#public-agent-node) host names.
 
 ## <a name="networking"></a>Networking
 

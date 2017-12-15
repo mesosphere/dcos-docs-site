@@ -4,7 +4,7 @@ navigationTitle:  Pods
 title: Pods
 menuWeight: 85
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

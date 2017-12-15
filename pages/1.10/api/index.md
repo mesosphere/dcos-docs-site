@@ -76,7 +76,7 @@ Permission enforcement can be performed at two levels.
 - **Course-grained permissions** are [enforced by Admin Router](/1.10/security/ent/perms-reference/#admin-router) at the route level.
 - **Fine-grained permissions** are enforced by individual backend component services.
 
-[Permission management](/1.10/security/ent/permissions/) can be performed by users with the [Superuser permission](/1.10/security/ent/permissions/superuser-perm/) using the [Identity and Access Management API](/1.10/security/ent/iam-api/). Users with the Superuser permission also have implicit permission to access all routes.
+[Permission management](/1.10/security/ent/perms-management/) can be performed by users with the [Superuser permission](/1.10/security/ent/perms-reference/#superuser) using the [Identity and Access Management API](/1.10/security/ent/iam-api/). Users with the Superuser permission also have implicit permission to access all routes.
 
 
 # Route Usage

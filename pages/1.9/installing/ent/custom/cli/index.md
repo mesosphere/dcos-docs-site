@@ -22,7 +22,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.9/overview/concepts/#zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.9/overview/concepts/#exhibitor-zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -107,7 +107,7 @@ In this step, you create a YAML configuration file that is customized for your e
 
 1.  From your `genconf` directory, create a configuration file and save as `config.yaml`.
     
-    You can use this template to get started. This template specifies three masters, five [private](/1.9/overview/concepts/#private) agents, one [public](/1.9/overview/concepts/#public) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters, descriptions, and configuration examples, see the [documentation][3].
+    You can use this template to get started. This template specifies three masters, five [private](/1.9/overview/concepts/#private-agent-node) agents, one [public](/1.9/overview/concepts/#public-agent-node) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters, descriptions, and configuration examples, see the [documentation][3].
     
     **Tips:** 
     

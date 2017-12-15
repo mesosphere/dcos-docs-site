@@ -4,7 +4,7 @@ navigationTitle:  Secrets API
 title: Secrets API
 menuWeight: 6
 excerpt:
-beta: true
+preview: true
 enterprise: true
 ---
 

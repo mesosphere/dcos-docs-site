@@ -54,7 +54,7 @@ The following graphic illustrates the data flow:
     *   **Unix/Linux:** See these [installation instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Install DC/OS services
-From the DC/OS web interface [**Catalog**](/1.9/gui/#catalog) tab, install Cassandra, Kafka, Marathon-LB, and Zeppelin.
+From the DC/OS web interface [**Catalog**](/1.9/gui/catalog/) tab, install Cassandra, Kafka, Marathon-LB, and Zeppelin.
 
 __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
@@ -179,7 +179,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 
 ## Install DC/OS services
 
-From the DC/OS web interface [**Catalog**](/1.9/gui/#catalog) tab, install Cassandra, Kafka, and Zeppelin.
+From the DC/OS web interface [**Catalog**](/1.9/gui/catalog/) tab, install Cassandra, Kafka, and Zeppelin.
 
 __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 

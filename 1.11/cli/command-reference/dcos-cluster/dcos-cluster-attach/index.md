@@ -12,19 +12,22 @@ enterprise: false
 
 
 # Description
-Attach the CLI to a connected DC/OS cluster. When you run the [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup) command, the cluster is automatically attached.
+Attach the CLI to a connected or [linked](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) cluster. When you run the [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup) command, the cluster is automatically attached.
 
 # Usage
 
 ```bash
-dcos cluster attach <name>
+dcos cluster attach [<connected-cluster-name> | <linked-cluster-name> | <connected-cluster-id> | <linked-cluster-id>]
 ```
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<name>`   |             | DC/OS cluster name. |
+| `<connected-cluster-name>`   |             | Name of connected cluster. |
+| `<linked-cluster-name>`   |             | Name of linked cluster. |
+| `<connected-cluster-id>`   |             | ID of connected cluster. |
+| `<linked-cluster-id>`   |             | ID of linked cluster. |
 
 # Parent command
 
@@ -33,4 +36,4 @@ dcos cluster attach <name>
 | [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) | Manage connections to DC/OS clusters. |
 
 # Examples
-For examples, see [Connecting to Multiple Clusters](/1.11/cli/multi-cluster-cli/).
+For examples, see [Cluster Connections](/1.11/administering-clusters/multiple-clusters/cluster-connections/) and [Cluster Links](/1.11/administering-clusters/multiple-clusters/cluster-links/).

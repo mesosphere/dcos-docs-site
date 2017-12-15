@@ -84,5 +84,5 @@ To assign multiple VIPs to your application, switch to JSON mode and add the add
 
 Learn how to easily deploy a [WordPress and MySQL](/1.7/usage/tutorials/wordpress-mysql/) installation on a DC/OS cluster.
 
-[1]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
+[1]: https://en.wikipedia.org/wiki/Private_network#Private-IPv4_address_spaces
 [2]: http://mesosphere.github.io/marathon/docs/ports.html

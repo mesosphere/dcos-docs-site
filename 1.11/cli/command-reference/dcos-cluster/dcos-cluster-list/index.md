@@ -8,9 +8,6 @@ excerpt:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
 List the clusters that are connected to the DC/OS CLI.
 
@@ -35,4 +32,4 @@ dcos cluster list [--attached --json]
 | [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
 
 # Examples
-For examples, see the [Connecting to Multiple Clusters](/1.11/cli/multi-cluster-cli/) documentation.
+For examples, see [Cluster Connections](/1.11/administering-clusters/multiple-clusters/cluster-connections/).

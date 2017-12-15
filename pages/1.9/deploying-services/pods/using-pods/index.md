@@ -4,7 +4,7 @@ navigationTitle:  Using Pods
 title: Using Pods
 menuWeight: 20
 excerpt:
-beta: true
+preview: true
 enterprise: false
 ---
 

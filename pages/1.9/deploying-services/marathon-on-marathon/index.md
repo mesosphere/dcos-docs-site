@@ -4,7 +4,7 @@ navigationTitle:  Using a Custom Marathon
 title: Using a Custom Marathon
 menuWeight: 39
 excerpt:
-beta: true
+preview: true
 enterprise: true
 ---
 

@@ -44,7 +44,7 @@ From the DC/OS GUI you can install services from the **Services** or **Universe*
 
 ### Services tab
 
-1.  Navigate to the [**Services**](/1.9/gui/#services) tab in the DC/OS GUI.
+1.  Navigate to the [**Services**](/1.9/gui/services/) tab in the DC/OS GUI.
 1.  Click **RUN A SERVICE** and specify your Marathon app definition.
 
     ![service tab](/1.9/img/run-a-service.png)
@@ -59,7 +59,7 @@ dcos package list
 
 ### Web GUI
 
-Go to the **Services** tab and confirm that the service is running. For more information, see the GUI [documentation](/1.9/gui/#services).
+Go to the **Services** tab and confirm that the service is running. For more information, see the GUI [documentation](/1.9/gui/services/).
 
 ![Services](/1.9/img/tweeter-services6.png)
 

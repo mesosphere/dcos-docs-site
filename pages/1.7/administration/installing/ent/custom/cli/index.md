@@ -37,7 +37,7 @@ The DC/OS installation creates these folders:
     </tr>
     <tr>
         <td><code>/var/lib/zookeeper<code></td>
-        <td>Contains the <a href="/1.7/overview/concepts/#zookeeper">ZooKeeper</a> data.</td>
+        <td>Contains the <a href="/1.7/overview/concepts/#exhibitor-for-zookeeper">ZooKeeper</a> data.</td>
     </tr>
     <tr>
         <td><code>/var/lib/docker<code></td>
@@ -57,7 +57,7 @@ The DC/OS installation creates these folders:
 
 Before installing DC/OS, your cluster must have the software and hardware [requirements][1].
 
-**Important:** You cannot create a [public](/1.7/overview/concepts/#public) agent by using the CLI installer. If you are using the CLI installer, you must create a public agent [post-installation](/1.7/administration/installing/ent/custom/create-public-agent/). 
+**Important:** You cannot create a [public](/1.7/overview/concepts/#public-agent-node) agent by using the CLI installer. If you are using the CLI installer, you must create a public agent [post-installation](/1.7/administration/installing/ent/custom/create-public-agent/). 
 
 # Create an IP detection script
 

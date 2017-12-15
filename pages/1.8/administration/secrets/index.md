@@ -4,7 +4,7 @@ navigationTitle:  Secrets (Enterprise Only)
 title: Secrets (Enterprise Only)
 menuWeight: 2
 excerpt:
-beta: true
+preview: true
 enterprise: true
 ---
 

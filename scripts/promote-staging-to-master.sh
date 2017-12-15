@@ -25,4 +25,9 @@ git pull --rebase origin staging
 echo "Pushing master branch..."
 git push
 
+echo "Checking out staging branch..."
+# defensively move off of the master branch
+# This should help avoid accidentally pushing new commits to master instead of staging/develop
+git checkout staging
+
 echo "Promotion Complete!"

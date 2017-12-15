@@ -15,7 +15,7 @@ These configuration parameters are specified in [YAML][1] format in your config.
 
 ### agent_list
 
-This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.8/overview/concepts/#private) host names.
+This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.8/overview/concepts/#private-agent-node) host names.
 
 ### <a name="aws_template_storage_bucket"></a>aws_template_storage_bucket
 
@@ -111,7 +111,7 @@ This required parameter specifies the Mesos master discovery method. The availab
 *Note*: On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability.
     
 ### <a name="public-agent"></a>public_agent_list
-This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.8/overview/concepts/#public) host names.
+This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.8/overview/concepts/#public-agent-node) host names.
     
 ### <a name="rexray-config"></a>rexray_config
 This parameter specifies the <a href="https://rexray.readthedocs.org/en/v0.3.2/user-guide/config/" target="_blank">REX-Ray</a> configuration method for enabling external persistent volumes in Marathon. REX-Ray is a storage orchestration engine. The following is an example configuration.
@@ -330,19 +330,19 @@ If you’ve already installed your cluster and would like to disable this in-pla
 
 ### zk_super_credentials
  
-This parameter specifies the ZooKeeper superuser credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc_ZooKeeperAccessControl). 
+This parameter specifies the ZooKeeper superuser credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc-ZooKeeperAccessControl). 
 
 For more information see the [example](#secure-cluster).
 
 ### zk_master_credentials
  
-This parameter specifies the ZooKeeper master credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc_ZooKeeperAccessControl). 
+This parameter specifies the ZooKeeper master credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc-ZooKeeperAccessControl). 
 
 For more information see the [example](#secure-cluster).
 
 ### zk_agent_credentials
  
-This parameter specifies the ZooKeeper agent credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc_ZooKeeperAccessControl). 
+This parameter specifies the ZooKeeper agent credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc-ZooKeeperAccessControl). 
 
 For more information see the [example](#secure-cluster).
 

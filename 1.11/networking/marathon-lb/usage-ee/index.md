@@ -11,7 +11,7 @@ enterprise: true
 
 ## About installing Marathon-LB
 
-The installation procedure varies according to your [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only). Refer to the section that corresponds to your security mode for step-by-step instructions.
+The installation procedure varies according to your [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only). Refer to the section that corresponds to your security mode for step-by-step instructions.
 
 - [`disabled` and `permissive` modes](#mlb-disabled-install)
 - [`strict` mode](#mlb-strict-perm-install)
@@ -54,7 +54,7 @@ To install Marathon-LB from the Catalog in `disabled` and `permissive` modes, lo
 
 **Prerequisites:**
 
-- Marathon-LB requires a service account in `strict` [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.11/networking/marathon-lb/mlb-auth/) for instructions.
+- Marathon-LB requires a service account in `strict` [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.11/networking/marathon-lb/mlb-auth/) for instructions.
 
 - [DC/OS CLI installed](/1.11/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.11/security/ent/perms-reference/).
 

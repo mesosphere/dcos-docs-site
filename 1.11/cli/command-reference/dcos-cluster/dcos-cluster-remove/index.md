@@ -8,24 +8,21 @@ excerpt:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Remove a configured cluster from the DC/OS CLI.
+Remove a connected cluster from the DC/OS CLI.
 
 # Usage
 
 ```bash
-dcos cluster remove <name>
+dcos cluster remove [<cluster-name> | <cluster-id> | --all]
 ```
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<name>`   |             | DC/OS cluster name. |
-
+| `<cluster-name>`   |             | Name of connected cluster. |
+| `<cluster-id>`   |   | ID of connected cluster.  |
 # Parent command
 
 | Command | Description |
@@ -33,4 +30,4 @@ dcos cluster remove <name>
 | [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters. |
 
 # Examples
-For examples, see the [Connecting to Multiple Clusters](/1.11/cli/multi-cluster-cli/) documentation.
+For examples, see [Cluster Connections](/1.11/administering-clusters/multiple-clusters/cluster-connections/).

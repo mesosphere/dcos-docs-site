@@ -34,7 +34,6 @@ if (landingContainer) {
       templates: {
         header: '<div class="landing__results-header">Pages</div>',
         suggestion: function(suggestion) {
-          console.log(suggestion);
           return `
             <a href="${suggestion.path}" class="landing__results-link">
               <strong class="landing__results-title">${suggestion._highlightResult.title.value}</strong>
@@ -73,29 +72,6 @@ if (searchForm) {
   /**
    * Search result templates
    */
-  const hitTemplate = `
-    <li class="search__results-item">
-      <h4 class="search__title">
-        <a href="/{{path}}" class="search__link">{{{_highlightResult.title.value}}}</a>
-      </h4>
-      {{#excerpt}}
-        <p class="search__description">{{{excerpt}}}</p>
-      {{/excerpt}}
-      <div class="search__meta">
-        {{#product}}
-          <span class="search__meta-product">
-            {{product}}
-            {{#versionNumber}}
-              {{versionNumber}}
-            {{/versionNumber}}
-          </span>
-        {{/product}}
-        <a href="/{{path}}" class="search__meta-source">{{displayPath}}</a>
-      </div>
-    </li>
-  `;
-
-  const noResultsTemplate = '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>';
 
   // Render search input widget
   search.addWidget(
@@ -117,13 +93,43 @@ if (searchForm) {
     instantsearch.widgets.hits({
       container: '#search-results',
       templates: {
-        empty: noResultsTemplate,
-        item: hitTemplate,
-      },
-      transformData: function(hit) {
-        hit.displayPath = displayPath(hit.path);
-        return hit;
-      },
+        empty: '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>',
+        item: (data) => {
+
+          let title = data.title;
+          if(data._highlightResult.title) {
+            title = data._highlightResult.title.value;
+          }
+
+          let description = data.excerpt;
+          if(data._highlightResult.excerpt) {
+            description = data._highlightResult.excerpt.value;
+          }
+
+          if(data._highlightResult.title && data._highlightResult.title.matchLevel == 'full') {
+            description = data._snippetResult.excerpt.value;
+          }
+          else if(data._snippetResult.content && data._snippetResult.content.matchLevel == 'full') {
+            description = data._snippetResult.content.value;
+          }
+
+          return `
+            <li class="search__results-item">
+              <h4 class="search__title">
+                <a href="/${data.path}" class="search__link">${title}</a>
+              </h4>
+              <p class="search__description">${description}</p>
+              <div class="search__meta">
+                <span class="search__meta-product">
+                  ${data.product}
+                  ${(data.versionNumber) ? data.versionNumber : ''}
+                </span>
+                <a href="/${data.path}" class="search__meta-source">http://docs.mesosphere.com/${data.path}</a>
+              </div>
+            </li>
+          `
+        },
+      }
     }),
   );
 
@@ -190,11 +196,6 @@ if (searchForm) {
   search.on('render', handleFilterWidth);
 
   search.start();
-}
-
-// TEMP: Display path
-function displayPath(url) {
-  return `http://docs.mesosphere.com/${url}`;
 }
 
 // Debounce search form

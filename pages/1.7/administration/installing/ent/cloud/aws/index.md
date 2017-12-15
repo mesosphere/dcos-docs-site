@@ -23,8 +23,8 @@ For a complete set of DC/OS configuration options, see the [Advanced AWS Install
 An Amazon EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance.  Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to not work properly.
 
 *   You have the option of 1 or 3 Mesos master nodes.
-*   5 [private](/1.7/overview/concepts/#private) Mesos agent nodes is the default.
-*   1 [public](/1.7/overview/concepts/#public) Mesos agent node is the default.
+*   5 [private](/1.7/overview/concepts/#private-agent-node) Mesos agent nodes is the default.
+*   1 [public](/1.7/overview/concepts/#public-agent-node) Mesos agent node is the default.
 
 ## Software
 

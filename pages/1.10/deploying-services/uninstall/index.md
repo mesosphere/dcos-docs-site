@@ -33,7 +33,7 @@ dcos package uninstall chronos
 
 From the DC/OS web interface you can uninstall services from the **Services** tab. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
 
-1.  Navigate to the [**Services**](/1.10/gui/#services) tab in the DC/OS web interface.
+1.  Navigate to the [**Services**](/1.10/gui/services/) tab in the DC/OS web interface.
 1.  Select your service, click the vertical ellipsis at the far right, and select **Delete**.
 
     ![Destroy app](/1.10/img/service-delete.png)
@@ -79,7 +79,7 @@ From the DC/OS web interface you can uninstall services from the **Services**. T
 
 ### Services tab
 
-1.  Navigate to the [**Services**](/1.10/gui/#services) tab in the DC/OS web interface.
+1.  Navigate to the [**Services**](/1.10/gui/services/) tab in the DC/OS web interface.
 2.  Click on the **Installed** tab to see your installed services.
 3.  Hover your cursor over the name of the package you wish to uninstall and you will see a red "Uninstall" link to the right. Click this link to uninstall the package.
 

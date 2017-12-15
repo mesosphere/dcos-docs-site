@@ -4,7 +4,7 @@ navigationTitle:  Logging API
 title: Logging API
 menuWeight: 3
 excerpt:
-beta: true
+preview: true
 enterprise: true
 ---
 

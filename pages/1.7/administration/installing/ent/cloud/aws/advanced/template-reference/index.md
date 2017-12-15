@@ -20,7 +20,7 @@ These advanced template parameters are specified in the individual JSON files. D
 The [Zen](#zen) templates orchestrate the individual component templates to create a DC/OS cluster.
 
 ### Agent templates
-The [agent](#private-agent) templates create [public](/1.7/overview/concepts/#public) or [private](/1.7/overview/concepts/#private) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup. 
+The [agent](#private-agent) templates create [public](/1.7/overview/concepts/#public-agent-node) or [private](/1.7/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup. 
 
 ### Master templates
 The [master](#master) templates create master nodes, on top of the infrastructure stack already created.

@@ -55,7 +55,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
 This procedure describes how to create a secret called `my-secret` inside the `developer` path.
 
-**Note:** If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only) is `permissive` or `strict`, you must follow the steps in [Obtaining the DC/OS CA bundle](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-dcos-only) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+**Note:** If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only) is `permissive` or `strict`, you must follow the steps in [Obtaining the DC/OS CA bundle](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Use `dcos auth login` log into the CLI.
 
