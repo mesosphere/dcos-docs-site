@@ -26,6 +26,8 @@ services:
     build:
       context: ../
       dockerfile: ./docker/Dockerfile.pdf
+      args:
+        git_branch: ${GIT_BRANCH}
     volumes:
       - build-pdf:/src/build-pdf
   test:
