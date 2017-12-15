@@ -79,7 +79,7 @@ Figure 2 describes the software architecture that we plan to implement to realiz
 
 ### DC/OS modules for Mesos
 
-**Code:** https://github.com/dcos/dcos-mesos-modules/tree/master/overlay
+**Code:** [Mesos Module(s) for DC/OS Overlay Network](https://github.com/dcos/dcos-mesos-modules/tree/master/overlay)
 
 To configure the underlying DC/OS overlay we need an entity that can allocate subnets to each agent. The entity also needs to configure linux bridges to launch Mesos and Docker containers in their own subnets. Further, the VTEP on each Agent needs to be allocated IP addresses and MAC addresses and the Agent routing table needs to be configured with the correct routes to allow containers to communicate over the DC/OS overlay.
 
