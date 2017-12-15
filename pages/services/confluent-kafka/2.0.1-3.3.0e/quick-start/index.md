@@ -62,4 +62,4 @@ enterprise: false
 
 See also [Connecting clients][1].
 
- [1]: /service-docs/kafka/connecting-clients/
+ [1]: /services/kafka/connecting-clients/

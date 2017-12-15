@@ -13,7 +13,7 @@ As a package available in the Universe, Jenkins for DC/OS can be installed using
 
 <strong>Note:</strong> Jenkins for DC/OS cannot be installed in `strict` [security mode](/1.8/administration/installing/custom/configuration-parameters/#security).
 
-<strong>Important:</strong> The default installation will use a <code>/tmp</code> directory on the local host to store configuration and build data. This configuration will not scale to accommodate multiple Jenkins masters. In addition, it will result in the loss of data when the agent goes down. Before going into production, you must perform a <a href="/service-docs/jenkins/custom-install/">custom install</a> and set up either a shared file system (recommended) or pin to a single agent.
+<strong>Important:</strong> The default installation will use a <code>/tmp</code> directory on the local host to store configuration and build data. This configuration will not scale to accommodate multiple Jenkins masters. In addition, it will result in the loss of data when the agent goes down. Before going into production, you must perform a <a href="/services/jenkins/custom-install/">custom install</a> and set up either a shared file system (recommended) or pin to a single agent.
 
 <h1>Prerequisites</h1>
 
@@ -28,7 +28,7 @@ DC/OS 1.4 or later
 <ol>
 <li>Click <strong>Universe</strong>.</p></li>
 <li><p>Click the <strong>Install Package</strong> button for the Jenkins package.</p></li>
-<li><p>To accept the default settings, click <strong>Install Package</strong> on the pop-up. To customize the installation parameters, click <strong>Advanced Installation</strong> instead. Refer to <a href="/service-docs/jenkins/custom-install/">Customizing your install</a> for more information about each option.</p></li>
+<li><p>To accept the default settings, click <strong>Install Package</strong> on the pop-up. To customize the installation parameters, click <strong>Advanced Installation</strong> instead. Refer to <a href="/services/jenkins/custom-install/">Customizing your install</a> for more information about each option.</p></li>
 </ol>
 
 <h2>Using the CLI</h2>
@@ -40,7 +40,7 @@ From the CLI, type the following command to install Jenkins for DC/OS.
 <pre><code class="bash">dcos package install jenkins
 </code></pre>
 
-<strong>Note:</strong> You can use the <code>--options</code> flag to pass custom configuration parameters. Refer to <a href="/service-docs/jenkins/custom-install/">Customizing your install</a> for more information.
+<strong>Note:</strong> You can use the <code>--options</code> flag to pass custom configuration parameters. Refer to <a href="/services/jenkins/custom-install/">Customizing your install</a> for more information.
 
 <h1>Verifying your installation</h1>
 

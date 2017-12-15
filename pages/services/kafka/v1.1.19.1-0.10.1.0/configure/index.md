@@ -19,17 +19,17 @@ You can customize your cluster in-place when it is up and running. The Kafka sch
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the Kafka service to be updated.
 
-    ![Kafka GUI](/service-docs/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui.png)
+    ![Kafka GUI](/services/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui.png)
     
 1.  Within the Kafka instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
-    ![Kafka edit](/service-docs/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui2.png)
+    ![Kafka edit](/services/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui2.png)
     
 1.  Click the **Environment** tab and make your updates. For a description of possible updates, see the [Configuration Update Plans](#configuration-update-plans). For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT` key.
 
     **Important:** Do not edit the values for `FRAMEWORK_NAME`, `BROKER_DISK`, `PLACEMENT_STRATEGY`, or `ENABLE_BROKER_HEALTH_CHECK`.
     
-    ![Update broker count](/service-docs/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui3.png)
+    ![Update broker count](/services/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui3.png)
     
 1.  Click **REVIEW & RUN** to apply any changes and cleanly reload the Kafka scheduler. The Kafka cluster itself will persist across the change.
 

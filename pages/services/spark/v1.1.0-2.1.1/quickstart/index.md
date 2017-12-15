@@ -16,7 +16,7 @@ This tutorial will get you up and running in minutes with Spark. You will instal
 GB of memory and ten GB of disk available on each agent.
 -  Depending on your [security mode](https://docs.mesosphere.com/1.9/overview/security/security-modes/), Spark requires
 service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for
-Spark](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
+Spark](https://docs.mesosphere.com/services/spark/spark-auth/).
 
    | Security mode | Service Account |
    |---------------|-----------------------|
@@ -26,7 +26,7 @@ Spark](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
 
 
 1.  Install the Spark package. This may take a few minutes. This installs the Spark DC/OS service, Spark CLI, dispatcher, and,
-optionally, the history server. See [Custom Installation](/service-docs/spark/v1.0.9-2.1.0-1/install/#custom) to install the
+optionally, the history server. See [Custom Installation](/services/spark/v1.0.9-2.1.0-1/install/#custom) to install the
 history server.
 
     ```bash
@@ -41,7 +41,7 @@ history server.
     New command available: dcos spark
     DC/OS Spark is being installed!
     
-    	Documentation: https://docs.mesosphere.com/service-docs/spark/
+    	Documentation: https://docs.mesosphere.com/services/spark/
     	Issues: https://docs.mesosphere.com/support/
     ```
    
@@ -49,7 +49,7 @@ history server.
     
     -  You can view the status of your Spark installation from the DC/OS GUI **Services** tab.
        
-       ![Verify spark installation](/service-docs/spark/v1.1.0-2.1.1/img/spark-gui-install.gif)
+       ![Verify spark installation](/services/spark/v1.1.0-2.1.1/img/spark-gui-install.gif)
        
     -  Type `dcos spark` to view the Spark CLI options.
     -  You can install the Spark CLI with this command:
