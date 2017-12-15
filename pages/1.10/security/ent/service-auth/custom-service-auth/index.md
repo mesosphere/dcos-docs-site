@@ -117,7 +117,7 @@ All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-a
 ### Using the CLI
 
 You can assign permissions using the CLI.
-For example, to authorize the [Cassandra service](/service-docs/cassandra/cass-auth/) to be uninstalled on DC/OS:
+For example, to authorize the [Cassandra service](/services/cassandra/cass-auth/) to be uninstalled on DC/OS:
 
 1.  Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and the allowed actions (`create`).
 

@@ -255,4 +255,4 @@ To install the service, use the following command.
 dcos package install --options=config.json spark
 ```
 
-You can also provide the `config.json` file to someone else to install Spark. Please see the [Spark documentation](/service-docs/spark/v1.0.9-2.1.0-1/install/) for more information about how to use the JSON file to install the service.
+You can also provide the `config.json` file to someone else to install Spark. Please see the [Spark documentation](/services/spark/v1.0.9-2.1.0-1/install/) for more information about how to use the JSON file to install the service.

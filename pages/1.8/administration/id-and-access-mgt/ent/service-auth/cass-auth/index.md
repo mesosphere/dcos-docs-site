@@ -255,4 +255,4 @@ To install the service, use the following command.
 dcos package install --options=config.json cassandra
 ```
 
-You can also provide the `config.json` file to someone else to install Cassandra. Please see the [Cassandra documentation](/service-docs/cassandra/v1.0.25-3.0.10/install-and-customize/) for more information about how to use the JSON file to install the service.
+You can also provide the `config.json` file to someone else to install Cassandra. Please see the [Cassandra documentation](/services/cassandra/v1.0.25-3.0.10/install-and-customize/) for more information about how to use the JSON file to install the service.
