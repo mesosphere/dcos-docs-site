@@ -299,8 +299,8 @@ To install DC/OS:
 [2]: /1.8/usage/cli/install/
 [3]: /1.8/usage/
 [4]: https://downloads.dcos.io/dcos/stable/1.8.9/dcos_generate_config.sh
-[6]: /1.8/overview/concepts/#public
-[7]: /1.8/overview/concepts/#private
+[6]: /1.8/overview/concepts/#public-agent-node
+[7]: /1.8/overview/concepts/#private-agent-node
 [8]: /1.8/administration/installing/oss/custom/uninstall/
 [9]: /1.8/administration/installing/oss/custom/troubleshooting/
 [10]: /1.8/administration/id-and-access-mgt/user-management/

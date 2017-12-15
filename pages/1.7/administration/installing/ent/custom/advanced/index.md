@@ -283,8 +283,8 @@ Now you can [assign user roles][8].
 
  [1]: /1.7/administration/installing/ent/custom/system-requirements/
  [2]: /1.7/administration/installing/ent/custom/uninstall/
- [3]: /1.7/overview/concepts/#public
- [4]: /1.7/overview/concepts/#private
+ [3]: /1.7/overview/concepts/#public-agent-node
+ [4]: /1.7/overview/concepts/#private-agent-node
  [5]: /assets/images/chef-zk-status.png
  [6]: /assets/images/ui-installer-auth2.png
  [7]: /assets/images/dashboard-ee.gif

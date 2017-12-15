@@ -195,6 +195,6 @@ If you have any problems, you can check if the diagnostics service is running by
  [5]: http://erlang.org/doc/man/epmd.html
  [6]: /1.7/administration/id-and-access-mgt/ent/
  [7]: /1.7/usage/service-discovery/load-balancing/
- [8]: /1.7/overview/concepts/#private
- [9]: /1.7/overview/concepts/#public
+ [8]: /1.7/overview/concepts/#private-agent-node
+ [9]: /1.7/overview/concepts/#public-agent-node
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

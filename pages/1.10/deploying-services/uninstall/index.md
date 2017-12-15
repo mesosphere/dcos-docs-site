@@ -71,7 +71,7 @@ Uninstall a user-created service with this command:
 dcos marathon app remove [--force] <app-id>
 ```
 
-For more information, see the [command reference](/1.10/cli/command-reference/#dcos-marathon).
+For more information, see the [command reference](/1.10/cli/command-reference/dcos-marathon/).
 
 ### Web interface
 

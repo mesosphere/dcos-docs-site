@@ -76,8 +76,8 @@ This topic provides all available configuration parameters. Except where explici
 | [customer_key](#customer-key-enterprise)                       | [enterprise type="inline" size="small" /] (Required) The DC/OS Enterprise customer key. |
 | [ca_certificate_path](#ca-certificate-path-enterprise)                   | [enterprise type="inline" size="small" /] Path to a file in the OpenSSL PEM format containing a single X.509 CA certificate. Can be a root (self-issued) certificate or an intermediate (cross-certificate) certificate. |
 | [ca_certificate_key_path](#ca-certificate-key-path-enterprise)           | [enterprise type="inline" size="small" /] Path to a file in the PKCS#8 PEM format containing the private key corresponding to the CA certificate in `ca_certificate_path`. Required if `ca_certificate_path` is specified. |
-| [ca_certificate_chain_path](#ca-certificate-chain-enterprise)       | [enterprise type="inline" size="small" /] Path to a file in the OpenSSL PEM format containing the complete CA certification chain required for end-entity certificate verification. Must be left undefined if `ca_certificate_path` is a root CA certificate. Required if `ca_certificate_path` is specified and the specified certificate is an intermediate CA certificate. |
-| [oauth_enabled](#oauth-enabled-dc-os-only-)                                | (DC/OS Only) Indicates whether to enable authentication for your cluster.  |
+| [ca_certificate_chain_path](#ca-certificate-chain-path-enterprise)       | [enterprise type="inline" size="small" /] Path to a file in the OpenSSL PEM format containing the complete CA certification chain required for end-entity certificate verification. Must be left undefined if `ca_certificate_path` is a root CA certificate. Required if `ca_certificate_path` is specified and the specified certificate is an intermediate CA certificate. |
+| [oauth_enabled](#oauth-enabled-oss)                                | [oss type="inline" size="small"] Indicates whether to enable authentication for your cluster.  |
 | [security](#security-enterprise)                               | [enterprise type="inline" size="small" /] The security mode: disabled, permissive, or strict.  |
 | [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
@@ -447,7 +447,10 @@ For more information regarding truncated DNS responses and retrying over TCP see
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
 
-### oauth_enabled (DC/OS Only)
+[oss]
+### oauth_enabled
+[/oss]
+
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
 
 - `oauth_enabled: true` Enable authentication for your cluster. This is the default value.

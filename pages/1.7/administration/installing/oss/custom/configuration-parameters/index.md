@@ -128,7 +128,10 @@ This parameter specifies the allowable amount of time, in seconds, for an action
 
 ## Security And Authentication
 
+[oss]
 ### oauth_enabled
+[/oss]
+
 This parameter specifies whether to enable authentication for your cluster. <!-- DC/OS auth -->
 
 - `oauth_enabled: 'true'` Enable authentication for your cluster. This is the default value.

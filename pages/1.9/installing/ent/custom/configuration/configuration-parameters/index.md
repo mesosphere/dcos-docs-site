@@ -64,7 +64,7 @@ This topic provides all available configuration parameters. Except where explici
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)            |[enterprise type="inline" size="small" /] Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) |[enterprise type="inline" size="small" /] Sets the auth token time-to-live (TTL) for Identity and Access Management.                                      |
 | [customer_key](#customer-key-enterpriseenterprise-)                       |[enterprise type="inline" size="small" /] (required) The DC/OS Enterprise customer key.                                                                     |
-| [oauth_enabled](#oauth-enabled)                      | (DC/OS Only) Indicates whether to enable authentication for your cluster.                                                               |
+| [oauth_enabled](#oauth-enabled)                      | [oss type="inline" size="small"] Indicates whether to enable authentication for your cluster.                                                               |
 | [security](#security-enterprise)                           |[enterprise type="inline" size="small" /] The security mode: disabled, permissive, or strict.                                                      |
 | [ssh_key_path](#ssh-key-path)                       | The path to the installer uses to log into the target nodes.                                                                      |
 | [ssh_port](#ssh-port)                           | The port to SSH to, for example 22.                                                                                               |
@@ -379,7 +379,10 @@ The default is `logrotate`. Due to performance issues, `journald` is not recomme
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
 
-### oauth_enabled (DC/OS Only)
+[oss]
+### oauth_enabled
+[/oss]
+
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
 
 - `oauth_enabled: 'true'` Enable authentication for your cluster. This is the default value.

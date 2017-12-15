@@ -307,7 +307,7 @@ To install DC/OS:
 [2]: /1.10/cli/install/
 [4]: https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
 [6]: /1.10/overview/concepts/#public-agent-node
-[7]: /1.10/overview/concepts/#private
+[7]: /1.10/overview/concepts/#private-agent-node
 [8]: /1.10/installing/oss/custom/uninstall/
 [9]: /1.10/installing/oss/troubleshooting/
 [10]: /1.10/security/user-management/

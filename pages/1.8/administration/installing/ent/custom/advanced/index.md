@@ -269,8 +269,8 @@ Now you can [assign user roles][8].
 
  [1]: /1.8/administration/installing/ent/custom/system-requirements/
  [2]: /1.8/administration/installing/ent/custom/uninstall/
- [3]: /1.8/overview/concepts/#public
- [4]: /1.8/overview/concepts/#private
+ [3]: /1.8/overview/concepts/#public-agent-node
+ [4]: /1.8/overview/concepts/#private-agent-node
  [5]: /assets/images/chef-zk-status.png
  [7]: /assets/images/dashboard-ee.gif
  [8]: /1.8/administration/id-and-access-mgt/

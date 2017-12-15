@@ -42,9 +42,8 @@ Only a subset of DC/OS configuration parameters can be modified. The adverse eff
 
 Here is a list of the parameters that you can modify:
 
-- [`check_time`](/1.9/installing/custom/configuration/configuration-parameters/#check-time)
 - [`dns_search`](/1.9/installing/custom/configuration/configuration-parameters/#dns-search)
-- [`docker_remove_delay`](/1.9/installing/custom/configuration/configuration-parameters/#docker-remove)
+- [`docker_remove_delay`](/1.9/installing/custom/configuration/configuration-parameters/#docker-remove-delay)
 - [`gc_delay`](/1.9/installing/custom/configuration/configuration-parameters/#gc-delay)
 - [`resolvers`](/1.9/installing/custom/configuration/configuration-parameters/#resolvers)
 - [`telemetry_enabled`](/1.9/installing/custom/configuration/configuration-parameters/#telemetry-enabled)
