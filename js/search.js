@@ -1,3 +1,5 @@
+import { setTimeout } from "timers";
+
 const landingContainer = document.querySelector('.landing');
 
 //
@@ -185,6 +187,8 @@ if (searchForm) {
     }),
   );
 
+  search.on('render', handleFilterWidth);
+
   search.start();
 }
 
@@ -239,3 +243,30 @@ function sortVersion(a, b) {
   }
   return 0;
 }
+
+// Resize filter widths based on selected menu item
+
+function setFilterWidth(id) {
+  const filterDiv = $(`#${id}`);
+  const select = filterDiv.find('.ais-menu-select--footer');
+  $('#templateOption').text(select.find('option:selected').text());
+  select.width($('#template').width());
+}
+
+function handleFilterWidth() {
+  const selectList = document.querySelectorAll('.search__filter');
+
+  selectList.forEach((sel) => {
+    const mq = window.matchMedia('(min-width: 769px)');
+    if (mq.matches) {
+      // the width of browser is more than 769px
+      setFilterWidth(sel.getAttribute('id'));
+    } else {
+      // the width of browser is less than 769px
+      const filterDiv = $(`#${sel.getAttribute('id')}`);
+      filterDiv.find('.ais-menu-select--footer').width('100%');
+    }
+  });
+}
+
+window.addEventListener('resize', handleFilterWidth);
