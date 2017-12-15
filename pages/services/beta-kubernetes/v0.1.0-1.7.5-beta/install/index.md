@@ -54,4 +54,4 @@ You can [install Kubernetes from the DC/OS web interface](https://docs.mesospher
 dcos package install beta-kubernetes --cli
 ```
 
-Go to the [Advanced Installation](/service-docs/beta-kubernetes/v0.1.0-1.7.5-beta/advanced-install) for details on performing a custom installation.
+Go to the [Advanced Installation](/services/beta-kubernetes/v0.1.0-1.7.5-beta/advanced-install) for details on performing a custom installation.

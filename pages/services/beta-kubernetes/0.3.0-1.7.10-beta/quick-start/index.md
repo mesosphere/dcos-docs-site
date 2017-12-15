@@ -31,5 +31,5 @@ enterprise: false
 
 ## Enterprise DC/OS
 
-If you are using Enterprise DC/OS, follow the same steps detailed for Open-Source DC/OS. However, you should read the [Install and Customize](/service-docs/beta-kubernetes/0.2.1-1.7.7-beta/install/) section for more information.
+If you are using Enterprise DC/OS, follow the same steps detailed for Open-Source DC/OS. However, you should read the [Install and Customize](/services/beta-kubernetes/0.2.1-1.7.7-beta/install/) section for more information.
 

@@ -36,4 +36,4 @@ In this example, you can access the Opscenter UI directly via the native endpoin
 
 Retrieve other endpoints via `dcos dse endpoints <pod-name>`. Use the output of this command to access them via your local browser.
 
-![OpsCenter via tunnel](/service-docs/beta-dse/v1.1.8-5.1.2-beta/img/screenshot.jpg?raw=true "OpsCenter")
+![OpsCenter via tunnel](/services/beta-dse/v1.1.8-5.1.2-beta/img/screenshot.jpg?raw=true "OpsCenter")

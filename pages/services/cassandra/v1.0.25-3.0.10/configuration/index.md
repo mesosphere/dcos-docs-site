@@ -22,15 +22,15 @@ The Cassandra scheduler runs as a Marathon process and can be reconfigured by ch
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the Cassandra service to be updated.
 
-    ![DC/OS GUI Cassandra](/service-docs/cassandra/v1.0.25-3.0.10/img/cassandra-service-gui.png)
+    ![DC/OS GUI Cassandra](/services/cassandra/v1.0.25-3.0.10/img/cassandra-service-gui.png)
     
 1.  Within the Cassandra instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
-    ![Edit menu](/service-docs/cassandra/v1.0.25-3.0.10/img/cassandra-service-gui2.png)
+    ![Edit menu](/services/cassandra/v1.0.25-3.0.10/img/cassandra-service-gui2.png)
     
 1.  Click the **Environment** tab and make your updates. For example, to increase the number of nodes, edit the value for `NODES`.
 
-    ![](/service-docs/cassandra/v1.0.25-3.0.10/img/cassandra-service-gui3.png)
+    ![](/services/cassandra/v1.0.25-3.0.10/img/cassandra-service-gui3.png)
     
 1.  Click **REVIEW & RUN** to apply any changes and cleanly reload the Cassandra scheduler. The Cassandra cluster itself will persist across the change.
 
