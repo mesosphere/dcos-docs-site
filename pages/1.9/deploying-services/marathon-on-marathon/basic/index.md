@@ -152,7 +152,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     ```
 
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.9/security/#security-modes), a Marathon Service Account is either optional or required. 
+In this step, a Marathon Service Account is created. Depending on your [security mode](/1.9/security/ent/#security-modes), a Marathon Service Account is either optional or required. 
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -228,7 +228,7 @@ In this step, a user is granted access to the non-native Marathon instance.
 
     ![Add permission](/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/ent/#security-modes).
 
     ### Disabled
     

@@ -440,7 +440,7 @@ Use this parameter to specify a security mode other than `security: permissive` 
 - `security: permissive`
 - `security: strict`
 
-Refer to the [security modes](/1.9/security/#security-modes) section for a detailed discussion of each parameter. 
+Refer to the [security modes](/1.9/security/ent/#security-modes) section for a detailed discussion of each parameter. 
 
 ### ssh_key_path
 The path that the installer uses to log into the target nodes. By default this is set to `/genconf/ssh_key`. This parameter should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.

@@ -16,7 +16,7 @@ enterprise: true
 ---
 
 
-Your cluster will become more secure as you move from `disabled` to `permissive` to `strict` [security modes](/1.9/security/#security-modes).
+Your cluster will become more secure as you move from `disabled` to `permissive` to `strict` [security modes](/1.9/security/ent/#security-modes).
 
 However, there are a number of settings that you can modify independent of your security mode to increase the security of your cluster.
 

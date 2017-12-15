@@ -65,7 +65,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
         ![Zeppelin](/1.9/img/tweeter-services5-ee.png)
 
 
-1.  Install Marathon-LB by following [these instructions](/1.9/networking/marathon-lb/mlb-auth/). Depending on your [security mode](/1.9/security/#security-modes), Marathon-LB requires service authentication for access to DC/OS. 
+1.  Install Marathon-LB by following [these instructions](/1.9/networking/marathon-lb/mlb-auth/). Depending on your [security mode](/1.9/security/ent/#security-modes), Marathon-LB requires service authentication for access to DC/OS. 
 
 2.  Monitor the Services tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 

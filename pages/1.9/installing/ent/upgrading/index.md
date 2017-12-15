@@ -54,7 +54,7 @@ Here is a list of the parameters that you can modify:
     - [`no_proxy`](/1.9/installing/custom/configuration/configuration-parameters/#use-proxy)
     
 ### Security modes
-The [security mode](/1.9/security/#security-modes) can be changed but has special caveats.
+The [security mode](/1.9/security/ent/#security-modes) can be changed but has special caveats.
 
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in permissive mode and you want to downgrade to disabled mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from disabled to strict mode. To increase from disabled to strict mode, you must first update to permissive mode, and then update from permissive to strict mode. 
