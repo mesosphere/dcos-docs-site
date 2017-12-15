@@ -1,5 +1,3 @@
-import { setTimeout } from "timers";
-
 const landingContainer = document.querySelector('.landing');
 
 //
