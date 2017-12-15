@@ -54,8 +54,8 @@ DC/OS Apache Spark includes:
  [1]: http://spark.apache.org/documentation.html
  [2]: http://spark.apache.org/docs/latest/running-on-mesos.html#cluster-mode
  [3]: http://spark.apache.org/docs/latest/monitoring.html#viewing-after-the-fact
- [4]: /service-docs/hdfs/
- [5]: /service-docs/kafka/
+ [4]: /services/hdfs/
+ [5]: /services/kafka/
  [6]: https://zeppelin.incubator.apache.org/
  [17]: https://github.com/mesosphere/spark
  [18]: https://github.com/mesosphere/spark-build

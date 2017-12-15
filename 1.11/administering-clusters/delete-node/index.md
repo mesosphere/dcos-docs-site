@@ -39,7 +39,7 @@ You should deommission nodes in the following situations.
 
 - You are deleting a node, especially if you are deleting multiple nodes. DC/OS is configured to only allow one node to be marked `UNREACHABLE` every 20 minutes, so if you do not explicity decommission nodes, it can take a long time for Mesos to mark your nodes as `UNREACHABLE` and allow services to reschedule tasks on another node.
 
-- If you are working with stateful services, like the [DC/OS data services](/service-docs/). It is expensive for stateful services to reschedule tasks, so the services need to know that an agent is not going to come back online before they reschedule.
+- If you are working with stateful services, like the [DC/OS data services](/services/). It is expensive for stateful services to reschedule tasks, so the services need to know that an agent is not going to come back online before they reschedule.
 
 - When a node has gone down in an unplanned way.
 

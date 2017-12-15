@@ -155,7 +155,7 @@ For more information, see the [documentation](/1.8/administration/id-and-access-
 #### Kafka Service [maturity-badge status='preview']
 DC/OS Universe has an updated DC/OS Kafka Service. The updated DC/OS Kafka Service now supports configuring ZK service for Apache Kafka.
 
-For more information, see the [documentation](/service-docs/kafka/).
+For more information, see the [documentation](/services/kafka/).
 
 #### Confluent Kafka Service [maturity-badge status='preview']
 DC/OS Universe has a DC/OS Confluent Platform Service that is based on the DC/OS Kafka Service. Confluent offers support for the DC/OS Confluent Platform Service on DC/OS Enterprise. 
@@ -165,7 +165,7 @@ For more information, see the Universe [documentation](https://github.com/mesosp
 #### Cassandra Service [maturity-badge status='preview']
 DC/OS Universe has an updated DC/OS Cassandra Service. The updated DC/OS Cassandra Service now supports multi-datacenter Cassandra ring topologies, and backup and restore with Azure Storage. 
 
-For more information, see the [documentation](/service-docs/cassandra/).
+For more information, see the [documentation](/services/cassandra/).
 
 #### Datastax Enterprise (DSE) Service [maturity-badge status='preview']
 DC/OS Universe has a DC/OS DataStax Enterprise Service that is based on the DC/OS Cassandra Service. DataStax offers support for the DC/OS DataStax Enterprise Service on DC/OS Enterprise. 
@@ -175,18 +175,18 @@ For more information, see the Universe [documentation](https://github.com/mesosp
 #### HDFS Service [maturity-badge status='experimental']
 DC/OS Universe now has a new DC/OS HDFS Service. This new DC/OS HDFS Service is an entirely new implementation sharing no code with the previous DC/OS HDFS Services. DC/OS HDFS Service can be deployed with a single command. Multiple instances of the DC/OS HDFS Service can be deployed to a single DC/OS cluster. Configuration of a DC/OS HDFS Service can updated at runtime without service interruption. DC/OS HDFS Service instances reserve all resources including CPU, Memory, Disk and Network Ports. 
 
-For more information, see the [documentation](/service-docs/hdfs/).
+For more information, see the [documentation](/services/hdfs/).
 
 #### Spark Service 
 DC/OS Universe has an updated version of Apache Spark based on 1.6.2.  In addition to all the of features of Apache Spark 1.6.2, the DC/OS Spark Service supports Kerberos and SSL with secure HDFS clusters. Latest stable Spark with coarse-grained scheduler. 
 
-For more information, see the [documentation](/service-docs/spark/).
+For more information, see the [documentation](/services/spark/).
 
 ## Developer Agility
 
 - [maturity-badge status='preview'] New Artifactory Package. For more information, see the [documentation](https://github.com/JFrogDev/artifactory-dcos/).
 - [maturity-badge status='preview'] New GitLab Package. For more information, see the [documentation](https://mesosphere.com/blog/2016/09/16/gitlab-dcos/).
-- Updated Jenkins packages. For more information, see the [documentation](/service-docs/jenkins/).
+- Updated Jenkins packages. For more information, see the [documentation](/services/jenkins/).
 
 ## Enhanced Cloud Templates
 

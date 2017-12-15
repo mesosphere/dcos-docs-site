@@ -184,4 +184,4 @@ The following code connects to a DC/OS-hosted Kafka instance using `bin/kafka-co
 
  [13]: /1.10/security/ent/users-groups/
  [14]: /1.10/security/ent/iam-api/
- [15]: /service-docs/kafka/configure/#tls
+ [15]: /services/kafka/configure/#tls

@@ -14,9 +14,9 @@ In this tutorial you install and deploy a containerized Ruby on Rails app named 
 Tweeter:
 
 <ul>
-<li>Stores tweets in the DC/OS <a href="/service-docs/cassandra/">Cassandra</a> service.</li>
-<li>Streams tweets to the DC/OS <a href="/service-docs/kafka/">Kafka</a> service in real-time.</li>
-<li>Performs real-time analytics with the DC/OS <a href="/service-docs/spark/">Spark</a> and <a href="http://zeppelin.apache.org/">Zeppelin</a> services.</li>
+<li>Stores tweets in the DC/OS <a href="/services/cassandra/">Cassandra</a> service.</li>
+<li>Streams tweets to the DC/OS <a href="/services/kafka/">Kafka</a> service in real-time.</li>
+<li>Performs real-time analytics with the DC/OS <a href="/services/spark/">Spark</a> and <a href="http://zeppelin.apache.org/">Zeppelin</a> services.</li>
 </ul>
 
 This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes! You will learn:

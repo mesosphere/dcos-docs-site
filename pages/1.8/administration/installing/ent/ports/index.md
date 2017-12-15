@@ -47,23 +47,23 @@ This topic lists the ports that are required to launch DC/OS. Additional ports m
 |  80 |  Admin Router Service (`dcos-adminrouter.service`) |  
 |  443 |  Admin Router Service (`dcos-adminrouter.service`) |  
 |  1050 |  Diagnostics (`dcos-3dt.service`) |   
-|  1337 |  Secrets (`dcos-secrets.service`) (DC/OS Enterprise Only) |   <!-- Enterprise --> 
+|  1337 |  Secrets (`dcos-secrets.service`) [enterprise type="inline" size="small" /] |   <!-- Enterprise --> 
 | 2181  | ZooKeeper | `dcos-exhibitor.service` |
 | 3888  | Exhibitor, or ZooKeeper and Exhibitor | `dcos-exhibitor.service` |
 |  5050 |  Mesos Master (`dcos-mesos-master.service`) |  
 |  7070 |  Package service (`dcos-cosmos.service`) |  
 |  8080 |  Marathon (`dcos-marathon.service`) | 
-| 8101 |  Identity and Access Management (`dcos-bouncer.service`) (DC/OS Enterprise Only) | <!-- Enterprise --> 
+| 8101 |  Identity and Access Management (`dcos-bouncer.service`) [enterprise type="inline" size="small" /] | <!-- Enterprise --> 
 |  8123 |  Mesos DNS (`dcos-mesos-dns.service`) |  
 | 8181  | Exhibitor and ZooKeeper | `dcos-exhibitor.service` | 
-|  8200 | Vault (`dcos-vault.service`) (DC/OS Enterprise Only) |  <!-- Enterprise --> 
+|  8200 | Vault (`dcos-vault.service`) [enterprise type="inline" size="small" /] |  <!-- Enterprise --> 
 | 9090 | DC/OS Jobs (Metronome) | `dcos-metronome.service`|
 |  9990 | Package service (`dcos-cosmos.service`) |  
-|  8888 | DC/OS Certificate Authority (`dcos-ca.service`) (DC/OS Enterprise Only) | <!-- Enterprise -->   
+|  8888 | DC/OS Certificate Authority (`dcos-ca.service`) [enterprise type="inline" size="small" /] | <!-- Enterprise -->   
 |  15055 | History Service (`dcos-history-service.service`) | 
 | 15101 | Marathon libprocess | `dcos-marathon.service` |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`|
-|  62500 | Network Metrics Aggregator (`dcos-networking_api.service`) (DC/OS Enterprise Only) | <!-- Enterprise -->
+|  62500 | Network Metrics Aggregator (`dcos-networking_api.service`) [enterprise type="inline" size="small" /] | <!-- Enterprise -->
 |  Ephemeral | System Package Manager API (`dcos-pkgpanda-api.service`) | 
 
 ### UDP

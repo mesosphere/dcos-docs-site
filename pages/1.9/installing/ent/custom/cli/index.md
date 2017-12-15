@@ -99,7 +99,7 @@ In this step, an IP detect script is created. This script reports the IP address
         set -o nounset -o errexit
         MASTER_IP=172.28.128.3
         echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
-        ```   
+        ```
 
 # <a name="config-json"></a>Create a configuration file
 

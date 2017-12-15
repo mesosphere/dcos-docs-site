@@ -253,4 +253,4 @@ To install the service, use the following command.
 dcos package install --options=config.json kafka
 ```
 
-You can also provide the `config.json` file to someone else to install Kafka. Please see the [Kafka documentation](/service-docs/kafka/v1.1.19.1-0.10.1.0/install-and-customize/) for more information about how to use the JSON file to install the service.
+You can also provide the `config.json` file to someone else to install Kafka. Please see the [Kafka documentation](/services/kafka/v1.1.19.1-0.10.1.0/install-and-customize/) for more information about how to use the JSON file to install the service.

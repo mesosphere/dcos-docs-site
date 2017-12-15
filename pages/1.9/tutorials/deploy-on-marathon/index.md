@@ -13,7 +13,7 @@ This tutorial shows how to deploy applications on [Marathon][1] using Jenkins fo
 
 
 **Prerequisite:** 
-This tutorial assumes that you have a working Jenkins installation and permission to launch applications on Marathon. Jenkins for DC/OS must be installed as described on the [Jenkins Quickstart](/service-docs/jenkins/quickstart/) page.
+This tutorial assumes that you have a working Jenkins installation and permission to launch applications on Marathon. Jenkins for DC/OS must be installed as described on the [Jenkins Quickstart](/services/jenkins/quickstart/) page.
 
 # The Example Project
 

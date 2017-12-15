@@ -14,7 +14,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
 - A [user account](/1.9/security/users-groups/) to assign permissions to.
-- If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/1.9/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 # <a name="job-group-access-via-ui"></a>Via the DC/OS GUI
 
@@ -34,7 +34,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
 
     ![Add permission](/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/ent/#security-modes).
 
     ### Disabled
 
@@ -103,7 +103,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
 # <a name="job-group-access-via-api"></a>Via the IAM API
 
 **Prerequisite:** 
-If your [security mode](/1.9/security/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+If your [security mode](/1.9/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 

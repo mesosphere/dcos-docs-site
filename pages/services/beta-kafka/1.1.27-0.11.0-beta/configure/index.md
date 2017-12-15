@@ -348,7 +348,7 @@ It is possible to expose Kafka over a secure TLS connection.
 
 Once the TLS is enabled, Kafka will use secure TLS connections for inter-node communication. Additional TLS port named `broker-tls` will be available for clients connecting to the service. Only the [`TLS version 1.2`](https://www.ietf.org/rfc/rfc5246.txt) is supported. The non-TLS `broker` port will still be available.
 
-Enabling the TLS is possible only in `permissive` or `strict` cluster security modes. Both modes **require** a [service account](/service-docs/kafka/kafka-auth/). Additionally, the service account **must have** the `dcos:superuser` permission. If the permission is missing the Kafka scheduler will not abe able to provision the TLS artifacts.
+Enabling the TLS is possible only in `permissive` or `strict` cluster security modes. Both modes **require** a [service account](/services/kafka/kafka-auth/). Additionally, the service account **must have** the `dcos:superuser` permission. If the permission is missing the Kafka scheduler will not abe able to provision the TLS artifacts.
 
 There is a performance impact with TLS connections that should be considered:
 

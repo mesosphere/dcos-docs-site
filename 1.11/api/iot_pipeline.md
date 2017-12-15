@@ -38,7 +38,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 **Prerequisites:**
 
 *  DC/OS Enterprise is [installed](/1.9/installing/) with:
-    - Security [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-dcos-enterprise-only) set to permissive or strict. By default, DC/OS installs in permissive security mode.
+    - Security [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-enterprise) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/1.9/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
@@ -65,7 +65,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
         ![Zeppelin](/1.9/img/tweeter-services5-ee.png)
 
 
-1.  Install Marathon-LB by following [these instructions](/1.9/networking/marathon-lb/mlb-auth/). Depending on your [security mode](/1.9/security/#security-modes), Marathon-LB requires service authentication for access to DC/OS. 
+1.  Install Marathon-LB by following [these instructions](/1.9/networking/marathon-lb/mlb-auth/). Depending on your [security mode](/1.9/security/ent/#security-modes), Marathon-LB requires service authentication for access to DC/OS. 
 
 2.  Monitor the Services tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
@@ -190,9 +190,9 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
 
 ![Top Tweeters][16]
 
- [1]: /service-docs/cassandra/
- [2]: /service-docs/kafka/
- [3]: /service-docs/spark/
+ [1]: /services/cassandra/
+ [2]: /services/kafka/
+ [3]: /services/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
  [6]: /1.9/overview/concepts/

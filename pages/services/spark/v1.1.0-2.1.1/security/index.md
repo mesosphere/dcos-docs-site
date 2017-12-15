@@ -33,7 +33,7 @@ When running in [DC/OS strict security mode](/1.10/security/ent/), both the disp
 
 Follow these instructions to authenticate in strict mode:
 
-1. Create a service account by following the instructions [here](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
+1. Create a service account by following the instructions [here](https://docs.mesosphere.com/services/spark/spark-auth/).
 
 1. Assign Permissions
 

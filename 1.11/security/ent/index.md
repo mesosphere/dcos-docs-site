@@ -67,7 +67,7 @@ This mode provides some of the security features, but does not include the Mesos
 This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting Your Security Mode
-The security mode is set during [DC/OS installation](/1.11/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.11/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only).
+The security mode is set during [DC/OS installation](/1.11/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.11/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 **Important:** You can only move from `disabled` to `permissive`, and from `permissive` to `strict` during an upgrade.
 
@@ -244,7 +244,7 @@ The following table identifies the default Linux user in each situation.
 | Mesos          | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
 | Docker         | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `nobody`.   |
 
-Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/service-docs/).
+Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/services/).
 
 **Note:** If the fetched file is compressed, the individual files inside will retain the permissions and ownership assigned when the file was compressed and are unaffected by any other configurations or settings.
 

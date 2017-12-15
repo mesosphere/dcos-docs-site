@@ -114,7 +114,7 @@ Using the [permissions reference](/1.9/security/ent/perms-reference/) and the lo
 
 ### Using the CLI
 
-You can assign permissions using curl commands. To assign permissions you must create the folder and then assign permissions to it. For example, to authorize the [Cassandra service](/service-docs/cassandra/cass-auth/) to be uninstalled on DC/OS:
+You can assign permissions using curl commands. To assign permissions you must create the folder and then assign permissions to it. For example, to authorize the [Cassandra service](/services/cassandra/cass-auth/) to be uninstalled on DC/OS:
 
 1.  Create a folder for the permission (`dcos:mesos:master:framework:role:cassandra-role`).
 
