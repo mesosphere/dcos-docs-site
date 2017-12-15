@@ -64,7 +64,7 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 [/ enterprise]
   
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only-and-authentication) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
+  Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-and-authentication) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
 - Increased Admin Router security. <!-- ie TLS not supported out-of-the-box; where is the doc? is this enterprise-only?-->
 
@@ -72,7 +72,7 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
   You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/ent/secrets/use-secrets/).
 
 - Docker `pullConfig` parameter.
-  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-dcos-enterprise-only).
+  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise).
 
 ## Updated DC/OS Data Services
 

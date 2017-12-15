@@ -87,7 +87,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
     The Docker image will now pull using the provided security credentials.
 
 <a name="secret-store-instructions"></a>
-# Referencing private Docker registry credentials in the secrets store (DC/OS Enterprise only)
+# Referencing private Docker registry credentials in the secrets store [enterprise type="inline" size="small" /]
 
 Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/1.10/security/ent/secrets/), and then reference that secret in your service definition.
 

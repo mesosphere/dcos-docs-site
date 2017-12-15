@@ -67,7 +67,7 @@ This mode provides some of the security features, but does not include the Mesos
 This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting Your Security Mode
-The security mode is set during [DC/OS installation](/1.11/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.11/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only).
+The security mode is set during [DC/OS installation](/1.11/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.11/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 **Important:** You can only move from `disabled` to `permissive`, and from `permissive` to `strict` during an upgrade.
 
