@@ -36,7 +36,11 @@ module.exports = function(options) {
   index.setSettings({
     distinct: true,
     attributeForDistinct: 'path',
-    searchableAttributes: ['title', 'content'],
+    searchableAttributes: ['title', 'excerpt', 'content'],
+    attributesToSnippet: [
+      'excerpt:40',
+      'content:40'
+    ],
     attributesForFaceting: ['section', 'product', 'version', 'type'],
     customRanking: ['asc(section)', 'desc(product)', 'asc(versionWeight)'],
   });
@@ -218,7 +222,7 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
     record.section = 'DC/OS Docs';
     record.product = product;
     // If in /1.*/*
-    if (pathParts[1]) {
+    if (pathParts[0]) {
       record.version = product + ' ' + pathParts[0];
       record.versionNumber = pathParts[0];
       record.versionWeight = semverMap[pathParts[0]].weight;
