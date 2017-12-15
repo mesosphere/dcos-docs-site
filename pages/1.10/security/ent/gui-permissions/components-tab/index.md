@@ -65,7 +65,7 @@ You can grant users access to the **Components** tab. By default, new users have
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 

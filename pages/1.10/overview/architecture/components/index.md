@@ -672,8 +672,8 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.10/networking/tls-ssl/">Documentation</a></li>
-    <li><a href="/1.10/networking/tls-ssl/ca-api/">API Reference</a></li>
+    <li><a href="/1.10/security/ent/tls-ssl/">Documentation</a></li>
+    <li><a href="/1.10/security/ent/tls-ssl/ca-api/">API Reference</a></li>
   </ul>
 </p>
 </div>

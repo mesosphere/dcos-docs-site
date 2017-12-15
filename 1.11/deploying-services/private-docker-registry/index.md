@@ -126,7 +126,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
     **Note:** If you are using Mac OSX, you will need to manually encode your `username:password` string and modify your `config.json` to match the snippet above.
 
-1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.9/security/secrets/create-secrets/).
+1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.9/security/ent/secrets/create-secrets/).
 
    **Note:** As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.
 

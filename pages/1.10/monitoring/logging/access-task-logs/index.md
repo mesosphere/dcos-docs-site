@@ -102,7 +102,7 @@ Now you can [verify access](#verifying-access).
 # Via the IAM API
 
 **Prerequisite:**
-You must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+You must [get the root cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 **Tips:**
 

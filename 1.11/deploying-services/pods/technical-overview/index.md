@@ -39,7 +39,7 @@ Containers within a pod share ephemeral storage. Volumes are declared at the pod
  History is permanently tied to `pod_id`. If you delete a pod and then reuse the ID, even if the details of the pod are different, the new pod will have the previous history (such as version information).
 
 # Pod Definitions
-Pods are configured via a JSON pod definition, which is similar to a Marathon [application definition](/1.11/deploying-services/creating-services/). You must declare the resources required by each container in the pod because Mesos, not Marathon, determines how and when to perform isolation for all resources requested by a pod. See the [Examples](#examples) section for complete pod definitions.
+Pods are configured via a JSON pod definition, which is similar to a Marathon [application definition](/1.11/deploying-services/creating-services/). You must declare the resources required by each container in the pod because Mesos, not Marathon, determines how and when to perform isolation for all resources requested by a pod. See the [Examples](/1.11/deploying-services/pods/examples/) section for complete pod definitions.
 
 # Environment variables
 Environment variables defined at the pod level are propagated to all pod containers. Pod-level environment variables are overridden by environment variables defined at the pod container level.

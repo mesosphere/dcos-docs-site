@@ -69,7 +69,7 @@ Here is the [permission](/1.10/security/ent/perms-reference/) that is required t
 # Via the IAM API
 
 **Prerequisite:** 
-If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 **Tips:** 
 

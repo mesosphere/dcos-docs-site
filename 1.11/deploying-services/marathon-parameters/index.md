@@ -144,7 +144,7 @@ The number of instances of this application to start. You can change this number
 Metadata to expose additional information to other services. For example, you could label apps `"environment": "staging"` to mark services by their position in the pipeline.
 
 ### maxLaunchDelaySeconds
-The maximum amount of time (in seconds) to wait, after applying the [`backoffSeconds`](#backoffseconds) and [`backoffFactor`](backofffactor) values, before attempting to restart failed tasks. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the `maxLaunchDelaySeconds` value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 3600`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 3600 seconds before repeating this cycle.
+The maximum amount of time (in seconds) to wait, after applying the [`backoffSeconds`](#backoffseconds) and [`backoffFactor`](#backofffactor) values, before attempting to restart failed tasks. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the `maxLaunchDelaySeconds` value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 3600`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 3600 seconds before repeating this cycle.
 
 This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos slaves. This applies also to tasks that are killed due to failing too many health checks.
 
@@ -173,7 +173,7 @@ A port definition consists of:
 
 Each port value is exposed to the instance via environment variables `$PORT0`, `$PORT1`, etc. Ports assigned to running instances are also available via the task resource.
 
-Port definitions are used only with [`host`](#networks) networking mode. A port definition (specifically its port field) is interpreted through the lens of the [`requirePorts`](#requirePorts) field. When `requirePorts` is false (default), a port definition’s port is considered the service port and a host port is dynamically chosen by Marathon. When `requirePorts` is true, a port definition’s port is considered both a host port and service port.
+Port definitions are used only with [`host`](#networks) networking mode. A port definition (specifically its port field) is interpreted through the lens of the [`requirePorts`](#requireports) field. When `requirePorts` is false (default), a port definition’s port is considered the service port and a host port is dynamically chosen by Marathon. When `requirePorts` is true, a port definition’s port is considered both a host port and service port.
 
 The special port value of 0 tells Marathon to select any host port from a Mesos resource offer and any service port from the configured service port range.
 

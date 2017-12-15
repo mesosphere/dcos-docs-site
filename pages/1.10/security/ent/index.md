@@ -74,7 +74,7 @@ The security mode is set during [DC/OS installation](/1.10/installing/ent/custom
 You can use either of the following methods to determine the security mode of an existing cluster.
 
 - Make a `GET` request to the following endpoint: `http[s]://<cluster-url>/dcos-metadata/bootstrap-config.json`.
-   **Requirements:** Your user account must have either the `dcos:adminrouter:ops:metadata full` permission or the `dcos:superuser` permission. In `permissive` or `strict`, you must use HTTPS. Review [Securing your TLS communications](/1.10/networking/tls-ssl/) to discover how to obtain the root certificate of your DC/OS CA and provision it to your preferred client.
+   **Requirements:** Your user account must have either the `dcos:adminrouter:ops:metadata full` permission or the `dcos:superuser` permission. In `permissive` or `strict`, you must use HTTPS. Review [Securing your TLS communications](/1.10/security/ent/tls-ssl/) to discover how to obtain the root certificate of your DC/OS CA and provision it to your preferred client.
 
 - [SSH](/1.10/administering-clusters/sshcluster/) into your master and view the contents of `/opt/mesosphere/etc/bootstrap-config.json`.
 

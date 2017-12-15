@@ -13,7 +13,7 @@ enterprise: false
 
 You can easily view and update the configuration of a deployed app by using the `dcos marathon` command.
 
-**Note:** The process for updating packages from the [DC/OS Universe](/1.10/gui/#-a-name-universe-a-universe) is different. For more information, see the [documentation](/1.10/deploying-services/config-universe-service/).
+**Note:** The process for updating packages from the [DC/OS Universe](/1.10/gui/catalog/) is different. For more information, see the [documentation](/1.10/deploying-services/config-universe-service/).
 
 # Update an Environment Variable
 
