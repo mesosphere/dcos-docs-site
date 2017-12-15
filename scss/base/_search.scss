@@ -74,10 +74,14 @@
   &__results {
     margin-top: 4rem;
     & em {
+      /*
       padding: 0.1rem 0.3rem;
       border-radius: 3px;
       background: #FF007D;
       color: $color-light;
+      */
+      font-style: normal;
+      font-weight: bold;
     }
     &-list {
       list-style-type: none;
