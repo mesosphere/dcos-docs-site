@@ -12,7 +12,11 @@ AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"
 AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}"
 
 echo "Invalidating Cache..."
-RESULT="$(aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --path /)"
+if ! RESULT="$(aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --path /)"; then
+  echo "${RESULT}"
+  echo "Invalidation Failure!"
+  exit 1
+fi
 INVALIDATION_ID="$(echo "${RESULT}" | jq -r '.Invalidation.Id')"
 echo "Invalidation ID: ${INVALIDATION_ID}"
 

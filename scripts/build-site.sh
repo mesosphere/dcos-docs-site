@@ -13,6 +13,7 @@ if [[ "$docker_image_build_id" != "" ]]; then
   docker rmi $docker_image
 fi
 
+GIT_BRANCH=$GIT_BRANCH \
 ALGOLIA_PROJECT_ID=$ALGOLIA_PROJECT_ID \
 ALGOLIA_PUBLIC_KEY=$ALGOLIA_PUBLIC_KEY \
 ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
