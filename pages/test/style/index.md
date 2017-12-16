@@ -27,7 +27,7 @@ Test Small
 
 Test Inline [enterprise type="inline"] hello world
 
-Test Inline Small [enterprise type="inline" size="small"]
+Test Inline Small [enterprise type="inline" size="small" /]
 
 Test Large
 [enterprise type="inline"]

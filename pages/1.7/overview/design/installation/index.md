@@ -4,8 +4,6 @@ navigationTitle:  'Design: Installation'
 title: 'Design: Installation'
 menuWeight: 4
 excerpt:
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

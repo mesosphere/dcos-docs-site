@@ -4,8 +4,6 @@ navigationTitle:  Components
 title: Components
 menuWeight: 4
 excerpt:
-
-enterprise: true
 ---
 
 <style type="text/css">
@@ -115,7 +113,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 </div>
 
 <div data-role="collapsible">
-<h2 id="dcos-backup">DC/OS Backup <span class="small badge enterprise-badge">ENTERPRISE</span></h2>
+<h2 id="dcos-backup">DC/OS Backup <span class="badge badge--content-header badge--enterprise">ENTERPRISE</span></h2>
 <div>
 <p><strong><em>NEW IN 1.10.0</em></strong></p>
 <p><strong>Description:</strong> DC/OS Backup provides backup and restore of DC/OS component state (Marathon-only in 1.10).</p>
@@ -284,7 +282,7 @@ DC/OS supports multiple container runtimes using [Mesos' containerizer abstracti
 No software runs perfectly, especially not the first time. Distribute tasks across a cluster and the normal patterns of analyzing and debugging these services become tedious and painful. So DC/OS includes several components to help ease the pain of debugging distributed systems by aggregating, caching, and streaming logs, metrics, and cluster state metadata.
 
 <div data-role="collapsible">
-<h2 id="dcos-network-metrics">DC/OS Network Metrics <span class="small badge enterprise-badge">ENTERPRISE</span></h2>
+<h2 id="dcos-network-metrics">DC/OS Network Metrics <span class="badge badge--content-header badge--enterprise">ENTERPRISE</span></h2>
 <div>
 <p><strong>Description:</strong> DC/OS Network Metrics exposes networking-related metrics. DC/OS Network Metrics is also known as the DC/OS Networking API.</p>
 <p>
@@ -613,12 +611,14 @@ Just as machine operating systems need package management to install, upgrade, c
 </div>
 
 
+[enterprise]
 # IAM and Security
+[/enterprise]
 
 Identity and access management in **DC/OS Enterprise** is governed by an internal database of users, user groups, and permissions. External identity providers can also be attached to take advantage of existing databases. Permissions are enforced both at the edge by Admin Router's reverse proxy and also at the component level for controlling access to specific actions. Secrets, like SSL certificates, can also be securely generated, managed, stored, and injected into user services.
 
 <div data-role="collapsible">
-<h2 id="dcos-iam">DC/OS Identity and Access Manager (Bouncer) <span class="small badge enterprise-badge">ENTERPRISE</span></h2>
+<h2 id="dcos-iam">DC/OS Identity and Access Manager (Bouncer) </h2>
 <div>
 <p><strong>Description:</strong> DC/OS Identity and Access Manager (Bouncer) controls access to DC/OS components and services by managing users, user groups, service accounts, permissions, and identity providers. In addition to managing a local user database, DC/OS IAM can delegate to external identity providers using LDAP, SAML, or Open ID Connect. For fine grained access control, other DC/OS components, like Mesos and Marathon, integrate with DC/OS IAM directly. DC/OS IAM is also known as Bouncer.</p>
 <p>
@@ -638,7 +638,7 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 </div>
 
 <div data-role="collapsible">
-<h2 id="cockroachdb">CockroachDB <span class="small badge enterprise-badge">ENTERPRISE</span></h2>
+<h2 id="cockroachdb">CockroachDB</h2>
 <div>
 <p><strong><em>NEW IN 1.10.0</em></strong></p>
 <p><strong>Description:</strong> CockroachDB is a distributed SQL database built on a transactional and strongly consistent key-value store.</p>
@@ -660,7 +660,7 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 </div>
 
 <div data-role="collapsible">
-<h2 id="dcos-certificate-authority">DC/OS Certificate Authority <span class="small badge enterprise-badge">ENTERPRISE</span></h2>
+<h2 id="dcos-certificate-authority">DC/OS Certificate Authority</h2>
 <div>
 <p><strong>Description:</strong> DC/OS Certificate Authority (CA) issues signed digital certificates for secure communication. DC/OS CA is based on Cloudflare's <a href="https://github.com/cloudflare/cfssl">Cfssl</a>.</p>
 <p>
@@ -680,7 +680,7 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 </div>
 
 <div data-role="collapsible">
-<h2 id="dcos-secrets">DC/OS Secrets <span class="small badge enterprise-badge">ENTERPRISE</span></h2>
+<h2 id="dcos-secrets">DC/OS Secrets</h2>
 <div>
 <p><strong>Description:</strong> DC/OS Secrets provides a secure API for storing and retrieving secrets from Vault, a secret store.</p>
 <p>
@@ -700,7 +700,7 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 </div>
 
 <div data-role="collapsible">
-<h2 id="vault">Vault <span class="small badge enterprise-badge">ENTERPRISE</span></h2>
+<h2 id="vault">Vault</h2>
 <div>
 <p><strong>Description:</strong> Vault is a tool for securely managing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, and more. Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.</p>
 <p>
@@ -870,8 +870,8 @@ dcos-spartan-watchdog.timer
 # Changes Since DC/OS 1.9
 
 - [Admin Router](#admin-router) - Admin Router now performs dynamic DNS resolution. The external `dcos-adminrouter-reload` service and timer were removed.
-- [DC/OS Backup](#dcos-backup) - DC/OS Backup service and socket were added in DC/OS 1.10.0 for the [backup and restore](/1.10/administering-clusters/backup-and-restore/) feature.
+- [DC/OS Backup](#dcos-backup) - DC/OS Backup service and socket were added in DC/OS 1.10.0 for the [backup and restore](/1.10/administering-clusters/backup-and-restore/) feature. [enterprise type="inline" size="small" /]
 - [DC/OS Component Package Manager](#dcos-component-package-manager) - To avoid a race condition during DC/OS upgrades, the DC/OS Component Package Manager socket file is now managed by [gunicorn](http://gunicorn.org/) instead of systemd.
-- [DC/OS Identity and Access Manager](#dcos-iam) - For improved storage performance, DC/OS Identity and Access Manager now uses CockroachDB instead of ZooKeeper as the default store. To retain ZooKeeper as the store, you can use the `dcos-bouncer-legacy` service.
-- [CockroachDB](#cockroachdb) - CockroachDB was added in DC/OS 1.10.0 as the new store for DC/OS Identity and Access Manager.
-- [DC/OS Secrets](#dcos-secrets) - For improved security, DC/OS Secrets now uses a socket instead of a port.
+- [DC/OS Identity and Access Manager](#dcos-iam) - For improved storage performance, DC/OS Identity and Access Manager now uses CockroachDB instead of ZooKeeper as the default store. To retain ZooKeeper as the store, you can use the `dcos-bouncer-legacy` service. [enterprise type="inline" size="small" /]
+- [CockroachDB](#cockroachdb) - CockroachDB was added in DC/OS 1.10.0 as the new store for DC/OS Identity and Access Manager. [enterprise type="inline" size="small" /]
+- [DC/OS Secrets](#dcos-secrets) - For improved security, DC/OS Secrets now uses a socket instead of a port. [enterprise type="inline" size="small" /]

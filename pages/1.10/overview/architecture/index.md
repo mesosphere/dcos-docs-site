@@ -31,7 +31,7 @@ At the platform layer there are dozens of components grouped into the following 
 - Logging and Metrics
 - Networking
 - Package Management
-- IAM and Security
+- IAM and Security [enterprise type="inline" size="small" /]
 - Storage
 
 These components are divided across multiple node types:

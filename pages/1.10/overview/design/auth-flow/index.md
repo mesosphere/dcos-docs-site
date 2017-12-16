@@ -4,7 +4,6 @@ navigationTitle:  Authentication Architecture
 excerpt:
 title: Authentication Architecture
 menuWeight: 1
-oss: true
 ---
 
 

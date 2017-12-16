@@ -5,7 +5,6 @@ title: >
     Design: Distributed DNS
 navigationTitle: Distributed DNS
 menuWeight: 3
-oss: true
 ---
 
 ## Background

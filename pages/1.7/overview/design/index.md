@@ -4,8 +4,6 @@ navigationTitle:  Design
 title: Design
 menuWeight: 10
 excerpt:
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

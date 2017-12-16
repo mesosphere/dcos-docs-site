@@ -4,7 +4,6 @@ excerpt:
 title: DC/OS overlay
 navigationTitle: Overlay
 menuWeight: 5
-oss: true
 ---
 
 # DC/OS overlay: An IP-per-Container solution for DC/OS

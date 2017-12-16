@@ -4,8 +4,6 @@ navigationTitle:  'Design: Distributed DNS'
 title: 'Design: Distributed DNS'
 menuWeight: 3
 excerpt:
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
