@@ -5,7 +5,6 @@ title: Quick Start
 menuWeight: 0
 excerpt:
 preview: true
-enterprise: true
 ---
 
 Use this guide to get started with DC/OS logging. 

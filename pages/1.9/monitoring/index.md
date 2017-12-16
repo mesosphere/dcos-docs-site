@@ -4,8 +4,6 @@ navigationTitle:  Monitoring, Logging, and Debugging
 title: Monitoring, Logging, and Debugging
 menuWeight: 110
 excerpt:
-
-enterprise: true
 ---
 
 

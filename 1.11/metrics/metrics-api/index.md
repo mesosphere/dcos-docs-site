@@ -12,7 +12,6 @@ excerpt: >
   choice to achieve informative charts,
   dashboards, and alerts.
 beta: true
-enterprise: true
 ---
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications.
