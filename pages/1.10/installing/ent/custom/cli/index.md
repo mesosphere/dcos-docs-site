@@ -209,7 +209,7 @@ To install DC/OS:
     ```bash
     ====> EXECUTING CONFIGURATION GENERATIONExecute the configuration generation (genconf).
     Generating configuration files...
-    ``` 
+    ```
     
     At this point your directory structure should resemble:
     
@@ -217,7 +217,7 @@ To install DC/OS:
         ├── dcos_generate_config.ee.sh
         ├── genconf
         │   ├── config.yaml
-        │   ├── ip-detect     
+        │   ├── ip-detect
         
 
 2.  <a name="two"></a>Install the cluster prerequisites, including system updates, compression utilities (UnZip, GNU tar, and XZ Utils), and cluster permissions. For a full list of cluster prerequisites, see this [documentation][8].
@@ -389,11 +389,11 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [5]: /1.10/installing/ent/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
  [7]: /1.10/storage/external-storage/
- [8]: /1.10/installing/ent/custom/advanced/#configuration
+ [8]: /1.10/installing/ent/custom/advanced/
  [9]: /1.10/img/chef-zk-status.png
  [10]: /1.10/img/gui-installer-login-ee.gif
  [11]: /1.10/img/dashboard-ee.png
  [12]: /1.10/security/ent/
- [13]: #hardware
- [14]: #software
+ [13]: /1.10/installing/ent/custom/system-requirements/#hardware
+ [14]: /1.10/installing/ent/custom/system-requirements/#software
  [15]: #two

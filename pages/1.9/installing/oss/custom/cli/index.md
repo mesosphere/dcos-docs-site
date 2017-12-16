@@ -331,7 +331,7 @@ To install DC/OS:
 
 6.  Monitor Exhibitor and wait for it to converge at `http://<master-public-ip>:8181/exhibitor/v1/ui/index.html`.
 
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration-configuration).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
 
     ![alt text](/1.9/img/chef-zk-status.png)
 

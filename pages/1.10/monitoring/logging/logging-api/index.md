@@ -5,6 +5,7 @@ title: Logging API
 menuWeight: 3
 excerpt:
 preview: true
+enterprise: false
 ---
 
 The Logging API exposes node, component, and container (task) logs.

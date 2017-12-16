@@ -390,11 +390,11 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [5]: /1.9/installing/ent/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
  [7]: /1.9/storage/external-storage/
- [8]: /1.9/installing/ent/custom/advanced/#configuration
+ [8]: /1.9/installing/ent/custom/advanced/
  [9]: /1.9/img/chef-zk-status.png
  [10]: /1.9/img/gui-installer-login-ee.gif
  [11]: /1.9/img/dashboard-ee.gif
  [12]: /1.9/security/ent/
- [13]: #hardware
- [14]: #software
+ [13]: /1.9/installing/ent/custom/system-requirements/#hardware
+ [14]: /1.9/installing/ent/custom/system-requirements/#software
  [15]: #two

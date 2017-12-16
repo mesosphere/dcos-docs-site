@@ -151,7 +151,7 @@ The DC/OS installation creates these folders:
 
     **Tips:** 
     
-    *  If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.11/installing/oss/custom/system-requirements/#port-and-protocol-configuration-configuration).
+    *  If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.11/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
     *  You can click **Download Logs** to view your logs locally.
     *  If this takes longer than about 10 minutes, you've probably misconfigured your cluster. Go checkout the [troubleshooting documentation][9].
 

@@ -98,7 +98,7 @@ In this step, an IP detect script is created. This script reports the IP address
         set -o nounset -o errexit
         MASTER_IP=172.28.128.3
         echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
-        ```   
+        ```
 
 # <a name="config-json"></a>Create a configuration file
 
@@ -209,7 +209,7 @@ To install DC/OS:
     ```bash
     ====> EXECUTING CONFIGURATION GENERATIONExecute the configuration generation (genconf).
     Generating configuration files...
-    ``` 
+    ```
     
     At this point your directory structure should resemble:
     
@@ -263,7 +263,7 @@ To install DC/OS:
     2 out of 2 hosts successfully completed run_preflight stage.
     ====> END OF SUMMARY FOR run_preflight
     Starting new HTTPS connection (1): api.segment.io
-    ``` 
+    ```
     
     **Tip:** For a detailed view, you can append log level debug (`-v`) to your command. For example `sudo bash dcos_generate_config.ee.sh --preflight -v`.
 
@@ -289,7 +289,7 @@ To install DC/OS:
     2 out of 2 hosts successfully completed install_dcos stage.
     ====> END OF SUMMARY FOR install_dcos
     Starting new HTTPS connection (1): api.segment.io
-    ``` 
+    ```
 
 5.  Run the DC/OS diagnostic script to verify that services are up and running.
     
@@ -377,8 +377,8 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
         ====> Found an existing DC/OS installation. To reinstall DC/OS on this this machine you must
         ====> first uninstall DC/OS then run dcos_install.sh. To uninstall DC/OS, follow the product
         ====> documentation provided with DC/OS.
-        ====>            
-        ====>  
+        ====>
+        ====>
         ====> 10.10.0.160:22 FAILED
         
 
@@ -389,11 +389,11 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [5]: /1.11/installing/ent/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
  [7]: /1.11/storage/external-storage/
- [8]: /1.11/installing/ent/custom/advanced/#configuration
+ [8]: /1.11/installing/ent/custom/advanced/
  [9]: /1.11/img/chef-zk-status.png
  [10]: /1.11/img/gui-installer-login-ee.gif
  [11]: /1.11/img/dashboard-ee.png
  [12]: /1.11/security/
- [13]: #hardware
- [14]: #software
+ [13]: /1.11/installing/ent/custom/system-requirements/#hardware
+ [14]: /1.11/installing/ent/custom/system-requirements/#software
  [15]: #two
