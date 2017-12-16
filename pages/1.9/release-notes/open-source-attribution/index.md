@@ -4,7 +4,6 @@ title: Mesosphere DC/OS Open Source Attribution
 menuWeight: 16
 excerpt:
 
-enterprise: true
 ---
 
 

@@ -27,8 +27,8 @@ If this upgrade is performed on a supported OS with all prerequisites fulfilled,
 ## Supported upgrade paths
 - From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
     - [1.7 to 1.8](/1.8/administration/upgrading/)
-    - [1.8 to 1.9](/1.11/administration/upgrading/)
-    - [1.9 to 1.10](/1.11/administration/upgrading/)
+    - [1.8 to 1.9](/1.9/administration/upgrading/)
+    - [1.9 to 1.10](/1.10/installing/ent/upgrading/)
 - From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
 - From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
 
