@@ -442,6 +442,6 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [10]: /assets/images/gui-installer-login-ee.gif
  [11]: /assets/images/dashboard-ee.gif
  [12]: /1.7/administration/id-and-access-mgt/ent/
- [13]: /1.7/administration/installing/ent/custom/system-requirements/#hardware
- [14]: /1.7/administration/installing/ent/custom/system-requirements/#software
+ [13]: /1.7/administration/installing/ent/custom/system-requirements/#hardware-prerequisites
+ [14]: /1.7/administration/installing/ent/custom/system-requirements/#software-prerequisites
  [15]: #two

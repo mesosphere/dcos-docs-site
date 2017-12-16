@@ -395,6 +395,6 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [10]: /1.9/img/gui-installer-login-ee.gif
  [11]: /1.9/img/dashboard-ee.gif
  [12]: /1.9/security/ent/
- [13]: /1.9/installing/ent/custom/system-requirements/#hardware
- [14]: /1.9/installing/ent/custom/system-requirements/#software
+ [13]: /1.9/installing/ent/custom/system-requirements/#hardware-prerequisites
+ [14]: /1.9/installing/ent/custom/system-requirements/#software-prerequisites
  [15]: #two
