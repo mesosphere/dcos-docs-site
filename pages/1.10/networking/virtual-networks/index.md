@@ -70,6 +70,7 @@ The components of the DC/OS Overlay interact in the following ways:
   * Marathon has access to the virtual network.
   * You use a [`command` health check](/1.10/deploying-services/creating-services/health-checks/).
 
+<a name="virtual-network-service-dns"></a>
 # Virtual Network Service: DNS
 
 The [Virtual Network Service](/1.10/overview/architecture/components/) maps names to IPs on your virtual network. You can use these DNS addresses to access your task:

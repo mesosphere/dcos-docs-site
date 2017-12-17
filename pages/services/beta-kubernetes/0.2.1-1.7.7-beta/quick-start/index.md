@@ -13,7 +13,7 @@ enterprise: false
 
 # Prerequisite
 
-- [DC/OS installed on your cluster](/latest/administration/installing/).
+- [DC/OS installed on your cluster](/1.10/installing/).
 
 # Steps
 

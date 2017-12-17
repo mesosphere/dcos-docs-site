@@ -20,7 +20,7 @@ enterprise: false
 
 
 
-Run the following command from the DC/OS CLI to uninstall Kafka. Alternatively, you can uninstall Kafka from the DC/OS GUI. [More information about uninstalling DC/OS services](/1.9/usage/managing-services/uninstall/).
+Run the following command from the DC/OS CLI to uninstall Kafka. Alternatively, you can uninstall Kafka from the DC/OS GUI. [More information about uninstalling DC/OS services](1.9/deploying-services/uninstall/).
 
 Replace `name` with the name of the kafka instance to be uninstalled.
 

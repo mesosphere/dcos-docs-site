@@ -14,7 +14,7 @@ enterprise: true
 
 # About provisioning Jenkins with a service account
 
-Whether you can or must provision Jenkins with a service account varies by [security mode](/1.9/overview/security/security-modes/).
+Whether you can or must provision Jenkins with a service account varies by [security mode](/1.9/security/ent/#security-modes/).
 
 - `disabled`: not possible
 - `permissive`: optional
@@ -181,7 +181,7 @@ Next, you need to create a secret associated with the service account that conta
 
 ## About the permissions
 
-The permissions needed vary according to your [security mode](/1.9/overview/security/security-modes/). In `permissive` mode, the Jenkins service account does not need any permissions. If you plan to upgrade at some point to `strict` mode, we recommending assigning them the permissions needed in `strict` mode to make the upgrade easier. The permissions will not have any effect until the cluster is in `strict` mode. If you plan to remain in `permissive` mode indefinitely, skip to [Create a config.json file](#create-json).
+The permissions needed vary according to your [security mode](/1.9/security/ent/#security-modes/). In `permissive` mode, the Jenkins service account does not need any permissions. If you plan to upgrade at some point to `strict` mode, we recommending assigning them the permissions needed in `strict` mode to make the upgrade easier. The permissions will not have any effect until the cluster is in `strict` mode. If you plan to remain in `permissive` mode indefinitely, skip to [Create a config.json file](#create-json).
 
 If you are in `strict` mode or want to be ready to upgrade to `strict` mode, continue to the next section. 
 
@@ -189,7 +189,7 @@ If you are in `strict` mode or want to be ready to upgrade to `strict` mode, con
 
 With the following curl commands you can rapidly provision the Jenkins service account with the permissions required in `strict` mode. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
 
-**Prerequisite:** If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/overview/security/security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+**Prerequisite:** If your [security mode](/1.9/security/ent/#security-modes/) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/security/ent/#security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Issue the following commands to create the necessary permissions. 
 

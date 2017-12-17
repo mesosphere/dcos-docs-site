@@ -43,7 +43,7 @@ From the CLI, DSE may be installed with a custom configuration as follows:
 ```
 $ dcos package install dse --options=your-options.json
 ```
-For more information about building the options.json file, see the [DC/OS Documentation](/latest/usage/managing-services/config-universe-service/).
+For more information about building the options.json file, see the [DC/OS Documentation](/1.10/deploying-services/config-universe-service/).
 
 From the DC/OS Dashboard website, DSE may be installed with a custom configuration as follows:
 1. Visit http://yourcluster.com/ to view the DC/OS Dashboard.

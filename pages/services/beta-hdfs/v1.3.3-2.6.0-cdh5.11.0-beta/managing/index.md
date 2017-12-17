@@ -17,7 +17,7 @@ After making a change, the scheduler will be restarted and will automatically de
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/beta-cassandra/v1.0.32-3.0.14/limitations).
 
 <!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
 
@@ -31,7 +31,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 + Enterprise DC/OS 1.10 or newer.
 + Service with a version greater than 2.0.0-x.
-+ [The DC/OS CLI](/latest/cli/install/) installed and available.
++ [The DC/OS CLI](/1.10/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
   + You can install just the subcommand CLI by running `dcos package install --cli hdfs`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.

@@ -12,8 +12,8 @@ The default DC/OS Kubernetes Service installation provides reasonable defaults f
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you must install the [Enterprise CLI](https://docs.mesosphere.com/1.9/cli/enterprise-cli/) and [provision a service account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) before installing DC/OS Kubernetes Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/) requires a service account.
+- If you are using Enterprise DC/OS, you must install the [Enterprise CLI](/1.9/cli/enterprise-cli/) and [provision a service account](/latest/security/service-auth/custom-service-auth/) before installing DC/OS Kubernetes Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](/1.10/security/ent/service-auth/) requires a service account.
   - In `permissive` security mode, a service account is optional.
   - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes with: 6 CPU | 5654 MB MEM | 615 MB Disk. For larger deployments, refer to the resource requirements of each component, on each node.
@@ -30,7 +30,7 @@ The default DC/OS Kubernetes Service installation provides reasonable defaults f
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of Kubernetes, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kubernetes on Enterprise DC/OS](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/).
+To start a basic test cluster of Kubernetes, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kubernetes on Enterprise DC/OS](/latest/security/service-auth/custom-service-auth/).
 
 ```shell
 dcos package install beta-kubernetes
@@ -44,11 +44,11 @@ dcos package install beta-kubernetes --options=options.json
 
 **Recommendation:** Store your custom configuration in source control.
 
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
+For more information on building the `options.json` file, see [DC/OS documentation](/1.10/deploying-services/config-universe-service/) for service configuration access.
 
 ## Installing from the DC/OS Web Interface
 
-You can [install Kubernetes from the DC/OS web interface](https://docs.mesosphere.com/latest/usage/managing-services/install/). If you install Kubernetes from the web interface, you must install the DC/OS Kubernetes CLI subcommands separately. From the DC/OS CLI, enter:
+You can [install Kubernetes from the DC/OS web interface](/latest/usage/managing-services/install/). If you install Kubernetes from the web interface, you must install the DC/OS Kubernetes CLI subcommands separately. From the DC/OS CLI, enter:
 
 ```shell
 dcos package install beta-kubernetes --cli

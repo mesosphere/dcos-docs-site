@@ -24,4 +24,4 @@ Returned endpoints will include the following:
 - A HA-enabled VIP hostname for accessing any of the instances (optional).
 - A direct IP address for accesssing the service if `.mesos` hostnames are not resolvable.
 
-In general, the `.mesos` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use the direct IPs or set up a proxy service that acts as a frontend to your Confluent Kafka instance. For development and testing purposes, you can use [DC/OS Tunnel](/latest/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
+In general, the `.mesos` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use the direct IPs or set up a proxy service that acts as a frontend to your Confluent Kafka instance. For development and testing purposes, you can use [DC/OS Tunnel](/1.8/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.

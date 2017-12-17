@@ -41,7 +41,7 @@ The DC/OS Apache Cassandra Service currently exposes only the `node` endpoint ty
 }
 ```
 
-In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster you can either use the direct IPs, or set up a proxy service that acts as a frontend to your DC/OS Apache Cassandra instance. For development and testing purposes, you can use [DC/OS Tunnel](/latest/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
+In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster you can either use the direct IPs, or set up a proxy service that acts as a frontend to your DC/OS Apache Cassandra instance. For development and testing purposes, you can use [DC/OS Tunnel](/1.8/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
 
 # Connecting Clients to Endpoints
 

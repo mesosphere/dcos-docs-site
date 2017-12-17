@@ -36,4 +36,4 @@ DC/OS HDFS provides the following features:
 
 ## Related Services
 
-- [DC/OS Spark](https://docs.mesosphere.com/services/spark/)
+- [DC/OS Spark](/services/spark/)
