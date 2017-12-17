@@ -4,37 +4,12 @@ navigationTitle:  Features
 title: Features
 menuWeight: 3
 excerpt:
-enterprise: false
-
 ---
 
 
 
 
 This is an overview of the features that make DC/OS more than the sum of its parts.
-
-- [High Resource Utilization](#high-resource-utilization)
-- [Mixed Workload Colocation](#mixed-workload-colocation)
-- [Container Orchestration](#container-orchestration)
-- [Extensible Resource Isolation](#extensible-resource-isolation)
-- [Stateful Storage Support](#stateful-storage-support)
-- [Public and Private Package Repositories](#public-and-private-package-repositories)
-- [Cloud-Agnostic Installer](#cloud-agnostic-installer)
-- [Web and Command Line Interfaces](#web-and-command-line-interfaces)
-- [Elastic Scalability](#elastic-scalability)
-- [High Availability](#high-availability)
-- [Zero Downtime Upgrades](#zero-downtime-upgrades)
-- [Integration-Tested Components](#integration-tested-components)
-- [Service Discovery and Distributed Load Balancing](#service-discovery-and-dist-load-balancing)
-- [Control &amp; Management plane for Distributed Load Balancers (Enterprise Only)](#lb—mgmt-plane)
-- [Cluster Perimeter Security (Enterprise Only)](#perimeter-security)
-- [Identity &amp; Access Management Service (Enterprise Only)](#identity-access-mgmt)
-- [External Identity Provider with LDAP, SAML &amp; OpenID Connect (Enterprise Only)](#identity-provider)
-- [Cluster security with encrypted communication (Enterprise Only)](#cluster-encryption)
-- [Workload Isolation with Container level authorization (Enterprise Only)](#workload-isolation)
-- [IP per Container with Extensible Virtual Networks (SDN) (Enterprise Only)](#software-defined-networks)
-- [Network Isolation of Virtual Network Subnets (Enterprise Only)](#network-isolation)
-
 
 ## <a name="high-resource-utilization"></a>High Resource Utilization
 
@@ -160,17 +135,23 @@ DC/OS includes several options for automating service discovery and load balanci
 
 Distributed services create distributed problems, but you don't have to solve them all yourself. DC/OS includes automatic DNS endpoint generation, an API for service lookup, transport layer (L4) virtual IP proxying for high speed internal communication, and application layer (L7) load balancing for external-facing services.
 
-## <a name="lb—mgmt-plane"></a>Control and Management plane for Distributed Load Balancers (Enterprise Only)
+[enterprise]
+## <a name="lb—mgmt-plane"></a>Control and Management plane for Distributed Load Balancers
+[/enterprise]
 
 DC/OS Enterprise provides a centralized management &amp; control plane for service availability &amp; performance monitoring.
 
 While Distributed Load Balancers are ideal for service discovery and service availability of DC/OS Services, monitoring and managing them requires tooling and effort. DC/OS Enterprise comes with centralized control and management plane for DC/OS Distributed Load balancer that consists of an aggregation API which unifies all distributed engines into a single service centric view and single set of service health metrics. DC/OS Enterprise, also includes a Service Performance &amp; health monitoring UI that helps monitor service performance as well as root cause service degradation issues and identify root causes.
 
-## <a name="perimeter-security"></a>Cluster Perimeter Security (Enterprise Only)
+[enterprise]
+## <a name="perimeter-security"></a>Cluster Perimeter Security
+[/enterprise]
 
 DC/OS provides prescriptive design to ensure administrative and programmatic communication between DC/OS Clusters &amp; any client (UI/Browsers, CLIs, API Clients etc.) happens over the Admin security zone and all requests are transported over SSL secured channel. DC/OS Master nodes are the entry point into the DC/OS Cluster within the Admin security zone and more specifically, the API Gateway is a component named ‘Admin Router’ that serves as reverse proxy managing all administrative connectivity into DC/OS Clusters.
 
-## <a name="identity-access-mgmt"></a>Identity and Access Management Service (Enterprise Only)
+[enterprise]
+## <a name="identity-access-mgmt"></a>Identity and Access Management Service
+[/enterprise]
 
 DC/OS Enterprise includes a built-in Identity and Access Management Service that allows our users to create Users and Groups and assign varying level of Authorization privileges to each user and group. DC/OS Enterprise supports following types of Users and Groups:
 
@@ -183,22 +164,32 @@ DC/OS Enterprise includes a built-in Identity and Access Management Service that
 
 DC/OS Enterprise IAM Service also includes support for authorization controls that can be assigned to each of the above principals/users. As of DC/OS 1.8, users can be given specific set of permissions in the form ‘Subject’ can perform ‘Action’ on ‘Object’ where ‘Object’ can be an API endpoint to a particular DC/OS Service to a Marathon Application group and ‘Action’ enumerates the set of actions that are possible on the Object such as “Create, Read, Update or Delete”.
 
-## <a name="identity-provider"></a>External Identity Provider with LDAP, SAML &amp; OpenID Connect (Enterprise Only)
+[enterprise]
+## <a name="identity-provider"></a>External Identity Provider with LDAP, SAML &amp; OpenID Connect
+[/enterprise]
 
 DC/OS Enterprise integrates Identity Providers that support LDAP v3 Interface (including Microsoft Active Directory) and SAML based identity providers such that you can import users external to DC/OS from your existing User Directory and manage authorization on those users and user group within  DC/OS.
 
-## <a name="cluster-encryption"></a>Cluster security with encrypted communication (Enterprise Only)
+[enterprise]
+## <a name="cluster-encryption"></a>Cluster security with encrypted communication
+[/enterprise]
 
 DC/OS Enterprise is designed to run securely on-premises and in the cloud. To ensure cluster security, DC/OS Enterprise supports encrypted communication between DC/OS Cluster Internal components. This is achieved by ensuring that DC/OS runs with a Certificate Authority that issues certificates for DC/OS Master Nodes and all Agent nodes have an installed CA.crt at bootstrap time. This mechanism ensures all communication between the various services within DC/OS cluster are over secure SSL channels.
 
-## <a name="workload-isolation"></a>Workload Isolation with Container level authorization (Enterprise Only)
+[enterprise]
+## <a name="workload-isolation"></a>Workload Isolation with Container level authorization
+[/enterprise]
 
 DC/OS Enterprise supports fine-grained workload isolation to enable multiple business groups within an organization to run containers &amp; workloads within a shared cluster but still be guaranteed that there is security isolation in addition to performance isolation provided by Linux cGroups between the varying workloads. Workload security isolation is performed by a DC/OS Authorization module that runs on every agent node and is responsible for making authorization checks against DC/OS IAM Service to verify that the user/owner of the workload is authorized to perform the action they are trying to execute anywhere within the cluster including on the Agent node.
 
-## <a name="software-defined-networks"></a>IP per Container with Extensible Virtual Networks (SDN) (Enterprise Only)
+[enterprise]
+## <a name="software-defined-networks"></a>IP per Container with Extensible Virtual Networks (SDN)
+[/enterprise]
 
 DC/OS comes built-in with support Virtual Networks leveraging Container Network Interface(CNI) standard. By default, there is one Virtual Network named ‘dos’ is created and any container that attaches to a Virtual Network, receives its own dedicated IP. This allows users to run workloads that are not friendly to dynamically assigned ports and would rather bind the existing ports that is in their existing app configuration. Now, with support for dedicated IP/Container, workloads are free to bind to any port as every container has access to the entire available port range.
 
-## <a name="network-isolation"></a>Network Isolation of Virtual Network Subnets (Enterprise Only)
+[enterprise]
+## <a name="network-isolation"></a>Network Isolation of Virtual Network Subnets
+[/enterprise]
 
 DC/OS now supports the creation of multiple virtual networks at install time and associate non-overlapping subnets with each of the virtual networks. Further, DC/OS users can program Network Isolation rules across DC/OS Agent nodes to ensure that traffic across Virtual Network subnets is isolated.

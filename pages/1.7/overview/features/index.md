@@ -4,28 +4,11 @@ navigationTitle:  Features
 title: Features
 menuWeight: 3
 excerpt:
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 This is an overview of the features that make DC/OS more than the sum of its parts.
-
-- [High Resource Utilization](#high-resource-utilization)
-- [Mixed Workload Colocation](#mixed-workload-colocation)
-- [Container Orchestration](#container-orchestration)
-- [Extensible Resource Isolation](#extensible-resource-isolation)
-- [Stateful Storage Support](#stateful-storage-support)
-- [Public and Private Package Repositories](#public-and-private-package-repositories)
-- [Cloud-Agnostic Installer](#cloud-agnostic-installer)
-- [Web and Command Line Interfaces](#web-and-command-line-interfaces)
-- [Elastic Scalability](#elastic-scalability)
-- [High Availability](#high-availability)
-- [Zero Downtime Upgrades](#zero-downtime-upgrades)
-- [Integration-Tested Components](#integration-tested-components)
-- [Service Discovery and Load Balancing](#service-discovery-and-load-balancing)
-
 
 ## High Resource Utilization
 

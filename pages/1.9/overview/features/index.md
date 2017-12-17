@@ -4,37 +4,9 @@ navigationTitle:  Features
 title: Features
 menuWeight: 3
 excerpt:
-
-enterprise: true
 ---
 
-
-
-
-
 This is an overview of the features that make DC/OS more than the sum of its parts.
-
-- [High Resource Utilization](#high-resource-utilization)
-- [Mixed Workload Colocation](#mixed-workload-colocation)
-- [Container Orchestration](#container-orchestration)
-- [Extensible Resource Isolation](#extensible-resource-isolation)
-- [Stateful Storage Support](#stateful-storage-support)
-- [Package Management](#package-management)
-- [Cloud-Agnostic Installer](#cloud-agnostic-installer)
-- [Web and Command Line Interfaces](#web-and-command-line-interfaces)
-- [Elastic Scalability](#elastic-scalability)
-- [High Availability](#high-availability)
-- [Zero Downtime Upgrades](#zero-downtime-upgrades)
-- [Integration-Tested Components](#integration-tested-components)
-- [Service Discovery and Distributed Load Balancing](#service-discovery-and-dist-load-balancing)
-- [Control &amp; Management plane for Distributed Load Balancers](#lb—mgmt-plane)
-- [Cluster Perimeter Security](#perimeter-security)
-- [Identity &amp; Access Management](#identity-access-mgmt)
-- [External Identity Provider with LDAP, SAML &amp; OpenID Connect](#identity-provider)
-- [Cluster security with encrypted communication](#cluster-encryption)
-- [Workload Isolation with Container level authorization](#workload-isolation)
-- [IP per Container with Extensible Virtual Networks (SDN)](#software-defined-networks)
-- [Network Isolation of Virtual Network Subnets](#network-isolation)
 
 
 ## <a name="high-resource-utilization"></a>High Resource Utilization
@@ -171,7 +143,9 @@ While Distributed Load Balancers are ideal for service discovery and service ava
 
 DC/OS provides prescriptive design to ensure administrative and programmatic communication between DC/OS Clusters &amp; any client (UI/Browsers, CLIs, API Clients etc.) happens over the Admin security zone and all requests are transported over SSL secured channel. DC/OS Master nodes are the entry point into the DC/OS Cluster within the Admin security zone and more specifically, the API Gateway is a component named ‘Admin Router’ that serves as reverse proxy managing all administrative connectivity into DC/OS Clusters.
 
+[enterprise]
 ## <a name="identity-access-mgmt"></a>Identity and Access Management
+[/enterprise]
 
 DC/OS Enterprise includes built-in Identity and Access Management that allows our users to create Users and Groups and assign varying level of Authorization privileges to each user and group. DC/OS Enterprise supports following types of Users and Groups:
 
@@ -184,15 +158,21 @@ DC/OS Enterprise includes built-in Identity and Access Management that allows ou
 
 DC/OS Enterprise IAM Service also includes support for authorization controls that can be assigned to each of the above principals/users. Users can be given specific set of permissions in the form ‘Subject’ can perform ‘Action’ on ‘Object’ where ‘Object’ can be an API endpoint to a particular DC/OS Service to a Marathon Application group and ‘Action’ enumerates the set of actions that are possible on the Object such as “Create, Read, Update or Delete”.
 
+[enterprise]
 ## <a name="identity-provider"></a>External Identity Provider with LDAP, SAML &amp; OpenID Connect
+[/enterprise]
 
 DC/OS Enterprise integrates Identity Providers that support LDAP v3 Interface (including Microsoft Active Directory) and SAML based identity providers such that you can import users external to DC/OS from your existing User Directory and manage authorization on those users and user group within  DC/OS.
 
+[enterprise]
 ## <a name="cluster-encryption"></a>Cluster security with encrypted communication
+[/enterprise]
 
 DC/OS Enterprise is designed to run securely on-premises and in the cloud. To ensure cluster security, DC/OS Enterprise supports encrypted communication between DC/OS Cluster Internal components. This is achieved by ensuring that DC/OS runs with a Certificate Authority that issues certificates for DC/OS Master Nodes and all Agent nodes have an installed CA.crt at bootstrap time. This mechanism ensures all communication between the various services within DC/OS cluster are over secure SSL channels.
 
+[enterprise]
 ## <a name="workload-isolation"></a>Workload Isolation with Container level authorization
+[/enterprise]
 
 DC/OS Enterprise supports fine-grained workload isolation to enable multiple business groups within an organization to run containers &amp; workloads within a shared cluster but still be guaranteed that there is security isolation in addition to performance isolation provided by Linux cGroups between the varying workloads. Workload security isolation is performed by a DC/OS Authorization module that runs on every agent node and is responsible for making authorization checks against DC/OS IAM Service to verify that the user/owner of the workload is authorized to perform the action they are trying to execute anywhere within the cluster including on the Agent node.
 
