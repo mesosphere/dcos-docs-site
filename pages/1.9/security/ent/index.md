@@ -66,7 +66,7 @@ This mode provides some of the security features, but does not include the Mesos
 This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting Your Security Mode
-The security mode is set during [DC/OS installation](/1.9/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.9/installing/ent/upgrading/). The security mode is set in the intallation configuration file with the [`security` parameter](/1.9/installing/ent/custom/configuration-parameters/#security).
+The security mode is set during [DC/OS installation](/1.9/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.9/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.9/installing/ent/custom/configuration-parameters/#security).
 
 **Important:** You can only move from `disabled` to `permissive`, and from `permissive` to `strict` during an upgrade.
 
@@ -81,7 +81,7 @@ You can use either of the following methods to determine the security mode of an
 # <a name="authentication"></a>Authentication
 All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/1.9/security/ent/service-auth/).
 
-The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.9/installing/ent/custom/configuration-parameters/#auth-token-expiry).
+The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.9/installing/ent/custom/configuration-parameters/#bouncer_expiration_auth_token_days).
 
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
@@ -103,7 +103,7 @@ When the authentication token expires, the user can re-authenticate to receive a
 
 When a user logs in with the DC/OS GUI, the Identity and Access Manager plants a cookie that contains the authentication token. While it is protected with an [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) flag, users should **Sign Out** at the end of their browser session to clear this cookie.
 
-Note that clearing the cookie does not invalidate the authentication token. If sniffed over an unencrypted connection or extracted from the cookie, someone could use the authentication token to log into DC/OS. To mitigate this risk,  we recommend setting  the [secure flag](https://www.owasp.org/index.php/SecureFlag) on the cookie in `permissive` and `strict` modes, as discussed in [Hardening](/1.9/security/ent/hardening/#auth-cookie).
+Note that clearing the cookie does not invalidate the authentication token. If sniffed over an unencrypted connection or extracted from the cookie, someone could use the authentication token to log into DC/OS. To mitigate this risk,  we recommend setting  the [secure flag](https://www.owasp.org/index.php/SecureFlag) on the cookie in `permissive` and `strict` modes, as discussed in [Hardening](/1.9/security/ent/hardening/#secure-flag).
 
 ## <a name="service"></a>Service Authentication
 Service accounts provide an identity for [services](/1.9/overview/concepts/#dcos-service) to authenticate with DC/OS. Service accounts control communication between services and DC/OS components. DC/OS services may require [service accounts](/1.9/security/ent/service-auth/) depending on your security mode.
@@ -222,7 +222,7 @@ DC/OS allows you to restrict:
 
 - **User access to secrets:** use [permissions](/1.9/security/ent/perms-reference/#secrets) to control which users can access what secrets and what operations they can perform.
 
-- **Application access to secrets:** use [spaces](/1.9/overview/security/spaces/) to control which applications can retrieve what secrets.
+- **Application access to secrets:** use [spaces](/1.9//security/ent/#spaces) to control which applications can retrieve what secrets.
 
 # <a name="linux-users"></a>Linux User Accounts
 

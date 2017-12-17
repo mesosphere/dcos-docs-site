@@ -121,7 +121,7 @@ For more information, see the [documentation](/1.9/metrics/).
 
 ### Expanded Docker Engine Support
 
-- Docker 1.12 is now [supported](/1.9/installing/custom/system-requirements/).
+- Docker 1.12 is now [supported](/1.9/installing/ent/custom/system-requirements/).
 
 ### Upgrades
 
@@ -132,7 +132,7 @@ For more information, see the [documentation](/1.9/installing/upgrading/).
 # <a name="known-issues"></a>Known Issues and Limitations
 
 - Marathon-LB does not support pods.
-- If you install DC/OS 1.9 by using the [GUI](/1.9/installing/custom/gui/) or [CLI](/1.9/installing/custom/cli/) install methods, your system will be automatically upgraded to CentOS 7.3.
+- If you install DC/OS 1.9 by using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) install methods, your system will be automatically upgraded to CentOS 7.3.
 - The next 1.9 release candidate will use CentOS 7.3 as the default version.
 - The next 1.9 release candidate will use Docker 1.13 as the default version.
 - The next 1.9 release candidate will have [task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.

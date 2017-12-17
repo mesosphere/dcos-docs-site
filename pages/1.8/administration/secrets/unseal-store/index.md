@@ -201,7 +201,8 @@ The procedure for unsealing the Secret Store differs according to the keys used 
    scp binary-unseal.key core@<master-IP>:~
    ```
 
-   **Tip:** If you used GPG to generate the custom GPG keypair as described in [Reinitializing the Secret Store with a custom GPG keypair](/1.8/administration/secrets/custom-key/) and you have multiple masters, use the IP address of the master that you used to generate the keypair.
+<!-- 
+   **Tip:** If you used GPG to generate the custom GPG keypair as described in [Reinitializing the Secret Store with a custom GPG keypair](/1.8/administration/secrets/custom-key/) and you have multiple masters, use the IP address of the master that you used to generate the keypair. -->
 
 1. [SSH into your master](/1.8/administration/access-node/sshcluster/)
 
@@ -217,7 +218,8 @@ The procedure for unsealing the Secret Store differs according to the keys used 
    gpg --allow-secret-key-import --import gpg.key
    ```
 
-   **Tip:** If you recently completed the [Reinitializing the Secret Store with your own GPG key](/1.8/administration/secrets/custom-key/) procedure, your private key should already be loaded in GPG.
+<!-- 
+   **Tip:** If you recently completed the [Reinitializing the Secret Store with your own GPG key](/1.8/administration/secrets/custom-key/) procedure, your private key should already be loaded in GPG. -->
 
 1. Use the following command to decrypt the unseal key with GPG.
 

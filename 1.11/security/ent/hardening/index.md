@@ -20,7 +20,7 @@ Your cluster will become more secure as you move from `disabled` to `permissive`
 
 However, there are a number of settings that you can modify independent of your security mode to increase the security of your cluster.
 
-- <a name="secure-flag"></a>In `permissive` and `strict` modes, set the [`auth_cookie_secure_flag`](/1.11/installing/ent/custom/configuration/configuration-parameters/#auth-cookie) to `true`.
+- <a name="secure-flag"></a>In `permissive` and `strict` modes, set the [`auth_cookie_secure_flag`](/1.11/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) to `true`.
 
 - <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-superuser), [`zk_master_credentials`](/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-master), and [`zk_agent_credentials`](/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-agent).
 
@@ -31,7 +31,7 @@ However, there are a number of settings that you can modify independent of your 
 
 - [Use secrets to store and pass sensitive information to services](/1.11/security/ent/secrets/).
 
-- [Use spaces to restrict service access to secrets](/1.11/overview/security/spaces/).
+- [Use spaces to restrict service access to secrets](/1.11//security/ent/#spaces).
 
 - Tightly restrict the distribution of SSH keys. For debugging, consider using [`dcos task exec`](/1.11/monitoring/debugging/) instead.
 

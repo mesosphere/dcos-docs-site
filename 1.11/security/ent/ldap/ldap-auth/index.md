@@ -37,7 +37,7 @@ enterprise: true
 
     - [Specifying simple bind parameters](#specifying-simple-bind-parameters)
     
-    - [Specifying search/bind parameters](#specifying-search-bind-parameters)
+    - [Specifying search/bind parameters](#specifying-searchbind-parameters)
 
 # Specifying simple bind parameters
 

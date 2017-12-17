@@ -15,7 +15,7 @@ enterprise: false
 We recommend starting with a fresh cluster to ensure all defaults are set to expected values. This prevents unexpected conditions related to mismatched versions and configurations.
 
 ## Q. What are the OS requirements of DC/OS?
-See the [system requirements](../installing/custom/system-requirements/).
+See the [system requirements](../installing/ent/custom/system-requirements/).
 
 ## Q. Does DC/OS install ZooKeeper, or can I use my own ZooKeeper quorum?
 DC/OS runs its own ZooKeeper supervised by Exhibitor and systemd, but users are able to create their own ZooKeeper quorums as well. The ZooKeeper quorum installed by default will be available at `master.mesos:[2181|2888|3888]`.

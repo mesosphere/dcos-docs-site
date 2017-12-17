@@ -17,7 +17,7 @@ The [metrics component](/1.11/overview/architecture/components/#dcos-metrics) pr
 DC/OS provides these types of metrics:
 
 * **Host:** metrics about the specific node which is part of the DC/OS cluster. 
-* **Container:** metrics about cgroup allocations from tasks running in the DC/OS [Universal Container Runtime](/1.11/deploying-services/ucr/) or [Docker Engine](/1.11/deploying-services/docker-containerizer/) runtime. 
+* **Container:** metrics about cgroup allocations from tasks running in the DC/OS [Universal Container Runtime](/1.11/deploying-services/containerizers/ucr/) or [Docker Engine](/1.11/deploying-services/containerizers/docker-containerizer/) runtime. 
 * **Application:** metrics about a specific application running inside the Universal Container Runtime.
 
 The [Metrics API](/1.11/metrics/metrics-api/) exposes these areas. 

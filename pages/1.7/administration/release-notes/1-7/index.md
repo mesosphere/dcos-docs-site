@@ -127,7 +127,7 @@ See additional known issues at <a href="https://support.mesosphere.com" target="
 
 Issues fixed:
 
-- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/custom/configuration-parameters/). 
+- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/ent/custom/configuration-parameters/). 
 - Various bug fixes to enable upgrades. 
 
 ## <a name="1-7-3"></a>1.7.3 - July 27, 2016
@@ -159,7 +159,7 @@ Issues fixed:
  [6]: /1.7/administration/id-and-access-mgt/ent/managing-permissions/
  [7]: https://github.com/mesosphere/marathon/releases/edit/v1.0.0-RC1
  [8]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12334661
- [9]: /1.7/administration/installing/custom/advanced/
+ [9]: /1.7/administration/installing/ent/custom/advanced/
  [10]: /1.7/usage/tutorials/public-app/
  [11]: https://github.com/godbus/dbus/issues/45
  [12]: https://issues.apache.org/jira/browse/MESOS-2408

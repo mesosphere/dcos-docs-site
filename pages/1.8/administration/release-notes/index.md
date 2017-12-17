@@ -19,7 +19,7 @@ The release notes provide a list of useful topics and links for DC/OS.
 # <a name="breaking"></a>Breaking Changes
 - Removed `/marathon` endpoint on masters in favor of `/service/marathon`. Services such as [Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/) now require a JSON WebToken to access the Marathon API. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
 - Manual modifications of Admin Router config are no longer supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/1.8/administration/tls-ssl/ent/haproxy-adminrouter/).
-- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/1.8/administration/installing/custom/system-requirements/).
+- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/1.8/administration/installing/ent/custom/system-requirements/).
 - When upgrading from 1.7 to 1.8, you must upgrade all master nodes before proceeding. The master nodes will be unusable until upgrade completes. This changed behavior is because we have upgraded the ZooKeeper security. For more information, see the [documentation](/1.8/administration/upgrading/).
 
 # <a name="whats-new"></a>What's New
@@ -322,12 +322,12 @@ For more information, see the [documentation](/services/spark/).
 ### Fixed issues:
 - CORE-632 - Fixes for logrotation in Mesos. 
 - DCOS-10057 - Destroy services button in the DC/OS UI no longer hangs when users do not have correct permissions.  
-- DCOS-9165 - Strict security mode is now supported. For more information, see [documentation](/1.8/administration/installing/custom/configuration-parameters/#security). (Enterprise Only)
+- DCOS-9165 - Strict security mode is now supported. For more information, see [documentation](/1.8/administration/installing/ent/custom/configuration-parameters/#security). (Enterprise Only)
 - DCOS-9430 - A JWT is no longer required to access the Mesos HTTP API in `permissive` security mode. (Enterprise Only)
 - DCOS-9805 - DC/OS GUI: user/group deletion may "freeze" the GUI.
 - DCOS-9966 - Improved error messages are printed for NTP service startup check.
 - DCOS-10203 - All `/service` endpoints become inaccessible 5 days after cluster install. 
-- HTTP Proxy is now fixed. For more information, see the [documentation](/1.8/administration/installing/custom/configure-proxy/). 
+- HTTP Proxy is now fixed. For more information, see the [documentation](/1.8/administration/installing/ent/custom/configure-proxy/). 
 
 ### Known issues and limitations:
 - DCOS-9705 - Marathon authn/z is still enabled in security-disabled mode.
@@ -337,7 +337,7 @@ For more information, see the [documentation](/services/spark/).
 
 ### New and changed features:
 - DCOS-9173 - The upgrade documentation is updated with instructions for workaround. (Enterprise Only)
-- New simplified hashed-password procedure for custom installation. For more information, see the [documentation](/1.8/administration/installing/custom/cli/). (Enterprise Only)
+- New simplified hashed-password procedure for custom installation. For more information, see the [documentation](/1.8/administration/installing/ent/custom/cli/). (Enterprise Only)
 - DCOS-8848 - Experimental support for unified containerizer in DC/OS.
 - DOCS-1113 - `dcos jobs` command is now available in the CLI. For more information, see the [documentation](/1.8/usage/cli/command-reference/).
 - DCOS-9029 - You can now administer DC/OS Enterprise security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/). 
@@ -368,7 +368,7 @@ For more information, see the [documentation](/services/spark/).
 - DCOS-9665 - Support for DC/OS Enterprise Azure templates is coming soon. (Enterprise Only)
 - DCOS-8889 - Certificates are removed from the DC/OS UI for scalability. (Enterprise Only)
 - DCOS-9277 - Disabled HTTP2 in Admin Router. (Enterprise Only)
-- DCOS-4298 - Time synchronization of hosts is now required. For more information, see the [system requirements](/1.8/administration/installing/custom/system-requirements/#port-and-protocol).(Enterprise Only)
+- DCOS-4298 - Time synchronization of hosts is now required. For more information, see the [system requirements](/1.8/administration/installing/ent/custom/system-requirements/#port-and-protocol).(Enterprise Only)
 - DCOS-9783 - Package service broken with `java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty`. The workaround is to restart the Package service (`dcos-cosmos.service`).
 - DCOS-9804 - The DC/OS Enterprise CLI returns a spurious error message: `Failed to execute script dcos-security`.
 
@@ -384,7 +384,7 @@ For more information, see the [documentation](/services/spark/).
 - DC/OS can now be built using older Docker versions.
 - Mesos-DNS [0.5.3-rc2](https://github.com/mesosphere/mesos-dns/blob/master/CHANGELOG).
 - New custom installer option (`--set-superuser-password-hash`) will append the hashed password directly to `config.yaml`. (Enterprise Only)
-- Now you can now enter a password directly in a prompt. The previous methods (`--set-superuser-password-hash` and `--hash-password`) required you to enter a password on the command line, which meant that it was stored in places such as `~/.bash_history`. For more information, see the [documentation](/1.8/administration/installing/custom/cli/#scrollNav-3). (Enterprise Only)
+- Now you can now enter a password directly in a prompt. The previous methods (`--set-superuser-password-hash` and `--hash-password`) required you to enter a password on the command line, which meant that it was stored in places such as `~/.bash_history`. For more information, see the [documentation](/1.8/administration/installing/ent/custom/cli/#scrollNav-3). (Enterprise Only)
 - Updated DC/OS UI.
 - Marathon 1.3.0-RC6 [release notes](https://github.com/mesosphere/marathon/releases)
 - Updated the DC/OS Diagnostics component (`dcos-3dt.service`) with numerous bug fixes
@@ -427,7 +427,7 @@ For more information, see the [documentation](/services/spark/).
 - Marathon [1.3.0-RC5](https://github.com/mesosphere/marathon/releases)
 - CentOS 7 AMI builder scripts
 - Updated [Cosmos](https://github.com/dcos/cosmos) API for DC/OS services
-- Added a flag to the custom installer, `--cli-telemetry-disabled`, to disable the CLI basic telemetry. For more information, see the [documentation](/1.8/administration/installing/custom/cli/).
+- Added a flag to the custom installer, `--cli-telemetry-disabled`, to disable the CLI basic telemetry. For more information, see the [documentation](/1.8/administration/installing/ent/custom/cli/).
 - Improved handling of `/etc/resolv.conf` around systemd-networkd
 - Moved REX-Ray out of the agent advertised port range
 - The preflight port check is different for masters and agents

@@ -169,7 +169,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ## Prerequisites
 
 *  [DC/OS Enterprise](/1.10/installing/ent/) installed with:
-    - Security [mode](/1.10/installing/custom/configuration/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
+    - Security [mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/1.10/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
@@ -325,7 +325,7 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [5]: https://github.com/mesosphere/marathon-lb
  [6]: /1.10/overview/concepts/
  [7]: /1.10/installing/cloud/
- [8]: /1.10/installing/custom/
+ [8]: /1.10/installing/ent/custom/
  [9]: /1.10/administering-clusters/locate-public-agent/
  [10]: /1.10/img/webui-universe-install.png
  [11]: /1.10/cli/command-reference/

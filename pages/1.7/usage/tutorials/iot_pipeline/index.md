@@ -36,7 +36,7 @@ This tutorial demonstrates how you can build a complete load-balanced data pipel
 <li>The fully qualified domain name of your DC/OS <a href="/1.7/overview/concepts/#public">public agent</a>.</li>
 </ul>
 
-<h1>Install the DC/OS services you'll need</h1>
+# Install the DC/OS services you'll need
 
 <ol>
 <li>From the DC/OS web interface <strong>Universe</strong> tab, install the packages with a single click.
@@ -80,7 +80,7 @@ dcos cassandra connection
 
 <p><strong>Note:</strong> It can take up to 10 minutes for Cassandra to initialize with DC/OS because of race conditions.
 
-<h1>Deploy the containerized app</h1>
+# Deploy the containerized app
 
 In this step you deploy the containerized Tweeter app.
 
@@ -125,7 +125,7 @@ Go to the Marathon web interface to verify your app is up and healthy. Then, nav
 
 <img src="/assets/images/tweeter.png" alt="Tweeter" />
 
-<h1>Post 100K Tweets</h1>
+# Post 100K Tweets
 
 Use the <code>post-tweets.json</code> app a large number of Shakespeare tweets from a file:
 
@@ -138,7 +138,7 @@ The app will post more than 100k tweets one by one, so you'll see them coming in
 
 The post-tweets app works by streaming to the VIP <code>1.1.1.1:30000</code>. This address is declared in the <code>cmd</code> parameter of the <code>post-tweets.json</code> app definition. The app uses the service discovery and load balancer service that is installed on every DC/OS node. You can see the Tweeter app defined with this VIP in the json definition under <code>VIP_0</code>.
 
-<h1>Add Streaming Analytics</h1>
+# Add Streaming Analytics
 
 Next, you'll perform real-time analytics on the stream of tweets coming in from Kafka.
 

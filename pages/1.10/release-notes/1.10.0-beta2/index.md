@@ -8,7 +8,7 @@ excerpt:
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
 
-<h2>This beta release is for testing only and not to be used in production.</h2>
+<h3>This beta release is for testing only and not to be used in production.</h3>
 <h3>DC/OS 1.10.0 Beta 2 has a number of limitations that will be resolved at GA time:</h3>
 
 <ul>
@@ -64,7 +64,7 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 [/ enterprise]
   
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise-and-authentication) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
+  Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-and-authentication) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
 - Increased Admin Router security. <!-- ie TLS not supported out-of-the-box; where is the doc? is this enterprise-only?-->
 
@@ -95,7 +95,7 @@ The following updated data services packages are also in beta and are compatible
 ## Platform
 - Node and Cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
+- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
 - Enhanced upgrades with pre/post flight checks.
 - UCR. <!-- have there been updates? -->
 - Scale and performance limits.

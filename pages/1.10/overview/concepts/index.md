@@ -258,7 +258,7 @@ For more information, see the [Universe repository](https://github.com/mesospher
 
 A container registry is a repository of pre-built container images.
 
-The [Universal Container Runtime](#mesos-containerizer-universal-container-runtime) and [Docker Engine](#mesos-containerizer-docker-runtime) can both run Docker images from public or private Docker container registries.
+The [Universal Container Runtime](#mesos-containerizer-universal-container-runtime) and [Docker Engine](#mesos-containerizer-docker-engine) can both run Docker images from public or private Docker container registries.
 
 ### <a name="cloud-template"></a>Cloud Template
 
@@ -397,7 +397,7 @@ For more information, see the [Marathon website](https://mesosphere.github.io/ma
 A Marathon application is a long-running service that may have one or more instances that map one to one with Mesos tasks.
 
 - The user creates an application by providing Marathon with an application definition (JSON). Marathon then schedules one or more application instances as Mesos tasks, depending on how many the definition specified.
-- Applications currently support the use of either the [Mesos Universal Container Runtime](#mesos-universal-container-runtime) or the [Docker Runtime](#mesos-docker-runtime).
+- Applications currently support the use of either the [Mesos Universal Container Runtime](#mesos--containerizer-universal-container-runtime) or the [Docker Runtime](#mesos-containerizer-docker-engine).
 
 ### <a name="marathon-pod"></a>Pod
 

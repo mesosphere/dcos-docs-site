@@ -82,7 +82,7 @@ You can use either of the following methods to determine the security mode of an
 # <a name="authentication"></a>Authentication
 All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/1.11/security/ent/service-auth/).
 
-The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.11/installing/ent/custom/configuration/configuration-parameters/#auth-token-expiry).
+The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer_expiration_auth_token_days).
 
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
@@ -104,7 +104,7 @@ When the authentication token expires, the user can re-authenticate to receive a
 
 When a user logs in with the DC/OS GUI, the Identity and Access Manager plants a cookie that contains the authentication token. While it is protected with an [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) flag, users should **Sign Out** at the end of their browser session to clear this cookie.
 
-Note that clearing the cookie does not invalidate the authentication token. If sniffed over an unencrypted connection or extracted from the cookie, someone could use the authentication token to log into DC/OS. To mitigate this risk,  we recommend setting  the [secure flag](https://www.owasp.org/index.php/SecureFlag) on the cookie in `permissive` and `strict` modes, as discussed in [Hardening](/1.11/security/ent/hardening/#auth-cookie).
+Note that clearing the cookie does not invalidate the authentication token. If sniffed over an unencrypted connection or extracted from the cookie, someone could use the authentication token to log into DC/OS. To mitigate this risk,  we recommend setting  the [secure flag](https://www.owasp.org/index.php/SecureFlag) on the cookie in `permissive` and `strict` modes, as discussed in [Hardening](/1.11/security/ent/hardening/#secure-flag).
 
 ## <a name="passwords"></a>Passwords
 
@@ -215,7 +215,7 @@ The unseal key is encrypted under a public GPG key. Requests to the [Secrets API
 
 As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
-If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.11/security/ent/secrets/custom-key/).
+<!-- If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.11/security/ent/secrets/custom-key/). -->
 
 The Secret Store is available in all security modes.
 
@@ -229,7 +229,7 @@ DC/OS allows you to restrict:
 
 - **User access to secrets:** use [permissions](/1.11/security/ent/perms-reference/#secrets) to control which users can access what secrets and what operations they can perform.
 
-- **Application access to secrets:** use [spaces](/1.11/overview/security/spaces/) to control which applications can retrieve what secrets.
+- **Application access to secrets:** use [spaces](/1.11//security/ent/#spaces) to control which applications can retrieve what secrets.
 
 # <a name="linux-users"></a>Linux User Accounts
 

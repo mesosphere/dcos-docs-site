@@ -39,7 +39,7 @@ A user with the necessary permissions can configure a service to use a secret us
 
 # <a name="deploying-the-service-via-the-web-interface"></a>Deploying the service via the web interface
 
-1. Log into the web interface as a user with the necessary permissions as discussed in the [previous section](#about-config).
+1. Log into the web interface as a user with the necessary permissions as discussed in the [previous section](#service).
 
 1. Click **Services**.
 
@@ -83,7 +83,7 @@ A user with the necessary permissions can configure a service to use a secret us
 
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
-1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services to use secrets](#about-config) for more information about the permissions.
+1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services to use secrets](#service) for more information about the permissions.
 
 1. Within a text editor, create an application definition for your Marathon service. You can add the secret using the `"env"` and `"secrets"` objects as shown below. The following simple application defines a new service inside of the developer group and references a secret stored inside a developer path. It stores the secret under the environment variable `"MY_SECRET"`.
 

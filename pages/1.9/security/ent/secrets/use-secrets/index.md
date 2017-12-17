@@ -32,7 +32,7 @@ In `strict` mode, users may also need the following.
 - `dcos:adminrouter:ops:mesos full`: to view **Task** panel information.
 - `dcos:adminrouter:ops:slave full`: to view the details about the task, including the logs.
 
-As long as the path of the secret and the path of the group [match up properly](/1.9/overview/security/spaces/), the service will be able to access the secret value.
+As long as the path of the secret and the path of the group [match up properly](/1.9//security/ent/#spaces), the service will be able to access the secret value.
 
 The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.9/deploying-services/pods/) or to an individual service. 
 
@@ -56,7 +56,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 ## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the GUI
 
-1. Log into the GUI as a user with the necessary permissions as discussed in the [previous section](#about-config).
+1. Log into the GUI as a user with the necessary permissions as discussed in the [previous section](#service).
 
 1. Click **Services** -> **Services**.
 
@@ -85,7 +85,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   Because the service and the secret paths match, the service will be able to access the secret. See [Spaces](/1.9/overview/security/spaces/#secrets) for more details about the paths.
+   Because the service and the secret paths match, the service will be able to access the secret. See [Spaces](/1.9/security/ent/#spaces) for more details about the paths.
 
 1. Click **REVIEW & RUN**.
 
@@ -108,7 +108,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 - If your [security mode](/1.9/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.9/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
-1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services and pods to use secrets](#about-config) to discover the required permissions.
+1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services and pods to use secrets](#service) to discover the required permissions.
 
 1. Within a text editor, create an application definition for your Marathon service. The following application definition creates a new service inside of the developer group and references a secret stored inside a developer path. It stores the secret under the environment variable `"MY_SECRET"`. Observe below how the `"env"` and `"secrets"` objects are used to define secrets. 
 
@@ -129,7 +129,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   Because the service group and the secret paths match, the service will be able to access the secret. See [Spaces](/1.9/overview/security/spaces/#secrets) for more details about the paths.
+   Because the service group and the secret paths match, the service will be able to access the secret. See [Spaces](/1.9/security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `myservice.json`.
 
@@ -157,7 +157,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 - You must have the [DC/OS CLI installed](/1.9/cli/install/).
 - If your [security mode](/1.9/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
-1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services and pods to use secrets](#about-config) for more information about the permissions.
+1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services and pods to use secrets](#service) for more information about the permissions.
 
 1. Within a text editor, create an application definition for your pod. You can add the secret using the `"environment"` and `"secrets"` objects as shown below. The following simple application defines a new service inside of the developer group and references a secret stored inside a developer path. It stores the secret under the environment variable `"MY_SECRET"`.
 
@@ -198,7 +198,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.9/overview/security/spaces/) for more details about the paths.
+   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.9//security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 

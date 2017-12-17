@@ -10,7 +10,7 @@ enterprise: true
 
 # About TLS encryption
 
-The encryption of DC/OS communications varies according to your [security mode](/1.8/administration/installing/custom/configuration-parameters/#security).
+The encryption of DC/OS communications varies according to your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security).
 
 <table class="table" STYLE="margin-bottom: 25px;">
   <tr>

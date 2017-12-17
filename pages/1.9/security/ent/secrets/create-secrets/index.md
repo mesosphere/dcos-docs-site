@@ -17,7 +17,7 @@ The permissions needed to create a secret vary by interface.
 
 - **[DC/OS CLI](/1.9/cli/) or [Secrets API](/1.9/security/ent/secrets/secrets-api/):** <code>dcos:secrets:default:[/<i>path</i>]/<i>name</i> create</code> (minimum permission), or <code>dcos:secrets:default:[/<i>path</i>]/<i>name</i> full</code>. The permission must include the name of the secret the user is allowed to create. Users need one permission per secret. The secret itself does not need to exist yet, but when it is created its name must match the name in the permission.
 
-Secret should include paths, unless you want to allow all services to access its value. See [Spaces](/1.9/overview/security/spaces/#secrets) for more information about secret paths.
+Secret should include paths, unless you want to allow all services to access its value. See [Spaces](/1.9/security/ent/#spaces) for more information about secret paths.
 
 The procedure for creating a secret varies by interface. Refer to the section that corresponds to your desired interface.
 

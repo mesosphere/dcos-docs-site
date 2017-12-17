@@ -44,7 +44,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
     **Important:**
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.8 `config.yaml` differs from that of DC/OS 1.7. For a detailed description of the 1.8 `config.yaml` syntax and parameters, see the [documentation](/1.8/administration/installing/custom/configuration-parameters/).
+    *  The syntax of the DC/OS 1.8 `config.yaml` differs from that of DC/OS 1.7. For a detailed description of the 1.8 `config.yaml` syntax and parameters, see the [documentation](/1.8/administration/installing/ent/custom/configuration-parameters/).
     * After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`.  Verify that there are no differences in pathways or configurations as changing these while upgrading can lead to catastrophic cluster failures.
 
 1.  After you have merged your 1.7 `config.yaml` into the 1.8 `config.yaml` format, you can build your installer package:
@@ -189,4 +189,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.8 Universe are newer than those in the DC/OS 1.7 Universe. Services are not automatically upgraded when  DC/OS 1.8 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.8/administration/installing/custom/advanced/
+[advanced-install]: /1.8/administration/installing/ent/custom/advanced/

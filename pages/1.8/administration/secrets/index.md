@@ -17,7 +17,7 @@ The unseal key is encrypted under a public GPG key. Requests to the [Secrets API
 
 As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
-If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.8/administration/secrets/custom-key/).
+<!-- If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.8/administration/secrets/custom-key/). -->
 
 The Secret Store is available in all security modes.
 

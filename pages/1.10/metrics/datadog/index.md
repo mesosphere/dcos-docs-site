@@ -84,7 +84,7 @@ When you're happy with the test results, you'll need to install the plugin into 
 Follow the instructions based on whether you are using DC/OS Enterprise or open source:
 
 - [DC/OS Enterprise](/1.10/security/ent/service-auth/custom-service-auth/)
-- [DC/OS open source](/1.10/security/ent/managing-authentication/)
+- [DC/OS open source](/1.10/security/oss/managing-authentication/)
 
 You will use this auth token below.
 

@@ -60,9 +60,9 @@ You can deploy your instances in a specific region region based on the available
 
    We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>` We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
-1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/custom/advanced/#create-a-fault-domain-detection-script).
+1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/ent/custom/advanced/#create-a-fault-domain-detection-script).
 
-1. [Install DC/OS](/1.11/installing/custom/advanced/).
+1. [Install DC/OS](/1.11/installing/ent/custom/advanced/).
 
 1. Test your installation.
    

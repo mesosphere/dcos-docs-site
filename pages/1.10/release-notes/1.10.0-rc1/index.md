@@ -10,7 +10,7 @@ excerpt:
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
 
-<h2>This release candidate is for testing only and not to be used in production.</h2>
+<h3>This release candidate is for testing only and not to be used in production.</h3>
 <h3>Limitations:</h3>
 
 <ul>
@@ -97,7 +97,7 @@ The following updated data services packages are also in beta and are compatible
 ## Platform
 - Node and cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
+- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
 - Enhanced upgrades with pre/post flight checks.
 - Universal Container Runtime (UCR).
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.

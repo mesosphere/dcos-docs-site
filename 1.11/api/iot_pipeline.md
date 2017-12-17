@@ -38,7 +38,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 **Prerequisites:**
 
 *  DC/OS Enterprise is [installed](/1.9/installing/) with:
-    - Security [mode](/1.9/installing/custom/configuration/configuration-parameters/#security-enterprise) set to permissive or strict. By default, DC/OS installs in permissive security mode.
+    - Security [mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/1.9/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
@@ -197,7 +197,7 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [5]: https://github.com/mesosphere/marathon-lb
  [6]: /1.9/overview/concepts/
  [7]: /1.9/installing/cloud/
- [8]: /1.9/installing/custom/
+ [8]: /1.9/installing/ent/custom/
  [9]: /1.9/administering-clusters/locate-public-agent/
  [10]: /1.9/img/webui-universe-install.png
  [11]: /1.9/cli/command-reference/
