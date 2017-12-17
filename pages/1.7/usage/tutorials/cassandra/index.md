@@ -32,7 +32,7 @@ In this tutorial you will learn how to:
   - [Custom manual installation procedure](#custom-manual-installation-procedure)
   - [Manual installation via the web interface](#manual-installation-via-the-web-interface)
   - [Validate installation](#validate-installation)
-- [Cassandra CRUD operations](#cassandra-crud-operations)
+- [Cassandra CRUD operations](#perform-cassandra-crud-operations)
 - [Cleanup](#cleanup)
 
 ## Prerequisites

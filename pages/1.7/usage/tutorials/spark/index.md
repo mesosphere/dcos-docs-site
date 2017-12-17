@@ -128,7 +128,7 @@ Pi is roughly 3.1412853333333333
 
 After all, it turns out to be useful to use the `dcos spark log` command: we get the result of the computation (an approximation for Pi) without having to dig into the logs.
 
-You can learn about further options on how to run a Spark job via the [DC/OS docs](/1.7/usage/services/spark/).
+You can learn about further options on how to run a Spark job via the [DC/OS docs](/services/spark/).
 
 # Using Spark Interactively
 
