@@ -213,5 +213,5 @@ Use the [framework cleaner](/1.7/usage/managing-services/uninstall/#framework-cl
 
 **Further resources**
 
-1. [DC/OS Cassandra Official Documentation](/1.7/usage/services/cassandra/)
+1. [DC/OS Cassandra Official Documentation](/services/cassandra/)
 1. [DataStax Cassandra Documentation](http://docs.datastax.com)
