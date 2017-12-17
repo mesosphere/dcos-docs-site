@@ -60,4 +60,4 @@ enterprise: false
 
 See also [Connecting clients][1].
 
- [1]: https://docs.mesosphere.com/services/kafka/connecting-clients/
+ [1]: /services/kafka/v2.0.0-0.11.0/connecting-clients/

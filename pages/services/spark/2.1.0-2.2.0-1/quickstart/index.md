@@ -40,7 +40,7 @@ This tutorial will get you up and running in minutes with Spark. You will instal
     DC/OS Spark is being installed!
     
     	Documentation: /services/spark/
-    	Issues: https://docs.mesosphere.com/support/
+    	Issues: /support/
     ```
    
     **Tips:** 

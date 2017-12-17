@@ -60,4 +60,4 @@ enterprise: false
 
 See also [Connecting clients][1].
 
- [1]: /services/kafka/connecting-clients/
+ [1]: /services/kafka/2.0.1-0.11.0/connecting-clients/

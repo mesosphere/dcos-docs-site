@@ -157,7 +157,7 @@ dcos spark run --verbose --submit-args=" \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
 ```
 
-If you want to use the [Docker Engine](https://docs.mesosphere.com/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](https://docs.mesosphere.com/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable: 
+If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable: 
 
 ```bash
 dcos spark run --verbose --submit-args="\

@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: false
 ---
 
-1. Install DC/OS on your cluster. See [the documentation](https://docs.mesosphere.com/1.10/installing/) for instructions.
+1. Install DC/OS on your cluster. See [the documentation](/1.10/installing/) for instructions.
 
 1.  If you are using open source DC/OS, install a Beta Confluent Kafka cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for more information.
 
@@ -16,7 +16,7 @@ enterprise: false
 dcos package install beta-confluent-kafka
 ```
 <!-- stopped here -->
-   Alternatively, you can install Beta Confluent Kafka from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/).
+   Alternatively, you can install Beta Confluent Kafka from [the DC/OS web interface](/latest/usage/webinterface/).
 
 Kafka will deploy with a default configuration. You can monitor deployment at the Services tab of the DC/OS web interface.
 
