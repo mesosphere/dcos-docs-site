@@ -12,7 +12,7 @@ In this quick start, you will install Kubernetes on DC/OS, set up an SSH tunnel 
 
 # Prerequisite
 
-- [DC/OS installed on your cluster](https://docs.mesosphere.com/latest/administration/installing/). See the Install and Customize section for cluster size and resource requirements.
+- [DC/OS installed on your cluster](https://docs.mesosphere.com/1.10/installing/). See the Install and Customize section for cluster size and resource requirements.
 
 ## Install Kubernetes
 

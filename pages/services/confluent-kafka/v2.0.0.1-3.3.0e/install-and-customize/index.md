@@ -15,7 +15,7 @@ The standard install provides a reasonable default configuration for trying out 
 
 ## Prerequisities
 
-1. Install DC/OS on your cluster. See [the documentation](/latest/administration/installing/) for instructions.
+1. Install DC/OS on your cluster. See [the documentation](/1.10/installing/) for instructions.
 
 1. Install the DC/OS [CLI](https://dcos.io/docs/1.10/cli/install/) and point it towards your cluster
 
@@ -43,7 +43,7 @@ You can specify a custom configuration in an `options.json` file and pass it to 
 $ dcos package install beta-confluent-kafka --options=your-options.json
 ```
 
-For more information about building the options.json file, see the [DC/OS documentation](/latest/usage/managing-services/config-universe-service/).
+For more information about building the options.json file, see the [DC/OS documentation](/1.10/deploying-services/config-universe-service/).
 
 ## Installation from the DC/OS Web Interface
 

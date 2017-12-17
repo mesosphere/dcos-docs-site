@@ -39,6 +39,7 @@ You can configure the remote seeds from another Cassandra cluster that this clus
 *   **In DC/OS CLI options.json**: `remote_seeds`: string (default: `""`)
 *   **DC/OS web interface**: `TASKCFG_ALL_REMOTE_SEEDS`: `string`
 
+<a name="backup-restore-strategy"></a>
 # Backup/Restore Strategy
 
 You can configure whether the creation, transfer, and restoration of backups occurs in serial or in parallel across nodes. This option must be set to either `serial` or `parallel`. Running backups and restores in parallel has the potential to saturate your network. For this reason, we recommend that you use the default configuration for backup strategy.
@@ -47,4 +48,4 @@ You can configure whether the creation, transfer, and restoration of backups occ
 *   **DC/OS web interface**: `BACKUP_RESTORE_STRATEGY`: `string`
 
 # Overlay networks
-The Cassandra service can be run on the DC/OS overlay network, affording each node its own IP address (IP per container). For details about virtual networks on DC/OS see the [documentation](/latest/networking/virtual-networks/#virtual-network-service-dns). For the Cassandra service, using the overlay network means that nodes no longer use reserved port resources on the Mesos agents.  This means that nodes to share machines with other applications that may need to use the same ports that Cassandra does. That means, however, that we cannot guarantee that the ports on the agents containing the reserved resources for Cassandra will be available, therefore we do not allow a service to change from the overlay network to the host network. **Once the service is deployed on the overlay network it must remain on the overlay network**. The only way to move your data to Cassandra on the host network is through a migration.  
+The Cassandra service can be run on the DC/OS overlay network, affording each node its own IP address (IP per container). For details about virtual networks on DC/OS see the [documentation](/1.10/networking/virtual-networks/#virtual-network-service-dns). For the Cassandra service, using the overlay network means that nodes no longer use reserved port resources on the Mesos agents.  This means that nodes to share machines with other applications that may need to use the same ports that Cassandra does. That means, however, that we cannot guarantee that the ports on the agents containing the reserved resources for Cassandra will be available, therefore we do not allow a service to change from the overlay network to the host network. **Once the service is deployed on the overlay network it must remain on the overlay network**. The only way to move your data to Cassandra on the host network is through a migration.  

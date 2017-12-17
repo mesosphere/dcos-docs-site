@@ -44,7 +44,7 @@ dcos package install beta-kubernetes --options=options.json
 
 **Recommendation:** Store your custom configuration in source control.
 
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
+For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/1.10/deploying-services/config-universe-service/) for service configuration access.
 
 ## Installing from the DC/OS Web Interface
 

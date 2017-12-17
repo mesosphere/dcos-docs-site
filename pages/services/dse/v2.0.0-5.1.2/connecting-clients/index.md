@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->
 
 
-1. [Use `dcos tunnel vpn` to connect](https://docs.mesosphere.com/1.8/administration/access-node/tunnel/) (only needed if the DC/OS nodes are not directly reachable from your local machine).
+1. [Use `dcos tunnel vpn` to connect](/1.8/administration/access-node/tunnel/) (only needed if the DC/OS nodes are not directly reachable from your local machine).
 1. Find endpoints
 ```bash
 $ dcos datastax-dse endpoints

@@ -16,7 +16,7 @@ enterprise: false
 **Prerequisites:**
 
 - [DC/OS and DC/OS CLI installed](/1.9/installing/).
-- Depending on your [security mode](/1.9/overview/security/security-modes/), Kafka requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Kafka](https://docs.mesosphere.com/services/kafka/kafka-auth/).
+- Depending on your [security mode](/1.9/security/ent/#security-modes/), Kafka requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Kafka](https://docs.mesosphere.com/services/kafka/kafka-auth/).
   
   | Security mode | Service Account |
   |---------------|-----------------------|
@@ -39,7 +39,7 @@ All `dcos kafka` CLI commands have a `--name` argument that allows you to specif
 dcos kafka --name kafka-dev <cmd>
 ```
     
-**Note:** Alternatively, you can [install Kafka from the DC/OS GUI](/1.9/usage/managing-services/install/). If you install Kafka from the GUI, you must install the Kafka DC/OS CLI subcommands separately. From the DC/OS CLI, enter:
+**Note:** Alternatively, you can [install Kafka from the DC/OS GUI](/1.9/deploying-services/install/). If you install Kafka from the GUI, you must install the Kafka DC/OS CLI subcommands separately. From the DC/OS CLI, enter:
 
 ```bash
 dcos package install kafka --cli

@@ -51,7 +51,7 @@ OpsCenter can be installed with a custom configuration the same way:
 ```
 $ dcos package install datastax-ops --options=your-datastax-ops-options.json
 ```
-For more information about building the options.json file, see the [DC/OS Documentation](https://docs.autoip.dcos.thisdcos.directoryphere.com/latest/usage/managing-services/config-universe-service/).
+For more information about building the options.json file, see the [DC/OS Documentation](https://docs.autoip.dcos.thisdcos.directoryphere.com/1.10/deploying-services/config-universe-service/).
 
 From the DC/OS Dashboard website, DSE may be installed with a custom configuration as follows:
 1. Visit http://yourcluster.com/ to view the DC/OS Dashboard.

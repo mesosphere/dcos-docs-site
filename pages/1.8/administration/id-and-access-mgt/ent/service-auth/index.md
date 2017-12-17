@@ -183,7 +183,7 @@ You may also want to provision Marathon-LB with a service account in `disabled` 
 Refer to the following sections for more details about how and when to provision each service with a service account.
 
 - [Provisioning Cassandra](/1.8/administration/id-and-access-mgt/service-auth/cass-auth/)
-- [Provisioning Confluent](/1.8/administration/id-and-access-mgt/service-auth/confluent-auth/)
+- [Provisioning Confluent](/services/confluent-kafka/confluent-auth/)
 - [Provisioning HDFS](/1.8/administration/id-and-access-mgt/service-auth/hdfs-auth/)
 - [Provisioning Kafka](/1.8/administration/id-and-access-mgt/service-auth/kafka-auth/)
 - [Provisioning Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/)

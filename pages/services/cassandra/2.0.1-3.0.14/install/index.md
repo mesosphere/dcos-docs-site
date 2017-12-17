@@ -15,7 +15,7 @@ The default DC/OS Apache Cassandra installation provides reasonable defaults for
 
 ## Prerequisites
  - If you are using Enterprise DC/OS, you may [need to provision a service account](/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS Apache Cassandra. Only someone with `superuser` permission can create the service account.
- - `strict` [security mode](/1.9/administration/installing/custom/configuration-parameters/#security) requires a service account.
+ - `strict` [security mode](/1.9/installing/ent/custom/configuration-parameters/#security-and-authentication) requires a service account.
  - In `permissive` security mode a service account is optional.
  - `disabled` security mode does not require a service account.
  - Your cluster must have at least 3 private nodes.
@@ -35,11 +35,11 @@ $ dcos package install cassandra --options=<options>.json
 
 It is recommended that this custom configuration is stored in source control.
 
-For more information about building the `options.json` file, see the [DC/OS documentation](/latest/usage/managing-services/config-universe-service/) for service configuration access.
+For more information about building the `options.json` file, see the [DC/OS documentation](/1.10/deploying-services/config-universe-service/) for service configuration access.
 
 ## Installation from the DC/OS Web Interface
 
-You can [install DC/OS Apache Cassandra from the DC/OS web interface](/1.9/usage/managing-services/install/). If you install DC/OS Apache Cassandra from the web interface, you must install the DC/OS Apache Cassandra CLI subcommands separately. From the DC/OS CLI, enter:
+You can [install DC/OS Apache Cassandra from the DC/OS web interface](/1.9/deploying-services/install/). If you install DC/OS Apache Cassandra from the web interface, you must install the DC/OS Apache Cassandra CLI subcommands separately. From the DC/OS CLI, enter:
 ```bash
 dcos package install cassandra --cli
 ```
