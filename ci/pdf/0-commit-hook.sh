@@ -27,7 +27,7 @@ PDF_BUNDLE_PATH="$(cat ".pdf-bundle-path")"
 export PDF_BUNDLE_PATH # export separately so errexit works :(
 
 ci/pdf/4-publish-pdf-bundle.sh
-PDF_BUNDLE_PATH="$(cat ".pdf-bundle-url")"
+PDF_BUNDLE_URL="$(cat ".pdf-bundle-url")"
 export PDF_BUNDLE_URL # export separately so errexit works :(
 
 ci/pdf/5-deploy-site-update.sh
