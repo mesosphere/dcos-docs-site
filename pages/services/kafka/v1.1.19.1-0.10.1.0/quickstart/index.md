@@ -124,4 +124,4 @@ This tutorial will get you up and running in minutes with Kafka. You will instal
 
 See also [Connecting clients][1].
 
- [1]: /1.8/usage/service-guides/kafka/connecting-clients
+ [1]: /services/kafka/v1.1.19.1-0.10.1.0/connecting-clients
