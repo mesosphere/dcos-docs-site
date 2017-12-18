@@ -1,11 +1,11 @@
 #!/bin/bash
 #
-# Usage:       migrate.sh input_folder output_folder
+# Usage:       migration.sh input_folder output_folder
 #
 # Description: Migrates markdown folder structure from
-#              https://github.com/dcos/dcos-docs
+#              https://github.com/mesosphere/dcos-docs-enterprise
 #              to
-#              https://github.com/mesosphere/dc-os-docs
+#              https://github.com/mesosphere/dcos-docs-site
 #
 
 # Formatting colors
@@ -37,67 +37,67 @@ function copy_file
 function  reformat_file_frontmatter
 {
   # title:
-  sed -i -e 's/post_title:/title:/g' $1
+  sed -i'' -e 's/post_title:/title:/g' $1
 
   # navigationTitle:
-  sed -i -e 's/nav_title:/navigationTitle:/g' $1
+  sed -i'' -e 's/nav_title:/navigationTitle:/g' $1
 
   # menuWeight
-  sed -i -e 's/menu_order:/menuWeight:/g' $1
+  sed -i'' -e 's/menu_order:/menuWeight:/g' $1
 
   # excerpt:
-  sed -i -e 's/post_excerpt:/excerpt:/g' $1
+  sed -i'' -e 's/post_excerpt:/excerpt:/g' $1
 
   # excerpt: ""
-  sed -i -e 's/excerpt: ""/excerpt:/g' $1
+  sed -i'' -e 's/excerpt: ""/excerpt:/g' $1
 
   # enterprise: 'yes'
-  sed -i -e "s/enterprise: 'yes'/enterprise: true/g" $1
+  sed -i'' -e "s/enterprise: 'yes'/enterprise: true/g" $1
 
   # enterprise: 'no'
-  sed -i -e "s/enterprise: 'no'/enterprise: false/g" $1
+  sed -i'' -e "s/enterprise: 'no'/enterprise: false/g" $1
 
   # oss: 'yes'
-  sed -i -e "s/oss: 'yes'/oss: true/g" $1
+  sed -i'' -e "s/oss: 'yes'/oss: true/g" $1
 
   # oss: 'no'
-  sed -i -e "s/oss: 'no'/oss: false/g" $1
+  sed -i'' -e "s/oss: 'no'/oss: false/g" $1
 
   # featureMaturity:
-  sed -i -e 's/feature_maturity:/featureMaturity:/g' $1
+  sed -i'' -e 's/feature_maturity:/featureMaturity:/g' $1
 
   # featureMaturity: ""
-  sed -i -e 's/featureMaturity: ""/featureMaturity:/g' $1
+  sed -i'' -e 's/featureMaturity: ""/featureMaturity:/g' $1
 
   # excerpt:
   # If not found, add
   if ! grep -q "excerpt:" $1; then
-    sed -i -e '1s/---/---\nexcerpt:/' $1
+    sed -i'' -e '1s/---/---\nexcerpt:/' $1
   fi
 
   # menuWeight:
   # If not found, add
   if ! grep -q "menuWeight:" $1; then
-    sed -i -e '1s/---/---\nmenuWeight: 0/' $1
+    sed -i'' -e '1s/---/---\nmenuWeight: 0/' $1
   fi
 
   # navigationTitle:
   # If not found, add
   if ! grep -q "navigationTitle:" $1; then
     title=`grep -o -P '(?<=title:).*' $1`
-    sed -i -e "1s/---/---\nnavigationTitle: $title/" $1
+    sed -i'' -e "1s/---/---\nnavigationTitle: $title/" $1
   fi
 
   # title:
   # If not found, add
   if ! grep -q "title:" $1; then
-    sed -i -e '1s/---/---\ntitle: Title/' $1
+    sed -i'' -e '1s/---/---\ntitle: Title/' $1
   fi
 
   # layout:
   # If not found, add
   if ! grep -q "layout:" $1; then
-    sed -i -e '1s/---/---\nlayout: layout.pug/' $1
+    sed -i'' -e '1s/---/---\nlayout: layout.pug/' $1
   fi
 
 }
