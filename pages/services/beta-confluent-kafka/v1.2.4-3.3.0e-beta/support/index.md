@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Support
+navigationTitle: 
 title: Support
 menuWeight: 60
 excerpt:

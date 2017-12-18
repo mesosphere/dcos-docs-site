@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle: 
 title: Disaster Recovery
-menuWeight: 40
+menuWeight: 80
 excerpt:
-featureMaturity:
 enterprise: false
 ---
 

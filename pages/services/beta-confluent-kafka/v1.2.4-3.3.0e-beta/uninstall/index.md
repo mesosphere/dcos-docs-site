@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Uninstalling
+navigationTitle: 
 title: Uninstalling
 menuWeight: 20
 excerpt:
@@ -18,7 +18,7 @@ Follow these steps to uninstall the service.
 
 1. Uninstall the service. From the DC/OS CLI, enter `dcos package uninstall beta-confluent-kafka`.
 
-1. If you are using DC/OS version 1.9 or older, you must clean up remaining reserved resources with the framework cleaner script, `janitor.py`. [More information about the framework cleaner script](/1.9/deploying-services/uninstall/#framework-cleaner).
+1. If you are using DC/OS version 1.9 or older, you must clean up remaining reserved resources with the framework cleaner script, `janitor.py`. [More information about the framework cleaner script](/1.9/usage/managing-services/uninstall/#framework-cleaner).
 
 To uninstall an instance named `beta-confluent-kafka` (the default), run:
 ```

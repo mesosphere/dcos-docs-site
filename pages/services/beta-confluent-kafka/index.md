@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Beta Confluent Kafka
+navigationTitle: 
 title: Beta Confluent Kafka
 menuWeight: 80
 excerpt:

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Package Versioning
+navigationTitle: 
 title: Package Versioning
 menuWeight: 80
 excerpt:

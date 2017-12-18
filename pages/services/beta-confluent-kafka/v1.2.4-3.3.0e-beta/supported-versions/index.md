@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Supported Versions
+navigationTitle: 
 title: Supported Versions
 menuWeight: 70
 excerpt:
