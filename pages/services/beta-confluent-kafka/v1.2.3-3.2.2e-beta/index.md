@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Beta Confluent Kafka v1.2.3-3.2.2e-beta
+navigationTitle: 
 title: Beta Confluent Kafka v1.2.3-3.2.2e-beta
-menuWeight: 10
+menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
