@@ -42,8 +42,8 @@ A typical deployment, including load balancers is shown below:
 
 ![Security Zones](/1.9/img/security-zones.png)
 
-
-# <a name="security-modes"></a>Security Modes
+<a name="security-modes"></a>
+# Security Modes
 
 You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available [security modes](/1.9/security/ent/#security-modes) are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.9/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
 
