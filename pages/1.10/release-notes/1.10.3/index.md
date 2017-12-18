@@ -1,9 +1,9 @@
 ---
-post_title: Release Notes for 1.10.3
-menu_order: 0
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Release Notes for 1.10.3
+title: Release Notes for 1.10.3
+menuWeight: 0
+excerpt:
 ---
 
 # DC/OS Enterprise 1.10.3
