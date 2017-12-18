@@ -10,7 +10,7 @@ excerpt:
 
 DC/OS Enterprise 1.10.3 is a patch release. If you are currently running DC/OS Enterprise 1.10.0, DC/OS 1.10.1, or DC/OS 1.10.2, your cluster may be susceptible to a failure mode in the DC/OS IAM (Identity and Access Manager). This mode can lead to a degraded cluster state in which DC/OS masters fail to come online for some period of time after failover or restart. Follow the procedure below to prevent cluster downtime.
 
-**Note:** DC/OS Open Source users are not affected by this bug and can upgrade to version 1.10.4 when it becomes available.
+**Note:** DC/OS open source users are not affected by this bug and can upgrade to version 1.10.4 when it becomes available.
 
 - If you are currently running _DC/OS Enterprise 1.9.X_ and plan to upgrade to DC/OS Enterprise 1.10, upgrade directly to DC/OS Enterprise 1.10.3 following the standard upgrade procedure. No additional remediations are required.
 
