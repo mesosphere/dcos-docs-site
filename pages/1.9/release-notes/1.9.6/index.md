@@ -15,7 +15,7 @@ These are the release notes for DC/OS 1.9.6.
 - COPS-980 - Marathon's default task unreachable behaviour reinstated.
 - DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
 - DCOS-19217 - Metronome adheres to crontab standard.
-- DCOS-19453 - TLS compression disabled because TLS is vulnerable to the CRIME attack.
+- DCOS-19453 - TLS compression disabled because TLS is vulnerable to the CRIME attack. [enterprise type="inline" size="small" /]
 - DCOS-19508 - Non-superusers can now edit an app that uses secrets. [enterprise type="inline" size="small" /]
 - DOCS-2130 - [Security hardening guide](1.9/security/ent/hardening/) improvements. [enterprise type="inline" size="small" /]
 - DOCS-2153	- [Metrics documentation](/1.9/metrics/) improvements.
