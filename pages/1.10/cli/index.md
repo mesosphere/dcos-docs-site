@@ -46,7 +46,9 @@ Get detailed command description with `dcos <command> --help`.
 
 To display the DC/OS CLI version, run:
 
-`dcos --version`
+```
+dcos --version
+```
 
 
 <a name="configuration-files"></a>
