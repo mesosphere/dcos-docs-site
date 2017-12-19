@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.0 RC3
 title: Release Notes for 1.9.0 RC3
-menuWeight: 14
+menuWeight: 80
 excerpt:
 ---
 
