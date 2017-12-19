@@ -12,7 +12,6 @@ These are the release notes for DC/OS 1.9.6.
 
 # Issues Fixed in 1.9.6
 
-- COPS-693 - Secret store no longer fails with many files open. [enterprise type="inline" size="small" /]
 - COPS-980 - Marathon's default task unreachable behaviour reinstated.
 - DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
 - DCOS-19217 - Metronome adheres to crontab standard.
