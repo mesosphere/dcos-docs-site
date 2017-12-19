@@ -14,8 +14,8 @@ project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
 
 # uncomment for testing, to make the build faster
-echo "Reducing Site Content..."
-make reduce-pages
+#echo "Reducing Site Content..."
+#make reduce-pages
 
 echo "Building PDF docker image..."
 make docker-pdf-build
