@@ -95,16 +95,15 @@ if (searchForm) {
         item: (data) => {
 
           let title = data.title;
+          let description = data.excerpt;
+
           if(data._highlightResult.title) {
             title = data._highlightResult.title.value;
           }
-
-          let description = data.excerpt;
           if(data._highlightResult.excerpt) {
             description = data._highlightResult.excerpt.value;
           }
-
-          if(data._highlightResult.title && data._highlightResult.title.matchLevel == 'full') {
+          if(data._snippetResult.excerpt && data._snippetResult.excerpt.matchLevel == 'full') {
             description = data._snippetResult.excerpt.value;
           }
           else if(data._snippetResult.content && data._snippetResult.content.matchLevel == 'full') {
