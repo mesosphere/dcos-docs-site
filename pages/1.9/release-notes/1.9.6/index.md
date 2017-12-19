@@ -1,40 +1,79 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.9.0 RC3
-title: Release Notes for 1.9.0 RC3
-menuWeight: 80
+navigationTitle:  Release Notes for 1.9.6
+title: Release Notes for 1.9.6
+menuWeight: 0
 excerpt:
 ---
+
+These are the release notes for DC/OS 1.9.6.
+
+[button color="purple" href="LINK_HERE"]Download DC/OS Open Source[/button]
+
+# Issues Fixed in 1.9.6
+
+- COPS-980 - Marathon's default task unreachable behaviour reinstated.
+- DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
+- DCOS-19217 - Metronome adheres to crontab standard.
+- DCOS-19453 - TLS compression disabled because TLS is vulnerable to the CRIME attack. [enterprise type="inline" size="small" /]
+- DCOS-19508 - Non-superusers can now edit an app that uses secrets. [enterprise type="inline" size="small" /]
+- DOCS-2130 - [Security hardening guide](1.9/security/ent/hardening/) improvements. [enterprise type="inline" size="small" /]
+- DOCS-2153	- [Metrics documentation](/1.9/metrics/) improvements.
+
+# Notable Changes in DC/OS 1.9.6
+
+- Latest [Mesos 1.2.x](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.2.x-f8706e5/CHANGELOG) integrated (f8706e5).
+- [Marathon 1.4.9](https://github.com/mesosphere/marathon/releases/tag/v1.4.9) integrated.
+- [Open SSL 1.0.2m](https://www.openssl.org/news/cl102.txt) integrated.
+- [Latest JDK 8](http://www.oracle.com/technetwork/java/javase/8all-relnotes-2226344.html) integrated.
+
+# Issues Fixed in 1.9.5
+
+- CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
+- DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
+- DCOS-18830 - Dashboard CPU allocation not rounding correctly.
+- DCOS-18350 - DC/OS IAM (Bouncer): set TMPDIR to `/var/lib/dcos/bouncer/tmp`. This allows `/tmp`, and other directories, to be mounted as `noexec`.
+- DCOS_OSS-1574 - Navstar updated due to crashes on Core OS 1465+.
+- MARATHON-7576 - Change default `UnreachableStrategy` to `0,0`.
+
+# About DC/OS 1.9
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
 
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
-- New data and developer services. <!-- NEED A LINK -->
+- New data and developer services.
 
 ### Contents
 - [Breaking Changes](#breaking)
 - [What's New](#whats-new)
 - [Known Issues and Limitations](#known-issues)
-<!-- - [Issues Fixed since 1.9.0-rc2](#fixed-issues) -->
+- [Issues Fixed in 1.9.5](#fixed-issues)
 
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
- 
+The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs.
+
 # <a name="whats-new"></a>What's New
 
-### Apache Mesos 1.2 and Marathon 1.4 integrated
+### Apache Mesos 1.2.2 and Marathon 1.4.8 integrated
 
-- Apache Mesos 1.2 [CHANGELOG](https://github.com/apache/mesos/blob/1.2.x/CHANGELOG).
-- Marathon 1.4 [release notes](https://github.com/mesosphere/marathon/releases).
+- Marathon 1.4.8 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.4.8).
+- Apache Mesos 1.2.2 [CHANGELOG](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.2.x-d95a031/CHANGELOG). We also include patches from the forthcoming Apache Mesos 1.2.3.
 
 ## Container Orchestration
+Added support for pods, GPUs, and made significant scalability improvements.
 
-- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [maturity-badge status='preview']
-- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [maturity-badge status='preview']
-- Significant scalability improvements.
+#### Pods [maturity-badge status='preview']
+Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
+
+#### GPU [maturity-badge status='preview']
+- Leverage GPUs to run novel algorithms.
+- Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.
+- Allocate GPUs on a per container basis, including isolation guarantees
+
+For more information, see the [documentation](/1.9/deploying-services/gpu/).
 
 ## DC/OS Monitoring and Operations
 
@@ -46,7 +85,7 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 - Attach to a remote pseudoterminal (aka PTY) inside a container via the optional `--tty` flag.
 - Combine the `--interactive` and `--tty` flags to launch an interactive bash session or to run `top` and see the resource usage of your container in real time.
 
-For more information, see the documentation for the `dcos task exec` command [here](/1.9/monitoring/debugging/).
+For more information, see the debugging [documentation](/1.9/monitoring/debugging/).
 
 ### Logging [maturity-badge status='preview']
 
@@ -92,7 +131,7 @@ For more information, see the [documentation](/1.9/metrics/).
 - DC/OS Identity and Access Management (IAM) highlights:
 
   - LDAP group import: support importing `posixGroup` objects according to [RFC2307](https://www.ietf.org/rfc/rfc2307) and [RFC2307bis](https://tools.ietf.org/html/draft-howard-rfc2307bis-02), and ensure compatibility with [FreeIPA](https://www.freeipa.org) and [OpenLDAP](https://www.openldap.org/).
-  - SAML 2.0: ensure that the authentication flow works against [Shibboleth](https://shibboleth.net/products/identity-provider.html) and improve compatibility with a wide range of identity provider configurations.
+  - SAML 2.0: ensure that the authentication flow works against [Shibboleth](https://www.shibboleth.net/products/identity-provider/) and improve compatibility with a wide range of identity provider configurations.
   - OpenID Connect: ensure that the authentication flow works against [dex](https://github.com/coreos/dex) as well as against [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/), and allow for customizing the identity provider certificate verification in back-channel communication. Enhance configuration validation for a better user experience.
 
 - DC/OS CLI highlights:
@@ -122,7 +161,7 @@ For more information, see the [documentation](/1.9/metrics/).
 
 ### Expanded OS Support
 
-- If you install DC/OS 1.9 using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/)
+- If you install DC/OS 1.9 using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
 - CoreOS [1235.12.0](https://coreos.com/releases/#1235.12.0).
 
 ### Expanded Docker Engine Support
@@ -133,17 +172,25 @@ For more information, see the [documentation](/1.9/metrics/).
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 
-For more information, see the [documentation](/1.9/installing/upgrading/).
+For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
-- DCOS_OSS-691 - DNS becomes briefly unavailable during DC/OS version upgrades.
+- DCOS_OSS-691 - DNS becomes unavailable during DC/OS version upgrades.
 - DCOS-14005 - Marathon-LB does not support pods.
 - DCOS-14021 - [Task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
-- DCOS-14047 - Marathon is killed during upgrades.
-- DCOS-14433 - The [Universal container runtime](/1.9/deploying-services/containerizers/) does not support Azure cloud with Ubuntu. 
-- DCOS-OSS-743 - If you are using Docker 1.13 on CentOS 7.3, the custom CLI installation method fails while installing prerequisites (`--install-prereqs`).
-- MARATHON-1713 - Volumes do not persist.
-- Marathon-7133 - Marathon application history is lost after Marathon restart.
+- DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/1.9/installing/ent/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.ee.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
 
-<!-- # <a name="fixed-issues"></a>Issues Fixed since 1.9.0-rc2 -->
+  ```bash
+  $ ./dcos_generate_config.ee.sh --aws-cloudformation
+  ====> EXECUTING AWS CLOUD FORMATION TEMPLATE GENERATION
+  Generating configuration files...
+  Starting new HTTPS connection (1): s3.amazonaws.com
+  aws_template_storage_region_name: Unable to determine region location of s3 bucket testbucket: An error occurred (InvalidAccessKeyId) when calling the GetBucketLocation operation: The AWS Access Key Id you provided does not exist in our records.
+  ```
+- Marathon-7133 - Marathon application history is lost after Marathon restart.
+- CORE-1191 -  The Mesos master's event queue can get backlogged with the default settings, causing performance problems. These can be mitigated by setting the following configuration parameter in your `config.yaml` file at install time. See the [Configuration Reference](/1.9/installing/ent/custom/configuration/configuration-parameters/) for more information. **Note:** Lowering this parameter also reduces the number of tasks per framework that the `dcos task` subcommands can access for debugging. If you run a framework with many short tasks, such as Spark, you may not want to reduce this value.
+
+  ```yaml
+  mesos_max_completed_tasks_per_framework: 20
+  ```
