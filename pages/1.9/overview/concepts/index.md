@@ -251,7 +251,7 @@ The following terms are contextually correct when talking about Apache Mesos, bu
 - [Exhibitor &amp; ZooKeeper](#mesos-exhibitor-zookeeper)
 - [Mesos\-DNS](#mesos-dns)
 
-# <a name="apache-mesos"></a>Apache Mesos
+## <a name="apache-mesos"></a>Apache Mesos
 
 Apache Mesos is a distributed systems kernel that manages cluster resources and tasks.
 
@@ -259,28 +259,28 @@ Apache Mesos is a distributed systems kernel that manages cluster resources and 
 
 For more information, see the [Mesos website](http://mesos.apache.org/).
 
-# <a name="mesos-master"></a>Master
+## <a name="mesos-master"></a>Master
 
 A Mesos master is a process that runs on master nodes to coordinate cluster resource management and facilitate orchestration of tasks.
 
 - The Mesos masters form a quorum and elect a leader.
 - The lead Mesos master collects resources reported by Mesos agents and makes resource offers to Mesos schedulers. Schedulers then may accept resource offers and place tasks on their corresponding nodes.
 
-# <a name="mesos-agent"></a>Agent
+## <a name="mesos-agent"></a>Agent
 
 A Mesos agent is a process that runs on agent nodes to manage the executors, tasks, and resources of that node.
 
 - The Mesos agent registers some or all of the node’s resources, which allows the lead Mesos master to offer those resources to schedulers, which decide on which node to run tasks.
 - The Mesos agent reports task status updates to the lead Mesos master, which in turn reports them to the appropriate scheduler.
 
-# <a name="mesos-task"></a>Task
+## <a name="mesos-task"></a>Task
 
 A Mesos task is an abstract unit of work, lifecycle managed by a Mesos executor, that runs on a DC/OS agent node.
 
 - Tasks are often processes or threads, but could even just be inline code or items in a single-threaded queue, depending on how their executor is designed.
 - The Mesos built-in command executor runs each task as a process that can be containerized by one of several [Mesos containerizers](#mesos-containerizer).
 
-# <a name="mesos-executor"></a>Executor
+## <a name="mesos-executor"></a>Executor
 
 A Mesos executor is a method by which Mesos agents launch tasks.
 
@@ -290,7 +290,7 @@ A Mesos executor is a method by which Mesos agents launch tasks.
 
 For more information about framework schedulers and executors, see the [Application Framework development guide](http://mesos.apache.org/documentation/latest/app-framework-development-guide/).
 
-# <a name="mesos-scheduler"></a>Scheduler
+## <a name="mesos-scheduler"></a>Scheduler
 
 A Mesos scheduler is a program that defines new Mesos tasks and assigns resources to them (placing them on specific nodes).
 
@@ -299,7 +299,7 @@ A Mesos scheduler is a program that defines new Mesos tasks and assigns resource
 
 Examples: Kafka, Marathon, Cassandra.
 
-# <a name="mesos-framework"></a>Framework
+## <a name="mesos-framework"></a>Framework
 
 A Mesos framework consists of a scheduler, tasks, and optionally custom executors.
 
@@ -307,34 +307,34 @@ A Mesos framework consists of a scheduler, tasks, and optionally custom executor
 
 For more information about framework schedulers and executors, see the [Application Framework development guide](http://mesos.apache.org/documentation/latest/app-framework-development-guide/).
 
-# <a name="mesos-role"></a>Role
+## <a name="mesos-role"></a>Role
 
 A Mesos role is a group of Mesos Frameworks that share reserved resources, persistent volumes, and quota. These frameworks are also grouped together in Mesos' hierarchical Dominant Resource Fairness (DRF) share calculations.
 
 - Roles are often confused as groups of resources, because of the way they can be statically configured on the agents. The assignment is actually the inverse: resources are assigned to roles.
 - Role resource allocation can be configured statically on the Mesos agent or changed at runtime using the Mesos API.
 
-# <a name="mesos-resource-offer"></a>Resource Offer
+## <a name="mesos-resource-offer"></a>Resource Offer
 
 A Mesos resource offer provides a set of unallocated resources (e.g. cpu, disk, memory) from an agent to a scheduler so that the scheduler may allocate those resources to one or more tasks. Resource offers are constructed by the leading Mesos master, but the resources themselves are reported by the individual agents.
 
-# <a name="mesos-containerizer"></a>Containerizer
+## <a name="mesos-containerizer"></a>Containerizer
 
 A containerizer is a containerization and resource isolation abstraction around a specific container runtime, namely the [Docker Runtime](#mesos-docker-runtime) and [Mesos Universal Container Runtime](#mesos-universal-container-runtime).
 
-## <a name="mesos-universal-container-runtime"></a>Mesos Universal Container Runtime
+### <a name="mesos-universal-container-runtime"></a>Mesos Universal Container Runtime
 
 The Mesos Universal Container Runtime is a containerizer that supports traditional Mesos containers around binary executables and also Mesos containers launched from Docker images. Containers managed by the Mesos Universal Container Runtime do not use [Docker-Engine](https://www.docker.com/products/docker-engine), even if launched from a Docker image.
 
-## <a name="mesos-docker-runtime"></a>Docker Runtime
+### <a name="mesos-docker-runtime"></a>Docker Runtime
 
 The Docker Runtime is a containerizer that supports launching Docker containers from Docker images with [Docker-Engine](https://www.docker.com/products/docker-engine).
 
-# <a name="mesos-exhibitor-zookeeper"></a>Exhibitor &amp; ZooKeeper
+## <a name="mesos-exhibitor-zookeeper"></a>Exhibitor &amp; ZooKeeper
 
 Mesos depends on ZooKeeper, a high-performance coordination service to manage the cluster state. Exhibitor automatically configures and manages ZooKeeper on the [master nodes](#master-node).
 
-# <a name="mesos-exhibitor-zookeeper"></a>Mesos-DNS
+## <a name="mesos-exhibitor-zookeeper"></a>Mesos-DNS
 
 Mesos-DNS is a DC/OS component that provides service discovery within the cluster. Mesos-DNS allows applications and services that are running on Mesos to find each other by using the domain name system (DNS), similar to how services discover each other throughout the Internet.
 
@@ -349,7 +349,7 @@ The following terms are contextually correct when talking about Marathon, but ma
 - [Pod](#marathon-pod)
 - [Group](#marathon-group)
 
-# <a name="marathon"></a>Marathon
+## <a name="marathon"></a>Marathon
 
 Marathon is a container orchestration engine for Mesos and DC/OS.
 
@@ -357,14 +357,14 @@ Marathon is a container orchestration engine for Mesos and DC/OS.
 
 For more information, see the [Marathon website](https://mesosphere.github.io/marathon/).
 
-# <a name="marathon-application"></a>Application
+## <a name="marathon-application"></a>Application
 
 A Marathon application is a long-running service that may have one or more instances that map one to one with Mesos tasks.
 
 - The user creates an application by providing Marathon with an application definition (JSON). Marathon then schedules one or more application instances as Mesos tasks, depending on how many the definition specified.
 - Applications currently support the use of either the [Mesos Universal Container Runtime](#mesos-universal-container-runtime) or the [Docker Runtime](#mesos-docker-runtime).
 
-# <a name="marathon-pod"></a>Pod
+## <a name="marathon-pod"></a>Pod
 
 A Marathon pod is a long-running service that may have one or more instances that map one to many with colocated Mesos tasks.
 
@@ -372,6 +372,6 @@ A Marathon pod is a long-running service that may have one or more instances tha
 - Pod instances may include one or more tasks that share certain resources (e.g. IPs, ports, volumes).
 - Pods currently require the use of the [Mesos Universal Container Runtime](#mesos-universal-container-runtime).
 
-# <a name="marathon-group"></a>Group
+## <a name="marathon-group"></a>Group
 
 A Marathon group is a set of services (applications and/or pods) within a hierarchical directory [path](https://en.wikipedia.org/wiki/Path_%28computing%29) structure for namespacing and organization.

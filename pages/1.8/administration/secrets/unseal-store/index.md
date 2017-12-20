@@ -27,7 +27,7 @@ The procedure for unsealing the Secret Store differs according to the keys used 
 
 - [DC/OS CLI installed](/1.8/usage/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 **Note:** In these procedures, we will use two terminal prompt tabs: one to SSH into the master and use GPG; another to execute curl requests and use xxd. The master does not have xxd installed by default at this time. Nor does it have a package manager. If you do not wish to shuttle between terminal prompt tabs, you can run xxd inside a container on the master.
 

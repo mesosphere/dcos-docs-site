@@ -104,7 +104,7 @@ You can import a group of LDAP users by using the `/ldap/importuser` [API](/1.8/
 -  The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
 -  The existing group entries must list their members by using the `member` attribute.
 
--  If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+-  If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 In this example a group named `johngroup` is imported.
 
