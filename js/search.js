@@ -40,7 +40,7 @@ if (landingContainer) {
           `;
         },
       },
-    },
+    }
   );
 
   document.addEventListener('scroll', () => {
@@ -64,7 +64,7 @@ if (searchForm) {
     urlSync: true,
     searchParameters: {
       hitsPerPage: 10,
-    },
+    }
   });
 
   /**
@@ -82,8 +82,8 @@ if (searchForm) {
       wrapInput: false,
       queryHook: debounce(function(inputValue, search) {
         search(inputValue);
-      }, 500),
-    }),
+      }, 500)
+    })
   );
 
   // Render search results
@@ -125,9 +125,9 @@ if (searchForm) {
               </div>
             </li>
           `
-        },
+        }
       }
-    }),
+    })
   );
 
   // Select widgets
@@ -143,8 +143,8 @@ if (searchForm) {
       sort: ['name:asc'],
       cssClasses: {
         select: 'search__filter__list',
-      },
-    }),
+      }
+    })
   );
 
   search.addWidget(
@@ -158,8 +158,8 @@ if (searchForm) {
       sortBy: sortBy,
       cssClasses: {
         select: 'search__filter__list',
-      },
-    }),
+      }
+    })
   );
 
   search.addWidget(
@@ -172,8 +172,8 @@ if (searchForm) {
       autoHideContainer: false,
       cssClasses: {
         select: 'search__filter__list',
-      },
-    }),
+      }
+    })
   );
 
   // Render pagination
@@ -186,8 +186,8 @@ if (searchForm) {
         link: 'search__pagination__link',
         active: 'search__pagination__item--active',
       },
-      showFirstLast: false,
-    }),
+      showFirstLast: false
+    })
   );
 
   search.on('render', handleFilterWidth);
