@@ -204,7 +204,6 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
-- Marathon-LB does not work with secrets. [enterprise type="inline" size="small" /]
 - CORE-1125 - Docker image pull config is re-used.
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
 - INFINITY-1809 - [Data Svc] DC/OS Service Update / Config Update / Maintenance. [enterprise type="inline" size="small" /]

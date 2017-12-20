@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 excerpt:
-title: DC/OS overlay
+title: DC/OS Overlay
 navigationTitle: Overlay
 menuWeight: 5
 ---
@@ -36,7 +36,7 @@ We can explain the operation of the overlay with an example. Figure 1 shows a 2 
 
 Ideally we would like an IPAM to perform address allocation for all containers on the overlay. However, it’s hard to solve reliability and consistency issues with a global IPAM. E.g., how do we notify the IPAM when the slave dies? What should be the availability of the IPAM to guarantee a 99% uptime of the cluster (without IPAM containers cannot function)? Given the complications arising from a global IPAM, we choose to go with a simpler architecture of carving out the address space into smaller chunks, and allowing the agent to own this chunk. In the example, the 9.0.0.0/8 space has been split into /24 subnets, with each subnet being owned by the agent. In the example Agent 1 has been allocated 9.0.1.0/24 and Agent 2 has been allocated 9.0.2.0/24. 
 
-Given a /24 subnet for the agent, the subnet needs to be further split into smaller chunks since the mesos agent might need to launch Mesos containers, as well as Docker containers. As with the agents, we could have a static allocation between Mesos containers and Docker containers. In the example we have statically carved out the /24 space into a /25 space for Mesos containers and Docker containers. Also, it’s important to note that the Mesos containers are launched by the _MesosContainerizer_ on the “m-dcos” bridge and the Docker container are launched by the _DockerContainerizer_, using the Docker daemon, on the “d-dcos’ bridge.  Let us describe the packet flow for container-to-container communication.
+Given a /24 subnet for the agent, the subnet needs to be further split into smaller chunks since the mesos agent might need to launch Mesos containers, as well as Docker containers. As with the agents, we could have a static allocation between Mesos containers and Docker containers. In the example we have statically carved out the /24 space into a /25 space for Mesos containers and Docker containers. Also, it’s important to note that the Mesos containers are launched by the MesosContainerizer on the “m-dcos” bridge and the Docker container are launched by the DockerContainerizer, using the Docker daemon, on the “d-dcos’ bridge.  Let us describe the packet flow for container-to-container communication.
 
 ### Container-to-Container communication on the same host
 
@@ -84,14 +84,14 @@ To configure the underlying DC/OS overlay we need an entity that can allocate su
 
 We plan to achieve all the above requirements for the DC/OS overlay by having two Mesos modules, a master DC/OS module and an Agent DC/OS module. We list the responsibilities of both these modules below:
 
-#### Master mesos overlay module:
+#### Master Mesos overlay module:
 
 The master module will be run as part of the Mesos master and will have the following responsibilities:
 1. It will be responsible for allocating the subnet to each of the agents. We will describe in more detail how the master module will use the replicated log to checkpoint this information for recovery during failover to a new Master.
 2. It will listen for the agent overlay modules to register and recover their allocated subnet. The agent overlay module will also use this endpoint to learn about the overlay subnets allocated to it (in case of multiple virtual networks), the subnets allocated to each of the Mesos and Docker bridges within an overlay and the VTEP IP and MAC address allocated to it.
 3. It exposes an HTTP endpoint “overlay-master/state” that presents the state of all the virtual networks in DC/OS. The response of this endpoint is backed by the following protobuf: https://github.com/dcos/mesos-overlay-modules/blob/master/include/overlay/overlay.proto#L86
 
-#### Agent mesos overlay module:
+#### Agent Mesos overlay module:
 
 The agent overlay module runs as part of the Mesos agents and has the following responsibilities:
 1. It is responsible for registering with the master overlay module. After registration it retrieves the allocated agent subnet, the subnet allocated to its Mesos and Docker bridges and VTEP information (IP and MAC address of the VTEP).
@@ -101,20 +101,20 @@ The agent overlay module runs as part of the Mesos agents and has the following 
 
 ### Using replicated log to coordinate subnet allocation in Master:
 
-For _MesosContainerizer_ and _DockerContainerizer_ to launch containers on a given subnet, the Mesos agent needs to learn the subnet allocated to itself. Further, the subnet needs to be learned before the _MesosContainerizer_ or the _DockerContainerizer_ start. 
+For MesosContainerizer and DockerContainerizer to launch containers on a given subnet, the Mesos agent needs to learn the subnet allocated to itself. Further, the subnet needs to be learned before the MesosContainerizer or the DockerContainerizer start. 
 
 The master overlay module will be responsible for allocating the subnet, the VTEP IP and the MAC address associated with VTEP. While allocating new subnets and caching this information itself is straightforward, maintaining this information consistently during master failover is challenging. To allow for this information persist across master failover the master overlay module will use the [Mesos replicated log](http://mesos.apache.org/documentation/latest/replicated-log-internals/ "Mesos Documentation"). The algorithm that allows the master overlay module to checkpoint this information and recover it, once master failover has been completed is as follows :
 1. Whenever a new agent overlay module registers with the master module, the master module will try allocating a new subnet, a new VTEP IP and a new MAC address for the VTEP to the registered agent module. It will however, not respond to the registration request, with the allocated information till this information has been written , successfully, into the replicated log. 
 2. On failover the master module will read the replicated log and recreate the subnet, VTEP IP, and VTEP MAC address information and build a cache of this allocated information in memory. 
 3. The agent overlay module’s registration request would fail in case the registration request was received in the middle of a Master failover. In this case it is the responsibility of the agent overlay module to locate the new master and try registering with the overlay module on the new master. 
 
-### Configuring _MesosContainerizer_ and _DockerContainerizer_ to use the allocated subnet.
+### Configuring MesosContainerizer and DockerContainerizer to use the allocated subnet.
 
-Once DC/OS module retrieves the subnet information from the master DC/OS module, it performs the following operations to allow _MesosContainerizer_ and _DockerContainerizer_ to launch containers on the overlay: 
+Once DC/OS module retrieves the subnet information from the master DC/OS module, it performs the following operations to allow MesosContainerizer and DockerContainerizer to launch containers on the overlay: 
 
-For _MesosContainerizer_ the DC/OS module can generate a CNI config at a specified location. The CNI config will have the bridge information and IPAM information for the network/cni isolator to configure containers on the `m-<virtual network name>` bridge.  
+For MesosContainerizer the DC/OS module can generate a CNI config at a specified location. The CNI config will have the bridge information and IPAM information for the network/cni isolator to configure containers on the `m-<virtual network name>` bridge.  
 
-For _DockerContainerizer_ the DC/OS module, after retrieving the subnet, will create a `docker network` with the canonical name `d-<virtual network name>`. It will do so using the following docker command:
+For DockerContainerizer the DC/OS module, after retrieving the subnet, will create a `docker network` with the canonical name `d-<virtual network name>`. It will do so using the following docker command:
 ```sh
 docker network create \
 --driver=bridge \
@@ -125,7 +125,7 @@ docker network create \
 <virtual network name>
 ```
 
-**NOTE:** The assumption for _DockerContainerizer_ to work with the DC/OS overlay is that the host is running Docker v1.11 or greater.
+**NOTE:** The assumption for DockerContainerizer to work with the DC/OS overlay is that the host is running Docker v1.11 or greater.
 
 **NOTE:** The default `<overlay MTU>` = 1420 bytes.
 
