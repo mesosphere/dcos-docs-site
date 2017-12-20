@@ -54,7 +54,7 @@ The following graphic illustrates the data flow:
     *   **Unix/Linux:** See these [installation instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Install DC/OS services
-From the DC/OS web interface [**Catalog**](/1.9/gui/catalog/) tab, install Cassandra, Kafka, Marathon-LB, and Zeppelin.
+From the DC/OS web interface [**Catalog**](/1.9/gui/universe/) tab, install Cassandra, Kafka, Marathon-LB, and Zeppelin.
 
 __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
@@ -169,7 +169,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ## Prerequisites
 
 *  [DC/OS Enterprise](/1.9/installing/ent/) installed with:
-    - Security [mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
+    - Security [mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/1.9/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
@@ -179,7 +179,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 
 ## Install DC/OS services
 
-From the DC/OS web interface [**Catalog**](/1.9/gui/catalog/) tab, install Cassandra, Kafka, and Zeppelin.
+From the DC/OS web interface [**Catalog**](/1.9/gui/universe/) tab, install Cassandra, Kafka, and Zeppelin.
 
 __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 

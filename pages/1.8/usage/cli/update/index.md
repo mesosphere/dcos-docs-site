@@ -47,7 +47,7 @@ You can upgrade an existing DC/OS CLI installation to the latest build.
     dcos config set core.dcos_url http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.8/administration/id-and-access-mgt/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.8/administration/id-and-access-mgt/ent/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 

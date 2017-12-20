@@ -143,7 +143,7 @@ In this step, you create a YAML configuration file that is customized for your e
     - '.baz.com'    
     ```
 
-1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.8/administration/id-and-access-mgt/#superuser). The hashed password is automatically appended to `config.yaml`.
+1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.8/administration/id-and-access-mgt/ent/#superuser). The hashed password is automatically appended to `config.yaml`.
 
     ```bash
     bash dcos_generate_config.ee.sh --set-superuser-password
@@ -384,7 +384,7 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [9]: /assets/images/chef-zk-status.png
  [10]: /assets/images/gui-installer-login-ee.gif
  [11]: /assets/images/dashboard-ee.gif
- [12]: /1.8/administration/id-and-access-mgt/
+ [12]: /1.8/administration/id-and-access-mgt/ent/
  [13]: /1.8/administration/installing/ent/custom/system-requirements/#hardware-prerequisites
  [14]: /1.8/administration/installing/ent/custom/system-requirements/#software-prerequisites
  [15]: #two

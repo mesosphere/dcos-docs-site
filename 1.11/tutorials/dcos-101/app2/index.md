@@ -16,7 +16,7 @@ Welcome to part 5 of the DC/OS 101 Tutorial
 
 
 # Objective
-[Earlier](https://dcos.io/1.11/tutorials/dcos-101/app1/) in this tutorial you deployed an app that operates internally in your cluster, interfacing with other applications in the cluster as opposed to interacting externally. In this part you will deploy an app which provides a GUI to users. You will also deploy this app natively, without relying on Docker as a dependency and therefore reducing complexity.
+[Earlier](/1.11/tutorials/dcos-101/app1/) in this tutorial you deployed an app that operates internally in your cluster, interfacing with other applications in the cluster as opposed to interacting externally. In this part you will deploy an app which provides a GUI to users. You will also deploy this app natively, without relying on Docker as a dependency and therefore reducing complexity.
 
 # Steps
   * Understand the application

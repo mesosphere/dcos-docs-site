@@ -20,7 +20,7 @@ menuWeight: 12
 Download the Tomcat `marathon.json` app definition file to your local host where the DC/OS CLI is installed. 
 
 ```
-curl -O https://dcos.io/1.7/usage/tutorials/tomcat/marathon.json
+curl -O /1.7/usage/tutorials/tomcat/marathon.json
 ```
 
 Lets inspect the `marathon.json` file:

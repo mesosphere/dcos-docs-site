@@ -20,7 +20,7 @@ In this tutorial, Marathon-LB is used as the edge load balancer and service disc
 ### Prerequisites
 - [A DC/OS cluster](/1.10/installing/oss/) with at least one [private](/1.10/overview/concepts/#private-agent-node) agent and one [public](/1.10/overview/concepts/#public-agent-node) agent.
 - [DC/OS CLI](/1.10/cli/install/) is installed.
-- Marathon-LB [installed](/1.10/networking/marathon-lb/usage-ent/).
+- Marathon-LB [installed](/1.10/networking/marathon-lb/usage-ee/).
 
 # Configure and Run a Containerized Service on a Public Node
 

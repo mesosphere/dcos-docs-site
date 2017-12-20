@@ -45,7 +45,7 @@ All Secrets API endpoints require an authentication token.
 
 ### Via the IAM API
 
-To get an authentication token, pass the user name and password of a `superuser` in the body of a request to the `/auth/login` endpoint of the [Identity and Access Management Service API](/1.8/administration/id-and-access-mgt/iam-api/). It returns an authentication token as shown below.
+To get an authentication token, pass the user name and password of a `superuser` in the body of a request to the `/auth/login` endpoint of the [Identity and Access Management Service API](/1.8/administration/id-and-access-mgt/ent/iam-api/). It returns an authentication token as shown below.
 
 ```json
 {
@@ -91,7 +91,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.8/administration/id-and-access-mgt/ent/service-auth/custom-service-auth/) for more information.
 
 
 # API reference

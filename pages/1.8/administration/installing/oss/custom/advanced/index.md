@@ -303,4 +303,4 @@ To install DC/OS:
 [7]: /1.8/overview/concepts/#private-agent-node
 [8]: /1.8/administration/installing/oss/custom/uninstall/
 [9]: /1.8/administration/installing/oss/custom/troubleshooting/
-[10]: /1.8/administration/id-and-access-mgt/user-management/
+[10]: /1.8/administration/id-and-access-mgt/ent/user-management/

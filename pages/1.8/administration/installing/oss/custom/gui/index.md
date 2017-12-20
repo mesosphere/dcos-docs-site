@@ -128,7 +128,7 @@ The DC/OS installation creates these folders:
     Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/1.8/overview/telemetry/).
 
     #### Enable Authentication
-    Indicate whether to enable authentication for your DC/OS cluster. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/).
+    Indicate whether to enable authentication for your DC/OS cluster. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/).
 
 5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the scripted installer [prerequisites][3]. This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
 
@@ -198,4 +198,4 @@ It is recommended that you save your DC/OS installer file immediately after inst
 [6]: /1.8/usage/
 [7]: /1.8/administration/installing/oss/custom/uninstall/
 [9]: /1.8/administration/installing/oss/custom/troubleshooting/
-[10]: /1.8/administration/id-and-access-mgt/user-management/
+[10]: /1.8/administration/id-and-access-mgt/ent/user-management/

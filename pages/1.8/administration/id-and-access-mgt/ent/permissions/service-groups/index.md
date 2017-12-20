@@ -23,7 +23,7 @@ Refer to the section that corresponds to your desired interface.
 
 - A DC/OS user account with the `dcos:superuser` permission.
 
-- A DC/OS user account without the `dcos:superuser` permission and without the `dcos:service:marathon:marathon:services:/` permission. If you do not have a user account without these permissions, see [adding local users](/1.8/administration/id-and-access-mgt/users-groups/add-local-user/) or [adding external users](/1.8/administration/id-and-access-mgt/users-groups/add-external-user/).
+- A DC/OS user account without the `dcos:superuser` permission and without the `dcos:service:marathon:marathon:services:/` permission. If you do not have a user account without these permissions, see [adding local users](/1.8/administration/id-and-access-mgt/ent/users-groups/add-local-user/) or [adding external users](/1.8/administration/id-and-access-mgt/ent/users-groups/add-external-user/).
 
 
 

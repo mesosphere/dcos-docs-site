@@ -22,7 +22,7 @@ By the end of this section we will have installed the DC/OS CLI and used it to e
   * Install the DC/OS CLI
     * Follow the steps [here](/1.8/usage/cli/install/) or the `Install CLI` instruction in the lower left corner of the DC/OS UI.
     * Make sure you are authorized to connect to your cluster by running `dcos auth login`. This is necessary to prevent access from unauthorized people to your cluster.
-    * You can also add/invite friends and co-workers to your cluster. See [user management documentation](/1.8/administration/id-and-access-mgt/user-management/) for details
+    * You can also add/invite friends and co-workers to your cluster. See [user management documentation](/1.8/administration/id-and-access-mgt/oss/user-management/) for details
 
   * Explore the cluster:
       * Check the running services with `dcos service`. Unless you already installed additional services, there should be two services running on your cluster: marathon (basically the DC/OS init system) and metronome (basically the DC/OS cron scheduler).

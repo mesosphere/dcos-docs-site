@@ -19,7 +19,7 @@ enterprise: true
 
 # About custom service authentication
 
-This section details how to configure a custom service that [requires authentication](/1.8/administration/id-and-access-mgt/service-auth/) with a service account and how to request and refresh its token.
+This section details how to configure a custom service that [requires authentication](/1.8/administration/id-and-access-mgt/ent/service-auth/) with a service account and how to request and refresh its token.
 
 1. [Create a key pair.](#create-a-keypair)
 1. [Create a service account.](#create-a-service-account)
@@ -66,7 +66,7 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
 
 # <a name="create-a-service-account"></a>Create a service account
 
-Once you have your public-private key pair, you can create a service account by passing your public key in a `PUT` request to the `users` endpoint of the [IAM API](/1.8/administration/id-and-access-mgt/iam-api/). In this request, you will also assign your service account an ID. A curl sample follows.
+Once you have your public-private key pair, you can create a service account by passing your public key in a `PUT` request to the `users` endpoint of the [IAM API](/1.8/administration/id-and-access-mgt/ent/iam-api/). In this request, you will also assign your service account an ID. A curl sample follows.
 
 ```bash
 curl -X PUT --cacert dcos-ca.crt $(dcos config show core.dcos_url)/acs/api/v1/users/service-acct -d '{"public_key":"-----BEGIN PUBLIC KEY-----\nMIIBIj...IDAQAB\n-----END PUBLIC KEY-----"}' -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
@@ -140,14 +140,14 @@ If your service includes a scheduler and you are running in `strict` [security m
        </tr>
      </table>
 
-See [Assigning permissions](/1.8/administration/id-and-access-mgt/permissions/assigning-perms/) for information on the mechanics of assigning the permissions.
+See [Assigning permissions](/1.8/administration/id-and-access-mgt/ent/permissions/assigning-perms/) for information on the mechanics of assigning the permissions.
 
 Beyond the above, you must review the permissions reference information located in the following sections.
 
-- [Admin Router permissions](/1.8/administration/id-and-access-mgt/permissions/admin-router-perms/)
-- [User service permissions](/1.8/administration/id-and-access-mgt/permissions/user-service-perms/)
-- [Secret Store service permissions](/1.8/administration/id-and-access-mgt/permissions/secrets-perms/)
-- [Mesos master and agent permissions (strict mode only)](/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/)
+- [Admin Router permissions](/1.8/administration/id-and-access-mgt/ent/permissions/admin-router-perms/)
+- [User service permissions](/1.8/administration/id-and-access-mgt/ent/permissions/user-service-perms/)
+- [Secret Store service permissions](/1.8/administration/id-and-access-mgt/ent/permissions/secrets-perms/)
+- [Mesos master and agent permissions (strict mode only)](/1.8/administration/id-and-access-mgt/ent/permissions/master-agent-perms/)
 
 In addition to studying the reference documentation, review the [logs](/1.8/administration/logging/). After removing the `dcos:superuser` permission, SSH into each master. Replace `<service-account-id>` with the actual ID of your service account and then issue the following command.
 

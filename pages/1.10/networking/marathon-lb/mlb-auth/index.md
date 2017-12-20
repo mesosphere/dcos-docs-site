@@ -238,4 +238,4 @@ To install the service, use the following command.
 dcos package install --options=config.json marathon-lb
 ```
 
-You can also provide the `config.json` file to someone else to install Marathon-LB. Please see the [Marathon-LB documentation](/1.10/networking/marathon-lb/usage-ent/) for more information.
+You can also provide the `config.json` file to someone else to install Marathon-LB. Please see the [Marathon-LB documentation](/1.10/networking/marathon-lb/usage-ee/) for more information.

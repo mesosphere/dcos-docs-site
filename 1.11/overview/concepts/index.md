@@ -53,7 +53,7 @@ DC/OS is a [distributed operating system](https://en.wikipedia.org/wiki/Distribu
 
 - Unlike traditional distributed operating systems, DC/OS is also a container platform that manages containerized tasks based on native executables or container images, like [Docker images](https://docs.docker.com/engine/tutorials/dockerimages/).
 - Unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
-- DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#mesos)) and a container orchestration engine ([Marathon](#marathon)).
+- DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#apache-mesos)) and a container orchestration engine ([Marathon](#marathon)).
 - Prior to version 1.6, DC/OS was known as The Datacenter Operating System (DCOS). With version 1.6 the platform was renamed to DC/OS and open sourced.
 - While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features (e.g. multitenancy, fine-grained permissions, secrets management, and end-to-end encryption).
 
@@ -161,7 +161,7 @@ A Marathon service consists of zero or more containerized service instances. Eac
     - Marathon pod instances map 1 to many with tasks.
 - Service instances are restarted as a new Mesos Task when they exit prematurely.
 - Service instances may be re-scheduled onto another agent node if they exit prematurely and the agent is down or does not have enough resources any more.
-- Services can be installed directly via the [DC/OS API (Marathon)](/1.11/deploying-services/marathon-api/) or indirectly via the [DC/OS Package Manager (Cosmos)](#package-manager) from a [package repository](#dcos-package-repository) like [Mesosphere Universe](#mesosphere-universe). The [DC/OS GUI](#dcos-gui) and [DC/OS CLI](#dcos-cli) may be used to interact with the DC/OS Package Manager (Cosmos) more easily.
+- Services can be installed directly via the [DC/OS API (Marathon)](/1.11/deploying-services/marathon-api/) or indirectly via the [DC/OS Package Manager (Cosmos)](#package-manager) from a [package repository](#dcos-package-registry) like [Mesosphere Universe](#mesosphere-universe). The [DC/OS GUI](#dcos-gui) and [DC/OS CLI](#dcos-cli) may be used to interact with the DC/OS Package Manager (Cosmos) more easily.
 - A Marathon service may be a [DC/OS scheduler](#dcos-scheduler), but not all services are schedulers.
 - A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers (e.g. DC/OS Jobs (Metronome), Jenkins) have their own names for abstractions around Mesos tasks.
 
@@ -405,7 +405,7 @@ A Marathon pod is a long-running service that may have one or more instances tha
 
 - The user creates a pod by providing Marathon with a pod definition (JSON). Marathon then schedules one or more pod instances as Mesos tasks, depending on how many the definition specified.
 - Pod instances may include one or more tasks that share certain resources (e.g. IPs, ports, volumes).
-- Pods currently require the use of the [Mesos Universal Container Runtime](#mesos-universal-container-runtime).
+- Pods currently require the use of the [Mesos Universal Container Runtime](#mesos-containerizer-universal-container-runtime).
 
 ### <a name="marathon-group"></a>Group
 

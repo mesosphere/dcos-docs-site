@@ -109,5 +109,5 @@ Launch the DC/OS web interface by entering the Mesos Master hostname:
  [2]: /1.8/usage/cli/install/
  [3]: /1.8/usage/
  [4]: https://aws.amazon.com/autoscaling/
- [10]: /1.8/administration/id-and-access-mgt/
+ [10]: /1.8/administration/id-and-access-mgt/ent/
 

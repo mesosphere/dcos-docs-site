@@ -20,7 +20,7 @@ The installation procedure varies according to your [security mode](/1.8/adminis
 
 ### Using the DC/OS CLI 
 
-**Prerequisite:** [DC/OS CLI installed](/1.8/usage/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.8/administration/id-and-access-mgt/permissions/).
+**Prerequisite:** [DC/OS CLI installed](/1.8/usage/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.8/administration/id-and-access-mgt/ent/permissions/).
 
 If you don't want to change any of the default settings, you can install Marathon-LB with the following command.
 
@@ -42,7 +42,7 @@ dcos package install --options=config.json marathon-lb
 
 ### Using the Universe
 
-To install Marathon-LB from the Universe in `disabled`and `permissive` modes, log into the DC/OS web interface as a user with the [necessary permissions](/1.8/administration/id-and-access-mgt/permissions/).
+To install Marathon-LB from the Universe in `disabled`and `permissive` modes, log into the DC/OS web interface as a user with the [necessary permissions](/1.8/administration/id-and-access-mgt/ent/permissions/).
 
 Click **Universe** -> **Packages** to open the **Packages** tab. Locate the Marathon-LB package and click **Install**. To install with the default settings, click **Install Package**. To customize Marathon-LB, click **Advanced Installation**.
 
@@ -50,11 +50,11 @@ Click **Universe** -> **Packages** to open the **Packages** tab. Locate the Mara
 
 **Prerequisites:** 
 
-- Marathon-LB requires a service account in `strict` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/) for instructions.
+- Marathon-LB requires a service account in `strict` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/mlb-auth/) for instructions.
 
-- [DC/OS CLI installed](/1.8/usage/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.8/administration/id-and-access-mgt/permissions/).
+- [DC/OS CLI installed](/1.8/usage/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.8/administration/id-and-access-mgt/ent/permissions/).
 
-The parameters shown in [Provisioning Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/) are required to install Marathon-LB. You may wish to modify other default values before installing the service. To view the configuration options and defaults of Marathon-LB, type the following command.
+The parameters shown in [Provisioning Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/mlb-auth/) are required to install Marathon-LB. You may wish to modify other default values before installing the service. To view the configuration options and defaults of Marathon-LB, type the following command.
 
 ```bash
 dcos package describe --config marathon-lb

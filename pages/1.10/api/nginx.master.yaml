@@ -3,7 +3,7 @@ backends:
   backup:
     server: 'unix:/run/dcos/dcos-backup-master.sock'
     name: DC/OS Backup
-    reference: 'https://docs.mesosphere.com/1.10/backup/backup-api/'
+    reference: 'https://docs.mesosphere.com/1.10/backup-and-restore/backup-api/'
   certificate_authority:
     server: '127.0.0.1:8888'
     name: DC/OS Certificate Authority

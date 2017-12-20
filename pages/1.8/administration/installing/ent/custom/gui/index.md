@@ -92,7 +92,7 @@ Your cluster must meet the software and hardware [requirements][1].
     ### DC/OS Environment Settings
     
     #### Username
-    Specify a user name for the initial superuser account. At least one superuser account is required for DC/OS Enterprise. For more information about security, see the [documentation](/1.8/administration/id-and-access-mgt/).
+    Specify a user name for the initial superuser account. At least one superuser account is required for DC/OS Enterprise. For more information about security, see the [documentation](/1.8/administration/id-and-access-mgt/ent/).
     
     #### Password
     Specify the password of the superuser account.
@@ -178,4 +178,4 @@ Now you can [assign user roles][6].
  [2]: /assets/images/gui-installer-setup-ee.gif
  [3]: /1.8/usage/service-discovery/
  [4]: /assets/images/ui-installer-auth-1-7.gif
- [6]: /1.8/administration/id-and-access-mgt/
+ [6]: /1.8/administration/id-and-access-mgt/ent/

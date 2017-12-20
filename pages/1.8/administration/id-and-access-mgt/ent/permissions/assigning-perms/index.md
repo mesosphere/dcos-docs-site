@@ -30,11 +30,11 @@ To assign permissions:
 
 Refer to the following sections to determine and obtain the permission strings that you need.
 
-- [Admin Router permissions](/1.8/administration/id-and-access-mgt/permissions/admin-router-perms/)
-- [User service permissions](/1.8/administration/id-and-access-mgt/permissions/user-service-perms/)
-- [Secret Store service permissions](/1.8/administration/id-and-access-mgt/permissions/secrets-perms/)
-- [Mesos master and agent permissions](/1.8/administration/id-and-access-mgt/permissions/master-agent-perms/)
-- [Superuser permission](/1.8/administration/id-and-access-mgt/permissions/superuser-perm/)
+- [Admin Router permissions](/1.8/administration/id-and-access-mgt/ent/permissions/admin-router-perms/)
+- [User service permissions](/1.8/administration/id-and-access-mgt/ent/permissions/user-service-perms/)
+- [Secret Store service permissions](/1.8/administration/id-and-access-mgt/ent/permissions/secrets-perms/)
+- [Mesos master and agent permissions](/1.8/administration/id-and-access-mgt/ent/permissions/master-agent-perms/)
+- [Superuser permission](/1.8/administration/id-and-access-mgt/ent/permissions/superuser-perm/)
 
 # <a name="assign-perm-via-ui"></a>Assigning permissions via the DC/OS web interface
 

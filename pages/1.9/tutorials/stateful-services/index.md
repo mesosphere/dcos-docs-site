@@ -99,7 +99,7 @@ Next, add this [service][4] to your cluster:
 
 
 ```
-dcos marathon app add https://dcos.io/1.9/tutorials/marathon/stateful-services/postgres.marathon.json
+dcos marathon app add /1.9/tutorials/marathon/stateful-services/postgres.marathon.json
 ```
 
 Once the service has been scheduled and the Docker container has downloaded, PostgreSQL will become healthy and be ready to use. You can verify this from the DC/OS CLI:

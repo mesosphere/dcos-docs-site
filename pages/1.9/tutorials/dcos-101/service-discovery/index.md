@@ -34,7 +34,7 @@ SSH into the Mesos master node in your cluster to see how these different servic
   
   [Mesos-DNS](/1.9/networking/mesos-dns/) assigns DNS entries for every task, which are resolvable from any node in the cluster. The naming pattern for these entries is  *task.scheduler.mesos*
   
-  The default scheduler for jobs is [Marathon](https://dcos.io/1.9/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
+  The default scheduler for jobs is [Marathon](/1.9/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
   
   Let's use the [dig](https://linux.die.net/man/1/dig) command to retrieve the address record (also called the A record). Dig is a command line utility to query DNS servers. When used without argument, it will use the system-wide configured DNS servers to query against, which in a DC/OS cluster is configured to point at Mesos-DNS: 
 
@@ -85,7 +85,7 @@ SSH into the Mesos master node in your cluster to see how these different servic
 You know how to use service discovery to connect to your application from within your DC/OS cluster, and have learned about the two mechanisms for service discovery available in DC/OS.
 
 # Deep Dive
-What are the differences between [Mesos-DNS](#mesosdns) and [Named VIPs](#namedvips)?
+What are the differences between [Mesos-DNS](#mesos-dns) and [Named VIPs](#named-vips)?
 
 ## Mesos-DNS
 Mesos-DNS is a simple solution to finding applications inside the cluster. While DNS is supported by many applications, Mesos-DNS has the following drawbacks:

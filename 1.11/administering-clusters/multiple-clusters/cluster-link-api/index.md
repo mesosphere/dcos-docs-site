@@ -49,7 +49,7 @@ The Cluster Link API also requires authorization via the following permissions:
 
 All routes can also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.11/security/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/1.11/security/ent/perms-reference/).
 
 
 # API Reference

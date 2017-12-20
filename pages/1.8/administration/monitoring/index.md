@@ -78,7 +78,7 @@ If you have any problems, you can check if the diagnostics service is running by
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /1.8/administration/id-and-access-mgt/
+ [6]: /1.8/administration/id-and-access-mgt/ent/
  [7]: /1.8/usage/service-discovery/load-balancing-vips/
  [8]: /1.8/overview/concepts/#private-agent-node
  [9]: /1.8/overview/concepts/#public-agent-node

@@ -21,13 +21,13 @@ Once you have configured a directory service or an identity provider, you should
 
 Before you can add any external users, you must give DC/OS the information it needs to connect to the directory service or identity provider.
 
-* Visit the [LDAP topic](/1.8/administration/id-and-access-mgt/ldap/) for more information on how to set up an external LDAP directory.
+* Visit the [LDAP topic](/1.8/administration/id-and-access-mgt/ent/ldap/) for more information on how to set up an external LDAP directory.
 
-* Visit the [SSO topic](/1.8/administration/id-and-access-mgt/sso/) for more information on how to set up an OpenID Connect or SAML provider.
+* Visit the [SSO topic](/1.8/administration/id-and-access-mgt/ent/sso/) for more information on how to set up an OpenID Connect or SAML provider.
 
 # Requirements
 
-Please refer to the [introduction of this section](/1.8/administration/id-and-access-mgt/users-groups/) for the user name character requirements.
+Please refer to the [introduction of this section](/1.8/administration/id-and-access-mgt/ent/users-groups/) for the user name character requirements.
 
 # Adding external users via logon attempt
 
@@ -97,7 +97,7 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 ## Importing LDAP groups using the API
 
-You can import a group of LDAP users by using the `/ldap/importuser` [API](/1.8/administration/id-and-access-mgt/iam-api/) endpoint.
+You can import a group of LDAP users by using the `/ldap/importuser` [API](/1.8/administration/id-and-access-mgt/ent/iam-api/) endpoint.
 
 **Prerequisites:**
 

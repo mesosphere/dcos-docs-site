@@ -642,7 +642,7 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 <div>
 <p><strong><em>NEW IN 1.10.0</em></strong></p>
 <p><strong>Description:</strong> CockroachDB is a distributed SQL database built on a transactional and strongly consistent key-value store.</p>
-<p><strong>Note:</strong> CockroachDB is currently only used by <a href="dcos-iam">DC/OS Identity and Access Manager (Bouncer)</a>.</p>
+<p><strong>Note:</strong> CockroachDB is currently only used by <a href="#dcos-iam">DC/OS Identity and Access Manager (Bouncer)</a>.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>

@@ -51,7 +51,7 @@ This procedure describes how to create a secret called `my-secret` inside the `d
 **Prerequisites:** 
 
 - [DC/OS CLI installed](/1.9/cli/install/)
-- If your [security mode](/1.9/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Using `dcos auth login` log into the CLI as a user with one of the following permissions.
 
