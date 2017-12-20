@@ -26,15 +26,15 @@ The DC/OS installation creates these folders:
   </tr>
   <tr>
     <td><code>/etc/systemd/system/dcos.target.wants</code></td>
-    <td>Contains the systemd services which start the things that make up systemd. They must live outside of `/opt/mesosphere` because of systemd constraints.</td>
+    <td>Contains the systemd services which start the things that make up systemd. They must live outside of <code>/opt/mesosphere</code> because of systemd constraints.</td>
   </tr>
   <tr>
     <td><code>/etc/systemd/system/dcos.&lt;units&gt;</code></td>
-    <td>Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`.</td>
+    <td>Contains copies of the units in <code>/etc/systemd/system/dcos.target.wants</code>. They must be at the top folder as well as inside <code>dcos.target.wants</code>.</td>
   </tr>
   <tr>
     <td><code>/var/lib/dcos/exhibitor/zookeeper</code></td>
-    <td>Contains the [ZooKeeper](/1.11/overview/concepts/#exhibitor-zookeeper) data.</td>
+    <td>Contains the <a href="/1.11/overview/concepts/#mesos-exhibitor-zookeeper">ZooKeeper</a> data.</td>
   </tr>
   <tr>
     <td><code>/var/lib/docker</code></td>

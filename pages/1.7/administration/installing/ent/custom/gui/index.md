@@ -29,7 +29,7 @@ The DC/OS installation creates these folders:
     </tr>
     <tr>
         <td><code>/etc/systemd/system/dcos.target.wants<code></td>
-        <td>Contains the systemd services which start the things that make up systemd. They must live outside of `/opt/mesosphere` because of systemd constraints.</td>
+        <td>Contains the systemd services which start the things that make up systemd. They must live outside of <code>/opt/mesosphere</code> because of systemd constraints.</td>
     </tr>
     <tr>
         <td><code>/etc/systemd/system/dcos.&lt;units&gt;<code></td>

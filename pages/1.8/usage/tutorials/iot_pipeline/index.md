@@ -32,7 +32,7 @@ The [Kafka][2] publish-subscribe message service receives tweets from Cassandra 
 ### Tweeter
 Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/OS Kafka service in real-time, and performs real-time analytics with the DC/OS [Spark][3] and Zeppelin services.
 
-# OSS DC/OS procedure
+# DC/OS procedure
 
 **Prerequisites:**
 
@@ -356,7 +356,7 @@ In this step you deploy the containerized Tweeter app to a public node.
     
     **Tip:** If you're having trouble, verify the `HAPROXY_0_VHOST` value in the `tweeter.json` file. 
 
-## Post 100K Tweets
+## Post 100K tweets
 Deploy the post-tweets containerized app to see DC/OS load balancing in action. This app automatically posts a large number of tweets from Shakespeare. The app will post more than 100k tweets one by one, so you'll see them coming in steadily when you refresh the page. 
 
 1.  Deploy the `post-tweets.json` app definition file. 
@@ -397,9 +397,9 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ...
 ```
 
-# Enterprise and OSS DC/OS
+# DC/OS open source and Enterprise procedure
 
-## Add Streaming Analytics
+## Add streaming analytics
 
 Next, you'll perform real-time analytics on the stream of tweets coming in from Kafka.
 

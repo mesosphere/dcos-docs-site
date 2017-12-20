@@ -155,7 +155,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/).
-- If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services and pods to use secrets](#service) for more information about the permissions.
 
