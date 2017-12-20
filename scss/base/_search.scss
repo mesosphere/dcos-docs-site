@@ -1,4 +1,4 @@
-  .search {
+.search {
   width: 100%;
   max-width: 800px;
   margin: calc(4rem + 80px) auto 0;
@@ -40,12 +40,12 @@
     width: 100%;
     position: relative;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    padding-right: 10px;
     & select {
       width: 100%;
       font-weight: bold;
-      padding: 5px;
-      padding-right: 20px;
+      padding: 10px 0;
       color: $color-grey;
       background: transparent;
       border: none;
@@ -61,14 +61,13 @@
       content: '\25BC';
       position: absolute;
       top: 0;
-      right: 10px;
+      right: 0;
       bottom: 0;
       width: 5px;
       height: 100%;
       font-size: 12px;
       color: $color-grey;
       pointer-events: none;
-      margin-bottom: 10px;
     }
   }
   &__results {
@@ -142,11 +141,7 @@
   @include md {
     &__filter {
       width: auto;
-      padding: 0 10px;
-      margin-right: 10px;
-      &:after {
-        right: 35px;
-      }
+      margin-right: 30px;
       & select {
         width: auto;
       }
