@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Universal Container Runtime
-title: Universal Container Runtime
+navigationTitle:  Universal Container Runtime (UCR)
+title: Universal Container Runtime (UCR)
 menuWeight: 10
 excerpt:
 preview: true
