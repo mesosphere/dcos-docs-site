@@ -4,7 +4,6 @@ excerpt:
 title: Deploying native Applications
 navigationTitle: Native Applications
 menuWeight: 5
-oss: true
 ---
 
 Welcome to part 5 of the DC/OS 101 Tutorial

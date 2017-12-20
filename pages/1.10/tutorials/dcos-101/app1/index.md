@@ -4,7 +4,6 @@ navigationTitle:  Deploying First Application
 excerpt:
 title: Deploying First Application
 menuWeight: 3
-oss: true
 ---
 
 Welcome to part 3 of the DC/OS 101 Tutorial

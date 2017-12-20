@@ -4,7 +4,6 @@ excerpt:
 title: Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
 menuWeight: 4
-oss: true
 ---
 
 Welcome to part 4 of the DC/OS 101 Tutorial

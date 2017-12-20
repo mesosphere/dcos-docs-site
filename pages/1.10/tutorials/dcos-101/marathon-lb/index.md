@@ -4,7 +4,6 @@ excerpt:
 title: Exposing Apps Publicly
 navigationTitle: Exposing Apps Publicly
 menuWeight: 6
-oss: true
 ---
 
 Welcome to part 6 of the DC/OS 101 Tutorial

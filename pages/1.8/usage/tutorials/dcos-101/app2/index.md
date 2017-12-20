@@ -4,7 +4,6 @@ excerpt:
 title: Deploying native Applications
 navigationTitle: Native Applications
 menuWeight: 5
-oss: true
 ---
 
 # Prerequisites
