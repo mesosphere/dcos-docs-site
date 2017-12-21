@@ -19,7 +19,6 @@ if currentDocs && paths[0] != currentDocs.id && semanticVersion.test(paths[0])
   if hierarchy.findByPath(newUrl)
     - canonicalHref = url + newUrl
 
-
 meta(charset='UTF-8')
 meta(name='viewport', content='width=device-width', initial-scale='1', user-scalable='no')
 title!= pageTitle
@@ -32,15 +31,21 @@ if canonicalHref
 
 link(href='https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i', rel='stylesheet')
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-script(async src="https://www.googletagmanager.com/gtag/js?id=UA-109852694-1")
-script.
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-45222428-2');
-
 script(src='https://unpkg.com/feather-icons/dist/feather.min.js')
 if env != 'development' && env != 'pdf'
   <!-- Ethnio Activation Code -->
   script(type='text/javascript', language='javascript', src='//ethn.io/74286.js', async='true', charset='utf-8')
+
+if env != 'development' && env != 'pdf'
+  script.
+    window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+    window.analytics.load("7sgtwqvuai");
+    window.analytics.page();
+  noscript
+    iframe(src='//www.googletagmanager.com/ns.html?id=GTM-KS54VG', height='0', width='0', style='display:none;visibility:hidden')
+  script.
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KS54VG');
