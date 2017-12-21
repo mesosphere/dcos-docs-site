@@ -31,11 +31,28 @@ if (landingContainer) {
       displayKey: 'title',
       templates: {
         header: '<div class="landing__results-header">Pages</div>',
-        suggestion: function(suggestion) {
+        suggestion: function(data) {
+
+          let title = data.title;
+          let description = data.excerpt;
+
+          if(data._highlightResult.title) {
+            title = data._highlightResult.title.value;
+          }
+          if(data._highlightResult.excerpt) {
+            description = data._highlightResult.excerpt.value;
+          }
+          if(data._snippetResult.excerpt && data._snippetResult.excerpt.matchLevel == 'full') {
+            description = data._snippetResult.excerpt.value;
+          }
+          else if(data._snippetResult.content && data._snippetResult.content.matchLevel == 'full') {
+            description = data._snippetResult.content.value;
+          }
+
           return `
-            <a href="${suggestion.path}" class="landing__results-link">
-              <strong class="landing__results-title">${suggestion._highlightResult.title.value}</strong>
-              <div class="landing__results-snippet">&hellip; ${suggestion._snippetResult.excerpt.value} &hellip;</div>
+            <a href="${data.path}" class="landing__results-link">
+              <strong class="landing__results-title">${title}</strong>
+              <div class="landing__results-snippet">&hellip; ${description} &hellip;</div>
             </a>
           `;
         },
