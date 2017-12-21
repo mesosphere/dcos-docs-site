@@ -7,6 +7,8 @@
 /docs/support/ /docs/latest/support/;
 /get-started/ /install/;
 /get-started /install/;
+/release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/
+/release-notes/version-policy/ /release-notes/1.10/version-policy/
 /docs/1.10/administration/installing/local/ /docs/latest/installing/local/;
 /docs/1.10/administration/access-node/index.html /docs/1.10/administering-clusters/;
 /docs/1.10/administration/access-node/sshcluster/index.html /docs/1.10/administering-clusters/sshcluster/;
@@ -632,5 +634,6 @@
 /media-kit /brand/;
 /overview/components/index.html /docs/1.7/overview/components/;
 /press /brand/;
+/service-docs /services/;
 /support /community/;
 ~^/docs/(?<path>.*)$ /$path;
