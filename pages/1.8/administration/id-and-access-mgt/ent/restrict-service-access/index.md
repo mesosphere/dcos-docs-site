@@ -133,7 +133,7 @@ Now let’s look at the **Services** tab from the superuser view.
 
 ## Monitor user accounts in the DC/OS web interface as superuser
 
-1.  Log out of the current user and then back in as a user with [superuser](/1.8/administration/id-and-access-mgt/permissions/superuser-perm/) permission. You will see that both services are running in the prod-a and prod-b groups.  
+1.  Log out of the current user and then back in as a user with [superuser](/1.8/administration/id-and-access-mgt/ent/permissions/superuser-perm/) permission. You will see that both services are running in the prod-a and prod-b groups.  
 
     ![prod-a group](../img/service-group14.png)
 

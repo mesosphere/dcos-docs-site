@@ -102,7 +102,7 @@ You'll notice that we're creating a volume for postgres to use for its data. Eve
 
 
 ```
-dcos marathon app add https://dcos.io/1.7/usage/tutorials/marathon/stateful-services/postgres.marathon.json
+dcos marathon app add /1.7/usage/tutorials/marathon/stateful-services/postgres.marathon.json
 ```
 
 One the service has been scheduled and the docker container has downloaded, postgres will become healthy and be ready to use. You can see this by checking out what tasks are running on your cluster:

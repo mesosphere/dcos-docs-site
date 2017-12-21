@@ -25,7 +25,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.9/overview/concepts/#exhibitor-zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.9/overview/concepts/#mesos-exhibitor-zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -40,20 +40,23 @@ Your cluster must meet the software and hardware [requirements][1].
 
 1.  From your terminal, start the DC/OS GUI installer with this command.
     
-        sudo bash dcos_generate_config.ee.sh --web
-        
-    
+    ```
+    sudo bash dcos_generate_config.ee.sh --web
+    ```
+
     Here is an example of the output.
     
-        Running mesosphere/dcos-genconf docker with BUILD_DIR set to /home/centos/genconf
-        16:36:09 dcos_installer.action_lib.prettyprint:: ====> Starting DC/OS installer in web mode
-        16:36:09 root:: Starting server ('0.0.0.0', 9000)
-        
+    ```
+    Running mesosphere/dcos-genconf docker with BUILD_DIR set to /home/centos/genconf
+    16:36:09 dcos_installer.action_lib.prettyprint:: ====> Starting DC/OS installer in web mode
+    16:36:09 root:: Starting server ('0.0.0.0', 9000)
+    ```
     
     **Tip:** You can add the verbose (`-v`) flag to see the debug output:
     
-        sudo bash dcos_generate_config.ee.sh --web -v
-        
+    ```
+    sudo bash dcos_generate_config.ee.sh --web -v
+    ```
 
 2.  Launch the DC/OS web installer in your browser at: `http://<bootstrap-node-public-ip>:9000`.
 

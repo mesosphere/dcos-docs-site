@@ -22,7 +22,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.8/overview/concepts/#exhibitor-zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.8/overview/concepts/#mesos-exhibitor-zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -190,41 +190,48 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
     **Tip:** Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
     
     1.  SSH to your master nodes:
-        
-            ssh <master-ip>
-            
+
+        ```
+        ssh <master-ip>
+        ```
     
     2.  Make a new directory and navigate to it:
-        
+
+        ```
             mkdir /tmp/dcos && cd /tmp/dcos
-            
+        ```
     
     3.  Download the DC/OS installer from the NGINX Docker container, where `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`:
         
-            curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
-            
+        ```
+        curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
+        ```
     
     4.  Run this command to install DC/OS on your master nodes:
         
-            sudo bash dcos_install.sh master
-            
+        ```
+        sudo bash dcos_install.sh master
+        ```
 
 5.  <A name="slaveinstall"></A> Run these commands on each of your agent nodes to install DC/OS using your custom build file.
     
     1.  SSH to your agent nodes:
         
-            ssh <agent-ip>
-            
+        ```
+        ssh <agent-ip>
+        ```
     
     2.  Make a new directory and navigate to it:
         
-            mkdir /tmp/dcos && cd /tmp/dcos
-            
+        ```
+        mkdir /tmp/dcos && cd /tmp/dcos
+        ```
     
     3.  Download the DC/OS installer from the NGINX Docker container, where `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`:
         
-            curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
-            
+        ```
+        curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
+        ```
     
     4.  Run this command to install DC/OS on your agent nodes. You must designate your agent nodes as [public][3] or [private][4].
         
@@ -273,4 +280,4 @@ Now you can [assign user roles][8].
  [4]: /1.8/overview/concepts/#private-agent-node
  [5]: /assets/images/chef-zk-status.png
  [7]: /assets/images/dashboard-ee.gif
- [8]: /1.8/administration/id-and-access-mgt/
+ [8]: /1.8/administration/id-and-access-mgt/ent/

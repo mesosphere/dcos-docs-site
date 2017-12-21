@@ -6,9 +6,7 @@ menuWeight: 0
 excerpt:
 ---
 
-[enterprise]
-# DC/OS Enterprise 1.10.3
-[/enterprise]
+These are the release notes for DC/OS Enterprise 1.10.3.
 
 DC/OS Enterprise 1.10.3 is a patch release. If you are currently running DC/OS Enterprise 1.10.0, DC/OS 1.10.1, or DC/OS 1.10.2, your cluster may be susceptible to a failure mode in the DC/OS IAM (Identity and Access Manager). This mode can lead to a degraded cluster state in which DC/OS masters fail to come online for some period of time after failover or restart. Follow the procedure below to prevent cluster downtime.
 
@@ -66,7 +64,7 @@ You can find additional information and a more robust remediation procedure in <
 - Support for Docker CE 17.03.0.
 - Marathon 1.5.1.2 and Mesos 1.4.0-rc4 are integrated with DC/OS 1.10.1.
 - DCOS-18055 - Improvements for deployment behavior in Catalog. You now have a "Review & Run" button that allows you to cancel, modify your configuration, or install with defaults.
-- Support for Centos 7.4.
+- Support for CentOS 7.4.
 
 # Issues Fixed in DC/OS 1.10.0
 

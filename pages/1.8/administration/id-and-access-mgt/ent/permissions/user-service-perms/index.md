@@ -46,7 +46,7 @@ Marathon permissions affect a user's ability to access services from the DC/OS w
     &#x25cf; <code>dcos:service:marathon:marathon:services:/</code> can access services inside of any service group as well as services not inside of a service group.<br/>
     &#x25cf; <code>dcos:service:marathon:marathon:services:/parent/child</code> can access services inside of the <code>/parent/child</code> group and any groups inside of this group. Cannot access services inside of the <code>/parent</code> service group.<br/>
     <br/>
-    See <a href="/1.8/administration/id-and-access-mgt/permissions/service-groups/">Controlling user access to services</a> for more details on working with service groups.
+    See <a href="/1.8/administration/id-and-access-mgt/ent/permissions/service-groups/">Controlling user access to services</a> for more details on working with service groups.
     </td>
   </tr>
 </table>
@@ -148,7 +148,7 @@ Marathon permissions affect a user's ability to access jobs from the DC/OS web i
       Protects access to jobs. Provide the path to the job. To denote a hierarchy in the path, use a period as a separator. You can omit the name of the job group to give the user access to any job group. Examples:<br/>
       &#x25cf; <code>dcos:service:metronome:metronome:jobs</code> can access jobs inside of any job group.<br/>
       &#x25cf; <code>dcos:service:metronome:metronome:jobs:parent.child</code> can access services inside of the <code>parent.child</code> job group and any groups inside of this group. Cannot access jobs inside of the <code>parent</code> job group.<br/>
-      See <a href="/1.8/administration/id-and-access-mgt/permissions/job-groups/">Controlling user access to jobs</a> for more details on working with job groups.<br/>
+      See <a href="/1.8/administration/id-and-access-mgt/ent/permissions/job-groups/">Controlling user access to jobs</a> for more details on working with job groups.<br/>
       <b>Tip:</b> The <code>full</code> action gives a user or group of users all of the possible actions.
     </td>
   </tr>

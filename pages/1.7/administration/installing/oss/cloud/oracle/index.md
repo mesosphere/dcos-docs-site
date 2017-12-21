@@ -82,7 +82,7 @@ These steps assume that you've spun up the bootstrap instance and that you are l
 1. Download and execute the generator script (`orchestration-generator.sh`):
 
   ```bash
-  curl -O https://dcos.io/1.7/administration/installing/oss/cloud/oracle/orchestration-generator.sh
+  curl -O /1.7/administration/installing/oss/cloud/oracle/orchestration-generator.sh
   ./orchestration-generator.sh
   ```
 
@@ -297,7 +297,7 @@ These steps assume that you've spun up the bootstrap instance and that you are l
 2. Download and execute the public agent script (`install_public_slave.sh`) script:
 
   ```bash
-  curl -O https://dcos.io/1.7/administration/installing/oss/cloud/oracle/install_public_slave.sh
+  curl -O /1.7/administration/installing/oss/cloud/oracle/install_public_slave.sh
   ./install_public_slave.sh
   ```
 

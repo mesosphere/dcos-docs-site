@@ -8,16 +8,16 @@ excerpt:
 
 These are the release notes for DC/OS 1.9.6.
 
-[button color="purple" href="LINK_HERE"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.6/dcos_generate_config.sh?_ga=2.211838548.1503707629.1513767857-296736326.1513634629"]Download DC/OS Open Source[/button]
 
 # Issues Fixed in 1.9.6
 
-- COPS-980 - Marathon's default task unreachable behaviour reinstated.
+- COPS-980 - Marathon's default task unreachable behavior reinstated.
 - DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
 - DCOS-19217 - Metronome adheres to crontab standard.
 - DCOS-19453 - TLS compression disabled because TLS is vulnerable to the CRIME attack. [enterprise type="inline" size="small" /]
 - DCOS-19508 - Non-superusers can now edit an app that uses secrets. [enterprise type="inline" size="small" /]
-- DOCS-2130 - [Security hardening guide](1.9/security/ent/hardening/) improvements. [enterprise type="inline" size="small" /]
+- DOCS-2130 - [Security hardening guide](/1.9/security/ent/hardening/) improvements. [enterprise type="inline" size="small" /]
 - DOCS-2153	- [Metrics documentation](/1.9/metrics/) improvements.
 
 # Notable Changes in DC/OS 1.9.6
@@ -65,10 +65,14 @@ The DC/OS Identity and Access Management (IAM) SAML service provider implementat
 ## Container Orchestration
 Added support for pods, GPUs, and made significant scalability improvements.
 
-#### Pods [maturity-badge status='preview']
+[preview]
+#### Pods
+[/preview]
 Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
 
-#### GPU [maturity-badge status='preview']
+[preview]
+#### GPU 
+[/preview]
 - Leverage GPUs to run novel algorithms.
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.
 - Allocate GPUs on a per container basis, including isolation guarantees
@@ -77,7 +81,9 @@ For more information, see the [documentation](/1.9/deploying-services/gpu/).
 
 ## DC/OS Monitoring and Operations
 
-### Remote Process Injection for Debugging [maturity-badge status='preview']
+[preview]
+### Remote Process Injection for Debugging
+[/preview]
 
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
 
@@ -87,7 +93,9 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 
 For more information, see the debugging [documentation](/1.9/monitoring/debugging/).
 
-### Logging [maturity-badge status='preview']
+[preview]
+### Logging
+[/preview]
 
 Stream task and system logs to journald by setting the `mesos_container_log_sink` install-time parameter to `journald` or `journald+logrotate`. This allows you to:
 
@@ -97,7 +105,9 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 
 For more information, see the [documentation](/1.9/monitoring/logging/).
 
-### Metrics [maturity-badge status='preview']
+[preview]
+### Metrics
+[/preview]
 
 - Node-level HTTP API that returns metrics from tasks, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.

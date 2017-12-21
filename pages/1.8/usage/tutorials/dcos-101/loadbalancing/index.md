@@ -4,7 +4,6 @@ excerpt:
 title: Load-balancing
 navigationTitle: Load-balancing
 menuWeight: 7
-oss: true
 ---
 
 # Prerequisites

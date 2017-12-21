@@ -17,7 +17,7 @@ The release notes provide a list of useful topics and links for DC/OS.
 - [Minor Releases](#minor)
 
 # <a name="breaking"></a>Breaking Changes
-- Removed `/marathon` endpoint on masters in favor of `/service/marathon`. Services such as [Marathon-LB](/1.8/administration/id-and-access-mgt/service-auth/mlb-auth/) now require a JSON WebToken to access the Marathon API. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
+- Removed `/marathon` endpoint on masters in favor of `/service/marathon`. Services such as [Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/mlb-auth/) now require a JSON WebToken to access the Marathon API. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/service-auth/).
 - Manual modifications of Admin Router config are no longer supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/1.8/administration/tls-ssl/ent/haproxy-adminrouter/).
 - Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/1.8/administration/installing/ent/custom/system-requirements/).
 - When upgrading from 1.7 to 1.8, you must upgrade all master nodes before proceeding. The master nodes will be unusable until upgrade completes. This changed behavior is because we have upgraded the ZooKeeper security. For more information, see the [documentation](/1.8/administration/upgrading/).
@@ -99,7 +99,7 @@ Secure important values like private keys, credentials, and database passwords. 
 #### SSO with SAML/OpenID Connect (Enterprise Only)  [maturity-badge status='experimental']
 DC/OS Enterprise integrates Identity Providers that support LDAP v3 Interface (including Microsoft Active Directory) and SAML based identity providers such that you can import users external to DC/OS from your existing User Directory and manage authorization on those users and user groups within DC/OS.
 
-For more information, see the [documentation](/1.8/administration/id-and-access-mgt/sso/).
+For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/sso/).
 
 #### Cluster-wide encryption with PKI using built-in CA (Enterprise Only)  [maturity-badge status='preview']
 DC/OS Enterprise is designed to run securely on-premises and in the cloud. To ensure cluster security, DC/OS Enterprise supports encrypted communication between DC/OS system components. This is achieved by ensuring that DC/OS runs with a Certificate Authority that issues CA certificates (`CA.crt`) for each system component on the masters and agents installed  at bootstrap time. This mechanism ensures all communication between the various services within DC/OS cluster are over secure SSL/TLS channels.
@@ -107,7 +107,7 @@ DC/OS Enterprise is designed to run securely on-premises and in the cloud. To en
 For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
 
 #### Service Accounts for secure service mutual authentication (Enterprise Only)  [maturity-badge status='preview']
-DC/OS Enterprise supports the authentication of services to the Mesos master. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/).
+DC/OS Enterprise supports the authentication of services to the Mesos master. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/service-auth/).
 
 #### Comprehensive intra-cluster authentication and authorization controls (Mesos, Marathon, ZooKeeper) (Enterprise Only)  [maturity-badge status='preview']
 DC/OS Enterprise can be configured to enable or require TLS/SSL encryption. For more information, see the [documentation](/1.8/administration/tls-ssl/ent/).
@@ -119,12 +119,12 @@ DC/OS Enterprise supports fine-grained workload isolation to enable multiple bus
 - Marathon HTTP Authentication and Authorization
 - ZooKeeper Authentication and Authorization
 
-For more information, see the [documentation](/1.8/administration/id-and-access-mgt/permissions/).
+For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/permissions/).
 
 #### Search/Bind and Client Certificate based authentication for LDAP/AD (Enterprise Only)  [maturity-badge status='preview']
 If your organization has user records stored in a directory server supporting LDAP, you can configure DC/OS Enterprise to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS. 
 
-For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ldap/).
+For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/ldap/).
 
 #### Identity and Access Management Service (Enterprise Only) 
 DC/OS Enterprise includes a built-in Identity and Access Management (IAM) Service that allows our users to create Users and Groups and assign various Authorization permissions to each user and group. DC/OS Enterprise supports following types of Users and Groups:
@@ -139,7 +139,7 @@ DC/OS Enterprise includes a built-in Identity and Access Management (IAM) Servic
 
 DC/OS Enterprise IAM Service also includes support for authorization controls that can be assigned to each of the above accounts. As of DC/OS 1.8, users/services can be given specific permissions in the form "‘Subject’ can perform ‘Action’ on ‘Object’" where ‘Object’ can be an API endpoint to a particular DC/OS Service to a Marathon Application group and ‘Action’ enumerates the set of actions that are possible on the Object such as “Create, Read, Update or Delete”.
 
-For more information, see the [documentation](/1.8/administration/id-and-access-mgt/).
+For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/).
 
     
 <!-- ## Cloud Installation
@@ -340,7 +340,7 @@ For more information, see the [documentation](/services/spark/).
 - New simplified hashed-password procedure for custom installation. For more information, see the [documentation](/1.8/administration/installing/ent/custom/cli/). (Enterprise Only)
 - DCOS-8848 - Experimental support for unified containerizer in DC/OS.
 - DOCS-1113 - `dcos jobs` command is now available in the CLI. For more information, see the [documentation](/1.8/usage/cli/command-reference/).
-- DCOS-9029 - You can now administer DC/OS Enterprise security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/service-auth/custom-service-auth/). 
+- DCOS-9029 - You can now administer DC/OS Enterprise security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/service-auth/custom-service-auth/). 
 - DCOS-9166 - You can now install DC/OS in security disabled mode. (Enterprise Only)
 
 ### Fixed issues:

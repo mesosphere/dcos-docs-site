@@ -11,7 +11,7 @@ enterprise: true
 
 ## About installing Marathon-LB
 
-The installation procedure varies according to your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security). Refer to the section that corresponds to your security mode for step-by-step instructions.
+The installation procedure varies according to your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise). Refer to the section that corresponds to your security mode for step-by-step instructions.
 
 - [Disabled and permissive modes](#mlb-disabled-install)
 - [Strict mode](#mlb-strict-perm-install)
@@ -50,7 +50,7 @@ Click **Universe** -> **Packages** to open the **Packages** tab. Locate the Mara
 
 **Prerequisites:**
 
-- Marathon-LB requires a service account in `strict` [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.9/networking/marathon-lb/mlb-auth/) for instructions.
+- Marathon-LB requires a service account in `strict` [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.9/networking/marathon-lb/mlb-auth/) for instructions.
 
 - [DC/OS CLI installed](/1.9/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.9/security/ent/perms-reference/).
 

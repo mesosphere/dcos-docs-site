@@ -35,10 +35,16 @@ The DC/OS Identity and Access Management (IAM) SAML service provider implementat
 ## Container Orchestration
 Added support for pods, GPUs, and made significant scalability improvements.
 
-#### Pods [maturity-badge status='preview']
+[preview]
+#### Pods
+[/preview]
+
 Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
 
-#### GPU [maturity-badge status='preview']
+[preview]
+#### GPU
+[/preview]
+
 - Leverage GPUs to run novel algorithms.
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.
 - Allocate GPUs on a per container basis, including isolation guarantees
@@ -47,7 +53,9 @@ For more information, see the [documentation](/1.9/deploying-services/gpu/).
 
 ## DC/OS Monitoring and Operations
 
-### Remote Process Injection for Debugging [maturity-badge status='preview']
+[preview]
+### Remote Process Injection for Debugging
+[/preview]
 
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
 
@@ -57,7 +65,9 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 
 For more information, see the debugging [documentation](/1.9/monitoring/debugging/).
 
-### Logging [maturity-badge status='preview']
+[preview]
+### Logging
+[/preview]
 
 Stream task and system logs to journald by setting the `mesos_container_log_sink` install-time parameter to `journald` or `journald+logrotate`. This allows you to:
 
@@ -67,7 +77,9 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 
 For more information, see the [documentation](/1.9/monitoring/logging/).
 
-### Metrics [maturity-badge status='preview']
+[preview]
+### Metrics
+[/preview]
 
 - Node-level HTTP API that returns metrics from tasks, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.

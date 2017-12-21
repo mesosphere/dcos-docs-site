@@ -4,7 +4,6 @@ navigationTitle:  Installing First Package
 excerpt:
 title: Installing First Package
 menuWeight: 2
-oss: true
 ---
 
 Welcome to part 2 of the DC/OS 101 Tutorial.

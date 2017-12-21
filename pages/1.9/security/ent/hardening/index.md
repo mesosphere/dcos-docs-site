@@ -38,7 +38,7 @@ However, there are a number of settings that you can modify independent of your 
 
 - Tightly restrict the distribution of SSH keys. For debugging, consider using [`dcos task exec`](/1.9/monitoring/debugging/) instead. 
 
-- Adhere to the [principle of least privilege](http://searchsecurity.techtarget.com/definition/principle-of-least-privilege-POLP) and give your users only the minimum [permissions](/1.9/security/perms-reference/) that they need. Avoid granting users or service accounts the `dcos:superuser` permission.
+- Adhere to the [principle of least privilege](http://searchsecurity.techtarget.com/definition/principle-of-least-privilege-POLP) and give your users only the minimum [permissions](/1.9/security/ent/perms-reference/) that they need. Avoid granting users or service accounts the `dcos:superuser` permission.
 
 - If you [configure an external LDAP directory](/1.9/security/ent/ldap/ldap-conn/), select either **Use SSL/TLS for all connections** or **Attempt StartTLS, abort if it fails** and provide the root CA certificate and any intermediate certificates of the LDAP directory server in the **CA certificate chain (Optional)** field.
 

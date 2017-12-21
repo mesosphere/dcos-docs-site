@@ -171,5 +171,5 @@ In detail, here are the steps:
 </tbody>
 </table>
 
-[auth]: /1.8/administration/id-and-access-mgt/
+[auth]: /1.8/administration/id-and-access-mgt/ent/
 [components]: /1.8/overview/components/

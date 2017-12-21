@@ -11,7 +11,7 @@ enterprise: true
 
 # About controlling user access to jobs
 
-The [Metronome permissions](/1.8/administration/id-and-access-mgt/permissions/user-service-perms/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
+The [Metronome permissions](/1.8/administration/id-and-access-mgt/ent/permissions/user-service-perms/#metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
 
 **Important:** This section is not relevant to `disabled` mode clusters. In `disabled` mode you either give a user or group access to all jobs or you do not. `disabled` mode does not offer the finer-grained controls of `permissive` and `strict` modes.
 
@@ -24,7 +24,7 @@ Refer to the section that corresponds to your desired interface.
 
 - A DC/OS user account with the `dcos:superuser` permission.
 
-- A DC/OS user account without the following permissions: `dcos:superuser`, `dcos:adminrouter:service:metronome`, and `dcos:service:metronome:metronome:jobs`. We call this user the unprivileged user or `alice`. If you do not have a user account without these permissions, see [adding local users](/1.8/administration/id-and-access-mgt/users-groups/add-local-user/) or [adding external users](/1.8/administration/id-and-access-mgt/users-groups/add-external-user/).
+- A DC/OS user account without the following permissions: `dcos:superuser`, `dcos:adminrouter:service:metronome`, and `dcos:service:metronome:metronome:jobs`. We call this user the unprivileged user or `alice`. If you do not have a user account without these permissions, see [adding local users](/1.8/administration/id-and-access-mgt/ent/users-groups/add-local-user/) or [adding external users](/1.8/administration/id-and-access-mgt/ent/users-groups/add-external-user/).
 
 **Note:** The commands that follow will use a user named `alice`. If you have a group containing the user account without the `dcos:superuser`, `dcos:adminrouter:service:metronome`, and `dcos:service:metronome:metronome:jobs` permissions, you can replace `alice` with the name of the group to achieve the same effect.
 

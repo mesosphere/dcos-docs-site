@@ -4,7 +4,6 @@ navigationTitle:  Load-Balancing
 excerpt:
 title: Load-Balancing
 menuWeight: 8
-oss: true
 ---
 
 # Prerequisites
@@ -22,7 +21,7 @@ Load-balancers decide which instance of an app internal or external services sho
 1. [Marathon-LB](/1.9/networking/marathon-lb/)
 1. [Named VIPs](/1.9/networking/load-balancing-vips/).
 
-You have already explored these load balancing mechanisms in the context of [service discovery](https://dcos.io/1.9/tutorials/dcos-101/service-discovery/), and in a [previous](https://dcos.io/1.9/tutorials/dcos-101/marathon-lb/) tutorial you used Marathon-LB to publicly expose app2. Now let's explore them a bit more.
+You have already explored these load balancing mechanisms in the context of [service discovery](/1.9/tutorials/dcos-101/service-discovery/), and in a [previous](/1.9/tutorials/dcos-101/marathon-lb/) tutorial you used Marathon-LB to publicly expose app2. Now let's explore them a bit more.
 * First, scale app2 to two instances: 
   
   `dcos marathon app update /dcos-101/app2 instances=2`

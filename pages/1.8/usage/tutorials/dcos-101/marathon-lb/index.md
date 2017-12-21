@@ -4,7 +4,6 @@ excerpt:
 title: Exposing Apps using Edge Router
 navigationTitle: Exposing Apps Publicly
 menuWeight: 6
-oss: true
 ---
 
 # Prerequisites

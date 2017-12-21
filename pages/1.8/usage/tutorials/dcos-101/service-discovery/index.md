@@ -4,7 +4,6 @@ excerpt:
 title: Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
 menuWeight: 4
-oss: true
 ---
 
 # Prerequisites
@@ -62,7 +61,7 @@ In this section, we will learn about DC/OS service discovery by exploring the di
 You know how to use service discovery to connect to your application from within your DC/OS cluster.
 
 # Deep Dive
-What are the differences between [Mesos-DNS](#mesosdns) and [Named VIPs](#namedvips)?
+What are the differences between [Mesos-DNS](#mesos-dns) and [Named VIPs](#named-vips)?
 
 ## Mesos-DNS
 Mesos-DNS is a rather simple solution to finding applications inside the cluster. While DNS is supported by many applications, Mesos-DNS has the following drawbacks::

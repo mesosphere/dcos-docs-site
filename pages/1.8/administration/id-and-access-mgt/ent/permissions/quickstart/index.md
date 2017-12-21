@@ -27,7 +27,7 @@ By default, a new user has no permissions and cannot view the DC/OS web interfac
 
 - A DC/OS user account with the `dcos:superuser` permission.
 
-- A DC/OS user account without the `dcos:superuser` permission. If you do not have a user account without the `dcos:superuser` permission, see [adding local users](/1.8/administration/id-and-access-mgt/users-groups/add-local-user/) or [adding external users](/1.8/administration/id-and-access-mgt/users-groups/add-external-user/).
+- A DC/OS user account without the `dcos:superuser` permission. If you do not have a user account without the `dcos:superuser` permission, see [adding local users](/1.8/administration/id-and-access-mgt/ent/users-groups/add-local-user/) or [adding external users](/1.8/administration/id-and-access-mgt/ent/users-groups/add-external-user/).
 
 **Note:** The commands that follow will use a user named `alice`. If you have a group containing the user account without the `dcos:superuser` permission, you can replace `alice` with the name of the group to achieve the same effect.
 
@@ -37,7 +37,7 @@ By default, a new user has no permissions and cannot view the DC/OS web interfac
 
 This procedure describes how to grant a user access to the **Services** tab and all the services inside of it.
 
-**Tip:** If you are running in `strict` or `permissive` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) and don't want to give the user access to all of the services in the **Services** tab, see [Controlling user access to services](/1.8/administration/id-and-access-mgt/permissions/service-groups).
+**Tip:** If you are running in `strict` or `permissive` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) and don't want to give the user access to all of the services in the **Services** tab, see [Controlling user access to services](/1.8/administration/id-and-access-mgt/ent/permissions/service-groups).
 
 The steps to accomplish this vary based on your preferred method.
 
@@ -71,7 +71,7 @@ The steps to accomplish this vary based on your preferred method.
 
 1. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, type `dcos:service:marathon:marathon:services:/` in the **Object** field, type `full` in the **Action** field, and click **Add Permission**.
 
-   **Note:** The above permission grants access to all services. To restrict which services a user can access, see [Controlling user access to services](/1.8/administration/id-and-access-mgt/permissions/service-groups/).
+   **Note:** The above permission grants access to all services. To restrict which services a user can access, see [Controlling user access to services](/1.8/administration/id-and-access-mgt/ent/permissions/service-groups/).
 
 1. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `strict` and you want the user to be able to view task details, you must also perform the following steps.
 
@@ -94,7 +94,7 @@ The steps to accomplish this vary based on your preferred method.
 
 - You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
 
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 **Tips:**
 
@@ -184,7 +184,7 @@ The steps to accomplish this vary based on your preferred method.
 
 This procedure describes how to grant a user access to the **Jobs** tab and all the jobs inside of it.
 
-**Tip:** If you don't want to give the user access to all of the jobs in the **Jobs** tab, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/permissions/job-groups).
+**Tip:** If you don't want to give the user access to all of the jobs in the **Jobs** tab, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/ent/permissions/job-groups).
 
 The steps to accomplish this vary based on your preferred method.
 
@@ -218,7 +218,7 @@ The steps to accomplish this vary based on your preferred method.
 
 1. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, type `dcos:service:metronome:metronome:jobs` in the **Object** field, type `full` in the **Action** field, and click **Add Permission**.
 
-   **Note:** The above permission grants access to all jobs. To restrict which services a user can access, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/permissions/job-groups/).
+   **Note:** The above permission grants access to all jobs. To restrict which services a user can access, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/ent/permissions/job-groups/).
 
 1. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `strict` and you want the user to be able to view task details, you must also perform the following steps.
 
@@ -244,7 +244,7 @@ The steps to accomplish this vary based on your preferred method.
 <<<<<<< HEAD:1.8/administration/id-and-access-mgt/ent/permissions/quickstart.md
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 =======
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 >>>>>>> 19e0832c49f545af62fd3509f6654bfd4ee41023:1.8/administration/id-and-access-mgt/permissions/quickstart.md
 
 **Tip:** To grant a permission to a group instead of a user, replace `/users/alice` in the commands below with `/groups/<group-name>`, where `<group-name>` is the name of the group. The group must contain at least one user account without the `superuser` permission that you can use to verify your success.
@@ -267,7 +267,7 @@ The steps to accomplish this vary based on your preferred method.
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs/users/alice/full
    ```
 
-   **Note:** The `dcos:service:metronome:metronome:jobs` permission grants access to all jobs. To restrict which jobs a user can access, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/permissions/job-groups/).
+   **Note:** The `dcos:service:metronome:metronome:jobs` permission grants access to all jobs. To restrict which jobs a user can access, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/ent/permissions/job-groups/).
 
 1. If you also want to allow the user to access task details and logs, execute the following commands to create and grant permission to the Mesos master and agent.
 
@@ -366,7 +366,7 @@ The steps to accomplish this vary based on your preferred method.
 <<<<<<< HEAD:1.8/administration/id-and-access-mgt/ent/permissions/quickstart.md
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 =======
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 >>>>>>> 19e0832c49f545af62fd3509f6654bfd4ee41023:1.8/administration/id-and-access-mgt/permissions/quickstart.md
 
 **Note:** When using the API to manage permissions, you must first create the permission and then assign it. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation message and proceed to assign the permission.
@@ -440,7 +440,7 @@ The steps to accomplish this vary based on your preferred method.
 <<<<<<< HEAD:1.8/administration/id-and-access-mgt/ent/permissions/quickstart.md
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 =======
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 >>>>>>> 19e0832c49f545af62fd3509f6654bfd4ee41023:1.8/administration/id-and-access-mgt/permissions/quickstart.md
 
 **Note:** When using the API to manage permissions, you must first create the permission and then assign it. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation message and proceed to assign the permission.
@@ -520,7 +520,7 @@ The steps to accomplish this vary based on your preferred method.
 <<<<<<< HEAD:1.8/administration/id-and-access-mgt/ent/permissions/quickstart.md
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 =======
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 >>>>>>> 19e0832c49f545af62fd3509f6654bfd4ee41023:1.8/administration/id-and-access-mgt/permissions/quickstart.md
 
 **Note:** When using the API to manage permissions, you must first create the permission and then assign it. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation message and proceed to assign the permission.

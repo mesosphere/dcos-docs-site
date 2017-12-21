@@ -91,4 +91,4 @@ Authenticated users are authorized to perform arbitrary actions in their
 cluster. That is, there is currently no fine-grained access control in DC/OS
 besides having access or not having access to services.
 
-See the [Security Administrator's Guide](/1.8/administration/id-and-access-mgt/) for more information.
+See the [Security Administrator's Guide](/1.8/administration/id-and-access-mgt/ent/) for more information.

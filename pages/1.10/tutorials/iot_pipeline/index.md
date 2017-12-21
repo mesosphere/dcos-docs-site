@@ -42,7 +42,7 @@ The following graphic illustrates the data flow:
 
 ![data flow](/1.10/img/lb-data-pipeline.png)
 
-# OSS DC/OS procedure
+# DC/OS open source procedure
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ## Prerequisites
 
 *  [DC/OS Enterprise](/1.10/installing/ent/) installed with:
-    - Security [mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security) set to permissive or strict. By default, DC/OS installs in permissive security mode.
+    - Security [mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) set to permissive or strict. By default, DC/OS installs in permissive security mode.
     - Minimum 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/1.10/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
@@ -251,7 +251,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
     **Tip:** If you're having trouble, verify the `HAPROXY_0_VHOST` value in the `tweeter.json` file.
 
-## Post 100K Tweets
+## Post 100K tweets
 Deploy the post-tweets containerized app to see DC/OS load balancing in action. This app automatically posts a large number of tweets from Shakespeare. The app will post more than 100k tweets one by one, so you'll see them coming in steadily when you refresh the page.
 
 1.  Navigate to the [Tweeter](https://github.com/mesosphere/tweeter/) GitHub repository and save the `tweeter/post-tweets.json` Marathon app definition file.
@@ -297,9 +297,9 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ...
 ```
 
-# Enterprise and OSS DC/OS
+# DC/OS open source and Enterprise procedure
 
-## Add Streaming Analytics
+## Add streaming analytics
 
 Next, you'll perform real-time analytics on the stream of tweets coming in from Kafka.
 

@@ -4,7 +4,6 @@ navigationTitle:  NFS Server
 excerpt:
 title: NFS Server
 menuWeight: 1
-oss: true
 ---
 
 # Overview

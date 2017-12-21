@@ -45,7 +45,7 @@ You can view the DC/OS component details in the <a href="https://github.com/dcos
   </tr>
   <tr>
     <td>Certificate Authority (Enterprise Only)</td>
-    <td>This component <code>dcos-ca.service</code> is the DC/OS Certificate Authority feature. For more information, see the <a href="/1.8/administration/id-and-access-mgt/">documentation</a>.</td>
+    <td>This component <code>dcos-ca.service</code> is the DC/OS Certificate Authority feature. For more information, see the <a href="/1.8/administration/id-and-access-mgt/ent/">documentation</a>.</td>
   </tr><tr>
     <td>Cluster ID</td>
     <td>The cluster-id service generates a universally unique identifier (UUID) for each cluster. We use this ID to track cluster health remotely (if enabled). This remote tracking allows our support team to better assist our customers.</td>
@@ -81,7 +81,7 @@ You can view the DC/OS component details in the <a href="https://github.com/dcos
   </tr>
   <tr>
     <td>Exhibitor</td>
-    <td>This component <code>dcos-exhibitor.service</code> is the <a href="https://github.com/soabase/exhibitor">Exhibitor</a> supervisor for Zookeeper. DC/OS uses Exhibitor, a project originally from Netflix, to manage and automate the deployment of <a href="/1.8/overview/concepts/#exhibitorforzookeeper">ZooKeeper</a>.</td>
+    <td>This component <code>dcos-exhibitor.service</code> is the <a href="https://github.com/soabase/exhibitor">Exhibitor</a> supervisor for Zookeeper. DC/OS uses Exhibitor, a project originally from Netflix, to manage and automate the deployment of <a href="/1.8/overview/concepts/#exhibitor-for-zookeeper">ZooKeeper</a>.</td>
   </tr>
   <tr>
     <td>Generate resolv.conf</td>
@@ -94,11 +94,11 @@ You can view the DC/OS component details in the <a href="https://github.com/dcos
   <tr>
     <td>History Service</td>
     <td><p>This component <code>dcos-history-service.service</code> enables the DC/OS UI to display cluster usage statistics and stores the dashboard graph data for the UI. This data is stored on disk for 24 hours. Along with storing this data, the history service also exposes a HTTP API for the DC/OS user interface to query. All DC/OS cluster stats which involve memory, CPU, and disk usage are driven by this service.</p>
-    <p>Without <a href="/1.8/administration/id-and-access-mgt/">access</a> to the History service, the UI will restart the graph timeline each time that a user opens the Dashboard tab in the UI. With access to the History service, the UI will show historical data, up to 60s prior, in the graph timeline.</p></td>
+    <p>Without <a href="/1.8/administration/id-and-access-mgt/ent/">access</a> to the History service, the UI will restart the graph timeline each time that a user opens the Dashboard tab in the UI. With access to the History service, the UI will show historical data, up to 60s prior, in the graph timeline.</p></td>
   </tr>
  <tr>
     <td>Identity and Access Management</td>
-    <td>This component <code>dcos-bouncer.service</code> is the DC/OS Identity and Access Management feature. For more information, see the <a href="/1.8/administration/id-and-access-mgt/">documentation</a>.</td>
+    <td>This component <code>dcos-bouncer.service</code> is the DC/OS Identity and Access Management feature. For more information, see the <a href="/1.8/administration/id-and-access-mgt/ent/">documentation</a>.</td>
   </tr>
   <tr>
     <td>Job</td>
@@ -126,15 +126,15 @@ You can view the DC/OS component details in the <a href="https://github.com/dcos
   </tr>
   <tr>
     <td>Mesos Agent</td>
-    <td>This component <code>dcos-mesos-slave.service</code> is the mesos-slave process for <a href="/1.8/overview/concepts/#private">private</a> agent nodes.</td>
+    <td>This component <code>dcos-mesos-slave.service</code> is the mesos-slave process for <a href="/1.8/overview/concepts/#private-agent-node">private</a> agent nodes.</td>
   </tr>
   <tr>
     <td>Mesos Agent Public</td>
-    <td>This component <code>dcos-mesos-slave-public.service</code> is the mesos-slave process for <a href="/1.8/overview/concepts/#public">public</a> agent nodes.</td>
+    <td>This component <code>dcos-mesos-slave-public.service</code> is the mesos-slave process for <a href="/1.8/overview/concepts/#public-agent-node">public</a> agent nodes.</td>
   </tr>
   <tr>
     <td>Mesos DNS</td>
-    <td>This component <code>dcos-mesos-dns.service</code> provides service discovery within the cluster. Mesos-DNS is the internal DNS service <code>dcos-mesos-dns.service</code> for the DC/OS cluster. <a href="/1.8/overview/concepts/#mesosdns">Mesos-DNS</a> provides the namespace <code>$service.mesos</code> to all cluster hosts. For example, you can login to your leading mesos master with <code>ssh leader.mesos</code>.</td>
+    <td>This component <code>dcos-mesos-dns.service</code> provides service discovery within the cluster. Mesos-DNS is the internal DNS service <code>dcos-mesos-dns.service</code> for the DC/OS cluster. <a href="/1.8/overview/concepts/#mesos-dns">Mesos-DNS</a> provides the namespace <code>$service.mesos</code> to all cluster hosts. For example, you can login to your leading mesos master with <code>ssh leader.mesos</code>.</td>
   </tr>
   <tr>
     <td>Mesos Master</td>

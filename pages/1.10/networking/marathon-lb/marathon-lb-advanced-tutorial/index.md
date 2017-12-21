@@ -19,7 +19,7 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 *   DC/OS installed by using the AWS [cloud templates](/1.10/installing/oss/cloud/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agent and one [public](/1.10/overview/concepts/#public-agent-node) agent.
 *   DC/OS CLI [installed][2].
-*   Marathon-LB [installed](/1.10/networking/marathon-lb/usage-ent/).
+*   Marathon-LB [installed](/1.10/networking/marathon-lb/usage-ee/).
 
 ## Deploy an external load balancer with Marathon-LB
 
@@ -46,7 +46,7 @@ Set up your internal load balancer. To do this, we must first specify some confi
 
     In this options file, we’re changing the name of the app instance and the name of the HAProxy group. The options file also disables the HTTP and HTTPS forwarding on ports 80 and 443 because it is not needed.
 
-1.  [Install](/1.10/networking/marathon-lb/usage-ent/) the internal Marathon-LB instance with the custom options specified.
+1.  [Install](/1.10/networking/marathon-lb/usage-ee/) the internal Marathon-LB instance with the custom options specified.
 
     There are now two Marathon-LB load balancers:
 

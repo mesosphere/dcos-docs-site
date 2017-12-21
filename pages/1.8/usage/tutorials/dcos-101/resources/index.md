@@ -4,7 +4,6 @@ excerpt:
 title: Understanding Resources
 navigationTitle: Understanding Resources
 menuWeight: 8
-oss: true
 ---
 
 # Prerequisites
