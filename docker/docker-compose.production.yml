@@ -25,7 +25,7 @@ services:
     image: mesosphere/dcos-docs-pdf
     build:
       context: ../
-      dockerfile: ./docker/Dockerfile.pdf
+      dockerfile: ./docker/Dockerfile.htmltopdf
       args:
         git_branch: ${GIT_BRANCH}
     volumes:
