@@ -1,5 +1,6 @@
 ~^([^.]*[^/])$ $1/;
 ~^/docs/(?<path>.*)$ /$path;
+~^/service-docs/(.*)$ /services/$1
 /1.10/administration/ /1.10/administering-clusters/;
 /1.10/administration/access-node/ /1.10/administering-clusters/;
 /1.10/administration/access-node/sshcluster/ /1.10/administering-clusters/sshcluster/;
@@ -616,7 +617,6 @@
 /administration/ /latest/administration/;
 /development/ /latest/development/;
 /documentation/ /latest/;
-/get-started/ /install/;
 /latest/installing/ /latest/installing/oss/;
 /latest/installing/cloud/ /latest/installing/oss/cloud/;
 /latest/installing/custom/ /latest/installing/oss/custom/;
@@ -624,6 +624,4 @@
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
 /release-notes/version-policy/ /release-notes/1.10/version-policy/;
-/service-docs/ /services/;
 /support/ https://support.mesosphere.com;
-/usage/ /latest/usage/;
