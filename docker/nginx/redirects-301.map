@@ -1,6 +1,6 @@
 ~^([^.]*[^/])$ $1/;
 ~^/docs/(?<path>.*)$ /$path;
-~^/service-docs/(.*)$ /services/$1
+~^/service-docs/(.*)$ /services/$1;
 /1.10/administration/ /1.10/administering-clusters/;
 /1.10/administration/access-node/ /1.10/administering-clusters/;
 /1.10/administration/access-node/sshcluster/ /1.10/administering-clusters/sshcluster/;
