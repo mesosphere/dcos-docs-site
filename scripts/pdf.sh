@@ -38,12 +38,12 @@ function main
      local PDF_FILE_NAME="${SOURCE_FILE#$INPUT_FOLDER}"
      #Remove leading ./ or / from filename, as find will output files with leading ./ or /
      local PDF_FILE_NAME="${PDF_FILE_NAME#*/}"
-     #Replace all "/" characters in filename to "-"
-     local PDF_FILE_NAME="${PDF_FILE_NAME//\//-}"
+     #Replace all "/" characters in filename to "-" and append .pdf
+     local PDF_FILE_NAME="${PDF_FILE_NAME//\//-}.pdf"
      #Change file extension from .html to .pdf
-     local PDF_FILE_NAME="${PDF_FILE_NAME/%.html/.pdf}"
-     #Finally for example if SOURCE_FILE=./build/1.10/cli/dcos-marathon-group-scale-index.html
-     #PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.pdf
+     #local PDF_FILE_NAME="${PDF_FILE_NAME/%.html/.pdf}"
+     #For example if SOURCE_FILE=./build/1.10/cli/dcos-marathon-group-scale-index.html
+     #PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.pdf
 
      #Make the Destination directory
      mkdir -p "${PDF_DEST_DIR}"
