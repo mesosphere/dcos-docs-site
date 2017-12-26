@@ -34,7 +34,7 @@ The following procedure will walk you through a quick tutorial to demonstrate ho
 
 - The Linux user account already exists on the agent.
 - You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/#get-dcos-cert) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user. 
 
@@ -85,7 +85,7 @@ The following procedure will walk you through a quick tutorial to demonstrate ho
 
 - The Linux user account already exists on the agent.
 - You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/#get-dcos-cert) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user. 
 

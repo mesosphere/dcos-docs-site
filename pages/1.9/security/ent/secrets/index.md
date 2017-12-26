@@ -14,4 +14,4 @@ Use the DC/OS Enterprise Secret Store to secure sensitive information like datab
 
 In addition, the [Secrets API](/1.9/security/ent/secrets/secrets-api/) allows you to [seal](/1.9/security/ent/secrets/seal-store/)/[unseal](/1.9/security/ent/secrets/unseal-store/) <!--  and [reinitialize](/1.9/security/ent/secrets/custom-key/) the Secret Store.-->
 
-You can also find information about secrets in the [Overview](/1.9/overview/security/secrets/) and [Permissions](/1.9/security/ent/perms-reference/#secrets) sections.
+You can also find information about secrets in the [Permissions](/1.9/security/ent/perms-reference/#secrets) sections.

@@ -56,7 +56,6 @@ Please try out the new features and updated data services. Provide any feedback 
 - [New Features and Capabilities](#new-features)
 - [Breaking Changes](#breaking-changes)
 - [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.10.0 Beta 2](#fixed-issues)
 
 # <a name="new-features"></a>New Features and Capabilities
 
@@ -109,13 +108,13 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 
 - Cassandra. [Documentation](/services/cassandra/). [Release Notes](/services/cassandra/v2.0.0-3.0.14/release-notes/).
 
-- Elastic. [Documentation](/services/elastic/). [Release Notes](services/elastic/v2.0.0-5.5.1/release-notes/).
+- Elastic. [Documentation](/services/elastic/). [Release Notes](services/elastic/v2.0.1-5.5.1/release-notes/).
 
 - HDFS. [Documentation](/services/hdfs/). [Release Notes](/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/release-notes/).
 
 - Kafka. [Documentation](/services/kafka/). [Release Notes](/services/kafka/v2.0.0-0.11.0/release-notes/).
 
-- Apache Spark. [Documentation](services/spark/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
+- Apache Spark. [Documentation](/services/spark/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
 
 ## Platform
 - Node and cluster health checks.

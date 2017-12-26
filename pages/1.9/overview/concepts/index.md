@@ -334,7 +334,7 @@ The Docker Runtime is a containerizer that supports launching Docker containers 
 
 Mesos depends on ZooKeeper, a high-performance coordination service to manage the cluster state. Exhibitor automatically configures and manages ZooKeeper on the [master nodes](#master-node).
 
-## <a name="mesos-exhibitor-zookeeper"></a>Mesos-DNS
+## <a name="mesos-dns"></a>Mesos-DNS
 
 Mesos-DNS is a DC/OS component that provides service discovery within the cluster. Mesos-DNS allows applications and services that are running on Mesos to find each other by using the domain name system (DNS), similar to how services discover each other throughout the Internet.
 
