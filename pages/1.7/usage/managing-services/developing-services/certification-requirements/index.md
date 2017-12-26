@@ -56,7 +56,7 @@ It is required that unwanted offers are declined, and are declined as soon as po
 
 ### 06. Scheduler MUST only use the necessary fraction of an offer.
 
-Mesos will often make offers that are significantly larger than what is necessary for a service to run. It is required that after a scheduler determines that its task will fit inside an offer that it only use the fraction that it needs taking in account it’s executor and any tasks that it may need. Adding new tasks to an executor at a later time will expand the resources available to the container, not all resources need to be known up front.
+Mesos will often make offers that are significantly larger than what is necessary for a service to run. It is required that after a scheduler determines that its task will fit inside an offer that it only use the fraction that it needs taking in account its executor and any tasks that it may need. Adding new tasks to an executor at a later time will expand the resources available to the container, not all resources need to be known up front.
 
 ### 07. Scheduler MUST NOT rely on running an Executor on a particular node.
 
