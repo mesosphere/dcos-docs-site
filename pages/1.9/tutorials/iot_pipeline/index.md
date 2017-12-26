@@ -325,7 +325,7 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
  [6]: /1.9/overview/concepts/
- [7]: /1.9/installing/cloud/
+ [7]: /1.9/installing/oss/cloud/
  [8]: /1.9/installing/ent/custom/
  [9]: /1.9/administering-clusters/locate-public-agent/
  [10]: /1.9/img/webui-universe-install.png

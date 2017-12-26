@@ -4,8 +4,6 @@ navigationTitle:  Finding a public agent IP
 title: Finding a public agent IP
 menuWeight: 0
 excerpt:
-
-enterprise: true
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -34,7 +32,3 @@ for id in $(dcos node --json | jq --raw-output '.[] | select(.reserved_resources
 52.40.79.170
 52.40.79.170
 ```
-
-
-
-

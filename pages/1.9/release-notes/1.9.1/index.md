@@ -161,7 +161,7 @@ For more information, see the [documentation](/1.9/installing/upgrading/).
 - DCOS-14021 - [Task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `- DCOS task log` command will work as it did before.
 - DCOS-14433 - The [Universal container runtime](/1.9/deploying-services/containerizers/) does not support Azure cloud with Ubuntu.
 - DCOS-16350 - You cannot retrieve metrics emitted by an application over statsd unless they are sent in a single batch. If statsd metrics are sent as a sequence of messages, only the most recently received metric will be available from the `/app` endpoint.
-- DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/1.9/installing/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
+- DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/1.9/installing/oss/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
 
   ```bash
   $ ./dcos_generate_config.ee.sh --aws-cloudformation

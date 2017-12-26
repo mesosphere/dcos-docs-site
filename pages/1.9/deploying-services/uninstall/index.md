@@ -35,7 +35,7 @@ From the DC/OS web interface you can uninstall services from the **Services** or
 
 ### Universe tab
 
-1.  Navigate to the **Universe > Packages** page in the DC/OS [web interface](/1.9/gui/#universe).
+1.  Navigate to the **Universe > Packages** page in the DC/OS [web interface](/1.9/gui/universe/).
 2.  Click on the **Installed** tab to see your installed services.
 3.  Hover your cursor over the name of the package you wish to uninstall and you will see a red "Uninstall" link to the right. Click this link to uninstall the package.
 

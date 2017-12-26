@@ -4,8 +4,6 @@ navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 0
 excerpt:
-enterprise: true
-
 ---
 
 

@@ -5,7 +5,6 @@ title: Mesosphere Versioning and Release Policy
 menuWeight: 5
 excerpt:
 
-enterprise: true
 ---
 
 
@@ -72,4 +71,3 @@ A patch release means bug fixes and new enhancements to the same software produc
 ## Mesosphere Versioning and Upgrade Policy
 
 ![version policy framework](../img/version-policy-2.png)
-
