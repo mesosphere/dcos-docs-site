@@ -12,7 +12,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 
 **Important:**
 
-- Review the [release notes](https://dcos.io/releases/) before upgrading DC/OS.
+- Review the [release notes](/1.10/release-notes/) before upgrading DC/OS.
 - The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
 - Virtual networks require minimum Docker version 1.11. For more information, see the [documentation](/1.10/networking/virtual-networks/).
 - The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster. You can monitor the health of a master during an upgrade by watching Exhibitor on port 8181.
@@ -126,7 +126,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-If your upgrade fails because of a [custom node or cluster check](/1.10/administering-clusters/backup-and-restore/), run these commands for more details:
+If your upgrade fails because of a [custom node or cluster check](/1.10/installing/oss/custom/node-cluster-health-check/), run these commands for more details:
 
 ```bash
 dcos-diagnostics check node-poststart
