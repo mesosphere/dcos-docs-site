@@ -1,14 +1,12 @@
 ---
-layout: layout.pug
-excerpt:
-title: Running Stateful Services on DC/OS
-navigationTitle: Running Stateful Services
-menuWeight: 5
+post_title: Running Stateful Services on DC/OS
+nav_title: Running Stateful Services
+menu_order: 500
 ---
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
-
 A stateful service acts on persistent data. Simple, stateless services run in an empty sandbox each time they are launched. In contrast, stateful services make use of persistent volumes that reside on agents in a cluster until explicitly destroyed.
+
+<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
 These persistent volumes are mounted into a task's Mesos sandbox and are therefore continuously accessible to a service. DC/OS creates persistent volumes for each task and all resources required to run the task are dynamically reserved. That way, DC/OS ensures that a service can be relaunched and can reuse its data when needed. This is useful for databases, caches, and other data-aware services.
 
@@ -25,15 +23,13 @@ Approximately 20 minutes.
 
 **Target Audience**:
 
-This tutorial is for developers who want to run stateful services on DC/OS. 
-
-**Note:** The DC/OS persistent volume feature is still in beta and is not ready for production use without a data replication strategy to guard against data loss.
+This tutorial is for developers who want to run stateful services on DC/OS. **Note:** The DC/OS persistent volume feature is still in beta and is not ready for production use without a data replication strategy to guard against data loss.
 
 ## Prerequisites
 
 * [DC/OS installed][1]
 * [DC/OS CLI installed][2]
-* Cluster size: at least one agent node with 1 CPU, 1 GB of RAM, and 1 GB of disk space available.
+* Cluster Size: at least one agent node with 1 CPU, 1 GB of RAM and 1000 MB of disk space available.
 
 ## Install a Stateful Service (PostgreSQL)
 
@@ -45,6 +41,9 @@ This is the DC/OS service definition JSON to start the official PostgreSQL Docke
   "cpus": 1,
   "mem": 1024,
   "instances": 1,
+  "networks": [
+    { "mode": "container/bridge" }
+  ],
   "container": {
     "type": "DOCKER",
     "volumes": [
@@ -57,19 +56,18 @@ This is the DC/OS service definition JSON to start the official PostgreSQL Docke
       }
     ],
     "docker": {
-      "image": "postgres:9.5",
-      "network": "BRIDGE",
-      "portMappings": [
-        {
-          "containerPort": 5432,
-          "hostPort": 0,
-          "protocol": "tcp",
-          "labels": {
-            "VIP_0": "5.4.3.2:5432"
-          }
+      "image": "postgres:9.5"
+    },
+    "portMappings": [
+      {
+        "containerPort": 5432,
+        "hostPort": 0,
+        "protocol": "tcp",
+        "labels": {
+          "VIP_0": "5.4.3.2:5432"
         }
-      ]
-    }
+      }
+    ]
   },
   "env": {
     "POSTGRES_PASSWORD": "DC/OS_ROCKS",
@@ -93,16 +91,16 @@ This is the DC/OS service definition JSON to start the official PostgreSQL Docke
 }
 ```
 
-Notice the `volumes` field, which declares the persistent volume for PostgreSQL to use for its data. Even if the task dies and restarts, it will get that volume back and data will not be lost.
+Notice the `volumes` field, which declares the persistent volume for postgres to use for its data. Even if the task dies and restarts, it will get that volume back and data will not be lost.
 
 Next, add this [service][4] to your cluster:
 
 
 ```
-dcos marathon app add /1.9/tutorials/stateful-services/postgres.marathon.json
+dcos marathon app add /1.10/tutorials/stateful-services/postgres.marathon.json
 ```
 
-Once the service has been scheduled and the Docker container has downloaded, PostgreSQL will become healthy and be ready to use. You can verify this from the DC/OS CLI:
+Once the service has been scheduled and the Docker container has downloaded, postgres will become healthy and be ready to use. You can verify this from the DC/OS CLI:
 
 ```
 dcos marathon task list
@@ -146,9 +144,9 @@ dcos marathon app remove postgres
 
 ## Appendix
 
-For further information on stateful services in DC/OS, visit the [Storage section of the documentation](/1.9/storage/).
+For further information on stateful services in DC/OS, visit the [Storage section of the documentation](/1.10/storage/).
 
 
-[1]: /1.9/installing/oss/
-[2]: /1.9/cli/install/
+[1]: /1.10/installing/oss/
+[2]: /1.10/cli/install/
 [4]: postgres.marathon.json
