@@ -13,6 +13,6 @@
     - Docker
     - Docker Compose
 
-## Development
+## Development and Contribution
 
-[Wiki](https://github.com/mesosphere/dcos-docs-site/wiki) contains all development information.
+[Wiki](https://github.com/mesosphere/dcos-docs-site/wiki) contains all development information and [contribution guidelines](https://github.com/mesosphere/dcos-docs-site/wiki/Contributing).
