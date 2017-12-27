@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos cluster
 title: dcos cluster
-menuWeight: 1
+menuWeight: 3
 excerpt:
 
 enterprise: false

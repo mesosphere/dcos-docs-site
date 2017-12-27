@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb
 title: dcos edgelb
-menuWeight: 1
+menuWeight: 5
 excerpt:
 
 enterprise: true

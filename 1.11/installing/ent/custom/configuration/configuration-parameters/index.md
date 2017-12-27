@@ -249,7 +249,7 @@ For more information, see the [security documentation](/1.10/security/ent/).
 
 The `dcos_license` field is a base64 encoded JSON string, composed of the following subfields:
 
-- A globally unique [customer key](#customer_key)
+- A globally unique [customer key](#customer-key-enterprise).
 - A private key used by the DC/OS licensing component to sign audit data.
 - A public key used to decrypt the audit data.
 - The terms of the license:

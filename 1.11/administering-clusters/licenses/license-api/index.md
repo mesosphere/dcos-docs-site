@@ -38,7 +38,7 @@ Content-Type: application/json
 
 All License API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.11/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/ent/iam-api/#passing-an-authentication-token).
 
 The License API also requires authorization via the following permissions:
 
@@ -48,11 +48,11 @@ The License API also requires authorization via the following permissions:
 
 All routes can also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.11/security/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/1.11/security/ent/perms-reference/).
 
 
 # API Reference
 
 The License API allows you to manage license operations on your DC/OS cluster.
 
-[api-explorer api='/1.11/api/license.yaml']
+[swagger api='/1.11/api/dcos-licensing-component-spec.yaml']

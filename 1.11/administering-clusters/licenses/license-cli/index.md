@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  License CLI
 title: License CLI
-menuWeight: 3
+menuWeight: 0
 enterprise: true
 ---
 
@@ -31,18 +31,18 @@ dcos license renew --filename <file-path>
 To retrieve licenses, run
 
 ```
-dcos license get [<license-id>] [--output <file-path>] [--decryption-key]
+dcos license get [<id>|active] [--output <file-path>] [--decryption-key]
 ```
 
-You can specify an optional path to where to store the license. Returns active license by default. Takes an optional identifier to retrieve a specific license. The `--decryption-key` flag returns the license audit data entry checksum decryption key.
+You can specify an optional path where to store the license. Returns the active license by default. Takes an optional identifier to retrieve a specific license. The `--decryption-key` flag returns the license audit data entry checksum decryption key.
 
 # Get license audit data
 
 ```
-dcos license audit get [<license-id>] [--output <file-path>] [--decrypt]
+dcos license audit get [<id>|active] [--output <file-path>] [--decrypt]
 ```
 
-You can specify an optional path to where to store the audit data. Takes optional identifier to retrieve the data generated for a specific license and can return a completely decrypted response with the `--decrypt` flag. If you return the audit data without decrypting, you can use the `dcos license get --decryption-key` command to retrieve the decryption key and manually decrypt the data.
+You can specify an optional path where to store the audit data. Takes an optional identifier to retrieve the data generated for a specific license and can return a completely decrypted response with the `--decrypt` flag. If you return the audit data without decrypting, you can use the `dcos license get --decryption-key` command to retrieve the decryption key and manually decrypt the data.
 
 # Get license status
 

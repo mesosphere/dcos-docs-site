@@ -24,7 +24,37 @@ paths:
           description: Response body contains service version.
         503:
           description: Service Unavailable.
-  /license/{id}:
+  /licenses:
+    get:
+      summary: Read all licenses.
+      description: Read all licenses.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Response body contains a list of license documents.
+          schema:
+            $ref: "#/definitions/Licenses"
+        403:
+          description: Forbidden.
+    post:
+      summary: Post a new license.
+      description: Post a new active license.
+      consumes:
+        - application/octet-stream
+      parameters:
+        - name: License document.
+          description: License base64 encoded encrypted document.
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/License"
+      responses:
+        204:
+          description: License updated.
+        403:
+          description: Forbidden.
+  /licenses/{id}:
     get:
       summary: Read a license document by id.
       description: Read a license document by id.
@@ -45,74 +75,81 @@ paths:
           description: Forbidden.
         404:
           description: License not found.
-  /license:
+  /licenses/active:
     get:
-      summary: Read active license document.
-      description: Read active license document.
+      summary: Read the active license document.
+      description: Read the active license document.
       produces:
         - application/json
       responses:
         200:
-          description: Response body contains license document.
+          description: Response body contains the active license document.
           schema:
             $ref: "#/definitions/License"
         403:
           description: Forbidden.
-    patch:
-      summary: Update license.
-      description: Update active license.
-      consumes:
-        - application/octet-stream
-      parameters:
-        - name: License document.
-          description: License base64 encoded encrypted document.
-          in: body
-          required: true
-          schema:
-            $ref: "#/definitions/License"
-      responses:
-        204:
-          description: License updated.
-        403:
-          description: Forbidden.
-  /license/events:
+        404:
+          description: License not found.
+  /status:
     get:
-      summary: Returns summary of licensing events.
+      summary: Returns summary of licensing state.
       produces:
         - application/json
       responses:
         200:
           description: License events summary.
           schema:
-            $ref: "#/definitions/Events"
-  /license/audit:
+            $ref: "#/definitions/Status"
+  /audit:
     get:
-      summary: Get audit data archive tar file.
+      summary: Get all audit data in an archive tar file.
       produces:
-        - application/gzip
+        - application/x-tar
+      parameters:
+        - name: decrypt
+          description: Include decrypted public license
+          in: query
+          type: integer
       responses:
         200:
           description: Response contains all history of license data.
-  /license/audit/{id}:
+  /audit/{id}:
     get:
       summary: Get license audit file by Id.
       produces:
-        - application/json
+        - application/x-tar
       parameters: 
         - name: id
           description: The license id.
           in: path
           required: true
           type: string
+        - name: decrypt
+          description: Include decrypted public license
+          in: query
+          type: integer
       responses:
         200:
           description: Response contains all license data by id.
+  /audit/active:
+    get:
+      summary: Get license audit file for active license.
+      produces:
+        - application/x-tar
+      parameters:
+        - name: decrypt
+          description: Include decrypted public license
+          in: query
+          type: integer
+      responses:
+        200:
+          description: Response contains all license data for active license.
       
 definitions:
   License:
     type: object
     properties:
-      uuid:
+      id:
         type: string
         description: License unique Id.
       version:
@@ -124,23 +161,30 @@ definitions:
           node_capacity:
             type: integer
             description: Maximum number of nodes allowed.
-          end_date:
+          end_timestamp:
             type: string
-            format: date
-            description: License expiraton date.
-          start_date:
+            format: date-time
+            description: License expiraton timestamp.
+          start_timestamp:
             type: string
-            format: date
-            description: License start date.
+            format: date-time
+            description: License start timestamp.
       decryption_key:
         type: string
         format: base64
         description: License audit data checksum decryption key.
     additionalProperties: false
-  Events:
+  Licenses:
+    type: array
+    items:
+      type: object
+      properties:
+        schema:
+          $ref: "#/definitions/License"
+  Status:
     type: object
     properties:
-      uuid:
+      active_id:
         type: string
         description: Active license uuid.
       number_of_breaches:
@@ -152,15 +196,15 @@ definitions:
       node_capacity:
         type: integer
         description: Maximum number of nodes allowed.
-      end_date:
+      end_timestamp:
         type: string
-        format: date
-        description: License expiraton date.
-      start_date:
+        format: date-time
+        description: License expiraton timestamp.
+      start_timestamp:
         type: string
-        format: date
-        description: License start date.
-      timestamp:
+        format: date-time
+        description: License start timestamp.
+      current_timestamp:
         type: string
         format: date-time
         description: Server response timestamp.
