@@ -17,7 +17,7 @@ Remove a configured cluster from the DC/OS CLI.
 # Usage
 
 ```bash
-dcos cluster remove <name>
+dcos cluster remove [<name> | <cluster-id> | --all] 
 ```
 
 # Positional arguments
@@ -25,6 +25,8 @@ dcos cluster remove <name>
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
 | `<name>`   |             | DC/OS cluster name. |
+| `<cluster-id>`   |   | DC/OS cluster ID.  |
+| --all   |   |  Remove all DC/OS clusters. |
 
 # Parent command
 
