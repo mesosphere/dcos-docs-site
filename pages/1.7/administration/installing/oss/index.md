@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Installing DC/OS Open Source
 navigationTitle: Installing DC/OS Open Source
-menuWeight: 1
+menuWeight: 0
 oss: true
 ---
 

@@ -4,7 +4,7 @@ excerpt:
 title: Using Jenkins on DC/OS
 navigationTitle: Jenkins
 menuWeight: 6
-oss: true
+
 ---
 
 [Jenkins][jenkins-website] is a popular, open source continuous integration

@@ -5,7 +5,6 @@ title: Master Routes
 menuWeight: 10
 excerpt:
 
-enterprise: true
 ---
 
 Admin Router runs on DC/OS master nodes and exposes the following API routes.

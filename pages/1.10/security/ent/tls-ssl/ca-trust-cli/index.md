@@ -12,7 +12,6 @@ excerpt: >
   brief procedure to ensure that the DC/OS
   CLI trusts only your DC/OS CA and
   refuses connections with other parties.
-preview: true
 enterprise: true
 ---
 
@@ -33,4 +32,3 @@ By default, the DC/OS CLI does not verify the signer of TLS certificates. We rec
    ```bash
    [core.ssl_verify]: changed from 'False' to '/path/dcos-ca.crt'
    ```
-

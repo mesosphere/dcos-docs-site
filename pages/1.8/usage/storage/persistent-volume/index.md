@@ -89,7 +89,7 @@ For a complete example, see the [Running stateful MySQL on Marathon](#stateful-s
 1. Create a new service via the web interface in **Services** > **Deploy Service**.
 1. Click the **Volumes** tab.
 1. Choose the size of the volume or volumes you will use. Be sure that you choose a volume size that will fit the needs of your application; you will not be able to modify this size after you launch your application.
-1. Specify the container path from which your application will read and write data. The container path must be non-nested and cannot contain slashes e.g. `data`, but not  `../../../etc/opt` or `/user/data/`. If your application requires such a container path, [use this configuration](#nested-paths).
+1. Specify the container path from which your application will read and write data. The container path must be non-nested and cannot contain slashes e.g. `data`, but not  `../../../etc/opt` or `/user/data/`. If your application requires such a container path, [use this configuration](#abs-paths).
 1. Click **Create**.
 
 # Scaling stateful applications

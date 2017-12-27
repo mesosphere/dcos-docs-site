@@ -5,7 +5,6 @@ title: Logging
 menuWeight: 5
 excerpt:
 
-enterprise: true
 ---
 
 

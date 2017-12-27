@@ -1,11 +1,13 @@
 ---
-post_title: >
-  Reinitializing the Secret Store with a
-  custom GPG keypair
-menu_order: 4
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+  layout: layout.pug
+  navigationTitle:  >
+  title: >
+    Reinitializing the Secret Store with a
+    custom GPG keypair
+  menuWeight: -1
+  excerpt:
+
+  enterprise: true
 ---
 
 **Prerequisites:**
@@ -13,7 +15,7 @@ enterprise: 'yes'
 - [DC/OS CLI installed](/1.10/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
 - [GNU Privacy Guard (GPG) installed](http://brewformulas.org/Gnupg)
-- If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.10/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-dcos-enterprise-only) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. [SSH into your master](/1.10/administering-clusters/sshcluster/).
 

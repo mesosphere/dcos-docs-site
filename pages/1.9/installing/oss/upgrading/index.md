@@ -12,7 +12,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 
 **Important:**
 
-- Review the [release notes](https://dcos.io/releases/) before upgrading DC/OS.
+- Review the [release notes](/1.9/release-notes/) before upgrading DC/OS.
 - The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
 - The [VIP features](/1.9/networking/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
 - Virtual networks require minimum Docker version 1.11. For more information, see the [documentation](/1.9/networking/virtual-networks/).

@@ -295,6 +295,7 @@ cluster_docker_credentials:
     'https://registry.example.com/v1/':
       auth: foo
       email: user@example.com
+cluster_docker_credentials_enabled: true
 cluster_docker_credentials_dcos_owned: false
 cluster_docker_registry_url: https://registry.example.com
 cluster_name: <cluster-name>
@@ -336,4 +337,3 @@ cosmos_config:
   staged_package_storage_uri: file:///var/lib/dcos/cosmos/staged-packages
   package_storage_uri: file:///var/lib/dcos/cosmos/packages
 ```
-

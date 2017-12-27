@@ -9,7 +9,6 @@ excerpt: >
   DC/OS Enterprise, create Certificate
   Signing Requests (CSRs), and have the
   DC/OS CA sign CSRs.
-preview: true
 enterprise: true
 ---
 

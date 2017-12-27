@@ -34,7 +34,7 @@ You will revisit the topic of load balancing and the different choices for load 
   * Check that it is running using `dcos task` and identify the IP address of the public agent node (Host) where Marathon-LB is running
     * WARNING: If you started your cluster using a cloud provider ( especially AWS ) `dcos task` might show you the private IP address of the host, which is not resolvable from outside the cluster. If the marathon-lb task has an [RFC1918](https://en.wikipedia.org/wiki/Private_network) address beginning with 192.168 or 10 then this is the private IP address.
 
-      In that case, you need to retrieve the public IP from your cloud provider. For AWS, go to the EC2 dashboard and search using the search box for the private IP assigned to the marathon-lb task shown by 'dcos task'. The public IP will be listed in the IPv4 Public IP field for the returned instance.
+      In that case, you need to retrieve the public IP from your cloud provider. For AWS, go to the EC2 dashboard and search using the search box for the private IP assigned to the marathon-lb task shown by `dcos task`. The public IP will be listed in the IPv4 Public IP field for the returned instance.
 
   * Connect to the webapp (from your local machine) via `<Public IP>:10000`. You should see a rendered version of the web page including the physical node and port app2 is running on.
   * Use the web form to add a new Key:Value pair

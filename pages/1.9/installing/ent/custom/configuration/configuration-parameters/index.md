@@ -13,11 +13,11 @@ This topic provides all available configuration parameters. Except where explici
 | Parameter                              | Description                                                                                                                                               |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](#agent-list)                             | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.9/overview/concepts/#private-agent-node) host names.                  |
-| [aws_template_storage_bucket](#aws-template-storage-bucket)            | The name of your S3 bucket.                                                                                                      |
-| [aws_template_storage_bucket_path](#aws-template-storage-bucket-path)       | The S3 bucket storage path.                                                                                                      |
-| [aws_template_upload](#aws-template-upload)                    | Indicates whether to automatically upload the customized advanced templates to your S3 bucket.                                             |
-| [aws_template_storage_access_key_id](#aws-template-storage-access-key-id)     | The AWS [Access Key ID](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).    |
-| [aws_template_storage_secret_access_key](#aws-template-storage-secret-access-key) | The AWS [Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html). |
+| aws_template_storage_bucket            | The name of your S3 bucket.                                                                                                      |
+| aws_template_storage_bucket_path     | The S3 bucket storage path.                                                                                                      |
+| aws_template_upload                    | Indicates whether to automatically upload the customized advanced templates to your S3 bucket.                                             |
+| aws_template_storage_access_key_id     | The AWS [Access Key ID](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).    |
+| aws_template_storage_secret_access_key | The AWS [Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html). |
 | [bootstrap_url](#bootstrap-url)                          | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files.                                         |
 | [cluster_docker_credentials](#cluster-docker-credentials)             | The dictionary of Docker credentials to pass.                                                                                      |
 | [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
@@ -63,15 +63,15 @@ This topic provides all available configuration parameters. Except where explici
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)            |[enterprise type="inline" size="small" /] Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) |[enterprise type="inline" size="small" /] Sets the auth token time-to-live (TTL) for Identity and Access Management.                                      |
-| [customer_key](#customer-key-enterpriseenterprise-)                       |[enterprise type="inline" size="small" /] (required) The DC/OS Enterprise customer key.                                                                     |
-| [oauth_enabled](#oauth-enabled)                      | [oss type="inline" size="small" /] Indicates whether to enable authentication for your cluster.                                                               |
+| [customer_key](#customer-key-enterprise)                       |[enterprise type="inline" size="small" /] (required) The DC/OS Enterprise customer key.                                                                     |
+| [oauth_enabled](#oauth-enabled-open-source)                      | [oss type="inline" size="small" /] Indicates whether to enable authentication for your cluster.                                                               |
 | [security](#security-enterprise)                           |[enterprise type="inline" size="small" /] The security mode: disabled, permissive, or strict.                                                      |
 | [ssh_key_path](#ssh-key-path)                       | The path to the installer uses to log into the target nodes.                                                                      |
 | [ssh_port](#ssh-port)                           | The port to SSH to, for example 22.                                                                                               |
 | [ssh_user](#ssh-user)                           | The SSH username, for example `centos`.                                                                                           |
 | [superuser_password_hash](#superuser-password-hash-enterprise)            |[enterprise type="inline" size="small" /] (Required) The hashed superuser password.                                                               |
 | [superuser_username](#superuser-username-enterprise)                 |[enterprise type="inline" size="small" /] (Required) The user name of the superuser.                                                              |
-| [telemetry_enabled](#telemetry-enabled-enterprise)                  | Indicates whether to enable sharing of anonymous data for your cluster.                                                                     |
+| [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.                                                                     |
 | [zk_super_credentials](#zk-superuser)            |[enterprise type="inline" size="small" /] The ZooKeeper superuser credentials.  |
 | [zk_master_credentials](#zk-master)          |[enterprise type="inline" size="small" /] The ZooKeeper master credentials.  |
 | [zk_agent_credentials](#zk-agent)           |[enterprise type="inline" size="small" /] The ZooKeeper agent credentials. |
@@ -261,7 +261,7 @@ The amount of time to wait before removing stale Docker images stored on the age
 ### enable_docker_gc
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.9/installing/cloud/) template installations.
+*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.9/installing/ent/cloud/) template installations.
 *  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.9/installing/ent/custom/) installations.
 
 ### exhibitor_storage_backend

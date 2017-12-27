@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Installing DC/OS Enterprise
 navigationTitle: Installing DC/OS Enterprise
-menuWeight: 0
+menuWeight: 1
 excerpt:
 
 enterprise: true

@@ -5,7 +5,6 @@ title: Monitoring
 menuWeight: 6
 excerpt:
 
-enterprise: true
 ---
 
 

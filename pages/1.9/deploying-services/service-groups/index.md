@@ -12,7 +12,7 @@ You can implement fine-grained user access to services using either the DC/OS GU
 
 The [Marathon permissions](/1.9/security/ent/perms-reference/#marathon) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
 
-[Marathon permissions](/1.9/security/ent/perms-reference/#marathon) and [Mesos permissions](/1.9/security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique. 
+[Marathon permissions](/1.9/security/ent/perms-reference/#marathon-metronome) and [Mesos permissions](/1.9/security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique. 
 
 **Prerequisites:** 
 
