@@ -23,7 +23,7 @@ Secrets should include paths, unless you want to allow all services to access it
 ### DC/OS GUI
 - The `dcos:superuser` permission.
 
-### [DC/OS CLI](/1.10/cli/) or [Secrets API](/1.10/security/ent/secrets/secrets-api/)
+### DC/OS CLI or Secrets API
 
 - See [Secret Store Permissions](/1.10/security/ent/perms-reference/#secrets) for the permissions needed to create secrets from the CLI or API. The permissions you configure must include the name of the secret the user is allowed to create. You must have one permission per secret. The secret name and permission name must match.
 

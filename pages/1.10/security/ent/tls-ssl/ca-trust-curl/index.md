@@ -8,7 +8,7 @@ excerpt: >
   should use `--cacert dcos-ca.crt` in
   your curl commands in `permissive` and
   `strict` security modes.
-preview: true
+
 enterprise: true
 ---
 
