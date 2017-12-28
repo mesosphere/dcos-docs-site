@@ -10,14 +10,14 @@ enterprise: true
 
 You can implement fine-grained user access to services using either the DC/OS GUI or the API.
 
-The [Marathon permissions](/1.9/security/ent/perms-reference/#marathon) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
+The [Marathon permissions](/1.9/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
 
-[Marathon permissions](/1.9/security/ent/perms-reference/#marathon-metronome) and [Mesos permissions](/1.9/security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique. 
+[Marathon permissions](/1.9/security/ent/perms-reference/#marathon-metronome-metronome) and [Mesos permissions](/1.9/security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique. 
 
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- A [user account](/1.9/security/users-groups/) to assign permissions to.
+- A [user account](/1.9/security/ent/users-groups/) to assign permissions to.
 - If your [security mode](/1.9/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 # <a name="root-service"></a>Granting access to a service

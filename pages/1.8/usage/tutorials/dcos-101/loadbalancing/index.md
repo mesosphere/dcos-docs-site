@@ -37,6 +37,3 @@ The two load balancing options in DC/OS offer different advantages and drawbacks
 
    * [Marathon-LB](/1.8/usage/service-discovery/marathon-lb/) is a layer 7 load balancer that is mostly used for external requests. It is based on the well-known HAProxy load balancer and uses Marathon’s event bus to update its configuration in real time. Being a layer 7 load balancer, it supports session-based features such as HTTP sticky sessions and zero-downtime deployments.
    * [Named VIPS](/1.8/usage/service-discovery/load-balancing-vips/) is layer 4 load balancer used for internal TCP traffic. As it’s tightly integrated with the kernel, it provides a load balanced IP address which can be used from anywhere within the cluster.
-
-
-Furthermore, there are also other [3rd party solutions](/1.8/usage/service-discovery/third-party-solution/) that can provide load-balancing on top of DC/OS.

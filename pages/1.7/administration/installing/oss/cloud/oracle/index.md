@@ -314,7 +314,7 @@ If all goes well you can now access the [DC/OS Dashboard](/1.7/usage/webinterfac
 - [Use your cluster][3]
 
 [1]: /1.7/usage/cli/install/
-[2]: /1.7/administration/user-management/
+[2]: /1.7/administration/id-and-access-mgt/oss/managing-authentication/#user-management
 [3]: /1.7/usage/
 [install_public_slave.sh]: /1.7/administration/installing/oss/cloud/oracle/install_public_slave.sh
 [orchestration-generator.sh]: /1.7/administration/installing/oss/cloud/oracle/orchestration-generator.sh

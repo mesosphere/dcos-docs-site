@@ -182,7 +182,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
            
            ![DC/OS CLI](/1.8/usage/tutorials/img/tweeter-cli.png)
    
-   1.  Configure service authentication for [Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/universe-service-auth/). 
+   1.  Configure service authentication for [Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/mlb-auth/). 
         
         1.  Create a public-private key pair by using the security CLI.
             

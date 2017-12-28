@@ -19,7 +19,7 @@ The DC/OS CA bundle is located on any master node at the file system path `/run/
 
 **Tip:** For simplification and to more easily use the curl commands provided elsewhere in the documentation, you can rename the file from `ca-bundle.crt` to e.g., `dcos-ca.crt`.
 
-# <a name="#curl"></a>Using curl to retrieve the DC/OS CA bundle
+# <a name="curl"></a>Using curl to retrieve the DC/OS CA bundle
 
 **Warning:** If you are using `curl` to retrieve the DC/OS CA bundle, you must use the `-k`/`--insecure` flag. If the communication is performed through HTTPS, this flag disables server certificate verification. This allows for a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack), where a malicious party in the network path could send a bad CA bundle, causing
 you to trust entities from outside your DC/OS cluster.

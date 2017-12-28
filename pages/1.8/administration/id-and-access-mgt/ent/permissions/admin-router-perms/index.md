@@ -37,7 +37,7 @@ The following tables identify and discuss each of the Admin Router permissions.
   </tr>
   <tr>
     <td colspan="2">
-    Grants a user access to the read-only endpoints of the <a href="/1.8/administration/tls-ssl/ent/#api">DC/OS Certificate Authority API</a> and the read-only <code>dcos security cluster ca</code> commands of the <a href="/1.8/usage/cli/enterprise-cli/">DC/OS Enterprise CLI</a>.
+    Grants a user access to the read-only endpoints of the <a href="/1.8/administration/tls-ssl/ent/ca-api/">DC/OS Certificate Authority API</a> and the read-only <code>dcos security cluster ca</code> commands of the <a href="/1.8/usage/cli/enterprise-cli/">DC/OS Enterprise CLI</a>.
     </td>
   </tr>
 </table>
@@ -62,7 +62,7 @@ The following tables identify and discuss each of the Admin Router permissions.
   </tr>
   <tr>
     <td colspan="2">
-    Grants a user access to all endpoints of the <a href="/1.8/administration/tls-ssl/ent/#api">DC/OS Certificate Authority API</a> and all of the <code>dcos security cluster ca</code> commands of the <a href="/1.8/usage/cli/enterprise-cli/">DC/OS Enterprise CLI</a>.
+    Grants a user access to all endpoints of the <a href="/1.8/administration/tls-ssl/ent/ca-api/">DC/OS Certificate Authority API</a> and all of the <code>dcos security cluster ca</code> commands of the <a href="/1.8/usage/cli/enterprise-cli/">DC/OS Enterprise CLI</a>.
     </td>
   </tr>
 </table>

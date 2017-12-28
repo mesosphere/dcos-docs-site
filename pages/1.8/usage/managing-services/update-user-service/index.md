@@ -13,7 +13,7 @@ enterprise: false
 
 The [DC/OS CLI][1] Marathon sub-command allows you to easily view and update the configuration of existing services that you have created.
 
-**Note:** The process for updating packages from the [DC/OS Universe](/1.8/usage/webinterface/#-a-name-universe-a-universe) is different. Visit the [Managing Services](/1.8/usage/managing-services/config-universe-service/) section for more information.
+**Note:** The process for updating packages from the [DC/OS Universe](/1.8/usage/webinterface/#universe) is different. Visit the [Managing Services](/1.8/usage/managing-services/config-universe-service/) section for more information.
 
 ## Update an Environment Variable
 

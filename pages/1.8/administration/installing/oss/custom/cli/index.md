@@ -399,5 +399,5 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [7]: /1.8/administration/installing/oss/custom/uninstall/
  [8]: /1.8/usage/
  [9]: /1.8/administration/installing/oss/custom/troubleshooting/
- [10]: /1.8/administration/id-and-access-mgt/ent/user-management/
+ [10]: /1.8/administration/id-and-access-mgt/oss/user-management/
  [11]: /1.8/administration/installing/oss/custom/convert-agent-type/

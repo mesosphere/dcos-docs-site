@@ -193,7 +193,7 @@ Then, replace `private-key` with your private key.
 
 For more information about setting an expiration time for your token using the PyJWT library, reference the [PyJWT documentation](https://pyjwt.readthedocs.io/en/latest/usage.html).
 
-Continue to the [next section](#req-auth-token).
+Continue to the [next section](#req-auth-tok).
 
 
 # <a name="req-auth-tok"></a>Request an authentication token

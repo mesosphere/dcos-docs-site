@@ -17,6 +17,9 @@ Each Universe service installs with a set of default parameters. You can discove
 
     ```bash
     dcos package describe --config marathon
+    ```
+
+    ```json
     {
      "properties": {
         "application": {
@@ -26,24 +29,26 @@ Each Universe service installs with a set of default parameters. You can discove
             "minimum": 0.0,
             "type": "number"
          },
-        ...
+       }
+       ...
         "mem": {
           "default": 1024.0,
           "description": "Memory (MB) to allocate to each Marathon task.",
           "minimum": 512.0,
           "type": "number"
-         },
-         ...
+        }
+      }
+      ...
     }
     ```
 
-2.  Create a JSON configuration file. You can choose an arbitrary name, but you might want to choose a pattern like `<package-name>-config.json`. For example, `marathon-config.json`.
+1.  Create a JSON configuration file. You can choose an arbitrary name, but you might want to choose a pattern like `<package-name>-config.json`. For example, `marathon-config.json`.
 
-    ```bash
-    nano marathon-config.json
-    ```
+      ```bash
+      nano marathon-config.json
+      ```
 
-3.  Use the `properties` objects (see [Discovering the default parameters](#discover-defaults)) to build your JSON options file. For example, to change the number of Marathon CPU shares to 3 and memory allocation to 2048:
+3.  Use the `properties` objects to build your JSON options file. For example, to change the number of Marathon CPU shares to 3 and memory allocation to 2048:
 
     ```json
     {

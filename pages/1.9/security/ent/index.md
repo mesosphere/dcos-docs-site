@@ -171,7 +171,7 @@ At a minimum, we recommend using spaces to restrict service access to secrets.
 
 One aspect of spaces involves service and job groups. You can put services and jobs into groups in any security mode. This can help users find the jobs or services that pertain to them.
 
-In `strict` and `permissive` security modes, you can use [permissions](/1.9/security/ent/perms-reference/#marathon-metronome) to restrict user's access on a per service/job or service/job group basis.
+In `strict` and `permissive` security modes, you can use [permissions](/1.9/security/ent/perms-reference/#marathon-metronome-metronome) to restrict user's access on a per service/job or service/job group basis.
 
 To learn how to do this, see [Controlling user access to services](/1.9/deploying-services/service-groups/) and [Controlling user access to jobs](/1.9/deploying-jobs/job-groups/).
 

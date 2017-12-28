@@ -16,7 +16,7 @@ To continuously improve the DC/OS experience, a telemetry component is included 
 - [User interface telemetry](#user-interface)
 
 # <a name="core"></a>Core telemetry
-The DC/OS [Signal](/1.8/overview/components/#signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
+The DC/OS [Signal](/1.8/overview/components/) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
 
 The information collected by the Signal component is separated into these categories: Diagnostics, Mesos, and Package service.
 
@@ -77,14 +77,14 @@ For each category this data is collected:
 
 ## Diagnostics
 
-This information is collected from the DC/OS [Diagnostics](/1.8/overview/components/#diagnostics) component. For every systemd unit, the following information is collected, where `<UNIT_NAME>` is component name:
+This information is collected from the DC/OS [Diagnostics](/1.8/overview/components/) component. For every systemd unit, the following information is collected, where `<UNIT_NAME>` is component name:
 
 ```
 "health-unit-dcos-<UNIT_NAME>-total": 3, "health-unit-dcos-<UNIT_NAME>-unhealthy": 0,
 ```
 
 ## Mesos
-This information is collected from the DC/OS [Mesos Master](/1.8/overview/components/#mesos-master) component.
+This information is collected from the DC/OS [Mesos Master](/1.8/overview/components/) component.
 
 <table class="table">
 <tr>
@@ -117,7 +117,7 @@ This information is collected from the DC/OS [Mesos Master](/1.8/overview/compon
 
 
 ## Package service
-This information is collected from the DC/OS [Package service](/1.8/overview/components/#package-service) component.
+This information is collected from the DC/OS [Package service](/1.8/overview/components/) component.
 
 <table class="table">
 <tr>
@@ -148,12 +148,12 @@ Here is an example of the JSON telemetry report that is collected:
             "clusterId": "70b28f00-e38f-41b2-a723-aab344f535b9",
             "customerKey": "",
             "environmentVersion": "1.8",
-            “package_list”: [
+            "package_list": [
             {
-            “name”: “kafka”
+            "name": "kafka"
             },
             {
-            “name”: “spark”
+            "name": "spark"
             }
             ],
             "provider": "aws",
