@@ -10,10 +10,10 @@
 // Service Docs
 if paths[0] === 'services' && paths[1]
   - items = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
-  - var servicesDropdown = items.children.filter(x => x.id.startsWith('v'))
+  - var servicesDropdown = items.children
   - dropdown = servicesDropdown
   - service = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
-  if paths[2] && paths[2].startsWith('v')
+  if paths[2]
     - versionTitle = paths[2]
     - items = hierarchy.findByPath('/' + paths[0] + '/' + paths[1] + '/' + paths[2])
 
