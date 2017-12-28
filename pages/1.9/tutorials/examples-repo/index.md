@@ -2,7 +2,7 @@
 layout: layout.pug
 excerpt:
 title: DC/OS Service Tutorials
-menuWeight: 200
+menuWeight: 7
 ---
 
 
