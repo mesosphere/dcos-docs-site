@@ -108,7 +108,7 @@ A user with the necessary permissions can configure a service to use a secret us
 
 1. Save the file with a descriptive name, such as `myservice.json`.
 
-1. Use the Marathon REST API to deploy the app as shown below.
+1. Use the Marathon API to deploy the app as shown below.
 
   ```bash
   curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"

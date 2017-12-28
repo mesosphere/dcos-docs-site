@@ -316,7 +316,7 @@ The following tables identify and discuss each of the Admin Router permissions.
      Controls the ability to access the native Marathon instance via:<br/>
      &#x25cf; The <b>Services</b> tab of the DC/OS web interface. This permission toggles the view of the <b>Services</b> tab in the DC/OS web interface on and off.<br/>
      &#x25cf; The <code>dcos marathon</code> commands of the <a href="/1.8/usage/cli/">DC/OS CLI</a>.<br/>
-     &#x25cf; The <a href="/1.8/usage/managing-services/rest-api/">Marathon REST API</a>.<br/>
+     &#x25cf; The <a href="/1.8/usage/managing-services/rest-api/">Marathon API</a>.<br/>
      In <code>disabled</code> mode, this permission does not just grant access to the native Marathon instance, it also grants access to the Marathon services. In <code>permissive</code> and <code>strict</code> modes, the user will need this permission as well as <a href="/1.8/administration/id-and-access-mgt/ent/permissions/user-service-perms/#marathon">user service permissions</a> to access the services.
     </td>
   </tr>

@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 You can control DC/OS access by resource and operation.
-See [Permission Management](/1.11/security/perms-management/) for details how to control permissions.
+See [Permissions Management](/1.11/security/ent/perms-management/) for details how to control permissions.
 
 This topic provides a reference for each of the available DC/OS permissions.
 

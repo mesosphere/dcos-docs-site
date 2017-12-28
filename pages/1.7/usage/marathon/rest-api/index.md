@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon REST API
-title: Marathon REST API
+navigationTitle:  Marathon API
+title: Marathon API
 menuWeight: 40
 excerpt:
 

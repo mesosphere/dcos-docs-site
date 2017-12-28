@@ -140,7 +140,7 @@ If your service includes a scheduler and you are running in `strict` [security m
        </tr>
      </table>
 
-See [Assigning permissions](/1.8/administration/id-and-access-mgt/ent/permissions/assigning-perms/) for information on the mechanics of assigning the permissions.
+See [Assigning Permissions](/1.8/administration/id-and-access-mgt/ent/permissions/assigning-perms/) for information on the mechanics of assigning the permissions.
 
 Beyond the above, you must review the permissions reference information located in the following sections.
 

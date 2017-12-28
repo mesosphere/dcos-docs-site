@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: DC/OS Package Management API
+title: Package Management API
 menuWeight: 10
 excerpt:
 
@@ -13,7 +13,7 @@ The [DC/OS Package Manager (Cosmos) component](/1.10/overview/architecture/compo
 
 For information about managing package repositories, see [Managing Package Repositories](/1.10/administering-clusters/repo/).
 
-For information about managing services, see [Managing Services](/1.10/deploying-services/).
+For information about managing services, see [Deploying Services and Pods](/1.10/deploying-services/).
 
 
 ## Routes
@@ -26,7 +26,7 @@ Admin Router proxies three routes to the DC/OS Package Manager (Cosmos):
 | `/capabilities` | `/capabilities` |
 
 
-## Authorization (Enterprise Only)
+## Authentication
 
 All Package Management API routes require authentication to use.
 
@@ -42,7 +42,7 @@ The Package Management API also requires authorization via the following permiss
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.10/security/ent/perms-reference/).
+To assign permissions to your account, see [Permissions Reference](/1.10/security/ent/perms-reference/).
 
 
 ## Resources

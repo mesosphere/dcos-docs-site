@@ -48,7 +48,7 @@ DC/OS agent nodes can be designated as [public](/1.7/overview/concepts/#public-a
     }
     ```
 
-    For more information about the `acceptedResourceRoles` parameter, see the Marathon REST API [documentation](https://mesosphere.github.io/marathon/docs/rest-api.html).
+    For more information about the `acceptedResourceRoles` parameter, see the Marathon API [documentation](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
 1.  Add the your app to Marathon by using this command:
 

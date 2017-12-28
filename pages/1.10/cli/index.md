@@ -56,9 +56,9 @@ dcos --version
 
 DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files. 
 
-DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. In DC/OS CLI 0.4.x you can optionally change the location of the configuration file using the [`DCOS_CONFIG`](#dcos-config) environment variable.
+DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. In DC/OS CLI 0.4.x you can optionally change the location of the configuration file using the [`DCOS_CONFIG`](#dcos_config) environment variable.
 
-DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-dir) environment variable.
+DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos_dir) environment variable.
 
 **Note:**
 - Updating to the DC/OS CLI 0.5.x and running any CLI command triggers conversion from the old to the new configuration structure. 
@@ -69,7 +69,7 @@ DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by de
 The DC/OS CLI supports the following environment variables, which can be set dynamically.
 
 <a name="dcos-cluster"></a>
-#### `DCOS_CLUSTER` (DC/OS CLI O.5.x only)
+#### `DCOS_CLUSTER` (DC/OS CLI O.5.x and higher only)
 
 The [attached](/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
 
@@ -88,11 +88,12 @@ export DCOS_CONFIG=/home/jdoe/config/dcos.toml
 
 If you have the `DCOS_CONFIG` environment variable configured:
 
-- After conversion to the [new configuration structure](#configuration-files), `DCOS_CONFIG` is no longer honored.
+- After conversion to the [new configuration structure](#dcos-cli-version-and-configuration), `DCOS_CONFIG` is no longer honored.
 - Before you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
 
+
 <a name="dcos-dir"></a>
-#### `DCOS_DIR` (DC/OS CLI O.5.x only)
+#### `DCOS_DIR` (DC/OS CLI O.5.x and higher only)
 
 The path to a DC/OS configuration directory. If you want the DC/OS configuration directory to be `/home/jdoe/config`, set the variable with the command:
 
