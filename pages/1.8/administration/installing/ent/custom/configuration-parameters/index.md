@@ -330,19 +330,19 @@ If you’ve already installed your cluster and would like to disable this in-pla
 
 ### zk_super_credentials
  
-This parameter specifies the ZooKeeper superuser credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc-ZooKeeperAccessControl). 
+This parameter specifies the ZooKeeper superuser credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html#sc_ZooKeeperAccessControl). 
 
 For more information see the [example](#secure-cluster).
 
 ### zk_master_credentials
  
-This parameter specifies the ZooKeeper master credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc-ZooKeeperAccessControl). 
+This parameter specifies the ZooKeeper master credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html#sc_ZooKeeperAccessControl). 
 
 For more information see the [example](#secure-cluster).
 
 ### zk_agent_credentials
  
-This parameter specifies the ZooKeeper agent credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#sc-ZooKeeperAccessControl). 
+This parameter specifies the ZooKeeper agent credentials. This protects access to Mesos, DC/OS Marathon, Identity and Access Management, Package service, and other cluster metadata. It is recommended that you specify a non-default value. For more information about ZooKeeper passwords, see the [documentation](https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html#sc_ZooKeeperAccessControl). 
 
 For more information see the [example](#secure-cluster).
 
