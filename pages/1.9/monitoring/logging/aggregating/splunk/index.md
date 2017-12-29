@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Log Management with ELK
 excerpt:
 title: Log Management with ELK
-menuWeight: 1
+menuWeight: 3
 ---
 
 You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document does not explain how to setup and configure an Elasticsearch server.
