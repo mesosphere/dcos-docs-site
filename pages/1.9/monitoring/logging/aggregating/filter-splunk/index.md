@@ -1,185 +1,99 @@
 ---
 layout: layout.pug
-navigationTitle:  Log Management with ELK
-excerpt:
-title: Log Management with ELK
+navigationTitle:  Filtering Logs with Splunk
+title: Filtering Logs with Splunk
 menuWeight: 4
+excerpt:
+enterprise: false
 ---
 
-You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document does not explain how to setup and configure an Elasticsearch server.
+The file system paths of DC/OS task logs contain information such as the agent ID, framework ID, and executor ID. You can use this information to filter the log output for specific tasks, applications, or agents.
 
-These instructions are based on CentOS 7 and might differ substantially from other Linux distributions.
+**Prerequisite**
 
-**Important:**
-- This document describes how to directly stream from Filebeat into Elasticsearch. Logstash is not used in this architecture. If you're interested in filtering, parsing and grok'ing the logs with an intermediate Logstash stage, see the Logstash [documentation][8] and the example in [Filtering logs with ELK][3].
-- This document does not describe how to set up secure TLS communication between the Filebeat instances and Elasticsearch. For details on how to achieve this, see the [Filebeat][2] and [Elasticsearch][5] documentation.
+*   [A Splunk installation that aggregates DC/OS logs][1]
 
-**Prerequisites**
+# <a name="configuration"></a>Configuration
 
-*   An existing Elasticsearch installation that can ingest data for indexing.
-*   All DC/OS nodes must be able to connect to your Elasticsearch server on the port used for communication between Elasticsearch and Filebeat (9200 by default).
+You can configure Splunk either by using the Splunk [Web UI][2] or by editing the [props.conf file][3].
 
-# <a name="all"></a>Step 1: All nodes
+## <a name="splunkui"></a>Splunk Web UI
 
-For all nodes in your DC/OS cluster:
+1.  Navigate to **Settings** -> **Fields** -> **Field Extractions** -> **New**.
+2.  Fill out the form with the following:
 
-1.  Install Elastic's [Filebeat][2].
+    *   Destination app: `search`
+    *   Name: `dcos_task` (or any unique, meaningful name for the extraction)
+    *   Apply to `source` named `/var/lib/mesos/slave/...`
+    *   Type: `Inline`
+    *   Extraction/Transform:
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.0-x86_64.rpm
-    sudo rpm -vi filebeat-5.0.0-x86_64.rpm
-    ```
+        /var/lib/mesos/slave/slaves/(?<agent>[^/]+)/frameworks/(?<framework>[^/]+)/executors/(?<executor>[^/]+)/runs/(?<run>[^/]+)/.* in source
 
-1.  Create the `/var/log/dcos` directory:
+3.  Click **Save**.
 
-    ```bash
-    sudo mkdir -p /var/log/dcos
-    ```
-1.  Move the default Filebeat configuration file to a backup copy:
+4.  In the Field Extractions view, find the extraction you just created and set the permissions appropriately.
 
-    ```bash
-    sudo mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.BAK
-    ```
-    
-1.  Populate a new `filebeat.yml` configuration file, including an additional input entry for the file `/var/log/dcos/dcos.log`. The additional log file will be used to capture the DC/OS logs in a later step. Remember to substitute the variables `$ELK_HOSTNAME` and `$ELK_PORT` below for the actual values of the host and port where your Elasticsearch is listening on.
+The `agent`, `framework`, `executor`, and `run` fields should now be available to use in search queries and appear in the fields associated with Mesos task log events.
 
-    ```bash
-    filebeat.prospectors:
-    - input_type: log
-      paths:
-        - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stdout*
-        - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stderr*
-        - /var/log/mesos/*.log
-        - /var/log/dcos/dcos.log
-    tail_files: true
-    output.elasticsearch:
-      hosts: ["$ELK_HOSTNAME:$ELK_PORT"]
-    ```
+## <a name="propsconf"></a>props.conf
 
-# <a name="master"></a>Step 2a: Master nodes
+1.  Add the following entry to `props.conf` (see the [Splunk documentation][4] for details):
 
-For each master node in your DC/OS cluster:
+    [source::/var/lib/mesos/slave/...]
+    EXTRACT = /var/lib/mesos/slave/slaves/(?<agent>[^/]+)/frameworks/(?<framework>[^/]+)/executors/(?<executor>[^/]+)/runs/(?<run>[^/]+)/.* in source
 
-1.  Create a script that parses the output of the DC/OS master `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
+2.  Run the following search in the Splunk Web UI to ensure the changes take effect:
 
-    **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
+    extract reload=true
 
-    ```bash
-    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF
-    [Unit]
-    Description=DCOS journalctl parser to filebeat
-    Wants=filebeat.service
-    After=filebeat.service
-    
-    [Service]
-    Restart=always
-    RestartSec=5
-    ExecStart=/bin/sh -c '/usr/bin/journalctl --no-tail -f \
-    -u dcos-3dt.service \
-    -u dcos-3dt.socket \
-    -u dcos-adminrouter-reload.service \
-    -u dcos-adminrouter-reload.timer \
-    -u dcos-adminrouter.service \
-    -u dcos-bouncer.service \
-    -u dcos-ca.service \
-    -u dcos-cfn-signal.service \
-    -u dcos-cosmos.service \
-    -u dcos-download.service \
-    -u dcos-epmd.service \
-    -u dcos-exhibitor.service \
-    -u dcos-gen-resolvconf.service \
-    -u dcos-gen-resolvconf.timer \
-    -u dcos-history.service \
-    -u dcos-link-env.service \
-    -u dcos-logrotate-master.timer \
-    -u dcos-marathon.service \
-    -u dcos-mesos-dns.service \
-    -u dcos-mesos-master.service \
-    -u dcos-metronome.service \
-    -u dcos-minuteman.service \
-    -u dcos-navstar.service \
-    -u dcos-networking_api.service \
-    -u dcos-secrets.service \
-    -u dcos-setup.service \
-    -u dcos-signal.service \
-    -u dcos-signal.timer \
-    -u dcos-spartan-watchdog.service \
-    -u dcos-spartan-watchdog.timer \
-    -u dcos-spartan.service \
-    -u dcos-vault.service \
-    -u dcos-logrotate-master.service \
-    > /var/log/dcos/dcos.log 2>&1'
-    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
-    
-    [Install]
-    WantedBy=multi-user.target
-    EOF
-    ```
+The `agent`, `framework`, `executor`, and `run` fields should now be available to use in search queries and appear in the fields associated with Mesos task log events.
 
-# <a name="agent"></a>Step 2b: Agent nodes
+# <a name="usage"></a>Usage example
 
-For each agent node in your DC/OS cluster:
+1. In the Splunk web UI, type `framework=*` into the Search field. This will show all of the events where the `framework` field is defined:
 
-1.  Create a script that parses the output of the DC/OS agent `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
+   ![Splunk Framework Exists](/1.9/img/splunk-framework-exists.png)
 
-    **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
+1. Click the disclosure triangle next to one of these events to view the details. This will show all of the fields extracted from the task log file path:
 
-    ```bash
-    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF 
-    [Unit]
-    Description=DCOS journalctl parser to filebeat
-    Wants=filebeat.service
-    After=filebeat.service
-    
-    [Service]
-    Restart=always
-    RestartSec=5
-    ExecStart=/bin/sh -c '/usr/bin/journalctl --no-tail -f \
-    -u dcos-3dt.service \
-    -u dcos-logrotate-agent.timer \
-    -u dcos-3dt.socket \
-    -u dcos-mesos-slave.service \
-    -u dcos-adminrouter-agent.service \
-    -u dcos-minuteman.service \
-    -u dcos-adminrouter-reload.service \
-    -u dcos-navstar.service \
-    -u dcos-adminrouter-reload.timer \
-    -u dcos-rexray.service \
-    -u dcos-cfn-signal.service \
-    -u dcos-setup.service \
-    -u dcos-download.service \
-    -u dcos-signal.timer \
-    -u dcos-epmd.service \
-    -u dcos-spartan-watchdog.service \
-    -u dcos-gen-resolvconf.service \
-    -u dcos-spartan-watchdog.timer \
-    -u dcos-gen-resolvconf.timer \
-    -u dcos-spartan.service \
-    -u dcos-link-env.service \
-    -u dcos-vol-discovery-priv-agent.service \
-    -u dcos-logrotate-agent.service \
-    > /var/log/dcos/dcos.log 2>&1'
-    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
-    
-    [Install]
-    WantedBy=multi-user.target
-    EOF
-    ```
+   ![Splunk Fields](/1.9/img/splunk-fields.png)
 
-# <a name="all-3"></a>Step 3: All nodes
+1. Search for all of the events that reference the framework ID of the event shown in the screenshot above, but that do not contain the chosen `framework` field. This will show us only non-task results:
 
-1.  For all nodes, start and enable the Filebeat log parsing services created above:
+   ![Splunk Framework Search](/1.9/img/splunk-framework-search.png)
 
-    ```bash
-    sudo chmod 0755 /etc/systemd/system/dcos-journalctl-filebeat.service
-    sudo systemctl daemon-reload
-    sudo systemctl enable dcos-journalctl-filebeat.service
-    sudo systemctl start dcos-journalctl-filebeat.service
-    sudo systemctl enable filebeat
-    sudo systemctl start filebeat
-    ```
+# <a name="templates"></a>Template examples
 
-[2]: https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html
-[3]: ../filter-elk/
-[5]: https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
-[8]: https://www.elastic.co/guide/en/logstash/current/index.html
+Here are example query templates for aggregating the DC/OS logs with Splunk. Replace the template parameters `$executor1`, `$framework2`, and any others with actual values from your cluster.
+
+**Important:** Do not change the quotation marks in these examples or the queries will not work. If you create custom queries, be careful with the placement of quotation marks.
+
+*   Logs related to a specific executor `$executor1`, including logs for tasks run from that executor:
+
+        "$executor1"
+
+*   Non-task logs related to a specific executor `$executor1`:
+
+        "$executor1" AND NOT executor=$executor1
+
+*   Logs (including task logs) for a framework `$framework1`, if `$executor1` and `$executor2` are that framework's executors:
+
+        "$framework1" OR "$executor1" OR "$executor2"
+
+*   Non-task logs for a framework `$framework1`, if `$executor1` and `$executor2` are that framework's executors:
+
+        ("$framework1" OR "$executor1" OR "$executor2") AND NOT (framework=$framework1 OR executor=$executor1 OR executor=$executor2)
+
+*   Logs for a framework `$framework1` on a specific agent host `$agent_host1`:
+
+        host=$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2")
+
+*   Non-task logs for a framework `$framework1` on a specific agent `$agent1` with host `$agent_host1`:
+
+        host=$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2") AND NOT agent=$agent
+
+ [1]: ../splunk/
+ [2]: #splunkui
+ [3]: #propsconf
+ [4]: http://docs.splunk.com/Documentation/Splunk/latest/admin/Propsconf

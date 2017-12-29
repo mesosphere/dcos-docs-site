@@ -1,185 +1,142 @@
 ---
 layout: layout.pug
-navigationTitle:  Log Management with ELK
-excerpt:
-title: Log Management with ELK
+navigationTitle:  Log Management with Splunk
+title: Log Management with Splunk
 menuWeight: 3
+excerpt:
+enterprise: false
 ---
 
-You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document does not explain how to setup and configure an Elasticsearch server.
+You can pipe system and application logs from a DC/OS cluster to your existing Splunk server. This document describes how to configure a Splunk universal forwarder to send output from each node to a Splunk installation. This document does not explain how to set up and configure a Splunk server.
 
-These instructions are based on CentOS 7 and might differ substantially from other Linux distributions.
-
-**Important:**
-- This document describes how to directly stream from Filebeat into Elasticsearch. Logstash is not used in this architecture. If you're interested in filtering, parsing and grok'ing the logs with an intermediate Logstash stage, see the Logstash [documentation][8] and the example in [Filtering logs with ELK][3].
-- This document does not describe how to set up secure TLS communication between the Filebeat instances and Elasticsearch. For details on how to achieve this, see the [Filebeat][2] and [Elasticsearch][5] documentation.
+These instructions are based on CoreOS and might differ substantially from other Linux distributions. 
 
 **Prerequisites**
 
-*   An existing Elasticsearch installation that can ingest data for indexing.
-*   All DC/OS nodes must be able to connect to your Elasticsearch server on the port used for communication between Elasticsearch and Filebeat (9200 by default).
+*   An existing Splunk installation that can ingest data for indexing.
+*   All DC/OS nodes must be able to connect to your Splunk indexer via HTTP or HTTPS.
+*   The `ulimit` of open files must be set to `unlimited` for your user with root access.
 
-# <a name="all"></a>Step 1: All nodes
+# Step 1: All nodes
 
 For all nodes in your DC/OS cluster:
 
-1.  Install Elastic's [Filebeat][2].
+1.  Install Splunk's [universal forwarder][2].
+2.  Make sure the forwarder has the credentials it needs to send data to the indexer.
+3.  Start the forwarder.
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.0-x86_64.rpm
-    sudo rpm -vi filebeat-5.0.0-x86_64.rpm
-    ```
-
-1.  Create the `/var/log/dcos` directory:
-
-    ```bash
-    sudo mkdir -p /var/log/dcos
-    ```
-1.  Move the default Filebeat configuration file to a backup copy:
-
-    ```bash
-    sudo mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.BAK
-    ```
-    
-1.  Populate a new `filebeat.yml` configuration file, including an additional input entry for the file `/var/log/dcos/dcos.log`. The additional log file will be used to capture the DC/OS logs in a later step. Remember to substitute the variables `$ELK_HOSTNAME` and `$ELK_PORT` below for the actual values of the host and port where your Elasticsearch is listening on.
-
-    ```bash
-    filebeat.prospectors:
-    - input_type: log
-      paths:
-        - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stdout*
-        - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stderr*
-        - /var/log/mesos/*.log
-        - /var/log/dcos/dcos.log
-    tail_files: true
-    output.elasticsearch:
-      hosts: ["$ELK_HOSTNAME:$ELK_PORT"]
-    ```
-
-# <a name="master"></a>Step 2a: Master nodes
+# Step 2: Master nodes
 
 For each master node in your DC/OS cluster:
 
-1.  Create a script that parses the output of the DC/OS master `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
+1.  Create a script `$SPLUNK_HOME/bin/scripts/journald-master.sh` that will obtain the Mesos master logs from `journald`.
 
-    **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
+      **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
 
-    ```bash
-    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF
-    [Unit]
-    Description=DCOS journalctl parser to filebeat
-    Wants=filebeat.service
-    After=filebeat.service
-    
-    [Service]
-    Restart=always
-    RestartSec=5
-    ExecStart=/bin/sh -c '/usr/bin/journalctl --no-tail -f \
-    -u dcos-3dt.service \
-    -u dcos-3dt.socket \
-    -u dcos-adminrouter-reload.service \
-    -u dcos-adminrouter-reload.timer \
-    -u dcos-adminrouter.service \
-    -u dcos-bouncer.service \
-    -u dcos-ca.service \
-    -u dcos-cfn-signal.service \
-    -u dcos-cosmos.service \
-    -u dcos-download.service \
-    -u dcos-epmd.service \
-    -u dcos-exhibitor.service \
-    -u dcos-gen-resolvconf.service \
-    -u dcos-gen-resolvconf.timer \
-    -u dcos-history.service \
-    -u dcos-link-env.service \
-    -u dcos-logrotate-master.timer \
-    -u dcos-marathon.service \
-    -u dcos-mesos-dns.service \
-    -u dcos-mesos-master.service \
-    -u dcos-metronome.service \
-    -u dcos-minuteman.service \
-    -u dcos-navstar.service \
-    -u dcos-networking_api.service \
-    -u dcos-secrets.service \
-    -u dcos-setup.service \
-    -u dcos-signal.service \
-    -u dcos-signal.timer \
-    -u dcos-spartan-watchdog.service \
-    -u dcos-spartan-watchdog.timer \
-    -u dcos-spartan.service \
-    -u dcos-vault.service \
-    -u dcos-logrotate-master.service \
-    > /var/log/dcos/dcos.log 2>&1'
-    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
-    
-    [Install]
-    WantedBy=multi-user.target
-    EOF
-    ```
+        #!/bin/sh
 
-# <a name="agent"></a>Step 2b: Agent nodes
+        exec journalctl --since=now -f     \
+        -u dcos-diagnostics.service        \
+        -u dcos-diagnostics.socket         \
+        -u dcos-adminrouter-reload.service \
+        -u dcos-adminrouter-reload.timer   \
+        -u dcos-adminrouter.service        \
+        -u dcos-bouncer.service            \
+        -u dcos-ca.service                 \
+        -u dcos-cfn-signal.service         \
+        -u dcos-cosmos.service             \
+        -u dcos-download.service           \
+        -u dcos-epmd.service               \
+        -u dcos-exhibitor.service          \
+        -u dcos-gen-resolvconf.service     \
+        -u dcos-gen-resolvconf.timer       \
+        -u dcos-history.service            \
+        -u dcos-link-env.service           \
+        -u dcos-logrotate-master.timer     \
+        -u dcos-marathon.service           \
+        -u dcos-mesos-dns.service          \
+        -u dcos-mesos-master.service       \
+        -u dcos-metronome.service          \
+        -u dcos-minuteman.service          \
+        -u dcos-navstar.service            \
+        -u dcos-networking_api.service     \
+        -u dcos-secrets.service            \
+        -u dcos-setup.service              \
+        -u dcos-signal.service             \
+        -u dcos-signal.timer               \
+        -u dcos-spartan-watchdog.service   \
+        -u dcos-spartan-watchdog.timer     \
+        -u dcos-spartan.service            \
+        -u dcos-vault.service              \
+        -u dcos-logrotate-master.service
+
+2.  Make the script executable:
+
+        chmod +x "$SPLUNK_HOME/bin/scripts/journald-master.sh"
+
+3.  Add the script as an input to the forwarder:
+
+        "$SPLUNK_HOME/bin/splunk" add exec \
+            -source "$SPLUNK_HOME/bin/scripts/journald-master.sh" \
+            -interval 0
+
+# Step 3: Agent nodes
 
 For each agent node in your DC/OS cluster:
 
-1.  Create a script that parses the output of the DC/OS agent `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
-
+1.  Create a script `$SPLUNK_HOME/bin/scripts/journald-agent.sh` that will obtain the Mesos agent logs from `journald`.
+    
     **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
 
-    ```bash
-    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF 
-    [Unit]
-    Description=DCOS journalctl parser to filebeat
-    Wants=filebeat.service
-    After=filebeat.service
-    
-    [Service]
-    Restart=always
-    RestartSec=5
-    ExecStart=/bin/sh -c '/usr/bin/journalctl --no-tail -f \
-    -u dcos-3dt.service \
-    -u dcos-logrotate-agent.timer \
-    -u dcos-3dt.socket \
-    -u dcos-mesos-slave.service \
-    -u dcos-adminrouter-agent.service \
-    -u dcos-minuteman.service \
-    -u dcos-adminrouter-reload.service \
-    -u dcos-navstar.service \
-    -u dcos-adminrouter-reload.timer \
-    -u dcos-rexray.service \
-    -u dcos-cfn-signal.service \
-    -u dcos-setup.service \
-    -u dcos-download.service \
-    -u dcos-signal.timer \
-    -u dcos-epmd.service \
-    -u dcos-spartan-watchdog.service \
-    -u dcos-gen-resolvconf.service \
-    -u dcos-spartan-watchdog.timer \
-    -u dcos-gen-resolvconf.timer \
-    -u dcos-spartan.service \
-    -u dcos-link-env.service \
-    -u dcos-vol-discovery-priv-agent.service \
-    -u dcos-logrotate-agent.service \
-    > /var/log/dcos/dcos.log 2>&1'
-    ExecStartPre=/usr/bin/journalctl --vacuum-size=10M
-    
-    [Install]
-    WantedBy=multi-user.target
-    EOF
-    ```
+        #!/bin/sh
 
-# <a name="all-3"></a>Step 3: All nodes
+            journalctl --since="now" -f              \
+            -u dcos-diagnostics.service              \
+            -u dcos-logrotate-agent.timer            \
+            -u dcos-diagnostics.socket               \
+            -u dcos-mesos-slave.service              \
+            -u dcos-adminrouter-agent.service        \
+            -u dcos-minuteman.service                \
+            -u dcos-adminrouter-reload.service       \
+            -u dcos-navstar.service                  \
+            -u dcos-adminrouter-reload.timer         \
+            -u dcos-rexray.service                   \
+            -u dcos-cfn-signal.service               \
+            -u dcos-setup.service                    \
+            -u dcos-download.service                 \
+            -u dcos-signal.timer                     \
+            -u dcos-epmd.service                     \
+            -u dcos-spartan-watchdog.service         \
+            -u dcos-gen-resolvconf.service           \
+            -u dcos-spartan-watchdog.timer           \
+            -u dcos-gen-resolvconf.timer             \
+            -u dcos-spartan.service                  \
+            -u dcos-link-env.service                 \
+            -u dcos-vol-discovery-priv-agent.service \
+            -u dcos-logrotate-agent.service
 
-1.  For all nodes, start and enable the Filebeat log parsing services created above:
+2.  Make the script executable:
 
-    ```bash
-    sudo chmod 0755 /etc/systemd/system/dcos-journalctl-filebeat.service
-    sudo systemctl daemon-reload
-    sudo systemctl enable dcos-journalctl-filebeat.service
-    sudo systemctl start dcos-journalctl-filebeat.service
-    sudo systemctl enable filebeat
-    sudo systemctl start filebeat
-    ```
+        chmod +x "$SPLUNK_HOME/bin/scripts/journald-agent.sh"
 
-[2]: https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html
-[3]: ../filter-elk/
-[5]: https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
-[8]: https://www.elastic.co/guide/en/logstash/current/index.html
+3.  Add the script as an input to the forwarder:
+
+        "$SPLUNK_HOME/bin/splunk" add exec \
+            -source "$SPLUNK_HOME/bin/scripts/journald-agent.sh" \
+            -interval 0
+
+4.  Add the task logs as inputs to the forwarder:
+
+        "$SPLUNK_HOME/bin/splunk" add monitor '/var/lib/mesos/slave' \
+            -whitelist '/stdout$|/stderr$'
+
+# Known issue
+
+*   The agent node Splunk forwarder configuration expects tasks to write logs to `stdout` and `stderr`. Some DC/OS services, including Cassandra and Kafka, do not write logs to `stdout` and `stderr`. If you want to log these services, you must customize your agent node Splunk forwarder configuration.
+
+# What's next
+
+For details on how to filter your logs with Splunk, see [Filtering logs with Splunk][3].
+
+ [2]: http://www.splunk.com/en_us/download/universal-forwarder.html
+ [3]: ../filter-splunk/
