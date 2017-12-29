@@ -46,8 +46,10 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
               "minimum": 0,
               "type": "integer"
             }
-          },
-    ...      
+          }
+        }
+      }
+    }
     ```
 
 2.  Create a JSON configuration file with your customizations. You can choose an arbitrary name, but you might want to choose a pattern like `<package-name>-config.json`. For example, `marathon-config.json`.

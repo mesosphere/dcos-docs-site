@@ -8,7 +8,7 @@ excerpt:
 enterprise: true
 ---
 
-You can implement fine-grained user access to jobs by using either the DC/OS GUI or the API. The [Metronome permissions](/1.9/security/ent/perms-reference/#marathon-metronome-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
+You can implement fine-grained user access to jobs by using either the DC/OS GUI or the API. The [Metronome permissions](/1.9/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.  
 
 **Prerequisites:** 
 

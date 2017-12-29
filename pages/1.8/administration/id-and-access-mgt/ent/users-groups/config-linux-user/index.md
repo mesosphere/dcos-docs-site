@@ -20,7 +20,7 @@ enterprise: true
 
 The default Linux user varies according to your security mode and the type of container the service runs inside of.
 
-- **Container type:** By default, all user services will run inside of Mesos containers. However, a user service can be configured to run inside of a Docker container instead. Please see [Deploying a Docker-based Service to Marathon](/1.8/usage/managing-services/application-basics/creating-services/deploy-docker-app/) for more information.
+- **Container type:** By default, all user services will run inside of Mesos containers. However, a user service can be configured to run inside of a Docker container instead. Please see [Deploying a Docker-based Service to Marathon](/1.8/usage/managing-services/creating-services/deploy-docker-app/) for more information.
 
 - **Security mode:** By default, DC/OS runs in `permissive` mode. Please review the [Installation section](/1.8/administration/installing/ent/custom/configuration-parameters/#security) for more information on the `security` modes.
 
