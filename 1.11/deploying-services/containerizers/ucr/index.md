@@ -61,21 +61,21 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
     "secrets": {
       "pullConfigSecret": {
         "source": "/mesos-docker/pullConfig"
-      }
-    },
-    "args":[  
-    "<my-arg>"
-    ],
-    "cpus": 0.5,
-    "disk": 0,
-    "instances": 1,
-    "mem": 128,
-    "networks": [
-      {
-      "mode": "container/bridge"
-      }
-    ],
-    "requirePorts": false
+    }
+  },
+  "args":[
+  "<my-arg>"
+  ],
+  "cpus": 0.5,
+  "disk": 0,
+  "instances": 1,
+  "mem": 128,
+  "networks": [
+    {
+    "mode": "container/bridge"
+    }
+  ],
+  "requirePorts": false
 }
 ```
 
