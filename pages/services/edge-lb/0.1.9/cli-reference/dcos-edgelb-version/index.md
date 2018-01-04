@@ -1,11 +1,12 @@
 ---
-post_title: dcos edgelb version
-menu_order: 2
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
----
+layout: layout.pug
+navigationTitle:  dcos edgelb version
+title: dcos edgelb version
+menuWeight: 2
+excerpt:
 
+enterprise: false
+---
 
 # Description
 Edge-LB version.

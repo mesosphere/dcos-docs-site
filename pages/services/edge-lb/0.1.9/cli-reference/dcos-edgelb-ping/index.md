@@ -1,11 +1,12 @@
 ---
-post_title: dcos edgelb ping
-menu_order: 3
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
----
+layout: layout.pug
+navigationTitle:  dcos edgelb ping
+title: dcos edgelb ping
+menuWeight: 3
+excerpt:
 
+enterprise: false
+---
 
 # Description
 Test the readiness of the Edge-LB API server.

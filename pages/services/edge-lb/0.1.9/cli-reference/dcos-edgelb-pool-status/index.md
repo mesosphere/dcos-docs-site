@@ -1,11 +1,12 @@
 ---
-post_title: dcos edgelb pool status
-menu_order: 2
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
----
+layout: layout.pug
+navigationTitle:  dcos edgelb pool status
+title: dcos edgelb pool status
+menuWeight: 2
+excerpt:
 
+enterprise: false
+---
 
 # Description
 Edge-LB pool status information.

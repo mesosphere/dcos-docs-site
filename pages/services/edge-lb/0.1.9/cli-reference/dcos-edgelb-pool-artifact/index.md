@@ -1,9 +1,11 @@
 ---
-post_title: dcos edgelb pool artifact
-menu_order: 8
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  dcos edgelb pool artifact
+title: dcos edgelb pool artifact
+menuWeight: 8
+excerpt:
+
+enterprise: false
 ---
 
 # Description

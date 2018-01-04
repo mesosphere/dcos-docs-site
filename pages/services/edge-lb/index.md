@@ -1,9 +1,11 @@
 ---
-post_title: Edge-LB
-menu_order: 35
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Edge-LB
+title: Edge-LB
+menuWeight: 35
+excerpt:
+
+enterprise: false
 ---
 
 Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides both North-South (external to internal) and East-West (internal to internal) load balancing.

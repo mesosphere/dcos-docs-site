@@ -1,11 +1,12 @@
 ---
-post_title: dcos edgelb config
-menu_order: 2
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
----
+layout: layout.pug
+navigationTitle:  dcos edgelb config
+title: dcos edgelb config
+menuWeight: 2
+excerpt:
 
+enterprise: false
+---
 
 # Description
 View or update Edge-LB configuration.

@@ -1,9 +1,11 @@
 ---
-post_title: CLI Reference
-menu_order: 70
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  CLI Reference
+title: CLI Reference
+menuWeight: 70
+excerpt:
+
+enterprise: false
 ---
 
 # Description

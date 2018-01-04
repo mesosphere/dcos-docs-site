@@ -1,9 +1,11 @@
 ---
-post_title: dcos edgelb pool delete
-menu_order: 6
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  dcos edgelb pool delete
+title: dcos edgelb pool delete
+menuWeight: 6
+excerpt:
+
+enterprise: false
 ---
 
 # Description

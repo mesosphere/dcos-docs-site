@@ -1,11 +1,12 @@
 ---
-post_title: dcos edgelb pool list
-menu_order: 4
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
----
+layout: layout.pug
+navigationTitle:  dcos edgelb pool list
+title: dcos edgelb pool list
+menuWeight: 4
+excerpt:
 
+enterprise: false
+---
 
 # Description
 List pool names.

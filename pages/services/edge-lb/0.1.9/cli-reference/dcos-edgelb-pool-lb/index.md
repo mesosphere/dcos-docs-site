@@ -1,9 +1,11 @@
 ---
-post_title: dcos edgelb pool lb
-menu_order: 7
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  dcos edgelb pool lb
+title: dcos edgelb pool lb
+menuWeight: 7
+excerpt:
+
+enterprise: false
 ---
 
 # Description

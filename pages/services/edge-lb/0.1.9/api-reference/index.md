@@ -1,9 +1,11 @@
 ---
-post_title: Edge-LB API Reference
-menu_order: 80
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Edge-LB API Reference
+title: Edge-LB API Reference
+menuWeight: 80
+excerpt:
+
+enterprise: false
 ---
 
 The Edge-LB API enables users to create and manage pools of load balancers.
