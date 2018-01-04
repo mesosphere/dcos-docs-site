@@ -26,7 +26,7 @@ excerpt:
 - [New Features and Capabilities](#new-features)
 - [Breaking Changes](#breaking-changes)
 - [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.9.0](#fixed-issues)
+- [Issues Fixed since 1.10.0](#fixed-issues)
 
 # <a name="new-features"></a>New Features and Capabilities
 
