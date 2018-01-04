@@ -1,8 +1,11 @@
 ---
-post_title: Limitations
-menu_order: 100
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Limitations
+title: Limitations
+menuWeight: 100
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 Currently, the DC/OS Kubernetes package has the following limitations.

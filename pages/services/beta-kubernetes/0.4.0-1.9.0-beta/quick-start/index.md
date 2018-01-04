@@ -1,10 +1,11 @@
 ---
-post_title: Quick Start
-nav_title: Quick Start
-menu_order: 40
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Quick Start
+title: Quick Start
+menuWeight: 40
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 # Prerequisite
@@ -28,4 +29,3 @@ enterprise: 'no'
 ## Enterprise DC/OS
 
 If you are using Enterprise DC/OS, follow the same steps as for Open-Source DC/OS. However, you should read the [Install and Customize](https://docs.mesosphere.com/service-docs/beta-kubernetes/0.4.0-1.9.0-beta/install/) section for more information.
-

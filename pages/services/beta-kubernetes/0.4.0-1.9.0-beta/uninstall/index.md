@@ -1,8 +1,11 @@
 ---
-post_title: Uninstall
-menu_order: 30
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Uninstall
+title: Uninstall
+menuWeight: 10
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 <!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
