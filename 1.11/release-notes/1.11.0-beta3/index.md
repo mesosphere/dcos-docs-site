@@ -49,7 +49,7 @@ excerpt:
 ## Platform
 - Pods - added support for persistent volumes. [View the documentation](/1.11/deploying-services/pods).
 - UCR - added support for garbage collection and XXX [View the documentation](/1.11/deploying-services/containerizers).
-- Linked Clusters. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links).
+- Linked Clusters. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
 - Metrics
 
 ## GUI
