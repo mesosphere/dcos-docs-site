@@ -1,8 +1,11 @@
 ---
-post_title: Advanced Installation
-menu_order: 20
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Advanced Installation
+title: Advanced Installation
+menuWeight: 20
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 ## Prerequisites

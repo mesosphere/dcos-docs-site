@@ -1,13 +1,12 @@
 ---
-post_title: Connecting Clients
-nav_title: Connecting Clients
-menu_order: 50
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Connecting Clients
+title: Connecting Clients
+menuWeight: 50
+excerpt:
+featureMaturity:
+enterprise: false
 ---
-
-# Connecting Clients
 
 First, [install `kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) locally, in a path your session understands,
 e.g. `/usr/local/bin`.
