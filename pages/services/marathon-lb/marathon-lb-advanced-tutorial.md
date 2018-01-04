@@ -1,13 +1,9 @@
 ---
-layout: layout.pug
-navigationTitle:  >
-title: >
-  Deploying an Internally and Externally
-  Load Balanced App with Marathon-LB
-menuWeight: 200
-excerpt:
-
-enterprise: false
+post_title: Deploying an Internally and Externally Load Balanced App with Marathon-LB
+menu_order: 200
+post_excerpt: ""
+feature_maturity: ""
+enterprise: 'no'
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -17,9 +13,9 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 ## Prerequisites
 
-*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/oss/cloud/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agent and one [public](/1.10/overview/concepts/#public-agent-node) agent.
+*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/cloud/aws/) with at least three [private](/1.10/overview/concepts/#private) agent and one [public](/1.10/overview/concepts/#public-agent-node) agent.
 *   DC/OS CLI [installed][2].
-*   Marathon-LB [installed](/services/marathon-lb/usage-ee/).
+*   Marathon-LB [installed](/1.10/networking/marathon-lb/usage/).
 
 ## Deploy an external load balancer with Marathon-LB
 
@@ -46,7 +42,7 @@ Set up your internal load balancer. To do this, we must first specify some confi
 
     In this options file, we’re changing the name of the app instance and the name of the HAProxy group. The options file also disables the HTTP and HTTPS forwarding on ports 80 and 443 because it is not needed.
 
-1.  [Install](/services/marathon-lb/usage-ee/) the internal Marathon-LB instance with the custom options specified.
+1.  [Install](/1.10/networking/marathon-lb/usage/) the internal Marathon-LB instance with the custom options specified.
 
     There are now two Marathon-LB load balancers:
 
@@ -263,9 +259,9 @@ To demonstrate the vhost feature:
         ```
 
     **DC/OS GUI**
-    
-    1.  Navigate to the **Services > Services > nginx-external** service, click the vertical ellipsis at the far right, and select **Edit**.
- 
+
+    1.  Navigate to the **Services > Services > nginx-external** service and click edit.
+
     1.  Select **Environment > ADD LABEL**.
 
     1.  Enter `HAPROXY_0_VHOST` for **KEY** and specify your public agent DNS name for **VALUE**.
@@ -273,10 +269,10 @@ To demonstrate the vhost feature:
         ![Update app](/1.10/img/nginx-external-gui.png)
 
         **Important:** Do not include the leading `http://`trailing slash (`/`) in your public DNS name.
-        
-    1.  Select **REVIEW & RUN** and **RUN SERVICE**.
-    
-    The label `HAPROXY_0_VHOST`, instructs Marathon-LB to expose NGINX on the external load balancer with a virtual host. The `0` in the label key corresponds to the servicePort index, beginning from 0. 
+
+    1.  Select **Deploy**.
+
+    The label `HAPROXY_0_VHOST`, instructs Marathon-LB to expose NGINX on the external load balancer with a virtual host. The `0` in the label key corresponds to the servicePort index, beginning from 0.
 
     If you had multiple servicePort definitions, you would iterate them as 0, 1, 2, and so on. Note that if you _do_ specify a vhost, you aren't required to provide a service port, because Marathon will assign one by default.
 
@@ -285,7 +281,7 @@ To demonstrate the vhost feature:
 
     ![lb6](/1.10/img/lb6.jpg)
 
- [1]: /1.10/installing/oss/
+ [1]: /1.10/installing/
  [2]: /1.10/cli/install/
  [3]: /1.10/administering-clusters/locate-public-agent/
  [4]: /1.10/administering-clusters/sshcluster/

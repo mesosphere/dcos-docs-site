@@ -54,11 +54,11 @@ To install Marathon-LB from the Catalog in `disabled` and `permissive` modes, lo
 
 **Prerequisites:**
 
-- Marathon-LB requires a service account in `strict` [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/1.10/networking/marathon-lb/mlb-auth/) for instructions.
+- Marathon-LB requires a service account in `strict` [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise). Only someone with the `superuser` permission can create the service account. Refer to [Provisioning Marathon-LB](/services/marathon-lb/mlb-auth/) for instructions.
 
 - [DC/OS CLI installed](/1.10/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
 
-The parameters shown in [Provisioning Marathon-LB](/1.10/networking/marathon-lb/mlb-auth/) are required to install Marathon-LB. You may wish to modify other default values before installing the service. To view the configuration options and defaults of Marathon-LB, type the following command.
+The parameters shown in [Provisioning Marathon-LB](/services/marathon-lb/mlb-auth/) are required to install Marathon-LB. You may wish to modify other default values before installing the service. To view the configuration options and defaults of Marathon-LB, type the following command.
 
 ```bash
 dcos package describe --config marathon-lb
@@ -72,9 +72,9 @@ dcos package install --options=config.json marathon-lb
 
 # Next steps
 
-- [Tutorial - Deploying a Load Balanced App with Marathon-LB](/1.10/networking/marathon-lb/marathon-lb-basic-tutorial/)
-- [Tutorial - Using Marathon-LB for Internal and External Load Balancing](/1.10/networking/marathon-lb/marathon-lb-advanced-tutorial/)
-- See the advanced Marathon-LB [documentation](/1.10/networking/marathon-lb/advanced/).
+- [Tutorial - Deploying a Load Balanced App with Marathon-LB](/services/marathon-lb/marathon-lb-basic-tutorial/)
+- [Tutorial - Using Marathon-LB for Internal and External Load Balancing](/services/marathon-lb/marathon-lb-advanced-tutorial/)
+- See the advanced Marathon-LB [documentation](/services/marathon-lb/advanced/).
 
  [1]: /1.10/installing/oss/
  [2]: /1.10/cli/install/

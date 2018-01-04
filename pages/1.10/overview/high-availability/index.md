@@ -1,11 +1,9 @@
 ---
-layout: layout.pug
-navigationTitle:  High Availability
-title: High Availability
-menuWeight: 6
-excerpt:
-
-enterprise: false
+post_title: High Availability
+menu_order: 6
+post_excerpt: ""
+feature_maturity: ""
+enterprise: 'no'
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
@@ -29,7 +27,7 @@ Marathon can be run in HA mode, which allows running multiple Marathon instances
 
 #### ZooKeeper
 
-ZooKeeper is used by numerous services in DC/OS to provide consistency. ZooKeeper can be used as a distributed locking service, a state store, and a messaging system. ZooKeeper uses [Paxos-like](https://en.wikipedia.org/wiki/Paxos_(computer_science)) log replication and a leader/follower architecture to maintain consistency across multiple ZooKeeper instances. For a more detailed explanation of how ZooKeeper works, check out the [ZooKeeper internals document](https://zookeeper.apache.org/doc/r3.4.8/zookeeperInternals.html).
+ZooKeeper is used by numerous services in DC/OS to provide consistency. ZooKeeper can be used as a distributed locking service, a state store, and a messaging system. ZooKeeper uses [Paxos-like](https://en.wikipedia.org/wiki/Paxos_(computer_science&#41;) log replication and a leader/follower architecture to maintain consistency across multiple ZooKeeper instances. For a more detailed explanation of how ZooKeeper works, check out the [ZooKeeper internals document](https://zookeeper.apache.org/doc/r3.4.8/zookeeperInternals.html).
 
 # Fault Domain Isolation
 Fault domain isolation is an important part of building HA systems. To correctly handle failure scenarios, systems must be distributed across fault domains to survive outages. There are different types of fault domains, a few examples of which are:
@@ -37,7 +35,7 @@ Fault domain isolation is an important part of building HA systems. To correctly
  * Physical domains: this includes machine, rack, datacenter, region, and availability zone.
  * Network domains: machines within the same network may be subject to network partitions. For example, a shared network switch may fail or have invalid configuration.
 
-With DC/OS, you can distribute masters across racks for HA. Agents can be distributed across regions, and it's recommended that you tag agents with attributes to describe their location. Synchronous services like ZooKeeper should also remain within the same region to reduce network latency. For more information, see the Configuring High Availability [documentation](/1.10/installing/oss/high-availability/).
+With DC/OS, you can distribute masters across racks for HA. Agents can be distributed across regions, and it's recommended that you tag agents with attributes to describe their location. Synchronous services like ZooKeeper should also remain within the same region to reduce network latency. For more information, see the Configuring High Availability [documentation](/1.10/installing/high-availability/).
 
 For applications which require HA, they should also be distributed across fault domains. With Marathon, this can be accomplished by using the [`UNIQUE`  and `GROUP_BY` constraints operator](https://mesosphere.github.io/marathon/docs/constraints.html).
 
@@ -63,7 +61,7 @@ Fast failure detection comes in many forms. Services like ZooKeeper can be used 
 
 When failures do occur, failover [should be as fast as possible](https://en.wikipedia.org/wiki/Fail-fast). Fast failover can be achieved by:
 
- * Using an HA load balancer like [Marathon-LB](/1.10/networking/marathon-lb/), or the internal [Layer 4 load balancer](/1.10/networking/load-balancing-vips/).
+ * Using an HA load balancer like [Marathon-LB](/service-docs/marathon-lb/), or the internal [Layer 4 load balancer](/1.10/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best-practices when building services: in particular, avoiding storing client state on the server between requests.
 
