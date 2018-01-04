@@ -30,8 +30,8 @@ excerpt:
 
 # <a name="new-features"></a>New Features and Capabilities
 
-## Apache Mesos 1.4 and Marathon 1.6 Integrated.
-- DC/OS 1.11 is is based on Mesos 1.5.0. View the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
+## Apache Mesos 1.5 and Marathon 1.6 Integrated.
+- DC/OS 1.11 is is based on Mesos 1.5. View the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
 
 - DC/OS 1.11 is integrated with the latest release of Marathon, version 1.6. Resulting breaking changes and new features are documented below. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 
@@ -59,12 +59,8 @@ excerpt:
 <a name="breaking-changes"></a>
 # Breaking Changes
 
-- Upgrades not supported in 1.11 Beta 1.
-  Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Beta 1.
-
-- Marathon Networking API Changes in 1.5
-  The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md). <!-- linking to the marathon doc until I port the relevant information to the dc/os site -->
-
+- Upgrades not supported in 1.11 Beta 3.
+  Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Beta 3.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
