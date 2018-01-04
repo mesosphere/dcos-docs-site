@@ -81,7 +81,7 @@ You can view the DC/OS component details in the <a href="https://github.com/dcos
   </tr>
   <tr>
     <td>Exhibitor</td>
-    <td>This component <code>dcos-exhibitor.service</code> is the <a href="https://github.com/soabase/exhibitor">Exhibitor</a> supervisor for Zookeeper. DC/OS uses Exhibitor, a project originally from Netflix, to manage and automate the deployment of <a href="/1.8/overview/concepts/#exhibitor-for-zookeeper">ZooKeeper</a>.</td>
+    <td>This component <code>dcos-exhibitor.service</code> is the <a href="https://github.com/soabase/exhibitor">Exhibitor</a> supervisor for Zookeeper. DC/OS uses Exhibitor, a project originally from Netflix, to manage and automate the deployment of <a href="/1.8/overview/concepts/#mesos-exhibitor-zookeeper">ZooKeeper</a>.</td>
   </tr>
   <tr>
     <td>Generate resolv.conf</td>

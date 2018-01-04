@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Running Stateful Services on DC/OS
 navigationTitle: Running Stateful Services
-menuWeight: 4
+menuWeight: 2
 ---
 
 A stateful service acts on persistent data. Simple, stateless services run in an empty sandbox each time they are launched. In contrast, stateful services make use of persistent volumes that reside on agents in a cluster until explicitly destroyed.
@@ -97,7 +97,7 @@ Next, add this [service][4] to your cluster:
 
 
 ```
-dcos marathon app add /1.8/usage/tutorials/marathon/stateful-services/postgres.marathon.json
+dcos marathon app add /1.8/usage/tutorials/stateful-services/postgres.marathon.json
 ```
 
 Once the service has been scheduled and the Docker container has downloaded, PostgreSQL will become healthy and be ready to use. You can verify this from the DC/OS CLI:

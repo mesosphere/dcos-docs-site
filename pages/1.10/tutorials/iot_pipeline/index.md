@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Deploying a Load-Balanced Data Pipeline
 title: Deploying a Load-Balanced Data Pipeline
-menuWeight: 1
+menuWeight: 3
 excerpt:
 
 ---
@@ -124,7 +124,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
     ![Tweeter][14]
 
-## Post 100K Tweets
+## Post 100K tweets
 
 Deploy the post-tweets containerized app to see DC/OS load balancing in action. This app automatically posts a large number of tweets from Shakespeare. The app will post more than 100k tweets one by one, so you'll see them coming in steadily when you refresh the page.
 
@@ -145,23 +145,26 @@ Deploy the post-tweets containerized app to see DC/OS load balancing in action. 
 The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition.
 
 ```json
-
+{
   "id": "/post-tweets",
   "cmd": "bin/tweet shakespeare-tweets.json http://1.1.1.1:30000",
-...
+  ...
+}
 ```
 
 The Tweeter app uses the service discovery and load balancer service that is installed on every DC/OS node. This address is defined in the `tweeter.json` definition `VIP_0`.
 
-```bash
-...
+```json
+{
+  ...
   "containerPort": 3000,
   "hostPort": 0,
   "servicePort": 10000,
   "labels": {
     "VIP_0": "1.1.1.1:30000"
+  }
+  ...
 }
-...
 ```
 
 # DC/OS Enterprise procedure

@@ -84,12 +84,12 @@ For a complete example, see the [Running stateful MySQL on Marathon](#stateful-s
 1. Create a new service via the GUI in **Services > Services > RUN A SERVICE**.
 1. Click the Volumes tab. <!-- TODO Explain the numerous volume options -->
 1. Choose the size of the volume or volumes you will use. Be sure that you choose a volume size that will fit the needs of your application; you will not be able to modify this size after you launch your application.
-1. Specify the container path from which your application will read and write data. The container path must be non-nested and cannot contain slashes e.g. `data`, but not  `../../../etc/opt` or `/user/data/`. If your application requires such a container path, [use this configuration](#nested-paths).
-1. Click Create.
+1. Specify the container path from which your application will read and write data. The container path must be non-nested and cannot contain slashes e.g. `data`, but not  `../../../etc/opt` or `/user/data/`. If your application requires such a container path, [use this configuration](#abs-paths).
+1. Click **Create**.
 
 # Scaling stateful applications
 
-When you scale your app down, the volumes associated with the terminated instances are detached but all resources are still reserved. At this point, you may delete the tasks via the Marathon REST API, which will free reserved resources and destroy the persistent volumes.
+When you scale your app down, the volumes associated with the terminated instances are detached but all resources are still reserved. At this point, you may delete the tasks via the Marathon API, which will free reserved resources and destroy the persistent volumes.
 
 Since all the resources your application needs are still reserved when a volume is detached, you may wish to destroy detached volumes to allow other applications and frameworks to use the resources. You may wish to leave them in the detached state, however, if you think you will be scaling your app up again; the data on the volume will still be there.
 
@@ -123,7 +123,7 @@ If reserving resources or creating persistent volumes fails, the created task wi
 
 # Potential Pitfalls
 
-Be aware of the following issues and limitations when using stateful applications in Marathon that make use of dynamic resevations and persistent volumes.
+Be aware of the following issues and limitations when using stateful applications in Marathon that make use of dynamic reservations and persistent volumes.
 
 ## Resource requirements
 

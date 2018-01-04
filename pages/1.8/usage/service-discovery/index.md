@@ -21,4 +21,3 @@ DC/OS provides a number of tools out of the box for service discovery and load b
 [3]: /1.8/usage/service-discovery/marathon-lb/
 [4]: /1.8/usage/service-discovery/mesos-dns/
 [5]: /1.8/usage/service-discovery/mesos-dns/service-naming/#dns-naming
-[6]: /1.8/usage/service-discovery/third-party-solution/

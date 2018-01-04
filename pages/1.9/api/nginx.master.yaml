@@ -40,7 +40,7 @@ backends:
   metrics:
     server: 'unix:/run/dcos/dcos-metrics-master.sock'
     name: DC/OS Metrics
-    reference: 'https://docs.mesosphere.com/1.9/monitoring/metrics/metrics-api/'
+    reference: 'https://docs.mesosphere.com/1.9/metrics/metrics-api/'
   navstar:
     server: '127.0.0.1:62080'
     name: Navstar

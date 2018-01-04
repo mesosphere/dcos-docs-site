@@ -153,10 +153,10 @@ const buildSemverMap = (files) => {
   // Filter
   for(let file in files) {
     const pathParts = file.split('/');
-    if(pathParts[0] == 'services' && pathParts[2] && /v[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) == -1) {
+    if(pathParts[0] == 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) == -1) {
       versions.push(pathParts[2]);
     }
-    else if (/[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.indexOf(pathParts[0]) == -1) {
+    else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.indexOf(pathParts[0]) == -1) {
       versions.push(pathParts[0]);
     }
   }
@@ -206,7 +206,7 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
     }
     // If in /services/product/version/**
     if (pathParts[2]) {
-      let regex = /v[0-9].[0-9](.*)/g;
+      let regex = /^(v|)[0-9].[0-9](.*)/g;
       let isVersion = regex.test(pathParts[2]);
       if (isVersion) {
         record.version = product + ' ' + pathParts[2].substr(1);
@@ -217,7 +217,7 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
   }
 
   // Docs version
-  else if (/[0-9]\.[0-9](.*)/.test(pathParts[0])) {
+  else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0])) {
     product = 'DC/OS';
     record.section = 'DC/OS Docs';
     record.product = product;

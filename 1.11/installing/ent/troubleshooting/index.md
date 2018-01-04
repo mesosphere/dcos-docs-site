@@ -13,7 +13,7 @@ enterprise: false
 
 # <a name="general"></a>General troubleshooting approach
 
-1.  Verify that you have a valid IP detect﻿⁠⁠⁠⁠script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
+1.  Verify you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
     
     ## <a name="ip-detect-script"></a>IP detect script
     

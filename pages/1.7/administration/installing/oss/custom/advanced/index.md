@@ -20,7 +20,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains all the DC/OS binaries, libraries, cluster configuration. Do not modify.                                                                      |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services which start the things that make up systemd. They must live outside of `/opt/mesosphere` because of systemd constraints. |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`.         |
-| `/var/lib/zookeeper`                    | Contains the [ZooKeeper](/1.7/overview/concepts/#exhibitor-for-zookeeper) data.                                                                                      |
+| `/var/lib/zookeeper`                    | Contains the [ZooKeeper](/1.7/overview/concepts/#exhibitorforzookeeper) data.                                                                                      |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                              |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                               |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                               |
@@ -263,4 +263,4 @@ To install DC/OS:
 [7]: /1.7/overview/concepts/#private-agent-node
 [8]: /1.7/administration/installing/oss/custom/uninstall/
 [9]: /1.7/administration/installing/oss/custom/troubleshooting/
-[10]: /1.7/administration/user-management/
+[10]: /1.7/administration/id-and-access-mgt/oss/managing-authentication/#user-management

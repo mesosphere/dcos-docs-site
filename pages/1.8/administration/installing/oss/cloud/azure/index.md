@@ -108,7 +108,7 @@ See "man sudo_root" for details.
 azureuser@dcos-master-01234567-0:~$
 ```
 
-Visit `http://localhost:8000` on your local machine to access the DC/OS Dashboard. Note that if you set `Enable OAuth authentication` to `true` you'll have to first [authenticate](/1.8/administration/id-and-access-mgt/ent/managing-authentication/) using one of the three default OAuth providers (Google, GitHub, Microsoft):
+Visit `http://localhost:8000` on your local machine to access the DC/OS Dashboard. Note that if you set `Enable OAuth authentication` to `true` you'll have to first [authenticate](/1.8/administration/id-and-access-mgt/oss/managing-authentication/) using one of the three default OAuth providers (Google, GitHub, Microsoft):
 
 ![Authenticate](../img/dcos-azure-marketplace-step2c.png)
 
@@ -158,4 +158,4 @@ If you have deployed the cluster into an existing resource group, you'll need to
 [1]: /1.8/usage/cli/install/
 [3]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/
 [4]: /1.8/usage/
-[10]: /1.8/administration/id-and-access-mgt/ent/user-management/
+[10]: /1.8/administration/id-and-access-mgt/oss/user-management/

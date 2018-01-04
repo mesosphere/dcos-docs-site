@@ -20,7 +20,7 @@ These are the release notes for DC/OS 1.10.2.
 - DCOS-19009 - The DC/OS CLI can now retrieve metrics for DC/OS data services.
 - DCOS-19090 - Fixed undocumented privilege being required for setting up CLI access for a non-superuser. [enterprise type="inline" size="small" /]
 - DCOS-19383 - UI: Secrets are no longer removed from an app when non-superusers edit a Marathon service that uses secrets. [enterprise type="inline" size="small" /]
-- DCOS-19452 - The DC/OS OpenSSL library is now configured to not support TLS compression anymore (compression allows for the CRIME attack).
+- DCOS-19452 - The DC/OS OpenSSL library is now configured to not support TLS compression anymore (compression allows for the CRIME attack). [enterprise type="inline" size="small" /]
 
 # Notable changes in DC/OS 1.10.2
 
@@ -35,10 +35,10 @@ These are the release notes for DC/OS 1.10.2.
 # Issues Fixed in DC/OS 1.10.1
 
 - COPS-974 - Master node fails to start after configuration change. This was was due to tmp mountpoints being marked as noexec. Bug fixed.
-- COPS-1293 - Timeout creating service account. The timeout was due to tmp mountpoints being marked as noexec. Bug fixed.
-- DCOS-17600 - Fix security CLI secret creation following wrong secret schema. This fix clarifies which fields the secrets service stores.
+- COPS-1293 - Timeout creating service account. The timeout was due to tmp mountpoints being marked as noexec. Bug fixed. [enterprise type="inline" size="small" /]
+- DCOS-17600 - Fix security CLI secret creation following wrong secret schema. This fix clarifies which fields the secrets service stores. [enterprise type="inline" size="small" /]
 - DCOS-18212 - In the UI, the name of the containerizer runtime in the service creation form has been changed from MESOS RUNTIME to UNIVERSAL CONTAINER RUNTIME (UCR).
-- DCOS-18634 - DC/OS authenticator fails to cache Bouncer's public key, causing an increase in request rates against Bouncer's JWKS endpoint. Bug fixed.
+- DCOS-18634 - DC/OS authenticator fails to cache Bouncer's public key, causing an increase in request rates against Bouncer's JWKS endpoint. Bug fixed. [enterprise type="inline" size="small" /]
 - DCOS-18694 - Pod Endpoints protocol json parser adds 0 to json. Bug fixed.
 - DCOS-18788 - The JSON editor duplicates and fails to properly parse app definition. Bug fixed.
 - DCOS-19197 - DC/OS UI deletes environment variables with non-string values from Marathon app/pod definitions. Bug fixed.
@@ -57,11 +57,11 @@ These are the release notes for DC/OS 1.10.2.
 - CASSANDRA-457 - Redirect deprecated `/v1/nodes/connect` to `/v1/connect`.
 - CORE-849 - Support DC/OS commons services on public agents.
 - DCOS-13988 - Filter/Search Design Update.
-- DCOS-16029 - Addition of new pullConfig properties break validation.
+- DCOS-16029 - Addition of new `pullConfig` properties break validation.
 - DCOS-10863 - Launch containers on `DockerContainerizer` if network mode is "NONE".
 - DCOS_OSS-1340 - Spartan "autoip" DNS should resolve to host IP for UCR in bridge network. [enterprise type="inline" size="small" /]
 - INFINITY-1143 - Update / Uninstall. DSE does not support rolling upgrade. [enterprise type="inline" size="small" /]
-- MARATHON_EE-734 - Marathon needs to support a default "bridge" network for UCR. [enterprise type="inline" size="small" /]
+- MARATHON_EE-734 - Marathon needs to support a default "bridge" network for UCR.
 
 # About DC/OS 1.10
 
@@ -82,7 +82,6 @@ Please try out the new features and updated data services. Provide any feedback 
 - [New Features and Capabilities](#new-features)
 - [Breaking Changes](#breaking-changes)
 - [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.10.0 Beta 2](#fixed-issues)
 
 # <a name="new-features"></a>New Features and Capabilities
 
@@ -128,25 +127,25 @@ Please try out the new features and updated data services. Provide any feedback 
 ## Updated DC/OS Data Services
 
 - Rolling Configuration Update and Upgrades support via the CLI. [enterprise type="inline" size="small" /]
-- Ability to deploy Data Services into Folders to enable multi team deployments.
+- Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
 - Ability to deploy to CNI-Based Virtual Networks.
 
 The following updated data services packages are compatible with DC/OS 1.10.0.
 
 - Cassandra. [Documentation](/services/cassandra/). [Release Notes](/services/cassandra/v2.0.0-3.0.14/release-notes/).
 
-- Elastic. [Documentation](/services/elastic/). [Release Notes](service-docs/elastic/v2.0.0-5.5.1/release-notes/).
+- Elastic. [Documentation](/services/elastic/). [Release Notes](/services/elastic/2.0.1-5.5.1/release-notes/).
 
 - HDFS. [Documentation](/services/hdfs/). [Release Notes](/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/release-notes/).
 
 - Kafka. [Documentation](/services/kafka/). [Release Notes](/services/kafka/v2.0.0-0.11.0/release-notes/).
 
-- Apache Spark. [Documentation](service-docs/spark/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
+- Apache Spark. [Documentation](/services/spark/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
 
 ## Platform
 - Node and cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks.
+- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks. [enterprise type="inline" size="small" /]
 - Universal Container Runtime (UCR).
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
 - Scale and performance limits.

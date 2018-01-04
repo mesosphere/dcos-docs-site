@@ -34,7 +34,7 @@ From the DC/OS GUI you can install services from the **Services** or **Universe*
 
 ### Universe tab
 
-1.  Navigate to the [**Universe > Packages**](/1.9/gui/#universe) page in the DC/OS GUI.
+1.  Navigate to the [**Universe > Packages**](/1.9/gui/universe/) page in the DC/OS GUI.
 
     ![universe](/1.9/img/ui-dashboard-universe.gif)
 

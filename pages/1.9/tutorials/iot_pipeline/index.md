@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Deploying a Load-Balanced Data Pipeline
 title: Deploying a Load-Balanced Data Pipeline
-menuWeight: 1
+menuWeight: 3
 excerpt:
 
 ---
@@ -146,23 +146,26 @@ Deploy the post-tweets containerized app to see DC/OS load balancing in action. 
 The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition.
 
 ```json
-
+{
   "id": "/post-tweets",
   "cmd": "bin/tweet shakespeare-tweets.json http://1.1.1.1:30000",
-...
+  ...
+}
 ```
 
 The Tweeter app uses the service discovery and load balancer service that is installed on every DC/OS node. This address is defined in the `tweeter.json` definition `VIP_0`.
 
-```bash
-...
+```json
+{
+  ...
   "containerPort": 3000,
   "hostPort": 0,
   "servicePort": 10000,
   "labels": {
     "VIP_0": "1.1.1.1:30000"
+  }
+  ...
 }
-...
 ```
 
 # DC/OS Enterprise procedure
@@ -325,7 +328,7 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
  [6]: /1.9/overview/concepts/
- [7]: /1.9/installing/cloud/
+ [7]: /1.9/installing/oss/cloud/
  [8]: /1.9/installing/ent/custom/
  [9]: /1.9/administering-clusters/locate-public-agent/
  [10]: /1.9/img/webui-universe-install.png

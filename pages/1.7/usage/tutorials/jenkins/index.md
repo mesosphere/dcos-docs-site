@@ -4,7 +4,7 @@ excerpt:
 title: Using Jenkins on DC/OS
 navigationTitle: Jenkins
 menuWeight: 6
-oss: true
+
 ---
 
 [Jenkins][jenkins-website] is a popular, open source continuous integration
@@ -314,7 +314,7 @@ dcos package uninstall jenkins
 
   * [Jenkins project website][jenkins-website] (jenkins-ci.org)
   * [Jenkins service documentation][jenkins-service-docs] (mesosphere.com)
-  * [Marathon service documentation](/usage/managing-services/) (mesosphere.com)
+  * [Marathon service documentation](/1.7/usage/managing-services/) (mesosphere.com)
   * [Mesos plugin for Jenkins][jenkins-mesos-plugin] (github.com)
 
 [amazon-efs-console]: https://console.aws.amazon.com/efs/

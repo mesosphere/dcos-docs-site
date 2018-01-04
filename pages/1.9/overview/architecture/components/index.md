@@ -496,7 +496,7 @@ In a world where machines are are given numbers instead of names, tasks are sche
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="https://github.com/dcos/dcos/blob/master/packages/spartan/extra/gen_resolvconf.py">Source</a></li>
+    <li><a href="https://github.com/dcos/dcos/blob/master/packages/dcos-net/extra/gen_resolvconf.py">Source</a></li>
   </ul>
 </p>
 </div>

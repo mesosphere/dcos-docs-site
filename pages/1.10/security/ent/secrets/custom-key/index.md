@@ -1,11 +1,13 @@
 ---
-post_title: >
-  Reinitializing the Secret Store with a
-  custom GPG keypair
-menu_order: 4
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+  layout: layout.pug
+  navigationTitle:  >
+  title: >
+    Reinitializing the Secret Store with a
+    custom GPG keypair
+  menuWeight: -1
+  excerpt:
+
+  enterprise: true
 ---
 
 **Prerequisites:**

@@ -27,15 +27,17 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
             "description": "CPU shares to allocate to each Marathon instance.",
             "minimum": 0.0,
             "type": "number"
-         },
-        ...
+         }
+       }
+       ...
         "mem": {
           "default": 1024.0,
           "description": "Memory (MB) to allocate to each Marathon task.",
           "minimum": 512.0,
           "type": "number"
-         },
-         ...
+         }
+      ...
+      }
     }
     ```
 
@@ -61,4 +63,4 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
     dcos package install --options=marathon-config.json marathon
     ```
 
-For more information, see the [dcos package](/1.9/cli/command-reference/#dcospackage) documentation.
+For more information, see the [dcos package](/1.9/cli/command-reference/dcos-package/) documentation.

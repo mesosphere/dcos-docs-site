@@ -140,7 +140,7 @@ If your service includes a scheduler and you are running in `strict` [security m
        </tr>
      </table>
 
-See [Assigning permissions](/1.8/administration/id-and-access-mgt/ent/permissions/assigning-perms/) for information on the mechanics of assigning the permissions.
+See [Assigning Permissions](/1.8/administration/id-and-access-mgt/ent/permissions/assigning-perms/) for information on the mechanics of assigning the permissions.
 
 Beyond the above, you must review the permissions reference information located in the following sections.
 
@@ -193,7 +193,7 @@ Then, replace `private-key` with your private key.
 
 For more information about setting an expiration time for your token using the PyJWT library, reference the [PyJWT documentation](https://pyjwt.readthedocs.io/en/latest/usage.html).
 
-Continue to the [next section](#req-auth-token).
+Continue to the [next section](#req-auth-tok).
 
 
 # <a name="req-auth-tok"></a>Request an authentication token

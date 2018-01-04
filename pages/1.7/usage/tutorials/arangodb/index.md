@@ -4,7 +4,7 @@ excerpt:
 title: Running ArangoDB on DC/OS
 navigationTitle: ArangoDB
 menuWeight: 0
-oss: true
+
 ---
 
 ArangoDB is a distributed, multi-model database featuring JSON

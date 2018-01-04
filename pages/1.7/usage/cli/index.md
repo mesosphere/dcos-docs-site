@@ -5,7 +5,6 @@ title: CLI
 menuWeight: 2
 excerpt:
 
-enterprise: true
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon REST API
-title: Marathon REST API
+navigationTitle:  Marathon API
+title: Marathon API
 menuWeight: 40
 excerpt:
 
@@ -14,7 +14,7 @@ The Marathon API is backed by the [Marathon component](/1.9/overview/architectur
 
 One of the Marathon instances is elected as leader, while the rest are hot backups in case of failure. All API requests must go through the Marathon leader. To enforce this, Admin Router proxies requests from any master node to the Marathon leader.
 
-For more information about using Marathon, see [Managing Services](/1.9/deploying-services/).
+For more information about using Marathon, see [Deploying Services and Pods](/1.9/deploying-services/).
 
 ## Routes
 
@@ -24,7 +24,7 @@ Access to the Marathon API is proxied through the Admin Router on each master no
 /service/marathon/
 ```
 
-## Authentication (Enterprise Only)
+## Authentication
 
 Enterprise edition users must authenticate Marathon API requests.
 

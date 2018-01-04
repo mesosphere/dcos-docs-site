@@ -25,6 +25,7 @@
       padding: 0;
       margin: 0;
       display: inline;
+      overflow: hidden;
       &__title {
         color: $color-light;
         opacity: 0.6;

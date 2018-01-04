@@ -22,7 +22,7 @@ By default, Marathon starts applications and services on private agent nodes, wh
   * Install Marathon-LB: `dcos package install marathon-lb`
   * Check that it is running: `dcos task` and identify the IP adress of the public agent node (Host) where Marathon-LB is running,
     * Warning: If you started your cluster using a cloud provider (especially AWS) dcos task might show you the private ip address of the host, which is not resolvable from outside the cluster (e.g., if you see something like 10.0.4.8 it is very likely a private address).
-    In that case, you need to retrieve the public IP from your cloud provider. On AWS, go to the console and then search for the instance with the private IP shown by 'dcos task'. The public IP will be listed in the instance description as Public IP.
+    In that case, you need to retrieve the public IP from your cloud provider. On AWS, go to the console and then search for the instance with the private IP shown by `dcos task`. The public IP will be listed in the instance description as Public IP.
   * Connect to the webapp (from your local machine) via `<Public IP>:10000`. You should see a rendered version of the web page including the physical node and port app2 is running on.
   * Use the web form to add a new Key:Value pair
   * You can verify the new key was added in two ways:

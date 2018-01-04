@@ -4,7 +4,6 @@ navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 90
 excerpt:
-enterprise: true
 
 ---
 

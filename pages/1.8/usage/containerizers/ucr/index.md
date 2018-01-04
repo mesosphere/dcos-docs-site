@@ -51,7 +51,7 @@ The Mesos containerizer provides a `credential`, with a `principal` and an optio
 **Important:** If you leave the `args` field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the `args` field. If you do not, your service will fail to deploy.
 
 # Limitations
-- The UCR is considered [experimental](/1.8/overview/feature-maturity/) in DC/OS 1.8.
+- The UCR is considered <a href="/1.8/overview/feature-maturity/">experimental</a> in DC/OS 1.8.
 
 - In DC/OS 1.8, you can only specify the UCR via a JSON service definition, not from the DC/OS web interface. DC/OS 1.9 allows you to specify the UCR from the web interface.
 

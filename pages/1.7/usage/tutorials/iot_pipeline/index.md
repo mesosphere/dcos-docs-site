@@ -5,7 +5,6 @@ title: Deploying a Load-Balanced Data Pipeline
 menuWeight: 16
 excerpt:
 
-enterprise: true
 ---
 
 

@@ -13,8 +13,8 @@ enterprise: false
 
 This topic provides all available properties for Marathon application definitions and an [example JSON file with all properties shown](#example).
 
-- [Properties](#properties)
-- [Example JSON](#examples)
+- [Properties](#marathon-properties)
+- [Example JSON](#example)
 
 # Marathon Properties
 
@@ -68,7 +68,7 @@ The container information.
     
 - **volumes** The persistent volume.  
  
-    - **containerPath** The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`). If your application requires an absolute path, or a relative path with slashes, [use this configuration](#abs-paths).
+    - **containerPath** The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`). If your application requires an absolute path, or a relative path with slashes, [use this configuration](/1.9/storage/persistent-volume/#abs-paths).
     - **external** The external volume. For more information, see the [documentation](/1.9/storage/external-storage/).
         
         - **name** Name that your volume driver uses to look up your volume.

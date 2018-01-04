@@ -56,7 +56,7 @@ Content-Type: application/json
 ```
 
 
-# Auth
+# Authentication
 
 All Metrics API routes require authentication to use.
 

@@ -11,7 +11,7 @@ You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS 
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.9/installing/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.9/installing/ent/cloud/aws/advanced/).
 
 **Important:** Upgrades are not supported with this installation method.
 

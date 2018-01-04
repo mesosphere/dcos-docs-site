@@ -182,7 +182,7 @@ DC/OS Enterprise supports fine-grained workload isolation to enable multiple bus
 
 ## <a name="software-defined-networks"></a>IP per Container with Extensible Virtual Networks (SDN)
 
-DC/OS comes built-in with support Virtual Networks leveraging Container Network Interface(CNI) standard. By default, there is one Virtual Network named ‘dos’ is created and any container that attaches to a Virtual Network, receives its own dedicated IP. This allows users to run workloads that are not friendly to dynamically assigned ports and would rather bind the existing ports that is in their existing app configuration. Now, with support for dedicated IP/Container, workloads are free to bind to any port as every container has access to the entire available port range.
+DC/OS comes built-in with support Virtual Networks leveraging Container Network Interface(CNI) standard. By default, there is one virtual network named `dcos` is created and any container that attaches to a Virtual Network, receives its own dedicated IP. This allows users to run workloads that are not friendly to dynamically assigned ports and would rather bind the existing ports that is in their existing app configuration. Now, with support for dedicated IP/Container, workloads are free to bind to any port as every container has access to the entire available port range.
 
 ## <a name="network-isolation"></a>Network Isolation of Virtual Network Subnets
 

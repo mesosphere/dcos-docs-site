@@ -34,7 +34,7 @@ The following procedure will walk you through a quick tutorial to demonstrate ho
 
 - The Linux user account already exists on the agent.
 - You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/#get-dcos-cert) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user. 
 
@@ -52,7 +52,7 @@ Once you have met these prerequisites, complete the following steps to override 
   ```
   **Important:** Don't forget to replace `<your-test-user-account>` with the name of a Linux user that exists on the agent and differs from the default.
 
-1. Deploy the service using the [Marathon REST API](/1.11/deploying-services/marathon-api/).
+1. Deploy the service using the [Marathon API](/1.11/deploying-services/marathon-api/).
 
   ```bash
 curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
@@ -85,7 +85,7 @@ The following procedure will walk you through a quick tutorial to demonstrate ho
 
 - The Linux user account already exists on the agent.
 - You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/#get-dcos-cert) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user. 
 

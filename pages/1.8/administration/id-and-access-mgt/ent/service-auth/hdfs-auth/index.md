@@ -232,4 +232,4 @@ To install the service, use the following command.
 dcos package install --options=config.json hdfs
 ```
 
-You can also provide the `config.json` file to someone else to install HDFS. Please see the [HDFS documentation](/services/hdfs/vhdfs_1.3.0-2.6.0-cdh5.9.1/install/) for more information about how to use the JSON file to install the service.
+You can also provide the `config.json` file to someone else to install HDFS. Please see the [HDFS documentation](/services/hdfs/v1.3.0-2.6.0-cdh5.9.1/install/) for more information about how to use the JSON file to install the service.

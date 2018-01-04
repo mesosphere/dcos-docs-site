@@ -17,11 +17,13 @@ The Secret Store can become sealed under the following circumstances.
 
 A sealed Secret Store cannot be accessed from the GUI. Secret values cannot be retrieved using the [Secrets API](/1.9/security/ent/secrets/secrets-api/). Services that depend on values provisioned to them via environment variables may fail to deploy.
 
+<!--
 The procedure for unsealing the Secret Store differs according to the keys used to seal it.
 
 - [Unsealing a Secret Store sealed with default keys](#unseal-def-keys).
 
 - [Unsealing a Secret Store sealed with custom keys](#unseal-cust-keys).
+-->
 
 **Prerequisites:**
 

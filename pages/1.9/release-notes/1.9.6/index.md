@@ -49,7 +49,6 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 - [Breaking Changes](#breaking)
 - [What's New](#whats-new)
 - [Known Issues and Limitations](#known-issues)
-- [Issues Fixed in 1.9.5](#fixed-issues)
 
 # <a name="breaking"></a>Breaking Changes
 

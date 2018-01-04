@@ -12,7 +12,7 @@ enterprise: true
 
 This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. 
 
-The basic procedure does not support [secrets](/1.9/security/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.9/deploying-services/marathon-on-marathon/advanced/).
+The basic procedure does not support [secrets](/1.9/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.9/deploying-services/marathon-on-marathon/advanced/).
 
 **Prerequisites:**
 
