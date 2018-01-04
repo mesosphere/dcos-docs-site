@@ -1,9 +1,11 @@
 ---
-post_title: High Availability
-menu_order: 6
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  High Availability
+title: High Availability
+menuWeight: 6
+excerpt:
+
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

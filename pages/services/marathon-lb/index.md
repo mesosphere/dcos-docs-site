@@ -1,15 +1,19 @@
 ---
-post_title: Marathon-LB
-menu_order: 70
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Marathon-LB
+title: Marathon-LB
+menuWeight: 1
+excerpt:
+
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 Marathon-LB is based on HAProxy, a rapid proxy and load balancer. HAProxy provides proxying and load balancing for TCP and HTTP based applications, with features such as SSL support, HTTP compression, health checking, Lua scripting and more. Marathon-LB subscribes to Marathon’s event bus and updates the HAProxy configuration in real time.
+
+
 
 You can can configure Marathon-LB with various topologies. Here are some examples of how you might use Marathon-LB:
 

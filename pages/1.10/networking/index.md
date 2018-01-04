@@ -1,9 +1,11 @@
 ---
-post_title: Networking
-menu_order: 70
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Networking
+title: Networking
+menuWeight: 70
+excerpt:
+
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

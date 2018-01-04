@@ -1,9 +1,11 @@
 ---
-post_title: Cluster Access
-menu_order: 1
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Cluster Access
+title: Cluster Access
+menuWeight: 1
+excerpt:
+
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

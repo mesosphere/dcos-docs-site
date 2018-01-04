@@ -1,9 +1,11 @@
 ---
-post_title: Deploying a Docker-based Service
-menu_order: 100
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Deploying a Docker-based Service
+title: Deploying a Docker-based Service
+menuWeight: 100
+excerpt:
+
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

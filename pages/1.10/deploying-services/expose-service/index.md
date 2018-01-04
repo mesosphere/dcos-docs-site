@@ -1,9 +1,11 @@
 ---
-post_title: Exposing a Service
-menu_order: 5
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Exposing a Service
+title: Exposing a Service
+menuWeight: 5
+excerpt:
+
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
