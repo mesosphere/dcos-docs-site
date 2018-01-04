@@ -20,7 +20,7 @@ enterprise: true
 
 The default Linux user varies according to your security mode and the type of container the service runs inside of.
 
-- **Container type:** By default, all user services will run inside of Mesos containers. However, a user service can be configured to run inside of a Docker container instead. Please see [Deploying a Docker-based Service to Marathon](/1.8/usage/managing-services/application-basics/deploy-docker-app/) for more information.
+- **Container type:** By default, all user services will run inside of Mesos containers. However, a user service can be configured to run inside of a Docker container instead. Please see [Deploying a Docker-based Service to Marathon](/1.8/usage/managing-services/creating-services/deploy-docker-app/) for more information.
 
 - **Security mode:** By default, DC/OS runs in `permissive` mode. Please review the [Installation section](/1.8/administration/installing/ent/custom/configuration-parameters/#security) for more information on the `security` modes.
 
@@ -110,7 +110,7 @@ Once you have met these prerequisites, complete the following steps to override 
   ```
   **Important:** Don't forget to replace `<your-test-user-account>` with the name of a Linux user that exists on the agent and differs from the default.
 
-2. Deploy the service using the Marathon REST API.
+2. Deploy the service using the Marathon API.
 
   ```bash
 curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"

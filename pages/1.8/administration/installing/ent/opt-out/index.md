@@ -23,4 +23,4 @@ If you’ve already installed your cluster and want to disable this in-place, yo
  [1]: /1.8/administration/installing/ent/custom/configuration-parameters/
  [2]: /1.8/administration/installing/ent/custom/cli/
  [3]: /1.8/administration/installing/ent/custom/advanced/
- [4]: /1.8/administration/telemetry/
+ [4]: /1.8/overview/telemetry/

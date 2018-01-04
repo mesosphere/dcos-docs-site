@@ -1,14 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Permission Management
-title: Permission Management
+navigationTitle: Permissions Management
+title: Permissions Management
 menuWeight: 30
 excerpt:
 
 enterprise: true
 ---
 
-# Permission Management
 
 The DC/OS Identity and Access Management system is designed to protect resources via fine-grained authorization.
 Each protected resource has one associated ACL that declares which principals may perform which actions on a named resource.
@@ -29,8 +28,7 @@ The available action identifiers are `create`, `read`, `update`, `delete`, and `
 By convention, `full` indicates that the permission supports all other action identifiers.
 `full` may include actions not supported by any other action identifier.
 
-There are four commands used for managing permissions with the [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/).
-See the [command reference](/1.11/cli/enterprise-cli/) for details.
+There are four commands used for managing permissions with the DC/OS Enterprise CLI.
 
 To manage permissions for groups with the DC/OS Enterprise CLI, use the following commands:
 

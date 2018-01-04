@@ -235,7 +235,7 @@ The steps to accomplish this vary based on your preferred method.
 1. Log out and log back in as the user you just gave these permissions to. You should be able to view the DC/OS web interface and all the jobs in the **Jobs** tab. If you granted the user access to the task details and logs, you should be able to access these too.
 
 
-## <a name="services-access-via-api"></a>Via the IAM API
+## <a name="jobs-access-via-api"></a>Via the IAM API
 
 **Prerequisites:**
 

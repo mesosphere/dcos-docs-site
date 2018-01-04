@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Deploying a Load-Balanced Data Pipeline
 title: Deploying a Load-Balanced Data Pipeline
-menuWeight: 2
+menuWeight: 3
 excerpt:
 
 ---
@@ -31,6 +31,10 @@ The [Kafka][2] publish-subscribe message service receives tweets from Cassandra 
 
 ### Tweeter
 Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/OS Kafka service in real-time, and performs real-time analytics with the DC/OS [Spark][3] and Zeppelin services.
+
+The following graphic illustrates the data flow:
+
+![data flow](/1.8/img/lb-data-pipeline.png)
 
 # DC/OS procedure
 
@@ -110,7 +114,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
     ![Tweeter][14]
 
-## Post 100K Tweets
+## Post 100K tweets
 
 Use the `post-tweets.json` app a large number of Shakespeare tweets from a file:
 
@@ -178,7 +182,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
            
            ![DC/OS CLI](/1.8/usage/tutorials/img/tweeter-cli.png)
    
-   1.  Configure service authentication for [Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/universe-service-auth/). 
+   1.  Configure service authentication for [Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/mlb-auth/). 
         
         1.  Create a public-private key pair by using the security CLI.
             
@@ -221,10 +225,9 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
             ```
             
         1.  Assign the Marathon-LB permissions. 
-        
-            
+
             1.  Run this command to get the DC/OS certificate for your cluster, where `<master-ip>` is your master IP address.
-                
+
                 ```bash
                 curl -k -v http://<master-ip>/ca/dcos-ca.crt
                 ```
@@ -378,23 +381,23 @@ The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address 
 {
   "id": "/post-tweets",
   "cmd": "bin/tweet shakespeare-tweets.json http://1.1.1.1:30000",
-...
+  ...
 }
 ```
 
 The Tweeter app uses the service discovery and load balancer service that is installed on every DC/OS node. This address is defined in the `tweeter.json` definition `VIP_0`.
 
 ```json
-...
 {
+  ...
   "containerPort": 3000,
   "hostPort": 0,
   "servicePort": 10000,
   "labels": {
     "VIP_0": "1.1.1.1:30000"
   }
+  ...
 }
-...
 ```
 
 # DC/OS open source and Enterprise procedure
@@ -415,7 +418,7 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
 
 5.  Run the Top Tweeters SQL query, which counts the number of tweets per user using the table created in the previous step. The table updates continuously as new tweets come in, so re-running the query will produce a different result every time.
 
-![Top Tweeters][16]
+    ![Top Tweeters][16]
 
  [1]: /services/cassandra/
  [2]: /services/kafka/

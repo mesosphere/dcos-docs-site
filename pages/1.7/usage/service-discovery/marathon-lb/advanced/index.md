@@ -12,7 +12,7 @@ enterprise: false
 
 ## HAProxy configuration
 
-Marathon-LB works by automatically generating configuration for HAProxy and then reloading HAProxy as needed. Marathon-LB generates the HAProxy configuration based on application data available from the Marathon REST API. It can also subscribe to the [Marathon Event Bus][10] for real-time updates. When an application starts, stops, relocates or has any change in health status, Marathon-LB will automatically regenerate the HAProxy configuration and reload HAProxy.
+Marathon-LB works by automatically generating configuration for HAProxy and then reloading HAProxy as needed. Marathon-LB generates the HAProxy configuration based on application data available from the Marathon API. It can also subscribe to the [Marathon Event Bus][10] for real-time updates. When an application starts, stops, relocates or has any change in health status, Marathon-LB will automatically regenerate the HAProxy configuration and reload HAProxy.
 
 ## Templates
 
@@ -135,7 +135,7 @@ The script takes the current RPS (requests per second) and divides that number b
 
 To demonstrate autoscaling, we’re going to use 3 separate Marathon apps:
 
-*   **marathon-lb-autoscale** - the script that monitors HAProxy and scales our app via the Marathon REST API.
+*   **marathon-lb-autoscale** - the script that monitors HAProxy and scales our app via the Marathon API.
 *   **nginx** - our demo app
 *   **siege** - a tool for generating HTTP requests
 

@@ -13,7 +13,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- A [user account](/1.9/security/users-groups/) to assign permissions to.
+- A [user account](/1.9/security/ent/users-groups/) to assign permissions to.
 - If your [security mode](/1.9/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 # <a name="job-group-access-via-ui"></a>Via the DC/OS GUI

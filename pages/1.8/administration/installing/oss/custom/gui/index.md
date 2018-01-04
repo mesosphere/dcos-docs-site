@@ -198,4 +198,4 @@ It is recommended that you save your DC/OS installer file immediately after inst
 [6]: /1.8/usage/
 [7]: /1.8/administration/installing/oss/custom/uninstall/
 [9]: /1.8/administration/installing/oss/custom/troubleshooting/
-[10]: /1.8/administration/id-and-access-mgt/ent/user-management/
+[10]: /1.8/administration/id-and-access-mgt/oss/user-management/
