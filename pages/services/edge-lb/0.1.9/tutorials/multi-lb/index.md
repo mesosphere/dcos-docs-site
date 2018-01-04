@@ -1,9 +1,11 @@
 ---
-post_title: Highly Available Load Balancing on AWS
-menu_order: 3
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle: Highly Available Load Balancing on AWS
+title: Highly Available Load Balancing on AWS
+menuWeight: 20
+excerpt:
+
+enterprise: false
 ---
 
 This tutorial demonstrates how to set up multiple Edge-LB Load Balancer instances in a single pool behind a single AWS Classic Load Balancer. Similar steps could be followed for AWS Application Load Balancers or AWS Network Load Balancers.

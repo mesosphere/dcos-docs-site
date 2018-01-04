@@ -1,9 +1,11 @@
 ---
-post_title: Installing Edge-LB
-menu_order: 10
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Installing Edge-LB
+title: Installing Edge-LB
+menuWeight: 10
+excerpt:
+
+enterprise: false
 ---
 
 **Prerequisites:**

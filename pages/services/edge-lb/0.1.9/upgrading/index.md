@@ -1,9 +1,11 @@
 ---
-post_title: Upgrading Edge-LB
-menu_order: 25
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Upgrading Edge-LB
+title: Upgrading Edge-LB
+menuWeight: 25
+excerpt:
+
+enterprise: false
 ---
 
 Perform an Edge-LB upgrade by uninstalling your current version of Edge-LB, then reinstall from the remote repositories.

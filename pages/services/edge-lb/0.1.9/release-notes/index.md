@@ -1,9 +1,11 @@
 ---
-post_title: Edge-LB Release Notes
-menu_order: 0
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Edge-LB Release Notes
+title: Edge-LB Release Notes
+menuWeight: 0
+excerpt:
+
+enterprise: false
 ---
 
 # v0.1.9

@@ -1,9 +1,11 @@
 ---
-post_title: Uninstalling Edge-LB
-menu_order: 20
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Uninstalling Edge-LB
+title: Uninstalling Edge-LB
+menuWeight: 20
+excerpt:
+
+enterprise: false
 ---
 
 *Do not* use the GUI or CLI (Marathon) to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI.

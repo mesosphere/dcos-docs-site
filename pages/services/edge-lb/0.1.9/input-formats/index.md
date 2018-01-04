@@ -1,9 +1,11 @@
 ---
-post_title: Input Formats
-menu_order: 45
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Input Formats
+title: Input Formats
+menuWeight: 45
+excerpt:
+
+enterprise: false
 ---
 
 Edge-LB accepts configuration in either YAML or JSON format.

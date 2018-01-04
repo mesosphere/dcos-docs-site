@@ -1,9 +1,11 @@
 ---
-post_title: Edge-LB Pool Config Reference
-menu_order: 40
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Edge-LB Pool Config Reference
+title: Edge-LB Pool Config Reference
+menuWeight: 80
+excerpt:
+
+enterprise: false
 ---
 
 # Configuration Reference

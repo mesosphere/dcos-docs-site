@@ -1,9 +1,11 @@
 ---
-post_title: Edge-LB Permissions
-menu_order: 50
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Edge-LB Permissions
+title: Edge-LB Permissions
+menuWeight: 50
+excerpt:
+
+enterprise: false
 ---
 
 Edge-LB is installed as a DC/OS service, not as a built-in component. Superuser permissions (`dcos:superuser`) or the user or group permissions listed below are required to use Edge-LB.

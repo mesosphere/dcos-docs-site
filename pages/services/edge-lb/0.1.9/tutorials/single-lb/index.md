@@ -1,9 +1,11 @@
 ---
-post_title: Load Balance and Expose a Service
-menu_order: 2
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle: Load Balance and Expose a Service
+title: Load Balance and Expose a Service
+menuWeight: 10
+excerpt:
+
+enterprise: false
 ---
 
 This tutorial demonstrates how to load balance a DC/OS service and set it up for access outside of the cluster.
