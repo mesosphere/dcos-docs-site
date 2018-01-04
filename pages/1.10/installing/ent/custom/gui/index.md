@@ -4,8 +4,6 @@ navigationTitle:  GUI Installer
 title: GUI Installer
 menuWeight: 100
 excerpt:
-
-enterprise: true
 ---
 
 

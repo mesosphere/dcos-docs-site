@@ -42,10 +42,11 @@ In this step, an IP detect script is created. This script reports the IP address
 
 
 1.  Create a directory named `genconf` in the home directory of your bootstrap node, then navigate to it.
-    
-        mkdir -p genconf
-        cd genconf
-        
+      
+      ```bash
+      mkdir -p genconf
+      cd genconf
+      ```
 
 2.  Create an IP detection script for your environment and save as `ip-detect`. You can use the examples below.
     
@@ -60,7 +61,7 @@ In this step, an IP detect script is created. This script reports the IP address
         # ipv4 address
         curl -fsSL http://169.254.169.254/latest/meta-data/local-ipv4
         ```
-    
+
     *   #### Use the GCE Metadata Server
         
         This method uses the GCE Metadata Server to get the IP address:
@@ -72,8 +73,7 @@ In this step, an IP detect script is created. This script reports the IP address
         # ipv4 address
         curl -fsSL -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
         ```
-            
-    
+
     *   #### Use the IP address of an existing interface
         
         This method discovers the IP address of a particular interface of the node.
@@ -98,7 +98,7 @@ In this step, an IP detect script is created. This script reports the IP address
         set -o nounset -o errexit
         MASTER_IP=172.28.128.3
         echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
-        ```   
+        ```
 
 # <a name="config-json"></a>Create a configuration file
 
