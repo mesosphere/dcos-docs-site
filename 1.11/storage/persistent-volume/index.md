@@ -8,8 +8,6 @@ excerpt:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 When you specify a local volume or volumes, tasks and their associated data are "pinned" to the node they are first launched on and will be relaunched on that node if they terminate. The resources the application requires are also reserved. Marathon will implicitly reserve an appropriate amount of disk space (as declared in the volume via `persistent.size`) in addition to the sandbox `disk` size you specify as part of your application definition.
 
@@ -20,18 +18,9 @@ When you specify a local volume or volumes, tasks and their associated data are 
 - You can still use constraints to specify distribution logic
 - Marathon lets you locate and destroy an unused persistent volume if you don't need it anymore
 
-# Create an application with a local persistent volume
+# Create an application definition with a local persistent volume
 
-## Instruct Marathon to set up a stateful application
-
-Specify the `residency` field. Currently, the only valid option is
-```json
-"residency": {
-  "taskLostBehavior": "WAIT_FOREVER"
-}
-```
-
-## Volume configuration options
+## Configure the volume
 
 Configure a persistent volume with the following options:
 
@@ -40,19 +29,32 @@ Configure a persistent volume with the following options:
   "containerPath": "data",
   "mode": "RW",
   "persistent": {
-    "size": 10
+    "type": "root",
+    "size": 10,
+    "constraints": []
   }
 }
 ```
 
-### Notes
-
-- `containerPath`: The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). `"data"` is valid, but not `"/data"`, `"/var/data"`, or `"var/data"`. If your application requires an absolute path, or a relative path with slashes, use this [workaround](#abs-paths).
+- `containerPath`: The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`).
 - `mode`: The access mode of the volume. Currently, `"RW"` is the only possible value and will let your application read from and write to the volume.
-- `size`: The size of the persistent volume in **MiBs**.
+- `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
+- `persistent.size`: The size of the persistent volume in MiBs.
+- `persistent.profileName`: (not seen above) The storage [volume profile](/1.11/storage/volume-profiles). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
+- `persistent.maxSize`: (not seen above) For `root` Mesos disk resources, the optional maximum size of an exclusive mount volume to be considered.
+- `persistent.constraints`: Constraints restricting where new persistent volumes should be created. Currently, it is only possible to constrain the path of the disk resource by regular expression.
 
+## Configure stateful application
+
+To set up a stateful application, set `unreachableStrategy` to "disabled".
+
+```json
+"unreachableStrategy": "disabled",
+```
+
+- 
 <a name="abs-paths"></a>
-### Specify an unsupported container path
+## Specify an unsupported container path
 
 To allow you to dynamically add a local persistent volume to a running container and to ensure consistency across operating systems, the value of `containerPath` must be _relative_. However, your application may require an absolute container path or a relative one with slashes. If your application does require an unsupported `containerPath`, you can work around this restriction by configuring two volumes. The first volume has the absolute container path you need and _does not_ have the `persistent` parameter. The `hostPath` parameter of the first volume must match the relative `containerPath` of the second volume.
 
@@ -78,7 +80,7 @@ The second volume is a persistent volume with a `containerPath` that matches the
 
 For a complete example, see [Running stateful MySQL on Marathon](#stateful-sql).
 
-## Create a stateful application via the DC/OS GUI
+# Create a stateful application via the DC/OS GUI
 
 1. Click the **Services** tab, then **RUN A SERVICE**.
 1. Click the **Volumes** tab.
@@ -102,6 +104,61 @@ Since all the resources your application needs are still reserved when a volume 
 The default `UpgradeStrategy` for a stateful application is a `minimumHealthCapacity` of `0.5` and a `maximumOverCapacity` of `0`. If you override this default, your definition must stay below these values to pass validation. The `UpgradeStrategy` must stay below these values because Marathon needs to be able to kill old tasks before starting new ones so that the new versions can take over reservations and volumes and Marathon cannot create additional tasks (as a `maximumOverCapacity > 0` would induce) to prevent additional volume creation.
 
 **Note:** For a stateful application, Marathon will never start more instances than specified in the `UpgradeStrategy`, and will kill old instances rather than create new ones during an upgrade or restart.
+
+# Create a pod with a local persistent volume
+
+## Configure the volume
+
+Configure a persistent volume with the following options:
+
+```json
+"volumes": [
+  {
+    "name": "pst",
+    "persistent": {
+      "type": "root",
+      "size": 10,
+      "constraints": []
+    }
+  }
+]
+```
+
+where
+
+- `name`: Name of the pod level volume
+- `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
+- `persistent.size`: The size of the persistent volume in MiBs.
+- `persistent.maxSize`: (not seen above) For `root` Mesos disk resources, the optional maximum size of an exclusive mount volume to be considered.
+- `persistent.profileName`: (not seen above) The storage [volume profile](/1.11/storage/volume-profiles). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
+- `persistent.constraints`: Constraints restricting where new persistent volumes should be created. Currently, it is only possible to constrain the path of the disk resource by regular expression.
+
+## Configure stateful pod
+
+To set up a stateful pod, set `unreachableStrategy` to "disabled".
+
+```json
+"unreachableStrategy": "disabled",
+```
+
+## Specify the volume mount parameters
+
+```json
+"volumeMounts": [
+  {
+    "name": "pst",
+    "mountPath": "pst1",
+    "readOnly": false
+  }
+]
+```
+
+where
+
+- `name`: The name of the volume to reference.
+- `mountPath`: The path inside the container at which the volume is mounted.
+- `readOnly`: If the volume is mounted as read-only or not.
+
 
 # Under the hood
 
@@ -136,7 +193,7 @@ If an agent re-registers with the cluster and offers its resources, Marathon is 
 
 ## Disk consumption
 
-As of Mesos 0.28, destroying a persistent volume does not cleanup or destroy data. Mesos deletes metadata about the volume in question, but the data remains on disk. To prevent disk consumption, you should manually remove data when you no longer need it.
+As of Mesos 0.28, destroying a persistent volume does not clean up or destroy data. Mesos deletes metadata about the volume in question, but the data remains on disk. To prevent disk consumption, you should manually remove data when you no longer need it.
 
 <a name="non-unique-roles"></a>
 ## Non-unique roles
@@ -151,9 +208,10 @@ The temporary Mesos sandbox is still the target for the `stdout` and `stderr` lo
 
 # Examples
 
-## Run stateful PostgreSQL on Marathon
+## Stateful PostgreSQL on Marathon
 
-A model app definition for PostgreSQL on Marathon would look like this. Note that we set the PostgreSQL data folder to `pgdata`, which is relative to the Mesos sandbox (as contained in the `$MESOS_SANDBOX` variable). This enables us to set up a persistent volume with a `containerPath` of `pgdata`. This path is is not nested and relative to the sandbox as required:
+A model app definition for PostgreSQL on Marathon would look like the following. Note that we set the PostgreSQL data folder to `pgdata`, which is relative to the Mesos sandbox (as contained in the `$MESOS_SANDBOX` variable). This enables us to set up a persistent volume with a `containerPath` of `pgdata`. This path is is not nested and relative to the sandbox as required:
+
 
 ```json
 {
@@ -161,11 +219,7 @@ A model app definition for PostgreSQL on Marathon would look like this. Note tha
   "cpus": 1,
   "instances": 1,
   "mem": 512,
-  "networks": [ 
-    { 
-      "mode": "container/bridge" 
-    } 
-  ],
+  "networks": [ { "mode": "container/bridge" } ],
   "container": {
     "type": "DOCKER",
     "volumes": [
@@ -173,7 +227,10 @@ A model app definition for PostgreSQL on Marathon would look like this. Note tha
         "containerPath": "pgdata",
         "mode": "RW",
         "persistent": {
-          "size": 100
+          "type": "mount",
+          "size": 524288,
+          "maxSize": 1048576,
+          "constraints": [["path", "LIKE", "/mnt/ssd-.+"]]
         }
       }
     ],
@@ -191,11 +248,9 @@ A model app definition for PostgreSQL on Marathon would look like this. Note tha
   },
   "env": {
     "POSTGRES_PASSWORD": "password",
-    "PGDATA": "/mnt/mesos/sandbox/pgdata"
+    "PGDATA": "pgdata"
   },
-  "residency": {
-    "taskLostBehavior": "WAIT_FOREVER"
-  },
+  "unreachableStrategy": "disabled",
   "upgradeStrategy": {
     "maximumOverCapacity": 0,
     "minimumHealthCapacity": 0
@@ -204,9 +259,9 @@ A model app definition for PostgreSQL on Marathon would look like this. Note tha
 ```
 
 <a name="stateful-sql"></a>
-## Run stateful MySQL on Marathon
+## Stateful MySQL on Marathon
 
-The default MySQL Docker image does not allow you to change the data folder. Since we cannot define a persistent volume with an absolute nested `containerPath` like `/var/lib/mysql`, we need to configure a workaround to set up a Docker mount from hostPath `mysqldata` (relative to the Mesos sandbox) to `/var/lib/mysql` (the path that MySQL attempts to read/write):
+The default MySQL Docker image does not allow you to change the data folder. Since we cannot define a persistent volume with an absolute nested `containerPath` like `/var/lib/mysql`, we configure a workaround to set up a Docker mount from hostPath `mysqldata` (relative to the Mesos sandbox) to `/var/lib/mysql` (the path that MySQL attempts to read/write):
 
 ```json
 {
@@ -223,6 +278,7 @@ In addition to that, we configure a persistent volume with a containerPath `mysq
   "containerPath": "mysqldata",
   "mode": "RW",
   "persistent": {
+    "type": "root",
     "size": 1000
   }
 }
@@ -235,13 +291,9 @@ The complete JSON application definition reads as follows:
   "id": "/mysql",
   "cpus": 1,
   "mem": 512,
-  "networks": [ 
-    { 
-      "mode": "container/bridge" 
-    } 
-  ],
   "disk": 0,
   "instances": 1,
+  "networks": [ { "mode": "container/bridge" } ],
   "container": {
     "type": "DOCKER",
     "volumes": [
@@ -249,6 +301,7 @@ The complete JSON application definition reads as follows:
         "containerPath": "mysqldata",
         "mode": "RW",
         "persistent": {
+          "type": "root",
           "size": 1000
         }
       },
@@ -269,7 +322,7 @@ The complete JSON application definition reads as follows:
         "servicePort": 10000,
         "protocol": "tcp"
       }
-    ],
+    ]
   },
   "env": {
     "MYSQL_USER": "wordpress",
@@ -277,10 +330,111 @@ The complete JSON application definition reads as follows:
     "MYSQL_ROOT_PASSWORD": "supersecret",
     "MYSQL_DATABASE": "wordpress"
   },
+  "unreachableStrategy": "disabled",
   "upgradeStrategy": {
     "minimumHealthCapacity": 0,
     "maximumOverCapacity": 0
   }
+}
+```
+
+## Pod with persistent volume
+
+The following example will create a pod with 2 containers and one shared persistent volume. Also see [Pods](/1.11/deploying-services/pods/).
+
+```json
+{
+  "id": "/persistent-volume-pod",
+  "volumes": [
+    {
+      "name": "pst",
+      "persistent": {
+        "type": "root",
+        "size": 10,
+        "constraints": []
+      }
+    }
+  ],
+  "scaling": {
+    "kind": "fixed",
+    "instances": 1
+  },
+  "scheduling": {
+    "unreachableStrategy": "disabled",
+    "upgrade": {
+      "minimumHealthCapacity": 0,
+      "maximumOverCapacity": 0
+    }
+  },
+  "containers": [
+    {
+      "name": "container1",
+      "exec": {
+        "command": {
+          "shell": "cd $MESOS_SANDBOX && echo 'hello' >> pst1/foo && /opt/mesosphere/bin/python -m http.server $EP_HOST_HTTPCT1"
+        }
+      },
+      "resources": {
+        "cpus": 0.1,
+        "mem": 128
+      },
+      "endpoints": [
+        {
+          "name": "httpct1",
+          "hostPort": 0,
+          "protocol": [
+            "tcp"
+          ]
+        }
+      ],
+      "volumeMounts": [
+        {
+          "name": "pst",
+          "mountPath": "pst1",
+          "readOnly": false
+        }
+      ],
+      "lifecycle": {
+        "killGracePeriodSeconds": 60
+      }
+    },
+    {
+      "name": "container2",
+      "exec": {
+        "command": {
+          "shell": "cd $MESOS_SANDBOX && /opt/mesosphere/bin/python -m http.server $EP_HOST_HTTPCT2"
+        }
+      },
+      "resources": {
+        "cpus": 0.1,
+        "mem": 128
+      },
+      "endpoints": [
+        {
+          "name": "httpct2",
+          "hostPort": 0,
+          "protocol": [
+            "tcp"
+          ]
+        }
+      ],
+      "volumeMounts": [
+        {
+          "name": "pst",
+          "mountPath": "pst2",
+          "readOnly": false
+        }
+      ],
+      "lifecycle": {
+        "killGracePeriodSeconds": 60
+      }
+    }
+  ],
+  "networks": [
+    {
+      "mode": "host"
+    }
+  ]
 }
 ```
 

@@ -191,7 +191,7 @@ Whether the host ports of your tasks are automatically assigned.
 - `"requirePorts": true` Manually specify ports in advance. Marathon will only schedule the associated tasks on hosts that have the specified ports available. 
 
 ### residency
-Set up a stateful application. For more information, see [local persistent volumes](/1.11/storage/persistent-volume/).
+Set up a stateful application. For more information, see [local persistent volumes](/1.11/storage/persistent-volume/). Deprecated.
 
 - **taskLostBehavior** Indicates whether Marathon will launch the task on another node after receiving a `TASK_LOST` status update.
 
@@ -201,17 +201,24 @@ Set up a stateful application. For more information, see [local persistent volum
 ### taskKillGracePeriodSeconds
 The amount of time (in seconds) between the executor sending SIGTERM to a task and then sending SIGKILL. 
 
+
+### unreachableStrategy
+Define handling for unreachable instances. The value is a string or object. The string is "disabled", which disables handing for unreachable instances. The object is `inactiveAfterSeconds` or `expungeAfterSeconds`. Given `inactiveAfter = 60` and `expungeAfter = 120`, an instance will be expunged if it has been unreachable for more than 120 seconds or a second instance is started if it has been unreachable for more than 60 seconds.
+
+    - **inactiveAfterSeconds** - If an instance is unreachable for longer than `inactiveAfter` seconds it is marked as inactive. This will trigger a new instance launch. The original task is not expunged yet. Must be less than or equal to `expungeAfterSeconds`.
+    - **expungeAfterSeconds** - If an instance is unreachable for longer than `expungeAfterSeconds` it will be expunged.  That means it will be killed if it ever comes back. Instances are usually marked as unreachable before they are expunged but they don't have to. This value is required to be greater than `inactiveAfterSeconds` unless both are zero. If the instance has any persistent volumes associated with it, then they will be destroyed and associated data will be deleted.
+
 ### upgradeStrategy
 The strategy that controls when Marathon stops old versions and launches new versions. During an upgrade all instances of an application are replaced by a new version. 
 
-- **minimumHealthCapacity** The minimum percentage (expressed as a decimal fraction between `0.0` and `1.0`) of nodes that remain healthy during an upgrade. During an upgrade, Marathon ensures that this number of healthy instances are up. The default is `1.0`, which means no old instance can be stopped before another healthy new version is deployed. A value of `0.5` means that during an upgrade half of the old version instances are stopped first to make space for the new version. A value of `0` means take all instances down immediately and replace with the new application.
-- **maximumOverCapacity** The maximum percentage (expressed as a decimal fraction between `0.0` and `1.0`) of new instances that can be launched at any point during an upgrade. The default value is `1`, which means that all old and new instances can exist during the upgrade process. A value of `0.1` means that during the upgrade process 10% more capacity than usual may be used for old and new instances. A value of `0.0` means that even during the upgrade process no more capacity may be used for the new instances than usual. Only when an old version is stopped, a new instance can be deployed.
+  - **minimumHealthCapacity** The minimum percentage (expressed as a decimal fraction between `0.0` and `1.0`) of nodes that remain healthy during an upgrade. During an upgrade, Marathon ensures that this number of healthy instances are up. The default is `1.0`, which means no old instance can be stopped before another healthy new version is deployed. A value of `0.5` means that during an upgrade half of the old version instances are stopped first to make space for the new version. A value of `0` means take all instances down immediately and replace with the new application.
+  - **maximumOverCapacity** The maximum percentage (expressed as a decimal fraction between `0.0` and `1.0`) of new instances that can be launched at any point during an upgrade. The default value is `1`, which means that all old and new instances can exist during the upgrade process. A value of `0.1` means that during the upgrade process 10% more capacity than usual may be used for old and new instances. A value of `0.0` means that even during the upgrade process no more capacity may be used for the new instances than usual. Only when an old version is stopped, a new instance can be deployed.
 
-If `"minimumHealthCapacity": 1` and `"maximumOverCapacity": 0`, at least one additional new instance is launched in the beginning of the upgrade process. When it is healthy, one of the old instances is stopped. After it is stopped, another new instance is started, and so on.
+  If `"minimumHealthCapacity": 1` and `"maximumOverCapacity": 0`, at least one additional new instance is launched in the beginning of the upgrade process. When it is healthy, one of the old instances is stopped. After it is stopped, another new instance is started, and so on.
 
-A combination of `"minimumHealthCapacity": 0.9` and `"maximumOverCapacity": 0` results in a rolling update, replacing 10% of the instances at a time, keeping at least 90% of the app online at any point of time during the upgrade.
+  A combination of `"minimumHealthCapacity": 0.9` and `"maximumOverCapacity": 0` results in a rolling update, replacing 10% of the instances at a time, keeping at least 90% of the app online at any point of time during the upgrade.
 
-A combination of `"minimumHealthCapacity": 1` and `"maximumOverCapacity": 0.1` results in a rolling update, replacing 10% of the instances at a time and keeping at least 100% of the app online at any point of time during the upgrade with 10% of additional capacity.
+  A combination of `"minimumHealthCapacity": 1` and `"maximumOverCapacity": 0.1` results in a rolling update, replacing 10% of the instances at a time and keeping at least 100% of the app online at any point of time during the upgrade with 10% of additional capacity.
 
 # Example
 
