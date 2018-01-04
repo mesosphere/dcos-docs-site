@@ -105,7 +105,9 @@ The default `UpgradeStrategy` for a stateful application is a `minimumHealthCapa
 
 **Note:** For a stateful application, Marathon will never start more instances than specified in the `UpgradeStrategy`, and will kill old instances rather than create new ones during an upgrade or restart.
 
+[beta]
 # Create a pod with a local persistent volume
+[/beta]
 
 ## Configure the volume
 
