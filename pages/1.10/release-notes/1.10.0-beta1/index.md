@@ -57,7 +57,7 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/1.10/networking/edge-lb/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1.9/).
 
 [enterprise type="block" size="large"]
 ## Security
