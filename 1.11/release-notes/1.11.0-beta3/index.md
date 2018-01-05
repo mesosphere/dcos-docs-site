@@ -21,14 +21,8 @@ excerpt:
 <strong>Note:</strong> CLI version 0.6.x is not compatible with DC/OS 1.10</li>
 </ul>
 
-
-### Contents
-- [New Features and Capabilities](#new-features)
-- [Breaking Changes](#breaking-changes)
-- [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.10.0](#fixed-issues)
-
-# <a name="new-features"></a>New Features and Capabilities
+<a name="new-features"></a>
+# New features and capabilities
 
 ## Apache Mesos 1.5 and Marathon 1.6 Integrated.
 - DC/OS 1.11 is is based on Mesos 1.5. View the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
@@ -40,23 +34,22 @@ excerpt:
 [enterprise]
 ## Security
 [/enterprise]
-  
 
 
-## Updated DC/OS Data Services
+
+## Updated DC/OS data services
 
 
 ## Platform
 
-- Fault domains - 
+- Fault domains -
 - Licensing - Contractual terms are now enforced by DC/OS licensing and audit components. You must specify your license when you create the cluster using the CLI or advanced installer. The GUI installer is currently unsupported. [View the documentation](/1.11/administering-clusters/licenses). You can view the state of your cluster with respect to the license conditions in the **Cluster -> Overview** tab. [enterprise type="inline" size="small" /] 
-- Linked clusters. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
+- Linked clusters. A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using DC/OS CLI. Once a link is set up you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
 - Metrics - The DC/OS metrics component now produces metrics in Prometheus format. [View the documentation](/1.11/metrics).
 - Pods - added support for persistent volumes. [View the documentation](/1.11/deploying-services/pods).
-- UCR - added support for garbage collection and XXX. [View the documentation](/1.11/deploying-services/containerizers).
+- UCR - added support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
 
-<a name="breaking-changes"></a>
-# Breaking Changes
+# Breaking changes
 
 - Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Beta 3.
 
