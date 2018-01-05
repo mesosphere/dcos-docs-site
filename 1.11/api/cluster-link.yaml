@@ -43,15 +43,19 @@
             schema:
               $ref: "#/definitions/Link"
         responses:
-          200: 
-            description: "emptyResponse"
-            schema: 
+          200:
+            description: "link was created"
+            schema:
               $ref: "#/definitions/emptyResponse"
-          400: 
+          400:
             description: "errorResponse"
             schema: 
               $ref: "#/definitions/errorResponse"
-          500: 
+          409:
+            description: "link already exists"
+            schema:
+              $ref: "#/definitions/emptyResponse"
+          500:
             description: "errorResponse"
             schema: 
               $ref: "#/definitions/errorResponse"
@@ -68,10 +72,14 @@
             required: true
         responses: 
           200: 
-            description: "emptyResponse"
+            description: "success"
             schema: 
               $ref: "#/definitions/emptyResponse"
-          400: 
+          404:
+            description: "link could not be found"
+            schema:
+              $ref: "#/definitions/emptyResponse"
+          400:
             description: "errorResponse"
             schema: 
               $ref: "#/definitions/errorResponse"
@@ -112,4 +120,3 @@
       type: "string"
     errorResponse:
       type: "string"
-
