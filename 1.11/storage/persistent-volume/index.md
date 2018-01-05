@@ -221,7 +221,11 @@ A model app definition for PostgreSQL on Marathon would look like the following.
   "cpus": 1,
   "instances": 1,
   "mem": 512,
-  "networks": [ { "mode": "container/bridge" } ],
+  "networks": [ 
+    {
+      "mode": "container/bridge" 
+    }
+  ],
   "container": {
     "type": "DOCKER",
     "volumes": [
@@ -295,7 +299,11 @@ The complete JSON application definition reads as follows:
   "mem": 512,
   "disk": 0,
   "instances": 1,
-  "networks": [ { "mode": "container/bridge" } ],
+  "networks": [ 
+    {
+      "mode": "container/bridge" 
+    }
+  ],
   "container": {
     "type": "DOCKER",
     "volumes": [
