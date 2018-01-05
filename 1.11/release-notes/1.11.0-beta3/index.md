@@ -12,7 +12,7 @@ excerpt:
 <h3>DC/OS 1.11.0 Beta 3 has a number of limitations that will be resolved at GA time:</h3>
 
 <ul>
-<li>Upgrades from 1.11 are not supported.</li>
+<li>Upgrades from 1.10 are not supported.</li>
 <li>DC/OS 1.11 requires CLI version 0.6.x.
   <ul>
   <li><a href="/1.11/cli/uninstall/">Uninstall the existing CLI</a>.</li>
@@ -37,9 +37,9 @@ excerpt:
 
 ## Networking
 
-[enterprise type="block" size="large"]
+[enterprise]
 ## Security
-[/ enterprise]
+[/enterprise]
   
 
 
@@ -47,20 +47,18 @@ excerpt:
 
 
 ## Platform
+
+- Fault domains - 
+- Licensing - Contractual terms are now enforced by DC/OS licensing and audit components. You must specify your license when you create the cluster using the CLI or advanced installer. The GUI installer is currently unsupported. [View the documentation](/1.11/administering-clusters/licenses). You can view the state of your cluster with respect to the license conditions in the **Cluster -> Overview** tab. [enterprise type="inline" size="small" /] 
+- Linked clusters. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
+- Metrics - The DC/OS metrics component now produces metrics in Prometheus format. [View the documentation](/1.11/metrics).
 - Pods - added support for persistent volumes. [View the documentation](/1.11/deploying-services/pods).
-- UCR - added support for garbage collection and XXX [View the documentation](/1.11/deploying-services/containerizers).
-- Linked Clusters. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
-- Metrics
-
-## GUI
-
-
+- UCR - added support for garbage collection and XXX. [View the documentation](/1.11/deploying-services/containerizers).
 
 <a name="breaking-changes"></a>
 # Breaking Changes
 
-- Upgrades not supported in 1.11 Beta 3.
-  Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Beta 3.
+- Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Beta 3.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
