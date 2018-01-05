@@ -22,8 +22,8 @@ DC/OS provides these types of metrics:
 
 The [Metrics API](/1.10/metrics/metrics-api/) exposes these areas. 
 
-All three metrics layers are aggregated by a collector which is shipped as part of the DC/OS distribution. This enables metrics to run on every host in the cluster. It is the main entry point to the metrics ecosystem, aggregating metrics sent to it by the Mesos Metrics module, or gathering host and container level metrics on the box which is runs. 
+All three metrics layers are aggregated by a collector which is shipped as part of the DC/OS distribution. This enables metrics to run on every host in the cluster. It is the main entry point to the metrics ecosystem, aggregating metrics sent to it by the Mesos Metrics module, or gathering host and container level metrics on the machine on which it runs. 
 
 The Mesos Metrics module is bundled with every agent in the cluster. This module enables applications running on top of DC/OS to publish metrics to the collector by exposing StatsD host and port environment variables inside every container. These metrics are appended with structured data such as `agent-id`, `framework-id`, and `task-id`. DC/OS applications discover the endpoint via an environment variable (`STATSD_UDP_HOST` or `STATSD_UDP_PORT`). Applications leverage this StatsD interface to send custom profiling metrics to the system.
 
-For more information on which metrics are collected, see the Metrics [Reference](/1.10/metrics/reference/).
+For more information on which metrics are collected, see the [Metrics Reference](/1.10/metrics/reference/).
