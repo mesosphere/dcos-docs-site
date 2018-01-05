@@ -23,6 +23,8 @@ dcos cluster remove [<cluster-name> | <cluster-id> | --all]
 |---------|-------------|-------------|
 | `<cluster-name>`   |             | Name of connected cluster. |
 | `<cluster-id>`   |   | ID of connected cluster.  |
+| --all   |   |  Remove all DC/OS clusters. |
+
 # Parent command
 
 | Command | Description |
