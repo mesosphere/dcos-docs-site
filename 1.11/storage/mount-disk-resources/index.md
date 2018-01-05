@@ -164,10 +164,6 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
     "minimumHealthCapacity": 0.5,
     "maximumOverCapacity": 0
   },
-  "residency": {
-    "relaunchEscalationTimeoutSeconds": 10,
-    "taskLostBehavior": "WAIT_FOREVER"
-  },
   "unreachableStrategy": "disabled",
   "killSelection": "YOUNGEST_FIRST",
   "requirePorts": true,

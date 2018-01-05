@@ -71,7 +71,7 @@ This topic provides all available configuration parameters. Except where explici
 | [ssh_user](#ssh-user)                           | The SSH username, for example `centos`.                                                                                           |
 | [superuser_password_hash](#superuser-password-hash-enterprise)            |[enterprise type="inline" size="small" /] (Required) The hashed superuser password.                                                               |
 | [superuser_username](#superuser-username-enterprise)                 |[enterprise type="inline" size="small" /] (Required) The user name of the superuser.                                                              |
-| [telemetry_enabled](#telemetry-enabled-enterprise)                  | Indicates whether to enable sharing of anonymous data for your cluster.                                                                     |
+| [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.                                                                     |
 | [zk_super_credentials](#zk-superuser)            |[enterprise type="inline" size="small" /] The ZooKeeper superuser credentials.  |
 | [zk_master_credentials](#zk-master)          |[enterprise type="inline" size="small" /] The ZooKeeper master credentials.  |
 | [zk_agent_credentials](#zk-agent)           |[enterprise type="inline" size="small" /] The ZooKeeper agent credentials. |

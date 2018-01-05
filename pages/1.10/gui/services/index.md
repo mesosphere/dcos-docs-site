@@ -13,7 +13,7 @@ The Services tab provides a full-featured interface to the native DC/OS Marathon
 By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, CPU, memory, or disk space allocated.
 
 *   **NAME** The DC/OS service name.
-*   **STATUS** The [Marathon health check][3] status for the service.
+*   **STATUS** The [Marathon health check](/1.10/deploying-services/creating-services/health-checks/) status for the service.
 *   **CPU** The number of CPUs in use.
 *   **MEM** The amount of memory used.
 *   **DISK** The amount of disk space used.

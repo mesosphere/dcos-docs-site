@@ -11,7 +11,8 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This topic provides usage examples for pods.
+This topic provides field definitions and usage examples for pods. For more details on field definitions, see [Marathon Configuration Reference](/1.9/deploying-services/marathon-parameters).
+
 
 # Annotated simple pod definition
 

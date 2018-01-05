@@ -118,7 +118,7 @@ A typical pattern in the development and deployment cycle is to have your automa
 
 With Marathon it is straightforward to run applications that use Docker images.
 
-In the following example, you will create a simple Docker app and deploy it to DC/OS using the Marathon REST API.
+In the following example, you will create a simple Docker app and deploy it to DC/OS using the Marathon API.
 
 The Docker app is a Python-based web server that uses the image [python:3](https://registry.hub.docker.com/_/python/). Inside the container, the web server runs on port `8080` (the value of `containerPort`). `hostPort` is set to `0` so that Marathon assigns a random port on the Mesos agent, which is mapped to port 8080 inside the container.
 
@@ -143,7 +143,7 @@ Paste the following JSON into a file named `basic-3.json`.
 }
 ```
 
-Use the Marathon REST API to deploy the app `basic-3` from the DC/OS CLI:
+Use the Marathon API to deploy the app `basic-3` from the DC/OS CLI:
 
 ```sh
  curl -H -X POST <master-IP>/service/marathon/v2/apps -d @basic-3.json -H "Content-type: application/json"

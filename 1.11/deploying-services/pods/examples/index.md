@@ -10,7 +10,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This topic provides usage examples for pods.
+This topic provides field definitions and usage examples for pods. For more details on field definitions, see [Marathon Configuration Reference](/1.11/deploying-services/marathon-parameters).
 
 # Annotated simple pod definition
 
@@ -64,7 +64,8 @@ This pod, named `simple-pod` has a single container, `simpletask1`. The containe
 | `scaling.maxInstances`        | integer | Maximum number of instances of this pod.                                                                                                                                                                          |
 
 <a name="basic-pod-container-fields"></a>
-## Basic pod container fields.
+## Basic pod container fields
+
 | Field                    | Type    | Value                                                                                                      |
 |--------------------------|---------|------------------------------------------------------------------------------------------------------------|
 | `containers` (required)    | array   | Container definitions for all containers that belong to a pod.                                             |
@@ -94,6 +95,7 @@ This pod, named `simple-pod` has a single container, `simpletask1`. The containe
 
 <a name="multi-pod"></a>
 # Annotated multi-pod with all parameters
+
 The example below shows a pod, `test-pod`, with three containers, `healthtask1`, `healthtask2`, and `clienttask`. The pod makes uses shared volumes and the native DC/OS virtual networking solution.
 
 ```
@@ -329,9 +331,12 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
 | `scheduling.backoff`               | number   | Initial backoff (seconds) applied when a launched instance fails (default: 1).                                                 |
 | `scheduling.backoffFactor`         | number   | Factor applied to current backoff to determine the new backoff (default: 1.15).                                                |
 | `scheduling.maxLaunchDelay`        | number   | Maximum backoff (seconds) applied when subsequent failures are detected (default: 3600).                                       |
-| `upgrade`                     | object   | Upgrade strategy that controls pod updates.                                                                                    |
-| `upgrade.minimumHealthCapacity` | number   | Number between 0 and 1 that represents the minimum number of healthy nodes to maintain during upgrade (default: 1).               |
-| `upgrade.maximumOverCapacity`   | number   | Number between 0 and 1 representing the maximum number of additional instances to launch during upgrade (default: 1).          |
+| `scheduling.unreachableStrategy`   |  string or object |  Define handling for unreachable instances. |
+| `scheduling.unreachableStrategy.inactiveAfterSeconds`   |  number | Length of time an instance is unreachable after which it is marked as inactive.  |
+| `scheduling.unreachableStrategy.expungeAfterSeconds`   |  number |  Length of time an instance is unreachable after which it is expunged. |
+| `scheduling.upgrade`                     | object   | Upgrade strategy that controls pod updates.                                                                                    |
+| `scheduling.upgrade.minimumHealthCapacity` | number   | Number between 0 and 1 that represents the minimum number of healthy nodes to maintain during upgrade (default: 1).               |
+| `scheduling.upgrade.maximumOverCapacity`   | number   | Number between 0 and 1 representing the maximum number of additional instances to launch during upgrade (default: 1).          |
 | `placement`                   | object   | Controls placement of pod tasks.                                                                                               |
 | `placement.constraints`           | string[] | Constraints control the placement policy of pod tasks. Options: `UNIQUE`, `CLUSTER`, `GROUP_BY`, `LIKE`, `UNLIKE`, `MAX_PER`.  |
 | `placement.acceptedResourceRoles` | string[] | List of resource roles. The Marathon component will only consider resource offers with roles on this list for this pod's tasks.              |
@@ -541,6 +546,10 @@ The following pod definition specifies an ephemeral volume called `v1`. <!-- Val
   }
 }
 ```
+
+# A Pod that Uses Persistent Volumes
+
+For an example of a pod that uses a persistent volume, see [Create a pod with a local persistent volume](/1.11/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume).
 
 ## IP-per-Pod Networking
 

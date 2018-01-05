@@ -52,7 +52,7 @@ The API request header can be any the following:
 - `text/event-stream` request logs in Server-Sent-Events format.
 
 
-# Auth
+# Authentication
 
 All Logging API routes require authentication to use.
 
@@ -67,7 +67,7 @@ The Logging API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.9/security/ent/perms-reference/).
+To assign permissions to your account, see [Permissions Reference](/1.9/security/ent/perms-reference/).
 
 
 # Resources

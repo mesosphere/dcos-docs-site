@@ -51,7 +51,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 - [GUI](#deploying-the-service-via-the-web-interface)
 
-- [Marathon REST API](#deploying-the-service-via-marathon-app-definition)
+- [Marathon API](#deploying-the-service-via-marathon-app-definition)
 
 
 ## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the GUI
@@ -133,7 +133,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Save the file with a descriptive name, such as `myservice.json`.
 
-1. Use the Marathon REST API to deploy the app as shown below.
+1. Use the Marathon API to deploy the app as shown below.
 
   ```bash
   curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"

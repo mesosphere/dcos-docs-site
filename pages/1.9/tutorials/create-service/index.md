@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Creating and Running a Service
 title: Creating and Running a Service
-menuWeight: 4
+menuWeight: 1
 excerpt:
 
 enterprise: false

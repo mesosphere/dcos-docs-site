@@ -108,7 +108,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 
 - Cassandra. [Documentation](/services/cassandra/). [Release Notes](/services/cassandra/v2.0.0-3.0.14/release-notes/).
 
-- Elastic. [Documentation](/services/elastic/). [Release Notes](services/elastic/v2.0.1-5.5.1/release-notes/).
+- Elastic. [Documentation](/services/elastic/). [Release Notes](/services/elastic/2.0.1-5.5.1/release-notes/).
 
 - HDFS. [Documentation](/services/hdfs/). [Release Notes](/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/release-notes/).
 

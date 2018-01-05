@@ -18,5 +18,5 @@ Pods allow quick, convenient coordination between applications that need to work
 # Features
 - Co-located containers.
 - Pod-level resource isolation.
-- Pod-level sandbox and ephemeral volumes.
+- Pod-level sandbox, ephemeral, and persistent volumes.
 - Pod-level health checks.

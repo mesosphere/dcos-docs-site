@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Autoscaling with Marathon
 title: Autoscaling with Marathon
-menuWeight: 2
+menuWeight: 4
 excerpt:
 ---
 

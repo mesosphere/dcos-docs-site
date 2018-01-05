@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 You can control DC/OS access by resource and operation.
-See [Permission Management](/1.10/security/ent/perms-management/) for details how to control permissions.
+See [Permissions Management](/1.10/security/ent/perms-management/) for details how to control permissions.
 
 This topic provides a reference for each of the available DC/OS permissions.
 
@@ -77,7 +77,7 @@ By convention, `full` indicates that the permission supports all other action id
 | `dcos:mesos:master:log`<br> Controls access to the Mesos [master logs](/1.10/monitoring/logging/).                                                                                                                                                                                 |      |   | x |   |   |
 | `dcos:mesos:master:quota:role[:<role-name>]` <br> Controls access, by role, to the [resource quota](https://mesos.apache.org/documentation/latest/quota/).                                                                                                                         |      |   | x | x |   |
 | `dcos:mesos:master:reservation:principal[:<service-account-id>]`<br> Controls access, by user or service account, to unreserve [resources](https://mesos.apache.org/documentation/latest/reservation/).                                                                           |      |   |   |   | x |
-| `dcos:mesos:master:reservation:role[:<role-name>]`<br> Controls access, by role, to reserve [resources](https://apache.mesos.org/documentation/latest/reservation/).                                                                                                              |      | x |   |   |   |
+| `dcos:mesos:master:reservation:role[:<role-name>]`<br> Controls access, by role, to reserve [resources](https://mesos.apache.org/documentation/latest/reservation/).                                                                                                              |      | x |   |   |   |
 | `dcos:mesos:master:task:app_id[:<service-or-job-group>]`<br> Controls access to run tasks.                                                                                                                                                                                        |      | x |   |   |   |
 | `dcos:mesos:master:task:user[:<linux-user-name>]`<br> Controls access to run tasks as a specific Linux user.                                                                                                                                                                      |      | x |   |   |   |
 | `dcos:mesos:master:volume:principal[:<service-account-id>]`<br> Controls access to destroy a volume.                                                                                                                                                                              |      |   |   |   | x |
@@ -91,7 +91,7 @@ By convention, `full` indicates that the permission supports all other action id
 | `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/1.10/deploying-services/marathon-api/#/info).                                                                                                                         |      |   | x |   |   |
 | `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoints [GET v2/events](/1.10/deploying-services/marathon-api/#/events) and [GET/POST/DELETE /v2/eventSubscriptions](/1.10/deploying-services/marathon-api/#/eventSubscriptions). |      |   | x |   |   |
 | `dcos:service:marathon:marathon:admin:leader` <br> Controls access to the [GET/DELETE /v2/leader](/1.10/deploying-services/marathon-api/#/leader) endpoint.                                                                                                                       | x    |   | x | x |   |
-| `dcos:service:marathon:marathon:services:/[<service-group]` Controls access to [DC/OS services](/1.10/deploying-services) launched by the native Marathon instance.                                                                                                                | x    | x | x | x | x |
+| `dcos:service:marathon:marathon:services:/[<service-group>]` Controls access to [DC/OS services](/1.10/deploying-services) launched by the native Marathon instance.                                                                                                                | x    | x | x | x | x |
 | `dcos:service:metronome:metronome:jobs[:<job-group>]`<br>  Controls access to [jobs and job groups](/1.10/deploying-jobs/).                                                                                                                                                        | x    | x | x | x | x |
 
 

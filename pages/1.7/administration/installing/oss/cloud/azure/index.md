@@ -103,4 +103,4 @@ If you've created a new resource group in the deployment step, it is as easy as 
 [1]: /1.7/usage/cli/install/
 [3]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/
 [4]: /1.7/usage/
-[10]: /1.7/administration/user-management/
+[10]: /1.7/administration/id-and-access-mgt/oss/managing-authentication/#user-management
