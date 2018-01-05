@@ -114,7 +114,6 @@ Use the following curl commands to rapidly provision the HDFS service account wi
     -H 'Content-Type: application/json'
     ```
 
-
     ## Strict
     Run these commands with your service account name (`<service-account-id>`) specified.
 
