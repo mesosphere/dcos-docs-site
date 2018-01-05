@@ -15,7 +15,7 @@ This topic describes how to configure DC/OS access for HDFS. Depending on your [
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.10/security/ent/perms-reference/#superuser).
+If you install a service in permissive mode and do not specify a service account, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.10/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
 
