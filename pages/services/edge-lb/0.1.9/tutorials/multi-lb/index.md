@@ -8,7 +8,7 @@ excerpt:
 enterprise: false
 ---
 
-This tutorial demonstrates how to set up multiple Edge-LB Load Balancer instances in a single pool behind a single AWS Classic Load Balancer. Similar steps could be followed for AWS Application Load Balancers or AWS Network Load Balancers.
+This tutorial demonstrates how to set up multiple load balancer instances in a single pool behind a single AWS Classic Load Balancer. Similar steps could be followed for AWS Application Load Balancers or AWS Network Load Balancers.
 
 Multiple Edge-LB instances enable you to create a highly available load balanced environment and support increased throughput.
 
@@ -57,7 +57,7 @@ Multiple Edge-LB instances enable you to create a highly available load balanced
    dcos marathon app add customer.json
    ```
 
-1. Create an Edge-LB json configuration file with a single Edge-LB pool with multiple load balancer instances. We will call this file `multi-lb.json`.
+1. Create an Edge-LB json configuration file with a single Edge-LB pool that has multiple load balancer instances. We will call this file `multi-lb.json`.
 
    ```json
    {
