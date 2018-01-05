@@ -19,8 +19,8 @@ dcos edgelb [<flags>] [OPTIONS] [<args> ...]
 
 # Options
 
-| Name, shorthand | Description |
-|---------|-------------|-------------|
+| Name, shorthand       | Description |
+|----------|-------------|
 | `--help, h`   | Print usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
