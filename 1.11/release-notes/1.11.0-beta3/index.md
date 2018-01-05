@@ -43,11 +43,10 @@ excerpt:
 ## Platform
 
 - Fault domains -
-- Licensing - Contractual terms are now enforced by DC/OS licensing and audit components. You must specify your license when you create the cluster using the CLI or advanced installer. The GUI installer is currently unsupported. [View the documentation](/1.11/administering-clusters/licenses). You can view the state of your cluster with respect to the license conditions in the **Cluster -> Overview** tab. [enterprise type="inline" size="small" /] 
 - Linked clusters. A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using DC/OS CLI. Once a link is set up you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
 - Metrics - The DC/OS metrics component now produces metrics in Prometheus format. [View the documentation](/1.11/metrics).
-- Pods - added support for persistent volumes. [View the documentation](/1.11/deploying-services/pods).
-- UCR - added support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
+- Pods - Added support for persistent volumes. [View the documentation](/1.11/deploying-services/pods).
+- UCR - Added support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
 
 # Breaking changes
 
