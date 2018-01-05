@@ -10,7 +10,7 @@ enterprise: false
 
 Edge-LB accepts configuration in either YAML or JSON format.
 
-# Convert YAML to JSON?
+# Convert YAML to JSON
 
 Convert a YAML configuration file to JSON with the command below.
 
