@@ -31,7 +31,17 @@ The DC/OS installation creates these folders:
 ## Prerequisites
 Your cluster must meet the software and hardware [requirements][1].
 
-# Create an IP detection script
+# <a name="license"></a>Create config directory and store license file
+
+1.  Create a directory named `genconf` on your bootstrap node and navigate to it.
+
+    ```bash
+    mkdir -p genconf
+    ```
+
+1.  Create a [license file](/1.11/administering-clusters/licenses) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
+
+# <a name="ip-detect-script"></a>Create an IP detection script
 
 In this step, an IP detect script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
@@ -41,14 +51,7 @@ In this step, an IP detect script is created. This script reports the IP address
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master. 
 
 
-1.  Create a directory named `genconf` in the home directory of your bootstrap node, then navigate to it.
-      
-      ```bash
-      mkdir -p genconf
-      cd genconf
-      ```
-
-2.  Create an IP detection script for your environment and save as `ip-detect`. You can use the examples below.
+1.  Create an IP detection script for your environment and save as `ip-detect`. You can use the examples below.
     
     *   #### Use the AWS Metadata Server
         
