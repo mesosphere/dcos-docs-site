@@ -18,7 +18,7 @@ The benefits of using a custom CA certificate for your DC/OS Enterprise cluster 
 - Ensuring that all DC/OS components (including Admin Router) present browser-trusted certificates.
 
 # The structure of this document page
-To facilitate the reading of this page we start out by providing a glossary for general definition of terms, followed by an in-depth configuration parameter reference. An installation walkthrough is provided in section [Installing DC/OS Enterprise with a custom CA certificate](#installing-dc-os-enterprise-with-a-custom-ca-certificate). Section [Example use cases](#example-use-cases) then provides example file contents for the custom CA certificate configuration files for three popular use cases.
+To facilitate the reading of this page we start out by providing a glossary for general definition of terms, followed by an in-depth configuration parameter reference. An installation walkthrough is provided in section [Installing DC/OS Enterprise with a custom CA certificate](#installing-dcos-enterprise-with-a-custom-ca-certificate). Section [Example use cases](#example-use-cases) then provides example file contents for the custom CA certificate configuration files for three popular use cases.
 
 # What is supported and what is not
 - Only custom CA certificates that have an associated RSA-type key pair are supported. Other types of certificates, such as those using ECC-type key pair, are currently not supported. Support for ECC-type key pairs will be added in the future.
