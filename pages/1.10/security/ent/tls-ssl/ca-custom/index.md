@@ -9,16 +9,16 @@ enterprise: true
 ---
 
 # Motivation
-Each DC/OS Enterprise cluster has its own DC/OS certificate authority (CA). By default, that CA uses a globally unique root CA certificate generated during the installation of DC/OS. That root CA certificate is used for signing certificates for the components of DC/OS, such as Admin Router. In lieu of using the auto-generated root CA certificate, you can configure DC/OS Enterprise to use a custom CA certificate, which is *either* a root CA certificate *or* an intermediate CA certificate. (see examples [below](#Example-use-cases))
+Each DC/OS Enterprise cluster has its own DC/OS certificate authority (CA). By default, that CA uses a globally unique root CA certificate generated during the installation of DC/OS. That root CA certificate is used for signing certificates for the components of DC/OS, such as Admin Router. In lieu of using the auto-generated root CA certificate, you can configure DC/OS Enterprise to use a custom CA certificate, which is *either* a root CA certificate *or* an intermediate CA certificate. (see examples [below](#example-use-cases))
 
 The benefits of using a custom CA certificate for your DC/OS Enterprise cluster include:
 
-- Ensuring that all X.509 certificates used within the DC/OS cluster (for both signing and encrypting) derive from your organization’s X.509 certification hierarchy
-- Controlling security properties of the key pair (such as type and strength) used for signing DC/OS component certificates
-- Ensuring that all DC/OS components (including Admin Router) present browser-trusted certificates
+- Ensuring that all X.509 certificates used within the DC/OS cluster (for both signing and encrypting) derive from your organization's X.509 certification hierarchy.
+- Controlling security properties of the key pair (such as type and strength) used for signing DC/OS component certificates.
+- Ensuring that all DC/OS components (including Admin Router) present browser-trusted certificates.
 
 # The structure of this document page
-To facilitate the the reading of this page we start out by providing a Glossary for general definition of terms, followed by an in-depth configuration parameter reference. An installation walkthrough is provided in section Installing DC/OS Enterprise with a custom CA certificate. Section Example use cases then provides example file contents for the custom CA certificate configuration files for three popular use cases.
+To facilitate the reading of this page we start out by providing a glossary for general definition of terms, followed by an in-depth configuration parameter reference. An installation walkthrough is provided in section [Installing DC/OS Enterprise with a custom CA certificate](#installing-dc/os-enterprise-with-a-custom-ca-certificate). Section [Example use cases](#example-use-cases) then provides example file contents for the custom CA certificate configuration files for three popular use cases.
 
 # What is supported and what is not
 - Only custom CA certificates that have an associated RSA-type key pair are supported. Other types of certificates, such as those using ECC-type key pair, are currently not supported. Support for ECC-type key pairs will be added in the future.
@@ -69,7 +69,7 @@ The custom CA certificate, the associated private key and the certificate chain 
 ## Manually placing the private key associated with the custom CA certificate onto the master nodes
 
 For security reasons, the installer will not copy the private key from the bootstrap node to the master nodes. 
-The private key associated with the custom CA certificate has to be distributed manually to every DC/OS master node before starting the installation. The filesystem path for the private key file has to be `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`. The directory `/var/lib/dcos/pki/tls/CA/private` should be created manually with the following  command before putting the file `custom_ca.key` in the directory on every DC/OS master node:
+The private key associated with the custom CA certificate has to be distributed manually to every DC/OS master node **before starting the installation**. The filesystem path for the private key file has to be `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`. The directory `/var/lib/dcos/pki/tls/CA/private` should be created manually with the following  command before putting the file `custom_ca.key` in the directory on every DC/OS master node:
 
 ```bash
  mkdir -p /var/lib/dcos/pki/tls/CA/private
@@ -121,7 +121,7 @@ Based on the requirements described above, this is the starting point for the in
 
 - The installation of DC/OS Enterprise via the Advanced Installer has been prepared according to the corresponding [documentation](/1.10/installing/ent/custom/advanced/).
 
-- On the bootstrap node, the files carrying custom CA certificate, the associated private key and, optionally, the CA certificate chain have been placed into the `$DCOS_INSTALL_DIR/genconf/` directory (see the [section](#Glossary-of-the-terms-used-in-this-documentation) above for more detailed description), Example (commands executed on the bootstrap node):
+- On the bootstrap node, the files carrying custom CA certificate, the associated private key and, optionally, the CA certificate chain have been placed into the `$DCOS_INSTALL_DIR/genconf/` directory (see the [section](#glossary-of-the-terms-used-in-this-documentation) above for more detailed description), Example (commands executed on the bootstrap node):
 
 ```bash
 cd $DCOS_INSTALL_DIR
@@ -133,7 +133,7 @@ dcos-ca-certificate-key.key
 dcos-ca-certificate-chain.crt
 ```
 
-- The custom CA private key has been securely placed on all DC/OS master nodes and is sufficiently protected (refer to [this section](#Manually-placing-the-private-key-associated-with-the-custom-CA-certificate-onto-the-master-nodes) for more details). Example (command issued on one of the DC/OS master nodes):
+- The custom CA private key has been securely placed on all DC/OS master nodes and is sufficiently protected (refer to [this section](#manually-placing-the-private-key-associated-with-the-custom-CA-certificate-onto-the-master-nodes) for more details). Example (command issued on one of the DC/OS master nodes):
 
 ```bash
 stat /var/lib/dcos/pki/tls/CA/private/dcos-ca-certificate-key.key
