@@ -40,3 +40,7 @@ If your cluster doesn't have enough resources to deploy the service as requested
 ## Virtual networks
 
 When the service is deployed on a virtual network, the service may not be switched to host networking without a full re-installation. The same is true for attempting to switch from host to virtual networking.
+
+## Automatic Data Balancing
+
+Automatic Data Balancing is not supported at this time.

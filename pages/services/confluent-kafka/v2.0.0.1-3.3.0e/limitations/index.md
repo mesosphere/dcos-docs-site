@@ -25,3 +25,7 @@ Neither volume type nor volume size requirements can be changed after initial de
 ## Rack-aware Replication
 
 Rack awareness within the service is not currently supported, but is planned to be supported with a future release of DC/OS.
+
+## Automatic Data Balancing
+
+Automatic Data Balancing is not supported at this time.
