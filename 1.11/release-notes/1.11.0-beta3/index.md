@@ -37,20 +37,23 @@ excerpt:
 
 [enterprise]
 ## Storage
+- Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
 [/enterprise]
+
+## Metrics
+- Metrics - The DC/OS metrics component now produces metrics in Prometheus format. [View the documentation](/1.11/metrics).
 
 ### Pods
 
-## Updated DC/OS data services
-- TLS auth for DC/OS Kafka is now supported. [other data services?]
 
 ## Platform
-
-- Fault domains -
+- Fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
 - Linked clusters. A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using DC/OS CLI. Once a link is set up you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
-- Metrics - The DC/OS metrics component now produces metrics in Prometheus format. [View the documentation](/1.11/metrics).
-- Pods - Added support for persistent volumes. [View the documentation](/1.11/deploying-services/pods).
 - UCR - Added support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
+
+## Updated DC/OS data services
+- TLS auth for DC/OS Kafka is now supported. [other data services?]
+- Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness).
 
 # Breaking changes
 
@@ -62,5 +65,7 @@ excerpt:
 # <a name="fixed-issues"></a>Major Issues Fixed in 1.11 Beta 3
 
 - DCOS_OSS-1658 - `--verbose` flag added to upgrade script that prints all status and error messages to the console to enable upgrade debugging.
-- DCOS-19955 - Enhanced cluster linking API and CLI experience. [enterprise only]
-- DCOS-19896 - `--linked` flag added to `dcos cluster list` so users can see which clusters can be unlinked. [enterprise only]
+- DCOS-19955 - Enhanced cluster linking API and CLI experience. [enterprise type="inline" size="small" /]
+- DCOS-19896 - `--linked` flag added to `dcos cluster list` so users can see which clusters can be unlinked. [enterprise type="inline" size="small" /]
+- DCOS-19837 - Consolidate fault-domain scripts for all cloud providers into one script to support clusters with multiple cloud providers.
+- DCOS-19573 - Bugix: Changes to unique constraints now supported in the UI.
