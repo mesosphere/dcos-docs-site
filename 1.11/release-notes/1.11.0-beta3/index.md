@@ -35,10 +35,14 @@ excerpt:
 ## Security
 [/enterprise]
 
+[enterprise]
+## Storage
+[/enterprise]
 
+### Pods
 
 ## Updated DC/OS data services
-
+- TLS auth for DC/OS Kafka is now supported. [other data services?]
 
 ## Platform
 
@@ -55,4 +59,8 @@ excerpt:
 # <a name="known-issues"></a>Known Issues and Limitations
 
 
-# <a name="fixed-issues"></a>Major Issues Fixed Since 1.10.0
+# <a name="fixed-issues"></a>Major Issues Fixed in 1.11 Beta 3
+
+- DCOS_OSS-1658 - `--verbose` flag added to upgrade script that prints all status and error messages to the console to enable upgrade debugging.
+- DCOS-19955 - Enhanced cluster linking API and CLI experience. [enterprise only]
+- DCOS-19896 - `--linked` flag added to `dcos cluster list` so users can see which clusters can be unlinked. [enterprise only]
