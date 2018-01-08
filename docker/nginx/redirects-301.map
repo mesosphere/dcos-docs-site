@@ -38,7 +38,9 @@
 /1.10/administration/installing/cloud/packet/ /1.10/installing/cloud/packet/;
 /1.10/administration/installing/custom/ /1.10/installing/custom/;
 /1.10/administration/installing/custom/add-a-node/ /1.10/administering-clusters/add-a-node/;
-/1.10/administration/installing/custom/advanced/ /1.10/installing/custom/advanced/;
+
+~^/1.10/administration/installing/(.*)$ /1.10/administration/installing/oss/$1;
+
 /1.10/administration/installing/custom/cli/ /1.10/installing/custom/cli/;
 /1.10/administration/installing/custom/configuration-parameters/ /1.10/installing/custom/configuration/configuration-parameters/;
 /1.10/administration/installing/custom/configure-proxy/ /1.10/installing/custom/configure-proxy/;
@@ -306,10 +308,11 @@
 /1.7/usage/tutorials/ruby-on-rails/ /1.7/usage/tutorials/;
 /1.8/administration/haproxy-adminrouter/ /1.8/administration/tls-ssl/haproxy-adminrouter/;
 /1.8/administration/id-and-access-mgt/auth-api/ /1.8/administration/id-and-access-mgt/iam-api/;
-/1.8/administration/installing/cloud/aws/advanced/aws-custom/ /1.8/administration/installing/cloud/aws/advanced/;
-/1.8/administration/installing/cloud/aws/advanced/quickstart/ /1.8/administration/installing/cloud/aws/advanced/;
-/1.8/administration/installing/cloud/aws/advanced/system-requirements/ /1.8/administration/installing/cloud/aws/advanced/;
-/1.8/administration/installing/custom/create-public-agent/ /1.8/administration/installing/custom/convert-agent-type/;
+/1.8/administration/installing/cloud/aws/advanced/aws-custom/ /1.8/administration/installing/oss/cloud/aws/advanced/;
+/1.8/administration/installing/cloud/aws/advanced/quickstart/ /1.8/administration/installing/oss/cloud/aws/advanced/;
+/1.8/administration/installing/cloud/aws/advanced/system-requirements/ /1.8/administration/installing/oss/cloud/aws/advanced/;
+/1.8/administration/installing/custom/create-public-agent/ /1.8/administration/installing/oss/custom/convert-agent-type/;
+/1.8/administration/installing/custom/advanced/ /1.8/installing/oss/custom/advanced/;
 /1.8/administration/overlay-networks/ /1.8/administration/virtual-networks/;
 /1.8/administration/overlay-networks/ip-per-container/ /1.8/administration/virtual-networks/ip-per-container/;
 /1.8/administration/overlay-networks/isolation/ /1.8/administration/virtual-networks/isolation/;
