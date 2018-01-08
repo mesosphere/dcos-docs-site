@@ -17,6 +17,10 @@ Below is a list of third party open source software which is provided by Mesosph
 			<th>Software</th>
 			<th>License</th>
 		</tr>
+    <tr>
+			<td>dcos-ca</td>
+			<td><a href="https://github.com/cloudflare/cfssl/blob/master/LICENSE">Cloudflare CFSSL License</a></td>
+		</tr>
 		<tr>
 			<td>dcos-diagnostics</td>
 			<td><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></td>

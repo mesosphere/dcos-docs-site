@@ -13,7 +13,7 @@ enterprise: false
 
 Marathon sorts tasks into these categories: initial, non-terminal, and terminal. Tasks within these categories may have one of several statuses, as summarized in the diagram below.
 
-To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon API](https://mesosphere.github.io/marathon/docs/generated/api.html) (/v2/events).
+To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html) (/v2/events).
 
 You can also  [configure Marathon's behavior when a task is unreachable](/1.10/deploying-services/task-handling/configure-task-handling/).
 

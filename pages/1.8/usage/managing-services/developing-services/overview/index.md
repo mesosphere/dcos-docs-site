@@ -8,14 +8,6 @@ excerpt:
 enterprise: false
 ---
 
-
-
-
-
-
-
-
-
 # <a name="universe"></a>Package Repositories
 
 The DC/OS Universe contains all of the services that are installable DC/OS. For more information on DC/OS Universe, see the [GitHub Universe repository][1].
@@ -83,12 +75,12 @@ Each DC/OS service contains `package.json`, `config.json`, and `marathon.json` f
 
     *   The `postInstallNotes` parameter gives the user information they'll need after the installation. Focus on providing a documentation URL, a tutorial, or both. For example:
 
-              "postInstallNotes": "Thank you for installing the Unicorn service.nntDocumentation: http://<your-url>ntIssues: https://github.com/",
+              "postInstallNotes": "Thank you for installing the Unicorn service. Documentation: http://<your-url>. Issues: https://github.com/",
 
 
     *   The `postUninstallNotes` parameter gives the user information they'll need after an uninstall. For example, further cleanup before reinstalling again and a link to the details. A common issue is cleaning up ZooKeeper entries. For example:
 
-              postUninstallNotes": "The Unicorn DC/OS Service has been uninstalled and will no longer run.nPlease follow the instructions at http://<your-URL> to clean up any persisted state" }
+              postUninstallNotes": "The Unicorn DC/OS Service has been uninstalled and will no longer run. Please follow the instructions at http://<your-URL> to clean up any persisted state" }
 
 
 *   **config.json**
@@ -122,15 +114,16 @@ Here is a detailed developer workflow for creating a DC/OS service:
     1.  Name your service. For example, `unicorn`.
 
         The DC/OS package repository directory structure is:
-
-              repo/packages/<initial-letter>/<service-name>/<version>
-
+        
+        ```
+        repo/packages/<initial-letter>/<service-name>/<version>
+        ```
 
         Where:
 
-    *   `<initial-letter>` is the uppercase first letter of your service name.
-    *   `<service-name>` is the lowercase service name. Do not use keywords such as Apache, Mesos or DC/OS in your service name.
-    *   `<version>` is the service version number.
+        *   `<initial-letter>` is the uppercase first letter of your service name.
+        *   `<service-name>` is the lowercase service name. Do not use keywords such as Apache, Mesos or DC/OS in your service name.
+        *   `<version>` is the service version number.
     1.  Create a directory under `repo/packages` for your service. For example, `repo/packages/U/unicorn`.
     2.  Create a version index directory. For example, `repo/packages/U/unicorn/0`.
     3.  Add `package.json`, `config.json`, and `marathon.json` to your index directory.
@@ -139,9 +132,10 @@ Here is a detailed developer workflow for creating a DC/OS service:
 3.  Test your service on DC/OS:
 
     1.  Configure DC/OS to point to your local repository. For example, if your forked repository at `https://github.com/mesosphere/altuniverse` and using the `version-1.x` branch, add it to your DC/OS configuration with this command:
-
+    2. 
+        ```bash
             dcos package repo add my-repo https://github.com/mesosphere/altuniverse/archive/version-1.x.zip
-
+        ```
 
 # Make your service public
 
@@ -185,4 +179,4 @@ For more information about the JSON files, see the [Universe Readme][1] page. <!
 
  [1]: https://github.com/mesosphere/universe
  [2]: https://github.com/mesosphere/universe#contributing-a-package
- [3]: /1.8/overview/security/
+ [3]: /1.8/overview/concepts/#private-agent-node

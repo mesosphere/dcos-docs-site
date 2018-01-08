@@ -62,28 +62,28 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
     "secrets": {
       "pullConfigSecret": {
         "source": "/mesos-docker/pullConfig"
-      }
-    },
-    "args":[  
-    "<my-arg>"
-    ],
-    "cpus": 0.5,
-    "disk": 0,
-    "instances": 1,
-    "mem": 128,
-    "networks": [
-      {
-      "mode": "container/bridge"
-      }
-    ],
-    "requirePorts": false
+    }
+  },
+  "args":[
+  "<my-arg>"
+  ],
+  "cpus": 0.5,
+  "disk": 0,
+  "instances": 1,
+  "mem": 128,
+  "networks": [
+    {
+    "mode": "container/bridge"
+    }
+  ],
+  "requirePorts": false
 }
 ```
 
 **Important:** If you leave the `args` field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the `args` field. If you do not, your service will fail to deploy.
 
 # Limitations
-- The UCR is a [preview](/1.10/overview/feature-maturity/) feature in DC/OS 1.10.
+- The UCR is a <a href="/1.10/overview/feature-maturity/">preview</a>feature in DC/OS 1.10.
 - The UCR does not support the following: runtime privileges, Docker options, private registries with container authentication.
 
 # Further Reading

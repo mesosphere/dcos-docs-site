@@ -17,7 +17,7 @@ enterprise: true
 
 Managing access to services is a basic requirement in any enterprise-grade setup. DC/OS provides you with flexible user identity management combined with fine-grained access control. The overall approach to user identity management and access control in DC/OS looks as follows:
 
-![Overview of the DC/OS User Identity and Access Management](/1.8/img/iam-overview.png)
+![Overview of the DC/OS User Identity and Access Management](/1.8/administration/id-and-access-mgt/ent/img/iam-overview.png)
 
 1. When one of your users attempts to access a service the request is first routed through a system component called Admin Router.
 1. The Admin Router coordinates with the Identity and Access Management (IAM) system component to verify if a certain user can access the targeted service. The IAM system component uses a highly available, replicated data store to keep track of user identities. The access verification process comprises:

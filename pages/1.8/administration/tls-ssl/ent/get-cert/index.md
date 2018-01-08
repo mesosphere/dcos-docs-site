@@ -28,7 +28,7 @@ The root certificate of your DC/OS CA can be found on any master node at the fol
 
 **Tip:** Do not modify the `ca.crt` file stored on the master node in any way. However, after making a copy of this file and storing it elsewhere, we recommend renaming the copy from `ca.crt` to `dcos-ca.crt`. This will make it easier to copy and paste the curl commands provided elsewhere in the documentation.
 
-# <a name="#curl"></a>Using curl to retrieve the root certificate of your DC/OS CA
+# <a name="curl"></a>Using curl to retrieve the root certificate of your DC/OS CA
 
 Using curl to retrieve the root certificate of your DC/OS CA requires the use of the `-k` flag, which opens up the possibility of a man-in-the-middle attack. If this risk does not concern you, use the following command to retrieve the certificate file and save it in the current directory.
 

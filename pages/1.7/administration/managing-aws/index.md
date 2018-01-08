@@ -42,7 +42,7 @@ To upgrade a DC/OS cluster:
 
     3.  Change the DNS so that it points to the DC/OS services running in the new cluster.
 
-3.  Shutdown your existing DC/OS cluster.
+3.  Shut down your existing DC/OS cluster.
 
- [2]: /latest/administration/installing/cloud/aws/
+ [2]: /latest/administration/installing/oss/cloud/aws/
  [3]: https://console.aws.amazon.com/cloudformation/home

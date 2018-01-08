@@ -38,4 +38,4 @@ Marathon also allows for scaling or uninstalling of applications.
 As such we have multiple options to deploy and maintain apps on Marathon besides the DC/OS UI:
 
 * DC/OS CLI: We have just used that option to deploy our app1. To get more information check `dcos marathon app --help`.
-* HTTP endpoints: Marathon also comes with an extensive [REST API](https://mesosphere.github.io/marathon/docs/generated/api.html) which can also be used to deploy apps
+* HTTP endpoints: Marathon also comes with an extensive [REST API](http://mesosphere.github.io/marathon/api-console/index.html) which can also be used to deploy apps
