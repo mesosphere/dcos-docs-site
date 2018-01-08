@@ -103,8 +103,7 @@
 /1.10/installing/local/ /1.10/installing/oss/local/;
 /1.10/monitoring/debugging/cli-debugging/task-exec/ /1.10/monitoring/debugging/task-exec/;
 /1.10/networking/mesos-dns/http-interface/ /1.10/networking/mesos-dns/mesos-dns-api/;
-/1.10/networking/edge-lb/(.*)$ /services/edge-lb/$1;
-/1.10/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
+/1.10/networking/edge-lb/ /services/edge-lb;
 /1.10/overview/components/ /1.10/overview/architecture/components/;
 /1.10/overview/roadmap/ /1.10/;
 /1.10/usage/ /1.10/;
