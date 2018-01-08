@@ -169,10 +169,14 @@ Note that `ca_certificate_chain_path` is an optional parameter when setting up D
 Proceed with the installation as described in the [documentation of the Advanced Installer](/1.10/installing/ent/custom/advanced/#install-dcos).
 
 ## Verify installation
-Issue the following command on the bootstrap node to check that the Admin Router on a master mode uses a certificate signed with the custom CA certificate:
+One method of verifying that the DC/OS was installed properly with the custom CA certificate is to initiate a TLS connection to the Admin Router which, after installation, will have a certificate signed by the custom CA. 
+
+In order to do that you need first to obtain the DC/OS CA bundle of the deployed cluster. [This page](/1.10/security/ent/tls-ssl/get-cert/) shows how you can do that.
+
+Provided you have obtained the DC/OS bundle and stored it in a file named `dcos-ca.crt`, issue the following command in the directory containing the `dcos-ca.crt` file in order to check that the Admin Router on a master node uses a certificate signed with the custom CA certificate:
 
 ```bash
-openssl s_client -verify_ip <private_ip_master_nodeX> -CAfile genconf/dcos-ca-certificate-chain.crt -connect <public_ip_master_nodeX>:443 | grep -e “s:” -e “i:” -e “return code:”
+openssl s_client -verify_ip <private_ip_master_nodeX> -CAfile dcos-ca.crt -connect <public_ip_master_nodeX>:443 | grep -e "s:" -e "i:" -e "return code:"
 ```
 
 The output should look similar to the following:
