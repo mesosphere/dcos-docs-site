@@ -99,6 +99,7 @@
 /1.10/installing/ /1.10/installing/oss/;
 /1.10/installing/cloud/ /1.10/installing/oss/cloud/;
 /1.10/installing/custom/ /1.10/installing/oss/custom/;
+/1.10/installing/oss/custom/advanced/ /1.10/installing/oss/custom/advanced/;
 /1.10/installing/custom/configuration-parameters/ /1.10/installing/custom/configuration/configuration-parameters/;
 /1.10/installing/local/ /1.10/installing/oss/local/;
 /1.10/monitoring/debugging/cli-debugging/task-exec/ /1.10/monitoring/debugging/task-exec/;
@@ -290,7 +291,7 @@
 /1.7/administration/installing/custom/automated-installer/system-requirements/ /1.7/administration/installing/custom/system-requirements/;
 /1.7/administration/security-and-authentication/ /1.7/overview/security/;
 /1.7/administration/service-discovery/ /1.7/overview/service-discovery/;
-/1.7/advanced-installer/create-a-script-for-ip-address-discovery/ /1.7/administration/installing/custom/advanced/;
+/1.7/advanced-installer/create-a-script-for-ip-address-discovery/ /1.7/administration/installing/oss/custom/advanced/;
 /1.7/getting-started/overview/ /1.7/usage/;
 /1.7/usage/jobs/getting-started/ /1.8/usage/jobs/getting-started/;
 /1.7/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/ /1.7/usage/service-discovery/virtual-ip-addresses/;
@@ -378,7 +379,7 @@
 /1.9/administration/installing/cloud/packet/ /1.9/installing/cloud/packet/;
 /1.9/administration/installing/custom/ /1.9/installing/custom/;
 /1.9/administration/installing/custom/add-a-node/ /1.9/administering-clusters/add-a-node/;
-/1.9/administration/installing/custom/advanced/ /1.9/installing/custom/advanced/;
+/1.9/administration/installing/custom/advanced/ /1.9/installing/oss/custom/advanced/;
 /1.9/administration/installing/custom/cli/ /1.9/installing/custom/cli/;
 /1.9/administration/installing/custom/configuration-parameters/ /1.9/installing/custom/configuration/configuration-parameters/;
 /1.9/administration/installing/custom/configure-proxy/ /1.9/installing/custom/configure-proxy/;
