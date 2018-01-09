@@ -43,7 +43,7 @@ The set of the configuration parameters that governs the specific aspects of the
 
 - DC/OS Configuration file
 
-The file which contains the DC/OS configuration parameters, in particular, the filesystem paths to the custom CA certificate, associated private key and the certificate chain. 
+The file which contains the DC/OS configuration parameters, in particular, the  filesystem relative paths to the custom CA certificate, associated private key and the certificate chain. 
 
 The configuration file is normally called `config.yaml` and has to be present in the `genconf/` directory on the bootstrap node during the installation. It is used by the DC/OS installer to create a custom DC/OS build.
 
@@ -88,7 +88,8 @@ scp custom_ca.key centos@W.X.Y.Z:/var/lib/dcos/pki/tls/CA/private
 
 ## Specifying the locations of the custom CA certificate, the associated private key and the certificate chain files in the configuration file
 
-The filesystem paths to the custom CA certificate, associated private key and certificate chain files have to be specified in the configuration file using, respectively, the `ca_certificate_path`, `ca_certificate_key_path` and  `ca_certificate_chain_path` parameters.
+The filesystem paths to the custom CA certificate, associated private key and certificate chain files in the `genconf` directory on the bootstrap node have to be specified in the configuration file using, respectively, the `ca_certificate_path`, `ca_certificate_key_path` and  `ca_certificate_chain_path` parameters.
+The paths to the custom certificate, the associated private key and the certificate chain must be relative paths and must not contain the `genconf` prefix.
 
 [This section](#example-use-cases) shows how to set these configuration parameters.
 
@@ -136,10 +137,10 @@ dcos-ca-certificate-chain.crt
 - The custom CA private key has been securely placed on all DC/OS master nodes and is sufficiently protected (refer to [this section](#manually-placing-the-private-key-associated-with-the-custom-ca-certificate-onto-the-master-nodes) for more details). Example (command issued on one of the DC/OS master nodes):
 
 ```bash
-stat /var/lib/dcos/pki/tls/CA/private/dcos-ca-certificate-key.key
+stat /var/lib/dcos/pki/tls/CA/private/custom_ca.key
 ```
 ```bash
-File: ‘/var/lib/dcos/pki/tls/CA/private/dcos-ca-certificate-key.key’
+File: ‘/var/lib/dcos/pki/tls/CA/private/custom_ca.key’
 Size: 9             Blocks: 8          IO Block: 4096   regular file
 Device: ca01h/51713d    Inode: 100671105   Links: 1
 Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
