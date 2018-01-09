@@ -38,7 +38,6 @@
 /1.10/administration/installing/cloud/packet/ /1.10/installing/cloud/packet/;
 /1.10/administration/installing/custom/ /1.10/installing/custom/;
 /1.10/administration/installing/custom/add-a-node/ /1.10/administering-clusters/add-a-node/;
-~^/1.10/installing/(.*)$ /1.10/installing/oss/$1;
 /1.10/administration/installing/custom/cli/ /1.10/installing/custom/cli/;
 /1.10/administration/installing/custom/configuration-parameters/ /1.10/installing/custom/configuration/configuration-parameters/;
 /1.10/administration/installing/custom/configure-proxy/ /1.10/installing/custom/configure-proxy/;
@@ -53,6 +52,7 @@
 /1.10/administration/installing/opt-out/ /1.10/installing/custom/opt-out/;
 /1.10/administration/installing/ports/ /1.10/installing/ports/;
 /1.10/administration/installing/update-a-node/ /1.10/administering-clusters/update-a-node/;
+~^/1.10/installing/(.*)$ /1.10/installing/oss/$1;
 /1.10/administration/locate-public-agent/ /1.10/administering-clusters/locate-public-agent/;
 /1.10/administration/logging/ /1.10/monitoring/logging/;
 /1.10/administration/logging/access-component-logs/ /1.10/monitoring/logging/access-component-logs/;
@@ -96,16 +96,12 @@
 /1.10/developing-services/dcos-integration/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/developing-services/service-requirements-spec/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/development/ /1.10/developing-services/;
-/1.10/installing/ /1.10/installing/oss/;
-/1.10/installing/cloud/ /1.10/installing/oss/cloud/;
-/1.10/installing/custom/ /1.10/installing/oss/custom/;
-/1.10/installing/oss/custom/advanced/ /1.10/installing/oss/custom/advanced/;
 /1.10/installing/custom/configuration-parameters/ /1.10/installing/custom/configuration/configuration-parameters/;
 /1.10/installing/local/ /1.10/installing/oss/local/;
 /1.10/monitoring/debugging/cli-debugging/task-exec/ /1.10/monitoring/debugging/task-exec/;
 /1.10/networking/mesos-dns/http-interface/ /1.10/networking/mesos-dns/mesos-dns-api/;
-/1.10/networking/edge-lb/(.*)$ /services/edge-lb/$1;
-/1.10/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
+~^/1.10/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
+~^/1.10/networking/edge-lb/(.*)$ /services/edge-lb/$1;
 /1.10/overview/components/ /1.10/overview/architecture/components/;
 /1.10/overview/roadmap/ /1.10/;
 /1.10/usage/ /1.10/;
@@ -307,11 +303,11 @@
 /1.7/usage/tutorials/ruby-on-rails/ /1.7/usage/tutorials/;
 /1.8/administration/haproxy-adminrouter/ /1.8/administration/tls-ssl/haproxy-adminrouter/;
 /1.8/administration/id-and-access-mgt/auth-api/ /1.8/administration/id-and-access-mgt/iam-api/;
-~^/1.8/administration/installing/(.*)$ /1.8/administration/installing/oss/$1;
 /1.8/administration/installing/cloud/aws/advanced/aws-custom/ /1.8/administration/installing/oss/cloud/aws/advanced/;
 /1.8/administration/installing/cloud/aws/advanced/quickstart/ /1.8/administration/installing/oss/cloud/aws/advanced/;
 /1.8/administration/installing/cloud/aws/advanced/system-requirements/ /1.8/administration/installing/oss/cloud/aws/advanced/;
 /1.8/administration/installing/custom/create-public-agent/ /1.8/administration/installing/oss/custom/convert-agent-type/;
+~^/1.8/administration/installing/(.*)$ /1.8/administration/installing/oss/$1;
 /1.8/administration/installing/custom/advanced/ /1.8/installing/oss/custom/advanced/;
 /1.8/administration/overlay-networks/ /1.8/administration/virtual-networks/;
 /1.8/administration/overlay-networks/ip-per-container/ /1.8/administration/virtual-networks/ip-per-container/;
@@ -365,7 +361,6 @@
 /1.9/administration/id-and-access-mgt/iam-api/ /1.9/security/iam-api/;
 /1.9/administration/id-and-access-mgt/managing-authentication/ /1.9/security/managing-authentication/;
 /1.9/administration/id-and-access-mgt/user-management/ /1.9/security/ent/users-groups/;
-~^/1.9/administration/installing/(.*)$ /1.9/administration/installing/oss/$1;
 /1.9/administration/installing/ /1.9/installing/;
 /1.9/administration/installing/cloud/ /1.9/installing/cloud/;
 /1.9/administration/installing/cloud/aws/ /1.9/installing/cloud/aws/;
@@ -398,6 +393,7 @@
 /1.9/administration/installing/opt-out/ /1.9/installing/custom/opt-out/;
 /1.9/administration/installing/ports/ /1.9/installing/ports/;
 /1.9/administration/installing/update-a-node/ /1.9/administering-clusters/update-a-node/;
+~^/1.9/administration/installing/(.*)$ /1.9/administration/installing/oss/$1;
 /1.9/administration/locate-public-agent/ /1.9/administering-clusters/locate-public-agent/;
 /1.9/administration/logging/ /1.9/monitoring/logging/;
 /1.9/administration/logging/access-component-logs/ /1.9/monitoring/logging/access-component-logs/;
