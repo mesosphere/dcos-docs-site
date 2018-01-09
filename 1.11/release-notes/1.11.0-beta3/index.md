@@ -31,8 +31,12 @@ excerpt:
 
 ## Networking
 - IPv6 is now supported for Docker containers.
-- Edge-LB 0.2.0. [enterprise type="inline" size="small" /]
+  You can now launch docker containers through Marathon on an IPv6 Docker user network. Tthe built-in DC/OS overlay also supports IPv6 virtual networks for Docker containers. By default, DC/OS overlay now comes with an IPv6 virtual network called `dcos6`. You can use `dcos6` to launch IPv6 docker containers through Marathon.
+  **Note:** IPv6 is not supported for CNI, and hence UCR containers.
+- Edge-LB 1.0 RC candidate. [enterprise type="inline" size="small" /]
   - Strict security mode is now supported.
+- Performance improvements to the DC/OS network stack.
+  All networking components (minuteman, navstar, spartan) are aggregated into a single Erlang VM called `dcos-net`. This improves the resource consumption of the Erlang components and greatly improves reliability and availability to these components.
 
 [enterprise]
 ## Security
