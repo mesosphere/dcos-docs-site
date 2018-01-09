@@ -38,9 +38,7 @@
 /1.10/administration/installing/cloud/packet/ /1.10/installing/cloud/packet/;
 /1.10/administration/installing/custom/ /1.10/installing/custom/;
 /1.10/administration/installing/custom/add-a-node/ /1.10/administering-clusters/add-a-node/;
-
-~^/1.10/administration/installing/(.*)$ /1.10/administration/installing/oss/$1;
-
+~^/1.10/installing/(.*)$ /1.10/installing/oss/$1;
 /1.10/administration/installing/custom/cli/ /1.10/installing/custom/cli/;
 /1.10/administration/installing/custom/configuration-parameters/ /1.10/installing/custom/configuration/configuration-parameters/;
 /1.10/administration/installing/custom/configure-proxy/ /1.10/installing/custom/configure-proxy/;
@@ -290,6 +288,7 @@
 /1.10/usage/tutorials/task-labels/ /1.10/tutorials/task-labels/;
 /1.10/usage/webinterface/ /1.10/gui/;
 /1.7/administration/dcosarchitecture/security/ /1.7/overview/;
+~^/1.7/administration/installing/(.*)$ /1.7/administration/installing/oss/$1;
 /1.7/administration/installing/custom/automated-installer/system-requirements/ /1.7/administration/installing/custom/system-requirements/;
 /1.7/administration/security-and-authentication/ /1.7/overview/security/;
 /1.7/administration/service-discovery/ /1.7/overview/service-discovery/;
@@ -308,6 +307,7 @@
 /1.7/usage/tutorials/ruby-on-rails/ /1.7/usage/tutorials/;
 /1.8/administration/haproxy-adminrouter/ /1.8/administration/tls-ssl/haproxy-adminrouter/;
 /1.8/administration/id-and-access-mgt/auth-api/ /1.8/administration/id-and-access-mgt/iam-api/;
+~^/1.8/administration/installing/(.*)$ /1.8/administration/installing/oss/$1;
 /1.8/administration/installing/cloud/aws/advanced/aws-custom/ /1.8/administration/installing/oss/cloud/aws/advanced/;
 /1.8/administration/installing/cloud/aws/advanced/quickstart/ /1.8/administration/installing/oss/cloud/aws/advanced/;
 /1.8/administration/installing/cloud/aws/advanced/system-requirements/ /1.8/administration/installing/oss/cloud/aws/advanced/;
@@ -365,6 +365,7 @@
 /1.9/administration/id-and-access-mgt/iam-api/ /1.9/security/iam-api/;
 /1.9/administration/id-and-access-mgt/managing-authentication/ /1.9/security/managing-authentication/;
 /1.9/administration/id-and-access-mgt/user-management/ /1.9/security/ent/users-groups/;
+~^/1.9/administration/installing/(.*)$ /1.9/administration/installing/oss/$1;
 /1.9/administration/installing/ /1.9/installing/;
 /1.9/administration/installing/cloud/ /1.9/installing/cloud/;
 /1.9/administration/installing/cloud/aws/ /1.9/installing/cloud/aws/;
