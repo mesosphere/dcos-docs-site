@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+echo "------------------------------"
+echo " Merging Beta Confluent Kafka"
+echo "------------------------------"
+
+# Move to the top level of the repo
+root="$(git rev-parse --show-toplevel)"
+cd $root
+
+# pull confluent 
+git remote rm confluent 
+git remote add confluent https://github.com/mesosphere/confluent.git
+git fetch confluent > /dev/null 2>&1 
+
+# checkout each file in the merge list from confluent/<latest-release> 
+while read p; do
+  echo $p
+  # checkout
+  git checkout tags/2.0.0.1-3.3.0e $p
+  # markdown files only
+  if [ ${p: -3} == ".md" ]; then
+  	# insert tag ( markdown files only )
+    awk -v n=2 '/---/ { if (++count == n) sub(/---/, "---\n\n<!-- This source repo for this topic is https://github.com/mesosphere/confluent -->\n"); } 1{print}' $p > tmp && mv tmp $p
+  	# remove https://docs.mesosphere.com from spark links
+	 awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
+	 awk '{gsub(/https:\/\/docs.mesosphere.com\/latest\//,"/latest/");}{print}' $p > tmp && mv tmp $p
+	# add full path for images 
+         awk '{gsub(/\(\/img/,"(/services/beta-confluent-kafka/v1.2.4-3.3.0e-beta/img");}{print}' $p > tmp && mv tmp $p
+  fi
+
+cp -r docs/* service-docs/beta-confluent-kafka/v1.2.4-3.3.0e-beta/
+rm -r docs/
+
+done <scripts/merge-lists/beta-confluent-merge-list.txt
+
+echo "------------------------------"
+echo " Beta Confluent merge complete"
+echo "------------------------------"

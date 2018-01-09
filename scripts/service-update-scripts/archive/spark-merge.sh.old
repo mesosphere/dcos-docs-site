@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+echo "------------------------------"
+echo " Merging spark-build"
+echo "------------------------------"
+
+# Move to the top level of the repo
+root="$(git rev-parse --show-toplevel)"
+cd $root
+
+# pull spark
+git remote rm spark-build 
+git remote add spark-build https://github.com/mesosphere/spark-build.git
+git fetch spark-build > /dev/null 2>&1 
+
+# checkout each file in the merge list from spark-build/master
+while read p; do
+  echo $p
+  # checkout
+  git checkout tags/2.0.1-2.2.0-1 $p
+  # markdown files only
+  if [ ${p: -3} == ".md" ]; then
+  	# insert tag ( markdown files only )
+    awk -v n=2 '/---/ { if (++count == n) sub(/---/, "---\n\n<!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->\n"); } 1{print}' $p > tmp && mv tmp $p
+  	# remove https://docs.mesosphere.com from spark links
+	 awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
+	 awk '{gsub(/https:\/\/docs.mesosphere.com\/latest\//,"/latest/");}{print}' $p > tmp && mv tmp $p
+	# add full path for images 
+         awk '{gsub(/\(\/img/,"(/services/spark/v2.0.1-2.2.0-1/img");}{print}' $p > tmp && mv tmp $p
+  fi
+
+cp -r docs/* service-docs/spark/v2.0.1-2.2.0-1/
+rm -r docs/
+
+done <scripts/merge-lists/spark-build-merge-list.txt
+
+echo "------------------------------"
+echo " spark-build merge complete"
+echo "------------------------------"
