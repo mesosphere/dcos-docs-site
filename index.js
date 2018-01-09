@@ -79,6 +79,7 @@ MS.metadata({
   copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
   gitBranch: process.env.GIT_BRANCH,
+  dcosDocsLatest: '1.10'
 })
 
 // Source
