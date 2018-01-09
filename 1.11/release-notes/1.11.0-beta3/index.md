@@ -31,7 +31,7 @@ excerpt:
 
 ## Networking
 - IPv6 is now supported for Docker containers.
-- Edge-LB 2.0. [enterprise type="inline" size="small" /]
+- Edge-LB 0.2.0. [enterprise type="inline" size="small" /]
   - Strict security mode is now supported.
 
 [enterprise]
@@ -52,7 +52,9 @@ excerpt:
 ## Platform
 - Fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
 - Linked clusters. A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using DC/OS CLI. Once a link is set up you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
-- UCR - Added support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
+- UCR
+  - Support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
+  - Support for Docker image pull secrets.
 
 ## Updated DC/OS data services
 - TLS auth for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported.
