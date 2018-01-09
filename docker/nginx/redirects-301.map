@@ -52,6 +52,7 @@
 /1.10/administration/installing/opt-out/ /1.10/installing/custom/opt-out/;
 /1.10/administration/installing/ports/ /1.10/installing/ports/;
 /1.10/administration/installing/update-a-node/ /1.10/administering-clusters/update-a-node/;
+/1.10/administration/installing/custom/advanced/ /1.10/installing/custom/advanced/;
 ~^/1.10/installing/(.*)$ /1.10/installing/oss/$1;
 /1.10/administration/locate-public-agent/ /1.10/administering-clusters/locate-public-agent/;
 /1.10/administration/logging/ /1.10/monitoring/logging/;
@@ -307,8 +308,8 @@
 /1.8/administration/installing/cloud/aws/advanced/quickstart/ /1.8/administration/installing/oss/cloud/aws/advanced/;
 /1.8/administration/installing/cloud/aws/advanced/system-requirements/ /1.8/administration/installing/oss/cloud/aws/advanced/;
 /1.8/administration/installing/custom/create-public-agent/ /1.8/administration/installing/oss/custom/convert-agent-type/;
-~^/1.8/administration/installing/(.*)$ /1.8/administration/installing/oss/$1;
 /1.8/administration/installing/custom/advanced/ /1.8/installing/oss/custom/advanced/;
+~^/1.8/administration/installing/(.*)$ /1.8/administration/installing/oss/$1;
 /1.8/administration/overlay-networks/ /1.8/administration/virtual-networks/;
 /1.8/administration/overlay-networks/ip-per-container/ /1.8/administration/virtual-networks/ip-per-container/;
 /1.8/administration/overlay-networks/isolation/ /1.8/administration/virtual-networks/isolation/;
