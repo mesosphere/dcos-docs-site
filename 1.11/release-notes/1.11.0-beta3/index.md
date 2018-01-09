@@ -30,6 +30,9 @@ excerpt:
 - DC/OS 1.11 is integrated with the latest release of Marathon, version 1.6. Resulting breaking changes and new features are documented below. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 
 ## Networking
+- IPv6 is now supported for Docker containers.
+- Edge-LB 2.0. [enterprise type="inline" size="small" /]
+  - Strict security mode is now supported.
 
 [enterprise]
 ## Security
@@ -37,6 +40,9 @@ excerpt:
 
 [enterprise]
 ## Storage
+- DC/OS Storage Service now in beta. DC/OS 1.11 introduces a single, highly-available, control plane end point to manage and consume storage services and features within DC/OS.
+- A Container Storage Interface (CSI) that enables you to connect to locally managed and 3rd party storage features via a common pluggable model.
+- Volume profiles. You can now create a volume profile with your desired storage parameters, then apply it during volume creation. This simplifies and expedites volume creation.
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
 [/enterprise]
 
@@ -53,6 +59,9 @@ excerpt:
 - Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
 - New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpointd to relaunch a node in an idle command state for debugging purposes.
 - New beta DC/OS Kafka ZooKeeper service. [View the documentation](/services/beta-zookeeper/index.md).
+- You can now select a DC/OS data service version from a dropdown menu in the DC/UI.
+- Improved scalability for all DC/OS data services.
+- Non-essential tasks now supported for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. If non-essential tasks fail, the entire node will not fail.
 
 # Breaking changes
 
