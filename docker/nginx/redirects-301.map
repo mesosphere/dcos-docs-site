@@ -309,10 +309,6 @@
 /1.8/administration/installing/cloud/aws/advanced/system-requirements/ /1.8/administration/installing/cloud/aws/advanced/;
 /1.8/administration/installing/custom/create-public-agent/ /1.8/administration/installing/custom/convert-agent-type/;
 /1.8/administration/id-and-access-mgt/auth-api/ /1.8/administration/id-and-access-mgt/iam-api/;
-/1.8/administration/installing/cloud/aws/advanced/quickstart/ /1.8/administration/installing/oss/cloud/aws/advanced/;
-/1.8/administration/installing/cloud/aws/advanced/system-requirements/ /1.8/administration/installing/oss/cloud/aws/advanced/;
-/1.8/administration/installing/custom/create-public-agent/ /1.8/administration/installing/oss/custom/convert-agent-type/;
-/1.8/administration/installing/custom/advanced/ /1.8/installing/oss/custom/advanced/;
 /1.8/administration/overlay-networks/ /1.8/administration/virtual-networks/;
 /1.8/administration/overlay-networks/ip-per-container/ /1.8/administration/virtual-networks/ip-per-container/;
 /1.8/administration/overlay-networks/isolation/ /1.8/administration/virtual-networks/isolation/;
