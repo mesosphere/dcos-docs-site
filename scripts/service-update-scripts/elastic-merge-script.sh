@@ -6,9 +6,9 @@ echo "-----------------------------------------"
 
 # Update sort order of index files
 
-for i in $( ls ./services/elastic/*/index.md );
+for i in $( ls ./pages/services/elastic/*/index.md );
 do
-  awk '/^menu_order:/ {sub(/[[:digit:]]+$/,$NF+10)}1 {print}' $i > $i.tmp && mv $i.tmp $i
+  awk '/^menuWeight:/ {sub(/[[:digit:]]+$/,$NF+10)}1 {print}' $i > $i.tmp && mv $i.tmp $i
 done
 
 # Get values for version and directory variable
@@ -21,9 +21,9 @@ if [ -z "$2" ]; then echo "Enter a directory name as the second argument."; exit
 # Create directory structure
 
 echo "Creating new directories"
-mkdir service-docs/elastic/$directory
-mkdir service-docs/elastic/$directory/img
-echo "New directories created: service-docs/elastic/$directory and service-docs/elastic/$directory/img"
+mkdir ./pages/services/elastic/$directory
+mkdir ./pages/services/elastic/$directory/img
+echo "New directories created: /pages/services/elastic/$directory and /pages/services/elastic/$directory/img"
 
 # Move to the top level of the repo
 root="$(git rev-parse --show-toplevel)"
@@ -34,7 +34,7 @@ git remote rm dcos-commons
 git remote add dcos-commons https://github.com/mesosphere/dcos-commons.git
 git fetch dcos-commons > /dev/null 2>&1
 
-# checkout each file in the merge list from dcos-commons/master
+# checkout each file in the merge list from dcos-elastic-service
 while read p;
 do
   echo $p
@@ -48,24 +48,33 @@ do
         # remove https://docs.mesosphere.com from links
     awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
     awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.10/");}{print}' $p > tmp && mv tmp $p
+    awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.11/");}{print}' $p > tmp && mv tmp $p
     awk '{gsub(/https:\/\/docs.mesosphere.com\/latest\//,"/latest/");}{print}' $p > tmp && mv tmp $p
     awk '{gsub(/https:\/\/docs.mesosphere.com\/service-docs\//,"/services/");}{print}' $p > tmp && mv tmp $p
 
       # add full path for images
     awk -v directory="$directory" '{gsub(/\(img/,"(/services/elastic/"directory"/img");}{print;}' $p > tmp && mv tmp $p
+    
+    # if it's not an index file, make a directory from the filename, rename file to "index.md"
+    if [ ${p: -8} != "index.md" ]; then
+      directory_from_filename=$p
+      tmp_val=$(echo "$directory_from_filename" | sed 's/...$//')
+      directory_from_filename=$tmp_val
+      mkdir $directory_from_filename
+      mv $p $directory_from_filename/index.md
+    fi
   fi
 
-cp -r frameworks/elastic/docs/* service-docs/elastic/$directory
+cp -r frameworks/elastic/docs/* ./pages/services/elastic/$directory
 
 done <scripts/merge-lists/dcos-elastic-service-merge-list.txt
 
 git rm -rf frameworks
 
-
 # Add version information to latest index file
 
-sed -i '' -e "2s/.*/post_title: Elastic $directory/g" ./services/elastic/$directory/index.md
-
+sed -i '' -e "2s/.*/navigationTitle: Elastic $directory/g" ./pages/services/elastic/$directory/index.md
+sed -i '' -e "2s/.*/title: Elastic $directory/g" ./pages/services/elastic/$directory/index.md
 echo "------------------------------------------------"
 echo " dcos-commons/frameworks/elastic merge complete"
 echo "------------------------------------------------"

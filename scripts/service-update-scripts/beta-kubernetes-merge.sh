@@ -6,9 +6,9 @@ echo "------------------------------"
 
 # Update sort order of index files
 
-for i in $( ls ./services/beta-kubernetes/*/index.md );
+for i in $( ls ./pages/services/beta-kubernetes/*/index.md );
 do
-  awk '/^menu_order:/ {sub(/[[:digit:]]+$/,$NF+10)}1 {print}' $i > $i.tmp && mv $i.tmp $i
+  awk '/^menuWeight:/ {sub(/[[:digit:]]+$/,$NF+10)}1 {print}' $i > $i.tmp && mv $i.tmp $i
 done
 
 # Get values for version and directory variable
@@ -21,11 +21,12 @@ if [ -z "$2" ]; then echo "Enter a directory name as the second argument."; exit
 # Create directory structure
 
 echo "Creating new directories"
-mkdir service-docs/beta-kubernetes/$directory
-mkdir service-docs/beta-kubernetes/$directory/img
-echo "New directories created: service-docs/beta-kubernetes/$directory and service-docs/beta-kubernetes/$directory/img."
+mkdir ./pages/services/beta-kubernetes/$directory
+mkdir ./pages/services/beta-kubernetes/$directory/img
+echo "New directories created: /pages/services/beta-kubernetes/$directory and /pages/services/beta-kubernetes/$directory/img"
 
 # Move to the top level of the repo
+
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
@@ -47,14 +48,25 @@ do
         # remove https://docs.mesosphere.com from links
     awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
     awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.10/");}{print}' $p > tmp && mv tmp $p
+    awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.11/");}{print}' $p > tmp && mv tmp $p
     awk '{gsub(/https:\/\/docs.mesosphere.com\/latest\//,"/latest/");}{print}' $p > tmp && mv tmp $p
     awk '{gsub(/https:\/\/docs.mesosphere.com\/service-docs\//,"/services/");}{print}' $p > tmp && mv tmp $p
 
       # add full path for images
     awk -v directory="$directory" '{gsub(/\(img/,"(/services/beta-kubernetes/"directory"/img");}{print;}' $p > tmp && mv tmp $p
+    
+      # if it's not an index file, make a directory from the filename, rename file to "index.md"
+      if [ ${p: -8} != "index.md" ]; then
+        directory_from_filename=$p
+        tmp_val=$(echo "$directory_from_filename" | sed 's/...$//')
+        directory_from_filename=$tmp_val
+        mkdir $directory_from_filename
+        mv $p $directory_from_filename/index.md
+      fi
+    
   fi
 
-cp -r docs/package/* service-docs/beta-kubernetes/$directory
+cp -r docs/package/* ./pages/services/beta-kubernetes/$directory
 
 done <scripts/merge-lists/beta-kubernetes-merge-list.txt
 
@@ -62,7 +74,8 @@ git rm -rf docs/
 
 # Add version information to latest index file
 
-sed -i -e "2s/.*/post_title: Beta Kubernetes $directory/g" ./services/beta-kubernetes/$directory/index.md
+sed -i '' -e "2s/.*/navigationTitle: Beta Kubernetes $directory/g" ./pages/services/beta-zookeeper/$directory/index.md
+sed -i '' -e "2s/.*/title: Beta Kubernetes $directory/g" ./pages/services/beta-zookeeper/$directory/index.md
 
 echo "------------------------------"
 echo " Beta Kubernetes merge complete"
