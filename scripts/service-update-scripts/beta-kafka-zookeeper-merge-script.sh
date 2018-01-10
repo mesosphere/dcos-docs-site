@@ -30,10 +30,10 @@ echo "New directories created: /pages/services/beta-zookeeper/$directory and /pa
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
-# pull dcos-commons
-git remote rm dcos-commons
-git remote add dcos-commons https://github.com/mesosphere/dcos-commons.git
-git fetch dcos-commons > /dev/null 2>&1
+# pull dcos-zookeeper
+git remote rm dcos-zookeeper
+git remote add dcos-zookeeper https://github.com/mesosphere/dcos-zookeeper.git
+git fetch dcos-zookeeper > /dev/null 2>&1
 
 # check out each file in the merge list from the relesse tag
 while read p;
