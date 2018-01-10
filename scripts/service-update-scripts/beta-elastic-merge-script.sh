@@ -66,9 +66,9 @@ do
     
   fi
 
-cp -r frameworks/cassandra/docs/* ./pages/services/beta-elastic/$directory
+cp -r frameworks/elastic/docs/* ./pages/services/beta-elastic/$directory
 
-done <scripts/service-update-scripts/merge-lists/beta-elastic-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/beta-elastic-service-merge-list.txt
 
 git rm -rf frameworks
 
