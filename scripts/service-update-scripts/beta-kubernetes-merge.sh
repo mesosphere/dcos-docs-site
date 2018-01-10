@@ -74,8 +74,8 @@ git rm -rf docs/
 
 # Add version information to latest index file
 
-sed -i '' -e "2s/.*/navigationTitle: Beta Kubernetes $directory/g" ./pages/services/beta-zookeeper/$directory/index.md
-sed -i '' -e "2s/.*/title: Beta Kubernetes $directory/g" ./pages/services/beta-zookeeper/$directory/index.md
+sed -i '' -e "2s/.*/navigationTitle: Beta Kubernetes $directory/g" ./pages/services/beta-kubernetes/$directory/index.md
+sed -i '' -e "2s/.*/title: Beta Kubernetes $directory/g" ./pages/services/beta-kubernetes/$directory/index.md
 
 echo "------------------------------"
 echo " Beta Kubernetes merge complete"
