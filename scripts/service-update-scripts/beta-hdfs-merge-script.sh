@@ -66,9 +66,9 @@ do
     
   fi
 
-cp -r frameworks/cassandra/docs/* ./pages/services/beta-hdfs/$directory
+cp -r frameworks/hdfs/docs/* ./pages/services/beta-hdfs/$directory
 
-done <scripts/service-update-scripts/merge-lists/beta-hdfs-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/beta-hdfs-service-merge-list.txt
 
 git rm -rf frameworks
 
