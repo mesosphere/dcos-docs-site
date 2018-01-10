@@ -68,7 +68,7 @@ do
 
 cp -r frameworks/cassandra/docs/* ./pages/services/beta-confluent-kafka/$directory
 
-done <scripts/service-update-scripts/service-update-scripts/merge-lists/beta-confluent-kafka-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/beta-confluent-kafka-merge-list.txt
 
 git rm -rf frameworks
 

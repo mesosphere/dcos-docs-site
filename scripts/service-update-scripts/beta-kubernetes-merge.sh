@@ -68,7 +68,7 @@ do
 
 cp -r docs/package/* ./pages/services/beta-kubernetes/$directory
 
-done <scripts/service-update-scripts/service-update-scripts/merge-lists/beta-kubernetes-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/beta-kubernetes-merge-list.txt
 
 git rm -rf docs/
 
