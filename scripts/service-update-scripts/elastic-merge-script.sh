@@ -67,7 +67,7 @@ do
 
 cp -r frameworks/elastic/docs/* ./pages/services/elastic/$directory
 
-done <scripts/merge-lists/dcos-elastic-service-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/dcos-elastic-service-merge-list.txt
 
 git rm -rf frameworks
 

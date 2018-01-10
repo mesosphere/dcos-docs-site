@@ -67,7 +67,7 @@ do
 
 cp -r frameworks/cassandra/docs/* ./pages/services/cassandra/$directory
 
-done <scripts/merge-lists/dcos-cassandra-service-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/dcos-cassandra-service-merge-list.txt
 
 git rm -rf frameworks
 

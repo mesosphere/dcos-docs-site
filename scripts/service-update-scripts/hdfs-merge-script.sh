@@ -67,7 +67,7 @@ do
 
 cp -r frameworks/hdfs/docs/* ./pages/services/hdfs/$directory
 
-done <scripts/merge-lists/dcos-hdfs-service-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/dcos-hdfs-service-merge-list.txt
 
 git rm -rf frameworks
 

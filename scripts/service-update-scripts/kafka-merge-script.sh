@@ -67,7 +67,7 @@ do
 
 cp -r frameworks/kafka/docs/* ./pages/services/kafka/$directory
 
-done <scripts/merge-lists/dcos-kafka-service-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/dcos-kafka-service-merge-list.txt
 
 git rm -rf frameworks
 

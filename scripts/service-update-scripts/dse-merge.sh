@@ -67,7 +67,7 @@ do
 
 cp -r frameworks/dse/docs/* ./pages/services/dse/$directory
 
-done <scripts/merge-lists/dcos-dse-service-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/dcos-dse-service-merge-list.txt
 
 git rm -rf frameworks
 
