@@ -39,11 +39,12 @@ The tables below enumerate the features available with each of the supported con
 | --------------------------------------- | ----------- | --------- | -------- |
 | **Command**                             | Yes         | Yes       |          |
 | **Container Images**                    | Yes         | Yes       |          |
+| **Image Garbage Collection**           | Yes         | Yes       |          |
 | **Pods**                                | Yes         | No        |          |
 | **GPUs**                                | Yes         | No        |          |
 | **URIs**                                | Yes         | Yes       |          |
 | **Docker Options**                      | No          | Yes       |          |
-| **Force Pull**                          | Yes         | Yes       | CLI only |
+| **Force Pull**                          | Yes         | Yes       |          |
 | **Secrets**                             | Yes         | Yes       | DC/OS Enterprise only |
 | **Debugging with exec**                 | Yes         | No        | CLI only |
 | **All Security Modes**                  | Yes         | Yes       | DC/OS Enterprise only |
