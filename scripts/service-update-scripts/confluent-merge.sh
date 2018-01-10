@@ -13,8 +13,8 @@ done
 
 # Get values for version and directory variable
 
-branch=$1
-if [ -z "$1" ]; then echo "Enter a branch as the first argument."; exit 1; fi
+version=$1
+if [ -z "$1" ]; then echo "Enter a version tag as the first argument."; exit 1; fi
 directory=$2
 if [ -z "$2" ]; then echo "Enter a directory name as the second argument."; exit 1; fi
 
@@ -29,17 +29,17 @@ echo "New directories created: /pages/services/confluent-kafka/$directory and /p
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
-# pull dcos-commons
-git remote rm dcos-commons
-git remote add dcos-commons https://github.com/mesosphere/dcos-commons.git
-git fetch dcos-commons > /dev/null 2>&1
+# pull confluent
+git remote rm confluent
+git remote add confluent https://github.com/mesosphere/confluent.git
+git fetch confluent > /dev/null 2>&1
 
 # checkout each file in the merge list from dcos-confluent-kafka-service
 while read p;
 do
   echo $p
   # checkout
-  git checkout dcos-commons/$branch $p
+  git checkout tags/$version $p
 
   # markdown files only
   if [ ${p: -3} == ".md" ]; then
@@ -65,11 +65,11 @@ do
     fi
   fi
 
-cp -r frameworks/confluent-kafka/docs/* ./pages/services/confluent-kafka/$directory
+cp -r docs/* ./pages/services/confluent-kafka/$directory
 
-done <scripts/service-update-scripts/merge-lists/dcos-confluent-kafka-service-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/confluent-merge-list.txt
 
-git rm -rf frameworks
+git rm -rf docs
 
 # Add version information to latest index file
 
