@@ -30,10 +30,10 @@ echo "New directories created: /pages/services/beta-confluent-kafka/$directory a
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
-# pull dcos-commons
-git remote rm dcos-commons
-git remote add dcos-commons https://github.com/mesosphere/dcos-commons.git
-git fetch dcos-commons > /dev/null 2>&1
+# pull confluent
+git remote rm confluent
+git remote add confluent https://github.com/mesosphere/confluent.git
+git fetch confluent > /dev/null 2>&1
 
 # check out each file in the merge list from the relesse tag
 while read p;
@@ -66,11 +66,11 @@ do
     
   fi
 
-cp -r frameworks/cassandra/docs/* ./pages/services/beta-confluent-kafka/$directory
+cp -r docs/* ./pages/services/beta-confluent-kafka/$directory
 
-done <scripts/service-update-scripts/merge-lists/beta-confluent-kafka-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/beta-confluent-merge-list.txt
 
-git rm -rf frameworks
+git rm -rf docs
 
 # Add version information to latest index file
 
