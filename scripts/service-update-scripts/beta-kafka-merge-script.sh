@@ -66,7 +66,7 @@ do
     
   fi
 
-cp -r frameworks/cassandra/docs/* ./pages/services/beta-kafka/$directory
+cp -r frameworks/kafka/docs/* ./pages/services/beta-kafka/$directory
 
 done <scripts/service-update-scripts/merge-lists/beta-kafka-merge-list.txt
 
