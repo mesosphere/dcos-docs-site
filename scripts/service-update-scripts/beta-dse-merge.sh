@@ -30,10 +30,10 @@ echo "New directories created: /pages/services/beta-dse/$directory and /pages/se
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
-# pull dcos-commons
-git remote rm dcos-commons
-git remote add dcos-commons https://github.com/mesosphere/dcos-commons.git
-git fetch dcos-commons > /dev/null 2>&1
+# pull dse-private
+git remote rm dse-private
+git remote add dse-private https://github.com/mesosphere/dse-private.git
+git fetch dse-private > /dev/null 2>&1
 
 # check out each file in the merge list from the relesse tag
 while read p;
@@ -66,11 +66,11 @@ do
     
   fi
 
-cp -r frameworks/cassandra/docs/* ./pages/services/beta-dse/$directory
+cp -r docs/* ./pages/services/beta-dse/$directory
 
-done <scripts/service-update-scripts/merge-lists/beta-dse-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/dse-private-merge-list.txt
 
-git rm -rf frameworks
+git rm -rf docs
 
 # Add version information to latest index file
 
