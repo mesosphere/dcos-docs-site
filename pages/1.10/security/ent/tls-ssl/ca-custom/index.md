@@ -25,46 +25,38 @@ To facilitate the reading of this page we start out by providing a glossary for 
 - You have to use a custom CA certificate only with a fresh installation of DC/OS Enterprise 1.10 or higher. Older versions of DC/OS are not supported.
 
 # Glossary of the terms used in this documentation
-- Custom CA certificate
+- **Custom CA certificate:** Your custom CA certificate in the PEM format, which will be used to issue certificates for DC/OS components such as Admin Router. The custom CA certificate is either an intermediate CA certificate (issued by another CA) or a root CA certificate (self-signed by the custom CA).
 
-Your custom CA certificate in the PEM format, which will be used to issue certificates for DC/OS components such as Admin Router. The custom CA certificate is either an intermediate CA certificate (issued by another CA) or a root CA certificate (self-signed by the custom CA).
+- **Private key associated with the custom CA certificate:** The private key in the PKCS#8 format associated with the custom CA certificate.
 
-- Private key associated with the custom CA certificate
+- **Certificate chain associated with the custom CA certificate:** The complete CA certification chain required for end-entity certificate verification. It has to include the certificates of all parent CAs of the intermediate custom CA up to and including the root CA certificate. Empty, if the custom CA certificate is a root CA certificate.
 
-The private key in the PKCS#8 format associated with the custom CA certificate.
+- **Configuration:** The set of the configuration parameters that governs the specific aspects of the installation procedure. The configuration is stored in the DC/OS configuration file.
 
-- Certificate chain associated with the custom CA certificate
+- **DC/OS configuration file:** The file which contains the DC/OS configuration parameters. The DC/OS configuration file is normally called `config.yaml` and has to be present in the `genconf/` directory on the bootstrap node during the installation. It is used by the DC/OS installer.
 
-The complete CA certification chain required for end-entity certificate verification. It has to include the certificates of all parent CAs of the intermediate custom CA up to and including the self-signed root CA certificate. Empty, if the custom CA certificate is a self-signed root CA certificate.
-
-- Configuration
-
-The set of the configuration parameters that governs the specific aspects of the installation procedure. The configuration is stored in the configuration file.
-
-- DC/OS Configuration file
-
-The file which contains the DC/OS configuration parameters, in particular, the  filesystem relative paths to the custom CA certificate, associated private key and the certificate chain. 
-
-The configuration file is normally called `config.yaml` and has to be present in the `genconf/` directory on the bootstrap node during the installation. It is used by the DC/OS installer to create a custom DC/OS build.
-
-- Installation directory
-
-The directory on the bootstrap node where the DC/OS installer resides. It contains the `genconf/` subdirectory where the configuration file, the custom CA certificate, the associated private key and the certificate chains are put. It is denoted with `$DCOS_INSTALL_DIR` in this document. This is the current working directory when executing `dcos_generate_config.ee.sh`.
+- **Installation directory:** The directory on the bootstrap node where the DC/OS installer resides. It contains the `genconf/` subdirectory where the DC/OS configuration file, the custom CA certificate, the associated private key and the certificate chain are put. It is denoted with `$DCOS_INSTALL_DIR` in this document. This is the current working directory when executing `dcos_generate_config.ee.sh`.
 
 # Requirements
 
-- Advanced installation method
-In order to install DC/OS Enterprise with a custom CA certificate you have to use the [advanced DC/OS installation method](/1.10/installing/custom/advanced/). Other installation methods are not supported.
+- **Advanced installation method:** In order to install DC/OS Enterprise with a custom CA certificate you have to use the [advanced DC/OS installation method](/1.10/installing/custom/advanced/). Other installation methods are not supported.
 
-- Custom CA certificate
-- Private key associated with the custom CA certificate
-- Certificate chain associated with the custom CA certificate
+- **A file containing the custom CA certificate**
+- **A file containing the private key associated with the custom CA certificate**
+- If the CA is **not** a root CA, **a file containing the certificate chain associated with the custom CA certificate** 
 
-The files containing the custom CA certificate, the associated private key and the certificate chain has to be placed in the predefined locations where the installer can find them during the installation. (see the next sections for details)
+## Manually placing the custom CA certificate, the associated private key and the certificate chain onto the bootstrap node
+The custom CA certificate, the associated private key and the certificate chain files must be put in the `genconf/` directory on the bootstrap node:
 
-
-## Manually placing the the custom CA certificate, the associated private key and the certificate chain onto the bootstrap node
-The custom CA certificate, the associated private key and the certificate chain files have to be put in the `genconf/` directory on the bootstrap node. The paths to these files have to be specified in the configuration file.
+```bash
+cd $DCOS_INSTALL_DIR
+ls genconf/
+```
+```bash 
+dcos-ca-certificate.crt
+dcos-ca-certificate-key.key
+dcos-ca-certificate-chain.crt
+```
 
 ## Manually placing the private key associated with the custom CA certificate onto the master nodes
 
@@ -86,9 +78,9 @@ cd $DCOS_INSTALL_DIR/config
 scp custom_ca.key centos@W.X.Y.Z:/var/lib/dcos/pki/tls/CA/private
 ```
 
-## Specifying the locations of the custom CA certificate, the associated private key and the certificate chain files in the configuration file
+## Specifying the locations of the custom CA certificate, the associated private key and the certificate chain files in the DC/OS configuration file
 
-The filesystem paths to the custom CA certificate, associated private key and certificate chain files in the `genconf` directory on the bootstrap node have to be specified in the configuration file using, respectively, the `ca_certificate_path`, `ca_certificate_key_path` and  `ca_certificate_chain_path` parameters.
+The filesystem paths to the custom CA certificate, associated private key and certificate chain files in the `genconf` directory on the bootstrap node have to be specified in the DC/OS configuration file using, respectively, the `ca_certificate_path`, `ca_certificate_key_path` and  `ca_certificate_chain_path` parameters.
 The paths to the custom certificate, the associated private key and the certificate chain must be relative paths and must not contain the `genconf` prefix.
 
 [This section](#example-use-cases) shows how to set these configuration parameters.
@@ -111,7 +103,7 @@ Required if `ca_certificate_path` is specified.
 ## ca\_certificate\_chain\_path
 Path to a file within the `genconf/` directory containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. For example: genconf/CA_cert_chain.pem.
 Has to be left undefined if `ca_certificate_path` points to a root CA certificate.
-Required if ca_certificate_path is specified and if the custom CA certificate is an *intermediate CA certificate*. 
+Required if `ca_certificate_path` is specified and if the custom CA certificate is an *intermediate CA certificate*. 
 
 This needs to contain all CA certificates comprising the complete sequence starting precisely with the CA certificate that was used to sign the custom CA certificate and ending with a root CA certificate (where issuer and subject are equivalent), yielding a gapless certification path. The order is significant and the list has to contain at least one certificate.
 
@@ -122,17 +114,7 @@ Based on the requirements described above, this is the starting point for the in
 
 - The installation of DC/OS Enterprise via the Advanced Installer has been prepared according to the corresponding [documentation](/1.10/installing/ent/custom/advanced/).
 
-- On the bootstrap node, the files carrying custom CA certificate, the associated private key and, optionally, the CA certificate chain have been placed into the `$DCOS_INSTALL_DIR/genconf/` directory (see the [section](#glossary-of-the-terms-used-in-this-documentation) above for more detailed description), Example (commands executed on the bootstrap node):
-
-```bash
-cd $DCOS_INSTALL_DIR
-ls genconf/
-```
-```bash 
-dcos-ca-certificate.crt
-dcos-ca-certificate-key.key
-dcos-ca-certificate-chain.crt
-```
+- On the bootstrap node, the files carrying custom CA certificate, the associated private key and, optionally, the CA certificate chain have been placed into the `$DCOS_INSTALL_DIR/genconf/` directory. (see the [section](#manually-placing-the-custom-ca-certificate-the-associated-private-key-and-the-certificate-chain-onto-the-bootstrap-node) above for more detailed description)
 
 - The custom CA private key has been securely placed on all DC/OS master nodes and is sufficiently protected (refer to [this section](#manually-placing-the-private-key-associated-with-the-custom-ca-certificate-onto-the-master-nodes) for more details). Example (command issued on one of the DC/OS master nodes):
 
@@ -164,7 +146,7 @@ ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
 ca_certificate_chain_path: genconf/dcos-ca-certificate-chain.crt
 [...]
 ```
-Note that `ca_certificate_chain_path` is an optional parameter when setting up DC/OS Enterprise with a custom CA certificate when the latter is a self-signed root certificate.
+Note that `ca_certificate_chain_path` is an optional parameter when setting up DC/OS Enterprise with a custom CA certificate when the latter is a root certificate.
 
 ## Installation
 Proceed with the installation as described in the [documentation of the Advanced Installer](/1.10/installing/ent/custom/advanced/#install-dcos).
@@ -174,7 +156,7 @@ One method of verifying that the DC/OS was installed properly with the custom CA
 
 In order to do that you need first to obtain the DC/OS CA bundle of the deployed cluster. [This page](/1.10/security/ent/tls-ssl/get-cert/) shows how you can do that.
 
-Provided you have obtained the DC/OS bundle and stored it in a file named `dcos-ca.crt`, issue the following command in the directory containing the `dcos-ca.crt` file in order to check that the Admin Router on a master node uses a certificate signed with the custom CA certificate:
+Provided you have obtained the DC/OS CA bundle and stored it in a file named `dcos-ca.crt`, issue the following command in the directory containing the `dcos-ca.crt` file in order to check that the Admin Router on a master node uses a certificate signed with the custom CA certificate:
 
 ```bash
 openssl s_client -verify_ip <private_ip_master_nodeX> -CAfile dcos-ca.crt -connect <public_ip_master_nodeX>:443 | grep -e "s:" -e "i:" -e "return code:"
@@ -201,7 +183,7 @@ verify return:1
 ```
 
 # Example use cases
-This section describes how the three configuration parameters `ca_certificate_path`, `ca_certificate_key_path` and `ca_certificate_chain_path` have to be specified in the `$DCOS_INSTALL_DIR/genconf/config.yaml` configuration file the most common use cases of a custom CA certificate hierarchy.
+This section describes how the three configuration parameters `ca_certificate_path`, `ca_certificate_key_path` and `ca_certificate_chain_path` have to be specified in the `$DCOS_INSTALL_DIR/genconf/config.yaml` DC/OS configuration file the most common use cases of a custom CA certificate hierarchy.
 
 ## Use case 1: The custom CA certificate is a root CA certificate
 In this case the custom CA certificate is a (self-signed) root CA certificate. The CA does not have a “parent” CA, hence the CA certificate chain is empty.
@@ -226,7 +208,7 @@ issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=
 subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
 ```
 
-Since the custom CA certificate is a root CA certificate and the corresponding CA certificate chain is empty, we have to omit the ca_certificate_chain_path parameter in the configuration file. The corresponding configuration parameters have to be specified as follows in the `$DCOS_INSTALL_DIR/genconf/config.yaml` file on the bootstrap node:
+Since the custom CA certificate is a root CA certificate and the corresponding CA certificate chain is empty, we have to omit the ca_certificate_chain_path parameter in the DC/OS configuration file. The corresponding configuration parameters have to be specified as follows in the `$DCOS_INSTALL_DIR/genconf/config.yaml` file on the bootstrap node:
 
 ```bash
 ca_certificate_path: genconf/dcos-ca-certificate.crt
@@ -262,14 +244,14 @@ Here is an example of a corresponding CA certificate chain:
 
 ```bash 
 cd $DCOS_INSTALL_DIR
-cat genconf/dcos-ca-certificate-chain.crt dcos-ca-certificate-chain.crt | awk -v cmd="openssl x509 -issuer -subject -noout && echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
+cat genconf/dcos-ca-certificate-chain.crt | awk -v cmd="openssl x509 -issuer -subject -noout && echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
 ```
 ```bash
 issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
 subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
 ```
 
-The corresponding configuration parameters have to be then specified similar to the following in the `$DCOS_INSTALL_DIR/genconf/config.yaml` configuration file on the bootstrap node:
+The corresponding configuration parameters have to be then specified similar to the following in the `$DCOS_INSTALL_DIR/genconf/config.yaml` DC/OS configuration file on the bootstrap node:
 
 ```bash
 ca_certificate_path: genconf/dcos-ca-certificate.crt
@@ -308,7 +290,7 @@ Here is an example of a corresponding CA certificate chain:
 
 ```bash
 cd $DCOS_INSTALL_DIR
-cat genconf/dcos-ca-certificate-chain.crt dcos-ca-certificate-chain.crt | awk -v cmd="openssl x509 -issuer -subject -noout && echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
+cat genconf/dcos-ca-certificate-chain.crt | awk -v cmd="openssl x509 -issuer -subject -noout && echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
 ```
 ```bash
 issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
@@ -320,7 +302,7 @@ subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN
 
 ```
 
-The corresponding configuration parameters have to be then specified as follows in the `$DCOS_INSTALL_DIR/genconf/config.yaml` configuration file on the bootstrap node:
+The corresponding configuration parameters have to be then specified as follows in the `$DCOS_INSTALL_DIR/genconf/config.yaml` DC/OS configuration file on the bootstrap node:
 
 ```bash
 ca_certificate_path: genconf/dcos-ca-certificate.crt
