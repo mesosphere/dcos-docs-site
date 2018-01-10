@@ -26,7 +26,7 @@ You have already explored these load balancing mechanisms in the context of [ser
   
   `dcos marathon app update /dcos-101/app2 instances=2`
 * **Marathon-LB**
-    * Check app2 as before via `http://<public-node>10000`. When you do this repeatedly you should see the request being served by different instances of app2.
+    * Check app2 as before via `http://<public-node>:10000`. When you do this repeatedly you should see the request being served by different instances of app2.
     * You can also check the Marathon-LB stats via `http://<public-node>:9090/haproxy?stats`
 * **Named VIPs**
     * SSH to the leading master node: `dcos node ssh --master-proxy --leader`
