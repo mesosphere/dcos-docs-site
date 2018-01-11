@@ -1,11 +1,8 @@
 ---
-layout: layout.pug
-navigationTitle: 
-title: Beta HDFS 2.1.0-2.6.0-cdh5.11.0-beta
-menuWeight: 20
-excerpt:
-featureMaturity:
-enterprise: false
+title: Beta HDFS 2.1.1-2.6.0-cdh5.11.0-beta
+menu_order: 10
+post_excerpt: ""
+enterprise: 'no'
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
@@ -36,4 +33,4 @@ DC/OS HDFS provides the following features:
 
 ## Related Services
 
-- [DC/OS Spark](/service-docs/spark/)
+- [DC/OS Spark](/services/spark/)

@@ -71,7 +71,7 @@ cp -r frameworks/hdfs/docs/* ./pages/services/beta-hdfs/$directory
 done <scripts/service-update-scripts/merge-lists/beta-hdfs-service-merge-list.txt
 
 git rm -rf frameworks
-
+rm -rf frameworks
 # Add version information to latest index file
 
 sed -i '' -e "2s/.*/navigationTitle: Beta HDFS $directory/g" ./pages/services/beta-hdfs/$directory/index.md
