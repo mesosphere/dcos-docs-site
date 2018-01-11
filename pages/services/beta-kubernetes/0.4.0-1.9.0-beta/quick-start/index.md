@@ -5,7 +5,7 @@ title: Quick Start
 menuWeight: 40
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 # Prerequisite

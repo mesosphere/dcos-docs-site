@@ -5,7 +5,7 @@ title: Install and Customize
 menuWeight: 20
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 The default DC/OS Kubernetes Service installation provides reasonable defaults for trying out the service. This service is not currently certified for production use.

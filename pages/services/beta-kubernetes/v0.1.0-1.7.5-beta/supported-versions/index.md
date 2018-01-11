@@ -5,7 +5,7 @@ title: Supported Versions
 menuWeight: 70
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 # Supported Versions

@@ -5,7 +5,7 @@ title: Advanced Installation
 menuWeight: 20
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->

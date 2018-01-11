@@ -2,10 +2,10 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 90
+menuWeight: 120
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 # Version 0.4.0-1.9.0-beta

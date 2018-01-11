@@ -5,7 +5,7 @@ title: Install and Customize
 menuWeight: 10
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->

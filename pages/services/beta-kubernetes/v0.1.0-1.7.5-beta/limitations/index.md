@@ -5,7 +5,7 @@ title: Limitations
 menuWeight: 60
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 # Limitations

@@ -5,7 +5,7 @@ title: Uninstall
 menuWeight: 30
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 You can uninstall Beta Kubernetes from the DC/OS CLI or the GUI.
