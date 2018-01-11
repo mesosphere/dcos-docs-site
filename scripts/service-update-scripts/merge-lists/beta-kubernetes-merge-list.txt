@@ -1,0 +1,10 @@
+docs/package/advanced-install.md
+docs/package/connecting-clients.md
+docs/package/index.md
+docs/package/install.md
+docs/package/limitations.md
+docs/package/quick-start.md
+docs/package/release-notes.md
+docs/package/supported-versions.md
+docs/package/uninstall.md
+docs/package/upgrade.md
