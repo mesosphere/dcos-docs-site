@@ -171,7 +171,7 @@ Examples: Cassandra (scheduler), Marathon-on-Marathon, Kafka (scheduler), Nginx,
 
 A systemd service is a service that consists of a single, optionally containerized, machine operating system process, running on the master or agent nodes, managed by systemd, owned by DC/OS itself.
 
-- All systemd service are currently either host OS service, DC/OS dependencies, DC/OS components, or services manually managed by the system administrator.
+- All systemd services are currently either host OS service, DC/OS dependencies, DC/OS components, or services manually managed by the system administrator.
 
 Examples: Most DC/OS components, (system) Marathon.
 
