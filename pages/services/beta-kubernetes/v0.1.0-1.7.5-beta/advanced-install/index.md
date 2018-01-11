@@ -5,7 +5,7 @@ title: Advanced Installation
 menuWeight: 30
 excerpt:
 featureMaturity:
-enterprise: false
+
 ---
 
 # Advanced Installation

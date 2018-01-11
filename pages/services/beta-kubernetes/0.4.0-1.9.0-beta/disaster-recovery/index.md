@@ -2,10 +2,9 @@
 layout: layout.pug
 navigationTitle:  Disaster Recovery
 title: Disaster Recovery
-menuWeight: 90
+menuWeight: 60
 excerpt:
 featureMaturity:
-enterprise: false
 ---
 
 This feature allows for backing up and restoring a Kubernetes cluster, in case of disaster.

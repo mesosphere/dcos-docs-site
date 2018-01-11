@@ -5,7 +5,7 @@ title: Uninstall
 menuWeight: 30
 excerpt:
 featureMaturity:
-enterprise: false
+
 ---
 
 <!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->

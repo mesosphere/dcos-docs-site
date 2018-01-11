@@ -5,7 +5,7 @@ title: Connecting Clients
 menuWeight: 50
 excerpt:
 featureMaturity:
-enterprise: false
+
 ---
 
 First, [install `kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) locally, in a path your session understands,

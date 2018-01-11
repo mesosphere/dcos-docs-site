@@ -5,7 +5,7 @@ title: Beta Kubernetes
 menuWeight: 110
 excerpt:
 featureMaturity:
-enterprise: false
+
 ---
 
 Welcome to the documentation for Beta Kubernetes. Choose a version to get started!

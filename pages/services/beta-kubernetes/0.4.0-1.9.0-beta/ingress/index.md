@@ -2,9 +2,9 @@
 layout: layout.pug
 navigationTitle:  External Ingress
 title: External Ingress
-menuWeight: 20
+menuWeight: 55
 excerpt:
-enterprise: false
+
 ---
 
 ## Running an Ingress controller
