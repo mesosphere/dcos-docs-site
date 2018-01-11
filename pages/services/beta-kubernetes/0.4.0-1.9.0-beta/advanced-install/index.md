@@ -2,10 +2,10 @@
 layout: layout.pug
 navigationTitle:  Advanced Installation
 title: Advanced Installation
-menuWeight: 20
+menuWeight: 10
 excerpt:
 featureMaturity:
-enterprise: false
+
 ---
 
 ## Prerequisites
