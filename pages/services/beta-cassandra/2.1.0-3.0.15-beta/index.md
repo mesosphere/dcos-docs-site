@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 
 title: Beta Cassandra 2.1.0-3.0.15-beta
-menuWeight: 10
+menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
