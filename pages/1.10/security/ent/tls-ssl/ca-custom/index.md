@@ -39,8 +39,9 @@ To facilitate the reading of this page we start out by providing a glossary for 
 
 # Requirements
 
-- **Advanced installation method:** In order to install DC/OS Enterprise with a custom CA certificate you must use the [advanced DC/OS installation method](/1.10/installing/custom/advanced/). Other installation methods are not supported.
+In order to install DC/OS Enterprise with a custom CA certificate you will need:
 
+- to use the **Advanced installation method:**  [advanced DC/OS installation method](/1.10/installing/custom/advanced/). Other installation methods are not supported.
 - **A file containing the custom CA certificate**
 - **A file containing the private key associated with the custom CA certificate**
 - If the CA is **not** a root CA, **a file containing the certificate chain associated with the custom CA certificate** 
@@ -112,7 +113,7 @@ This needs to contain all CA certificates comprising the complete sequence start
 ## Starting point
 Based on the requirements described above, this is the starting point for the installation:
 
-- The installation of DC/OS Enterprise via the Advanced Installer has been prepared according to the corresponding [documentation](/1.10/installing/ent/custom/advanced/).
+- The installation of DC/OS Enterprise via the Advanced Installer has been prepared according to the corresponding [documentation](/1.10/installing/ent/custom/advanced/). (up to the section **Install DC/OS**)
 
 - On the bootstrap node, the files carrying custom CA certificate, the associated private key and, optionally, the CA certificate chain have been placed into the `$DCOS_INSTALL_DIR/genconf/` directory. (see the [section](#manually-placing-the-custom-ca-certificate-the-associated-private-key-and-the-certificate-chain-onto-the-bootstrap-node) above for more detailed description)
 
@@ -146,7 +147,7 @@ ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
 ca_certificate_chain_path: genconf/dcos-ca-certificate-chain.crt
 [...]
 ```
-Note that `ca_certificate_chain_path` is an optional parameter when setting up DC/OS Enterprise with a custom CA certificate when the latter is a root certificate.
+Note that `ca_certificate_chain_path` must not be present when setting up DC/OS Enterprise with a root certificate as the custom CA certificate.
 
 ## Installation
 Proceed with the installation as described in the [documentation of the Advanced Installer](/1.10/installing/ent/custom/advanced/#install-dcos).
@@ -165,20 +166,20 @@ openssl s_client -verify_ip <private_ip_master_nodeX> -CAfile dcos-ca.crt -conne
 The output should look similar to the following:
 
 ```bash
-depth=3 DC = io, DC = integration-test, C = DE, ST = Utopia, O = DC/OS, OU = Brogrammer Unit, CN = Integration Test Root CA
+depth=3 DC = io, DC = integration-test, C = DE, ST = Utopia, O = DC/OS, OU = Programmer Unit, CN = Integration Test Root CA
 verify return:1
-depth=2 DC = io, DC = integration-test, C = DE, ST = Utopia, O = DC/OS, OU = Brogrammer Unit, CN = Integration Test Intermediate CA 01
+depth=2 DC = io, DC = integration-test, C = DE, ST = Utopia, O = DC/OS, OU = Programmer Unit, CN = Integration Test Intermediate CA 01
 verify return:1
-depth=1 DC = io, DC = integration-test, C = DE, ST = Utopia, O = DC/OS, OU = Brogrammer Unit, CN = Integration Test Intermediate CA 02
+depth=1 DC = io, DC = integration-test, C = DE, ST = Utopia, O = DC/OS, OU = Programmer Unit, CN = Integration Test Intermediate CA 02
 verify return:1
 depth=0 C = US, ST = CA, L = San Francisco, O = "Mesosphere, Inc.", CN = AdminRouter on 172.31.12.45
 verify return:1
  0 s:/C=US/ST=CA/L=San Francisco/O=Mesosphere, Inc./CN=AdminRouter on 172.31.12.45
-   i:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Intermediate CA 02
- 1 s:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Intermediate CA 02
-   i:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Intermediate CA 01
- 2 s:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Intermediate CA 01
-   i:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
+   i:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Intermediate CA 02
+ 1 s:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Intermediate CA 02
+   i:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Intermediate CA 01
+ 2 s:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Intermediate CA 01
+   i:/DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
     Verify return code: 0 (ok)
 ```
 
@@ -204,8 +205,8 @@ cd $DCOS_INSTALL_DIR
 openssl x509 -in genconf/dcos-ca-certificate.crt -issuer -subject -noout
 ```
 ```bash
-issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
-subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
+issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
+subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
 ```
 
 Since the custom CA certificate is a root CA certificate and the corresponding CA certificate chain is empty, we must omit the ca_certificate_chain_path parameter in the DC/OS configuration file. The corresponding configuration parameters must be specified as follows in the `$DCOS_INSTALL_DIR/genconf/config.yaml` file on the bootstrap node:
@@ -236,8 +237,8 @@ cd $DCOS_INSTALL_DIR
 openssl x509 -in genconf/dcos-ca-certificate.crt -issuer -subject -noout
 ```
 ```bash
-issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
-subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Intermediate CA 01
+issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
+subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Intermediate CA 01
 ```
  
 Here is an example of a corresponding CA certificate chain:  
@@ -247,8 +248,8 @@ cd $DCOS_INSTALL_DIR
 cat genconf/dcos-ca-certificate-chain.crt | awk -v cmd="openssl x509 -issuer -subject -noout && echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
 ```
 ```bash
-issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
-subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
+issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
+subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
 ```
 
 The corresponding configuration parameters must be specified similar to the following in the `$DCOS_INSTALL_DIR/genconf/config.yaml` DC/OS configuration file on the bootstrap node:
@@ -282,8 +283,8 @@ cd $DCOS_INSTALL_DIR
 openssl x509 -in genconf/dcos-ca-certificate.crt -issuer -subject -noout
 ```
 ```bash
-issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Intermediate CA 01
-subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Intermediate CA 02
+issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Intermediate CA 01
+subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Intermediate CA 02
 ```
 
 Here is an example of a corresponding CA certificate chain: 
@@ -293,11 +294,11 @@ cd $DCOS_INSTALL_DIR
 cat genconf/dcos-ca-certificate-chain.crt | awk -v cmd="openssl x509 -issuer -subject -noout && echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
 ```
 ```bash
-issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
-subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Intermediate CA 01
+issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
+subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Intermediate CA 01
 
-issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
-subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Brogrammer Unit/CN=Integration Test Root CA
+issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
+subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
 
 
 ```
