@@ -2,10 +2,10 @@
 layout: layout.pug
 navigationTitle:  Limitations
 title: Limitations
-menuWeight: 70
+menuWeight: 100
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 Currently, the DC/OS Kubernetes package has the following limitations.

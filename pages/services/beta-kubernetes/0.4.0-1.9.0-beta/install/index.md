@@ -2,10 +2,10 @@
 layout: layout.pug
 navigationTitle:  Install and Customize
 title: Install and Customize
-menuWeight: 0
+menuWeight: 20
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 The default DC/OS Kubernetes package installation provides reasonable defaults for trying out the service.
