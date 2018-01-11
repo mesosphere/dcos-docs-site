@@ -71,6 +71,7 @@ cp -r frameworks/cassandra/docs/* ./pages/services/beta-cassandra/$directory
 done <scripts/service-update-scripts/merge-lists/beta-cassandra-merge-list.txt
 
 git rm -rf frameworks
+rm -rf frameworks
 
 # Add version information to latest index file
 
