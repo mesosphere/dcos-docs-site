@@ -126,7 +126,7 @@ A Marathon service consists of zero or more containerized service instances. Eac
     - Marathon app instances map 1 to 1 with tasks.
     - Marathon pod instances map 1 to many with tasks.
 - Service instances are restarted as a new Mesos Task when they exit prematurely.
-- Service instances may be re-scheduled onto another agent node if they exit prematurely and the agent is down or does not have enough resources any more.
+- Service instances may be re-scheduled onto another agent node if they exit prematurely and the agent is down or does not have enough resources anymore.
 - Services may be installed directly via the [DC/OS API (Marathon)](/1.8/usage/managing-services/rest-api/) or indirectly via the [DC/OS package manager (Cosmos)](#package-manager) from a [package repository](#dcos-package-registry) like [Mesosphere Universe](#mesosphere-universe). The [DC/OS GUI](#dcos-gui) and [DC/OS CLI](#dcos-cli) may be used to interact with the DC/OS package manager more easily.
 - A Marathon service may be a [DC/OS scheduler](#dcos-scheduler), but not all services are schedulers.
 - A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers (e.g. Metronome, Jenkins) have their own names for abstractions around Mesos tasks.
