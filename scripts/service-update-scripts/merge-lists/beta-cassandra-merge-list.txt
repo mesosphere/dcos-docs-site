@@ -1,0 +1,16 @@
+frameworks/cassandra/docs/api-reference.md
+frameworks/cassandra/docs/cassandra-settings.md
+frameworks/cassandra/docs/connecting-clients.md
+frameworks/cassandra/docs/disaster-recovery.md
+frameworks/cassandra/docs/index.md
+frameworks/cassandra/docs/install.md
+frameworks/cassandra/docs/limitations.md
+frameworks/cassandra/docs/managing.md
+frameworks/cassandra/docs/node-settings.md
+frameworks/cassandra/docs/quick-start.md
+frameworks/cassandra/docs/release-notes.md
+frameworks/cassandra/docs/service-settings.md
+frameworks/cassandra/docs/supported-versions.md
+frameworks/cassandra/docs/troubleshooting.md
+frameworks/cassandra/docs/uninstall.md
+frameworks/cassandra/docs/upgrade.md

@@ -5,7 +5,7 @@ title: Beta Kubernetes 0.2.2-1.7.7-beta
 menuWeight: 30
 excerpt:
 featureMaturity:
-enterprise: false
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->

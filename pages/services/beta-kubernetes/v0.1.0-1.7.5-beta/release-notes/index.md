@@ -5,7 +5,7 @@ title: Release Notes
 menuWeight: 80
 excerpt:
 featureMaturity:
-enterprise: false
+
 ---
 
 ## Version 0.1.0-1.7.5-beta

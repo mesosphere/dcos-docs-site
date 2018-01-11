@@ -1,0 +1,15 @@
+docs/api-reference.md
+docs/connecting-clients.md
+docs/disaster-recovery.md
+docs/index.md
+docs/install.md
+docs/kerberos.md
+docs/limitations.md
+docs/managing.md
+docs/quick-start.md
+docs/release-notes.md
+docs/service-settings.md
+docs/supported-versions.md
+docs/troubleshooting.md
+docs/uninstall.md
+docs/upgrade.md
