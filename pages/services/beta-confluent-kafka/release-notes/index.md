@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 
 title: Release Notes
-menuWeight: 30
+menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false

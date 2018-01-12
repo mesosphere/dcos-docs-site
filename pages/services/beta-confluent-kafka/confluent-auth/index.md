@@ -4,7 +4,7 @@ navigationTitle:
 title: >
   Configuring DC/OS Access for Confluent
   Kafka
-menuWeight: 300
+menuWeight: 320
 excerpt:
 featureMaturity:
 enterprise: true
