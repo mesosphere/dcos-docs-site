@@ -12,10 +12,10 @@ These are the release notes for DC/OS 1.10.4.
 
 # Issues Fixed in DC/OS 1.10.4
 
-- CORE-1375 Docker executor does not hang due to lost messages.
+- CORE-1375 - Docker executor does not hang due to lost messages.
 - DCOS-1877 - DC/OS CA certificate bundle now gets propagated to public slaves.
 - DOCS-2169	- Updated [ports list](1.10/installing/ent/ports) for DC/OS. [enterprise type="inline" size="small"/]
-- DCOS-19327 - DC/OS cloud_image, build tooling, and all tests are running and passing on CentOS 7.4 and Red Hat 7.4, using the latest AMIs available from each vendor on the AWS marketplace.
+- DCOS-19327 - Diagnostics bundles no longer contain sensitive cluster configuration values.
 - DCOS-19399 - Marathon now supports upgrading to JDK 1.8.0_152.
 - DCOS_OSS-1828	- Prometheus plugin now authenticates on master nodes.
 - DCOS_OSS-1898	- DC/OS CLI can now retrieve metrics for Dockerized tasks.
@@ -26,7 +26,7 @@ These are the release notes for DC/OS 1.10.4.
 - Mesos 1.4.1 is integrated with DC/OS 1.10.4.
 - Marathon 1.5.5 is integrated with DCOS 1.10.4.
 - DC/OS Java Developer Kit upgraded to the latest version: JDK 8u152.
-- DC/OS is compatible with the newest Docker version - 17.05.0.
+- DC/OS is compatible with the newest Docker version: 17.05.0.
 
 # Issues Fixed in DC/OS 1.10.3
 
