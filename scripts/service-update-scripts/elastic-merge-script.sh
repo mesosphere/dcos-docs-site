@@ -70,6 +70,7 @@ cp -r frameworks/elastic/docs/* ./pages/services/elastic/$directory
 done <scripts/service-update-scripts/merge-lists/dcos-elastic-service-merge-list.txt
 
 git rm -rf frameworks
+rm -rf frameworks
 
 # Add version information to latest index file
 

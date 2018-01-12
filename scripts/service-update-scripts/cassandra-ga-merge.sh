@@ -70,7 +70,7 @@ cp -r frameworks/cassandra/docs/* ./pages/services/cassandra/$directory
 done <scripts/service-update-scripts/merge-lists/dcos-cassandra-service-merge-list.txt
 
 git rm -rf frameworks
-
+rm -rf frameworks
 # Add version information to latest index file
 
 sed -i '' -e "2s/.*/navigationTitle: Cassandra $directory/g" ./pages/services/cassandra/$directory/index.md

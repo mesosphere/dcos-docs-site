@@ -70,6 +70,7 @@ cp -r docs/* ./pages/services/dse/$directory
 done <scripts/service-update-scripts/merge-lists/dse-private-merge-list.txt
 
 git rm -rf docs
+rm -rf docs
 
 # Add version information to latest index file
 

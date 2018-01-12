@@ -28,7 +28,7 @@ echo "New directories created: /pages/services/beta-dse/$directory and /pages/se
 # Move to the top level of the repo
 
 root="$(git rev-parse --show-toplevel)"
-cd $root
+cd $root      
 
 # pull dse-private
 git remote rm dse-private
@@ -71,6 +71,7 @@ cp -r docs/* ./pages/services/beta-dse/$directory
 done <scripts/service-update-scripts/merge-lists/dse-private-merge-list.txt
 
 git rm -rf docs
+rm -rf docs
 
 # Add version information to latest index file
 

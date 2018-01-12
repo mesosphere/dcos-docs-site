@@ -71,6 +71,7 @@ cp -r docs/* /pages/services/spark/$directory
 done <scripts/service-update-scripts/merge-lists/spark-build-merge-list.txt
 
 git rm -rf docs
+rm -rf docs
 
 # Add version information to latest index file
 

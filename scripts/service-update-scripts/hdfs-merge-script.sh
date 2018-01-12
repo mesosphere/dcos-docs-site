@@ -70,6 +70,7 @@ cp -r frameworks/hdfs/docs/* ./pages/services/hdfs/$directory
 done <scripts/service-update-scripts/merge-lists/dcos-hdfs-service-merge-list.txt
 
 git rm -rf frameworks
+rm -rf frameworks
 
 # Add version information to latest index file
 

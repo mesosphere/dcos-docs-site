@@ -3,10 +3,12 @@ docs/connecting-clients.md
 docs/disaster-recovery.md
 docs/index.md
 docs/install.md
+docs/kerberos.md
 docs/limitations.md
 docs/managing.md
 docs/quick-start.md
 docs/release-notes.md
+docs/ssl-auth.md
 docs/supported-versions.md
 docs/troubleshooting.md
 docs/uninstall.md

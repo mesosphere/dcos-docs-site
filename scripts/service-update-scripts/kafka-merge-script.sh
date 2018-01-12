@@ -70,6 +70,7 @@ cp -r frameworks/kafka/docs/* ./pages/services/kafka/$directory
 done <scripts/service-update-scripts/merge-lists/kafka-merge-list.txt
 
 git rm -rf frameworks
+rm -rf frameworks
 
 # Add version information to latest index file
 

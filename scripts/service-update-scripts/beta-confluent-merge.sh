@@ -71,6 +71,7 @@ cp -r docs/* ./pages/services/beta-confluent-kafka/$directory
 done <scripts/service-update-scripts/merge-lists/beta-confluent-merge-list.txt
 
 git rm -rf docs
+rm -rf docs
 
 # Add version information to latest index file
 
