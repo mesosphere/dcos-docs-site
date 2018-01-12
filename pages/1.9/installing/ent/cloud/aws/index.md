@@ -23,9 +23,12 @@ Choose the advanced templates if you want to customize the AMI, VPC, or Instance
 * Composable, for example you can deploy multiple agent pools to a single cluster
 * More setup work is required
 
-**Note:** Due to the following limitations you must not use these templates in production:
+[message type="warning"] DC/OS CloudFormation templates are intended for reference only and are not recommended for production use due to the following limitations:
 
-* DC/OS clusters created with the templates cannot be upgraded.
-* Modifications to the templates are not supported.
+- CloudFormation does not allow for coordinated zero-downtime in-place updates within Auto Scaling groups.
+- CloudFormation does not allow for automated zero-downtime replacement of Auto Scaling groups.
+- Replacing DC/OS agent nodes requires manual data migration of local storage volumes for stateful services.
+- Updates of DC/OS on AWS CloudFormation has not been automated, validated, or documented.
+- Modified CloudFormation templates are not supported by Mesosphere, Inc.
+[/message]
 
-For production clusters, Mesosphere recommends you use the methods described in DC/OS Open Source Advanced Installation Guide or DC/OS Enterprise Advanced Installation Guide.
