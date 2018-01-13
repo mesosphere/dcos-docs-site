@@ -66,12 +66,12 @@ do
     
   fi
 
-cp -r frameworks/cassandra/docs/* ./pages/services/beta-zookeeper/$directory
+cp -r docs/* ./pages/services/beta-zookeeper/$directory
 
 done <scripts/service-update-scripts/merge-lists/beta-zookeeper-merge-list.txt
 
-git rm -rf frameworks
-rm -rf frameworks
+git rm -rf docs
+rm -rf docs
 
 # Add version information to latest index file
 

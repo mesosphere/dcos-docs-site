@@ -1,14 +1,13 @@
 ---
 layout: layout.pug
 navigationTitle: 
-title: Beta Kafka ZooKeeper 2.1.0-3.4.11-beta
+title: Beta Kafka ZooKeeper 2.1.1-3.4.11-beta
 menuWeight: 10
 excerpt:
-featureMaturity:
-enterprise: false
+
 ---
 
-<!-- https://github.com/mesosphere/dcos-zookeeper/ -->
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
 DC/OS Apache ZooKeeper is an automated service that makes it easy to deploy and manage Apache ZooKeeper on [DC/OS](https://mesosphere.com/product/) for the purposes of running the DC/OS

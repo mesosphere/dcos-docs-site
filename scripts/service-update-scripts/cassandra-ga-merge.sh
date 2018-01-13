@@ -71,6 +71,7 @@ done <scripts/service-update-scripts/merge-lists/dcos-cassandra-service-merge-li
 
 git rm -rf frameworks
 rm -rf frameworks
+
 # Add version information to latest index file
 
 sed -i '' -e "2s/.*/navigationTitle: Cassandra $directory/g" ./pages/services/cassandra/$directory/index.md
