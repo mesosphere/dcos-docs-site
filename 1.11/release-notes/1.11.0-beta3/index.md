@@ -40,6 +40,7 @@ excerpt:
 
 [enterprise]
 ## Security
+- Minimized permissions. Service accounts created by DC/OS now have minimized permissions.
 [/enterprise]
 
 [enterprise]
