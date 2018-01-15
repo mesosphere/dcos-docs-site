@@ -44,7 +44,7 @@ In order to install DC/OS Enterprise with a custom CA certificate you will need:
 - to use the **Advanced installation method:**  [advanced DC/OS installation method](/1.10/installing/custom/advanced/). Other installation methods are not supported.
 - **A file containing the custom CA certificate**
 - **A file containing the private key associated with the custom CA certificate**
-- If the CA is **not** a root CA, **a file containing the certificate chain associated with the custom CA certificate** 
+- If the CA is **not** a self-signed root CA, **a file containing the certificate chain associated with the custom CA certificate** 
 
 ## Manually placing the custom CA certificate, the associated private key and the certificate chain onto the bootstrap node
 The custom CA certificate, the associated private key and the certificate chain files must be put in the `$DCOS_INSTALL_DIR/genconf/` directory on the bootstrap node:
@@ -62,13 +62,15 @@ dcos-ca-certificate-chain.crt
 ## Manually placing the private key associated with the custom CA certificate onto the master nodes
 
 For security reasons, the installer will not copy the private key from the bootstrap node to the master nodes. 
-The private key associated with the custom CA certificate must be distributed manually to every DC/OS master node **before starting the installation**. The filesystem path for the private key file must be `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`. The directory `/var/lib/dcos/pki/tls/CA/private` should be created manually with the following  command before putting the file `custom_ca.key` in the directory on every DC/OS master node:
+The private key associated with the custom CA certificate must be distributed manually to every DC/OS master node **before starting the installation**. 
+The filesystem path for the private key file must be `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`. 
+The directory `/var/lib/dcos/pki/tls/CA/private` can be created manually with the following  command before putting the file `custom_ca.key` in the directory on every DC/OS master node:
 
 ```bash
  mkdir -p /var/lib/dcos/pki/tls/CA/private
 ```
 
-Furthermore, the file must be owned by the root Unix user and to have 0600 permissions set.
+Furthermore, the file containing the private key `custom_ca.key` corresponding to the custom CA certificate must be owned by the root Unix user and have 0600 permissions set.
 
 If you copy private key file over the network onto the master nodes, the network channel must be adequately protected.
 
@@ -76,7 +78,7 @@ An example of copying the CA private key is given below. The commands are execut
 
 ```bash
 cd $DCOS_INSTALL_DIR/config
-scp custom_ca.key centos@W.X.Y.Z:/var/lib/dcos/pki/tls/CA/private
+scp dcos-ca-certificate-key.key centos@W.X.Y.Z:/var/lib/dcos/pki/tls/CA/private/custom_ca.key
 ```
 
 ## Specifying the locations of the custom CA certificate, the associated private key and the certificate chain files in the DC/OS configuration file
