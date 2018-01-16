@@ -1,7 +1,10 @@
 ---
-post_title: Managing
-menu_order: 60
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Managing
+menuWeight: 60
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
