@@ -1,6 +1,6 @@
-frameworks/hdfs/docs/img/hdfs-service-gui.gif
-frameworks/hdfs/docs/img/hdfs-service-gui2.gif
-frameworks/hdfs/docs/img/hdfs-service-gui3.gif
+frameworks/hdfs/docs/img/hdfs-service-gui.png
+frameworks/hdfs/docs/img/hdfs-service-gui2.png
+frameworks/hdfs/docs/img/hdfs-service-gui3.png
 frameworks/hdfs/docs/api-reference.md
 frameworks/hdfs/docs/connecting-clients.md
 frameworks/hdfs/docs/index.md

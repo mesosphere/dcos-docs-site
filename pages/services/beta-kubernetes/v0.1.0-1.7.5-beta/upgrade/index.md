@@ -5,7 +5,7 @@ title: Upgrade
 menuWeight: 40
 excerpt:
 featureMaturity:
-
+enterprise: false
 ---
 
 # Overview
