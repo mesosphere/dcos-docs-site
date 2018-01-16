@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  HDFS
 title: HDFS
-menuWeight: 50
+menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: false

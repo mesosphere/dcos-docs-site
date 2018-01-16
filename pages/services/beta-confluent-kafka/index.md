@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 
 title: Beta Confluent Kafka
-menuWeight: 80
+menuWeight: 120
 excerpt:
 featureMaturity:
 enterprise: false

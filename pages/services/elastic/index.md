@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Elastic
 title: Elastic
-menuWeight: 40
+menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false

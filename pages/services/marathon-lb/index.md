@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Marathon-LB
 title: Marathon-LB
-menuWeight: 1
+menuWeight: 90
 excerpt:
 
 enterprise: false

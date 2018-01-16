@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Beta Kubernetes
 title: Beta Kubernetes
-menuWeight: 110
+menuWeight: 170
 excerpt:
 featureMaturity:
 enterprise: false
