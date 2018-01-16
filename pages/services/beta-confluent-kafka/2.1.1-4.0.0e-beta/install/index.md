@@ -1,9 +1,11 @@
 ---
-post_title: Install and Customize
-menu_order: 20
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Install and Customize
+menuWeight: 20
+excerpt:
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

@@ -1,9 +1,11 @@
 ---
-post_title: Release Notes
-menu_order: 120
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Release Notes
+menuWeight: 120
+excerpt:
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

@@ -1,9 +1,11 @@
 ---
-post_title: API Reference
-menu_order: 70
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: API Reference
+menuWeight: 70
+excerpt:
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
