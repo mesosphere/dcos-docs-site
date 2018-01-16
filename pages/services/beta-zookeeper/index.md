@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: false
 ---
 
-Welcome to the documentation for the DC/OS Apache ZooKeeper Beta. Choose a version to get started!
+Welcome to the documentation for the DC/OS Apache Kafka ZooKeeper Beta. Choose a version to get started!
 
 <div style="border: thin solid black; background-color: #FAFAFA; border-radius: 5px; padding: 10px; margin-bottom: 20px;">
 <p><b>Warning: Beta Software</b></p>

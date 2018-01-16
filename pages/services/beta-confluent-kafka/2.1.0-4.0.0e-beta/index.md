@@ -2,14 +2,11 @@
 layout: layout.pug
 navigationTitle: 
 title: Beta Confluent 2.1.0-4.0.0e-beta
-menuWeight: 30
+menuWeight: 50
 excerpt:r
 featureMaturity:
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/confluent -->
-
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->
 

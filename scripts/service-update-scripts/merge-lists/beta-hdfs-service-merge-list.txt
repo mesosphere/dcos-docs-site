@@ -1,0 +1,16 @@
+frameworks/hdfs/docs/img/hdfs-service-gui.png
+frameworks/hdfs/docs/img/hdfs-service-gui2.png
+frameworks/hdfs/docs/img/hdfs-service-gui3.png
+frameworks/hdfs/docs/api-reference.md
+frameworks/hdfs/docs/connecting-clients.md
+frameworks/hdfs/docs/index.md
+frameworks/hdfs/docs/install.md
+frameworks/hdfs/docs/kerberos.md
+frameworks/hdfs/docs/limitations.md
+frameworks/hdfs/docs/managing.md
+frameworks/hdfs/docs/quick-start.md
+frameworks/hdfs/docs/release-notes.md
+frameworks/hdfs/docs/supported-versions.md
+frameworks/hdfs/docs/troubleshooting.md
+frameworks/hdfs/docs/uninstall.md
+frameworks/hdfs/docs/upgrade.md

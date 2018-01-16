@@ -631,5 +631,15 @@
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
 /release-notes/version-policy/ /release-notes/1.10/version-policy/;
+/services/beta-cassandra/v1.0.30-3.0.13-beta/ /services/beta-cassandra/1.0.30-3.0.13-beta/;
+/services/beta-cassandra/v1.0.31-3.0.13-beta/ /services/beta-cassandra/1.0.31-3.0.13-beta/;
+/services/beta-cassandra/v1.0.32-3.0.14-beta/ /services/beta-cassandra/1.0.32-3.0.14-beta/;
+/services/beta-elastic/v1.0.13-5.4.1-beta/ /services/beta-elastic/1.0.13-5.4.1-beta/;
+/services/beta-elastic/v1.0.14-5.5.0-beta/ /services/beta-elastic/1.0.14-5.5.0-beta/;
+/services/beta-elastic/v1.0.15-5.5.1-beta/ /services/beta-elastic/1.0.15-5.5.1-beta/;
+/services/beta-elastic/v1.0.15-5.5.1-beta/ /services/beta-elastic/1.0.15-5.5.1-beta/;
+/services/beta-elastic/v2.0.0-5.5.1/ /services/beta-elastic/2.0.0-5.5.1/;
+/services/beta-kafka/v1.1.25-0.10.1.0-beta/ /services/beta-kafka/1.1.25-0.10.1.0-beta/;
+/services/beta-kafka/v1.1.26-0.10.1.0-beta/ /services/beta-kafka/1.1.26-0.10.1.0-beta/;
 /support/ https://support.mesosphere.com;
 ~^/docs/(?<path>.*)$ /$path;
