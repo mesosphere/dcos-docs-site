@@ -1,8 +1,10 @@
 ---
+layout: layout.pug
+navigationTitle: 
 title: Beta HDFS 2.1.1-2.6.0-cdh5.11.0-beta
-menu_order: 10
-post_excerpt: ""
-enterprise: 'no'
+menuWeight: 10
+excerpt:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
