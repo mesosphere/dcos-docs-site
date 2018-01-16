@@ -2,11 +2,10 @@
 layout: layout.pug
 navigationTitle: 
 title: Beta Confluent Kafka 2.1.1-4.0.0e-beta
-menuWeight: 30
+menuWeight: 50
 featureMaturity:
 enterprise: false
 ---
-
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->
 
