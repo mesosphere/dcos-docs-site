@@ -1,7 +1,10 @@
 ---
-post_title: Custom Elasticsearch YAML
-menu_order: 22
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Custom Elasticsearch YAML
+menuWeight: 22
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
