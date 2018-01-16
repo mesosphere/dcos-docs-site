@@ -1,10 +1,12 @@
 ---
-post_title: Node Settings
-menu_order: 27
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Node Settings
+menuWeight: 27
+excerpt:
+featureMaturity:
+enterprise: false
 ---
-
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
