@@ -97,7 +97,7 @@
 /1.10/developing-services/dcos-integration/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/developing-services/service-requirements-spec/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/development/ /1.10/developing-services/;
-~^/1.10/installing/* /1.10/installing/oss/;
+~^/1.10/installing/[^oss]* /1.10/installing/oss/;
 # /1.10/installing/ /1.10/installing/oss/;
 # /1.10/installing/cloud/ /1.10/installing/oss/cloud/;
 # /1.10/installing/custom/ /1.10/installing/oss/custom/;
