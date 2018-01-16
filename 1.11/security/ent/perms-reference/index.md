@@ -58,7 +58,7 @@ By convention, `full` indicates that the permission supports all other action id
 
 Permission string sections for `<role-name>`s in square brackets are optional.
 These sections allow the permission scope to be narrowed.
-When no role name is specified, the permissions apply to all Mesos roles.
+When no role name is specified, the permissions apply to all [Mesos roles](/1.11/overview/concepts/#mesos-role).
 For example, the permission string `dcos:mesos:agent:framework:role` controls view access to DC/OS services registered with any [Mesos role](/1.11/overview/concepts/#mesos-role), whereas the permission string `dcos:mesos:agent:framework:role:slave_public` controls view access to DC/OS services registered with the role `slave_public`.
 
 Applications launched with Root Marathon cannot receive offers with resources reserved for a role which is not `slave_public` or `*`.
