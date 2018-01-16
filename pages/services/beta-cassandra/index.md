@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Beta Cassandra
 title: Beta Cassandra
-menuWeight: 70
+menuWeight: 110
 excerpt:
 featureMaturity:
 enterprise: false

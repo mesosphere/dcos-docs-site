@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 
 title: Beta ZooKeeper
-menuWeight: 120
+menuWeight: 180
 excerpt:
 featureMaturity:
 enterprise: false

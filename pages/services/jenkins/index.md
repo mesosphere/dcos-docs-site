@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Jenkins
 title: Jenkins
-menuWeight: 45
+menuWeight: 70
 excerpt:
 featureMaturity:
 enterprise: false
