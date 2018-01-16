@@ -1,10 +1,12 @@
 ---
-post_title: Service Settings
-menu_order: 21
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Service Settings
+menuWeight: 21
+excerpt:
+featureMaturity:
+enterprise: false
 ---
-
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 

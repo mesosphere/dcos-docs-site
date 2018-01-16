@@ -1,8 +1,11 @@
 ---
+layout: layout.pug
+navigationTitle: 
 title: Beta Cassandra 2.1.1-3.0.15-beta
-menu_order: 10
-post_excerpt: ""
-enterprise: 'no'
+menuWeight: 10
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

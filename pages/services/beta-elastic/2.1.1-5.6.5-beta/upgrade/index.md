@@ -1,7 +1,10 @@
 ---
-post_title: Upgrade
-menu_order: 130
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Upgrade
+menuWeight: 130
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

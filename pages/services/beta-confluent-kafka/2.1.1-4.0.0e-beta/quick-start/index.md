@@ -1,9 +1,11 @@
 ---
-post_title: Quick Start
-menu_order: 40
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Quick Start
+menuWeight: 40
+excerpt:
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

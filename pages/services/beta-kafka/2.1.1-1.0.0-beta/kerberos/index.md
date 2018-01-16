@@ -1,7 +1,10 @@
 ---
-post_title: Kerberos
-menu_order: 22
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Kerberos
+menuWeight: 22
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

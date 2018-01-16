@@ -1,8 +1,10 @@
 ---
-post_title: Support
-menu_order: 110
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Support
+menuWeight: 110
+excerpt:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

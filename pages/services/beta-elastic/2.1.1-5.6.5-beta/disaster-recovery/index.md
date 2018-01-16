@@ -1,7 +1,10 @@
 ---
-post_title: Disaster Recovery
-menu_order: 80
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Disaster Recovery
+menuWeight: 80
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

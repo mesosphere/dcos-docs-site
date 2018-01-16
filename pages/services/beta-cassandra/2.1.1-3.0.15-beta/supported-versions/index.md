@@ -1,10 +1,12 @@
 ---
-post_title: Supported Versions
-menu_order: 110
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Supported Versions
+menuWeight: 110
+excerpt:
+featureMaturity:
+enterprise: false
 ---
-
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 

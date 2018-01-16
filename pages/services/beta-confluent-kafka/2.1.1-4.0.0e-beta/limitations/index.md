@@ -1,9 +1,11 @@
 ---
-post_title: Limitations
-menu_order: 100
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Limitations
+menuWeight: 100
+excerpt:
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

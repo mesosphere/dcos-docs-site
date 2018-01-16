@@ -1,10 +1,12 @@
 ---
-post_title: Troubleshooting
-menu_order: 90
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Troubleshooting
+menuWeight: 90
+excerpt:
+featureMaturity:
+enterprise: false
 ---
-
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 

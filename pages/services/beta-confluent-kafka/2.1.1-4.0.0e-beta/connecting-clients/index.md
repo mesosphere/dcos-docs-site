@@ -1,9 +1,11 @@
 ---
-post_title: Connecting Clients
-menu_order: 50
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Connecting Clients
+menuWeight: 50
+excerpt:
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

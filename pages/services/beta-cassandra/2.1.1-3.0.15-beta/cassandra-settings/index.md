@@ -1,10 +1,12 @@
 ---
-post_title: Cassandra Settings
-menu_order: 24
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+title: Cassandra Settings
+menuWeight: 24
+excerpt:
+featureMaturity:
+enterprise: false
 ---
-
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 

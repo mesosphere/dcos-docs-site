@@ -1,7 +1,10 @@
 ---
-post_title: SSL Auth
-menu_order: 23
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: SSL Auth
+menuWeight: 23
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

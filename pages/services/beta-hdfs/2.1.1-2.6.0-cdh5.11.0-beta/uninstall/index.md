@@ -1,7 +1,10 @@
 ---
-post_title: Uninstall
-menu_order: 30
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Uninstall
+menuWeight: 30
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
