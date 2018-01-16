@@ -27,6 +27,6 @@ Choose the advanced templates if you want to customize the AMI, VPC, or Instance
 - CloudFormation does not allow for coordinated zero-downtime in-place updates within Auto Scaling groups.
 - CloudFormation does not allow for automated zero-downtime replacement of Auto Scaling groups.
 - Replacing DC/OS agent nodes requires manual data migration of local storage volumes for stateful services.
-- Updates of DC/OS on AWS CloudFormation has not been automated, validated, or documented.
+- Updates of DC/OS on AWS CloudFormation have not been automated, validated, or documented.
 - Modified CloudFormation templates are not supported by Mesosphere, Inc.
 [/message]
