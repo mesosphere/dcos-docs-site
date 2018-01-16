@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: 
 title: Beta Confluent 2.1.0-4.0.0e-beta
 menuWeight: 50
-excerpt:r
 featureMaturity:
 enterprise: false
 ---
