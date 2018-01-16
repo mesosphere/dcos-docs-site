@@ -25,34 +25,31 @@ excerpt:
 # New features and capabilities
 
 ## Apache Mesos 1.5 and Marathon 1.6 Integrated.
-- DC/OS 1.11 is is based on Mesos 1.5. View the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
+- DC/OS 1.11 is is based on Mesos 1.5. View the [changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
 
-- DC/OS 1.11 is integrated with the latest release of Marathon, version 1.6. Resulting breaking changes and new features are documented below. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+- DC/OS 1.11 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 
 ## Networking
 - IPv6 is now supported for Docker containers.
-  You can now launch docker containers through Marathon on an IPv6 Docker user network. Tthe built-in DC/OS overlay also supports IPv6 virtual networks for Docker containers. By default, DC/OS overlay now comes with an IPv6 virtual network called `dcos6`. You can use `dcos6` to launch IPv6 docker containers through Marathon.
+  You can now launch docker containers through Marathon on an IPv6 Docker user network. The built-in DC/OS overlay also supports IPv6 virtual networks for Docker containers. By default, DC/OS overlay now comes with an IPv6 virtual network called `dcos6`. You can use `dcos6` to launch IPv6 docker containers through Marathon.
   **Note:** IPv6 is not supported for CNI, and hence UCR containers.
-- Edge-LB 1.0 RC candidate. [enterprise type="inline" size="small" /]
+- Edge-LB 1.0 RC candidate.
   - Strict security mode is now supported.
 - Performance improvements to the DC/OS network stack.
-  All networking components (minuteman, navstar, spartan) are aggregated into a single Erlang VM called `dcos-net`. This improves the resource consumption of the Erlang components and greatly improves reliability and availability to these components.
+  All networking components (minuteman, navstar, spartan) are aggregated into a single Erlang VM called dcos-net. This improves the resource consumption of the Erlang components and greatly improves reliability and availability to these components.
 
 [enterprise]
 ## Security
-- Minimized permissions. Service accounts created by DC/OS now have minimized permissions.
 [/enterprise]
 
-[enterprise]
 ## Storage
-- DC/OS Storage Service now in beta. DC/OS 1.11 introduces a single, highly-available, control plane end point to manage and consume storage services and features within DC/OS.
-- A Container Storage Interface (CSI) that enables you to connect to locally managed and 3rd party storage features via a common pluggable model.
-- Volume profiles. You can now create a volume profile with your desired storage parameters, then apply it during volume creation. This simplifies and expedites volume creation.
+- DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
-[/enterprise]
+
+**Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Alpha features are not recommended for production usage, but are a good indication of the direction the project is headed.
 
 ## Metrics
-- Metrics - The DC/OS metrics component now produces metrics in Prometheus format. [View the documentation](/1.11/metrics).
+- The DC/OS metrics component now produces metrics in Prometheus format. [View the documentation](/1.11/metrics).
 
 ## Platform
 - Fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
@@ -64,7 +61,7 @@ excerpt:
 ## Updated DC/OS data services
 - TLS auth for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported.
 - Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
-- New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpointd to relaunch a node in an idle command state for debugging purposes.
+- New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpoint to relaunch a node in an idle command state for debugging purposes.
 - New beta DC/OS Kafka ZooKeeper service. [View the documentation](/services/beta-zookeeper/index.md).
 - You can now select a DC/OS data service version from a dropdown menu in the DC/UI.
 - Improved scalability for all DC/OS data services.
@@ -77,10 +74,10 @@ excerpt:
 # <a name="known-issues"></a>Known Issues and Limitations
 
 
-# <a name="fixed-issues"></a>Major Issues Fixed in 1.11 Beta 3
+# <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11 Beta 3
 
 - DCOS-16368 -  DC/OS Enterprise Secret Store no longer accepts secrets with uppercase letters in their paths. Secret paths with uppercase letters conflicted with use of the IAM API. [enterprise type="inline" size="small" /]
-- DCOS-19573 - Bugix: Changes to unique constraints now supported in the UI.
+- DCOS-19573 - Bugfix: Changes to unique constraints now supported in the UI.
 - DCOS-19837 - Consolidate fault-domain scripts for all cloud providers into one script to support clusters with multiple cloud providers.
 - DCOS-19896 - `--linked` flag added to `dcos cluster list` so users can see which clusters can be unlinked. [enterprise type="inline" size="small" /]
 - DCOS-19955 - Enhanced cluster linking API and CLI experience. [enterprise type="inline" size="small" /]
