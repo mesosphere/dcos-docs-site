@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.4
 title: Release Notes for 1.10.4
-menuWeight: 10
+menuWeight: 0
 excerpt:
 ---
 
@@ -13,7 +13,7 @@ These are the release notes for DC/OS 1.10.4.
 # Issues Fixed in DC/OS 1.10.4
 
 - CORE-1375 - Docker executor does not hang due to lost messages.
-- DOCS-2169	- Updated [ports list](1.10/installing/ent/ports) for DC/OS. [enterprise type="inline" size="small"/]
+- DOCS-2169	- Updated [ports list](https://docs.mesosphere.com/1.10/installing/ent/ports/) for DC/OS. [enterprise type="inline" size="small"/]
 - DCOS-18777 - DC/OS CA certificate bundle now gets propagated to public slaves.
 - DCOS-19327 - Diagnostics bundles no longer contain sensitive cluster configuration values.
 - DCOS-19399 - Marathon now supports upgrading to JDK 1.8.0_152.

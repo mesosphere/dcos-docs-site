@@ -4,7 +4,7 @@ navigationTitle:  >
 title: >
   Release Notes for 1.10.0 Release
   Candidate 1
-menuWeight: 30
+menuWeight: 40
 excerpt:
 ---
 
