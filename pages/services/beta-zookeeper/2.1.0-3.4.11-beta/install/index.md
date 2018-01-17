@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Install and Customize
 menuWeight: 20
 excerpt:
@@ -11,7 +11,7 @@ enterprise: false
 <!-- https://github.com/mesosphere/dcos-zookeeper/ -->
 
 
-The default DC/OS Apache Zookeeper Service installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depeneding on the context of the deployment.
+The default DC/OS Apache Zookeeper Service installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ The default DC/OS Apache Zookeeper Service installation provides reasonable defa
 To start a basic test cluster of Apache Zookeeper, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Apache Zookeeper on Enterprise DC/OS](/latest/security/service-auth/custom-service-auth/).
 
 ```shell
-dcos package install kafka-zookeeper 
+dcos package install kafka-zookeeper
 ```
 
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
