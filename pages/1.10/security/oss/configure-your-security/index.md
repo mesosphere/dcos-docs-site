@@ -33,7 +33,7 @@ To obtain the client ID and use your own Auth0 account, complete the following s
 4. Add `https://youraccount.auth0.com` to the Allowed Origins (CORS) setting.
 5. Show Advanced Settings at the bottom of the Settings page and change the JWT Signature Algorithm in the OAuth tab to RS256.
 6. In [Auth0's Hosted Pages](https://manage.auth0.com/#/login_page), create a custom Login Page using the HTML/JavaScript source of the [DC/OS login page](https://dcos.auth0.com/login?client=3yF5TOSzdlI45Q1xspxzeoGBe9fNxm9m).
-7. In this custom Login Page you need to change the configuration encoded string in the `config` variable. You can use [DC/OS Custom Auth0 config Encoder](https://rohithzr.github.io/dcos-oauth-config/) to generate the string.
+7. In this custom Login Page you need to change the configuration encoded string in the `config` variable. You can use [DC/OS Custom Auth0 config Encoder](https://zivost.github.io/dcos-oauth-config/) to generate the string.
 8. You will have to configure your own ClientID and Secret on the social provider. To do that, go to Social Connections expand the provider and configure the keys.
 
 The custom login page is currently required to work with the current version
