@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Install and Customize
 menuWeight: 20
 excerpt:
@@ -21,10 +21,10 @@ The default DC/OS Apache Zookeeper Service installation provides reasonable defa
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of Apache Zookeeper, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Apache Zookeeper on Enterprise DC/OS](/latest/security/service-auth/custom-service-auth/).
+To start a basic test cluster of Apache Zookeeper, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Apache Zookeeper on Enterprise DC/OS](/1.10/security/service-auth/custom-service-auth/).
 
 ```shell
-dcos package install kafka-zookeeper 
+dcos package install kafka-zookeeper
 ```
 
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
