@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Beta Elastic Version 1.0.16-5.5.1-beta
-title: Beta Elastic Version 1.0.16-5.5.1-beta
+navigationTitle:
+title: Beta Elastic 2.0.0-5.5.1
 menuWeight: 30
 excerpt:
 featureMaturity:

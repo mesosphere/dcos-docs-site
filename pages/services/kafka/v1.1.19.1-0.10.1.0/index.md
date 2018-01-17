@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Kafka 1.1.19-0.10.1.0
 title: Kafka 1.1.19-0.10.1.0
-menuWeight: 110
+menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: false

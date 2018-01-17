@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle: Beta HDFS 2.1.1-2.6.0-cdh5.11.0-beta
 title: Beta HDFS 2.1.1-2.6.0-cdh5.11.0-beta
 menuWeight: 10
 excerpt:

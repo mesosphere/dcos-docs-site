@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle: Confluent Kafka 2.0.3-3.3.1e
 title: Confluent Kafka 2.0.3-3.3.1e
 menuWeight: 10
 excerpt:
