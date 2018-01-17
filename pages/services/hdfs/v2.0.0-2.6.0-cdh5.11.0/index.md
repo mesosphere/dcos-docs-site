@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  HDFS 2.0.0-2.6.0-cdh5.11.0
 title: HDFS 2.0.0-2.6.0-cdh5.11.0
-menuWeight: 130
+menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false

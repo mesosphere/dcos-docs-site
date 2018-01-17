@@ -1,6 +1,8 @@
 docs/package/advanced-install.md
 docs/package/connecting-clients.md
+docs/package/disaster-recovery.md
 docs/package/index.md
+docs/package/ingress.md
 docs/package/install.md
 docs/package/limitations.md
 docs/package/quick-start.md
