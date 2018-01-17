@@ -1,11 +1,10 @@
 ---
-layout: layout.pug
-navigationTitle:  HDFS 2.0.1-2.6.0-cdh5.11.0
-title: HDFS 2.0.1-2.6.0-cdh5.11.0
-menuWeight: 120
+title: HDFS 2.0.4-2.6.0-cdh5.11.0
+navigationTitle: 
+title:
+menuWeight: 10
 excerpt:
-featureMaturity:
-enterprise: false
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

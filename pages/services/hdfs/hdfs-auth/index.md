@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Configuring DC/OS Access for HDFS
-menuWeight: 500
+menuWeight: 530
 excerpt:
 featureMaturity:
 enterprise: true
