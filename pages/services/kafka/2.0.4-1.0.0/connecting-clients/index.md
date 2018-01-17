@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Connecting Clients
 menuWeight: 50
-
+enterprise: false
 ---
 
 # Supported Client Libraries

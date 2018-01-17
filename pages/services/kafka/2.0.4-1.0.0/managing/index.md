@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Managing
 menuWeight: 60
-
+enterprise: false
 ---
 # Updating Configuration
 You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying DC/OS Kafka Service itself.

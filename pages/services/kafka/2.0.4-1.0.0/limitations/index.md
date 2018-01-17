@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Limitations
 menuWeight: 100
-
+enterprise: false
 ---
 
 ## Configurations

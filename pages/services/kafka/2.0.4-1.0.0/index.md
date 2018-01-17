@@ -1,11 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
-title: Kafka
+navigationTitle:  Kafka 2.0.4-1.0.0
+title: Kafka 2.0.4-1.0.0
 menuWeight: 10
-
+excerpt:
+featureMaturity:
+enterprise: false
 ---
+
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+
 
 DC/OS Apache Kafka is an automated service that makes it easy to deploy and manage Apache Kafka on Mesosphere DC/OS, eliminating nearly all of the complexity traditionally associated with managing a Kafka cluster. Apache Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees. Kafka clusters are highly available, fault tolerant, and very durable. For more information on Apache Kafka, see the Apache Kafka [documentation][1]. DC/OS Kafka gives you direct access to the Kafka API so that existing producers and consumers can interoperate. You can configure and install DC/OS Kafka in moments. Multiple Kafka clusters can be installed on DC/OS and managed independently, so you can offer Kafka as a managed service to your organization.
 
@@ -36,4 +40,4 @@ DC/OS Kafka provides the following features:
 *   [DC/OS Spark][2]
 
  [1]: http://kafka.apache.org/documentation.html
- [2]: https://docs.mesosphere.com/services/spark/
+ [2]: /services/spark/

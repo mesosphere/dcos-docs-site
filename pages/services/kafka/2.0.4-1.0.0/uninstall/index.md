@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Uninstall
 menuWeight: 30
-
+enterprise: false
 ---
 
 <!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->

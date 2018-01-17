@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Quick Start
 menuWeight: 40
-
+enterprise: false
 ---
 
 # Prerequisite

@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Release Notes
 menuWeight: 120
-
+enterprise: false
 ---
 
 ## Version 2.0.4-1.0.0

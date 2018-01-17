@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: SSL Auth
 menuWeight: 23
-
+enterprise: false
 ---
 
 ## How to connect an authenticated client
