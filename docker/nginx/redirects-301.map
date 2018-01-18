@@ -2,7 +2,7 @@
 ~^(/[^/]*)$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
 ~^/1.11/networking/edge-lb/(.*)$ /services/edge-lb/0.1.9/$1;
-/services/edge-lb/architecture/ /services/edge-lb/0.1.9/#architecture/
+/services/edge-lb/architecture/ /services/edge-lb/0.1.9/
 ~^/1.11/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
 /1.10/administration/ /1.10/administering-clusters/;
 /1.10/administration/access-node/ /1.10/administering-clusters/;
