@@ -1,0 +1,17 @@
+docs/api-reference.md
+docs/connecting-clients.md
+docs/deploy-best-practice.md
+docs/disaster-recovery.md
+docs/dse-authentication.md
+docs/index.md
+docs/install.md
+docs/know-issues.md
+docs/limitations.md
+docs/managing.md
+docs/quick-start.md
+docs/release-notes.md
+docs/supported-versions.md
+docs/terms-of-use-dse.md
+docs/troubleshooting.md
+docs/uninstall.md
+docs/upgrade.md

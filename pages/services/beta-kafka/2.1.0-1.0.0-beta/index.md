@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 
 title: Kafka 2.1.0-1.0.0-beta
-menuWeight: 10
+menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false

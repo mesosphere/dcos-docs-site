@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: 
-title: Beta ZooKeeper 2.1.0-3.4.11-beta
-menuWeight: 0
+navigationTitle: Beta Kafka ZooKeeper 2.1.0-3.4.11-beta
+title: Beta Kafka ZooKeeper 2.1.0-3.4.11-beta
+menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: false

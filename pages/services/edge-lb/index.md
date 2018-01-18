@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Edge-LB
 title: Edge-LB
-menuWeight: 35
+menuWeight: 30
 excerpt:
 
 enterprise: false

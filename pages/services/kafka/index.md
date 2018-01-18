@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Kafka
 title: Kafka
-menuWeight: 60
+menuWeight: 80
 excerpt:
 featureMaturity:
 enterprise: false

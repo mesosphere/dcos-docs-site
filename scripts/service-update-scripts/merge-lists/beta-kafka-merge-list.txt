@@ -1,0 +1,14 @@
+frameworks/kafka/docs/api-reference.md
+frameworks/kafka/docs/connecting-clients.md
+frameworks/kafka/docs/index.md
+frameworks/kafka/docs/install.md
+frameworks/kafka/docs/kerberos.md
+frameworks/kafka/docs/limitations.md
+frameworks/kafka/docs/managing.md
+frameworks/kafka/docs/quick-start.md
+frameworks/kafka/docs/release-notes.md
+frameworks/kafka/docs/ssl-auth.md
+frameworks/kafka/docs/supported-versions.md
+frameworks/kafka/docs/troubleshooting.md
+frameworks/kafka/docs/uninstall.md
+frameworks/kafka/docs/upgrade.md

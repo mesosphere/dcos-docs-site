@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 
 title: Beta HDFS 2.1.0-2.6.0-cdh5.11.0-beta
-menuWeight: 10
+menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
