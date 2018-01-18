@@ -29,7 +29,7 @@ To facilitate the reading of this page we start out by providing a glossary for 
 
 - **Private key associated with the custom CA certificate:** The private key in the PKCS#8 format associated with the custom CA certificate.
 
-- **Certificate chain associated with the custom CA certificate:** The complete CA certification chain required for end-entity certificate verification. It must include the certificates of all parent CAs of the intermediate custom CA up to and including the root CA certificate. If the custom CA certificate is a root CA certificate, the chain must be an empty.
+- **Certificate chain associated with the custom CA certificate:** The complete CA certification chain required for end-entity certificate verification. It must include the certificates of all parent CAs of the intermediate custom CA up to and including the root CA certificate. If the custom CA certificate is a root CA certificate, the chain must be empty.
 
 - **Installation directory:** The directory on the bootstrap node where the DC/OS installer resides. It is denoted with `$DCOS_INSTALL_DIR` in this document.
 
@@ -42,7 +42,7 @@ To facilitate the reading of this page we start out by providing a glossary for 
 
 In order to install DC/OS Enterprise with a custom CA certificate you will need:
 
-- to use the [advanced DC/OS installation method](/1.10/installing/custom/advanced/). Other installation methods are not supported.
+- to use the [advanced DC/OS installation method](/1.10/installing/ent/custom/advanced/). Other installation methods are not supported.
 - A file containing the custom CA certificate.
 - A file containing the private key associated with the custom CA certificate.
 - If the CA is **not** a self-signed root CA, a file containing the certificate chain associated with the custom CA certificate. 
@@ -75,7 +75,7 @@ The directory `/var/lib/dcos/pki/tls/CA/private/` can be created manually with t
 Furthermore, the file containing the private key `custom_ca.key` corresponding to the custom CA certificate must be owned by the root Unix user and have 0600 permissions set.
 
 If you copy private key file over the network onto the master nodes, the network channel must be adequately protected.
-An example of copying the CA private key is given below. The commands are executed on the bootstrap node. The `W.X.Y.Z` denotes the IP address of a master node below.
+An example of copying the CA private key is given below. The commands are executed on the bootstrap node. The `W.X.Y.Z` below indicates the IP address of a master node:
 
 ```bash
 cd $DCOS_INSTALL_DIR/genconf
@@ -85,27 +85,27 @@ scp dcos-ca-certificate-key.key centos@W.X.Y.Z:/var/lib/dcos/pki/tls/CA/private/
 ## Specifying the locations of the custom CA certificate, the associated private key and the certificate chain files in the DC/OS configuration file
 
 The filesystem paths to the custom CA certificate, associated private key and certificate chain files in the `$DCOS_INSTALL_DIR/genconf/` directory on the bootstrap node must be specified in the DC/OS configuration file using, respectively, the `ca_certificate_path`, `ca_certificate_key_path` and  `ca_certificate_chain_path` parameters.
-The paths to the custom certificate, the associated private key and the certificate chain must be relative paths. (without the `$DCOS_INSTALL_DIR` prefix)
+The paths must be relative to `$DCOS_INSTALL_DIR`.
 
 The [Example use cases](#example-use-cases) section below shows how to set these configuration parameters.
 
 # Configuration parameter reference
 ## ca\_certificate\_path
-Path (realtive to the `$DCOS_INSTALL_DIR`) to a file containing a single X.509 CA certificate in the OpenSSL PEM format. For example: `genconf/dcos-ca-certificate.crt`. It is either a *root CA certificate* (“self-signed”) or an *intermediate CA certificate* (“cross-certificate”) signed by some other certificate authority.
+Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing a single X.509 CA certificate in the OpenSSL PEM format. For example: `genconf/dcos-ca-certificate.crt`. It is either a *root CA certificate* (“self-signed”) or an *intermediate CA certificate* (“cross-certificate”) signed by some other certificate authority.
 
 If provided, this is the custom CA certificate. It is used as the signing CA certificate, i.e., the DC/OS CA will use this certificate for signing end-entity certificates (the subject of this certificate will be the issuer for certificates signed by the DC/OS CA). If not provided, the DC/OS cluster generates a unique root CA certificate during the initial bootstrap phase and uses that as the signing CA certificate.
 
 The public key associated with the custom CA certificate must be of type RSA.
 
 ## ca\_certificate\_key\_path
-Path (realtive to the `$DCOS_INSTALL_DIR`) to a file containing the private key corresponding to the custom CA certificate, encoded in the OpenSSL (PKCS#8) PEM format. For example: `genconf/CA_cert.key`.
+Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing the private key corresponding to the custom CA certificate, encoded in the OpenSSL (PKCS#8) PEM format. For example: `genconf/CA_cert.key`.
 
 **Note**: this is highly sensitive data. The configuration processor accesses this file only for configuration validation purposes, and does not copy the data. After successful configuration validation this file needs to be placed out-of-band into the file system of all DC/OS master nodes to the path `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` before most DC/OS systemd units start up. The file must be readable by the root user, and should have have 0600 permissions set.
 
 Required if `ca_certificate_path` is specified.
 
 ## ca\_certificate\_chain\_path
-Path (realtive to the `$DCOS_INSTALL_DIR`) to a file containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. For example: `genconf/CA_cert_chain.pem`.
+Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. For example: `genconf/CA_cert_chain.pem`.
 
 The parameter must be left undefined if `ca_certificate_path` points to a root CA certificate.
 Required if `ca_certificate_path` is specified and if the custom CA certificate is an *intermediate CA certificate*. 
@@ -121,7 +121,7 @@ Based on the requirements described above, this is the starting point for the in
 
 - On the bootstrap node, the files carrying custom CA certificate, the associated private key and, optionally, the CA certificate chain have been placed into the `$DCOS_INSTALL_DIR/genconf/` directory. (see the [section](#manually-placing-the-custom-ca-certificate-the-associated-private-key-and-the-certificate-chain-onto-the-bootstrap-node) above for more detailed description)
 
-- The custom CA private key has been securely placed on all DC/OS master nodes and is sufficiently protected (refer to [this section](#manually-placing-the-private-key-associated-with-the-custom-ca-certificate-onto-the-master-nodes) for more details). Example (command issued on one of the DC/OS master nodes):
+- The private key associated with the custom CA certificate has been securely placed on all DC/OS master nodes (refer to [this section](#manually-placing-the-private-key-associated-with-the-custom-ca-certificate-onto-the-master-nodes) for more details). Example (command issued on one of the DC/OS master nodes):
 
 ```bash
 stat /var/lib/dcos/pki/tls/CA/private/custom_ca.key
@@ -158,11 +158,11 @@ Proceed with the installation as described in the [documentation of the Advanced
 Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
 
 ## Verify installation
-One method of verifying that the DC/OS was installed properly with the custom CA certificate is to initiate a TLS connection to the Admin Router which, after installation, will have a certificate signed by the custom CA. 
+One method of verifying that the DC/OS Enterprise cluster was installed properly with the custom CA certificate is to initiate a TLS connection to Admin Router which, after installation, will present a certificate signed by the custom CA. 
 
-In order to do that you need first to obtain the DC/OS CA bundle of the deployed cluster. [This page](/1.10/security/ent/tls-ssl/get-cert/) shows how you can do that.
+In order to do that you first need to obtain the DC/OS CA bundle of the deployed cluster. [This page](/1.10/security/ent/tls-ssl/get-cert/) shows how you can do that.
 
-Provided you have obtained the DC/OS CA bundle and stored it in a file named `dcos-ca.crt`, issue the following command in the directory containing the `dcos-ca.crt` file in order to check that the Admin Router on a master node uses a certificate signed by the custom CA:
+Provided you have obtained the DC/OS CA bundle and stored it in a file named `dcos-ca.crt`, issue the following command in the directory containing the `dcos-ca.crt` file in order to check that Admin Router on a master node uses a certificate signed by the custom CA:
 
 ```bash
 openssl s_client -verify_ip <private_ip_master_node_X> -CAfile dcos-ca.crt -connect <public_ip_master_node_X>:443 | grep -e "s:" -e "i:" -e "return code:"
