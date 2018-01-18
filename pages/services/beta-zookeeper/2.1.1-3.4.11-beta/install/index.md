@@ -8,7 +8,6 @@ excerpt:
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
-
 The default DC/OS Apache Zookeeper Service installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 ## Prerequisites
