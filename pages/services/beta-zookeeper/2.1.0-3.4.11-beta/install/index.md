@@ -1,4 +1,4 @@
- ---
+---
 layout: layout.pug
 navigationTitle:
 title: Install and Customize
@@ -15,8 +15,8 @@ The default DC/OS Apache Zookeeper Service installation provides reasonable defa
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you may [need to provision a service account](/latest/security/service-auth/custom-service-auth/) before installing DC/OS Apache Zookeeper Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](/latest/administration/installing/custom/configuration-parameters/#security) requires a service account.
+- If you are using Enterprise DC/OS, you may [need to provision a service account](/latest/security/ent/service-auth/custom-service-auth/) before installing DC/OS Apache Zookeeper Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](/1.10/installing/ent/custom/configuration-parameters/#security) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes.
