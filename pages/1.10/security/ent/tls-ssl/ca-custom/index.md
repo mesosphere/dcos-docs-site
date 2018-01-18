@@ -22,7 +22,7 @@ To facilitate the reading of this page we start out by providing a glossary for 
 
 # What is supported and what is not
 - Only custom CA certificates that have an associated RSA-type key pair are supported. Other types of certificates, such as those using ECC-type key pair, are currently not supported. Support for ECC-type key pairs will be added in the future.
-- You must use a custom CA certificate only with a fresh installation of DC/OS Enterprise 1.10 or higher. Older versions of DC/OS are not supported.
+- Custom CA certificates are only supported for a fresh installation of DC/OS Enterprise 1.10 or higher. Older versions of DC/OS are not supported, and it is not possible to add a custom CA certificate during an upgrade.
 
 # Glossary of the terms used in this documentation
 - **Custom CA certificate:** Your custom CA certificate in the PEM format, which will be used to issue certificates for DC/OS components such as Admin Router. The custom CA certificate is either an intermediate CA certificate (issued by another CA) or a root CA certificate (self-signed by the custom CA).
