@@ -15,7 +15,7 @@ enterprise: false
 - Introducing V2 API with new more intuitive model for service / app backend selection model
 - New CLI command layout, ability to modify individual pools
 - Dockerized build and other CI improvements
-- Strict Mode Support
+- Strict Mode Support for DC/OS Enterprise version 1.11 or higher
 - Security fix in logging
 - Curl with -k within same container
 
@@ -23,14 +23,11 @@ Shortlist:
 
 ```
 % git shortlog v0.1.9..HEAD
-Drew Kerrigan (4):
       Fix response check in edgelb cli (#116)
-      [WIP] CLI, API, Schema, and UX Improvements (API V2) (#120)
+      CLI, API, Schema, and UX Improvements (API V2) (#120)
       Support Strict Mode (#122)
       Run apiserver in UCR with host volume (#123)
       1.0 rc fixes (#124)
-
-James Gorlick (2):
       [DCOS-19242] Ensure edge-lb is readily built on various platforms (#117)
       [DCOS-19242] Dockerize build (#119)
 ```
@@ -59,16 +56,9 @@ Shortlist:
 
 ```
 % git shortlog v0.1.8..HEAD
-Avinash Sridharan (1):
       Updated `mesosphere/consul-template` repo access to SSH. (#115)
-
-Drew Kerrigan (1):
       Use specified DcosURL scheme (#113)
-
-Michael Ellenburg (1):
       Downgrade instance type (#114)
-
-Nicholas Sun (1):
       apiserver: Fix path routing bug with "toPath: /" (#111)
 ```
 
@@ -94,16 +84,11 @@ Noteworthy change(s):
 - Fix scheduler bug for unhandled rescind offers (causes unhealthy in UI)
 - Decrease reload wait from 10s to 5s
 
-Full changelog: [v0.1.7...v0.1.8](https://github.com/mesosphere/dcos-edge-lb/compare/v0.1.7...v0.1.8)
-
 Shortlist:
 
 ```
 % git shortlog v0.1.7..HEAD
-Drew Kerrigan (1):
       [Urgent] Bump sdk version (#108)
-
-Nicholas Sun (2):
       lbmgr: Decrease reload wait from 10s to 5s
       itests: Add zero downtime reload test
 ```

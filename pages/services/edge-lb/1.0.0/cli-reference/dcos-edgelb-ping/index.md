@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Test the readiness of the Edge-LB API server.
+Test the readiness of the Edge-LB API server. A successful result is the string `pong`. Will return an HTTP error if the API is not yet available.
 
 # Usage
 

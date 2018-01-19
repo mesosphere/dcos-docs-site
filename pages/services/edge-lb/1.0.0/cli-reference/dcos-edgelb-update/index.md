@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Updates an existing pool.
+Uploads a new pool configuration file to the Edge-LB apiserver, updating the running pool of load balancers.
 
 # Usage
 
