@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Managing
 menuWeight: 40
 excerpt:
@@ -55,4 +55,4 @@ Let's say we have the following deployment of our brokers:
 
 This operation will restart a broker while keeping it at its current location and with its current persistent volume data. This may be thought of as similar to restarting a system process, but it also deletes any data that is not on a persistent volume.
 
-1. Run `dcos beta-confluent-kafka pods restart kafka-0 --name=confluent-kafka`
+1. Run `dcos beta-confluent-kafka pod restart kafka-0 --name=confluent-kafka`
