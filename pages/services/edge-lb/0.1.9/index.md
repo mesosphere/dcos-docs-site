@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB
-title: Edge-LB
-menuWeight: 0
+navigationTitle: Edge-LB 0.1.9
+title: Edge-LB 0.1.9
+menuWeight: 10
 excerpt:
 
 enterprise: false

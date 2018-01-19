@@ -15,7 +15,7 @@ enterprise: false
 - Access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 **Limitations**
-- Currently, Edge-LB works only with DC/OS Enterprise in permissive [security mode](/1.10/security/#security-modes). It does not work with strict or disabled.
+- Currently, Edge-LB works only with DC/OS Enterprise in permissive mode on DC/OS 1.10, and permissive or strict mode on DC/OS 1.11 [security mode](/1.10/security/#security-modes). It does not work with disabled mode.
 
 # Add Edge-LB package repositories
 The Edge-LB package is composed of two components: the Edge-LB API server and the Edge-LB pools. You must install universe repos for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB. The Edge-LB API server is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers. An Edge-LB pool can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
@@ -97,7 +97,7 @@ All CLI commands can also be executed via the [IAM API](/1.10/security/iam-api/)
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<pool-name> full --description "Allow access to update pool <pool-name>"
     ```
 
-For more information about required permissions, please see the [Edge-LB Permissions](/service-docs/edge-lb/0.1.9/permissions)
+For more information about required permissions, please see the [Edge-LB Permissions](/service-docs/edge-lb/1.0.0/permissions)
 
 # <a name="create-json"></a>Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file will be passed to DC/OS when you install Edge-LB.
@@ -107,7 +107,8 @@ In the file, specify the service account secret (`dcos-edgelb/edge-lb-secret`) t
 ```json
 {
   "service": {
-    "secretName": "dcos-edgelb/edge-lb-secret"
+    "secretName": "dcos-edgelb/edge-lb-secret",
+    "principal": "edge-lb-principal"
   }
 }
 ```
@@ -133,5 +134,5 @@ You should receive this message when ready:
 pong
 ```
 
-- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/service-docs/edge-lb/0.1.9/pool-configuration) section.
-- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/service-docs/edge-lb/0.1.9/cli-reference).
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/service-docs/edge-lb/1.0.0/pool-configuration) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/service-docs/edge-lb/1.0.0/cli-reference).

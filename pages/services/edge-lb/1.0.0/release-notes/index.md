@@ -8,14 +8,52 @@ excerpt:
 enterprise: false
 ---
 
+# v1.0.0
+
+## Noteworthy changes:
+
+- Introducing V2 API with new more intuitive model for service / app backend selection model
+- New CLI command layout, ability to modify individual pools
+- Dockerized build and other CI improvements
+- Strict Mode Support
+- Security fix in logging
+- Curl with -k within same container
+
+Shortlist:
+
+```
+% git shortlog v0.1.9..HEAD
+Drew Kerrigan (4):
+      Fix response check in edgelb cli (#116)
+      [WIP] CLI, API, Schema, and UX Improvements (API V2) (#120)
+      Support Strict Mode (#122)
+      Run apiserver in UCR with host volume (#123)
+      1.0 rc fixes (#124)
+
+James Gorlick (2):
+      [DCOS-19242] Ensure edge-lb is readily built on various platforms (#117)
+      [DCOS-19242] Dockerize build (#119)
+```
+
+## Known Limitations
+
+* Edge-LB does not currently support `Disabled` security mode.
+* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but does work in DC/OS 1.11 strict mode.
+* Edge-LB does not currently support self-service configuration; all configuration must be handled centrally.
+* The number of instances of load balancers cannot be scaled down.
+
+## Known Issues
+
+* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/service-docs/edge-lb/1.0.0/uninstalling/].
+* Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
+
 # v0.1.9
 
 ## Noteworthy changes:
 
 - Fix path routing bug which resulted in adding a "/" to paths in certain configurations.
 - Fix `dcos edgelb` cli for clusters with dashboard URLs using `http://` scheme.
-
-Full changelog: [v0.1.8...v0.1.9](https://github.com/mesosphere/dcos-edge-lb/compare/v0.1.8...v0.1.9)
 
 Shortlist:
 

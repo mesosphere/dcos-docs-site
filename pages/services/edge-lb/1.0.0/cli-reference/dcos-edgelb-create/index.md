@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb ping
-title: dcos edgelb ping
-menuWeight: 20
+navigationTitle:  dcos edgelb create
+title: dcos edgelb create
+menuWeight: 30
 excerpt:
 
 enterprise: false
 ---
 
 # Description
-Test the readiness of the Edge-LB API server.
+Creates a single pool given a definition file written in JSON or YAML.
 
 # Usage
 
 ```bash
-dcos edgelb ping
+dcos edgelb create [<flags>] <pool-file>
 ```
 
 # Options
@@ -28,6 +28,7 @@ dcos edgelb ping
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   | Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   | Name of the service instance to query. |
+| `--json`  | Show unparsed JSON response. |
 
 # Parent command
 

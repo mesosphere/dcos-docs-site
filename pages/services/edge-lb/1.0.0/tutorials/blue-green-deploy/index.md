@@ -30,29 +30,35 @@ Blue/green deployment allows you to have two fully scaled versions of the servic
 
 # Example Deployment
 
-Below is a minimal Edge-LB configuration, `sample-minimal.yaml`, that load balances "svc-blue".
+Below is a minimal Edge-LB configuration, `sample-minimal.json`, that load balances "svc-blue".
 
-```yaml
----
-pools:
-  - name: sample-config
-    count: 1
-    haproxy:
-      frontends:
-        - bindPort: 80
-          protocol: HTTP
-          linkBackend:
-            defaultBackend: svc
-      backends:
-        - name: svc
-          protocol: HTTP
-          servers:
-            - framework:
-                value: marathon
-              task:
-                value: svc-blue
-              port:
-                name: web
+```json
+{
+  "apiVersion": "V2",
+  "name": "sample-config",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "svc"
+      }
+    }],
+    "backends": [{
+      "name": "svc",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/svc-blue"
+          },
+          "endpoint": {
+            "portName": "web"
+          }
+      }]
+    }]
+  }
+}
 ```
 
 Copy the example service and name it `svc-blue.json`.
@@ -122,7 +128,7 @@ Make another copy of the example service and name it `svc-green.json`.
 1. Upload the configuration to Edge-LB.
 
    ```
-   dcos edgelb config sample-minimal.yaml
+   dcos edgelb create sample-minimal.json
    ```
 
 1. Start the service "svc-blue".
@@ -141,46 +147,46 @@ Make another copy of the example service and name it `svc-green.json`.
 
 1. Once `svc-green` is up and healthy, modify the Edge-LB configuration to point to `svc-green` by changing:
 
-   ```yaml
-             task:
-               value: svc-blue
+   ```json
+   {
+     ...
+     "haproxy": {
+       "backends": [{
+         ...
+         "services": [{
+           "marathon": {
+             "serviceID": "/svc-blue"
+           },
+           ...
+         }]
+       }]
+     }
+   }
    ```
 
    to:
 
-   ```yaml
-              task:
-                value: svc-green
+   ```json
+   {
+     ...
+     "haproxy": {
+       "backends": [{
+         ...
+         "services": [{
+           "marathon": {
+             "serviceID": "/svc-green"
+           },
+           ...
+         }]
+       }]
+     }
+   }
    ```
-
-   The full yaml will look like this:
-
-   ```yaml
-   ---
-   pools:
-     - name: sample-minimal
-       count: 1
-       haproxy:
-         frontends:
-           - bindPort: 80
-             protocol: HTTP
-             linkBackend:
-               defaultBackend: svc
-         backends:
-           - name: svc
-             protocol: HTTP
-             servers:
-               - framework:
-                   value: marathon
-                 task:
-                   value: svc-green
-                 port:
-                   name: web
-   ```
+   
 1. Upload the modified configuration to Edge-LB.
 
    ```
-   dcos edgelb config sample-minimal.yaml
+   dcos edgelb update sample-minimal.json
    ```
 
 1. Now "svc-green" is exposed at `http://<public-ip>/`.

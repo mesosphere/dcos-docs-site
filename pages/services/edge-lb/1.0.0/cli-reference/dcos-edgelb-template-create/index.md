@@ -1,29 +1,21 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb pool lb
-title: dcos edgelb pool lb
-menuWeight: 40
+navigationTitle:  dcos edgelb template create
+title: dcos edgelb template create
+menuWeight: 100
 excerpt:
 
 enterprise: false
 ---
 
 # Description
-Pool LB instance information.
+Creates a custom config template for a pool of load-balancers.
 
 # Usage
 
 ```bash
-dcos edgelb [<flags>] pool lb [<flags>] <name> [<lb>]
+dcos edgelb template create <pool-name> <template-file>
 ```
-
-# Positional arguments
-
-| Name, shorthand | Description |
-|---------|-------------|
-| `<name>`   | Pool name. |
-| `[<lb>]`   | Name of load balancer instance. |
-
 
 # Options
 
@@ -36,15 +28,13 @@ dcos edgelb [<flags>] pool lb [<flags>] <name> [<lb>]
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   | Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   | Name of the service instance to query. |
-| `--namespace="dcos-edgelb/<name>"`   | Namespace of the task. |
-| `--ip-only`   | Only print the IP addresses. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/service-docs/edge-lb/0.1.9/cli-reference)  |  Manage Edge-LB. |
+| [dcos edgelb](/service-docs/edge-lb/1.0.0/cli-reference) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/service-docs/edge-lb/0.1.9/usage).
+See the [Edge-LB Usage](/service-docs/edge-lb/1.0.0/usage).

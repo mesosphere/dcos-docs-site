@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb ping
-title: dcos edgelb ping
-menuWeight: 20
+navigationTitle:  dcos edgelb status
+title: dcos edgelb status
+menuWeight: 70
 excerpt:
 
 enterprise: false
 ---
 
 # Description
-Test the readiness of the Edge-LB API server.
+List of load-balancer task information associated with the pool such as agent IP address, task ID, etc.
 
 # Usage
 
 ```bash
-dcos edgelb ping
+dcos edgelb status [<flags>] <pool-name>
 ```
 
 # Options
@@ -28,6 +28,8 @@ dcos edgelb ping
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   | Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   | Name of the service instance to query. |
+| `--task-ids` | Only print the task ids. |
+| `--json` | Show unparsed JSON response. |
 
 # Parent command
 

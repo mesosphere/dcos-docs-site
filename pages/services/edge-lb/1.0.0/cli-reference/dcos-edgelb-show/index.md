@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb ping
-title: dcos edgelb ping
-menuWeight: 20
+navigationTitle:  dcos edgelb show
+title: dcos edgelb show
+menuWeight: 40
 excerpt:
 
 enterprise: false
 ---
 
 # Description
-Test the readiness of the Edge-LB API server.
+Shows the pool definition for a given pool name. If pool-name is omitted, all pool configurations are shown.
 
 # Usage
 
 ```bash
-dcos edgelb ping
+dcos edgelb show [<flags>] [<pool-name>]
 ```
 
 # Options
@@ -28,6 +28,9 @@ dcos edgelb ping
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   | Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   | Name of the service instance to query. |
+| `--reference` | Print the configuration reference. |
+| `--convert-to-json=<pool-file>` | Converts local YAML file to JSON. |
+| `--json` | Show unparsed JSON response. |
 
 # Parent command
 

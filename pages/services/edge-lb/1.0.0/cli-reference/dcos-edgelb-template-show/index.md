@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb ping
-title: dcos edgelb ping
-menuWeight: 20
+navigationTitle:  dcos edgelb template show
+title: dcos edgelb template show
+menuWeight: 110
 excerpt:
 
 enterprise: false
 ---
 
 # Description
-Test the readiness of the Edge-LB API server.
+Shows the load-balancer config template for an individual pool. If pool-name is omitted, the default template is shown.
 
 # Usage
 
 ```bash
-dcos edgelb ping
+dcos edgelb template show [<pool-name>]
 ```
 
 # Options

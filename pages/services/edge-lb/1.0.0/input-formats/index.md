@@ -14,7 +14,7 @@ Edge-LB accepts configuration in either YAML or JSON format.
 
 Convert a YAML configuration file to JSON with the command below.
 
-`dcos edgelb config --to-json=/path/to/json`
+`dcos edgelb show --convert-to-json=/path/to/yaml`
 
 # Convert JSON to YAML
 
@@ -27,5 +27,5 @@ then do a diff between your YAML and the JSON.
 
 # Then compare to original json with the `diff` shell command.
 # Here we "convert" even the JSON file to get consistently formatted JSON
-diff <(dcos edgelb config --to-json=myconfig.yaml) <(dcos edgelb config --to-json=myconfig.json)
+diff <(dcos edgelb show --convert-to-json=myconfig.yaml) <(dcos edgelb show --convert-to-json=myconfig.json)
 ```

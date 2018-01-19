@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb ping
-title: dcos edgelb ping
-menuWeight: 20
+navigationTitle:  dcos edgelb template delete
+title: dcos edgelb template delete
+menuWeight: 130
 excerpt:
 
 enterprise: false
 ---
 
 # Description
-Test the readiness of the Edge-LB API server.
+Reverts a custom config template to the default value.
 
 # Usage
 
 ```bash
-dcos edgelb ping
+dcos edgelb template delete <pool-name>
 ```
 
 # Options

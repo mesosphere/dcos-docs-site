@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB
-title: Edge-LB
+navigationTitle: Edge-LB 1.0.0
+title: Edge-LB 1.0.0
 menuWeight: 0
 excerpt:
 
@@ -24,7 +24,7 @@ Configuration is sent to the API Server, which controls pool management.
 
 Outside traffic moves through a hardware load balancer, then to the load balancer pool. One of the Edge-LB load balancers in the pool accepts the traffic and routes it to the appropriate service within the DC/OS cluster.
 
-![Edge-LB Architecture](/services/edge-lb/0.1.9/img/edge-lb-flow.png)
+![Edge-LB Architecture](/services/edge-lb/1.0.0/img/edge-lb-flow.png)
 
 ## <a name="edge-lb-api-server"></a>Edge-LB API Server
 

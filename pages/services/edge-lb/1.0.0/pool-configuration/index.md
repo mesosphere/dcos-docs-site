@@ -10,13 +10,13 @@ enterprise: false
 
 # Configuration Reference
 
-The YAML configuration reference containing all possible options and descriptions of each can be found by running the following command:
+The configuration reference containing all possible options and descriptions of each can be found by running the following command:
 
 ```
-dcos edgelb config --reference
+dcos edgelb show --reference
 ```
 
-# Edge-LB v0.1.9
+# Edge-LB v1.0.0
 
 The tables below describe all possible configuration options. The majority of fields have sensible defaults and should be modified with caution.
 
@@ -31,20 +31,12 @@ The tables below describe all possible configuration options. The majority of fi
 - CamelCase.
 - Swagger will only do enum validation if it is a top level definition.
 
-# config
-
-The root JSON object.
-
-| Key   | Type                                        | Description |
-| ----- | ------------------------------------------- | ----------- |
-| pools | array of [pool](#config.pools.pool) objects | Zero or more pool definitions, where each pool describes a set of load balancers. |
-
-<a name="config.pools.pool"></a>
-# config.pools.pool
+<a name="pool"></a>
+# pool
 The pool contains information on resources that the pool needs. Changes made to this section will relaunch the tasks.
-
 | Key                         | Type     |  Nullable   |  Properties     | Description    |
 | --------------------------- | -------- | ----------- | --------------  | -------------- |
+| apiVersion                  | string   |             |                 | The api / schema version of this pool object. Should be V2 for new pools. |
 | name                        | string   |             |                 | The pool name. |
 | namespace                   | string   |  true       |                 | The DC/OS space (sometimes also referred to as a "group"). |
 | packageName                 | string   |             |                 |                |
@@ -66,13 +58,13 @@ The pool contains information on resources that the pool needs. Changes made to 
 | haproxy                     |          |             |                 |                 |
 
 <a name="secrets-prop"></a>
-## config.pools.pool.secrets
+## pool.secrets
 
 | Key           | Type        | Description |
 | ------------- | ----------- | ----------- |
 | secret        | object      |             |
 
-### congif.pools.pool.secrets.secret
+### pool.secrets.secret
 
 | Key           | Type        | Description |
 | ------------- | ----------- | ----------- |
@@ -80,14 +72,14 @@ The pool contains information on resources that the pool needs. Changes made to 
 | file          | string      | File name.<br />The file `myfile` will be found at `$SECRETS/myfile`. |
 
 <a name="env-var"></a>
-## config.pools.pool.environmentVariables
+## pool.environmentVariables
 
 | Key                   | type        | Description |
 | --------------------- | ----------- | ----------- |
-| additionalProperties  | string      |             |
+| additionalProperties  | string      | Environment variables to pass to tasks.<br />Prefix with "ELB_FILE_" and it will be written to a file. For example, the contents of "ELB_FILE_MYENV" will be written to "$ENVFILE/ELB_FILE_MYENV". |
 
 <a name="vn-prop"></a>
-## config.pools.pool.virtualNetworks
+## pool.virtualNetworks
 
 | Key           | Type        | Description |
 | ------------- | ----------- | ----------- |
@@ -95,7 +87,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | labels        | string      | Labels to pass to the virtual network plugin. |
 
 <a name="haproxy-prop"></a>
-# config.pools.haproxy
+# pool.haproxy
 
 | Key             | Type    | Description         |
 | --------------- | ------- | ------------------- |
@@ -104,7 +96,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | backends        | array   | Array of backends.  |
 
 <a name="stats-prop"></a>
-# config.pools.stats
+# pool.stats
 
 | Key            | Type     |
 | -------------- | -------- |
@@ -112,7 +104,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | bindPort       | int 32   |
 
 <a name="frontend-prop"></a>
-# config.pools.frontend
+# pool.frontend
 
 | Key             | Type    | Properties     | Description    | x-nullable | Format |
 | --------------- | ------- | -------------- | -------------- | ---------- | ------ |
@@ -126,7 +118,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | linkBackend     | object  | <ul><li>defaultBackend</li><li>map</li></ul>  | This describes what backends to send traffic to. This can be expressed with a variety of filters such as matching on the hostname or the HTTP URL path.<br />Default: map: []   |   |   |
 
 <a name="redirect-https-prop"></a>
-## config.pools.frontend.redirectToHttps
+## pool.frontend.redirectToHttps
 
 | Key             | Type    | Properties  | Description     |
 | --------------- | ------- | ----------- | --------------- |
@@ -134,14 +126,14 @@ The pool contains information on resources that the pool needs. Changes made to 
 | items           | object  | <ul><li>[host](#items-prop)</li><li>[pathBeg](#items-prop)</li></ul> | Boolean AND will be applied with every selected value. |
 
 <a name="items-prop"></a>
-### config.pools.frontend.redirectToHttps.items
+### pool.frontend.redirectToHttps.items
 
 | Key             | Type    | Description |
 | --------------- | ------- | ----------- |
 | host            | string  | Match on host. |
 | pathBeg         | string  | Math on path.  |
 
-## config.pools.frontend.linkBackend
+## pool.frontend.linkBackend
 
 | Key             | Type    | Properties | Description |
 | --------------- | ------- | ---------- | ----------- |
@@ -149,7 +141,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | map             | array   | <ul><li>[backend](#map-prop)</li><li>[hostEq](#map-prop)</li><li>[hostReg](#map-prop)</li><li>[pathBeg](#map-prop)</li><li>[pathEnd](#map-prop)</li><li>[pathReg](#map-prop)</li></ul> | This is an optional field that specifies a mapping to various backends. These rules are applied in order.<br />"Backend" and at least one of the condition fields must be filled out. If multiple conditions are filled out, they will be combined with a boolean "AND". |
 
 <a name="map-prop"></a>
-### config.pools.frontend.linkBackend.map
+### pool.frontend.linkBackend.map
 
 | Key             | Type    | Description |
 | --------------- | ------- | ----------- |
@@ -161,7 +153,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | pathReg         | string  |             |
 
 <a name="backend-prop"></a>
-# config.pools.backend
+# pool.backend
 
 | Key             | Type    | Properties     | Description    |
 | --------------- | ------- | -------------- | -------------- |
@@ -171,10 +163,10 @@ The pool contains information on resources that the pool needs. Changes made to 
 | balance         | string  |                | Load balancing strategy. E.g., roundrobin, leastconn, etc. |
 | customCheck     | object  | <ul><li>[httpchk](#customCheck-prop)</li><li>[httpchkMiscStr](#customCheck-prop)</li><li>[sslHelloChk](#customCheck-prop)</li><li>[miscStr](#customCheck-prop)</li></ul>  | Specify alternate forms of healthchecks.  |
 | miscStrs        | array of strings |       | Additional template lines inserted before servers  |
-| servers         | array   |                | Array of backend network sources / selectors.  |
+| services        | array   |                | Array of backend service selectors.  |
 
 <a name="customCheck-prop"></a>
-## config.pools.backend.customCheck
+## pool.backend.customCheck
 
 | Key            | Type     |
 | -------------  | -------- |
@@ -184,7 +176,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | miscStr        | string   |
 
 <a name="#rewrite-prop"></a>
-# config.pools.RewriteHttp
+# pool.RewriteHttp
 
 | Key             | Type    | Properties     | Description    |
 | --------------- | ------- | -------------- | -------------- |
@@ -195,7 +187,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | sticky          | object  | <ul><li>[enabled](#sticky-prop)</li><li>[customStr](#sticky-prop)</li></ul>  | Sticky sessions via a cookie.<br />To use the default values (recommended), set this field to the empty object.  |
 
 <a name="path-prop"></a>
-## config.pools.rewriteHttp.path
+## pool.rewriteHttp.path
 
 | Key             | Type    |
 | --------------- | ------- |
@@ -203,7 +195,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | toPath          | string  |
 
 <a name="sticky-prop"></a>
-## config.pools.rewriteHttp.sticky
+## pool.rewriteHttp.sticky
 
 | Key             | Type    | nullable   |
 | --------------- | ------- | ---------- |
@@ -211,7 +203,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | customStr       | string  |            |
 
 <a name="rewrite-req-prop"></a>
-# config.pools.rewriteHttpRequest
+# pool.rewriteHttpRequest
 
 | Key                         | Type       | nullable   |
 | --------------------------- | ---------- | ---------- |
@@ -222,59 +214,68 @@ The pool contains information on resources that the pool needs. Changes made to 
 | rewritePath                 | boolean    | true       |
 
 <a name="rewrite-resp-prop"></a>
-# config.pools.rewriteHttpResponse
+# pool.rewriteHttpResponse
 
 | Key             | Type       | nullable   |
 | --------------- | ---------- | ---------- |
 | rewriteLocation | boolean    | true       |
 
-<a name="server-prop)"></a>
-# config.pools.server
+<a name="service-prop)"></a>
+# pool.service
 
-| Key             | Type       | Properties |  Default    | Description |
-| --------------- | ---------- | ---------- | ----------- | ----------- |
-| type            |            |            |             |             |
-| framework       | object     | <ul><li>[value](#framework-prop)</li><li>[match](#framework-prop)</li></ul> | match: EXACT | The Mesos framework. If unsure, the value should probably be "marathon". |
-| task            | object     | <ul><li>[value](#task-prop)</li><li>[match](#task-prop)</li></ul>  | match: EXACT  | The Task name. This field is not needed for VIPs.<br />For Marathon pods, this is the container name, NOT the pod name. |
-| check           | object     | <ul><li>[enabled](#check-prop)</li><li>[customStr](#check-prop)</li></ul> | enabled: true | Enable health checks. These are by default TCP health checks. For more options see "customCheck".<br />These are required for DNS resolution (and hence VIPs) to function properly |
-| port            |            |            |             |             |
-| miscStr         | string     |            |             | Append an arbitrary string to the "server" directive. |
+| Key             | Type       |
+| --------------- | ---------- |
+| marathon        | object     |
+| mesos           | object     |
+| endpoint        | object     |
 
-<a name="framework-prop"></a>
-## config.pools.server.framework
+<a name="service-marathon-prop)"></a>
+# pool.service.marathon
+
+| Key                  | Type      | Description                                                       |
+| -----------          | --------- | -----------                                                       |
+| serviceID            | string    | Marathon pod or application ID.                                   |
+| serviceIDPattern     | string    | serviceID as a regex pattern.                                     |
+| containerName        | string    | Marathon pod container name, optional unless using Marathon pods. |
+| containerNamePattern | string    | containerName as a regex pattern.                                 |
+
+<a name="service-mesos-prop)"></a>
+# pool.service.mesos
+
+| Key                  | Type      | Description                       |
+| -----------          | --------- | -----------                       |
+| frameworkName        | string    | Mesos framework name.             |
+| frameworkNamePattern | string    | frameworkName as a regex pattern. |
+| frameworkID          | string    | Mesos framework ID.               |
+| frameworkIDPattern   | string    | frameworkID as a regex pattern.   |
+| taskName             | string    | Mesos task name.                  |
+| taskNamePattern      | string    | taskName as a regex pattern.      |
+| taskID               | string    | Mesos task ID.                    |
+| taskIDPattern        | string    | taskID as a regex pattern.        |
+
+<a name="service-endpoint-prop)"></a>
+# pool.service.endpoint
+
+| Key         | Type      | Description                                                                                   |
+| ----------- | --------- | -----------                                                                                   |
+| type        | string    | Enum field, can be `AUTO_IP`, `AGENT_IP`, `CONTAINER_IP`, or `ADDRESS`. Default is `AUTO_IP`. |
+| miscStr     | string    | Append arbitrary string to add to the end of the "server" directive.                          |
+| check       | object    | Enable health checks. These are by default TCP health checks. For more options see "customCheck". These are required for DNS resolution to function properly. |
+| address     | string    | Server address override, can be used to specify a cluster internal address such as a VIP. Only allowed when using type `ADDRESS`. |
+| port   | integer | Port number.                                                                                  |
+| portName | integer | Name of port.                                                                      |
+| allPorts  | boolean | Selects all ports defined in service when `true`.                     |
+
+<a name="service-endpoint-check-prop)"></a>
+# pool.service.endpoint.check
 
 | Key         | Type      |
 | ----------- | --------- |
-| values      | string    |
-| match       |           |
-
-<a name="task-prop"></a>
-## config.pools.server.task
-
-| Key         | Type      | Description |
-| ----------- | --------- | ----------- |
-| value       | string    | The Task name. This field is not needed for VIPs.<br />For Marathon pods, this is the container name, NOT the pod name. |
-| match       |           |             |
-
-<a name="check-prop"></a>
-## config.pools.Server.check
-
-| Key             | Type       | nullable   |
-| --------------- | ---------- | ---------- |
-| enabled         | boolean    | true       |
-| customStr       | string     |            |
-
-<a name="server-port-prop"></a>
-# config.pools.serverPort
-
-| Key             | Type       | description |
-| --------------- | ---------- | ----------- |
-| name            | string     | The name of the port. This is used for AUTO_IP, AGENT_IP and CONTAINER_IP. |
-| all             | boolean    | For AUTO_IP, AGENT_IP and CONTAINER_IP,this can be used to expose all defined ports.<br />This should only be used if a name is not defined for the port and there is a single port defined for the service.  |
-| vip             | strings    | Set the VIP definition directly (e.g. "/myvip:1234"). |
+| enabled     | boolean   |
+| customStr   | string    |
 
 <a name="error-prop"></a>
-# config.pools.error
+# pool.error
 
 | Key             | Type        |
 | --------------- | ----------- |
@@ -309,34 +310,30 @@ Below is a simple example of a pool configuration for load-balancing a Marathon 
 
 ```json
 {
-  "pools": [{
-    "name": "app-lb",
-    "count": 1,
-    "haproxy": {
-      "frontends": [{
-        "bindPort": 80,
-        "protocol": "HTTP",
-        "linkBackend": {
-          "defaultBackend": "app-backend"
-        }
-      }],
-      "backends": [{
-        "name": "app-backend",
-        "protocol": "HTTP",
-        "servers": [{
-          "framework": {
-            "value": "marathon"
+  "apiVersion": "V2",
+  "name": "app-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "app-backend"
+      }
+    }],
+    "backends": [{
+      "name": "app-backend",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/my-app"
           },
-          "task": {
-            "value": "my-app"
-          },
-          "port": {
-            "name": "web"
+          "endpoint": {
+            "portName": "web"
           }
-        }]
       }]
-    }
-  }]
+    }]
+  }
 }
 ```
 
@@ -348,46 +345,36 @@ There are 3 different ways to get and use a certificate:
 
 ```json
 {
-  "pools": [
-    {
-      "name": "auto-certificates",
-      "count": 1,
-      "autoCertificate": true,
-      "haproxy": {
-        "frontends": [
-          {
-            "bindPort": 443,
-            "protocol": "HTTPS",
-            "certificates": [
-              "$AUTOCERT"
-            ],
-            "linkBackend": {
-              "defaultBackend": "host-httpd"
-            }
-          }
+  "apiVersion": "V2",
+  "name": "auto-certificates",
+  "count": 1,
+  "autoCertificate": true,
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$SECRETS/mysecretfile"
         ],
-        "backends": [
-          {
-            "name": "host-httpd",
-            "protocol": "HTTP",
-            "servers": [
-              {
-                "framework": {
-                  "value": "marathon"
-                },
-                "task": {
-                  "value": "host-httpd"
-                },
-                "port": {
-                  "name": "web"
-                }
-              }
-            ]
-          }
-        ]
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
       }
-    }
-  ]
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+          },
+          "endpoint": {
+            "portName": "web"
+          }
+      }]
+    }]
+  }
 }
 ```
 
@@ -395,52 +382,42 @@ There are 3 different ways to get and use a certificate:
 
 ```json
 {
-  "pools": [
+  "apiVersion": "V2",
+  "name": "secret-certificates",
+  "count": 1,
+  "autoCertificate": false,
+  "secrets": [
     {
-      "name": "secret-certificates",
-      "count": 1,
-      "autoCertificate": false,
-      "secrets": [
-        {
-          "secret": "mysecret",
-          "file": "mysecretfile"
-        }
-      ],
-      "haproxy": {
-        "frontends": [
-          {
-            "bindPort": 443,
-            "protocol": "HTTPS",
-            "certificates": [
-              "$SECRETS/mysecretfile"
-            ],
-            "linkBackend": {
-              "defaultBackend": "host-httpd"
-            }
-          }
-        ],
-        "backends": [
-          {
-            "name": "host-httpd",
-            "protocol": "HTTP",
-            "servers": [
-              {
-                "framework": {
-                  "value": "marathon"
-                },
-                "task": {
-                  "value": "host-httpd"
-                },
-                "port": {
-                  "name": "web"
-                }
-              }
-            ]
-          }
-        ]
-      }
+      "secret": "mysecret",
+      "file": "mysecretfile"
     }
-  ]
+  ],
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$SECRETS/mysecretfile"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+          },
+          "endpoint": {
+            "portName": "web"
+          }
+      }]
+    }]
+  }
 }
 ```
 
@@ -448,49 +425,39 @@ There are 3 different ways to get and use a certificate:
 
 ```json
 {
-  "pools": [
-    {
-      "name": "sample-certificates",
-      "count": 1,
-      "autoCertificate": false,
-      "environmentVariables": {
-        "ELB_FILE_HAPROXY_CERT": "-----BEGIN CERTIFICATE-----\nfoo\n-----END CERTIFICATE-----\n-----BEGIN RSA PRIVATE KEY-----\nbar\n-----END RSA PRIVATE KEY-----\n"
-      },
-      "haproxy": {
-        "frontends": [
-          {
-            "bindPort": 443,
-            "protocol": "HTTPS",
-            "certificates": [
-              "$ENVFILE/ELB_FILE_HAPROXY_CERT"
-            ],
-            "linkBackend": {
-              "defaultBackend": "host-httpd"
-            }
-          }
+  "apiVersion": "V2",
+  "name": "env-certificates",
+  "count": 1,
+  "autoCertificate": false,
+  "environmentVariables": {
+    "ELB_FILE_HAPROXY_CERT": "-----BEGIN CERTIFICATE-----\nfoo\n-----END CERTIFICATE-----\n-----BEGIN RSA PRIVATE KEY-----\nbar\n-----END RSA PRIVATE KEY-----\n"
+  },
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$SECRETS/mysecretfile"
         ],
-        "backends": [
-          {
-            "name": "host-httpd",
-            "protocol": "HTTP",
-            "servers": [
-              {
-                "framework": {
-                  "value": "marathon"
-                },
-                "task": {
-                  "value": "host-httpd"
-                },
-                "port": {
-                  "name": "web"
-                }
-              }
-            ]
-          }
-        ]
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
       }
-    }
-  ]
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+          },
+          "endpoint": {
+            "portName": "web"
+          }
+      }]
+    }]
+  }
 }
 ```
 
@@ -500,50 +467,38 @@ In this example we create a pool that will be launched on the virtual network pr
 
 ```json
 {
-  "pools": [
+  "apiVersion": "V2",
+  "name": "vnet-lb",
+  "count": 1,
+  "virtualNetworks": [
     {
-      "name": "vnet-lb",
-      "count": 1,
-      "virtualNetworks": [
-        {
-          "name": "dcos",
-          "labels": {
-            "key0": "value0",
-            "key1": "value1"
-          }
-        }
-      ],
-      "haproxy": {
-        "frontends": [
-          {
-            "bindPort": 80,
-            "protocol": "HTTP",
-            "linkBackend": {
-              "defaultBackend": "vnet-be"
-            }
-          }
-        ],
-        "backends": [
-          {
-            "name": "vnet-be",
-            "protocol": "HTTP",
-            "servers": [
-              {
-                "framework": {
-                  "value": "marathon"
-                },
-                "task": {
-                  "value": "my-vnet-app"
-                },
-                "port": {
-                  "name": "my-vnet-port"
-                }
-              }
-            ]
-          }
-        ]
+      "name": "dcos",
+      "labels": {
+        "key0": "value0",
+        "key1": "value1"
       }
     }
-  ]
+  ],
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "vnet-be"
+      }
+    }],
+    "backends": [{
+      "name": "vnet-be",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/my-vnet-app"
+          },
+          "endpoint": {
+            "portName": "my-vnet-port"
+          }
+      }]
+    }]
+  }
 }
 ```

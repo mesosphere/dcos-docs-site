@@ -1,28 +1,21 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb pool delete
-title: dcos edgelb pool delete
-menuWeight: 60
+navigationTitle:  dcos edgelb endpoints
+title: dcos edgelb endpoints
+menuWeight: 80
 excerpt:
 
 enterprise: false
 ---
 
 # Description
-Delete and uninstall an Edge-LB pool.
+List of all endpoints for the pool.
 
 # Usage
 
 ```bash
-dcos edgelb [<flags>] pool delete <name>
+dcos edgelb endpoints [<flags>] <pool-name>
 ```
-
-# Positional arguments
-
-| Name, shorthand | Description |
-|---------|-------------|
-| `<name>`   | Pool name. |
-
 
 # Options
 
@@ -35,13 +28,14 @@ dcos edgelb [<flags>] pool delete <name>
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   | Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   | Name of the service instance to query. |
+| `--json` | Show unparsed JSON response. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/service-docs/edge-lb/0.1.9/cli-reference)  |  Manage Edge-LB. |
+| [dcos edgelb](/service-docs/edge-lb/1.0.0/cli-reference) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/service-docs/edge-lb/0.1.9/usage).
+See the [Edge-LB Usage](/service-docs/edge-lb/1.0.0/usage).

@@ -8,26 +8,26 @@ excerpt:
 enterprise: true
 ---
 
-This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/service-docs/edge-lb/0.1.9/cli-reference/).
+This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/service-docs/edge-lb/1.0.0/cli-reference/).
 
 **Prerequsites:**
 
-- Edge-LB [installed and running](/service-docs/edge-lb/0.1.9/installing/).
+- Edge-LB [installed and running](/service-docs/edge-lb/1.0.0/installing/).
 
 # Create Pools
 
-After launching a service and creating a [pool configuration file](/service-docs/edge-lb/0.1.9/pool-configuration), you can use the CLI to deploy it:
+After launching a service and creating a [pool configuration file](/service-docs/edge-lb/1.0.0/pool-configuration), you can use the CLI to deploy it:
 
 ```
-dcos edgelb config <pool-configuration-file>
+dcos edgelb create <pool-configuration-file>
 ```
 
 # Update Pools
 
-Updating pool configurations is the same command as creating them:
+Update a pool's configuration with the following command:
 
 ```
-dcos edgelb config <pool-configuration-file>
+dcos edgelb update <pool-configuration-file>
 ```
 
 ## Normal Reload Scenario
@@ -41,7 +41,7 @@ A change to a service (such as scaling up) that is load balanced by a pool will 
 * A reload will occur at most once every 10 seconds.
 
 The properties of this reload enable strategies like
-[Blue/Green Deployment](/service-docs/edge-lb/0.1.9/tutorials/blue-green-deploy).
+[Blue/Green Deployment](/service-docs/edge-lb/1.0.0/tutorials/blue-green-deploy).
 
 ## Load Balancer Relaunch Scenario
 
@@ -58,7 +58,7 @@ A change to the load balancer pool (such as adding a secret) will trigger a rela
 List all names of currently configured pools.
 
 ```
-dcos edgelb pool
+dcos edgelb list
 ```
 
 # Delete Pools
@@ -66,21 +66,15 @@ dcos edgelb pool
 Delete a pool and uninstall the deployed load balancers.
 
 ```
-dcos edgelb pool delete <pool-name>
+dcos edgelb delete <pool-name>
 ```
 
 # View Pool Configuration
 
-View the current configuration for all pools.
+View the current configuration for a pool.
 
 ```
-dcos edgelb config
-```
-
-You can also view the configuration for a single pool.
-
-```
-dcos edgelb pool config <pool-name>
+dcos edgelb show <pool-name>
 ```
 
 # View Pool Status
@@ -88,46 +82,15 @@ dcos edgelb pool config <pool-name>
 List the names of each running load balancer instance in a pool.
 
 ```
-dcos edgelb pool lb <pool-name>
+dcos edgelb status <pool-name>
 ```
 
-You can then use those names to get more information about the load balancers.
+# View Pool Endpoints
+
+The internal ip address and ports for a pool can be found with this command:
 
 ```
-dcos edgelb pool lb <pool-name> <lb-name>
-```
-
-The output should resemble the following.
-
-```bash
-...
-{
-  "containerStatus": {
-    ...
-    "networkInfos": [
-      {
-        ...
-        "ipAddresses": [
-          {
-            ...
-            "ipAddress": "10.0.6.138"
-          }
-        ]
-      }
-    ]
-  },
-  "executorId": {
-    "value": "edgelb-pool__fe58bc1d-ea3b-4d80-b703-828144d02374"
-  },
-  "slaveId": {
-    "value": "a4b62ed1-88cf-4e3d-bd8a-19cc8fc10ac0-S2"
-  },
-  "state": "TASK_RUNNING",
-  "taskId": {
-    "value": "edgelb-pool-0-server__fbae1265-f51e-48c9-8162-c09fe19b657d"
-  },
-  "taskName": "edgelb-pool-0-server"
-}
+dcos edgelb endpoints <pool-name>
 ```
 
 # View Load Balancer Configuration
@@ -135,5 +98,39 @@ The output should resemble the following.
 View the active load balancer configuration for all load balancers in a pool.
 
 ```
-dcos edgelb pool artifact <pool-name> haproxy.cfg
+dcos edgelb lb-config <pool-name>
+```
+
+# Managing Templates
+
+The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
+
+## Show Default Template
+
+```
+dcos edgelb template show
+```
+
+## Show Pool Template
+
+```
+dcos edgelb template show <pool-name>
+```
+
+## Create Pool Template
+
+```
+dcos edgelb template create <pool-name> <template-file>
+```
+
+## Update Pool Template
+
+```
+dcos edgelb template update <pool-name> <template-file>
+```
+
+## Delete / Revert Pool Template
+
+```
+dcos edgelb template delete <pool-name>
 ```

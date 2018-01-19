@@ -14,7 +14,7 @@ Multiple Edge-LB instances enable you to create a highly available load balanced
 
 # Prerequisites
 
-* Edge-LB is installed following the [Edge-LB Installation Guide](/service-docs/edge-lb/0.1.9/installing).
+* Edge-LB is installed following the [Edge-LB Installation Guide](/service-docs/edge-lb/1.0.0/installing).
 * The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
 * At least one DC/OS private agent node to run the load balanced service (more is preferable).
 * Multiple (2 or more) DC/OS public agent nodes in a single VPC. In order to use an AWS ALB or NLB, the agent nodes must be in multiple AZs.
@@ -61,47 +61,41 @@ Multiple Edge-LB instances enable you to create a highly available load balanced
 
    ```json
    {
-     "pools": [
-       {
-         "name": "multi-lb",
-         "count": 2,
-         "haproxy": {
-           "frontends": [{
-             "bindPort": 80,
-             "protocol": "HTTP",
-             "linkBackend": {
-               "defaultBackend": "customer-backend"
-             }
-           }],
-           "backends": [{
-             "name": "customer-backend",
-             "protocol": "HTTP",
-             "servers": [{
-               "framework": {
-                 "value": "marathon"
-               },
-               "port": {
-                 "name": "nginx-80"
-               },
-               "task": {
-                 "value": "customer"
-               }
-             }]
-           }],
-           "stats": {
-             "bindAddress": "0.0.0.0",
-             "bindPort": 9090
-           }
+     "apiVersion": "V2",
+     "name": "multi-lb",
+     "count": 2,
+     "haproxy": {
+       "frontends": [{
+         "bindPort": 80,
+         "protocol": "HTTP",
+         "linkBackend": {
+           "defaultBackend": "customer-backend"
          }
+       }],
+       "backends": [{
+         "name": "customer-backend",
+         "protocol": "HTTP",
+         "services": [{
+           "marathon": {
+             "serviceID": "/customer"
+           },
+           "endpoint": {
+             "portName": "nginx-80"
+           }
+         }]
+       }],
+       "stats": {
+         "bindAddress": "0.0.0.0",
+         "bindPort": 9090
        }
-     ]
+     }
    }
    ```
 
 1. Deploy the Edge-LB configuration.
 
    ```bash
-   dcos edgelb config multi-lb.json
+   dcos edgelb create multi-lb.json
    ```
 
 1. Navigate to the public IP address of each your public nodes. You should be able to see the NGINX web server initial UI.
