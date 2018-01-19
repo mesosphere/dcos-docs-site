@@ -1,10 +1,9 @@
 ---
+layout: layout.pug
+navigationTitle:  Elastic 2.1.1-5.6.5
 title: Elastic 2.1.1-5.6.5
-navigationTitle: 
-title:
 menuWeight: 10
 excerpt:
-
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
