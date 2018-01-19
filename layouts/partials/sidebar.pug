@@ -25,7 +25,7 @@ if paths[0] === 'services' && paths[1]
 if semver.test(paths[0])
   - dropdown = hierarchy.children.filter(item => semver.test(item.id))
   - items = hierarchy.findByPath('/' + paths[0])
-  - versionTitle = paths[0]
+  - versionTitle = (items.navigationTitle) ? null : paths[0]
 
 mixin renderSidebarHeader()
   - var showDropdown = true
@@ -41,8 +41,11 @@ mixin renderSidebarHeader()
                 a(href=val.path, class='sidebar__dropdown__link')!= val.navigationTitle || val.title
       div(class='sidebar__dropdown__toggle')
         p(class='sidebar__dropdown__text')
-          span(class='sidebar__dropdown__text__title')!= (service) ? service.title : 'Mesosphere DC/OS'
-          span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
+          if versionTitle
+            span(class='sidebar__dropdown__text__title')!= (service) ? service.title : 'Mesosphere DC/OS'
+            span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
+          else
+            span(class='sidebar__dropdown__text__title')!= items.navigationTitle
         if showDropdown
           i(class='sidebar__dropdown__icon', data-feather='chevron-down')
 
