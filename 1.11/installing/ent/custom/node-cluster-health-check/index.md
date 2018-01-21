@@ -28,7 +28,7 @@ Custom checks are checks written by a user and specified when installing DC/OS i
 -  The local mounts on nodes are healthy 
 
 ## Creating Custom Health Checks
-Custom health checks are binary files that you create and store on your filesystem. A custom health check must report its status as one of the exit codes shown in this table. 
+Custom health checks are user-defined commands that are added to the set of checks that are executed when determining whether a node or cluster is healthy. A custom health check must report its status as one of the exit codes shown in this table. 
 
 | Code         | Status   | Description                                       |
 |--------------|----------|---------------------------------------------------|
@@ -45,6 +45,9 @@ Before installing DC/OS, you must specify custom health checks in the `custom_ch
 If it's an absolute path (e.g., if you have an executable in `/usr/bin/`), you can specify it directly in the `cmd`. If you reference an executable by name without an absolute path (e.g., `echo` instead of `/usr/bin/echo`), the system will look for it by using this search path, and use the first executable that it finds: `/opt/mesosphere/bin:/usr/bin:/bin:/sbin`. 
 
 For a description of this parameter and examples, see the [configuration parameter documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/#custom-checks).
+
+## Custom Health Check Executables
+Before installing DC/OS, you may optionally provide a directory of executables at `genconf/check_bins/` that will be distributed to all cluster nodes for use in custom checks. If provided, these executables will be added to the end of the search path for check executables. In order to use custom check executables, reference them in the `custom_checks` parameter by name without an absolute path (e.g., to use `genconf/check_bins/custom_script.sh` in a custom check, refer to it as `custom_script.sh`).
 
 # Types of Health Checks
 
