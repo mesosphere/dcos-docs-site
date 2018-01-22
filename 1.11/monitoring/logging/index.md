@@ -15,7 +15,7 @@ DC/OS cluster nodes generate logs that contain diagnostic and status information
 
 ## Service, task, and node logs
 
-The logging component provides an HTTP API `/system/v1/logs/` that exposes the system logs.
+The logging component provides an HTTP API (`/system/v1/logs/`), which exposes the system logs.
 
 You can access information about DC/OS scheduler services, like Marathon or Kafka, with the following CLI command:
 
@@ -59,15 +59,35 @@ You can view the logs for specific [components](/1.11/overview/architecture/comp
 journalctl -u dcos-nginx -b
 ```
 
-You can find which components are unhealthy in the DC/OS GUI **Nodes** tab.
+You can find which components are unhealthy in the DC/OS GUI from the **Nodes** tab.
 
 ![system health](/1.11/img/ui-system-health-logging.png)
 
-# Log aggregation
+# Configuring task log rotation
 
-Streaming logs from machines in your cluster isn’t always viable. Sometimes you need a history of what's happened, which requires a method for storing and aggregating logs. These topics describe some of the most common solutions:
+By default task logs can reach a maximum size of 2 MB. When a log file reaches its specified maximum size, it is renamed by appending `.<N>` to the end of the filename, where `<N>` increments each rotation. By default older log files are deleted when there are 9 files. 
 
-- [Log Management with ELK](/1.11/monitoring/logging/aggregating/elk/)
-- [Log Management with Splunk](/1.11/monitoring/logging/aggregating/splunk/)
+These rollover settings may not insufficient for apps that have high volume logs. You can configure the log size and number of retained files using the following environment variables:
 
+```
+CONTAINER_LOGGER_LOGROTATE_MAX_STDOUT_SIZE
+CONTAINER_LOGGER_LOGROTATE_MAX_STDERR_SIZE
+CONTAINER_LOGGER_LOGROTATE_STDOUT_OPTIONS
+CONTAINER_LOGGER_LOGROTATE_STDERR_OPTIONS
+```
+
+**Note:** Changing the log rotate settings is unsupported and changes are not guaranteed to be preserved on upgrade.
+
+# Aggregation
+
+Unfortunately, streaming logs from machines in your cluster isn’t always viable. Sometimes, you need the logs stored somewhere else as a history of what’s happened. This is where log aggregation really is required. Check out how to get it setup with some of the most common solutions:
+
+- [ELK](/1.11/monitoring/logging/aggregating/elk/)
+- [Splunk](/1.11/monitoring/logging/aggregating/splunk/)
+
+
+[1]: /1.11/monitoring/logging/quickstart/
+[2]: /1.11/cli/install/
+[3]: /1.11/monitoring/logging/aggregating/elk/
+[4]: /1.11/monitoring/logging/aggregating/splunk/
 [5]: /1.11/administering-clusters/sshcluster/
