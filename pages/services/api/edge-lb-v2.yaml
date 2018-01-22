@@ -1,0 +1,808 @@
+swagger: '2.0'
+info:
+  title: dcos_edge_lb
+  description: Create and manage load balancers with DCOS Edge LB API
+  version: 0.1.0
+schemes:
+  - http
+  - https
+basePath: /
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /v2/config:
+    get:
+      description: Get the entire configuration object including only v2 pools.
+      operationId: V2GetConfig
+      parameters: []
+      tags: []
+      responses:
+        '200':
+          description: A configuration object containing all v2 load balancer pools.
+          schema:
+            $ref: '#/definitions/V2Config'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+  /v2/pools:
+    get:
+      description: Get all load balancer pools.
+      operationId: V2GetPools
+      parameters: []
+      tags: []
+      responses:
+        '200':
+          description: An array of load balancer pools.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/V2Pool'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      description: Creates a new load balancer pool.
+      operationId: V2CreatePool
+      parameters:
+        - name: pool
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/V2Pool'
+        - name: token
+          description: 'DCOS Auth Token'
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          description: Load Balancer Pool response.
+          schema:
+            $ref: '#/definitions/V2Pool'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+  '/v2/pools/{name}':
+    get:
+      description: Returns a v2 load balancer pool based on a single name.
+      operationId: V2GetPool
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Load balancer pool response.
+          schema:
+            $ref: '#/definitions/V2Pool'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      description: Updates a new load balancer pool.
+      operationId: V2UpdatePool
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: pool
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/V2Pool'
+        - name: token
+          description: 'DCOS Auth Token'
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          description: Load Balancer Pool response.
+          schema:
+            $ref: '#/definitions/V2Pool'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      description: Deletes a single load balancer pool based on the name supplied.
+      operationId: V2DeletePool
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: token
+          description: 'DCOS Auth Token'
+          in: query
+          required: false
+          type: string
+      responses:
+        '204':
+          description: Load balancer deleted.
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+  '/v2/pools/{name}/lbconfig':
+    get:
+      description: Returns the rendered lb config for a pool.
+      operationId: V2GetLBConfig
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Rendered lb config for pool.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+  '/v2/lbtemplate':
+    get:
+      description: Returns the default lb config template.
+      operationId: V2GetDefaultLBTemplate
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      responses:
+        '200':
+          description: Configuration artifact for pool.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+  '/v2/pools/{name}/lbtemplate':
+    get:
+      description: Returns the lb config template for a pool.
+      operationId: V2GetLBTemplate
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Configuration artifact for pool.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+    put:
+      description: Creates or updates the lb config template for a pool.
+      operationId: V2UpdateLBTemplate
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: template
+          in: body
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Updated lb config template for pool.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+    delete:
+      description: Resets the lb config template to default for a pool.
+      operationId: V2DeleteLBTemplate
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Updated lb config template for pool.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+definitions:
+  V2Config:
+    type: object
+    description: >-
+      * If a default is not set, then it will be left empty, even for objects.
+      * Set defaults in the object that is furthest from the root object.
+      * Always set a default for arrays.
+      * The purpose of "x-nullable" is to allow the output JSON field to be set
+        to the golang "zero value". Without "x-nullable", the field will be
+        removed altogether from the resulting JSON.
+      * Actual validation is done in the code, not expressed in swagger.
+      * Since an empty boolean is interpreted as "false", don't set
+        a default.
+      * CamelCase
+      * Swagger will only do enum validation if it is a top level definition!
+    default: { "pools": [] }
+    properties:
+      pools:
+        type: array
+        description: The array of pools.
+        items:
+          $ref: '#/definitions/V2Pool'
+  V2Pool:
+    type: object
+    description: >-
+      The pool contains information on resources that the pool needs. Changes
+      make to this section will relaunch the tasks.
+    default:
+      {
+      "apiVersion": "V2",
+      "namespace": "dcos-edgelb/pools",
+      "packageName": "edgelb-pool",
+      "packageVersion": "stub-universe",
+      "role": "slave_public",
+      "cpus": 0.9,
+      "cpusAdminOverhead": 0.1,
+      "mem": 992,
+      "memAdminOverhead": 32,
+      "disk": 256,
+      "count": 1,
+      "constraints": "hostname:UNIQUE",
+      "ports": [],
+      "secrets": [],
+      "virtualNetworks": [],
+      "haproxy": {}
+      }
+    properties:
+      apiVersion:
+        description: The api / schema version of this pool object
+        $ref: '#/definitions/APIVersion'
+      name:
+        type: string
+        description: The pool name.
+      namespace:
+        type: string
+        description: The DC/OS space (sometimes also referred to as a "group").
+        x-nullable: true
+      packageName:
+        type: string
+      packageVersion:
+        type: string
+      role:
+        type: string
+        description: >-
+          Mesos role for load balancers. Defaults to "slave_public" so that
+          load balancers will be run on public agents. Use "*" to run load
+          balancers on private agents. Read more about Mesos roles at
+          http://mesos.apache.org/documentation/latest/roles/
+      principal:
+        type: string
+        description: >-
+          Mesos principal for pool framework authentication.
+          If omitted or left blank, the service account used to install Edge-LB
+          will be used if present.
+        x-nullable: true
+      secretName:
+        type: string
+        description: >-
+          Service account secret name for pool framework authentication.
+          If omitted or left blank, the service account used to install Edge-LB
+          will be used if present.
+        x-nullable: true
+      cpus:
+        type: number
+      cpusAdminOverhead:
+        type: number
+      mem:
+        type: integer
+        description: "Memory requirements (in MB)"
+        format: int32
+      memAdminOverhead:
+        type: integer
+        description: "Memory requirements (in MB)"
+        format: int32
+      disk:
+        type: integer
+        description: "Disk size (in MB)"
+        format: int32
+      count:
+        type: integer
+        x-nullable: true
+        format: int32
+        description: 'Number of load balancer instances in the pool.'
+      constraints:
+        type: string
+        x-nullable: true
+        description: 'Marathon style constraints for load balancer instance placement.'
+      ports:
+        type: array
+        description: >-
+          Override ports to allocate for each load balancer instance.
+          Defaults to {{haproxy.frontends[].bindPort}} and
+            {{haproxy.stats.bindPort}}.
+          Use this field to pre-allocate all needed ports with or
+            without the frontends present. For example: [80, 443, 9090].
+          If the length of the ports array is not zero, only the
+            ports specified will be allocated by the pool scheduler.
+        items:
+          type: integer
+          format: int32
+      secrets:
+        type: array
+        description: DC/OS secrets.
+        items:
+          type: object
+          properties:
+            secret:
+              description: Secret name
+              type: string
+            file:
+              description: >-
+                File name.
+
+                The file "myfile" will be found at "$SECRETS/myfile"
+              type: string
+      environmentVariables:
+        type: object
+        description: >-
+          Environment variables to pass to tasks.
+
+          Prefix with "ELB_FILE_" and it will be written to a file. For example,
+          the contents of "ELB_FILE_MYENV" will be written to
+          "$ENVFILE/ELB_FILE_MYENV".
+        additionalProperties:
+          type: string
+      autoCertificate:
+        type: boolean
+        description: >-
+          Autogenerate a self-signed SSL/TLS certificate. It is not generated
+          by default.
+
+          It will be written to "$AUTOCERT".
+      virtualNetworks:
+        type: array
+        description: Virtual networks to join.
+        items:
+          type: object
+          properties:
+            name:
+              description: The name of the virtual network to join.
+              type: string
+            labels:
+              description: Labels to pass to the virtual network plugin.
+              additionalProperties:
+                type: string
+      haproxy:
+        $ref: '#/definitions/V2Haproxy'
+  V2Haproxy:
+    type: object
+    default:
+      {
+      "stats": {},
+      "frontends": [],
+      "backends": []
+      }
+    properties:
+      stats:
+        $ref: '#/definitions/V2Stats'
+      frontends:
+        description: 'Array of frontends.'
+        type: array
+        items:
+          $ref: '#/definitions/V2Frontend'
+      backends:
+        description: 'Array of backends.'
+        type: array
+        items:
+          $ref: '#/definitions/V2Backend'
+  V2Stats:
+    type: object
+    default:
+      {
+      "bindAddress": "0.0.0.0",
+      "bindPort": 9090
+      }
+    properties:
+      bindAddress:
+        type: string
+      bindPort:
+        type: integer
+        format: int32
+  V2Frontend:
+    type: object
+    description: >-
+      The Frontend maps to the HAProxy frontend. This includes
+      information such as what addresses and ports to listen on, what
+      SSL/TLS certificates to use, and which backends to route to.
+    default:
+      {
+      "bindAddress": "0.0.0.0",
+      "bindPort": -1,
+      "certificates": [],
+      "miscStrs": [],
+      "linkBackend": {}
+      }
+    properties:
+      name:
+        description: 'Defaults to frontend_{{bindAddress}}_{{bindPort}}.'
+        type: string
+      bindAddress:
+        description: >-
+          Only use characters that are allowed in the frontend name. Known
+          invalid frontend name characters include "*", "[", and "]".
+        type: string
+      bindPort:
+        description: >-
+          The port (e.g. 80 for HTTP or 443 for HTTPS) that this frontend will
+          bind to.
+        type: integer
+        x-nullable: true
+        format: int32
+      bindModifier:
+        description: "Additional text to put in the bind field"
+        type: string
+      certificates:
+        type: array
+        items:
+          description: >-
+            SSL/TLS certificates in the load balancer.
+
+            For secrets, use "$SECRETS/my_file_name"
+            For environment files, use "$ENVFILE/my_file_name"
+            For autoCertificate, use "$AUTOCERT"
+          type: string
+      redirectToHttps:
+        type: object
+        default: { "except": [] }
+        description: >-
+          Setting this to the empty object is enough to redirect all traffic
+          from HTTP (this frontend) to HTTPS (port 443).
+        properties:
+          except:
+            type: array
+            description: >-
+              One may additionally set a whitelist of fields that must be
+              matched to allow HTTP.
+            items:
+              type: object
+              description: "Boolean AND will be applied with every selected value"
+              properties:
+                host:
+                  type: string
+                  description: "Match on host"
+                pathBeg:
+                  type: string
+                  description: "Match on path"
+      miscStrs:
+        description: "Additional template lines inserted before use_backend"
+        type: array
+        items:
+          type: string
+      protocol:
+        description: >-
+          The frontend protocol is how clients/users communicate with HAProxy.
+        $ref: '#/definitions/V2Protocol'
+      linkBackend:
+        type: object
+        description: >-
+          This describes what backends to send traffic to. This can be expressed
+          with a variety of filters such as matching on the hostname or the
+          HTTP URL path.
+        default: { "map": [] }
+        properties:
+          defaultBackend:
+            type: string
+            description: >-
+              This is default backend that is routed to if none of the other
+              filters are matched.
+          map:
+            type: array
+            description: >-
+              This is an optional field that specifies a mapping to various
+              backends. These rules are applied in order.
+            items:
+              type: object
+              description: >-
+                "backend" and at least one of the condition fields
+                must be filled out. If multiple conditions are filled out they
+                will be combined with a boolean "AND".
+              properties:
+                backend:
+                  type: string
+                hostEq:
+                  description: "All lowercase."
+                  type: string
+                hostReg:
+                  description: >-
+                    All lowercase. It is possible for a port (e.g. "foo.com:80")
+                    to be in this regex!
+                  type: string
+                pathBeg:
+                  type: string
+                pathEnd:
+                  type: string
+                pathReg:
+                  type: string
+  V2Backend:
+    type: object
+    default:
+      {
+      "miscStrs": [],
+      "services": [],
+      "balance": "roundrobin",
+      "rewriteHttp": {}
+      }
+    properties:
+      name:
+        type: string
+        description: This is name that frontends refer to.
+      protocol:
+        description: >-
+          The backend protocol is how HAProxy communicates with the
+          servers it's load balancing.
+        $ref: '#/definitions/V2Protocol'
+      rewriteHttp:
+        description: >-
+          Manipulate HTTP headers. There is no effect unless the protocol is
+          either HTTP or HTTPS.
+        $ref: '#/definitions/V2RewriteHttp'
+      balance:
+        description: 'Load balancing strategy. e.g. roundrobin, leastconn, etc.'
+        type: string
+      customCheck:
+        type: object
+        description: 'This is used to specify alternate forms of healthchecks'
+        properties:
+          httpchk:
+            type: boolean
+          httpchkMiscStr:
+            type: string
+          sslHelloChk:
+            type: boolean
+          miscStr:
+            type: string
+      miscStrs:
+        description: "Additional template lines inserted before servers"
+        type: array
+        items:
+          type: string
+      services:
+        description: 'Array of backend service selectors.'
+        type: array
+        items:
+          $ref: '#/definitions/V2Service'
+  V2RewriteHttp:
+    type: object
+    default:
+      {
+      "request": {},
+      "response": {}
+      }
+    properties:
+      host:
+        description: "Set the host header value"
+        type: string
+      path:
+        type: object
+        default:
+          {
+          "fromPath": "",
+          "toPath": ""
+          }
+        description: >-
+          Rewrite the HTTP URL path. "fromPath" and "toPath" must either both
+          end with "/" or neither end with "/".
+        properties:
+          fromPath:
+            type: string
+            x-nullable: true
+          toPath:
+            type: string
+            x-nullable: true
+      request:
+        $ref: '#/definitions/V2RewriteHttpRequest'
+      response:
+        $ref: '#/definitions/V2RewriteHttpResponse'
+      sticky:
+        type: object
+        default: { "enabled": true }
+        description: >-
+          Sticky sessions via a cookie.
+
+          To use the default values (recommended), set this field to the
+          empty object.
+        properties:
+          enabled:
+            type: boolean
+            x-nullable: true
+          customStr:
+            type: string
+  V2RewriteHttpRequest:
+    description: >-
+      Rewrite the request.
+
+      To use the default values (recommended), set this field to the
+      empty object.
+    type: object
+    default:
+      {
+      "forwardfor": true,
+      "xForwardedPort": true,
+      "xForwardedProtoHttpsIfTls": true,
+      "setHostHeader": true,
+      "rewritePath": true
+      }
+    properties:
+      forwardfor:
+        type: boolean
+        x-nullable: true
+      xForwardedPort:
+        type: boolean
+        x-nullable: true
+      xForwardedProtoHttpsIfTls:
+        type: boolean
+        x-nullable: true
+      setHostHeader:
+        type: boolean
+        x-nullable: true
+      rewritePath:
+        type: boolean
+        x-nullable: true
+  V2RewriteHttpResponse:
+    description: >-
+      Rewrite the response.
+
+      To use the default values (recommended), set this field to the
+      empty object.
+    type: object
+    default:
+      { "rewriteLocation": true }
+    properties:
+      rewriteLocation:
+        type: boolean
+        x-nullable: true
+  V2Service:
+    type: object
+    default:
+      {
+      "marathon": {},
+      "mesos": {},
+      "endpoint": {}
+      }
+    properties:
+      marathon:
+        type: object
+        properties:
+          serviceID:
+            description: Marathon pod or application ID.
+            type: string
+          serviceIDPattern:
+            type: string
+          containerName:
+            description: Marathon pod container name, optional unless using Marathon pods.
+            type: string
+          containerNamePattern:
+            type: string
+      mesos:
+        type: object
+        properties:
+          frameworkName:
+            description: Mesos framework name.
+            type: string
+          frameworkNamePattern:
+            type: string
+          frameworkID:
+            description: Mesos framework ID.
+            type: string
+          frameworkIDPattern:
+            type: string
+          taskName:
+            description: Mesos task name.
+            type: string
+          taskNamePattern:
+            type: string
+          taskID:
+            description: Mesos task ID.
+            type: string
+          taskIDPattern:
+            type: string
+      endpoint:
+        description: Endpoint address and port selector.
+        $ref: '#/definitions/V2Endpoint'
+  V2Endpoint:
+    type: object
+    default:
+      {
+      "type": "AUTO_IP",
+      "check": {},
+      "port": -1
+      }
+    properties:
+      type:
+        type: string
+        enum:
+          - AUTO_IP
+          - AGENT_IP
+          - CONTAINER_IP
+          - ADDRESS
+      miscStr:
+        description: Append arbitrary string to add to the end of the "server" directive.
+        type: string
+      check:
+        description: >-
+          Enable health checks. These are by default TCP health checks. For
+          more options see "customCheck".
+          These are required for DNS resolution to function properly.
+        type: object
+        default: { "enabled": true }
+        properties:
+          enabled:
+            type: boolean
+            x-nullable: true
+          customStr:
+            type: string
+      address:
+        description: Server address override, can be used to specify a cluster internal address such as a VIP.
+        type: string
+      port:
+        type: integer
+        format: int32
+      portName:
+        type: string
+      allPorts:
+        type: boolean
+  V2Protocol:
+    type: string
+    enum:
+      - HTTP
+      - HTTPS
+      - TCP
+      - TLS
+  APIVersion:
+    type: string
+    enum:
+      - V1
+      - V2
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+
+# vim: ts=2 sts=2 sw=2:
