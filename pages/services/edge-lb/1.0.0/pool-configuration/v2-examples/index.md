@@ -53,10 +53,10 @@ Below is a simple example of a pool configuration for load-balancing a Marathon 
       "services": [{
         "marathon": {
           "serviceID": "/my-app"
-          },
-          "endpoint": {
-            "portName": "web"
-          }
+        },
+        "endpoint": {
+          "portName": "web"
+        }
       }]
     }]
   }
@@ -81,7 +81,7 @@ There are 3 different ways to get and use a certificate:
         "bindPort": 443,
         "protocol": "HTTPS",
         "certificates": [
-          "$SECRETS/mysecretfile"
+          "$AUTOCERT"
         ],
         "linkBackend": {
           "defaultBackend": "host-httpd"
@@ -94,10 +94,10 @@ There are 3 different ways to get and use a certificate:
       "services": [{
         "marathon": {
           "serviceID": "/host-httpd"
-          },
-          "endpoint": {
-            "portName": "web"
-          }
+        },
+        "endpoint": {
+          "portName": "web"
+        }
       }]
     }]
   }
@@ -137,10 +137,10 @@ There are 3 different ways to get and use a certificate:
       "services": [{
         "marathon": {
           "serviceID": "/host-httpd"
-          },
-          "endpoint": {
-            "portName": "web"
-          }
+        },
+        "endpoint": {
+          "portName": "web"
+        }
       }]
     }]
   }
@@ -164,7 +164,7 @@ There are 3 different ways to get and use a certificate:
         "bindPort": 443,
         "protocol": "HTTPS",
         "certificates": [
-          "$SECRETS/mysecretfile"
+          "$ENVFILE/ELB_FILE_HAPROXY_CERT"
         ],
         "linkBackend": {
           "defaultBackend": "host-httpd"
@@ -177,10 +177,10 @@ There are 3 different ways to get and use a certificate:
       "services": [{
         "marathon": {
           "serviceID": "/host-httpd"
-          },
-          "endpoint": {
-            "portName": "web"
-          }
+        },
+        "endpoint": {
+          "portName": "web"
+        }
       }]
     }]
   }
@@ -219,10 +219,10 @@ In this example we create a pool that will be launched on the virtual network pr
       "services": [{
         "marathon": {
           "serviceID": "/my-vnet-app"
-          },
-          "endpoint": {
-            "portName": "my-vnet-port"
-          }
+        },
+        "endpoint": {
+          "portName": "my-vnet-port"
+        }
       }]
     }]
   }
