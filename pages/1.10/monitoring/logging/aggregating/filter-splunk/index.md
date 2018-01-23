@@ -44,7 +44,7 @@ The `agent`, `framework`, `executor`, and `run` fields should now be available t
 1.  Add the following entry to `props.conf` (see the [Splunk documentation][4] for details):
 
     [source::/var/lib/mesos/slave/...]
-    EXTRACT = /var/lib/mesos/slave/slaves/(?<agent>[^/]+)/frameworks/(?<framework>[^/]+)/executors/(?<executor>[^/]+)/runs/(?<run>[^/]+)/.* in source
+    EXTRACT =  /var/lib/mesos/slave/slaves/(?<mesos_agent>(([^/]+)))/frameworks/(?<mesos_framework>(([^/]+)))/executors/(?<mesos_executor>(([^/]+)))/runs/(?<mesos_run>(([^/]+)))' in source
 
 2.  Run the following search in the Splunk Web UI to ensure the changes take effect:
 

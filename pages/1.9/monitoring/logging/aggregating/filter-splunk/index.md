@@ -28,7 +28,7 @@ You can configure Splunk either by using the Splunk [Web UI][2] or by editing th
     *   Type: `Inline`
     *   Extraction/Transform:
 
-        /var/lib/mesos/slave/slaves/(?<agent>[^/]+)/frameworks/(?<framework>[^/]+)/executors/(?<executor>[^/]+)/runs/(?<run>[^/]+)/.* in source
+         /var/lib/mesos/slave/slaves/(?<mesos_agent>(([^/]+)))/frameworks/(?<mesos_framework>(([^/]+)))/executors/(?<mesos_executor>(([^/]+)))/runs/(?<mesos_run>(([^/]+)))' in source
 
 3.  Click **Save**.
 
