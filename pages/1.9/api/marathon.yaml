@@ -325,7 +325,7 @@ paths:
         description: >-
           Embeds nested resources that match the supplied path. You can specify this parameter multiple times with different values. <br/>
 
-          - <code>app.tasks</code>. embed tasks Note&#58; if this embed is definded, it automatically sets <code>apps.deployments</code> but this will change in a future release. Please define all embeds explicitly.
+          - <code>app.tasks</code>. embed tasks Note&#58; if this embed is defined, it automatically sets <code>apps.deployments</code> but this will change in a future release. Please define all embeds explicitly.
 
           - <code>app.counts</code>. embed all task counts (tasksStaged, tasksRunning, tasksHealthy, tasksUnhealthy) <br/> Note&#58; currently embedded by default but this will change in a future release. Please define all embeds explicitly.
 
@@ -601,7 +601,7 @@ paths:
         description: >-
           Embeds nested resources that match the supplied path. You can specify this parameter multiple times with different values.
 
-          - <code>apps.tasks</code> embed all tasks of each application<br/> Note&#58; if this embed is definded, it automatically sets <code>apps.deployments</code> but this will change in a future release. Please define all embeds explicitly.
+          - <code>apps.tasks</code> embed all tasks of each application<br/> Note&#58; if this embed is defined, it automatically sets <code>apps.deployments</code> but this will change in a future release. Please define all embeds explicitly.
 
           - <code>apps.counts</code> embed all task counts (tasksStaged, tasksRunning, tasksHealthy, tasksUnhealthy) <br/> Note&#58; currently embedded by default but this will change in a future release. Please define all embeds explicitly.
 
@@ -3887,7 +3887,7 @@ definitions:
     description: >-
       Embeds nested resources that match the supplied path. You can specify this parameter multiple times with different values. <br/>
 
-      - <code>app.tasks</code>. embed tasks Note&#58; if this embed is definded, it automatically sets <code>apps.deployments</code> but this will change in a future release. Please define all embeds explicitly.
+      - <code>app.tasks</code>. embed tasks Note&#58; if this embed is defined, it automatically sets <code>apps.deployments</code> but this will change in a future release. Please define all embeds explicitly.
 
       - <code>app.counts</code>. embed all task counts (tasksStaged, tasksRunning, tasksHealthy, tasksUnhealthy) <br/> Note&#58; currently embedded by default but this will change in a future release. Please define all embeds explicitly.
 
@@ -3913,7 +3913,7 @@ definitions:
     description: >-
       Embeds nested resources that match the supplied path. You can specify this parameter multiple times with different values.
 
-      - <code>apps.tasks</code> embed all tasks of each application<br/> Note&#58; if this embed is definded, it automatically sets <code>apps.deployments</code> but this will change in a future release. Please define all embeds explicitly.
+      - <code>apps.tasks</code> embed all tasks of each application<br/> Note&#58; if this embed is defined, it automatically sets <code>apps.deployments</code> but this will change in a future release. Please define all embeds explicitly.
 
       - <code>apps.counts</code> embed all task counts (tasksStaged, tasksRunning, tasksHealthy, tasksUnhealthy) <br/> Note&#58; currently embedded by default but this will change in a future release. Please define all embeds explicitly.
 
