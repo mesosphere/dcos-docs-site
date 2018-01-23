@@ -1,10 +1,11 @@
 ---
+layout: layout.pug
+navigationTitle:  Spark 2.1.0-2.2.1-1
 title: Spark 2.1.0-2.2.1-1
-nav_title: v1.1.0-2.1.1
-menu_order: 0
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'no'
+menuWeight: 5
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
