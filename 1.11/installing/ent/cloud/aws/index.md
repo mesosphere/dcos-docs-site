@@ -30,4 +30,6 @@ Choose the advanced templates if you want to customize the AMI, VPC, or Instance
 - Replacing DC/OS agent nodes requires manual data migration of local storage volumes for stateful services.
 - Updates of DC/OS on AWS CloudFormation have not been automated, validated, or documented.
 - Modified CloudFormation templates are not supported by Mesosphere, Inc.
+
+The recommended way to install production ready DC/OS that can be upgraded in-place is to use the [Advanced Installer](/1.11/installing/ent/custom/advanced/).
 [/message]
