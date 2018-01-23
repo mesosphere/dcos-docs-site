@@ -13,7 +13,7 @@ enterprise: false
 ## Noteworthy changes:
 
 - Introducing V2 API with new more intuitive model for service / app backend selection model
-- New CLI command layout, ability to modify individual pools
+- New CLI command layout, ability to create, modify, and delete individual pools
 - Dockerized build and other CI improvements
 - Strict Mode Support for DC/OS Enterprise version 1.11 or higher
 - Security fix in logging
