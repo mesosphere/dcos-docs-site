@@ -20,4 +20,6 @@ dcos edgelb show --reference
 
 A new top level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical with one important difference: `pool.haproxy.backends.servers` (apiVersion `V1`) has been replaced with `pool.haproxy.backends.services` with a more intuitive way to select services / backends for HAProxy.
 
+NOTE: Edge-LB 1.0 supports both the v1 and v2 API for backwards compatibility. Therefore clients that were written against Edge-LB versions prior to Edge-LB 1.0 should work with any modifications with Edge-LB 1.0.
+
 Choose an API version at the left to view the appropriate configuration reference or examples.
