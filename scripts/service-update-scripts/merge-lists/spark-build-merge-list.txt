@@ -5,7 +5,6 @@ docs/history-server.md
 docs/index.md
 docs/install.md
 docs/job-scheduling.md
-docs/kerberos.md
 docs/limitations.md
 docs/quickstart.md
 docs/release-notes.md
