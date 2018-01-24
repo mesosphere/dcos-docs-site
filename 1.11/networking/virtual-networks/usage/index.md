@@ -10,16 +10,8 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS enables virtual networking through the use of virtual networks. DC/OS virtual networks enable you to provide each container in the system with a unique IP address (“IP-per-container”) with isolation guarantees amongst subnets. DC/OS virtual networks offer the following advantages:
+DC/OS provides each container with its own IP address by allowing operators run on containers on a wide-variety of IP-based virtual networks. In order to run containers on a virtual network the operator needs to install a CNI or CNM network out-of-band. DC/OS itself comes with it own virtual networking solution called DC/OS overlay which the operator could use to provide containers with unique IP addresses.
 
-* Both Mesos and Docker containers can communicate from within a single node and between nodes on a cluster.
-* Services can be created such that their traffic is isolated from other traffic coming from any other virtual network or host in the cluster.
-* They remove the need to worry about potentially overlapping ports in applications, or the need to use nonstandard ports for services to avoid overlapping.
-* You can generate any number of instances of a class of tasks and have them all listen on the same port so that clients don’t have to do port discovery.
-* You can run applications that require intra-cluster connectivity, like Cassandra, HDFS, and Riak.
-* You can create multiple virtual networks to isolate different portions of your organization, for instance, development, marketing, and production.
-
-**Note:** Isolation guarantees among subnets depend on your CNI implementation and/or your firewall policies.
 
 # Using Virtual Networks
 
