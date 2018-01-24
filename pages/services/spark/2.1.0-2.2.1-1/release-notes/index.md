@@ -11,6 +11,11 @@ featureMaturity:
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
+## Version 2.1.0-2.2.1-1
+
+### Improvements
+- Upgraded Spark to 2.2.1.
+
 ## Version 2.1.0-2.2.0-1
 
 ### Improvements
