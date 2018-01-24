@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS provides an east-west load balancer (minuteman) that enables multi-tier microservices architectures. It acts as a TCP layer 4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency. The features include:
+DC/OS provides an east-west load balancer (`dcos-l4lb`) that enables multi-tier microservices architectures. It acts as a TCP layer 4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency. The features include:
 
 - Distributed load balancing of applications.
 - Facilitates east-west communication within the cluster.
@@ -21,7 +21,7 @@ DC/OS provides an east-west load balancer (minuteman) that enables multi-tier mi
 
 You can use the layer 4 load balancer by assigning a [VIP](/1.11/networking/load-balancing-vips/virtual-ip-addresses/) in your app definition. After you create a task, or a set of tasks, with a VIP, they will automatically become available to all nodes in the cluster, including the masters.
 
-When you launch a set of tasks, DC/OS distributes them to a set of nodes in the cluster. The Minuteman instance running on each of the cluster agents coordinates the load balancing decisions. Minuteman on each agent programs the IPVS module within the Linux kernel with entries for all the tasks associated with a given service. This allows the Linux kernel to make load-balancing decisions at near line-rate speeds. Minuteman tracks the availability and reachability of these tasks and keeps the IPVS database up-to-date with all of the healthy backends, which means the Linux kernel can select a live backend for each request that it load balances.
+When you launch a set of tasks, DC/OS distributes them to a set of nodes in the cluster. The `dcos-l4lb` instance running on each of the cluster agents coordinates the load balancing decisions. `dcos-l4lb` on each agent programs the IPVS module within the Linux kernel with entries for all the tasks associated with a given service. This allows the Linux kernel to make load-balancing decisions at near line-rate speeds. `dcos-l4lb` tracks the availability and reachability of these tasks and keeps the IPVS database up-to-date with all of the healthy backends, which means the Linux kernel can select a live backend for each request that it load balances.
 
 ### Requirements
 
@@ -45,11 +45,11 @@ Use Mesos health checks. Mesos health checks are surfaced to the load balancing 
 
 ## Troubleshooting
 
-### DC/OS Overlay Virtual Network
+### Duplicate IP addresses
 Problems can arise if the VIP address that you specified is used elsewhere in the network. Although the VIP is a 3-tuple, it is best to ensure that the IP dedicated to the VIP is only in use by the load balancing software and isn't in use at all in your network. Therefore, you should choose IPs from the RFC1918 range.
 
 ### Ports
-Port 61420 must be open for the load balancer to work correctly. Because the load balancer maintains a partial mesh, it needs to ensure that connectivity between nodes is unhindered.
+Port 61420 must be open for the load balancer to work correctly. Because the load balancer uses GOSSIP, it requires to maintain a partial mesh. It therefore needs to ensure that connectivity between nodes is unhindered.
 
 ## Next steps
 
