@@ -1,8 +1,11 @@
 ---
-post_title: Install and Customize
-menu_order: 0
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Install and Customize
+menuWeight: 0
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
@@ -13,7 +16,7 @@ Spark is available in the Universe and can be installed by using either the GUI 
 **Prerequisites:**
 
 - [DC/OS and DC/OS CLI installed](/1.9/installing/).
-- Depending on your [security mode](/1.9/overview/security/security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](https://docs.mesosphere.com/service-docs/spark/spark-auth/).
+- Depending on your [security mode](/1.9/overview/security/security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](/services/spark/spark-auth/).
   
   | Security mode | Service Account |
   |---------------|-----------------------|

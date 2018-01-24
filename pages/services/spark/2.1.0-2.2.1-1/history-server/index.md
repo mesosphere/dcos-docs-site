@@ -1,7 +1,10 @@
 ---
-post_title: History Server
-menu_order: 30
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: History Server
+menuWeight: 30
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
@@ -23,7 +26,9 @@ DC/OS Apache Spark includes The [Spark History Server][3]. Because the history s
 1. Create `spark-history-options.json`:
 
         {
-          "hdfs-config-url": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
+          "service": {
+            "hdfs-config-url": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
+          }
         }
 
 1. Install The Spark History Server:

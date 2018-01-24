@@ -1,8 +1,11 @@
 ---
-post_title: Runtime Configuration Change
-menu_order: 70
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Runtime Configuration Change
+menuWeight: 70
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

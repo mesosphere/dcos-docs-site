@@ -1,8 +1,11 @@
 ---
-post_title: Job Scheduling
-menu_order: 110
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Job Scheduling
+menuWeight: 110
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
