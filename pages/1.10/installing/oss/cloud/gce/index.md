@@ -6,283 +6,241 @@ navigationTitle: GCE
 menuWeight: 3
 ---
 
-You can configure a DC/OS cluster on Google Compute Engine (GCE) by using these scripts.
+The recommended way for deploying a OSS DC/OS cluster on GCE is using [Terraform](#terraform).
 
-- [Configure bootstrap node](#bootstrap)
-- [Install the DC/OS GCE scripts](#install)
-- [Configure parameters](#configure)
 
-**Important:** Upgrades are not supported with this installation method.
+# Terraform
+ **Disclaimer: Please note this is a [community driven project](https://github.com/dcos/terraform-dcos/tree/master/gcp) and not officially supported by Mesosphere directly.**
 
 ## Prerequisites
-- Google Cloud Console account
+- [Terraform 0.11.x](https://www.terraform.io/downloads.html)
+- GCP Cloud Credentials. _[configure via: `gcloud auth login`](https://cloud.google.com/sdk/downloads)_
+- SSH Keys
+- Existing Google Project. Soon automated with Terraform using project creation as documented [here.](https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform)
 
-## <a name="bootstrap"></a>Bootstrap node configuration
-A bootstrap node is required to run the scripts and to bootstrap the DC/OS cluster.
+## Install Google SDK
+
+Run this command to authenticate to the Google Provider. This will bring down your keys locally on the machine for terraform to use.
+
+```bash
+$ gcloud auth login
+$ gcloud auth application-default login
+```
+
+## Configure your GCP SSH Keys
+
+Set the private key that you will be you will be using to your ssh-agent and set public key in terraform. This will allow you to log into to the cluster after DC/OS is deployed and also helps Terraform setup your cluster at deployment time.
+
+```bash
+$ ssh-add ~/.ssh/your_private_key.pem
+```
+
+```bash
+$ cat desired_cluster_profile.tfvars
+gcp_ssh_pub_key_file = "INSERT_PUBLIC_KEY_PATH_HERE"
+...
+```
+
+## Configure a Pre-existing Google Project
+
+Currently terraform-dcos assumes a project already exist in GCP to start deploying your resources against. This repo soon will have support for terraform to create projects on behalf of the user soon via this document [here](https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform). For the time being a user will have to create this project before time or leverage an existing project.
+
+```bash
+$ cat desired_cluster_profile.tfvars
+gcp_project = "massive-bliss-781"
+...
+```
+
+## Example Terraform Deployments
+
+### Quick Start
+
+We've provided all the sensible defaults that you would want to play around with DC/OS. Just run this command to deploy a multi-master setup in the cloud. Three agents will be deployed for you. Two private agents, one public agent.
 
-### Create a GCE project and instance
+- There is no git clone of this repo required. Terraform does this for you under the hood.
 
-1.  Create a project by using the Google Cloud Console. In these examples we created a project called `trek-treckr`.
+```bash
+terraform init -from-module github.com/dcos/terraform-dcos//gcp
+terraform apply -var gcp_project="your_existing_project"
+```
 
-1.  Create the bootstrap node using the Google Cloud Console. In these examples we used a [n1-standard-1](https://cloud.google.com/compute/docs/machine-types) instance running CentOS 7 with a 10 GB persistent disk in `zone europe-west1-c`. The bootstrap node must have "Allow full access to all Cloud APIs" in the Identity and API access section. Also enable Block project-wide SSH keys in the SSH Keys section. Create the instance.
+### Custom terraform-dcos variables
 
-1.  After creating the bootstrap instance, start the instance and run the following from the shell. These commands install prerequisite software on your bootstrap node.
+The default variables are tracked via in the [variables.tf](https://github.com/dcos/terraform-dcos/blob/master/gcp/variables.tf) file. Since this file can be overwritten during updates when you may run `terraform get --update` when you want to fetch new releases of DC/OS to upgrade too, its best to use the [desired_cluster_profile.tfvars](https://github.com/dcos/terraform-dcos/blob/master/gcp/desired_cluster_profile.tfvars.example) and set your custom terraform and DC/OS flags there. This way you can keep track of a single file that you can use manage the lifecycle of your cluster.
 
-    ```bash
-    sudo yum update google-cloud-sdk &&
-    sudo yum update &&
-    sudo yum install epel-release &&
-    sudo yum install python-pip &&
-    sudo pip install -U pip &&
-    sudo pip install 'apache-libcloud==1.2.1' &&
-    sudo pip install 'docker-py==1.9.0' &&
-    sudo yum install git ansible
-    ```
+For list of supported operating systems for this repo which expands, we're supporting the ones that DC/OS recommends [here](https://docs.mesosphere.com/1.10/installing/oss/custom/system-requirements/). You can find the list that Terraform supports [here](http://github.com/bernadinm/tf_dcos_core).
 
-### Setup RSA public/private keypairs
+To apply the configuration file, you can use this command below.
 
-You must create the RSA public/private keypairs to allow passwordless logins via SSH to the nodes of the DC/OS cluster. This is required by Ansible to create the cluster nodes and install DC/OS on the nodes.
+```bash
+terraform apply -var-file desired_cluster_profile.tfvars
+```
 
-**Important:** Replace `ajazam` with your username in these examples.
+#### Advance YAML Configuration
 
-1.  Run this command to generate the keys:
+In this project we have designed to be flexible. Here are the example working variables that allows very deep customization by using a single `tfvars` file.
 
-    ```bash
-    ssh-keygen -t rsa -f ~/.ssh/id_rsa -C ajazam
-    ```
+This file can have as little to as large as the DC/OS advance YAML configuration below.
 
-    Do not enter a password when prompted.
 
-1.  Make a backup copy of `id_rsa.pub`.
+For advance users with stringent requirements, here are the DC/OS flags examples where you can simply paste your YAML configuration in your desired_cluster_profile.tfvars. The alternative to YAML is to convert it to JSON.
 
-1.  Open RSA pub key:
+```bash
+$ cat desired_cluster_profile.tfvars
+dcos_version = "1.10.2"
+os = "centos_7.3"
+num_of_masters = "3"
+num_of_private_agents = "2"
+num_of_public_agents = "1"
+expiration = "6h"
+dcos_security = "permissive"
+dcos_cluster_docker_credentials_enabled =  "true"
+dcos_cluster_docker_credentials_write_to_etc = "true"
+dcos_cluster_docker_credentials_dcos_owned = "false"
+dcos_cluster_docker_registry_url = "https://index.docker.io"
+dcos_overlay_network = <<EOF
+# YAML
+    vtep_subnet: 44.128.0.0/20
+    vtep_mac_oui: 70:B3:D5:00:00:00
+    overlays:
+      - name: dcos
+        subnet: 12.0.0.0/8
+        prefix: 26
+EOF
+dcos_rexray_config = <<EOF
+# YAML
+  rexray:
+    loglevel: warn
+    modules:
+      default-admin:
+        host: tcp://127.0.0.1:61003
+    storageDrivers:
+    - ec2
+    volume:
+      unmount:
+        ignoreusedcount: true
+EOF
+dcos_cluster_docker_credentials = <<EOF
+# YAML
+  auths:
+    'https://index.docker.io/v1/':
+      auth: Ze9ja2VyY3licmljSmVFOEJrcTY2eTV1WHhnSkVuVndjVEE=
+EOF
+gcp_ssh_pub_key_file = "INSERT_PUBLIC_KEY_PATH_HERE"
+```
+_Note: The YAML comment is required for the DC/OS specific YAML settings._
 
-    ```bash
-    vi ~/.ssh/id_rsa.pub
-    ```
+## Upgrading DC/OS
 
-    You should see something like this:
+You can upgrade your DC/OS cluster with a single command. This terraform script was built to perform installs and upgrade from the inception of this project. With the upgrade procedures below, you can also have finer control on how masters or agents upgrade at a given time. This will give you the ability to change the parallelism of master or agent upgrades.
 
-    ```bash
-    ssh-rsa abcdefghijklmaasnsknsdjfsdfjs;dfj;sdflkjsd ajazam
-    ```
+### DC/OS Upgrades
 
-1.  Prefix your username, followed by a colon, to the above line. Also
+#### Rolling Upgrade
+###### Supported upgraded by dcos.io
 
-    ```bash
-    ajazam:ssh-rsa abcdefghijklmaasnsknsdjfsdfjs;dfj;sdflkjsd ajazam
-    ```
+##### Masters Sequentially, Agents Parellel:
+```bash
+terraform apply -var-file desired_cluster_profile.tfvars -var state=upgrade -target null_resource.bootstrap -target null_resource.master -parallelism=1
+terraform apply -var-file desired_cluster_profile.tfvars -var state=upgrade
+```
 
-1.  Save contents of `id_rsa.pub`.
+##### All Roles Simultaniously
+###### Not supported by dcos.io but it works without dcos_skip_checks enabled.
 
-1.  Add the rsa public key to your project
+```bash
+terraform apply -var-file desired_cluster_profile.tfvars -var state=upgrade
+```
 
-    ```bash
-    chmod 400 ~/.ssh/id_rsa
-    gcloud compute project-info add-metadata --metadata-from-file sshKeys=~/.ssh/id_rsa.pub
-    ```
 
-### Configure Docker
+## Maintenance
 
-1.  You must disable SELinux for Docker to work. Make the following change to `/etc/selinux/config`:
+If you would like to add more or remove (private) agents or public agents from your cluster, you can do so by telling terraform your desired state and it will make sure it gets you there. For example, if I have 2 private agents and 1 public agent in my `-var-file` I can always override that flag by specifying the `-var` flag. It has higher priority than the `-var-file`.
 
-    ```bash
-    SELINUX=disabled
-    ```
+### Adding Agents
 
-1.  Reboot host.
+```bash
+terraform apply \
+-var-file desired_cluster_profile.tfvars \
+-var num_of_private_agents=5 \
+-var num_of_public_agents=3
+```
 
-1.  To install Docker add the Yum repo.
+### Removing Agents
 
-    ```bash
-    sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
-    [dockerrepo]
-    name=Docker Repository
-    baseurl=https://yum.dockerproject.org/repo/main/centos/7/
-    enabled=1
-    gpgcheck=1
-    gpgkey=https://yum.dockerproject.org/gpg
-    EOF
-    ```
+```bash
+terraform apply \
+-var-file desired_cluster_profile.tfvars \
+-var num_of_private_agents=1 \
+-var num_of_public_agents=1
+```
 
-1.  Install the Docker package.
+**Important**: Always remember to save your desired state in your `desired_cluster_profile.tfvars`
 
-    ```bash
-    sudo yum install docker-engine-1.11.2
-    ```
+## Redeploy an existing Master
 
-1.  Add following changes to `/usr/lib/systemd/system/docker.service`.
+If you wanted to redeploy a problematic master (ie. storage filled up, not responsive, etc), you can tell terraform to redeploy during the next cycle.
 
-    ```bash
-    ExecStart=/usr/bin/docker daemon --storage-driver=overlay
-    ```
+**NOTE:** This only applies to DC/OS clusters that have set their `dcos_master_discovery` to `master_http_loadbalancer` and not `static`.
 
-1.  Reload systemd.
+### Master Node
 
-    ```bash
-    sudo systemctl daemon-reload
-    ```
+#### Taint Master Node
 
-1.  Start Docker.
+```bash
+terraform taint google_compute_instance.master.0 # The number represents the agent in the list
+```
 
-    ```bash
-    sudo systemctl start docker.service
-    ```
+#### Redeploy Master Node
 
-1.  Verify that Docker works.
+```bash
+terraform apply -var-file desired_cluster_profile.tfvars
+```
 
-    ```bash
-    sudo docker run hello-world
-    ```
+## Redeploy an existing Agent
 
-## <a name="install"></a>Install the DC/OS GCE scripts
+If you wanted to redeploy a problematic agent, (ie. storage filled up, not responsive, etc), you can tell terraform to redeploy during the next cycle.
 
-1.  Download the `dcos-gce` scripts
 
-    ```bash
-    git clone https://github.com/dcos-labs/dcos-gce
-    ```
+### Private Agents
 
-1.  Change directory.
+#### Taint Private Agent
 
-    ```bash
-    cd dcos-gce
-    ```
+```bash
+terraform taint google_compute_instance.agent.0 # The number represents the agent in the list
+```
 
-1.  Review and customize the `dcos_gce/group_vars/all`. You should review `project`, `subnet`, `login_name`, `bootstrap_public_ip`, and `zone`. To install DC/OS v1.9.0  ensure dcos_installer_download_path = "https://downloads.dcos.io/dcos/stable/commit/0ce03387884523f02624d3fb56c7fbe2e06e181b/{{ dcos_installer_filename }}"
+#### Redeploy Agent
 
-1.  Insert following into `~/.ansible.cfg` to stop host key checking.
+```bash
+terraform apply -var-file desired_cluster_profile.tfvars
+```
 
-    ```bash
-    [defaults]
-    host_key_checking = False
 
-    [paramiko_connection]
-    record_host_keys = False
+### Public Agents
 
-    [ssh_connection]
-    ssh_args = -o ControlMaster=auto -o ControlPersist=60s -o UserKnownHostsFile=/dev/null
-    ```
-Ensure The IP address for master0 in dcos_gce/hosts is the next consecutive IP from bootstrap_public_ip, e.g. if bootstrap_public_ip = 1.2.3.4 then ensure master0 = 1.2.3.5
+#### Taint Private Agent
 
-1.  To create and configure the master nodes run this command:
+```bash
+terraform taint google_compute_instance.public-agent.0 # The number represents the agent in the list
+```
 
-    ```bash
-    ansible-playbook -i hosts install.yml
-    ```
+#### Redeploy Agent
 
-1.  To create and configure the private nodes run this command:
+```bash
+terraform apply -var-file desired_cluster_profile.tfvars
+```
 
-    ```bash
-    ansible-playbook -i hosts add_agents.yml --extra-vars "start_id=0001 end_id=0002 agent_type=private"
-    ```
-    Where `start_id=0001` and `end_id=0002` specify the range of IDs that are appended to the hostname "agent" to create unique agent names. If `start_id` is not specified, a default value of `0001` is used.  If the `end_id` is not specified, a default value of `0001` is used. The values for `agent_type` are either private or public. If an `agent_type` is not specified, a default value of `agent_type=private` is used.
+### Experimental
 
-1.  To create public nodes run this command:
+#### Adding GPU Private Agents
 
-    ```bash
-    ansible-playbook -i hosts add_agents.yml --extra-vars "start_id=0003 end_id=0004 agent_type=public"
-    ```
+Coming soon!
 
-## <a name="configure"></a>Configurable parameters
+### Destroy Cluster
 
-- File `dcos-gce/hosts` is an Ansible inventory file. Text wrapped by brackets `[]` represents a group name and individual entries after the group name represent hosts in that group.
+You can shutdown/destroy all resources from your environment by running this command below
 
-- The `[masters]` group contains node names and IP addresses for the master nodes. In the supplied file, the host name is `master0` and the IP address `10.132.0.3` is assigned to `master0`. **YOU MUST CHANGE** the IP address for `master0` for your network. You can create multiple entries, for example `master1`, `master2` etc. Each node must have a unique IP address.
-
-- The `[agents]` group has one entry. It specifies the names of all the agents one can have in the DC/OS cluster. The value specifies that `agent0000` to `agent9999`. A total of 10,000 agents are allowed. This really is an artificial limit because it can easily be changed.
-
-- The `[bootstrap]` group has the name of the bootstrap node.
-
-- File `./group_vars/all` contains miscellaneous parameters that will change the behaviour of the installation scripts. The parameters are split into two groups.
-
-    - Group 1 parameters must be changed to reflect your environment.
-    - Group 2 parameters can optionally be changed to change the behaviour of the scripts.
-
-### Group 1
-You must customize these for your environment.
-
-### project
-Specify your project ID. Default: `trek-trackr`.
-
-### subnet
-Specify your network. Default: `default`.
-
-### login_name
-Specify the login name used for accessing each GCE instance. Default: `ajazam`.
-
-### bootstrap_public_ip
-Specify the bootstrap nodes public IP. Default: `10.132.0.2`.
-
-### zone
-You can optionally specify your preferred zone. Default: `europe-west1-c`.
-
-
-### Group 2
-You can optionally change these parameters to modify the behaviour of the installation scripts.
-
-### master_boot_disk_size:
-Specify the size of the master node boot disk. Default 10 GB.
-
-### master_machine_type
-Specify the GCE instance type used for the master nodes. Default: `n1-standard-2`.
-
-### master_boot_disk_type
-Specify the master boot disk type. Default: `pd-standard`.
-
-### agent_boot_disk_size
-Specify the size of the agent boot disk. Default 10 GB.
-
-### agent_machine_type
-Specify the GCE instance type used for the agent nodes. Default: `n1-standard-2`.
-
-### agent_boot_disk_type
-Specify the agent boot disk type. Default: `pd-standard`.
-
-### agent_instance_type
-Specify whether agents are preemptible. If the value is `"MIGRATE"` then they are not preemptible. If the value is `"TERMINATE" --preemptible` then the instance is preemptible. Default: `"MIGRATE"`.
-
-### agent_type
-Specify whether an agent is "public" or "private". Default: "private".
-
-### start_id
-Specify the number appended to the text *agent* is used to define the hostname of the first agent. e.g. `agent0001`. Intermediate agents between `start_id` and `end_id` will be created if required. Default: `0001`.
-
-### end_id
-Specify the number appended to the text *agent* is used to define the hostname of the last agent. e.g. `agent0001`. Intermediate agents between `start_id` and `end_id` will be created if required. Default: `0001`.
-
-
-### gcloudbin
-Specify the location of the gcloudbin binary. Default: `/usr/local/bin/gcloud`.
-
-### image
-Specify the disk image used on the master and agent. Default: `/centos-cloud/centos-7-v20161027`.
-
-### bootstrap_public_port
-Specify the port on the bootstrap node which is used to fetch the DC/OS installer from each of the master and agent nodes. Default: `8080`.
-
-### cluster_name
-Specify the name of the DC/OS cluster. Default: `cluster_name`.
-
-### scopes
-Do not change this parameter. It is required by the Google Cloud SDK.
-
-### dcos_installer_filename
-Specify the filename for the DC/OS installer. Default `dcos_generate_config.sh`.
-
-### dcos_installer_download_path
-Specify the location of where the DC/OS installer is available from [dcos.io](https://dcos.io). Default: `https://downloads.dcos.io/dcos/stable/{{ dcos_installer_filename }}`. The value of `{{ dcos_installer_file }}` is described above.
-
-### home_directory
-Specify the home directory for your logins. Default: `/home/{{ login_name }}`. The value of `{{ login_name }}` is described above.
-
-### downloads_from_bootstrap
-Specify the concurrent downloads of the DC/OS installer to the cluster of master and agent nodes. You might need to experiment with this to get the best performance. The performance will be a function of the machine type used for the bootstrap node. Default: 2.
-
-### dcos_bootstrap_container
-Specify the name of the DC/OS bootstrap container running on the bootstrap node. Default: `dcosinstaller`.
-
-
-
-
-
+```bash
+terraform destroy -var-file desired_cluster_profile.tfvars
+```
