@@ -1,8 +1,11 @@
 ---
-post_title: Usage Example 
-menu_order: 10
-feature_maturity: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: 
+excerpt:
+title: Usage Example 
+menuWeight: 10
+featureMaturity:
+
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

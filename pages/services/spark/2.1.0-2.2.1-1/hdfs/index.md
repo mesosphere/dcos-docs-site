@@ -1,8 +1,9 @@
 ---
-post_title: Configure Spark for HDFS
-nav_title: HDFS
-menu_order: 20
-enterprise: 'no'
+layout: layout.pug
+excerpt:
+title: Integration with HDFS
+navigationTitle: HDFS
+menuWeight: 20
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
