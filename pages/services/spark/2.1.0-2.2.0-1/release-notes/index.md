@@ -11,11 +11,11 @@ enterprise: false
 ## Spark-History 2.1.0-2.2.0-1
 
 ### Improvements
-- Upgraded docker image to 2.1.0-2.2.0-1-hadoop-2.6.
+- Upgraded Docker image to 2.1.0-2.2.0-1-hadoop-2.6.
 - Wrapped the config properties in a "service" object. (See "Breaking Changes")
 
 ### Bug Fixes
-- Fixed field names in marathon.json. Installing from the DC/OS UI now works.
+- Fixed field names in `marathon.json`. Installing from the DC/OS UI now works.
 
 ### Breaking Changes
 - The configuration properties have been wrapped in a new "service" object.
