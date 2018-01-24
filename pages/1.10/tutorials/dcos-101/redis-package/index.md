@@ -46,6 +46,7 @@ By the end of this session you will have installed your first service - [Redis](
         ```
     
       * Because Redis is running in a Docker container, you can list all Docker containers using `docker ps` and get the ContainerID of the container running the redis service.
+      * If you are running the Vagrant version of DC/OS, then add `--user vagrant`
       * Start a bash session in the running container, substituting CONTAINER_ID with the ContainerID you got from the previous command: 
       
         ```bash
