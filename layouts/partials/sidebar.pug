@@ -6,6 +6,7 @@
 - var semver = /^[0-9]+\.[0-9]+/
 - var semverService = /^(v|)[0-9](.*)/
 - var dropdown = []
+- var devVersion = '1.11'
 
 // Service Docs
 if paths[0] === 'services' && paths[1]
@@ -23,7 +24,7 @@ if paths[0] === 'services' && paths[1]
 
 // DC/OS Docs
 if semver.test(paths[0])
-  - dropdown = hierarchy.children.filter(item => semver.test(item.id))
+  - dropdown = hierarchy.children.filter(item => semver.test(item.id)  && item.id != devVersion)
   - items = hierarchy.findByPath('/' + paths[0])
   - versionTitle = paths[0]
 
