@@ -13,25 +13,32 @@ enterprise: false
 
 The DC/OS network stack provides the following services:
 
-* A standards based API that allows DC/OS to run containers on a variety of different types of IP networks. We refer to this feature in DC/OS as IP-Per-Container.
+* Provides IP connectivity to containers.
 * A DNS based service discovery mechanism.
 * Layer 4 load-balancing for internal (east-west) traffic.
 * Layer 7 load-balancing for external (north-south) traffic.
 
 We elaborate more on these features below.
 
-# IP-Per-Container
-Allows containers to run on any type of IP-based virtual networks, with each container having its own network namespace.
+# IP connectivity
+A container running on DC/OS can obtain an IP address using one of three networking modes:
+* Host networking
+* Bridge networking
+* Container networking
 
-DC/OS supports IP-per-container for the Universal container runtime (UCR) by using the Container network interface (CNI). DC/OS also supports IP-per-container for the Docker container runtime by using the Container network model (CNM).
+These three networking modes are available for containers irrespective of the container runtime (UCR or Docker) that they choose to launch their container. 
 
-## DC/OS overlay
-DC/OS provides an out-of-the box virtual networking solution for IP-per-container called DC/OS overlay that works both with UCR and Docker container runtimes. The DC/OS overlay uses the CNI/CNM support in Mesos to provide IP-per-container.For more information, see the [Containerizer documentation](/1.11/deploying-services/containerizers/).
+## Host mode networking
+In host mode, the container runs on the same network as other DC/OS system services such as Mesos and Marathon. In other words they share the same linux network namespace and therefore see the same IP address and ports as seen by DC/OS system services. Host mode networking is the most restrictive in the sense that it does not allow the container to use the entire TCP/UDP port range, and the application has to be adaptible to use whatever ports are available on a given agent. 
 
-DC/OS overlay is a VxLAN based overlay network. It has distributed control-plane called `dcos-overlay`, that manages subnets, routes and container interfaces on the DC/OS overlay. `dcos-overlay` itself is an Erlang application that runs on each node (agents and masters) as part of the ErLang VM `dcos-net`.
+## Bridge mode networking
+In this mode containers are launched on an isolated linux bridge, created within the DC/OS agent. Containers running in this mode get their own linux network namespace, and hence their own IP address and are able to use the entire TCP/UDP port range. This networking mode is very useful when the application port is already fixed. The main caveat of using bridge mode networking is that in order for the container to be accessible from outside the agent, we would need to use D-NAT rules on the agent. Both UCR and Docker bridge mode networking use this mechanism (also referred to as port-mapping) to expose services within the container to clients running outside the agent.
+
+## Container mode networking
+In this mode containers are allowed to run on a wide variety of software-defined networks. DC/OS supports the *CNI(Container network interface)* standard for UCR containers, and *CNM(Container network model)* standard for Docker containers. Using CNI and CNM, DC/OS is able to plumb containers onto any virtual network defined by an SDN provider that supports the CNI or CNM standard. Of the three modes this is the most powerful since the containers get their own linux network namespace and connectivity between containers is guaranteed by the underlying SDN network without the need to rely on D-NAT rules on the agent. Further, since SDNs can provide network isolation through firewalls, and are very flexible, it makes it easy for the operator to run multi-tenant clusters. This networking mode also allows the container's network to be completely isolated from the host network, thus giving an extra level of security to the host-network by protecting it from DDOS attacks from malicious containers running on top of DC/OS.
 
 # DNS-Based Service Discovery
-DC/OS includes a highly available, distributed, DNS-based service discovery. The service discovery mechanism in DC/OS contains these components:
+DC/OS includes a highly available, distributed, DNS-based service discovery. The DNS-based service discovery is available to containers running on DC/OS irrespective of the networking mode that they are running on. The service discovery mechanism in DC/OS contains these components:
 
 - A centralized component called Mesos DNS, which runs on every master.
 - A distributed component called dcos-dns, that runs as an application with an Erlang VM called dcos-net. The ErLang VM dcos-net runs on every node (agents and masters) in the cluster.
@@ -41,10 +48,6 @@ Mesos DNS is a centralized, replicated, DNS server that runs on every master. Ev
 
 ## Local DNS Forwarder (dcos-dns)
 *dcos-dns* acts as a DNS masquerade for Mesos DNS on each agent. The dcos-dns instance on each agent is configured to listen to three different local interfaces on the agent and the nameservers on the agent are set to these three interfaces. This allows containers to perform up to three retries on a DNS request. To provide a highly available DNS service, dcos-dns forwards each request it receives to the different Mesos DNS instances which are running on each master.
-
-- Scale-out DNS Server on DC/OS masters with replication.
-- DNS server Proxy with links to all Active/Active DNS server daemons.
-- DNS server cache service for local services.
 
 The dcos-dns instance on each agent also acts as a DNS server for any service that is load balanced using the DC/OS internal load balancer called [dcos-l4lb](/1.11/networking/load-balancing-vips/). Any service that is load balanced by dcos-l4lb gets a [virtual-ip-address (VIP)](/1.11/networking/mesos-dns/) and an FQDN in the `"*.l4lb.thisdcos.directory"` domain. The FQDN allocated to a load-balanced service is then stored in dcos-dns. All dcos-dns instances exchange the records they have discovered locally from dcos-l4lb by using GOSSIP. This provides a highly available distributed DNS service for any task that is load balanced by Minuteman. For more information, see the [dcos-net repository](https://github.com/dcos/dcos-net/blob/master/docs/dcos_dns.md).
 
@@ -89,8 +92,10 @@ While both Marathon-LB and Edge-LB are primarily designed to be used for handlin
 
 
 
-# A note on software re-architecture
-In DC/OS 1.11 most of the networking components such `dcos-dns`, `dcos-l4lb`, `dcos-overlay`, are ErLang applications that run as part of a single ErLang VM called `dcos-net`. `dcos-net` is itself a systemD unit that runs on all nodes in the cluster. It is important to note that prior to DC/OS 1.11 each of the applications `dcos-dns`, `dcos-l4lb`, and `dcos-overlay` were running their own ErLang VM, with their own repositories. Prior to DC/OS 1.11 role of `dcos-dns` was fulfilled by `spartan`, `dcos-l4lb` was fulfilled by `minuteman` and `dcos-overlay` was fulfilled by `navstar`. In DC/OS 1.11 we decided to aggregate all these different ErLang VMs into a single ErLang VM, primarily because this is more idiomatic to the way ErLang applications are supposed to run. This is lead better efficiency in terms of resource utilization (lower CPU consumption and higher throughput) and also makes the service a lot more robust and reliable. It's important to note that from a functionality perspective DC/OS 1.11 provides exactly the same, or better functionality, when compared to prior versions of DC/OS, except with better efficieny in terms of resource utilization.
+# A Note on Software Re-architecture
+In DC/OS 1.11 most of the networking components such `dcos-dns`, `dcos-l4lb`, `dcos-overlay`, are ErLang applications that run as part of a single ErLang VM called `dcos-net`. `dcos-net` is itself a systemD unit that runs on all nodes in the cluster. It is important to note that prior to DC/OS 1.11 each of the applications `dcos-dns`, `dcos-l4lb`, and `dcos-overlay` were running in their own ErLang VM, with their own repositories. Prior to DC/OS 1.11 role of `dcos-dns` was fulfilled by `spartan`, `dcos-l4lb` was fulfilled by `minuteman` and `dcos-overlay` was fulfilled by `navstar`. In DC/OS 1.11 we decided to aggregate all these different ErLang VMs into a single ErLang VM, primarily because this operational-pattern is more idiomatic to running ErLang applications. The main advantage of following this operational-patter is that it has lead to better efficiency in terms of resource utilization (lower CPU consumption and higher throughput), and has also made the networking services a lot more robust and reliable, not to mention that this approach has made the code a lot more maintainable. 
+
+It's important to note that from a functionality standpoint DC/OS 1.11 provides exactly the same, or better functionality, when compared to prior versions of DC/OS, except with better efficieny in terms of resource utilization. Thus, even though this software re-architecture has changed the internal machinery for providing networking services within DC/OS, from a functional UX standpoint the operator should not see any difference.
 
 
 
