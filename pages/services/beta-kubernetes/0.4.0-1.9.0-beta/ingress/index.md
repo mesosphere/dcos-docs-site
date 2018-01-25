@@ -50,6 +50,9 @@ metadata:
   name: probe
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: probe
   template:
     metadata:
       labels:
