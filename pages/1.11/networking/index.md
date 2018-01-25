@@ -44,7 +44,7 @@ DC/OS includes a highly available, distributed, DNS-based service discovery. The
 - A distributed component called dcos-dns, that runs as an application with an Erlang VM called dcos-net. The ErLang VM dcos-net runs on every node (agents and masters) in the cluster.
 
 ## Mesos DNS
-Mesos DNS is a centralized, replicated, DNS server that runs on every master. Every task started by DC/OS gets a well-known DNS name. This provides a replicated highly available DNS service on each of the masters. Every instance of Mesos DNS polls the leading Mesos master and generates a fully qualified domain name (FQDN) for every service running in DC/OS with the domain `*.mesos`.  For more information, see the [Mesos DNS documentation](/1.11/networking/mesos-dns/).
+Mesos DNS is a centralized, replicated, DNS server that runs on every master. Every task started by DC/OS gets a well-known DNS name. This provides a replicated highly available DNS service on each of the masters. Every instance of Mesos DNS polls the leading Mesos master and generates a fully qualified domain name (FQDN) for every service running in DC/OS with the domain `*.mesos`.  For more information, see the [Mesos DNS documentation](/1.11/networking/DNS/mesos-dns/).
 
 ## Local DNS Forwarder (dcos-dns)
 *dcos-dns* acts as a DNS masquerade for Mesos DNS on each agent. The dcos-dns instance on each agent is configured to listen to three different local interfaces on the agent and the nameservers on the agent are set to these three interfaces. This allows containers to perform up to three retries on a DNS request. To provide a highly available DNS service, dcos-dns forwards each request it receives to the different Mesos DNS instances which are running on each master.
@@ -54,8 +54,8 @@ The dcos-dns instance on each agent also acts as a DNS server for any service th
 # Load Balancing
 
 DC/OS offers different options for layer-4 and layer 7 load balancing. We describe the various features provided, in terms of load-balancing, at both these layers in the following sections.
-[Edge-LB](/pages/services/edge-lb),
-and [Marathon-LB](/pages/services/marathon-lb).
+
+
 
 ## Layer 4
 *[dcos-l4lb](/1.11/networking/load-balancing-vips/)* is a distributed layer 4 east-west load balancer that is installed by default. 
@@ -66,7 +66,7 @@ dcos-l4lb runs as an application within the Erlang VM *dcos-net* which runs on a
 
 
 ## Layer 7
-There are two packages within DC/OS that provide layer 7 load-balancing for DC/OS services. Edge-LB and Marathon-LB, both these packages use HAPRoxy as its data-plane for providing layer 7 load-balancing for north-south traffic ingressing into the cluster. Both these packages provide load balancing for TCP and HTTP-based applications, SSL support, and health checking. 
+There are two packages within DC/OS that provide layer 7 load-balancing for DC/OS services. [Edge-LB](/pages/services/edge-lb) and and [Marathon-LB](/pages/services/marathon-lb), both these packages use HAPRoxy as its data-plane for providing layer 7 load-balancing for north-south traffic ingressing into the cluster. Both these packages provide load balancing for TCP and HTTP-based applications, SSL support, and health checking. 
 
 While the data-plane used by both these packages is fundamentally the same, the control-plane provided by these packages are vastly different. Edge-lb is the more recent of the two and is richer in its featureset compared to Marathon-LB. Edge-LB has the ability to support pools of HAProxy load-balancing instances, allowing for a multi-tenant support . It comes with it own CLI to configure and launch pools, and supports not only Marathon tasks, but also tasks managed by custom Mesos framesworks that want to expose their tasks outside the cluster. 
 
