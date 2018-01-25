@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 140
 excerpt:
