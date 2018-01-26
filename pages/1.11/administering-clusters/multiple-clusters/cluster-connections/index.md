@@ -18,9 +18,10 @@ To set up a connection to a cluster, run the `dcos cluster setup` command, repla
 dcos cluster setup <dcos-url>
 ```
 
+
 ## Attaching to a cluster
 
-To attach to a connected cluster, run the `dcos cluster attach` command, replacing `<name>` with the cluster name:
+To attach to a connected cluster, run the `dcos cluster attach` command, replacing `<name>` with the cluster name (To find the name of the cluster you want to attach, run `dcos cluster list`):
 
 ```bash
 dcos cluster attach <connected-cluster-name>
