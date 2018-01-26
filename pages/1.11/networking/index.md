@@ -52,10 +52,7 @@ Mesos DNS is a centralized, replicated, DNS server that runs on every master. Ev
 The dcos-dns instance on each agent also acts as a DNS server for any service that is load balanced using the DC/OS internal load balancer called [dcos-l4lb](/1.11/networking/load-balancing-vips/). Any service that is load balanced by dcos-l4lb gets a [virtual-ip-address (VIP)](/1.11/networking/mesos-dns/) and an FQDN in the `"*.l4lb.thisdcos.directory"` domain. The FQDN allocated to a load-balanced service is then stored in dcos-dns. All dcos-dns instances exchange the records they have discovered locally from dcos-l4lb by using GOSSIP. This provides a highly available distributed DNS service for any task that is load balanced by Minuteman. For more information, see the [dcos-net repository](https://github.com/dcos/dcos-net/blob/master/docs/dcos_dns.md).
 
 # Load Balancing
-
 DC/OS offers different options for layer-4 and layer 7 load balancing. We describe the various features provided, in terms of load-balancing, at both these layers in the following sections.
-
-
 
 ## Layer 4
 *[dcos-l4lb](/1.11/networking/load-balancing-vips/)* is a distributed layer 4 east-west load balancer that is installed by default. 
