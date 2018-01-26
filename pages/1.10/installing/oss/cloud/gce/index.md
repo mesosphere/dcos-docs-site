@@ -29,7 +29,7 @@ $ gcloud auth application-default login
 
 ## Configure your GCP SSH Keys
 
-Set the private key that you will be you will be using to your ssh-agent and set public key in terraform. This will allow you to log into to the cluster after DC/OS is deployed and also helps Terraform setup your cluster at deployment time.
+Set the private key that you will be using to your ssh-agent and set public key in terraform. This will allow you to log into to the cluster after DC/OS is deployed and also helps Terraform setup your cluster at deployment time.
 
 ```bash
 $ ssh-add ~/.ssh/your_private_key.pem
@@ -43,7 +43,7 @@ gcp_ssh_pub_key_file = "INSERT_PUBLIC_KEY_PATH_HERE"
 
 ## Configure a Pre-existing Google Project
 
-Currently terraform-dcos assumes a project already exist in GCP to start deploying your resources against. This repo soon will have support for terraform to create projects on behalf of the user soon via this document [here](https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform). For the time being a user will have to create this project before time or leverage an existing project.
+Currently terraform-dcos assumes a project already exist in GCP to start deploying your resources against. This repo soon will have support for terraform to create projects on behalf of the user via this [document](https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform). For the time being a user will have to create this project before time or leverage an existing project.
 
 ```bash
 $ cat desired_cluster_profile.tfvars
@@ -66,9 +66,9 @@ terraform apply -var gcp_project="your_existing_project"
 
 ### Custom terraform-dcos variables
 
-The default variables are tracked via in the [variables.tf](https://github.com/dcos/terraform-dcos/blob/master/gcp/variables.tf) file. Since this file can be overwritten during updates when you may run `terraform get --update` when you want to fetch new releases of DC/OS to upgrade too, its best to use the [desired_cluster_profile.tfvars](https://github.com/dcos/terraform-dcos/blob/master/gcp/desired_cluster_profile.tfvars.example) and set your custom terraform and DC/OS flags there. This way you can keep track of a single file that you can use manage the lifecycle of your cluster.
+The default variables are tracked in the [variables.tf](https://github.com/dcos/terraform-dcos/blob/master/gcp/variables.tf) file. Since this file can be overwritten during updates when you may run `terraform get --update` when you want to fetch new releases of DC/OS to upgrade too, its best to use the [desired_cluster_profile.tfvars](https://github.com/dcos/terraform-dcos/blob/master/gcp/desired_cluster_profile.tfvars.example) and set your custom terraform and DC/OS flags there. This way you can keep track of a single file that you can use manage the lifecycle of your cluster.
 
-For list of supported operating systems for this repo which expands, we're supporting the ones that DC/OS recommends [here](https://docs.mesosphere.com/1.10/installing/oss/custom/system-requirements/). You can find the list that Terraform supports [here](http://github.com/bernadinm/tf_dcos_core).
+For a list of supported operating systems for this repo, see the ones that DC/OS recommends [here](https://docs.mesosphere.com/1.10/installing/oss/custom/system-requirements/). You can find the list that Terraform supports [here](http://github.com/bernadinm/tf_dcos_core).
 
 To apply the configuration file, you can use this command below.
 
@@ -78,10 +78,7 @@ terraform apply -var-file desired_cluster_profile.tfvars
 
 #### Advance YAML Configuration
 
-In this project we have designed to be flexible. Here are the example working variables that allows very deep customization by using a single `tfvars` file.
-
-This file can have as little to as large as the DC/OS advance YAML configuration below.
-
+We have designed this project to be flexible. Here are the example working variables that allows very deep customization by using a single `tfvars` file.
 
 For advance users with stringent requirements, here are the DC/OS flags examples where you can simply paste your YAML configuration in your desired_cluster_profile.tfvars. The alternative to YAML is to convert it to JSON.
 
@@ -132,7 +129,7 @@ _Note: The YAML comment is required for the DC/OS specific YAML settings._
 
 ## Upgrading DC/OS
 
-You can upgrade your DC/OS cluster with a single command. This terraform script was built to perform installs and upgrade from the inception of this project. With the upgrade procedures below, you can also have finer control on how masters or agents upgrade at a given time. This will give you the ability to change the parallelism of master or agent upgrades.
+You can upgrade your DC/OS cluster with a single command. This terraform script was built to perform installs and upgrades from the inception of this project. With the upgrade procedures below, you can also have finer control on how masters or agents upgrade at a given time. This will give you the ability to change the parallelism of master or agent upgrades.
 
 ### DC/OS Upgrades
 
@@ -155,7 +152,7 @@ terraform apply -var-file desired_cluster_profile.tfvars -var state=upgrade
 
 ## Maintenance
 
-If you would like to add more or remove (private) agents or public agents from your cluster, you can do so by telling terraform your desired state and it will make sure it gets you there. For example, if I have 2 private agents and 1 public agent in my `-var-file` I can always override that flag by specifying the `-var` flag. It has higher priority than the `-var-file`.
+If you would like to add or remove (private) agents or public agents from your cluster, you can do so by telling terraform your desired state and it will make sure it gets you there. For example, if I have 2 private agents and 1 public agent in my `-var-file` I can always override that flag by specifying the `-var` flag. It has higher priority than the `-var-file`.
 
 ### Adding Agents
 
@@ -179,7 +176,7 @@ terraform apply \
 
 ## Redeploy an existing Master
 
-If you wanted to redeploy a problematic master (ie. storage filled up, not responsive, etc), you can tell terraform to redeploy during the next cycle.
+If you want to redeploy a problematic master (ie. storage filled up, not responsive, etc), you can tell terraform to redeploy during the next cycle.
 
 **NOTE:** This only applies to DC/OS clusters that have set their `dcos_master_discovery` to `master_http_loadbalancer` and not `static`.
 
@@ -199,7 +196,7 @@ terraform apply -var-file desired_cluster_profile.tfvars
 
 ## Redeploy an existing Agent
 
-If you wanted to redeploy a problematic agent, (ie. storage filled up, not responsive, etc), you can tell terraform to redeploy during the next cycle.
+If you want to redeploy a problematic agent (i.e., storage filled up, not responsive, etc.), you can tell terraform to redeploy during the next cycle.
 
 
 ### Private Agents
@@ -239,7 +236,7 @@ Coming soon!
 
 ### Destroy Cluster
 
-You can shutdown/destroy all resources from your environment by running this command below
+You can shutdown/destroy all resources from your environment by running this command below:
 
 ```bash
 terraform destroy -var-file desired_cluster_profile.tfvars
