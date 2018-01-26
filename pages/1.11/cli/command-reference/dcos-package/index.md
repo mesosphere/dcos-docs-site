@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos package
 title: dcos package
-menuWeight: 7
+menuWeight: 12
 excerpt:
 
 enterprise: false

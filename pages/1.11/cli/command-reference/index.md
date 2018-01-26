@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Command Reference
 title: Command Reference
-menuWeight: 5
+menuWeight: 6
 excerpt:
 
 enterprise: false

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos security
 title: dcos security
-menuWeight: 0
+menuWeight: 13
 excerpt:
 
 enterprise: true

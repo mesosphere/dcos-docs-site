@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos marathon
 title: dcos marathon
-menuWeight: 5
+menuWeight: 10
 excerpt:
 
 enterprise: false
@@ -67,4 +67,3 @@ dcos marathon
 | [dcos marathon task list](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-task-list/) | List all tasks. | 
 | [dcos marathon task stop](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-task-stop/) | Stop a task. | 
 | [dcos marathon task show](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-task-show/) | List a specific task. | 
-
