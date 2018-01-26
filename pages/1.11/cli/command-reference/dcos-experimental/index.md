@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos experimental
 title: dcos experimental
-menuWeight: 2
+menuWeight: 6
 excerpt:
 
 enterprise: false
