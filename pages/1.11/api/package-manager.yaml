@@ -1,635 +1,164 @@
-swagger: '2.0'
-info:
-  version: ''
-  title: DC/OS Package and Service
-  description: ''
-paths:
-  /package/repository/delete:
-    post:
-      operationId: POST-package-repository-delete
-      description: Deletes a package repository (for example Universe) from DC/OS.
-      produces:
-        - application/vnd.dcos.package.repository.delete-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/packageRepositoryDeleteResponse'
-      consumes:
-        - application/vnd.dcos.package.repository.delete-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/packageRepositoryDeleteRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.repository.delete-request+json;charset=utf-8;version=v1
-          type: string
-  /package/list-versions:
-    post:
-      operationId: POST-package-list-versions
-      description: List all of the available versions for a given package name.
-      produces:
-        - application/vnd.dcos.package.list-versions-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/listVersionsResponse'
-      consumes:
-        - application/vnd.dcos.package.list-versions-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/listVersionsRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.list-versions-request+json;charset=utf-8;version=v1
-          type: string
-  /package/repository/add:
-    post:
-      operationId: POST-package-repository-add
-      description: Adds a package repository (for example Universe) for use by DC/OS. To add a package repository to the beginning of the list set the index to zero (0). To add a package repository to the end of the list do not specify an index.
-      produces:
-        - application/vnd.dcos.package.repository.add-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/packageRepositoryAddResponse'
-      consumes:
-        - application/vnd.dcos.package.repository.add-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/packageRepositoryAddRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.repository.add-request+json;charset=utf-8;version=v1
-          type: string
-  /service/update:
-    post:
-      operationId: POST-service-update
-      description: Updates the package version and/or the configuration of a DC/OS Service
-      produces:
-        - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/serviceUpdateResponse'
-      consumes:
-        - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/serviceUpdateRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
-          type: string
-  /package/uninstall:
-    post:
-      operationId: POST-package-uninstall
-      description: 'description: Stops a running service that was launched from a DC/OS package.'
-      produces:
-        - application/vnd.dcos.package.uninstall-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/uninstallResponse'
-      consumes:
-        - application/vnd.dcos.package.uninstall-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/uninstallRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.uninstall-request+json;charset=utf-8;version=v1
-          type: string
-  /package/list:
-    post:
-      operationId: POST-package-list
-      description: Lists all of the running DC/OS services started from a DC/OS package.
-      produces:
-        - application/vnd.dcos.package.list-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/listResponse'
-      consumes:
-        - application/vnd.dcos.package.list-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/listRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.list-request+json;charset=utf-8;version=v1
-          type: string
-  /package/install:
-    post:
-      operationId: POST-package-install
-      description: Runs a service from a Universe package.
-      produces:
-        - application/vnd.dcos.package.install-response+json;charset=utf-8;version=v2
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/installResponse'
-      consumes:
-        - application/vnd.dcos.package.install-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/installRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.install-request+json;charset=utf-8;version=v1
-          type: string
-  /package/repository/list:
-    post:
-      operationId: POST-package-repository-list
-      description: ' List all of the package repositories (for example Universe) used by DC/OS. The list is ordered by priority; if multiple repositories contain the same package, the package closest to the start of the list will be used.'
-      produces:
-        - application/vnd.dcos.package.repository.list-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/packageRepositoryListResponse'
-      consumes:
-        - application/vnd.dcos.package.repository.list-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/packageRepositoryListRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.repository.list-request+json;charset=utf-8;version=v1
-          type: string
-  /package/describe:
-    post:
-      operationId: POST-package-describe
-      description: 'Show information about the package, including the required resources and configuration to start the service, and command line extensions that are included with the package.'
-      produces:
-        - application/vnd.dcos.package.describe-response+json;charset=utf-8;version=v3
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/describeResponse'
-      consumes:
-        - application/vnd.dcos.package.describe-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/describeRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.describe-request+json;charset=utf-8;version=v1
-          type: string
-  /service/describe:
-    post:
-      operationId: POST-service-describe
-      description: Describes a DC/OS Service
-      produces:
-        - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/serviceDescribeResponse'
-      consumes:
-        - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/serviceDescribeRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
-          type: string
-  /package/search:
-    post:
-      operationId: POST-package-search
-      description: Lists all matching packages in the repository given a partial pattern. The character * can be used to match any number of characters.
-      produces:
-        - application/vnd.dcos.package.search-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/searchResponse'
-      consumes:
-        - application/vnd.dcos.package.search-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/searchRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.search-request+json;charset=utf-8;version=v1
-          type: string
-  /package/render:
-    post:
-      operationId: POST-package-render
-      description: 'Generates the Marathon application definition for the package name, version, and optional configuration JSON object.'
-      produces:
-        - application/vnd.dcos.package.render-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/renderResponse'
-      consumes:
-        - application/vnd.dcos.package.render-request+json;charset=utf-8;version=v1
-      parameters:
-        - name: body
-          in: body
-          schema:
-            $ref: '#/definitions/renderRequest'
-        - name: Accept
-          in: header
-          required: true
-          enum:
-            - application/vnd.dcos.package.render-request+json;charset=utf-8;version=v1
-          type: string
-  /capabilities:
-    get:
-      operationId: GET-capabilities
-      description: List all of the capabilities supported by DC/OS.
-      produces:
-        - application/vnd.dcos.capabilities+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/capabilitiesResponse'
 definitions:
-  packageRepositoryDeleteResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      repositories:
-        type: array
-        items:
-          $ref: '#/definitions/pkgRepo'
-    required:
-      - repositories
-  renderResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      marathonJson:
-        type: object
-        additionalProperties: true
-    required:
-      - marathonJson
-  packageInformation:
-    type: object
-    additionalProperties: false
-    properties:
-      packageDefinition:
-        $ref: '#/definitions/packageDetails'
-      resourceDefinition:
-        $ref: '#/definitions/v20Resource'
-    required:
-      - packageDefinition
-  searchResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      packages:
-        type: array
-        items:
-          type: object
-          additionalProperties: false
-          properties:
-            name:
-              type: string
-            description:
-              type: string
-            versions:
-              type: object
-              additionalProperties: true
-            tags:
-              type: array
-              items:
-                type: string
-                pattern: '^[^\s]+$'
-            selected:
-              type: boolean
-            framework:
-              type: boolean
-            images:
-              type: object
-              additionalProperties: false
-              properties:
-                icon-small:
-                  type: string
-                  description: 'PNG icon URL, preferably 48 by 48 pixels.'
-                icon-medium:
-                  type: string
-                  description: 'PNG icon URL, preferably 128 by 128 pixels.'
-                icon-large:
-                  type: string
-                  description: 'PNG icon URL, preferably 256 by 256 pixels.'
-                screenshots:
-                  type: array
-                  items:
-                    type: string
-                    description: 'PNG screen URL, preferably 1024 by 1024 pixels.'
-            currentVersion:
-              type: string
-          required:
-            - currentVersion
-            - description
-            - framework
-            - name
-            - tags
-            - versions
-  url:
+  base64String:
+    pattern: '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$'
     type: string
-    allOf:
-      - format: uri
-      - pattern: '^https?://'
-  marathon:
-    type: object
-    additionalProperties: false
-    properties:
-      v2AppMustacheTemplate:
-        $ref: '#/definitions/base64String'
-    required:
-      - v2AppMustacheTemplate
-  serviceUpdateRequest:
-    type: object
-    additionalProperties: false
-    properties:
-      appId:
-        type: string
-      replace:
-        type: boolean
-        description: If true any stored configuration will be ignored when producing the updated service configuration.
-      packageVersion:
-        type: string
-      options:
-        type: object
-        additionalProperties: true
-    required:
-      - appId
-      - replace
-  v30Resource:
-    type: object
-    additionalProperties: false
-    properties:
-      assets:
-        type: object
-        additionalProperties: false
-        properties:
-          uris:
-            type: object
-            additionalProperties:
-              type: string
-          container:
-            type: object
-            additionalProperties: false
-            properties:
-              docker:
-                type: object
-                additionalProperties:
-                  type: string
-      images:
-        type: object
-        additionalProperties: false
-        properties:
-          icon-small:
-            type: string
-            description: 'PNG icon URL, preferably 48 by 48 pixels.'
-          icon-medium:
-            type: string
-            description: 'PNG icon URL, preferably 128 by 128 pixels.'
-          icon-large:
-            type: string
-            description: 'PNG icon URL, preferably 256 by 256 pixels.'
-          screenshots:
-            type: array
-            items:
-              type: string
-              description: 'PNG screen URL, preferably 1024 by 1024 pixels.'
-      cli:
-        $ref: '#/definitions/cli'
-  packageRepositoryAddResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      repositories:
-        type: array
-        items:
-          $ref: '#/definitions/pkgRepo'
-    required:
-      - repositories
-  listVersionsResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      results:
-        type: object
-        additionalProperties: true
-    required:
-      - results
-  listResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      packages:
-        type: array
-        items:
-          $ref: '#/definitions/installation'
-        description: The list of installed packages
-    required:
-      - packages
-  packageRepositoryAddRequest:
-    type: object
-    additionalProperties: false
-    properties:
-      name:
-        type: string
-      uri:
-        $ref: '#/definitions/url'
-      index:
-        type: integer
-        minimum: 0
-    required:
-      - name
-      - uri
-  packageRepositoryListResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      repositories:
-        type: array
-        items:
-          $ref: '#/definitions/pkgRepo'
-    required:
-      - repositories
-  describeRequest:
-    type: object
-    additionalProperties: false
-    properties:
-      packageName:
-        type: string
-      packageVersion:
-        type: string
-    required:
-      - packageName
   capabilitiesResponse:
-    type: object
     additionalProperties: false
     properties:
       capabilities:
-        type: array
         items:
           $ref: '#/definitions/capability'
+        type: array
     required:
       - capabilities
-  packageRepositoryListRequest:
     type: object
-    additionalProperties: false
-  config:
-    type: object
-    additionalProperties: true
-  serviceDescribeResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      package:
-        $ref: '#/definitions/v40PackageDefinition'
-      userProvidedOptions:
-        type: object
-        additionalProperties: true
-        description: The options the user provided to run the service
-      downgradesTo:
-        type: array
-        items:
-          type: string
-      resolvedOptions:
-        type: object
-        additionalProperties: true
-        description: The result of merging the default package options with the user supplied options
-      upgradesTo:
-        type: array
-        items:
-          type: string
-    required:
-      - downgradesTo
-      - package
-      - upgradesTo
-  command:
-    type: object
-    additionalProperties: false
-    properties:
-      pip:
-        type: array
-        items:
-          type: string
-        description: '[Deprecated v3.x] An array of strings representing of the requirements file to use for installing the subcommand for Pip. Each item is interpreted as a line in the requirements file.'
-    required:
-      - pip
-  licence:
-    type: object
+  capability:
     additionalProperties: false
     properties:
       name:
         type: string
-        description: 'The name of the license. For example one of [Apache License Version 2.0 | MIT License | BSD License | Proprietary]'
+    required:
+      - name
+    type: object
+  cli:
+    additionalProperties: false
+    properties:
+      binaries:
+        additionalProperties: false
+        minProperties: 1
+        properties:
+          darwin:
+            additionalProperties: false
+            properties:
+              x86-64:
+                $ref: '#/definitions/cliInfo'
+            required:
+              - x86-64
+            type: object
+          linux:
+            additionalProperties: false
+            properties:
+              x86-64:
+                $ref: '#/definitions/cliInfo'
+            required:
+              - x86-64
+            type: object
+          windows:
+            additionalProperties: false
+            properties:
+              x86-64:
+                $ref: '#/definitions/cliInfo'
+            required:
+              - x86-64
+            type: object
+        type: object
+    required:
+      - binaries
+    type: object
+  cliInfo:
+    additionalProperties: false
+    properties:
+      contentHash:
+        items:
+          $ref: '#/definitions/hash'
+        minItems: 1
+        type: array
+      kind:
+        enum:
+          - executable
+          - zip
+        type: string
       url:
         $ref: '#/definitions/url'
     required:
-      - name
+      - contentHash
+      - kind
       - url
-  installResponse:
     type: object
+  command:
+    additionalProperties: false
+    properties:
+      pip:
+        description: '[Deprecated v3.x] An array of strings representing of the requirements file to use for installing the subcommand for Pip. Each item is interpreted as a line in the requirements file.'
+        items:
+          type: string
+        type: array
+    required:
+      - pip
+    type: object
+  config:
+    additionalProperties: true
+    type: object
+  describeRequest:
     additionalProperties: false
     properties:
       packageName:
         type: string
       packageVersion:
         type: string
-      appId:
-        type: string
     required:
-      - appId
       - packageName
-      - packageVersion
-  hash:
     type: object
+  describeResponse:
+    additionalProperties: false
+    properties:
+      command:
+        $ref: '#/definitions/command'
+      config:
+        $ref: '#/definitions/config'
+      marathonMustache:
+        type: string
+      package:
+        $ref: '#/definitions/packageDetails'
+      resource:
+        $ref: '#/definitions/v20Resource'
+    required:
+      - marathonMustache
+      - package
+    type: object
+  hash:
     additionalProperties: false
     properties:
       algo:
-        type: string
         enum:
           - sha256
+        type: string
       value:
         type: string
     required:
       - algo
       - value
-  serviceUpdateResponse:
     type: object
+  installRequest:
     additionalProperties: false
     properties:
-      resolvedOptions:
-        type: object
-        additionalProperties: true
-        description: The result of merging the default package options with the user supplied options
-      marathonDeploymentId:
+      appId:
         type: string
-      package:
-        $ref: '#/definitions/v40PackageDefinition'
+      options:
+        additionalProperties: true
+        type: object
+      packageName:
+        type: string
+      packageVersion:
+        type: string
     required:
-      - marathonDeploymentId
-      - package
-      - resolvedOptions
-  installation:
+      - packageName
     type: object
+  installResponse:
+    additionalProperties: false
+    properties:
+      appId:
+        type: string
+      packageName:
+        type: string
+      packageVersion:
+        type: string
+    required:
+      - appId
+      - packageName
+      - packageVersion
+    type: object
+  installation:
     additionalProperties: false
     properties:
       appId:
@@ -639,174 +168,113 @@ definitions:
     required:
       - appId
       - packageInformation
-  installRequest:
     type: object
-    additionalProperties: false
-    properties:
-      packageName:
-        type: string
-      packageVersion:
-        type: string
-      appId:
-        type: string
-      options:
-        type: object
-        additionalProperties: true
-    required:
-      - packageName
-  uninstallResponse:
-    type: object
-    additionalProperties: false
-    properties:
-      results:
-        type: array
-        items:
-          type: object
-          additionalProperties: false
-          properties:
-            packageName:
-              type: string
-            appId:
-              type: string
-            packageVersion:
-              type: string
-            postUninstallNotes:
-              type: string
-          required:
-            - appId
-            - packageName
-    required:
-      - results
-  capability:
-    type: object
+  licence:
     additionalProperties: false
     properties:
       name:
+        description: 'The name of the license. For example one of [Apache License Version 2.0 | MIT License | BSD License | Proprietary]'
         type: string
+      url:
+        $ref: '#/definitions/url'
     required:
       - name
-  describeResponse:
+      - url
     type: object
+  listRequest:
     additionalProperties: false
     properties:
-      package:
-        $ref: '#/definitions/packageDetails'
-      config:
-        $ref: '#/definitions/config'
-      command:
-        $ref: '#/definitions/command'
-      marathonMustache:
+      appId:
         type: string
-      resource:
-        $ref: '#/definitions/v20Resource'
-    required:
-      - marathonMustache
-      - package
-  listVersionsRequest:
-    type: object
-    additionalProperties: false
-    properties:
       packageName:
         type: string
+    type: object
+  listResponse:
+    additionalProperties: false
+    properties:
+      packages:
+        description: The list of installed packages
+        items:
+          $ref: '#/definitions/installation'
+        type: array
+    required:
+      - packages
+    type: object
+  listVersionsRequest:
+    additionalProperties: false
+    properties:
       includePackageVersions:
         type: boolean
+      packageName:
+        type: string
     required:
       - includePackageVersions
       - packageName
-  serviceDescribeRequest:
     type: object
+  listVersionsResponse:
     additionalProperties: false
     properties:
-      appId:
-        type: string
+      results:
+        additionalProperties: true
+        type: object
     required:
-      - appId
-  v20Resource:
+      - results
     type: object
+  marathon:
     additionalProperties: false
     properties:
-      assets:
-        type: object
-        additionalProperties: false
-        properties:
-          uris:
-            type: object
-            additionalProperties:
-              type: string
-          container:
-            type: object
-            additionalProperties: false
-            properties:
-              docker:
-                type: object
-                additionalProperties:
-                  type: string
-      images:
-        type: object
-        additionalProperties: false
-        properties:
-          icon-small:
-            type: string
-            description: 'PNG icon URL, preferably 48 by 48 pixels.'
-          icon-medium:
-            type: string
-            description: 'PNG icon URL, preferably 128 by 128 pixels.'
-          icon-large:
-            type: string
-            description: 'PNG icon URL, preferably 256 by 256 pixels.'
-          screenshots:
-            type: array
-            items:
-              type: string
-              description: 'PNG screen URL, preferably 1024 by 1024 pixels.'
+      v2AppMustacheTemplate:
+        $ref: '#/definitions/base64String'
+    required:
+      - v2AppMustacheTemplate
+    type: object
   packageDetails:
-    type: object
     additionalProperties: false
     properties:
+      description:
+        type: string
+      framework:
+        default: false
+        description: True if this package installs a new Mesos framework.
+        type: boolean
       licenses:
-        type: array
         items:
           $ref: '#/definitions/licence'
-      website:
+        type: array
+      maintainer:
         type: string
       name:
         type: string
-      postInstallNotes:
-        type: string
-        description: Post installation notes that would be useful to the user of this package.
-      scm:
-        type: string
-      description:
-        type: string
       packagingVersion:
         type: string
-      tags:
-        type: array
-        items:
-          type: string
-          pattern: '^[^\s]+$'
+      postInstallNotes:
+        description: Post installation notes that would be useful to the user of this package.
+        type: string
       postUninstallNotes:
-        type: string
         description: Post uninstallation notes that would be useful to the user of this package.
-      maintainer:
-        type: string
-      selected:
-        type: boolean
-        default: false
-        description: Flag indicating if the package is selected in search results
-      framework:
-        type: boolean
-        default: false
-        description: True if this package installs a new Mesos framework.
-      version:
         type: string
       preInstallNotes:
-        type: string
         description: Pre installation notes that would be useful to the user of this package.
+        type: string
       releaseVersion:
-        type: integer
-        minimum: 0
         description: Corresponds to the revision index from the universe directory structure
+        minimum: 0
+        type: integer
+      scm:
+        type: string
+      selected:
+        default: false
+        description: Flag indicating if the package is selected in search results
+        type: boolean
+      tags:
+        items:
+          pattern: '^[^\s]+$'
+          type: string
+        type: array
+      version:
+        type: string
+      website:
+        type: string
     required:
       - description
       - maintainer
@@ -814,115 +282,73 @@ definitions:
       - packagingVersion
       - tags
       - version
-  cli:
     type: object
+  packageInformation:
     additionalProperties: false
     properties:
-      binaries:
-        type: object
-        additionalProperties: false
-        properties:
-          darwin:
-            type: object
-            additionalProperties: false
-            properties:
-              x86-64:
-                $ref: '#/definitions/cliInfo'
-            required:
-              - x86-64
-          linux:
-            type: object
-            additionalProperties: false
-            properties:
-              x86-64:
-                $ref: '#/definitions/cliInfo'
-            required:
-              - x86-64
-          windows:
-            type: object
-            additionalProperties: false
-            properties:
-              x86-64:
-                $ref: '#/definitions/cliInfo'
-            required:
-              - x86-64
-        minProperties: 1
+      packageDefinition:
+        $ref: '#/definitions/packageDetails'
+      resourceDefinition:
+        $ref: '#/definitions/v20Resource'
     required:
-      - binaries
-  base64String:
-    type: string
-    pattern: '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$'
-  renderRequest:
+      - packageDefinition
     type: object
+  packageRepositoryAddRequest:
     additionalProperties: false
     properties:
-      packageName:
+      index:
+        minimum: 0
+        type: integer
+      name:
         type: string
-      packageVersion:
-        type: string
-      appId:
-        type: string
-      options:
-        type: object
-        additionalProperties: true
+      uri:
+        $ref: '#/definitions/url'
     required:
-      - packageName
-  uninstallRequest:
+      - name
+      - uri
     type: object
+  packageRepositoryAddResponse:
     additionalProperties: false
     properties:
-      packageName:
-        type: string
-      appId:
-        type: string
-      all:
-        type: boolean
+      repositories:
+        items:
+          $ref: '#/definitions/pkgRepo'
+        type: array
     required:
-      - packageName
+      - repositories
+    type: object
   packageRepositoryDeleteRequest:
-    type: object
     additionalProperties: false
     properties:
       name:
         type: string
       uri:
         $ref: '#/definitions/url'
-  listRequest:
     type: object
+  packageRepositoryDeleteResponse:
     additionalProperties: false
     properties:
-      packageName:
-        type: string
-      appId:
-        type: string
-  cliInfo:
-    type: object
-    additionalProperties: false
-    properties:
-      contentHash:
-        type: array
+      repositories:
         items:
-          $ref: '#/definitions/hash'
-        minItems: 1
-      kind:
-        type: string
-        enum:
-          - executable
-          - zip
-      url:
-        $ref: '#/definitions/url'
+          $ref: '#/definitions/pkgRepo'
+        type: array
     required:
-      - contentHash
-      - kind
-      - url
-  searchRequest:
+      - repositories
     type: object
+  packageRepositoryListRequest:
+    additionalProperties: false
+    type: object
+  packageRepositoryListResponse:
     additionalProperties: false
     properties:
-      query:
-        type: string
-  pkgRepo:
+      repositories:
+        items:
+          $ref: '#/definitions/pkgRepo'
+        type: array
+    required:
+      - repositories
     type: object
+  pkgRepo:
     additionalProperties: false
     properties:
       name:
@@ -932,81 +358,349 @@ definitions:
     required:
       - name
       - uri
-  v40PackageDefinition:
     type: object
+  renderRequest:
     additionalProperties: false
     properties:
-      licenses:
+      appId:
+        type: string
+      options:
+        additionalProperties: true
+        type: object
+      packageName:
+        type: string
+      packageVersion:
+        type: string
+    required:
+      - packageName
+    type: object
+  renderResponse:
+    additionalProperties: false
+    properties:
+      marathonJson:
+        additionalProperties: true
+        type: object
+    required:
+      - marathonJson
+    type: object
+  searchRequest:
+    additionalProperties: false
+    properties:
+      query:
+        type: string
+    type: object
+  searchResponse:
+    additionalProperties: false
+    properties:
+      packages:
+        items:
+          additionalProperties: false
+          properties:
+            currentVersion:
+              type: string
+            description:
+              type: string
+            framework:
+              type: boolean
+            images:
+              additionalProperties: false
+              properties:
+                icon-large:
+                  description: 'PNG icon URL, preferably 256 by 256 pixels.'
+                  type: string
+                icon-medium:
+                  description: 'PNG icon URL, preferably 128 by 128 pixels.'
+                  type: string
+                icon-small:
+                  description: 'PNG icon URL, preferably 48 by 48 pixels.'
+                  type: string
+                screenshots:
+                  items:
+                    description: 'PNG screen URL, preferably 1024 by 1024 pixels.'
+                    type: string
+                  type: array
+              type: object
+            name:
+              type: string
+            selected:
+              type: boolean
+            tags:
+              items:
+                pattern: '^[^\s]+$'
+                type: string
+              type: array
+            versions:
+              additionalProperties: true
+              type: object
+          required:
+            - currentVersion
+            - description
+            - framework
+            - name
+            - tags
+            - versions
+          type: object
         type: array
+    type: object
+  serviceDescribeRequest:
+    additionalProperties: false
+    properties:
+      appId:
+        type: string
+    required:
+      - appId
+    type: object
+  serviceDescribeResponse:
+    additionalProperties: false
+    properties:
+      downgradesTo:
+        items:
+          type: string
+        type: array
+      package:
+        $ref: '#/definitions/v40PackageDefinition'
+      resolvedOptions:
+        additionalProperties: true
+        description: The result of merging the default package options with the user supplied options
+        type: object
+      upgradesTo:
+        items:
+          type: string
+        type: array
+      userProvidedOptions:
+        additionalProperties: true
+        description: The options the user provided to run the service
+        type: object
+    required:
+      - downgradesTo
+      - package
+      - upgradesTo
+    type: object
+  serviceUpdateRequest:
+    additionalProperties: false
+    properties:
+      appId:
+        type: string
+      options:
+        additionalProperties: true
+        type: object
+      packageVersion:
+        type: string
+      replace:
+        description: If true any stored configuration will be ignored when producing the updated service configuration.
+        type: boolean
+    required:
+      - appId
+      - replace
+    type: object
+  serviceUpdateResponse:
+    additionalProperties: false
+    properties:
+      marathonDeploymentId:
+        type: string
+      package:
+        $ref: '#/definitions/v40PackageDefinition'
+      resolvedOptions:
+        additionalProperties: true
+        description: The result of merging the default package options with the user supplied options
+        type: object
+    required:
+      - marathonDeploymentId
+      - package
+      - resolvedOptions
+    type: object
+  uninstallRequest:
+    additionalProperties: false
+    properties:
+      all:
+        type: boolean
+      appId:
+        type: string
+      packageName:
+        type: string
+    required:
+      - packageName
+    type: object
+  uninstallResponse:
+    additionalProperties: false
+    properties:
+      results:
+        items:
+          additionalProperties: false
+          properties:
+            appId:
+              type: string
+            packageName:
+              type: string
+            packageVersion:
+              type: string
+            postUninstallNotes:
+              type: string
+          required:
+            - appId
+            - packageName
+          type: object
+        type: array
+    required:
+      - results
+    type: object
+  url:
+    allOf:
+      - format: uri
+      - pattern: '^https?://'
+    type: string
+  v20Resource:
+    additionalProperties: false
+    properties:
+      assets:
+        additionalProperties: false
+        properties:
+          container:
+            additionalProperties: false
+            properties:
+              docker:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+          uris:
+            additionalProperties:
+              type: string
+            type: object
+        type: object
+      images:
+        additionalProperties: false
+        properties:
+          icon-large:
+            description: 'PNG icon URL, preferably 256 by 256 pixels.'
+            type: string
+          icon-medium:
+            description: 'PNG icon URL, preferably 128 by 128 pixels.'
+            type: string
+          icon-small:
+            description: 'PNG icon URL, preferably 48 by 48 pixels.'
+            type: string
+          screenshots:
+            items:
+              description: 'PNG screen URL, preferably 1024 by 1024 pixels.'
+              type: string
+            type: array
+        type: object
+    type: object
+  v30Resource:
+    additionalProperties: false
+    properties:
+      assets:
+        additionalProperties: false
+        properties:
+          container:
+            additionalProperties: false
+            properties:
+              docker:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+          uris:
+            additionalProperties:
+              type: string
+            type: object
+        type: object
+      cli:
+        $ref: '#/definitions/cli'
+      images:
+        additionalProperties: false
+        properties:
+          icon-large:
+            description: 'PNG icon URL, preferably 256 by 256 pixels.'
+            type: string
+          icon-medium:
+            description: 'PNG icon URL, preferably 128 by 128 pixels.'
+            type: string
+          icon-small:
+            description: 'PNG icon URL, preferably 48 by 48 pixels.'
+            type: string
+          screenshots:
+            items:
+              description: 'PNG screen URL, preferably 1024 by 1024 pixels.'
+              type: string
+            type: array
+        type: object
+    type: object
+  v40PackageDefinition:
+    additionalProperties: false
+    properties:
+      command:
+        $ref: '#/definitions/command'
+      config:
+        $ref: '#/definitions/config'
+      description:
+        type: string
+      downgradesTo:
+        description: 'List of versions that this package can downgrade to. If the property is a list containing the string ''*'', this package can downgrade to any version. If the property is not set or the empty list, this package cannot downgrade.'
+        items:
+          type: string
+        type: array
+      framework:
+        default: false
+        description: True if this package installs a new Mesos framework.
+        type: boolean
+      licenses:
         items:
           $ref: '#/definitions/licence'
-      website:
+        type: array
+      maintainer:
+        type: string
+      marathon:
+        $ref: '#/definitions/marathon'
+      minDcosReleaseVersion:
+        description: The minimum DC/OS Release Version the package can run on.
+        pattern: '^(?:0|[1-9][0-9]*)(?:\.(?:0|[1-9][0-9]*))*$'
         type: string
       name:
         type: string
-      postInstallNotes:
-        type: string
-        description: Post installation notes that would be useful to the user of this package.
-      marathon:
-        $ref: '#/definitions/marathon'
-      scm:
-        type: string
-      description:
-        type: string
       packagingVersion:
-        type: string
         enum:
           - '2.0'
           - '3.0'
           - '4.0'
-      tags:
-        type: array
-        items:
-          type: string
-          pattern: '^[^\s]+$'
+        type: string
+      postInstallNotes:
+        description: Post installation notes that would be useful to the user of this package.
+        type: string
       postUninstallNotes:
-        type: string
         description: Post uninstallation notes that would be useful to the user of this package.
-      maintainer:
         type: string
-      selected:
-        type: boolean
-        default: false
-        description: Flag indicating if the package is selected in search results
-      config:
-        $ref: '#/definitions/config'
-      command:
-        $ref: '#/definitions/command'
-      framework:
-        type: boolean
-        default: false
-        description: True if this package installs a new Mesos framework.
-      downgradesTo:
-        type: array
-        items:
-          type: string
-        description: 'List of versions that this package can downgrade to. If the property is a list containing the string ''*'', this package can downgrade to any version. If the property is not set or the empty list, this package cannot downgrade.'
-      version:
+      preInstallNotes:
+        description: Pre installation notes that would be useful to the user of this package.
         type: string
-        pattern: '^[-a-zA-Z0-9.]+$'
+      releaseVersion:
+        description: Corresponds to the revision index from the universe directory structure
+        minimum: 0
+        type: integer
       resource:
         $ref: '#/definitions/v30Resource'
-      preInstallNotes:
+      scm:
         type: string
-        description: Pre installation notes that would be useful to the user of this package.
-      minDcosReleaseVersion:
-        type: string
-        description: The minimum DC/OS Release Version the package can run on.
-        pattern: '^(?:0|[1-9][0-9]*)(?:\.(?:0|[1-9][0-9]*))*$'
-      releaseVersion:
-        type: integer
-        minimum: 0
-        description: Corresponds to the revision index from the universe directory structure
-      upgradesFrom:
+      selected:
+        default: false
+        description: Flag indicating if the package is selected in search results
+        type: boolean
+      tags:
+        items:
+          pattern: '^[^\s]+$'
+          type: string
         type: array
+      upgradesFrom:
+        description: 'List of versions that can upgrade to this package. If the property is a list containing the string ''*'', any version can upgrade to this package. If the property is not set or the empty list, no version can upgrade to this package.'
         items:
           type: string
-        description: 'List of versions that can upgrade to this package. If the property is a list containing the string ''*'', any version can upgrade to this package. If the property is not set or the empty list, no version can upgrade to this package.'
+        type: array
+      version:
+        pattern: '^[-a-zA-Z0-9.]+$'
+        type: string
+      website:
+        type: string
     required:
       - description
       - maintainer
@@ -1015,3 +709,309 @@ definitions:
       - releaseVersion
       - tags
       - version
+    type: object
+info:
+  description: ''
+  title: DC/OS Package and Service
+  version: ''
+paths:
+  /capabilities:
+    get:
+      description: List all of the capabilities supported by DC/OS.
+      operationId: GET-capabilities
+      produces:
+        - application/vnd.dcos.capabilities+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/capabilitiesResponse'
+  /package/describe:
+    post:
+      consumes:
+        - application/vnd.dcos.package.describe-request+json;charset=utf-8;version=v1
+      description: 'Show information about the package, including the required resources and configuration to start the service, and command line extensions that are included with the package.'
+      operationId: POST-package-describe
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/describeRequest'
+        - enum:
+            - application/vnd.dcos.package.describe-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.describe-response+json;charset=utf-8;version=v3
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/describeResponse'
+  /package/install:
+    post:
+      consumes:
+        - application/vnd.dcos.package.install-request+json;charset=utf-8;version=v1
+      description: Runs a service from a Universe package.
+      operationId: POST-package-install
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/installRequest'
+        - enum:
+            - application/vnd.dcos.package.install-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.install-response+json;charset=utf-8;version=v2
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/installResponse'
+  /package/list:
+    post:
+      consumes:
+        - application/vnd.dcos.package.list-request+json;charset=utf-8;version=v1
+      description: Lists all of the running DC/OS services started from a DC/OS package.
+      operationId: POST-package-list
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/listRequest'
+        - enum:
+            - application/vnd.dcos.package.list-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.list-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/listResponse'
+  /package/list-versions:
+    post:
+      consumes:
+        - application/vnd.dcos.package.list-versions-request+json;charset=utf-8;version=v1
+      description: List all of the available versions for a given package name.
+      operationId: POST-package-list-versions
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/listVersionsRequest'
+        - enum:
+            - application/vnd.dcos.package.list-versions-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.list-versions-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/listVersionsResponse'
+  /package/render:
+    post:
+      consumes:
+        - application/vnd.dcos.package.render-request+json;charset=utf-8;version=v1
+      description: 'Generates the Marathon application definition for the package name, version, and optional configuration JSON object.'
+      operationId: POST-package-render
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/renderRequest'
+        - enum:
+            - application/vnd.dcos.package.render-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.render-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/renderResponse'
+  /package/repository/add:
+    post:
+      consumes:
+        - application/vnd.dcos.package.repository.add-request+json;charset=utf-8;version=v1
+      description: Adds a package repository (for example Universe) for use by DC/OS. To add a package repository to the beginning of the list set the index to zero (0). To add a package repository to the end of the list do not specify an index.
+      operationId: POST-package-repository-add
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/packageRepositoryAddRequest'
+        - enum:
+            - application/vnd.dcos.package.repository.add-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.repository.add-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/packageRepositoryAddResponse'
+  /package/repository/delete:
+    post:
+      consumes:
+        - application/vnd.dcos.package.repository.delete-request+json;charset=utf-8;version=v1
+      description: Deletes a package repository (for example Universe) from DC/OS.
+      operationId: POST-package-repository-delete
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/packageRepositoryDeleteRequest'
+        - enum:
+            - application/vnd.dcos.package.repository.delete-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.repository.delete-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/packageRepositoryDeleteResponse'
+  /package/repository/list:
+    post:
+      consumes:
+        - application/vnd.dcos.package.repository.list-request+json;charset=utf-8;version=v1
+      description: ' List all of the package repositories (for example Universe) used by DC/OS. The list is ordered by priority; if multiple repositories contain the same package, the package closest to the start of the list will be used.'
+      operationId: POST-package-repository-list
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/packageRepositoryListRequest'
+        - enum:
+            - application/vnd.dcos.package.repository.list-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.repository.list-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/packageRepositoryListResponse'
+  /package/search:
+    post:
+      consumes:
+        - application/vnd.dcos.package.search-request+json;charset=utf-8;version=v1
+      description: Lists all matching packages in the repository given a partial pattern. The character * can be used to match any number of characters.
+      operationId: POST-package-search
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/searchRequest'
+        - enum:
+            - application/vnd.dcos.package.search-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.search-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/searchResponse'
+  /package/uninstall:
+    post:
+      consumes:
+        - application/vnd.dcos.package.uninstall-request+json;charset=utf-8;version=v1
+      description: 'description: Stops a running service that was launched from a DC/OS package.'
+      operationId: POST-package-uninstall
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/uninstallRequest'
+        - enum:
+            - application/vnd.dcos.package.uninstall-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.package.uninstall-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/uninstallResponse'
+  /service/describe:
+    post:
+      consumes:
+        - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
+      description: Describes a DC/OS Service
+      operationId: POST-service-describe
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/serviceDescribeRequest'
+        - enum:
+            - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/serviceDescribeResponse'
+  /service/update:
+    post:
+      consumes:
+        - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
+      description: Updates the package version and/or the configuration of a DC/OS Service
+      operationId: POST-service-update
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/serviceUpdateRequest'
+        - enum:
+            - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
+          in: header
+          name: Accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/serviceUpdateResponse'
+swagger: '2.0'
