@@ -16,7 +16,7 @@ securing any Linux system apply to securing DC/OS, including setting correct
 file permissions, restricting root and normal user accounts, protecting
 network interfaces with iptables or other firewalls, and regularly applying
 updates from the Linux distribution used with DC/OS to ensure that system
-libraries, utilities and core services like systemd and OpenSSH are secure.
+libraries, utilities, and core services like systemd and OpenSSH are secure.
 
 ## Security Zones
 
