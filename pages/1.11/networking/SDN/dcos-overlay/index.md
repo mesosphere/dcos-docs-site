@@ -32,21 +32,21 @@ The default configuration of DC/OS overlay provides a virtual network, `dcos`, w
         prefix: 26
 ```
 
-Each virtual network is identified by a canonical `name` (see [limitations](/pages/1.11/networking/virtual-networks/) for constraints on naming virtual networks). Containers launched on a virtual network get an IP address from the subnet allocated to the virtual network. To remove the dependency on a global IPAM, the overlay subnet is further split into smaller subnets. Each of the smaller subnets is allocated to an agent. The agents can then use a host-local IPAM to allocate IP addresses from their respective subnets to containers launched on the agent and attached to the given
+Each virtual network is identified by a canonical `name` (see [limitations](#limitations) for constraints on naming virtual networks). Containers launched on a virtual network get an IP address from the subnet allocated to the virtual network. To remove the dependency on a global IPAM, the overlay subnet is further split into smaller subnets. Each of the smaller subnets is allocated to an agent. The agents can then use a host-local IPAM to allocate IP addresses from their respective subnets to containers launched on the agent and attached to the given
 overlay. The `prefix` determines the size of the subnet (carved from the overlay subnet) allocated to each agent and thus defines the number of agents on which the overlay can run.
 
-In the default configuration above each virtual network is allocated a /8 subnet (in the “subnet” field), which is then divided into /26 container subnets to be used on each host that will be part of the network (in the “prefix” field) as shown:
+In the default configuration above the virtual network is allocated a /8 subnet (in the “subnet” field), which is then divided into /26 container subnets to be used on each host that will be part of the network (in the “prefix” field) as shown:
 
-![Virtual network address space](/1.11/img/overlay-network-address-space.png)
+![Virtual network address space](/pages/1.11/img/overlay-network-address-space.png)
 
-The bits reserved for ContainerID (6 in this example) are then subdivided into two equal groups (of 5 bits in this example) that are used for Mesos containers and Docker containers respectively. With the default configuration, each agent will be able to host a maximum of 2^5=32 Mesos containers and 32 docker containers. With this specific configuration, if a service tries to launch more than 32 tasks on the Mesos containerizer or the Docker containerizer, it will receive a `TASK_FAILED`. Consult the [limitations](/1.11/networking/virtual-networks/) section of the main Virtual Networks page to learn more about this constraint.
+The bits reserved for ContainerID (6 in this example) are then subdivided into two equal groups (of 5 bits in this example) that are used for Mesos containers and Docker containers respectively. With the default configuration, each agent will be able to host a maximum of 2^5=32 Mesos containers and 32 docker containers. With this specific configuration, if a service tries to launch more than 32 tasks on the Mesos containerizer or the Docker containerizer, it will receive a `TASK_FAILED`. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more about this constraint.
 
 You can modify the default virtual network configuration and add more virtual networks to fit your needs. Currently, you can only add or delete a virtual network at install time. Below we describe the addition, modification and deletion of virtual networks managed by DC/OS overlay.
 ### Architecture
 
 Here is the DC/OS Overlay architecture:
 
-![Overview of the DC/OS Overlay architecture](/1.11/img/overlay-networks.png)
+![Overview of the DC/OS Overlay architecture](/pages/1.11/img/overlay-networks.png)
 
 DC/OS Overlay does not require an external IP address management (IPAM) solution because IP allocation is handled via the Mesos Master replicated log. DC/OS Overlay does not support external IPAMs.
 
@@ -58,7 +58,7 @@ The components of the DC/OS Overlay interact in the following ways:
 
 - For intra-node IP discovery we use an overlay orchestrator called Virtual Network Service. This operator-facing system component is responsible for programming the overlay backend using a library called [lashup](https://github.com/dcos/lashup) that implements a gossip protocol to disseminate and coordinate overlay routing information among all Mesos agents in the DC/OS cluster.
 
-**Note:** Your network must adhere to the [DC/OS system requirements](/1.11/installing/oss/custom/system-requirements/) to use DC/OS Overlay.
+**Note:** Your network must adhere to the [DC/OS system requirements](/pages/1.11/installing/oss/custom/system-requirements/) to use DC/OS Overlay.
 
 
 # Adding virtual networks during installation
@@ -98,7 +98,7 @@ You can override the default network or add additional virtual networks by modif
           prefix: 24
 ```
 
-In the above example, we have defined two virtual networks. The virtual network `dcos` retains the default virtual network, and we have added another virtual network called `dcos-1` with subnet range `192.168.0.0/16`. When you create a network, you must give it a name and a subnet. That name is used to launch Marathon tasks and other Mesos framework tasks using this specific virtual network. Due to restrictions on the size of Linux device names, the virtual network name must be less than thirteen characters. Consult the [limitations](/1.11/networking/virtual-networks/) section of the main Virtual Networks page to learn more.
+In the above example, we have defined two virtual networks. The virtual network `dcos` retains the default virtual network, and we have added another virtual network called `dcos-1` with subnet range `192.168.0.0/16`. When you create a network, you must give it a name and a subnet. That name is used to launch Marathon tasks and other Mesos framework tasks using this specific virtual network. Due to restrictions on the size of Linux device names, the virtual network name must be less than thirteen characters. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more.
 
 # Retrieving virtual network state
 
@@ -227,11 +227,12 @@ To replace your virtual network, uninstall DC/OS and delete the overlay replicat
 
 The **Networking** tab of the DC/OS web interface provides information helpful for troubleshooting. You can see which containers are on which network and see their IP addresses.
 
+<a name="limitations"></a>
 ### Limitations
 
 * DC/OS Overlay does not allow services to reserve IP addresses that result in ephemeral addresses for containers across multiple incarnations on the virtual network. This restriction ensures that a given client connects to the correct service.
 
-  [VIPs (virtual IP addresses)](/1.11/networking/load-balancing-vips/) are built in to DC/OS and offer a clean way of allocating static addresses to services. If you are using DC/OS Overlay, you should use VIPs to access your services to support cached DNS requests and static IP addresses.
+  [VIPs (virtual IP addresses)](/pages/1.11/networking/load-balancing-vips/) are built in to DC/OS and offer a clean way of allocating static addresses to services. If you are using DC/OS Overlay, you should use VIPs to access your services to support cached DNS requests and static IP addresses.
 
 * The limitation on the total number of containers on DC/OS Overlay is the same value as the number of IP addresses available on the overlay subnet. However, the limitation on the number of containers on an agent depends on the subnet (which will be a subset of the overlay subnet) allocated to the agent. For a given agent subnet, half the address space is allocated to the `MesosContainerizer` and the other half is allocated to the `DockerContainerizer`.
 
