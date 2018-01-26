@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos backup
 title: dcos backup
-menuWeight: 0
+menuWeight: 2
 excerpt:
 
 enterprise: true
