@@ -35,7 +35,7 @@ VIPs follow this naming convention:
 
 *   A pool of VIP addresses that are unique to your application.
 
-## Creating a VIP
+## Creating a VIP from GUI
 
 1.  From the DC/OS [GUI](/1.11/gui/), click on the **Services** then **RUN A SERVICE**.
     1.  From the **Networking** tab, select  **NETWORK TYPE** > **Virtual Network: dcos**.
