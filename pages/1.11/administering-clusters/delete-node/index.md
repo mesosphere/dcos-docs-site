@@ -16,7 +16,7 @@ If your node has gone down in an unplanned way, skip to [Decommission the node](
 
 1. [SSH to the agent node](/1.11/administering-clusters/sshcluster/) you wish to shut down.
 
-1. Ente the following commands to stop the node.
+1. Enter the following commands to stop the node.
 
   -  **Private agent**
     
