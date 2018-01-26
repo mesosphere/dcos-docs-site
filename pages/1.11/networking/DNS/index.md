@@ -46,7 +46,7 @@ For the purpose of illustration lets assume that we are running the following Do
   "constraints": []
 }
 ```
-The `/mygroup/myapp` is running on an SDN network called "dcos". We will use this app to describe the different FQDN it receives from DC/OS DNS.
+The `/mygroup/myapp` is running on a virtual network called "dcos". We will use this app to describe the different FQDN it receives from DC/OS DNS.
 
 *NOTE*: While the example uses a Docker container the same FQDNs are generated for a UCR container as well.
 
