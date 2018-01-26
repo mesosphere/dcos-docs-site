@@ -19,10 +19,10 @@ The DC/OS AWS CloudFormation template is optimized to run DC/OS, but you might w
 
 To change the number of agent nodes with AWS:
 
-1.  From [AWS CloudFormation Management][3] page, select your DC/OS cluster and click **Update Stack**.
-2.  Click through to the **Specify Parameters** page, and you can specify new values for the **PublicSlaveInstanceCount** and **SlaveInstanceCount**.
+1.  From [AWS CloudFormation Management][3] home page, click on the **Services** tab on the top left-hand corner, select **CloudFormation** under the **Management Tools** header, select your DC/OS cluster and click **Update Stack**.
+2.  Select **Use current template** and click next to go to the **Specify Details** section, and now you can specify new values for the **PublicSlaveInstanceCount** and **SlaveInstanceCount**.
 3.  On the **Options** page, accept the defaults and click **Next**. **Tip:** You can choose whether to rollback on failure. By default this option is set to **Yes**.
-4.  On the **Review** page, check the acknowledgement box and then click **Create**.
+4.  On the **Review** page, check the acknowledgement box and then click **Update**.
 
 Your new machines will take a few minutes to initialize; you can watch them in the EC2 console. The DC/OS web interface will update as soon as the new nodes register.
 
