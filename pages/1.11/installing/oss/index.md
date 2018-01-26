@@ -11,7 +11,7 @@ DC/OS can be installed on any cluster of physical or virtual machines.
 
 # [Local Installation][1]
 
-For first-time users or developers looking to build services or modify DC/OS, the [Vagrant installer][1] provides a quick, free way to deploy a virtual cluster on a single machine.
+For first-time users or developers looking to build services or modify DC/OS, the [Local Installers][1] provide a quick, free way to deploy a virtual cluster on a single machine.
 
 # [Cloud Provisioning][6]
 
