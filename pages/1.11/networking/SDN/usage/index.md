@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Virtual Networks
-title: Virtual Networks
+navigationTitle:  Usage
+title: Usage
 menuWeight: 20
 excerpt:
 enterprise: false
