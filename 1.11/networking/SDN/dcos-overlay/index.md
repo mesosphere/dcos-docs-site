@@ -18,6 +18,7 @@ DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-pa
 * You can run applications that require intra-cluster connectivity, like Cassandra, HDFS, and Riak.
 * You can create multiple virtual networks to isolate different portions of your organization, for instance, development, marketing, and production.
 
+You can learn more about the design and implementation of DC/OS overlay [here](/1.11/overview/design/overlay).
 
 The default configuration of DC/OS overlay provides a virtual network, `dcos`, whose YAML configuration is as follows:
 
