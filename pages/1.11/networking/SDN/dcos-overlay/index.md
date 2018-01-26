@@ -10,7 +10,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-packages with DC/OS. It is enabled by default. DC/OS overlay has the ability to run multiple virtual network instances in a given DC/OS cluster. Features provided by DC/OS overlay are:
+DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS. It is enabled by default. DC/OS overlay has the ability to run multiple virtual network instances in a given DC/OS cluster. Features provided by DC/OS overlay are:
 * Both Mesos and Docker containers can communicate from within a single node and between nodes on a cluster.
 * Services can be created such that their traffic is isolated from other traffic coming from any other virtual network or host in the cluster.
 * They remove the need to worry about potentially overlapping ports in applications, or the need to use nonstandard ports for services to avoid overlapping.
