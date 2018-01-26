@@ -32,4 +32,3 @@ A license contains the maximum number of nodes attached to a cluster at any give
 Audit data about the number of nodes is gathered from the DC/OS metrics component every 30 min. Once a day, the DC/OS licensing component logs the number of nodes. The DC/OS licensing component also logs any graceful process shutdown. If the number of nodes exceeds the number specified in the contract, the DC/OS licensing component logs a breach of contract.
 
 To validate that Mesosphere is not logging sensitive data, you can retrieve the audit data decryption key and decrypt the audit data checksum.
-

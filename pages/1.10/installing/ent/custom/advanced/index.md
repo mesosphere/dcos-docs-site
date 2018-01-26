@@ -22,7 +22,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.10/overview/concepts/#mesos-exhibitor-zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.10/overview/concepts/#exhibitor-zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -194,8 +194,9 @@ To install DC/OS:
 
 3.  From your home directory, run this command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
     
-        sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
-        
+    ```bash
+    sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
+    ```
 
 4.  <A name="masterinstall"></A> Run these commands on each of your master nodes in succession to install DC/OS using your custom build file.
     
@@ -258,7 +259,7 @@ To install DC/OS:
             ```bash
             sudo bash dcos_install.sh slave_public
             ```
-            
+
     __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.10/installing/ent/custom/system-requirements/#port-and-protocol).
 
 6.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
@@ -288,8 +289,8 @@ Now you can [assign user roles][8].
 
  [1]: /1.10/installing/ent/custom/system-requirements/
  [2]: /1.10/installing/ent/custom/uninstall/
- [3]: /1.10/overview/concepts/#public-agent-node
- [4]: /1.10/overview/concepts/#private-agent-node
+ [3]: /1.10/overview/concepts/#public
+ [4]: /1.10/overview/concepts/#private
  [5]: /1.10/img/chef-zk-status.png
  [7]: /1.10/img/dashboard-ee.png
  [8]: /1.10/security/ent/
