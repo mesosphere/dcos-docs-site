@@ -9,7 +9,7 @@ enterprise: true
 
 A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster.
 
-You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.11/cli/command-reference/dcos-cluster-link) and [dcos cluster unlink](/1.11/cli/command-reference/dcos-cluster-unlink) commands and the [cluster link API](/1.11/administering-clusters/multiple-clusters/cluster-link-api). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
+You add and remove links from one cluster to another cluster using the DC/OS CLI commands: [dcos cluster link](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) and [dcos cluster unlink](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) and the [cluster link API](/1.11/administering-clusters/multiple-clusters/cluster-link-api). Once a link is set up, you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials again when switching clusters.
 
 You must be a superuser or have the appropriate cluster link [permission](/1.11/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
 
@@ -54,11 +54,11 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 # Viewing linked clusters
 
-To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, it status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.11/administering-clusters/cluster-connections/#viewing-connected-clusters).
+To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, its status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.11/administering-clusters/multiple-clusters/cluster-connections/#viewing-connected-clusters).
 
 # Remove a link to a cluster
 
-To remove a link, `dcos cluster unlink` command and supply the **name** or **ID** of a linked cluster. For example:
+To remove a link, run the `dcos cluster unlink` command and supply the **name** or **ID** of a linked cluster. For example:
 
 ```bash
 dcos cluster unlink <linked-cluster-id>
@@ -66,17 +66,17 @@ dcos cluster unlink <linked-cluster-id>
 
 # Switch cluster
 
-You can switch between linked clusters using the CLI or UI. When you switch clusters using the CLI, the new cluster becomes the CLI's active cluster. When you switch cluster using the UI, the new cluster becomes the cluster you see in the UI.  If you switch the cluster in the CLI it doesn't change the cluster in the UI; similarly switching in the UI doesn't affect the attached cluster in the CLI.
+You can switch between linked clusters using the CLI or UI. When you switch clusters using the CLI, the new cluster becomes the CLI's active cluster. When you switch clusters using the UI, the new cluster becomes the cluster you see in the UI.  If you switch the cluster in the CLI, it doesn't change the cluster in the UI; similarly switching in the UI doesn't affect the attached cluster in the CLI.
 
 ### Switch to a linked cluster from the DC/OS CLI
 
-Run the `dcos cluster attach` command and supply the name or ID of a linked cluster:
+Run the `dcos cluster attach` command and supply the **name** or **ID** of a linked cluster:
 
 ```bash
 dcos cluster attach <linked-cluster-name>
 ```
 
-If you run `dcos cluster list`, `<linked-cluster-name>` will have an asterisk by its name.
+If you run the `dcos cluster list` command, `<linked-cluster-name>` will have an asterisk by its name.
 
 ### Switch to a linked cluster from the DC/OS UI
 
@@ -92,7 +92,7 @@ If you run `dcos cluster list`, `<linked-cluster-name>` will have an asterisk by
 
     ![swi linked cluster](/1.11/img/switch-linked-cluster.png)
 
-If you are superuser you can also switch to a linked cluster in the Linked Clusters tab.
+If you are superuser you can also switch to a linked cluster through the **Linked Clusters** tab.
 
 1. Select **Cluster -> Linked Clusters**.
     
@@ -129,7 +129,7 @@ If you are superuser you can also switch to a linked cluster in the Linked Clust
     dcos cluster attach cluster-a
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
-     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.11-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+    cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.11-dev   https://cluster-b.us-west-2.elb.amazonaws.com
     cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.11-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
@@ -154,7 +154,7 @@ If you are superuser you can also switch to a linked cluster in the Linked Clust
     (1-2): 2
     ```
 
-    **Note:** If the cluster links successfully there is _no_ response. 
+    **Note:** There is _no_ response if the cluster links successfully. 
 
 1. Attach to cluster `cluster-b`.
 
@@ -193,7 +193,7 @@ If you are superuser you can also switch to a linked cluster in the Linked Clust
     ```
 
 
-Once an operator has set up links you can switch between clusters using the UI or CLI.
+Once an operator has set up links, you can switch between clusters using the UI or CLI.
 
 ### Switch clusters using the UI with Google SSO
 
