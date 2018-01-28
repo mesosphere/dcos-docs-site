@@ -82,7 +82,7 @@ While describing the various FQDN available for services running on DC/OS we had
 * `<taskname>.kafka.containerip.dcos.thisdcos.directory`
 * `<taskname>.kafka.agentip.dcos.thisdcos.directory`
 * `<taskname>.kafka.autoip.dcos.thisdcos.directory`
-* `<tasknam>.kafka.mesos`
+* `<taskname>.kafka.mesos`
 
 # Recommendation
 The `.mesos` TLD pre-dates the `.directory` TLD, and has been in existence primarily for backwards compatibility. While any service launched on DC/OS will get an FQDN both in the `.mesos` TLD and the `.directory` TLD,  it is recommended to use the `.directory` TLD to access services, since by design `dcos-dns` is more reactive and fault-taulerant than `mesos-dns`. That said, `mesos-dns` does provide a RESTful interface for accessing its records which allows the `.mesos` TLD to be available over an HTTP interface and not just over DNS.  
