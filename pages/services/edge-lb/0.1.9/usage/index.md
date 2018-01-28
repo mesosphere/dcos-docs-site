@@ -1,9 +1,11 @@
 ---
-post_title: Edge-LB Usage
-menu_order: 30
-post_excerpt: ""
-feature_maturity: ""
-enterprise: 'yes'
+layout: layout.pug
+navigationTitle:  Edge-LB Usage
+title: Edge-LB Usage
+menuWeight: 60
+excerpt:
+
+enterprise: true
 ---
 
 This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/service-docs/edge-lb/0.1.9/cli-reference/).
