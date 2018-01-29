@@ -50,5 +50,3 @@ To assign permissions to your account, see [Assigning permissions](/1.10/securit
 # Resources
 
 The following resources are available under both of the above routes:
-
-[swagger api='/services/api/edge-lb-v1.yaml']
