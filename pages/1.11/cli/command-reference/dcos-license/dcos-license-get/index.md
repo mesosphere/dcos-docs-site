@@ -32,7 +32,7 @@ dcos license get [<id>|active] [--output <file_path>] [--decryption-key]
 |---------|-------------|-------------|
 | `<id> `   |             |  The ID of the license. |
 | `active`   |             |  The active license. |
-| `<file_path>`    |   | The path to a file to store the license |
+| `<file_path>`    |    | The path to a file to store the license |
 
 # Parent command
 

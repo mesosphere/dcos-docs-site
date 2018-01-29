@@ -1,39 +1,34 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos license audit get
-title: dcos license audit get
-menuWeight: 0
+navigationTitle:  dcos license list
+title: dcos license list
+menuWeight: 2
 excerpt:
 
 enterprise: true
 ---
 
 # Description
-Get the cluster license audit records.
+List the cluster licenses.
 
 # Usage
 
 ```bash
-dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
+dcos license list --output <file_path>
 ```
 
 # Options
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `--output`   |             |  Store the audit records in a file. |
-| `--decrypt`   |             |  Decrypt the license audit records checksum. |
+| `--output`   |             |  Store the license in a file. |
 
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<id> `   |             |  The ID of the license. |
-| `active`   |             |  The active license. |
-| `<file_path>`    |   |  The path to a file to store the audit records. |
-
-
+| `<file_path>`    |   |  The path to a file to store the license. |
 
 
 # Parent command
