@@ -6,14 +6,14 @@ menuWeight: 3
 enterprise: true
 ---
 
-You use the License API to manage DC/OS licenses. 
+You use the License API to manage DC/OS licenses.
 
 # Routes
 
 Access to the License API is proxied through the Admin Router on each master node using the following route:
 
 ```
-/system/v1/license/v1
+/licensing/v1
 ```
 
 To determine the URL of your cluster, see [Cluster Access](/1.11/api/access/).
