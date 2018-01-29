@@ -21,8 +21,8 @@ dcos license status  [--terms] [--breaches]
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `--terms`   |             |  Displays only the terms of contract. |
-| `--breaches`   |             |  Displays only the number of breaches. |
+| `--terms`   |             |  Displays the terms of contract. |
+| `--breaches`   |             |  Displays the number of breaches. |
 
 # Parent command
 
