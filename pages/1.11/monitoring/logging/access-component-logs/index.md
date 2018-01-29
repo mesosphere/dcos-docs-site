@@ -29,7 +29,9 @@ Here is the [permission](/1.11/security/ent/perms-reference/) that is required t
     ![New user](/1.11/img/new-user-generic.png)
 
 1.  From the **Permissions** tab, select **ADD PERMISSION**.
-    
+
+    ![Add permission to user](/1.10/img/permission-user.png)
+
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog and paste in the following permissions and click **ADD PERMISSIONS**.
 
     ```bash
