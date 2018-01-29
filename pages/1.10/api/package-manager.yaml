@@ -789,6 +789,78 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/capabilitiesResponse'
+  /cosmos/service/describe:
+    post:
+      consumes:
+        - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
+      description: Describes a DC/OS Service
+      operationId: POST-cosmos-service-describe
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/serviceDescribeRequest'
+        - enum:
+            - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
+          in: header
+          name: accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/serviceDescribeResponse'
+  /cosmos/service/start:
+    post:
+      consumes:
+        - application/vnd.dcos.service.start-request+json;charset=utf-8;version=v1
+      description: '**Experimental.** Starts a DC/OS Service from a DC/OS package.'
+      operationId: POST-cosmos-service-start
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/serviceStartRequest'
+        - enum:
+            - application/vnd.dcos.service.start-response+json;charset=utf-8;version=v1
+          in: header
+          name: accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.service.start-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/serviceStartResponse'
+  /cosmos/service/update:
+    post:
+      consumes:
+        - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
+      description: Updates the package version and/or the configuration of a DC/OS Service
+      operationId: POST-cosmos-service-update
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/serviceUpdateRequest'
+        - enum:
+            - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
+          in: header
+          name: accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/serviceUpdateResponse'
   /package/add:
     post:
       consumes:
@@ -801,9 +873,9 @@ paths:
           schema:
             $ref: '#/definitions/packageAddRequest'
         - enum:
-            - application/vnd.dcos.package.add-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.add-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -825,9 +897,9 @@ paths:
           schema:
             $ref: '#/definitions/describeRequest'
         - enum:
-            - application/vnd.dcos.package.describe-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.describe-response+json;charset=utf-8;version=v3
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -849,9 +921,9 @@ paths:
           schema:
             $ref: '#/definitions/installRequest'
         - enum:
-            - application/vnd.dcos.package.install-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.install-response+json;charset=utf-8;version=v2
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -873,9 +945,9 @@ paths:
           schema:
             $ref: '#/definitions/listRequest'
         - enum:
-            - application/vnd.dcos.package.list-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.list-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -897,9 +969,9 @@ paths:
           schema:
             $ref: '#/definitions/listVersionsRequest'
         - enum:
-            - application/vnd.dcos.package.list-versions-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.list-versions-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -921,9 +993,9 @@ paths:
           schema:
             $ref: '#/definitions/renderRequest'
         - enum:
-            - application/vnd.dcos.package.render-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.render-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -945,9 +1017,9 @@ paths:
           schema:
             $ref: '#/definitions/packageRepositoryAddRequest'
         - enum:
-            - application/vnd.dcos.package.repository.add-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.repository.add-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -969,9 +1041,9 @@ paths:
           schema:
             $ref: '#/definitions/packageRepositoryDeleteRequest'
         - enum:
-            - application/vnd.dcos.package.repository.delete-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.repository.delete-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -993,9 +1065,9 @@ paths:
           schema:
             $ref: '#/definitions/packageRepositoryListRequest'
         - enum:
-            - application/vnd.dcos.package.repository.list-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.repository.list-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -1017,9 +1089,9 @@ paths:
           schema:
             $ref: '#/definitions/searchRequest'
         - enum:
-            - application/vnd.dcos.package.search-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.search-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -1041,9 +1113,9 @@ paths:
           schema:
             $ref: '#/definitions/uninstallRequest'
         - enum:
-            - application/vnd.dcos.package.uninstall-request+json;charset=utf-8;version=v1
+            - application/vnd.dcos.package.uninstall-response+json;charset=utf-8;version=v1
           in: header
-          name: Accept
+          name: accept
           required: true
           type: string
       produces:
@@ -1053,76 +1125,4 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/uninstallResponse'
-  /service/describe:
-    post:
-      consumes:
-        - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
-      description: Describes a DC/OS Service
-      operationId: POST-service-describe
-      parameters:
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/serviceDescribeRequest'
-        - enum:
-            - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
-          in: header
-          name: Accept
-          required: true
-          type: string
-      produces:
-        - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/serviceDescribeResponse'
-  /service/start:
-    post:
-      consumes:
-        - application/vnd.dcos.service.start-request+json;charset=utf-8;version=v1
-      description: '**Experimental.** Starts a DC/OS Service from a DC/OS package.'
-      operationId: POST-service-start
-      parameters:
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/serviceStartRequest'
-        - enum:
-            - application/vnd.dcos.service.start-request+json;charset=utf-8;version=v1
-          in: header
-          name: Accept
-          required: true
-          type: string
-      produces:
-        - application/vnd.dcos.service.start-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/serviceStartResponse'
-  /service/update:
-    post:
-      consumes:
-        - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
-      description: Updates the package version and/or the configuration of a DC/OS Service
-      operationId: POST-service-update
-      parameters:
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/serviceUpdateRequest'
-        - enum:
-            - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
-          in: header
-          name: Accept
-          required: true
-          type: string
-      produces:
-        - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/serviceUpdateResponse'
 swagger: '2.0'
