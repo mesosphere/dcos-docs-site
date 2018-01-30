@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+Example Edge-LB pool configurations using the V1 API.
+
 # V1 Pool Examples
 
 ## Marathon Apps and DC/OS Services
