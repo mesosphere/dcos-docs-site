@@ -51,8 +51,10 @@ To assign permissions to your account, see [Assigning permissions](/1.10/securit
 
 These base level routes were added along with V2 and can be used to read data from V1 or V2 pool configurations.
 
+[swagger api='/services/api/edge-lb-common.yaml']
 
 # V2 Resources
 
 The following resources are available under both of the above routes:
 
+[swagger api='/services/api/edge-lb-v2.yaml']
