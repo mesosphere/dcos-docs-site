@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle: Beta Elastic 2.1.1-5.6.5-beta
 title: Beta Elastic 2.1.1-5.6.5-beta
-menuWeight: 10
+menuWeight: 20
 excerpt:
-
+featureMaturity:
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
