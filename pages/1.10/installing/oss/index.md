@@ -15,7 +15,7 @@ For first-time users or developers looking to build services or modify DC/OS, th
 
 # [Cloud Provisioning][6]
 
-For users deploying to the public cloud, DC/OS offers configurable cloud provisioning templates for [AWS][2] and [Azure][3] that will manage virtual machines and DC/OS installation.
+For users deploying to the public cloud, DC/OS offers configurable cloud provisioning templates for [AWS][2], [Azure][3], and [GCE][8] that will manage virtual machines and DC/OS installation.
 
 DC/OS can be installed on other public and private clouds using the Datacenter Installation process, provided virtual machines and networks are created first.
 
@@ -32,3 +32,5 @@ For advanced users installing to existing virtual or physical machines, on-premi
 [5]: /1.10/installing/oss/custom/advanced/
 [6]: /1.10/installing/oss/cloud/
 [7]: /1.10/installing/oss/custom/
+[8]: /1.10/installing/oss/cloud/gce/
+

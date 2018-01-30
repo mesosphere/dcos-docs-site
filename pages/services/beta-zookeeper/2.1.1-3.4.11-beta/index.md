@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle: Beta Kafka ZooKeeper 2.1.1-3.4.11-beta
 title: Beta Kafka ZooKeeper 2.1.1-3.4.11-beta
-menuWeight: 10
+menuWeight: 20
 excerpt:
-
+featureMaturity:
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
