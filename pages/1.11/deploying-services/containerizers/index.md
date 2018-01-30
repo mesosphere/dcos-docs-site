@@ -39,7 +39,7 @@ The tables below enumerate the features available with each of the supported con
 | --------------------------------------- | ----------- | --------- | -------- |
 | **Command**                             | Yes         | Yes       |          |
 | **Container Images**                    | Yes         | Yes       |          |
-| **Image Garbage Collection**           | Yes         | Yes       |          |
+| **Image Garbage Collection**            | Yes         | Yes       |          |
 | **Pods**                                | Yes         | No        |          |
 | **GPUs**                                | Yes         | No        |          |
 | **URIs**                                | Yes         | Yes       |          |
