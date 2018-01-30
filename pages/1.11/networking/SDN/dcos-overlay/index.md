@@ -10,7 +10,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS. It is enabled by default. DC/OS overlay has the ability to run multiple virtual network instances in a given DC/OS cluster. Features provided by DC/OS overlay are:
+DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS. It is enabled by default. DC/OS overlay has the ability to run multiple virtual network instances in a given DC/OS cluster. Starting DC/OS 1.11, DC/OS overlay has support for creating IPv6 networks (*NOTE: IPv6 support is available only for Docker containers*). Features provided by DC/OS overlay are:
 * Both Mesos and Docker containers can communicate from within a single node and between nodes on a cluster.
 * Services can be created such that their traffic is isolated from other traffic coming from any other virtual network or host in the cluster.
 * They remove the need to worry about potentially overlapping ports in applications, or the need to use nonstandard ports for services to avoid overlapping.
@@ -18,35 +18,39 @@ DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-pa
 * You can run applications that require intra-cluster connectivity, like Cassandra, HDFS, and Riak.
 * You can create multiple virtual networks to isolate different portions of your organization, for instance, development, marketing, and production.
 
-You can learn more about the design and implementation of DC/OS overlay [here](/pages/1.11/overview/design/overlay).
+You can learn more about the design and implementation of DC/OS overlay [here](/1.11/overview/design/overlay).
 
-The default configuration of DC/OS overlay provides a virtual network, `dcos`, whose YAML configuration is as follows:
+The default configuration of DC/OS overlay provides an IPv4 virtual network, `dcos`, and an IPv6 virtual network `dcos6` whose YAML configuration is as follows:
 
 ```yaml
-  dcos_overlay_network:
-    vtep_subnet: 44.128.0.0/20
-    vtep_mac_oui: 70:B3:D5:00:00:00
-    overlays:
-      - name: dcos
-        subnet: 9.0.0.0/8
-        prefix: 26
+ dcos_overlay_network :
+   vtep_subnet: 44.128.0.0/20
+   vtep_subnet6: fd01:a::/64
+   vtep_mac_oui: 70:B3:D5:00:00:00
+   overlays:
+     - name: dcos
+       subnet: 9.0.0.0/8
+       prefix: 24
+     - name: dcos6
+       subnet6: fd01:b::/64
+       prefix6: 80
 ```
 
 Each virtual network is identified by a canonical `name` (see [limitations](#limitations) for constraints on naming virtual networks). Containers launched on a virtual network get an IP address from the subnet allocated to the virtual network. To remove the dependency on a global IPAM, the overlay subnet is further split into smaller subnets. Each of the smaller subnets is allocated to an agent. The agents can then use a host-local IPAM to allocate IP addresses from their respective subnets to containers launched on the agent and attached to the given
-overlay. The `prefix` determines the size of the subnet (carved from the overlay subnet) allocated to each agent and thus defines the number of agents on which the overlay can run.
+overlay. The `prefix` determines the size of the subnet (carved from the overlay subnet) allocated to each agent and thus defines the number of agents on which the overlay can run. E.g., in the default configuration above the virtual network `dcos` is allocated a /8 subnet (in the “subnet” field), which is then divided into /26 container subnets to be used on each host that will be part of the network (in the “prefix” field) as shown:
 
-In the default configuration above the virtual network is allocated a /8 subnet (in the “subnet” field), which is then divided into /26 container subnets to be used on each host that will be part of the network (in the “prefix” field) as shown:
-
-![Virtual network address space](/pages/1.11/img/overlay-network-address-space.png)
+![Virtual network address space](/1.11/img/overlay-network-address-space.png)
 
 The bits reserved for ContainerID (6 in this example) are then subdivided into two equal groups (of 5 bits in this example) that are used for Mesos containers and Docker containers respectively. With the default configuration, each agent will be able to host a maximum of 2^5=32 Mesos containers and 32 docker containers. With this specific configuration, if a service tries to launch more than 32 tasks on the Mesos containerizer or the Docker containerizer, it will receive a `TASK_FAILED`. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more about this constraint.
+
+While the above example is specifically for an IPv4 virtual network, the same logic can be applied to the IPv6 virtual network `dcos6` as well. The only caveat being that currently IPv6 is supported only for Docker containers. (*NOTE: If you try launching a UCR container on `dcos6`, it will result in a container launch failure.)* 
 
 You can modify the default virtual network configuration and add more virtual networks to fit your needs. Currently, you can only add or delete a virtual network at install time. Below we describe the addition, modification and deletion of virtual networks managed by DC/OS overlay.
 ### Architecture
 
 Here is the DC/OS Overlay architecture:
 
-![Overview of the DC/OS Overlay architecture](/pages/1.11/img/overlay-networks.png)
+![Overview of the DC/OS Overlay architecture](/1.11/img/overlay-networks.png)
 
 DC/OS Overlay does not require an external IP address management (IPAM) solution because IP allocation is handled via the Mesos Master replicated log. DC/OS Overlay does not support external IPAMs.
 
@@ -58,7 +62,7 @@ The components of the DC/OS Overlay interact in the following ways:
 
 - For intra-node IP discovery we use an overlay orchestrator called Virtual Network Service. This operator-facing system component is responsible for programming the overlay backend using a library called [lashup](https://github.com/dcos/lashup) that implements a gossip protocol to disseminate and coordinate overlay routing information among all Mesos agents in the DC/OS cluster.
 
-**Note:** Your network must adhere to the [DC/OS system requirements](/pages/1.11/installing/oss/custom/system-requirements/) to use DC/OS Overlay.
+**Note:** Your network must adhere to the [DC/OS system requirements](/1.11/installing/oss/custom/system-requirements/) to use DC/OS Overlay.
 
 
 # Adding virtual networks during installation
@@ -105,103 +109,193 @@ In the above example, we have defined two virtual networks. The virtual network 
 After DC/OS installation is complete, you can query the virtual network configuration using the `https://leader.mesos:5050/overlay-master/state` endpoint from your browser. The `network` key at the bottom lists the current overlay configuration and the `agents` key is a list showing how overlays are split across the Mesos agents. The following shows the network state when there is a single overlay in the cluster named `dcos`.
 
 ```json
-"agents": [
+
+  "agents": [
+    {
+      "ip": "172.17.0.2",
+      "overlays": [
         {
-            "ip": "10.10.0.120",
-            "overlays": [
-                {
-                    "backend": {
-                        "vxlan": {
-                            "vni": 1024,
-                            "vtep_ip": "198.15.0.1/20",
-                            "vtep_mac": "70:b3:d5:0f:00:01",
-                            "vtep_name": "vtep1024"
-                        }
-                    },
-                    "docker_bridge": {
-                        "ip": "44.128.0.128/25",
-                        "name": "d-dcos"
-                    },
-                    "info": {
-                        "name": "dcos",
-                        "prefix": 24,
-                        "subnet": "44.128.0.0/16"
-                    },
-                    "state": {
-                        "status": "STATUS_OK"
-                    },
-                    "subnet": "44.128.0.0/24"
-                }
-            ]
-        },
-        {
-            "ip": "10.10.0.118",
-            "overlays": [
-                {
-                    "backend": {
-                        "vxlan": {
-                            "vni": 1024,
-                            "vtep_ip": "198.15.0.2/20",
-                            "vtep_mac": "70:b3:d5:0f:00:02",
-                            "vtep_name": "vtep1024"
-                        }
-                    },
-                    "docker_bridge": {
-                        "ip": "44.128.1.128/25",
-                        "name": "d-dcos"
-                    },
-                    "info": {
-                        "name": "dcos",
-                        "prefix": 24,
-                        "subnet": "44.128.0.0/16"
-                    },
-                    "state": {
-                        "status": "STATUS_OK"
-                    },
-                    "subnet": "44.128.1.0/24"
-                }
-            ]
-        },
-        {
-            "ip": "10.10.0.119",
-            "overlays": [
-                {
-                    "backend": {
-                        "vxlan": {
-                            "vni": 1024,
-                            "vtep_ip": "198.15.0.3/20",
-                            "vtep_mac": "70:b3:d5:0f:00:03",
-                            "vtep_name": "vtep1024"
-                        }
-                    },
-                    "docker_bridge": {
-                        "ip": "44.128.2.128/25",
-                        "name": "d-dcos"
-                    },
-                    "info": {
-                        "name": "dcos",
-                        "prefix": 24,
-                        "subnet": "44.128.0.0/16"
-                    },
-                    "state": {
-                        "status": "STATUS_OK"
-                    },
-                    "subnet": "44.128.2.0/24"
-                }
-            ]
-        }
-    ],
-"network": {
-        "overlays": [
-            {
-                "name": "dcos",
-                "prefix": 24,
-                "subnet": "44.128.0.0/16"
+          "backend": {
+            "vxlan": {
+              "vni": 1024,
+              "vtep_ip": "44.128.0.1/20",
+              "vtep_ip6": "fd01:a::1/64",
+              "vtep_mac": "70:b3:d5:80:00:01",
+              "vtep_name": "vtep1024"
             }
-        ],
-        "vtep_mac_oui": "70:B3:D5:00:00:00",
-        "vtep_subnet": "198.15.0.0/20"
+          },
+          "info": {
+            "name": "dcos",
+            "prefix": 24,
+            "subnet": "9.0.0.0/8"
+          },
+          "state": {
+            "status": "STATUS_OK"
+          },
+          "subnet": "9.0.0.0/24"
+        },
+        {
+          "backend": {
+            "vxlan": {
+              "vni": 1024,
+              "vtep_ip": "44.128.0.1/20",
+              "vtep_ip6": "fd01:a::1/64",
+              "vtep_mac": "70:b3:d5:80:00:01",
+              "vtep_name": "vtep1024"
+            }
+          },
+          "info": {
+            "name": "dcos6",
+            "prefix6": 80,
+            "subnet6": "fd01:b::/64"
+          },
+          "state": {
+            "status": "STATUS_OK"
+          },
+          "subnet6": "fd01:b::/80"
+        }
+      ]
+    },
+    {
+      "ip": "172.17.0.4",
+      "overlays": [
+        {
+          "backend": {
+            "vxlan": {
+              "vni": 1024,
+              "vtep_ip": "44.128.0.2/20",
+              "vtep_ip6": "fd01:a::2/64",
+              "vtep_mac": "70:b3:d5:80:00:02",
+              "vtep_name": "vtep1024"
+            }
+          },
+          "docker_bridge": {
+            "ip": "9.0.1.128/25",
+            "name": "d-dcos"
+          },
+          "info": {
+            "name": "dcos",
+            "prefix": 24,
+            "subnet": "9.0.0.0/8"
+          },
+          "mesos_bridge": {
+            "ip": "9.0.1.0/25",
+            "name": "m-dcos"
+          },
+          "state": {
+            "status": "STATUS_OK"
+          },
+          "subnet": "9.0.1.0/24"
+        },
+        {
+          "backend": {
+            "vxlan": {
+              "vni": 1024,
+              "vtep_ip": "44.128.0.2/20",
+              "vtep_ip6": "fd01:a::2/64",
+              "vtep_mac": "70:b3:d5:80:00:02",
+              "vtep_name": "vtep1024"
+            }
+          },
+          "docker_bridge": {
+            "ip6": "fd01:b::1:8000:0:0/81",
+            "name": "d-dcos6"
+          },
+          "info": {
+            "name": "dcos6",
+            "prefix6": 80,
+            "subnet6": "fd01:b::/64"
+          },
+          "mesos_bridge": {
+            "ip6": "fd01:b:0:0:1::/81",
+            "name": "m-dcos6"
+          },
+          "state": {
+            "status": "STATUS_OK"
+          },
+          "subnet6": "fd01:b:0:0:1::/80"
+        }
+      ]
+    },
+    {
+      "ip": "172.17.0.3",
+      "overlays": [
+        {
+          "backend": {
+            "vxlan": {
+              "vni": 1024,
+              "vtep_ip": "44.128.0.3/20",
+              "vtep_ip6": "fd01:a::3/64",
+              "vtep_mac": "70:b3:d5:80:00:03",
+              "vtep_name": "vtep1024"
+            }
+          },
+          "docker_bridge": {
+            "ip": "9.0.2.128/25",
+            "name": "d-dcos"
+          },
+          "info": {
+            "name": "dcos",
+            "prefix": 24,
+            "subnet": "9.0.0.0/8"
+          },
+          "mesos_bridge": {
+            "ip": "9.0.2.0/25",
+            "name": "m-dcos"
+          },
+          "state": {
+            "status": "STATUS_OK"
+          },
+          "subnet": "9.0.2.0/24"
+        },
+        {
+          "backend": {
+            "vxlan": {
+              "vni": 1024,
+              "vtep_ip": "44.128.0.3/20",
+              "vtep_ip6": "fd01:a::3/64",
+              "vtep_mac": "70:b3:d5:80:00:03",
+              "vtep_name": "vtep1024"
+            }
+          },
+          "docker_bridge": {
+            "ip6": "fd01:b::2:8000:0:0/81",
+            "name": "d-dcos6"
+          },
+          "info": {
+            "name": "dcos6",
+            "prefix6": 80,
+            "subnet6": "fd01:b::/64"
+          },
+          "mesos_bridge": {
+            "ip6": "fd01:b:0:0:2::/81",
+            "name": "m-dcos6"
+          },
+          "state": {
+            "status": "STATUS_OK"
+          },
+          "subnet6": "fd01:b:0:0:2::/80"
+        }
+      ]
     }
+  ],
+  "network": {
+    "overlays": [
+      {
+        "name": "dcos",
+        "prefix": 24,
+        "subnet": "9.0.0.0/8"
+      },
+      {
+        "name": "dcos6",
+        "prefix6": 80,
+        "subnet6": "fd01:b::/64"
+      }
+    ],
+    "vtep_mac_oui": "70:B3:D5:00:00:00",
+    "vtep_subnet": "44.128.0.0/20",
+    "vtep_subnet6": "fd01:a::/64"
+  }
 }
 ```
 
@@ -229,10 +323,11 @@ The **Networking** tab of the DC/OS web interface provides information helpful f
 
 <a name="limitations"></a>
 ### Limitations
+* DC/OS Overlay supports IPv6 networks only for Docker containers. Launching UCR containers on an IPv6 network will result in a container launch failure. To keep it future-proof, however, when a subnet is allocated to an agent, IPv6 subnets are pre-allocated to MesosContainerizer and DockerContainerizer following the same logic used for IPv4 networks.
 
 * DC/OS Overlay does not allow services to reserve IP addresses that result in ephemeral addresses for containers across multiple incarnations on the virtual network. This restriction ensures that a given client connects to the correct service.
 
-  [VIPs (virtual IP addresses)](/pages/1.11/networking/load-balancing-vips/) are built in to DC/OS and offer a clean way of allocating static addresses to services. If you are using DC/OS Overlay, you should use VIPs to access your services to support cached DNS requests and static IP addresses.
+  [VIPs (virtual IP addresses)](/1.11/networking/load-balancing-vips/) are built in to DC/OS and offer a clean way of allocating static addresses to services. If you are using DC/OS Overlay, you should use VIPs to access your services to support cached DNS requests and static IP addresses.
 
 * The limitation on the total number of containers on DC/OS Overlay is the same value as the number of IP addresses available on the overlay subnet. However, the limitation on the number of containers on an agent depends on the subnet (which will be a subset of the overlay subnet) allocated to the agent. For a given agent subnet, half the address space is allocated to the `MesosContainerizer` and the other half is allocated to the `DockerContainerizer`.
 
