@@ -9,7 +9,9 @@ enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-DC/OS provides a highly distributed and faulterant DNS-based service discovery mechanism. DNS is provided by two different components within DC/OS, [mesos-dns](/pages/1.11/networking/DNS/mesos-dns) and [dcos-dns](/pages/1.11/networking/DNS/dcos-dns). DNS service in DC/OS supports two  top-level domain names (TLD) `.mesos` and `.directory`. All records for the `.mesos` TLD are served by `mesos-dns` and all records for `.directory` TLD are served by `dcos-dns`. Please read the "Recommendation" section to better understand the usage of these two TLDs. Each of the TLD consist of multiple zones. Every DC/OS service gets multiple FQDN entries, from these different zones. Below we describe the different zones and the FQDN associated with those zones and the type of network connectivity that a service recieves when it is accessed using an FQDN from a particular zone.
+DC/OS provides a distributed and faulterant DNS-based service discovery mechanism. 
+
+DNS is provided by two different components within DC/OS, [mesos-dns](/pages/1.11/networking/DNS/mesos-dns) and [dcos-dns](/pages/1.11/networking/DNS/dcos-dns). DNS service in DC/OS supports two  top-level domain names (TLD) `.mesos` and `.directory`. All records for the `.mesos` TLD are served by `mesos-dns` and all records for `.directory` TLD are served by `dcos-dns`. Please read the "Recommendation" section to better understand the usage of these two TLDs. Each of the TLD consist of multiple zones. Every DC/OS service gets multiple FQDN entries, from these different zones. Below we describe the different zones and the FQDN associated with those zones and the type of network connectivity that a service recieves when it is accessed using an FQDN from a particular zone.
 
 For the purpose of illustration lets assume that we are running the following Docker container on DC/OS:
 ```json
