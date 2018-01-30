@@ -260,16 +260,6 @@ definitions:
     required:
       - x86-64
     type: object
-  packageAddRequest:
-    additionalProperties: false
-    properties:
-      packageName:
-        type: string
-      packageVersion:
-        type: string
-    required:
-      - packageName
-    type: object
   packageDetails:
     additionalProperties: false
     properties:
@@ -559,86 +549,6 @@ definitions:
       - package
       - resolvedOptions
     type: object
-  supportedPackageDefinition:
-    additionalProperties: false
-    properties:
-      command:
-        $ref: '#/definitions/command'
-      config:
-        $ref: '#/definitions/config'
-      description:
-        type: string
-      downgradesTo:
-        description: 'List of versions that this package can downgrade to. If the property is a list containing the string ''*'', this package can downgrade to any version. If the property is not set or the empty list, this package cannot downgrade.'
-        items:
-          type: string
-        type: array
-      framework:
-        default: false
-        description: True if this package installs a new Mesos framework.
-        type: boolean
-      licenses:
-        $ref: '#/definitions/licences'
-      maintainer:
-        type: string
-      marathon:
-        $ref: '#/definitions/marathon'
-      minDcosReleaseVersion:
-        description: The minimum DC/OS Release Version the package can run on.
-        pattern: '^(?:0|[1-9][0-9]*)(?:\.(?:0|[1-9][0-9]*))*$'
-        type: string
-      name:
-        type: string
-      packagingVersion:
-        enum:
-          - '3.0'
-          - '4.0'
-        type: string
-      postInstallNotes:
-        description: Post installation notes that would be useful to the user of this package.
-        type: string
-      postUninstallNotes:
-        description: Post uninstallation notes that would be useful to the user of this package.
-        type: string
-      preInstallNotes:
-        description: Pre installation notes that would be useful to the user of this package.
-        type: string
-      releaseVersion:
-        description: Corresponds to the revision index from the universe directory structure
-        minimum: 0
-        type: integer
-      resource:
-        $ref: '#/definitions/v30Resource'
-      scm:
-        type: string
-      selected:
-        default: false
-        description: Flag indicating if the package is selected in search results
-        type: boolean
-      tags:
-        items:
-          pattern: '^[^\s]+$'
-          type: string
-        type: array
-      upgradesFrom:
-        description: 'List of versions that can upgrade to this package. If the property is a list containing the string ''*'', any version can upgrade to this package. If the property is not set or the empty list, no version can upgrade to this package.'
-        items:
-          type: string
-        type: array
-      version:
-        pattern: '^[-a-zA-Z0-9.]+$'
-        type: string
-      website:
-        type: string
-    required:
-      - description
-      - maintainer
-      - name
-      - packagingVersion
-      - releaseVersion
-      - tags
-      - version
-    type: object
   uninstallRequest:
     additionalProperties: false
     properties:
@@ -798,30 +708,6 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/capabilitiesResponse'
-  /package/add:
-    post:
-      consumes:
-        - application/vnd.dcos.package.add-request+json;charset=utf-8;version=v1
-      description: '**Experimental.** Adds a DC/OS Package to DC/OS. To add a DC/OS package from Universe use the content type _application/vnd.dcos.package.add-request+json;charset=utf-8;version=v1_. To add a package by uploading the file use the content type _application/vnd.dcos.universe.package+zip;version=v1_.'
-      operationId: POST-package-add
-      parameters:
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/packageAddRequest'
-        - enum:
-            - application/vnd.dcos.package.add-request+json;charset=utf-8;version=v1
-          in: header
-          name: Accept
-          required: true
-          type: string
-      produces:
-        - application/vnd.dcos.package.add-response+json;charset=utf-8;version=v1
-      responses:
-        '202':
-          description: ''
-          schema:
-            $ref: '#/definitions/supportedPackageDefinition'
   /package/describe:
     post:
       consumes:
