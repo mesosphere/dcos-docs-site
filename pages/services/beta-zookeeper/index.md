@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: 
-title: Beta Kafka ZooKeeper
+title: Beta ZooKeeper
 menuWeight: 180
 excerpt:
 featureMaturity:
