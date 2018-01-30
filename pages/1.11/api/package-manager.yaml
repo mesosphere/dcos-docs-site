@@ -1,3 +1,4 @@
+swagger: '2.0'
 definitions:
   algo:
     enum:
@@ -978,4 +979,3 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/uninstallResponse'
-swagger: '2.0'
