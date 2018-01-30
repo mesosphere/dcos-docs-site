@@ -47,12 +47,13 @@ function main
 
      #Make the Destination directory
      mkdir -p "${PDF_DEST_DIR}"
-     echo "google-chrome --no-sandbox --headless --disable-gpu --print-to-pdf=${PDF_DEST_DIR}/${PDF_FILE_NAME} ${SOURCE_FILE}" >> "${PARALLEL_TEMPFILE}"
+     #echo "google-chrome --no-sandbox --headless --disable-gpu --print-to-pdf=${PDF_DEST_DIR}/${PDF_FILE_NAME} ${SOURCE_FILE}" >> "${PARALLEL_TEMPFILE}"
+     google-chrome --no-sandbox --headless --disable-gpu --print-to-pdf="${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${SOURCE_FILE}"
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.html" -print0)
 
   #Execute theconversion in parallel
-  parallel --halt-on-error 2 --progress --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"  < "${PARALLEL_TEMPFILE}"
+  #parallel --halt-on-error 2 --progress --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"  < "${PARALLEL_TEMPFILE}"
 
 }
 
