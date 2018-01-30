@@ -31,4 +31,4 @@ To validate that Mesosphere is not logging sensitive data, you can retrieve the 
 
 #Cluster upgrades
 
-For major release upgrades, the license needs to be renewed.
+For major release upgrades, the license needs to be renewed. A license can be renewed by adding a new license to the config during release upgrades or config upgrades.
