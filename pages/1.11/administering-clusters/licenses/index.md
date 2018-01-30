@@ -28,3 +28,7 @@ The DC/OS licensing component will launch successfully only if the information i
 A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.
 
 To validate that Mesosphere is not logging sensitive data, you can retrieve the audit data decryption key and decrypt the audit data checksum.
+
+#Cluster upgrades
+
+For major release upgrades, the license needs to be renewed.
