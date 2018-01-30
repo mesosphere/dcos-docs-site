@@ -1,4 +1,5 @@
 ---
+layout: layout.pug
 title: Beta Spark 2.3.0-2.2.0-2-beta
 navigationTitle: Beta Spark 2.3.0-2.2.0-2-beta
 menuWeight: 10

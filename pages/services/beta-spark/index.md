@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Beta Spark
-title: Spark
+title: Beta Spark
 menuWeight: 190
 excerpt:
 featureMaturity:
