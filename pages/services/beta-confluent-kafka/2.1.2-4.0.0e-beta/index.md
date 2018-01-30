@@ -1,12 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: 
-title: Beta Confluent Kafka 2.1.1-4.0.0e-beta
-menuWeight: 20
-featureMaturity:
+navigationTitle:
+title: Beta Confluent Kafka 2.1.2-4.0.0e-beta
+menuWeight: 10
 excerpt:
+featureMaturity:
 enterprise: false
 ---
+
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+
 
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->
 
