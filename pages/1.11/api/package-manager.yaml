@@ -673,54 +673,6 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/capabilitiesResponse'
-  /cosmos/service/describe:
-    post:
-      consumes:
-        - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
-      description: Describes a DC/OS Service
-      operationId: POST-cosmos-service-describe
-      parameters:
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/serviceDescribeRequest'
-        - enum:
-            - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
-          in: header
-          name: accept
-          required: true
-          type: string
-      produces:
-        - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/serviceDescribeResponse'
-  /cosmos/service/update:
-    post:
-      consumes:
-        - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
-      description: Updates the package version and/or the configuration of a DC/OS Service
-      operationId: POST-cosmos-service-update
-      parameters:
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/serviceUpdateRequest'
-        - enum:
-            - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
-          in: header
-          name: accept
-          required: true
-          type: string
-      produces:
-        - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
-      responses:
-        '200':
-          description: ''
-          schema:
-            $ref: '#/definitions/serviceUpdateResponse'
   /package/describe:
     post:
       consumes:
@@ -961,4 +913,52 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/uninstallResponse'
+  /service/describe:
+    post:
+      consumes:
+        - application/vnd.dcos.service.describe-request+json;charset=utf-8;version=v1
+      description: Describes a DC/OS Service
+      operationId: POST-service-describe
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/serviceDescribeRequest'
+        - enum:
+            - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
+          in: header
+          name: accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.service.describe-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/serviceDescribeResponse'
+  /service/update:
+    post:
+      consumes:
+        - application/vnd.dcos.service.update-request+json;charset=utf-8;version=v1
+      description: Updates the package version and/or the configuration of a DC/OS Service
+      operationId: POST-service-update
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/serviceUpdateRequest'
+        - enum:
+            - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
+          in: header
+          name: accept
+          required: true
+          type: string
+      produces:
+        - application/vnd.dcos.service.update-response+json;charset=utf-8;version=v1
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/serviceUpdateResponse'
 swagger: '2.0'
