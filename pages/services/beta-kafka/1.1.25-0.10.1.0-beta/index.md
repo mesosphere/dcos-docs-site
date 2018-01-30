@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Beta Kafka 1.1.25-0.10.1.0-beta
 title: Beta Kafka 1.1.25-0.10.1.0-beta
-menuWeight: 50
+menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: false
