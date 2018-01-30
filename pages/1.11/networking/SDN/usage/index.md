@@ -10,7 +10,9 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS provides each container with its own IP address by allowing operators to run containers on a wide-variety of IP-based virtual networks. In order to run containers on a virtual network the operator needs to install a CNI or CNM network out-of-band. DC/OS itself comes with it own virtual networking solution called DC/OS overlay which the operator could use to provide containers with unique IP addresses.
+DC/OS provides each container with its own IP address by allowing operators to run containers on a wide-variety of IP-based virtual networks. 
+
+In order to run containers on a virtual network the operator needs to install a CNI or CNM network out-of-band. DC/OS itself comes with it own virtual networking solution called DC/OS overlay which the operator could use to provide containers with unique IP addresses.
 
 
 # Using Virtual Networks
