@@ -99,6 +99,23 @@ definitions:
     required:
       - packageName
     type: object
+  describeResponse:
+    additionalProperties: false
+    properties:
+      command:
+        $ref: '#/definitions/command'
+      config:
+        $ref: '#/definitions/config'
+      marathonMustache:
+        type: string
+      package:
+        $ref: '#/definitions/packageDetails'
+      resource:
+        $ref: '#/definitions/v20Resource'
+    required:
+      - marathonMustache
+      - package
+    type: object
   docker:
     additionalProperties:
       type: string
@@ -568,14 +585,6 @@ definitions:
       images:
         $ref: '#/definitions/images'
     type: object
-  v3DescribeResponse:
-    additionalProperties: false
-    properties:
-      package:
-        $ref: '#/definitions/v40PackageDefinition'
-    required:
-      - package
-    type: object
   v40PackageDefinition:
     additionalProperties: false
     properties:
@@ -696,7 +705,7 @@ paths:
         '200':
           description: ''
           schema:
-            $ref: '#/definitions/v3DescribeResponse'
+            $ref: '#/definitions/describeResponse'
   /package/install:
     post:
       consumes:
