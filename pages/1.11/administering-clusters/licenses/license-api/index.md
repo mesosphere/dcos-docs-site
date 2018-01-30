@@ -34,6 +34,12 @@ Responses include the content type header:
 Content-Type: application/json
 ```
 
+or
+
+```
+Content-Type: application/x-tar
+```
+
 # Authentication
 
 All License API routes require authentication to use.
