@@ -80,7 +80,7 @@ The tables below enumerate the features available with each of the supported con
 | **Bridge Networking**                   | Yes         | Yes       |           |
 | **CNI**                                 | Yes         | N/A       |           |
 | **CNM**                                 | N/A         | Yes       | Docker 1.11+ |
-| **L4lB**                                | Yes         | Yes       | Requires defined service endpoints. TCP health checks do not work with L4LB. |
+| **L4LB**                                | Yes         | Yes       | Requires defined service endpoints. TCP health checks do not work with L4LB. |
 
 ## Private Registry
 
