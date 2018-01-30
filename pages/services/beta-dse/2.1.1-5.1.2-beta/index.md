@@ -1,4 +1,5 @@
 ---
+layout: layout.pug
 navigationTitle: Beta DSE 2.1.1-5.1.2-beta
 title: Beta DSE 2.1.1-5.1.2-beta
 menuWeight: 10
