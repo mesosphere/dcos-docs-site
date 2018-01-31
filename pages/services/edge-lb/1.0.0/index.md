@@ -5,7 +5,7 @@ title: Edge-LB 1.0.0
 menuWeight: 0
 excerpt:
 
-enterprise: false
+enterprise: true
 ---
 
 Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides both North-South (external to internal) load balancing, while the [Minuteman component](/1.10/overview/architecture/components/#minuteman) provides East-West (internal to internal) load balancing.
