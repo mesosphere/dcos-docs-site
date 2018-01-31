@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+Configure a service account and install the Edge-LB package using the instructions below.
+
 **Prerequisites:**
 
 - [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.

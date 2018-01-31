@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+Endpoints exposed in the V1 API.
+
 The Edge-LB API enables users to create and manage pools of load balancers.
 
 # Compatibility

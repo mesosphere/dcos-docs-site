@@ -8,7 +8,7 @@ excerpt:
 enterprise: false
 ---
 
-Perform an Edge-LB upgrade by uninstalling your current version of Edge-LB, then reinstall from the remote repositories.
+Perform an Edge-LB upgrade by following this procedure.
 
 1.  Delete the Edge-LB pools.
 

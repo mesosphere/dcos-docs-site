@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+This is a reference for all possible Edge-LB pool configuration values as well as some examples to demonstrate various use-cases.
+
 # Configuration Reference
 
 The YAML configuration reference containing all possible options and descriptions of each can be found by running the following command:

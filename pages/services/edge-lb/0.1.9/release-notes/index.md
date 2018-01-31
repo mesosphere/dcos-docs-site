@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+Release notes for Edge-LB.
+
 # v0.1.9
 
 ## Noteworthy changes:

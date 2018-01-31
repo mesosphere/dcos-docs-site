@@ -8,8 +8,10 @@ excerpt:
 enterprise: false
 ---
 
+This is a reference for all CLI commands available in the Edge-LB package.
+
 # Description
-THE Edge-LB CLI subcommands allow you to configure and manage your Edge-LB load balancer(s) from the DC/OS CLI.
+The Edge-LB CLI subcommands allow you to configure and manage your Edge-LB load balancer(s) from the DC/OS CLI.
 
 # Usage
 
@@ -31,12 +33,20 @@ dcos edgelb [<flags>] [OPTIONS] [<args> ...]
 
 # Child commands
 
-| Command | Description |
-|---------|-------------|
-|[dcos edgelb config](/service-docs/edge-lb/0.1.9/cli-reference/dcos-edgelb-config/)  | View or update the Edge-LB configuration. |
-|[dcos edgelb ping](/service-docs/edge-lb/0.1.9/cli-reference/dcos-edgelb-ping/)  | Test the readiness of the Edge-LB API server. |
-|[dcos edgelb pool config](/service-docs/edge-lb/0.1.9/cli-reference/dcos-edgelb-pool-config/)  | View or update the config for an Edge-LB pool. |
-|[dcos edgelb pool delete](/service-docs/edge-lb/0.1.9/cli-reference/dcos-edgelb-pool-delete/)  | Delete and uninstall an Edge-LB pool or artifact. |
-|[dcos edgelb pool lb](/service-docs/edge-lb/0.1.9/cli-reference/dcos-edgelb-pool-lb/)  | Pool LB instance information. |
-|[dcos edgelb pool list](/service-docs/edge-lb/0.1.9/cli-reference/dcos-edgelb-pool-list/)  | List pool names. |
-|[dcos edgelb pool artifact](/service-docs/edge-lb/0.1.9/cli-reference/dcos-edgelb-pool-artifact/)  | Artifacts available for an Edge-LB pool. |
+| Command                                                                                               | Description                                                                                                  |
+|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| [dcos edgelb ping](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-ping/)                       | Test the readiness of the Edge-LB API server.                                                                |
+| [dcos edgelb version](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-version/)                 | Output the Edge-LB version.                                                                                  |
+| [dcos edgelb create](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-create/)                   | Creates a single pool given a definition file written in JSON or YAML.                                       |
+| [dcos edgelb update](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-update/)                   | Uploads a new pool configuration file to the Edge-LB apiserver, updating the running pool of load balancers. |
+| [dcos edgelb delete](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-delete/)                   | Deletes and uninstalls an existing pool.                                                                     |
+| [dcos edgelb list](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-list/)                       | List the names and summary of all configured pools.                                                          |
+| [dcos edgelb show](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-show/)                       | Shows the pool definition for a given pool name.                                                             |
+| [dcos edgelb endpoints](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-endpoints/)             | List of all endpoints for the pool.                                                                          |
+| [dcos edgelb lb-config](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-lb-config/)             | Shows the running load-balancer config associated with the pool.                                             |
+| [dcos edgelb status](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-status/)                   | List of load-balancer task information associated with the pool.                                             |
+| [dcos edgelb template create](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-template-create/) | Creates a custom config template for a pool of load-balancers.                                               |
+| [dcos edgelb template update](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-template-update/) | Updates a custom config template for a pool of load-balancers.                                               |
+| [dcos edgelb template delete](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-template-delete/) | Reverts a custom config template to the default value.                                                       |
+| [dcos edgelb template show](/service-docs/edge-lb/1.0.0/cli-reference/dcos-edgelb-template-show/)     | Shows the load-balancer config template for an individual pool.                                              |
+|                                                                                                       |                                                                                                              |
