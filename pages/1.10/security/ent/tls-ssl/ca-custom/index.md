@@ -74,7 +74,7 @@ The directory `/var/lib/dcos/pki/tls/CA/private/` can be created manually with t
 
 Furthermore, the file containing the private key `custom_ca.key` corresponding to the custom CA certificate must be owned by the root Unix user and have 0600 permissions set.
 
-If you copy private key file over the network onto the master nodes, the network channel must be adequately protected.
+If you copy the private key file over the network onto the master nodes, the network channel must be adequately protected.
 An example of copying the CA private key is given below. The commands are executed on the bootstrap node. The `W.X.Y.Z` below indicates the IP address of a master node:
 
 ```bash
