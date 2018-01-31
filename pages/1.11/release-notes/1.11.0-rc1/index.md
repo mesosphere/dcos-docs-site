@@ -76,7 +76,7 @@ To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.meso
 - TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported.
 - Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
 - New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpoint to relaunch a node in an idle command state for debugging purposes.
-- New beta DC/OS Kafka ZooKeeper service. [View the documentation](/services/beta-zookeeper/index.md).
+- New beta DC/OS Kafka ZooKeeper service. [View the documentation](/services/beta-kafka-zookeeper/index.md).
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
 - Non-essential tasks now supported for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. If non-essential tasks fail, the entire node will not fail.
