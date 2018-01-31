@@ -32,7 +32,7 @@ cd $root
 
 # pull dse-private
 git remote rm dse-private
-git remote add dse-private https://github.com/mesosphere/dse-private.git
+git remote add dse-private git@github.com:mesosphere/dse-private.git
 git fetch dse-private > /dev/null 2>&1
 
 # check out each file in the merge list from the relesse tag
