@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 
 title: Spark 2.2.0-2.2.0-2-beta
-menuWeight: 20
+menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: false

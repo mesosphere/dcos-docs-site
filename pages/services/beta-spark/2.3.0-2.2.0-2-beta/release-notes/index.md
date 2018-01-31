@@ -11,26 +11,43 @@ featureMaturity:
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-## Version 2.1.0-2.2.0-1
+## Version 2.3.0-2.2.0-2-beta
+
+## NOTICE
+
+This is a beta release of the DC/OS Spark framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
 
 ### Improvements
-- Changed image to run as user `nobody` instead of `root` by default. (https://github.com/mesosphere/spark-build/pull/189)
+- Added `--executor-auth-secret` as a shortcut for Spark SASL (Executor authentication and BlockTransferService encryption) configuration.
+- Changed the default user to `root`. (Breaking change)
+- Instead of setting the `krb5.conf` as a base64-encoded blob, the user can now specify `service.security.kerberos.kdc.[port|hostname]` and `service.security.kerberos.realm` directly in `options.json`. The old behavior with the base64-encoded blob remains the same, and will overwrite the new configs.
 
-### Bug fixes
-- Configuration to allow custom Dispatcher docker image. (https://github.com/mesosphere/spark-build/pull/179)
-- CLI breaks with multiple spaces in submit args. (https://github.com/mesosphere/spark-build/pull/193)
+### Bug Fixes
+- The spark CLI has "shortcut" command-line args, that are translated into spark.config=setting configurations downstream (such as `spark.executor.memory`). Fixed a bug where a user sets the configuration directly and is overwritten with the default value for the shortcut argument.
+
+### Tests
+- Changes to allow integration tests to run in strict mode.
 
 ### Documentation
-- Updated HDFS endpoint in hdfs doc page.
-- Added checkpointing instructions. (https://github.com/mesosphere/spark-build/pull/181)
-- Updated custom docker image support policy. (https://github.com/mesosphere/spark-build/pull/200)
+- Added worked examples (walkthroughs) for setting up Spark securely.
+- Added docs on using Mesos Quota to manage resources in job scheduling.
+- Added instructions to Install docs describing how to install in strict mode.
+
+### Breaking Changes
+- Changed the default user to `root`, in both the Dispatcher and History Server.
+- To configure Kerberos in `options.json`, a new property `service.security.kerberos.enabled` must be set to `true`. This applies to both the Dispatcher and History Server.
+- Removed the `security.ssl` properties from `options.json`. These properties are no longer needed for the new Go-based CLI.
 
 ## Version 2.2.0-2.2.0-2-beta
 
+## NOTICE
+
+This is a beta release of the DC/OS Spark framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
+
 ### Improvements
-* Added secrets support in Driver. (SPARK-22131)
-* Added Kerberos ticket renewal. (SPARK-21842)
-* Added Mesos sandbox URI to Dispatcher UI. (SPARK-13041)
+* Added secrets support in Driver.
+* Added Kerberos ticket renewal.
+* Added Mesos sandbox URI to Dispatcher UI.
 * Updated JRE version to 8u152 JCE.
 * Added support for Driver<->Executor TLS with file-based secrets.
 * Added support for Driver<->Executor SASL (RPC endpoint authentication and encryption), via file-based secrets.
@@ -39,8 +56,8 @@ featureMaturity:
 * Added configuration to deploy Dispatcher on UCR (default is Docker).
 
 ### Bug fixes
-* First delegation token renewal time is not 75% of renewal time. (SPARK-22583)
-* Fixed `supervise` mode with checkpointing. (SPARK-22145)
+* First delegation token renewal time is not 75% of renewal time.
+* Fixed `supervise` mode with checkpointing.
 * Added support for older `SPARK_MESOS_KRB5_CONF_BASE64` environment variable.
 
 ### Tests
@@ -55,59 +72,3 @@ featureMaturity:
 * Documented running Spark Streaming jobs with Kerberized Kafka.
 * Documented `nobody` limitation on certain OSes.
 
-
-## Version 2.1.0-2.2.0-1
-
-### Improvements
-- Changed image to run as user `nobody` instead of `root` by default. (https://github.com/mesosphere/spark-build/pull/189)
-
-### Bug fixes
-- Configuration to allow custom Dispatcher docker image. (https://github.com/mesosphere/spark-build/pull/179)
-- CLI breaks with multiple spaces in submit args. (https://github.com/mesosphere/spark-build/pull/193)
-
-### Documentation
-- Updated HDFS endpoint in hdfs doc page.
-- Added checkpointing instructions. (https://github.com/mesosphere/spark-build/pull/181)
-- Updated custom docker image support policy. (https://github.com/mesosphere/spark-build/pull/200)
-
-## Version 2.0.1-2.2.0-1
-
-### Improvements
-- Exposed isR and isPython spark run args
-
-### Bug fixes
-- Allowed for application args to have arguments without equals sign
-- Fixed docs link in Universe package description
-
-## Version 2.0.0-2.2.0-1
-
-### Improvements
-- Kerberos support changed to use common code from `spark-core` instead of custom implementation.
-- Added file and environment-based secret support.
-- Kerberos key tab/TGT login from the DC/OS Spark CLI in cluster mode (uses file-based secrets).
-- Added CNI network label support.
-- CLI doesn't require spark-submit to be present on client machine.
-
-### Bug fixes
-- Drivers are successfully re-launched when `--supervise` flag is set.
-- CLI works on 1.9 and 1.10 DC/OS clusters.
-
-### Breaking changes
-- Setting `spark.app_id` has been removed (e.g. `dcos config set spark.app_id <dispatcher_app_id>`). To submit jobs with a given
-dispatcher use `dcos spark --name <dispatcher_app_id>`.
-- `principal` is now `service_account` and `secret` is now `service_account_secret`.
-
-## Version 1.1.1-2.2.0
-
-### Improvements
-* Upgrade to Spark 2.2.0
-* Spark driver now supports configurable failover_timeout. The default value is 0 when the configuration is not set.
-[SPARK-21456](https://issues.apache.org/jira/browse/SPARK-21456). 
-
-### Breaking change
-
-*  Spark CLI no longer supports -Dspark args.
-
-## Version 1.0.9-2.1.0-1 
-
-- The history server has been removed from the "spark" package, and put into a dedicated "spark-history" package.
