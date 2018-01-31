@@ -482,6 +482,7 @@ In a world where machines are are given numbers instead of names, tasks are sche
   <strong>System Service(s):</strong>
   <ul>
     <li><code class="nowrap">dcos-net.service</code></li>
+    <li><code class="nowrap">dcos-net-watchdog.service</code></li>
   </ul>
 </p>
 <p>
