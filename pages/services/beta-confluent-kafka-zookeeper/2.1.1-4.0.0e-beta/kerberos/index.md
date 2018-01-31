@@ -1,6 +1,9 @@
 ---
-post_title: Kerberos
-menu_order: 22
+layout: layout.pug
+title: Kerberos
+menuWeight: 60
+excerpt:
+featureMaturity:
 enterprise: 'yes'
 ---
 
