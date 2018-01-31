@@ -8,11 +8,11 @@ excerpt:
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
 
-<h3>This release candidate is for testing only and not to be used in production. It will only support new installations.</h3>
-<h3>DC/OS 1.11.0 rc1 has a number of limitations that will be resolved at GA time:</h3>
+<h3>This release candidate is for testing only and not to be used in production. </h3>
 
+<h5>DC/OS 1.11 Release Candidate 1 has a number of limitations that will be resolved at GA time.</h5>
 <ul>
-<li>Upgrades from 1.10 are not supported.</li>
+<li>DC/OS 1.11 only supports new installations. Upgrades from 1.10 are not supported.</li>
 <li>DC/OS 1.11 requires CLI version 0.6.x.
   <ul>
   <li><a href="/1.11/cli/uninstall/">Uninstall the existing CLI</a>.</li>
@@ -21,15 +21,21 @@ excerpt:
 <strong>Note:</strong> CLI version 0.6.x is not compatible with DC/OS 1.10</li>
 </ul>
 
+Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
+</td> </tr> </table>
+
+
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
 <a name="new-features"></a>
 # New features and capabilities
 
 ## Apache Mesos 1.5, Marathon 1.6, and Kubernetes 1.9 Integrated.
-- DC/OS 1.11 is is based on Mesos 1.5. View the [changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
+- DC/OS 1.11.0 is is based on Mesos 1.5. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
 
-- DC/OS 1.11 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+- DC/OS 1.11.0 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 
-- DC/OS 1.11 supports latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, consult the [Kubernetes on DC/OS changelog](https://docs.mesosphere.com/services/beta-kubernetes/0.4.0-1.9.0-beta).
+- DC/OS 1.11.0 supports latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, consult the [Kubernetes on DC/OS changelog](https://docs.mesosphere.com/services/beta-kubernetes/0.4.0-1.9.0-beta).
 
 ## Platform
 - Fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
@@ -42,7 +48,7 @@ excerpt:
   - Support for Docker image pull secrets.
 
 ## Networking
-- Edge-LB 1.0 RC candidate.
+- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0.)
   - Strict security mode is now supported.
   - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single Erlang VM called dcos-net. This improves the resource consumption of the Erlang components and greatly improves reliability and availability to these components.
