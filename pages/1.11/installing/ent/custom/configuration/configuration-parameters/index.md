@@ -54,6 +54,7 @@ This topic provides all available configuration parameters. Except where explici
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
 | [resolvers](#resolvers)                               | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.|
 | [use_proxy](#use-proxy)                               | Indicates whether to enable the DC/OS proxy. |
+| [dcos_l4lb_enable_ipv6](#dcos_l4lb_enable_ipv6)        | A boolean that indicates if layer 4 load balancing is available for IPv6 networks. |
 
 # Performance and Tuning
 
@@ -563,6 +564,11 @@ Indicates whether to enable the DC/OS proxy.
 For more information, see the [examples](/1.11/installing/ent/custom/configuration/examples/#http-proxy).
 
 **Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
+
+### dcos_l4lb_enable_ipv6
+Indicates whether to enable layer-4 load-balancing for IPv6 containers. 
+*  `dcos_l4lb_enable_ipv6: 'false'` Do not allow [layer-4 load balancing](/1.11/networking/load-balancing-vips) to be available for IPv6 containers. This is the default value.
+*  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. `NOTE: Layer-4 load balancing for IPv6 containers should be turned on with caution.`[DCOS_OSS-2010](https://jira.mesosphere.com/browse/DCOS_OSS-2010)
 
 <a id="zk-superuser"></a>
 [enterprise]
