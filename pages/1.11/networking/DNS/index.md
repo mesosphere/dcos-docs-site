@@ -55,7 +55,7 @@ The `/mygroup/myapp` is running on a virtual network called "dcos". We will use 
 # `myapp.mygroup.marathon.mesos`
 For any service launched on DC/OS, every instance of the service would get the FQDN `<service-name>.<group-name>.marathon.mesos`. 
 
-This FQDN is resolved by `mesos-dns`. Please read the "Recommendation" section to understand the difference between using this FQDN vs using an FQDN from the `*.directory` TLD. The actual IP address to which this FQDN maps will depend on the networking mode on which the container is running. For our given example, since the application is running on an SDN the IP address will be the container's IP address. That said, if the application was running on host mode networking, than the IP address would have been that of the agent on which the application instance is running. For bridge mode networking, the IP address would again be that of the agent since the application would be accessible only through D-NAT rules on the agent.
+This FQDN is resolved by `mesos-dns`. Please read the "Recommendation" section to understand the difference between using this FQDN vs using an FQDN from the `*.directory` TLD. The actual IP address to which this FQDN maps will depend on the networking mode on which the container is running. For our given example, since the application is running on an SDN the IP address will be the container's IP address. If the application was running on host mode networking, the IP address would have been that of the agent on which the application instance is running. For bridge mode networking, the IP address would again be that of the agent since the application would be accessible only through D-NAT rules on the agent.
 
 # `myapp-mygroup.marathon.containerip.dcos.thisdcos.directory`
 This FQDN is resolved by `dcos-dns`. For `container` and `bridge` mode networking, this FQDN would resolve to the container's IP address, whereas for `host` mode networking it would resolve to the agent IP, since that is the only IP address visible to the container.
@@ -68,12 +68,14 @@ This FQDN is resolved by `dcos-dns`. For `container` mode networking this would 
 
 # `mygroupmyapp.marathon.l4lb.thisdcos.directory`
 This is a special FQDN that is resolved by `dcos-dns`. This FQDN is primarily used for layer-4 load balancing by `dcos-l4lb` to all instances of this service. The FQDN is generated for a service only when load-balancing is explicitly enabled for the service by specifying the `VIP` label:
+
 ```
 "labels": {
           "VIP_0": "/mygroup/myapp:80"
 }
 ```
-This FQDN resolves to a virtual IP address allocated by `dcos-l4lb` in the `11.x.x.x` range, which then maps to all the instances that corresponds to this service.
+
+This FQDN resolves to a virtual IP address allocated by `dcos-l4lb` in the `11.x.x.x` range, which then maps to all the instances that correspond to this service.
 
 # SRV records (`_myapp.mygroup._tcp.marathon.mesos`):
 SRV records are served by `mesos-dns`. This is not a DNS A record but rather a DNS SRV record. This is only available when the port has a name. SRV records are a mapping from a name to an "Address + Port" pair.
