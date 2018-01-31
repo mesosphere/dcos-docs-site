@@ -11,12 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The DC/OS network stack provides the following services:
-
-* Provides IP connectivity to containers.
-* A DNS based service discovery mechanism.
-* Layer 4 load-balancing for internal (east-west) traffic.
-* Layer 7 load-balancing for external (north-south) traffic.
+The DC/OS network stack provides IP connectivity to containers, has built-in DNS-based service discovery and provides layer 4 and layer 7 load balancing.
 
 The following sections describe these features in more detail.
 
@@ -32,7 +27,7 @@ These three networking modes are available for containers irrespective of the co
 In host mode, the container runs on the same network as other DC/OS system services such as Mesos and Marathon. In other words they share the same linux network namespace and therefore see the same IP address and ports as seen by DC/OS system services. Host mode networking is the most restrictive in the sense that it does not allow the container to use the entire TCP/UDP port range, and the application has to be adaptible to use whatever ports are available on a given agent. 
 
 ## Bridge mode networking
-In this mode containers are launched on an isolated linux bridge, created within the DC/OS agent. Containers running in this mode get their own linux network namespace, and hence their own IP address and are able to use the entire TCP/UDP port range. This networking mode is very useful when the application port is already fixed. The main caveat of using bridge mode networking is that in order for the container to be accessible from outside the agent, D-NAT rules would need to be installed on the agent. Both UCR and Docker bridge mode networking use this mechanism (also referred to as port-mapping) to expose services within the container to clients running outside the agent.
+In this mode, containers are launched on an isolated linux bridge, created within the DC/OS agent. Containers running in this mode get their own linux network namespace, and hence their own IP address and are able to use the entire TCP/UDP port range. This networking mode is very useful when the application port is already fixed. The main caveat of using bridge mode networking is that in order for the container to be accessible from outside the agent, D-NAT rules would need to be installed on the agent. Both UCR and Docker bridge mode networking use this mechanism (also referred to as port-mapping) to expose services within the container to clients running outside the agent.
 
 ## Container mode networking
 In this mode containers are allowed to run on a wide variety of software-defined networks. DC/OS supports the [CNI(Container network interface)](https://github.com/containernetworking/cni) standard for UCR containers, and [CNM(Container network model)](https://github.com/docker/libnetwork) standard for Docker containers. Using CNI and CNM, DC/OS is able to plumb containers onto any virtual network defined by an SDN provider that supports the CNI or CNM standard. Of the three modes this is the most powerful since the containers get their own linux network namespace and connectivity between containers is guaranteed by the underlying SDN network without the need to rely on D-NAT rules on the agent. Further, since SDNs can provide network isolation through firewalls, and are very flexible, it makes it easy for the operator to run multi-tenant clusters. This networking mode also allows the container's network to be completely isolated from the host network, thus giving an extra level of security to the host-network by protecting it from DDOS attacks from malicious containers running on top of DC/OS.
