@@ -42,15 +42,15 @@ To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.meso
 ## Platform
 - Fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
 - Linked clusters. A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using DC/OS CLI. Once a link is set up you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
-- Integrated Remote Regions. Enables “Bursting” to take advantage of ephemeral cloud compute resources. [View the documentation](1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
-- [Multi-Region Management](1.11/deploying-services/fault-domain-awareness). Enables a DC/OS Cluster to span multiple datacenters, clouds and remote branches while providing a unified management and control cluster.
+- Integrated Remote Regions. Enables “Bursting” to take advantage of ephemeral cloud compute resources. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
+- [Multi-Region Management](/1.11/deploying-services/fault-domain-awareness). Enables a DC/OS Cluster to span multiple datacenters, clouds and remote branches while providing a unified management and control cluster.
 - Decommission Node. Support for permanently decommissioning nodes enables easier maintenance and decommissioning “Spot” Cloud Instances after use allowing for immediate task rescheduling as opposed delayed task rescheduling.
 - UCR
   - Support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
   - Support for Docker image pull secrets.
 
 ## Networking
-- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0.)
+- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0)
   - Strict security mode is now supported.
   - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single Erlang VM called dcos-net. This improves the resource consumption of the Erlang components and greatly improves reliability and availability to these components.
@@ -76,16 +76,13 @@ To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.meso
 - TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported.
 - Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
 - New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpoint to relaunch a node in an idle command state for debugging purposes.
-- New beta DC/OS Kafka ZooKeeper service. [View the documentation](/services/beta-zookeeper/index.md).
+- New beta DC/OS Kafka ZooKeeper service. [View the documentation](/services/beta-kafka-zookeeper).
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
 - Non-essential tasks now supported for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. If non-essential tasks fail, the entire node will not fail.
 
-# Breaking changes
-- Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Release Candidate 1.
-
 # <a name="known-issues"></a>Known Issues and Limitations
-
+- Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Release Candidate 1.
 
 # <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11 Release Candidate 1
 - DCOS-16368 -  DC/OS Enterprise Secret Store no longer accepts secrets with uppercase letters in their paths. Secret paths with uppercase letters conflicted with use of the IAM API. [enterprise type="inline" size="small" /]
