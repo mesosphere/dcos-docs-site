@@ -1,17 +1,17 @@
 ---
 layout: layout.pug
-navigationTitle: Beta Confluent Kafka Zookeeper
-title: Beta Confluent Kafka Zookeeper
+navigationTitle: 
+title: Beta Confluent Kafka Zookeeper 2.1.1-4.0.0e-beta
 menuWeight: 30
-excerpt:
 featureMaturity:
 enterprise: false
 ---
 
+
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->
 
 
-DC/OS Beta Confluent Apache Kafka is an automated service that makes it easy to deploy and manage Apache Kafka on [DC/OS](https://mesosphere.com/product/). Apache Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees. Kafka clusters are highly available, fault tolerant, and very durable. For more information on Confluent Kafka, see its [documentation](http://docs.confluent.io/current/) or its white paper, [Deploying Confluent Platform on Mesosphere Datacenter OS](https://www.confluent.io/whitepaper/deploying-confluent-platform-with-mesosphere/).
+DC/OS Confluent Apache Kafka is an automated service that makes it easy to deploy and manage Apache Kafka on [DC/OS](https://mesosphere.com/product/). Apache Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees. Kafka clusters are highly available, fault tolerant, and very durable. For more information on Confluent Kafka, see its [documentation](http://docs.confluent.io/current/) or its white paper, [Deploying Confluent Platform on Mesosphere Datacenter OS](https://www.confluent.io/whitepaper/deploying-confluent-platform-with-mesosphere/).
 
 The service comes with a reasonable initial configuration for evaluation use. You can customize the service configuration at initial install, and later update once the service is already running through a configuration rollout process. If you just want to try out the service, you can use the default configuration and be up and running within moments.
 
