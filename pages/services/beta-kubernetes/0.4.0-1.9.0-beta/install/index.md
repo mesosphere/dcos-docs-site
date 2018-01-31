@@ -2,11 +2,13 @@
 layout: layout.pug
 navigationTitle:  Install and Customize
 title: Install and Customize
-menuWeight: 10
+menuWeight: 20
 excerpt:
-featureMaturity:
 enterprise: false
 ---
+
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
+
 
 The default DC/OS Kubernetes package installation provides reasonable defaults for trying out the service.
 As of this writing, this service is not certified for production use.
@@ -40,11 +42,11 @@ dcos package install beta-kubernetes --options=options.json
 
 **Recommendation:** Store your custom configuration in source control.
 
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
+For more information on building the `options.json` file, see [DC/OS documentation](/latest/usage/managing-services/config-universe-service/) for service configuration access.
 
 # Installing from the DC/OS Web Interface
 
-You can [install Kubernetes from the DC/OS web interface](https://docs.mesosphere.com/latest/usage/managing-services/install/). If you install Kubernetes from the web interface, you must install the DC/OS Kubernetes CLI subcommands separately.
+You can [install Kubernetes from the DC/OS web interface](/latest/usage/managing-services/install/). If you install Kubernetes from the web interface, you must install the DC/OS Kubernetes CLI subcommands separately.
 From the DC/OS CLI, enter:
 
 ```shell

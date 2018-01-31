@@ -4,9 +4,11 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 120
 excerpt:
-featureMaturity:
 enterprise: false
 ---
+
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
+
 
 # Version 0.4.0-1.9.0-beta
 

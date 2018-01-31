@@ -13,7 +13,7 @@ done
 
 # Get values for version and directory variable
 
-version=$1
+branch=$1
 if [ -z "$1" ]; then echo "Enter a version tag as the first argument."; exit 1; fi
 directory=$2
 if [ -z "$2" ]; then echo "Enter a directory name as the second argument."; exit 1; fi
@@ -40,7 +40,7 @@ while read p;
 do
   echo $p
   # checkout
-  git checkout tags/$version $p
+  git checkout dcos-kubernetes/$branch $p
   # markdown files only
   if [ ${p: -3} == ".md" ]; then
         # insert tag ( markdown files only )
