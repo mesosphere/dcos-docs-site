@@ -25,7 +25,7 @@ Please try out the new features and updated data services. Provide any feedback 
 </td> </tr> </table>
 
 
-[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 <a name="new-features"></a>
 # New features and capabilities
