@@ -1,16 +1,30 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.9.6
-title: Release Notes for 1.9.6
-menuWeight: 5
+navigationTitle:  Release Notes for 1.9.7
+title: Release Notes for 1.9.7
+menuWeight: 0
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.9.6.
+These are the release notes for DC/OS 1.9.7.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.6/dcos_generate_config.sh?_ga=2.211838548.1503707629.1513767857-296736326.1513634629"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://dcos.io/releases"]Download DC/OS Open Source[/button]
 
-# Issues Fixed in 1.9.6
+# Issues Fixed in DC/OS 1.9.7
+
+- CORE-1375 - Docker executor no longer hangs due to lost messages.
+- DCOS-19893 - Reduced number of threads to 18 and set dump_log_write_threshold to 10, reducing startup time for dcos-net.
+- DCOS-20158 - Fixed security vulnerabilities, related to [input validation](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [cross-site scripting](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427), in DC/OS UI.
+- DCOS_OSS-1943 - Changed the LIBPROCESS_NUM_WORKER_THREADS environment variable from 8 to 16 to increase the minimum number of librocess worker threads.
+- DCOS_OSS-2003 - Fixed detection of CoreOS and overlay issues with networkd.
+
+# Notable Changes in DC/OS 1.9.7
+
+- Updated to Mesos 1.2.3 ([changelog](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12341267)).
+- Updated to Marathon 1.4.11 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.4.11)).
+- Updated to Metronome 0.3.2 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.2)).
+
+# Issues Fixed in DC/OS 1.9.6
 
 - COPS-980 - Marathon's default task unreachable behavior reinstated.
 - DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
@@ -27,7 +41,7 @@ These are the release notes for DC/OS 1.9.6.
 - [Open SSL 1.0.2m](https://www.openssl.org/news/cl102.txt) integrated.
 - [Latest JDK 8](http://www.oracle.com/technetwork/java/javase/8all-relnotes-2226344.html) integrated.
 
-# Issues Fixed in 1.9.5
+# Issues Fixed in DC/OS 1.9.5
 
 - CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
 - DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
