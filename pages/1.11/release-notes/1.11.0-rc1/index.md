@@ -27,6 +27,8 @@ Please try out the new features and updated data services. Provide any feedback 
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com/hc/en-us/articles/213198586).
+
 <a name="new-features"></a>
 # New features and capabilities
 
