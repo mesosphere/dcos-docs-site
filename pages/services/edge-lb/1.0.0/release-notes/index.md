@@ -20,6 +20,7 @@ Release notes for Edge-LB.
 - Strict Mode Support for DC/OS Enterprise version 1.11 or higher
 - Security fix in logging
 - Curl with -k within same container
+- Update healthchecks to MESOS_HTTP
 
 Shortlist:
 
@@ -32,6 +33,8 @@ Shortlist:
       1.0 rc fixes (#124)
       [DCOS-19242] Ensure edge-lb is readily built on various platforms (#117)
       [DCOS-19242] Dockerize build (#119)
+      1.0 rc fixes (#124)
+      Change healthchecks from HTTP to MESOS_HTTP (#125)
 ```
 
 ## Known Limitations
