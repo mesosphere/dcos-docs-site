@@ -1,5 +1,6 @@
 const sidebarDropdown = document.querySelector('.sidebar__dropdown');
 const sidebarDropdownList = document.querySelector('.sidebar__dropdown__list');
+const sidebarDropdownListItems = document.querySelectorAll('.sidebar__dropdown__link');
 let sidebarItems = document.querySelectorAll('.sidebar__nav__item--parent');
 sidebarItems = [...sidebarItems];
 
@@ -53,3 +54,31 @@ function toggleMenu(event) {
     this.style.transform = 'rotate(0)';
   }
 }
+
+sidebarDropdownListItems.forEach(trigger => {
+  
+  trigger.addEventListener('click', (evt) => {    
+    evt.stopPropagation();
+    evt.preventDefault();    
+
+    const urlPath = window.location.pathname;
+    const newVersion = trigger.getAttribute('href');
+    let pathSegments = urlPath.split('/');
+      
+    pathSegments.shift();
+    pathSegments[0] = newVersion;
+  
+    let newPath = pathSegments.join('/');
+
+    $.ajax({
+      type: 'OPTIONS',
+      url: newPath,
+      success: ((data) => {
+        window.location.href = newPath;
+      }),
+      error: ((xhr, err) => {
+        window.location.href= newVersion;
+      })
+    });
+  });
+});
