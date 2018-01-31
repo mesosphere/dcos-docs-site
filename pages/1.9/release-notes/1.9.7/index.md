@@ -13,12 +13,16 @@ These are the release notes for DC/OS 1.9.7.
 # Issues Fixed in DC/OS 1.9.7
 
 - CORE-1375 - Docker executor no longer hangs due to lost messages.
-- DCOS_OSS-1943 - Modified the LIBPROCESS_WORKER_THREADS environment variable to 16 to increase the minimum number of worker threads.
+- DCOS-19893 - Reduced number of threads to 18 and set dump_log_write_threshold to 10, reducing startup time for dcos-net.
+- DCOS-20158 - Fixed security vulnerabilities, related to [input validation](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [cross-site scripting](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427), in DC/OS UI.
+- DCOS_OSS-1943 - Changed the LIBPROCESS_NUM_WORKER_THREADS environment variable from 8 to 16 to increase the minimum number of librocess worker threads.
+- DCOS_OSS-2003 - Fixed detection of CoreOS and overlay issues with networkd.
 
 # Notable Changes in DC/OS 1.9.7
 
-- Mesos 1.2.3 is integrated with DC/OS 1.9.7.
-- Marathon 1.4.11 is integrated with DC/OS 1.9.7.
+- Updated to Mesos 1.2.3 ([changelog](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12341267)).
+- Updated to Marathon 1.4.11 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.4.11)).
+- Updated to Metronome 0.3.2 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.2)).
 
 # Issues Fixed in DC/OS 1.9.6
 
