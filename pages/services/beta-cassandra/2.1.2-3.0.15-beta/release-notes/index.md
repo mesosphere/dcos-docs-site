@@ -9,6 +9,23 @@ menuWeight: 120
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
+## Version 2.1.2-3.0.15-beta
+
+## NOTICE
+
+This is a beta release of the DC/OS Apache Cassandra service. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
+
+### Improvements
+- Remove the dependency on a docker image and allow the service to run as nobody in CentOS distros.
+- Moved scheduler health-checks from HTTP to ([Mesos-level health checks](https://mesosphere.github.io/marathon/docs/health-checks.html#mesos-level-health-checks)).
+- Bump JRE to 1.8u162.
+- Improvements to the pod pause feature.
+- Improve handling of unexpected task statuses. 
+
+### Documentation
+- Added limitation section for backup/restore with authentication enabled.
+- Added documentation for placement constraints referencing zones.
+
 
 ## Version 2.1.1-3.0.15-beta
 
