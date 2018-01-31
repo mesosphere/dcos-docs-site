@@ -11,7 +11,9 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS provides an east-west load balancer (minuteman) that enables multi-tier microservices architectures. It acts as a TCP layer 4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency. 
+DC/OS provides an east-west layer 4 load balancer (minuteman) that enables multi-tier microservices architectures. 
+
+It acts as a TCP layer 4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency. 
 
 The features include:
 - Distributed load balancing of applications.
