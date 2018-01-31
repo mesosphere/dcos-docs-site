@@ -46,7 +46,7 @@ Shortlist:
 
 ## Known Issues
 
-* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/service-docs/edge-lb/1.0.0/uninstalling/].
+* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/service-docs/edge-lb/1.0.0/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
 
@@ -78,7 +78,7 @@ Shortlist:
 
 ## Known Issues
 
-* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/service-docs/edge-lb/0.1.9/uninstalling/].
+* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/service-docs/edge-lb/0.1.9/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
 
