@@ -30,14 +30,12 @@ Here are the master node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2       |       7.4   |
-| CoreOS      | 835.13.0  | 1235.9.0    | 
 | Nodes       | 1         | 3 or 5      |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
 
-There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following: 
+There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
@@ -56,7 +54,7 @@ Here are the agent node hardware requirements.
 | Memory      | 16 GB RAM | 16 GB RAM   |
 | Hard disk   | 60 GB     | 60 GB       |
 
-The agent nodes must also have: 
+The agent nodes must also have:
 
 - A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.10/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
@@ -72,7 +70,7 @@ The agent nodes must also have:
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
-    
+
 *   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.
 
 ### <a name="port-and-protocol"></a>Port and Protocol Configuration
@@ -83,7 +81,7 @@ The agent nodes must also have:
 *   Each node is network accessible from the bootstrap node.
 *   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 *   All ports should be open for communication from the master nodes to the agent nodes and vice versa.
-*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
+*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`.
 
 ### High Speed Internet Access
 
@@ -126,7 +124,7 @@ For more more information, see Docker's <a href="http://docs.docker.com/engine/i
 
 ### Disable sudo password prompts
 
-To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo. 
+To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo.
 
 Add the following line to your `/etc/sudoers` file. This disables the sudo password prompt.
 
@@ -150,7 +148,7 @@ timedatectl
 
 Before installing DC/OS, you must ensure that your bootstrap node has the following prerequisites.
 
-**Important:** 
+**Important:**
 
 * If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
@@ -198,7 +196,7 @@ On each of your cluster nodes, use the following command to:
     ```
 
     **Tip:** It may take a few minutes for your node to come back online after reboot.
-    
+
 ### Locale requirements
 You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.    
 
