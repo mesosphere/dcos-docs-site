@@ -10,7 +10,7 @@ These are the release notes for DC/OS 1.9.7.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-# Issues Fixed in 1.9.7
+# Issues Fixed in DC/OS 1.9.7
 
 - CORE-1375 - Docker executor no longer hangs due to lost messages.
 - DCOS_OSS-1943 - Modified the LIBPROCESS_WORKER_THREADS environment variable to 16 to increase the minimum number of worker threads.
@@ -20,7 +20,7 @@ These are the release notes for DC/OS 1.9.7.
 - Mesos 1.2.3 is integrated with DC/OS 1.9.7.
 - Marathon 1.4.11 is integrated with DC/OS 1.9.7.
 
-# Issues Fixed in 1.9.6
+# Issues Fixed in DC/OS 1.9.6
 
 - COPS-980 - Marathon's default task unreachable behavior reinstated.
 - DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
@@ -37,7 +37,7 @@ These are the release notes for DC/OS 1.9.7.
 - [Open SSL 1.0.2m](https://www.openssl.org/news/cl102.txt) integrated.
 - [Latest JDK 8](http://www.oracle.com/technetwork/java/javase/8all-relnotes-2226344.html) integrated.
 
-# Issues Fixed in 1.9.5
+# Issues Fixed in DC/OS 1.9.5
 
 - CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
 - DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
