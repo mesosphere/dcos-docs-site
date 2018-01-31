@@ -8,7 +8,7 @@ excerpt:
 enterprise: false
 ---
 
-Perform an Edge-LB upgrade by following this procedure:
+Perform an Edge-LB upgrade by following this procedure.
 
 1. Uninstall the apiserver.
 

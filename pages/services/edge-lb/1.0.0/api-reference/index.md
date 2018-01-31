@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+This is a reference for all API endpoints exposed by the Edge-LB package.
+
 The Edge-LB API enables users to create and manage pools of load balancers.
 
 # API Versions

@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+This is a reference for all CLI commands available in the Edge-LB package.
+
 # Description
 THE Edge-LB CLI subcommands allow you to configure and manage your Edge-LB load balancer(s) from the DC/OS CLI.
 

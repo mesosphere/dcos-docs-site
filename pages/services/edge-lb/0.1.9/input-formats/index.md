@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+Pool configuration file format information.
+
 Edge-LB accepts configuration in either YAML or JSON format.
 
 # Convert YAML to JSON

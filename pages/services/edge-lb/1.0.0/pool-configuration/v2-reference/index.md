@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+A reference of all Edge-LB pool configurations options in the V2 API.
+
 # V2 Pool Reference
 
 The tables below describe all possible configuration options. The majority of fields have sensible defaults and should be modified with caution.
