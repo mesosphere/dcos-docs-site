@@ -1,6 +1,10 @@
 ---
-post_title: SSL Auth
-menu_order: 23
+layout: layout.pug
+navigationTitle: 
+title: SSL Auth
+menuWeight: 60
+excerpt:
+featureMaturity:
 enterprise: 'yes'
 ---
 
