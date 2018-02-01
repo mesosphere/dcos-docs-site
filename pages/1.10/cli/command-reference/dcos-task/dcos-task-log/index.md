@@ -17,7 +17,7 @@ Print the task log.
 # Usage
 
 ```bash
-dcos task log <file> <task> [OPTION]
+dcos task log <task> <file> [OPTION]
 ```
 
 # Options
@@ -32,14 +32,14 @@ dcos task log <file> <task> [OPTION]
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<file>`   |  stdout  |  Specify the sandbox file to print. |
 | `<task>`   |             |  A full task ID, a partial task ID, or a regular expression. |
+| `<file>`   |  stdout  |  Specify the sandbox file to print. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. | 
+| [dcos task](/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
 
 # Examples
 
