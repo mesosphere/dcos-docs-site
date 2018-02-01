@@ -260,7 +260,7 @@ Indicates whether to enable DC/OS virtual networks.
 
     *  `dcos_overlay_network` This group of parameters defines a virtual network for DC/OS.  The default configuration of DC/OS provides a virtual network named `dcos` with this YAML configuration:
 
-        ```
+        ```yaml
         dcos_overlay_network:
             vtep_subnet: 44.128.0.0/20
             vtep_mac_oui: 70:B3:D5:00:00:00
