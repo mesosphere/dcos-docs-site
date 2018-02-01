@@ -14,9 +14,9 @@ These are the release notes for DC/OS 1.9.7.
 
 - CORE-1375 - Docker executor no longer hangs due to lost messages.
 - DCOS-19893 - Reduced number of threads to 18 and set dump_log_write_threshold to 10, reducing startup time for dcos-net.
-- DCOS-20158 - Fixed security vulnerabilities, related to [input validation](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [cross-site scripting](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427), in DC/OS UI.
-- DCOS_OSS-1943 - Changed the LIBPROCESS_NUM_WORKER_THREADS environment variable from 8 to 16 to increase the minimum number of librocess worker threads.
-- DCOS_OSS-2003 - Fixed detection of CoreOS and overlay issues with networkd.
+- DCOS-20158 - Updated marked npm package to address two security vulnerabilities: [CVE-2017-17461](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [CVE-2017-1000427](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427).
+- DCOS_OSS-1943 - Changed the LIBPROCESS_NUM_WORKER_THREADS environment variable from 8 to 16, to increase the minimum number of librocess worker threads.
+- DCOS_OSS-2003 - Modified DC/OS overlay networking to work with systemd networkd.
 
 # Notable Changes in DC/OS 1.9.7
 
