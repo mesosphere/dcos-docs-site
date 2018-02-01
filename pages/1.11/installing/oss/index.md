@@ -2,7 +2,6 @@
 layout: layout.pug
 excerpt:
 title: Installing and Upgrading DC/OS Open Source
-navigationTitle: Installing and Upgrading
 menuWeight: 030
 oss: true
 ---

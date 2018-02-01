@@ -284,22 +284,18 @@ Indicates whether to enable DC/OS virtual networks.
 A list of IP addresses that DC/OS DNS resolvers cannot bind to.
 
 ### dns_forward_zones
-A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
+A list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
 
 A sample definition is as follows:
 
-```
+```yaml
 dns_forward_zones:
-- - "a.contoso.com"
- - - - "1.1.1.1"
-     - 53
-   - - "2.2.2.2"
-     - 53
-- - "b.contoso.com"
- - - - "3.3.3.3"
-     - 53
-   - - "4.4.4.4"
-     - 53
+a.contoso.com:
+- "1.1.1.1:53"
+- "2.2.2.2:53"
+b.contoso.com:
+- "3.3.3.3:53"
+- "4.4.4.4:53"
 ```
 
 In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
