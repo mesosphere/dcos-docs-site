@@ -1,7 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Security
-title: Security
+title: DC/OS Enterprise Security
 menuWeight: 80
 excerpt:
 
