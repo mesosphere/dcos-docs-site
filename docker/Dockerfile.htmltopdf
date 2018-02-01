@@ -28,6 +28,7 @@ npm run build-pdf
 #
 
 FROM openlabs/docker-wkhtmltopdf-aas:latest as pdf-builder
+RUN apt-get install -y parallel
 
 RUN mkdir -p /tmp/pdf
 
