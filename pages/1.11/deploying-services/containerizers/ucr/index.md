@@ -10,7 +10,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.11/deploying-services/containerizers/) over the Docker Engine for running Docker images.  Use the Docker Engine only if you need specific [features](/1.11/deploying-services/containerizers/#container-runtime-features) of the Docker package. 
+The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.11/deploying-services/containerizers/) over the Docker Engine for running Docker images.  Use the Docker Engine only if you need specific [features](/1.11/deploying-services/containerizers/#container-runtime-features) of the Docker package.
 
 # Provision a container with the UCR from the DC/OS web interface
 
@@ -20,7 +20,7 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 
 1. Enter the service ID.
 
-1. In the **CONTAINER IMAGE** field, optionally enter a container image. Otherwise, enter a command in the **COMMAND** field. 
+1. In the **CONTAINER IMAGE** field, optionally enter a container image. Otherwise, enter a command in the **COMMAND** field.
 
 1. Specify the UCR. Click **MORE SETTINGS**. In the **Container Runtime** section, choose the **UNIVERSAL CONTAINER RUNTIME (UCR)** radio button.
 
@@ -82,7 +82,6 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 **Important:** If you leave the `args` field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the `args` field. If you do not, your service will fail to deploy.
 
 # Limitations
-- The UCR is a <a href="/1.11/overview/feature-maturity/">preview</a>feature in DC/OS 1.10.
 - The UCR does not support the following: runtime privileges, Docker options, private registries with container authentication.
 
 # Further Reading
