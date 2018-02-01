@@ -48,7 +48,7 @@ function main
      #Make the Destination directory
      mkdir -p "${PDF_DEST_DIR}"
      #echo "google-chrome --no-sandbox --headless --disable-gpu --print-to-pdf=${PDF_DEST_DIR}/${PDF_FILE_NAME} ${SOURCE_FILE}" >> "${PARALLEL_TEMPFILE}"
-     chromium-browser --no-sandbox --headless --disable-gpu --print-to-pdf="${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${SOURCE_FILE}"
+     google-chrome --no-sandbox --headless --disable-gpu --print-to-pdf="${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${SOURCE_FILE}"
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.html" -print0)
 
