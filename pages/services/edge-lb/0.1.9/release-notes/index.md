@@ -8,6 +8,8 @@ excerpt:
 enterprise: false
 ---
 
+Release notes for Edge-LB.
+
 # v0.1.9
 
 ## Noteworthy changes:
@@ -15,22 +17,13 @@ enterprise: false
 - Fix path routing bug which resulted in adding a "/" to paths in certain configurations.
 - Fix `dcos edgelb` cli for clusters with dashboard URLs using `http://` scheme.
 
-Full changelog: [v0.1.8...v0.1.9](https://github.com/mesosphere/dcos-edge-lb/compare/v0.1.8...v0.1.9)
-
 Shortlist:
 
 ```
 % git shortlog v0.1.8..HEAD
-Avinash Sridharan (1):
       Updated `mesosphere/consul-template` repo access to SSH. (#115)
-
-Drew Kerrigan (1):
       Use specified DcosURL scheme (#113)
-
-Michael Ellenburg (1):
       Downgrade instance type (#114)
-
-Nicholas Sun (1):
       apiserver: Fix path routing bug with "toPath: /" (#111)
 ```
 
@@ -45,7 +38,7 @@ Nicholas Sun (1):
 
 ## Known Issues
 
-* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/service-docs/edge-lb/0.1.9/uninstalling/].
+* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/service-docs/edge-lb/0.1.9/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
 
@@ -56,16 +49,11 @@ Noteworthy change(s):
 - Fix scheduler bug for unhandled rescind offers (causes unhealthy in UI)
 - Decrease reload wait from 10s to 5s
 
-Full changelog: [v0.1.7...v0.1.8](https://github.com/mesosphere/dcos-edge-lb/compare/v0.1.7...v0.1.8)
-
 Shortlist:
 
 ```
 % git shortlog v0.1.7..HEAD
-Drew Kerrigan (1):
       [Urgent] Bump sdk version (#108)
-
-Nicholas Sun (2):
       lbmgr: Decrease reload wait from 10s to 5s
       itests: Add zero downtime reload test
 ```

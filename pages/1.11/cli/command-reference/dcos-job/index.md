@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos job
 title: dcos job
-menuWeight: 4
+menuWeight: 8
 excerpt:
 
 enterprise: false

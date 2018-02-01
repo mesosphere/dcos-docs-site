@@ -21,7 +21,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.11/overview/concepts/#mesos-exhibitor-zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.11/overview/concepts/#exhibitor-zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -31,7 +31,17 @@ The DC/OS installation creates these folders:
 ## Prerequisites
 Your cluster must meet the software and hardware [requirements][1].
 
-# Create an IP detection script
+# <a name="license"></a>Create config directory and store license file
+
+1.  Create a directory named `genconf` on your bootstrap node and navigate to it.
+
+    ```bash
+    mkdir -p genconf
+    ```
+
+1.  Create a [license file](/1.11/administering-clusters/licenses) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
+
+# <a name="ip-detect-script"></a>Create an IP detection script
 
 In this step, an IP detect script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
@@ -41,13 +51,7 @@ In this step, an IP detect script is created. This script reports the IP address
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master. 
 
 
-1.  Create a directory named `genconf` in the home directory of your bootstrap node, then navigate to it.
-    
-        mkdir -p genconf
-        cd genconf
-        
-
-2.  Create an IP detection script for your environment and save as `ip-detect`. You can use the examples below.
+1.  Create an IP detection script for your environment and save as `ip-detect`. You can use the examples below.
     
     *   #### Use the AWS Metadata Server
         
@@ -60,7 +64,7 @@ In this step, an IP detect script is created. This script reports the IP address
         # ipv4 address
         curl -fsSL http://169.254.169.254/latest/meta-data/local-ipv4
         ```
-    
+
     *   #### Use the GCE Metadata Server
         
         This method uses the GCE Metadata Server to get the IP address:
@@ -72,8 +76,7 @@ In this step, an IP detect script is created. This script reports the IP address
         # ipv4 address
         curl -fsSL -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
         ```
-            
-    
+
     *   #### Use the IP address of an existing interface
         
         This method discovers the IP address of a particular interface of the node.
@@ -209,7 +212,7 @@ To install DC/OS:
     ```bash
     ====> EXECUTING CONFIGURATION GENERATIONExecute the configuration generation (genconf).
     Generating configuration files...
-    ```
+    ``` 
     
     At this point your directory structure should resemble:
     
@@ -263,7 +266,7 @@ To install DC/OS:
     2 out of 2 hosts successfully completed run_preflight stage.
     ====> END OF SUMMARY FOR run_preflight
     Starting new HTTPS connection (1): api.segment.io
-    ```
+    ``` 
     
     **Tip:** For a detailed view, you can append log level debug (`-v`) to your command. For example `sudo bash dcos_generate_config.ee.sh --preflight -v`.
 
@@ -289,7 +292,7 @@ To install DC/OS:
     2 out of 2 hosts successfully completed install_dcos stage.
     ====> END OF SUMMARY FOR install_dcos
     Starting new HTTPS connection (1): api.segment.io
-    ```
+    ``` 
 
 5.  Run the DC/OS diagnostic script to verify that services are up and running.
     
@@ -377,8 +380,8 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
         ====> Found an existing DC/OS installation. To reinstall DC/OS on this this machine you must
         ====> first uninstall DC/OS then run dcos_install.sh. To uninstall DC/OS, follow the product
         ====> documentation provided with DC/OS.
-        ====>
-        ====>
+        ====>            
+        ====>  
         ====> 10.10.0.160:22 FAILED
         
 
@@ -389,11 +392,11 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [5]: /1.11/installing/ent/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
  [7]: /1.11/storage/external-storage/
- [8]: /1.11/installing/ent/custom/advanced/
+ [8]: /1.11/installing/ent/custom/advanced/#configuration
  [9]: /1.11/img/chef-zk-status.png
  [10]: /1.11/img/gui-installer-login-ee.gif
  [11]: /1.11/img/dashboard-ee.png
  [12]: /1.11/security/
- [13]: /1.11/installing/ent/custom/system-requirements/#hardware-prerequisites
- [14]: /1.11/installing/ent/custom/system-requirements/#software-prerequisites
+ [13]: #hardware
+ [14]: #software
  [15]: #two

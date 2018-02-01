@@ -56,6 +56,7 @@ For all nodes in your DC/OS cluster:
         - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stderr*
         - /var/log/mesos/*.log
         - /var/log/dcos/dcos.log
+    exclude_files: ["stdout.logrotate.state", "stdout.logrotate.conf", "stderr.logrotate.state", "stderr.logrotate.conf"]
     tail_files: true
     output.elasticsearch:
       hosts: ["$ELK_HOSTNAME:$ELK_PORT"]

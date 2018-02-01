@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: 
-title: Kafka 2.1.0-1.0.0-beta
-menuWeight: 20
+navigationTitle: Beta Kafka 2.1.0-1.0.0-beta
+title: Beta Kafka 2.1.0-1.0.0-beta
+menuWeight: 30
 excerpt:
 featureMaturity:
 enterprise: false

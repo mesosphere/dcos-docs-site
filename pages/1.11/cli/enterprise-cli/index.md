@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: DC/OS Enterprise CLI
-menuWeight: 6
+menuWeight: 5
 excerpt:
 
 enterprise: true
