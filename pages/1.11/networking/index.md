@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The DC/OS network stack provides IP connectivity to containers, has built-in DNS-based service discovery and provides layer 4 and layer 7 load balancing.
+The DC/OS network stack provides IP connectivity to containers, has built-in DNS-based service discovery, and provides layer 4 and layer 7 load balancing.
 
 The following sections describe these features in more detail.
 
@@ -85,7 +85,7 @@ While both Marathon-LB and Edge-LB are primarily designed to be used for handlin
 
 
 # A Note on Software Re-architecture
-In DC/OS 1.11 most of the networking components such `dcos-dns`, `dcos-l4lb`, `dcos-overlay`, are ErLang applications that run as part of a single ErLang VM called `dcos-net`. `dcos-net` is itself a systemD unit that runs on all nodes in the cluster. It is important to note that prior to DC/OS 1.11 each of the applications `dcos-dns`, `dcos-l4lb`, and `dcos-overlay` were running in their own ErLang VM, with their own repositories. Prior to DC/OS 1.11 role of `dcos-dns` was fulfilled by `spartan`, `dcos-l4lb` was fulfilled by `minuteman` and `dcos-overlay` was fulfilled by `navstar`. In DC/OS 1.11 the different ErLang VMs were aggregated into a single ErLang VM, primarily because this operational pattern is more idiomatic to running ErLang applications. The main advantage of following this operational pattern is that it has lead to better efficiency in terms of resource utilization (lower CPU consumption and higher throughput), and has also made the networking services a lot more robust and reliable, not to mention that this approach has made the code a lot more maintainable. 
+In DC/OS 1.11 most of the networking components such `dcos-dns`, `dcos-l4lb`, `dcos-overlay`, are applications that run as part of a single systemD unit called `dcos-net` running on all nodes of the cluster. It is important to note that prior to DC/OS 1.11 each of the applications `dcos-dns`, `dcos-l4lb`, and `dcos-overlay` were running as separate systemD units. Prior to DC/OS 1.11 role of `dcos-dns` was fulfilled by `spartan`, `dcos-l4lb` was fulfilled by `minuteman` and `dcos-overlay` was fulfilled by `navstar`. In DC/OS 1.11 the different systemD units were aggregated into a single service. The main advantage of following this operational pattern is that it has lead to better efficiency in terms of resource utilization (lower CPU consumption and higher throughput), and has also made the networking services a lot more robust and reliable, not to mention that this approach has made the code a lot more maintainable. 
 
 It's important to note that from a functionality standpoint DC/OS 1.11 provides exactly the same, or better functionality, when compared to prior versions of DC/OS, except with better efficieny in terms of resource utilization. Thus, even though this software re-architecture has changed the internal machinery for providing networking services within DC/OS, from a functional UX standpoint the operator should not see any difference.
 

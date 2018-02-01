@@ -14,8 +14,8 @@ DC/OS allows UCR and Docker containers to be launched on a wide variety of Softw
 
 DC/OS addss support for SDN providers by providing support for both the [Container Networking Interface (CNI)](https://github.com/containernetworking/cni) and the [Container Network Model (CNM)](https://github.com/docker/libnetwork/blob/master/docs/design.md) standards. DC/OS support CNI for UCR and CNM for Docker respectively. Examples of supported SDN providers on DC/OS are [Calico](https://github.com/dcos/examples/tree/master/calico) and Contrail. 
 
-DC/OS itself comes with its own native virtual networking solution called DC/OS Overlay which supports both the CNI and CNM standards. 
+DC/OS comes with its own native virtual networking solution, called DC/OS Overlay, which supports both the CNI and CNM standards. 
 
 # IPv6 support for Docker Containers
-In DC/OS 1.11 we have enabled IPv6 support for Docker containers. DC/OS overlay, the pre-packaged SDN solution for DC/OS, has built in support for creating IPv6 networks for docker containers.
+In DC/OS 1.11 supported for running Docker containers on IPv6 virtual networks has been introduced. DC/OS overlay, the pre-packaged SDN solution for DC/OS, has built in support for creating IPv6 networks for docker containers.
 *NOTE: IPv6 support is currently available only for Docker containers and not for UCR containers.* 
