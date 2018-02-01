@@ -6,6 +6,8 @@ menuWeight: 60
 excerpt:
 ---
 
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
 
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
@@ -22,7 +24,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 # <a name="breaking"></a>Breaking Changes
 
 The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
- 
+
 # <a name="whats-new"></a>What's New
 
 ### Apache Mesos 1.2 and Marathon 1.4 integrated
@@ -36,7 +38,7 @@ Added support for pods, GPUs, and made significant scalability improvements.
 [preview]
 #### Pods
 [/preview]
-Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). 
+Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
 
 [preview]
 #### GPU
@@ -45,7 +47,7 @@ Multiple co-located containers per instance, scheduled on the same host. For mor
 - Leverage GPUs to run novel algorithms.  
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.
 - Allocate GPUs on a per container basis, including isolation guarantees
-   
+
 For more information, see the [documentation](/1.9/deploying-services/gpu/).   
 
 ## DC/OS Monitoring and Operations
@@ -158,7 +160,7 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 - DCOS_OSS-691 - DNS becomes briefly unavailable during DC/OS version upgrades.
 - DCOS-14005 - Marathon-LB does not support pods.
 - DCOS-14021 - [Task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
-- DCOS-14433 - The [Universal container runtime](/1.9/deploying-services/containerizers/) does not support Azure cloud with Ubuntu. 
+- DCOS-14433 - The [Universal container runtime](/1.9/deploying-services/containerizers/) does not support Azure cloud with Ubuntu.
 - Marathon-7133 - Marathon application history is lost after Marathon restart.
 
 # <a name="fixed-issues"></a>Issues Fixed since 1.8
@@ -167,7 +169,7 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 - DCOS-9149 - Missing Timeout for Spartan fetching DNS Exhibitor data.
 - DCOS-9754 - beam.smp consumes inordinate amount of CPU.
 - DCOS-9776 - Race in DeploymentPlan.
-- DCOS-10089 - Network tab in UI doesn't show the assigned IP. 
+- DCOS-10089 - Network tab in UI doesn't show the assigned IP.
 - DCOS-13228 - Layer 4 load balancer is not working with Docker bridge mode.
 - DCOS-13359 - Backends are not removed from VIP table when killed.
 - DCOS-13367 - ZooKeeper logs grow unbounded and will cause master node disks to fill up.
