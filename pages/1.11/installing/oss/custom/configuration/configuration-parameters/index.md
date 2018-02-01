@@ -295,7 +295,6 @@ A sample definition is as follows:
 
 ```yaml
 dns_forward_zones:
-dns_forward_zones:
 a.contoso.com:
 - "1.1.1.1:53"
 - "2.2.2.2:53"
