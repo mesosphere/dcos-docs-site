@@ -58,11 +58,11 @@ dcos-l4lb runs as an application within the Erlang VM *dcos-net* which runs on a
 
 
 ## Layer 7
-There are two packages within DC/OS that provide layer 7 load-balancing for DC/OS services. [Edge-LB](/pages/services/edge-lb) and and [Marathon-LB](/pages/services/marathon-lb), both these packages use HAProxy as its data-plane for providing layer 7 load-balancing for north-south traffic ingressing into the cluster. Both these packages provide load balancing for TCP and HTTP-based applications, SSL support, and health checking. 
+There are two packages within DC/OS that provide layer 7 load-balancing for DC/OS services, [Edge-LB](/pages/services/edge-lb) and [Marathon-LB](/pages/services/marathon-lb). Both these packages use HAProxy as its data-plane for load-balancing north-south traffic ingressing into the cluster. While these packages are primarily used to provide layer 7 load balancing (supporting HTTP and HTTPS) they can also be used to be provide layer 4 load balancing for TCP and SSL traffic. 
 
-While the data-plane used by both these packages is fundamentally the same, the control-plane provided by these packages are vastly different. Edge-lb is the more recent of the two and is richer in its featureset compared to Marathon-LB. Edge-LB has the ability to support pools of HAProxy load-balancing instances, allowing for a multi-tenant support . It comes with it own CLI to configure and launch pools, and supports not only Marathon tasks, but also tasks managed by custom Mesos framesworks that want to expose their tasks outside the cluster. 
+While the data-plane used by both these packages is fundamentally the same (HAProxy), the control-plane provided by these packages are vastly different. Edge-lb is the more recent of the two and is richer in its featureset compared to Marathon-LB. Edge-LB has the ability to support pools of HAProxy load-balancing instances, allowing it support multi-tenant deployments. It comes with it own CLI to configure and launch pools, and supports not only Marathon tasks but also tasks managed by custom Mesos framesworks that want to expose their tasks outside the cluster. 
 
-Marathon-LB is a much simpler version of Edge-LB and manages a single instance of HAProxy. It also can load-balance only Marathon tasks and cannot be used to load-balance tasks launch by custom frameworks that are not visible to Marathon.
+Marathon-LB is a much simpler version of Edge-LB and manages a single instance of HAProxy. It also can load-balance only Marathon tasks and cannot be used to load-balance tasks launched by custom frameworks that are not visible to Marathon.
 
 Edge-LB is available only for DC/OS Enterprise and currently is not supported on DC/OS open, while Marathon-LB is available for open as well as enterprise versions of DC/OS.
 
