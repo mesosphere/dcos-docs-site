@@ -7,7 +7,7 @@
 #
 #Set PARALLEL_JOBS Environment Variable for parallel jobs count, should not be more than the number of CPU
 
-#set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail
 
 INPUT_FOLDER="${1}"
 OUTPUT_FOLDER="${2}"
