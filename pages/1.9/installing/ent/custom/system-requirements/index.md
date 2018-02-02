@@ -104,12 +104,13 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 Docker must be installed on all bootstrap and cluster nodes. The supported versions of Docker are:
 
+- 1.13.x
 - 1.12.x
 - 1.11.x
 
 **Recommendations**
 
-- Docker 1.11.x - 1.12.x is recommended <a href="https://github.com/docker/docker/issues/9718" target="_blank">for stability reasons</a>.
+- Docker 1.11.x - 1.13.x is recommended <a href="https://github.com/docker/docker/issues/9718" target="_blank">for stability reasons</a>. Note that due to an <a href="https://github.com/moby/moby/issues/33820" target="_blank">open issue in the moby project</a>, some users may experience Docker containers stuck in an unresponsive state when using version 1.13.x.
 
 * Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
 
