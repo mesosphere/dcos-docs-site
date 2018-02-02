@@ -1,26 +1,28 @@
 ---
 layout: layout.pug
 navigationTitle: 
-title: Supported Versions
+title: Support
 menuWeight: 110
 excerpt:
 
 ---
 
-<a name="package-versioning-scheme"></a>
-# Package Versioning Scheme
+# Support
 
-- Apache Zookeeper: 3.4.10
+<a name="package-versioning-scheme"></a>
+## Package Versioning Scheme
+
+- Confluent Kafka: 3.2.0
 - DC/OS: 1.9 and higher
 
-Packages are versioned with an `a.b.c-x.y.z` format, where `a.b.c` is the version of the DC/OS integration and `x.y.z` indicates the version of Apache ZooKeeper. For example, `1.5.0-3.2.1` indicates version `1.5.0` of the DC/OS integration and version `3.2.1` of Apache Zookeeper.
-
-<a name="version-policy"></a>
-# Version Policy
-
-The DC/OS Apache Zookeeper Service is engineered and tested to work with a specific release of Apache Zookeeper. We select stable versions of the base technology in order to promote customer success. We have selected the latest stable version from Apache Zookeeper for new releases.
+Packages are versioned with an `a.b.c-x.y.z` format, where `a.b.c` is the version of the DC/OS integration and `x.y.z` in dicates the version of Confluent Kafka. For example, `1.10.0-3.2.0` indicates version `1.10.0` of the DC/OS integration and version `3.2.0` of Confluent Kafka.
 
 <a name="contacting-technical-support"></a>
-# Contacting Technical Support
+## Contacting Technical Support
 
-[Submit a support request](https://support.mesosphere.com/hc/en-us/requests/new).
+### Confluent Kafka
+
+Confluent Enterprise customers can use their normal support channel (support@confluent.io) to submit a case. Questions regarding the integration of Confluent with DC/OS can be sent to partner-support@confluent.io.
+
+### Mesosphere DC/OS
+[Submit a request](https://support.mesosphere.com/hc/en-us/requests/new).

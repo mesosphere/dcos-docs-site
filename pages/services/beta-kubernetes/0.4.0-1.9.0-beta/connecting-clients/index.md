@@ -4,13 +4,9 @@ navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 50
 excerpt:
+featureMaturity:
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
-
-
-# Connecting Clients
 
 First, [install `kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) locally, in a path your session understands,
 e.g. `/usr/local/bin`.

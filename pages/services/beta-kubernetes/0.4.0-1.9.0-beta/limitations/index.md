@@ -4,11 +4,9 @@ navigationTitle:  Limitations
 title: Limitations
 menuWeight: 100
 excerpt:
+featureMaturity:
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
-
 
 Currently, the DC/OS Kubernetes package has the following limitations.
 We will be adding features rapidly as we approach General Availability (GA).

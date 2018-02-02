@@ -13,7 +13,7 @@ enterprise: false
 
 Each Universe service installs with a set of default parameters. You can discover the default parameters and change them as desired.
 
-This topic describes how to use the DC/OS CLI to configure services. You can also customize services by using the [**Services**](/1.11/gui/services/) tab in the DC/OS UI.
+This topic describes how to use the DC/OS CLI to configure services. You can also customize services by using the [**Services**](/1.11/gui/services/) tab in the DC/OS UI. 
 
 1. View the available configuration options for the service with the `dcos package describe --config <package-name>` command.
 
@@ -22,7 +22,7 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
     ```
 
     The output should be something like:
-
+    
     ```json
     {
     ...
@@ -65,7 +65,7 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
 
     ```json
     {
-      "service": {
+      "application": {
         "cpus": 3.0, "mem": 2048.0
        }
     }

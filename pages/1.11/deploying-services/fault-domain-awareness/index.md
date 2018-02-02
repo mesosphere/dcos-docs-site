@@ -17,22 +17,22 @@ A fault domain is a section of a network, for example, a rack in a datacenter or
 DC/OS now supports fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
 
 DC/OS currently supports Mesos' 2-level hierarchical fault domains: zone and region.
-
+	
 # Zone fault domains
 Zone fault domains offer a moderate degree of fault isolation because they share the same region. However, network latency between zones in the same region is moderately low (typically < 10ms).
-
-For on-premise deployments, a zone would be a physical data center rack.
+	
+For on-premise deployments, a zone would be a physical data center rack. 
 
 For public cloud deployments, a zone would be the "availability zone" concept provided by most cloud providers.
-
+	
 If your goal is high availability, and/or your services are latency-sensitive, place your instances in a one region and balance them across zones.
 
 # Region fault domains
 
-Region fault domains offer the most fault isolation, though inter-region network latency is high.
-
+Region fault domains offer the most fault isolation, though inter-region network latency is high. 
+	 
 For on-premise deployments, a region might be a data center.
-
+	 
 For public cloud deployments, most cloud providers expose a "region" concept.
 
 You can deploy your instances in a specific region region based on the available capacity. <!-- can you say more about what you mean here? -->
@@ -49,7 +49,7 @@ You can deploy your instances in a specific region region based on the available
 ## Considerations
 
 - Consider the future needs of the services in your cluster. You must define regions and zones at install time, though you can add or remove nodes from regions and zones after installation. If you need to update fault domain detect script, you must re-install DC/OS.
-
+	
 - Mesos master nodes must be in the same region because otherwise the latency between them will be too high. They should, however, be spread across zones for fault tolerance.
 
 - You must have less than 100ms latency between regions.
@@ -65,19 +65,19 @@ You can deploy your instances in a specific region region based on the available
 1. [Install DC/OS](/1.11/installing/ent/custom/advanced/).
 
 1. Test your installation.
-
+   
    From the DC/OS CLI, enter `dcos node`. You should see output similar to the following, where the region and zone of each node is listed:
-
-   ```bash
+   
+   ```
    HOSTNAME        IP                         ID                    TYPE               REGION      ZONE     
-  	10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a  
-  	10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b  
-	master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A     
-	master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b      
-	master.mesos.  10.0.7.111    a2ea1578-22ee-430e-aeb8-82ee1b74d88a   master (leader)  us-east-1  us-east-1c
-	```
+  10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a  
+  10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b  
+master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A     
+master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b      
+master.mesos.  10.0.7.111    a2ea1578-22ee-430e-aeb8-82ee1b74d88a   master (leader)  us-east-1  us-east-1c 
+   ```
 
-Alternatively, click the **Nodes** tab in the DC/OS GUI. The Nodes table will show region and zone columns for each agent.
+	Alternatively, click the **Nodes** tab in the DC/OS GUI. The Nodes table will show region and zone columns for each agent.
 
 # Use
 
@@ -107,7 +107,7 @@ Suppose you have a Mesos cluster that spans 3 regions: `aws-us-east1`, `aws-us-e
 
 ### Specify only a remote region
 
-```json
+```
 {
   "instances": 5,
   "constraints": [
@@ -121,7 +121,7 @@ Suppose you have a Mesos cluster that spans 3 regions: `aws-us-east1`, `aws-us-e
 
 ### Balanced Placement for a Single Region
 
-```json
+```
 {
    ...
   "instances": 6,
