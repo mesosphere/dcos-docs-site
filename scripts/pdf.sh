@@ -46,13 +46,15 @@ function main
      #PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.p
      #Make the Destination directory
      mkdir -p "${PDF_DEST_DIR}"
-     echo "wkhtmltopdf --print-media-type --disable-internal-links --disable-external-links --load-error-handling ignore ${SOURCE_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
-     echo "echo converted ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+     echo "phantomjs scripts/genpdf.js '${SOURCE_FILE}' '${PDF_DEST_DIR}/${PDF_FILE_NAME}' A4" >> "${PARALLEL_TEMPFILE}"
+
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.html" -print0)
 
   #Execute theconversion in parallel
-  parallel --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-6}" < "${PARALLEL_TEMPFILE}"
-  echo "PDF build done"
+  echo "Starting pdf build $(date)"
+  cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"
+  echo "Finished build $(date)"
+
 }
 
 clean "${OUTPUT_FOLDER}"
