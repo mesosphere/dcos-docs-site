@@ -34,6 +34,12 @@ By convention, `full` indicates that the permission supports all other action id
 
 ## <a name="admin-router"></a>Admin Router Permissions
 
+In each of these cases the principal is the client performing the HTTP
+request. The principal is authenticated using the DC/OS Authentication Token it
+presents in the `Authorization` HTTP header. Once the principal has been
+authenticated Admin Router checks that it has been assigned the necessary
+permission to enact the action (eg., `full`) on the resource (eg., `dcos:adminrouter:acs`).
+
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                         | x    |   |   |   |   |
@@ -56,6 +62,18 @@ By convention, `full` indicates that the permission supports all other action id
 | `dcos:adminrouter:service:metronome`<br>  Controls access to [DC/OS Jobs (Metronome)](/1.11/deploying-jobs/).                                                                                                                                                                      | x    |   |   |   |   |
 
 ## <a name="mesos"></a>Mesos Permissions
+
+It is important to note that the principal issuing the command to Mesos is the
+one that must be authorized to do so. This is not always the DC/OS user that is
+logged into the UI or CLI. For example, when a DC/OS user uses the CLI or UI to
+launch a Marathon application the Marathon framework performs its own
+authorization of that user before deciding to create the application. Once
+Marathon has determined that the DC/OS user is permitted to create the
+application, Marathon uses its own DC/OS service account user called
+`dcos_marathon` to instruct Mesos to launch the actual Mesos tasks. At that
+point, Mesos will check that the `dcos_marathon` service account (and not the
+end user) is authorized to perform a `create` action on the
+`dcos:mesos:master:task:app_id` resource.
 
 Permission string sections for `<role-name>`s in square brackets are optional.
 These sections allow the permission scope to be narrowed.
@@ -95,6 +113,13 @@ Applications launched with Root Marathon cannot receive offers with resources re
 
 ## <a name="marathon-metronome"></a>Marathon and Metronome Permissions
 
+In each of these cases the principal is the client performing the HTTP request
+to the Marathon or Metronome API. The principal is authenticated using the
+DC/OS Authentication Token it presents in the `Authorization` HTTP header. Once
+the principal has been authenticated Marathon or Metronome checks that the
+principal has been assigned permission to perform the action (eg., `read`) on
+the resource (eg., dcos:service:marathon:marathon:admin:config).
+
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/1.11/deploying-services/marathon-api/#/info).                                                                                                                         |      |   | x |   |   |
@@ -106,12 +131,19 @@ Applications launched with Root Marathon cannot receive offers with resources re
 
 ## <a name="secrets"></a>Secret Store Permissions
 
+These permissions control access to the [Secrets API](/1.11/security/ent/secrets/secrets-api/). A Mesos framework must have
+permission granted to its DC/OS service account in order to read or otherwise
+operate on a given secret. If you are looking for information on how to launch
+Marathon applications using secrets see [Configuring services and pods to use secrets](/1.11/security/ent/secrets/use-secrets/) instead.
+
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:secrets:default:[<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.11/security/secrets/).                                                                                                                                                           | x    | x | x | x | x |
 | `dcos:secrets:list:default:/[<path>]`<br> Controls view access to the names of [secrets](/1.11/security/secrets/).                                                                                                                                                                 |      |   | x |   |   |
 
 ## <a name="cluster-linker"></a> Cluster Linker Permissions
+
+In each of these cases the principal is the DC/OS user logged into the CLI or UI.
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
@@ -120,6 +152,12 @@ Applications launched with Root Marathon cannot receive offers with resources re
 
 
 ## <a name="superuser"></a>Superuser Permissions
+
+Windows has the `Administrator` user and Linux has the `root` user. Similarly,
+DC/OS as the concept of the `superuser`. A user with permission to perform the
+`full` action on the `dcos:superuser` resource has complete, unrestricted
+access to any operation throughout DC/OS. This is extremely powerful and this
+permission should be granted sparingly.
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
