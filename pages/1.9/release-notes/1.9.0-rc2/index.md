@@ -6,6 +6,7 @@ menuWeight: 90
 excerpt:
 ---
 
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/7f1ce42734aa54053291f403d71e3cb378bd13f3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
 
@@ -18,7 +19,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 - [What's New](#whats-new)
 - [Known Issues and Limitations](#known-issues)
 - [Issues Fixed since 1.9.0-rc1](#fixed-issues)
- 
+
 # <a name="whats-new"></a>What's New
 
 ### Apache Mesos 1.2 and Marathon 1.4 integrated

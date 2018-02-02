@@ -6,8 +6,6 @@ menuWeight: 35
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.10.0.
-
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
