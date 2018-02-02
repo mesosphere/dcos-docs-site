@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Beta Kafka 2.1.2-1.0.0-beta
+navigationTitle:
 title: Beta Kafka 2.1.2-1.0.0-beta
 excerpt:
 featureMaturity:

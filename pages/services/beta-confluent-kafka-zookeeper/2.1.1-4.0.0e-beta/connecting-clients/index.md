@@ -4,81 +4,203 @@ navigationTitle:
 title: Connecting Clients
 menuWeight: 50
 excerpt:
+featureMaturity:
 
 ---
 
-# Connecting Clients
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
-One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Because they can be deployed anywhere in the cluster, clients need a way to find the service. This is where service discovery comes in.
 
-<a name="discovering-endpoints"></a>
-## Discovering Endpoints
+# Supported Client Libraries
 
-Once the service is running, you may view information about its endpoints via either of the following methods:
+- The official Kafka Java library, i.e., `org.apache.kafka.clients.consumer.KafkaConsumer` and `org.apache.kafka.clients.producer.KafkaProducer`. 
 
-- CLI:
-  - List endpoint types: `dcos beta-confluent-kafka-zookeeper endpoints`
-  - View endpoints for an endpoint type: `dcos beta-confluent-kafka-zookeeper endpoints <endpoint>`
-- Web:
-  - List endpoint types: `<dcos-url>/service/confluent-kafka-zookeeper/v1/endpoints`
-  - View endpoints for an endpoint type: `<dcos-url>/service/confluent-kafka-zookeeper/v1/endpoints/<endpoint>`
+Through Confluent:
+- Go
+- C++
+- Python
+- .NET
 
-Zookeeper returns the following endpoint:
+# Kafka Client API Compatibility
 
-- `clientport`
+1. The Kafka client protocol is versioned and the cluster supports multiple versions.
+2. Kafka is backwards compatible: Newer versions of Kafka always continue to support older versions of the protocol. The implication of this is older clients continue to work with newer versions of Kafka.
+3. Clients are not forward compatible: There is no effort to have newer versions of the client support older versions of Kafka the protocol. The implication of this is newer clients are not compatible older versions of Kafka.
 
-To see node addresses for the `clientport` endpoints, run `dcos beta-confluent-kafka-zookeeper endpoints clientport`. A typical response resembles the following:
+# Using the DC/OS CLI
+
+The following command can be executed from the cli in order to retrieve a set of brokers to connect to.
+
+```bash
+$ $ dcos confluent-kafka --name=<name> endpoints broker
+```
+
+<a name="using-the-rest-api"></a>
+# Using the REST API
+
+REST API requests must be authenticated. See the REST API Authentication part of the REST API Reference for more information.
+
+The following `curl` example demonstrates how to retrive connection a set of brokers to connect to using the REST API.
+
+```bash
+$ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/confluent-kafka/v1/endpoints/broker"
+```
+
+## User token authentication
+
+DC/OS Enterprise Edition comes with support for [user ACLs][13]. To interact with the Kafka REST API you must first retrieve an auth token from the [auth HTTP endpoint][14], then provide this token in following requests.
+
+First, we retrieve `uSeR_t0k3n` with our user credentials and store the token as an environment variable:
+
+```bash
+$ curl --data '{"uid":"username", "password":"password"}' -H "Content-Type:application/json" "<dcos_url>/acs/api/v1/auth/login"
+
+{
+  "token": "uSeR_t0k3n"
+}
+
+$ export auth_token=uSeR_t0k3n
+```
+
+Then, use this token to authenticate requests to the Kafka Service:
+
+```bash
+$ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/confluent-kafka/v1/endpoints/broker"
+```
+
+You do not need the token to access the Kafka brokers themselves.
+
+# Connection Info Response
+
+The response, for both the CLI and the REST API is as below.
 
 ```json
 {
   "address": [
-    "10.0.0.49:1140",
-    "10.0.2.253:1140",
-    "10.0.1.27:1140"
+    "10.0.0.49:1025",
+    "10.0.2.253:1025",
+    "10.0.1.27:1025"
   ],
   "dns": [
-    "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
-    "zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
-    "zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
-  ]
+    "kafka-2-broker.kafka.autoip.dcos.thisdcos.directory:1025",
+    "kafka-0-broker.kafka.autoip.dcos.thisdcos.directory:1025",
+    "kafka-1-broker.kafka.autoip.dcos.thisdcos.directory:1025"
+  ],
+  "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
 }
 ```
 
-In general, the `.thisdcos` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use the direct IPs (assuming you are on the same network as the private agents) or set up a proxy service that acts as a frontend to your DC/OS Apache ZooKeeper instance. For development and testing purposes, you can use [DC/OS Tunnel](https://docs.mesosphere.com/latest/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
+This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/1.9/networking/).
 
-<a name="connecting-kafka-to-zookeeper"></a>
-## Connecting Kafka to ZooKeeper
+# Configuring the Kafka Client Library
 
-One important use for the DC/OS Apache ZooKeeper service is to have your DC/OS Apache Kafka service connect to it. This enables you to increase Kafka's capacity and removes the system ZooKeeper's involvment in the service.
+## Adding the Kafka Client Library to Your Application
 
-Follow the "Alternate ZooKeeper" instructions in the [Kafka documentation](https://docs.mesosphere.com/service-docs/kafka/2.0.2-0.11.0/install/#alternate-zookeeper). To obtain the proper value for the `kafka_zookeeper_uri`, run:
+```xml
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>0.9.0.1</version>
+    </dependency>
+```
 
-`dcos beta-confluent-kafka-zookeeper endpoints clientport`
+The above is the correct dependency for the Kafka Client Library to use with the DC/OS Kafka service. After adding this dependency to your project, you should have access to the correct binary dependencies to interface with the Kafka Cluster.
 
-Then, set the `kafka_zookeeper_uri` to the comma-delimited list of DNS addresses.
+## Connecting the Kafka Client Library
 
-To create a DC/OS Apache Kafka cluster that connects to this already-running ZooKeeper instance, go to the DC/OS web interface and search for the Kafka service under the Catalog tab. Click "Configure" and under the "kafka" tab, paste the vip value above into the "Custom ZooKeeper Path" configuration option. After deployment, navigate back to the native ZooKeeper CLI commands and 'ls' to verify that the proper Kafka znodes have been created, and that your Kafka service is in fact connected to the custom ZooKeeper instance.
+The code snippet below demonstrates how to connect a Kafka Producer to the cluster and perform a loop of simple insertions.
 
-Alternatively, you can install from the DC/OS CLI with the following `options.json` file specified.
+```java
+    import org.apache.kafka.clients.producer.KafkaProducer;
+    import org.apache.kafka.clients.producer.ProducerRecord;
+    import org.apache.kafka.common.serialization.ByteArraySerializer;
 
-```json
-{
-    "kafka": {
-      "kafka_zookeeper_uri": "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
+    Map<String, Object> producerConfig = new HashMap<>();
+    producerConfig.put("bootstrap.servers", "10.0.0.211:9843,10.0.0.217:10056,10.0.0.214:9689");
+    // optional:
+    producerConfig.put("metadata.fetch.timeout.ms": "3000");
+    producerConfig.put("request.timeout.ms", "3000");
+    // ... other options: http://kafka.apache.org/documentation.html#producerconfigs
+    ByteArraySerializer serializer = new ByteArraySerializer();
+    KafkaProducer<byte[], byte[]> kafkaProducer = new KafkaProducer<>(producerConfig, serializer, serializer);
+
+    byte[] message = new byte[1024];
+    for (int i = 0; i < message.length; ++i) {
+      if (i % 2 == 0) {
+        message[i] = 'x';
+      } else {
+        message[i] = 'o';
+      }
     }
+    ProducerRecord<byte[], byte[]> record = new ProducerRecord<>("test-topic", message);
+    while (true) {
+      kafkaProducer.send(record).get();
+      Thread.sleep(1000);
+    }
+```
+
+The code snippet below demonstrates how to connect a Kafka Consumer to the cluster and perform a simple retrievals.
+
+```java
+    import org.apache.kafka.clients.consumer.ConsumerRecord;
+    import org.apache.kafka.clients.consumer.ConsumerRecords;
+    import org.apache.kafka.clients.consumer.KafkaConsumer;
+    import org.apache.kafka.common.serialization.ByteArrayDeserializer;
+
+    Map<String, Object> consumerConfig = new HashMap<>();
+    consumerConfig.put("bootstrap.servers", "10.0.0.211:9843,10.0.0.217:10056,10.0.0.214:9689");
+    // optional:
+    consumerConfig.put("group.id", "test-client-consumer")
+    // ... other options: http://kafka.apache.org/documentation.html#consumerconfigs
+    ByteArrayDeserializer deserializer = new ByteArrayDeserializer();
+    KafkaConsumer<byte[], byte[]> kafkaConsumer = new KafkaConsumer<>(consumerConfig, deserializer, deserializer);
+
+    List<String> topics = new ArrayList<>();
+    topics.add("test-topic");
+    kafkaConsumer.subscribe(topics);
+    while (true) {
+      ConsumerRecords<byte[], byte[]> records = kafkaConsumer.poll(1000);
+      int bytes = 0;
+      for (ConsumerRecord<byte[], byte[]> record : records) {
+        if (record.key() != null) {
+          bytes += record.key().length;
+        }
+        bytes += record.value().length;
+      }
+      System.out.println(String.format("Got %d messages (%d bytes)", records.count(), bytes));
+    }
+    kafkaConsumer.close();
+```
+
+# Configuring the Kafka Test Scripts
+
+The following code connects to a DC/OS-hosted Kafka instance using `bin/kafka-console-producer.sh` and `bin/kafka-console-consumer.sh` as an example:
+
+```bash
+$ $ dcos confluent-kafka endpoints broker
+{
+  "address": [
+    "10.0.0.49:1025",
+    "10.0.2.253:1025",
+    "10.0.1.27:1025"
+  ],
+  "dns": [
+    "kafka-2-broker.kafka.autoip.dcos.thisdcos.directory:1025",
+    "kafka-0-broker.kafka.autoip.dcos.thisdcos.directory:1025",
+    "kafka-1-broker.kafka.autoip.dcos.thisdcos.directory:1025"
+  ],
+  "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
 }
+
+$ dcos node ssh --master-proxy --leader
+
+core@ip-10-0-6-153 ~ $ docker run -it mesosphere/kafka-client
+
+root@7d0aed75e582:/bin# echo "Hello, World." | ./kafka-console-producer.sh --broker-list 10.0.0.49:1025, 10.0.2.253:1025, 10.0.1.27:1025 --topic topic1
+
+root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:2181/kafka --topic topic1 --from-beginning
+Hello, World.
 ```
 
-Install Kafka with the options file.
-
-```shell
-dcos package install kafka --options="options.json"
-```
-
-You can also update an already-running Kafka instance from the DC/OS CLI, in case you need to migrate your ZooKeeper data elsewhere.
-
-**Note:** The ZooKeeper ensemble you point to must have the same data as the previous ZooKeeper ensemble.
-
-```shell
-dcos kafka --name=/kafka update start --options=options.json
-```
+ [13]: /1.9/security/users-groups/
+ [14]: /1.9/security/iam-api/

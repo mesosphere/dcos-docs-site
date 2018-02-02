@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Beta Elastic 2.1.2-5.6.5-beta
+navigationTitle:
 title: Beta Elastic 2.1.2-5.6.5-beta
 menuWeight: 10
 excerpt:

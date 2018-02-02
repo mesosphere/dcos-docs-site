@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Beta Confluent Kafka 2.1.2-4.0.0e-beta
+navigationTitle:
 title: Beta Confluent Kafka 2.1.2-4.0.0e-beta
 menuWeight: 10
 excerpt:
