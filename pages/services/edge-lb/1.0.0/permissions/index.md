@@ -33,10 +33,10 @@ In order for Edge-LB to operate, it must be configured to use a [service account
 - `dcos:adminrouter:package`
 - `dcos:adminrouter:service:marathon`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb`
+- `dcos:adminrouter:service:dcos-edgelb/pools`
+- `dcos:service:marathon:marathon:services:/dcos-edgelb/pools`
 
 In addition, for each pool your Edge-LB configuration will be managing, add a permission like this:
-
-- `dcos:adminrouter:service:dcos-edgelb/pools/<poolname>`
 
 # Multitenant Usage Permissions
 
@@ -45,4 +45,5 @@ To grant limited permission to manage only a single Edge-LB pool, the user must 
 - `dcos:adminrouter:package`
 - `dcos:adminrouter:service:edgelb`
 - `dcos:adminrouter:service:marathon`
+- `dcos:adminrouter:service:dcos-edgelb/pools/<pool-name>`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`

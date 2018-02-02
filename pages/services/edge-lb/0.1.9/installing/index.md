@@ -85,18 +85,13 @@ Use the following CLI commands to provision the Edge-LB service account with the
 
 All CLI commands can also be executed via the [IAM API](/1.10/security/iam-api/).
 
-1.  Grant the permissions and the allowed actions to the service account using the following commands. The commands below allow your Edge-LB service to manage DC/OS packages, Marathon tasks, and Edge-LB tasks.
+1.  Grant the permissions and the allowed actions to the service account using the following commands. The commands below allow your Edge-LB service to manage DC/OS packages, Marathon tasks, Edge-LB pools and tasks.
 
     ```bash
     dcos security org users grant edge-lb-principal dcos:adminrouter:package full --description "Allow access to manage DC/OS packages"
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:marathon full --description "Allow access to manage marathon tasks"
     dcos security org users grant edge-lb-principal dcos:service:marathon:marathon:services:/dcos-edgelb full --description "Allow access to manage dcos-edgelb tasks"
-    ```
-
-2.  Grant permissions to update your specific pool (replace `<pool-name>` with the name of the pool your Edge-LB will be servicing.  Repeat for each pool.
-
-    ```bash
-    dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<pool-name> full --description "Allow access to update pool <pool-name>"
+    dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools full --description "Allow access to update pools"
     ```
 
 For more information about required permissions, please see the [Edge-LB Permissions](/service-docs/edge-lb/0.1.9/permissions)

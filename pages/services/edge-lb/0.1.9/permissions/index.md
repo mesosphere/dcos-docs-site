@@ -28,15 +28,15 @@ In order to install Edge-LB, the user must have the following permissions:
 
 # Service Account Permissions
 
-In order for Edge-LB to operate, it must be configured to use a [service account](/services/edge-lb/0.1.9/installing/#create-a-service-account/) with the following permissions:
+In order for Edge-LB to operate, it must be configured to use a [service account](/services/edge-lb/1.0.0/installing/#create-a-service-account/) with the following permissions:
 
 - `dcos:adminrouter:package`
 - `dcos:adminrouter:service:marathon`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb`
+- `dcos:adminrouter:service:dcos-edgelb/pools`
+- `dcos:service:marathon:marathon:services:/dcos-edgelb/pools`
 
 In addition, for each pool your Edge-LB configuration will be managing, add a permission like this:
-
-- `dcos:adminrouter:service:dcos-edgelb/pools/<poolname>`
 
 # Multitenant Usage Permissions
 
@@ -45,4 +45,5 @@ To grant limited permission to manage only a single Edge-LB pool, the user must 
 - `dcos:adminrouter:package`
 - `dcos:adminrouter:service:edgelb`
 - `dcos:adminrouter:service:marathon`
+- `dcos:adminrouter:service:dcos-edgelb/pools/<pool-name>`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
