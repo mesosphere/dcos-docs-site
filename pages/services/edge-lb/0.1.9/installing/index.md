@@ -17,7 +17,7 @@ Configure a service account and install the Edge-LB package using the instructio
 - Access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 **Limitations**
-- Currently, Edge-LB works only with DC/OS Enterprise in permissive [security mode](/1.10/security/#security-modes). It does not work with strict or disabled.
+- Currently, Edge-LB works only with DC/OS Enterprise in permissive [security mode](/latest/security/ent/#security-modes). It does not work with strict or disabled.
 
 # Add Edge-LB package repositories
 The Edge-LB package is composed of two components: the Edge-LB API server and the Edge-LB pools. You must install universe repos for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB. The Edge-LB API server is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers. An Edge-LB pool can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
@@ -36,7 +36,7 @@ dcos package repo add --index=0 edgelb-pool-aws \
 # Create a service account
 The Edge-LB API server needs to be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
 
-[Service accounts](1.11/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
+[Service accounts](/latest/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 
 Follow the steps below to create a service account, a principal associated with the service account, assign permissions to this principle, and associate a secret store with this service account. The secret store is used by Edge-LB to retrieve and install TLS certificates on the Edge-LB pools in order to enable TLS for all HTTP traffic between client and service backends.
 
@@ -49,7 +49,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.10/security/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/latest/security/ent/secrets/) to secure the key pair.
 
 ## Create the principal
 From a terminal prompt, create a new service account (`edge-lb-principal`) containing the public key (`edge-lb-public-key.pem`).
@@ -83,7 +83,7 @@ dcos security secrets list /
 
 Use the following CLI commands to provision the Edge-LB service account with the required permissions.
 
-All CLI commands can also be executed via the [IAM API](/1.10/security/iam-api/).
+All CLI commands can also be executed via the [IAM API](/latest/security/ent/iam-api/).
 
 1.  Grant the permissions and the allowed actions to the service account using the following commands. The commands below allow your Edge-LB service to manage DC/OS packages, Marathon tasks, Edge-LB pools and tasks.
 
