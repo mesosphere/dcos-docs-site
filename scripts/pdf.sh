@@ -39,23 +39,21 @@ function main
      #Remove leading ./ or / from filename, as find will output files with leading ./ or /
      local PDF_FILE_NAME="${PDF_FILE_NAME#*/}"
      #Replace all "/" characters in filename to "-" and append .pdf
-     local PDF_FILE_NAME="${PDF_FILE_NAME//\//-}.pdf"
+     local PDF_FILE_NAME="${FILE_PATH//\//-}.pdf"
      #Change file extension from .html to .pdf
      #local PDF_FILE_NAME="${PDF_FILE_NAME/%.html/.pdf}"
      #For example if SOURCE_FILE=./build/1.10/cli/dcos-marathon-group-scale-index.html
-     #PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.pdf
-
+     #PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.p
      #Make the Destination directory
      mkdir -p "${PDF_DEST_DIR}"
      echo "wkhtmltopdf --print-media-type --disable-internal-links --disable-external-links --load-error-handling ignore ${SOURCE_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
-     echo "echo converting ${SOURCE_FILE}" >> "${PARALLEL_TEMPFILE}"
+     echo "echo converted ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.html" -print0)
 
   #Execute theconversion in parallel
-  cat ${PARALLEL_TEMPFILE} | parallel --progress --eta --bar --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"
+  parallel --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-6}" < "${PARALLEL_TEMPFILE}"
   echo "PDF build done"
 }
 
 clean "${OUTPUT_FOLDER}"
 main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
-
