@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Beta Kafka ZooKeeper 2.1.2-3.4.11-beta
 title: Beta Kafka ZooKeeper 2.1.2-3.4.11-beta
 menuWeight: 10
 excerpt:
