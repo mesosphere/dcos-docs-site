@@ -10,6 +10,8 @@ excerpt:
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
 
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/744f5ea28fc52517e344a5250a5fd12554da91b8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
 <h3>This release candidate is for testing only and not to be used in production.</h3>
 <h3>Limitations:</h3>
 
@@ -72,7 +74,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
 
 - Docker `pullConfig` parameter.
   Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise).
- 
+
  - Enterprise CLI permissions management commands.
    It is now possible to manage permissions to protect resources using the [DC/OS Enterprise CLI](/1.10/security/ent/perms-management/).
 
@@ -145,7 +147,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - New flow to change the `dcos_url` and log in.
   The new command to set up your cluster URL is `dcos cluster setup <dcos_url>`. For details, see [CLI](#cli).
- 
+
 - Marathon Jenkins Plugin and Marathon-Client Breaking Change
   Marathon 1.5, released with DCOS 1.10, made breaking changes to the API around Docker and management of networks. This breaking change has not yet been incorporated in the marathon-client, which is used by the marathon jenkins plugin. Marathon client and Marathon Jenkins Plugin _will_ work in general, however they will _fail_ to propagate configurations for networks if working with DCOS 1.10 or Marathon 1.5. A solution will be provided for the DCOS 1.10 GA release.
 

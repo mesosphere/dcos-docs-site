@@ -6,6 +6,7 @@ menuWeight: 100
 excerpt:
 ---
 
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/26d16366a29aba258541a8653b00522c4c1c21fc/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
 
