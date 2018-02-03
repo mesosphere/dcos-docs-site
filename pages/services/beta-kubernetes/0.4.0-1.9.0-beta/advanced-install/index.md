@@ -4,11 +4,13 @@ navigationTitle:  Advanced Installation
 title: Advanced Installation
 menuWeight: 20
 excerpt:
-featureMaturity:
 enterprise: false
 ---
 
-## Prerequisites
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
+
+
+# Prerequisites
 
 In order to run the framework with its default parameters, your cluster must have at least 3 private agents, each with at least the available resources needed to run the tasks described in the table below.
 
@@ -24,7 +26,7 @@ In order to run the framework with its default parameters, your cluster must hav
 
 Refer to the table above for tailored resource calculation.
 
-## Change the Kubernetes worker nodes spec
+# Change the Kubernetes worker nodes spec
 
 The default, as shown in the table above, is 3 CPUs, 3GB of RAM, and 1GB of disk. However, the kubelet and the container runtime will have reserved 1 CPU and 1GB of RAM. This means that each Kubernetes node will have 2 CPUs, 2 GB of RAM, and 1GB of disk allocatable to Kubernetes pods.
 
@@ -58,7 +60,7 @@ Save the file as `options.json` and install as follows:
 dcos package install beta-kubernetes --options=options.json
 ```
 
-## Change the number of Kubernetes worker nodes
+# Change the number of Kubernetes worker nodes
 
 DC/OS Kubernetes allows you to specify the number of Kubernetes worker nodes in your cluster.
 
@@ -84,17 +86,17 @@ Save the file as `options.json` and install as follows:
 dcos package install beta-kubernetes --options=options.json
 ```
 
-## Enabling TLS for Kubernetes components (Enterprise-only)
+# Enabling TLS for Kubernetes components (Enterprise-only)
 
 Enabling TLS for mutual-authentication and encryption between Kubernetes components on Enterprise DC/OS
-requires a [service-account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) with
+requires a [service-account](/latest/security/service-auth/custom-service-auth/) with
 superuser privileges to:
 
-- Generate and sign TLS certificates and keys with [DC/OS Certificate Authority](https://docs.mesosphere.com/1.10/networking/tls-ssl/).
-- Securely store and distribute TLS certificates and keys artifacts with [DC/OS Secrets](https://docs.mesosphere.com/1.10/security/secrets/).
+- Generate and sign TLS certificates and keys with [DC/OS Certificate Authority](/1.10/networking/tls-ssl/).
+- Securely store and distribute TLS certificates and keys artifacts with [DC/OS Secrets](/1.10/security/secrets/).
 
 The instructions below require you to install the
-[Enterprise CLI](https://docs.mesosphere.com/1.10/cli/enterprise-cli/) before installing the DC/OS Kubernetes package.
+[Enterprise CLI](/1.10/cli/enterprise-cli/) before installing the DC/OS Kubernetes package.
 You must have `superuser` permissions to execute the following commands.
 
 ```

@@ -11,6 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
+
 The DC/OS network stack provides IP connectivity to containers, has built-in DNS-based service discovery, and provides layer 4 and layer 7 load balancing.
 
 The following sections describe these features in more detail.
@@ -31,6 +32,7 @@ In this mode, containers are launched on an isolated linux bridge, created withi
 
 ## Container mode networking
 In this mode containers are allowed to run on a wide variety of software-defined networks. DC/OS supports the [CNI(Container network interface)](https://github.com/containernetworking/cni) standard for UCR containers, and [CNM(Container network model)](https://github.com/docker/libnetwork) standard for Docker containers. Using CNI and CNM, DC/OS is able to plumb containers onto any virtual network defined by an SDN provider that supports the CNI or CNM standard. Of the three modes this is the most powerful since the containers get their own linux network namespace and connectivity between containers is guaranteed by the underlying SDN network without the need to rely on D-NAT rules on the agent. Further, since SDNs can provide network isolation through firewalls, and are very flexible, it makes it easy for the operator to run multi-tenant clusters. This networking mode also allows the container's network to be completely isolated from the host network, thus giving an extra level of security to the host-network by protecting it from DDOS attacks from malicious containers running on top of DC/OS.
+
 
 # DNS-Based Service Discovery
 DC/OS includes a highly available, distributed, DNS-based service discovery. The DNS-based service discovery is available to containers running on DC/OS irrespective of the networking mode that they are running on. The service discovery mechanism in DC/OS contains these components:
@@ -81,7 +83,6 @@ While both Marathon-LB and Edge-LB are primarily designed to be used for handlin
 | Non-Marathon Service Tasks         |     X     |    X    |             |
 | 0 hop load balancing               |     X     |         |             |
 | No single point of failure         |     X     |         |             |
-
 
 
 # A Note on Software Re-architecture

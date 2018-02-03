@@ -4,9 +4,13 @@ navigationTitle:  Disaster Recovery
 title: Disaster Recovery
 menuWeight: 90
 excerpt:
-featureMaturity:
 enterprise: false
 ---
+
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
+
+
+# Disaster Recovery
 
 This feature allows for backing up and restoring a Kubernetes cluster, in case of disaster.
 The state of the cluster is comprised of the package service configuration and any existing
