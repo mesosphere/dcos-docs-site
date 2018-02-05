@@ -10,7 +10,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.11/deploying-services/containerizers/) over the Docker Engine for running Docker images.  Use the Docker Engine only if you need specific [features](/1.11/deploying-services/containerizers/#container-runtime-features) of the Docker package.
+The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.11/deploying-services/containerizers/) over the Docker Engine for running Docker images. Use the Docker Engine only if you need specific [features](/1.11/deploying-services/containerizers/#container-runtime-features) of the Docker package.
 
 # Provision a container with the UCR from the DC/OS web interface
 
@@ -81,8 +81,21 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 
 **Important:** If you leave the `args` field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the `args` field. If you do not, your service will fail to deploy.
 
-# Limitations
-- The UCR does not support the following: runtime privileges, Docker options, private registries with container authentication.
+# Container Image Garbage Collection
+
+For a long running cluster, container images may occupy disk spaces on the agent machines. To improve the operator's experience with UCR, container image GC is introduced, starting from Mesos 1.5.0 (please read [the Mesos docs](http://mesos.apache.org/documentation/latest/container-image/#garbage-collect-unused-container-images) for more details). The image GC is automatic by default in DC/OS while it can be triggered by the operator manually.
+
+## [Automatic Image GC](http://mesos.apache.org/documentation/latest/container-image/#automatic-image-gc-through-agent-flag)
+
+Container Image Auto GC is enabled by default, configured by an image GC config file. This config file can be updated via `MESOS_IMAGE_GC_CONFIG` environment variable at `/opt/mesosphere/etc/mesos-slave-common`. The default config file locates at `/opt/mesosphere/etc/mesos-slave-image-gc-config.json`, and the followings are the parameters of the config file:
+
+- `image_disk_headroom`: The image disk headroom used to calculate the threshold of container image store size. Image garbage collection will be triggered automatically if the image disk usage reaches that threshold. Please note that the headroom value has to be between 0.0 and 1.0. (defaults to be 0.1, which represents 90% disk usage as the threshold)
+- `image_disk_watch_interval`: The periodic time interval to check the image store disk usage. Please note that the unit of this time interval is 'nanosecond'. (defaults to be 300000000000, which represents the disk check every 5 minutes)
+- `excluded_images`: The excluded image list that should not be garbage collected. (defaults to be an empty list)
+
+## [Manual Image GC](http://mesos.apache.org/documentation/latest/container-image/#manual-image-gc-through-http-api)
+
+Comtainer Image Manual GC can be triggered via the HTTP Operator API. Please see `PRUNE_IMAGES` section in the [v1 Operator API doc](http://mesos.apache.org/documentation/latest/operator-http-api/#prune_images) for more details.
 
 # Further Reading
 - [View the Mesos docs for the UCR](http://mesos.apache.org/documentation/latest/container-image/).

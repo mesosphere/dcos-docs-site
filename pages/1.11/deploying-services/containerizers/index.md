@@ -22,6 +22,7 @@ The Universal Container Runtime (UCR) has the following advantages:
 * Is more stable and allows deployment at scale.
 * Offers features not available in the Docker Engine, such as GPU and CNI support.
 * Allows you to take advantage of continuing innovation within both the Mesos and DC/OS, including features such as IP per container, strict container isolation, and more. Refer to the [features matrix](#container-runtime-features) for details.
+* Supports container image garbage collection automatically or manually.
 
 In summary, using the UCR instead of the Docker Engine:
 
@@ -39,7 +40,7 @@ The tables below enumerate the features available with each of the supported con
 | --------------------------------------- | ----------- | --------- | -------- |
 | **Command**                             | Yes         | Yes       |          |
 | **Container Images**                    | Yes         | Yes       |          |
-| **Image Garbage Collection**           | Yes         | Yes       |          |
+| **Image Garbage Collection**            | Yes         | Yes       |          |
 | **Pods**                                | Yes         | No        |          |
 | **GPUs**                                | Yes         | No        |          |
 | **URIs**                                | Yes         | Yes       |          |
@@ -80,7 +81,7 @@ The tables below enumerate the features available with each of the supported con
 | **Bridge Networking**                   | Yes         | Yes       |           |
 | **CNI**                                 | Yes         | N/A       |           |
 | **CNM**                                 | N/A         | Yes       | Docker 1.11+ |
-| **L4lB**                                | Yes         | Yes       | Requires defined service endpoints. TCP health checks do not work with L4LB. |
+| **L4LB**                                | Yes         | Yes       | Requires defined service endpoints. TCP health checks do not work with L4LB. |
 
 ## Private Registry
 
