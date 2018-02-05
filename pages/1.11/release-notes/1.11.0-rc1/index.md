@@ -50,10 +50,12 @@ To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.meso
   - Support for Docker image pull secrets.
 
 ## Networking
-- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0)
-  - Strict security mode is now supported.
-  - IPv6 is now supported for Docker containers.
-- Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single Erlang VM called dcos-net. This improves the resource consumption of the Erlang components and greatly improves reliability and availability to these components.
+[enterprise]
+- [Edge-LB 1.0 RC candidate](/services/edge-lb/1.0.0/) . Strict security mode is now supported.
+[/enterprise]
+- IPv6 is now supported for Docker containers.
+- Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single systemD unit called `dcos-net`. Please read the note on [networking software re-architecture](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
+- Configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). Please read the documentation for [dns_forward_zones](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
 
 [enterprise]
 ## Security
