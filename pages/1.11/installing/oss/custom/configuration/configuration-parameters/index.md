@@ -580,8 +580,8 @@ For more information, see the [examples](/1.11/installing/ent/custom/configurati
 **Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
 
 ### dcos_l4lb_enable_ipv6
-Indicates whether to enable layer-4 load-balancing for IPv6 containers. 
-*  `dcos_l4lb_enable_ipv6: 'false'` Do not allow [layer-4 load balancing](/1.11/networking/load-balancing-vips) to be available for IPv6 containers. This is the default value.
+Indicates whether layer-4 load-balancing is available for IPv6 containers. 
+*  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.11/networking/load-balancing-vips) for IPv6 containers. This is the default value.
 *  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. `NOTE: Layer-4 load balancing for IPv6 containers should be turned on with caution.`[DCOS_OSS-2010](https://jira.mesosphere.com/browse/DCOS_OSS-2010)
 
 ### dcos_ucr_default_bridge_subnet

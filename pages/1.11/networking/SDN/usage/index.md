@@ -12,14 +12,14 @@ enterprise: false
 
 DC/OS provides each container with its own IP address by allowing operators to run containers on a wide-variety of IP-based virtual networks. 
 
-In order to run containers on a virtual network the operator needs to install a CNI or CNM network out-of-band. DC/OS itself comes with it own virtual networking solution called DC/OS overlay which the operator could use to provide containers with unique IP addresses.
+In order to run containers on a virtual network, the operator needs to install a CNI or CNM network out-of-band. DC/OS itself comes with its own virtual networking solution called DC/OS overlay which the operator could use to provide containers with unique IP addresses.
 
 
 # Using Virtual Networks
 
-First, you or the data center operator needs to [configure the virtual networks](/pages/1.11/networking/virtual-networks/).
+First, the operator needs to [configure the virtual networks](/pages/1.11/networking/virtual-networks/).
 
-Virtual networks are configured at install time. You or the data center operator will specify a canonical name for each network in the `config.yaml`. When your service needs to launch a container, refer to it by that canonical name.
+Currently, virtual networks are configured at install time. The operator will have to specify a canonical name for each network in the `config.yaml`. When your service needs to launch a container, refer to it by that canonical name.
 
 To use a virtual network in a Marathon app definition, specify the `"network": "USER"` property along with an `ipAddress` field in the form: `{"ipAddress": {"network": "$MYNETWORK"}}`. The value of `$MYNETWORK` is the canonical name of the network.
 
