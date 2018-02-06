@@ -39,10 +39,10 @@ You can specify an optional path where to store the license. Returns the active 
 # Get license audit data
 
 ```
-dcos license audit get [--decrypt] [<id>|active]
+dcos license audit get [<id>|active]
 ```
 
-You can specify an optional path where to store the audit data. Takes an optional identifier to retrieve the data generated for a specific license and can return a completely decrypted response with the `--decrypt` flag. If you return the audit data without decrypting, you can use the `dcos license get --decryption-key` command to retrieve the decryption key and manually decrypt the data.
+You can specify an optional path where to store the audit data. Takes an optional identifier to retrieve the data generated for a specific license. If you want to decrypt the audit data, you can use the `dcos license get --decryption-key` command to retrieve the decryption key.
 
 # Get license status
 
