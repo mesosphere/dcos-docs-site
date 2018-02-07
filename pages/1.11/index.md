@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Mesosphere DC/OS 1.11
+navigationTitle:  Mesosphere DC/OS 1.11 Release Candidate 1
 title: Documentation for Mesosphere DC/OS 1.11
 menuWeight: 1
 excerpt:
