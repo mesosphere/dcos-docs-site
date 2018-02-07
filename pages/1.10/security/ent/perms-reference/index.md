@@ -35,7 +35,7 @@ By convention, `full` indicates that the permission supports all other action id
 
 In each of these cases the principal is the client performing the HTTP
 request. The principal is authenticated using the DC/OS Authentication Token it
-presents in the `Authorization` HTTP header. Once authenticated, the Admin Router
+presents in the `Authorization` HTTP header. Once authenticated, Admin Router
 checks that the principal has been assigned the necessary permission to perform
 the action (e.g., `full`) on the resource (e.g., `dcos:adminrouter:acs`).
 
