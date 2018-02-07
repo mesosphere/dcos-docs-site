@@ -61,7 +61,7 @@ To view all linked clusters, run the `dcos cluster list` command. If a cluster w
 To remove a link, `dcos cluster unlink` command and supply the **name** or **ID** of a linked cluster. For example:
 
 ```bash
-dcos cluster unlink <linked-cluster-id>
+dcos cluster unlink <linked-cluster>
 ```
 
 # Switch cluster
@@ -73,10 +73,10 @@ You can switch between linked clusters using the CLI or UI. When you switch clus
 Run the `dcos cluster attach` command and supply the name or ID of a linked cluster:
 
 ```bash
-dcos cluster attach <linked-cluster-name>
+dcos cluster attach <linked-cluster>
 ```
 
-If you run `dcos cluster list`, `<linked-cluster-name>` will have an asterisk by its name.
+If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its name.
 
 ### Switch to a linked cluster from the DC/OS UI
 
@@ -95,7 +95,7 @@ If you run `dcos cluster list`, `<linked-cluster-name>` will have an asterisk by
 If you are superuser you can also switch to a linked cluster in the Linked Clusters tab.
 
 1. Select **Cluster -> Linked Clusters**.
-    
+
 1. At the far right of the cluster to switch to, click the vertical ellipsis and select **Switch**.
 
    ![swi linked cluster2](/1.11/img/switch-linked-cluster2.png)
@@ -109,18 +109,18 @@ If you are superuser you can also switch to a linked cluster in the Linked Clust
 1. Set up cluster `cluster-a` using the `dcos-user` provider.
 
     ```
-    $ dcos cluster setup https://cluster-a.us-west-2.elb.amazonaws.com --provider=dcos-users
+    $ dcos cluster setup --provider=dcos-users https://cluster-a.us-west-2.elb.amazonaws.com
     ```
-    The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`. 
+    The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
     The CLI prompts for superuser credentials. Provide the credentials.
 
 1. Set up `cluster-b` using the `dcos-user` provider.
 
     ```
-    $ dcos cluster setup `https://cluster-b.us-west-2.elb.amazonaws.com --provider=dcos-users
+    $ dcos cluster setup --provider=dcos-users `https://cluster-b.us-west-2.elb.amazonaws.com
     ```
 
-    The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`. 
+    The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
     The CLI prompts for superuser credentials. Provide the credentials.
 
 1. Attach to cluster `cluster-a` and list.
@@ -154,7 +154,7 @@ If you are superuser you can also switch to a linked cluster in the Linked Clust
     (1-2): 2
     ```
 
-    **Note:** If the cluster links successfully there is _no_ response. 
+    **Note:** If the cluster links successfully there is _no_ response.
 
 1. Attach to cluster `cluster-b`.
 
@@ -197,7 +197,7 @@ Once an operator has set up links you can switch between clusters using the UI o
 
 ### Switch clusters using the UI with Google SSO
 
-You can easily switch to a linked cluster that has been set up with the Google OpenID provider. 
+You can easily switch to a linked cluster that has been set up with the Google OpenID provider.
 
 
 1. Log in to DC/OS UI of cluster `cluster-a` as an external user using Google credentials.
@@ -213,7 +213,7 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
 ### Switch clusters using the CLI with Google SSO
 
-You can easily switch to a linked cluster that has been set up with the Google OpenID provider. 
+You can easily switch to a linked cluster that has been set up with the Google OpenID provider.
 
 1. List authentication providers.
 
@@ -228,10 +228,10 @@ You can easily switch to a linked cluster that has been set up with the Google O
 1. Set up cluster with Google IDP.
 
     ```
-    dcos cluster setup https://cluster-a.us-west-2.elb.amazonaws.com --provider=google-id
+    dcos cluster setup --provider=google-id https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
-    The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`. 
+    The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
 
 1. Copy the authentication token from the browser and paste in the terminal.
 
@@ -250,7 +250,7 @@ You can easily switch to a linked cluster that has been set up with the Google O
     dcos cluster attach cluster-b
     ```
 
-    The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`. 
+    The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
 
 1. Copy the authentication token from the browser and paste in the terminal. The CLI successfully attaches to cluster `cluster-b`.
 

@@ -31,6 +31,6 @@ Once a day, the DC/OS licensing component logs the number of nodes. The DC/OS li
 
 To validate that Mesosphere is not logging sensitive data, you can retrieve the audit data decryption key and decrypt the audit data checksum.
 
-#Cluster upgrades
+# Cluster upgrades
 
 For major release upgrades, the license needs to be renewed. A license can be renewed by adding a new license to the config during release upgrades or config upgrades.

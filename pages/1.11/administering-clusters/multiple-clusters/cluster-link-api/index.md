@@ -7,7 +7,7 @@ excerpt:
 enterprise: true
 ---
 
-You use the Cluster Link API to manage cluster links. 
+You use the Cluster Link API to manage cluster links.
 
 # Routes
 
