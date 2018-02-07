@@ -52,19 +52,19 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
 4.  Get yourself a token to use against the API. You can [follow the documentation](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2).
 
-4.  Add the key to DigitalOcean:
+5.  Add the key to DigitalOcean:
 
     ```bash
     curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" -d '{"name":"dcos-key","public_key":"<public-key>"}' "https://api.digitalocean.com/v2/account/keys"
     ```
 
-4. Get the key ID:
+6. Get the key ID:
 
     ```bash
     curl -X GET -H 'Content-Type: application/json' -H 'Authorization: Bearer $TOKEN' "https://api.digitalocean.com/v2/account/keys"
     ```
 
-4.  Copy `sample.terraform.tfvars` to a new file named `terraform.tfvars`, and edit the new file, filling in the values as desired. The following are blank and if not filled in, you will be prompted by terraform when necessary:
+7.  Copy `sample.terraform.tfvars` to a new file named `terraform.tfvars`, and edit the new file, filling in the values as desired. The following are blank and if not filled in, you will be prompted by terraform when necessary:
 
     - digitalocean_token - Your DigitalOcean API key
 
@@ -97,7 +97,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
     - key_file_path - The path to your ssh private key created in step 4 - defaults to ./do-key
 
-5.  Also from that same directory, run `terraform init` anf then `terraform apply` which will deploy the servers into your project at DigitalOcean, and run the DC/OS installation routine. When it completes, you will see output similar to the following, but with the IP addresses assigned to your servers:
+8.  Also from that same directory, run `terraform init` and then `terraform apply` which will deploy the servers into your project at DigitalOcean, and run the DC/OS installation routine. When it completes, you will see output similar to the following, but with the IP addresses assigned to your servers:
 
     ![terraform apply output](/1.11/img/digitalocean_terraform_output.png)
 
@@ -121,4 +121,3 @@ Launch the DC/OS web interface by entering the Mesos master IP address:
   - Increasing node count is fast, safe, and fun!
 
   - We recommend against reducing the node count in production. Stateful DC/OS apps and services may suffer outages and failures if nodes are not put into maintenance mode, and their tasks rescheduled through their respective schedulers.
-
