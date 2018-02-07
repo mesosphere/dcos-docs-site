@@ -139,8 +139,8 @@ Marathon applications using secrets see [Configuring services and pods to use se
 
 ## <a name="superuser"></a>Superuser Permissions
 
-Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has a
-`superuser` role. A user with permission to perform the `full` action on the
+Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has the
+concept of the `superuser`. A user with permission to perform the `full` action on the
 `dcos:superuser` resource has complete, unrestricted access to any operation
 throughout DC/OS. This is extremely powerful and this permission should be
 granted sparingly.

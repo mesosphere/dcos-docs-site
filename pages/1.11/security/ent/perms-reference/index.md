@@ -152,11 +152,11 @@ In each of these cases the principal is the DC/OS user logged into the CLI or UI
 
 ## <a name="superuser"></a>Superuser Permissions
 
-Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has a
-`superuser` role. A user with permission to perform the `full` action on the
-`dcos:superuser` resource has complete, unrestricted access to any operation
-throughout DC/OS. This is extremely powerful and this permission should be
-granted sparingly.
+Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has the
+concept of the `superuser`. A user with permission to perform the `full` action
+on the `dcos:superuser` resource has complete, unrestricted access to any
+operation throughout DC/OS. This is extremely powerful and this permission
+should be granted sparingly.
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
