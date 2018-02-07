@@ -153,11 +153,10 @@ In each of these cases the principal is the DC/OS user logged into the CLI or UI
 ## <a name="superuser"></a>Superuser Permissions
 
 Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has the
-concept of the `superuser`. A user with permission to perform the `full` action
-on the `dcos:superuser` resource has complete, unrestricted access to any
-operation throughout DC/OS. This is extremely powerful and this permission
-should be granted sparingly.
+concept of the `superuser`. A user with permission to perform any action on the `dcos:superuser` resource has complete, unrestricted access to any operation
+throughout DC/OS. This is extremely powerful and this permission should be
+granted sparingly.
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:superuser`<br> Controls complete access to the DC/OS cluster.                                                                                                                                                                                                               | x    |   |   |   |   |
+| `dcos:superuser`<br> Controls complete access to the DC/OS cluster.                                                                                                                                                                                                               | x    | x | x | x | x |
