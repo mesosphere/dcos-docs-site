@@ -15,6 +15,7 @@ This topic provides a reference for each of the available DC/OS permissions.
 
 
 # Enforcement
+
 The DC/OS permissions are enforced based on your security mode.
 
 | Permission Category                                 | Disabled | Permissive | Strict |
@@ -32,13 +33,35 @@ The available actions are `create`, `read`, `update`, `delete`, and `full`.
 By convention, `full` indicates that the permission supports all other action identifiers.
 `full` may include actions not supported by any other action identifier.
 
+Most HTTP requests sent to DC/OS components require authentication proof. These
+include operations launched by the DC/OS CLI, the DC/OS UI, the DC/OS API and
+internally between DC/OS components. HTTP requests to some endpoints require
+additional authorization. Many DC/OS components are issued with DC/OS service
+account users and are individually granted necessary permissions when the
+cluster is first installed.
+
+There are several components of DC/OS that perform authorization of requests,
+e.g. Admin Router, Mesos, Marathon, etc. They are called _authorizers_ in this
+context. All the authorizers follow the DC/OS authorization procedure. A
+high-level description of the DC/OS authorization procedure follows.
+
+When a HTTP request to a protected resource is received by an authorizer, the
+authorizer inspects the `Authorization` HTTP request header to obtain the DC/OS
+authentication token. The DC/OS authentication token is validated and evaluated
+by the authorizer. Once the `uid` is extracted from the DC/OS authentication
+token the authorizer checks that the corresponding DC/OS user has been granted
+the necessary privilege to perform the requested operation. For example, the
+DC/OS user identified by `uid` must have `full` access to the protected
+resource `dcos:adminrouter:package` in order to be able to access the DC/OS
+package API through Admin Router.
+
 ## <a name="admin-router"></a>Admin Router Permissions
 
-In each of these cases the principal is the client performing the HTTP
-request. The principal is authenticated using the DC/OS Authentication Token it
-presents in the `Authorization` HTTP header. Once authenticated, Admin Router
-checks that the principal has been assigned the necessary permission to perform
-the action (e.g., `full`) on the resource (e.g., `dcos:adminrouter:acs`).
+Most HTTP requests made to a DC/OS cluster pass through Admin Router. For many
+HTTP endpoints Admin Router performs authorization itself. For example, the DC/OS
+user identified by `uid` must have `full` access to the protected resource
+`dcos:adminrouter:package` in order to be able to access the DC/OS package API
+through Admin Router.
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
@@ -63,17 +86,18 @@ the action (e.g., `full`) on the resource (e.g., `dcos:adminrouter:acs`).
 
 ## <a name="mesos"></a>Mesos Permissions
 
-The required permissions must be assigned to the principal that issues the
-command to Mesos. This is not always the DC/OS user that is
-logged into the UI or CLI. For example, when a DC/OS user uses the CLI or UI to
-launch a Marathon application the Marathon framework performs its own
-authorization of that user before deciding to create the application. Once
-Marathon has determined that the DC/OS user is permitted to create the
-application, Marathon uses its own DC/OS service account user called
-`dcos_marathon` to instruct Mesos to launch the actual Mesos tasks. At that
-point, Mesos will check that the `dcos_marathon` service account (and not the
-end user) is authorized to perform a `create` action on the
-`dcos:mesos:master:task:app_id` resource.
+Many Mesos operations require authorization. The necessary privileges must be
+assigned to the DC/OS user that issues the HTTP request to Mesos. This is not
+always the same DC/OS user that is logged into the UI or CLI. For example, when
+Alice uses the UI to create a Marathon application, Marathon performs
+authorization of the HTTP request and checks that the `alice` DC/OS user has
+`create` access to the `dcos:service:marathon:marathon:services:/` resource. If
+so, it uses *its own* DC/OS user, a DC/OS service account with a `uid` of
+`dcos_marathon`, to authenticate an HTTP request to Mesos with instruction to
+launch the new Mesos tasks. At that point, Mesos will perform the DC/OS
+authorization procedure and check that the `dcos_marathon` DC/OS user has been
+granted the `create` action on the `dcos:mesos:master:task:app_id`
+resource.
 
 Permission string sections for `<role-name>`s in square brackets are optional.
 These sections allow the permission scope to be narrowed.
@@ -113,12 +137,10 @@ Applications launched with Root Marathon can only receive offers for resources r
 
 ## <a name="marathon-metronome"></a>Marathon and Metronome Permissions
 
-In each of these cases the principal is the client performing the HTTP request
-to the Marathon or Metronome API. The principal is authenticated using the
-DC/OS Authentication Token it presents in the `Authorization` HTTP header. Once
-the principal has been authenticated Marathon or Metronome checks that the
-principal has been assigned permission to perform the action (e.g., `read`) on
-the resource (e.g., `dcos:service:marathon:marathon:admin:config`).
+Marathon and Metronome require HTTP requests to certain protected resources to
+be authorized. For example, a DC/OS user must be granted the `create` action on
+the `dcos:service:marathon:marathon:services:/dev` resource in order to create
+a new Marathon app in the `/dev` service group.
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
@@ -142,7 +164,7 @@ Marathon applications using secrets see [Configuring services and pods to use se
 
 ## <a name="cluster-linker"></a> Cluster Linker Permissions
 
-In each of these cases the principal is the DC/OS user logged into the CLI or UI.
+A DC/OS user requires permission to link clusters.
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
