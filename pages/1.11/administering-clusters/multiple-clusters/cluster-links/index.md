@@ -18,7 +18,7 @@ You must be a superuser or have the appropriate cluster link [permission](/1.11/
 
 As superuser:
 
-1. Configure an [OpenID IDP](/1.11/security/sso/setup-openid/).
+1. Configure an [OpenID IDP](/1.11/security/ent/sso/setup-openid/).
     1. Ensure both cluster URLs are provided in **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Dev console.
     1. Give the OIDC name such as "google-idp".
     1. Ensure both clusters use the same `Client-Id` and `Client-Secret` when configuring OIDC.
