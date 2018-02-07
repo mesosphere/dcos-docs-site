@@ -10,7 +10,7 @@ excerpt:
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
 
-[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/744f5ea28fc52517e344a5250a5fd12554da91b8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 <h3>This release candidate is for testing only and not to be used in production.</h3>
 <h3>Limitations:</h3>
