@@ -1,4 +1,5 @@
 ---
+layout: layout.pug
 post_title: Running Stateful Services on DC/OS
 nav_title: Running Stateful Services
 menu_order: 2
