@@ -73,6 +73,10 @@ This topic provides all available configuration parameters. Except where explici
 
 | Parameter                          | Description                                                                                                                                                |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [adminrouter_tls_1_0_enabled](#adminrouter-tls-1-0-enabled)    | Indicates whether to enable TLSv1 support in Admin Router. |
+| [adminrouter_tls_1_1_enabled](#adminrouter-tls-1-1-enabled)    | Indicates whether to enable TLSv1.1 support in Admin Router. |
+| [adminrouter_tls_1_2_enabled](#adminrouter-tls-1-2-enabled)    | Indicates whether to enable TLSv1.2 support in Admin Router. |
+| [adminrouter_tls_cipher_suite](#adminrouter-tls-cipher-suite)    | Override the default TLS cipher suite in Admin Router. |
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | [enterprise type="inline" size="small" /] Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | [enterprise type="inline" size="small" /] Sets the auth token time-to-live (TTL) for Identity and Access Management. |
 | [customer_key](#customer-key-enterprise)                       | [enterprise type="inline" size="small" /] (Required) The DC/OS Enterprise customer key. |
@@ -90,6 +94,47 @@ This topic provides all available configuration parameters. Except where explici
 | [zk_super_credentials](#zk-superuser)            | [enterprise type="inline" size="small" /] The ZooKeeper superuser credentials.  |
 | [zk_master_credentials](#zk-master)          | [enterprise type="inline" size="small" /] The ZooKeeper master credentials.  |
 | [zk_agent_credentials](#zk-agent)           | [enterprise type="inline" size="small" /] The ZooKeeper agent credentials.  |
+
+### adminrouter_tls_1_0_enabled
+
+Indicates whether to enable TLS 1.0 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
+
+- `adminrouter_tls_1_0_enabled: 'true'` Enable the TLS 1.0 protocol in Admin Router.
+- `adminrouter_tls_1_0_enabled: 'false'` Disable the TLS 1.0 protocol in Admin Router. This is the default value.
+
+You are advised not to enable TLS 1.0 as the protocol is considered insecure.
+
+If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_0_enabled` parameter set to the desired value.
+
+### adminrouter_tls_1_1_enabled
+
+Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
+
+- `adminrouter_tls_1_1_enabled: 'true'` Enable the TLS 1.1 protocol in Admin Router. This is the default value.
+- `adminrouter_tls_1_1_enabled: 'false'` Disable the TLS 1.1 protocol in Admin Router.
+
+If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_1_enabled` parameter set to the desired value.
+
+### adminrouter_tls_1_2_enabled
+
+Indicates whether to enable TLS 1.2 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
+
+- `adminrouter_tls_1_2_enabled: 'true'` Enable the TLS 1.2 protocol in Admin Router. This is the default value.
+- `adminrouter_tls_1_2_enabled: 'false'` Disable the TLS 1.2 protocol in Admin Router.
+
+It is advised to keep this protocol version enabled as its most secure widely supported TLS version.
+
+If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_2_enabled` parameter set to the desired value.
+
+### adminrouter_tls_cipher_suite
+
+Provide a custom list of TLS cipher suites. The value will be passed directly into Admin Router's [`ssl_ciphers`](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers) configuration directive. There is no validation of this string. Setting it incorrectly will cause DC/OS installation to fail. This configuration settings affects only Admin Routers running on DC/OS master nodes.
+
+If not provided the default value `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;` is used.
+
+To validate correctness of provided value use the `openssl ciphers` utility and provide your own value: `openssl ciphers <cipher-suites>`. For a list of all available ciphers see the [OpenSSL documentation](https://www.openssl.org/docs/man1.0.2/apps/ciphers.html).
+
+*Note:* Due to Java jurisdiction limitations it is not possible to install DC/OS with only AES256 cipher suites.
 
 ### agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.11/overview/concepts/#private-agent-node) host names.
