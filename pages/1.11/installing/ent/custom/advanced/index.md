@@ -152,7 +152,7 @@ In this step you create a YAML configuration file that is customized for your en
 
     ```json
     bootstrap_url: http://<bootstrap_ip>:80      
-    cluster_name: '<cluster-name>'
+    cluster_name: <cluster-name>
     customer_key: <customer-key>
     exhibitor_storage_backend: static
     master_discovery: static
