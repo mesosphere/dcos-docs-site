@@ -118,7 +118,6 @@ By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-service
 
 1. Add the script to the `/genconf` directory of your bootstrap node.
 
-1. To opt
 
 # Create a configuration file
 
@@ -173,6 +172,8 @@ In this step you create a YAML configuration file that is customized for your en
     no_proxy:
     - 'foo.bar.com'         
     - '.baz.com'
+    # Fault domain entry required for DC/OS Enterprise 1.11+
+    fault_domain_enabled: false
     ```
 
 # <a name="install-bash"></a>Install DC/OS

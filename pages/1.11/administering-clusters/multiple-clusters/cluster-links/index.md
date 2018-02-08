@@ -54,9 +54,9 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 # Viewing linked clusters
 
-To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, it status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.11/administering-clusters/cluster-connections/#viewing-connected-clusters).
+To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, it status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.11/administering-clusters/multiple-clusters/cluster-connections).
 
-# Remove a link to a cluster
+# Remove a link to a 
 
 To remove a link, `dcos cluster unlink` command and supply the **name** or **ID** of a linked cluster. For example:
 
