@@ -74,9 +74,9 @@ This topic provides all available configuration parameters. Except where explici
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | [enterprise type="inline" size="small" /] Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | [enterprise type="inline" size="small" /] Sets the auth token time-to-live (TTL) for Identity and Access Management. |
 | [customer_key](#customer-key-enterprise)                       | [enterprise type="inline" size="small" /] (Required) The DC/OS Enterprise customer key. |
-| [ca_certificate_path](#ca-certificate-path-enterprise)                   | [enterprise type="inline" size="small" /] Path to a file in the OpenSSL PEM format containing a single X.509 CA certificate. Can be a root (self-issued) certificate or an intermediate (cross-certificate) certificate. |
-| [ca_certificate_key_path](#ca-certificate-key-path-enterprise)           | [enterprise type="inline" size="small" /] Path to a file in the PKCS#8 PEM format containing the private key corresponding to the CA certificate in `ca_certificate_path`. Required if `ca_certificate_path` is specified. |
-| [ca_certificate_chain_path](#ca-certificate-chain-path-enterprise)       | [enterprise type="inline" size="small" /] Path to a file in the OpenSSL PEM format containing the complete CA certification chain required for end-entity certificate verification. Must be left undefined if `ca_certificate_path` is a root CA certificate. Required if `ca_certificate_path` is specified and the specified certificate is an intermediate CA certificate. |
+| ca_certificate_path                   | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.10/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
+| ca_certificate_key_path           | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.10/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
+| ca_certificate_chain_path       | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.10/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
 | [oauth_enabled](#oauth-enabled-open-source)                                | [oss type="inline" size="small" /] Indicates whether to enable authentication for your cluster.  |
 | [security](#security-enterprise)                               | [enterprise type="inline" size="small" /] The security mode: disabled, permissive, or strict.  |
 | [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
@@ -119,40 +119,6 @@ bouncer_expiration_auth_token_days: '0.5'
 ```
 
 For more information, see the [security documentation](/1.10/security/ent/).
-
-[enterprise]
-### ca_certificate_path
-[/enterprise]
-
-Path to a file within the `genconf` directory containing a single X.509 CA certificate in the OpenSSL PEM format. For example: `genconf/CA_cert`.
-
-Can be a _root CA certificate_ ("self-signed") or an _intermediate CA certificate_ ("cross-certificate") signed by some other certificate authority. 
-
-If provided, this is the custom CA certificate. It is used as the signing CA certificate, i.e., the DC/OS CA will use this certificate for signing end-entity certificates (the subject of this certificate will be the issuer for certificates signed by the DC/OS CA). 
-
-If not provided, the DC/OS cluster generates a unique root CA certificate during the initial bootstrap phase and uses that as the signing CA certificate. 
-
-The public key associated with the custom CA certificate must be of type RSA.
-
-[enterprise]
-### ca_certificate_key_path
-[/enterprise]
-
-Path to a file within the `genconf` directory containing the private key corresponding to the custom CA certificate, encoded in the OpenSSL (PKCS#8) PEM format. For example: `genconf/CA_cert.key`.
-
-**Note:** this is highly sensitive data. The configuration processor accesses this file only for configuration validation purposes, and does not copy the data. After successful configuration validation this file needs to be placed out-of-band into the file system of all DC/OS master nodes to the path `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` before most DC/OS systemd units can start up. The file must be readable by the root user, and should have have 0600 permissions set.
-
-Required if `ca_certificate_path` is specified.
-
-[enterprise]
-### ca_certificate_chain_path
-[/enterprise]
-
-Path to a file within the `genconf` directory containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. For example: `genconf/CA_cert_chain.pem`.
-
-Must be left undefined if `ca_certificate_path` points to a _root CA certificate_.
-
-Required if `ca_certificate_path` is specified and if the custom CA certificate is an _intermediate CA certificate_. This needs to contain all CA certificates comprising the complete sequence starting precisely with the CA certificate that was used to sign the custom CA certificate and ending with a root CA certificate (where issuer and subject are equivalent), yielding a gapless certification path. The order is significant and the list must contain at least one certificate.
 
 ### cluster_docker_credentials
 The dictionary of Docker credentials to pass.
