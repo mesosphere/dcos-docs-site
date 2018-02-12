@@ -21,13 +21,13 @@ These are the release notes for DC/OS 1.10.5.
 - DCOS-20629 - Fixed a deadlock in the go-zookeeper library.
 - DCOS-20683 - Fixed an error in encoding metrics to JSON when executing the DataDog plugin for DC/OS.
 - DCOS-20158 - Updated marked npm package to address two security vulnerabilities: [CVE-2017-17461](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [CVE-2017-1000427](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427).
-- DCOS-20184 - Users can be authenticated if two non-leading master nodes are partitioned from the network simultaneously via IP tables.
+- DCOS-20184 - Users can now be authenticated if two non-leading master nodes are simultaneously partitioned from the network, via IP tables.
 - DCOS_OSS-1919 - A master node in a DC/OS cluster with three master nodes now restarts after termination.
 - DCOS_OSS-2003 - Modified DC/OS overlay networking to work with systemd networkd.
 
 # Notable Changes in DC/OS 1.10.5
 
-- Updated to Marathon 1.5.6 [changelog]((https://github.com/mesosphere/marathon/releases/tag/v1.5.6)).
+- Updated to Marathon 1.5.6 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.6)).
 
 # Issues Fixed in DC/OS 1.10.4
 
