@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.4
 title: Release Notes for 1.10.4
-menuWeight: 0
+menuWeight: 5
 excerpt:
 ---
 
@@ -23,10 +23,10 @@ These are the release notes for DC/OS 1.10.4.
 
 # Notable Changes in DC/OS 1.10.4
 
-- Mesos 1.4.1 is integrated with DC/OS 1.10.4.
-- Marathon 1.5.5 is integrated with DCOS 1.10.4.
-- DC/OS Java Developer Kit upgraded to the latest version: JDK 8u152.
-- DC/OS is compatible with the newest Docker version: 17.05.0.
+- Updated to Mesos 1.4.1 ([changelog](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)).
+- Updated to Marathon 1.5.5 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.5)).
+- DC/OS Java Developer Kit updated to the latest version: JDK 8u152.
+- DC/OS compatible with the newest Docker version: 17.05.0.
 
 # Issues Fixed in DC/OS 1.10.3
 
