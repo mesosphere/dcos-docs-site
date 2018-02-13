@@ -12,7 +12,7 @@ featureMaturity:
 
 ### Version 2.3.1-2.2.1-2-beta
 NOTICE
-This is a beta release of the DC/OS Spark framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do not operate this version in production.
+- This is a beta release of the DC/OS Spark framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do not operate this version in production.
 
 ### Improvements
 - Upgraded to Spark 2.2.1
