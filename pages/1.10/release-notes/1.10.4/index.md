@@ -23,7 +23,6 @@ These are the release notes for DC/OS 1.10.4.
 
 # Notable Changes in DC/OS 1.10.4
 
-- Updated to Mesos 1.4.1 ([changelog](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)).
 - Updated to Marathon 1.5.5 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.5)).
 - DC/OS Java Developer Kit updated to the latest version: JDK 8u152.
 - DC/OS compatible with the newest Docker version: 17.05.0.
