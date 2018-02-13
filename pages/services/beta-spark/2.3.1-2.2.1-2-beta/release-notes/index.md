@@ -9,9 +9,10 @@ featureMaturity:
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+
 ## Version 2.3.1-2.2.1-2-beta
 
-## NOTICE
+### NOTICE
 
 This is a beta release of the DC/OS Spark framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
 
@@ -19,9 +20,9 @@ This is a beta release of the DC/OS Spark framework. It contains multiple improv
 - Upgraded to Spark 2.2.1
 
 ### Bug Fixes
+
 - Fixed the `security.kerberos.krb5conf` media type in the `spark-history` config
 - Fixed a stale jar link in the "Install and Customize" doc page
-
 
 ## Version 2.1.0-2.2.0-1
 
