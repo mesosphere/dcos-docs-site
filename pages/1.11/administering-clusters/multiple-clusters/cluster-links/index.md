@@ -117,7 +117,7 @@ If you are superuser you can also switch to a linked cluster in the Linked Clust
 1. Set up `cluster-b` using the `dcos-user` provider.
 
     ```
-    $ dcos cluster setup --provider=dcos-users `https://cluster-b.us-west-2.elb.amazonaws.com
+    $ dcos cluster setup --provider=dcos-users https://cluster-b.us-west-2.elb.amazonaws.com
     ```
 
     The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
