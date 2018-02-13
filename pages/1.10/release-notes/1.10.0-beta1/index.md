@@ -8,6 +8,8 @@ excerpt:
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
 
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/cc50fd59477f90c1881aa5ad02a81d174d3e42ed/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
 <h3>This beta release is for testing only and not to be used in production. It will only support new installations.</h3>
 <h3>DC/OS 1.10 Beta 1 has a number of limitations that will be resolved at GA time:</h3>
 
@@ -62,7 +64,7 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 [enterprise type="block" size="large"]
 ## Security
 [/ enterprise]
-  
+
 - Custom CA certificate support.
   Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
