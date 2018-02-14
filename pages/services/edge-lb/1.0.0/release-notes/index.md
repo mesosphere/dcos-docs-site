@@ -31,10 +31,11 @@ Shortlist:
       Support Strict Mode (#122)
       Run apiserver in UCR with host volume (#123)
       1.0 rc fixes (#124)
+      Change healthchecks from HTTP to MESOS_HTTP (#125)
+      Update releases to downloads.mesosphere.com (#127)
+      Update SDK to 0.40.2 (#128)
       [DCOS-19242] Ensure edge-lb is readily built on various platforms (#117)
       [DCOS-19242] Dockerize build (#119)
-      1.0 rc fixes (#124)
-      Change healthchecks from HTTP to MESOS_HTTP (#125)
 ```
 
 ## Known Limitations
