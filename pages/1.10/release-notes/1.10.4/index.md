@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.4
+navigationTitle: Release Notes for 1.10.4
 title: Release Notes for 1.10.4
 menuWeight: 5
 excerpt:
@@ -25,11 +25,11 @@ These are the release notes for DC/OS 1.10.4.
 
 - Updated to Marathon 1.5.5 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.5)).
 - DC/OS Java Developer Kit updated to the latest version: JDK 8u152.
-- DC/OS compatible with the newest Docker version: 17.05.0.
+- DC/OS is compatible with the newest Docker version: 17.05.0.
 
 # Issues Fixed in DC/OS 1.10.3
 
-- Fixed an issue related to a failure mode in DC/OS IAM (Identity and Access Manager), which can cause DC/OS master nodes not to come online for a period of time after failover or restart. [enterprise type="inline" size="small" /]
+- Fixed an issue related to a failure mode in IAM (Identity and Access Manager), which can cause DC/OS master nodes not to come online for a period of time after failover or restart. [enterprise type="inline" size="small" /]
 
 # Issues Fixed in DC/OS 1.10.2
 
