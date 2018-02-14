@@ -1,14 +1,35 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.4
-title: Release Notes for 1.10.4
-menuWeight: 5
+navigationTitle:  Release Notes for 1.10.5
+title: Release Notes for 1.10.5
+menuWeight: 0
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.10.4.
+These are the release notes for DC/OS 1.10.5.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
+
+# Issues Fixed in DC/OS 1.10.5
+
+- COPS-1963 - The agent admin router no longer exposes the default Nginx page.
+- DCOS-13824 - Removed list of cluster packages from cloud config and turned it into a build artifact that is downloaded during node setup.
+- DCOS-18784 - The DC/OS UI now shows the correct number of instances in a pod.
+- DCOS-19008 - Master certificates now include exhibitor_address if exhibitor_address is an IP address. [enterprise type="inline" size="small"/]
+- DCOS-20629 - Fixed a deadlock in the go-zookeeper library.
+- DCOS-20683 - Fixed an error in encoding metrics to JSON when executing the DataDog plugin for DC/OS.
+- DCOS-20158 - Updated marked npm package to address two security vulnerabilities: [CVE-2017-17461](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [CVE-2017-1000427](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427).
+- DCOS-20184 - Users can now be authenticated if two non-leading master nodes are simultaneously partitioned from the network, via IP tables.
+- DCOS-20352 - Fixed a configuration issue with CockroachDB related to the number of master nodes.
+- DCOS_OSS-1919 - A master node in a DC/OS cluster with three master nodes now restarts after termination.
+- DCOS_OSS-2003 - Modified DC/OS overlay networking to work with systemd networkd.
+- DCOS_OSS-2095 - Fixed an issue with the scheduled_jobs API in Metronome 0.3.4.
+
+# Notable Changes in DC/OS 1.10.5
+
+- Updated to Marathon 1.5.6 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.6)).
+- Updated to Mesos 1.4.1 ([changelog](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)).
 
 # Issues Fixed in DC/OS 1.10.4
 
