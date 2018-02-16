@@ -234,7 +234,7 @@ if(process.env.NODE_ENV == "pdf") {
   CB.use(wkhtmltopdfLinkResolver({
     prefix: '/tmp/pdf/build'
   }))
-  CB.use(timer('WkhtmltopdfLinkResolver'))
+  CB.use(timer('CB: WkhtmltopdfLinkResolver'))
 }
 
 // Serve
@@ -242,6 +242,7 @@ if(process.env.NODE_ENV == "development") {
   CB.use(serve({
     port: 3000
   }))
+  CB.use(timer('CB: Webserver'))
 }
 
 //
@@ -250,8 +251,10 @@ if(process.env.NODE_ENV == "development") {
 
 let AB = branch()
 
-// Watch
+// Start timer
+AB.use(timer('AB: Init'))
 
+// Watch
 if(process.env.NODE_ENV === 'development') {
   AB.use(
     watch({
@@ -261,10 +264,8 @@ if(process.env.NODE_ENV === 'development') {
       },
     })
   )
+  AB.use(timer('AB: Watch'))
 }
-
-// Start timer
-AB.use(timer('AB: Init'))
 
 // Assets
 AB.use(assets({
