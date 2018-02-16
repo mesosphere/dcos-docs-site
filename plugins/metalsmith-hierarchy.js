@@ -57,7 +57,7 @@ function walk(opts, file, files, array, children, level) {
     children.push(child);
   }
   // Walk children
-  if(array.length > 1) {
+  if(child && array.length > 1) {
     let childChildrenArray = array.slice(1, array.length);
     let childChildren = walk(opts, file, files, childChildrenArray, child.children, level + 1);
     child.children = childChildren;
