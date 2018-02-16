@@ -69,7 +69,7 @@ DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by de
 The DC/OS CLI supports the following environment variables, which can be set dynamically.
 
 <a name="dcos-cluster"></a>
-#### `DCOS_CLUSTER` (DC/OS CLI O.5.x and higher only)
+#### `DCOS_CLUSTER` (DC/OS CLI 0.5.x and higher only)
 
 The [attached](/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
 
@@ -78,7 +78,7 @@ export DCOS_CLUSTER=<cluster_name>
 ```
 
 <a name="dcos-config"></a>
-#### `DCOS_CONFIG` (DC/OS CLI O.4.x only)
+#### `DCOS_CONFIG` (DC/OS CLI 0.4.x only)
 
 The path to a DC/OS configuration file. If you put the DC/OS configuration file in `/home/jdoe/config/dcos.toml`, set the variable with the command:
 
@@ -93,7 +93,7 @@ If you have the `DCOS_CONFIG` environment variable configured:
 
 
 <a name="dcos-dir"></a>
-#### `DCOS_DIR` (DC/OS CLI O.5.x and higher only)
+#### `DCOS_DIR` (DC/OS CLI 0.5.x and higher only)
 
 The path to a DC/OS configuration directory. If you want the DC/OS configuration directory to be `/home/jdoe/config`, set the variable with the command:
 
