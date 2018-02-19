@@ -32,9 +32,11 @@ build-development: build-api
 #
 # Build PDF
 #
+build-pdf-chapter:
+
 
 build-pdf-production:
-	./scripts/pdf.sh ./build ./build-pdf
+	./scripts/mdtopdf.sh ./pages ./build-pdf
 
 build-pdf-concat-production:
 	./scripts/pdf-concat.sh ./pages ./build-pdf
