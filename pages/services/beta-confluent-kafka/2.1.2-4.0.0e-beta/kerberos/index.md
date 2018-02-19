@@ -1,11 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Kerberos
 menuWeight: 22
-enterprise: false
+
 ---
+
+<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+
 
 # Setting up Apache Kafka with Kerberos
 
@@ -23,7 +26,7 @@ kafka/kafka-2-broker.kafka.autoip.dcos.thisdcos.directory@LOCAL
 
 Once the principals have been created, a keytab file must be generated and uploaded to the DC/OS secret store as a base-64-encoded value. Assuming the keytab for **all** the Kafka principals has been created as a file `keytab`, this can be added to the secret store as follows (note that the DC/OS Enterprise CLI needs to be installed to gain access to the `security` command):
 ```bash
-$ base64 -w keytab > keytab.base64
+$ base64 -w 0 keytab > keytab.base64
 $ dcos security secrets create  __dcos_base64__keytab --value-file keytab.base64
 ```
 
@@ -53,7 +56,7 @@ Note the specification of the secret name as created in the previous step.
 
 The kerberized Apache Kafka service is then deployed by running:
 ```bash
-$ dcos package install kafka --options=kerberos-options.json
+$ dcos package install confluent-kafka --options=kerberos-options.json
 ```
 
 ## Deploy with kerberized ZooKeeper
@@ -106,5 +109,5 @@ Note that `service.security.kerberos.enabled_for_zookeeper` is now set to true a
 
 Kerberized Kafka can then be deployed as follows:
 ```bash
-$ dcos package install kafka --options=kerberos-zookeeper-options.json
+$ dcos package install confluent-kafka --options=kerberos-zookeeper-options.json
 ```
