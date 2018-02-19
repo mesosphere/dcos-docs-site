@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This topic provides all available configuration parameters. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/).
+**This topic provides configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/). For configuration parameters available for [DC/OS](https://dcos.io/) please refer to [Configuration Reference for DC/OS](1.10/installing/oss/custom/configuration/configuration-parameters/).**
 
 # Cluster Setup
 
@@ -77,7 +77,6 @@ This topic provides all available configuration parameters. Except where explici
 | ca_certificate_path                   | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.10/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
 | ca_certificate_key_path           | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.10/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
 | ca_certificate_chain_path       | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.10/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
-| [oauth_enabled](#oauth-enabled-open-source)                                | [oss type="inline" size="small" /] Indicates whether to enable authentication for your cluster.  |
 | [security](#security-enterprise)                               | [enterprise type="inline" size="small" /] The security mode: disabled, permissive, or strict.  |
 | [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
