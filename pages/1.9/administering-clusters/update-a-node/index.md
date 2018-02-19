@@ -47,6 +47,8 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
     ```
     
     For a more complex example, see the [maintain-agents.sh](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/maintain-agents.sh) script.
+    
+1.  Invoke the `⁠⁠⁠⁠maintenance/schedule` endpoint with the maintenance schedule JSON definition as described above. For example, [here](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/get-maintenance-schedule.sh) is a script that calls `⁠⁠⁠⁠maintenance/schedule` using GET, but you'll need to POST the JSON to trigger the maintenance mode.
  
 1.  Invoke the `⁠⁠⁠⁠machine/down` endpoint with the machine JSON definition specified. For example, [here](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) is a script that calls `/machine/down/`. 
 
