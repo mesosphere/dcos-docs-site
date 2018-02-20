@@ -14,23 +14,25 @@ NC='\033[0m'
 function main
 {
   # Each argument
-  for d in $1; do
-    if [ -d "$d" ]; then
+  for d in $1; do  #$1 = ./pages
+    if [ -d "$d" ]; then #-d is cd in $1 then subfolder is $d
       # For each folder or file
-      for f in $d/*; do
+      for f in $d/*; do  #once in $d subfolder of ./pages
         # If folder
-        if [ -d "$f" ]; then
-          ( main $f $2 )
+        if [ -d "$f" ]; then  #if it's a folder, cd in it
+          ( main $f $2 )  # and go back to the initial function with it as a directory (recursively)
         fi
         # If .md file
         if [ -f "$f" ] && [ ${f: -3} == ".md" ]; then
           (
+            #go to pandoc concat, and concat those files
 
             # Only process files with pdfConcat front-matter
-            if [[ $(grep -c '^pdfConcat: true' $f) != 1 ]]; then
-              return
-            fi
-
+            # if [[ $(grep -c '^pdfConcat: true' $f) != 1 ]]; then
+             # return
+            # fi
+            echo $d
+            echo $f
             # Remove ./pages from path name
             clean_path=$(echo $d | sed 's/.*\.\/pages\///')
             pdf_root_dir=$2/$clean_path
@@ -44,12 +46,15 @@ function main
 
               # Debug print
               printf "${GREEN}Creating PDF from root dir${BLUE}$pdf_root_dir${NC}\n"
-              find "$pdf_root_dir" -iname '*.pdf' ! -iname '*-complete-section.pdf' | tac
+              #find "$pdf_root_dir" -iname '*.pdf' ! -iname '*-complete-section.pdf' | tac
+              find "$pdf_root_dir" -iname '*.md' ! -iname '*-complete-section.pdf' | cat
 
               # Create PDF
               # Ignores previously concatenated pdf files
-              files=$(find "$pdf_root_dir" -iname '*.pdf' ! -iname '*-complete-section.pdf' | tac)
-              gs -q -sPAPERSIZE=a4 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="$pdf_root_file_path" $files
+              files=$(find "$pdf_root_dir" -iname '*.pdf' ! -iname '*-complete-section.pdf' | cat)
+              #pandoc would concat the .md files
+              #pandoc
+              #gs -q -sPAPERSIZE=a4 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="$pdf_root_file_path" $files
 
               # Debug
               printf "${GREEN}Created ${BLUE}$pdf_root_file_path${NC}\n"

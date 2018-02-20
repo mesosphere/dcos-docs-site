@@ -32,8 +32,6 @@ build-development: build-api
 #
 # Build PDF
 #
-build-pdf-chapter:
-
 
 build-pdf-production:
 	./scripts/mdtopdf.sh ./pages ./build-pdf

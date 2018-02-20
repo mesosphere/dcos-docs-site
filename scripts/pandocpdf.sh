@@ -2,10 +2,11 @@
 #
 # Usage:       pdf.sh input_folder ouput_folder docker_wkhtmltopdf_aas_host
 #
-# Description: Sends converts .md files into .pdf files
+# Description: Converts .md files into .pdf files
 #
-INPUT_FILE="${1}"
-OUTPUT_FILE="${2}"
+INPUT_FOLDER=${1}
+FILE_PATH=${2}
+OUTPUT_PATH=${3}
 
-RUN echo INPUT_FILE OUTPUT_FILE
-RUN pandoc '${INPUT_FILE}' -o '${OUTPUT_FILE}'
+# Convert the file from .md to .pdf
+pandoc --toc "${INPUT_FOLDER}/${FILE_PATH}/index.md" -o "${OUTPUT_PATH}.pdf"
