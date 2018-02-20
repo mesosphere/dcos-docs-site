@@ -633,7 +633,7 @@
 /latest/installing/local/ /latest/installing/oss/local/;
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
-/release-notes/version-policy/ /release-notes/1.10/version-policy/;
+/release-notes/version-policy/ /1.10/release-notes/version-policy/;
 /services/beta-cassandra/v1.0.30-3.0.13-beta/ /services/beta-cassandra/1.0.30-3.0.13-beta/;
 /services/beta-cassandra/v1.0.31-3.0.13-beta/ /services/beta-cassandra/1.0.31-3.0.13-beta/;
 /services/beta-cassandra/v1.0.32-3.0.14-beta/ /services/beta-cassandra/1.0.32-3.0.14-beta/;
