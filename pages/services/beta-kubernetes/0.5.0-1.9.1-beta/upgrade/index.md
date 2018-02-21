@@ -106,8 +106,8 @@ Detected the following differences between service configurations (CHANGED, CURR
    ==    }
 
 Do you want to apply these CHANGES?, Please type (yes/no) and then press enter: y
- Kubernetes service: [STARTED]
- Framework components update: [COMPLETE]
+Kubernetes service: [STARTED]
+Framework components update: [COMPLETE]
 Framework has been updated successfully!
 ```
 
