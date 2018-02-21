@@ -5,13 +5,13 @@ title: Configuration Reference
 menuWeight: 600
 excerpt:
 
-enterprise: false
+enterprise: true
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This topic provides all available configuration parameters. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/).
+**This topic provides configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/). For configuration parameters available for [DC/OS](https://dcos.io/) please refer to [Configuration Reference for DC/OS](1.11/installing/oss/custom/configuration/configuration-parameters/).**
 
 # Cluster Setup
 
@@ -83,7 +83,6 @@ This topic provides all available configuration parameters. Except where explici
 | ca_certificate_path                   | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
 | ca_certificate_key_path           | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
 | ca_certificate_chain_path       | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
-| [oauth_enabled](#oauth-enabled-dc-os-only-)                                | (DC/OS Only) Indicates whether to enable authentication for your cluster.  |
 | [security](#security-enterprise)                               | [enterprise type="inline" size="small" /] The security mode: disabled, permissive, or strict.  |
 | [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
@@ -454,14 +453,6 @@ For more information regarding truncated DNS responses and retrying over TCP see
 
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
-
-### oauth_enabled (DC/OS Only)
-Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
-
-- `oauth_enabled: true` Enable authentication for your cluster. This is the default value.
-- `oauth_enabled: false` Disable authentication for your cluster.
-
-If you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.
 
 ### platform
 The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: `aws`, `azure`, `oneview`, `openstack`, `vsphere`, `vagrant-virtualbox`, `onprem` (default).
