@@ -25,23 +25,24 @@ function main
         # If .md file
         if [ -f "$f" ] && [ ${f: -3} == ".md" ]; then
           (
-            #go to pandoc concat, and concat those files
-
-            # Only process files with pdfConcat front-matter
-            # if [[ $(grep -c '^pdfConcat: true' $f) != 1 ]]; then
-             # return
-            # fi
-            echo $d
-            echo $f
+            # Add those md into an array
+            #FILE_PATHS_MD=${}
             # Remove ./pages from path name
-            clean_path=$(echo $d | sed 's/.*\.\/pages\///')
+            CLEAN_PATH=$(echo $d | sed 's/.*\.\/pages\///')
+            # Create new pdf root directory with the clean path under ./build-pdf
             pdf_root_dir=$2/$clean_path
+            mkdir -p $pdf_root_dir
+            echo $CLEAN_PATH 'clean path'
 
+            #Variable that saves the files I want to concat to make a chapter
+            INPUT_FILES="${INPUT_FILES} $CLEAN_PATH"
+            echo $INPUT_FILES 'input files'
+            # if there is a created pdf root directory then go in and
             if [ -d "$pdf_root_dir" ]; then
 
-              # Root PDF file path
-              pdf_file_name="$(echo $clean_path | tr '/' '-')-complete-section.pdf"
-              build_dir="$2/$clean_path"
+              # Root PDF file path // this creates the pdf file name
+              pdf_file_name="$(echo $CLEAN_PATH | tr '/' '-')-complete-section.pdf" #new pdf name
+              build_dir="$2/$CLEAN_PATH" #creates another directory under build directory
               pdf_root_file_path="$build_dir/$pdf_file_name"
 
               # Debug print
@@ -51,7 +52,7 @@ function main
 
               # Create PDF
               # Ignores previously concatenated pdf files
-              files=$(find "$pdf_root_dir" -iname '*.pdf' ! -iname '*-complete-section.pdf' | cat)
+              #files=$(find "$pdf_root_dir" -iname '*.pdf' ! -iname '*-complete-section.pdf' | cat)
               #pandoc would concat the .md files
               #pandoc
               #gs -q -sPAPERSIZE=a4 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="$pdf_root_file_path" $files

@@ -4,9 +4,10 @@
 #
 # Description: Converts .md files into .pdf files
 #
-INPUT_FOLDER=${1}
-FILE_PATH=${2}
-OUTPUT_PATH=${3}
+
+INPUT_FILES=${1}
+OUTPUT_PATH=${2}
 
 # Convert the file from .md to .pdf
-pandoc --toc "${INPUT_FOLDER}/${FILE_PATH}/index.md" -o "${OUTPUT_PATH}.pdf"
+echo "pandoc --toc ${INPUT_FILES} -o \"${OUTPUT_PATH}.pdf\""
+pandoc --toc ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf

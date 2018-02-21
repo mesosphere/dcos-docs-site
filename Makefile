@@ -37,7 +37,7 @@ build-pdf-production:
 	./scripts/mdtopdf.sh ./pages ./build-pdf
 
 build-pdf-concat-production:
-	./scripts/pdf-concat.sh ./pages ./build-pdf
+	./scripts/mdtopdf-concat.sh ./pages ./build-pdf
 
 build-pdf-development: build-api docker-development-up-pdf
 	npm run build-pdf
