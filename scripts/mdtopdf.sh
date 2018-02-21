@@ -65,17 +65,16 @@ function main
         NEW_FILE="${d}/${FILE_NAME}"
         FINAL_FILES="${FINAL_FILES}${NEW_FILE} "
       done
+
      printf "${GREEN}Creating the final array of files with index.md:  $FINAL_FILES"
 
-     #echo ${PARALLEL_TEMPFILE} 'temp file'
-     #echo "phantomjs scripts/pandocpdf.sh '${FILE_PATH}' '${PDF_DEST_DIR}/${PDF_FILE_NAME}'" >> "${PARALLEL_TEMPFILE}"
      # Pandoc gets the string of files and outputs the pdf.
-     scripts/pandocpdf.sh "${FINAL_FILES}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
-     #echo "scripts/pandocpdf.sh ${INPUT_FOLDER} ${FILE_PATH} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
-     echo "======"
+     # scripts/pandocpdf.sh "${FINAL_FILES}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
+     echo "scripts/pandocpdf.sh "${FINAL_FILES}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
 
-  #Execute theconversion in parallel
+  # Execute theconversion in parallel
   echo "Starting pdf build $(date)"
   cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"
   echo "Finished build $(date)"

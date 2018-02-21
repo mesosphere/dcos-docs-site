@@ -93,7 +93,7 @@ $if(fonttheme)$
 \usefonttheme{$fonttheme$}
 $endif$
 $if(mainfont)$
-\usefonttheme{$sansserif$} % use mainfont rather than sansfont for slide text
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
 $endif$
 $if(innertheme)$
 \useinnertheme{$innertheme$}
@@ -189,20 +189,18 @@ $if(graphics)$
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
 $if(beamer)$
-% Prevent 7 breaks in the middle of a paragraph:
+% Prevent slide breaks in the middle of a paragraph:
 \widowpenalties 1 10000
 \raggedbottom
 $if(section-titles)$
 \setbeamertemplate{part page}{
 \centering
-\setsansfont
 \begin{beamercolorbox}[sep=16pt,center]{part title}
-  \setsansfont{part title}\insertpart\par
+  \usebeamerfont{part title}\insertpart\par
 \end{beamercolorbox}
 }
 \setbeamertemplate{section page}{
 \centering
-\setsansfont
 \begin{beamercolorbox}[sep=12pt,center]{part title}
   \usebeamerfont{section title}\insertsection\par
 \end{beamercolorbox}
@@ -210,7 +208,7 @@ $if(section-titles)$
 \setbeamertemplate{subsection page}{
 \centering
 \begin{beamercolorbox}[sep=8pt,center]{part title}
-  \setsansfont{subsection title}\insertsubsection\par
+  \usebeamerfont{subsection title}\insertsubsection\par
 \end{beamercolorbox}
 }
 \AtBeginPart{
@@ -344,7 +342,6 @@ $if(beamer)$
 \frame{\titlepage}
 $else$
 \maketitle
-\centering
 $endif$
 $if(abstract)$
 \begin{abstract}
