@@ -5,7 +5,7 @@ title: Configuration Reference
 menuWeight: 600
 excerpt:
 
-enterprise: false
+enterprise: true
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
