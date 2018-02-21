@@ -412,17 +412,6 @@ For more information regarding truncated DNS responses and retrying over TCP see
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
 
-[oss]
-### oauth_enabled
-[/oss]
-
-Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
-
-- `oauth_enabled: true` Enable authentication for your cluster. This is the default value.
-- `oauth_enabled: false` Disable authentication for your cluster.
-
-If you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.
-
 ### platform
 The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: `aws`, `azure`, `oneview`, `openstack`, `vsphere`, `vagrant-virtualbox`, `onprem` (default).
 
