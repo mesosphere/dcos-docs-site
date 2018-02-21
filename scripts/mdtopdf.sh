@@ -13,6 +13,8 @@ INPUT_FOLDER=${1}
 OUTPUT_FOLDER=${2}
 PARALLEL_TEMPFILE=$(mktemp)
 
+TEMP_FILES=""
+
 GREEN='\033[0;32m'
 BLUE='\033[0;33m'
 PURPLE='\033[0;35m'
@@ -54,23 +56,22 @@ function main
      INPUT_FILES="$(find ${INPUT_FOLDER}/${FILE_PATH} -type d)"
      # There is a index.md whithing every file
      FILE_NAME="index.md"
-     printf "${GREEN}Creating the INPUT FILES: ${PURPLE}${INPUT_FILES}"
-     #echo $INPUT_FILES 'input files before the loop'
-     #FINAL_fILEs will enclose all the files we want to convert to docs, single, chapters, versions or whole books depending on the
-     #folder we are in
-     FINAL_FILES=""
      #We find the index.md per folder so the final pdf is organised per folder not natively recursive
      for d in $INPUT_FILES
       do
         NEW_FILE="${d}/${FILE_NAME}"
-        FINAL_FILES="${FINAL_FILES}${NEW_FILE} "
+        if [ -f $NEW_FILE ]
+        then
+          TEMP_FILE=$(mktemp)
+          TEMP_FILES="${TEMP_FILES} ${TEMP_FILE}"
+          cat ${NEW_FILE} >> ${TEMP_FILE}
+        fi
       done
 
-     printf "${GREEN}Creating the final array of files with index.md:  $FINAL_FILES"
-
      # Pandoc gets the string of files and outputs the pdf.
-     # scripts/pandocpdf.sh "${FINAL_FILES}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
-     echo "scripts/pandocpdf.sh "${FINAL_FILES}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+     scripts/pandocpdf.sh "${TEMP_FILES}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
+
+     #echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
 
@@ -78,7 +79,8 @@ function main
   echo "Starting pdf build $(date)"
   cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"
   echo "Finished build $(date)"
-
+  echo $TEMP_FILES
+  rm -f "${TEMP_FILES}"
 }
 
 clean "${OUTPUT_FOLDER}"
