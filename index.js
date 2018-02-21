@@ -4,6 +4,7 @@ const markdown         = require('metalsmith-markdownit');
 const layouts          = require('metalsmith-layouts');
 const permalinks       = require('metalsmith-permalinks');
 const assets           = require('metalsmith-assets');
+const dataLoader       = require('metalsmith-data-loader');
 const watch            = require('metalsmith-watch');
 const branch           = require('metalsmith-branch')
 const serve            = require('metalsmith-serve');
@@ -20,6 +21,8 @@ const hierarchy               = require('./plugins/metalsmith-hierarchy');
 const hierarchyRss            = require('./plugins/metalsmith-hierarchy-rss');
 const headings                = require('./plugins/metalsmith-headings');
 const algolia                 = require('./plugins/metalsmith-algolia');
+const inPlace                 = require('./plugins/metalsmith-in-place-dcos');
+const includeContent          = require('./plugins/metalsmith-include-content-dcos');
 const shortcodes              = require('./plugins/metalsmith-shortcodes');
 const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-resolver');
 
@@ -99,6 +102,41 @@ let CB = branch()
 
 // Start timer
 CB.use(timer('CB: Init'))
+
+// Load model data from external .json/.yaml files
+// For example (in your Front Matter):
+//   model: path/to/my.yml (access content in my.yml as model.foo.bar)
+// Can also specify multiple named models:
+//   model:
+//     data1: path/to/my.json (access content in my.json as model.data1.foo.bar)
+//     data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
+CB.use(dataLoader({
+  dataProperty: 'model',
+  // Only enable in service pages for now.
+  match: 'services/**/*.md',
+}))
+CB.use(timer('CB: Dataloader'))
+
+// Load raw content via '#include' directives before rendering any mustache or markdown.
+// For example (in your content):
+//   #include path/to/file.tmpl
+CB.use(includeContent({
+  // Style as a C-like include statement. Must be on its own line.
+  pattern: '^#include ([^ ]+)$',
+  // Only enable in service pages for now.
+  match: 'services/**/*.md*',
+}))
+CB.use(timer('CB: IncludeContent'))
+
+// Process any mustache templating in files.
+// For example (in your Front Matter):
+//   render: mustache
+CB.use(inPlace({
+  renderProperty: 'render',
+  // Only enable in service pages for now.
+  match: 'services/**/*.md',
+}))
+CB.use(timer('CB: Mustache'))
 
 // Folder Hierarchy
 CB.use(hierarchy({
