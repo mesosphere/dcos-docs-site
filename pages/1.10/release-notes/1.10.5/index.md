@@ -22,6 +22,7 @@ These are the release notes for DC/OS 1.10.5.
 - DCOS-20158 - Updated marked npm package to address two security vulnerabilities: [CVE-2017-17461](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [CVE-2017-1000427](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427).
 - DCOS-20184 - Users can now be authenticated if two non-leading master nodes are simultaneously partitioned from the network, via IP tables.
 - DCOS-20352 - Fixed a configuration issue with CockroachDB related to the number of master nodes.
+- DCOS-19694 - Fixed an issue for backwards-incompatibility with CockroachDB. 
 - DCOS_OSS-1919 - A master node in a DC/OS cluster with three master nodes now restarts after termination.
 - DCOS_OSS-2003 - Modified DC/OS overlay networking to work with systemd networkd.
 - DCOS_OSS-2095 - Fixed an issue with the scheduled_jobs API in Metronome 0.3.4.
@@ -35,7 +36,7 @@ These are the release notes for DC/OS 1.10.5.
 
 - CORE-1375 - Docker executor does not hang due to lost messages.
 - DOCS-2169 - Updated [ports list](https://docs.mesosphere.com/1.10/installing/ent/ports/) for DC/OS. [enterprise type="inline" size="small"/]
-- DCOS-18777 - DC/OS CA certificate bundle now gets propagated to public slaves.
+- DCOS-18777 - DC/OS CA certificate bundle now gets propagated to public slaves. [enterprise type="inline" size="small"/]
 - DCOS-19327 - Diagnostics bundles no longer contain sensitive cluster configuration values related to Cloudformation templates.
 - DCOS-19399 - Marathon now supports upgrading to JDK 1.8.0_152.
 - DCOS_OSS-1828 - Prometheus plugin now authenticates on master nodes.
@@ -69,8 +70,8 @@ These are the release notes for DC/OS 1.10.5.
 - Support for RHEL 7.4.
 - Updated to Mesos 1.4.0 ([changelog](https://git-wip-us.apache.org/repos/asf?p=mesos.git;a=blob_plain;f=CHANGELOG;hb=1.4.0)).
 - Updated to Marathon 1.5.2 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.2)).
-- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/ent/custom/configuration/examples/#docker-credentials).
-- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise).
+- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small"/]
+- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise). [enterprise type="inline" size="small"/]
 - DOCS-1925 - Clarified how operators can [recover from a full agent disk](/1.10/administering-clusters/recovering-agent-disk-space/).
 - DOCS-2153 - Updated [Metrics names](/1.10/metrics/reference/).
 
