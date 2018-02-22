@@ -85,13 +85,35 @@ Use the following CLI commands to provision the Edge-LB service account with the
 
 All CLI commands can also be executed via the [IAM API](/latest/security/ent/iam-api/).
 
-1.  Grant the permissions and the allowed actions to the service account using the following commands. The commands below allow your Edge-LB service to manage DC/OS packages, Marathon tasks, Edge-LB pools and tasks.
+1. For easier administration, add `edge-lb-principal` to the `superusers` group
 
     ```bash
-    dcos security org users grant edge-lb-principal dcos:adminrouter:package full --description "Allow access to manage DC/OS packages"
-    dcos security org users grant edge-lb-principal dcos:adminrouter:service:marathon full --description "Allow access to manage marathon tasks"
-    dcos security org users grant edge-lb-principal dcos:service:marathon:marathon:services:/dcos-edgelb full --description "Allow access to manage dcos-edgelb tasks"
-    dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools full --description "Allow access to update pools"
+    dcos security org groups add_user superusers edge-lb-principal
+    ```
+
+1.  Or, if you prefer to grant only the individual permissions necessary, grant the permissions and the allowed actions to the service account using the following commands. The commands below allow your Edge-LB service to manage DC/OS packages, Marathon tasks, Edge-LB pools and tasks. They also enable Edge-LB pools to register with mesos master and launch load-balancer tasks.
+
+    ```bash
+    dcos security org users grant edge-lb-principal dcos:adminrouter:service:marathon full
+    dcos security org users grant edge-lb-principal dcos:adminrouter:package full
+    dcos security org users grant edge-lb-principal dcos:adminrouter:service:edgelb full
+    dcos security org users grant edge-lb-principal dcos:service:marathon:marathon:services:/dcos-edgelb full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:endpoint:path:/api/v1 full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:endpoint:path:/api/v1/scheduler full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:framework:principal:edge-lb-principal full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:framework:role full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:reservation:principal:edge-lb-principal full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:reservation:role full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:volume:principal:edge-lb-principal full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:volume:role full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:task:user:root full
+    dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id full
+    ```
+    
+    Additionally, this permission needs to be granted **for each Edge-LB pool created**:
+    
+    ```bash
+    dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
     ```
 
 For more information about required permissions, please see the [Edge-LB Permissions](/service-docs/edge-lb/1.0.0/permissions)
