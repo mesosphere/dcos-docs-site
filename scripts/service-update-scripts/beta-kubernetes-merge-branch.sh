@@ -64,6 +64,9 @@ for p in `find docs/$package -type f`; do
 
 done
 
+# Fix up relative links after prettifying structure above
+sed -i -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
+
 cp -r docs/package/* ./pages/services/beta-kubernetes/$directory
 
 git rm -rf docs/
