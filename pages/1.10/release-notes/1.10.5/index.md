@@ -21,8 +21,8 @@ These are the release notes for DC/OS 1.10.5.
 - DCOS-20683 - Fixed an error in encoding metrics to JSON when executing the DataDog plugin for DC/OS.
 - DCOS-20158 - Updated marked npm package to address two security vulnerabilities: [CVE-2017-17461](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [CVE-2017-1000427](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427).
 - DCOS-20184 - Users can now be authenticated if two non-leading master nodes are simultaneously partitioned from the network, via IP tables.
-- DCOS-20352 - Fixed a configuration issue with CockroachDB related to the number of master nodes.
-- DCOS-19694 - Fixed an issue for backwards-incompatibility with CockroachDB. 
+- DCOS-20352 - Fixed a configuration issue with CockroachDB related to the number of master nodes. [enterprise type="inline" size="small"/]
+- DCOS-19694 - Fixed an issue for backwards-incompatibility with CockroachDB. [enterprise type="inline" size="small"/]
 - DCOS_OSS-1919 - A master node in a DC/OS cluster with three master nodes now restarts after termination.
 - DCOS_OSS-2003 - Modified DC/OS overlay networking to work with systemd networkd.
 - DCOS_OSS-2095 - Fixed an issue with the scheduled_jobs API in Metronome 0.3.4.
