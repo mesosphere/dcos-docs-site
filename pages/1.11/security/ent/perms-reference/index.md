@@ -33,6 +33,10 @@ The available actions are `create`, `read`, `update`, `delete`, and `full`.
 By convention, `full` indicates that the permission supports all other action identifiers.
 `full` may include actions not supported by any other action identifier.
 
+Many resource identifiers include optional sections in square brackets that may be filled in to further narrow the granted permission.
+If optional sections are omitted the resource identifier refers to all possible values.
+For example, the resource identifier `dcos:mesos:agent:framework:role` controls view access to DC/OS services registered with any [Mesos role](/1.11/overview/concepts/#mesos-role), whereas the resource identifier `dcos:mesos:agent:framework:role:slave_public` controls view access to DC/OS services registered with the role `slave_public`.
+
 Most HTTP requests sent to DC/OS components require authentication proof. These
 include operations launched by the DC/OS CLI, the DC/OS UI, the DC/OS API and
 internally between DC/OS components. HTTP requests to some endpoints require
@@ -63,7 +67,7 @@ user identified by `uid` must have `full` access to the protected resource
 `dcos:adminrouter:package` in order to be able to access the DC/OS package API
 through Admin Router.
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                         | x    |   |   |   |   |
 | `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/1.11/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                               | x    |   |   |   |   |
@@ -86,27 +90,18 @@ through Admin Router.
 
 ## <a name="mesos"></a>Mesos Permissions
 
-Many Mesos operations require authorization. The necessary privileges must be
-assigned to the DC/OS user that issues the HTTP request to Mesos. This is not
-always the same DC/OS user that is logged into the UI or CLI. For example, when
-Alice uses the UI to create a Marathon application, Marathon performs
+Many Mesos operations require authorization.
+The necessary privileges must be assigned to the DC/OS user that issues the HTTP request to Mesos.
+This is not always the same DC/OS user that is logged into the UI or CLI.
+For example, when Alice uses the UI to create a Marathon application, Marathon performs
 authorization of the HTTP request and checks that the `alice` DC/OS user has
-`create` access to the `dcos:service:marathon:marathon:services:/` resource. If
-so, it uses *its own* DC/OS user, a DC/OS service account with a `uid` of
-`dcos_marathon`, to authenticate an HTTP request to Mesos with instruction to
-launch the new Mesos tasks. At that point, Mesos will perform the DC/OS
-authorization procedure and check that the `dcos_marathon` DC/OS user has been
-granted the `create` action on the `dcos:mesos:master:task:app_id`
-resource.
+`create` access to the `dcos:service:marathon:marathon:services:/` resource.
+If so, it uses *its own* DC/OS user, a DC/OS service account with a `uid` of `dcos_marathon`, to authenticate an HTTP request to Mesos with instruction to launch the new Mesos tasks.
+At that point, Mesos will perform the DC/OS authorization procedure and check that the `dcos_marathon` DC/OS user has been granted the `create` action on the `dcos:mesos:master:task:app_id` resource.
 
-Permission string sections for `<role-name>`s in square brackets are optional.
-These sections allow the permission scope to be narrowed.
-When no role name is specified, the permissions apply to all [Mesos roles](/1.11/overview/concepts/#mesos-role).
-For example, the permission string `dcos:mesos:agent:framework:role` controls view access to DC/OS services registered with any [Mesos role](/1.11/overview/concepts/#mesos-role), whereas the permission string `dcos:mesos:agent:framework:role:slave_public` controls view access to DC/OS services registered with the role `slave_public`.
+Applications launched with Root Marathon can only receive offers for resources reserved for the `slave_public` or `*` [Mesos roles](/1.11/overview/concepts/#mesos-role).
 
-Applications launched with Root Marathon can only receive offers for resources reserved for the `slave_public` or `*` roles.
-
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:mesos:agent:container:app_id[:<service-or-job-group>]`<br> Controls access to the [debugging](/1.11/monitoring/debugging/debug-perms/) features for a specific service or job.                                                                                               |      |   |   | x |   |
 | `dcos:mesos:agent:container:role[:<role-name>]`<br>Controls access to the [debugging](/1.11/monitoring/debugging/debug-perms/) features for the given [Mesos role](/1.11/overview/concepts/#mesos-role).                                                                                                                       |      |   |   | x |   |
@@ -142,7 +137,7 @@ be authorized. For example, a DC/OS user must be granted the `create` action on
 the `dcos:service:marathon:marathon:services:/dev` resource in order to create
 a new Marathon app in the `/dev` service group.
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/1.11/deploying-services/marathon-api/#/info).                                                                                                                         |      |   | x |   |   |
 | `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoint [GET v2/events](/1.11/deploying-services/marathon-api/#/events).                                                                                                           |      |   | x |   |   |
@@ -157,7 +152,7 @@ These permissions control access to the [Secrets API](/1.11/security/ent/secrets
 permission granted to its DC/OS service account in order to access a given secret. If you are looking for information on how to launch
 Marathon applications using secrets see [Configuring services and pods to use secrets](/1.11/security/ent/secrets/use-secrets/).
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:secrets:default:[<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.11/security/secrets/).                                                                                                                                                           | x    | x | x | x | x |
 | `dcos:secrets:list:default:/[<path>]`<br> Controls view access to the names of [secrets](/1.11/security/secrets/).                                                                                                                                                                 |      |   | x |   |   |
@@ -166,7 +161,7 @@ Marathon applications using secrets see [Configuring services and pods to use se
 
 A DC/OS user requires permission to link clusters.
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:cluster:linker:<cluster-id>`<br> Controls access to individual [cluster links](/1.11/administering-clusters/multiple-clusters/cluster-links/).                                                                                                                                                           |     |  | x |  | |
 | `dcos:cluster:linker:*`<br> Controls access to [cluster links](/1.11/administering-clusters/multiple-clusters/cluster-links/).                                                                                                                                                                 |      |  x | x | x | x  |
@@ -179,6 +174,6 @@ concept of the `superuser`. A user with permission to perform any action on the 
 throughout DC/OS. This is extremely powerful and this permission should be
 granted sparingly.
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:superuser`<br> Controls complete access to the DC/OS cluster.                                                                                                                                                                                                               | x    | x | x | x | x |
