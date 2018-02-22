@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Limitations
+navigationTitle: Limitations
 title: Limitations
-menuWeight: 70
+menuWeight: 60
 excerpt:
 ---
 

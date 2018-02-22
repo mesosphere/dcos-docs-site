@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Quick Start
+navigationTitle: Quick Start
 title: Quick Start
-menuWeight: 40
+menuWeight: 30
 excerpt:
-
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
@@ -12,7 +11,7 @@ excerpt:
 
 # Prerequisite
 
-- [DC/OS installed on your cluster](/latest/administration/installing/).
+* [DC/OS installed on your cluster](/latest/administration/installing/).
 
 # Steps
 
@@ -20,14 +19,14 @@ excerpt:
 
 1. If you are using Open Source DC/OS, install a Kubernetes cluster with the following command from the DC/OS CLI.
 
-    ```shell
-    dcos package install beta-kubernetes
-    ```
+   ```shell
+   dcos package install beta-kubernetes
+   ```
 
-    Alternatively, you can install Kubernetes from [the DC/OS web interface](/latest/usage/webinterface/).
+   Alternatively, you can install Kubernetes from [the DC/OS web interface](/latest/usage/webinterface/).
 
 1. The service will now deploy with a default configuration. You can monitor its deployment via the **Services** tab of the DC/OS web interface.
 
 ## Enterprise DC/OS
 
-If you are using Enterprise DC/OS, follow the same steps as for Open-Source DC/OS. However, you should read the [Install and Customize](/services/beta-kubernetes/0.5.0-1.9.1-beta/install/) section for more information.
+If you are using Enterprise DC/OS, follow the same steps as for Open-Source DC/OS. However, you should read the [Install and Customize](../install) section for more information.

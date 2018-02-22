@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Install and Customize
+navigationTitle: Install and Customize
 title: Install and Customize
-menuWeight: 20
+menuWeight: 10
 excerpt:
-
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
@@ -14,17 +13,18 @@ The default DC/OS Kubernetes package installation provides reasonable defaults f
 As of this writing, this service is not certified for production use.
 
 ## Prerequisites
+
 In order to run the framework with its default parameters, your cluster must have at least 3 private agents, each with at least the available resources needed to run the tasks described in the table below.
 
-|                   | instances per cluster | cpu   | mem (MB) | disk (MB)                   |
-| ----------------- | --------------------- | ----- | -------- | --------------------------- |
-| Package scheduler | 1                     | 1     | 1024     | -                           |
-| etcd              | 3                     | 0.5   | 1024     | 3072 for data, 512 for logs |
-| kube-apiserver    | 3                     | 0.5   | 1024     | -                           |
-| kube-scheduler    | 3                     | 0.5   | 512      | -                           |
-| kube-controller   | 3                     | 0.5   | 512      | -                           |
-| kube-proxy        | 3                     | 0.1   | 128      | -                           |
-| kubelet           | 3                     | 3     | 3072     | 10240                        |
+|                   | instances per cluster | cpu | mem (MB) | disk (MB)                   |
+| ----------------- | --------------------- | --- | -------- | --------------------------- |
+| Package scheduler | 1                     | 1   | 1024     | -                           |
+| etcd              | 3                     | 0.5 | 1024     | 3072 for data, 512 for logs |
+| kube-apiserver    | 3                     | 0.5 | 1024     | -                           |
+| kube-scheduler    | 3                     | 0.5 | 512      | -                           |
+| kube-controller   | 3                     | 0.5 | 512      | -                           |
+| kube-proxy        | 3                     | 0.1 | 128      | -                           |
+| kubelet           | 3                     | 3   | 3072     | 10240                       |
 
 # Installing from the DC/OS CLI
 
@@ -65,5 +65,5 @@ and dashes, and be no longer than 24 characters. In particular, this means that
 installing the package under a group (e.g., using `/dev/kubernetes` as the
 service name) is not supported.
 
-Choose `ADVANCED INSTALLATION` to learn how to perform a custom installation, including how
+Choose [Advanced Installation](../advanced-install) to learn how to perform a custom installation, including how
 to set-up proxy, improve TLS, enable Kubernetes cloud-provider integration and backup/restore.

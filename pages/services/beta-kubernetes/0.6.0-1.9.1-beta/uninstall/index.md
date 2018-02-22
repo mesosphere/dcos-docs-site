@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Uninstall
+navigationTitle: Uninstall
 title: Uninstall
-menuWeight: 30
+menuWeight: 40
 excerpt:
-
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->

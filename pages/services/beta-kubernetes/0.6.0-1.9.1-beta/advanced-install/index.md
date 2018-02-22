@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Advanced Installation
+navigationTitle: Advanced Installation
 title: Advanced Installation
-menuWeight: 10
+menuWeight: 20
 excerpt:
 
 ---
@@ -426,6 +426,6 @@ controller to manage it. This contrasts with resources like
 Kubernetes includes built-in controllers and integrations with cloud providers.
 Hence, in order to use `Ingress` resources in AWS you must deploy a _custom
 ingress controller_. Please refer to the
-[Ingress](/services/beta-kubernetes/0.5.0-1.9.1-beta/ingress/)
+[Ingress](../ingress)
 documentation for examples and important details on setting up ingress in your
 cluster.

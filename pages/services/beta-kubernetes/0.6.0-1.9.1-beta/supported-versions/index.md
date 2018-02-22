@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Supported Versions
+navigationTitle: Supported Versions
 title: Supported Versions
-menuWeight: 80
+menuWeight: 110
 excerpt:
-
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
