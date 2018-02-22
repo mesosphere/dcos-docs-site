@@ -30,7 +30,7 @@ For ongoing maintenance of the Kafka cluster itself, the Kafka service exposes a
 
 The examples here provide equivalent commands using both the [DC/OS CLI](https://github.com/mesosphere/dcos-cli) (with the `kafka` CLI module installed) and `curl`. These examples assume a service named `kafka` (the default), and the `curl` examples assume that the DC/OS cluster path has been stored in an environment variable `$dcos_url`. Replace these with appropriate values as needed.
 
-The `dcos beta-kafka` CLI commands have a `--name` argument, allowing the user to specify which Kafka instance to query. The value defaults to `kafka`, so it's technically redundant to specify `--name=kafka` in these examples.
+The `dcos kafka` CLI commands have a `--name` argument, allowing the user to specify which Kafka instance to query. The value defaults to `kafka`, so it's technically redundant to specify `--name=kafka` in these examples.
 
 # Connection Information
 
@@ -54,7 +54,7 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/endpoi
 The same information can be retrieved through the DC/OS CLI:
 
 ```bash
-$ dcos betai-kafka endpoints broker
+$ dcos kafka endpoints broker
 {
   "vip": "broker.kafka.l4lb.thisdcos.directory:9092",
   "address": [
@@ -73,7 +73,7 @@ $ dcos betai-kafka endpoints broker
 ## List All Brokers
 
 ```bash
-$ dcos beta-kafka --name=kafka pod list
+$ dcos kafka --name=kafka pod list
 [
   "kafka-0",
   "kafka-1",
@@ -95,7 +95,7 @@ $ curl -H "Authorization: token=$auth_token" "$dcos_url/service/kafka/v1/pod"
 Restarts the broker in-place.
 
 ```bash
-$ dcos beta-kafka --name=kafka pod restart kafka-1
+$ dcos kafka --name=kafka pod restart kafka-1
 [
   "pod": "kafka-1",
   "tasks": ["kafka-1-broker"]
@@ -115,7 +115,7 @@ $ curl -X PUT -H "Authorization: token=$auth_token" "$dcos_url/service/kafka/v1/
 Restarts the broker and replaces its existing resource/volume allocations. The new broker instance may also be placed on a different machine.
 
 ```bash
-$ dcos beta-kafka --name=kafka pod replace kafka-1
+$ dcos kafka --name=kafka pod replace kafka-1
 [
   "pod": "kafka-1",
   "tasks": ["kafka-1-broker"]
@@ -136,7 +136,7 @@ The pause endpoint can be used to relaunch a node in an idle command state for d
 
 CLI example
 ```
-dcos beta-kafka debug pod pause <node-id>
+dcos kafka debug pod pause <node-id>
 ```
 
 HTTP Example
@@ -151,7 +151,7 @@ These operations mirror what is available with `bin/kafka-topics.sh`.
 ## List Topics
 
 ```bash
-$ dcos beta-kafka --name=kafka topic list
+$ dcos kafka --name=kafka topic list
 [
   "topic1",
   "topic0"
@@ -169,7 +169,7 @@ $ curl -H "Authorization: token=$auth_token" "$dcos_url/service/kafka/v1/topics"
 ## Describe Topic
 
 ```bash
-$ dcos beta-kafka --name=kafka topic describe topic1
+$ dcos kafka --name=kafka topic describe topic1
 {
   "partitions": [
   {
@@ -266,7 +266,7 @@ $ curl -X POST -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v
 ## Create Topic
 
 ```bash
-$ dcos beta-kafka --name=kafka topic create topic1 --partitions=3 --replication=3
+$ dcos kafka --name=kafka topic create topic1 --partitions=3 --replication=3
 {
   "message": "Output: Created topic \"topic1\"\n"
 }
@@ -284,7 +284,7 @@ $ curl -X POST -H "Authorization: token=$auth_token" "$dcos_url/service/kafka/v1
 There is an optional `--time` parameter which may be set to either "first", "last", or a timestamp in milliseconds as [described in the Kafka documentation][15].
 
 ```bash
-$ dcos beta-kafka --name=kafka topic offsets topic1 --time=last
+$ dcos kafka --name=kafka topic offsets topic1 --time=last
 [
   {
     "2": "334"
@@ -316,7 +316,7 @@ $ curl -H "Authorization: token=$auth_token" "$dcos_url/service/kafka/v1/topics/
 ## Alter Topic Partition Count
 
 ```
-$ dcos beta-kafka --name=kafka topic partitions topic1 2
+$ dcos kafka --name=kafka topic partitions topic1 2
 {
   "message": "Output: WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affectednAdding partitions succeeded!n"
 }
@@ -332,7 +332,7 @@ $ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1
 ## Run Producer Test on Topic
 
 ```
-$ dcos beta-kafka --name=kafka topic producer_test topic1 10
+$ dcos kafka --name=kafka topic producer_test topic1 10
 {
   "message": "10 records sent, 70.422535 records/sec (0.07 MB/sec), 24.20 ms avg latency, 133.00 ms max latency, 13 ms 50th, 133 ms 95th, 133 ms 99th, 133 ms 99.9th.n"
 }
@@ -357,7 +357,7 @@ $ kafka-producer-perf-test.sh \
 ## Delete Topic
 
 ```bash
-$ dcos beta-kafka --name=kafka topic delete topic1
+$ dcos kafka --name=kafka topic delete topic1
 {
   "message": "Topic topic1 is marked for deletion.nNote: This will have no impact if delete.topic.enable is not set to true.n"
 }
@@ -375,7 +375,7 @@ Note the warning in the output from the commands above. You can change the indic
 ## List Under Replicated Partitions
 
 ```bash
-$ dcos beta-kafka --name=kafka topic under_replicated_partitions
+$ dcos kafka --name=kafka topic under_replicated_partitions
 {
   "message": ""
 }
@@ -391,7 +391,7 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/topics
 ## List Unavailable Partitions
 
 ```bash
-$ dcos beta-kafka --name=kafka topic unavailable_partitions
+$ dcos kafka --name=kafka topic unavailable_partitions
 {
   "message": ""
 }
@@ -421,7 +421,7 @@ These operations relate to viewing the service's configuration history.
 ## List Configuration IDs
 
 ```bash
-$ dcos beta-kafka --name=kafka config list
+$ dcos kafka --name=kafka config list
 [
   "319ebe89-42e2-40e2-9169-8568e2421023",
   "294235f2-8504-4194-b43d-664443f2132b"
@@ -441,7 +441,7 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/config
 This configuration shows a default per-broker memory allocation of 2048 (configured via the `BROKER_MEM` parameter):
 
 ```bash
-$ dcos beta-kafka --name=kafka config show 319ebe89-42e2-40e2-9169-8568e2421023
+$ dcos kafka --name=kafka config show 319ebe89-42e2-40e2-9169-8568e2421023
 ```
 
 Since the configuration resource is output for several CLI and API usages, a single reference version of this resource
@@ -460,7 +460,7 @@ The CLI output for viewing a specific configuration matches the API output.
 The target configuration, meanwhile, shows an increase of configured per-broker memory from 2048 to 4096 (again, configured as `BROKER_MEM`):
 
 ```bash
-$ dcos beta-kafka --name=kafka config target
+$ dcos kafka --name=kafka config target
 ```
 
 Since the configuration resource is output for several CLI and API usages, a single reference version of this resource
@@ -481,7 +481,7 @@ These options relate to viewing and controlling rollouts and configuration updat
 Displays all Phases and Steps in the service Plan. If a rollout is currently in progress, this returns a 503 HTTP code with response content otherwise unchanged.
 
 ```bash
-$ dcos beta-kafka --name=kafka plan show deploy --json
+$ dcos kafka --name=kafka plan show deploy --json
 {
   "phases": [
     {
@@ -583,14 +583,14 @@ These operations are only applicable when `PHASE_STRATEGY` is set to `STAGE`, th
 ### Continue
 
 ```bash
-$ dcos beta-kafka --name=kafka plan continue deploy
+$ dcos kafka --name=kafka plan continue deploy
 $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan/deploy/continue"
 ```
 
 ### Interrupt
 
 ```bash
-$ dcos beta-kafka --name=kafka plan pause deploy
+$ dcos kafka --name=kafka plan pause deploy
 $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan/deploy/interrupt"
 ```
 
