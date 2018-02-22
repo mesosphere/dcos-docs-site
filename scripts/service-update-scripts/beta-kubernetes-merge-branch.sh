@@ -29,7 +29,7 @@ git remote add dcos-kubernetes git@github.com:mesosphere/dcos-kubernetes.git
 git fetch dcos-kubernetes > /dev/null 2>&1
 
 # checkout
-git checkout dcos-kubernetes/branch docs/package
+git checkout dcos-kubernetes/$branch docs/package
 
 # checkout each file in the merge list from dcos-kubernetes/master
 for p in `find docs/$package -type f`; do
