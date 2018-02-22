@@ -31,6 +31,10 @@ The available actions are `create`, `read`, `update`, `delete`, and `full`.
 By convention, `full` indicates that the permission supports all other action identifiers.
 `full` may include actions not supported by any other action identifier.
 
+Many resource identifiers include optional sections in square brackets that may be filled in to further narrow the granted permission.
+If optional sections are omitted the resource identifier refers to all possible values.
+For example, the resource identifier `dcos:mesos:agent:framework:role` controls view access to DC/OS services registered with any [Mesos role](/1.10/overview/concepts/#mesos-role), whereas the resource identifier `dcos:mesos:agent:framework:role:slave_public` controls view access to DC/OS services registered with the role `slave_public`.
+
 ## <a name="admin-router"></a>Admin Router Permissions
 
 In each of these cases the principal is the client performing the HTTP
@@ -39,7 +43,7 @@ presents in the `Authorization` HTTP header. Once authenticated, Admin Router
 checks that the principal has been assigned the necessary permission to perform
 the action (e.g., `full`) on the resource (e.g., `dcos:adminrouter:acs`).
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                         | x    |   |   |   |   |
 | `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/1.10/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/).                               | x    |   |   |   |   |
@@ -72,14 +76,9 @@ the actual Mesos tasks. At that point, Mesos will check that the
 `dcos_marathon` service account (and not the end user) is authorized to perform
 a `create` action on the `dcos:mesos:master:task:app_id` resource.
 
-Permission string sections for `<role-name>`s in square brackets are optional.
-These sections allow the permission scope to be narrowed.
-When no role name is specified, the permissions apply to all [Mesos roles](/1.10/overview/concepts/#mesos-role).
-For example, the permission string `dcos:mesos:agent:framework:role` controls view access to DC/OS services registered with any Mesos role, whereas the permission string `dcos:mesos:agent:framework:role:slave_public` controls view access to DC/OS services registered with the role `slave_public`.
+Applications launched with Root Marathon can only receive offers for resources reserved for the `slave_public` or `*` [Mesos roles](/1.10/overview/concepts/#mesos-role).
 
-Applications launched with Root Marathon can only receive offers for resources reserved for the `slave_public` or `*` roles.
-
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:mesos:agent:container:app_id[:<service-or-job-group>]`<br> Controls access to the [debugging](/1.10/monitoring/debugging/debug-perms/) features for a specific service or job.                                                                                               |      |   |   | x |   |
 | `dcos:mesos:agent:container:role[:<role-name>]`<br>Controls access to the [debugging](/1.10/monitoring/debugging/debug-perms/) features for the given [Mesos role](/1.10/overview/concepts/#mesos-role).                                                                                                                       |      |   |   | x |   |
@@ -117,7 +116,7 @@ the principal has been authenticated Marathon or Metronome checks that the
 principal has been assigned permission to perform the action (e.g., `read`) on
 the resource (e.g., `dcos:service:marathon:marathon:admin:config`).
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/1.10/deploying-services/marathon-api/#/info).                                                                                                                         |      |   | x |   |   |
 | `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoint [GET v2/events](/1.10/deploying-services/marathon-api/#/events).                                                                                                           |      |   | x |   |   |
@@ -132,7 +131,7 @@ These permissions control access to the [Secrets API](/1.10/security/ent/secrets
 permission granted to its DC/OS service account in order to access a given secret. If you are looking for information on how to launch
 Marathon applications using secrets see [Configuring services and pods to use secrets](/1.10/security/ent/secrets/use-secrets/).
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:secrets:default:[<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.10/security/ent/secrets/).                                                                                                                                                           | x    | x | x | x | x |
 | `dcos:secrets:list:default:/[<path>]`<br> Controls view access to the names of [secrets](/1.10/security/ent/secrets/).                                                                                                                                                                 |      |   | x |   |   |
@@ -144,6 +143,6 @@ concept of the `superuser`. A user with permission to perform any action on the 
 throughout DC/OS. This is extremely powerful and this permission should be
 granted sparingly.
 
-|                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:superuser`<br> Controls complete access to the DC/OS cluster.                                                                                                                                                                                                               | x    | x | x | x | x |
