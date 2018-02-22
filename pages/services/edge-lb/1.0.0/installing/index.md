@@ -91,7 +91,7 @@ All CLI commands can also be executed via the [IAM API](/latest/security/ent/iam
     dcos security org groups add_user superusers edge-lb-principal
     ```
 
-1.  Or, if you prefer to grant only the individual permissions necessary, grant the permissions and the allowed actions to the service account using the following commands. The commands below allow your Edge-LB service to manage DC/OS packages, Marathon tasks, Edge-LB pools and tasks. They also enable Edge-LB pools to register with mesos master and launch load-balancer tasks.
+2.  Or, if you prefer to grant only the individual permissions necessary, grant the permissions and the allowed actions to the service account using the following commands. The commands below allow your Edge-LB service to manage DC/OS packages, Marathon tasks, Edge-LB pools and tasks. They also enable Edge-LB pools to register with mesos master and launch load-balancer tasks.
 
     ```bash
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:marathon full
@@ -127,7 +127,8 @@ In the file, specify the service account secret (`dcos-edgelb/edge-lb-secret`) t
 {
   "service": {
     "secretName": "dcos-edgelb/edge-lb-secret",
-    "principal": "edge-lb-principal"
+    "principal": "edge-lb-principal",
+    "mesosProtocol": "https"
   }
 }
 ```
