@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  External Ingress
+navigationTitle: External Ingress
 title: External Ingress
-menuWeight: 55 
+menuWeight: 90
 excerpt:
 ---
 
@@ -46,17 +46,17 @@ higher value the framework will fail to install.
 There are a few open-source, cloud-agnostic ingress controllers you can choose
 from:
 
-- [Traefik](https://docs.traefik.io/user-guide/kubernetes/)
-- [NGINX](https://github.com/kubernetes/ingress-nginx)
-- [HAProxy](https://github.com/appscode/voyager)
-- [Envoy](https://github.com/heptio/contour)
-- [Istio](https://istio.io/docs/tasks/traffic-management/ingress.html)
+* [Traefik](https://docs.traefik.io/user-guide/kubernetes/)
+* [NGINX](https://github.com/kubernetes/ingress-nginx)
+* [HAProxy](https://github.com/appscode/voyager)
+* [Envoy](https://github.com/heptio/contour)
+* [Istio](https://istio.io/docs/tasks/traffic-management/ingress.html)
 
 If you are running on AWS and want to integrate with
 [Amazon ELB](https://aws.amazon.com/documentation/elastic-load-balancing/) the
 following project may be an option:
 
-- [ALB Ingress Controller](https://github.com/coreos/alb-ingress-controller)
+* [ALB Ingress Controller](https://github.com/coreos/alb-ingress-controller)
 
 #### Example: using the Traefik ingress controller
 
@@ -192,7 +192,7 @@ made accessible in every agent's `:80` port.
 As mentioned above, using `hostPort` has the disadvantage of making the
 deployment susceptible to port collision. If you want to play on the safe side
 you can delete the `.spec.spec.ports` field in the deployment above and use a
- `NodePort`-type `Service` to expose the ingress controller instead:
+`NodePort`-type `Service` to expose the ingress controller instead:
 
 ```
 apiVersion: v1

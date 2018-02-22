@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Connecting Clients
+navigationTitle: Connecting Clients
 title: Connecting Clients
-menuWeight: 50
+menuWeight: 70
 excerpt:
-
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->

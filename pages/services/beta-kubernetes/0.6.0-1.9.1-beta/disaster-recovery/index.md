@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Disaster Recovery
+navigationTitle: Disaster Recovery
 title: Disaster Recovery
-menuWeight: 60
+menuWeight: 80
 excerpt:
 ---
 
@@ -21,11 +21,13 @@ For the time being, the backup artifacts are stored in an AWS S3 bucket. Therefo
 must be installed and some steps need to be fulfilled.
 
 * Create an IAM user:
+
   ```
   aws iam create-user --user-name heptio-ark
   ```
 
 * Attach a policy to give `heptio-ark` user the necessary permissions:
+
   ```
   aws iam attach-user-policy \
     --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess \
@@ -99,6 +101,7 @@ Backup successfully restored!
 ## How to test it?
 
 On a running Kubernetes cluster, deploy a couple pods:
+
 ```
 $ kubectl create -f ./artifacts/nginx/nginx-deployment.yaml
 ```

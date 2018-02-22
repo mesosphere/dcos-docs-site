@@ -4,7 +4,6 @@ navigationTitle: Beta Kubernetes 0.6.0-1.9.1-beta
 title: Beta Kubernetes 0.6.0-1.9.1-beta
 menuWeight: 10
 excerpt:
-
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->

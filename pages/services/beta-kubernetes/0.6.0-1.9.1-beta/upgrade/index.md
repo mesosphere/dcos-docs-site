@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Upgrade
+navigationTitle: Upgrade
 title: Upgrade
-menuWeight: 100
+menuWeight: 50
 excerpt:
-
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
@@ -43,7 +42,7 @@ Before updating package options, **proceed cautiously and always backup your dat
 
 ## Updating
 
-In order to update the package, the  `dcos beta-kubernetes update` subcommand
+In order to update the package, the `dcos beta-kubernetes update` subcommand
 is available.
 
 ```shell
@@ -92,12 +91,13 @@ As an example, we will describe how to achieve the latter.
 Assuming the user has installed the package with its default options, all
 that's required is for the user to create a JSON file with the following
 contents:
+
 ```json
 {
-	"kube_proxy": {
-		"cpus": 0.5,
-		"mem": 1024
-	}
+  "kube_proxy": {
+    "cpus": 0.5,
+    "mem": 1024
+  }
 }
 ```
 
