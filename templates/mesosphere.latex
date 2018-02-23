@@ -226,11 +226,11 @@ $if(section-titles)$
     \frame{\sectionpage}
   \fi
 }
-\AtBeginSubsection{
-  \let\insertsubsectionnumber\relax
-  \let\subsectionname\relax
-  \frame{\subsectionpage}
-}
+% \AtBeginSubsection{
+%   \let\insertsubsectionnumber\relax
+%   \let\subsectionname\relax
+%   \frame{\subsectionpage}
+% }
 $endif$
 $endif$
 $if(links-as-notes)$
@@ -410,9 +410,9 @@ $endif$
 % TOC depth and
 % section numbering depth
 %
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{1}
 $if(numbersections)$
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{1}
 $endif$
 
 %
@@ -674,8 +674,9 @@ $else$
 $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
 $endif$
-\setcounter{tocdepth}{$toc-depth$}
+\setcounter{tocdepth}{1}
 \tableofcontents
+\newgeometry{bottom=6cm}
 }
 $endif$
 $endif$

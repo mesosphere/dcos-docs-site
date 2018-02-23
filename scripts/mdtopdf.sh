@@ -53,23 +53,28 @@ function main
      mkdir -p "${PDF_DEST_DIR}"
 
      #Find recursively all the directories whithin a folder
-     INPUT_FILES="$(find ${INPUT_FOLDER}/${FILE_PATH} -type d)"
-     # There is a index.md whithing every file
+     INPUT_FILES="$(find ${INPUT_FOLDER}/${FILE_PATH} -type d -depth)"
+     # There is an index.md whithing every file
      FILE_NAME="index.md"
      #We find the index.md per folder so the final pdf is organised per folder not natively recursive
+     printf "${GREEN}${INPUT_FILES}"
      for d in $INPUT_FILES
       do
         NEW_FILE="${d}/${FILE_NAME}"
         if [ -f $NEW_FILE ]
         then
+        # Create temporary file with all md content to send to pandoc // this avoids very long urls & long strings (Pandoc has a limit)
           TEMP_FILE=$(mktemp)
           TEMP_FILES="${TEMP_FILES} ${TEMP_FILE}"
           cat ${NEW_FILE} >> ${TEMP_FILE}
         fi
       done
 
+     # Fix for all absolute url's to be relative
+     sed -i -E 's/](\//](/g' ${TEMP_FILE}
+
      # Pandoc gets the string of files and outputs the pdf.
-     scripts/pandocpdf.sh "${TEMP_FILES}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
+     scripts/pandocpdf.sh "${TEMP_FILE}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
 
      #echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 

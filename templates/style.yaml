@@ -1,7 +1,7 @@
 ---
 mainfont: SourceSansPro-Regular.otf
 
-titlepage: true
+titlepage: false
 titlepage-color: 150454
 titlepage-text-color: ffffff
 titlepage-rule-color: ffffff
