@@ -119,7 +119,7 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:user:root
 dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id full
 ```
     
-**Note:** Additionally, this permission needs to be granted **for each Edge-LB pool created***:
+**Note:** Additionally, this permission needs to be granted **for each Edge-LB pool created**:
     
 ```bash
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
