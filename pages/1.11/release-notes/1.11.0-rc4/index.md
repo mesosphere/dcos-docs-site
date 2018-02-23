@@ -12,7 +12,7 @@ excerpt:
 
 <h5>DC/OS 1.11 Release Candidate 4 has a number of limitations that will be resolved at GA time.</h5>
 <ul>
-<li>DC/OS 1.11 only supports new installations. Upgrades from 1.10 are not supported.</li>
+<li>DC/OS 1.11 only supports new installations. Upgrades from 1.10 are supported, but not recommended.</li>
 <li>DC/OS 1.11 requires CLI version 0.6.x.
   <ul>
   <li><a href="/1.11/cli/uninstall/">Uninstall the existing CLI</a>.</li>
@@ -25,7 +25,7 @@ Please try out the new features and updated data services. Provide any feedback 
 </td> </tr> </table>
 
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.0-rc4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
@@ -87,7 +87,7 @@ To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.meso
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrades from 1.10.5 to 1.11.0-rc4 are supported, but not recommended.
-- Upgrades from 1.11.0-rc1 to 1.11.0-rc4 are _not supported in 1.11 Release Candidate 4.
+- Upgrades from 1.11.0-rc1 to 1.11.0-rc4 are _not supported_ in 1.11 Release Candidate 4.
 
 # <a name="fixed-issues"></a>Improvements and Major Issues Fixed since 1.11.0 Release Candidate 1
 - DCOS-19500  - Fix cosmos/service/update failure when Marathon is deploying
