@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.11.4 Release Candidate 1
-title: Release Notes for 1.11.4 Release Candidate 1
+navigationTitle:  Release Notes for 1.11.0 Release Candidate 4
+title: Release Notes for 1.11.0 Release Candidate 4
 menuWeight: 0
 excerpt:
 ---
@@ -10,7 +10,7 @@ excerpt:
 
 <h3>This release candidate is for testing only and not to be used in production. </h3>
 
-<h5>DC/OS 1.11 Release Candidate 1 has a number of limitations that will be resolved at GA time.</h5>
+<h5>DC/OS 1.11 Release Candidate 4 has a number of limitations that will be resolved at GA time.</h5>
 <ul>
 <li>DC/OS 1.11 only supports new installations. Upgrades from 1.10 are not supported.</li>
 <li>DC/OS 1.11 requires CLI version 0.6.x.
@@ -25,9 +25,10 @@ Please try out the new features and updated data services. Provide any feedback 
 </td> </tr> </table>
 
 
-[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.0-rc4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com/hc/en-us/articles/213198586).
+
 
 <a name="new-features"></a>
 # New features and capabilities
@@ -85,12 +86,35 @@ To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.meso
 - Non-essential tasks now supported for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. If non-essential tasks fail, the entire node will not fail.
 
 # <a name="known-issues"></a>Known Issues and Limitations
-- Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Release Candidate 1.
+- Upgrades from 1.10.5 to 1.11.0-rc4 are supported, but not recommended.
+- Upgrades from 1.11.0-rc1 to 1.11.0-rc4 are _not supported in 1.11 Release Candidate 4.
 
-# <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11 Release Candidate 1
-- DCOS-16368 -  DC/OS Enterprise Secret Store no longer accepts secrets with uppercase letters in their paths. Secret paths with uppercase letters conflicted with use of the IAM API. [enterprise type="inline" size="small" /]
-- DCOS-19573 - Bugfix: Changes to unique constraints now supported in the UI.
-- DCOS-19837 - Consolidate fault-domain scripts for all cloud providers into one script to support clusters with multiple cloud providers.
-- DCOS-19896 - `--linked` flag added to `dcos cluster list` so users can see which clusters can be unlinked. [enterprise type="inline" size="small" /]
-- DCOS-19955 - Enhanced cluster linking API and CLI experience. [enterprise type="inline" size="small" /]
-- DCOS_OSS-1658 - `--verbose` flag added to upgrade script that prints all status and error messages to the console to enable upgrade debugging.
+# <a name="fixed-issues"></a>Improvements and Major Issues Fixed since 1.11.0 Release Candidate 1
+- DCOS-19500  - Fix cosmos/service/update failure when Marathon is deploying
+- DCOS_OSS-2105 - UI can show stale task state due to dropped events (Related MESOS-8469 - Fix the problem with Mesos master dropping events in the operator API stream.)
+- DCOS-20628 dcos-vault - Fix deadlock in go-zookeeper library (1.11)
+- DCOS-20515 - Make Licensing version aware to prevent upgrades failures [enterprise type="inline" size="small" /]
+- DCOS-20492 - Cluster sometimes comes up without license using AWS CF templates [enterprise type="inline" size="small" /]
+- DCOS-20679 - Make licensing handle a cluster license renewal for same major version during a config upgrade [enterprise type="inline" size="small" /]
+- DCOS-20343 - Fix UI loading screen
+- DCOS-20485 - Adjust implementation to address performance issues
+- DCOS-20396 - Test that bootstrap regenerates cert when old cert does not match new CSR
+- DCOS-20676 - csidevices: fix lsblk parsing of empty string bool values
+- METRONOME-190 - Added authorized launch queue
+- METRONOME-194 - Support FORBID Concurrency Policy
+- METRONOME-100 - Metronome Restarts causes duplication of jobruns
+- METRONOME-191 - Implement Start Deadline Timeout 
+- DCOS_OSS-1587 - Support DC/OS install on non-root LVM volume
+- DCOS-21000 - Release Marathon Plugin with Resource Full Auth Bug Fix on DCOS 1.11
+- DCOS-20064 - Verify azure and aws advanced templates work with the licensing parameter [enterprise type="inline" size="small" /]
+- COPS-2465 - License reporting is inconsistent [enterprise type="inline" size="small" /]
+- DCOS-20569 - Include only public attributes of license on diagnostics bundle [enterprise type="inline" size="small" /]
+- DCOS-20772 - Limiting znode creation
+- DCOS-20726 - Deprecate Web Installer
+- COPS-2201 - Fix dcos-diagnostics crashing after running gen_resolvconf.py
+- DCOS-21045 - Update dcos-cluster-linker to not allow a self-link [enterprise type="inline" size="small" /]
+- DCOS-20064 - Verify azure and aws advanced templates work with the licensing parameter [enterprise type="inline" size="small" /]
+- DCOS_OSS-2070 - Service is not accessible via l4lb VIP from local agent using UCR bridge mode
+- Updated marathon to 1.6.322 (https://github.com/dcos/dcos/pull/2473 | https://github.com/mesosphere/dcos-enterprise/pull/2278)
+- Updated mesos to 1.5.x 9840ae1 (https://github.com/dcos/dcos/pull/2472 | https://github.com/mesosphere/dcos-enterprise/pull/2263)
+- DCOS-21095 - Turn IPv6 Overlay Off in IPv4 Environment
