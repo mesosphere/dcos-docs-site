@@ -90,7 +90,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | backends        | array   | Array of backends.  |
 
 <a name="stats-prop"></a>
-# pool.stats
+# pool.haproxy.stats
 
 | Key            | Type     |
 | -------------- | -------- |
@@ -98,7 +98,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | bindPort       | int 32   |
 
 <a name="frontend-prop"></a>
-# pool.frontend
+# pool.haproxy.frontend
 
 | Key             | Type    | Properties     | Description    | x-nullable | Format |
 | --------------- | ------- | -------------- | -------------- | ---------- | ------ |
@@ -112,7 +112,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | linkBackend     | object  | <ul><li>defaultBackend</li><li>map</li></ul>  | This describes what backends to send traffic to. This can be expressed with a variety of filters such as matching on the hostname or the HTTP URL path.<br />Default: map: []   |   |   |
 
 <a name="redirect-https-prop"></a>
-## pool.frontend.redirectToHttps
+## pool.haproxy.frontend.redirectToHttps
 
 | Key             | Type    | Properties  | Description     |
 | --------------- | ------- | ----------- | --------------- |
@@ -127,7 +127,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | host            | string  | Match on host. |
 | pathBeg         | string  | Math on path.  |
 
-## pool.frontend.linkBackend
+## pool.haproxy.frontend.linkBackend
 
 | Key             | Type    | Properties | Description |
 | --------------- | ------- | ---------- | ----------- |
@@ -147,7 +147,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | pathReg         | string  |             |
 
 <a name="backend-prop"></a>
-# pool.backend
+# pool.haproxy.backend
 
 | Key             | Type    | Properties     | Description    |
 | --------------- | ------- | -------------- | -------------- |
@@ -160,7 +160,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | services        | array   |                | Array of backend service selectors.  |
 
 <a name="customCheck-prop"></a>
-## pool.backend.customCheck
+## pool.haproxy.backend.customCheck
 
 | Key            | Type     |
 | -------------  | -------- |
@@ -170,7 +170,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | miscStr        | string   |
 
 <a name="#rewrite-prop"></a>
-# pool.backend.rewriteHttp
+# pool.haproxy.backend.rewriteHttp
 
 | Key             | Type    | Properties     | Description    |
 | --------------- | ------- | -------------- | -------------- |
@@ -181,7 +181,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | sticky          | object  | <ul><li>[enabled](#sticky-prop)</li><li>[customStr](#sticky-prop)</li></ul>  | Sticky sessions via a cookie.<br />To use the default values (recommended), set this field to the empty object.  |
 
 <a name="path-prop"></a>
-## pool.backend.rewriteHttp.path
+## pool.haproxy.backend.rewriteHttp.path
 
 | Key             | Type    |
 | --------------- | ------- |
@@ -189,7 +189,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | toPath          | string  |
 
 <a name="sticky-prop"></a>
-## pool.backend.rewriteHttp.sticky
+## pool.haproxy.backend.rewriteHttp.sticky
 
 | Key             | Type    | nullable   |
 | --------------- | ------- | ---------- |
@@ -197,7 +197,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | customStr       | string  |            |
 
 <a name="rewrite-req-prop"></a>
-# pool.backend.rewriteHttp.request
+# pool.haproxy.backend.rewriteHttp.request
 
 | Key                         | Type       | nullable   |
 | --------------------------- | ---------- | ---------- |
@@ -208,14 +208,14 @@ The pool contains information on resources that the pool needs. Changes made to 
 | rewritePath                 | boolean    | true       |
 
 <a name="rewrite-resp-prop"></a>
-# pool.backend.rewriteHttp.response
+# pool.haproxy.backend.rewriteHttp.response
 
 | Key             | Type       | nullable   |
 | --------------- | ---------- | ---------- |
 | rewriteLocation | boolean    | true       |
 
 <a name="service-prop)"></a>
-# pool.backend.service
+# pool.haproxy.backend.service
 
 | Key             | Type       |
 | --------------- | ---------- |
@@ -224,7 +224,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | endpoint        | object     |
 
 <a name="service-marathon-prop)"></a>
-# pool.backend.service.marathon
+# pool.haproxy.backend.service.marathon
 
 | Key                  | Type      | Description                                                       |
 | -----------          | --------- | -----------                                                       |
@@ -234,7 +234,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | containerNamePattern | string    | containerName as a regex pattern.                                 |
 
 <a name="service-mesos-prop)"></a>
-# pool.backend.service.mesos
+# pool.haproxy.backend.service.mesos
 
 | Key                  | Type      | Description                       |
 | -----------          | --------- | -----------                       |
@@ -248,7 +248,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | taskIDPattern        | string    | taskID as a regex pattern.        |
 
 <a name="service-endpoint-prop)"></a>
-# pool.backend.service.endpoint
+# pool.haproxy.backend.service.endpoint
 
 | Key         | Type      | Description                                                                                   |
 | ----------- | --------- | -----------                                                                                   |
@@ -261,7 +261,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | allPorts  | boolean | Selects all ports defined in service when `true`.                     |
 
 <a name="service-endpoint-check-prop)"></a>
-# pool.backend.service.endpoint.check
+# pool.haproxy.backend.service.endpoint.check
 
 | Key         | Type      |
 | ----------- | --------- |

@@ -28,22 +28,57 @@ In order to install Edge-LB, the user must have the following permissions:
 
 # Service Account Permissions
 
-In order for Edge-LB to operate, it must be configured to use a [service account](/services/edge-lb/1.0.0/installing/#create-a-service-account/) with the following permissions:
+In order for Edge-LB to operate, it must be configured to use a [service account](/services/edge-lb/1.0.0/installing/#create-a-service-account/).
 
-- `dcos:adminrouter:package`
+For easier administration, add the service account principal to the `superusers` group.
+
+Or, if you prefer to grant only the individual permissions necessary, grant the following permissions to the service account principal:
+
 - `dcos:adminrouter:service:marathon`
+- `dcos:adminrouter:package`
+- `dcos:adminrouter:service:edgelb`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb`
-- `dcos:adminrouter:service:dcos-edgelb/pools`
-- `dcos:service:marathon:marathon:services:/dcos-edgelb/pools`
+- `dcos:mesos:master:endpoint:path:/api/v1`
+- `dcos:mesos:master:endpoint:path:/api/v1/scheduler`
+- `dcos:mesos:master:framework:principal:edge-lb-principal`
+- `dcos:mesos:master:framework:role`
+- `dcos:mesos:master:reservation:principal:edge-lb-principal`
+- `dcos:mesos:master:reservation:role`
+- `dcos:mesos:master:volume:principal:edge-lb-principal`
+- `dcos:mesos:master:volume:role`
+- `dcos:mesos:master:task:user:root`
+- `dcos:mesos:master:task:app_id`
 
-In addition, for each pool your Edge-LB configuration will be managing, add a permission like this:
+Additionally, this permission needs to be granted **for each Edge-LB pool created**:
+
+- `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
 
 # Multitenant Usage Permissions
 
 To grant limited permission to manage only a single Edge-LB pool, the user must have the following permissions:
 
 - `dcos:adminrouter:package`
-- `dcos:adminrouter:service:edgelb`
 - `dcos:adminrouter:service:marathon`
-- `dcos:adminrouter:service:dcos-edgelb/pools/<pool-name>`
-- `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
+- `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
+- `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>`
+
+The following permissions for endpoints are used by the `dcos edgelb` CLI subcommand, and permissions can be granted individually:
+
+- Ping:
+    - `dcos:adminrouter:service:edgelb:/ping`
+- List Pools:
+    - `dcos:adminrouter:service:edgelb:/config`
+- Read Pool:
+    - `dcos:adminrouter:service:edgelb:/pools/<POOL-NAME>`
+- Create V1 Pool:
+    - `dcos:adminrouter:service:edgelb:/v1/loadbalancers`
+- Update V1 Pool:
+    - `dcos:adminrouter:service:edgelb:/v1/loadbalancers/<POOL-NAME>`
+    - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>`
+- Create V2 Pool:
+    - `dcos:adminrouter:service:edgelb:/v2/pools`
+- Update V2 Pool:
+    - `dcos:adminrouter:service:edgelb:/v2/pools/<POOL-NAME>`
+    - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>`
+- Delete Pool
+    - `dcos:adminrouter:service:edgelb:/v2/pools/<POOL-NAME>`

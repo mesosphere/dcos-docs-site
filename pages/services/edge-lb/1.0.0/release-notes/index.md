@@ -21,6 +21,11 @@ Release notes for Edge-LB.
 - Security fix in logging
 - Curl with -k within same container
 - Update healthchecks to MESOS_HTTP
+- Load-balancer manager now connects to apiserver via https adminrouter with service account
+- Pool scheduler now uses mesos V1 API and requires additional service account permissions
+- Improve security in CLI -> apiserver communication
+- Added logging to mesos-listener and requests created by apiserver
+- Added Edge-LB package install option: logLevel to make apiserver logLevel configurable
 
 Shortlist:
 
@@ -34,6 +39,7 @@ Shortlist:
       Change healthchecks from HTTP to MESOS_HTTP (#125)
       Update releases to downloads.mesosphere.com (#127)
       Update SDK to 0.40.2 (#128)
+      HTTPS internal communication (#126)
       [DCOS-19242] Ensure edge-lb is readily built on various platforms (#117)
       [DCOS-19242] Dockerize build (#119)
 ```
