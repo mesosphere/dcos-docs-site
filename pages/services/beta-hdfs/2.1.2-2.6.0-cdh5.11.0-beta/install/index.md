@@ -19,7 +19,7 @@ HDFS is available in the Universe and can be installed by using either the web i
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - A minimum of five agent nodes with eight GiB of memory and ten GiB of disk available on each agent.
-- Each agent node must have these ports available: 8480, 8485, 9000, 9001, 9002, 9005, and 9006, and 9007.
+- Each agent node must have these ports available: 8019, 8480, 8485, 9000, 9001, 9002, 9003, 9005, and 9006.
 
 # Installation
 
@@ -128,7 +128,7 @@ Steps:
 Placement constraints can be applied to zones by referring to the `@zone` key. For example, one could spread pods across a minimum of 3 different zones by specifying the constraint `[["@zone", "GROUP_BY", "3"]]`.
 
 <!--
-When the region awareness feature is enabled (currently in beta), the `@region` key can also be referenced for defining placement constraints. Any placement constraints that do not reference the `@region` key are constrained to the local region.
+When the region awareness feature is enabled, the `@region` key can also be referenced for defining placement constraints. Any placement constraints that do not reference the `@region` key are constrained to the local region.
 -->
 ## Example
 

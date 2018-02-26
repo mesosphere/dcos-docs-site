@@ -138,7 +138,6 @@ Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinst
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
-- Marathon-LB does not work with secrets. [enterprise type="inline" size="small" /]
 - DCOS-13762 - SDK Integration with DC/OS Folders. [enterprise type="inline" size="small" /]
 - DCOS-14534 - Marathon: Verbose Server Banner.
 - DCOS-14536 - UI Vulnerable to Clickjacking (aka UI Redressing).

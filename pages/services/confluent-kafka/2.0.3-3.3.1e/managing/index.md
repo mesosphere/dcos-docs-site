@@ -157,7 +157,7 @@ the shutdown portion of the task restart, the previous configuration value for
 `brokers.kill_grace_period` is in effect. Following the shutdown, each broker
 task is launched with the new effective configuration value. Take care to monitor
 the amount of time Kafka brokers take to cleanly shutdown. Find the relevant log
-entries in the [Configure](configure.md) section.
+entries in the [Configure](/services/confluent-kafka/2.0.3-3.3.1e/api-reference/#appendix-a-configuration-resource) section.
 
 Create an options file `confluent-kafka-options.json` with the following content:
 

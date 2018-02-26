@@ -4,6 +4,7 @@ const markdown         = require('metalsmith-markdownit');
 const layouts          = require('metalsmith-layouts');
 const permalinks       = require('metalsmith-permalinks');
 const assets           = require('metalsmith-assets');
+const dataLoader       = require('metalsmith-data-loader');
 const watch            = require('metalsmith-watch');
 const branch           = require('metalsmith-branch')
 const serve            = require('metalsmith-serve');
@@ -20,6 +21,8 @@ const hierarchy               = require('./plugins/metalsmith-hierarchy');
 const hierarchyRss            = require('./plugins/metalsmith-hierarchy-rss');
 const headings                = require('./plugins/metalsmith-headings');
 const algolia                 = require('./plugins/metalsmith-algolia');
+const inPlace                 = require('./plugins/metalsmith-in-place-dcos');
+const includeContent          = require('./plugins/metalsmith-include-content-dcos');
 const shortcodes              = require('./plugins/metalsmith-shortcodes');
 const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-resolver');
 
@@ -100,6 +103,41 @@ let CB = branch()
 // Start timer
 CB.use(timer('CB: Init'))
 
+// Load model data from external .json/.yaml files
+// For example (in your Front Matter):
+//   model: path/to/my.yml (access content in my.yml as model.foo.bar)
+// Can also specify multiple named models:
+//   model:
+//     data1: path/to/my.json (access content in my.json as model.data1.foo.bar)
+//     data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
+CB.use(dataLoader({
+  dataProperty: 'model',
+  // Only enable in service pages for now.
+  match: 'services/**/*.md',
+}))
+CB.use(timer('CB: Dataloader'))
+
+// Load raw content via '#include' directives before rendering any mustache or markdown.
+// For example (in your content):
+//   #include path/to/file.tmpl
+CB.use(includeContent({
+  // Style as a C-like include statement. Must be on its own line.
+  pattern: '^#include ([^ ]+)$',
+  // Only enable in service pages for now.
+  match: 'services/**/*.md*',
+}))
+CB.use(timer('CB: IncludeContent'))
+
+// Process any mustache templating in files.
+// For example (in your Front Matter):
+//   render: mustache
+CB.use(inPlace({
+  renderProperty: 'render',
+  // Only enable in service pages for now.
+  match: 'services/**/*.md',
+}))
+CB.use(timer('CB: Mustache'))
+
 // Folder Hierarchy
 CB.use(hierarchy({
   files: ['.md'],
@@ -178,9 +216,21 @@ CB.use(permalinks())
 CB.use(timer('CB: Permalinks'))
 
 // Layouts
-CB.use(layouts({
-  engine: 'pug'
-}))
+if(!process.env.RENDER_PATH_PATTERN) {
+  // Default: Render all pages.
+  CB.use(layouts({
+    engine: 'pug',
+    cache: true,
+  }))
+} else {
+  // Dev optimization: Only render within a specific path (much faster turnaround)
+  // For example, "services/beta-cassandra/latest/**"
+  CB.use(layouts({
+    engine: 'pug',
+    pattern: process.env.RENDER_PATH_PATTERN,
+    cache: true,
+  }))
+}
 CB.use(timer('CB: Layouts'))
 
 //
@@ -201,7 +251,7 @@ if(ALGOLIA_UPDATE == "true") {
     index: ALGOLIA_INDEX,
     clearIndex: (ALGOLIA_CLEAR_INDEX != undefined) ? (ALGOLIA_CLEAR_INDEX == "true") : true,
   }))
-  CB.use(timer('Algolia'));
+  CB.use(timer('CB: Algolia'));
 }
 
 // Enable watching
@@ -214,6 +264,7 @@ if(process.env.NODE_ENV === 'development') {
       },
     })
   )
+  CB.use(timer('CB: Watch'));
 }
 
 // WkhtmltopdfLinkResolver
@@ -221,7 +272,7 @@ if(process.env.NODE_ENV == "pdf") {
   CB.use(wkhtmltopdfLinkResolver({
     prefix: '/tmp/pdf/build'
   }))
-  CB.use(timer('WkhtmltopdfLinkResolver'))
+  CB.use(timer('CB: WkhtmltopdfLinkResolver'))
 }
 
 // Serve
@@ -229,6 +280,7 @@ if(process.env.NODE_ENV == "development") {
   CB.use(serve({
     port: 3000
   }))
+  CB.use(timer('CB: Webserver'))
 }
 
 //
@@ -237,8 +289,10 @@ if(process.env.NODE_ENV == "development") {
 
 let AB = branch()
 
-// Watch
+// Start timer
+AB.use(timer('AB: Init'))
 
+// Watch
 if(process.env.NODE_ENV === 'development') {
   AB.use(
     watch({
@@ -248,10 +302,8 @@ if(process.env.NODE_ENV === 'development') {
       },
     })
   )
+  AB.use(timer('AB: Watch'))
 }
-
-// Start timer
-AB.use(timer('AB: Init'))
 
 // Assets
 AB.use(assets({
