@@ -57,7 +57,7 @@ function main
      # There is an index.md whithing every file
      FILE_NAME="index.md"
      #We find the index.md per folder so the final pdf is organised per folder not natively recursive
-     printf "${GREEN}${INPUT_FILES}"
+     # printf "${GREEN}${INPUT_FILES}"
      for d in $INPUT_FILES
       do
         NEW_FILE="${d}/${FILE_NAME}"
@@ -71,12 +71,12 @@ function main
       done
 
      # Fix for all absolute url's to be relative
-     sed -i -E 's/](\//](/g' ${TEMP_FILE}
+     sed -i -E 's/]\(\//]\(/g' ${TEMP_FILE}
 
      # Pandoc gets the string of files and outputs the pdf.
-     scripts/pandocpdf.sh "${TEMP_FILE}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
+     #scripts/pandocpdf.sh "${TEMP_FILE}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
 
-     #echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+     echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
 

@@ -1,10 +1,10 @@
 ---
 mainfont: SourceSansPro-Regular.otf
 
-titlepage: false
-titlepage-color: 150454
-titlepage-text-color: ffffff
-titlepage-rule-color: ffffff
-titlepage-rule-height: 1
+# titlepage: true
+# titlepage-color: 150454
+# titlepage-text-color: ffffff
+# titlepage-rule-color: ffffff
+# titlepage-rule-height: 1
 
 ---
