@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.5
-title: Release Notes for 1.10.5
-menuWeight: 0
+navigationTitle: Architecture
+title: Architecture
+menuWeight: 10
 excerpt:
 ---
 
 # Architecture
 
-![Storage support in DC/OS](/1.11/img/five-maturity-states.png)(IMAGE)
+![Storage support in DC/OS](/services/img/Storage-Service-Architecture.png)
 
 The above figure, shows the high level architecture of the storage support in DC/OS. One of the most important component in this architecture is the DC/OS storage service (DSS), a <a href="https://docs.mesosphere.com/1.11/overview/concepts/#service/">Service</a> that manages volumes, volume profiles, volume providers, and storage devices in the cluster. DSS serves as the brain of the storage support by collecting storage related information from various components in the cluster, keeping track of their states, and acting on user requests.
 
@@ -20,4 +20,6 @@ Each SLRP is associated with a <a href="http://mesos.apache.org/documentation/la
 
 DSS is also responsible for creating volumes by <a href="http://mesos.apache.org/documentation/latest/csi/#new-offer-operations-for-disk-resources/">converting</a> Mesos<a href="http://mesos.apache.org/documentation/latest/csi/#new-disk-source-types/">RAW disk resources</a> to either <a href="http://mesos.apache.org/documentation/latest/csi/#new-disk-source-types/">Mount or Block disk resources</a> and deleting volumes by doing the reverse). Created Mount or Block disk resources will be offered to other frameworks in the cluster. Those frameworks can then use those disk resources the same way they would use other Mount or Block disk resources.
 
-Cluster administrators (Dan) can use DC/OS CLI to interact with DC/OS storage service (DSS). A ‘storage’ command has been introduced. See more details in the <a href="https://docs.google.com/document/d/1MZ7ARRAs_lmXo94h28-wCPqsqA9xDwMPSLgN7_5n84w/edit#heading=h.uxzvneaexifq/">CLI documentation</a>
+Cluster administrators can use DC/OS CLI to interact with DC/OS storage service (DSS). A ‘storage’ command has been introduced. 
+
+See more details in the <a href="https://docs.google.com/document/d/1MZ7ARRAs_lmXo94h28-wCPqsqA9xDwMPSLgN7_5n84w/edit#heading=h.uxzvneaexifq/">CLI documentation</a>
