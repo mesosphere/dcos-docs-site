@@ -39,7 +39,8 @@ Perform an Edge-LB upgrade by following this procedure.
     {
       "service": {
         "secretName": "dcos-edgelb/edge-lb-secret",
-        "principal": "edgelb-principal"
+        "principal": "edge-lb-principal",
+        "mesosProtocol": "https"
       }
     }
     EOF
