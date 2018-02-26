@@ -159,4 +159,4 @@ docker run -it zookeeper zkCli.sh -server 10.0.3.206:1140 10.0.3.206:1140,10.0.1
 
 - [Connecting clients][1].
 
- [1]: connecting-clients.md
+ [1]: /services/beta-kafka-zookeeper/2.1.2-3.4.11-beta/connecting-clients/
