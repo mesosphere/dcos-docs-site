@@ -198,6 +198,6 @@ root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:218
     Hello, World.
 ```
 
- [13]: https://docs.mesosphere.com/1.9/security/users-groups/
- [14]: https://docs.mesosphere.com/1.9/security/iam-api/
+ [13]: https://docs.mesosphere.com/1.11/security/ent/users-groups/
+ [14]: https://docs.mesosphere.com/1.11/security/ent/iam-api/
  [15]: https://docs.mesosphere.com/services/kafka/configure/#tls
