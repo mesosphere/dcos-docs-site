@@ -74,9 +74,9 @@ function main
      sed -i -E 's/]\(\//]\(/g' ${TEMP_FILE}
 
      # Pandoc gets the string of files and outputs the pdf.
-     #scripts/pandocpdf.sh "${TEMP_FILE}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
+     scripts/pandocpdf.sh "${TEMP_FILE}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
 
-     echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+     #echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
 

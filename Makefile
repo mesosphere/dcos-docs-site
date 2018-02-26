@@ -36,15 +36,9 @@ build-development: build-api
 build-pdf-production:
 	./scripts/mdtopdf.sh ./pages ./build-pdf
 
-build-pdf-concat-production:
-	./scripts/mdtopdf-concat.sh ./pages ./build-pdf
-
 build-pdf-development: build-api docker-development-up-pdf
 	npm run build-pdf
-	./scripts/pdf.sh ./build/1.10 ./build-pdf http://0.0.0.0:8002/
-
-build-pdf-concat-development:
-	./scripts/pdf-concat.sh ./pages ./build-pdf
+	./scripts/mdtopdf.sh ./build/1.10 ./build-pdf http://0.0.0.0:8002/
 
 #
 # Build API

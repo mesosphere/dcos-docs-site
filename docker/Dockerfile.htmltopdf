@@ -31,7 +31,7 @@ RUN apt-get update -qq
 
 RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55
 
-RUN apt-get -yq update && apt-get install -y python-pip wget texlive
+RUN apt-get -yq update && apt-get install -y python-pip wget texlive texlive-latex-extra
 
 RUN wget https://github.com/jgm/pandoc/releases/download/2.1/pandoc-2.1-1-amd64.deb && \
     dpkg -i pandoc-2.1-1-amd64.deb && \
