@@ -86,7 +86,8 @@ To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.meso
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Release Candidate 1.
-- dcos-secrets service is unavailabe during upgrade and it's consequences (DCOS-19047).
+
+- DCOS-19047 - dcos-secrets service is unavailabe during upgrade from 1.10.x to 1.11. 
 
 # <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11 Release Candidate 1
 - DCOS-16368 -  DC/OS Enterprise Secret Store no longer accepts secrets with uppercase letters in their paths. Secret paths with uppercase letters conflicted with use of the IAM API. [enterprise type="inline" size="small" /]
