@@ -152,8 +152,7 @@ During the configuration update, each of the Kafka broker tasks are restarted. D
 the shutdown portion of the task restart, the previous configuration value for
 `brokers.kill_grace_period` is in effect. Following the shutdown, each broker
 task is launched with the new effective configuration value. Take care to monitor
-the amount of time Kafka brokers take to cleanly shutdown. Find the relevant log
-entries in the [Configure](configure.md) section.
+the amount of time Kafka brokers take to cleanly shutdown. 
 
 Create an options file `kafka-options.json` with the following content:
 
