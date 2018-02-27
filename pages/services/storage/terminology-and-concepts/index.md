@@ -12,7 +12,7 @@ excerpt:
 ## [CSI Spec](#CSI-Spec)
 ## [CSI Plugin](#CSI-Plugin)
 ## [Storage Local Resource Provider (SLRP)](#Storage-Local-Resource-Provider(SLRP))
-## [Storage External Resource Provider (SERP)](#Storage-External-Resource-Provider(SERP)
+## [Storage External Resource Provider (SERP)](#Storage-External-Resource-Provider(SERP))
 ## [Volume Provider](#Volume-Provider)
 ## [Volume Plugin](#Volume-Plugin)
 ## [Volume Profile](#Volume-Profile)
@@ -37,21 +37,23 @@ A gRPC endpoint that implements the CSI Services specified in the CSI spec. See 
 
 ## Storage Local Resource Provider (SLRP)
 
-A Mesos component that drives a single CSI plugin that manages storage resources that exist on a single agent. It presents these storage resources (both raw capacity and in the form of volumes) to Mesos and translates operations on those resources to CSI RPCs which it executes against the CSI plugin. Examples of such CSI plugins are those for LVM2, Raw GPT, other direct-attached storage. Learn more details about SLRP in this <a href ="http://mesos.apache.org/documentation/latest/csi/#storage-local-resource-provider/">Mesos documentation</a>.
+A Mesos component that drives a single CSI plugin which manages storage resources that exist on a single agent. It presents these storage resources (both raw capacity and in the form of volumes) to Mesos and translates operations on those resources to CSI RPCs which it executes against the CSI plugin. Examples of CSI plugins are those for LVM2, Raw GPT, other direct-attached storage. Learn more details about SLRP in <a href ="http://mesos.apache.org/documentation/latest/csi/#storage-local-resource-provider/">Mesos documentation</a>.
 
 ## Storage External Resource Provider (SERP)
 
-A Mesos component that drives a single CSI plugin that manages storage resources bound to the cluster as a whole, not tied to to a single agent. It presents these storage resources (both raw capacity and in the form of volumes) to Mesos and translates operations on those resources to CSI RPCs which it executes against the CSI plugin. Examples of such CSI plugins are those for Amazon EBS, NFS, other storage that can be automatically reattached to different agents.
+A Mesos component that drives a single CSI plugin which manages storage resources bound to the cluster as a whole, not tied to a single agent. It presents these storage resources (both raw capacity and in the form of volumes) to Mesos and translates operations on those resources to CSI RPCs which it executes against the CSI plugin. 
+Examples of such CSI plugins are those for Amazon EBS, NFS, other storage that can be automatically reattached to different agents.
 
 ## Volume Provider
 
-A storage object from which a volume can be provisioned. Practically, a volume provider is associated with a single instance of a CSI plugin. Each volume provider hooks into Mesos through a single instance of a Storage Local Resource Provider (SLRP) or Storage External Resource Provider (SERP). There can be many instances of a given kind of volume provider. For example, “lvm volume group” is a kind of volume provider but there can be multiple LVM2 volume groups where each volume group is configured as a separate volume provider.
+A storage object from which a volume can be provisioned. Practically, a volume provider is associated with a single instance of a CSI plugin. Each volume provider hooks into Mesos through a single instance of a Storage Local Resource Provider (SLRP) or Storage External Resource Provider (SERP). There can be many instances of a given kind of volume provider. 
+For example, “lvm volume group” is a kind of volume provider but there can be multiple LVM2 volume groups where each volume group is configured as a separate volume provider.
 
 Example volume providers, multiple of which can appear on the same cluster or agent: 
-LVM2 Volume Group (via the LVM2 CSI plugin), 
-NFS mount (via some NFS CSI plugin),
-ScaleIO <Protection Domain, Storage Pool> (via some ScaleIO CSI plugin)
-Amazon EBS: ebs-1, ebs-2, etc.
+1. LVM2 Volume Group (via the LVM2 CSI plugin), 
+2. NFS mount (via some NFS CSI plugin),
+3. ScaleIO <Protection Domain, Storage Pool> (via some ScaleIO CSI plugin)
+4. Amazon EBS: ebs-1, ebs-2, etc.
 
 ## Volume Plugin
 
@@ -59,7 +61,7 @@ The software installable component associated with a volume provider. It is typi
 
 ## Volume Profile
 
-A set of parameters that can be used to configure a volume. Volume profiles are used to classify volumes according to Dan’s use cases, for example Dan could group all his SSDs into a “fast” profile while grouping HDDs into a “slow” volume profile. Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers. The CLI subcommand is called ‘profile’ instead of ‘volume profile’ for the sake of brevity.
+A set of parameters that can be used to configure a volume. Volume profiles are used to classify volumes according to user's use cases. An example: A user could group all his SSDs into a “fast” profile while grouping HDDs into a “slow” volume profile. Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers. The CLI subcommand is called ‘profile’ instead of ‘volume profile’ for the sake of brevity.
 
 ## Volume
 

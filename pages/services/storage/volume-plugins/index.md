@@ -8,9 +8,9 @@ excerpt:
 
 # Volume Plugins
 
-The Container Storage Interface (CSI) is an open specification developed by various container orchestrators through interaction with the open source community and storage vendors. Different CSI plugins expose CSI-compliant APIs on top of existing storage solutions such as those provided by storage vendors (e.g., Amazon EBS) as well as technologies like LVM2. 
+The Container Storage Interface (CSI) is an open specification developed by various container orchestrators through interaction with the open source community and storage vendors. Different CSI plugins expose CSI-compliant APIs on top of existing storage solutions such as those provided by storage vendors (e.g., Amazon EBS) and technologies like LVM2. 
 
-In order to provide a smooth configuration experience with DC/OS every CSI plugin you want to use requires a small bit of plugin-specific config code to be loaded by the DSS. This code, combined with the CSI plugin itself, is called a Volume Plugin. In future we hope to bundle a generic one with the DSS so any CSI plugin can be used.
+In order, to provide a smooth configuration experience with DC/OS every CSI plugin you want to use, requires a small bit of plugin-specific config code to be loaded by the DSS. This code combined with the CSI plugin itself, is called a Volume Plugin. In future, we hope to bundle a generic one with the DSS so any CSI plugin can be used.
 
 All volume providers share some common configuration options. However, the plugin-configuration section of a volume provider’s configuration is specific to the volume provider’s plugin. Every volume plugin will have its own set of options that may be configured in the plugin-configuration subsection of the volume provider’s configuration. In the next section we list the configuration options for the various volume plugins. For now this list consists of the LVM plugin, only.
 
@@ -22,11 +22,10 @@ As LVM2 runs on a single machine the “node” configuration item of the volume
 
 The LVM plugin admits a single configuration option in the plugin-configuration section of a volume provider’s configuration:
 
-devices
+*devices*
 An array of device names relative to the Linux /dev directory. These devices must be present on the node that the provider is configured on. They must not contain a leading slash.
 
-Example for volume provider configuration:
-
+An example for volume provider configuration:
 
 1. The *spec.plugin* field is set to ‘lvm’.
 2. The *node* field is set to the ID of the Mesos agent running on the server.
