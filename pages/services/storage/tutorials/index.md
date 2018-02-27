@@ -8,12 +8,12 @@ excerpt:
 ---
 # Tutorials
 
-The tutorials in this section cover a use case for using DSS to manage local disks using the LVM Plugin bundled with DC/OS Enterprise.
+The tutorials in this section, covers a use case for using DSS to manage local disks using the LVM Plugin bundled with DC/OS Enterprise.
 
 ## Manage local disks using LVM
 
 Prerequisites
-- DSS and its CLI are installed. Please follow the instructions here.
+- DSS and it's CLI are installed. You can follow the instructions <a href="https://docs.google.com/document/d/1MZ7ARRAs_lmXo94h28-wCPqsqA9xDwMPSLgN7_5n84w/edit#heading=h.fdp2lkmww0z8">here</a>.
 - At least one DC/OS agent node.
 - Some unused RAW devices available on the agent node.
 
@@ -26,7 +26,7 @@ $ dcos node
  10.10.0.167   10.10.0.167  2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0  agent            us-west-2  us-west-2b
 master.mesos.  10.10.0.138    2aada917-0ba0-4041-bb1e-4f16a57cd1a0   master (leader)  us-west-2  us-west-2b 
 ```
-2. List the devices on the node. Note that all devices will be listed regardless of whether they are already in use or not.
+2. List the devices on the node. Note, that all devices will be listed, regardless of whether they are already in use or not.
 ```bash
 $ dcos storage device list --node 2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0
 ```
@@ -132,7 +132,7 @@ EOF
 Created deployment 443c18b5-3248-4f65-a0d5-347f355cd50a</EOF
 ```
 
-7. Launch another Marathon app requesting a 10G persistent volume with profile “logs”. Since there are not enough disk resources with profile “logs”, the app will be in deploying state.
+7. Launch another Marathon app requesting a 10G persistent volume with profile “logs”. Since, there are not enough disk resources with profile “logs”, the app will be in deploying state.
 ```bash
 $ cat <<EOF | dcos marathon app add /dev/stdin
 ```
@@ -173,7 +173,7 @@ $ cat <<EOF | dcos marathon app add /dev/stdin
 EOF
 Created deployment dd879d0c-d574-4565-a126-d06bc0f29110
 ```
-8. Create a 10G volume named “my-volume-2” of profile “logs”. Once the volume is created, the Marathon app above should become “Running”.
+8. Create a 10G volume named “my-volume-2” of profile “logs”. Once, the volume is created, the above Marathon app will change to “Running” state.
 ```bash
 $ dcos storage volume create my-volume-2 10G logs
 $

@@ -13,9 +13,9 @@ This is a reference for all CLI commands available in the DSS package that manag
 You must configure a volume provider and a volume profile before creating a volume. 
 A volume provider manages storage capacity offered by a CSI plugin to the DC/OS cluster through a DC/OS Storage plugin. A DC/OS Storage plugin consists of a CSI plugin along with some code that integrates it into DC/OS. A volume provider that specifies its plugin as ‘lvm’ is referred to as a ‘lvm’ volume provider.
 
-A volume profile represents volume configurations based on volume provider, volume parameters, and/or labels. For example, if you want to differentiate between HDDs and SSDs for different purposes you can create a “fast” volume profile that identifies your SSDs and a “slow” volume profile that identifies your HDDs. If your framework, say Cassandra, distinguishes between “cache” and “archive” storage you can then configure it to map your “fast” volume profile to Cassandra’s “cache” storage and your “slow” volume profile to Cassandra’s “archive” storage.
+A volume profile represents volume configurations based on volume provider, volume parameters, and/or labels. For example, if you want to differentiate between HDDs and SSDs for different purposes, you can create a “fast” volume profile that identifies your SSDs and a “slow” volume profile that identifies your HDDs. If your framework is Cassandra, then it distinguishes between “cache” and “archive” storage. You can then configure it to map your “fast” volume profile to Cassandra’s “cache” storage and your “slow” volume profile to Cassandra’s “archive” storage.
 
-Once you have configured a volume provider (eg., an LVM2 volume group) and a volume profile (eg., “all-ssds”) you use the `dcos storage volume ...` subcommand to create and manage volumes.
+Once, you have configured a volume provider (eg., an LVM2 volume group) and a volume profile (eg., “all-ssds”) you use the `dcos storage volume ...` sub-command to create and manage volumes.
 
 <table class ="table">
   <tr>
@@ -43,7 +43,7 @@ This command manages physical devices.
 
 There are typically storage devices that present as Linux devices on agents in the cluster. The devices on a node can be assembled into volume providers that expose their storage capacity to the rest of the cluster. For example, some SSDs “xvdb” and “xvde” on node “2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0” can be assembled into a LVM2 volume group on that node creating a new volume provider and specifying the “plugin” as “lvm” and listing “xvdb” and “xvde” as the devices.
 
-### list
+### List
 
 This sub-command lists physical devices.
 
@@ -62,7 +62,7 @@ $ dcos storage device list [<devices>] [flags]
 ```
 ### Examples:
 
-List all devices in the cluster
+List all devices in the cluster.
 ```bash
 $ dcos storage device list
 ```
@@ -121,7 +121,7 @@ $ dcos storage device list --json
 ```
 
 
-List all devices on a given node
+List all devices on a given node.
 ```bash
 $ dcos node
 ```
@@ -145,31 +145,34 @@ NODE                                     NAME   STATUS
 ## <a name="dcos-storage-provider"></a>dcos storage provider
 This command manage volume providers.
 
-A volume provider manages storage capacity offered by a CSI plugin to the DC/OS cluster through a DC/OS Storage Plugin. A DC/OS Storage Plugin consists of a CSI plugin along with some glue that integrates it into DC/OS. A volume provider that specifies its plugin as 'lvm' is referred to as a 'lvm' volume provider.
+A volume provider manages storage capacity offered by a CSI plugin to the DC/OS cluster through a DC/OS Storage Plugin. A DC/OS Storage Plugin consists of a CSI plugin along with some glue that integrates it into DC/OS. A volume provider that specifies it's plugin as 'lvm' is referred to as a 'lvm' volume provider.
 
-There are two kinds of volume provider: local and external. A local volume provider manages storage capacity that is tied to a specific Mesos agent, such as a LVM2 volume group managed by a 'lvm' volume provider. An external volume provider manages storage capacity that is not tied to any specific Mesos Agent such as a volume provider which uses the Amazon EBS API to remotely operate on any Mesos agent in the cluster.
+There are two kinds of volume provider: 
+1. Local volume provider - A local volume provider manages storage capacity that is tied to a specific Mesos agent, such as a LVM2 volume group managed by a 'lvm' volume provider. 
+2. External volume provider - An external volume provider manages storage capacity that is not tied to any specific Mesos agent, such as a volume provider, which uses the Amazon EBS API to remotely operate on any Mesos agent in the cluster.
 
-There can be several volume providers for the same type of CSI plugin. For example, the LVM2 CSI plugin manages a single LVM2 volume group (VG), but there can be more than one LVM2 volume group on an agent, so each LVM2 volume group will be configured as a separate volume provider.
+There can be several volume providers for the same type of CSI plugin. 
+An example: The LVM2 CSI plugin manages a single LVM2 volume group (VG), but there can be more than one LVM2 volume group on an agent, so each LVM2 volume group will be configured as a separate volume provider.
 
-### create
+### Create
 
 This sub-command creates a volume provider.
 
-You configure a volume provider by passing a JSON document to this command. The JSON configuration is read from '<path>' or from STDIN if no '<path>' is specified.
+You can configure a volume provider by passing a JSON document to this command. The JSON configuration is read from '<path>' or from STDIN if no '<path>' is specified.
 
-The provider configuration consists of multiple fields: 'name', 'description' and 'spec'.
+The provider configuration consists of multiple fields: 'name', 'description', and 'spec'.
 
-The 'name' field uniquely identifies the volume provider. It is a string of up to 128 characters. The name must consist of the characters from '[A-Za-z0-9\-]', and must start with a letter. It must be unique throughout the cluster. This field is required.
+The 'name' field uniquely identifies the volume provider. It is a string of upto 128 characters. The name must consist of the characters from '[A-Za-z0-9\-]', and must start with a letter. It must be unique throughout the cluster. This field is required.
 
-The 'description' item lets you specify a human-readable description for the volume provider to  add some extra context. This is a string of up to 512 characters. This field is optional.
+The 'description' field lets you to specify a human-readable description for the volume provider to add some extra context. This is a string of up to 512 characters. This field is optional.
 
-The 'spec' field is itself a nested structure containing the following fields: 'plugin', 'node', 'plugin-configuration' and 'labels'. When you later configure volume profiles you can select which volume providers to use by filtering on the fields in their 'spec'. This field is required.
+The 'spec' field is itself a nested structure containing the fields such as: 'plugin', 'node', 'plugin-configuration' and 'labels'. When you later configure volume profiles, you can select which volume providers to use by filtering on the fields in their 'spec'. This field is required.
 
-The 'spec.plugin' field specifies the name of a DC/OS storage plugin (eg., lvm). Please refer to the plugins documentation for more details. This field is required. 
+The 'spec.plugin' field specifies the name of a DC/OS storage plugin (eg., lvm). You can refer to the <a href ="https://docs.google.com/document/d/1MZ7ARRAs_lmXo94h28-wCPqsqA9xDwMPSLgN7_5n84w/edit#">plugins documentation</a> for more details. This field is required. 
 
 The 'spec.node' field specifies the Mesos agent ID of a specific agent to which a local volume provider is bound. This field is required for local volume providers and must be omitted for external volume providers.
 
-The 'spec.plugin-configuration' field is plugin specific and you should consult the specific plugin documentation for the supported configuration. This field is required.
+The 'spec.plugin-configuration' field is plugin specific and you should consult the specific a href ="https://docs.google.com/document/d/1MZ7ARRAs_lmXo94h28-wCPqsqA9xDwMPSLgN7_5n84w/edit#">plugins documentation</a> for the supported configuration. This field is required.
 
 Example 'plugin-configuration' for a 'lvm' volume provider:
 ```json
@@ -186,9 +189,10 @@ Example 'plugin-configuration' for a 'lvm' volume provider:
     }
 }
 ```
-The 'spec.labels' section lets you label the volume provider. Labels are not interpreted by DC/OS and it is up to you to ensure that they are meaningful. Labels consist of key-value pairs. The keys must be strings of 128 characters or fewer. The values must be strings of 128 characters or fewer. At maximum 64 labels can be defined although some plugins might further limit the number and format of labels. This field is optional.
+The 'spec.labels' section, allows you to label the volume provider. Labels are not interpreted by DC/OS and it is up to the user to ensure that they are meaningful. Labels consist of key-value pairs. The keys must be strings of 128 characters or fewer. The values must be strings of 128 characters or fewer. At maximum 64 labels can be defined although some plugins might further limit the number and format of labels. This field is optional.
 
-Example labels:
+An example for labels:
+labels:
 ```json
 {
     "name": "...",
@@ -213,15 +217,14 @@ $ dcos storage provider create [<path>] [flags]
 ### Flags
 ```json
 -h, --help          help for create
-
-Arguments
-
+```
+### Arguments
+```json
 <path>    A URL or local path to the volume provider configuration JSON. If
           this is omitted the volume provider configuration JSON is read
           from STDIN.
 ```
-###Examples:
-
+### Examples:
 Create an LVM2 volume group called 'volume-group-1' from configuration in a
 local file called 'provider.json':
 ```bash 
@@ -264,7 +267,7 @@ $ cat <<EOF | dcos storage provider create
 EOF
 ```
 
-<a name="dcos-storage-profile"></a>dcos storage profile
+## <a name="dcos-storage-profile"></a>dcos storage profile
 This command manages volume profiles.
 
 A volume profile represents volumes based on volume provider or volume parameters and labels. For example, if you want to differentiate between HDDs and SSDs for different purposes, you can create a "fast" volume profile that identifies your SSDs and a "slow" volume profile that identifies your HDDs. If your framework, say Cassandra, distinguishes between "cache" and "archive" storage you can then configure it to map your "fast" volume profile to Cassandra's "cache" storage and your "slow" volume profile to Cassandra's "archive" storage.
@@ -279,7 +282,7 @@ The volume profile configuration must be a JSON document and supports the follow
 
 The 'name' field uniquely identifies the volume profile throughout the DC/OS cluster. It is a string of up to 128 characters. The name must consist of the characters from '[A-Za-z0-9\-]', and must start with a letter. This field is required.
 
-The 'description' field lets you specify a human-readable description for the volume profile to add some extra context. This is a string of up to 512 characters. This field is optional.
+The 'description' field allows you specify a human-readable description for the volume profile to add some extra context. This is a string of up to 512 characters. This field is optional.
 
 The 'spec' field is itself a nested structure. It contains the 'provider-selector', 'volume-configuration' and one of either the 'block' or 'mount' fields.
 
@@ -458,16 +461,18 @@ $ dcos storage profile list --json
 ```
 
 
-<a name="dcos-storage-volume"></a>dcos storage volume
+## <a name="dcos-storage-volume"></a>dcos storage volume
 This command manages volumes.
 
-A volume consists of storage capacity conforming to a volume profile and allocated by a volume provider. It is made available to your application or framework. There are two kinds of volume: block and mount.
+A volume consists of storage capacity conforming to a volume profile and allocated by a volume provider. It is made available to your application or framework. 
 
-A block volume presents as a raw device file to your Mesos tasks. A mount volume presents as a mounted filesystem visible to your Mesos tasks.
+There are two kinds of volume: 
+1. A block volume - This presents as a raw device file to your Mesos tasks. 
+2. A mount volume - This presents as a mounted filesystem visible to your Mesos tasks.
 
 **NOTE:** A block volume, which does not have a filesystem, is currently not supported.
 
-### create
+### Create
 
 This sub-command creates a volume.
 
@@ -475,7 +480,7 @@ A volume consists of storage capacity conforming to a volume profile and allocat
 
 Volumes are created by instructing a volume provider to provision storage capacity according to options described in the specified volume profile along with the specified <size>. In the case of mount volumes, a volume profile also specifies the mount options and filesystem type of the volume being created.
 
-Say you have a profile called 'fast' which is configured to represent SSDs only then creating a volume with volume profile 'fast' will ensure that your volume will be allocated from SSD-backed storage.
+An example: If you have a profile called 'fast', which is configured to represent SSDs only. Then creating a volume with volume profile 'fast' will ensure that your volume will be allocated from SSD-backed storage.
 
 ### Usage
 ```bash
@@ -502,7 +507,6 @@ Create a 10G volume named “my-volume-1” with profile “fast”:
 $ dcos storage volume create my-volume-1 10G fast
 ```
 ### list
-
 This sub-command lists volumes.
 
 ### Usage
