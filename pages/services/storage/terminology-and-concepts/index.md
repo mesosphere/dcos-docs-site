@@ -6,18 +6,6 @@ menuWeight: 5
 excerpt:
 ---
 
-# [Terminology and Concepts](#Terminology-and-Concepts)
-
-## [Device](#Device)
-## [CSI Spec](#CSI-Spec)
-## [CSI Plugin](#CSI-Plugin)
-## [Storage Local Resource Provider (SLRP)](#Storage-Local-Resource-Provider(SLRP))
-## [Storage External Resource Provider (SERP)](#Storage-External-Resource-Provider(SERP))
-## [Volume Provider](#Volume-Provider)
-## [Volume Plugin](#Volume-Plugin)
-## [Volume Profile](#Volume-Profile)
-## [Volume](#Volume)
-
 # Terminology and Concepts
 
 We use the following terminology throughout the documentation.
@@ -49,7 +37,7 @@ Examples of such CSI plugins are those for Amazon EBS, NFS, other storage that c
 A storage object from which a volume can be provisioned. Practically, a volume provider is associated with a single instance of a CSI plugin. Each volume provider hooks into Mesos through a single instance of a Storage Local Resource Provider (SLRP) or Storage External Resource Provider (SERP). There can be many instances of a given kind of volume provider. 
 For example, “lvm volume group” is a kind of volume provider but there can be multiple LVM2 volume groups where each volume group is configured as a separate volume provider.
 
-Example volume providers, multiple of which can appear on the same cluster or agent: 
+Example for volume providers, multiple of which can appear on the same cluster or agent: 
 1. LVM2 Volume Group (via the LVM2 CSI plugin), 
 2. NFS mount (via some NFS CSI plugin),
 3. ScaleIO <Protection Domain, Storage Pool> (via some ScaleIO CSI plugin)
@@ -61,7 +49,7 @@ The software installable component associated with a volume provider. It is typi
 
 ## Volume Profile
 
-A set of parameters that can be used to configure a volume. Volume profiles are used to classify volumes according to user's use cases. An example: A user could group all his SSDs into a “fast” profile while grouping HDDs into a “slow” volume profile. Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers. The CLI subcommand is called ‘profile’ instead of ‘volume profile’ for the sake of brevity.
+A set of parameters that can be used to configure a volume. Volume profiles are used to classify volumes according to user's use cases. An example: A user could group all his SSDs into a “fast” profile while grouping HDDs into a “slow” volume profile. Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers. The CLI sub-command is called ‘profile’ instead of ‘volume profile’ for the sake of brevity.
 
 ## Volume
 
