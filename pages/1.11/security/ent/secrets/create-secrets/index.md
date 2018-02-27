@@ -77,7 +77,25 @@ This procedure describes how to create a key/value pair secret called `my-secret
    dcos security secrets create --value=top-secret developer/my-secret
    ```
 
-# Creating secrets from a file via the DC/OS Enterprise CLI
+# Creating secrets from a binary file via the DC/OS Enterprise CLI
+
+This procedure describes how to use any file to create a secret called `myapp.keystore` inside the `developer` path using the DC/OS Enterprise CLI.
+
+The contents of the file (referred to below as `myapp.keystore`) can be any value. The secrets service encodes binary files into `BASE64` text form before storing it in secret store.
+
+**Note:** As of DC/OS 1.10, you can only upload a secret as a file from the DC/OS CLI. The maximum file size for a secret is approximately one MiB, subtracting approximately one KB for the secret store metadata.
+
+1. Use `dcos auth login` to log into the CLI.
+
+1. Use the following command to create the new secret.
+
+  ```bash
+  dcos security secrets create -f myapp.keystore developer/keystore
+  ```
+
+   **Important:** The maximum file size for a `BASE64` encoded file is approximately one MiB, subtracting approximately one KB for the secret store metadata.
+
+# Creating secrets from a text file via the DC/OS Enterprise CLI
 
 This procedure describes how to use a file to create a secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
 
@@ -90,7 +108,7 @@ The contents of the file (referred to below as `my-secret.txt`) can be any text 
 1. Use the following command to create the new secret.
 
   ```bash
-  dcos security secrets create -f my-secret.txt developer/my-secret
+  dcos security secrets create -t my-secret.txt developer/my-secret
   ```
 
    **Important:** The maximum file size for a secret is approximately one MiB, subtracting approximately one KB for the secret store metadata.

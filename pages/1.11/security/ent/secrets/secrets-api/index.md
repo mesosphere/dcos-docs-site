@@ -13,14 +13,17 @@ enterprise: true
 
 # About the Secrets API
 
-The Secrets API allows you to manage secrets and perform some backend functions such as sealing and unsealing the Secret Store. It offers more functionality than the DC/OS GUI. 
+The Secrets API allows you to manage secrets and perform some backend functions such as sealing and unsealing the Secret Store. It offers more functionality than the DC/OS GUI.
 
 # Request and response format
 
-The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
+The API supports JSON for all endpoints and binary data for some endpoints. You must include `application/json` or `application/octet-stream` as your `Content-Type` in the HTTP header, as shown below.
 
     Content-Type: application/json
-    
+
+or
+
+    Content-Type: application/octet-stream
 
 # Host name and base path
 
@@ -94,6 +97,37 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.11/security/ent/service-auth/custom-service-auth/) for more information.
 
 
+## Text and binary secrets
+
+From DC/OS Enterprise version 1.11 the Secrets API supports text and binary secrets. A text secret is a text value encoded with UTF-8 encoding. The Secrets API transparently passes through this value to a secret store backend. A binary secret is automatically encoded with base64 codec before it is passed to a secrets store backend.
+
+Use cases for secret types:
+
+* **Text**: can support storing text passwords, JSON documents, YAML documents
+
+* **Binary**: All the text secrets and also binary files, like JAVA keystore, Kerberos keytab files
+
+**Note**: It is not recommended to use binary secrets values as environment variables. The POSIX environment variables cannot contain NUL bytes.
+
+### Storing a secret
+
+When a HTTP client is sending a secret value to the Secrets API it should send `Content-Type` header containing information about a secret type. For backward compatibility with existing HTTP clients if a `PUT`/`PATCH` request is sent without the `Content-Type` header the Secrets API assumes a text secret and it behaves as if `application/json` was included in a request.
+
+Endpoints accepting both `application/json` and `application/octet-stream` values:
+
+* `PUT /secret/{store}/{path/to/secret}`
+* `PATCH /secret/{store}/{path/to/secret}`
+
+**Note**: There is a limit of 1MB of encoded binary secret value.
+
+### Retrieving a secret
+
+When retrieving a secret using the Secrets API a HTTP client issues a `GET /secret/{store}/{path/to/secret}` HTTP request. A request can contain `Accept` header to indicate the Secrets API in what format would client like to get a secret value. It is possible to use `Accept: application/json` or `Accept: application/octet-stream` headers. If a client does not provide `Accept` header the Secrets API returns a secret value in format in which it was stored in the DC/OS Secrets service. The Secrets API sends `Content-Type` header in HTTP response to indicate what type of value is sending back in a response.
+
+For example it is possible to store a text secret and retrieve it as binary data by providing `Accept: application/octet-stream` in a HTTP request.
+
+**Note**: It is not possible to retrieve a binary secret value as a JSON document.
+
 # API reference
 
 [swagger api='/1.11/api/secrets.yaml']
@@ -101,4 +135,4 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # Logging
 
-While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.11/monitoring/logging/) for instructions 
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.11/monitoring/logging/) for instructions.
