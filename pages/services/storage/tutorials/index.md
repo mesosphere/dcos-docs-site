@@ -1,4 +1,3 @@
-
 ---
 layout: layout.pug
 navigationTitle: Tutorials
@@ -6,6 +5,7 @@ title: Tutorials
 menuWeight: 25
 excerpt:
 ---
+
 # Tutorials
 
 The tutorials in this section, covers a use case for using DSS to manage local disks using the LVM Plugin bundled with DC/OS Enterprise.
