@@ -6,10 +6,11 @@ menuWeight: 35
 excerpt:
 ---
 
+These are the release notes for DC/OS 1.10.0.
+
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
-
+DC/OS 1.10 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
 - Enterprise-ready networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
@@ -19,7 +20,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
 
-Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
+Please try out the new features and updated data services. Provide any feedback through our support channel: [support.mesosphere.com] (https://support.mesosphere.com/).
 
 ### Contents
 - [New Features and Capabilities](#new-features)

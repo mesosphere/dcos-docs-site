@@ -6,11 +6,18 @@ menuWeight: 10
 excerpt:
 ---
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
+These are the release notes for DC/OS 1.11.0 Release Candidate 1.
+
+<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid; border-right: thin solid;">
+
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
+To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 <h3>This release candidate is for testing only and not to be used in production. </h3>
 
-<h5>DC/OS 1.11 Release Candidate 1 has a number of limitations that will be resolved at GA time.</h5>
+
+DC/OS 1.11 Release Candidate 1 has a number of limitations that will be resolved at GA time.
 <ul>
 <li>DC/OS 1.11 only supports new installations. Upgrades from 1.10 are not supported.</li>
 <li>DC/OS 1.11 requires CLI version 0.6.x.
@@ -20,14 +27,8 @@ excerpt:
   </ul>
 <strong>Note:</strong> CLI version 0.6.x is not compatible with DC/OS 1.10</li>
 </ul>
-
-Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
+Please try out the new features and updated data services. Provide any feedback through our support channel: [support.mesosphere.com] (https://support.mesosphere.com/).
 </td> </tr> </table>
-
-
-[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
-
-To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 <a name="new-features"></a>
 # New features and capabilities

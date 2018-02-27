@@ -6,29 +6,23 @@ menuWeight: 50
 excerpt:
 ---
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
+These are the release notes for DC/OS 1.10.0 Beta 2.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/66e3d4582d38ef6373ae489a219400a36ae5064d/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-<h3>This beta release is for testing only and not to be used in production.</h3>
-<h3>DC/OS 1.10.0 Beta 2 has a number of limitations that will be resolved at GA time:</h3>
+This beta release is for testing only and not to be used in production. 
 
-<ul>
-<li>Upgrades from 1.10 Beta 1 to 1.10 Beta 2 are not currently supported.</li>
-<li>DC/OS 1.10 requires CLI version 0.5.3.
-  <ul>
-  <li><a href="/1.10/cli/uninstall/">Uninstall the existing CLI</a>.</li>
-  <li>Install version 0.5.3 using the <strong>Install CLI</strong> instructions in the dropdown in the upper left hand corner of the 1.10 DC/OS GUI.</li>
-  </ul>
-<li>You must upgrade Marathon-LB _before_ upgrading to DC/OS 1.10. See the [upgrade section](/1.10/installing/oss/upgrading/) for more information.</li>
-<strong>Note:</strong> CLI version 0.5.3 is not compatible with DC/OS 1.9.</li>
-</ul>
-<br />
-Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
-</td> </tr> </table>
+DC/OS 1.10.0 Beta 2 has a number of limitations that will be resolved at GA time:
+- Upgrades from 1.10 Beta 1 to 1.10 Beta 2 are not currently supported.
+- DC/OS 1.10 requires CLI version 0.5.3.
+  - [Uninstall the existing CLI](/1.10/cli/uninstall/)
+  - Install version 0.5.3 using the <strong>Install CLI</strong> instructions in the dropdown in the upper left hand corner of the 1.10 DC/OS GUI.
+- You must upgrade Marathon-LB _before_ upgrading to DC/OS 1.10. See the [upgrade section](/1.10/installing/oss/upgrading/) for more information.
+*Note:* CLI version 0.5.3 is not compatible with DC/OS 1.9.
 
-DC/OS 1.10 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
+Please try out the new features and updated data services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
 
+DC/OS 1.10 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Core DC/OS Service Continuity - System resilience, IAM Scalability & simplified upgrades.
 - Robust Security - Custom CA & File-Based Secrets Support. [enterprise type="inline" size="small" /]
 - Enterprise-Ready Networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
