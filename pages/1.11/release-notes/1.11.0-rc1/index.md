@@ -27,7 +27,7 @@ DC/OS 1.11 Release Candidate 1 has a number of limitations that will be resolved
   </ul>
 <strong>Note:</strong> CLI version 0.6.x is not compatible with DC/OS 1.10</li>
 </ul>
-Please try out the new features and updated data services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
+Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 </td> </tr> </table>
 
 <a name="new-features"></a>
