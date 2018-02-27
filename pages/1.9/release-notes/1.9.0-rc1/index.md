@@ -6,14 +6,17 @@ menuWeight: 100
 excerpt:
 ---
 
+These are the release notes for DC/OS 1.9.0 Release Candidate 1.
+
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/26d16366a29aba258541a8653b00522c4c1c21fc/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
-
+DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services. <!-- NEED A LINK -->
+
+Please try out the new features and updated services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
 
 ### Contents
 - [What's New](#whats-new)
