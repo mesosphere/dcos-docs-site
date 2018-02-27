@@ -6,7 +6,7 @@ menuWeight: 15
 excerpt:
 ---
 
-# [Install]
+# Install
 
 ## Prerequisites
 
