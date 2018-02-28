@@ -20,7 +20,7 @@ There are two kinds of volume provider:
 There can be several volume providers for the same type of CSI plugin.
 For example: The LVM2 CSI plugin manages a single LVM2 volume group (VG), but there can be more than one LVM2 volume group on an agent, so each LVM2 volume group will be configured as a separate volume provider.
 
-# `Create`
+# `create`
 
 This sub-command creates a volume provider.
 
@@ -158,7 +158,7 @@ $ cat <<EOF | dcos storage provider create
 EOF
 ```
 
-# `List`
+# `list`
 
 List existing volume providers.
 
