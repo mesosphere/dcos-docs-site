@@ -118,7 +118,7 @@ $ dcos storage provider create [<path>] [flags]
           from STDIN.
 ```
 
-## Examples:
+## Examples
 
 Create an LVM2 volume group called `volume-group-1` from configuration in a local file called `provider.json`:
 
@@ -156,4 +156,73 @@ $ cat <<EOF | dcos storage provider create
     }
 }
 EOF
+```
+
+# `list`
+
+List existing volume providers.
+
+## Usage
+
+```bash
+dcos storage provider list [<providers>] [flags]
+```
+
+## Flags
+
+```bash
+-h, --help            help for list
+    --json            Display the list of volume providers in json format.
+    --node string     Only show local volume providers on node.
+    --plugin string   Only show providers of the specified plugin.
+```
+
+## Arguments
+
+```bash
+<providers> A space-separated list of providers. This argument is optional.
+            If it is not provided all providers will be listed.
+```
+
+## Examples
+
+List all volume providers.
+
+```bash
+$ dcos storage provider list
+PLUGIN  NAME            NODE
+lvm     volume-group-1  c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1
+```
+
+List all volume providers in JSON mode.
+
+```bash
+$ dcos storage provider list --json
+{
+    "providers": [
+        {
+            "name": "volume-group-1",
+            "spec": {
+                "plugin": "lvm",
+                "node": "c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1",
+                "plugin-configuration": {
+                    "devices": [
+                        "xvdb"
+                    ]
+                },
+                "labels": {
+                    "rotational": "false"
+                }
+            },
+            "status": {
+                "state": "ONLINE",
+                "nodes": [
+                    "c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1"
+                ],
+                "last-changed": "0001-01-01T00:00:00Z",
+                "last-updated": "0001-01-01T00:00:00Z"
+            }
+        }
+    ]
+}
 ```
