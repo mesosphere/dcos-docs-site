@@ -61,7 +61,7 @@ Example `plugin-configuration` for an "lvm" volume provider:
     "description": "LVM2 volume group backed by SSDs.",
     "spec": {
         "plugin": "lvm",
-        "node": "2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0",
+        "node": "c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1",
         "plugin-configuration": {
             "devices": ["xdvb"]
         },
@@ -129,7 +129,7 @@ $ cat provider.json
     "description": "the primary volume group",
     "spec": {
         "plugin": "lvm",
-        "node": "2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0",
+        "node": "c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1",
         "plugin-configuration": {
             "devices": ["xvdb"]
         },
@@ -148,7 +148,7 @@ $ cat <<EOF | dcos storage provider create
     "description": "the primary volume group",
     "spec": {
         "plugin": "lvm",
-        "node": "2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0",
+        "node": "c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1",
         "plugin-configuration": {
             "devices": ["xvdb"]
         },
