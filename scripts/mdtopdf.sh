@@ -52,12 +52,11 @@ function main
      #Make the Destination directory
      mkdir -p "${PDF_DEST_DIR}"
 
-     #Find recursively all the directories whithin a folder
+     # Find recursively all the directories whithin a folder
      INPUT_FILES="$(find ${INPUT_FOLDER}/${FILE_PATH} -type d -depth)"
      # There is an index.md whithing every file
      FILE_NAME="index.md"
      #We find the index.md per folder so the final pdf is organised per folder not natively recursive
-     # printf "${GREEN}${INPUT_FILES}"
      for d in $INPUT_FILES
       do
         NEW_FILE="${d}/${FILE_NAME}"
@@ -66,26 +65,38 @@ function main
         # Create temporary file with all md content to send to pandoc // this avoids very long urls & long strings (Pandoc has a limit)
           TEMP_FILE=$(mktemp)
           TEMP_FILES="${TEMP_FILES} ${TEMP_FILE}"
+
           cat ${NEW_FILE} >> ${TEMP_FILE}
         fi
       done
 
-     # Fix for all absolute url's to be relative
-     sed -i -E 's/]\(\//]\(/g' ${TEMP_FILE}
+      # Fix for all absolute url's to be relative
+      RANGE=[-0-9A-Za-z/_.]
+      #sed -i 's,[^-0-9A-Za-z_.]/\('"$RANGE"'*\.png\),\1,g;s,/\('"$RANGE"'*\.jpg\),\1,g;s,/\('"$RANGE"'*\.jpeg\),\1,g;s,/\('"$RANGE"'*\.gif\),\1,g;s,/\('"$RANGE"'*\.svg\),\1,g' ${TEMP_FILE}
+      #sed -i 's,../,,' ${TEMP_FILE}
+     sed -i 's,/\([-0-9A-Za-z/_.]*\.png\),\1,g;s,/\([-0-9A-Za-z/_.]*\.jpg\),\1,g;s,/\([-0-9A-Za-z/_.]*\.jpeg\),\1,g;s,/\([-0-9A-Za-z/_.]*\.gif\),\1,g;s,/\([-0-9A-Za-z/_.]*\.svg\),..\1,g' ${TEMP_FILE}
 
+     # Unicode characters to avoid
+     CHARS=$(python -c 'print u"\u2060\u0080\u0099\u009C\u009d\u0098\u0094\u0082\u00a6\u0089\u00a4\u00a5\u0093".encode("utf8")')
+     sed -i 's/['"$CHARS"']//g' ${TEMP_FILE}
+
+
+     # iconv -f UTF-8 -t UTF-8 -c --output=${TEMP_FILE} ${TEMP_FILE}
      # Pandoc gets the string of files and outputs the pdf.
-     scripts/pandocpdf.sh "${TEMP_FILE}" ${PDF_DEST_DIR}/${PDF_FILE_NAME}
+     echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
-     #echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
 
   # Execute theconversion in parallel
+  echo "checking pwd"
+  pwd
+  echo "======="
   echo "Starting pdf build $(date)"
   cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"
   echo "Finished build $(date)"
   echo $TEMP_FILES
-  rm -f "${TEMP_FILES}"
+  # rm -f "${TEMP_FILES}"
 }
 
 clean "${OUTPUT_FOLDER}"

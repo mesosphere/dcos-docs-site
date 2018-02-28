@@ -34,7 +34,10 @@ build-development: build-api
 #
 
 build-pdf-production:
-	./scripts/mdtopdf.sh ./pages ./build-pdf
+	# currently set up for folder 1.7
+	# substitute 1.7, by any other version folder to fix urls/long strings.
+	./scripts/mdtopdf.sh ./pages/1.7 ./build-pdf
+
 
 build-pdf-development: build-api docker-development-up-pdf
 	npm run build-pdf

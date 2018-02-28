@@ -14,10 +14,10 @@ RUN mkdir /src
 WORKDIR /src
 ADD . /src/
 
-RUN npm install
+# RUN npm install
 
-RUN make build-swagger
-RUN make build-ngindox
+# RUN make build-swagger
+# RUN make build-ngindox
 
 # RUN \
 # GIT_BRANCH=$git_branch \
@@ -31,7 +31,14 @@ RUN apt-get update -qq
 
 RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55
 
-RUN apt-get -yq update && apt-get install -y python-pip wget texlive texlive-latex-extra
+#
+# All Commands to install environment for pandoc
+#
+RUN apt-get install -y software-properties-common python-software-properties
+RUN add-apt-repository -y ppa:jonathonf/texlive-2016
+RUN apt-get update
+
+RUN apt-get -yq update && apt-get install -y python-pip wget texlive-full librsvg2-bin
 
 RUN wget https://github.com/jgm/pandoc/releases/download/2.1/pandoc-2.1-1-amd64.deb && \
     dpkg -i pandoc-2.1-1-amd64.deb && \
@@ -41,8 +48,9 @@ RUN wget https://github.com/jgm/pandoc/releases/download/2.1/pandoc-2.1-1-amd64.
     apt-get clean -y && \
     rm -rf pandoc-2.1-1-amd64.deb /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENTRYPOINT
 CMD ["--help"]
+
+# Until here
 
 ADD https://github.com/ariya/phantomjs/releases/download/2.1.3/phantomjs /usr/bin/phantomjs
 
@@ -58,11 +66,11 @@ RUN make build-pdf-production
 # Concat PDF
 #
 
-# FROM ms-pdf-builder as pdf-concat
+FROM ms-pdf-builder as pdf-concat
 
-# RUN mkdir /src/build-pdf
+RUN mkdir /src/build-pdf
 
-# WORKDIR /src
-# COPY --from=pdf-builder /tmp/pdf/build-pdf ./build-pdf
+WORKDIR /src
+COPY --from=pdf-builder /tmp/pdf/build-pdf ./build-pdf
 
-# RUN make build-pdf-concat-production
+RUN make build-pdf-concat-productionss

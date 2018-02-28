@@ -1,6 +1,5 @@
 ---
-mainfont: SourceSansPro-Regular.otf
-
+graphics: yes
 # titlepage: true
 # titlepage-color: 150454
 # titlepage-text-color: ffffff

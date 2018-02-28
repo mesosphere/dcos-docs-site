@@ -9,5 +9,5 @@ INPUT_FILES=${1}
 OUTPUT_PATH=${2}
 
 # Convert the file from .md to .pdf
-echo "pandoc --toc --resource-path=./pages ./templates/style.yaml ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex --template=./templates/mesosphere.latex"
-pandoc --toc --resource-path=./pages ./templates/style.yaml ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex --template=./templates/mesosphere.latex
+echo "pandoc --toc --resource-path=./pages ./templates/style.yaml ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf --listings -H --pdf-engine=xelatex ./templates/listings-setup.tex --template=./templates/mesosphere.latex"
+pandoc --toc --pdf-engine=xelatex --resource-path=./pages ./templates/style.yaml ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex --template=./templates/mesosphere.latex
