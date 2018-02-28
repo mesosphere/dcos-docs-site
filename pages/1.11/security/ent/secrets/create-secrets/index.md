@@ -51,6 +51,8 @@ Secrets should include paths, unless you want to allow all services to access it
 
 1. Click **Create**.
 
+**Note:** It is not possible to create upload binary file using the GUI. Only CLI can be used to upload binary files.
+
 # <a name="api"></a>Creating key-value pair secrets using the API
 
 This procedure describes how to create a secret called `my-secret` inside the `developer` path.
@@ -77,13 +79,11 @@ This procedure describes how to create a key/value pair secret called `my-secret
    dcos security secrets create --value=top-secret developer/my-secret
    ```
 
-# Creating secrets from a binary file via the DC/OS Enterprise CLI
+# Creating secrets from a any file via the DC/OS Enterprise CLI
 
 This procedure describes how to use any file to create a secret called `myapp.keystore` inside the `developer` path using the DC/OS Enterprise CLI.
 
-The contents of the file (referred to below as `myapp.keystore`) can be any value. The secrets service encodes binary files into `BASE64` text form before storing it in secret store.
-
-**Note:** As of DC/OS 1.10, you can only upload a secret as a file from the DC/OS CLI. The maximum file size for a secret is approximately one MiB, subtracting approximately one KB for the secret store metadata.
+The contents of the file (referred to below as `myapp.keystore`) can be any value, including binary and text value. The secrets service encodes binary files into `BASE64` text form before storing it in secret store.
 
 1. Use `dcos auth login` to log into the CLI.
 
@@ -94,6 +94,8 @@ The contents of the file (referred to below as `myapp.keystore`) can be any valu
   ```
 
    **Important:** The maximum file size for a `BASE64` encoded file is approximately one MiB, subtracting approximately one KB for the secret store metadata.
+
+   **Important:** In previous versions of the `dcos-enterprise-cli` (bellow version `1.4.2`) the `-f` or `--file` flag was used to upload UTF-8 encoded text files as a text secrets. This has changed and using `-f` flag now treats the file as a general file stored on the filesystem and it is sent to the DC/OS Secrets service as a binary secret.
 
 # Creating secrets from a text file via the DC/OS Enterprise CLI
 
@@ -112,3 +114,5 @@ The contents of the file (referred to below as `my-secret.txt`) can be any text 
   ```
 
    **Important:** The maximum file size for a secret is approximately one MiB, subtracting approximately one KB for the secret store metadata.
+
+   **Important:** In previous versions of the `dcos-enterprise-cli` (bellow version `1.4.2`) the `-f` or `--file` flag was used to upload UTF-8 encoded text files as a text secrets. A UTF-8 encoded text files should be uploaded using new `-t` flag.
