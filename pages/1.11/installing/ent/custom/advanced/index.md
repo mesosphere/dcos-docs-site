@@ -79,7 +79,6 @@ In this step, an IP detect script is created. This script reports the IP address
         curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
         ```
 
-
     *   #### Use the IP address of an existing interface
 
         This method discovers the IP address of a particular interface of the node.
