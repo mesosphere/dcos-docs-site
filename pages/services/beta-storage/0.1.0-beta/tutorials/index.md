@@ -12,7 +12,7 @@ The tutorials in this section, covers a use case for using DSS to manage local d
 
 ## Prerequisites
 
-- DSS and it's CLI are [installed](../install/).
+- DSS and its CLI are [installed](../install/).
 - At least one DC/OS agent node.
 - Some unused RAW devices available on the agent node.
 
@@ -29,7 +29,7 @@ master.mesos.  10.10.0.139    c67efa5d-34fa-4bc5-8b21-2a5e0bd52385   master (lea
 ```
 
 2. List the devices on the node.
-Note, that all devices will be listed, regardless of whether they are already in use or not.
+**Note:** All devices will be listed, regardless of whether they are already in use or not.
 
 ```bash
 $ dcos storage device list --node c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1
@@ -138,7 +138,7 @@ Created deployment 443c18b5-3248-4f65-a0d5-347f355cd50a</EOF
 ```
 
 7. Launch another Marathon app requesting a 10G persistent volume with profile `fast`.
-Since, there are not enough disk resources with profile `fast`, the app will be in deploying state.
+Since there are not enough disk resources with profile `fast` the app will be in deploying state.
 
 ```bash
 $ cat <<EOF | dcos marathon app add /dev/stdin
@@ -180,7 +180,7 @@ Created deployment dd879d0c-d574-4565-a126-d06bc0f29110
 ```
 
 8. Create a 10G volume named `my-volume-2` of profile `fast`.
-Once, the volume is created, the above Marathon app will change to `Running` state.
+Once the volume is created, the above Marathon app will change to `Running` state.
 
 ```bash
 $ dcos storage volume create my-volume-2 10G fast

@@ -85,7 +85,7 @@ EOF
 :; dcos package install storage --package-version=<VERSION>
 ```
 
-Follow the instructions and push the docker image to a docker registry that is accessible in the cluster.
+Follow the instructions and push the newly built docker image to a docker registry accessible in the cluster.
 
 ```bash
 $ docker push user/storage-artifacts:<SHA>

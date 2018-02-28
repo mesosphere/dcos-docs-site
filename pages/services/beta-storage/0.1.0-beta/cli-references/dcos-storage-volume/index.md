@@ -28,8 +28,7 @@ A volume presents as a mounted filesystem visible to your Mesos tasks.
 Volumes are created by instructing a volume provider to provision storage capacity according to options described in the specified volume profile along with the specified `<size>`.
 In the case of mount volumes, a volume profile also specifies the mount options and filesystem type of the volume being created.
 
-For example, if you have a profile called `fast`, which is configured to represent SSDs only.
-Then creating a volume with volume profile `fast` will ensure that your volume will be allocated from SSD-backed storage.
+For example, if you have a profile called `fast`, which is configured to represent SSDs only then creating a volume with volume profile `fast` will ensure that your volume will be allocated from SSD-backed storage.
 
 ## Usage
 

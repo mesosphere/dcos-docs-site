@@ -20,7 +20,7 @@ There are two kinds of volume provider:
 There can be several volume providers for the same type of CSI plugin.
 For example: The LVM2 CSI plugin manages a single LVM2 volume group (VG), but there can be more than one LVM2 volume group on an agent, so each LVM2 volume group will be configured as a separate volume provider.
 
-# `create`
+# `Create`
 
 This sub-command creates a volume provider.
 
@@ -30,13 +30,13 @@ The JSON configuration is read from `<path>` or from `STDIN` if no `<path>` is s
 The provider configuration consists of multiple fields: `name`, `description`, and `spec`.
 
 The `name` field uniquely identifies the volume provider.
-It is a string of up to 128 characters.
+It is a string of upto 128 characters.
 The name must consist of the characters from `[A-Za-z0-9\-]`, and must start with a letter.
 It must be unique throughout the cluster.
 This field is required.
 
-The `description` field lets you to specify a human-readable description for the volume provider to add some extra context.
-This is a string of up to 512 characters.
+The `description` field allows you to specify a human-readable description for the volume provider to add some extra context.
+This is a string of upto 512 characters.
 This field is optional.
 
 The `spec` field is itself a nested structure containing the fields such as: `plugin`, `node`, `plugin-configuration` and `labels`.
@@ -70,7 +70,7 @@ Example `plugin-configuration` for an "lvm" volume provider:
 }
 ```
 
-The `spec.labels` section, allows you to label the volume provider.
+The `spec.labels` section allows you to label the volume provider.
 Labels are not interpreted by DC/OS and it is up to the user to ensure that they are meaningful.
 Labels consist of key-value pairs.
 The keys must be strings of 128 characters or fewer.
@@ -158,7 +158,7 @@ $ cat <<EOF | dcos storage provider create
 EOF
 ```
 
-# `list`
+# `List`
 
 List existing volume providers.
 
