@@ -16,7 +16,7 @@ All volume providers share some common configuration options. However, the plugi
 
 ## LVM
 
-The LVM volume plugin integrates the <a href ="https://github.com/mesosphere/csilvm">LVM2 CSI plugin with DC/OS</a>. When you create a new volume provider you can specify the ‘plugin’ field as ‘lvm’ in order to create a volume provider whose storage is backed by LVM2. Such a volume provider is called a ‘lvm’ volume provider.
+The LVM volume plugin integrates the <a href ="https://github.com/mesosphere/csilvm">LVM2 CSI plugin </a> with DC/OS. When you create a new volume provider you can specify the ‘plugin’ field as ‘lvm’ in order to create a volume provider whose storage is backed by LVM2. Such a volume provider is called a ‘lvm’ volume provider.
 
 As LVM2 runs on a single machine the “node” configuration item of the volume provider MUST be set the the Mesos agent ID of the server on which the volume provider should be created on. This means that lvm volume providers are local volume providers.
 
@@ -29,7 +29,7 @@ An example for volume provider configuration:
 
 1. The *spec.plugin* field is set to ‘lvm’.
 2. The *node* field is set to the ID of the Mesos agent running on the server.
-3. The *plugin-configuration* field specifies the plugin-specific configuration given in this section. In this case the devices field declares that the /dev/xvdb and /dev/xvdc devices on the server corresponding to *node* should form part of a LVM2 volume group called ‘volume-group-1’.
+3. The *plugin-configuration* field specifies the plugin-specific configuration given in this section. In this case the devices field declares that the */dev/xvdb* and */dev/xvdc* devices on the server corresponding to *node* should form part of a LVM2 volume group called ‘volume-group-1’.
 
 
 ```json

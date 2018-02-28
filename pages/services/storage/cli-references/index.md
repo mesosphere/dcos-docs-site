@@ -8,7 +8,7 @@ excerpt:
 
 # CLI References
 
-This is a reference for all CLI commands available in the DSS package that manage devices, volumes, volume profiles and volume providers.
+This section is a reference for all CLI commands available in the DSS package that manage devices, volumes, volume profiles and volume providers.
 
 You must configure a volume provider and a volume profile before creating a volume. 
 A volume provider manages storage capacity offered by a CSI plugin to the DC/OS cluster through a DC/OS Storage plugin. A DC/OS Storage plugin consists of a CSI plugin along with some code that integrates it into DC/OS. A volume provider that specifies its plugin as ‘lvm’ is referred to as a ‘lvm’ volume provider.
@@ -62,7 +62,7 @@ $ dcos storage device list [<devices>] [flags]
 ```
 ### Examples:
 
-List all devices in the cluster.
+List all devices in the cluster:
 ```bash
 $ dcos storage device list
 ```
@@ -121,7 +121,7 @@ $ dcos storage device list --json
 ```
 
 
-List all devices on a given node.
+List all devices on a given node:
 ```bash
 $ dcos node
 ```
@@ -143,7 +143,7 @@ NODE                                     NAME   STATUS
 ```
 
 ## <a name="dcos-storage-provider"></a>dcos storage provider
-This command manage volume providers.
+This command is used to manage volume providers.
 
 A volume provider manages storage capacity offered by a CSI plugin to the DC/OS cluster through a DC/OS Storage Plugin. A DC/OS Storage Plugin consists of a CSI plugin along with some glue that integrates it into DC/OS. A volume provider that specifies it's plugin as 'lvm' is referred to as a 'lvm' volume provider.
 
@@ -272,7 +272,7 @@ This command manages volume profiles.
 
 A volume profile represents volumes based on volume provider or volume parameters and labels. For example, if you want to differentiate between HDDs and SSDs for different purposes, you can create a "fast" volume profile that identifies your SSDs and a "slow" volume profile that identifies your HDDs. If your framework, say Cassandra, distinguishes between "cache" and "archive" storage you can then configure it to map your "fast" volume profile to Cassandra's "cache" storage and your "slow" volume profile to Cassandra's "archive" storage.
 
-### create
+### Create
 
 Because agents and volumes can come and go in a distributed system it may be difficult to ensure a change or delete operation has completed successfully. For this reason profiles cannot be changed once they have been created (i.e., they are immutable) and they also cannot be removed.
 
@@ -300,7 +300,7 @@ If the 'spec.block' field is specified volumes created using the profile will pr
 
 If the 'spec.mount' field is specified volumes created using the profile will be formatted with a filesystem and will present as a mounted filesystem to your application. The 'spec.mount' field value is a nested object with a single, optional field called 'filesystem'. If 'spec.mount.filesystem' is specified volumes will be formatted with the specified filesystem. If it is not specified volumes will be formatted with the default filesystem. The examples illustrate all three possibilities.
 
-NOTE: block volume is currently not supported.
+**Note:** Block volume is currently not supported.
 
 ### Usage
 ```bash
@@ -385,7 +385,7 @@ $ cat <<EOF | dcos storage profile create
 }
 EOF
 ```
-### list
+### List
 
 This sub-command lists volume profiles.
 
@@ -470,7 +470,7 @@ There are two kinds of volume:
 1. A block volume - This presents as a raw device file to your Mesos tasks. 
 2. A mount volume - This presents as a mounted filesystem visible to your Mesos tasks.
 
-**NOTE:** A block volume, which does not have a filesystem, is currently not supported.
+**Note:** A block volume, which does not have a filesystem, is currently not supported.
 
 ### Create
 

@@ -12,7 +12,7 @@ The tutorials in this section, covers a use case for using DSS to manage local d
 
 ## Manage local disks using LVM
 
-Prerequisites
+**Prerequisites**
 - DSS and it's CLI are installed. You can follow the instructions <a href="https://docs.google.com/document/d/1MZ7ARRAs_lmXo94h28-wCPqsqA9xDwMPSLgN7_5n84w/edit#heading=h.fdp2lkmww0z8">here</a>.
 - At least one DC/OS agent node.
 - Some unused RAW devices available on the agent node.
