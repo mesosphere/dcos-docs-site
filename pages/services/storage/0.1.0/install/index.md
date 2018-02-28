@@ -45,7 +45,7 @@ Next Steps
 ==========
 
 1. Push the docker image 'user/storage-artifacts:<SHA>'
-:; docker push jieyu/storage-artifacts:<SHA>
+:; docker push user/storage-artifacts:<SHA>
 
 2. Run the following marathon app in your cluster
 :; dcos marathon app add /dev/stdin <<EOF
@@ -57,7 +57,7 @@ Next Steps
   "container": {
     "type": "MESOS",
     "docker": {
-      "image": "jieyu/storage-artifacts:<SHA>",
+      "image": "user/storage-artifacts:<SHA>",
       "forcePullImage": true
     },
     "portMappings": [
@@ -88,7 +88,7 @@ EOF
 Follow the instructions and push the docker image to a docker registry that is accessible in the cluster.
 
 ```bash
-$ docker push jieyu/storage-artifacts:<SHA>
+$ docker push user/storage-artifacts:<SHA>
 ```
 
 # Launch the local universe and artifacts server
@@ -105,7 +105,7 @@ $ cat <<EOF | dcos marathon app add /dev/stdin
   "container": {
     "type": "MESOS",
     "docker": {
-      "image": "jieyu/storage-artifacts:<SHA>",
+      "image": "user/storage-artifacts:<SHA>",
       "forcePullImage": true
     },
     "portMappings": [
