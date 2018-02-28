@@ -6,7 +6,7 @@ navigationTitle: Azure
 menuWeight: 1
 ---
 
-This document explains how to install DC/OS 1.10 using the Azure Resource Manager templates.
+This document explains how to install DC/OS 1.11 using the Azure Resource Manager templates.
 
 **Tip:** To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
 
@@ -30,7 +30,7 @@ Also, to access nodes in the DC/OS cluster you will need `ssh` installed and con
 
 ## Step 1: Deploying the template
 
-To install DC/OS 1.10 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
+To install DC/OS 1.11 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
 
 Some notes of the template configuration is below,
 
@@ -123,7 +123,7 @@ The following commands can be used to run the DC/OS CLI directly on the master n
 ssh azureuser@$MASTERFQDN
 
 # Install CLI on the master node and configure with http://localhost
-curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.10/dcos -o dcos &&
+curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.11/dcos -o dcos &&
 sudo mv dcos /usr/local/bin &&
 sudo chmod +x /usr/local/bin/dcos &&
 dcos cluster setup http://localhost &&

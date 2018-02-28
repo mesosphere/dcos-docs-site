@@ -147,7 +147,7 @@ zk_agent_credentials: 'dcos-agent:<long, random string>'
 
 # <a name="examples1"></a>Example Configurations
 
-## DC/OS cluster with three masters, five private agents, and Exhibitor/ZooKeeper managed internally
+### DC/OS cluster with three masters, five private agents, and Exhibitor/ZooKeeper managed internally
 
 ```yaml
 ---
@@ -176,7 +176,7 @@ ssh_port: '<port-number>'
 ssh_user: <username>
 ```
 
-## <a name="aws"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by an AWS S3 bucket, five private agents, and one public agent node
+### <a name="aws"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by an AWS S3 bucket, five private agents, and one public agent node
 
 ```yaml
 ---
@@ -210,7 +210,7 @@ ssh_port: '<port-number>'
 ssh_user: <username>
 ```
 
-## <a name="zk"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by ZooKeeper, masters that have an HTTP load balancer in front of them, one public agent node, five private agents, and Google DNS
+### <a name="zk"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by ZooKeeper, masters that have an HTTP load balancer in front of them, one public agent node, five private agents, and Google DNS
 
 ```yaml
 ---
@@ -242,7 +242,7 @@ ssh_port: '<port-number>'
 ssh_user: <username>
 ```
 
-## <a name="overlay"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, two DC/OS virtual networks, two private agents, and Google DNS
+### <a name="overlay"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, two DC/OS virtual networks, two private agents, and Google DNS
 
 ```yaml
 agent_list:
@@ -278,7 +278,7 @@ dcos_overlay_network:
       prefix: 24
 ```
 
-## <a name="http-proxy"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, a custom HTTP proxy, two private agents, and Google DNS
+### <a name="http-proxy"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, a custom HTTP proxy, two private agents, and Google DNS
 
 ```yaml
 agent_list:
@@ -307,7 +307,7 @@ no_proxy:
 - '.baz.com'
 ```
 
-## <a name="docker-credentials"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, custom Docker credentials, two private agents, and Google DNS
+### <a name="docker-credentials"></a>DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, custom Docker credentials, two private agents, and Google DNS
 
 ```yaml
 agent_list:
@@ -338,7 +338,7 @@ ssh_port: 22
 ssh_user: centos
 ```
 
-## <a name="cosmos-config"></a>DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and DC/OS Package Manager (Cosmos) configured with persistent storage
+### <a name="cosmos-config"></a>DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and DC/OS Package Manager (Cosmos) configured with persistent storage
 
 ```yaml
 agent_list:
@@ -363,7 +363,7 @@ cosmos_config:
   package_storage_uri: file:///var/lib/dcos/cosmos/packages
 ```
 
-## <a name="custom-checks"></a>DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and custom health checks defined for:
+### <a name="custom-checks"></a>DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and custom health checks defined for:
  
 - A user Marathon instance (`user-marathon-on-marathon`) 
 - Local mounts on masters (`master-mounts`)
