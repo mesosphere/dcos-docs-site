@@ -82,16 +82,16 @@ $ dcos storage volume list [flags]
 
 ## Examples
 
-List all volumes:
+List all volumes.
 
 ```bash
 $ dcos storage volume list
-NODE                                       NAME          SIZE  STATUS
-2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0    my-volume-1   100G  ONLINE
-2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0    my-archive-1  200G  ONLINE
+NODE                                     NAME         SIZE    STATUS
+c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1  my-volume-1  1024M   ONLINE
+c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1  my-volume-2  10240M  ONLINE
 ```
 
-List all volumes in JSON format:
+List all volumes in JSON format.
 
 ```bash
 $ dcos storage volume list --json
@@ -99,22 +99,22 @@ $ dcos storage volume list --json
     "volumes": [
         {
             "name": "my-volume-1",
-            "capacity-mb": 100000,
+            "capacity-mb": 1024,
             "profile": "fast",
             "status": {
                 "state": "ONLINE",
-                "node": "2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0",
+                "node": "c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1",
                 "last-changed": "0001-01-01T00:00:00Z",
                 "last-updated": "0001-01-01T00:00:00Z"
             }
         },
         {
-            "name": "my-archive-1",
-            "capacity-mb": 200000,
-            "profile": "archive",
+            "name": "my-volume-2",
+            "capacity-mb": 10240,
+            "profile": "fast",
             "status": {
                 "state": "ONLINE",
-                "node": "2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0",
+                "node": "c67efa5d-34fa-4bc5-8b21-2a5e0bd52385-S1",
                 "last-changed": "0001-01-01T00:00:00Z",
                 "last-updated": "0001-01-01T00:00:00Z"
             }
