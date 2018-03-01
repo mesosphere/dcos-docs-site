@@ -207,7 +207,7 @@ You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 
 # Interoperability Matrix
  
-You can see the supported version of CoreOS and RHEL [here](https://docs.mesosphere.com/version-policy/).
+You can see the matrix for the certified packages [here](https://gist.github.com/ToddGreenstein/3f4601ec0bae5a0355ccdc0bcd516547).
 
 
 # Next steps
