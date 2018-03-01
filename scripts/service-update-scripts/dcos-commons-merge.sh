@@ -61,6 +61,7 @@ git clone --depth 1 --branch $branch $REPO_URL
 # Omit any 'beta-' prefix from package name when getting dcos-commons path:
 # (shellcheck: '^beta-' not supported by ${var//search/replace})
 # shellcheck disable=SC2001
+
 framework=$(echo "$package" | sed 's/^beta-//g')
 input_framework_docs_dir=$REPO_NAME/frameworks/${framework}/docs
 
@@ -153,30 +154,38 @@ mangle_content_file() {
 
     # Link/image url hacks:
 
+    echo "1"
     # Remove https://docs.mesosphere.com from links (use , as sed delim)
-    sed -i 's,https://docs.mesosphere.com/,/,g' "$target"
+    sed -i '' 's,https://docs.mesosphere.com/,/,g' "$target"
 
+    echo "2"
     # Update template image urls: /dcos-commons/img/services/ => services/include/img/ (use , as sed delim)
-    sed -i 's,/dcos-commons/img/services/,/services/include/img/,g' "$target"
+    sed -i '' 's,/dcos-commons/img/services/,/services/include/img/,g' "$target"
 
+    echo "3"
     # Update service image urls: /dcos-commons/services/$framework/img/ => /services/$package/$version/img/ (use , as sed delim)
-    sed -i "s,/dcos-commons/services/$framework/img/,/services/$package/$version/img/,g" "$target"
+    sed -i '' "s,/dcos-commons/services/$framework/img/,/services/$package/$version/img/,g" "$target"
+
 
     # Jekyll templating hacks for service .md files:
 
+    echo "4"
     # Remove {% assign data = site.data.services.svcname %}
-    sed -i 's/{% assign .* %}$//g' "$target"
+    sed -i '' 's/{% assign .* %}$//g' "$target"
 
+    echo "5"
     # Replace {% include services/foo.md data=data %} => #include /services/include/foo.tmpl (use , as sed delim)
-    sed -i 's,{% include services/\(.*\)\.md .*%},#include /services/include/\1.tmpl,g' "$target"
+    sed -i '' 's,{% include services/\(.*\)\.md .*%},#include /services/include/\1.tmpl,g' "$target"
 
+    echo "6"
     # Replace {{ data.foo }} => {{ model.foo }} (THIS MUST HAPPEN AFTER include.data.foo ABOVE)
-    sed -i 's/{{ \?data\.\([^ ]*\) \?}}/{{ model.\1 }}/g' "$target"
+    sed -i '' 's/{{ \?data\.\([^ ]*\) \?}}/{{ model.\1 }}/g' "$target"
 
     # Jekyll templating hacks for common .tmpl files:
 
+    echo "7"
     # Replace {{ include.data.foo }} => {{ model.foo }}
-    sed -i 's/{{ \?include\.data\.\([^ ]*\) \?}}/{{ model.\1 }}/g' "$target"
+    sed -i '' 's/{{ \?include\.data\.\([^ ]*\) \?}}/{{ model.\1 }}/g' "$target"
 
     #diff $original $target || true
     mv "$target" "$original"
@@ -196,11 +205,11 @@ for filepath in $(find "$output_template_dir" -iname "*.tmpl"); do
 done
 
 # Update packageName in data.yml (including or omitting beta- prefix)
-sed -i "s/packageName:.*/packageName: $package/g" "$output_yml_data_filepath"
+sed -i '' "s/packageName:.*/packageName: $package/g" "$output_yml_data_filepath"
 
 # Add title/version information to latest index file
-sed -i "s/navigationTitle:.*/navigationTitle: $title $version/g" "${output_package_version_dir}/index.md"
-sed -i "s/title:.*/title: $title $version/g" "${output_package_version_dir}/index.md"
+sed -i '' "s/navigationTitle:.*/navigationTitle: $title $version/g" "${output_package_version_dir}/index.md"
+sed -i '' "s/title:.*/title: $title $version/g" "${output_package_version_dir}/index.md"
 
 echo "------------------------------"
 echo " $title $version merge complete"
