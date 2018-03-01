@@ -18,7 +18,7 @@ The tutorials in this section, covers a use case for using DSS to manage local d
 
 ## Get started
 
-1. Get the node id of the agent.
+1. Get the node ID of the agent.
 
 ```bash
 $ dcos node
@@ -61,7 +61,6 @@ $ cat <<EOF | dcos storage provider create
     }
 }
 EOF
-$
 ```
 
 4. Create a volume profile `fast` for mount volumes that will match the created LVM volume provider.
@@ -85,14 +84,12 @@ $ cat <<EOF | dcos storage profile create
     }
 }
 EOF
-$
 ```
 
 5. Create a 1G volume named `my-volume-1` of profile `fast`.
 
 ```bash
 $ dcos storage volume create my-volume-1 1G fast
-$
 ```
 
 6. Launch a Marathon app requesting a 1G persistent volume with profile `fast`.
@@ -184,5 +181,4 @@ Once the volume is created, the above Marathon app will change to `Running` stat
 
 ```bash
 $ dcos storage volume create my-volume-2 10G fast
-$
 ```
