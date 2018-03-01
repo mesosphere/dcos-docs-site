@@ -29,6 +29,7 @@ Shortlist:
 
 ## Known Limitations
 
+* The Edge-LB v0.1.9 CLI requires that all pool definitions are contained within a single YAML or JSON file. Pools cannot be configured independently because of this limitation.
 * Edge-LB does not currently support `Disabled` security mode.
 * Edge-LB does not currently support `Strict` security mode.
 * Edge-LB does not currently support upgrades between versions.
