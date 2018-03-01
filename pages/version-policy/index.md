@@ -7,7 +7,7 @@ excerpt:
 --- 
 # Mesosphere DC/OS Feature Maturity Lifecycle and Version Compatibility Matrix
 
-The purpose of this document is to provide guidance and education for Mesosphere customers, partners, users, and operators of Mesosphere DC/OS about Mesosphere's feature lifecycle model and the maturity of a given feature within that model.  The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
+The purpose of this document is to provide guidance and education for Mesosphere customers, partners, users, and operators of Mesosphere DC/OS about Mesosphere's feature lifecycle model, the maturity of a given feature within that model, and modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
 
 ## Feature Lifecycle
 
@@ -41,7 +41,7 @@ A feature that is Generally Available (GA), is recommended to be used by all con
 
 <ol>
 <li>Ready for testing, evaluation, application development and production usage by the customer.</li>
-<li>Feature may be continued to be enhanced and bugs or defects resolved.</li>
+<li>Features may be continued to be enhanced and defects resolved until EOL.</li>
 <li>API modifications will be under version control (V1, V2, etc).</li>
 <li>For customers of DC/OS Enterprise, feedback and support should go through the methods outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>.</li>
 <li>For customers of DC/OS Open, feedback should go through <a href="https://dcos.io/community/">Community channels</a>.</li>
@@ -234,6 +234,13 @@ B- This package combination is *beta*.
     	<td><img src="/1.11/img/open-o.png"></img></td>
     	<td><img src="/1.11/img/open-o.png"></img></td>
     	<td><img src="/1.11/img/open-o.png"></img></td>
+    </tr>
+      <tr>
+        <td>Kubernetes 1.0.x-*/td>
+        <td><img src="/1.11/img/closed-o.png"></img></td>
+        <td><img src="/1.11/img/open-o.png"></img></td>
+        <td><img src="/1.11/img/open-o.png"></img></td>
+        <td><img src="/1.11/img/open-o.png"></img></td>
     </tr>
      <tr>
     	<td>Confluent-Kafka 2.1.x-3.3.x</td>
