@@ -11,7 +11,7 @@ enterprise: true
 
 # Hardware Prerequisites
 
-You must have a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
+You must have a single Bootstrap node, Mesos master nodes, and Mesos agent nodes.
 
 ## Bootstrap node
 
@@ -26,7 +26,7 @@ The cluster nodes are designated Mesos masters and agents during installation.
 
 ### Master nodes
 
-Here are the master node hardware requirements.
+ The below table represents the master node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
@@ -37,7 +37,10 @@ Here are the master node hardware requirements.
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
 
-There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following: 
+There are many mixed workloads on the masters.<br>
+An example: Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. 
+
+Thus, the following hardwares are recommended: 
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
@@ -45,7 +48,7 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 
 ### Agent nodes
 
-Here are the agent node hardware requirements.
+The below table represents the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
@@ -201,6 +204,11 @@ On each of your cluster nodes, use the following command to:
     
 ### Locale requirements
 You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.    
+
+# Interoperability Matrix
+ 
+You can see the supported version of CoreOS and RHEL [here](https://docs.mesosphere.com/version-policy/).
+
 
 # Next steps
 
