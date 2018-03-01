@@ -236,7 +236,7 @@ B- This package combination is *beta*.
     	<td><img src="/1.11/img/open-o.png"></img></td>
     </tr>
       <tr>
-        <td>Kubernetes 1.0.x-*/td>
+        <td>Kubernetes 1.0.x-*</td>
         <td><img src="/1.11/img/closed-o.png"></img></td>
         <td><img src="/1.11/img/open-o.png"></img></td>
         <td><img src="/1.11/img/open-o.png"></img></td>
