@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: CLI References
-title: CLI References
+navigationTitle: dcos storage volume
+title: dcos storage volume
 menuWeight: 40
 excerpt:
 ---

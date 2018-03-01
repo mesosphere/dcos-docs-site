@@ -82,7 +82,7 @@ EOF
 :; dcos package repo add storage-artifacts-<SHA> http://storage-artifacts<SHA>.marathon.l4lb.thisdcos.directory:10000/repo.json --index=0
 
 4. Install the package
-:; dcos package install storage --package-version=<VERSION>
+:; dcos package install beta-storage --package-version=<VERSION>
 ```
 
 Follow the instructions and push the newly built docker image to a docker registry accessible in the cluster.
@@ -141,7 +141,7 @@ When the above step is successful, install the DSS package by using the below co
 This command will install the DC/OS storage sub-command.
 
 ```bash
-$ dcos package install storage --package-version=<VERSION>
+$ dcos package install beta-storage --package-version=<VERSION>
 ```
 
 # Verify that the DSS is running

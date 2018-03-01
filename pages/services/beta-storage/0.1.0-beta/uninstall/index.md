@@ -11,7 +11,7 @@ excerpt:
 You can simply uninstall the DSS using the following command:
 
 ```bash
-$ dcos package uninstall storage
+$ dcos package uninstall beta-storage
 ```
 
 # Uninstall the local universe
