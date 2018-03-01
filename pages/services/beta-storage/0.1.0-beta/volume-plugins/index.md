@@ -52,7 +52,7 @@ In this case the devices field declares that the `/dev/xvdb` and `/dev/xvdc` dev
         "node": "2aada917-0ba0-4041-bb1e-4f16a57cd1a0-S0",
         "plugin-configuration": {
             "devices": ["xvdb", "xvdc"]
-        }
+        },
         "labels": {"rotational": "false"}
     }
 }
