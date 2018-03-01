@@ -198,7 +198,7 @@ Cloud provider storage services are typically used to back DC/OS mount volumes. 
 * Label Mesos agents using a Mesos attribute that reflects the characteristics of the agent's disk mounts, e.g. IOPS200, RAID1, etc.
 * Associate stateful services with storage agents using Mesos Attribute constraints.
 * Consider isolating demanding storage services to dedicated storage agents, since the filesystem page cache is a host-level shared resource.
-* Ensure all services using `Mount` disk resources are designed handle the permanent loss of one or more `Mount` disk resources. Services are still responsible for managing data replication and retention, graceful recovery from failed agents, and backups of critical service state.
+* Ensure all services using `Mount` disk resources are designed to handle the permanent loss of one or more `Mount` disk resources. Services are still responsible for managing data replication and retention, graceful recovery from failed agents, and backups of critical service state.
 
 [1]: http://mesos.apache.org/documentation/latest/multiple-disk/
 [2]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html
