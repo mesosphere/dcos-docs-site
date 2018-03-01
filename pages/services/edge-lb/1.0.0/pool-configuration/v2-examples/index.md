@@ -325,6 +325,50 @@ To direct traffic based on the hostname to multiple backends for a single port (
 }
 ```
 
+# Weighted Backend Servers
+
+To add relative weights to backend servers, use the `pool.haproxy.backend.service.endpoint.miscStr` field. In the example below, the `/app-v1` service will receive 20 out of every 30 requests, and `/app-v2` will receive the remaining 10 out of every 30 requests. The default weight is 1, and the max weight is 256.
+
+This approach can be used to implement some canary or A/B testing use cases.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "app-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "default"
+      }
+    }],
+    "backends": [{
+      "name": "default",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/app-v1"
+        },
+        "endpoint": {
+          "portName": "web",
+          "miscStr": "weight 20"
+        }
+      },{
+        "marathon": {
+          "serviceID": "/app-v2"
+        },
+        "endpoint": {
+          "portName": "web",
+          "miscStr": "weight 10"
+        }
+      }]
+    }]
+  }
+}
+```
+
 # SSL/TLS certificates
 
 There are 3 different ways to get and use a certificate:
