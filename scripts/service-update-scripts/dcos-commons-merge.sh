@@ -29,7 +29,7 @@ title=$3
 if [ -z "$title" ]; then syntax; fi
 
 echo "------------------------------"
-echo " Merging $package from dcos-commons"
+echo " Merging $package from ${REPO_NAME}"
 echo "------------------------------"
 
 # Determine if the package is a beta or not
@@ -49,6 +49,23 @@ else
     fi
 fi
 
+# "sed -i" has mutually independent syntax depending on platform:
+# - Linux: "sed -i <cmd> <file>"
+# - OSX: "sed -i '' <cmd> <file>"
+platform="$(uname)"
+case "$platform" in
+    "Linux")
+        SED_INPLACE="sed -i"
+    ;;
+    "Darwin")
+        SED_INPLACE="sed -i ''"
+    ;;
+    *)
+        echo "Unsupported platform: '$platform'"
+        exit 1
+    ;;
+esac
+
 # Go to dcos-docs-site root directory
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${SCRIPT_DIR}"/../..
@@ -61,6 +78,7 @@ git clone --depth 1 --branch $branch $REPO_URL
 # Omit any 'beta-' prefix from package name when getting dcos-commons path:
 # (shellcheck: '^beta-' not supported by ${var//search/replace})
 # shellcheck disable=SC2001
+
 framework=$(echo "$package" | sed 's/^beta-//g')
 input_framework_docs_dir=$REPO_NAME/frameworks/${framework}/docs
 
@@ -154,29 +172,30 @@ mangle_content_file() {
     # Link/image url hacks:
 
     # Remove https://docs.mesosphere.com from links (use , as sed delim)
-    sed -i 's,https://docs.mesosphere.com/,/,g' "$target"
+    $SED_INPLACE 's,https://docs.mesosphere.com/,/,g' "$target"
 
     # Update template image urls: /dcos-commons/img/services/ => services/include/img/ (use , as sed delim)
-    sed -i 's,/dcos-commons/img/services/,/services/include/img/,g' "$target"
+    $SED_INPLACE 's,/dcos-commons/img/services/,/services/include/img/,g' "$target"
 
     # Update service image urls: /dcos-commons/services/$framework/img/ => /services/$package/$version/img/ (use , as sed delim)
-    sed -i "s,/dcos-commons/services/$framework/img/,/services/$package/$version/img/,g" "$target"
+    $SED_INPLACE "s,/dcos-commons/services/$framework/img/,/services/$package/$version/img/,g" "$target"
+
 
     # Jekyll templating hacks for service .md files:
 
     # Remove {% assign data = site.data.services.svcname %}
-    sed -i 's/{% assign .* %}$//g' "$target"
+    $SED_INPLACE 's/{% assign .* %}$//g' "$target"
 
     # Replace {% include services/foo.md data=data %} => #include /services/include/foo.tmpl (use , as sed delim)
-    sed -i 's,{% include services/\(.*\)\.md .*%},#include /services/include/\1.tmpl,g' "$target"
+    $SED_INPLACE 's,{% include services/\(.*\)\.md .*%},#include /services/include/\1.tmpl,g' "$target"
 
     # Replace {{ data.foo }} => {{ model.foo }} (THIS MUST HAPPEN AFTER include.data.foo ABOVE)
-    sed -i 's/{{ \?data\.\([^ ]*\) \?}}/{{ model.\1 }}/g' "$target"
+    $SED_INPLACE 's/{{ \?data\.\([^ ]*\) \?}}/{{ model.\1 }}/g' "$target"
 
     # Jekyll templating hacks for common .tmpl files:
 
     # Replace {{ include.data.foo }} => {{ model.foo }}
-    sed -i 's/{{ \?include\.data\.\([^ ]*\) \?}}/{{ model.\1 }}/g' "$target"
+    $SED_INPLACE 's/{{ \?include\.data\.\([^ ]*\) \?}}/{{ model.\1 }}/g' "$target"
 
     #diff $original $target || true
     mv "$target" "$original"
@@ -196,11 +215,11 @@ for filepath in $(find "$output_template_dir" -iname "*.tmpl"); do
 done
 
 # Update packageName in data.yml (including or omitting beta- prefix)
-sed -i "s/packageName:.*/packageName: $package/g" "$output_yml_data_filepath"
+$SED_INPLACE "s/packageName:.*/packageName: $package/g" "$output_yml_data_filepath"
 
 # Add title/version information to latest index file
-sed -i "s/navigationTitle:.*/navigationTitle: $title $version/g" "${output_package_version_dir}/index.md"
-sed -i "s/title:.*/title: $title $version/g" "${output_package_version_dir}/index.md"
+$SED_INPLACE "s/navigationTitle:.*/navigationTitle: $title $version/g" "${output_package_version_dir}/index.md"
+$SED_INPLACE "s/title:.*/title: $title $version/g" "${output_package_version_dir}/index.md"
 
 echo "------------------------------"
 echo " $title $version merge complete"
