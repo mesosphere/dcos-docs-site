@@ -6,12 +6,12 @@ menuWeight: 70
 excerpt:
 ---
 
-The Container Storage Interface (CSI) is an open specification developed by various container orchestrators through interaction with the open source community and storage vendors.
+The Container Storage Interface (CSI) is an open specification developed by multiple container orchestrators through interaction with the open source community and storage vendors.
 Different CSI plugins expose CSI-compliant APIs on top of existing storage solutions such as those provided by storage vendors (e.g., Amazon EBS) and technologies like LVM2.
 
-In order to provide a smooth configuration experience with DC/OS every CSI plugin you want to use, requires a small bit of plugin-specific config code to be loaded by the DSS.
+Currently, DSS incorporates some amount of plugin-specific code in order to achieve a seamless user experience with CSI-backed storage on DC/OS.
 This code combined with the CSI plugin itself, is called a Volume Plugin.
-In the future we hope to bundle a generic one with the DSS so any CSI plugin can be used.
+The long term vision is that DSS will not require such plugin-specific code, and will natively integrate with any CSI plugin without additional coding effort.
 
 All volume providers share some common configuration options.
 However, the plugin-configuration section of a volume provider's configuration is specific to the volume provider's plugin.
@@ -32,7 +32,7 @@ The LVM plugin admits a single configuration option in the plugin-configuration 
 
 ## `devices`
 
-An array of device names relative to the Linux /dev directory.
+An array of device names relative to the Linux `/dev` directory.
 These devices must be present on the node that the provider is configured on.
 They must not contain a leading slash.
 
