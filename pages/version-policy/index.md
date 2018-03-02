@@ -11,7 +11,7 @@ The purpose of this document is to provide guidance and education for Mesosphere
 
 ## DC/OS Version Lifecycle
 
-Mesosphere tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#compatibility-matrix). This testing is provided in the DC/OS Platform Interoperability Matrix and support for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>. 
+Mesosphere tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#compatibility-matrix). This testing is provided in the DC/OS Platform Interoperability Matrix. Support services for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>. 
 
 ### Versioning Definitions
 
@@ -22,7 +22,7 @@ Mesosphere tests DC/OS Enterprise with specific components and operating systems
 
 ### Version Lifecycle
 
-Mesosphere shall provide support for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS.  While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification.  Thus, Mesosphere shall support those versions of DC/OS that are either the current, N, or up to two (2) minor versions behind. 
+Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS.  While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification.  Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two (2) minor versions behind. 
 The *Examples* follow:
 
 * **Major Version**: Upon the availability of a new DC/OS major version, 2.0.0, maintenance versions prior to (N-2) minor versions of the previous (N-1) major release would not be supported.  Major Versions also count towards advancing the Minor number version. Thus,, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
@@ -33,7 +33,8 @@ The *Examples* follow:
 
 <a name="compatibility-matrix"></a>**DC/OS Platform** Version Compatibility Matrix
 
-The below matrix provides guidance as to which Platform components and Operating environments are tested to run DC/OS on.  Customers that are running DC/OS on non-supported Platform components should upgrade to a supported component.
+The below matrix provides guidance as to which Platform components and Operating environments are tested to run DC/OS on. Customers that are running DC/OS on non-supported Platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
+
 
 
 |Display Icon | Service |
@@ -114,7 +115,7 @@ Mesosphere maintains and certifies several packages for DC/OS.
 
 ### Base Technology
 
-Mesosphere does not offer support for the base technology (e.g. Jenkins). The base technology version is denoted as the second version in the package number (e.g. 1.2.3-4.5.6).
+Mesosphere does not offer support service for the base technology (e.g. Jenkins). The base technology version is denoted as the second version in the package number (e.g. 1.2.3-4.5.6).
 
 ### Certified Package Designations
 
@@ -431,4 +432,4 @@ B- This package combination is *beta*.
 
 ### Footnotes
 
-1 - *Package maintained and technical support solely by DataStax Corporation*.
+1 - *Package maintained and technical support services solely by DataStax Corporation*.
