@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Beta Kubernetes 0.2.2-1.7.7-beta
-title: Beta Kubernetes 0.2.2-1.7.7-beta
-menuWeight: 60
+navigationTitle: Beta Kubernetes 0.6.1-1.9.3-beta
+title: Beta Kubernetes 0.6.1-1.9.3-beta
+menuWeight: 10
 excerpt:
-featureMaturity:
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
