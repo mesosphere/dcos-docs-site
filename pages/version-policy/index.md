@@ -52,7 +52,7 @@ The below matrix provides guidance as to which Platform components and Operating
     </tr>
     <tr> 
       <td>CoreOS Stable 1235.12.0</td>
-      <td><img src="/1.11/img/closed-o.png"></img> <br> Docker CD 17.05</td>
+      <td><img src="/1.11/img/closed-o.png"></img> <br> Docker CE 17.05</td>
       <td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
       <td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
@@ -76,9 +76,9 @@ The below matrix provides guidance as to which Platform components and Operating
     </tr>
      <tr>
     	<td>RHEL 7.4</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
+    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
+    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
+    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
     </tr>
     <tr>
     	<td>CentOS 7.3</td>
@@ -88,9 +88,9 @@ The below matrix provides guidance as to which Platform components and Operating
     </tr>
      <tr>
     	<td>CentOS 7.4</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
+    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
+    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
+    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
     </tr>
     <tr>
     <th><strong>Web Browser</strong></th>
@@ -115,7 +115,7 @@ Mesosphere maintains and certifies several packages for DC/OS.
 
 ### Base Technology
 
-Mesosphere does not offer support service for the base technology (e.g. Jenkins). The base technology version is denoted as the second version in the package number (e.g. 1.2.3-4.5.6).
+Mesosphere does not offer support services for the base technology (e.g. Jenkins). The base technology version is denoted as the second version in the package number (e.g. 1.2.3-4.5.6).
 
 ### Certified Package Designations
 
