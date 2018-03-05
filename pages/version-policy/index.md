@@ -43,7 +43,7 @@ The below matrix provides guidance as to which platform components and operating
 
 |Display Icon | Service |
 |---------- | ------- |
-|![Closed Circle](/1.11/img/closed-o.png)  | Supported |
+| ⚫| Supported |
 |    | Not Supported |
 
 
@@ -56,9 +56,9 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
     <tr> 
       <td>CoreOS Stable 1235.12.0</td>
-      <td><img src="/1.11/img/closed-o.png"></img> <br> Docker CE 17.05</td>
-      <td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-      <td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+      <td>⚫<br> Docker CE 17.05</td>
+      <td>⚫ <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+      <td>⚫</img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
     <tr>
     	<td>CoreOS Stable 835.13.0</td>
@@ -127,16 +127,16 @@ Services that are labeled as “Certified” have been tested by Mesosphere for 
 
 The designations are as follows:
 
-![Closed Circle](/1.11/img/closed-o.png)- This combination is tested and compatible with the specified version of DC/OS.
+⚫ - This combination is tested and compatible with the specified version of DC/OS.
 
 - This package is within the scope of our technical support organization.
 - This is package is eligible for bug fixes.
 
-![Half-Filled Circle](/1.11/img/half-filled-o.png)- This combination has been tested previously and should be compatible with the specified version of DC/OS.
+◒ - This combination has been tested previously and should be compatible with the specified version of DC/OS.
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
-![Open Circle](/1.11/img/open-o.png)- This package combination has not been tested.
+◯ - This package combination has not been tested.
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
