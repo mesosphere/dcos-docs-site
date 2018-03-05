@@ -63,53 +63,53 @@ The below matrix provides guidance as to which platform components and operating
     <tr>
     	<td>CoreOS Stable 835.13.0</td>
     	<td>                    </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
     <tr>
     	<td>RHEL 7.2</td>
     	<td>                    </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
      </tr>
      <tr>
     	<td>RHEL 7.3</td>
     	<td>                    </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
      <tr>
     	<td>RHEL 7.4</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
     </tr>
     <tr>
     	<td>CentOS 7.3</td>
     	<td>                    </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
      <tr>
     	<td>CentOS 7.4</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
     </tr>
     <tr>
     <th><strong>Web Browser</strong></th>
     </tr>
     <tr>
     	<td>Chrome</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     </tr>
     <tr>
     	<td>Firefox</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     </tr>
 </table>
 
@@ -155,282 +155,282 @@ B- This package combination is *beta*.
     </tr>
     <tr>
     	<td>Kafka 2.1.x-1.0.0</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Kafka 2.0.x-0.11.0</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
     	<td>◯</td>
     </tr>
     <tr>
     	<td>Kafka 2.0.x-1.0.0</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Kafka 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
       <tr>
         <td>Kubernetes 1.0.x-*</td>
-        <td><img src="/1.11/img/closed-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
+        <td>⚫</td>
+        <td>◯</td>
+        <td>◯</td>
+        <td>◯</td>
     </tr>
      <tr>
     	<td>Confluent-Kafka 2.1.x-3.3.x</td>
-        <td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+        <td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     	<td>◯</td>
     </tr>
     <tr>
     	<td>Confluent-Kafka 2.0.x-3.2.x</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>Confluent-Kafka 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
      <tr>
     	<td>Cassandra 2.1.x-3.0.15</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Cassandra 2.0.x-3.0.15</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>¹DataStax-DSE 2.1.x-*</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>¹DataStax-Ops 2.1.x-*</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     	<td>◯</td>
     </tr>
     <tr>
     	<td>¹DataStax-DSE 2.0.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
      <tr>
     	<td>¹DataStax-Ops 2.0.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>DSE 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>ElasticSearch 2.2.x-5.6.y</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     	<td>◯</td>
     </tr>
       <tr>
     	<td>ElasticSearch 2.1.x-5.6.y</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>ElasticSearch 2.0.x-5.6.y</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>HDFS 2.1.x-2.6.y</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     	<td>  </td>
     </tr>
      <tr>
     	<td>HDFS 2.0.x-2.6.y</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>HDFS 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 3.4.x-2.89.y</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 3.3.x-2.73.y</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 3.2.x-2.60.y</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
      <tr>
     	<td>Jenkins 3.1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
      <tr>
     	<td>Jenkins 3.0.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 2.1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 2.0.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>MoM (Marathon on Marathon) 1.6</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+        <td>◯</td>
+    	<td>◯</td>
+        <td>◯</td>
     </tr>
      <tr>
     	<td>MoM (Marathon on Marathon) 1.5</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Edge-LB 1.0.0</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Edge-LB 0.1.9</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Edge-LB 0.1.8</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Marathon-LB 1.11.x</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>    
      <tr>
     	<td>Marathon-LB 1.10.x</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr> 
       <tr>
     	<td>Marathon-LB 1.2.* 1.9.*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>Spark 2.1.x-2.2.y</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>   
     <tr>
     	<td>Spark 2.0.x-2.2.y</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>   
     <tr>
     	<td>Spark 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>Kafka-Zookeeper 2.0.x-3.4.11</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>   
 </table>
 
