@@ -34,11 +34,10 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 - DC/OS 1.11.0 supports the latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, consult the [Kubernetes on DC/OS changelog](https://docs.mesosphere.com/services/beta-kubernetes/0.4.0-1.9.0-beta).
 
 ### Platform
-- Fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
-- Linked clusters. A cluster link is a **unidirectional** relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using the DC/OS CLI. Once a link is set up you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
-- Integrated Remote Regions. Enables “bursting” to take advantage of ephemeral cloud compute resources. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
-- [Multi-Region Management](/1.11/deploying-services/fault-domain-awareness). Enables a DC/OS Cluster to span multiple datacenters, clouds and remote branches while providing a unified management and control cluster.
-- Decommission Node. Support for permanently decommissioning nodes enables easier maintenance and decommissioning “Spot” Cloud Instances after use allowing for immediate task rescheduling as opposed delayed task rescheduling.
+- Multi-region management - Enables a DC/OS Cluster to span multiple datacenters, clouds, and remote branches while providing a unified management and control cluster. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
+- Linked clusters - A cluster link is a **unidirectional** relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using the DC/OS CLI. Once a link is set up, you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
+- Fault domain awareness - Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
+- Decommission node - Support for permanently decommissioning nodes enables easier maintenance and decommissioning of “spot” cloud instances, allowing for immediate task rescheduling.
 - UCR
   - Support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
   - Support for Docker image pull secrets.
@@ -49,7 +48,7 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 [/enterprise]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single systemD unit called `dcos-net`. Please read the note on [networking software re-architecture](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- Configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). Please read the documentation for [dns_forward_zones](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
+- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand the usage of this parameter. 
 
 
 [enterprise]
@@ -80,7 +79,7 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 
 ## <a name="known-issues"></a>Known Issues and Limitations
 - DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
-- DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For alternative installation methods see: [installation documentation](https://docs.mesosphere.com/1.11/installing).
+- DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](https://docs.mesosphere.com/1.11/installing).
 - DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. 
 - DCOS_OSS-2132	- `dcos-log` does not handle the journald files rotation properly.
 - INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.
@@ -124,7 +123,7 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 - DCOS-20628 - `dcos-vault`: fix deadlock in go-zookeeper library.
 - DCOS-20676 - `csidevices`: fix lsblk parsing of empty string bool values.
 - DCOS-20679 - Make licensing handle a cluster license renewal for same major version during a config upgrade. [enterprise type="inline" size="small" /]
-- DCOS-20772 - Limit znode creation.
+- DCOS-20772 - Update znode creation scheme for storing license audit data.
 - DCOS-21000 - Release Marathon plugin with resource full auth bug fix.
 - DCOS-21045 - Update `dcos-cluster-linker` to not allow a self-link. [enterprise type="inline" size="small" /]
 - DCOS-21095 - Turn IPv6 overlay off in IPv4 environment.
