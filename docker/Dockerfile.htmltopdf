@@ -31,7 +31,7 @@ RUN apt-get update -qq
 
 RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55
 
-ADD https://github.com/ariya/phantomjs/releases/download/2.1.3/phantomjs /usr/bin/phantomjs
+ADD https://github.com/ariya/phantomjs/archive/2.1.3.tar.gz /usr/bin/phantomjs
 
 RUN chmod +x /usr/bin/phantomjs
 RUN mkdir -p /tmp/pdf
