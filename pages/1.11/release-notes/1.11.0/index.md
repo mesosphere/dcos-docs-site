@@ -12,13 +12,13 @@ These are the release notes for DC/OS 1.11.0.
 
 To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com).
 
-DC/OS 1.11 includes many new capabilities with a focus on:
+DC/OS 1.11 includes many new capabilities, with a focus on:
 - Managing clusters across multiple clouds
 - Production Kubernetes-as-a-service 
 - Enhanced data security
 - Updated data services
 
-Provide any feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
+Provide feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
 
 # Contents
 - [New Features and Capabilities](#new-features)
@@ -35,20 +35,18 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 
 ### Platform
 - Multi-region management - Enables a DC/OS Cluster to span multiple datacenters, clouds, and remote branches while providing a unified management and control cluster. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
-- Linked clusters - A cluster link is a **unidirectional** relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using the DC/OS CLI. Once a link is set up, you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
+- Linked clusters - A cluster link is a unidirectional relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using the DC/OS CLI. Once a link is set up, you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
 - Fault domain awareness - Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
-- Decommission node - Support for permanently decommissioning nodes enables easier maintenance and decommissioning of “spot” cloud instances, allowing for immediate task rescheduling.
+- Decommission node - Support for permanently decommissioning nodes makes it easier to manage “spot” cloud instances, allowing for immediate task rescheduling.
 - UCR
   - Support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
   - Support for Docker image pull secrets.
 
 ### Networking
-[enterprise]
-- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0)
-[/enterprise]
+- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0) [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
-- Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single systemD unit called `dcos-net`. Please read the note on [networking software re-architecture](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand the usage of this parameter. 
+- Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`. Please read the note on [networking software re-architecture](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
+- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand usage of this parameter. 
 
 
 [enterprise]
@@ -60,7 +58,7 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 
 ### Monitoring
 - The DC/OS metrics component now produces metrics in [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) format. [View the documentation](/1.11/metrics).
-- Unified Logging Endpoint to Collect Container (task) as well as System Component Logs.
+- Unified logging API that provides simple access to container (task) as well as system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/logging-v2/).
 
 ### Storage
 - DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/). [enterprise type="inline" size="small" /]
