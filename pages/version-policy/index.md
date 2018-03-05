@@ -15,22 +15,25 @@ Mesosphere tests DC/OS Enterprise with specific components and operating systems
 
 ### Versioning Definitions
 
-- **Major Versions** (**X**.y.z) are releases for providing major and minor features and improvements or optimizations to existing features. They incorporate all applicable Bug fixes made in earlier Major, Minor, and Maintenance versions.
+- **Major Versions** (**X**.y.z) are releases for providing major and minor features and improvements or optimizations to existing features. They incorporate all applicable bug fixes made in earlier Major, Minor, and Maintenance versions.
 - **Minor Version** (x.**Y**.z) are versions for delivering minor features, improvements or optimizations to existing features, and bug fixes. They incorporate all applicable bug fixes made in earlier Minor versions, and Maintenance versions.
-- **Maintenance Version** (x.y.**Z**) are versions for providing bug fixes that are highly impactful to a number of customers and who cannot wait for the next major or minor version. They incorporate all applicable bug fixes made in prior Maintenance versions.
+- **Maintenance Version** (x.y.**Z**) are versions for providing bug fixes that are highly impactful to a number of customers and who cannot wait for the next Major or Minor version. They incorporate all applicable bug fixes made in prior Maintenance versions.
 - **"End of Life (EOL)"** versions are no longer supported by Mesosphere, upgrading to a later version is highly recommended.
 
 ### Version Lifecycle
 
-Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS.  While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification.  Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two (2) minor versions behind. 
-The *Examples* follow:
+Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two (2) Minor versions behind. <br>
+ 
+ *Examples* follow:
 
-* **Major Version**: Upon the availability of a new DC/OS major version, 2.0.0, maintenance versions prior to (N-2) minor versions of the previous (N-1) major release would not be supported.  Major Versions also count towards advancing the Minor number version. Thus,, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
-   The - Minor Versions 1.10.2 (1.10.4 and - 2) and older would no longer be supported. 
+* **Major Version**: Upon the availability of a new DC/OS Major version, 2.0.0, Maintenance versions prior to (N-2) Minor versions of the previous (N-1) major release would not be supported. Major Versions also count towards advancing the Minor number version.<br>
+
+Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
+   - Minor Versions 1.10.2 (1.10.4 and - 2) and older would no longer be supported. 
    - Minor Versions 1.9.4 (1.9.4 and - 2) and older would no longer be supported.
-* **Minor Version**: Upon the availability of a new DC/OS minor version 1.11.0, minor versions prior to and including 1.8.0 will no longer be supported as (N-2) includes 1.11 (N), 1.10 (N-1) and 1.9 (N-2).
-* **Maintenance Version**: Upon the availability of DC/OS maintenance version 1.10.5, maintenance versions prior to and including 1.10.0 will no longer be supported as (N-4) includes 1.10.5 (N), 1.10.4 (N-1), 1.10.3 (N-2), 1.10.2 (N-3) and 1.10.1 (N-4).
-
+* **Minor Version**: Upon the availability of a new DC/OS Minor version 1.11.0, minor versions prior to and including 1.8.0 will no longer be supported as (N-2) includes 1.11 (N), 1.10 (N-1) and 1.9 (N-2).
+* **Maintenance Version**: Upon the availability of DC/OS Maintenance version 1.10.5, Maintenance versions prior to and including 1.10.0 will no longer be supported as (N-4) includes 1.10.5 (N), 1.10.4 (N-1), 1.10.3 (N-2), 1.10.2 (N-3) and 1.10.1 (N-4).
+w
 <a name="compatibility-matrix"></a>**DC/OS Platform** Version Compatibility Matrix
 
 The below matrix provides guidance as to which Platform components and Operating environments are tested to run DC/OS on. Customers that are running DC/OS on non-supported Platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
