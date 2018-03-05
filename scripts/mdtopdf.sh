@@ -28,62 +28,61 @@ function clean
 
 function main
 {
-   #cd $INPUT_FOLDER
+   # cd $INPUT_FOLDER
    while IFS= read -r -d '' SOURCE_FILE
    do
-     #Strip the input_folder from filepath, not to include it within output folder and Destination filename
+     # Strip the input_folder from filepath, not to include it within output folder and Destination filename
      local FILE_PATH=${SOURCE_FILE#$INPUT_FOLDER}
-     #Strip the filename and get only the full directory path for the file
+     # Strip the filename and get only the full directory path for the file
      local FILE_PATH="${FILE_PATH%/*}"
-     #Strip the first / or ./ from the beginning of file path
+     # Strip the first / or ./ from the beginning of file path
      local FILE_PATH="${FILE_PATH#*/}"
-     #Destination directory for pdf file
+     # Destination directory for pdf file
      local PDF_DEST_DIR="${OUTPUT_FOLDER}"/"${FILE_PATH}"
-     #Remove INPUT_FOLDER from filename
+     # Remove INPUT_FOLDER from filename
      local PDF_FILE_NAME="${SOURCE_FILE#$INPUT_FOLDER}"
-     #Remove leading ./ or / from filename, as find will output files with leading ./ or /
+     # Remove leading ./ or / from filename, as find will output files with leading ./ or /
      local PDF_FILE_NAME="${PDF_FILE_NAME#*/}"
-     #Replace all "/" characters in filename to "-" and append .pdf
+     # Replace all "/" characters in filename to "-" and append .pdf
      local PDF_FILE_NAME="${FILE_PATH//\//-}"
-     #Change file extension from .html to .pdf
+     # Change file extension from .html to .pdf
      local PDF_FILE_NAME="${PDF_FILE_NAME/%.md/.pdf}"
-     #For example if SOURCE_FILE=./build/1.10/cli/dcos-marathon-group-scale-index.html
-     #PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.p
-     #Make the Destination directory
+
+     # For example if SOURCE_FILE=./build/1.10/cli/dcos-marathon-group-scale-index.html
+     # PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.p
+     # Make the Destination directory
      mkdir -p "${PDF_DEST_DIR}"
 
-     # Find recursively all the directories whithin a folder
-     INPUT_FILES="$(find ${INPUT_FOLDER}/${FILE_PATH} -type d -depth)"
      # There is an index.md whithing every file
      FILE_NAME="index.md"
-     #We find the index.md per folder so the final pdf is organised per folder not natively recursive
-     for d in $INPUT_FILES
+
+    # We find the index.md per folder so the final pdf is organised per folder not natively recursive
+    while IFS= read -r SOURCE_FOLDERS
       do
+        # Target all the folder names
+        local d="$SOURCE_FOLDERS"
+        # Target all the files whithin the foler by the same name
         NEW_FILE="${d}/${FILE_NAME}"
-        if [ -f $NEW_FILE ]
+
+        if [ -f "${NEW_FILE}" ]
         then
-        # Create temporary file with all md content to send to pandoc // this avoids very long urls & long strings (Pandoc has a limit)
+          # Create temporary file with all md content to send to pandoc // this avoids very long urls & long strings (Pandoc has a string limit)
           TEMP_FILE=$(mktemp)
           TEMP_FILES="${TEMP_FILES} ${TEMP_FILE}"
-
-          cat ${NEW_FILE} >> ${TEMP_FILE}
+          cat "${NEW_FILE}" >> "${TEMP_FILE}"
         fi
-      done
+      # Find recursively all the directories whithin a folder
+      done < <(find "${INPUT_FOLDER}"/"${FILE_PATH}" -type d -depth)
 
       # Fix for all absolute url's to be relative
-      RANGE=[-0-9A-Za-z/_.]
-      #sed -i 's,[^-0-9A-Za-z_.]/\('"$RANGE"'*\.png\),\1,g;s,/\('"$RANGE"'*\.jpg\),\1,g;s,/\('"$RANGE"'*\.jpeg\),\1,g;s,/\('"$RANGE"'*\.gif\),\1,g;s,/\('"$RANGE"'*\.svg\),\1,g' ${TEMP_FILE}
-      #sed -i 's,../,,' ${TEMP_FILE}
-     sed -i 's,/\([-0-9A-Za-z/_.]*\.png\),\1,g;s,/\([-0-9A-Za-z/_.]*\.jpg\),\1,g;s,/\([-0-9A-Za-z/_.]*\.jpeg\),\1,g;s,/\([-0-9A-Za-z/_.]*\.gif\),\1,g;s,/\([-0-9A-Za-z/_.]*\.svg\),..\1,g' ${TEMP_FILE}
+      sed -i 's,/\([-0-9A-Za-z/_.]*\.png\),\1,g;s,/\([-0-9A-Za-z/_.]*\.jpg\),\1,g;s,/\([-0-9A-Za-z/_.]*\.jpeg\),\1,g;s,/\([-0-9A-Za-z/_.]*\.gif\),\1,g;s,/\([-0-9A-Za-z/_.]*\.svg\),..\1,g' ${TEMP_FILE}
 
-     # Unicode characters to avoid
+     # Unicode characters to encode into UTF8.
      CHARS=$(python -c 'print u"\u2060\u0080\u0099\u009C\u009d\u0098\u0094\u0082\u00a6\u0089\u00a4\u00a5\u0093".encode("utf8")')
-     sed -i 's/['"$CHARS"']//g' ${TEMP_FILE}
+     sed -i 's/['"$CHARS"']//g' "${TEMP_FILE}"
 
-
-     # iconv -f UTF-8 -t UTF-8 -c --output=${TEMP_FILE} ${TEMP_FILE}
      # Pandoc gets the string of files and outputs the pdf.
-     echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+      echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
@@ -95,8 +94,7 @@ function main
   echo "Starting pdf build $(date)"
   cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"
   echo "Finished build $(date)"
-  echo $TEMP_FILES
-  # rm -f "${TEMP_FILES}"
+  echo "${TEMP_FILES}"
 }
 
 clean "${OUTPUT_FOLDER}"

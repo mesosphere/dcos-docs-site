@@ -24,7 +24,7 @@ build-redirects:
 
 #
 # Build
-#do
+#
 
 build-development: build-api
 	npm run dev
@@ -34,9 +34,7 @@ build-development: build-api
 #
 
 build-pdf-production:
-	# currently set up for folder 1.7
-	# substitute 1.7, by any other version folder to fix urls/long strings.
-	./scripts/mdtopdf.sh ./pages/1.7 ./build-pdf
+	./scripts/mdtopdf.sh ./pages/1.9 ./build-pdf
 
 
 build-pdf-development: build-api docker-development-up-pdf
