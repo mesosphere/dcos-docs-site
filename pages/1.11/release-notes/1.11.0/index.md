@@ -10,15 +10,15 @@ These are the release notes for DC/OS 1.11.0.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com/hc/en-us/articles/213198586).
+To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com).
 
-DC/OS 1.11 includes many new capabilities and expands the collection of data services, with a focus on:
-- Seamless edge and multi-cloud operations — Pool public cloud, private datacenter, and edge compute resources into a single logical computer and schedule workloads anywhere from a unified user interface. 
-- Production Kubernetes-as-a-service — Following a successful beta release of Kubernetes on DC/OS 1.10, during which the technology was tested by many users and customers, DC/OS 1.11 makes Kubernetes on DC/OS generally available. 
-- Enhanced data security — Multi-layer security features to help secure your entire application stack.
-- Updated data services - Enhancements to DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS.
+DC/OS 1.11 includes many new capabilities with a focus on:
+- Managing clusters across multiple clouds
+- Production Kubernetes-as-a-service 
+- Enhanced data security
+- Updates to data services
 
-Provide any feedback on the new features and services through our support channel: [support.mesosphere.com](https://support.mesosphere.com).
+Provide any feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
 
 # Contents
 - [New Features and Capabilities](#new-features)
@@ -64,7 +64,7 @@ Provide any feedback on the new features and services through our support channe
 - Unified Logging Endpoint to Collect Container (task) as well as System Component Logs.
 
 ### Storage
-- DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [enterprise type="inline" size="small" /]
+- DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [View the documentation](/services/beta-storage/0.1.0-beta). [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
