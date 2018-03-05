@@ -16,7 +16,7 @@ DC/OS 1.11 includes many new capabilities with a focus on:
 - Managing clusters across multiple clouds
 - Production Kubernetes-as-a-service 
 - Enhanced data security
-- Updates to data services
+- Updated data services
 
 Provide any feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
 
@@ -35,7 +35,7 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 
 ### Platform
 - Fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
-- Linked clusters. A cluster link is a **unidirectional** relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using DC/OS CLI. Once a link is set up you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
+- Linked clusters. A cluster link is a **unidirectional** relationship between a cluster and another cluster. You add and remove links from one cluster to another cluster using the DC/OS CLI. Once a link is set up you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
 - Integrated Remote Regions. Enables “bursting” to take advantage of ephemeral cloud compute resources. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
 - [Multi-Region Management](/1.11/deploying-services/fault-domain-awareness). Enables a DC/OS Cluster to span multiple datacenters, clouds and remote branches while providing a unified management and control cluster.
 - Decommission Node. Support for permanently decommissioning nodes enables easier maintenance and decommissioning “Spot” Cloud Instances after use allowing for immediate task rescheduling as opposed delayed task rescheduling.
@@ -49,7 +49,7 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 [/enterprise]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single systemD unit called `dcos-net`. Please read the note on [networking software re-architecture](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- Configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). Please read the documentation for [dns_forward_zones](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
+- Configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). Please read the documentation for [dns_forward_zones](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
 
 
 [enterprise]
@@ -64,7 +64,7 @@ Provide any feedback on the new features and services at: [support.mesosphere.co
 - Unified Logging Endpoint to Collect Container (task) as well as System Component Logs.
 
 ### Storage
-- DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [View the documentation](/services/beta-storage/0.1.0-beta). [enterprise type="inline" size="small" /]
+- DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/). [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
