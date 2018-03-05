@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0 Release Candidate 4
 title: Release Notes for 1.11.0 Release Candidate 4
-menuWeight: 0
+menuWeight: 5
 excerpt:
 ---
 
@@ -90,30 +90,29 @@ Please try out the new features and updated data services. Provide any feedback 
 - Upgrades from 1.11.0-rc1 to 1.11.0-rc4 are _not supported_ in 1.11 Release Candidate 4.
 
 # <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11.0 Release Candidate 4
-- COPS-2201 - Fix dcos-diagnostics crashing after running gen_resolvconf.py
-- COPS-2465 - License reporting is inconsistent [enterprise type="inline" size="small" /]
-- DCOS-19500 - Fix cosmos/service/update failure when Marathon is deploying
-- DCOS-20064 - Verify azure and aws advanced templates work with the licensing parameter [enterprise type="inline" size="small" /]
-- DCOS-20343 - Fix UI loading screen
-- DCOS-20396 - Test that bootstrap regenerates cert when old cert does not match new CSR
-- DCOS-20485 - Adjust implementation to address performance issues
-- DCOS-20492 - Cluster sometimes comes up without license using AWS CF templates [enterprise type="inline" size="small" /]
-- DCOS-20515 - Make Licensing version aware to prevent upgrades failures [enterprise type="inline" size="small" /]
-- DCOS-20569 - Include only public attributes of license on diagnostics bundle [enterprise type="inline" size="small" /]
-- DCOS-20628 dcos-vault - Fix deadlock in go-zookeeper library (1.11)
-- DCOS-20676 - csidevices: fix lsblk parsing of empty string bool values
-- DCOS-20679 - Make licensing handle a cluster license renewal for same major version during a config upgrade [enterprise type="inline" size="small" /]
-- DCOS-20726 - Deprecate Web Installer
-- DCOS-20772 - Limiting znode creation
-- DCOS-21000 - Release Marathon Plugin with Resource Full Auth Bug Fix on DCOS 1.11
-- DCOS-21045 - Update dcos-cluster-linker to not allow a self-link [enterprise type="inline" size="small" /]
-- DCOS-21095 - Turn IPv6 Overlay Off in IPv4 Environment
-- DCOS_OSS-1587 - Support DC/OS install on non-root LVM volume
-- DCOS_OSS-2070 - Service is not accessible via l4lb VIP from local agent using UCR bridge mode
+- COPS-2201 - Fix `dcos-diagnostics` crashing after running gen_resolvconf.py.
+- COPS-2465 - License reporting is inconsistent. [enterprise type="inline" size="small" /]
+- DCOS-19500 - Fix cosmos/service/update failure when Marathon is deploying.
+- DCOS-20064 - Verify Azure and AWS advanced templates work with the licensing parameter. [enterprise type="inline" size="small" /]
+- DCOS-20343 - Fix UI loading screen.
+- DCOS-20396 - Test that bootstrap regenerates cert when old cert does not match new CSR.
+- DCOS-20485 - Adjust implementation to address performance issues.
+- DCOS-20492 - Cluster sometimes comes up without license when using AWS CloudFormation templates. [enterprise type="inline" size="small" /]
+- DCOS-20515 - Make licensing version-aware to prevent upgrade failures. [enterprise type="inline" size="small" /]
+- DCOS-20569 - Include only public attributes of license on diagnostics bundle. [enterprise type="inline" size="small" /]
+- DCOS-20628 - `dcos-vault`: fix deadlock in go-zookeeper library.
+- DCOS-20676 - `csidevices`: fix lsblk parsing of empty string bool values.
+- DCOS-20679 - Make licensing handle a cluster license renewal for same major version during a config upgrade. [enterprise type="inline" size="small" /]
+- DCOS-20772 - Limit znode creation.
+- DCOS-21000 - Release Marathon plugin with resource full auth bug fix.
+- DCOS-21045 - Update `dcos-cluster-linker` to not allow a self-link. [enterprise type="inline" size="small" /]
+- DCOS-21095 - Turn IPv6 overlay off in IPv4 environment.
+- DCOS_OSS-1587 - Support DC/OS install on non-root LVM volume.
+- DCOS_OSS-2070 - Service is not accessible via l4lb VIP from local agent using UCR bridge mode.
 - DCOS_OSS-2105 - UI can show stale task state due to dropped events (Related MESOS-8469 - Fix the problem with Mesos master dropping events in the operator API stream.)
-- METRONOME-100 - Metronome Restarts causes duplication of jobruns
-- METRONOME-190 - Added authorized launch queue
-- METRONOME-191 - Implement Start Deadline Timeout 
-- METRONOME-194 - Support FORBID Concurrency Policy
+- METRONOME-100 - Metronome restart causes duplication of jobruns.
+- METRONOME-190 - Add authorized launch queue.
+- METRONOME-191 - Implement start deadline timeout.
+- METRONOME-194 - Support FORBID concurrency policy.
 - Updated marathon to 1.6.322 (https://github.com/dcos/dcos/pull/2473 | https://github.com/mesosphere/dcos-enterprise/pull/2278)
 - Updated Mesos to 1.5.x 9840ae1 (https://github.com/dcos/dcos/pull/2472 | https://github.com/mesosphere/dcos-enterprise/pull/2263)
