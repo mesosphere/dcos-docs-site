@@ -17,7 +17,7 @@ render: mustache
 1. If you are using open source DC/OS, install DC/OS Apache Cassandra with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for more information.
 
     ```bash
-    $ dcos package install {{ data.packageName }}
+    $ dcos package install {{ model.packageName }}
     ```
 
 You can also install DC/OS Apache Cassandra from [the DC/OS web interface](/latest/usage/webinterface/).
@@ -29,12 +29,12 @@ You can also install DC/OS Apache Cassandra from [the DC/OS web interface](/late
 1. Connect a client to the DC/OS Apache Cassandra service.
 
     ```bash
-    $ dcos {{ data.packageName }} --name={{ data.serviceName }} endpoints
+    $ dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints
     [
       "native-client"
     ]
 
-    $ dcos {{ data.packageName }} --name={{ data.serviceName }} endpoints native-client
+    $ dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints native-client
     {
       "address": [
         "10.0.1.125:9042",
@@ -42,9 +42,9 @@ You can also install DC/OS Apache Cassandra from [the DC/OS web interface](/late
         "10.0.1.22:9042"
       ],
       "dns": [
-        "node-1-server.{{ data.serviceName }}.autoip.dcos.thisdcos.directory:9042",
-        "node-0-server.{{ data.serviceName }}.autoip.dcos.thisdcos.directory:9042",
-        "node-2-server.{{ data.serviceName }}.autoip.dcos.thisdcos.directory:9042"
+        "node-1-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042",
+        "node-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042",
+        "node-2-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042"
       ]
     }
     ```
@@ -55,8 +55,8 @@ You can also install DC/OS Apache Cassandra from [the DC/OS web interface](/late
 
     ```bash
     $ dcos node ssh --master-proxy --leader
-    $ docker run -it cassandra:3.0.14 cqlsh node-0-server.{{ data.serviceName }}.autoip.dcos.thisdcos.directory
-    node-0-server.{{ data.serviceName }}.autoip.dcos.thisdcos.directory:9042
+    $ docker run -it cassandra:3.0.14 cqlsh node-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory
+    node-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042
     > CREATE KEYSPACE space1 WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
     > USE space1;
     > CREATE TABLE testtable1 (key varchar, value varchar, PRIMARY KEY(key));

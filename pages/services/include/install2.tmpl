@@ -1,6 +1,6 @@
 ## Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, `staging/{{ include.data.serviceName }}` and `production/{{ include.data.serviceName }}`.
+In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, `staging/{{ model.serviceName }}` and `production/{{ model.serviceName }}`.
 
 Steps:
 
@@ -16,10 +16,10 @@ Steps:
      dcos:adminrouter:ops:slave full
      ```
 
-1. Install your service into a folder called `test`. Go to **Catalog**, then search for **{{ include.data.packageName }}**.
-1. Click **CONFIGURE** and change the service name to `/testing/{{ include.data.serviceName }}`, then deploy.
+1. Install your service into a folder called `test`. Go to **Catalog**, then search for **{{ model.packageName }}**.
+1. Click **CONFIGURE** and change the service name to `/testing/{{ model.serviceName }}`, then deploy.
 
-     The slashes in your service name are interpreted as folders. You are deploying `{{ include.data.serviceName }}` in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
+     The slashes in your service name are interpreted as folders. You are deploying `{{ model.serviceName }}` in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
 **Important:**
 - Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders.
@@ -28,7 +28,7 @@ Steps:
 ## Interacting with your foldered service
 
 - Interact with your foldered service via the DC/OS CLI with this flag: `--name=/path/to/myservice`.
-- To interact with your foldered service over the web directly, use `http://<dcos-url>/service/path/to/myservice`. E.g., `http://<dcos-url>/service/testing/{{ include.data.serviceName }}/v1/endpoints`.
+- To interact with your foldered service over the web directly, use `http://<dcos-url>/service/path/to/myservice`. E.g., `http://<dcos-url>/service/testing/{{ model.serviceName }}/v1/endpoints`.
 
 ## Placement Constraints
 

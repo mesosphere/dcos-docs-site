@@ -24,12 +24,12 @@ You may trigger a `nodetool cleanup` operation across your Cassandra nodes using
 
 To initiate this plan from the command line:
 ```
-dcos {{ data.packageName }} --name={{ data.serviceName }} plan start cleanup -p CASSANDRA_KEYSPACE=space1
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan start cleanup -p CASSANDRA_KEYSPACE=space1
 ```
 
 To view the status of this plan from the command line:
 ```
-dcos {{ data.packageName }} --name={{ data.serviceName }} plan status cleanup
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan status cleanup
 cleanup (IN_PROGRESS)
 └─ cleanup-deploy (IN_PROGRESS)
    ├─ node-0:[cleanup] (COMPLETE)
@@ -50,12 +50,12 @@ You may trigger a `nodetool repair` operation across your Cassandra nodes using 
 
 To initiate this command from the command line:
 ```
-dcos {{ data.packageName }} --name={{ data.serviceName }} plan start repair -p CASSANDRA_KEYSPACE=space1
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan start repair -p CASSANDRA_KEYSPACE=space1
 ```
 
 To view the status of this plan from the command line:
 ```
-dcos {{ data.packageName }} --name={{ data.serviceName }} plan status repair
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan status repair
 repair (STARTING)
 └─ repair-deploy (STARTING)
    ├─ node-0:[repair] (STARTING)
@@ -79,13 +79,13 @@ operation is performed automatically.
 For example if `node-0` needed to be replaced we would execute:
 
 ```bash
-dcos {{ data.packageName }} --name={{ data.serviceName }} pod replace node-0
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace node-0
 ```
 
 which would result in a recovery plan like the following:
 
 ```bash
-$ dcos {{ data.packageName }} --name={{ data.serviceName }} plan show recovery
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show recovery
 recovery (IN_PROGRESS)
 └─ permanent-node-failure-recovery (IN_PROGRESS)
    ├─ node-0:[server] (COMPLETE)

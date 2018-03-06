@@ -1,17 +1,17 @@
 <!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
 
-Support for an improved uninstall process was introduced in DC/OS 1.10. In order to take advantage of this new support, changes were required to the `{{ include.data.packageName }}` package, which were included as of versions 2.0.0-x and greater.
+Support for an improved uninstall process was introduced in DC/OS 1.10. In order to take advantage of this new support, changes were required to the `{{ model.packageName }}` package, which were included as of versions 2.0.0-x and greater.
 
 ### DC/OS 1.10 and newer, and package 2.0.0-x and newer
 
 If you are using DC/OS 1.10 or newer and the installed service has a version greater than 2.0.0-x:
 
-1. Uninstall the service. From the DC/OS CLI, enter `dcos package uninstall --app-id=<instancename> {{ include.data.packageName }}`.
+1. Uninstall the service. From the DC/OS CLI, enter `dcos package uninstall --app-id=<instancename> {{ model.packageName }}`.
 
-For example, to uninstall the {{ include.data.techName }} instance named `{{ include.data.serviceName }}-dev`, run:
+For example, to uninstall the {{ model.techName }} instance named `{{ model.serviceName }}-dev`, run:
 
 ```bash
-dcos package uninstall --app-id={{ include.data.serviceName }}-dev {{ include.data.packageName }}
+dcos package uninstall --app-id={{ model.serviceName }}-dev {{ model.packageName }}
 ```
 
 #### Uninstall flow
@@ -32,11 +32,11 @@ Note that once the uninstall operation has begun, it cannot be cancelled because
 In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling scheduler. As such, the uninstalling scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
 
 This situation is indicated by looking at `deploy` plan while the uninstall is proceeding. The `deploy` plan may be viewed using either of the following methods:
-- CLI: `dcos {{ include.data.packageName }} --name={{ include.data.serviceName}} plan show deploy` (after running `dcos package install --cli {{ include.data.packageName }}` if needed)
-- HTTP: `https://yourcluster.com/service/{{ include.data.serviceName }}/v1/plans/deploy`
+- CLI: `dcos {{ model.packageName }} --name={{ model.serviceName}} plan show deploy` (after running `dcos package install --cli {{ model.packageName }}` if needed)
+- HTTP: `https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy`
 
 ```bash
-$ dcos {{ include.data.packageName }} --name={{ include.data.serviceName}} plan show deploy
+$ dcos {{ model.packageName }} --name={{ model.serviceName}} plan show deploy
 deploy (IN_PROGRESS)
 ├─ kill-tasks (COMPLETE)
 │  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)
@@ -56,8 +56,8 @@ deploy (IN_PROGRESS)
 ```
 
 As we can see above, some of the resources to unreserve are stuck in a `PENDING` state. We can force them into a `COMPLETE` state, and thereby allow the scheduler to finish the uninstall operation. This may be done using either of the following methods:
-- CLI: `dcos {{ include.data.packageName }} --name={{ include.data.serviceName}} plan show deploy`
-- HTTP: `https://yourcluster.com/service/{{ include.data.serviceName }}/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>`
+- CLI: `dcos {{ model.packageName }} --name={{ model.serviceName}} plan show deploy`
+- HTTP: `https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>`
 
 ```bash
 $ dcos cassandra plan force-complete deploy unreserve-resources unreserve-402d51f5-6014-4ca3-bd13-324dae62b888
@@ -68,7 +68,7 @@ $ dcos cassandra plan force-complete deploy unreserve-resources unreserve-5dd56b
 At this point the scheduler should show a `COMPLETE` state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
 
 ```
-$ dcos {{ include.data.packageName }} --name={{ include.data.serviceName}} plan show deploy
+$ dcos {{ model.packageName }} --name={{ model.serviceName}} plan show deploy
 deploy (IN_PROGRESS)
 ├─ kill-tasks (COMPLETE)
 │  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)
@@ -93,8 +93,8 @@ If all else fails, one can simply manually perform the uninstall themselves. To 
 - Delete the uninstalling scheduler from Marathon.
 - Unregister the service from Mesos using its UUID as follows:
   ```bash
-  $ dcos service --inactive | grep {{ include.data.serviceName }}
-  {{ include.data.serviceName }}     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
+  $ dcos service --inactive | grep {{ model.serviceName }}
+  {{ model.serviceName }}     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 
   $ dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
   ```
@@ -105,14 +105,14 @@ If all else fails, one can simply manually perform the uninstall themselves. To 
 If you are running DC/OS 1.9 or older, or a version of the service that is older than 2.0.0-x, follow these steps:
 
 1. Stop the service. From the DC/OS CLI, enter `dcos package uninstall --app-id=<instancename> <packagename>`.
-   For example, `dcos package uninstall --app-id={{ include.data.serviceName }}-dev {{ include.data.packageName }}`.
+   For example, `dcos package uninstall --app-id={{ model.serviceName }}-dev {{ model.packageName }}`.
 1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. See [DC/OS documentation](/1.9/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
 
-For example, to uninstall {{ include.data.techName }} instance named `{{ include.data.serviceName }}-dev`, run:
+For example, to uninstall {{ model.techName }} instance named `{{ model.serviceName }}-dev`, run:
 
 ```bash
-$ MY_SERVICE_NAME={{ include.data.serviceName }}-dev
-$ dcos package uninstall --app-id=$MY_SERVICE_NAME {{ include.data.packageName }}`.
+$ MY_SERVICE_NAME={{ model.serviceName }}-dev
+$ dcos package uninstall --app-id=$MY_SERVICE_NAME {{ model.packageName }}`.
 $ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
     -r $MY_SERVICE_NAME-role \
     -p $MY_SERVICE_NAME-principal \

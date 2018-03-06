@@ -18,7 +18,7 @@ dcos:adminrouter:ops:ca:ro full
 where `<service name>` is the name of the service to be installed.
 
 #### Install the service
-Install the DC/OS {{ include.data.techName }} service including the following options in addition to your own:
+Install the DC/OS {{ model.techName }} service including the following options in addition to your own:
 ```json
 {
     "service": {
@@ -26,9 +26,9 @@ Install the DC/OS {{ include.data.techName }} service including the following op
         "service_account_secret": "<full path of service secret>",
         "security": {
             "transport_encryption": {
-                "enabled": true{{ include.data.security.plaintext }}
+                "enabled": true{{ model.security.plaintext }}
             }
         }
-    }{{ include.data.security.extras }}
+    }{{ model.security.extras }}
 }
 ```

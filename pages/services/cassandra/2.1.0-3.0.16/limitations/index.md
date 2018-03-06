@@ -19,11 +19,11 @@ The service does not support performing backup and restore with authentication/a
 
 ## Node Count
 
-The DC/OS {{ data.techName }} Service must be deployed with at least 3 nodes.
+The DC/OS {{ model.techName }} Service must be deployed with at least 3 nodes.
 
 ## Security
 
-{{ data.techName }}'s native authentication, and authorization mechanisms are not supported at this time.
+{{ model.techName }}'s native authentication, and authorization mechanisms are not supported at this time.
 
 ### Toggling Transport Encryption
 
@@ -33,7 +33,7 @@ In order to enable TLS, a service account and corresponding secret is required. 
 
 ## Data Center Name
 
-The name of the data center cannot be changed after installation. `service.data_center` and `service.rack` options are not allowed to be modified once {{ data.techName }} is installed.
+The name of the data center cannot be changed after installation. `service.data_center` and `service.rack` options are not allowed to be modified once {{ model.techName }} is installed.
 
 ```
 "service": {
