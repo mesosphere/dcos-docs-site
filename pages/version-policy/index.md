@@ -207,6 +207,7 @@ B- This package combination is *beta*.
     	<td>◯</td>
     	<td>◯</td>
     	<td>◯</td>
+        <td>◯</td>
     </tr>
      <tr>
     	<td>Cassandra 2.1.x-3.0.15</td>
@@ -283,7 +284,7 @@ B- This package combination is *beta*.
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>⚫</td>
-    	<td>  </td>
+    	<td>◯</td>
     </tr>
      <tr>
     	<td>HDFS 2.0.x-2.6.y</td>
