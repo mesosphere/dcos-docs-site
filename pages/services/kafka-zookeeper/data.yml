@@ -2,7 +2,8 @@
 
 packageName: kafka-zookeeper
 serviceName: kafka-zookeeper
-techName: Apache ZooKeeper
+techName: Kafka ZooKeeper
+techShortName: ZooKeeper
 
 # Values specific to certain templates:
 
