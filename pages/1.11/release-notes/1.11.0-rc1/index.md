@@ -17,9 +17,9 @@ To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.meso
 <h3>This release candidate is for testing only and not to be used in production. </h3>
 
 
-DC/OS 1.11 Release Candidate 1 has a number of limitations that will be resolved at GA time.
+DC/OS 1.11.0 Release Candidate 1 has a number of limitations that will be resolved at GA time.
 <ul>
-<li>DC/OS 1.11 only supports new installations. Upgrades from 1.10 are not supported.</li>
+<li>DC/OS 1.11.0 only supports new installations. Upgrades from 1.10 are not supported.</li>
 <li>DC/OS 1.11 requires CLI version 0.6.x.
   <ul>
   <li><a href="/1.11/cli/uninstall/">Uninstall the existing CLI</a>.</li>
@@ -86,14 +86,14 @@ Please try out the new features and updated data services. Provide any feedback 
 - Non-essential tasks now supported for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. If non-essential tasks fail, the entire node will not fail.
 
 # <a name="known-issues"></a>Known Issues and Limitations
-- Upgrades from 1.10 to 1.11 are _not supported_ in 1.11 Release Candidate 1.
+- Upgrades from 1.10 to 1.11 are _not supported_ in 1.11.0 Release Candidate 1.
+- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11.0. 
 
-- DCOS-19047 - dcos-secrets service is unavailabe during upgrade from 1.10.x to 1.11. 
 
-# <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11 Release Candidate 1
+# <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11.0 Release Candidate 1
 - DCOS-16368 -  DC/OS Enterprise Secret Store no longer accepts secrets with uppercase letters in their paths. Secret paths with uppercase letters conflicted with use of the IAM API. [enterprise type="inline" size="small" /]
-- DCOS-19573 - Bugfix: Changes to unique constraints now supported in the UI.
+- DCOS-19573 - Add support for changes to unique constraints in the UI.
 - DCOS-19837 - Consolidate fault-domain scripts for all cloud providers into one script to support clusters with multiple cloud providers.
-- DCOS-19896 - `--linked` flag added to `dcos cluster list` so users can see which clusters can be unlinked. [enterprise type="inline" size="small" /]
-- DCOS-19955 - Enhanced cluster linking API and CLI experience. [enterprise type="inline" size="small" /]
-- DCOS_OSS-1658 - `--verbose` flag added to upgrade script that prints all status and error messages to the console to enable upgrade debugging.
+- DCOS-19896 - Add `--linked` flag to `dcos cluster list` so users can see which clusters can be unlinked. [enterprise type="inline" size="small" /]
+- DCOS-19955 - Enhance API and CLI experience for linking clusters. [enterprise type="inline" size="small" /]
+- DCOS_OSS-1658 - Add `--verbose` flag to upgrade script that prints all status and error messages to the console to enable upgrade debugging.

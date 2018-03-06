@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0 Release Candidate 4
 title: Release Notes for 1.11.0 Release Candidate 4
-menuWeight: 0
+menuWeight: 5
 excerpt:
 ---
 
@@ -12,7 +12,7 @@ These are the release notes for DC/OS 1.11.0 Release Candidate 4.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0-rc4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com/hc/en-us/articles/213198586).
+To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com).
 
 <h3>This release candidate is for testing only and not to be used in production. </h3>
 
@@ -38,7 +38,7 @@ Please try out the new features and updated data services. Provide any feedback 
 
 - DC/OS 1.11.0 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 
-- DC/OS 1.11.0 supports latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, consult the [Kubernetes on DC/OS changelog](https://docs.mesosphere.com/services/beta-kubernetes/0.4.0-1.9.0-beta).
+- DC/OS 1.11.0 supports latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, consult the [Kubernetes on DC/OS changelog](https://docs.mesosphere.com/services/beta-kubernetes/0.6.0-1.9.1-beta).
 
 ## Platform
 - Fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
@@ -56,7 +56,7 @@ Please try out the new features and updated data services. Provide any feedback 
 [/enterprise]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single systemD unit called `dcos-net`. Please read the note on [networking software re-architecture](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- Configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). Please read the documentation for [dns_forward_zones](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
+- Configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). Please read the documentation for [dns_forward_zones](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
 
 
 [enterprise]
@@ -71,7 +71,7 @@ Please try out the new features and updated data services. Provide any feedback 
 - Unified Logging Endpoint to Collect Container (task) as well as System Component Logs.
 
 ## Storage
-- DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [enterprise type="inline" size="small" /]
+- DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [View the documentation](/services/beta-storage/0.1.0-beta). [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
@@ -89,32 +89,30 @@ Please try out the new features and updated data services. Provide any feedback 
 - Upgrades from 1.10.5 to 1.11.0-rc4 are supported, but not recommended.
 - Upgrades from 1.11.0-rc1 to 1.11.0-rc4 are _not supported_ in 1.11 Release Candidate 4.
 
-# <a name="fixed-issues"></a>Improvements and Major Issues Fixed since 1.11.0 Release Candidate 1
-- DCOS-19500  - Fix cosmos/service/update failure when Marathon is deploying
+# <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11.0 Release Candidate 4
+- COPS-2201 - Fix `dcos-diagnostics` crashing after running gen_resolvconf.py.
+- COPS-2465 - License reporting is inconsistent. [enterprise type="inline" size="small" /]
+- DCOS-19500 - Fix cosmos/service/update failure when Marathon is deploying.
+- DCOS-20064 - Verify Azure and AWS advanced templates work with the licensing parameter. [enterprise type="inline" size="small" /]
+- DCOS-20343 - Fix UI loading screen.
+- DCOS-20396 - Test that bootstrap regenerates cert when old cert does not match new CSR.
+- DCOS-20485 - Adjust implementation to address performance issues.
+- DCOS-20492 - Cluster sometimes comes up without license when using AWS CloudFormation templates. [enterprise type="inline" size="small" /]
+- DCOS-20515 - Make licensing version-aware to prevent upgrade failures. [enterprise type="inline" size="small" /]
+- DCOS-20569 - Include only public attributes of license on diagnostics bundle. [enterprise type="inline" size="small" /]
+- DCOS-20628 - `dcos-vault`: fix deadlock in go-zookeeper library.
+- DCOS-20676 - `csidevices`: fix lsblk parsing of empty string bool values.
+- DCOS-20679 - Make licensing handle a cluster license renewal for same major version during a config upgrade. [enterprise type="inline" size="small" /]
+- DCOS-20772 - Limit znode creation.
+- DCOS-21000 - Release Marathon plugin with resource full auth bug fix.
+- DCOS-21045 - Update `dcos-cluster-linker` to not allow a self-link. [enterprise type="inline" size="small" /]
+- DCOS-21095 - Turn IPv6 overlay off in IPv4 environment.
+- DCOS_OSS-1587 - Support DC/OS install on non-root LVM volume.
+- DCOS_OSS-2070 - Service is not accessible via l4lb VIP from local agent using UCR bridge mode.
 - DCOS_OSS-2105 - UI can show stale task state due to dropped events (Related MESOS-8469 - Fix the problem with Mesos master dropping events in the operator API stream.)
-- DCOS-20628 dcos-vault - Fix deadlock in go-zookeeper library (1.11)
-- DCOS-20515 - Make Licensing version aware to prevent upgrades failures [enterprise type="inline" size="small" /]
-- DCOS-20492 - Cluster sometimes comes up without license using AWS CF templates [enterprise type="inline" size="small" /]
-- DCOS-20679 - Make licensing handle a cluster license renewal for same major version during a config upgrade [enterprise type="inline" size="small" /]
-- DCOS-20343 - Fix UI loading screen
-- DCOS-20485 - Adjust implementation to address performance issues
-- DCOS-20396 - Test that bootstrap regenerates cert when old cert does not match new CSR
-- DCOS-20676 - csidevices: fix lsblk parsing of empty string bool values
-- METRONOME-190 - Added authorized launch queue
-- METRONOME-194 - Support FORBID Concurrency Policy
-- METRONOME-100 - Metronome Restarts causes duplication of jobruns
-- METRONOME-191 - Implement Start Deadline Timeout 
-- DCOS_OSS-1587 - Support DC/OS install on non-root LVM volume
-- DCOS-21000 - Release Marathon Plugin with Resource Full Auth Bug Fix on DCOS 1.11
-- DCOS-20064 - Verify azure and aws advanced templates work with the licensing parameter [enterprise type="inline" size="small" /]
-- COPS-2465 - License reporting is inconsistent [enterprise type="inline" size="small" /]
-- DCOS-20569 - Include only public attributes of license on diagnostics bundle [enterprise type="inline" size="small" /]
-- DCOS-20772 - Limiting znode creation
-- DCOS-20726 - Deprecate Web Installer
-- COPS-2201 - Fix dcos-diagnostics crashing after running gen_resolvconf.py
-- DCOS-21045 - Update dcos-cluster-linker to not allow a self-link [enterprise type="inline" size="small" /]
-- DCOS-20064 - Verify azure and aws advanced templates work with the licensing parameter [enterprise type="inline" size="small" /]
-- DCOS_OSS-2070 - Service is not accessible via l4lb VIP from local agent using UCR bridge mode
+- METRONOME-100 - Metronome restart causes duplication of jobruns.
+- METRONOME-190 - Add authorized launch queue.
+- METRONOME-191 - Implement start deadline timeout.
+- METRONOME-194 - Support FORBID concurrency policy.
 - Updated marathon to 1.6.322 (https://github.com/dcos/dcos/pull/2473 | https://github.com/mesosphere/dcos-enterprise/pull/2278)
-- Updated mesos to 1.5.x 9840ae1 (https://github.com/dcos/dcos/pull/2472 | https://github.com/mesosphere/dcos-enterprise/pull/2263)
-- DCOS-21095 - Turn IPv6 Overlay Off in IPv4 Environment
+- Updated Mesos to 1.5.x 9840ae1 (https://github.com/dcos/dcos/pull/2472 | https://github.com/mesosphere/dcos-enterprise/pull/2263)
