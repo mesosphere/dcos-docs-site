@@ -7,6 +7,9 @@ BETA_BRANCH=${BETA_BRANCH:-"master"}
 REPO_NAME=${REPO_NAME:-"dcos-commons"}
 REPO_URL=${REPO_URL:-"https://github.com/mesosphere/${REPO_NAME}.git"}
 
+TEMPLATE_REPO_NAME=${TEMPLATE_REPO_NAME:-"dcos-commons"}
+TEMPLATE_REPO_URL=${TEMPLATE_REPO_URL:-"https://github.com/mesosphere/${TEMPLATE_REPO_NAME}.git"}
+
 syntax() {
     cat <<EOF
 This script copies docs for the specified framework from ${REPO_NAME} into this repository.
@@ -74,6 +77,14 @@ pwd
 # Grab correct branch from repo
 rm -rf "${REPO_NAME:?}/"
 git clone --depth 1 --branch $branch $REPO_URL
+
+if [ x"$TEMPLATE_REPO_NAME" != x"$REPO_NAME" ]; then
+    # Set the template branch
+    template_branch=${TEMPLATE_BRANCH:-${branch}}
+
+    rm -rf "${TEMPLATE_REPO_NAME:?}/"
+    git clone --depth 1 --branch $template_branch $TEMPLATE_REPO_URL
+then
 
 # Omit any 'beta-' prefix from package name when getting dcos-commons path:
 # (shellcheck: '^beta-' not supported by ${var//search/replace})
@@ -143,7 +154,7 @@ cp -v $REPO_NAME/docs/pages/_data/services/"${framework}.yml" "$output_yml_data_
 # Shared content
 
 echo "Updating template content"
-input_template_dir=$REPO_NAME/docs/pages/_includes/services
+input_template_dir=$TEMPLATE_REPO_NAME/docs/pages/_includes/services
 output_template_dir=pages/services/include
 
 rm -rf $output_template_dir
@@ -157,7 +168,7 @@ done
 
 echo "Updating template images"
 # e.g. pages/img/services/file.png => pages/services/include/img/file.png
-input_template_image_dir=$REPO_NAME/docs/pages/img/services
+input_template_image_dir=$TEMPLATE_REPO_NAME/docs/pages/img/services
 output_template_image_dir=$output_template_dir/img
 rm -rf $output_template_image_dir
 mkdir -p $output_template_image_dir
@@ -166,6 +177,10 @@ ls $input_template_image_dir/* >> "$merge_list_file"
 
 # Copying finished, delete source repo:
 rm -rf "${REPO_NAME:?}/"
+if [ x"$TEMPLATE_REPO_NAME" != x"$REPO_NAME" ]; then
+    rm -rf "${TEMPLATE_REPO_NAME:?}/"
+then
+
 
 ###
 # Conversion hacks
