@@ -29,7 +29,7 @@ zookeeper/{{AGENT-0-HOSTNAME}}@LOCAL
 zookeeper/{{AGENT-1-HOSTNAME}}@LOCAL
 zookeeper/{{AGENT-2-HOSTNAME}}@LOCAL
 ```
-Adding principals for additional hosts will make the service more resilient to resource limitations and node failures. Once the desired number of principals have been added, [placement constraints](#service-settings) are used to ensure that the nodes of the ensemble are run on the desired hosts.
+Adding principals for additional hosts will make the service more resilient to resource limitations and node failures. Once the desired number of principals have been added, [placement constraints](/services/kafka-zookeeper/2.1.2-3.4.11/service-settings/) are used to ensure that the nodes of the ensemble are run on the desired hosts.
 
 ## Create the keytab secret
 
