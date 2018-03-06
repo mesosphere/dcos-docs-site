@@ -10,7 +10,7 @@ These are the release notes for DC/OS 1.11.0.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="green" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.11.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
+[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 
 DC/OS 1.11 includes many new capabilities, with a focus on:
@@ -61,8 +61,8 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Unified logging API that provides simple access to container (task) as well as system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/logging-v2/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications' storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/). [enterprise type="inline" size="small" /]
-- Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications' storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /][enterprise type="inline" size="small" /]
+- Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).[beta type="inline" size="small" /]
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
 
@@ -94,13 +94,12 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - DCOS-20351 - Add the `dcos-license` subcommand to `dcos-enterprise-cli`. [enterprise type="inline" size="small" /]
 - DCOS-21130 - Make list of services visible in grid view of nodes. 
 - DCOS_OSS-671 - Improve filenames in the diagnostics bundle.
-- DCOS_OSS-1275	- Add support for custom check executables during on-premises installation.
-- DCOS_OSS-1321	- Search paths are configurable when executing check commands using `dcos-diagnostics check`.
-- DCOS_OSS-1340	- Spartan "autoip" DNS resolves to host IP for UCR in bridge network.
-- DCOS_OSS-1449	- Remove support for `--appId` from CLI.
-- DCOS_OSS-1489	- Add support for cgroup blkio statistics in `dcos-metrics`.
+- DCOS_OSS-1275 - Add support for custom check executables during on-premises installation.
+- DCOS_OSS-1321 - Search paths are configurable when executing check commands using `dcos-diagnostics check`.
+- DCOS_OSS-1340 - Spartan "autoip" DNS resolves to host IP for UCR in bridge network.
+- DCOS_OSS-1449 - Remove support for `--appId` from CLI.
+- DCOS_OSS-1489 - Add support for cgroup blkio statistics in `dcos-metrics`.
 - DCOS_OSS-2003 - Modify DC/OS overlay networking to work with systemd networkd.
-- DCOS_OSS-2045	- Add Prometheus plugin and producer to `dcos-metrics`.
 
 ## <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11.0 Release Candidate 4
 - COPS-2201 - Fix `dcos-diagnostics` crashing after running gen_resolvconf.py.
