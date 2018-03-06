@@ -2,10 +2,10 @@
 set -e
 
 STABLE_BRANCH="sdk-0.40"
-BETA_BRANCH="master"
+BETA_BRANCH=${BETA_BRANCH:-"master"}
 
-REPO_NAME="dcos-commons"
-REPO_URL="https://github.com/mesosphere/${REPO_NAME}.git"
+REPO_NAME=${REPO_NAME:-"dcos-commons"}
+REPO_URL=${REPO_URL:-"https://github.com/mesosphere/${REPO_NAME}.git"}
 
 syntax() {
     cat <<EOF
@@ -81,6 +81,14 @@ git clone --depth 1 --branch $branch $REPO_URL
 
 framework=$(echo "$package" | sed 's/^beta-//g')
 input_framework_docs_dir=$REPO_NAME/frameworks/${framework}/docs
+
+if [ ! -d $input_framework_docs_dir ]; then
+    echo "The input docs dir does not exist. Trying the root folder"
+    if [ -d $REPO_NAME/docs ]; then
+        input_framework_docs_dir=$REPO_NAME/docs
+    fi
+fi
+
 
 output_package_dir=pages/services/${package}
 output_package_version_dir=${output_package_dir}/${version}
