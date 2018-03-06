@@ -81,10 +81,10 @@ git clone --depth 1 --branch $branch $REPO_URL
 if [ x"$TEMPLATE_REPO_NAME" != x"$REPO_NAME" ]; then
     # Set the template branch
     template_branch=${TEMPLATE_BRANCH:-${branch}}
-
+    echo "Cloning $template_branch from $TEMPLATE_REPO_URL"
     rm -rf "${TEMPLATE_REPO_NAME:?}/"
     git clone --depth 1 --branch $template_branch $TEMPLATE_REPO_URL
-then
+fi
 
 # Omit any 'beta-' prefix from package name when getting dcos-commons path:
 # (shellcheck: '^beta-' not supported by ${var//search/replace})
@@ -179,7 +179,7 @@ ls $input_template_image_dir/* >> "$merge_list_file"
 rm -rf "${REPO_NAME:?}/"
 if [ x"$TEMPLATE_REPO_NAME" != x"$REPO_NAME" ]; then
     rm -rf "${TEMPLATE_REPO_NAME:?}/"
-then
+fi
 
 
 ###
