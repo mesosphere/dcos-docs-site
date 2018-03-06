@@ -15,31 +15,35 @@ Mesosphere tests DC/OS Enterprise with specific components and operating systems
 
 ### Versioning Definitions
 
-- **Major Versions** (**X**.y.z) are releases for providing major and minor features and improvements or optimizations to existing features. They incorporate all applicable Bug fixes made in earlier Major, Minor, and Maintenance versions.
+- **Major Versions** (**X**.y.z) are releases for providing major and minor features and improvements or optimizations to existing features. They incorporate all applicable bug fixes made in earlier Major, Minor, and Maintenance versions.
 - **Minor Version** (x.**Y**.z) are versions for delivering minor features, improvements or optimizations to existing features, and bug fixes. They incorporate all applicable bug fixes made in earlier Minor versions, and Maintenance versions.
-- **Maintenance Version** (x.y.**Z**) are versions for providing bug fixes that are highly impactful to a number of customers and who cannot wait for the next major or minor version. They incorporate all applicable bug fixes made in prior Maintenance versions.
+- **Maintenance Version** (x.y.**Z**) are versions for providing bug fixes that are highly impactful to a number of customers and who cannot wait for the next Major or Minor version. They incorporate all applicable bug fixes made in prior Maintenance versions.
 - **"End of Life (EOL)"** versions are no longer supported by Mesosphere, upgrading to a later version is highly recommended.
 
 ### Version Lifecycle
 
-Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS.  While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification.  Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two (2) minor versions behind. 
-The *Examples* follow:
+Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two (2) Minor versions behind. <br>
+ 
+ *Examples* follow:
 
-* **Major Version**: Upon the availability of a new DC/OS major version, 2.0.0, maintenance versions prior to (N-2) minor versions of the previous (N-1) major release would not be supported.  Major Versions also count towards advancing the Minor number version. Thus,, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
-   The - Minor Versions 1.10.2 (1.10.4 and - 2) and older would no longer be supported. 
+* **Major Version**: Upon the availability of a new DC/OS Major version, 2.0.0, Maintenance versions prior to (N-2) Minor versions of the previous (N-1) major release would not be supported. Major Versions also count towards advancing the Minor number version.<br>
+
+Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
+   - Minor Versions 1.10.2 (1.10.4 and - 2) and older would no longer be supported. 
    - Minor Versions 1.9.4 (1.9.4 and - 2) and older would no longer be supported.
-* **Minor Version**: Upon the availability of a new DC/OS minor version 1.11.0, minor versions prior to and including 1.8.0 will no longer be supported as (N-2) includes 1.11 (N), 1.10 (N-1) and 1.9 (N-2).
-* **Maintenance Version**: Upon the availability of DC/OS maintenance version 1.10.5, maintenance versions prior to and including 1.10.0 will no longer be supported as (N-4) includes 1.10.5 (N), 1.10.4 (N-1), 1.10.3 (N-2), 1.10.2 (N-3) and 1.10.1 (N-4).
+
+* **Minor Version**: Upon the availability of a new DC/OS Minor version 1.11.0, minor versions prior to and including 1.8.0 will no longer be supported as (N-2) includes 1.11 (N), 1.10 (N-1) and 1.9 (N-2).
+* **Maintenance Version**: Upon the availability of DC/OS Maintenance version 1.10.5, Maintenance versions prior to and including 1.10.0 will no longer be supported as (N-4) includes 1.10.5 (N), 1.10.4 (N-1), 1.10.3 (N-2), 1.10.2 (N-3) and 1.10.1 (N-4).<br>
 
 <a name="compatibility-matrix"></a>**DC/OS Platform** Version Compatibility Matrix
 
-The below matrix provides guidance as to which Platform components and Operating environments are tested to run DC/OS on. Customers that are running DC/OS on non-supported Platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
+The below matrix provides guidance as to which platform components and operating environments are tested to run DC/OS on. Customers that are running DC/OS on non-supported Platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
 
 
 |Display Icon | Service |
 |---------- | ------- |
-|![Closed Circle](/1.11/img/closed-o.png)  | Supported |
+| ⚫| Supported |
 |    | Not Supported |
 
 
@@ -52,60 +56,60 @@ The below matrix provides guidance as to which Platform components and Operating
     </tr>
     <tr> 
       <td>CoreOS Stable 1235.12.0</td>
-      <td><img src="/1.11/img/closed-o.png"></img> <br> Docker CD 17.05</td>
-      <td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-      <td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+      <td>⚫<br> Docker CE 17.05</td>
+      <td>⚫ <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+      <td>⚫</img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
     <tr>
     	<td>CoreOS Stable 835.13.0</td>
     	<td>                    </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
     <tr>
     	<td>RHEL 7.2</td>
     	<td>                    </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
      </tr>
      <tr>
     	<td>RHEL 7.3</td>
     	<td>                    </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
      <tr>
     	<td>RHEL 7.4</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
     </tr>
     <tr>
     	<td>CentOS 7.3</td>
     	<td>                    </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
+    	<td>⚫<br>Docker Engine 1.13 <br> Docker Engine 1.12 <br> Docker Engine 1.11 </td>
     </tr>
      <tr>
     	<td>CentOS 7.4</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
-    	<td><img src="/1.11/img/closed-o.png"></img> <br>Docker CD 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
+    	<td>⚫<br>Docker CE 17.05</td>
     </tr>
     <tr>
     <th><strong>Web Browser</strong></th>
     </tr>
     <tr>
     	<td>Chrome</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     </tr>
     <tr>
     	<td>Firefox</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     </tr>
 </table>
 
@@ -115,7 +119,7 @@ Mesosphere maintains and certifies several packages for DC/OS.
 
 ### Base Technology
 
-Mesosphere does not offer support service for the base technology (e.g. Jenkins). The base technology version is denoted as the second version in the package number (e.g. 1.2.3-4.5.6).
+Mesosphere does not offer support services for the base technology (e.g. Jenkins). The base technology version is denoted as the second version in the package number (e.g. 1.2.3-4.5.6).
 
 ### Certified Package Designations
 
@@ -123,16 +127,16 @@ Services that are labeled as “Certified” have been tested by Mesosphere for 
 
 The designations are as follows:
 
-![Closed Circle](/1.11/img/closed-o.png)- This combination is tested and compatible with the specified version of DC/OS.
+⚫ - This combination is tested and compatible with the specified version of DC/OS.
 
 - This package is within the scope of our technical support organization.
 - This is package is eligible for bug fixes.
 
-![Half-Filled Circle](/1.11/img/half-filled-o.png)- This combination has been tested previously and should be compatible with the specified version of DC/OS.
+◒ - This combination has been tested previously and should be compatible with the specified version of DC/OS.
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
-![Open Circle](/1.11/img/open-o.png)- This package combination has not been tested.
+◯ - This package combination has not been tested.
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
@@ -151,282 +155,283 @@ B- This package combination is *beta*.
     </tr>
     <tr>
     	<td>Kafka 2.1.x-1.0.0</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Kafka 2.0.x-0.11.0</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
     	<td>◯</td>
     </tr>
     <tr>
     	<td>Kafka 2.0.x-1.0.0</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Kafka 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
       <tr>
         <td>Kubernetes 1.0.x-*</td>
-        <td><img src="/1.11/img/closed-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
+        <td>⚫</td>
+        <td>◯</td>
+        <td>◯</td>
+        <td>◯</td>
     </tr>
      <tr>
     	<td>Confluent-Kafka 2.1.x-3.3.x</td>
-        <td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+        <td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     	<td>◯</td>
     </tr>
     <tr>
     	<td>Confluent-Kafka 2.0.x-3.2.x</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>Confluent-Kafka 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+        <td>◯</td>
     </tr>
      <tr>
     	<td>Cassandra 2.1.x-3.0.15</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Cassandra 2.0.x-3.0.15</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>¹DataStax-DSE 2.1.x-*</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>¹DataStax-Ops 2.1.x-*</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     	<td>◯</td>
     </tr>
     <tr>
     	<td>¹DataStax-DSE 2.0.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
      <tr>
     	<td>¹DataStax-Ops 2.0.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>DSE 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>ElasticSearch 2.2.x-5.6.y</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
     	<td>◯</td>
     </tr>
       <tr>
     	<td>ElasticSearch 2.1.x-5.6.y</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>ElasticSearch 2.0.x-5.6.y</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>HDFS 2.1.x-2.6.y</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td>  </td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
      <tr>
     	<td>HDFS 2.0.x-2.6.y</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>HDFS 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 3.4.x-2.89.y</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 3.3.x-2.73.y</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 3.2.x-2.60.y</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
      <tr>
     	<td>Jenkins 3.1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
      <tr>
     	<td>Jenkins 3.0.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 2.1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Jenkins 2.0.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>MoM (Marathon on Marathon) 1.6</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-        <td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+        <td>◯</td>
+    	<td>◯</td>
+        <td>◯</td>
     </tr>
      <tr>
     	<td>MoM (Marathon on Marathon) 1.5</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Edge-LB 1.0.0</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Edge-LB 0.1.9</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Edge-LB 0.1.8</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>
     <tr>
     	<td>Marathon-LB 1.11.x</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr>    
      <tr>
     	<td>Marathon-LB 1.10.x</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr> 
       <tr>
     	<td>Marathon-LB 1.2.* 1.9.*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>Spark 2.1.x-2.2.y</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>   
     <tr>
     	<td>Spark 2.0.x-2.2.y</td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/half-filled-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
     </tr>   
     <tr>
     	<td>Spark 1.x-*</td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
+    	<td>◯</td>
     </tr> 
     <tr>
     	<td>Kafka-Zookeeper 2.0.x-3.4.11</td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/closed-o.png"></img></td>
-    	<td><img src="/1.11/img/open-o.png"></img></td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>⚫</td>
+    	<td>◯</td>
     </tr>   
 </table>
 
