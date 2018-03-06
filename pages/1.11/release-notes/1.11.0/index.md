@@ -8,9 +8,10 @@ excerpt:
 
 These are the release notes for DC/OS 1.11.0.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.11.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-To download DC/OS Enterprise, contact: [Mesosphere Support](https://support.mesosphere.com).
+[button color="green" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.11.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
+
 
 DC/OS 1.11 includes many new capabilities, with a focus on:
 - Managing clusters across multiple clouds
@@ -43,11 +44,10 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
   - Support for Docker image pull secrets.
 
 ### Networking
-- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0) [enterprise type="inline" size="small" /]
+- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0) [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`. Please read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand usage of this parameter. 
-
 
 [enterprise]
 ### Security
@@ -62,6 +62,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 
 ### Storage
 - DC/OS 1.11 introduces an implementation of the industry-standard Container Storage Interface (CSI) version 0.1, which enables developers (Mesosphere, community, and partners) to streamline the development of storage features within DC/OS by providing a common API between the Container Orchestrator (DC/OS) and the storage devices. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/). [enterprise type="inline" size="small" /]
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications' storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/). [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
@@ -86,14 +87,9 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - COPS-2201 - `dcos-diagnostics` no longer fails after running gen_resolvconf.py.
 - DCOS-13066 - Rename the 3DT service to DC/OS Diagnostics.
 - DCOS-13325 - Added domain awareness to DC/OS installers.
-- DCOS-14129	- Build DC/OS cluster linker service.
-- DCOS-16234 - Add new version (v2) of logging API.
-- DCOS_18165	- Support DC/OS on non-root LVM volumes.
-- DCOS-18790	- Build new services for licensing and auditing DC/OS clusters.
+- DCOS_18165 - Support DC/OS on non-root LVM volumes.
 - DCOS-18981 - Add a CLI command to mark an agent as gone.
 - DCOS-19201 - Add binary data support to dcos security CLI.
-- DCOS-19478 - Add commands to link and unlink clusters to mainline CLI.
-- DCOS-19738 - Add CLI extensions for licensing.
 - DCOS-19837 - Consolidate fault-domain scripts for all cloud providers into one script.
 - DCOS-19896 - Add `--linked` flag to `dcos cluster list`.
 - DCOS-20351 - Add the `dcos-license` subcommand to `dcos-enterprise-cli`. [enterprise type="inline" size="small" /]
