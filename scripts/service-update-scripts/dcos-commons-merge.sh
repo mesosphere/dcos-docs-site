@@ -86,6 +86,9 @@ if [ ! -d $input_framework_docs_dir ]; then
     echo "The input docs dir does not exist. Trying the root folder"
     if [ -d $REPO_NAME/docs ]; then
         input_framework_docs_dir=$REPO_NAME/docs
+    else
+        echo "The doc folder could not be found."
+        exit 1
     fi
 fi
 
