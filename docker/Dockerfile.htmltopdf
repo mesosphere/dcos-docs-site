@@ -26,7 +26,7 @@ npm run build-pdf
 #
 # Build PDF
 #
-FROM phantomjs:2.1.1 as pdf-builder
+FROM mesosphere/phantomjs:2.1.1 as pdf-builder
 
 RUN mkdir -p /tmp/pdf
 
