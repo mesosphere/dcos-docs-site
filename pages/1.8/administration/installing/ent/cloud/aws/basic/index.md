@@ -42,13 +42,13 @@ You must have an AWS EC2 Key Pair for the same region as your cluster. Key pairs
 
 2.  On the **Select Template** page, accept the defaults and click **Next**.
 
-    ![Launch stack](../img/dcos-aws-step2b.png)
+    ![Launch stack](/1.8/administration/installing/ent/cloud/aws/img/dcos-aws-step2b.png)
 
 3.  On the **Specify Details** page, specify a cluster name (`Stack name`), Key Pair (`KeyName`), authentication (`OAuthEnabled`), public agent (`PublicSlaveInstanceCount`), private agent (`SlaveInstanceCount`), and click **Next**.
 
     **Important:** The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
 
-    ![Create stack](../img/dcos-aws-step2c.png)
+    ![Create stack](/1.8/administration/installing/ent/cloud/aws/img/dcos-aws-step2c.png)
 
 4.  On the **Options** page, accept the defaults and click **Next**.
 
@@ -79,23 +79,23 @@ Launch the DC/OS web interface by entering the Mesos Master hostname:
 
     **Tip:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page.
 
-    ![Monitor stack creation](../img/dcos-aws-step3a.png)
+    ![Monitor stack creation](/1.8/administration/installing/ent/cloud/aws/img/dcos-aws-step3a.png)
 
 1.  Click **Log In To DC/OS**.
 
-    **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed. 
-    
+    **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.
+
     ![UI installer success](/assets/images/gui-installer-success-ee.gif)
 
-1.  Enter the username and password of the superuser account. 
+1.  Enter the username and password of the superuser account.
 
     **Tip:** The default username is `bootstrapuser` and default password is `deleteme`.
-    
+
     ![Login screen](/assets/images/ui-installer-auth-1-7.gif)
-    
+
     You are done!
-    
-    ![UI dashboard](../img/dashboard-ee.gif)
+
+    ![UI dashboard](/1.8/administration/installing/ent/cloud/aws/img/dashboard-ee.gif)
 
     **Tip:** Click the dropup menu on the lower-left side to install the DC/OS [Command-Line Interface (CLI)][2]. You must install the CLI to administer your DCOS cluster.
 

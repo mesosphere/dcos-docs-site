@@ -33,7 +33,7 @@ Additionally, there is a User Menu on the lower-left side of the web interface t
 
 The dashboard is the home page of the DC/OS web interface and provides an overview of your DC/OS cluster.
 
-![Dashboard](../img/dashboard-ee.gif)
+![Dashboard](/1.8/usage/img/dashboard-ee.gif)
 
 From the dashboard you can easily monitor the health of your cluster.
 
@@ -53,7 +53,7 @@ From the dashboard you can easily monitor the health of your cluster.
 
 The Services tab provides a full featured interface to the native DC/OS Marathon instance.
 
-![Services](../img/services-ee.gif)
+![Services](/1.8/usage/img/services-ee.gif)
 
 By default all of your services are displayed, sorted by service name. You can also sort the services by health status, number of tasks, CPU, memory, or disk space allocated.
 
@@ -72,19 +72,19 @@ Clicking the service name opens the Services side panel, which provides CPU, mem
 
 The Jobs tab provides native support for creating and administering scheduled jobs. You can set up jobs with a schedule in cron format. For more information, see the [documentation](/1.8/usage/jobs/).
 
-![Jobs](../img/jobs-ee.png)
+![Jobs](/1.8/usage/img/jobs-ee.png)
 
 # <a name="nodes"></a>Nodes
 
 The Nodes tab provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
 
-![Nodes](../img/nodes-ee.gif)
+![Nodes](/1.8/usage/img/nodes-ee.gif)
 
 By default all of your nodes are displayed in **List** view, sorted by hostname. You can filter nodes by service type or hostname. You can also sort the nodes by number of tasks or percentage of CPU, memory, or disk space allocated.
 
 You can switch to **Grid** view to see a "donuts" percentage visualization.
 
-    ![Nodes](../img/nodes-donuts-ee.gif)
+    ![Nodes](/1.8/usage/img/nodes-donuts-ee.gif)
 
 Clicking on a node opens the Nodes side panel, which provides CPU, memory, and disk usage graphs and lists all tasks on the node. Use the dropdown or a custom filter to sort tasks and click on details for more information. Click on a task listed on the Nodes side panel to see detailed information about the task’s CPU, memory, and disk usage and the task’s files and directory tree.
 
@@ -92,15 +92,15 @@ Clicking on a node opens the Nodes side panel, which provides CPU, memory, and d
 
 The Network tab provides information helpful for troubleshooting your virtual networks. You can see which containers are on which network and see their IP addresses. For more information, see the [documentation](/1.8/administration/virtual-networks/ip-per-container/).
 
-![Network](../img/ui-dashboard-network.gif)
+![Network](/1.8/usage/img/ui-dashboard-network.gif)
 
-![UI Network](../img/network-2.png)
+![UI Network](/1.8/usage/img/network-2.png)
 
 # <a name="universe"></a>Universe
 
 The Universe tab shows all of the available DC/OS services. You can install packages from the DC/OS Universe with a single click. The packages can be installed with defaults or customized directly in the web interface.
 
-![universe](../img/ui-universe-ee.gif)
+![universe](/1.8/usage/img/ui-universe-ee.gif)
 
 # <a name="system"></a>System
 
@@ -110,4 +110,4 @@ The System tab provides access to the administration controls of DC/OS. From thi
 - Manage your DC/OS package repositories
 - Manage user access
 
-![system](../img/ui-system-health-ee.gif)
+![system](/1.8/usage/img/ui-system-health-ee.gif)

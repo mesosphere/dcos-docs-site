@@ -27,6 +27,7 @@ To manage users:
     From the **Users** tab, click **New User** and fill in the new user email address. New users are automatically sent an email notifying them of access to DC/OS.
 
     **Tip:** Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.
+
     ![new DC/OS user](/1.7/administration/id-and-access-mgt/oss/img/ui-add-user.gif)
 
     ### Delete users

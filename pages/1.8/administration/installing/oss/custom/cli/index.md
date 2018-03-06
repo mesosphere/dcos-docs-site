@@ -67,7 +67,7 @@ Your cluster must meet the software and hardware [requirements](/1.8/administrat
     In this step you create an IP detect script to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
     **Important:** The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled][7].
-    
+
     Create an IP detect script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line. You can use the examples below.
 
     *   #### Use the AWS Metadata Server
@@ -174,7 +174,7 @@ Your cluster must meet the software and hardware [requirements](/1.8/administrat
     use_proxy: 'true'
     http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
     https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
-    no_proxy: 
+    no_proxy:
     - 'foo.bar.com'
     - '.baz.com'
     ```
@@ -327,17 +327,17 @@ To install DC/OS:
 
     __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
 
-    ![alt text](../img/chef-zk-status.png)
+    ![alt text](/1.8/administration/installing/oss/custom/img/chef-zk-status.png)
 
     When the status icons are green, you can access the DC/OS web interface.
 
 7.  Launch the DC/OS web interface at `http://<public-master-ip>/` and login. If this doesn't work, take a look at the [troubleshooting docs][9]
 
-    ![alt text](../img/ui-installer-login.gif)
+    ![alt text](/1.8/administration/installing/oss/custom/img/ui-installer-login.gif)
 
     You are done!
 
-    ![dashboard](../img/ui-dashboard.gif)
+    ![dashboard](/1.8/administration/installing/oss/custom/img/ui-dashboard.gif)
 
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.
