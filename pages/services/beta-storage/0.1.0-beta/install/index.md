@@ -1,5 +1,4 @@
----
-layout: layout.pug
+--- layout: layout.pug
 navigationTitle:  Install
 title: Install
 menuWeight: 30
@@ -11,6 +10,11 @@ excerpt:
 - DC/OS Enterprise 1.11 or above.
 - Storage feature flag is turned ON (`feature_dcos_storage_enabled: true` in config.yaml).
 - [DC/OS CLI](/latest/cli/install/) is installed and has been logged in as a superuser.
+
+# Download the package tarball
+
+DC/OS Storage Service (DSS) is packaged as a tarball.
+The tarball can be downloaded from [Mesosphere support site](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 # Build the local universe and artifacts server
 
