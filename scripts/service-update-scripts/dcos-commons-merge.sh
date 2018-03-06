@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-STABLE_BRANCH="sdk-0.40"
+STABLE_BRANCH=${STABLE_BRANCH:-"sdk-0.40"}
 BETA_BRANCH=${BETA_BRANCH:-"master"}
 
 REPO_NAME=${REPO_NAME:-"dcos-commons"}
