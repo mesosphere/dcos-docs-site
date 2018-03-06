@@ -51,6 +51,8 @@ else
         exit 1
     fi
 fi
+template_branch=${TEMPLATE_BRANCH:-${branch}}
+
 
 # "sed -i" has mutually independent syntax depending on platform:
 # - Linux: "sed -i <cmd> <file>"
@@ -80,8 +82,6 @@ git clone --depth 1 --branch $branch $REPO_URL
 
 if [ x"$TEMPLATE_REPO_NAME" != x"$REPO_NAME" ]; then
     # Set the template branch
-    template_branch=${TEMPLATE_BRANCH:-${branch}}
-    echo "Cloning $template_branch from $TEMPLATE_REPO_URL"
     rm -rf "${TEMPLATE_REPO_NAME:?}/"
     git clone --depth 1 --branch $template_branch $TEMPLATE_REPO_URL
 fi
@@ -192,8 +192,10 @@ mangle_content_file() {
     target=$original.new
     cp "$original" "$target"
 
+    vcs_source=${2:-"$REPO_URL:$branch"}
+
     # Insert source comment, and these headers: "model: /services/$package/data.yml" + "render: mustache"
-    awk -v n=2 "/---/ { if (++count == n) sub(/---/, \"model: /services/$package/data.yml\nrender: mustache\n---\n\n<!-- Imported from $REPO_URL:$branch -->\"); } 1{print}" "$target" > tmp && mv tmp "$target"
+    awk -v n=2 "/---/ { if (++count == n) sub(/---/, \"model: /services/$package/data.yml\nrender: mustache\n---\n\n<!-- Imported from $vcs_source -->\"); } 1{print}" "$target" > tmp && mv tmp "$target"
 
     # Link/image url hacks:
 
@@ -237,7 +239,7 @@ done
 # (shellcheck: want both templatedir/*.tmpl and templatedir/**/*.tmpl)
 # shellcheck disable=SC2044
 for filepath in $(find "$output_template_dir" -iname "*.tmpl"); do
-    mangle_content_file "$filepath"
+    mangle_content_file "$filepath" "$TEMPLATE_REPO_URL:$template_branch"
 done
 
 # Update packageName in data.yml (including or omitting beta- prefix)
