@@ -643,8 +643,8 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.11/security/secrets/">Documentation</a></li>
-    <li><a href="/1.11/security/secrets/secrets-api/">API Reference</a></li>
+    <li><a href="/1.11/security/ent/secrets/">Documentation</a></li>
+    <li><a href="/1.11/security/ent/secrets/secrets-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
