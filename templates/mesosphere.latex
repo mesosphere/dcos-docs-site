@@ -25,10 +25,13 @@ $if(linestretch)$
 $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{polyglossia}\setdefaultlanguage{ngerman}
+\usepackage{biblatex}
 \usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % \ifpdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
-  \usepackage[utf8]{inputenc}
+  \usepackage[utf8x]{inputenc}
+  \usepackage[T1]{fontenc}
   \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
 $if(mathspec)$
@@ -176,7 +179,7 @@ $endfor$
 $endif$
 $if(listings)$
 \usepackage{listings}
-\newcommand{\passthrough}[1]{#1}
+\newcommand{\passthrough}[1]{\#1}
 $endif$
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
@@ -235,7 +238,7 @@ $endif$
 $endif$
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
-\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+\DeclareRobustCommand{\href}[2]{\#2\footnote{\url{\#1}}}
 $endif$
 $if(strikeout)$
 \usepackage[normalem]{ulem}
@@ -257,11 +260,11 @@ $else$
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
 \let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\renewcommand{\paragraph}[1]{\oldparagraph{\#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
 \let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{\#1}\mbox{}}
 \fi
 $endif$
 $endif$
@@ -304,8 +307,8 @@ $if(dir)$
 \fi
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \TeXXeTstate=1
-  \newcommand{\RL}[1]{\beginR #1\endR}
-  \newcommand{\LR}[1]{\beginL #1\endL}
+  \newcommand{\RL}[1]{\beginR \#1\endR}
+  \newcommand{\LR}[1]{\beginL \#1\endL}
   \newenvironment{RTL}{\beginR}{\endR}
   \newenvironment{LTR}{\beginL}{\endL}
 \fi
@@ -511,7 +514,7 @@ $if(tables)$
 % \begin{longtable}[]{@{}ll@{}}
 % \end{longtable}
 %
-% https://en.wikibooks.org/wiki/LaTeX/Tables#.40-expressions
+% https://en.wikibooks.org/wiki/LaTeX/Tables\#.40-expressions
 $endif$
 
 %
@@ -617,7 +620,7 @@ $if(titlepage-color)$
 \definecolor{titlepage-color}{HTML}{$titlepage-color$}
 \newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
 $endif$
-\newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
+\newcommand{\colorRule}[3][black]{\textcolor[HTML]{\#1}{\rule{\#2}{#3}}}
 \begin{flushleft}
 \noindent
 \\[-1em]

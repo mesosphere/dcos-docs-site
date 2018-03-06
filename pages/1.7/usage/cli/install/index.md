@@ -122,7 +122,7 @@ To install the DC/OS CLI, you must first install Python, pip, Git, and virtualen
 
 2.  Run the installer and select the "Add python.exe to Path" option when you are prompted to "Customize Python" as shown in the screenshot below.
 
-    ![Python](../img/python.png)
+    ![Python](/1.7/usage/cli/img/python.png)
 
     **Important:** If you do not select the "Add python.exe to Path" option, you must manually add the Python installation folder to your Path or the DC/OS CLI will not work.
 
@@ -134,7 +134,7 @@ Pip is included with Python, but you must upgrade pip for it to work properly wi
 
 2.  Run Powershell as Administrator by right-clicking the Start menu shortcut as shown in the screenshot below:
 
-    ![powershell](../img/powershell.png)
+    ![powershell](/1.7/usage/cli/img/powershell.png)
 
     **Important:** You must run Powershell as Administrator or the CLI installation will fail.
 
@@ -154,7 +154,7 @@ Pip is included with Python, but you must upgrade pip for it to work properly wi
 
 3.  During the Git install, select the "Use Git from the Windows Command Prompt" option when you are prompted as shown in the screenshot below.
 
-    ![git](../img/git.png)
+    ![git](/1.7/usage/cli/img/git.png)
 
     **Important:** If you do not select the "Use Git from the Windows Command Prompt" option, you must manually add the Git installation folder to your Path or the DC/OS CLI will not work.
 
@@ -238,7 +238,7 @@ Pip is included with Python, but you must upgrade pip for it to work properly wi
     ```powershell
     PS C:\dcos\> & .activate.ps1; dcos help
     ```
-    
+
 1. Authenticate your CLI with your master node and set the auth token, run the below command on bootstrap instance:
 
     ```powershell

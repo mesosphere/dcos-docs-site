@@ -1,9 +1,14 @@
 ---
 graphics: yes
+
 # titlepage: true
 # titlepage-color: 150454
 # titlepage-text-color: ffffff
 # titlepage-rule-color: ffffff
 # titlepage-rule-height: 1
 
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+  - \VerbatimFootnotes
 ---

@@ -10,7 +10,7 @@ Authentication is managed in the DC/OS web interface.
 
 You can authorize individual users. You can grant access to users who are local or remote to your datacenter.
 
-The DC/OS user database is persisted in ZooKeeper by running on the master nodes in [znodes](https://zookeeper.apache.org/doc/r3.1.2/zookeeperProgrammers.html#sc-zkDataModel-znodes) under the path `/dcos/users`. Tokens that are sent to DC/OS in an HTTP Authorization header must be in this format: `token=<token>`. In future versions `Bearer <token>` will also be supported. 
+The DC/OS user database is persisted in ZooKeeper by running on the master nodes in [znodes](https://zookeeper.apache.org/doc/r3.1.2/zookeeperProgrammers.html#sc-zkDataModel-znodes) under the path `/dcos/users`. Tokens that are sent to DC/OS in an HTTP Authorization header must be in this format: `token=<token>`. In future versions `Bearer <token>` will also be supported.
 
 ## User management
 
@@ -27,8 +27,7 @@ To manage users:
     From the **Users** tab, click **New User** and fill in the new user email address. New users are automatically sent an email notifying them of access to DC/OS.
 
     **Tip:** Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.
-
-    ![new DC/OS user](../img/ui-add-user.gif)
+    ![new DC/OS user](/1.7/administration/id-and-access-mgt/oss/img/ui-add-user.gif)
 
     ### Delete users
 
@@ -41,7 +40,7 @@ To manage users:
 
     *   To log out of the DC/OS web interface, click on your username in the lower left corner and select **Sign Out**.
 
-        ![log out](../img/auth-enable-logout-user.gif)
+        ![log out](/1.7/administration/id-and-access-mgt/oss/img/auth-enable-logout-user.gif)
 
         You can now log in as another user.
 
@@ -78,11 +77,11 @@ The DC/OS CLI stores the token in a configuration file in the `.dcos` directory 
 
 1.  Paste the link from the CLI into your browser and sign in.
 
-    ![alt](../img/auth-login.gif)
+    ![alt](/1.7/administration/id-and-access-mgt/oss/img/auth-login.gif)
 
 1.  Copy the authentication token from your browser.
 
-    ![alt](../img/auth-login-token.gif)
+    ![alt](/1.7/administration/id-and-access-mgt/oss/img/auth-login-token.gif)
 
 1.  Paste the authentication token in to your terminal.
 

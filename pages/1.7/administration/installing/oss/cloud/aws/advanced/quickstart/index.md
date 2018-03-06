@@ -93,7 +93,7 @@ Use the `zen.sh` script to create the Zen template dependencies. These dependenc
 1.  On the **Select Template** page, upload the [Zen](/1.7/administration/installing/oss/cloud/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
 1.  On the **Specify Details** page, specify these values and and click **Next**.
 
-    ![AWS UI](../img/aws-advanced-1.png)
+    ![AWS UI](/1.7/administration/installing/oss/cloud/aws/advanced/img/aws-advanced-1.png)
 
     *  **Stack name** Specify the cluster name.
     *  **InternetGateway** Specify the `InternetGatewayID` output value from the `zen.sh` script. The Internet Gateway ID must be attached to the VPC. This Internet Gateway will be used by all nodes for outgoing internet access.
@@ -121,7 +121,7 @@ In CloudFormation you should see:
 
 *  The cluster stack spins up over a period of 15 to 20 minutes. You will have a stack created for each of these, where `<stack-name>` is the value you specified for **Stack name** and `<stack-id>` is an auto-generated ID.
 
-   ![AWS UI](../img/aws-advanced-2.png)
+   ![AWS UI](/1.7/administration/installing/oss/cloud/aws/advanced/img/aws-advanced-2.png)
 
    *  Zen template: `<stack-name>`
    *  Public agents: `<stack-name>-PublicAgentStack-<stack-id>`
@@ -143,13 +143,13 @@ Launch the DC/OS web interface by entering the master hostname:
 
     **Tip:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">Amazon CloudFormation Management</a> page.
 
-    ![Monitor stack creation](../img/dcos-aws-step3a.png)
+    ![Monitor stack creation](/1.7/administration/installing/oss/cloud/aws/advanced/img/dcos-aws-step3a.png)
 
-    ![DC/OS dashboard](../img/ui-dashboard.gif)
+    ![DC/OS dashboard](/1.7/administration/installing/oss/cloud/aws/advanced/img/ui-dashboard.gif)
 
 1.  Click the dropup menu on the lower-left side to install the DC/OS [Command-Line Interface (CLI)][2]. You must install the CLI to administer your DC/OS cluster.
 
-    ![install CLI](../img/ui-dashboard-install-cli.gif)
+    ![install CLI](/1.7/administration/installing/oss/cloud/aws/advanced/img/ui-dashboard-install-cli.gif)
 
 ## Next steps
 
