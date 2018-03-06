@@ -32,11 +32,11 @@ Note that once the uninstall operation has begun, it cannot be cancelled because
 In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling scheduler. As such, the uninstalling scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
 
 This situation is indicated by looking at `deploy` plan while the uninstall is proceeding. The `deploy` plan may be viewed using either of the following methods:
-- CLI: `dcos {{ model.packageName }} --name={{ model.serviceName}} plan show deploy` (after running `dcos package install --cli {{ model.packageName }}` if needed)
+- CLI: `dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy` (after running `dcos package install --cli {{ model.packageName }}` if needed)
 - HTTP: `https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy`
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName}} plan show deploy
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
 deploy (IN_PROGRESS)
 ├─ kill-tasks (COMPLETE)
 │  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)
@@ -56,7 +56,7 @@ deploy (IN_PROGRESS)
 ```
 
 As we can see above, some of the resources to unreserve are stuck in a `PENDING` state. We can force them into a `COMPLETE` state, and thereby allow the scheduler to finish the uninstall operation. This may be done using either of the following methods:
-- CLI: `dcos {{ model.packageName }} --name={{ model.serviceName}} plan show deploy`
+- CLI: `dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy`
 - HTTP: `https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>`
 
 ```bash
@@ -68,7 +68,7 @@ $ dcos cassandra plan force-complete deploy unreserve-resources unreserve-5dd56b
 At this point the scheduler should show a `COMPLETE` state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
 
 ```
-$ dcos {{ model.packageName }} --name={{ model.serviceName}} plan show deploy
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
 deploy (IN_PROGRESS)
 ├─ kill-tasks (COMPLETE)
 │  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)
