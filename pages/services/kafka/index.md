@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Kafka
 title: Kafka
-menuWeight: 80
+menuWeight: 70
 excerpt:
 featureMaturity:
 enterprise: false
@@ -13,7 +13,7 @@ enterprise: false
 
 Welcome to the documentation for the DC/OS Apache Kafka. For more information about new and changed features, see the [release notes](https://github.com/mesosphere/dcos-kafka-service/releases/).
 
-DC/OS Apache Kafka is an automated service that makes it easy to deploy and manage Apache Kafka on Mesosphere DC/OS, eliminating nearly all of the complexity traditionally associated with managing a Kafka cluster. [Apache Kafka](http://kafka.apache.org/documentation.html) is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees. Kafka clusters are highly available, fault tolerant, and very durable. 
+DC/OS Apache Kafka is an automated service that makes it easy to deploy and manage Apache Kafka on Mesosphere DC/OS, eliminating nearly all of the complexity traditionally associated with managing a Kafka cluster. [Apache Kafka](http://kafka.apache.org/documentation.html) is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees. Kafka clusters are highly available, fault tolerant, and very durable.
 
 DC/OS Kafka gives you direct access to the Kafka API so that existing producers and consumers can interoperate. You can configure and install DC/OS Kafka in moments. Multiple Kafka clusters can be installed on DC/OS and managed independently, so you can offer Kafka as a managed service to your organization.
 
