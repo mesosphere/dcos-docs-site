@@ -9,35 +9,13 @@ model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
-<!-- Imported from git@github.com:mesosphere/dcos-zookeeper.git:update-docs -->
+# Version 2.1.0-3.4.11
 
-## Version 2.1.2-3.4.11-beta
+This is the initial GA release of the DC/OS Apache ZooKeeper service.
 
-## NOTICE
+## Features
 
-This is a beta release of the DC/OS Kafka Zookeeper framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
-
-### Updates
-- Ensure that a task passes self-resolution on startup (#61)
-- Kerberos settings
-  - Ensure all settings are empty by default (#60)
-  - Add an option to toggle Kerberos debug output (#62)
-- Moved scheduler health-checks from HTTP to [Mesos-level health checks](https://mesosphere.github.io/marathon/docs/health-checks.html#mesos-level-health-checks).
-
-## Version 2.1.1-3.4.11-beta
-
-## NOTICE
-
-This is a beta release of the DC/OS Apache Zookeeper framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do not operate this version in production.
-
-## Version 0.1.0-3.4.11-beta
-
-## NOTICE
-
-This is a beta release of the DC/OS Kafka ZooKeeper framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
-
-### Launch features
 - Support for Kerberos authorization and authentication.
-- Support for `Zone` placement constraints in DC/OS 1.11 (beta versions of DC/OS 1.11 coming soon).
+- Support for Zone placement constraints in DC/OS 1.11 (beta versions of DC/OS 1.11 coming soon).
 - Support for 3 or 5 ZooKeeper nodes.
-- The service runs ZooKeeper v3.4.11.
+- Support for pausing ZooKeeper nodes for debugging and recovery purposes.
