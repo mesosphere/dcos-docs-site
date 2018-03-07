@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  DC/OS Storage Service 
-title: DC/OS Storage Service 
+navigationTitle:  DC/OS Storage Service (Beta)
+title: DC/OS Storage Service (Beta)
 menuWeight: 210
 enterprise: true
 excerpt:
