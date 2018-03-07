@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Install and Customize
 menuWeight: 20
@@ -435,15 +435,15 @@ These are the general steps to follow:
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the HDFS service to be updated.
 
-	![HFDS in DC/OS GUI](/img/hdfs-service-gui.png)
+	![HFDS in DC/OS GUI](/services/hdfs/2.0.1-cdh5.11.0/img/hdfs-service-gui.png)
 
 1.  Within the HDFS instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
-	![Edit tab](/img/hdfs-service-gui2.png)
+	![Edit tab](/services/hdfs/2.0.1-2.6.0-cdh5.11.0/img/hdfs-service-gui2.png)
 
 1.  Click the **Environment** tab and make your updates. For example, to increase the number of nodes, edit the value for `DATA_COUNT`.
 
-	![Edit environment](/img/hdfs-service-gui3.png)
+	![Edit environment](/services/beta-hdfs/v1.3.2-2.6.0-cdh5.9.1-beta/img/hdfs-service-gui3.png)
 
 1. Click **REVIEW & RUN** to apply any changes and cleanly reload the HDFS scheduler. The HDFS cluster itself will persist across the change.
 
