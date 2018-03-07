@@ -32,7 +32,7 @@ Below are the instructions to do that:
 
 ```
 1. Install ETCD from DC/OS Universe package. (wait for ETCD to be up and running)
-2. Install Calico from DC/OS Universe package.  
+2. Install Calico from DC/OS Universe package.
 ```
 
 More details are available [`here`](https://docs.projectcalico.org/v2.0/getting-started/mesos/)
@@ -116,7 +116,7 @@ have to enable IP-in-IP and NAT for Calico network. You could do that by doing:
    EOF
 ```
 
-Further, certain settings would have to configured depending on the cloud
+Further, certain settings would have to be configured depending on the cloud
 provider. Please refer to below links for your specific cloud provider:
 
 1. [AWS](https://docs.projectcalico.org/v3.0/reference/public-cloud/aws)

@@ -64,7 +64,7 @@ We will now walk you through the steps necessary to publicly expose a service
 running in the Kubernetes cluster using Traefik as the custom ingress
 controller. The first step should be to deploy the ingress controller itself:
 
-```
+```yaml
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -194,7 +194,7 @@ deployment susceptible to port collision. If you want to play on the safe side
 you can delete the `.spec.spec.ports` field in the deployment above and use a
 `NodePort`-type `Service` to expose the ingress controller instead:
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -216,7 +216,7 @@ in the `Service`’s `spec.ports[0].nodePort` field. If you want to use a specif
 port number you may add a `nodePort` field to `.spec.ports[0]` manually. In any
 case, take note of the resulting `nodePort` using
 
-```
+```shell
 $ kubectl -n kube-system describe svc traefik-ingress-controller | grep NodePort
 Type:                     NodePort
 NodePort:                 http  <node-port>/TCP
@@ -229,7 +229,7 @@ services you will be exposing via ingress. For example, if you are running
 Kubernetes on AWS you may use the following command to set these firewall rules
 up:
 
-```
+```shell
 $ aws ec2 authorize-security-group-ingress \
     --group-id "<security-group-id>" \
     --protocol tcp \
@@ -249,7 +249,7 @@ and expose it to the Internet. In this example we will be exposing a simple HTTP
 server that responds to `GET /` requests with an "Hello world!" message. Create
 the following objects using `kubectl`:
 
-```
+```yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -290,7 +290,7 @@ spec:
 
 Now, create an `Ingress` object that will expose the `hello-world` service:
 
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:

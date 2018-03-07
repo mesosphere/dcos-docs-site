@@ -103,11 +103,11 @@ Backup successfully restored!
 
 On a running Kubernetes cluster, deploy a couple pods:
 
-```
+```shell
 $ kubectl create -f ./artifacts/nginx/nginx-deployment.yaml
 ```
 
-```
+```shell
 $ kubectl get pods --all-namespaces
 NAMESPACE     NAME                                READY     STATUS    RESTARTS   AGE
 default       nginx-6c54bd5869-pt62l   1/1       Running   0          39s
@@ -116,18 +116,18 @@ default       nginx-6c54bd5869-xt82y   1/1       Running   0          39s
 
 Then, proceed to create backup of the cluster:
 
-```
+```shell
 $ dcos kubernetes backup --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
 ```
 
 Next, delete the deployment that was previously created:
 
-```
+```shell
 $  kubectl delete -f ./artifacts/nginx/nginx-deployment.yaml
 ```
 
 Finally, restore the backup and verify that the pods are running again:
 
-```
+```shell
 $ dcos kubernetes restore --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
 ```
