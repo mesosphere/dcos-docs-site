@@ -3,7 +3,7 @@ The default DC/OS {{ model.techName }} installation provides reasonable defaults
 ## Prerequisites
 
 - Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account]({{ model.install.serviceAccountInstructionsUrl }}) before installing. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](/latest/installing/custom/configuration-parameters/#security) requires a service account.
+	- `strict` [security mode](/latest/security/ent/#security-modes) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - Your cluster must have at least {{ model.install.minNodeCount }} private nodes.
@@ -17,7 +17,7 @@ To start a basic test cluster {{ model.install.nodeDescription }}, run the follo
 $ dcos package install {{ model.packageName }}
 ```
 
-This command creates a new instance with the default name `{{ model.serviceName }}`. Two instances cannot share the same name, so installing additional instances beyond the default instance requires [customizing the `name` at install time](#custom-installation) for each additional instance.
+This command creates a new instance with the default name `{{ model.serviceName }}`. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the `name` at install time for each additional instance.
 
 All `dcos {{ model.packageName }}` CLI commands have a `--name` argument allowing the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, i.e. `{{ model.packageName }}`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
@@ -25,7 +25,7 @@ All `dcos {{ model.packageName }}` CLI commands have a `--name` argument allowin
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd>
 ```
 
-**Note:** Alternatively, you can [install from the DC/OS web interface](/latest/deploying-services/install/). If you install {{ model.techName }} from the DC/OS web interface, the `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
+**Note:** Alternatively, you can [install from the DC/OS web interface](/latest/deploying-services/install/#installing-a-service-using-the-gui). If you install {{ model.techName }} from the DC/OS web interface, the `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 ```bash
 dcos package install {{ model.packageName }} --cli

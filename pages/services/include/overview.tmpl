@@ -4,7 +4,7 @@ The following components work together to deploy and maintain the service.
 
 - Mesos
 
-  Mesos is the foundation of the DC/OS cluster. Everything launched within the cluster is allocated resources and managed by Mesos. A typical Mesos cluster has one or three Masters that manage resources for the entire cluster. On DC/OS, the machines running the Mesos Masters will typically run other cluster services as well, such as Marathon and Cosmos, as local system processes. Separately from the Master machines are the Agent machines, which are where in-cluster processes are run. For more information on Mesos architecture, see the [Apache Mesos documentation](https://mesos.apache.org/documentation/latest/architecture/). For more information on DC/OS architecture, see the [DC/OS architecture documentation](/1.9/overview/architecture/).
+  Mesos is the foundation of the DC/OS cluster. Everything launched within the cluster is allocated resources and managed by Mesos. A typical Mesos cluster has one or three Masters that manage resources for the entire cluster. On DC/OS, the machines running the Mesos Masters will typically run other cluster services as well, such as Marathon and Cosmos, as local system processes. Separately from the Master machines are the Agent machines, which are where in-cluster processes are run. For more information on Mesos architecture, see the [Apache Mesos documentation](https://mesos.apache.org/documentation/latest/architecture/). For more information on DC/OS architecture, see the [DC/OS architecture documentation](/latest/overview/architecture/).
 
 - ZooKeeper
 
@@ -26,7 +26,7 @@ The following components work together to deploy and maintain the service.
 
   {{ model.techName }} is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named 'Cosmos') creates a Marathon app that contains a rendered version of the `marathon.json.mustache` template provided by the package. For DC/OS {{ model.techName }}, this Marathon app is the scheduler for the service.
 
-For further discussion of DC/OS components, see the [architecture documentation](/1.9/overview/architecture/components/).
+For further discussion of DC/OS components, see the [architecture documentation](/latest/overview/architecture/components/).
 
 ## Deployment
 
@@ -67,7 +67,7 @@ This is the flow for deploying a new service:
 
 1. The Scheduler connects to that ZooKeeper instance and checks to see if it has previously stored a Mesos Framework ID for itself.
 
-  - If the Framework ID is present, the Scheduler will attempt to reconnect to Mesos using that ID. This may result in a "[Framework has been removed](#framework-has-been-removed)" error if Mesos doesn't recognize that Framework ID, indicating an incomplete uninstall.
+  - If the Framework ID is present, the Scheduler will attempt to reconnect to Mesos using that ID. This may result in a "Framework has been removed" error if Mesos doesn't recognize that Framework ID, indicating an incomplete uninstall.
 
   - If the Framework ID is not present, the Scheduler will attempt to register with Mesos as a Framework. Assuming this is successful, the resulting Framework ID is then immediately stored.
 
@@ -145,7 +145,7 @@ Mesos will periodically notify subscribed Schedulers of resources in the cluster
 
 ## Pods
 
-A Task generally maps to a single process within the service. A Pod is a collection of colocated Tasks that share an environment. All Tasks in a Pod will come up and go down together. Therefore, most maintenance operations against the service are at [Pod granularity](#pod-operations) rather than Task granularity.
+A Task generally maps to a single process within the service. A Pod is a collection of colocated Tasks that share an environment. All Tasks in a Pod will come up and go down together. Therefore, most maintenance operations against the service are at Pod granularity rather than Task granularity.
 
 ## Plans
 
@@ -227,7 +227,7 @@ Volumes are advertised as resources by Mesos, and Mesos offers multiple types of
 - __MOUNT__ volumes:
     - Use a dedicated partition.
     - Have dedicated I/O for the partition.
-    - Require [additional configuration](/1.9/storage/mount-disk-resources/) when setting up the DC/OS cluster.
+    - Require [additional configuration](/1.11/storage/mount-disk-resources/) when setting up the DC/OS cluster.
     - Are allocated the entire partition, so allocated space can far exceed what was originally requested. MOUNT volumes cannot be further subdivided between services.
 
 The fact that MOUNT volumes cannot be subdivided between services means that if multiple services are deployed with MOUNT volumes, they can quickly be unable to densely colocate within the cluster unless many MOUNT volumes are created on each agent. Let's look at the following deployment scenario across three DC/OS agent machines, each with two enabled MOUNT volumes labeled A and B:
@@ -258,21 +258,21 @@ Configuring `ROOT` vs `MOUNT` volumes may depend on the service. Some services w
 
 ## Virtual networks
 
-The SDK allows pods to join virtual networks, with the `dcos` virtual network available by defualt. You can specify that a pod should join the virtual network by using the `networks` keyword in your YAML definition. Refer to the [Developer Guide](../developer-guide/) for more information about how to define virtual networks in your service.
+The SDK allows pods to join virtual networks, with the `dcos` virtual network available by defualt. You can specify that a pod should join the virtual network by using the `networks` keyword in your YAML definition. Refer to the [Developer Guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) for more information about how to define virtual networks in your service.
 
 When a pod is on a virtual network such as the `dcos`:
   * Every pod gets its own IP address and its own array of ports.
   * Pods do not use the ports on the host machine.
   * Pod IP addresses can be resolved with the DNS: `<task_name>.<service_name>.autoip.dcos.thisdcos.directory`.
-  * You can also pass labels while invoking CNI plugins. Refer to the [Developer Guide](../developer-guide/) for more information about adding CNI labels.
+  * You can also pass labels while invoking CNI plugins. Refer to the [Developer Guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) for more information about adding CNI labels.
 
 ## Secrets
 
 Enterprise DC/OS provides a secrets store to enable access to sensitive data such as database passwords, private keys, and API tokens. DC/OS manages secure transportation of secret data, access control and authorization, and secure storage of secret content.
 
-The content of a secret is copied and made available within the pod. The SDK allows secrets to be exposed to pods as a file and/or as an environment variable. Refer to the [Developer Guide](../developer-guide/) for more information about how DC/OS secrets are integrated into SDK-based services. If the content of the secret is changed, the relevant pod needs to be restarted so that it can get updated content from the secret store.
+The content of a secret is copied and made available within the pod. The SDK allows secrets to be exposed to pods as a file and/or as an environment variable. Refer to the [Developer Guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) for more information about how DC/OS secrets are integrated into SDK-based services. If the content of the secret is changed, the relevant pod needs to be restarted so that it can get updated content from the secret store.
 
-**Note:** Secrets are available only in Enterprise DC/OS 1.10 onwards. [Learn more about the secrets store](/1.10/security/secrets/).
+**Note:** Secrets are available only in Enterprise DC/OS 1.10 onwards. [Learn more about the secrets store](/1.11/security/ent/secrets/).
 
 
 ### Authorization for Secrets
@@ -334,7 +334,7 @@ $ dcos security secrets create --value-file kerb5.keytab.base64-encoded some/pat
 
 **Note:** The secret name **must** be prefixed with `__dcos_base64__`.
 
-When the `some/path/__dcos_base64__mysecret` secret is [referenced in your service definition](../developer-guide.md#secrets), its base64-decoded contents will be made available as a [temporary file](http://mesos.apache.org/documentation/latest/secrets/#file-based-secrets) in your service task containers. **Note:** Make sure to only refer to binary secrets as files since holding binary content in environment variables is discouraged.
+When the `some/path/__dcos_base64__mysecret` secret is [referenced in your service definition](https://mesosphere.github.io/dcos-commons/developer-guide.html), its base64-decoded contents will be made available as a [temporary file](http://mesos.apache.org/documentation/latest/secrets/#file-based-secrets) in your service task containers. **Note:** Make sure to only refer to binary secrets as files since holding binary content in environment variables is discouraged.
 
 ## Placement Constraints
 
@@ -345,7 +345,7 @@ A common task is to specify a list of whitelisted systems to deploy to. To achie
 hostname:LIKE:10.0.0.159|10.0.1.202|10.0.3.3
 ```
 
-You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service (via [`pod replace`](#replace-a-pod)) without requiring that system.
+You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service (via `pod replace`) without requiring that system.
 
 ### Regions and Zones
 
