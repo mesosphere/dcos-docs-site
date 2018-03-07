@@ -73,7 +73,7 @@ managing ingress traffic.
 
 A typical AWS deployment including AWS Load Balancers is shown below:
 
-![Security Zones](1.10/img/security-zones.jpg)
+![Security Zones](/1.10/img/security-zones.jpg)
 
 ## Admin Router
 
