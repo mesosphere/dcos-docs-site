@@ -15,6 +15,8 @@ A DC/OS node is a virtual or physical machine on which DC/OS components run. DC/
 
 A DC/OS cluster is composed of three types of nodes: masters, private agents, and public agents.
 
+It is highly recommended to use different types of nodes to be set up in different networks (private, public, protected).
+
 ![DC/OS Node Types](/1.10/img/dcos-node-types.png)
 
 
