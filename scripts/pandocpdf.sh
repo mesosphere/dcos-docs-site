@@ -7,7 +7,7 @@
 #
 INPUT_FILES=${1}
 OUTPUT_PATH=${2}
-INPUT_FOLDER=${3}
+
 # Convert the file from .md to .pdf
 echo "pandoc --toc --pdf-engine=xelatex --resource-path=./pages ./templates/style.yaml ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex  --biblatex --template=./templates/mesosphere.latex"
-pandoc --toc --pdf-engine=xelatex --resource-path="${INPUT_FOLDER}" ./templates/style.yaml "${INPUT_FILES}" -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex  --biblatex --template=./templates/mesosphere.latex
+pandoc --from=gfm --toc --pdf-engine=xelatex --resource-path=./pages ./templates/style.yaml "${INPUT_FILES}" -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex  --biblatex --template=./templates/mesosphere.latex

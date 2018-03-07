@@ -75,11 +75,14 @@ function main
       done < <(find "${INPUT_FOLDER}"/"${FILE_PATH}" -type d -depth)
 
      # Fix for images urls
-     sed -i 's,/\([-0-9A-Za-z/_.]*\.png\),\1,g;s,/\([-0-9A-Za-z/_.]*\.jpg\),\1,g;s,/\([-0-9A-Za-z/_.]*\.jpeg\),\1,g;s,/\([-0-9A-Za-z/_.]*\.gif\),\1,g;s,/\([-0-9A-Za-z/_.]*\.svg\),..\1,g' "${TEMP_FILE}"
+     sed -i 's,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.png\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.jpg\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.jpeg\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.gif\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.svg\),..\1\2,g' "${TEMP_FILE}"
+     sed -i 's,@,at,g' "${TEMP_FILE}"
 
      # Unicode characters to encode into UTF8.
      CHARS=$(python -c 'print u"\u2060\u0080\u0099\u009C\u009d\u0098\u0094\u0082\u00a6\u0089\u00a4\u00a5\u0093".encode("utf8")')
      sed -i 's/['"$CHARS"']//g' "${TEMP_FILE}"
+
+     sed -i -r 's/.{180}/&\n/g' "${TEMP_FILE}"
 
      scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
      # Pandoc gets the string of files and outputs the pdf.

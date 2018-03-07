@@ -64,11 +64,11 @@ Usage:
 
 Now, we check if Spark is running and healthy, in the cluster itself. For this, go to the DC/OS dashboard and you should see Spark there:
 
-![Spark in the dashboard](img/dcos-spark-dashboard.png)
+![Spark in the dashboard](/1.7/usage/tutorials/spark/img/dcos-spark-dashboard.png)
 
 By clicking on the `Open Service` button, you can access the Spark drivers page where you will see the jobs listed in the next steps; alternatively you can get to this page by using the `dcos spark webui` command:
 
-![Spark Drivers page](img/dcos-spark-drivers.png)
+![Spark Drivers page](/1.7/usage/tutorials/spark/img/dcos-spark-drivers.png)
 
 # Executing a Spark job
 
@@ -87,7 +87,7 @@ Run job succeeded. Submission id: driver-20160310064921-0001
 
 Note the submission id in the last line, above (in my case `driver-20160310064921-0001`): this allows to track the job via the CLI as we will see below. When you look at the Spark drivers page you should see the job as well (in my case the finished job, since it took less than a minute to execute):
 
-![Spark finished job](img/dcos-spark-finished-job.png)
+![Spark finished job](/1.7/usage/tutorials/spark/img/dcos-spark-finished-job.png)
 
 Alternatively, you can use the CLI to verify the job status:
 
@@ -160,7 +160,7 @@ Note that the service is experimental and there may be bugs, incomplete features
 
 After this, you should see Zeppelin running via the DC/OS dashboard (by clicking on the `marathon` service):
 
-![Zeppelin in the dashboard](img/dcos-zeppelin-dashboard.png)
+![Zeppelin in the dashboard](/1.7/usage/tutorials/spark/img/dcos-zeppelin-dashboard.png)
 
 Since Zeppelin is launched, as all long-running applications, via Marathon you need to look up the port it has been scheduled on first. You will want the first (lower) port that you can either glean from the Marathon UI or via the following commands using the DC/OS CLI (ignore the IPs shown below, these are just the cluster-internal ones):
 
@@ -205,11 +205,11 @@ dcos marathon task show zeppelin.cac2fe3a-e773-11e5-957c-024211f85596
 
 In this case the lower port was `31753` and together with the public node IP this gives `http://52.10.197.225:31753/`:
 
-![Zeppelin](img/dcos-zeppelin.png)
+![Zeppelin](/1.7/usage/tutorials/spark/img/dcos-zeppelin.png)
 
 To get started with Zeppelin, check out the Zeppelin [docs](http://zeppelin.incubator.apache.org/docs/0.5.6-incubating/tutorial/tutorial.html) or simply walk through the built-in tutorial in form of a notebook called `Zeppelin Tutorial`:
 
-![Zeppelin Tutorial](img/dcos-zeppelin-tutorial.png)
+![Zeppelin Tutorial](/1.7/usage/tutorials/spark/img/dcos-zeppelin-tutorial.png)
 
 **Further resources**:
 
