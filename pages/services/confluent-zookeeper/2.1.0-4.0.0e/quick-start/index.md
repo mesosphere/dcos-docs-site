@@ -5,7 +5,7 @@ title: Quick Start
 menuWeight: 40
 excerpt:
 
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
@@ -15,17 +15,17 @@ render: mustache
 
 - [DC/OS installed on your cluster](/latest/administration/installing/).
 
-1. If you are using open source DC/OS, install an Apache ZooKeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
+1. If you are using open source DC/OS, install an {{ model.techName }} cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
    ```shell
-   dcos package install kafka-zookeeper
+   dcos package install {{ model.packageName }}
    ```
 
-   Alternatively, you can install Apache ZooKeeper from [the DC/OS web interface](/latest/usage/webinterface/).
+   Alternatively, you can install {{ model.techName }} from [the DC/OS web interface](/latest/usage/webinterface/).
 
 1. The service will now deploy with a default configuration. You can monitor its deployment on the **Services** tab of the DC/OS web interface.
 
-1. Connect a client to Apache ZooKeeper.
+1. Connect a client to {{ model.techName }}.
    ```shell
    dcos {{ model.packageName }} endpoints
    [

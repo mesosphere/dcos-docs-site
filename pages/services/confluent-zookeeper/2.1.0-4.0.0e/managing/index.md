@@ -5,7 +5,7 @@ title: Managing
 menuWeight: 60
 excerpt:
 
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
@@ -13,7 +13,7 @@ render: mustache
 
 <a name="updating-configuration"></a>
 # Updating Configuration
-You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying DC/OS Apache ZooKeeper itself.
+You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying DC/OS {{ model.techName }} itself.
 
 Edit the runtime environment of the scheduler to make configuration changes. After making a change, the scheduler will be restarted and automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `zookeeper-0-server`, then `zookeeper-1-server`, and so on.
 

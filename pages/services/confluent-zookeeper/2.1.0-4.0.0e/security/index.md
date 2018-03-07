@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Security
 menuWeight: 22
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
@@ -14,7 +14,7 @@ render: mustache
 
 The DC/OS {{ model.techName }} service supports ZooKeeper's native Kerberos authentication mechanism. The service provides automation and orchestration to simplify the usage of these important features, with both [Client-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication) and [Server-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication) mutal authentication supported.
 
-An overview of the Apache ZooKeeper Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
+An overview of the {{ model.techName }} Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
 
 *Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
 
@@ -101,7 +101,7 @@ Install the DC/OS {{ model.techName }} service withe the following options in ad
 
 #### Enabling Kerberos After Deployment
 
-It is possible to enable Kerberos authentication after the deployment of DC/OS {{ model.techName }}. As described in the (Rolling Upgrade)[https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication] section of the Apache ZooKeeper documentation, this requires multiple rolling restarts of the ZooKeeper ensemble and client connectivity may be lost at times.
+It is possible to enable Kerberos authentication after the deployment of DC/OS {{ model.techName }}. As described in the (Rolling Upgrade)[https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication] section of the {{ model.techName }} documentation, this requires multiple rolling restarts of the ZooKeeper ensemble and client connectivity may be lost at times.
 
 Assuming that DC/OS {{ model.techName }} was initially deployed with `service.security.kerberos.enabled` set to `false`, the following steps can be used to enable Kerberos for the service.
 
@@ -135,11 +135,11 @@ where it is important to note the `service.security.kerberos.advanced` section t
 
 Using this config file, update your DC/OS {{ model.techName }} service:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> update start --options=kerberos-toggle-step-1.json
+$ dcos {{ model.packageName }} --name=<service name> update start --options=kerberos-toggle-step-1.json
 ```
 and wait for the deploy (update) plan to complete:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> plan show deploy
+$ dcos {{ model.packageName }} --name=<service name> plan show deploy
 deploy (serial strategy) (COMPLETE)
 └─ node-update (serial strategy) (COMPLETE)
    ├─ zookeeper-0:[server, metrics] (COMPLETE)
@@ -167,8 +167,8 @@ Create a `kerberos-toggle-step-2.json` file with the following contents (note th
 ```
 and deploy this as a configuration update:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> update start --options=kerberos-toggle-step-2.json
-$ dcos kafka-zookeeper --name=<service name> plan show deploy
+$ dcos {{ model.packageName }} --name=<service name> update start --options=kerberos-toggle-step-2.json
+$ dcos {{ model.packageName }} --name=<service name> plan show deploy
 deploy (serial strategy) (COMPLETE)
 └─ node-update (serial strategy) (COMPLETE)
    ├─ zookeeper-0:[server, metrics] (COMPLETE)
@@ -195,8 +195,8 @@ As the next step in the rolling update process, create a `kerberos-toggle-step-3
 ```
 and deploy this as a configuration update:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> update start --options=kerberos-toggle-step-3.json
-$ dcos kafka-zookeeper --name=<service name> plan show deploy
+$ dcos {{ model.packageName }} --name=<service name> update start --options=kerberos-toggle-step-3.json
+$ dcos {{ model.packageName }} --name=<service name> plan show deploy
 deploy (serial strategy) (COMPLETE)
 └─ node-update (serial strategy) (COMPLETE)
    ├─ zookeeper-0:[server, metrics] (COMPLETE)
@@ -223,8 +223,8 @@ The final step is to require Kerberos authentication for clients connecting to t
 ```
 which is deployed:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> update start --options=kerberos-toggle-step-3.json
-$ dcos kafka-zookeeper --name=<service name> plan show deploy
+$ dcos {{ model.packageName }} --name=<service name> update start --options=kerberos-toggle-step-3.json
+$ dcos {{ model.packageName }} --name=<service name> plan show deploy
 deploy (serial strategy) (COMPLETE)
 └─ node-update (serial strategy) (COMPLETE)
    ├─ zookeeper-0:[server, metrics] (COMPLETE)

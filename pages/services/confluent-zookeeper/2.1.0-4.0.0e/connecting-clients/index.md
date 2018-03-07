@@ -5,7 +5,7 @@ title: Connecting Clients
 menuWeight: 50
 excerpt:
 
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
@@ -24,8 +24,8 @@ Once the service is running, you may view information about its endpoints via ei
   - List endpoint types: `dcos {{ model.packageName }} endpoints`
   - View endpoints for an endpoint type: `dcos {{ model.packageName }} endpoints <endpoint>`
 - Web:
-  - List endpoint types: `<dcos-url>/service/kafka-zookeeper/v1/endpoints`
-  - View endpoints for an endpoint type: `<dcos-url>/service/kafka-zookeeper/v1/endpoints/<endpoint>`
+  - List endpoint types: `<dcos-url>/service/{{ model.serviceName }}/v1/endpoints`
+  - View endpoints for an endpoint type: `<dcos-url>/service/{{ model.serviceName }}/v1/endpoints/<endpoint>`
 
 ZooKeeper returns the following endpoint:
 
@@ -41,19 +41,19 @@ To see node addresses for the `clientport` endpoints, run `dcos {{ model.package
     "10.0.1.27:1140"
   ],
   "dns": [
-    "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
-    "zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
-    "zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
+    "zookeeper-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1140",
+    "zookeeper-1-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1140",
+    "zookeeper-2-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1140"
   ]
 }
 ```
 
-In general, the `.thisdcos` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use the direct IPs (assuming you are on the same network as the private agents) or set up a proxy service that acts as a frontend to your DC/OS Apache ZooKeeper instance. For development and testing purposes, you can use [DC/OS Tunnel](/latest/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
+In general, the `.thisdcos` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use the direct IPs (assuming you are on the same network as the private agents) or set up a proxy service that acts as a frontend to your DC/OS {{ model.techName }} instance. For development and testing purposes, you can use [DC/OS Tunnel](/latest/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
 
 <a name="connecting-kafka-to-zookeeper"></a>
 ## Connecting Kafka to ZooKeeper
 
-One important use for the DC/OS Apache ZooKeeper service is to have your DC/OS Apache Kafka service connect to it. This enables you to increase Kafka's capacity and removes the system ZooKeeper's involvment in the service.
+One important use for the DC/OS {{ model.techName }} service is to have your DC/OS Apache Kafka service connect to it. This enables you to increase Kafka's capacity and removes the system ZooKeeper's involvment in the service.
 
 Follow the "Alternate ZooKeeper" instructions in the [Kafka documentation](/service-docs/kafka/2.0.2-0.11.0/install/#alternate-zookeeper). To obtain the proper value for the `kafka_zookeeper_uri`, run:
 
@@ -68,7 +68,7 @@ Alternatively, you can install from the DC/OS CLI with the following `options.js
 ```json
 {
     "kafka": {
-      "kafka_zookeeper_uri": "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
+      "kafka_zookeeper_uri": "zookeeper-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1140"
     }
 }
 ```

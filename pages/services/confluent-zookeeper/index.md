@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kafka ZooKeeper
-title: Kafka ZooKeeper
-menuWeight: 71
+navigationTitle: Confluent ZooKeeper
+title: Confluent ZooKeeper
+menuWeight: 11
 excerpt:
 featureMaturity:
 enterprise: false

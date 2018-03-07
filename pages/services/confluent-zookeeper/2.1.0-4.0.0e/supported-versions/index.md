@@ -5,7 +5,7 @@ title: Supported Versions
 menuWeight: 110
 excerpt:
 
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

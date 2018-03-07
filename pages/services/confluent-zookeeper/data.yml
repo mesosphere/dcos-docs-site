@@ -1,8 +1,8 @@
 # Common values:
 
-packageName: kafka-zookeeper
-serviceName: kafka-zookeeper
-techName: Kafka ZooKeeper
+packageName: confluent-zookeeper
+serviceName: confluent-zookeeper
+techName: Confluent ZooKeeper
 techShortName: ZooKeeper
 
 # Values specific to certain templates:
@@ -10,7 +10,7 @@ techShortName: ZooKeeper
 install:
   minNodeCount: three
   nodeDescription: with three servers
-  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/kafka-zookeeper/kafka-zookeeper-auth/
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/confluent-zookeeper/confluent-zookeeper-auth/
 
 managing:
   podType: zookeeper
