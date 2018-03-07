@@ -57,6 +57,12 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [dcos_l4lb_enable_ipv6](#dcos_l4lb_enable_ipv6)        | A boolean that indicates if layer 4 load balancing is available for IPv6 networks. |
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. | 
 
+# Storage 
+
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag that enables [CSI support](https://github.com/container-storage-interface/spec) on the Mesos agents. By default set to `false`. This feature flag needs to be turned on to use the [Data Storage Service (DSS)](/services/beta-storage)|
+
 # Performance and Tuning
 
 | Parameter                    | Description                                                                                                                                                       |
@@ -575,6 +581,14 @@ Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by
 The bridge-mode networking for UCR is identical to bridge mode networking for Docker and hence `ucr-br0` plays the same role as `docker0` bridge for Docker bridge-mode networking.
 
 The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_subnet` is that the subnet should not be used on the network to which the agents are connected. In other words, this subnet should be routeable from only within an agent.
+
+[enterprise]
+### feature_dcos_storage_enabled
+[/enterprise]
+
+Enables CSI support in the Mesos agents. Currently the only CSI plugin that is supported is the LVM plugin. The plugin allows Mesos to expose local volumes as resources to frameworks.
+* `feature_dcos_storage_enabled: 'false'` Disables CSI plugin support in the Mesos agent. This is the default value.
+* `feature_dcos_storage_enabled: 'true'` Enables CSI plugin support in Mesos agent. This is necessary to use the [Data Storage Service (DSS)](/services/beta-storage)
 
 <a id="zk-superuser"></a>
 [enterprise]
