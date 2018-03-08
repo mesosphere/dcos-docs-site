@@ -8,9 +8,9 @@ excerpt:
 enterprise: true
 ---
 
-This document provides instructions for upgrading a DC/OS cluster.  
+This document provides instructions for upgrading a DC/OS cluster.
 
-If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].  
+If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
 
@@ -187,6 +187,18 @@ Proceed with upgrading every master node one-at-a-time in any order using the fo
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
         **Tip:** If you are upgrading from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access.
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running Mesos 1.4.0.
+	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeroes.
+        ```bash
+        sudo /opt/mesosphere/bin/cockroach node status --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
+        +----+------------------+--------+-------+------------------+-----------------------+--------+--------------------+------------------------+
+        | id |     address      | build  |  ...  | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
+        +----+------------------+--------+-------+------------------+-----------------------+--------+--------------------+------------------------+
+        |  1 | 172.17.0.3:26257 | v1.0.6 |  ...  |               10 |                    10 |     10 |                  0 |                      0 |
+        |  2 | 172.17.0.5:26257 | v1.0.6 |  ...  |                1 |                     1 |      1 |                  0 |                      0 |
+        |  3 | 172.17.0.4:26257 | v1.0.6 |  ...  |                7 |                     6 |      7 |                  0 |                      0 |
+        +----+------------------+--------+-------+------------------+-----------------------+--------+--------------------+------------------------+
+        ```
+		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 
