@@ -189,14 +189,14 @@ B- This package combination is *beta*.
         <td>◯</td>
     </tr>
      <tr>
-    	<td>Confluent-Kafka 2.1.x-3.3.x</td>
+    	<td>Confluent-Kafka 2.1.x-*</td>
         <td>⚫</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>◯</td>
     </tr>
     <tr>
-    	<td>Confluent-Kafka 2.0.x-3.2.x</td>
+    	<td>Confluent-Kafka 2.0.x-*</td>
     	<td>◯</td>
     	<td>◒</td>
     	<td>◒</td>
@@ -210,14 +210,14 @@ B- This package combination is *beta*.
         <td>◯</td>
     </tr>
      <tr>
-    	<td>Cassandra 2.1.x-3.0.15</td>
+    	<td>Cassandra 2.1.x-*</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>◯</td>
     </tr>
     <tr>
-    	<td>Cassandra 2.0.x-3.0.15</td>
+    	<td>Cassandra 2.0.x-*</td>
     	<td>◯</td>
     	<td>◒</td>
     	<td>◒</td>
@@ -259,36 +259,36 @@ B- This package combination is *beta*.
     	<td>◯</td>
     </tr>
     <tr>
-    	<td>ElasticSearch 2.2.x-5.6.y</td>
+    	<td>ElasticSearch 2.2.x-*</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>◯</td>
     </tr>
       <tr>
-    	<td>ElasticSearch 2.1.x-5.6.y</td>
+    	<td>ElasticSearch 2.1.x-*</td>
     	<td>◯</td>
     	<td>◒</td>
     	<td>◒</td>
     	<td>◯</td>
     </tr> 
     <tr>
-    	<td>ElasticSearch 2.0.x-5.6.y</td>
+    	<td>ElasticSearch 2.0.x-*</td>
     	<td>◯</td>
     	<td>◒</td>
     	<td>◒</td>
     	<td>◯</td>
     </tr> 
     <tr>
-    	<td>HDFS 2.1.x-2.6.y</td>
+    	<td>HDFS 2.1.x-*</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>◯</td>
     </tr>
      <tr>
-    	<td>HDFS 2.0.x-2.6.y</td>
-    	<td>◒</td>
+    	<td>HDFS 2.0.x-*</td>
+    	<td>◯</td>
     	<td>◒</td>
     	<td>◒</td>
     	<td>◯</td>
@@ -406,15 +406,22 @@ B- This package combination is *beta*.
     	<td>◯</td>
     </tr> 
     <tr>
-    	<td>Spark 2.1.x-2.2.y</td>
+    	<td>Spark 2.3.x-2.2.y</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>◯</td>
     </tr>   
     <tr>
-    	<td>Spark 2.0.x-2.2.y</td>
+    	<td>Spark 2.1.x-2.2.y</td>
+    	<td>◯</td>
     	<td>◒</td>
+    	<td>◒</td>
+    	<td>◯</td>
+    </tr>   
+    <tr>
+    	<td>Spark 2.0.x-2.2.y</td>
+    	<td>◯</td>
     	<td>◒</td>
     	<td>◒</td>
     	<td>◯</td>
