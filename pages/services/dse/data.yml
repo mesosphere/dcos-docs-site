@@ -1,0 +1,11 @@
+# Common values:
+
+packageName: datastax-dse
+serviceName: datastax-dse
+techName: DataStax Enterprise
+techShortName: DSE
+
+# Values specific to certain templates:
+
+security:
+  plaintext: ", \"allow_plaintext\": <true|false default false>"

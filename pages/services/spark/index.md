@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Spark
 title: Spark
-menuWeight: 100
+menuWeight: 90
 excerpt:
 featureMaturity:
 enterprise: false

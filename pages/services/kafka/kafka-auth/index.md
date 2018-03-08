@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Configuring DC/OS Access for Kafka
-menuWeight: 650
+menuWeight: 660
 excerpt:
 featureMaturity:
 enterprise: true

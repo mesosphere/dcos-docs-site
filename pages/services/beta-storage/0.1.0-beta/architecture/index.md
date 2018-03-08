@@ -20,7 +20,7 @@ Devices from each agent are reported to DSS as [Mesos RAW disk resources](http:/
 Those devices can be used to create LVM volume providers.
 Currently, there is a 1:1 mapping between volume providers and [Mesos Storage Local Resource Providers (SLRP)](http://mesos.apache.org/documentation/latest/csi/#storage-local-resource-provider/).
 Creating a volume provider effectively means creating a SLRP.
-To create a volume provider, DSS will hit the Mesos agent operator API to create a SLRP.
+To create a volume provider, DSS will ask the Mesos agent operator API to create a SLRP.
 
 Each SLRP is associated with a [CSI Plugin](http://mesos.apache.org/documentation/latest/csi/#slrp-configuration/) that is responsible for talking to the actual storage backend.
 Each CSI Plugin is a set of long running gRPC services, whose lifecycles are managed by the corresponding SLRP.
@@ -30,6 +30,5 @@ DSS is also responsible for creating volumes by [converting](http://mesos.apache
 Created Mount or Block disk resources will be offered to other frameworks in the cluster.
 These frameworks can then use the disk resources in the same way as they would use other Mount or Block disk resources.
 
-Cluster administrators can use DC/OS CLI to interact with DC/OS storage service (DSS).
-A ‘storage’ command has been introduced.
+Cluster administrators can use DC/OS CLI to interact with DC/OS storage service (DSS) using the newly introduced 'storage' CLI sub-command.
 See more details in the [CLI References](../cli-references/) section.

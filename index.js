@@ -122,7 +122,7 @@ CB.use(timer('CB: Dataloader'))
 //   #include path/to/file.tmpl
 CB.use(includeContent({
   // Style as a C-like include statement. Must be on its own line.
-  pattern: '^#include ([^ ]+)$',
+  pattern: '^#include ([^ \n]+)$',
   // Only enable in service pages for now.
   match: 'services/**/*.md*',
 }))

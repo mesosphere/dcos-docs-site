@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Release Notes
 menuWeight: 120
@@ -9,54 +9,47 @@ enterprise: false
 
 ## Version 2.0.4-1.0.0
 
-## Updates
+### Updates
 - Upgraded to Kafka v1.0.0. **Note:** Protocol and log version defaults are set to 0.11.0. After upgrading to this version, they may be set to 1.0.0.
 
-## Version 2.1.1-1.0.0-beta
-
-## NOTICE
-
-This is a beta release of the DC/OS Apache Kafka framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
+# Version 2.0.3-0.11.0
 
 ### Bug Fixes
-- Scheduler health check now passes during service uninstall.
-- Fixed a regression in replacing failed pods on failed agents.
-- Replacing a pod on a failed agent now no longer waits for Mesos to register the agent as lost.
+* Uninstall now handles failed tasks correctly.
+* Fixed a timing issue in the broker readiness check that caused brokers to be stuck in STARTING when the service is allocated more than 2 CPUs per broker.
 
-## Version 3.0.0-1.0.0-beta
-
-## NOTICE
-
-This is a beta release of the DC/OS Kafka framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
-
-### New features
-- Support for the automated provisioning of TLS artifacts to secure Kafka communication.
-- Support for Kerberos and SSL authorization and authentication.
-- Support for `Zone` placement constraints in DC/OS 1.11 (beta versions of DC/OS 1.11 coming soon).
-
-### Updates
-- Major improvements to the stability and performance of service orchestration.
-- The service now uses Kafka v1.0.0. Note that the broker protocol version defaults to 1.0.0, but can be manually set to 1.0.0 if desired.
-
-## Version 1.1.27-0.11.0-beta
-### Improvements
-- Support for Kafka's graceful shutdown.
-- Update to 0.11.0.0 version of Apache Kafka.
-- Default broker protocol and log message formats now default to 0.11.0.0.
-- Upgrade to [dcos-commons 0.30.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.30.0).
+# Version 2.0.2-0.11.0
 
 ### Bug Fixes
-- Numerous fixes and enhancements to service reliability.
 
-## Version 1.1.26-0.10.1.0-beta
-### New Features
-- Installation in folders is supported
-- Use of a CNI network is supported
+- Dynamic ports are no longer sticky across pod replaces
+- Further fixes to scheduler behavior during task status transitions.
 
-### Improvements
-- Upgrade to [dcos-commons 0.20.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.20.1)
-- Default user is now `nobody`
-- Allow configuration of scheduler log level
-- Readiness check has been added
-- Custom ZK configuration is supported
-- Statsd is enabled
+#### Improvements
+
+- Updated JRE version to 8u144.
+- Improved handling of error codes in service CLI.
+
+# Version 2.0.1-0.11.0
+
+### Bug Fixes
+* Tasks will correctly bind on DC/OS 1.10.
+
+### Documentation
+* Updated post-install links for package.
+* Updated `limitations.md`.
+* Ensured previous `version-policy.md` content is present.
+
+# Version 2.0.0-0.11.0
+
+## Improvements
+- Based on the latest stable release of the dcos-commons SDK, which provides numerous benefits:
+  - Integration with DC/OS features such as virtual networking and integration with DC/OS access controls.
+  - Orchestrated software and configuration update, enforcement of version upgrade paths, and ability to pause/resume updates.
+  - Placement constraints for pods.
+  - Uniform user experience across a variety of services.
+- Graceful shutdown for brokers.
+- Update to 0.11.0.0 version of Apache Kafka (including log and protocol versions).
+
+## Breaking Changes
+- This is a major release.  You cannot upgrade to version 2.0.0-0.11.0 from a 1.0.x version of the package. To upgrade, you must perform a fresh install and replicate data across clusters.

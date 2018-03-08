@@ -16,22 +16,23 @@ A Linux block [device file](https://en.wikipedia.org/wiki/Device_file/) presenti
 
 The [Container Storage Interface](https://github.com/container-storage-interface/spec/blob/master/spec.md/) is an open standard developed by the community to standardize the API between container orchestrators (Mesos, Kubernetes, Cloud Foundry, Docker, etc.) and storage vendors (EBS, Dell ScaleIO, Ceph, Portworx, etc.).
 
-Currently, DC/OS supports CSI spec v0.1.
+Currently, DC/OS supports v0.1 of the CSI specification.
 
 # CSI Plugin
 
-A gRPC endpoint that implements the CSI Services specified in the CSI spec. See more details about CSI terminology [here](https://github.com/container-storage-interface/spec/blob/master/spec.md#terminology/).
+A CSI plugin provides an endpoint that presents the gRPC services defined by the CSI specification.
+See more details about CSI terminology [here](https://github.com/container-storage-interface/spec/blob/master/spec.md#terminology/).
 
 # Storage Local Resource Provider (SLRP)
 
-A Mesos component that drives a single CSI plugin which manages storage resources that exist on a single agent.
+A Mesos component that drives a single CSI plugin to manage storage resources that are local to an agent.
 It presents these storage resources (both raw capacity and in the form of volumes) to Mesos and translates operations on those resources to CSI RPCs which it executes against the CSI plugin.
 Examples of CSI plugins are those for LVM2, Raw GPT, other direct-attached storage.
 Learn more details about SLRP in [Mesos documentation](http://mesos.apache.org/documentation/latest/csi/#storage-local-resource-provider/).
 
 # Storage External Resource Provider (SERP)
 
-A Mesos component that drives a single CSI plugin which manages storage resources bound to the cluster as a whole, not tied to a single agent.
+A Mesos component that drives a single CSI plugin to manage storage resources available to the cluster (and not localized to a single agent).
 It presents these storage resources (both raw capacity and in the form of volumes) to Mesos and translates operations on those resources to CSI RPCs which it executes against the CSI plugin.
 Examples of such CSI plugins are those for Amazon EBS, NFS, other storage that can be automatically reattached to different agents.
 
@@ -39,7 +40,7 @@ Examples of such CSI plugins are those for Amazon EBS, NFS, other storage that c
 
 A storage object from which a volume can be provisioned.
 Practically, a volume provider is associated with a single instance of a CSI plugin.
-Each volume provider hooks into Mesos through a single instance of a Storage Local Resource Provider (SLRP) or Storage External Resource Provider (SERP).
+Each volume provider integrates with Mesos through a single instance of a Storage Local Resource Provider (SLRP) or Storage External Resource Provider (SERP).
 There can be many instances of a given kind of volume provider.
 For example, "lvm volume group" is a kind of volume provider but there can be multiple LVM2 volume groups where each volume group is configured as a separate volume provider.
 
@@ -48,7 +49,7 @@ Example for volume providers, multiple of which can appear on the same cluster o
 1. LVM2 Volume Group (via the LVM2 CSI plugin).
 2. NFS mount (via some NFS CSI plugin).
 3. ScaleIO <Protection Domain, Storage Pool> (via some ScaleIO CSI plugin).
-4. Amazon EBS: ebs-1, ebs-2, etc.
+4. Amazon EBS: ebs-1, ebs-2, etc. (via some EBS CSI plugin).
 
 # Volume Plugin
 
@@ -60,7 +61,7 @@ Plugins have easily recognizable names such as "lvm" or "ebs".
 
 A set of parameters that can be used to configure a volume.
 Volume profiles are used to classify volumes according to user's use cases.
-An example: A user could group all his SSDs into a "fast" profile while grouping HDDs into a "slow" volume profile.
+For example, a user could group all his SSDs into a "fast" profile while grouping HDDs into a "slow" volume profile.
 Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.
 The CLI sub-command is called "profile" instead of "volume profile" for the sake of brevity.
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Elastic 2.1.1-5.6.5
 title: Elastic 2.1.1-5.6.5
-menuWeight: 10
+menuWeight: 70
 excerpt:
 ---
 
