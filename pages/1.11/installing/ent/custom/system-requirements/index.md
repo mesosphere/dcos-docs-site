@@ -44,6 +44,8 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 
 ### Agent nodes
 
+The supported operating systems and environments are listed on https://docs.mesosphere.com/version-policy/.
+
 Here are the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
