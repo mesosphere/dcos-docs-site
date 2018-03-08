@@ -34,8 +34,7 @@ build-development: build-api
 #
 
 build-pdf-production:
-	#./scripts/mdtopdf.sh ./pages/services/hdfs/2.0.1-2.6.0-cdh5.11.0 ./build-pdf
-	./scripts/mdtopdf.sh ./pages/1.7 ./build-pdf
+	./scripts/mdtopdf.sh ./pages ./build-pdf
 
 build-pdf-development: build-api docker-development-up-pdf
 	npm run build-pdf

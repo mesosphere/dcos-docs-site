@@ -25,13 +25,10 @@ $if(linestretch)$
 $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{polyglossia}\setdefaultlanguage{ngerman}
-\usepackage{biblatex}
 \usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % \ifpdftex
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
-  \usepackage[utf8x]{inputenc}
-  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
 $if(mathspec)$
@@ -167,19 +164,9 @@ $endif$
 $if(beamer)$
 \newif\ifbibliography
 $endif$
-$if(natbib)$
-\usepackage[$natbiboptions$]{natbib}
-\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
-$endif$
-$if(biblatex)$
-\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
-$for(bibliography)$
-\addbibresource{$bibliography$}
-$endfor$
-$endif$
 $if(listings)$
 \usepackage{listings}
-\newcommand{\passthrough}[1]{\#1}
+\newcommand{\passthrough}[1]{#1}
 $endif$
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
@@ -216,29 +203,41 @@ $if(beamer)$
 \widowpenalties 1 10000
 \raggedbottom
 $if(section-titles)$
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
 \AtBeginPart{
-  \let\insertpartnumber\relax
-  \let\partname\relax
   \frame{\partpage}
 }
 \AtBeginSection{
   \ifbibliography
   \else
-    \let\insertsectionnumber\relax
-    \let\sectionname\relax
     \frame{\sectionpage}
   \fi
 }
-% \AtBeginSubsection{
-%   \let\insertsubsectionnumber\relax
-%   \let\subsectionname\relax
-%   \frame{\subsectionpage}
-% }
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
 $endif$
 $endif$
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
-\DeclareRobustCommand{\href}[2]{\#2\footnote{\url{\#1}}}
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
 $endif$
 $if(strikeout)$
 \usepackage[normalem]{ulem}
@@ -260,13 +259,16 @@ $else$
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
 \let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{\#1}\mbox{}}
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
 \let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{\#1}\mbox{}}
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 $endif$
+$endif$
+$if(pagestyle)$
+\pagestyle{$pagestyle$}
 $endif$
 
 % Make use of float-package and set default placement for figures to H
@@ -307,11 +309,21 @@ $if(dir)$
 \fi
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \TeXXeTstate=1
-  \newcommand{\RL}[1]{\beginR \#1\endR}
-  \newcommand{\LR}[1]{\beginL \#1\endL}
+  \newcommand{\RL}[1]{\beginR #1\endR}
+  \newcommand{\LR}[1]{\beginL #1\endL}
   \newenvironment{RTL}{\beginR}{\endR}
   \newenvironment{LTR}{\beginL}{\endL}
 \fi
+$endif$
+$if(natbib)$
+\usepackage[$natbiboptions$]{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
 $endif$
 
 $if(title)$
@@ -413,9 +425,9 @@ $endif$
 % TOC depth and
 % section numbering depth
 %
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{3}
 $if(numbersections)$
-\setcounter{secnumdepth}{1}
+\setcounter{secnumdepth}{3}
 $endif$
 
 %
@@ -449,10 +461,10 @@ $endif$
 %
 % blockquote
 %
-%\definecolor{blockquote-border}{RGB}{221,221,221}
+\definecolor{blockquote-border}{RGB}{221,221,221}
 \definecolor{blockquote-text}{RGB}{119,119,119}
 \usepackage{mdframed}
-\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,skipabove=\parskip]{customblockquote}
+\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
 \renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
 \item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
 
@@ -514,7 +526,7 @@ $if(tables)$
 % \begin{longtable}[]{@{}ll@{}}
 % \end{longtable}
 %
-% https://en.wikibooks.org/wiki/LaTeX/Tables\#.40-expressions
+% https://en.wikibooks.org/wiki/LaTeX/Tables#.40-expressions
 $endif$
 
 %
@@ -620,7 +632,7 @@ $if(titlepage-color)$
 \definecolor{titlepage-color}{HTML}{$titlepage-color$}
 \newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
 $endif$
-\newcommand{\colorRule}[3][black]{\textcolor[HTML]{\#1}{\rule{\#2}{#3}}}
+\newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 \begin{flushleft}
 \noindent
 \\[-1em]
@@ -677,9 +689,8 @@ $else$
 $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
 $endif$
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
-\newgeometry{bottom=6cm}
 }
 $endif$
 $endif$
