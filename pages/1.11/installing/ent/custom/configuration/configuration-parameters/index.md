@@ -62,7 +62,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage)|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | [enterprise type="inline" size="small" /] A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage)|
 
 # Performance and Tuning
 
