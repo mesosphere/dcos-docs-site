@@ -151,7 +151,8 @@ In this step you create a YAML configuration file that is customized for your en
     ```json
     bootstrap_url: http://<bootstrap_ip>:80      
     cluster_name: <cluster-name>
-    customer_key: <customer-key>
+    #customer_key in yaml file has been replaced by genconf/license.txt in DC/OS 1.11
+    #customer_key: <customer-key>
     exhibitor_storage_backend: static
     master_discovery: static
     ip_detect_public_filename: <relative-path-to-ip-script>

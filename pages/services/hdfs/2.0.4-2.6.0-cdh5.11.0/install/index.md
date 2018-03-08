@@ -227,7 +227,7 @@ HDFS supports deployment on virtual networks on DC/OS (including the `dcos` over
     }
 }
 ```
-As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on a virtual network, it cannot be updated to use the host network.
+Once the service is deployed on a virtual network, it cannot be updated to use the host network.
 
 # Changing Configuration at Runtime
 

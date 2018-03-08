@@ -70,7 +70,7 @@ Create a secret (`dcos-edgelb/edge-lb-secret`) with your service account (`edge-
 **Tip:** If you store your secret in a path that matches the service name (e.g. service name and path are `edge-lb`), then only the service named `edge-lb` can access it.
 
 ```bash
-dcos security secrets create-sa-secret edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
+dcos security secrets create-sa-secret --strict edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
 ```
 
 **Tip:** List the secrets with this command.

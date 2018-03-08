@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Beta Kubernetes 0.5.0-1.9.1-beta
 navigationTitle:  Beta Kubernetes 0.5.0-1.9.1-beta
-menuWeight: 20
+menuWeight: 30
 excerpt:
 
 ---
