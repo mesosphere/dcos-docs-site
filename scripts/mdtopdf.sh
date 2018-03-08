@@ -99,7 +99,7 @@ function main
     # Set name for last folder
     if [ -z "${PDF_FILE_NAME}" ]
     then
-      "${PDF_FILE_NAME}"="MesosphereDC/OS"
+      "${PDF_FILE_NAME}"="MesosphereDCOS"
     fi
 
     #  scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
