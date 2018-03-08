@@ -18,6 +18,7 @@ render: mustache
 ### Updates
 - Major improvements to the stability and performance of service orchestration.
 - Upgrade JRE to 1.8u162
+- The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
 
 ## Version 2.1.1-5.6.5
 

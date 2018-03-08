@@ -26,6 +26,7 @@ render: mustache
 - Major Improvements to the stability and performance of service orchestration
 - Upgrade JRE to 1.8u162. ([#2135](https://github.com/mesosphere/dcos-commons/pull/2135))
 - Set protocol to 1.0 by default.  ([#2085](https://github.com/mesosphere/dcos-commons/pull/2085))
+- The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
 
 # Version 2.0.2-3.3.1e
 
