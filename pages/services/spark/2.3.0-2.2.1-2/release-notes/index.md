@@ -9,6 +9,40 @@ featureMaturity:
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+## Version Spark and Spark History 2.3.0-2.2.1-2
+
+### New Features
+- Added secrets support in Driver, so a secret can be disseminated to the executors. (SPARK-22131)
+- Added Kerberos ticket renewal. (SPARK-21842)
+- Added Mesos sandbox URI to Dispatcher UI. (SPARK-13041)
+- Added support for Driver<->Executor TLS with file-based secrets.
+- Added support for Driver<->Executor SASL (RPC endpoint authentication and encryption), via file-based secrets.
+- Added --executor-auth-secret as a shortcut for Driver<->Executor Spark SASL (RPC endpoint authentication and encryption) configuration.
+- Added CLI command to generate a random secret.
+- Enabled native BLAS for MLLib.
+- Added configuration to deploy Dispatcher on UCR (default is Docker).
+- Instead of setting the krb5.conf as a base64-encoded blob, the user can now specify service.security.kerberos.kdc.[port|hostname] and service.security.kerberos.realm directly in options.json. The behavior with the base64-encoded blob remains the same, and will overwrite the new configs.
+
+### History Server
+- Added Kerberos support for integration with a Kerberized HDFS. See documentation for configuration instructions.
+- Made the user configurable, defaults to root.
+
+### Updates
+- Updated JRE version to 8u152 JCE.
+- Changed the default user to root. (Breaking change)
+
+### Bug fixes
+- First delegation token renewal time is not 75% of renewal time. (SPARK-22583)
+- Fixed supervise mode with checkpointing. (SPARK-22145)
+- Added support for older SPARK_MESOS_KRB5_CONF_BASE64 environment variable.
+- The spark CLI has "shortcut" command-line args, that are translated into spark.config=setting configurations downstream (such as spark.executor.memory). Fixed a bug where a user sets the configuration directly and is overwritten with the default value for the shortcut argument.
+
+### Breaking Changes
+- Changed the default user to root, in both the Dispatcher and History Server.
+- To configure Kerberos in options.json, a new property service.security.kerberos.enabled must be set to true. This applies to both the Dispatcher and History Server.
+- Removed the security.ssl properties from options.json. These properties are no longer needed for the new Go-based CLI.
+- Removed --dcos-space option from the CLI. Access to secrets is determined by the Spark Dispatcher service name. See the Spark Security doc page for more information about where to place secrets.
+
 
 
 ## Version 2.1.0-2.2.0-1
