@@ -11,7 +11,8 @@ excerpt:
 
 Currently, the DC/OS Kubernetes package has the following limitations:
 
-* Strict-mode DC/OS is not supported.
+* Strict-mode DC/OS is not yet supported.
+* Placement constraints are not yet supported.
 * There can only be **one** Kubernetes cluster per DC/OS cluster.
 * There can only be **one** Kubernetes worker node per DC/OS agent.
 * DC/OS and Mesos tasks can only reach Kubernetes Service(s) if `kube-proxy` is running on the same DC/OS agent where the request originates from.
