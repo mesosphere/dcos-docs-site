@@ -21,6 +21,7 @@ render: mustache
 - Protocol and log version defaults are also set to `1.0`.
 - Improve Kafka's ZK library to enable re-resolution as required on virtual networks
 - Upgrade the JRE to 1.8u162
+- The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
 
 ## Version 2.0.4-1.0.0
 

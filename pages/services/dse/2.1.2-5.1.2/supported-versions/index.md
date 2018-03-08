@@ -6,9 +6,9 @@ menuWeight: 110
 excerpt:
 
 ---
-##Supported Versions
+## Supported Versions
 
-DC/OS and certified package version support policy are described in detail [here] (https://docs.mesosphere.com/version-policy)
+DC/OS and certified package version support policy are described in detail [here](https://docs.mesosphere.com/version-policy)
 
 ## Contacting Technical Support
 

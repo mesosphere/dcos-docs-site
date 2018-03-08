@@ -54,8 +54,15 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
 | [resolvers](#resolvers)                               | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.|
 | [use_proxy](#use-proxy)                               | Indicates whether to enable the DC/OS proxy. |
-| [dcos_l4lb_enable_ipv6](#dcos_l4lb_enable_ipv6)        | A boolean that indicates if layer 4 load balancing is available for IPv6 networks. |
+|[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. | 
+| [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. | 
+
+# Storage 
+
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | [enterprise type="inline" size="small" /] A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage)|
 
 # Performance and Tuning
 
@@ -564,6 +571,15 @@ For more information, see the [examples](/1.11/installing/ent/custom/configurati
 
 **Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
 
+### enable_ipv6
+* `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is default value.
+* `enable_ipv6: 'false'`: Disables IPv6 networking in DC/OS.
+
+Currently IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
+* Users can create IPv6 DC/OS overlay networks (`NOTE:` This will work only for Docker containers).
+* Service discovery for IPv6 containers will be available.
+* Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
+
 ### dcos_l4lb_enable_ipv6
 Indicates whether layer-4 load-balancing is available for IPv6 containers. 
 *  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.11/networking/load-balancing-vips) for IPv6 containers. This is the default value.
@@ -575,6 +591,14 @@ Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by
 The bridge-mode networking for UCR is identical to bridge mode networking for Docker and hence `ucr-br0` plays the same role as `docker0` bridge for Docker bridge-mode networking.
 
 The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_subnet` is that the subnet should not be used on the network to which the agents are connected. In other words, this subnet should be routeable from only within an agent.
+
+[enterprise]
+### feature_dcos_storage_enabled
+[/enterprise]
+
+Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins. 
+* `feature_dcos_storage_enabled: 'false'` Disables CSI support in  DC/OS. This is the default value.
+* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage)
 
 <a id="zk-superuser"></a>
 [enterprise]

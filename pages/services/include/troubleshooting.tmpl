@@ -163,17 +163,17 @@ A common user mistake is to remove the scheduler task from Marathon, which doesn
 
 ### Uninstall the rest of the service
 
-If you really wanted to uninstall the service, you just need to complete the normal `package uninstall` steps described under [Uninstall](#uninstall).
+If you really wanted to uninstall the service, you just need to complete the normal `package uninstall` steps described under [Uninstall](../uninstall).
 
 ### Recover the Scheduler
 
-If you want to bring the scheduler back, you can do a `dcos package install` using the options that you had configured before. This will re-install a new scheduler that should match the previous one (assuming you got your options right), and it will resume where it left off. To ensure that you don't forget the options your services are configured with, we recommend keeping a copy of your service's `options.json` in source control so that you can easily recover it later. See also [Initial configuration](#initial-service-configuration).
+If you want to bring the scheduler back, you can do a `dcos package install` using the options that you had configured before. This will re-install a new scheduler that should match the previous one (assuming you got your options right), and it will resume where it left off. To ensure that you don't forget the options your services are configured with, we recommend keeping a copy of your service's `options.json` in source control so that you can easily recover it later.
 
 ## 'Framework has been removed'
 
-Long story short, you forgot to run `janitor.py` the last time you ran the service. See [Uninstall](#uninstall) for steps on doing that. In case you're curious, here's what happened:
+Long story short, you forgot to run `janitor.py` the last time you ran the service. See [Uninstall](../uninstall) for steps on doing that. In case you're curious, here's what happened:
 
-1. You ran `dcos package uninstall {{ model.packageName }} --app-id {{ model.serviceName }}`. This destroyed the scheduler and its associated tasks, _but didn't clean up its reserved resources_.
+1. You ran `dcos package  {{ model.packageName }} --app-id {{ model.serviceName }}`. This destroyed the scheduler and its associated tasks, _but didn't clean up its reserved resources_.
 1. Later on, you tried to reinstall the service. The scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by `janitor.py`. The scheduler tried to re-register using that framework ID.
 1. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing 'Framework has been removed' error.
 
@@ -275,7 +275,7 @@ This example shows how steps in the deployment Plan (or any other Plan) can be m
 
 ### Deleting a task in ZooKeeper to forcibly wipe that task
 
-If the scheduler is still failing after `pod replace <name>` to clear a task, a last resort is to use [Exhibitor](#ZooKeeperexhibitor) to delete the offending task from the scheduler's ZooKeeper state, and then to restart the scheduler task in Marathon so that it picks up the change. After the scheduler restarts, it will do the following:
+If the scheduler is still failing after `pod replace <name>` to clear a task, a last resort is to use `Exhibitor` to delete the offending task from the scheduler's ZooKeeper state, and then to restart the scheduler task in Marathon so that it picks up the change. After the scheduler restarts, it will do the following:
 - Automatically unreserve the task's previous resources with Mesos because it doesn't recognize them anymore (via the Resource Cleanup operation described earlier).
 - Automatically redeploy the task on a new agent.
 
@@ -283,8 +283,8 @@ If the scheduler is still failing after `pod replace <name>` to clear a task, a 
 
 ### OOMed task
 
-Your tasks can be killed from an OOM if you didn't give them sufficient resources. This will manifest as sudden `Killed` messages in [Task logs](#task-logs), sometimes consistently but often not. To verify that the cause is an OOM, the following places can be checked:
-- Check [Scheduler logs](#scheduler-logs) (or `dcos <svcname> pod status <podname>)` to see TaskStatus updates from mesos for a given failed pod.
-- Check [Agent logs](#mesos-agent-logs) directly for mention of the Mesos Agent killing a task due to excess memory usage.
+Your tasks can be killed from an OOM if you didn't give them sufficient resources. This will manifest as sudden `Killed` messages in Task logs, sometimes consistently but often not. To verify that the cause is an OOM, the following places can be checked:
+- Check Scheduler logs (or `dcos <svcname> pod status <podname>)` to see TaskStatus updates from mesos for a given failed pod.
+- Check Agent logs directly for mention of the Mesos Agent killing a task due to excess memory usage.
 
-After you've been able to confirm that the problem is indeed an OOM, you can solve it by either [updating the service configuration](#updating-service-configuration) to reserve more memory, or configuring the underlying service itself to use less memory (assuming the option is available).
+After you've been able to confirm that the problem is indeed an OOM, you can solve it by either updating the service configuration to reserve more memory, or configuring the underlying service itself to use less memory (assuming the option is available).

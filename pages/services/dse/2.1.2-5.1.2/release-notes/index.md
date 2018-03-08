@@ -20,6 +20,7 @@ excerpt:
 - Upgraded JRE to 1.8u162. ([#2135](https://github.com/mesosphere/dcos-commons/pull/2135))
 - Marks all DSE tasks as non-essential: the DSE agent and DSE node may now fail independently (without the entire pod failing).
 - Major Improvements to the stability and performance of service orchestration
+- The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
 
 # Version 2.0.5-5.1.2
 

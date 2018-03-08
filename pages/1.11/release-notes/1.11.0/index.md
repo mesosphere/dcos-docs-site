@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0
 title: Release Notes for 1.11.0
-menuWeight: 0
+menuWeight: 1
 excerpt:
 ---
 
@@ -10,7 +10,7 @@ These are the release notes for DC/OS 1.11.0.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="green" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.11.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
+[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 
 DC/OS 1.11 includes many new capabilities, with a focus on:
@@ -32,7 +32,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 ### Apache Mesos 1.5, Marathon 1.6, and Kubernetes 1.9 Integrated.
 - DC/OS 1.11.0 is is based on Mesos 1.5. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
 - DC/OS 1.11.0 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
-- DC/OS 1.11.0 supports the latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, consult the [Kubernetes on DC/OS changelog](https://docs.mesosphere.com/services/beta-kubernetes/0.4.0-1.9.0-beta).
+- DC/OS 1.11.0 supports the latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, [view the documentation](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3).
 
 ### Platform
 - Multi-region management - Enables a DC/OS Cluster to span multiple datacenters, clouds, and remote branches while providing a unified management and control cluster. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
@@ -47,7 +47,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0) [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`. Please read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand usage of this parameter. 
+- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
 
 [enterprise]
 ### Security
@@ -61,8 +61,8 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Unified logging API that provides simple access to container (task) as well as system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/logging-v2/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications' storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/). [enterprise type="inline" size="small" /]
-- Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications' storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /][enterprise type="inline" size="small" /]
+- Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).[beta type="inline" size="small" /]
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
 
@@ -70,10 +70,9 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported.
 - Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
 - New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpoint to relaunch a node in an idle command state for debugging purposes.
-- New beta DC/OS Kafka ZooKeeper service. [View the documentation](/services/beta-kafka-zookeeper).
+- New DC/OS Kafka ZooKeeper service. [View the documentation](/services/kafka-zookeeper).
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
-- Non-essential tasks now supported for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. If non-essential tasks fail, the entire node will not fail.
 
 ## <a name="known-issues"></a>Known Issues and Limitations
 - DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
@@ -82,58 +81,17 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - DCOS_OSS-2132	- `dcos-log` does not handle the journald files rotation properly.
 - INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.
 
-## <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11.0
+## <a name="fixed-issues"></a>Improvements and Major Issues Fixed Since 1.11.0 Release Candidate 4
 - COPS-2201 - `dcos-diagnostics` no longer fails after running gen_resolvconf.py.
 - DCOS-13066 - Rename the 3DT service to DC/OS Diagnostics.
-- DCOS-13325 - Added domain awareness to DC/OS installers.
-- DCOS_18165 - Support DC/OS on non-root LVM volumes.
-- DCOS-18981 - Add a CLI command to mark an agent as gone.
-- DCOS-19201 - Add binary data support to dcos security CLI.
-- DCOS-19837 - Consolidate fault-domain scripts for all cloud providers into one script.
+- DCOS-19008 - The `exhibitor_address` configuration option can now be an IPv4 address without causing certificate verification errors.
 - DCOS-19896 - Add `--linked` flag to `dcos cluster list`.
 - DCOS-20351 - Add the `dcos-license` subcommand to `dcos-enterprise-cli`. [enterprise type="inline" size="small" /]
 - DCOS-21130 - Make list of services visible in grid view of nodes. 
 - DCOS_OSS-671 - Improve filenames in the diagnostics bundle.
-- DCOS_OSS-1275	- Add support for custom check executables during on-premises installation.
-- DCOS_OSS-1321	- Search paths are configurable when executing check commands using `dcos-diagnostics check`.
-- DCOS_OSS-1340	- Spartan "autoip" DNS resolves to host IP for UCR in bridge network.
-- DCOS_OSS-1449	- Remove support for `--appId` from CLI.
-- DCOS_OSS-1489	- Add support for cgroup blkio statistics in `dcos-metrics`.
+- DCOS_OSS-1275 - Add support for custom check executables during on-premises installation.
+- DCOS_OSS-1321 - Search paths are configurable when executing check commands using `dcos-diagnostics check`.
+- DCOS_OSS-1340 - Spartan "autoip" DNS resolves to host IP for UCR in bridge network.
+- DCOS_OSS-1449 - Remove support for `--appId` from CLI.
+- DCOS_OSS-1489 - Add support for cgroup blkio statistics in `dcos-metrics`.
 - DCOS_OSS-2003 - Modify DC/OS overlay networking to work with systemd networkd.
-- DCOS_OSS-2045	- Add Prometheus plugin and producer to `dcos-metrics`.
-
-## <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11.0 Release Candidate 4
-- COPS-2201 - Fix `dcos-diagnostics` crashing after running gen_resolvconf.py.
-- COPS-2465 - License reporting is inconsistent. [enterprise type="inline" size="small" /]
-- DCOS-19500 - Fix cosmos/service/update failure when Marathon is deploying.
-- DCOS-20064 - Verify Azure and AWS advanced templates work with the licensing parameter. [enterprise type="inline" size="small" /]
-- DCOS-20343 - Fix UI loading screen.
-- DCOS-20396 - Test that bootstrap regenerates cert when old cert does not match new CSR.
-- DCOS-20485 - Adjust implementation to address performance issues.
-- DCOS-20492 - Cluster sometimes comes up without license when using AWS CloudFormation templates. [enterprise type="inline" size="small" /]
-- DCOS-20515 - Make licensing version-aware to prevent upgrade failures. [enterprise type="inline" size="small" /]
-- DCOS-20569 - Include only public attributes of license on diagnostics bundle. [enterprise type="inline" size="small" /]
-- DCOS-20628 - `dcos-vault`: fix deadlock in go-zookeeper library.
-- DCOS-20676 - `csidevices`: fix lsblk parsing of empty string bool values.
-- DCOS-20679 - Make licensing handle a cluster license renewal for same major version during a config upgrade. [enterprise type="inline" size="small" /]
-- DCOS-20772 - Update znode creation scheme for storing license audit data.
-- DCOS-21000 - Release Marathon plugin with resource full auth bug fix.
-- DCOS-21045 - Update `dcos-cluster-linker` to not allow a self-link. [enterprise type="inline" size="small" /]
-- DCOS-21095 - Turn IPv6 overlay off in IPv4 environment.
-- DCOS_OSS-1587 - Support DC/OS install on non-root LVM volume.
-- DCOS_OSS-2070 - Service is not accessible via l4lb VIP from local agent using UCR bridge mode.
-- DCOS_OSS-2105 - UI can show stale task state due to dropped events (Related MESOS-8469 - Fix the problem with Mesos master dropping events in the operator API stream.)
-- METRONOME-100 - Metronome restart causes duplication of jobruns.
-- METRONOME-190 - Add authorized launch queue.
-- METRONOME-191 - Implement start deadline timeout.
-- METRONOME-194 - Support FORBID concurrency policy.
-- Updated marathon to 1.6.322 (https://github.com/dcos/dcos/pull/2473 | https://github.com/mesosphere/dcos-enterprise/pull/2278)
-- Updated Mesos to 1.5.x 9840ae1 (https://github.com/dcos/dcos/pull/2472 | https://github.com/mesosphere/dcos-enterprise/pull/2263)
-
-## <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11.0 Release Candidate 1
-- DCOS-16368 -  DC/OS Enterprise Secret Store no longer accepts secrets with uppercase letters in their paths. Secret paths with uppercase letters conflicted with use of the IAM API. [enterprise type="inline" size="small" /]
-- DCOS-19573 - Add support for changes to unique constraints in the UI.
-- DCOS-19837 - Consolidate fault-domain scripts for all cloud providers into one script to support clusters with multiple cloud providers.
-- DCOS-19896 - Add `--linked` flag to `dcos cluster list` so users can see which clusters can be unlinked. [enterprise type="inline" size="small" /]
-- DCOS-19955 - Enhance API and CLI experience for linking clusters. [enterprise type="inline" size="small" /]
-- DCOS_OSS-1658 - Add `--verbose` flag to upgrade script that prints all status and error messages to the console to enable upgrade debugging.

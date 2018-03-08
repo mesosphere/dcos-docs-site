@@ -32,8 +32,6 @@ Scheduler logs can be found either via the main Mesos frontpage in small cluster
 
 [<img src="/services/include/img/ops-guide-scheduler-sandbox.png" alt="contents of a scheduler sandbox" width="400"/>](/services/include/img/ops-guide-scheduler-sandbox.png)
 
-For a good example of the kind of diagnosis you can perform using SDK Scheduler logs, see the below use case of [Tasks not deploying / Resource starvation](#tasks-not-deploying--resource-starvation).
-
 ### Task logs
 
 When the issue being diagnosed has to do with the service tasks, e.g. a given task is crash looping, the task logs will likely provide more information. The tasks being run as a part of a service are registered against a framework matching the service name. Therefore, we should pick `<service-name>` from this list to view a list of tasks specific to that service.
@@ -87,7 +85,7 @@ $ dcos task log broker-0__75 stderr   # get recent stderr logs from that broker 
 ## Metrics
 
 ### DC/OS >= 1.11
-The scheduler's metrics are reported via three different mechanisms: `JSON`, [prometheus](https://prometheus.io/) and [StatsD](https://github.com/etsy/statsd). The StatsD metrics are pushed to the address defined by the environment variables `STATSD_UDP_HOST` and `STATSD_UDP_PORT`. See [DC/OS Metrics documentation](https://dcos.io/docs/1.10/metrics/) for more details.
+The scheduler's metrics are reported via three different mechanisms: `JSON`, [prometheus](https://prometheus.io/) and [StatsD](https://github.com/etsy/statsd). The StatsD metrics are pushed to the address defined by the environment variables `STATSD_UDP_HOST` and `STATSD_UDP_PORT`. See [DC/OS Metrics documentation](/1.11/metrics/) for more details.
 
 The JSON representation of the metrics is available at the `/v1/metrics` endpoint`.
 
