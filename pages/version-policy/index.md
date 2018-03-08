@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Version Policy
 title: Version Policy
-menuWeight: 1
+menuWeight: 5
 excerpt:
 --- 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
