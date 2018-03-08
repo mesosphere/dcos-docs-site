@@ -33,7 +33,7 @@ For example, if you have a profile called `fast`, which is configured to represe
 ## Usage
 
 ```bash
-$ dcos storage volume create [<name> <size> <profile>] [flags]
+$ dcos storage volume create <name> <size> <profile> [flags]
 ```
 
 ## Flags
