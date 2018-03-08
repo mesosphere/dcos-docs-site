@@ -26,8 +26,9 @@ The cluster nodes are designated Mesos masters and agents during installation.
 
 ### Master nodes
 
-Here are the master node hardware requirements.
+The supported Operating Systems and Environments are listed on https://docs.mesosphere.com/version-policy/.
 
+Here are the master node hardware requirements.
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
 | Nodes       | 1         | 3 or 5      |
