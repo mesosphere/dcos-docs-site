@@ -184,14 +184,14 @@ $ dcos storage profile list --json
 {
     "profiles": [
         {
-            "name": "logs",
-            "description": "spun down drives for log archives",
+            "name": "fast",
+            "description": "fast storage",
             "spec": {
                 "provider-selector": {
                     "plugin": "lvm",
                     "matches": {
                         "labels": {
-                            "rotational": "true"
+                            "rotational": "false"
                         }
                     }
                 },
@@ -204,14 +204,14 @@ $ dcos storage profile list --json
             }
         },
         {
-            "name": "fast",
-            "description": "fast storage",
+            "name": "logs",
+            "description": "spun down drives for log archives",
             "spec": {
                 "provider-selector": {
                     "plugin": "lvm",
                     "matches": {
                         "labels": {
-                            "rotational": "false"
+                            "rotational": "true"
                         }
                     }
                 },
