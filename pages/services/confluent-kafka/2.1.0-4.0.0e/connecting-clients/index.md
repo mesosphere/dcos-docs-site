@@ -48,7 +48,7 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.servic
 
 ## User token authentication
 
-DC/OS Enterprise Edition comes with support for [user ACLs](/1.9/security/users-groups/). To interact with the Kafka REST API you must first retrieve an auth token from the [auth HTTP endpoint](/1.9/security/iam-api/), then provide this token in following requests.
+DC/OS Enterprise Edition comes with support for [user ACLs](/latest/security/ent/users-groups/). To interact with the Kafka REST API you must first retrieve an auth token from the [auth HTTP endpoint](/latest/security/ent/iam-api/), then provide this token in following requests.
 
 First, we retrieve `uSeR_t0k3n` with our user credentials and store the token as an environment variable:
 
@@ -88,9 +88,9 @@ The response, for both the CLI and the REST API is as below.
 }
 ```
 
-This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/1.9/networking/).
+This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/latest/networking/load-balancing-vips/).
 
-When [TLS is enabled](../security/), an endpoint named `broker-tls` should also be listed. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/1.9/networking/tls-ssl/get-cert/) is required.
+When [TLS is enabled](../security/), an endpoint named `broker-tls` should also be listed. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/latest/security/ent/tls-ssl/) is required.
 
 # Configuring the Kafka Client Library
 

@@ -105,7 +105,7 @@ It is possible to enable Kerberos authentication after the deployment of DC/OS {
 
 Assuming that DC/OS {{ model.techName }} was initially deployed with `service.security.kerberos.enabled` set to `false`, the following steps can be used to enable Kerberos for the service.
 
-Firstly -- assuming the same Kerberos settings as discussed in [Configure Kerberos Authentication](#configure-kerberos-authentication) -- create the keytab for the Kerberos principals and add this keytab to the DC/OS Secret Store as described in the [Create principals](#create-principals) and [Place Service Keytab in DC/OS Secret Store](#place-service-keytab-in-dc-os-secret-store) sections. Then create a `kerberos-toggle-step-1.json` file with the following contents:
+Firstly -- assuming the same Kerberos settings as discussed in [Configure Kerberos Authentication](#configure-kerberos-authentication) -- create the keytab for the Kerberos principals and add this keytab to the DC/OS Secret Store as described in the [Create principals](#create-principals) and Place Service Keytab in DC/OS Secret Store sections. Then create a `kerberos-toggle-step-1.json` file with the following contents:
 
 ```json
 {

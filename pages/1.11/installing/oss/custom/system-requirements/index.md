@@ -8,7 +8,7 @@ menuWeight: 000
 
 # Hardware Prerequisites
 
-You must have a single bootstrap node, an odd number of Mesos master nodes, and any number Mesos of agent nodes.
+The hardware prerequisities are a single bootstrap node, an odd number of Mesos master nodes, and any number Mesos of agent nodes.
 
 ## Bootstrap node
 
@@ -25,14 +25,14 @@ The cluster nodes are designated Mesos masters and agents during installation.
 
 ### Master nodes
 
-You must have an odd number of master nodes.
+The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+
+An odd number of master nodes are required.
 
 Here are the master node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2       |      7.4    |
-| CoreOS      | 1235.9.0  | 1235.9.0    |
 | Nodes       | 1         | 3 or 5      |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
@@ -46,12 +46,12 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 
 ### Agent nodes
 
+The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+
 Here are the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2       |      7.4    |
-| CoreOS      | 1235.9.0  | 1235.9.0    |
 | Nodes       | 1         | 6 or more   |
 | Processor   | 2 cores   | 2 cores     |
 | Memory      | 16 GB RAM | 16 GB RAM   |

@@ -31,7 +31,7 @@ If you are running DC/OS 1.9 or older, or a version of the service that is older
 
 1. Stop the service. From the DC/OS CLI, enter `dcos package uninstall --app-id=<instancename> {{ model.packageName }}`.
    For example, `dcos package uninstall --app-id={{ model.serviceName }}-dev {{ model.packageName }}`.
-1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. See the [DC/OS documentation](/1.9/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
+1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. See the [DC/OS documentation](/latest/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
 
 For example, to uninstall an {{ model.techName }} instance named `{{ model.serviceName }}-dev`, run:
 

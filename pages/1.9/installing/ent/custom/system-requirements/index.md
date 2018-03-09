@@ -40,7 +40,6 @@ The below table represents the master node hardware requirements.
 There are many mixed workloads on the masters.<br>
 An example: Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. 
 Thus, the following hardwares are recommended:
-
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
 - RAID controller cache configured in writeback mode
