@@ -15,7 +15,6 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
 - If IPv6 is disabled in the kernel, the `config.yaml` file will need to contain `enable_ipv6: 'false'`
 - The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
-- Virtual networks require minimum Docker version 1.11. For more information, see the [documentation](/1.11/networking/virtual-networks/).
 - The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster. You can monitor the health of a master during an upgrade by watching Exhibitor on port 8181.
 - Task history in the Mesos UI will not persist through the upgrade.
 - The latest version of Marathon-LB is required for 1.10. Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
@@ -24,7 +23,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 ## Prerequisites
 
 - Mesos, Mesos Frameworks, Marathon, Docker, and all running tasks in the cluster should be stable and in a known healthy state.
-- For Mesos compatibility reasons, we recommend upgrading any running Marathon-on-Marathon instances on DC/OS 1.9 to Marathon version 1.5 before upgrading to DC/OS 1.10.
+- For Mesos compatibility reasons, we recommend upgrading any running Marathon-on-Marathon instances to Marathon version 1.5 before upgrading.
 - You must have access to copies of the config files used with DC/OS 1.10: `config.yaml` and `ip-detect`.
 - You must be using systemd 218 or newer to maintain task state.
 - All hosts (masters and agents) must be able to communicate with all other hosts on all ports, for both TCP and UDP.
