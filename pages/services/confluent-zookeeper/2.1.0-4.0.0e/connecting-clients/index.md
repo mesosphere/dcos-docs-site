@@ -48,7 +48,7 @@ To see node addresses for the `clientport` endpoints, run `dcos {{ model.package
 }
 ```
 
-In general, the `.thisdcos` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use the direct IPs (assuming you are on the same network as the private agents) or set up a proxy service that acts as a frontend to your DC/OS {{ model.techName }} instance. For development and testing purposes, you can use [DC/OS Tunnel](/latest/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
+In general, the `.thisdcos` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use the direct IPs (assuming you are on the same network as the private agents) or set up a proxy service that acts as a frontend to your DC/OS {{ model.techName }} instance. For development and testing purposes, you can use [DC/OS Tunnel](/latest/developing-services/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
 
 <a name="connecting-kafka-to-zookeeper"></a>
 ## Connecting Kafka to ZooKeeper
