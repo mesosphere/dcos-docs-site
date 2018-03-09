@@ -26,7 +26,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 62080 | Navstar | `dcos-navstar.service` | agent/master | agent/master |
 | 62501 | DNS Forwarder (Spartan) | `dcos-spartan.service` | agent/master | agent/master |
 | 62502 | Navstar | `dcos-navstar.service` | agent/master | agent/master |
-| 9273  | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
+| 61091 | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
 
 ### UDP
 
