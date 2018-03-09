@@ -51,3 +51,11 @@ In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dc
     ```bash
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave-public && sudo systemctl stop dcos-mesos-slave-public
     ```
+
+## Q. How do I backup the IAM database?
+
+- _To backup the IAM database to a file run the following command on one of the master nodes_:
+
+    ```bash
+    sudo /opt/mesosphere/bin/cockroach dump --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) iam > ~/iam-backup.sql
+    ```
