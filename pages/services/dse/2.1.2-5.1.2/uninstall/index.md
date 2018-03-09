@@ -29,7 +29,7 @@ If you are running DC/OS 1.9 or older, or a version of the service that is older
 
 1. Stop the service. From the DC/OS CLI, enter `dcos package uninstall --app-id=<instancename> <packagename>`.
    For example, `dcos package uninstall --app-id=datastax-dse datastax-dse`.
-1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. See [DC/OS documentation](https://docs.mesosphere.com/1.9/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
+1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`. See [DC/OS documentation](/latest/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
 
 For example, to uninstall a DataStax Enterprise instance named `datastax-dse`, run:
 

@@ -174,6 +174,8 @@ In this step you create a YAML configuration file that is customized for your en
     - '.baz.com'
     # Fault domain entry required for DC/OS Enterprise 1.11+
     fault_domain_enabled: false
+    #If IPv6 is disabled in your kernel, you must disable it in the config.yaml
+    enable_ipv6: 'false'
     ```
 
 # <a name="install-bash"></a>Install DC/OS

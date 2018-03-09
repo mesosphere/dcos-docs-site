@@ -15,6 +15,9 @@ If this upgrade is performed on a supported OS with all prerequisites fulfilled,
 **Important:**
 
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
+- There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Pay specific attention to the `fault_domain_enabled` and `enable_ipv6`. Please review the sample file [here](/latest/installing/ent/custom/advanced/#create-a-configuration-file)
+- If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the upgrade to succeed.
+- DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the upgrade will fail.
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. For example, an upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. When this occurs:
 
     - The DC/OS GUI may not provide an accurate list of services.
@@ -26,9 +29,6 @@ If this upgrade is performed on a supported OS with all prerequisites fulfilled,
 
 ## Supported upgrade paths
 - From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
-    - [1.7 to 1.8](/1.8/administration/upgrading/)
-    - [1.8 to 1.9](/1.9/installing/ent/upgrading/)
-    - [1.9 to 1.10](/1.10/installing/ent/upgrading/)
 - From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
 - From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
 
@@ -84,9 +84,9 @@ These steps must be performed for version upgrades and cluster configuration cha
 
 Choose your desired security mode and then follow the applicable upgrade instructions.
 
-- [Installing DC/OS 1.10 without changing security mode](#current-security)
-- [Installing DC/OS 1.10 in permissive mode](#permissive)
-- [Installing DC/OS 1.10 in strict mode](#strict)
+- [Installing DC/OS 1.11 without changing security mode](#current-security)
+- [Installing DC/OS 1.11 in permissive mode](#permissive)
+- [Installing DC/OS 1.11 in strict mode](#strict)
 
 # <a name="current-security"></a>Installing DC/OS 1.10 without changing security mode
 This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the cluster's [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
