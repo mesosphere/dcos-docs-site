@@ -13,6 +13,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 **Important:**
 
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
+- If IPv6 is disabled in the kernel, the `config.yaml` file will need to contain `enable_ipv6: 'false'`
 - The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
 - Virtual networks require minimum Docker version 1.11. For more information, see the [documentation](/1.11/networking/virtual-networks/).
 - The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster. You can monitor the health of a master during an upgrade by watching Exhibitor on port 8181.
