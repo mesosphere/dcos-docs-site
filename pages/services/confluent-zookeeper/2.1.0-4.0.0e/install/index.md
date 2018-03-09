@@ -15,15 +15,15 @@ The default DC/OS {{ model.techName }} Service installation provides reasonable 
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you may [need to provision a service account](/latest/security/service-auth/custom-service-auth/) before installing DC/OS {{ model.techName }} Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](/latest/administration/installing/custom/configuration-parameters/#security) requires a service account.
+- If you are using Enterprise DC/OS, you may [need to provision a service account](/latest/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{ model.techName }} Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](/latest/security/ent/#security-modes) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes.
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of {{ model.techName }}, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing {{ model.techName }} on Enterprise DC/OS](/latest/security/service-auth/custom-service-auth/).
+To start a basic test cluster of {{ model.techName }}, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing {{ model.techName }} on Enterprise DC/OS](/latest/security/ent/service-auth/custom-service-auth/).
 
 ```shell
 dcos package install {{ model.packageName }}
@@ -37,11 +37,11 @@ dcos package install {{ model.packageName }} --options=options.json
 
 **Recommendation:** Store your custom configuration in source control.
 
-For more information on building the `options.json` file, see the [DC/OS documentation](/latest/usage/managing-services/config-universe-service/) for service configuration access.
+For more information on building the `options.json` file, see the [DC/OS documentation](/latest/deploying-services/config-universe-service/) for service configuration access.
 
 # Installng from the DC/OS Web Interface
 
-You can [install {{ model.techName }} from the DC/OS web interface](/latest/usage/managing-services/install/). If you install {{ model.techName }} from the web interface, you must install the DC/OS {{ model.techName }} CLI subcommands separately. From the DC/OS CLI, enter:
+You can [install {{ model.techName }} from the DC/OS web interface](/latest/gui/catalog/). If you install {{ model.techName }} from the web interface, you must install the DC/OS {{ model.techName }} CLI subcommands separately. From the DC/OS CLI, enter:
 
 ```shell
 dcos package install {{ model.packageName }} --cli
