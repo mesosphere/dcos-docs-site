@@ -36,6 +36,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
+| [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name for the load balancer.         |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.10/overview/concepts/#public-agent-node) host names.  |
@@ -388,6 +389,9 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 
 *  `master_dns_bindall: 'true'` The master DNS port is open. This is the default value.
 *  `master_dns_bindall: 'false'` The master DNS port is closed.
+
+### master_external_loadbalancer
+The DNS name for the load balancer.  If specified, this name is included in [DC/OS certificates](/1.10/security/ent/tls-ssl/).
 
 
 ### mesos_container_log_sink
