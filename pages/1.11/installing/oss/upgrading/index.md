@@ -8,16 +8,15 @@ menuWeight: 3.1
 
 ## Summary
 
-This document provides instructions for upgrading a DC/OS cluster from version 1.9 to 1.10. If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
+This document provides instructions for upgrading a DC/OS cluster from version 1.10 to 1.11. If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
 
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
 - If IPv6 is disabled in the kernel, the `config.yaml` file will need to contain `enable_ipv6: 'false'`
 - The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
-- The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster. You can monitor the health of a master during an upgrade by watching Exhibitor on port 8181.
+- The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster.
 - Task history in the Mesos UI will not persist through the upgrade.
-- The latest version of Marathon-LB is required for 1.10. Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
 - DC/OS 1.10 upgrades REX-Ray from v03.3. to v0.9.0 and therefore the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the `rexray_config` parameter of your `config.yaml` file, change the parameter to `rexray_config_preset: aws`.
 
 ## Prerequisites
@@ -33,10 +32,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 - Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 - Verify that all Marathon application constraints are valid before beginning the upgrade.  Use this [script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
-- The full DC/OS version string that you are upgrading from.
-  - In 1.9, this can be found under the **System Overview** tab.
-  - In 1.10, this can be found under the **Overview** tab.
-- Optional: You can add custom [node and cluster healthchecks] (/1.11/installing/oss/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
+- Optional: You can add custom [node and cluster healthchecks](/1.11/installing/oss/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
 - Verify that all your masters are in a healthy state: 
    - Check the Exhibitor UI to confirm that all masters have joined the quorum successfully (the status indicator will show green). The Exhibitor UI is available at `http://<dcos_master>:8181/`.
    - Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1` for each master.
@@ -90,7 +86,7 @@ Proceed with upgrading every master node one-at-a-time in any order using the fo
 1.  Validate the upgrade:
 
     - Monitor the Exhibitor UI to confirm that the Master rejoins the ZooKeeper quorum successfully (the status indicator will turn green).  The Exhibitor UI is available at `http://<dcos_master>:8181/`.
-    - Verify that `http://<dcos_master>/mesos` indicates that the upgraded master is running Mesos 1.4.0.
+    - Verify that `http://<dcos_master>/mesos` indicates that the upgraded master is running Mesos 1.5.0.
 
 ### DC/OS Agents
 

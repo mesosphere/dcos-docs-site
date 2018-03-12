@@ -24,7 +24,6 @@ If this upgrade is performed on a supported OS with all prerequisites fulfilled,
     - For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - An upgraded DC/OS Marathon leader cannot connect to an non-secure (i.e. not upgraded) leading Mesos master. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
-- Before you upgrade from 1.9 to 1.10, you must upgrade Marathon-LB. Do this by uninstalling Marathon-LB and reinstalling the latest package.
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
 
 ## Supported upgrade paths
@@ -88,8 +87,8 @@ Choose your desired security mode and then follow the applicable upgrade instruc
 - [Installing DC/OS 1.11 in permissive mode](#permissive)
 - [Installing DC/OS 1.11 in strict mode](#strict)
 
-# <a name="current-security"></a>Installing DC/OS 1.10 without changing security mode
-This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the cluster's [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+# <a name="current-security"></a>Installing DC/OS 1.11 without changing security mode
+This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -112,12 +111,12 @@ This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the c
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
-# <a name="permissive"></a>Installing DC/OS 1.10 in permissive mode
-This procedure upgrades to DC/OS 1.10 in [permissive security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+# <a name="permissive"></a>Installing DC/OS 1.11 in permissive mode
+This procedure upgrades to DC/OS 1.11 in [permissive security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 **Prerequisite:**
 
-- Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [disabled security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
+- Your cluster must be [upgraded to DC/OS 1.11](#current-security) and running in [disabled security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
 
 **Important:** Any [custom node or cluster healthchecks](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the healthchecks.
 
@@ -137,15 +136,15 @@ To update a cluster from disabled security to permissive security, complete the 
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
-# <a name="strict"></a>Installing DC/OS 1.10 in strict mode
-This procedure upgrades to DC/OS 1.10 in security strict [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+# <a name="strict"></a>Installing DC/OS 1.11 in strict mode
+This procedure upgrades to DC/OS 1.11 in security strict [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
 
 **Prerequisites:**
 
-- Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
-- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.10 permissive security mode before upgrading to strict mode. Otherwise, these tasks will be restarted when the masters are upgraded.
+- Your cluster must be [upgraded to DC/OS 1.11](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was upgraded to DC/OS 1.11, you can skip this procedure.
+- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.11 permissive security mode before upgrading to strict mode. Otherwise, these tasks will be restarted when the masters are upgraded.
 
 To update a cluster from permissive security to strict security, complete the following procedure:
 
@@ -266,6 +265,6 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes:
 
-- Packages available in the DC/OS 1.10 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
+- Packages available in the DC/OS 1.11 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
 [advanced-install]: /1.11/installing/ent/custom/advanced/
