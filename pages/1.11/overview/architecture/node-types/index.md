@@ -23,6 +23,8 @@ Protect your cluster from the outside with firewall settings specific for the no
 - Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 - All ports should be open for communication from the master nodes to the agent nodes and vice versa.
 
+**Important**: Setting firewall rules between the nodes of any types is not recommended.
+
 ![DC/OS Node Types](/1.11/img/dcos-node-types.png)
 
 
