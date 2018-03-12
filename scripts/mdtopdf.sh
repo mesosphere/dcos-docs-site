@@ -88,6 +88,7 @@ function main
      # We cut all long strings at 180 characters.
      sed -i -r 's/.{180}/&\n/g' "${TEMP_FILE}"
 
+     #Fix for issues with Pandoc on new lines and underscores
      sed -i -r 's,\n,\\n,g' "${TEMP_FILE}"
      sed -i -r 's,_,\_,g' "${TEMP_FILE}"
 
