@@ -176,5 +176,5 @@ Now you can [assign user roles][6].
  [1]: /1.11/installing/ent/custom/system-requirements/
  [2]: /1.11/img/gui-installer-setup-ee.gif
  [3]: /1.11/networking/
- [4]: /1.11/img/ui-installer-auth-1-7.gif
+ [4]: /1.11/img/ui-installer-auth2.png
  [6]: /1.11/security/
