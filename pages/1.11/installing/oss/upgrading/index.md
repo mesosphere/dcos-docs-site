@@ -17,7 +17,6 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 - The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
 - The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster.
 - Task history in the Mesos UI will not persist through the upgrade.
-- DC/OS 1.10 upgrades REX-Ray from v03.3. to v0.9.0 and therefore the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the `rexray_config` parameter of your `config.yaml` file, change the parameter to `rexray_config_preset: aws`.
 
 ## Prerequisites
 
@@ -47,16 +46,16 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 
 ### Bootstrap Nodes
 
-1.  Copy and update the DC/OS 1.9 `config.yaml` and `ip-detect` files to a new, clean folder on your bootstrap node.
+1.  Copy and update the DC/OS 1.10 `config.yaml` and `ip-detect` files to a new, clean folder on your bootstrap node.
 
     **Important:**
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.10 `config.yaml` differs from that of DC/OS 1.9. <!-- is this still true for 1.9 to 1.10? -->For a detailed description of the 1.10 `config.yaml` syntax and parameters, see the [documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/).
+    *  The syntax of the DC/OS 1.11 `config.yaml` differs from that of previous versions. See the [documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/) for the latest information.
 
 1.  After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`.  Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 
-1.  After you have converted your 1.9 `config.yaml` into the 1.10 `config.yaml` format, you can build your installer package:
+1.  After you have converted your 1.10 `config.yaml` into the 1.11 `config.yaml` format, you can build your installer package:
 
     1.  Download the file `dcos_generate_config.sh`.
     1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.9.2`.
@@ -146,6 +145,6 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes:
 
-- Packages available in the DC/OS 1.10 Universe are newer than those in the DC/OS 1.9 Universe. Services are not automatically upgraded when DC/OS 1.10 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
+- Packages available in the DC/OS 1.11 Universe are newer than those in the DC/OS 1.10 Universe. Services are not automatically upgraded when DC/OS 1.10 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
 [advanced-install]: /1.11/installing/oss/custom/advanced/
