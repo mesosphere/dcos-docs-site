@@ -25,13 +25,12 @@ You must have a single bootstrap node, Mesos master nodes, and Mesos agent nodes
 The cluster nodes are designated Mesos masters and agents during installation.
 
 ### Master nodes
+The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
 
 Here are the master node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2, 7.3  | 7.2, 7.3    |
-| CoreOS      | 835.13.0  | 1235.9.0    | 
 | Nodes       | 1         | 3 or 5   |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
@@ -44,13 +43,12 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 - RAID controller cache configured in writeback mode
 
 ### Agent nodes
+The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
 
 Here are the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2, 7.3  | 7.2, 7.3    |
-| CoreOS      | 835.13.0  | 1235.9.0    |
 | Nodes       | 1         | 6 or more   |
 | Processor   | 2 cores   | 2 cores     |
 | Memory      | 16 GB RAM | 16 GB RAM   |
