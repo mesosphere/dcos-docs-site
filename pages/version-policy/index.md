@@ -364,14 +364,14 @@ B- This package combination is *beta*.
     	<td>◯</td>
     </tr>
     <tr>
-    	<td>Edge-LB 1.0.0</td>
+    	<td>Edge-LB 1.0</td>
     	<td>⚫</td>
     	<td>⚫</td>
     	<td>◯</td>
     	<td>◯</td>
     </tr>
     <tr>
-    	<td>Edge-LB 0.1.9</td>
+    	<td>Edge-LB 0.1</td>
     	<td>◒</td>
     	<td>◒</td>
     	<td>◯</td>
