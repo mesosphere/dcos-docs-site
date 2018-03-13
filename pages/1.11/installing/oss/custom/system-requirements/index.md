@@ -23,9 +23,9 @@ The hardware prerequisities are a single bootstrap node, an odd number of Mesos 
 
 The cluster nodes are designated Mesos masters and agents during installation.
 
-### Master nodes
-
 The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+
+### Master nodes
 
 An odd number of master nodes are required.
 
@@ -45,8 +45,6 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 - RAID controller cache configured in writeback mode
 
 ### Agent nodes
-
-The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
 
 Here are the agent node hardware requirements.
 
@@ -103,10 +101,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported versions of Docker are:
-
-- 1.12.x
-- 1.11.x
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on https://docs.mesosphere.com/version-policy/
 
 **Recommendations**
 
