@@ -28,11 +28,8 @@ The supported operating systems and environments are listed on the [version poli
 
 ### Master nodes
 
-<<<<<<< HEAD
-Here are the master node hardware requirements.
-=======
 The below table represents the master node hardware requirements.
->>>>>>> d48e5b73a5e093355d8235beb650640737cc42ee
+
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
