@@ -103,8 +103,6 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 **Recommendations**
 
-- Docker 1.11.x - 1.12.x is recommended <a href="https://github.com/docker/docker/issues/9718" target="_blank">for stability reasons</a>.
-
 * Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
 
 * Prefer `OverlayFS` or `devicemapper` in `direct-lvm` mode when choosing a production storage driver. For more information, see Docker's <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">Select a Storage Driver</a>.
