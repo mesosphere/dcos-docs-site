@@ -22,7 +22,7 @@ DC/OS provides these types of metrics:
 
 The [Metrics API](/1.11/metrics/metrics-api/) exposes these areas.
 
-The DC/OS metrics component produces Prometheus metrics on port 9273, the same port as used as the default Prometheus port in Telegraf, obviating the need to run the Prometheus plugin supported for previous versions of DC/OS.
+The DC/OS metrics component produces Prometheus metrics on port 61091, obviating the need to run the Prometheus plugin supported for previous versions of DC/OS.
 
 All three metrics layers are aggregated by a collector which is shipped as part of the DC/OS distribution. This enables metrics to run on every host in the cluster. It is the main entry point to the metrics ecosystem, aggregating metrics sent to it by the Mesos Metrics module, or gathering host and container level metrics on the machine on which it runs. 
 

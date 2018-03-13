@@ -11,7 +11,7 @@ enterprise: true
 
 # Hardware Prerequisites
 
-You must have a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
+The hardware prerequisites are a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
 
 ## Bootstrap node
 

@@ -11,7 +11,7 @@ enterprise: true
 
 # Hardware Prerequisites
 
-You must have a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
+You must have a single Bootstrap node, Mesos master nodes, and Mesos agent nodes.
 
 ## Bootstrap node
 
@@ -26,9 +26,15 @@ The cluster nodes are designated Mesos masters and agents during installation.
 
 The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
 
+<<<<<<< HEAD
 ### Master nodes
 
 Here are the master node hardware requirements.
+=======
+The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version)
+
+The below table represents the master node hardware requirements:
+>>>>>>> d48e5b73a5e093355d8235beb650640737cc42ee
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
@@ -45,7 +51,9 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 
 ### Agent nodes
 
-Here are the agent node hardware requirements.
+The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version)
+
+The below table represents the agent node hardware requirements:
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|

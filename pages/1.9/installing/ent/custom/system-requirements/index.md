@@ -11,7 +11,7 @@ enterprise: true
 
 # Hardware Prerequisites
 
-You must have a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
+You must have a single Bootstrap node, Mesos master nodes, and Mesos agent nodes.
 
 ## Bootstrap node
 
@@ -28,24 +28,29 @@ The supported operating systems and environments are listed on the [version poli
 
 ### Master nodes
 
+<<<<<<< HEAD
 Here are the master node hardware requirements.
+=======
+The below table represents the master node hardware requirements.
+>>>>>>> d48e5b73a5e093355d8235beb650640737cc42ee
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| Nodes       | 1         | 3 or 5   |
+| Nodes       | 1         | 3 or 5      |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
 
-There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following: 
-
+There are many mixed workloads on the masters.<br>
+An example: Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. 
+Thus, the following hardwares are recommended:
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
 - RAID controller cache configured in writeback mode
 
 ### Agent nodes
 
-Here are the agent node hardware requirements.
+The below table represents the agent node hardware requirements:
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|

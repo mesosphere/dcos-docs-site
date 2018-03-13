@@ -170,7 +170,7 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
     }
     ```
 
-1. Use the [Marathon API](/1.11/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/1.11/security/iam-api/) to learn more about the API token required in the command below.
+1. Use the [Marathon API](/1.11/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/1.11/security/ent/iam-api/) to learn more about the API token required in the command below.
 
     ```sh
      curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POST <master-IP>/service/marathon/v2/apps -d @basic-3-docker.json -H "Content-type: application/json"

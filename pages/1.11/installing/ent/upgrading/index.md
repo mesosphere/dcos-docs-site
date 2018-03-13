@@ -8,27 +8,26 @@ excerpt:
 enterprise: true
 ---
 
-This document provides instructions for upgrading a DC/OS cluster.  
+This document provides instructions for upgrading a DC/OS cluster.
 
-If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].  
+If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
 
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
+- There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Pay specific attention to the `fault_domain_enabled` and `enable_ipv6`. Please review the sample file [here](/latest/installing/ent/custom/advanced/#create-a-configuration-file)
+- If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the upgrade to succeed.
+- DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the upgrade will fail.
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. For example, an upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. When this occurs:
 
     - The DC/OS GUI may not provide an accurate list of services.
     - For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - An upgraded DC/OS Marathon leader cannot connect to an non-secure (i.e. not upgraded) leading Mesos master. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
-- Before you upgrade from 1.9 to 1.10, you must upgrade Marathon-LB. Do this by uninstalling Marathon-LB and reinstalling the latest package.
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
 
 ## Supported upgrade paths
 - From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
-    - [1.7 to 1.8](/1.8/administration/upgrading/)
-    - [1.8 to 1.9](/1.9/installing/ent/upgrading/)
-    - [1.9 to 1.10](/1.10/installing/ent/upgrading/)
 - From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
 - From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
 
@@ -74,6 +73,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [Advanced DC/OS Installation Guide][advanced-install].
 - Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
+- [Take a snapshot of the IAM database](/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database) prior to upgrading.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.11/administering-clusters/backup-and-restore/).
@@ -83,12 +83,12 @@ These steps must be performed for version upgrades and cluster configuration cha
 
 Choose your desired security mode and then follow the applicable upgrade instructions.
 
-- [Installing DC/OS 1.10 without changing security mode](#current-security)
-- [Installing DC/OS 1.10 in permissive mode](#permissive)
-- [Installing DC/OS 1.10 in strict mode](#strict)
+- [Installing DC/OS 1.11 without changing security mode](#current-security)
+- [Installing DC/OS 1.11 in permissive mode](#permissive)
+- [Installing DC/OS 1.11 in strict mode](#strict)
 
-# <a name="current-security"></a>Installing DC/OS 1.10 without changing security mode
-This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the cluster's [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+# <a name="current-security"></a>Installing DC/OS 1.11 without changing security mode
+This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -111,12 +111,12 @@ This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the c
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
-# <a name="permissive"></a>Installing DC/OS 1.10 in permissive mode
-This procedure upgrades to DC/OS 1.10 in [permissive security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+# <a name="permissive"></a>Installing DC/OS 1.11 in permissive mode
+This procedure upgrades to DC/OS 1.11 in [permissive security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 **Prerequisite:**
 
-- Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [disabled security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
+- Your cluster must be [upgraded to DC/OS 1.11](#current-security) and running in [disabled security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
 
 **Important:** Any [custom node or cluster healthchecks](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the healthchecks.
 
@@ -136,15 +136,15 @@ To update a cluster from disabled security to permissive security, complete the 
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
-# <a name="strict"></a>Installing DC/OS 1.10 in strict mode
-This procedure upgrades to DC/OS 1.10 in security strict [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+# <a name="strict"></a>Installing DC/OS 1.11 in strict mode
+This procedure upgrades to DC/OS 1.11 in security strict [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
 
 **Prerequisites:**
 
-- Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
-- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.10 permissive security mode before upgrading to strict mode. Otherwise, these tasks will be restarted when the masters are upgraded.
+- Your cluster must be [upgraded to DC/OS 1.11](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was upgraded to DC/OS 1.11, you can skip this procedure.
+- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.11 permissive security mode before upgrading to strict mode. Otherwise, these tasks will be restarted when the masters are upgraded.
 
 To update a cluster from permissive security to strict security, complete the following procedure:
 
@@ -187,6 +187,18 @@ Proceed with upgrading every master node one-at-a-time in any order using the fo
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
         **Tip:** If you are upgrading from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access.
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running Mesos 1.2.0.
+	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeroes.
+	    ```bash
+        sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
+        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+        | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
+        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+        |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
+        |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
+        |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
+        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+		```
+		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 
@@ -253,6 +265,6 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes:
 
-- Packages available in the DC/OS 1.10 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
+- Packages available in the DC/OS 1.11 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
 [advanced-install]: /1.11/installing/ent/custom/advanced/
