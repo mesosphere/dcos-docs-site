@@ -96,10 +96,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported versions of Docker are:
-
-- 1.12.x
-- 1.11.x
+Docker must be installed on all bootstrap and cluster nodes. The supported versions of Docker are listed on https://docs.mesosphere.com/version-policy/
 
 **Recommendations**
 
