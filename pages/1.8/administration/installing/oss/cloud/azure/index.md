@@ -34,27 +34,27 @@ Selecting fewer VMs will likely cause certain resource-intensive services such a
 
 To deploy DC/OS using the Azure Marketplace, first go to [portal.azure.com](https://portal.azure.com/), click on `+ New` and enter `DC/OS`:
 
-![Searching for DC/OS template](../img/dcos-azure-marketplace-step1a.png)
+![Searching for DC/OS template](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step1a.png)
 
 In the search result page, pick `DC/OS on Azure`:
 
-![Selecting DC/OS template](../img/dcos-azure-marketplace-step1b.png)
+![Selecting DC/OS template](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step1b.png)
 
 In the template, click on `Create`:
 
-![Creating deployment using DC/OS template](../img/dcos-azure-marketplace-step1c.png)
+![Creating deployment using DC/OS template](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step1c.png)
 
 Complete the installation wizard steps. Note: you are only required to fill in the `Basic` section, however it is strongly recommended that you create a new resource group (simplifies installation and cluster teardown). With the `Enable OAuth authentication` you can influence the [security](/1.8/administration/id-and-access-mgt/ent/) settings. By default, no user authentication is performed by DC/OS, and to enable OAuth-based authentication for your cluster, set it to `true`:
 
-![Filling in DC/OS template](../img/dcos-azure-marketplace-step1d.png)
+![Filling in DC/OS template](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step1d.png)
 
 After you've clicked on the final `Create` button you should see something like the screen below. The deployment process should take about 10 minutes:
 
-![Deploying DC/OS template](../img/dcos-azure-marketplace-step1e.png)
+![Deploying DC/OS template](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step1e.png)
 
 After the deployment succeeded, click on the resource group (`mydcoscluster` here) and you should get to the resource group. If you don't see it, try searching for your resource group and if the deployment failed, delete the deployment and the resource group and start again:
 
-![DC/OS template successfully deployed](../img/dcos-azure-marketplace-step1f.png)
+![DC/OS template successfully deployed](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step1f.png)
 
 Congratulations, you have now deployed DC/OS by using an Azure Resource Manager template! Next we will show how to access the cluster.
 
@@ -64,11 +64,11 @@ Because of security considerations, the DC/OS cluster in Azure is locked down by
 
 First, look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `10/5/2016 (Succeeded)` here) and you should see something like this:
 
-![Deployment history](../img/dcos-azure-marketplace-step2a.png)
+![Deployment history](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step2a.png)
 
 Click on the latest deployment (here `mesosphere.dcosdcos-20160905094201`) and copy the value of `MASTERFQDN` in the `Outputs` section (in this case its `dcosmastersfjro3nzmohea.westus.cloudapp.azure.com`):
 
-![Deployment output](../img/dcos-azure-marketplace-step2b.png)
+![Deployment output](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step2b.png)
 
 Use the value of `MASTERFQDN` you found in the `Outputs` section in the previous step and paste it in the following command:
 
@@ -110,11 +110,11 @@ azureuser@dcos-master-01234567-0:~$
 
 Visit `http://localhost:8000` on your local machine to access the DC/OS Dashboard. Note that if you set `Enable OAuth authentication` to `true` you'll have to first [authenticate](/1.8/administration/id-and-access-mgt/oss/managing-authentication/) using one of the three default OAuth providers (Google, GitHub, Microsoft):
 
-![Authenticate](../img/dcos-azure-marketplace-step2c.png)
+![Authenticate](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step2c.png)
 
 Now you should see something like the following as a result:
 
-![DC/OS Dashboard](../img/dcos-azure-marketplace-step2d.png)
+![DC/OS Dashboard](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step2d.png)
 
 ### Caveats
 
@@ -144,7 +144,7 @@ azureuser@dcos-master-01234567-0:~curl -fLsS --retry 20 -Y 100000 -y 60 https://
 
 If you've created a new resource group in the deployment step it is straightforward to tear down the cluster and release all of the resources. Just delete the resource group as follows:
 
-![Tear down DC/OS cluster](../img/dcos-azure-marketplace-step2e.png)
+![Tear down DC/OS cluster](/1.8/administration/installing/oss/cloud/img/dcos-azure-marketplace-step2e.png)
 
 If you have deployed the cluster into an existing resource group, you'll need to identify all resources that belong to the DC/OS cluster and manually delete them.
 

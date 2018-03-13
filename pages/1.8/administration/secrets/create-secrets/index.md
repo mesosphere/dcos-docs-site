@@ -65,7 +65,7 @@ It can also optionally include a path. Please see the [previous section](#secret
 
 6. When you have completed your entries, the secret should look something like the following.
 
-    ![Creating the Secret](../img/create-secret.png)
+    ![Creating the Secret](/1.8/administration/secrets/img/create-secret.png)
 
 7. Click **Create**.
 

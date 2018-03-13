@@ -57,7 +57,7 @@ These instructions explain how to set up an SSH connection to your DC/OS cluster
 
         1.  From the Mesos web interface, copy the agent node ID. You can find the IDs on the **Frameworks** (`<master-node-IPaddress>/mesos/#/frameworks`) or **Slaves** page (`<master-node-IPaddress>/mesos/#/slaves`).
 
-            ![Mesos Sandbox](../img/mesos-sandbox-slave-copy.png)
+            ![Mesos Sandbox](/1.7/administration/img/mesos-sandbox-slave-copy.png)
 
         2.  From the DC/OS CLI, enter the following command, where `<mesos-id>` is your agent ID:
 
@@ -82,7 +82,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
     2.  Select **SSH-2 RSA** as the key type, click **Save private key**, then choose the name and location to save your new .ppk key.
 
-        ![Windows](../img/windowsputtykey.png)
+        ![Windows](/1.7/administration/img/windowsputtykey.png)
 
     3.  Close PuTTYgen.
 
@@ -94,15 +94,15 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
         2.  Open PuTTY and enter the master node IP address in the **Host Name (or IP address)** field.
 
-            ![Putty Configuration](../img/windowsputtybasic.png)
+            ![Putty Configuration](/1.7/administration/img/windowsputtybasic.png)
 
         3.  In the **Category** pane on the left side of the PuTTY window, choose **Connection > SSH > Auth**, click **Browse**, locate and select your `.ppk` file, then click **Open**.
 
-            ![Putty SSH Options](../img/windowsputtysshopt.png)
+            ![Putty SSH Options](/1.7/administration/img/windowsputtysshopt.png)
 
         4.  Login as user "core" if you're running CoreOS. The default user on CentOS is "centos".
 
-            ![Windows Login](../img/windowscore.png)
+            ![Windows Login](/1.7/administration/img/windowscore.png)
 
     *   **To SSH to an agent node**
 
@@ -116,7 +116,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             2.  Click the **Browse** button and locate the `.ppk` file that you created previously using PuTTYgen.
 
-                ![Windows Forwarding](../img/windowsforwarding.png)
+                ![Windows Forwarding](/1.7/administration/img/windowsforwarding.png)
 
         2.  Add the `.ppk` file to Pageant.
 
@@ -126,7 +126,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             3.  Locate the `.ppk` file that you created using PuTTYgen and click **Open** to add your key to Pageant.
 
-                ![Windows Pageant](../img/windowspageant.png)
+                ![Windows Pageant](/1.7/administration/img/windowspageant.png)
 
             4.  Click the **Close** button to close the Pageant window.
 
@@ -138,7 +138,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             4.  Login as user "core" if you're running CoreOS. The default user on CentOS is "centos".
 
-                ![Windows Login](../img/windowscore.png)
+                ![Windows Login](/1.7/administration/img/windowscore.png)
 
         4.  From the master node, SSH into the agent node.
 

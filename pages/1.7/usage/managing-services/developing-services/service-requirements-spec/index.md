@@ -41,7 +41,7 @@ If the service isn’t running because it is missing license information, that f
 A DC/OS user can uninstall your service with this command:
 
     dcos package uninstall <service name>
-    
+
 
 # Packaging
 
@@ -50,7 +50,7 @@ A DC/OS user can uninstall your service with this command:
 A DC/OS user must be able to install your service by running this command:
 
     dcos package install <service name>
-    
+
 
 For this to work, the metadata for your service must be registered in the Mesosphere Universe package repository. The metadata format is defined in the <a href="https://github.com/mesosphere/universe#mesosphere-universe-" target="_blank">Universe repository README</a>.
 
@@ -95,12 +95,12 @@ All URLs that are used by the service must be passed in by using the command lin
 
 The `package.json` file MUST have:
 
-*   The [name field][1] in `package.json` must match the package name in Universe and the default value for the `framework-name` parameter in `config.json`. See the [Chronos package][2] in Universe as an example. 
+*   The [name field][1] in `package.json` must match the package name in Universe and the default value for the `framework-name` parameter in `config.json`. See the [Chronos package][2] in Universe as an example.
 *   Contact email address of owner
 *   Description
 *   Indication of whether this is a framework
 *   Tags
-*   All images 
+*   All images
 *   License information
 *   Pre-install notes that indicate required resources
 *   Post-install notes that indicate documentation, tutorials, and how to get support
@@ -126,9 +126,9 @@ The output from these checks is used by the DC/OS web interface to display your 
 
 *   If ALL of your health checks pass, your service is marked in green as Healthy.
 *   If ANY of your health checks fail, your service is marked in red as Sick. Your documentation must provide troubleshooting information for resolving the issue.
-*   If your Service has no tasks running in Marathon, your service is marked in yellow as Idle. This state is normally temporary and occurs only when your service is launching. 
+*   If your Service has no tasks running in Marathon, your service is marked in yellow as Idle. This state is normally temporary and occurs only when your service is launching.
 
-![DC/OS services](/assets/images/services-ee.gif)
+![DC/OS services](/1.8/usage/img/services-ee.gif)
 
 Your app MAY set `maxConsecutiveFailures=0` on any of your health checks to prevent Marathon from terminating your app if the failure threshold of the health check is reached.
 

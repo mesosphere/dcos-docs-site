@@ -30,7 +30,7 @@ DC/OS virtual networks allow containers launched through the Mesos Containerizer
 
 DC/OS virtual network architecture:
 
-![Overview of the DC/OS Virtual Networks architecture](img/overlay-networks.png)
+![Overview of the DC/OS Virtual Networks architecture](/1.8/administration/virtual-network/img/overlay-networks.png)
 
 DC/OS virtual networks do not require an external IP address management (IPAM) solution because IP allocation is handled via the Mesos Master replicated log. Virtual networks do not support external IPAMs.
 

@@ -39,7 +39,7 @@ The agent nodes in the public zone are labeled with a special role so that only 
 
 A typical AWS deployment including AWS Load Balancers is shown below:
 
-![Security Zones](../img/security-zones.jpg)
+![Security Zones](/1.7/overview/img/security-zones.jpg)
 
 ## Admin Router
 

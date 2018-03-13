@@ -55,7 +55,7 @@ The DC/OS installation creates these folders:
 
 3.  Click **Begin Installation**.
 
-    ![Begin Install](../img/dcos-gui-install.png)
+    ![Begin Install](/1.7/administration/installing/oss/custom/img/dcos-gui-install.png)
 
 4.  Specify your Deployment and DC/OS Environment settings:
 
@@ -93,7 +93,7 @@ The DC/OS installation creates these folders:
 
 5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the scripted installer [prerequisites][3]. This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
 
-    ![preflight](../img/dcos-gui-preflight.png)
+    ![preflight](/1.7/administration/installing/oss/custom/img/dcos-gui-preflight.png)
 
    **Important:* If you exit your GUI installation before launching DC/OS, you must do this before reinstalling:
 
@@ -102,24 +102,24 @@ The DC/OS installation creates these folders:
 
 6.  Click **Deploy** to install DC/OS on your cluster. If errors any errors are found, fix and then click **Retry**.
 
-    ![deploy](../img/dcos-gui-deploy.png)
+    ![deploy](/1.7/administration/installing/oss/custom/img/dcos-gui-deploy.png)
 
     **Tip:** This step might take a few minutes, depending on the size of your cluster.
 
 7.  Click **Run Post-Flight**. If errors any errors are found, fix and then click **Retry**.
 
-    ![postflight](../img/dcos-gui-postflight.png)
+    ![postflight](/1.7/administration/installing/oss/custom/img/dcos-gui-postflight.png)
 
     **Tip:** You can click **Download Logs** to view your logs locally.
     **Tip:** If this takes longer than about 10 minutes, you've probably misconfigured your cluster. Go checkout the [troubleshooting documentation][9]
 
 8.  Click **Log In To DC/OS**. If this doesn't work, take a look at the [troubleshooting docs][9].
 
-    ![login](../img/dcos-gui-login.png)
+    ![login](/1.7/administration/installing/oss/custom/img/dcos-gui-login.png)
 
     You are done!
 
-    ![dashboard](../img/ui-dashboard.gif)
+    ![dashboard](/1.7/administration/installing/oss/custom/img/ui-dashboard.gif)
 
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.

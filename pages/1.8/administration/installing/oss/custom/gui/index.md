@@ -83,11 +83,11 @@ The DC/OS installation creates these folders:
 
 3.  Click **Begin Installation**.
 
-    ![Begin Install](../img/dcos-gui-install.png)
+    ![Begin Install](/1.8/administration/installing/oss/custom/img/dcos-gui-install.png)
 
 4.  Specify your Deployment and DC/OS Environment settings:
 
-    ![preflight](../img/dcos-gui-preflight.png)
+    ![preflight](/1.8/administration/installing/oss/custom/img/dcos-gui-preflight.png)
 
     ### Deployment Settings
 
@@ -137,31 +137,31 @@ The DC/OS installation creates these folders:
     *   SSH to each node in your cluster and run `rm -rf /opt/mesosphere`.
     *   SSH to your bootstrap master node and run `rm -rf /var/lib/dcos/exhibitor/zookeeper`
 
-    ![preflight](../img/dcos-gui-run-preflight.png)
+    ![preflight](/1.8/administration/installing/oss/custom/img/dcos-gui-run-preflight.png)
 
 6.  Click **Deploy** to install DC/OS on your cluster. If errors any errors are found, fix and then click **Retry**.
 
-    ![deploy](../img/dcos-gui-deploy.png)
+    ![deploy](/1.8/administration/installing/oss/custom/img/dcos-gui-deploy.png)
 
     **Tip:** This step might take a few minutes, depending on the size of your cluster.
 
 7.  Click **Run Post-Flight**. If errors any errors are found, fix and then click **Retry**.
 
-    ![postflight](../img/dcos-gui-postflight.png)
+    ![postflight](/1.8/administration/installing/oss/custom/img/dcos-gui-postflight.png)
 
-    **Tips:** 
-    
+    **Tips:**
+
     *  If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
     *  You can click **Download Logs** to view your logs locally.
     *  If this takes longer than about 10 minutes, you've probably misconfigured your cluster. Go checkout the [troubleshooting documentation][9].
 
 8.  Click **Log In To DC/OS**. If this doesn't work, take a look at the [troubleshooting docs][9].
 
-    ![login](../img/dcos-gui-login.png)
+    ![login](/1.8/administration/installing/oss/custom/img/dcos-gui-login.png)
 
     You are done!
 
-    ![dashboard](../img/ui-dashboard.gif)
+    ![dashboard](/1.8/administration/installing/oss/custom/img/ui-dashboard.gif)
 
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.

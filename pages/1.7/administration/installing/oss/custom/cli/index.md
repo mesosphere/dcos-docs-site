@@ -316,17 +316,17 @@ To install DC/OS:
 
     **Tip:** This process can take about 10 minutes. During this time you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
-    ![alt text](../img/chef-zk-status.png)
+    ![alt text](/1.7/administration/installing/oss/custom/img/chef-zk-status.png)
 
     When the status icons are green, you can access the DC/OS web interface.
 
 7.  Launch the DC/OS web interface at `http://<public-master-ip>/` and login. If this doesn't work, take a look at the [troubleshooting docs][9]
 
-    ![alt text](../img/ui-installer-login.gif)
+    ![alt text](/1.7/administration/installing/oss/custom/img/ui-installer-login.gif)
 
     You are done!
 
-    ![dashboard](../img/ui-dashboard.gif)
+    ![dashboard](/1.7/administration/installing/oss/custom/img/ui-dashboard.gif)
 
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.

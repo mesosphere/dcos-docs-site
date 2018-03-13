@@ -6,11 +6,11 @@ navigationTitle: AWS EC2 Advanced
 menuWeight: 200
 ---
 The advanced AWS CloudFormation templates bring power and flexibility to creating and extending DC/OS clusters. With these templates you can choose from the complete set of DC/OS configuration options.
- 
+
  - Instantiate a complete DC/OS cluster on an existing VPC/Subnet combination.
- - Extend and update existing DC/OS clusters by adding more [agent](/1.8/overview/concepts/#agent) nodes. 
- 
-The templates are used together in conjunction to create a DC/OS cluster. The templates are driven by parameters that AWS CloudFormation uses to create each stack.  
+ - Extend and update existing DC/OS clusters by adding more [agent](/1.8/overview/concepts/#agent) nodes.
+
+The templates are used together in conjunction to create a DC/OS cluster. The templates are driven by parameters that AWS CloudFormation uses to create each stack.
 
 **Important:** Upgrades are not supported with this installation method.
 
@@ -29,7 +29,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 * A node that meets the bootstrap node [system requirements](/1.8/administration/installing/oss/custom/system-requirements/).
 * An AWS S3 bucket with read-write access.
     * The S3 bucket must have a bucket policy that allows the launched AWS instances to download the files from the S3 bucket. Here is a sample policy that allows anyone to download:
-    
+
       ```json
       {
         "Version":"2012-10-17",
@@ -50,7 +50,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 1.  Download the [dcos_generate_config.sh](https://dcos.io/releases/) to your bootstrap node.
 1.  Create a directory named `genconf` in the home directory of your node and navigate to it.
-    
+
     ```bash
     mkdir -p genconf
     ```
@@ -63,9 +63,9 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
     aws_template_storage_access_key_id: <your-access-key-id>
     aws_template_storage_secret_access_key: <your-secret-access_key>
     ```
-    
+
     For parameters descriptions and configuration examples, see the [documentation](/1.8/administration/installing/oss/custom/configuration-parameters/).
-    
+
 1.  Run the DC/OS installer script with the AWS argument specified. This command creates and uploads a custom build of the DC/OS artifacts and templates to the specified S3 bucket.
 
     ```bash
@@ -73,13 +73,13 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
     ```
 
      The root URL for this bucket location is printed at the end of this step. You should see a message like this:
-    
+
     ```bash
     AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<path-to-directory>
     ```
 1.  Go to [S3](https://console.aws.amazon.com/s3/home) and navigate to your S3 bucket shown above in `<path-to-directory>`.
-    
-    1.  Select **cloudformation** and then select the zen template for the number of desired masters. For example, select **el7-zen-1.json** for a single master configuration. 
+
+    1.  Select **cloudformation** and then select the zen template for the number of desired masters. For example, select **el7-zen-1.json** for a single master configuration.
     1.  Right-click and select **Properties**, and then copy the AWS S3 template URL.
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
 1.  On the **Select Template** page, specify the AWS S3 template URL path to your Zen template. For example, `https://s3-us-west-2.amazonaws.com/user-aws/templates/config_id/14222z9104081387447be59e178438749d154w3g/cloudformation/el7-zen-1.json`.
@@ -129,7 +129,7 @@ Use this script to create the template dependencies. These dependencies will be 
     echo "Public SubnetId: $public_subnet"
     ```
 
-1.  Run the `zen.sh` script with an optional tag value for your DC/OS stack specified (`STACK_NAME`), or use the default `dcos`. This value will be used to tag your DC/OS cluster in AWS.  
+1.  Run the `zen.sh` script with an optional tag value for your DC/OS stack specified (`STACK_NAME`), or use the default `dcos`. This value will be used to tag your DC/OS cluster in AWS.
 
     ```bash
     bash ./zen.sh dcos
@@ -152,7 +152,7 @@ Use this script to create the template dependencies. These dependencies will be 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
 1.  On the **Select Template** page, upload the [Zen](/1.8/administration/installing/oss/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json`) from your workstation and click **Next**.
 
-    ![AWS UI](../img/aws-advanced-1.png)
+    ![AWS UI](/1.8/administration/installing/oss/cloud/aws/img/aws-advanced-1.png)
 
     *  **Stack name** Specify the cluster name.
     *  **CustomAMI** Optional: Specify the AMI ID. For more information, see [Installing Using a Custom AMI](/1.8/administration/installing/oss/cloud/aws/advanced/aws-ami).
@@ -181,7 +181,7 @@ In CloudFormation you should see:
 
 *  The cluster stack spins up over a period of 15 to 20 minutes. You will have a stack created for each of these, where `<stack-name>` is the value you specified for **Stack name** and `<stack-id>` is an auto-generated ID.
 
-   ![AWS UI](../img/aws-advanced-2.png)
+   ![AWS UI](/1.8/administration/installing/oss/cloud/aws/img/aws-advanced-2.png)
 
    *  Zen template: `<stack-name>`
    *  Public agents: `<stack-name>-PublicAgentStack-<stack-id>`
@@ -203,13 +203,13 @@ Launch the DC/OS web interface by entering the master hostname:
 
     **Tip:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page.
 
-    ![Monitor stack creation](../img/dcos-aws-step3a.png)
+    ![Monitor stack creation](/1.8/administration/installing/oss/cloud/aws/img/dcos-aws-step3a.png)
 
-    ![DC/OS dashboard](../img/ui-dashboard.gif)
+    ![DC/OS dashboard](/1.8/administration/installing/oss/cloud/aws/img/ui-dashboard.gif)
 
 1.  Click the dropup menu on the lower-left side to install the DC/OS [Command-Line Interface (CLI)][2]. You must install the CLI to administer your DC/OS cluster.
 
-    ![install CLI](../img/ui-dashboard-install-cli.gif)
+    ![install CLI](/1.8/administration/installing/oss/cloud/aws/img/ui-dashboard-install-cli.gif)
 
 # Next steps
 

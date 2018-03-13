@@ -18,7 +18,7 @@ After making a change, the scheduler will be restarted and will automatically de
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/hdfs/2.0.1-2.6.0-cdh5.11.0/limitations/).
 
 <!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
 
@@ -93,7 +93,8 @@ $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
 ```bash
 $ less marathon.json.mustache
 ```
-1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
+1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#
+initial-service-configuration).
 
 ### Starting the update
 
