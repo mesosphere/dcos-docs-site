@@ -24,7 +24,8 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 The cluster nodes are designated Mesos masters and agents during installation.
 
-The supported operating systems and environments are listed on https://docs.mesosphere.com/version-policy/.
+The supported operating systems and environments are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
+
 
 ### Master nodes
 
