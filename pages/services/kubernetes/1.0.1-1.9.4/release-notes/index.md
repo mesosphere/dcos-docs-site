@@ -18,9 +18,9 @@ excerpt:
 
 ## Bug Fixes
 
-* Bump Kubernetes to v1.9.4 to fix [a couple critical security issues](https://github.com/kubernetes/kubernetes/issues/60813).
-* Bump `dcos-commons` to v0.40.5, which fixes [a bug](https://github.com/mesosphere/dcos-commons/pull/2368)
-  where this framework could, on certain scenarios, clean up other frameworks'
+* Bump Kubernetes to v1.9.4 to fix [critical security issues with subpath volume mount handling](https://github.com/kubernetes/kubernetes/issues/60813).
+* Bump `dcos-commons` to v0.40.5, which fixes [a cleanup issue](https://github.com/mesosphere/dcos-commons/pull/2368)
+  where this framework could, in very limited scenarios, clean up other frameworks'
   volumes.
 * Fix `dcos kubernetes kubeconfig` to support DC/OS Open when `oauth_enabled` is
   `false`.
