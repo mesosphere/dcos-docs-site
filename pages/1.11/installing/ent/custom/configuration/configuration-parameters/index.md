@@ -441,7 +441,7 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 *  `master_dns_bindall: 'false'` The master DNS port is closed.
 
 ### master_external_loadbalancer
-The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the [DC/OS certificate](/1.11/security/ent/tls-ssl/) of the host on which the load balancer is running.
+The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the [DC/OS certificate](/1.11/security/ent/tls-ssl/) of the Admin Router on the master nodes.
 
 ### mesos_container_log_sink
 
