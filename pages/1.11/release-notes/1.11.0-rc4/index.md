@@ -51,7 +51,7 @@ Please try out the new features and updated data services. Provide any feedback 
 
 ## Networking
 [enterprise]
-- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0.0)
+- Edge-LB 1.0 RC candidate. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/)
 [/enterprise]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack. All networking components (minuteman, navstar, spartan) are aggregated into a single systemD unit called `dcos-net`. Please read the note on [networking software re-architecture](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
