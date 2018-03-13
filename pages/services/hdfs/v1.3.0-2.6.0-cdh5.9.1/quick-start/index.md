@@ -82,7 +82,7 @@ This tutorial will get you up and running in minutes with HDFS. You will install
     By default, the client is configured to be configured to connect to an HDFS service named `hdfs` and no further client configuration is required. If you want to configure with a different name, run this command with name (`<hdfs-name>`) specified:
 
     ```bash
-    HDFS_SERVICE_NAME=<hdfs-name> chmod +x configure-hdfs.sh && ./configure-hdfs.sh
+    HDFS_SERVICE_NAME=<hdfs-name> chmod +x configure-hdfs.sh && /configure-hdfs.sh
     ```
 
 1.  Navigate to the Hadoop installation directory and list the contents.
