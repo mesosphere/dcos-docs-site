@@ -28,11 +28,7 @@ The supported operating systems and environments are listed on the [version poli
 
 ### Master nodes
 
-<<<<<<< HEAD
 The below table represents the master node hardware requirements.
-=======
- The below table represents the master node hardware requirements.
->>>>>>> d48e5b73a5e093355d8235beb650640737cc42ee
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
@@ -102,12 +98,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-<<<<<<< HEAD
 Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
-=======
-Docker must be installed on all bootstrap and cluster nodes. 
-The supported Docker versions are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
->>>>>>> d48e5b73a5e093355d8235beb650640737cc42ee
 
 **Recommendations**
 
