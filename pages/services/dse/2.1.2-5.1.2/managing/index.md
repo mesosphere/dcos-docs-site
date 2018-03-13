@@ -15,7 +15,7 @@ After making a change, the scheduler will be restarted, and it will automaticall
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](../limitations).
 
 The instructions below describe how to update the configuration for a running DC/OS service.
 
@@ -46,7 +46,7 @@ $ dcos datastax-dse describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
+If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when installing the service.
 
 <strong>Note:</strong> You need to specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
@@ -88,7 +88,7 @@ $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
 ```bash
 $ less marathon.json.mustache
 ```
-1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
+1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in Initial service configuration.
 
 #### Starting the update
 
@@ -133,7 +133,7 @@ Note: volume requirements (type and/or size) can not be changed after initial de
 
 ## Updating Placement Constraints
 
-Placement constraints may be updated after initial deployment using the following procedure. See [Service Settings](#service-settings) above for more information on placement constraints.
+Placement constraints may be updated after initial deployment using the following procedure. 
 
 Let's say we have the following deployment of our nodes
 
