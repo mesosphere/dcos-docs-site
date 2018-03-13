@@ -10,6 +10,32 @@ enterprise: false
 
 Release notes for Edge-LB.
 
+# v1.0.1
+
+## Noteworthy changes:
+
+- Bump SDK dependency version to 0.40.5. Addresses a bug which could cause a pool scheduler to erroneously destroy one or more Marathon persistent volumes, potentially leading to data loss.
+
+Shortlist:
+
+```
+% git shortlog v1.0.0..HEAD
+      Bump SDK to 0.40.5 (#131)
+```
+
+## Known Limitations
+
+* Edge-LB does not currently support `Disabled` security mode.
+* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but does work in DC/OS 1.11 strict mode.
+* Edge-LB does not currently support self-service configuration; all configuration must be handled centrally.
+* The number of instances of load balancers cannot be scaled down.
+
+## Known Issues
+
+* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.0/uninstalling/).
+* Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
+
 # v1.0.0
 
 ## Noteworthy changes:
@@ -53,6 +79,7 @@ Shortlist:
 
 ## Known Issues
 
+* A potentially serious situation exists in DC/OS 1.10 or 1.11 clusters for any Marathon application deployed using persistent volumes in conjunction with Edge-LB.  If Edge-LB is deployed on a public agent node, the schedulers may erroneously destroy one or more Marathon persistent volumes, potentially leading to data loss. This bug has been resolved in Edge-LB v1.0.1
 * The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.0/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
