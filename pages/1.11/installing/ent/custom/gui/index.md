@@ -64,7 +64,7 @@ Your cluster must meet the software and hardware [requirements][1].
 
     ![alt text](/1.11/img/gui-installer-setup-ee.gif)
 
-    ### Deployment Settings
+    ### Deployment Settings  
 
     #### Master Private IP List
     Specify a comma-separated list of your internal static master IP addresses.
@@ -90,7 +90,7 @@ Your cluster must meet the software and hardware [requirements][1].
     #### Customer ID
     Specify the 30-character UUID that was given to you by the Mesosphere customer representative.
 
-    ### DC/OS Environment Settings
+    ### DC/OS Environment Settings  
 
     #### Username
     Specify a user name for the initial superuser account. At least one superuser account is required for DC/OS Enterprise. For more information about security, see the [documentation](/1.11/security/).
