@@ -47,9 +47,9 @@ The tables below enumerate the features available with each of the supported con
 | **Docker Options**                      | No          | Yes       |          |
 | **Force Pull**                          | Yes         | Yes       |          |
 | **Secrets**                             | Yes         | Yes       | DC/OS Enterprise only |
+| **File-based Secrets**                  | Yes         | NO        | DC/OS Enterprise only |
 | **Debugging with exec**                 | Yes         | No        | CLI only |
 | **All Security Modes**                  | Yes         | Yes       | DC/OS Enterprise only |
-| **File-based Secrets**                  | Yes         | NO        | DC/OS Enterprise only |
 
 ## Container Backend
 
