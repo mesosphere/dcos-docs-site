@@ -318,3 +318,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 1. Click to open the **Configuration** tab.
 
 1. Scroll to the **Environment Variables** area to locate your secret `MY_SECRET`.
+
+## Limitation
+
+ The file-based secrets work only with the UCR.
