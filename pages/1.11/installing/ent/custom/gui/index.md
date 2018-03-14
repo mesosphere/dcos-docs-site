@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  GUI Installer ***Retired feature
-title: GUI Installer ***Retired feature
+navigationTitle:  GUI Installer (Deprecated Feature)
+title: GUI Installer (Deprecated Feature)
 menuWeight: 100
 excerpt:
 ---
-## The GUI installer is retired in version 1.11 and is not supported.
-This installer will be completely removed in 1.12 release
+## The GUI installer is deprecated in version 1.11 and is not supported.
+This installer will be completely removed in 1.12 release.
 
 The automated GUI installer provides a simple graphical interface that guides you through the installation of DC/OS. The GUI installer provides a basic installation that is suitable for demonstrations and POCs. Only a subset of the configuration options are available with the GUI method. This is the fastest way to get started with DC/OS.
 
@@ -14,7 +14,7 @@ This installation method uses a bootstrap node to administer the DC/OS installat
 
 **Important:** Upgrades are not supported with this installation method.
 
-The DC/OS installation creates these folders:
+The DC/OS installation creates the below folders:
 
 | Folder                                  | Description                                                                                                                                    |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -101,12 +101,12 @@ Your cluster must meet the software and hardware [requirements][1].
     #### Upstream DNS Servers
     Specify a comma-separated list of DNS resolvers for your DC/OS cluster nodes. Set this parameter to the most authoritative nameservers that you have. If you want to resolve internal hostnames, set it to a nameserver that can resolve them. If you have no internal hostnames to resolve, you can set this to a public nameserver like Google or AWS. In the example above, the <a href="https://developers.google.com/speed/public-dns/docs/using" target="_blank">Google Public DNS IP addresses (IPv4)</a> are specified: `8.8.8.8` and `8.8.4.4`. If Google DNS is not available in your country, you can replace the Google DNS servers with your local DNS servers.
 
-    *Caution:* If you set this parameter incorrectly, you will have to reinstall DC/OS. For more information about service discovery, see the [documentation][3].
+    **Caution:** If you set this parameter incorrectly, you will have to reinstall DC/OS. For more information about service discovery, see the [documentation][3].
 
     #### IP Detect Script
     Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced installation [documentation](/1.11/installing/ent/custom/advanced/#ip-detect-script).
 
-    *Important:* The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
+    **Important:** The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
 
     #### Send Anonymous Telemetry
     Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/1.11/overview/telemetry/).
