@@ -16,7 +16,7 @@ A containerizer provides a containerization and resource isolation abstraction a
 - [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/).
 - [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/).
 
-The advantage of Universal Container Runtime (UCR) are:
+The advantages of Universal Container Runtime (UCR) are:
 
 * Removes your dependency on the Docker Engine. If the Docker Engine is not responsive, restarting the Engine causes all containers on the host to stop. In addition, Docker must be installed on each of your agent nodes and you must upgrade Docker on the agent nodes each time a new version of Docker is released.
 * Is more stable and allows deployment at scale.
