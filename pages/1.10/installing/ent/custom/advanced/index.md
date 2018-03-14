@@ -134,7 +134,9 @@ In this step you create a YAML configuration file that is customized for your en
     - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `/genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <path-to-ip-script>`.        
     
     ```json
-    bootstrap_url: http://<bootstrap_ip>:80      
+    bootstrap_url: http://<bootstrap_ip>:80   
+    superuser_username:
+    superuser_password_hash:   
     cluster_name: '<cluster-name>'
     customer_key: <customer-key>
     exhibitor_storage_backend: static

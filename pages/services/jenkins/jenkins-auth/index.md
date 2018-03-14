@@ -20,7 +20,7 @@ Whether you can or must provision Jenkins with a service account varies by [secu
 - `permissive`: optional
 - `strict`: required
 
-To increase the security of your cluster and conform to the principle of least privilege, we recommend provisioning Jenkins with a service account in `permissive` mode. Otherwise, Jenkins will use the default `dcos_anonymous` account to authenticate, and the `dcos_anonymous` account has the `superuser` permission.
+To increase the security of your cluster and conform to the principle of least privilege, we recommend provisioning Jenkins with a service account in `permissive` mode. Otherwise, Marathon and Metronome will act as if Jenkins was provisioned with a service account which has the `superuser` permission.
 
 To set up a service account for Jenkins, complete the following steps.
 

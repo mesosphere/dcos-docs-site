@@ -24,14 +24,14 @@ You must have a single Bootstrap node, Mesos master nodes, and Mesos agent nodes
 
 The cluster nodes are designated Mesos masters and agents during installation.
 
+The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+
 ### Master nodes
 
- The below table represents the master node hardware requirements.
+The below table represents the master node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2       |       7.4   |
-| CoreOS      | 835.13.0  | 1235.9.0    | 
 | Nodes       | 1         | 3 or 5      |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
@@ -52,8 +52,6 @@ The below table represents the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2       | 7.4         |
-| CoreOS      | 835.13.0  | 1235.9.0    |
 | Nodes       | 1         | 6 or more   |
 | Processor   | 2 cores   | 2 cores     |
 | Memory      | 16 GB RAM | 16 GB RAM   |
@@ -100,14 +98,9 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported versions of Docker are:
-
-- 1.12.x
-- 1.11.x
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
 
 **Recommendations**
-
-- Docker 1.11.x - 1.12.x is recommended <a href="https://github.com/docker/docker/issues/9718" target="_blank">for stability reasons</a>.
 
 * Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
 

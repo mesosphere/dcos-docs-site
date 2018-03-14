@@ -20,7 +20,7 @@ Whether you can or must provision Marathon-LB with a service account varies by [
 - `permissive`: optional
 - `strict`: required
 
-To increase the security of your cluster and conform to the principle of least privilege, we recommend provisioning Marathon-LB with a service account in `permissive` mode. Otherwise, Marathon-LB will use the default `dcos_anonymous` account to authenticate and the `dcos_anonymous` account has the `superuser` permission.
+To increase the security of your cluster and conform to the principle of least privilege, we recommend provisioning Marathon-LB with a service account in `permissive` mode. Otherwise, Marathon and Metronome will act as if Marathon-LB was provisioned with a service account which has the `superuser` permission.
 
 In addition, if you plan to upgrade to `strict` mode, provisioning Marathon-LB with a service account in `disabled` and `permissive` modes will make the upgrade easier. 
 

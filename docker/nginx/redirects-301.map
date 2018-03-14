@@ -647,5 +647,8 @@
 /services/beta-elastic/v2.0.0-5.5.1/ /services/beta-elastic/2.0.0-5.5.1/;
 /services/beta-kafka/v1.1.25-0.10.1.0-beta/ /services/beta-kafka/1.1.25-0.10.1.0-beta/;
 /services/beta-kafka/v1.1.26-0.10.1.0-beta/ /services/beta-kafka/1.1.26-0.10.1.0-beta/;
+~^/services/edge-lb/0.1.9/(.*)$ /services/edge-lb/0.1/$1;
+~^/services/edge-lb/1.0.0/(.*)$ /services/edge-lb/1.0/$1;
+~^/services/edge-lb/latest/(.*)$ /services/edge-lb/1.0/$1;
 /support/ https://support.mesosphere.com;
 ~^/docs/(?<path>.*)$ /$path;
