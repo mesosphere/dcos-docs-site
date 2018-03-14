@@ -24,7 +24,7 @@ Referencing a file-based secret can be particularly useful for:
 
 File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<configured-path>`).
 
-**Prerequisites:**
+### Prerequisites
 
 - An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.11/security/ent/secrets/create-secrets/), you will meet this prerequisite.
 
