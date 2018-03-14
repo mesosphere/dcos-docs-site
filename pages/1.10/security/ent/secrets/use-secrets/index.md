@@ -23,6 +23,7 @@ Referencing a file-based secret can be particularly useful for:
 - Configuration files with sensitive data.
 
 File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<configured-path>`).
+**Note:** The file-based secrets work only with the UCR, which is a limitation.
 
 **Prerequisites:**
 
