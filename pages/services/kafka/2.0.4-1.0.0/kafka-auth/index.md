@@ -15,7 +15,7 @@ This topic describes how to configure DC/OS access for Kafka. Depending on your 
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.11/security/ent/perms-reference/#superuser).
+If you install a service in permissive mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](/1.11/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
 
