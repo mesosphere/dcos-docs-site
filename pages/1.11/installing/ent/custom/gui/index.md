@@ -64,9 +64,9 @@ Your cluster must meet the software and hardware [requirements][1].
 
     ![alt text](/1.11/img/gui-installer-setup-ee.gif)
 
-    ### Deployment Settings
+    * 4.1\. Deployment Settings  
 
-    #### Master Private IP List
+          * 4.1.1\. Master Private IP List
     Specify a comma-separated list of your internal static master IP addresses.
 
     #### Agent Private IP List
