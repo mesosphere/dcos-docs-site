@@ -118,7 +118,7 @@ function main
   pwd
   echo "======="
   echo "Starting pdf build $(date)"
-  cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"
+  cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-6}"
   echo "Finished build $(date)"
 }
 
