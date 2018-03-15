@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  GUI Installer (Deprecated Feature)
-title: GUI Installer (Deprecated Feature)
+navigationTitle:  GUI Installer (Retired Feature)
+title: GUI Installer (Retired Feature)
 menuWeight: 100
 excerpt:
 ---
-## The GUI installer is deprecated in version 1.11 and is not supported.
-This installer will be completely removed in 1.12 release.
+## The GUI installer is retired in version 1.11 and is not supported.
+This installer will be deprecated in 1.12 release.
 
 The automated GUI installer provides a simple graphical interface that guides you through the installation of DC/OS. The GUI installer provides a basic installation that is suitable for demonstrations and POCs. Only a subset of the configuration options are available with the GUI method. This is the fastest way to get started with DC/OS.
 
@@ -64,7 +64,7 @@ Your cluster must meet the software and hardware [requirements][1].
 
     ![alt text](/1.11/img/gui-installer-setup-ee.gif)
 
-    ### Deployment Settings  
+    ### Deployment Settings
 
     #### Master Private IP List
     Specify a comma-separated list of your internal static master IP addresses.
@@ -90,7 +90,7 @@ Your cluster must meet the software and hardware [requirements][1].
     #### Customer ID
     Specify the 30-character UUID that was given to you by the Mesosphere customer representative.
 
-    ### DC/OS Environment Settings  
+    ### DC/OS Environment Settings
 
     #### Username
     Specify a user name for the initial superuser account. At least one superuser account is required for DC/OS Enterprise. For more information about security, see the [documentation](/1.11/security/).
