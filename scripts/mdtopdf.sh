@@ -47,7 +47,7 @@ function main
      local PDF_FILE_NAME="${FILE_PATH//\//-}"
      # Change file extension from .html to .pdf
      local PDF_FILE_NAME="${PDF_FILE_NAME/%.md/.pdf}"
-     echo $PDF_FILE_NAME "file name"
+     echo "$PDF_FILE_NAME" "file name"
      # For example if SOURCE_FILE=./build/1.10/cli/dcos-marathon-group-scale-index.html
      # PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.p
      # Make the Destination directory
@@ -84,6 +84,9 @@ function main
      # Unicode characters to encode into UTF8.
      CHARS=$(python -c 'print u"\u2060\u0080\u0099\u009C\u009d\u0098\u0094\u0082\u00a6\u0089\u00a4\u00a5\u0093\u2019\u2018\u201C\u201D\u25CF".encode("utf8" )')
      sed -i 's/['"$CHARS"']//g' "${TEMP_FILE}"
+
+     # Math fractions now supported
+     sed -i 's,\u00bc,1/2,g' "${TEMP_FILE}"
 
      # We cut all long strings at 180 characters.
      sed -i -r 's/.{180}/&\n/g' "${TEMP_FILE}"

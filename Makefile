@@ -32,9 +32,11 @@ build-development: build-api
 #
 # Build PDF
 #
+check-markdown: # scan through markdown to validate Github flavoured markdown
+	node ./scripts/ghf.js ./pages/1.7
 
 build-pdf-production:
-	./scripts/mdtopdf.sh ./pages ./build-pdf
+	./scripts/mdtopdf.sh ./pages/1.7 ./build-pdf
 
 #
 # Build API

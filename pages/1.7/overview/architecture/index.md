@@ -10,6 +10,7 @@ enterprise: false
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
+[![Project Stats](image_url)](link_url)
 
 An operating system abstracts resources such as CPU, RAM, and networking and provides common services to applications. DC/OS is a distributed operating system that abstracts the resources of a cluster of machines and provides common services. These common services include running processes across a number of nodes, service discovery, and package management. This topic discusses the architecture of DC/OS and the interaction of its components.
 

@@ -14,14 +14,14 @@ RUN mkdir /src
 WORKDIR /src
 ADD . /src/
 
-# RUN npm install
+RUN npm install
 
-#RUN make build-swagger
-#RUN make build-ngindox
+# RUN make build-swagger
+# RUN make build-ngindox
 
-# RUN \
-# GIT_BRANCH=$git_branch \
-# npm run build-pdf
+RUN \
+GIT_BRANCH=$git_branch \
+npm run build-pdf
 
 #
 # Build PDF
@@ -30,6 +30,8 @@ FROM ubuntu:16.04 as pdf-builder
 RUN apt-get update -qq
 
 RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55
+
+# RUN make check-markdown
 
 #
 # All Commands to install environment for pandoc
