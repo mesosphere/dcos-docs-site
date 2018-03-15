@@ -150,7 +150,7 @@ only this version provides the mechanisms needed for PKI:
 As you may have guessed by now, Open doesn't provide such functionality. So the question is how did we
 implement TLS on Open DC/OS? The answer comes in the form of the diagram below:
 
-![alt text](/services/kubernetes/1.0.1-1.9.3/img/tls.png "TLS design")
+![alt text](/services/kubernetes/1.0.1-1.9.4/img/tls.png "TLS design")
 
 ### Leveraging Enterprise DC/OS PKI
 
