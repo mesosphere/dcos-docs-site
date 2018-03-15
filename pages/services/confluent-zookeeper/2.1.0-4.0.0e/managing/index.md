@@ -21,7 +21,7 @@ Nodes are configured with a "readiness check" to ensure that the underlying serv
 
 Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](../limitations).
 
-To make configuration changes via scheduler environment updates, perform the following steps (documented in full) [here](latest/deploying-services/config-universe-service/):
+To make configuration changes via scheduler environment updates, perform the following steps (documented in full) [here](/latest/deploying-services/config-universe-service/):
 
 1. In the DC/OS GUI, go to your service, then click the **Configuration** tab to view the service configuration.
 2. With your favorite text editor, create a file named 'options.json'.
