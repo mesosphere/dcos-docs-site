@@ -8,7 +8,7 @@ excerpt:
 enterprise: false
 ---
 
-Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides both North-South (external to internal) load balancing, while the [Minuteman component](/1.10/overview/architecture/components/#minuteman) provides East-West (internal to internal) load balancing.
+Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides both North-South (external to internal) load balancing, while the [Minuteman component](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
 
 Edge-LB leverages HAProxy, which provides the core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
 
@@ -16,7 +16,7 @@ Edge-LB leverages HAProxy, which provides the core load balancing and proxying f
 
 Edge-LB has a 3-part architecture: [API server](#edge-lb-api-server), [pool](#edge-lb-pool), and [load balancer](#edge-lb-load-balancer). These components run on top of DC/OS.
 
-Edge-LB runs as a DC/OS service launched by [Marathon](/1.10/deploying-services/). The API server component of Edge-LB launches the load balancer pool(s). From the perspective of Marathon, the pool is another DC/OS service.
+Edge-LB runs as a DC/OS service launched by [Marathon](/latest/deploying-services/). The API server component of Edge-LB launches the load balancer pool(s). From the perspective of Marathon, the pool is another DC/OS service.
 
 The diagram below shows how configuration and outside requests flow through Edge-LB to the application backend tasks.
 
