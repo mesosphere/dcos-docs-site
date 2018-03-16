@@ -82,11 +82,11 @@ function main
      sed -i 's,@,at,g' "${TEMP_FILE}"
 
      # Unicode characters to encode into UTF8.
-     CHARS=$(python -c 'print u"\u2060\u0080\u0099\u009C\u009d\u0098\u0094\u0082\u00a6\u0089\u00a4\u00a5\u0093\u2019\u2018\u201C\u201D\u25CF".encode("utf8" )')
+     CHARS=$(python -c 'print u"\u2060\u0080\u0099\u009C\u009d\u0098\u0094\u0082\u00a6\u0089\u00a4\u00a5\u0093\u2019\u2018\u201C\u201D\u25CF\u00bd".encode("utf8" )')
      sed -i 's/['"$CHARS"']//g' "${TEMP_FILE}"
 
      # Math fractions now supported
-     sed -i 's,\u00bc,1/2,g' "${TEMP_FILE}"
+     sed -i 's,\xc2\xbd,1/2,g' "${TEMP_FILE}"
 
      # We cut all long strings at 180 characters.
      sed -i -r 's/.{180}/&\n/g' "${TEMP_FILE}"
@@ -103,6 +103,7 @@ function main
     # Set name for last folder
     if [ -z "${PDF_FILE_NAME}" ]
     then
+      PDF_DEST_DIR=''
       PDF_FILE_NAME="MesosphereDCOS"
     fi
 

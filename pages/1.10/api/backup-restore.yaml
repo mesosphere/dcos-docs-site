@@ -1,0 +1,203 @@
+swagger: "2.0"
+
+info:
+  title: ""
+  version: "1.0.0"
+
+basePath: "/system/v1/backup/v1"
+
+tags:
+- name: "backups"
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+definitions:
+
+  IDPayload:
+    properties:
+      id:
+        $ref: '#/definitions/ID'
+
+  LabelPayload:
+    properties:
+      label:
+        $ref: '#/definitions/Label'
+
+  Label:
+    type: string
+    minLength: 3
+    maxLength: 25
+    pattern: "^[A-Za-z0-9_][A-Za-z0-9_][A-Za-z0-9_.-]*$"
+    description: "A string that will be prefixed onto the backup ID for easy reference later"
+    example: "foo"
+
+  ID:
+    type: string
+    minLength: 40
+    maxLength: 62
+    pattern: "^[A-Za-z0-9_][A-Za-z0-9_][A-Za-z0-9_.-]*$"
+    description: "The ID of the backup"
+    example: "foo-1432569a-3ef5-40bc-8595-37963a1ccbcb"
+
+  ComponentStatusMap:
+    type: object
+    description: "The status of a particular component participating in the backup or restore"
+    additionalProperties:
+      type: string
+    example:
+      status: "STATUS_READY"
+
+  ComponentStatuses:
+    type: object
+    description: "The status of each component participating in the backup or restore. The keys of this object are the component names."
+    additionalProperties:
+      $ref: '#/definitions/ComponentStatusMap'
+    example:
+      marathon:
+        status: STATUS_READY
+
+  BackupMetadata:
+    properties:
+      dcos_version:
+        type: string
+        description: "The version of DC/OS that was used to create the backup"
+        example: "1.10"
+      id:
+        $ref: '#/definitions/ID'
+      timestamp:
+        type: string
+        description: "The timestamp of the backup (RFC 3339 format)"
+        example: "2017-10-23T17:20:18.53351124Z"
+      status:
+        type: string
+        description: "The status of the backup"
+        example: STATUS_READY
+      component_status:
+        $ref: '#/definitions/ComponentStatuses'
+
+  backupMetadataList:
+    type: array
+    items:
+      $ref: '#/definitions/BackupMetadata'
+
+  badRequestResponse:
+    properties:
+      errors:
+        type: array
+        items:
+          type: string
+        example:
+          - "[validation error message]"
+
+  errorResponse:
+    properties:
+      errors:
+        type: array
+        items:
+          type: string
+        example:
+          - "[error message from server]"
+
+paths:
+
+  /create:
+    post:
+      operationId: createBackup
+      tags: ["backups"]
+      summary: "Starts a new backup asynchronously"
+      parameters:
+        - name: request
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/LabelPayload'
+      responses:
+        200:
+          description: "Backup was started successfully"
+          schema:
+            $ref: '#/definitions/BackupMetadata'
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: '#/definitions/badRequestResponse'
+        500:
+          description: "Server Error"
+          schema:
+            $ref: '#/definitions/errorResponse'
+
+  /restore:
+    post:
+      operationId: restoreBackup
+      tags: ["backups"]
+      summary: "Starts the restore of an existing backup asynchronously"
+      parameters:
+        - name: request
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/IDPayload'
+      responses:
+        200:
+          description: "Restore was started successfully"
+          schema:
+            $ref: '#/definitions/BackupMetadata'
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: '#/definitions/badRequestResponse'
+        500:
+          description: "Server Error"
+          schema:
+            $ref: '#/definitions/errorResponse'
+
+  /delete:
+    delete:
+      operationId: deleteBackup
+      tags: ["backups"]
+      summary: "Delete an existing backup"
+      parameters:
+        - name: request
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/IDPayload'
+      responses:
+        200:
+          description: "Backup deleted"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: '#/definitions/badRequestResponse'
+        500:
+          description: "Server Error"
+          schema:
+            $ref: '#/definitions/errorResponse'
+
+  /list:
+    get:
+      operationId: listBackups
+      summary: "List all backups"
+      tags: ["backups"]
+      description: "Fetch and list all known backups in the system"
+      parameters:
+        - name: "prefix"
+          in: "query"
+          type: string
+          required: false
+          description: "If supplied, filters results to only those backups whose IDs have the specified prefix"
+      responses:
+        200:
+          description: "A list of matching backup metadata"
+          schema:
+            $ref: '#/definitions/backupMetadataList'
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: '#/definitions/badRequestResponse'
+        500:
+          description: "Server Error"
+          schema:
+            $ref: '#/definitions/errorResponse'
