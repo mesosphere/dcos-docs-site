@@ -16,7 +16,7 @@ enterprise: false
 
 ## Automatic Failed Node Recovery
 
-Nodes are not automatically replaced by the service in the event a system goes down. You can either manually replace pods as described under [Managing](#managing), or build your own ruleset and automation to perform this operation automatically.
+Nodes are not automatically replaced by the service in the event a system goes down. You can either manually replace pods as described under [Managing](/services/confluent-kafka/v2.0.0.1-3.3.0e/managing/)), or build your own ruleset and automation to perform this operation automatically.
 
 ## Updating Storage Volumes
 
