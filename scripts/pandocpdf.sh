@@ -9,7 +9,7 @@ INPUT_FILES=${1}
 OUTPUT_PATH=${2}
 
 # Convert the file from .md to .pdf
-echo "pandoc --toc --pdf-engine=xelatex --resource-path=./pages ./templates/style.yaml ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex  --biblatex --template=./templates/mesosphere.latex"
+# echo "pandoc --toc --pdf-engine=xelatex --resource-path=./pages ./templates/style.yaml ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex  --biblatex --template=./templates/mesosphere.latex"
 pandoc "${INPUT_FILES}" \
     --from=markdown_github+yaml_metadata_block \
     --toc \
