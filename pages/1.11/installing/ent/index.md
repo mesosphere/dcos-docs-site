@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Installing and Upgrading DC/OS Enterprise
+title: DC/OS Enterprise
 menuWeight: 30
 excerpt:
 
