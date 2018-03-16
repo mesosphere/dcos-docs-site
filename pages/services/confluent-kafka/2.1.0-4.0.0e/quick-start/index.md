@@ -13,7 +13,7 @@ render: mustache
 
 ## Prerequisites
 
-- [DC/OS installed on your cluster](/latest/administration/installing/).
+- [DC/OS installed on your cluster](/latest/installing/).
 
 ## Steps
 
@@ -23,7 +23,7 @@ render: mustache
    dcos package install {{ model.packageName }}
    ```
 
-   Alternatively, you can install Kafka from [the DC/OS web interface](/latest/usage/webinterface/).
+   Alternatively, you can install Kafka from [the DC/OS web interface](/latest/gui/catalog/).
 
    Kafka will deploy with a default configuration. You can monitor deployment at the Services tab of the DC/OS web interface.
 

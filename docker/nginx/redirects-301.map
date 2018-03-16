@@ -1,7 +1,8 @@
 ~^([^.]*[^/])$ $1/;
 ~^(/[^/]*)$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
-~^/1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
+/1.11/installing/high-availability/ /1.11/installing/oss/high-availability;
+/1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
 /1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
 ~^/1.11/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
@@ -646,5 +647,8 @@
 /services/beta-elastic/v2.0.0-5.5.1/ /services/beta-elastic/2.0.0-5.5.1/;
 /services/beta-kafka/v1.1.25-0.10.1.0-beta/ /services/beta-kafka/1.1.25-0.10.1.0-beta/;
 /services/beta-kafka/v1.1.26-0.10.1.0-beta/ /services/beta-kafka/1.1.26-0.10.1.0-beta/;
+~^/services/edge-lb/0.1.9/(.*)$ /services/edge-lb/0.1/$1;
+~^/services/edge-lb/1.0.0/(.*)$ /services/edge-lb/1.0/$1;
+~^/services/edge-lb/latest/(.*)$ /services/edge-lb/1.0/$1;
 /support/ https://support.mesosphere.com;
 ~^/docs/(?<path>.*)$ /$path;

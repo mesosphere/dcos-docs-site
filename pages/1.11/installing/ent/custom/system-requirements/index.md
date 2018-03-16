@@ -19,14 +19,16 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 *  A high-availability (HA) TCP/Layer 3 load balancer, such as HAProxy, to balance the following TCP ports to all master nodes: 80, 443.
 *  An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
+*  Since the bootstrap node is only used during the installation and upgrade process, there are no specific recommendations for high performance storage or separated mount points.
 
 ## Cluster nodes
 
 The cluster nodes are designated Mesos masters and agents during installation.
 
-### Master nodes
+The supported operating systems and environments are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
 
-The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+
+### Master nodes
 
 Here are the master node hardware requirements.
 |             | Minimum   | Recommended |
@@ -41,11 +43,22 @@ There are many mixed workloads on the masters, for example Mesos replicated log 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
 - RAID controller cache configured in writeback mode
+- If separation of storage mount points is possible, the following storage mount points are recommended on the master node. These recommendations will optimize the performance of a busy DC/OS cluster by isolating the I/O of various services.
+  | Directory Path | Description |
+  |:-------------- | :---------- | 
+  | _/var/lib/dcos_ | A majority of the I/O on the master nodes will occur within this directory structure. If you are planning a cluster with hundreds of nodes or intend to have a high rate of deploying and deleting workloads, isolating this directory to dedicated SSD storage is recommended.
+
+- Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes. 
+  
+  | Directory Path | Description |
+  |:-------------- | :---------- | 
+  | _/var/lib/dcos/mesos/master_ | logging directories |
+  | _/var/lib/dcos/cockroach_ | CockroachDB |
+  | _/var/lib/dcos/navstar_ | for Mnesia database |
+  | _/var/lib/dcos/secrets_ | secrets vault |
+  | _/var/lib/dcos/exhibitor_ | Zookeeper database |
 
 ### Agent nodes
-
-The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
-
 
 Here are the agent node hardware requirements.
 
@@ -75,6 +88,21 @@ The agent nodes must also have:
     
 *   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.
 
+*   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
+  
+    | Directory Path | Description |
+    |:-------------- | :---------- | 
+    | _/var/lib/mesos/_ | Most of the I/O from the Agent nodes will be directed at this directory. Also, The disk space that Apache Mesos advertises in its UI is the sum of the space advertised by filesystem(s) underpinning _/var/lib/mesos_ |
+   
+*  Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes. 
+
+   | Directory path | Description |
+   |:-------------- |:----------- |
+   | _/var/lib/mesos/slave/slaves_ | sandbox directories for tasks |
+   | _/var/lib/mesos/slave/volumes_ | Used by frameworks that consume ROOT persistent volumes |
+   | _/var/lib/mesos/docker/store_ | Stores Docker image layers that are used to provision URC containers |
+   | _/var/lib/docker_ | Stores Docker image layers that are used to provision Docker containers |
+
 ### <a name="port-and-protocol"></a>Port and Protocol Configuration
 
 *   Secure shell (SSH) must be enabled on all nodes.
@@ -97,10 +125,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported versions of Docker are:
-
-- 1.12.x
-- 1.11.x
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
 
 **Recommendations**
 
