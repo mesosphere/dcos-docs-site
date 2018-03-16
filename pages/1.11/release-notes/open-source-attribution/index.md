@@ -7,9 +7,6 @@ excerpt:
 ---
 
 
-
-
-
 The below table lists the third party open source software which is provided by Mesosphere in connection with Mesosphere DC/OS.
 
 <table class="table">
