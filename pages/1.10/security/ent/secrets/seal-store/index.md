@@ -27,7 +27,7 @@ To seal the Secret Store, complete the following steps. They will seal just a si
    curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
    ```
 
-1. The Secret Store service should return a response like the following or similar.
+1. The Secret Store service should return a response like the following.
 
    ```json
    {"sealed":false,"threshold":1,"shares":1,"progress":0}
