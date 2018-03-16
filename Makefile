@@ -32,6 +32,8 @@ build-development: build-api
 #
 # Build PDF
 #
+check-images: # scan through markdown to validate Github flavoured markdown
+	node ./scripts/linkchecker.js ./pages/1.7
 
 build-pdf-production:
 	./scripts/mdtopdf.sh ./pages ./build-pdf
