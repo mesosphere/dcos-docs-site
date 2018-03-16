@@ -32,7 +32,7 @@ DC/OS HDFS provides the following features:
 - Runtime configuration and software updates for high availability
 - Health checks and metrics for monitoring
 - Distributed storage scale out
-- HA name service with Quorum Journaling and ZooKeeper failure detection.
+- HA name service with Quorum Journaling and ZooKeeper failure detection
 
 ## Related Services
 
