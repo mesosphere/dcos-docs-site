@@ -19,9 +19,9 @@ Edit the runtime environment of the scheduler to make configuration changes. Aft
 
 Nodes are configured with a "readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. In this case, the "readiness check" checks if the node has successfully joined quorum. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](../limitations).
 
-To make configuration changes via scheduler environment updates, perform the following steps (documented in full [here](/1.9/deploying-services/config-universe-service/):
+To make configuration changes via scheduler environment updates, perform the following steps (documented in full) [here](/latest/deploying-services/config-universe-service/):
 
 1. In the DC/OS GUI, go to your service, then click the **Configuration** tab to view the service configuration.
 2. With your favorite text editor, create a file named 'options.json'.
@@ -72,7 +72,7 @@ The CPU and memory requirements of each node can be increased or decreased as fo
 <a name="updating-placement-constraints"></a>
 ## Updating Placement Constraints
 
-Placement constraints can be updated after initial deployment using the following procedure. See [Service Settings](#service-settings) above for more information on placement constraints.
+Placement constraints can be updated after initial deployment using the following procedure. See [Service Settings](../service-settings) above for more information on placement constraints.
 
 Let's say we have the following deployment of our nodes:
 

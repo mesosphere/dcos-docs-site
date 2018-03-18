@@ -383,7 +383,6 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr>
     <tr>
         <td>Edge-LB 0.1.8</td>
         <td><p style="text-align: center;">◒</p></td>

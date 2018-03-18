@@ -47,7 +47,7 @@ OpsCenter can be installed with a custom configuration the same way:
 ```
 $ dcos package install datastax-ops --options=your-datastax-ops-options.json
 ```
-For more information about building the options.json file, see the [DC/OS Documentation](https://docs.autoip.dcos.thisdcos.directoryphere.com/latest/usage/managing-services/config-universe-service/).
+For more information about building the options.json file, see the [DC/OS Documentation](/latest/deploying-services/config-universe-service/).
 
 From the DC/OS Dashboard website, DSE may be installed with a custom configuration as follows:
 1. Visit http://yourcluster.com/ to view the DC/OS Dashboard.
@@ -160,7 +160,7 @@ The DSE DC/OS service supports two volume types:
 - `ROOT` volumes are effectively an isolated _directory_ on the root volume, sharing IO/spindles with the rest of the host system.
 - `MOUNT` volumes are a dedicated device or partition on a separate volume, with dedicated IO/spindles.
 
-`MOUNT` volumes require [additional configuration on each DC/OS agent system](https://dcos.io/docs/1.8/administration/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you must configure **two MOUNT volumes** on the machines which will run DSE in your cluster, and then configure the following as `MOUNT` volumes under **dsenode**:
+`MOUNT` volumes require [additional configuration on each DC/OS agent system](/latest/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you must configure **two MOUNT volumes** on the machines which will run DSE in your cluster, and then configure the following as `MOUNT` volumes under **dsenode**:
 - Persistent data volume type = `MOUNT`
 - Persistent Solr volume type (if `DSE Search` is enabled) = `MOUNT`
 Using `ROOT` volumes for these is not supported in production.
@@ -182,8 +182,6 @@ hostname:LIKE:10.0.0.159|10.0.1.202|10.0.3.3
 ```
 
 You must include spare capacity in this list so that if one of the whitelisted systems goes down, there is still enough room to repair your service without that system.
-
-For an example of updating placement constraints, see [Managing](#managing) below.
 
 ## Rack-Aware Placement
 

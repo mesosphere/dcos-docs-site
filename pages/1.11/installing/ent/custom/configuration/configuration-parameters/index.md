@@ -36,6 +36,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
+| [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.        |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.  |
@@ -54,8 +55,15 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
 | [resolvers](#resolvers)                               | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.|
 | [use_proxy](#use-proxy)                               | Indicates whether to enable the DC/OS proxy. |
-| [dcos_l4lb_enable_ipv6](#dcos_l4lb_enable_ipv6)        | A boolean that indicates if layer 4 load balancing is available for IPv6 networks. |
+|[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. | 
+| [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. | 
+
+# Storage 
+
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | [enterprise type="inline" size="small" /] A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage)|
 
 # Performance and Tuning
 
@@ -415,7 +423,7 @@ The path to the installer host logs from the SSH processes. By default this is s
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
     *  `exhibitor_address`
-       (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/networking/tls-ssl/).
+       (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/security/ent/tls-ssl/).
 
        The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
     *  `num_masters`
@@ -431,6 +439,9 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 
 *  `master_dns_bindall: 'true'` The master DNS port is open. This is the default value.
 *  `master_dns_bindall: 'false'` The master DNS port is closed.
+
+### master_external_loadbalancer
+The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the [DC/OS certificate](/1.11/security/ent/tls-ssl/) of the Admin Router on the master nodes.
 
 ### mesos_container_log_sink
 
@@ -564,6 +575,15 @@ For more information, see the [examples](/1.11/installing/ent/custom/configurati
 
 **Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
 
+### enable_ipv6
+* `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is default value.
+* `enable_ipv6: 'false'`: Disables IPv6 networking in DC/OS.
+
+Currently IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
+* Users can create IPv6 DC/OS overlay networks (`NOTE:` This will work only for Docker containers).
+* Service discovery for IPv6 containers will be available.
+* Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
+
 ### dcos_l4lb_enable_ipv6
 Indicates whether layer-4 load-balancing is available for IPv6 containers. 
 *  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.11/networking/load-balancing-vips) for IPv6 containers. This is the default value.
@@ -575,6 +595,14 @@ Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by
 The bridge-mode networking for UCR is identical to bridge mode networking for Docker and hence `ucr-br0` plays the same role as `docker0` bridge for Docker bridge-mode networking.
 
 The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_subnet` is that the subnet should not be used on the network to which the agents are connected. In other words, this subnet should be routeable from only within an agent.
+
+[enterprise]
+### feature_dcos_storage_enabled
+[/enterprise]
+
+Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins. 
+* `feature_dcos_storage_enabled: 'false'` Disables CSI support in  DC/OS. This is the default value.
+* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage)
 
 <a id="zk-superuser"></a>
 [enterprise]

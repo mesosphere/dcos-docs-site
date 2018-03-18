@@ -17,7 +17,7 @@ excerpt:
 
 A manual `nodetool removenode` call is currently required when replacing nodes. This is planned to be automated in a future release.
 
-Nodes are not automatically replaced by the service in the event a system goes down. You may either manually replace nodes as described under [Managing](#managing), or build your own ruleset and automation to perform this operation automatically.
+Nodes are not automatically replaced by the service in the event a system goes down. You may either manually replace nodes or build your own ruleset and automation to perform this operation automatically.
 
 ## Rack-aware replication
 
