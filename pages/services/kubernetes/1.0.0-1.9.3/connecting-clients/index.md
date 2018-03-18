@@ -14,8 +14,13 @@ excerpt:
 First, [install `kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) locally, in a path your session understands,
 e.g. `/usr/local/bin`.
 
-Next, make sure `dcos` is adequately configured to access your DC/OS cluster,
-and run
+Next, make sure `dcos` is adequately configured to access your DC/OS cluster and Kubernetes is installed with
+
+```
+dcos package install kubernetes --cli
+```
+
+Then run
 
 ```
 $ dcos kubernetes kubeconfig
