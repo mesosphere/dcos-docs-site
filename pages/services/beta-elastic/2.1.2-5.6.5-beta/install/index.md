@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Install and Customize
 menuWeight: 20
@@ -109,7 +109,7 @@ Steps:
 <!-- END DUPLICATE BLOCK -->
 
 ## Virtual networks
-Elastic supports deployment on virtual networks on DC/OS (including the `dcos` overlay network), allowing each container (task) to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+Elastic supports deployment [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container (task) to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {
