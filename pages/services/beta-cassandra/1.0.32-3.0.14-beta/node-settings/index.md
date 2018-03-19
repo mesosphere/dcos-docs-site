@@ -87,7 +87,7 @@ To configure the disk type:
 
 ## Disk Scheduler
 
-It is [recommended](http://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html#recommendedSettings__optimizing-ssds) that you pre-configure your storage hosts to use the deadline IO scheduler in production environments.  
+It is [recommended](http://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html#recommendedSettings__optimizing-ssds) that you pre-configure your storage hosts to use the deadline IO scheduler in production environments.
 
 # Placement Constraints
 
@@ -98,7 +98,7 @@ Placement constraints allow you to customize where Apache Cassandra nodes are de
 
 # Virtual networks
 
-Cassandra supports deployment on virtual networks on DC/OS (including the `dcos` overlay network) allowing each node to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+Cassandra supports deployment [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network) allowing each node to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {
