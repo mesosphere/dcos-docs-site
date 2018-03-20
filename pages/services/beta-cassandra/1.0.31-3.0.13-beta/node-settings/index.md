@@ -100,4 +100,4 @@ Cassandra supports deployment on the `dcos` overlay network, a virtual network o
     }
 }
 ```
-By default two nodes will not be placed on the same agent, however multiple Cassandra clusters can share an agent. As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on the overlay network, it cannot be updated to use the host network.
+By default two nodes will not be placed on the same agent, however multiple Cassandra clusters can share an agent. Note that once the service is deployed on the overlay network, it cannot be updated to use the host network.

@@ -218,7 +218,7 @@ curl -v -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POS
 
 
 ## Overlay networks
-HDFS supports deployment on the `dcos` overlay network, a [virtual network](/1.10/networking/virtual-networks/) on DC/OS that allows each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+HDFS supports deployment on the `dcos` overlay network, a virtual network on DC/OS that allows each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {
@@ -226,4 +226,4 @@ HDFS supports deployment on the `dcos` overlay network, a [virtual network](/1.1
     }
 }
 ```
-As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on the overlay network, it cannot be updated to use the host network.
+Note that once the service is deployed on the overlay network, it cannot be updated to use the host network.
