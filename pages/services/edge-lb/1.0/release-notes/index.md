@@ -10,6 +10,32 @@ enterprise: false
 
 Release notes for Edge-LB.
 
+# v1.0.2
+
+## Noteworthy changes:
+
+- Fixed a bug causing all V2 API `backend.service` selector fields ending in "Pattern" to not function properly
+
+Shortlist:
+
+```
+% git shortlog v1.0.1..HEAD
+      Fix regex bug affecting all V2 api pattern selectors (#132)
+```
+
+## Known Limitations
+
+* Edge-LB does not currently support `Disabled` security mode.
+* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but does work in DC/OS 1.11 strict mode.
+* Edge-LB does not currently support self-service configuration; all configuration must be handled centrally.
+* The number of instances of load balancers cannot be scaled down.
+
+## Known Issues
+
+* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.0/uninstalling/).
+* Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
+
 # v1.0.1
 
 ## Noteworthy changes:
@@ -32,6 +58,7 @@ Shortlist:
 
 ## Known Issues
 
+* V2 API backend.service regex selectors do not work properly
 * The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.0/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
