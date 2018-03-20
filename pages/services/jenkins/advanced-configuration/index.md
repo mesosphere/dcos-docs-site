@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Advanced Configuration
 title: Advanced Configuration
-menuWeight: 4
+menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false

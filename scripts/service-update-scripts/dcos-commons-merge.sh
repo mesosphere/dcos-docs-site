@@ -1,11 +1,14 @@
 #!/bin/bash
 set -e
 
-STABLE_BRANCH="sdk-0.40"
-BETA_BRANCH="master"
+STABLE_BRANCH=${STABLE_BRANCH:-"sdk-0.40"}
+BETA_BRANCH=${BETA_BRANCH:-"master"}
 
-REPO_NAME="dcos-commons"
-REPO_URL="https://github.com/mesosphere/${REPO_NAME}.git"
+REPO_NAME=${REPO_NAME:-"dcos-commons"}
+REPO_URL=${REPO_URL:-"https://github.com/mesosphere/${REPO_NAME}.git"}
+
+TEMPLATE_REPO_NAME=${TEMPLATE_REPO_NAME:-"dcos-commons"}
+TEMPLATE_REPO_URL=${TEMPLATE_REPO_URL:-"https://github.com/mesosphere/${TEMPLATE_REPO_NAME}.git"}
 
 syntax() {
     cat <<EOF
@@ -48,6 +51,8 @@ else
         exit 1
     fi
 fi
+template_branch=${TEMPLATE_BRANCH:-${branch}}
+
 
 # "sed -i" has mutually independent syntax depending on platform:
 # - Linux: "sed -i <cmd> <file>"
@@ -75,12 +80,29 @@ pwd
 rm -rf "${REPO_NAME:?}/"
 git clone --depth 1 --branch $branch $REPO_URL
 
+if [ x"$TEMPLATE_REPO_NAME" != x"$REPO_NAME" ]; then
+    # Set the template branch
+    rm -rf "${TEMPLATE_REPO_NAME:?}/"
+    git clone --depth 1 --branch $template_branch $TEMPLATE_REPO_URL
+fi
+
 # Omit any 'beta-' prefix from package name when getting dcos-commons path:
 # (shellcheck: '^beta-' not supported by ${var//search/replace})
 # shellcheck disable=SC2001
 
 framework=$(echo "$package" | sed 's/^beta-//g')
 input_framework_docs_dir=$REPO_NAME/frameworks/${framework}/docs
+
+if [ ! -d $input_framework_docs_dir ]; then
+    echo "The input docs dir does not exist. Trying the root folder"
+    if [ -d $REPO_NAME/docs ]; then
+        input_framework_docs_dir=$REPO_NAME/docs
+    else
+        echo "The doc folder could not be found."
+        exit 1
+    fi
+fi
+
 
 output_package_dir=pages/services/${package}
 output_package_version_dir=${output_package_dir}/${version}
@@ -132,7 +154,7 @@ cp -v $REPO_NAME/docs/pages/_data/services/"${framework}.yml" "$output_yml_data_
 # Shared content
 
 echo "Updating template content"
-input_template_dir=$REPO_NAME/docs/pages/_includes/services
+input_template_dir=$TEMPLATE_REPO_NAME/docs/pages/_includes/services
 output_template_dir=pages/services/include
 
 rm -rf $output_template_dir
@@ -146,7 +168,7 @@ done
 
 echo "Updating template images"
 # e.g. pages/img/services/file.png => pages/services/include/img/file.png
-input_template_image_dir=$REPO_NAME/docs/pages/img/services
+input_template_image_dir=$TEMPLATE_REPO_NAME/docs/pages/img/services
 output_template_image_dir=$output_template_dir/img
 rm -rf $output_template_image_dir
 mkdir -p $output_template_image_dir
@@ -155,6 +177,10 @@ ls $input_template_image_dir/* >> "$merge_list_file"
 
 # Copying finished, delete source repo:
 rm -rf "${REPO_NAME:?}/"
+if [ x"$TEMPLATE_REPO_NAME" != x"$REPO_NAME" ]; then
+    rm -rf "${TEMPLATE_REPO_NAME:?}/"
+fi
+
 
 ###
 # Conversion hacks
@@ -166,8 +192,10 @@ mangle_content_file() {
     target=$original.new
     cp "$original" "$target"
 
+    vcs_source=${2:-"$REPO_URL:$branch"}
+
     # Insert source comment, and these headers: "model: /services/$package/data.yml" + "render: mustache"
-    awk -v n=2 "/---/ { if (++count == n) sub(/---/, \"model: /services/$package/data.yml\nrender: mustache\n---\n\n<!-- Imported from $REPO_URL:$branch -->\"); } 1{print}" "$target" > tmp && mv tmp "$target"
+    awk -v n=2 "/---/ { if (++count == n) sub(/---/, \"model: /services/$package/data.yml\nrender: mustache\n---\n\n<!-- Imported from $vcs_source -->\"); } 1{print}" "$target" > tmp && mv tmp "$target"
 
     # Link/image url hacks:
 
@@ -211,7 +239,7 @@ done
 # (shellcheck: want both templatedir/*.tmpl and templatedir/**/*.tmpl)
 # shellcheck disable=SC2044
 for filepath in $(find "$output_template_dir" -iname "*.tmpl"); do
-    mangle_content_file "$filepath"
+    mangle_content_file "$filepath" "$TEMPLATE_REPO_URL:$template_branch"
 done
 
 # Update packageName in data.yml (including or omitting beta- prefix)

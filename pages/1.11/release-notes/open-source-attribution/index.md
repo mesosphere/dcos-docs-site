@@ -1,16 +1,13 @@
 ---
 layout: layout.pug
-title: Mesosphere DC/OS Open Source Attribution
+title: Open Source Attribution
 menuWeight: 100
 excerpt:
 
 ---
 
 
-
-
-
-Below is a list of third party open source software which is provided by Mesosphere in connection with Mesosphere DC/OS.
+The below table lists the third party open source software which is provided by Mesosphere in connection with Mesosphere DC/OS.
 
 <table class="table">
 		<tr>

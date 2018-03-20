@@ -9,7 +9,7 @@ enterprise: false
 
 [DC/OS components](/docs/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
-DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed. 
+DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
 **Important:** These ports must not be used in a firewall configuration between nodes or cluster zones.
 
@@ -21,6 +21,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 |---|---|---|---|---|
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
 | 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master |
+| 61091 | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
 | 61420 | Erlang Port Mapping Daemon (EPMD) | `dcos-epmd.service` | agent/master | agent/master |
 | 62053 | DNS Forwarder (Spartan) | `dcos-spartan.service` | agent/master | agent/master |
 | 62080 | Navstar | `dcos-navstar.service` | agent/master | agent/master |
@@ -34,6 +35,8 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 61053 | Mesos DNS | `dcos-mesos-dns.service`| agent/master | master |
 | 62053 | DNS Forwarder (Spartan) | `dcos-spartan.service` | agent/master | agent/master |
 | 64000 | Navstar | `dcos-navstar.service` | agent/master | agent/master |
+
+**Note:** UDP port 123 is open for communication with NTP.
 
 ## Master
 
@@ -55,7 +58,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 8181  | Exhibitor and ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
 | 8200  | Vault | `dcos-vault.service` [enterprise type="inline" size="small" /] | localhost| localhost(master) |
 | 8443  | Marathon SSL | `dcos-marathon.service` | agent/master | master |
-| 8888  | DC/OS Certificate Authority | `dcos-ca.service` [enterprise type="inline" size="small" /] | localhost| localhost(master) | 
+| 8888  | DC/OS Certificate Authority | `dcos-ca.service` [enterprise type="inline" size="small" /] | localhost| localhost(master) |
 | 9090 | DC/OS Jobs (Metronome) | `dcos-metronome.service`| agent/master | master |
 | 9443 | DC/OS Jobs (Metronome) SSL | `dcos-metronome.service`| agent/master | master |
 | 9990  | DC/OS Package Manager (Cosmos) | `dcos-cosmos.service` | localhost| localhost(master) |

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Install and Customize
 menuWeight: 20
@@ -275,7 +275,7 @@ $ curl -v -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X P
 ```
 
 ## Virtual networks
-HDFS supports deployment on virtual networks on DC/OS (including the `dcos` overlay network), allowing each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+HDFS supports deployment on [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {
@@ -388,17 +388,17 @@ First, we'll fetch the default application's environment, current application's 
 	```bash
 	$ SERVICE_NAME=beta-hdfs
 	```
-	
+
 1. Get the version of the package that is currently installed:
 	```bash
 	$ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
 	```
-	
+
 1. Then fetch and save the environment variables that have been set for the service:
 	```bash
 	$ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
 	```
-	
+
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
 	```bash
 	$ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
@@ -415,12 +415,12 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 	```bash
 	$ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
 	```
-	
+
 1. Now compare these values to the values contained in the `env` section in application template:
 	```bash
 	$ less marathon.json.mustache
 	```
-	
+
 1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
 
 ### Starting the update

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: HDFS 2.0.4-2.6.0-cdh5.11.0
 title: HDFS 2.0.4-2.6.0-cdh5.11.0
-menuWeight: 10
+menuWeight: 30
 excerpt:
 
 ---

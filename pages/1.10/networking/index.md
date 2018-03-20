@@ -42,7 +42,7 @@ The Spartan instance on each agent also acts as a DNS server for any service tha
 
 DC/OS offers one load balancing option out-of-the-box: [Minuteman](/1.10/networking/load-balancing-vips/).
 
-Two other load balancers, [Edge-LB](/service-docs/edge-lb/) and [Marathon-LB](/service-docs/marathon-lb/) can be installed as services from the DC/OS Universe package repository.
+Two other load balancers, [Edge-LB](/services/edge-lb/) and [Marathon-LB](/service-docs/marathon-lb/) can be installed as services from the DC/OS Universe package repository.
 
 
 |                                    | Minuteman | Edge-LB | Marathon-LB |
@@ -65,7 +65,7 @@ and tolerance to host failures.
 
 
 ## Edge-LB
-[Edge-LB](/service-docs/edge-lb/0.1.9/) builds upon HAProxy. HAProxy provides base functionality such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
+[Edge-LB](/services/edge-lb/0.1/) builds upon HAProxy. HAProxy provides base functionality such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
 
 Edge-LB proxies and load balances traffic to all services that run on DC/OS. In contrast, Marathon-LB can only work with Marathon tasks. For example, if you are using Cassandra, Edge-LB can load balance the tasks launched by Cassandra.
 

@@ -82,7 +82,7 @@ MS.metadata({
   copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
   gitBranch: process.env.GIT_BRANCH,
-  dcosDocsLatest: '1.10'
+  dcosDocsLatest: '1.11'
 })
 
 // Source
@@ -122,7 +122,7 @@ CB.use(timer('CB: Dataloader'))
 //   #include path/to/file.tmpl
 CB.use(includeContent({
   // Style as a C-like include statement. Must be on its own line.
-  pattern: '^#include ([^ ]+)$',
+  pattern: '^#include ([^ \n]+)$',
   // Only enable in service pages for now.
   match: 'services/**/*.md*',
 }))

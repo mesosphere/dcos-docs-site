@@ -151,6 +151,8 @@ In this step you create a YAML configuration file that is customized for your en
     ```json
     bootstrap_url: http://<bootstrap_ip>:80      
     cluster_name: <cluster-name>
+    superuser_username:
+    superuser_password_hash:
     #customer_key in yaml file has been replaced by genconf/license.txt in DC/OS 1.11
     #customer_key: <customer-key>
     exhibitor_storage_backend: static
@@ -174,6 +176,8 @@ In this step you create a YAML configuration file that is customized for your en
     - '.baz.com'
     # Fault domain entry required for DC/OS Enterprise 1.11+
     fault_domain_enabled: false
+    #If IPv6 is disabled in your kernel, you must disable it in the config.yaml
+    enable_ipv6: 'false'
     ```
 
 # <a name="install-bash"></a>Install DC/OS

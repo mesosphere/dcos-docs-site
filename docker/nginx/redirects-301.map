@@ -1,9 +1,12 @@
 ~^([^.]*[^/])$ $1/;
 ~^(/[^/]*)$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
-~^/1.11/networking/edge-lb/(.*)$ /services/edge-lb/0.1.9/$1;
-/services/edge-lb/architecture/ /services/edge-lb/0.1.9/;
+/1.11/installing/high-availability/ /1.11/installing/oss/high-availability;
+/1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
+/services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
+/1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
 ~^/1.11/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
+/1.11/release-notes/version-policy/ /version-policy/;
 /1.10/administration/ /1.10/administering-clusters/;
 /1.10/administration/access-node/ /1.10/administering-clusters/;
 /1.10/administration/access-node/sshcluster/ /1.10/administering-clusters/sshcluster/;
@@ -112,6 +115,7 @@
 ~^/1.10/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
 /1.10/overview/components/ /1.10/overview/architecture/components/;
 /1.10/overview/roadmap/ /1.10/;
+/1.10/release-notes/version-policy/ /version-policy/;
 /1.10/usage/ /1.10/;
 /1.10/usage/cli/ /1.10/cli/;
 /1.10/usage/cli/command-reference/ /1.10/cli/command-reference/;
@@ -446,6 +450,7 @@
 /1.9/networking/mesos-dns/http-interface/ /1.9/networking/mesos-dns/mesos-dns-api/;
 /1.9/overview/components/ /1.9/overview/architecture/components/;
 /1.9/overview/roadmap/ /1.9/;
+/1.9/release-notes/version-policy/ /version-policy/;
 /1.9/usage/ /1.9/;
 /1.9/usage/cli/ /1.9/cli/;
 /1.9/usage/cli/command-reference/ /1.9/cli/command-reference/;
@@ -633,7 +638,6 @@
 /latest/installing/local/ /latest/installing/oss/local/;
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
-/release-notes/version-policy/ /release-notes/1.10/version-policy/;
 /services/beta-cassandra/v1.0.30-3.0.13-beta/ /services/beta-cassandra/1.0.30-3.0.13-beta/;
 /services/beta-cassandra/v1.0.31-3.0.13-beta/ /services/beta-cassandra/1.0.31-3.0.13-beta/;
 /services/beta-cassandra/v1.0.32-3.0.14-beta/ /services/beta-cassandra/1.0.32-3.0.14-beta/;
@@ -643,5 +647,8 @@
 /services/beta-elastic/v2.0.0-5.5.1/ /services/beta-elastic/2.0.0-5.5.1/;
 /services/beta-kafka/v1.1.25-0.10.1.0-beta/ /services/beta-kafka/1.1.25-0.10.1.0-beta/;
 /services/beta-kafka/v1.1.26-0.10.1.0-beta/ /services/beta-kafka/1.1.26-0.10.1.0-beta/;
+~^/services/edge-lb/0.1.9/(.*)$ /services/edge-lb/0.1/$1;
+~^/services/edge-lb/1.0.0/(.*)$ /services/edge-lb/1.0/$1;
+~^/services/edge-lb/latest/(.*)$ /services/edge-lb/1.0/$1;
 /support/ https://support.mesosphere.com;
 ~^/docs/(?<path>.*)$ /$path;
