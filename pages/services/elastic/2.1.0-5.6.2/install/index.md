@@ -76,7 +76,7 @@ $ dcos package install elastic --options=another-cluster.json
 See the Configuring section for a list of fields that can be customized via an options JSON file when the Elastic cluster is created.
 
 ## Virtual networks
-Elastic supports deployment on virtual networks on DC/OS (including the `dcos` overlay network), allowing each container (task) to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+Elastic supports deployment [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container (task) to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {

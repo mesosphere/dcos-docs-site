@@ -3,7 +3,7 @@ layout: layout.pug
 title: DC/OS Ports
 menuWeight: 5
 excerpt:
-
+oss: true
 enterprise: false
 ---
 
@@ -35,6 +35,8 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 61053 | Mesos DNS | `dcos-mesos-dns.service`| agent/master | master |
 | 62053 | DNS Forwarder (Spartan) | `dcos-spartan.service` | agent/master | agent/master |
 | 64000 | Navstar | `dcos-navstar.service` | agent/master | agent/master |
+
+**Note:** UDP port 123 is open for communication with NTP.
 
 ## Master
 
