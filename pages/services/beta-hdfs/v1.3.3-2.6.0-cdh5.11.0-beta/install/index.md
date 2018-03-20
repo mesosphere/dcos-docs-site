@@ -218,7 +218,7 @@ curl -v -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POS
 
 
 ## Overlay networks
-HDFS supports deployment on the `dcos` overlay network, a virtual network on DC/OS that allows each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+HDFS supports deployment on the `dcos` overlay network, a [virtual network](/1.10/networking/virtual-networks/) on DC/OS that allows each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {
