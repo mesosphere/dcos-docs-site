@@ -194,10 +194,9 @@ In this last step, you'll perform real-time analytics on the stream of tweets co
 
 5.  Run the **Top tweeters** SQL query, which counts the number of tweets per user using the table created in the previous step. The table updates continuously as new tweets come in, so re-running the query produces a different result every time.
 
-    ![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
+![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
 
-
-    ![Top Tweeters][16]
+![Top Tweeters][16]
 
  [1]: /services/cassandra/
  [2]: /services/kafka/
