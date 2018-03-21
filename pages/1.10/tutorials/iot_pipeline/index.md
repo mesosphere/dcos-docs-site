@@ -172,7 +172,9 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ...
 ```
 
-**Tip** If you created a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action.
+**Tip** If you created a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
+
+![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
 
 ## Add streaming analytics
 
@@ -193,8 +195,6 @@ In this last step, you'll perform real-time analytics on the stream of tweets co
 4.  Run the **Spark Streaming** step, which reads the tweet stream from ZooKeeper and puts them into a temporary table that can be queried using SparkSQL.
 
 5.  Run the **Top tweeters** SQL query, which counts the number of tweets per user using the table created in the previous step. The table updates continuously as new tweets come in, so re-running the query produces a different result every time.
-
-![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
 
 ![Top Tweeters][16]
 
