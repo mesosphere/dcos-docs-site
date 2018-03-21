@@ -7,4 +7,4 @@ excerpt:
 enterprise: true
 ---
 
-You can install DC/OS on AWS by using cloud templates. 
+You can install DC/OS on AWS by using cloud templates.
