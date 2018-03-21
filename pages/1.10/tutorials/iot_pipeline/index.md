@@ -197,7 +197,7 @@ In this last step, you'll perform real-time analytics on the stream of tweets co
     ![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
 
 
-      ![Top Tweeters][16]
+    ![Top Tweeters][16]
 
  [1]: /services/cassandra/
  [2]: /services/kafka/
