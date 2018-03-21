@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
 title: DC/OS Ports
-menuWeight: 5
+menuWeight: 50
 excerpt:
 
 enterprise: false
 ---
 
-[DC/OS components](/docs/1.10/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
+[DC/OS components](/docs/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
 DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed. 
 
@@ -21,6 +21,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 |---|---|---|---|---|
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
 | 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master |
+| 61091 | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
 | 61420 | Erlang Port Mapping Daemon (EPMD) | `dcos-epmd.service` | agent/master | agent/master |
 | 62053 | DNS Forwarder (Spartan) | `dcos-spartan.service` | agent/master | agent/master |
 | 62080 | Navstar | `dcos-navstar.service` | agent/master | agent/master |
