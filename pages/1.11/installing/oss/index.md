@@ -2,7 +2,7 @@
 layout: layout.pug
 excerpt:
 title: DC/OS Open Source
-menuWeight: 030
+menuWeight: 35
 oss: true
 ---
 
