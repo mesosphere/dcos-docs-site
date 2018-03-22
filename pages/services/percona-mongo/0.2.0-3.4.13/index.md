@@ -1,5 +1,5 @@
 ---
-post_title: Version _PACKAGEVERSION_-_SERVICEVERSION_
+post_title: Version 0.2.0-3.4.13
 menu_order: 10
 post_excerpt: ""
 enterprise: 'no'

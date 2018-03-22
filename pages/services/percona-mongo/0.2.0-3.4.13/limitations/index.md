@@ -1,6 +1,6 @@
 ---
 post_title: Limitations
-menu_order: 100
+menu_order: 110
 enterprise: 'no'
 ---
 
