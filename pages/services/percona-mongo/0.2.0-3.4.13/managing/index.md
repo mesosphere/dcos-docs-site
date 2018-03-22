@@ -102,16 +102,16 @@ You will receive an acknowledgement message and the DC/OS package manager will r
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
 
-### Open Source DC/OS, Enterprise DC/OS 1.9 and Earlier
+### Open Source DC/OS
 
-If you do not have Enterprise DC/OS 1.10 or later, the CLI commands above are not available. For Open Source DC/OS of any version, or Enterprise DC/OS 1.9 and earlier, you can perform changes from the DC/OS GUI.
+If you do not have Enterprise DC/OS 1.10 or later, the CLI commands above are not available. For Open Source DC/OS of any version you can perform changes from the DC/OS GUI.
 
 <!-- END DUPLICATE BLOCK -->
 
 To make configuration changes via scheduler environment updates, perform the following steps:
 1. Visit <dcos-url> to access the DC/OS web interface.
-1. Navigate to `Services` and click on the service to be configured (default _`PKGNAME`_).
-1. Click `Edit` in the upper right. On DC/OS 1.9.x, the `Edit` button is in a menu made up of three dots.
+1. Navigate to `Services` and click on the service to be configured (default _`percona-mongo`_).
+1. Click `Edit` in the upper right.
 1. Navigate to `Environment` (or `Environment variables`) and search for the option to be updated.
 1. Update the option value and click `Review and run` (or `Deploy changes`).
 1. The Scheduler process will be restarted with the new configuration and will validate any detected changes.
