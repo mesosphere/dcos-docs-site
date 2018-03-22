@@ -19,8 +19,8 @@ In all cases, logs are generally piped to files name `stdout` and/or `stderr`.
 
 To view logs for a given node, perform the following steps:
 1. Visit <dcos-url> to access the DC/OS web interface.
-1. Navigate to `Services` and click on the service to be examined (default `_PKGNAME_`).
-1. In the list of tasks for the service, click on the task to be examined (scheduler is named after the service, nodes are each `_NODEPOD_-<NUM>-node`).
+1. Navigate to `Services` and click on the service to be examined (default `percona-mongo`).
+1. In the list of tasks for the service, click on the task to be examined (scheduler is named after the service, nodes are each `mongo-rs-<NUM>-node`).
 1. In the task details, click on the `Logs` tab to go into the log viewer. By default, you will see `stdout`, but `stderr` is also useful. Use the pull-down in the upper right to select the file to be examined.
 
 You can also access the logs via the Mesos UI:
@@ -39,14 +39,14 @@ _PROVIDE INSTRUCTIONS FOR ACCESSING METRICS OR INDICATE A LACK OF METRICS W/I LI
 If you must forcibly restart a node, use the following command to restart the node on the same agent node where it currently resides. This will not result in an outage or loss of data.
 
 ```shell
-dcos _PKGNAME_ --name=<service-name> pod restart <node_id>
+dcos percona-mongo --name=<service-name> pod restart <node_id>
 ```
 <a name="replacing-a-node"></a>
 # Replacing a Permanently Failed Node
-The DC/OS _SERVICENAME_ Service is resilient to temporary node failures. However, if a DC/OS agent hosting a _SERVICENAME_ node is permanently lost, manual intervention is required to replace the failed node. The following command should be used to replace the node residing on the failed server.
+The DC/OS percona-mongo Service is resilient to temporary node failures. However, if a DC/OS agent hosting a percona-mongo node is permanently lost, manual intervention is required to replace the failed node. The following command should be used to replace the node residing on the failed server.
 
 ```shell
-dcos _PKGNAME_ --name=<service-name> pod replace <node_id>
+dcos percona-mongo --name=<service-name> pod replace <node_id>
 ```
 
 

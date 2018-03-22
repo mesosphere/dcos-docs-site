@@ -6,11 +6,11 @@ enterprise: 'no'
 
 <!-- {% raw %} disable mustache templating in this file: retain templated examples as-is -->
 
-The DC/OS _SERVICENAME_ Service implements a REST API that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS _SERVICENAME_ Service is deployed.
+The DC/OS percona-mongo Service implements a REST API that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS percona-mongo Service is deployed.
 
 <a name="#rest-auth"></a>
 # REST API Authentication
-REST API requests must be authenticated. This authentication is only applicable for interacting with the DC/OS _SERVICENAME_ REST API directly. You do not need the token to access the _SERVICENAME_ nodes themselves.
+REST API requests must be authenticated. This authentication is only applicable for interacting with the DC/OS percona-mongo REST API directly. You do not need the token to access the percona-mongo nodes themselves.
 
 If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](https://docs.mesosphere.com/1.9/security/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](https://docs.mesosphere.com/1.9/security/iam-api/), but you will need to manually refresh the token.
 
@@ -30,7 +30,7 @@ If you are using Enterprise DC/OS, the security mode of your installation may al
 The Plan API provides endpoints for monitoring and controlling service installation and configuration updates.
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/plans/deploy
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/plans/deploy
 ```
 
 ## Pause Installation
@@ -38,7 +38,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/plans/
 The installation will pause after completing installation of the current node and wait for user input.
 
 ```shell
-curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/plans/deploy/interrupt
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/plans/deploy/interrupt
 ```
 
 ## Resume Installation
@@ -46,13 +46,13 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v
 The REST API request below will resume installation at the next pending node.
 
 ```shell
-curl -X PUT <dcos_surl>/service/_PKGNAME_/v1/plans/deploy/continue
+curl -X PUT <dcos_surl>/service/percona-mongo/v1/plans/deploy/continue
 ```
 
 # Connection API
 
 ```shell
-curl -H "Authorization:token=$auth_token" dcos_url/service/_PKGNAME_/v1/endpoints/<endpoint>
+curl -H "Authorization:token=$auth_token" dcos_url/service/percona-mongo/v1/endpoints/<endpoint>
 ```
 
 You will see a response similar to the following:
@@ -72,13 +72,13 @@ A list of available node ids can be retrieved by sending a GET request to `/v1/p
 CLI Example
 
 ```shell
-dcos _PKGNAME_ pod list
+dcos percona-mongo pod list
 ```
 
 HTTP Example
 
 ```shell
-curl  -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/pod
+curl  -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/pod
 ```
 
 You will see a response similar to the following:
@@ -90,23 +90,23 @@ You will see a response similar to the following:
 You can retrieve node information by sending a GET request to `/v1/pod/<node-id>/info`:
 
 ```shell
-curl  -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/pod/<node-id>/info
+curl  -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/pod/<node-id>/info
 ```
 
 You will see a response similar to the following:
 
-<!-- TODO: using node-0 here, but ensure that the node name matches a _SERVICENAME_ service node type -->
+<!-- TODO: using node-0 here, but ensure that the node name matches a percona-mongo service node type -->
 
 CLI Example
 
 ```shell
-dcos _PKGNAME_ pod info node-0
+dcos percona-mongo pod info node-0
 ```
 
 HTTP Example
 
 ```shell
-curl  -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/pod/node-0/info
+curl  -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/pod/node-0/info
 ```
 
 You will see a response similar to the following:
@@ -120,13 +120,13 @@ The replace endpoint can be used to replace a node with an instance running on a
 CLI Example
 
 ```shell
-dcos _PKGNAME_ pod replace <node-id>
+dcos percona-mongo pod replace <node-id>
 ```
 
 HTTP Example
 
 ```shell
-curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/pod/<node-id>/replace
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/pod/<node-id>/replace
 ```
 
 If the operation succeeds, a `200 OK` is returned.
@@ -138,13 +138,13 @@ The restart endpoint can be used to restart a node in place on the same agent no
 CLI Example
 
 ```shell
-dcos _PKGNAME_ pod restart <node-id>
+dcos percona-mongo pod restart <node-id>
 ```
 
 HTTP Example
 
 ```shell
-curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/pod/<node-id>/restart
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/pod/<node-id>/restart
 ```
 
 If the operation succeeds a `200 OK` is returned.
@@ -160,13 +160,13 @@ You can view the current target configuration by sending a GET request to `/v1/c
 CLI Example
 
 ```shell
-dcos _PKGNAME_ config target
+dcos percona-mongo config target
 ```
 
 HTTP Example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/configurations/target
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/configurations/target
 ```
 
 You will see a response similar to the following:
@@ -180,13 +180,13 @@ You can list all configuration IDs by sending a GET request to `/v1/configuratio
 CLI Example
 
 ```shell
-dcos _PKGNAME_ config list
+dcos percona-mongo config list
 ```
 
 HTTP Example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/configurations
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/configurations
 ```
 
 You will see a response similar to the following:
@@ -200,21 +200,21 @@ You can view a specific configuration by sending a GET request to `/v1/configura
 CLI Example
 
 ```shell
-dcos _PKGNAME_ config show 9a8d4308-ab9d-4121-b460-696ec3368ad6
+dcos percona-mongo config show 9a8d4308-ab9d-4121-b460-696ec3368ad6
 ```
 
 HTTP Example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/_PKGNAME_/v1/configurations/9a8d4308-ab9d-4121-b460-696ec3368ad6
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/percona-mongo/v1/configurations/9a8d4308-ab9d-4121-b460-696ec3368ad6
 ```
 
 You will see a response similar to the target config above.
 
 # Service Status Info
-Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if DC/OS _SERVICENAME_ is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
-You can use this request to troubleshoot: if you think DC/OS _SERVICENAME_ should be receiving resource offers, but is not, you can use this API call to see if DC/OS _SERVICENAME_ is suppressed.
+Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if DC/OS percona-mongo is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
+You can use this request to troubleshoot: if you think DC/OS percona-mongo should be receiving resource offers, but is not, you can use this API call to see if DC/OS percona-mongo is suppressed.
 
 ```shell
-curl -H "Authorization: token=$auth_token" "<dcos_url>/service/_PKGNAME_/v1/state/properties/suppressed"
+curl -H "Authorization: token=$auth_token" "<dcos_url>/service/percona-mongo/v1/state/properties/suppressed"
 ```

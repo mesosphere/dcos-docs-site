@@ -11,29 +11,29 @@ enterprise: 'no'
 
 # Steps
 
-1. If you are using open source DC/OS, install _SERVICENAME_ cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
+1. If you are using open source DC/OS, install percona-mongo cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
     ```shell
-    dcos package install _PKGNAME_
+    dcos package install percona-mongo
     ```
 
-    Alternatively, you can install _SERVICENAME_ from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/).
+    Alternatively, you can install percona-mongo from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/).
 
 1. The service will now deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface.
 
-1. Connect a client to _SERVICENAME_.
+1. Connect a client to percona-mongo.
     ```shell
-    dcos _PKGNAME_ endpoints
+    dcos percona-mongo endpoints
     [
         "_LIST_",
         "_OF_",
         "_ENDPOINTS_
     ]
 
-    dcos _PKGNAME_ endpoints _ENDPOINT_
+    dcos percona-mongo endpoints _ENDPOINT_
     {
         "address": ["10.0.3.156:_PORT_", "10.0.3.84:_PORT_"],
-        "dns": ["_POD_-0._PKGNAME_.mesos:_PORT_", "_POD_-1._PKGNAME_.mesos:_PORT_"]
+        "dns": ["_POD_-0.percona-mongo.mesos:_PORT_", "_POD_-1.percona-mongo.mesos:_PORT_"]
     }
     ```
 

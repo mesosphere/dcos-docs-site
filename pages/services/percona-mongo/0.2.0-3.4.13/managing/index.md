@@ -7,9 +7,9 @@ enterprise: 'no'
 
 # Updating Configuration
 
-You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying _SERVICENAME_ itself.
+You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying percona-mongo itself.
 
-After making a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `_NODEPOD_-0`, then `_NODEPOD_-1`, and so on.
+After making a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `mongo-rs-0`, then `mongo-rs-1`, and so on.
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
@@ -29,11 +29,11 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 + Service with a version greater than 2.0.0-x.
 + [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
-  + You can install just the subcommand CLI by running `dcos package install --cli _PKGNAME_`.
+  + You can install just the subcommand CLI by running `dcos package install --cli percona-mongo`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```shell
-    dcos package uninstall --cli _PKGNAME_
-    dcos package install --cli _PKGNAME_
+    dcos package uninstall --cli percona-mongo
+    dcos package install --cli percona-mongo
     ```
 
 #### Preparing configuration
@@ -41,7 +41,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```shell
-dcos _PKGNAME_ describe > options.json
+dcos percona-mongo describe > options.json
 ```
 
 Make any configuration changes to this `options.json` file.
@@ -59,7 +59,7 @@ First, we'll fetch the default application's environment, current application's 
 1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
 1. Set the service name that you're using, for example:
 ```shell
-SERVICE_NAME=_PKGNAME_
+SERVICE_NAME=percona-mongo
 ```
 1. Get the version of the package that is currently installed:
 ```shell
@@ -95,7 +95,7 @@ less marathon.json.mustache
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
 ```shell
-dcos _PKGNAME_ update start --options=options.json
+dcos percona-mongo update start --options=options.json
 ```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
@@ -117,7 +117,7 @@ To make configuration changes via scheduler environment updates, perform the fol
 1. The Scheduler process will be restarted with the new configuration and will validate any detected changes.
 1. If the detected changes pass validation, the relaunched Scheduler will deploy the changes by sequentially relaunching affected tasks as described above.
 
-To see a full listing of available options, run `dcos package describe --config _PKGNAME_` in the CLI, or browse the DC/OS _SERVICENAME_ Service install dialog in the DC/OS Dashboard.
+To see a full listing of available options, run `dcos package describe --config percona-mongo` in the CLI, or browse the DC/OS percona-mongo Service install dialog in the DC/OS Dashboard.
 
 <a name="adding-a-node"></a>
 ### Adding a Node
@@ -145,9 +145,9 @@ Let's say we have the following deployment of our nodes
 - Placement constraint of: `hostname:LIKE:10.0.10.3|10.0.10.8|10.0.10.26|10.0.10.28|10.0.10.84`
 - Tasks:
 ```
-10.0.10.3: _NODEPOD_-0
-10.0.10.8: _NODEPOD_-1
-10.0.10.26: _NODEPOD_-2
+10.0.10.3: mongo-rs-0
+10.0.10.8: mongo-rs-1
+10.0.10.26: mongo-rs-2
 10.0.10.28: empty
 10.0.10.84: empty
 ```
@@ -159,8 +159,8 @@ Let's say we have the following deployment of our nodes
 	```
 	hostname:LIKE:10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123
 	```
-    1. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist: `dcos _PKGNAME_ pod replace _NODEPOD_-1`
-1. Wait for `_NODEPOD_-1` to be up and healthy before continuing with any other replacement operations.
+    1. Redeploy `mongo-rs-1` from the decommissioned node to somewhere within the new whitelist: `dcos percona-mongo pod replace mongo-rs-1`
+1. Wait for `mongo-rs-1` to be up and healthy before continuing with any other replacement operations.
 
 _ADD ONE OR MORE SECTIONS HERE TO DESCRIBE RE-CONFIGURATION OF HIGHLIGHTED SERVICE-WIDE OPTIONS EXPOSED BY YOUR PRODUCT INTEGRATION._
 
@@ -171,7 +171,7 @@ _ADD ONE OR MORE SECTIONS HERE TO DESCRIBE RE-CONFIGURATION OF HIGHLIGHTED NODE-
 
 This operation will restart a node, while keeping it at its current location and with its current persistent volume data. This may be thought of as similar to restarting a system process, but it also deletes any data that is not on a persistent volume.
 
-1. Run `dcos _PKGNAME_ pod restart _NODEPOD_-<NUM>`, e.g. `_NODEPOD_-2`.
+1. Run `dcos percona-mongo pod restart mongo-rs-<NUM>`, e.g. `mongo-rs-2`.
 
 <a name="replacing-a-node"></a>
 ## Replacing a Node
@@ -181,14 +181,14 @@ This operation will move a node to a new system and will discard the persistent 
 **Note:** Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can automate node replacement according to your own preferences.
 
 1. _ANY STEPS TO WIND DOWN A NODE BEFORE IT'S WIPED/DECOMMISSIONED GO HERE._
-1. Run `dcos _PKGNAME_ pod replace _NODEPOD_-<NUM>` to halt the current instance with id `<NUM>` (if still running) and launch a new instance elsewhere.
+1. Run `dcos percona-mongo pod replace mongo-rs-<NUM>` to halt the current instance with id `<NUM>` (if still running) and launch a new instance elsewhere.
 
-For example, let's say `_NODEPOD_-2`'s host system has died and `_NODEPOD_-2` needs to be moved.
+For example, let's say `mongo-rs-2`'s host system has died and `mongo-rs-2` needs to be moved.
 
 1. _DETAILED INSTRUCTIONS FOR WINDING DOWN A NODE, IF NEEDED FOR YOUR SERVICE, GO HERE._
-1. _"NOW THAT THE NODE HAS BEEN DECOMMISSIONED," (IF NEEDED BY YOUR SERVICE)_ start `_NODEPOD_-2` at a new location in the cluster.
+1. _"NOW THAT THE NODE HAS BEEN DECOMMISSIONED," (IF NEEDED BY YOUR SERVICE)_ start `mongo-rs-2` at a new location in the cluster.
     ```shell
-    dcos _PKGNAME_ pod replace _NODEPOD_-2
+    dcos percona-mongo pod replace mongo-rs-2
     ```
 
 <!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
@@ -196,7 +196,7 @@ For example, let's say `_NODEPOD_-2`'s host system has died and `_NODEPOD_-2` ne
 <a name="upgrading"></a>
 ## Upgrading Service Version
 
-The instructions below show how to safely update one version of _SERVICENAME_ to the next.
+The instructions below show how to safely update one version of percona-mongo to the next.
 
 ##### Viewing available versions
 
@@ -205,24 +205,24 @@ The `update package-versions` command allows you to view the versions of a servi
 For example, run:
 
 ```shell
-dcos _PKGNAME_ update package-versions
+dcos percona-mongo update package-versions
 ```
 
 ## Upgrading or downgrading a service
 
 1. Before updating the service itself, update its CLI subcommand to the new version:
 ```shell
-dcos package uninstall --cli _PKGNAME_
-dcos package install --cli _PKGNAME_ -package-version="1.1.6-5.0.7"
+dcos package uninstall --cli percona-mongo
+dcos package install --cli percona-mongo -package-version="1.1.6-5.0.7"
 ```
-1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS _SERVICENAME_ Service to version `1.1.6-5.0.7`:
+1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS percona-mongo Service to version `1.1.6-5.0.7`:
 ```shell
-dcos _PKGNAME_ update start --package-version="1.1.6-5.0.7"
+dcos percona-mongo update start --package-version="1.1.6-5.0.7"
 ```
 
 If you are missing mandatory configuration parameters, the `update` command will return an error. To supply missing values, you can also provide an `options.json` file (see [Updating configuration](#updating-configuration)):
 ```shell
-dcos _PKGNAME_ update start --options=options.json --package-version="1.1.6-5.0.7"
+dcos percona-mongo update start --options=options.json --package-version="1.1.6-5.0.7"
 ```
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
@@ -242,7 +242,7 @@ Once the Scheduler has been restarted, it will begin a new deployment plan as in
 You can query the status of the update as follows:
 
 ```shell
-dcos _PKGNAME_ update status
+dcos percona-mongo update status
 ```
 
 If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS GUI to check the status of the restart.
@@ -252,7 +252,7 @@ If the Scheduler is still restarting, DC/OS will not be able to route to it and 
 To pause an ongoing update, issue a pause command:
 
 ```shell
-dcos _PKGNAME_ update pause
+dcos percona-mongo update pause
 ```
 
 You will receive an error message if the plan has already completed or has been paused. Once completed, the plan will enter the `WAITING` state.
@@ -262,7 +262,7 @@ You will receive an error message if the plan has already completed or has been 
 If a plan is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the plan:
 
 ```shell
-dcos _PKGNAME_ update resume
+dcos percona-mongo update resume
 ```
 
 You will receive an error message if you attempt to `resume` a plan that is already in progress or has already completed.
@@ -272,7 +272,7 @@ You will receive an error message if you attempt to `resume` a plan that is alre
 In order to manually "complete" a step (such that the Scheduler stops attempting to launch a task), you can issue a `force-complete` command. This will instruct to Scheduler to mark a specific step within a phase as complete. You need to specify both the phase and the step, for example:
 
 ```shell
-dcos _PKGNAME_ update force-complete service-phase service-0:[node]
+dcos percona-mongo update force-complete service-phase service-0:[node]
 ```
 
 ### Force Restart
@@ -281,17 +281,17 @@ Similar to force complete, you can also force a restart. This can either be done
 
 To restart the entire plan:
 ```shell
-dcos _PKGNAME_ update force-restart
+dcos percona-mongo update force-restart
 ```
 
 Or for all steps in a single phase:
 ```shell
-dcos _PKGNAME_ update force-restart service-phase
+dcos percona-mongo update force-restart service-phase
 ```
 
 Or for a specific step within a specific phase:
 ```shell
-dcos _PKGNAME_ update force-restart service-phase service-0:[node]
+dcos percona-mongo update force-restart service-phase service-0:[node]
 ```
 
 <!-- END DUPLICATE BLOCK -->
