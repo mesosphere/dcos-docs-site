@@ -49,7 +49,7 @@ Admin Router exposes several types of routes:
 
 
 # Cluster Access
-
+![](hello.png)
 To determine the URL of your cluster, see [Cluster Access](/1.11/api/access/).
 
 

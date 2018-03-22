@@ -11,7 +11,8 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-You can add agent nodes to an existing DC/OS cluster. 
+You can add agent nodes to an existing DC/OS cluster.
+        ![](/1.10/img/windowsputtykey.png)
 
 Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-node) or [private](/1.10/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
 
@@ -53,27 +54,27 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
 1.  Run this command to install DC/OS on your agent nodes. You must designate your agent nodes as public or private.
 
     Private agent nodes:
-    
+
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave
     ```
-    
+
     Public agent nodes:
-    
+
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```
-    
-    **Tip:** You can verify the node type by running this command from the DC/OS CLI. 
-             
-    -   Run this command to count the private agents. 
-    
+
+    **Tip:** You can verify the node type by running this command from the DC/OS CLI.
+
+    -   Run this command to count the private agents.
+
         ```bash
         dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public == null) | .id' | wc -l
         ```
-    
-    -   Run this command to count the public agents. 
-     
+
+    -   Run this command to count the public agents.
+
         ```bash
         dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
         ```

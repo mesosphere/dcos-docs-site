@@ -33,10 +33,16 @@ build-development: build-api
 # Build PDF
 #
 check-images: # scan through markdown to validate Github flavoured markdown
-	node ./scripts/linkchecker.js ./pages/1.7
+	node ./scripts/linkchecker.js ./pages/1.11/administering-clusters
+
+check-markdown:
+	node ./scripts/mdlinter.js ./pages/1.10
+
+check-nonutf:
+	./scripts/charcheck.sh ./pages
 
 build-pdf-production:
-	./scripts/mdtopdf.sh ./pages ./build-pdf
+	./scripts/mdtopdf.sh ./pages/1.11 ./build-pdf
 
 #
 # Build API

@@ -25,7 +25,7 @@ function clean
     rm -rf "${1}"
     rm -f "${PARALLEL_TEMPFILE}"
 }
-echo $INPUT_FOLDER
+echo "${INPUT_FOLDER}"
 function main
 {
    # cd $INPUT_FOLDER
@@ -47,7 +47,8 @@ function main
      local PDF_FILE_NAME="${FILE_PATH//\//-}"
      # Change file extension from .html to .pdf
      local PDF_FILE_NAME="${PDF_FILE_NAME/%.md/.pdf}"
-     echo "$PDF_FILE_NAME" "file name"
+     # local RESOURCE_PATH="$"
+     # echo "$PDF_FILE_NAME" "file name"
      # For example if SOURCE_FILE=./build/1.10/cli/dcos-marathon-group-scale-index.html
      # PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.p
      # Make the Destination directory
@@ -58,6 +59,7 @@ function main
      TEMP_FILE=$(mktemp)
 
     # echo "find ${INPUT_FOLDER}/${FILE_PATH} -type d -depth"
+    # echo file -I "${FILE_PATH}"
 
     # We find the index.md per folder so the final pdf is organised per folder not natively recursive
     while IFS= read -r SOURCE_FOLDERS
@@ -69,7 +71,8 @@ function main
 
         if [ -f "${NEW_FILE}" ]
         then
-          # Create temporary file with all md content to send to pandoc // this avoids very long urls & long strings (Pandoc has a string limit)
+          # Create temporary file with all md content to send to pandoc
+          # this avoids very long urls & long strings (Pandoc has a string limit)
           TEMP_FILES="${TEMP_FILES} ${TEMP_FILE}"
           echo "" >> "${TEMP_FILE}"
           cat "${NEW_FILE}" >> "${TEMP_FILE}"
@@ -84,6 +87,8 @@ function main
      # Unicode characters to encode into UTF8.
      CHARS=$(python -c 'print u"\u2060\u0080\u0099\u009C\u009d\u0098\u0094\u0082\u00a6\u0089\u00a4\u00a5\u0093\u2019\u2018\u201C\u201D\u25CF\u00bd".encode("utf8" )')
      sed -i 's/['"$CHARS"']//g' "${TEMP_FILE}"
+     # remove spaces and breaks at the end of lines
+     sed -i 's,[[:blank:]]*$,,g' "${TEMP_FILE}"
 
      # Math fractions now supported
      sed -i 's,\xc2\xbd,1/2,g' "${TEMP_FILE}"
@@ -95,10 +100,12 @@ function main
      sed -i -r 's,\n,\\n,g' "${TEMP_FILE}"
      sed -i -r 's,_,\_,g' "${TEMP_FILE}"
 
-     #Fix for all local links to not mislead Pandoc into grabbing other files when there is nothing to look for
+     # Fix for all local links to not mislead Pandoc into grabbing other files when there is nothing to look for
      # issue reported in Pandoc : https://github.com/jgm/pandoc/issues/3619
      sed -i -r 's,]:,]\\:,g' "${TEMP_FILE}"
      sed -i -r 's,\/#,,g' "${TEMP_FILE}"
+
+     # echo file -I "${TEMP_FILE}"
 
     # Set name for last folder
     if [ -z "${PDF_FILE_NAME}" ]
@@ -107,9 +114,9 @@ function main
       PDF_FILE_NAME="MesosphereDCOS"
     fi
 
-    #  scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
-     # Pandoc gets the string of files and outputs the pdf.
-     echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+    scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
+    # Pandoc gets the string of files and outputs the pdf.
+    # echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)

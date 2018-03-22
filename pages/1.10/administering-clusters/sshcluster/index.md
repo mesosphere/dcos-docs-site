@@ -55,14 +55,14 @@ These instructions explain how to set up an SSH connection to your DC/OS cluster
 
     *   **To SSH to an agent node:**
 
-        1.  From the DC/OS CLI, enter the following command, where `<mesos-id>` is your agent ID. 
+        1.  From the DC/OS CLI, enter the following command, where `<mesos-id>` is your agent ID.
 
             ```bash
             dcos node ssh --master-proxy --mesos-id=<mesos-id>
             ```
-            
-            **Tip:** To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.10/gui/) and click **Details**. 
-            
+
+            **Tip:** To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.10/gui/) and click **Details**.
+
             ![Web interface node ID](/1.10/img/ssh-node-id.png)
 
 
@@ -83,6 +83,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
     2.  Select **SSH-2 RSA** as the key type, click **Save private key**, then choose the name and location to save your new .ppk key.
 
         ![Windows](/1.10/img/windowsputtykey.png)
+        ![](/1.10/img/windowsputtykey.png)
 
     3.  Close PuTTYgen.
 
