@@ -36,7 +36,7 @@ check-images: # scan through markdown to validate Github flavoured markdown
 	node ./scripts/linkchecker.js ./pages
 
 check-markdown:
-	node ./scripts/mdlinter.js ./pages/1.10
+	node ./scripts/mdlinter.js ./pages
 
 check-nonutf:
 	./scripts/charcheck.sh ./pages
