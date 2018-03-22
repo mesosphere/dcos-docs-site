@@ -4,29 +4,6 @@ menu_order: 100
 enterprise: 'no'
 ---
 
-## Limitations because of issues in DC/OS and the SDK
-
-The table below shows all limitations of the MongoDB service that are the result of issues in [DC/OS in JIRA](https://jira.mesosphere.com/browse/DCOS_OSS/issues) or the [DC/OS SDK in Github](https://github.com/mesosphere/dcos-commons).
-
-| Limitation                                                                    | Description                                                                                                                                                                                                                                                                             | Bugs                                                                                                                              |
-|:------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| MongoDB keyFile and passwords are predictable                                | The backup, userAdmin, clusterMonitor and clusterAdmin users have predictable default passwords. Also, the MongoDB keyFile has a predictable default. A feature request has been opened to generate secure random keys/passwords. | [DCOS_OSS-1917](https://jira.mesosphere.com/browse/DCOS_OSS-1917) |
-| MongoDB SSL Connections are not supported                                    | MongoDB SSL/TLS connections are not yet supported. This feature is coming soon. | |
-| Automated MongoDB Backups not yet supported                                  | Automation of MongoDB backups is not yet supported. This feature is coming soon. | |
-| Emit app metrics to DC/OS Metrics module                                     | DC/OS Metrics are currently not supported by this framework. This feature is coming soon. | |
-| Pod never scales-down after reducing 'count' | Scale-down support is blocked by this issue. | |
-| Configurable Service Account and Secret for Enterprise DC/OS Strict Security Mode | Add support for configurable Service Account and Service Account Secret for Enterprise DC/OS Strict Security Mode | |
-| Support Region/Zone awareness for Replica Sets | Currently regions/zones are unsupported. | |
-| Cannot set WiredTiger/InMemory or RocksDB cache size | Currently storage engine cache sizes use default sizing, in most cases this is 50% of memory | |
-| Config: Memory swapiness | Currently the framework is unable to set Virtual Memory swapiness to a recommended value for MongoDB. | |
-| Config: XFS Formatting | Currently the framework is unable to enforce an XFS-based filesystem for storing MongoDB data. **We strongly recommend WiredTiger-based installations *(the default)* run on DC/OS agent nodes using the XFS filesystem only! We also suggest the EXT3 filesystem is avoided due to poor performance.** | |
-| Config: Transparent HugePages | Currently the framework is unable to set Transparent HugePages *(RedHat/Fedora/CentOS-only)* to a recommended value for MongoDB. **We recommend THP is disabled entirely on DC/OS agent nodes running this framework!** | |
-
-## General limitations
-
-Below are some general limitations of the service.
-
-
 ## Service user		
 		
 The DC/OS Mongo Service uses a Docker image to manage its dependencies for Percona Server for MongoDB. Since the Docker image contains a full Linux userspace with its own `/etc/users` file, it is possible for the default service user `nobody` to have a different UID inside the container than on the host system. Although user `nobody` has UID `65534` by convention on many systems, this is not always the case. As Mesos does not perform UID mapping between Linux user namespaces, specifying a service user of `nobody` in this case will cause access failures when the container user attempts to open or execute a filesystem resource owned by a user with a different UID, preventing the service from launching. If the hosts in your cluster have a UID for `nobody` other than 65534, you will need to specify a service user of `root` to run DC/OS Mongo Service.
