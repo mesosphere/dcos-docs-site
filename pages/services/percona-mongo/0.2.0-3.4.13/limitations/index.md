@@ -23,22 +23,28 @@ If the returned UID is not `65534`, then the DC/OS Mongo Service can be installe
 ...		
 ```
 
-## MongoDB Configuration
+## MongoDB
+
+### Percona Server for MongoDB Version
+
+This percona-mongo package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.4 major-release only, starting from version 3.4.10. The use of other versions are unsupported and untested! 
+
+### Configuration
 
 Below are limitations regarding the MongoDB Configuration.
 
 The framework currently supports the [configuration file options](https://docs.mongodb.com/v3.4/reference/configuration-options/) available in MongoDB version 3.4 only!
 
-### Experimental and Deprecated Options
+#### Experimental and Deprecated Options
 For stability, configuration options marked *"experimental"* or *"deprecated"* are not configurable via the DC/OS UI.
 
-### Security
+#### Security
 
 For security, this framework requires [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) and [MongoDB Internal Authentication](https://docs.mongodb.com/manual/core/security-internal-authentication/) is enabled. These configuration options cannot be changed as a result. **Your application and MongoDB database driver must support (and utilise) [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) to use this framework!**
 
 Passwords and Internal Authentication keyFile can be manually defined at service creation time, otherwise a default is used. We **strongly recommend** you change the default key and passwords to something unique and secure!
 
-### Storage
+#### Storage
 
 Currently storage engine cache sizes cannot be defined when using WiredTiger, InMemory or RocksDB as a storage engine.
 
