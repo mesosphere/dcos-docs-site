@@ -1,6 +1,6 @@
 ---
 post_title: Supported Versions
-menu_order: 110
+menu_order: 130
 post_excerpt: ""
 enterprise: 'no'
 ---
@@ -10,10 +10,10 @@ enterprise: 'no'
 <a name="package-versioning-scheme"></a>
 ## Package Versioning Scheme
 
-- percona-mongo: _WHAT VERSION OF YOUR SERVICE IS INCLUDED IN THIS PACKAGE?_
-- DC/OS: _LIST VERSION(S) OF DC/OS THAT YOU'VE TESTED AND SUPPORT._
+- percona-mongo: 0.2.0-3.4.13
+- DC/OS: 1.10 and 1.11
 
-Packages are versioned with an `a.b.c-x.y.z` format, where `a.b.c` is the version of the DC/OS integration and `x.y.z` indicates the version of percona-mongo. For example, `1.5.0-3.2.1` indicates version `1.5.0` of the DC/OS integration and version `3.2.1` of percona-mongo.
+Packages are versioned with an `a.b.c-x.y.z` format, where `a.b.c` is the version of the DC/OS integration and `x.y.z` indicates the version of percona-mongo. For example, `0.2.0-3.4.13` indicates version `0.2.0` of the DC/OS integration and version `3.4.13` of Percona Server for MongoDB.
 
 <a name="version-policy"></a>
 ## Version Policy
@@ -22,7 +22,6 @@ The DC/OS Percona Server for MongoDB Service is engineered and tested to work wi
 
 <a name="contacting-technical-support"></a>
 ## Contacting Technical Support
-
 
 ### percona-mongo
 Email [mesosphere@percona.com](mailto:mesosphere@percona.com).
