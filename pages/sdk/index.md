@@ -1,5 +1,5 @@
 ---
-layout: service-docs-landing.pug
+layout: layout.pug
 navigationTitle:  SDK Docs
 title: SDK Docs
 menus: ['header']
