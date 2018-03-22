@@ -48,7 +48,7 @@ All Secrets API endpoints require an authentication token.
 
 ### Via the IAM API
 
-To get an authentication token, pass the user name and password of a `superuser` in the body of an request to the `/auth/login` endpoint of the [Identity and Access Management Service API](/1.11/security/ent/iam-api/). It returns an authentication token as shown below.
+To get an authentication token, pass the user name and password of a `superuser` in the body of a request to the `/auth/login` endpoint of the [Identity and Access Management Service API](/1.11/security/ent/iam-api/). It returns an authentication token as shown below.
 
 ```json
 {
@@ -111,20 +111,20 @@ Use cases for secret types:
 
 ### Storing a secret
 
-When an HTTP client is sending a secret value to the Secrets API it should send `Content-Type` header containing information about a secret type. For backward compatibility with existing HTTP clients if a `PUT`/`PATCH` request is sent without the `Content-Type` header the Secrets API assumes a text secret and it behaves as if `application/json` was included in an request.
+When an HTTP client is sending a secret value to the Secrets API it should send a `Content-Type` header containing information about a secret type. For backward compatibility with existing HTTP clients if a `PUT`/`PATCH` request is sent without the `Content-Type` header the Secrets API assumes that the secret is a text secret and it behaves as if `application/json` was included in a request.
 
-Endpoints accepting both `application/json` and `application/octet-stream` values:
+Endpoints which accept both `application/json` and `application/octet-stream` values:
 
 * `PUT /secret/{store}/{path/to/secret}`
 * `PATCH /secret/{store}/{path/to/secret}`
 
-**Note**: There is a limit of 1MB of encoded binary secret value.
+**Note**: The maximum file size for a `BASE64` encoded file is approximately one MiB, subtracting approximately one KB for the secret store metadata. This gives a room for storing a file of approximately max size of 768 KiB.
 
 ### Retrieving a secret
 
-When retrieving a secret using the Secrets API an HTTP client issues a `GET /secret/{store}/{path/to/secret}` HTTP request. An request can contain `Accept` header to indicate the Secrets API in what format would client like to get a secret value. It is possible to use `Accept: application/json` or `Accept: application/octet-stream` headers. If a client does not provide `Accept` header the Secrets API returns a secret value in format in which it was stored in the DC/OS Secrets service. The Secrets API sends `Content-Type` header in HTTP response to indicate what type of value is sending back in a response.
+When retrieving a secret using the Secrets API an HTTP client issues a `GET /secret/{store}/{path/to/secret}` HTTP request. A request can contain an `Accept` header to indicate the Secrets API in what format would client like to get a secret value. It is possible to use `Accept: application/json` or `Accept: application/octet-stream` headers. If a client does not provide `Accept` header the Secrets API returns a secret value in the format in which it was stored in the DC/OS Secrets service. The Secrets API sends a `Content-Type` header in an HTTP response to indicate what type of value is being sent back in the response.
 
-For example it is possible to store a text secret and retrieve it as binary data by providing `Accept: application/octet-stream` header in an HTTP request.
+For example, it is possible to store a text secret and retrieve it as binary data by providing an `Accept: application/octet-stream` header in an HTTP request.
 
 **Note**: It is not possible to retrieve a binary secret value as a JSON document.
 
