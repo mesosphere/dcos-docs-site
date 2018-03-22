@@ -34,5 +34,5 @@ pandoc "${INPUT_FILES}" \
     --pdf-engine=xelatex \
     --resource-path=./pages \
     --listings \
-    --template=./templates/default.latex \
+    --template=./templates/mesosphere.latex \
     -o "${OUTPUT_PATH}".pdf

@@ -33,7 +33,7 @@ build-development: build-api
 # Build PDF
 #
 check-images: # scan through markdown to validate Github flavoured markdown
-	node ./scripts/linkchecker.js ./pages/1.11/administering-clusters
+	node ./scripts/linkchecker.js ./pages
 
 check-markdown:
 	node ./scripts/mdlinter.js ./pages/1.10

@@ -425,10 +425,10 @@ $endif$
 % TOC depth and
 % section numbering depth
 %
-\setcounter{tocdepth}{3}
-$if(numbersections)$
-\setcounter{secnumdepth}{3}
-$endif$
+\setcounter{tocdepth}{1}
+%$if(numbersections)$
+%\setcounter{secnumdepth}{1}
+%$endif$
 
 %
 % line spacing
@@ -689,7 +689,7 @@ $else$
 $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
 $endif$
-\setcounter{tocdepth}{$toc-depth$}
+\setcounter{tocdepth}{1}
 \tableofcontents
 }
 $endif$
