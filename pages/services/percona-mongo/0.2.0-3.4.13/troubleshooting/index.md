@@ -43,7 +43,7 @@ dcos percona-mongo --name=<service-name> pod restart <node_id>
 ```
 <a name="replacing-a-node"></a>
 # Replacing a Permanently Failed Node
-The DC/OS percona-mongo Service is resilient to temporary node failures. However, if a DC/OS agent hosting a percona-mongo node is permanently lost, manual intervention is required to replace the failed node. The following command should be used to replace the node residing on the failed server.
+The DC/OS Percona Server for MongoDB Service is resilient to temporary node failures. However, if a DC/OS agent hosting a percona-mongo node is permanently lost, manual intervention is required to replace the failed node. The following command should be used to replace the node residing on the failed server.
 
 ```shell
 dcos percona-mongo --name=<service-name> pod replace <node_id>

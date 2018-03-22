@@ -6,7 +6,7 @@ enterprise: 'no'
 
 <!-- {% raw %} disable mustache templating in this file: retain templated examples as-is -->
 
-The DC/OS percona-mongo Service implements a REST API that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS percona-mongo Service is deployed.
+The DC/OS Percona Server for MongoDB Service implements a REST API that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS Percona Server for MongoDB Service is deployed.
 
 <a name="#rest-auth"></a>
 # REST API Authentication

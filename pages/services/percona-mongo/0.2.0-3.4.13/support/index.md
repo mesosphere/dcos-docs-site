@@ -18,7 +18,7 @@ Packages are versioned with an `a.b.c-x.y.z` format, where `a.b.c` is the versio
 <a name="version-policy"></a>
 ## Version Policy
 
-The DC/OS percona-mongo Service is engineered and tested to work with a specific release of percona-mongo. We select stable versions of the base technology in order to promote customer success. We have selected the latest stable version from percona-mongo for new releases.
+The DC/OS Percona Server for MongoDB Service is engineered and tested to work with a specific release of percona-mongo. We select stable versions of the base technology in order to promote customer success. We have selected the latest stable version from percona-mongo for new releases.
 
 <a name="contacting-technical-support"></a>
 ## Contacting Technical Support

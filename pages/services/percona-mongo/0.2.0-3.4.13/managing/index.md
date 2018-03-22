@@ -117,7 +117,7 @@ To make configuration changes via scheduler environment updates, perform the fol
 1. The Scheduler process will be restarted with the new configuration and will validate any detected changes.
 1. If the detected changes pass validation, the relaunched Scheduler will deploy the changes by sequentially relaunching affected tasks as described above.
 
-To see a full listing of available options, run `dcos package describe --config percona-mongo` in the CLI, or browse the DC/OS percona-mongo Service install dialog in the DC/OS Dashboard.
+To see a full listing of available options, run `dcos package describe --config percona-mongo` in the CLI, or browse the DC/OS Percona Server for MongoDB Service install dialog in the DC/OS Dashboard.
 
 <a name="adding-a-node"></a>
 ### Adding a Node
@@ -215,7 +215,7 @@ dcos percona-mongo update package-versions
 dcos package uninstall --cli percona-mongo
 dcos package install --cli percona-mongo -package-version="1.1.6-5.0.7"
 ```
-1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS percona-mongo Service to version `1.1.6-5.0.7`:
+1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS Percona Server for MongoDB Service to version `1.1.6-5.0.7`:
 ```shell
 dcos percona-mongo update start --package-version="1.1.6-5.0.7"
 ```

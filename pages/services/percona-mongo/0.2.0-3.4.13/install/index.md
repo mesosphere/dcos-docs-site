@@ -9,11 +9,11 @@ __The Install and Customization section will include recommended application con
 
 -----
 
-The default DC/OS percona-mongo Service installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depeneding on the context of the deployment.
+The default DC/OS Percona Server for MongoDB Service installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depeneding on the context of the deployment.
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) before installing DC/OS percona-mongo Service. Only someone with `superuser` permission can create the service account.
+- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) before installing DC/OS Percona Server for MongoDB Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](https://docs.mesosphere.com/latest/administration/installing/custom/configuration-parameters/#security) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
