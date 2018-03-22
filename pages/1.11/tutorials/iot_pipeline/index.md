@@ -6,14 +6,15 @@ menuWeight: 3
 excerpt:
 
 ---
-
-In this tutorial you install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.
+This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes!
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
 # Overview
 
-This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes! You will learn:
+In this tutorial you install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.
+
+You will learn:
 
 *   How to install DC/OS services.
 *   How to add apps to DC/OS Marathon.
@@ -42,7 +43,7 @@ The following graphic illustrates the data flow:
 
 ![data flow](/1.10/img/lb-data-pipeline.png)
 
-# Prepare and Deploy Tweeter on DC/OS Cluster
+# Prepare and deploy Tweeter on DC/OS Cluster
 
 ## Prerequisites
 
@@ -63,15 +64,18 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 **Tip:** You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
 1.  Find and click the **cassandra** package, click **REVIEW & RUN**, and accept the default installation, by clicking **REVIEW & RUN** again, then **RUN SERVICE**. Cassandra spins up to 3 nodes. When prompted by the modal alert, click **OPEN SERVICE**.
-1.  Click the **Catalog** tab. Find and click the **kafka** package, click the **REVIEW & RUN** button, then again, then the **RUN SERVICE** button. Kafka spins up 3 brokers. When prompted by the modal alert, click **OPEN SERVICE**.
-1.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then the **RUN SERVICE** button. When prompted by the modal alert, click **OPEN SERVICE**.
+
+2.  Click the **Catalog** tab. Find and click the **kafka** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. Kafka spins up 3 brokers. When prompted by the modal alert, click **OPEN SERVICE**.
+
+3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
 **Tip** If you are having trouble with getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/mlb-auth/). Depending on your [security mode](/1.10/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
-1.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
+4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
-    1.  Click **REVIEW AND RUN** and click **RUN**. Click **OPEN SERVICE**.
-1.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
+    2.  Click **REVIEW AND RUN** and click **RUN**. Click **OPEN SERVICE**.
+
+5.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
     ![Services tab with all services shown.](/1.10/img/tweeter-services6.png)
 
@@ -81,7 +85,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 1.  Navigate to the [Tweeter](https://github.com/mesosphere/tweeter/) GitHub repository and save the `/tweeter/tweeter.json` Marathon app definition file.
 
-1.  Add the `HAPROXY_0_VHOST` definition with the public IP address of your [public agent][9] node to your `tweeter.json` file.
+2.  Add the `HAPROXY_0_VHOST` definition with the public IP address of your [public agent][9] node to your `tweeter.json` file.
 
     **Important:** You must remove the leading `http://` and the trailing `/`.
 
@@ -107,7 +111,7 @@ In this step you deploy the containerized Tweeter app to a public node.
     ...
     ```
 
-4.  Navigate to the directory that includes your modified `tweeter.json` file. Install and deploy Tweeter to your DC/OS cluster.
+3.  Navigate to the directory that includes your modified `tweeter.json` file. Install and deploy Tweeter to your DC/OS cluster.
 
     ```bash
     dcos marathon app add tweeter.json
@@ -121,11 +125,11 @@ In this step you deploy the containerized Tweeter app to a public node.
 
     The service talks to Cassandra via cluster node `node-0.cassandra.mesos:9042`, and Kafka via cluster node `broker-0.kafka.mesos:9557`, in this example. Traffic is routed via Marathon-LB because of the `HAPROXY_0_VHOST` definition in the `tweeter.json` app definition file.
 
-1.  Go to the **Services** tab to verify your app is up and healthy.
+4.  Go to the **Services** tab to verify your app is up and healthy.
 
     ![Tweeter deployed](/1.10/img/tweeter-services7.png)
 
-1.  Navigate to the [public agent][9] node endpoint to see the Tweeter UI and post a tweet. In this example, you would point the browswer at `52.34.136.22`.
+5.  Navigate to the [public agent][9] node endpoint to see the Tweeter UI and post a tweet. In this example, you would point the browswer at `52.34.136.22`.
 
     ![Tweeter][14]
 
@@ -135,13 +139,13 @@ In this step you deploy an app that automatically posts a large number of tweets
 
 1.  Navigate to the [Tweeter](https://github.com/mesosphere/tweeter/) GitHub repository and save the `tweeter/post-tweets.json` Marathon app definition file.
 
-1.  Deploy the `post-tweets.json` Marathon app definition file.
+2.  Deploy the `post-tweets.json` Marathon app definition file.
 
     ```bash
     dcos marathon app add post-tweets.json
     ```
 
-1.  After the `post-tweets.json` is running:
+3.  After the `post-tweets.json` is running:
 
     *  Refresh your browser to see the incoming Shakespeare tweets.
 
@@ -172,7 +176,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ...
 ```
 
-**Tip** If you created a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
+**Tip** If you are using a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
 
 ![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
 
@@ -182,19 +186,19 @@ In this last step, you'll perform real-time analytics on the stream of tweets co
 
 1. Navigate to the [Tweeter](https://github.com/mesosphere/tweeter/) GitHub repository and save the `tweeter/post-tweets.json` Marathon app definition file.
 
-1. Navigate to Zeppelin at `https://<master_ip>/service/zeppelin/`.
+2. Navigate to Zeppelin at `https://<master_ip>/service/zeppelin/`.
 
    **Tip:** Your master IP address is the URL of the DC/OS web interface.
 
-2. Click **Import Note** and import `tweeter-analytics.json`. Zeppelin is preconfigured to execute Spark jobs on the DC/OS cluster, so there is no further configuration or setup required. Be sure to use `https://`, not `http://`.
+3. Click **Import Note** and import `tweeter-analytics.json`. Zeppelin is preconfigured to execute Spark jobs on the DC/OS cluster, so there is no further configuration or setup required. Be sure to use `https://`, not `http://`.
 
-2.  Navigate to **Notebook** -> **Tweeter Analytics**.
+4.  Navigate to **Notebook** -> **Tweeter Analytics**.
 
-3.  Run the **Load Dependencies** step to load the required libraries into Zeppelin.
+5.  Run the **Load Dependencies** step to load the required libraries into Zeppelin.
 
-4.  Run the **Spark Streaming** step, which reads the tweet stream from ZooKeeper and puts them into a temporary table that can be queried using SparkSQL.
+6.  Run the **Spark Streaming** step, which reads the tweet stream from ZooKeeper and puts them into a temporary table that can be queried using SparkSQL.
 
-5.  Run the **Top tweeters** SQL query, which counts the number of tweets per user using the table created in the previous step. The table updates continuously as new tweets come in, so re-running the query produces a different result every time.
+6.  Run the **Top tweeters** SQL query, which counts the number of tweets per user using the table created in the previous step. The table updates continuously as new tweets come in, so re-running the query produces a different result every time.
 
 ![Top Tweeters][16]
 
