@@ -10,11 +10,10 @@ excerpt:
 
 
 The default DC/OS Kubernetes package installation provides reasonable defaults for trying out the service.
-As of this writing, this service is not certified for production use.
 
 ## Prerequisites
 
-In order to run the framework with its default parameters, your cluster must have at least one private agent with at least the available resources needed to run the tasks described in the table below.
+In order to run the framework with default parameters, your cluster must have at least one private agent with at least the available resources needed to run the tasks described in the table below.
 
 |                   | instances per cluster | cpu per instance | mem (MB) per instance | disk (MB) per instance      |
 | ----------------- | --------------------- | ---------------- | --------------------- | --------------------------- |

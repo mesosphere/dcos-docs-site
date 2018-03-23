@@ -124,10 +124,15 @@ TLS for mutual-authentication and communications encryption implemented as:
 - All included (mandatory) add-ons, including on-demand backup/restore, respect mutual-authentication
   against the Kubernetes API.
 
-Note, though, that we also expose an insecure Kubernetes API endpoint. This is a temporary
-solution for providing external applications - outside of the scope of this package - access
-to the Kubernetes API. We are currently working on improving this and it will eventually go
-away.
+  **Note:** We expose an insecure Kubernetes API endpoint. This is a temporary
+  solution for providing external applications - outside of the scope of this package - access
+  to the Kubernetes API. This is used to provides access to the Kubernetes Dashboard at the
+  following url:
+
+  ```<YOUR_CLUSTER_PUBLIC_IP>/service/kubernetes-api-proxy/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/
+  ```
+
+  This is a beta feature, and subject to deprecation in future releases of the Kubernetes package.
 
 ### TLS Open vs Enterprise DC/OS
 
