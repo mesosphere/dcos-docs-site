@@ -32,7 +32,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer .
++ Enterprise DC/OS 1.10 or newer
 + Service with a version greater than 2.0.0-x
 + [The DC/OS CLI](/latest/cli/install/) installed and available
 + The service's subcommand available and installed on your local machine
