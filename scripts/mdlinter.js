@@ -1,5 +1,9 @@
 #!/bin/node
-// script to validate the ./pages markdown
+// Usage: Script to validate the ./pages markdown and show any warnings before building.
+// Description: Creates an async parallel loop  that traverses the ./pages directory
+// Analysing any errors that can be found in the markdown.
+//
+
 
 const fs = require('fs');
 

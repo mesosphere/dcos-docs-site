@@ -1,6 +1,8 @@
 #!/bin/node
-// script to validate the links to images in the markdown files
-
+// Usage: Script to validate the images markdown
+// Description: Images need to be written correctly, so this scripts will scan the files for any
+// broken image checker.
+//
 const fs = require('graceful-fs');
 
 const path = require('path');
