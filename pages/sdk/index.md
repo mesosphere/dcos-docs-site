@@ -1,9 +1,9 @@
-<!-- ---
+---
 layout: layout.pug
-navigationTitle:  SDK Docs
+# navigationTitle:  SDK Docs
 title: SDK Docs
-menus: ['header']
+# menus: ['header']
 menuWeight: 6
 excerpt:
 enterprise: false
---- -->
+---
