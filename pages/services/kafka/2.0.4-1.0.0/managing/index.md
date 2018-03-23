@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Managing
 menuWeight: 60
@@ -25,10 +25,10 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
-+ Service with a version greater than 2.0.0-x.
-+ [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
-+ The service's subcommand available and installed on your local machine.
++ Enterprise DC/OS 1.10 or newer
++ Service with a version greater than 2.0.0-x
++ [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/)installed and available
++ The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli kafka`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
@@ -38,7 +38,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
 $ dcos kafka describe > options.json
@@ -46,7 +46,7 @@ $ dcos kafka describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
 
 **Note:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
@@ -152,7 +152,7 @@ During the configuration update, each of the Kafka broker tasks are restarted. D
 the shutdown portion of the task restart, the previous configuration value for
 `brokers.kill_grace_period` is in effect. Following the shutdown, each broker
 task is launched with the new effective configuration value. Take care to monitor
-the amount of time Kafka brokers take to cleanly shutdown. 
+the amount of time Kafka brokers take to cleanly shutdown.
 
 Create an options file `kafka-options.json` with the following content:
 

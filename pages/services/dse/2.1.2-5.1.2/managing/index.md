@@ -25,10 +25,10 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 #### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
-+ Service with a version greater than 2.0.0-x.
-+ [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
-+ The service's subcommand available and installed on your local machine.
++ Enterprise DC/OS 1.10 or newer
++ Service with a version greater than 2.0.0-x
++ [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/)installed and available
++ The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli datastax-dse`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
@@ -38,7 +38,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 #### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
 $ dcos datastax-dse describe > options.json
@@ -46,7 +46,7 @@ $ dcos datastax-dse describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when installing the service.
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when installing the service.
 
 <strong>Note:</strong> You need to specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
@@ -133,7 +133,7 @@ Note: volume requirements (type and/or size) can not be changed after initial de
 
 ## Updating Placement Constraints
 
-Placement constraints may be updated after initial deployment using the following procedure. 
+Placement constraints may be updated after initial deployment using the following procedure.
 
 Let's say we have the following deployment of our nodes
 

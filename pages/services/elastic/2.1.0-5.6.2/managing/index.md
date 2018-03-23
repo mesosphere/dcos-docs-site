@@ -31,10 +31,10 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
-+ Service with a version greater than 2.0.0-x.
-+ [The DC/OS CLI](/1.10/cli/install/) installed and available.
-+ The service's subcommand available and installed on your local machine.
++ Enterprise DC/OS 1.10 or newer
++ Service with a version greater than 2.0.0-x
++ [The DC/OS CLI](/1.10/cli/install/)installed and available
++ The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli elastic`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
@@ -44,7 +44,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
 $ dcos elastic describe > options.json
@@ -52,7 +52,7 @@ $ dcos elastic describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
 
 <strong>Note:</strong> You need to specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
