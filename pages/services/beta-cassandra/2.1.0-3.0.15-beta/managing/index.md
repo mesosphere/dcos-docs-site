@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Managing
 menuWeight: 60
 excerpt:
@@ -42,7 +42,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 #### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
 $ dcos beta-cassandra describe > options.json
@@ -50,7 +50,7 @@ $ dcos beta-cassandra describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
 
 <strong>Note:</strong> You need to specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
