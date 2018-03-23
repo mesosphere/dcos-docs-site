@@ -93,8 +93,8 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
-+ A DC/OS SDK-based service with a version greater than 2.0.0-x.
++ Enterprise DC/OS 1.10 or newer
++ A DC/OS SDK-based Service with a version greater than 2.0.0-x
 + [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
   + You can install just the subcommand CLI by running `dcos package install --cli <service-name>`.
