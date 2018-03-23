@@ -7,14 +7,3 @@ excerpt:
 ---
 
 Welcome to the documentation for DC/OS 1.9. For information about new and changed features, see the [release notes](/1.9/release-notes/).
-
-#1. Bullet List
-
-- test
-- test2
-- test3
-
-2. Some Section
----------------
-
-<a href='this imagel ink' >
