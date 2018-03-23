@@ -42,7 +42,7 @@ check-nonutf: #scan through the all the markdown and find non-utf8
 	./scripts/charcheck.sh ./pages
 
 build-pdf-production:
-	./scripts/mdtopdf.sh ./pages/1.11 ./build-pdf
+	./scripts/mdtopdf.sh ./pages ./build-pdf
 
 #
 # Build API

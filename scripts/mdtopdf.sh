@@ -114,9 +114,9 @@ function main
       PDF_FILE_NAME="MesosphereDCOS"
     fi
 
-    scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
+    #scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
     # Pandoc gets the string of files and outputs the pdf.
-    # echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+    echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
