@@ -37,7 +37,7 @@ enterprise: 'no'
           ]
         }
     ```
-1. Connect to MongoDB using the *'mongo'* shell tool *(replace username/password for your situation)*.
+1. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool *(replace username/password for your situation)*.
     ```shell
     $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     ```
