@@ -9,14 +9,15 @@ excerpt:
 These are the release notes for DC/OS 1.9.8.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 # Issues Fixed in DC/OS 1.9.8
 
-- COPS-1879 - Fixed the failure to kill a docker task in staging.
-- CORE-1395 - Renamed mesos-modules-private to dcos-ee-mesos-modules.
-- DCOS-20631 - dcos-vault: Fixed deadlock in go-zookeeper library (1.9).
-- DCOS-20632 - dcos-secrets: Fixed deadlock in go-zookeeper library (1.9).
-- DCOS-20754 - Included sec-cli-lib `user_is_authorized` function in all #sec CIs.
+- COPS-1879 - Fixed the failure to kill a docker task in staging. [enterprise type="inline" size="small" /]
+- CORE-1395 - Renamed mesos-modules-private to dcos-ee-mesos-modules. [enterprise type="inline" size="small" /]
+- DCOS-20631 - dcos-vault: Fixed deadlock in go-zookeeper library (1.9). [enterprise type="inline" size="small" /]
+- DCOS-20632 - dcos-secrets: Fixed deadlock in go-zookeeper library (1.9). [enterprise type="inline" size="small" /]
+- DCOS-20754 - Included sec-cli-lib `user_is_authorized` function in all #sec CIs. [enterprise type="inline" size="small" /]
 - DCOS-21002 - Fixed release Marathon Plugin by adding full authorization to resources on DCOS 1.9.
 - DCOS-21451 - Prevented reusing tcp sockets by AR's cache code [master] in admin router.
 - SOAK-68 - Fixed error Marathon UI not loading, 404 returned by admin router.
@@ -72,7 +73,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
-- Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
+- Security - New CLI capabilities, enhanced LDAP support, and many small improvements. [enterprise type="inline" size="small" /]
 - New data and developer services.
 
 ### Contents
@@ -176,38 +177,38 @@ For more information, see the [documentation](/1.9/metrics/).
 - DC/OS CLI highlights:
 
   - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM.
-  - Support authentication with service account credentials.
+  - Support authentication with service account credentials. [enterprise type="inline" size="small" /]
 
-- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)).
-- Security hardening across the platform, including Mesos, Marathon, and Admin Router.
+- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)). [enterprise type="inline" size="small" /]
+- Security hardening across the platform, including Mesos, Marathon, and Admin Router. [enterprise type="inline" size="small" /]
 
 ## Developer Services
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
 
 ## Other Improvements
 
 ### DC/OS Internals
 
-- Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5.
-- The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
-- Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
-- Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->
+- Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html). 
+- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
+- The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes. [enterprise type="inline" size="small" /]
+- Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools. [enterprise type="inline" size="small" /]
+- Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. [enterprise type="inline" size="small" /]
 
-### Expanded OS Support
+### Expanded OS Support [enterprise type="inline" size="small" /]
 
 - If you install DC/OS 1.9 using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
 - CoreOS [1235.12.0](https://coreos.com/releases/#1235.12.0).
 
-### Expanded Docker Engine Support
+### Expanded Docker Engine Support [enterprise type="inline" size="small" /]
 
 - Docker 1.12 and 1.13 are now [supported](/1.9/installing/ent/custom/system-requirements/). Docker 1.13 is the default version.
 
-### Upgrades
+### Upgrades [enterprise type="inline" size="small" /]
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 
