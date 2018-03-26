@@ -25,6 +25,13 @@ If the returned UID is not `65534`, then the DC/OS Mongo Service can be installe
 
 ## MongoDB
 
+<a name="mongodb-node-count"></a>
+### Node Count
+
+Curently all nodes *(excluding a backup hidden-secondary node)* have 1 vote in [Replica Set Elections](https://docs.mongodb.com/manual/core/replica-set-elections/#replica-set-elections).
+
+To provide an odd number of votes, only a node count of 1, 3 *(default)*, 5 or 7 is supported/recommended. No more than 7 nodes are supported due [to the 7-member voting limit in MongoDB](https://docs.mongodb.com/manual/reference/limits/#Number-of-Voting-Members-of-a-Replica-Set).
+
 ### Percona Server for MongoDB Version
 
 This percona-mongo package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.4 major-release only, starting from version 3.4.10. The use of other versions are unsupported and untested! 
