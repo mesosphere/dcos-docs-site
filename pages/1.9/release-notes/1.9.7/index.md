@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.7
 title: Release Notes for 1.9.7
-menuWeight: 0
+menuWeight: 20
 excerpt:
 ---
 
@@ -84,7 +84,7 @@ Added support for pods, GPUs, and made significant scalability improvements.
 Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
 
 [preview]
-#### GPU 
+#### GPU
 [/preview]
 - Leverage GPUs to run novel algorithms.
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.

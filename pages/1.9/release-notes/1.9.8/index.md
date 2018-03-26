@@ -13,13 +13,13 @@ These are the release notes for DC/OS 1.9.8.
 # Issues Fixed in DC/OS 1.9.8
 
 - COPS-1879 - Failure to kill a docker task in staging.
-- CORE-1395 - Renamed mesos-modules-private to dcos-ee-mesos-modules. 
+- CORE-1395 - Renamed mesos-modules-private to dcos-ee-mesos-modules.
 - DCOS-20631 - dcos-vault: Fixed deadlock in go-zookeeper library (1.9).
 - DCOS-20632 - dcos-secrets: Fixed deadlock in go-zookeeper library (1.9).
 - DCOS-20754 - Included sec-cli-lib `user_is_authorized` function in all #sec CIs.
 - DCOS-21002 - Fixed release Marathon Plugin by adding full authorization to resources on DCOS 1.9.
 - DCOS-21451 - Prevented reusing tcp sockets by AR's cache code [master] in admin router.
-- SOAK-68 - Fixed error Marathon UI not loading, 404 returned by adminrouter.
+- SOAK-68 - Fixed error Marathon UI not loading, 404 returned by admin router.
 
 # Notable Changes in DC/OS 1.9.8
 
