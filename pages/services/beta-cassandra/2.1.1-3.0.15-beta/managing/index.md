@@ -43,9 +43,9 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
-    ```bash
-    $ dcos beta-cassandra describe > options.json
-    ```
+```bash
+$ dcos beta-cassandra describe > options.json
+```
 
 Make any configuration changes to this `options.json` file.
 
@@ -104,9 +104,9 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
-    ```bash
+```bash
 $ dcos beta-cassandra update start --options=options.json
-    ```
+```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
 

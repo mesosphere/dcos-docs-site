@@ -104,9 +104,9 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
-    ```bash
-    $ dcos beta-cassandra update start --options=options.json
-    ```
+```bash
+$ dcos beta-cassandra update start --options=options.json
+```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
 

@@ -90,14 +90,14 @@ First, we'll fetch the default application's environment, current application's 
 Now that you have these files, we'll attempt to recreate the `options.json`.
 
 1. Use JQ and `diff` to compare the two:
-  ```bash
-  $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
-  ```
+    ```bash
+    $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
+     ```
 
 1. Now compare these values to the values contained in the `env` section in application template:
-  ```bash
-  $ less marathon.json.mustache
-  ```
+    ```bash
+    $ less marathon.json.mustache
+    ```
 
 1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](https://docs.mesosphere.com/services/ops-guide/common-operations/#initial-service-configuration).
 
@@ -105,9 +105,9 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
-  ```bash
-  $ dcos beta-cassandra update start --options=options.json
-  ```
+```bash
+$ dcos beta-cassandra update start --options=options.json
+```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
 
