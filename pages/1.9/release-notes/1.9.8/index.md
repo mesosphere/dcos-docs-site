@@ -12,7 +12,7 @@ These are the release notes for DC/OS 1.9.8.
 
 # Issues Fixed in DC/OS 1.9.8
 
-- COPS-1879 - Failure to kill a docker task in staging.
+- COPS-1879 - Fixed the failure to kill a docker task in staging.
 - CORE-1395 - Renamed mesos-modules-private to dcos-ee-mesos-modules.
 - DCOS-20631 - dcos-vault: Fixed deadlock in go-zookeeper library (1.9).
 - DCOS-20632 - dcos-secrets: Fixed deadlock in go-zookeeper library (1.9).
