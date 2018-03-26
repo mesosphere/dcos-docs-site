@@ -30,11 +30,11 @@ If the returned UID is not `65534`, then the DC/OS Mongo Service can be installe
 
 Curently all nodes *(excluding a backup hidden-secondary node)* have 1 vote in [Replica Set Elections](https://docs.mongodb.com/manual/core/replica-set-elections/#replica-set-elections).
 
-To provide an odd number of votes, only a node count of 1, 3 *(default)*, 5 or 7 is supported/recommended. No more than 7 nodes are supported due [to the 7-member voting limit in MongoDB](https://docs.mongodb.com/manual/reference/limits/#Number-of-Voting-Members-of-a-Replica-Set).
+To provide an odd number of votes, only a node count of 1, 3 *(default)*, 5 or 7 is supported by the service. No more than 7 nodes are supported due [to the 7-member voting limit in MongoDB](https://docs.mongodb.com/manual/reference/limits/#Number-of-Voting-Members-of-a-Replica-Set).
 
 ### Percona Server for MongoDB Version
 
-This percona-mongo package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.4 major-release only, starting from version 3.4.10. The use of other versions are unsupported and untested! 
+This percona-mongo package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.4 major-release only, starting from version 3.4.13. The use of other versions are unsupported and untested! 
 
 ### Configuration
 
@@ -47,7 +47,9 @@ For stability, configuration options marked *"experimental"* or *"deprecated"* a
 
 #### Security
 
-For security, this framework requires [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) and [MongoDB Internal Authentication](https://docs.mongodb.com/manual/core/security-internal-authentication/) is enabled. These configuration options cannot be changed as a result. **Your application and MongoDB database driver must support (and utilise) [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) to use this framework!**
+For security, this framework requires [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) and [MongoDB Internal Authentication](https://docs.mongodb.com/manual/core/security-internal-authentication/) is enabled. These configuration options cannot be changed as a result.
+
+**Your application and MongoDB database driver must use [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) to connect to MongoDB!**
 
 Passwords and Internal Authentication keyFile can be manually defined at service creation time, otherwise a default is used. We **strongly recommend** you change the default key and passwords to something unique and secure!
 
