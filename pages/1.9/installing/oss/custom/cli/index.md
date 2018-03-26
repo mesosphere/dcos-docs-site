@@ -4,6 +4,7 @@ excerpt:
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200
+oss: true
 ---
 
 The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options.
@@ -51,10 +52,10 @@ The DC/OS installation creates these folders:
 
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
-## Prerequisites
+# Prerequisites
 Your cluster must meet the software and hardware [requirements](/1.9/installing/oss/custom/system-requirements/).
 
-# Configure your cluster
+## Configure your cluster
 
 1. Create a directory named `genconf` on your bootstrap node and navigate to it.
 
@@ -66,10 +67,10 @@ Your cluster must meet the software and hardware [requirements](/1.9/installing/
 
     In this step, an IP detect script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
-    **Important:** 
-    
+    **Important:**
+
     - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.9/installing/oss/custom/uninstall/).
-    - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master. 
+    - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
     Create an IP detect script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line. You can use the examples below.
 
@@ -147,8 +148,8 @@ Your cluster must meet the software and hardware [requirements](/1.9/installing/
 
     You can use this template to get started. This template specifies 3 masters, 5 [private](/1.9/overview/concepts/#private-agent-node) agents, 1 [public](/1.9/overview/concepts/#public-agent-node) agent, a custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters descriptions and configuration examples, see the [documentation][6].
 
-    **Tips:** 
-    
+    **Tips:**
+
     - If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
     - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `/genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <path-to-ip-script>`.
 
@@ -180,7 +181,7 @@ Your cluster must meet the software and hardware [requirements](/1.9/installing/
     use_proxy: 'true'
     http_proxy: http://<proxy_host>:<http_proxy_port>
     https_proxy: https://<proxy_host>:<https_proxy_port>
-    no_proxy: 
+    no_proxy:
     - 'foo.bar.com'
     - '.baz.com'
     ```
