@@ -122,7 +122,7 @@ To see a full listing of available options, run `dcos package describe --config 
 <a name="adding-a-node"></a>
 ### Adding a Node
 
-The service deploys _DEFAULT_NODE_COUNT_ nodes by default. You can customize this value at initial deployment or after the cluster is already running. Shrinking the cluster is not supported.
+The service deploys 3 nodes by default, as 3 nodes is the minimum node requirement for a Highly-Available [MongoDB Replica Set](https://docs.mongodb.com/manual/replication/). You can customize this value at initial deployment or after the cluster is already running. Shrinking the cluster is not supported.
 
 Modify the `NODE_COUNT` environment variable to update the node count. If you decrease this value, the scheduler will prevent the configuration change until it is reverted back to its original value or larger.
 
@@ -213,16 +213,16 @@ dcos percona-mongo update package-versions
 1. Before updating the service itself, update its CLI subcommand to the new version:
 ```shell
 dcos package uninstall --cli percona-mongo
-dcos package install --cli percona-mongo -package-version="1.1.6-5.0.7"
+dcos package install --cli percona-mongo -package-version="0.2.0-3.4.13"
 ```
-1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS Percona Server for MongoDB Service to version `1.1.6-5.0.7`:
+1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS Percona Server for MongoDB Service to version `0.2.0-3.4.13`:
 ```shell
-dcos percona-mongo update start --package-version="1.1.6-5.0.7"
+dcos percona-mongo update start --package-version="0.2.0-3.4.13"
 ```
 
 If you are missing mandatory configuration parameters, the `update` command will return an error. To supply missing values, you can also provide an `options.json` file (see [Updating configuration](#updating-configuration)):
 ```shell
-dcos percona-mongo update start --options=options.json --package-version="1.1.6-5.0.7"
+dcos percona-mongo update start --options=options.json --package-version="0.2.0-3.4.13"
 ```
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
