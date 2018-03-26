@@ -122,7 +122,9 @@ To see a full listing of available options, run `dcos package describe --config 
 <a name="adding-a-node"></a>
 ### Adding a Node
 
-The service deploys 3 nodes by default, as 3 nodes is the minimum node requirement for a Highly-Available [MongoDB Replica Set](https://docs.mongodb.com/manual/replication/). You can customize this value at initial deployment or after the cluster is already running. Shrinking the cluster is not supported.
+The service deploys 3 nodes by default, as 3 nodes is the minimum node requirement for a Highly-Available [MongoDB Replica Set](https://docs.mongodb.com/manual/replication/). **Note: Only 1 *(not recommended)*, 3, 5 or 7 nodes is recommended and supported.**
+
+You can customize this value at initial deployment or after the cluster is already running. Shrinking the count is not supported.
 
 Modify the `NODE_COUNT` environment variable to update the node count. If you decrease this value, the scheduler will prevent the configuration change until it is reverted back to its original value or larger.
 
@@ -131,7 +133,7 @@ Modify the `NODE_COUNT` environment variable to update the node count. If you de
 
 The CPU and Memory requirements of each node can be increased or decreased as follows:
 - CPU (1.0 = 1 core): `NODE_CPUS`
-- Memory (in MB): `NODE_MEM` _MENTION ANY OTHER ENVARS THAT SHOULD BE ADJUSTED ALONG WITH THE MEMORY ENVAR HERE?_
+- Memory (in MB): `NODE_MEM`
 
 **Note:** Volume requirements (type and/or size) cannot be changed after initial deployment.
 
