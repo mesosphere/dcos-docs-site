@@ -50,34 +50,39 @@ If the `options.json` from when the service was last installed or updated is not
 First, we'll fetch the default application's environment, current application's environment, and the actual template that maps config values to the environment:
 
 1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
+
 1. Get the version of the package that is currently installed:
-```bash
-$ PACKAGE_VERSION=$(dcos package list | grep {{ model.packageName }} | awk '{print $2}')
-```
+    ```bash
+    $ PACKAGE_VERSION=$(dcos package list | grep {{ model.packageName }} | awk '{print $2}')
+    ```
+
 1. Then fetch and save the environment variables that have been set for the service:
-```bash
-$ dcos marathon app show {{ model.serviceName }} | jq .env > current_env.json
-```
+    ```bash
+    $ dcos marathon app show {{ model.serviceName }} | jq .env > current_env.json
+    ```
+
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
-```bash
-$ dcos package describe --package-version=$PACKAGE_VERSION --render --app {{ model.serviceName }} | jq .env > default_env.json
-```
+    ```bash
+    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app {{ model.serviceName }} | jq .env > default_env.json
+    ```
+
 1. We'll also get the entire application template:
-```bash
-$ dcos package describe {{ model.serviceName }} --app > marathon.json.mustache
-```
+    ```bash
+    $ dcos package describe {{ model.serviceName }} --app > marathon.json.mustache
+    ```
 
 With these files, `options.json` can be recreated.
 
 1. Use `jq` and `diff` to compare the two:
-```bash
-$ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
-```
+    ```bash
+    $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
+    ```
 
 1. Now compare these values to the values contained in the `env` section in application template:
-```bash
-$ less marathon.json.mustache
-```
+    ```bash
+    $ less marathon.json.mustache
+    ```
+
 1. Use the variable names (e.g. `{{=<% %>=}}{{service.name}}<%={{ }}=%>`) to create a new `options.json` file as described in Initial service configuration.
 
 ### Starting the update
