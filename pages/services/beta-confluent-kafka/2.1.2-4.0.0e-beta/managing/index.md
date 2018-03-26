@@ -48,7 +48,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
-$ $ dcos confluent-kafka describe > options.json
+$ dcos confluent-kafka describe > options.json
 ```
 
 Make any configuration changes to this `options.json` file.
