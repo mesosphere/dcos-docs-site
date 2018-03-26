@@ -229,13 +229,8 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 + Enterprise DC/OS 1.10 or newer
 + Service with a version greater than 2.0.0-x
-<<<<<<< HEAD
 + [The DC/OS CLI](/latest/cli/install/)installed and available
 + The service's subcommand available and installed on your local machine
-=======
-+ [The DC/OS CLI](/latest/cli/install/) installed and available.
-+ The service's subcommand available and installed on your local machine.
->>>>>>> c19d7e0c7ec78e03c06addbe12bc1fa3201e3b1c
   + You can install just the subcommand CLI by running `dcos package install --cli beta-elastic`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
