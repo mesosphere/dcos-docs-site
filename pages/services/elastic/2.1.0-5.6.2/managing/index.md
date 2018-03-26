@@ -63,37 +63,44 @@ If the `options.json` from when the service was last installed or updated is not
 First, we'll fetch the default application's environment, current application's environment, and the actual template that maps config values to the environment:
 
 1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
+
 1. Set the service name that you're using, for example:
-```bash
-$ SERVICE_NAME=elastic
-```
+    ```bash
+    $ SERVICE_NAME=elastic
+    ```
+
 1. Get the version of the package that is currently installed:
-```bash
-$ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
-```
+    ```bash
+    $ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
+    ```
+
 1. Then fetch and save the environment variables that have been set for the service:
-```bash
-$ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
-```
+    ```bash
+    $ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
+    ```
+
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
-```bash
-$ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
-```
+    ```bash
+    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
+    ```
+
 1. We'll also get the entire application template:
-```bash
-$ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
-```
+    ```bash
+    $ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
+    ```
 
 Now that you have these files, we'll attempt to recreate the `options.json`.
 
 1. Use JQ and `diff` to compare the two:
-```bash
-$ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
-```
+    ```bash
+    $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
+    ```
+
 1. Now compare these values to the values contained in the `env` section in application template:
-```bash
-$ less marathon.json.mustache
-```
+    ```bash
+    $ less marathon.json.mustache
+    ```
+
 1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](https://docs.mesosphere.com/services/ops-guide/common-operations/#initial-service-configuration).
 
 ### Starting the update
