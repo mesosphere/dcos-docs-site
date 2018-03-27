@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.3
 title: Release Notes for 1.9.3
-menuWeight: 30
+menuWeight: 40
 excerpt:
 ---
 These are the release notes for DC/OS 1.9.3.
