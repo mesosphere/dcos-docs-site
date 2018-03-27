@@ -12,19 +12,14 @@ These are the release notes for DC/OS 1.9.8.
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 # Issues Fixed in DC/OS 1.9.8
-
-- COPS-1879 - Fixed the failure to kill a docker task in staging. [enterprise type="inline" size="small" /]
-- CORE-1395 - Renamed mesos-modules-private to dcos-ee-mesos-modules. [enterprise type="inline" size="small" /]
-- DCOS-20631 - dcos-vault: Fixed deadlock in go-zookeeper library (1.9). [enterprise type="inline" size="small" /]
-- DCOS-20632 - dcos-secrets: Fixed deadlock in go-zookeeper library (1.9). [enterprise type="inline" size="small" /]
-- DCOS-20754 - Included sec-cli-lib `user_is_authorized` function in all #sec CIs. [enterprise type="inline" size="small" /]
-- DCOS-21002 - Fixed release Marathon Plugin by adding full authorization to resources on DCOS 1.9.
-- DCOS-21451 - Prevented reusing tcp sockets by AR's cache code [master] in admin router.
-- SOAK-68 - Fixed error Marathon UI not loading, 404 returned by admin router.
+- COPS-1879 - Fixed a failure to kill a docker task in staging.
+- DCOS-20631 - Fixed deadlock in the go-zookeeper library which can lead to an outage of the DC/OS Secrets service. [enterprise type="inline" size="small" /]
+- DCOS-21002 - Fixed Marathon's authorization logic to support the 'full' action. [enterprise type="inline" size="small" /]
+- DCOS-21451 - Fixed a bug where the Admin Router would not pick up Mesos leader changes (leading to unexpected 404 HTTP responses when using the service endpoint).
 
 # Notable Changes in DC/OS 1.9.8
 
-- DCOS_OSS-2097 - Bumped metronome to 0.3.5 in DC/OS 1.9.
+- Updated to Metronome 0.3.5 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.5))
 
 
 # Issues Fixed in DC/OS 1.9.7
@@ -166,18 +161,18 @@ For more information, see the [documentation](/1.9/metrics/).
 - CNI support for 3rd party CNI plugins.
 - Performance improvements across all networking features.
 
-## Security and Governance
+## Security and Governance [enterprise type="inline" size="small" /]
 
-- DC/OS Identity and Access Management (IAM) highlights:
+- DC/OS Identity and Access Management (IAM) highlights: [enterprise type="inline" size="small" /]
 
-  - LDAP group import: support importing `posixGroup` objects according to [RFC2307](https://www.ietf.org/rfc/rfc2307) and [RFC2307bis](https://tools.ietf.org/html/draft-howard-rfc2307bis-02), and ensure compatibility with [FreeIPA](https://www.freeipa.org) and [OpenLDAP](https://www.openldap.org/).
-  - SAML 2.0: ensure that the authentication flow works against [Shibboleth](https://www.shibboleth.net/products/identity-provider/) and improve compatibility with a wide range of identity provider configurations.
-  - OpenID Connect: ensure that the authentication flow works against [dex](https://github.com/coreos/dex) as well as against [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/), and allow for customizing the identity provider certificate verification in back-channel communication. Enhance configuration validation for a better user experience.
+  - LDAP group import: support importing `posixGroup` objects according to [RFC2307](https://www.ietf.org/rfc/rfc2307) and [RFC2307bis](https://tools.ietf.org/html/draft-howard-rfc2307bis-02), and ensure compatibility with [FreeIPA](https://www.freeipa.org) and [OpenLDAP](https://www.openldap.org/). [enterprise type="inline" size="small" /]
+  - SAML 2.0: ensure that the authentication flow works against [Shibboleth](https://www.shibboleth.net/products/identity-provider/) and improve compatibility with a wide range of identity provider configurations. [enterprise type="inline" size="small" /]
+  - OpenID Connect: ensure that the authentication flow works against [dex](https://github.com/coreos/dex) as well as against [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/), and allow for customizing the identity provider certificate verification in back-channel communication. Enhance configuration validation for a better user experience. [enterprise type="inline" size="small" /]
 
-- DC/OS CLI highlights:
+- DC/OS CLI highlights: [enterprise type="inline" size="small" /]
 
-  - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM.
-  - Support authentication with service account credentials. [enterprise type="inline" size="small" /]
+  - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM. [enterprise type="inline" size="small" /]
+  - Support authentication with service account credentials. [enterprise type="inline" size="small" /] 
 
 - Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)). [enterprise type="inline" size="small" /]
 - Security hardening across the platform, including Mesos, Marathon, and Admin Router. [enterprise type="inline" size="small" /]
@@ -195,7 +190,7 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html). 
 - Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
-- The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes. [enterprise type="inline" size="small" /]
+- The `dcos_generate_config.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools. [enterprise type="inline" size="small" /]
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. [enterprise type="inline" size="small" /]
 
