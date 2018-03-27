@@ -17,8 +17,10 @@ render: mustache
 
 DC/OS Zones allow the service to implement rack-awareness. When the service is deployed with some zone configuration (or lack thereof), it cannot be upgraded/downgraded to another zone configuration.
 
-<!-- TBD? ## Security
+## Security
 
-### Transport Encryption
+### Toggling Kerberos
 
-### Kerberos -->
+Kerberos authentication cannot be toggled (enabled / disabled). In order to enable or disable Kerberos, the service must be uninstalled and reinstalled with the desired configuration.
+
+<!-- TBD? ### Transport Encryption -->
