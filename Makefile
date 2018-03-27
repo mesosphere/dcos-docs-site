@@ -41,11 +41,8 @@ check-markdown: #scan through all the markdown and show the warnings
 check-nonutf: #scan through the all the markdown and find non-utf8
 	./scripts/charcheck.sh ./pages
 
-markdown-check:
-	node ./scripts/mdlinter.js ./pages
-
 build-pdf-production:
-	./scripts/mdtopdf.sh ./pages ./build-pdf
+	./scripts/mdtopdf.sh ./pages/1.10 ./build-pdf
 
 #
 # Build API
