@@ -1,14 +1,26 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.9.7
-title: Release Notes for 1.9.7
-menuWeight: 20
+navigationTitle:  Release Notes for 1.9.8
+title: Release Notes for 1.9.8
+menuWeight: 0
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.9.7.
+These are the release notes for DC/OS 1.9.8.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
+
+# Issues Fixed in DC/OS 1.9.8
+- COPS-1879 - Fixed a failure to kill a docker task in staging.
+- DCOS-20631 - Fixed deadlock in the go-zookeeper library which can lead to an outage of the DC/OS Secrets service. [enterprise type="inline" size="small" /]
+- DCOS-21002 - Fixed Marathon's authorization logic to support the 'full' action. [enterprise type="inline" size="small" /]
+- DCOS-21451 - Fixed a bug where the Admin Router would not pick up Mesos leader changes (leading to unexpected 404 HTTP responses when using the service endpoint).
+
+# Notable Changes in DC/OS 1.9.8
+
+- Updated to Metronome 0.3.5 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.5)).
+
 
 # Issues Fixed in DC/OS 1.9.7
 
@@ -56,7 +68,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
-- Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
+- Security - New CLI capabilities, enhanced LDAP support, and many small improvements. [enterprise type="inline" size="small" /]
 - New data and developer services.
 
 ### Contents
@@ -149,49 +161,49 @@ For more information, see the [documentation](/1.9/metrics/).
 - CNI support for 3rd party CNI plugins.
 - Performance improvements across all networking features.
 
-## Security and Governance
+## Security and Governance [enterprise type="inline" size="small" /]
 
-- DC/OS Identity and Access Management (IAM) highlights:
+- DC/OS Identity and Access Management (IAM) highlights: [enterprise type="inline" size="small" /]
 
-  - LDAP group import: support importing `posixGroup` objects according to [RFC2307](https://www.ietf.org/rfc/rfc2307) and [RFC2307bis](https://tools.ietf.org/html/draft-howard-rfc2307bis-02), and ensure compatibility with [FreeIPA](https://www.freeipa.org) and [OpenLDAP](https://www.openldap.org/).
-  - SAML 2.0: ensure that the authentication flow works against [Shibboleth](https://www.shibboleth.net/products/identity-provider/) and improve compatibility with a wide range of identity provider configurations.
-  - OpenID Connect: ensure that the authentication flow works against [dex](https://github.com/coreos/dex) as well as against [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/), and allow for customizing the identity provider certificate verification in back-channel communication. Enhance configuration validation for a better user experience.
+  - LDAP group import: support importing `posixGroup` objects according to [RFC2307](https://www.ietf.org/rfc/rfc2307) and [RFC2307bis](https://tools.ietf.org/html/draft-howard-rfc2307bis-02), and ensure compatibility with [FreeIPA](https://www.freeipa.org) and [OpenLDAP](https://www.openldap.org/). [enterprise type="inline" size="small" /]
+  - SAML 2.0: ensure that the authentication flow works against [Shibboleth](https://www.shibboleth.net/products/identity-provider/) and improve compatibility with a wide range of identity provider configurations. [enterprise type="inline" size="small" /]
+  - OpenID Connect: ensure that the authentication flow works against [dex](https://github.com/coreos/dex) as well as against [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/), and allow for customizing the identity provider certificate verification in back-channel communication. Enhance configuration validation for a better user experience. [enterprise type="inline" size="small" /]
 
-- DC/OS CLI highlights:
+- DC/OS CLI highlights: [enterprise type="inline" size="small" /]
 
-  - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM.
-  - Support authentication with service account credentials.
+  - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM. [enterprise type="inline" size="small" /]
+  - Support authentication with service account credentials. [enterprise type="inline" size="small" /] 
 
-- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)).
-- Security hardening across the platform, including Mesos, Marathon, and Admin Router.
+- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)). [enterprise type="inline" size="small" /]
+- Security hardening across the platform, including Mesos, Marathon, and Admin Router. [enterprise type="inline" size="small" /]
 
 ## Developer Services
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
 
 ## Other Improvements
 
 ### DC/OS Internals
 
-- Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5.
-- The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
-- Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
-- Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->
+- Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html). 
+- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
+- The `dcos_generate_config.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
+- Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools. [enterprise type="inline" size="small" /]
+- Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. [enterprise type="inline" size="small" /]
 
-### Expanded OS Support
+### Expanded OS Support [enterprise type="inline" size="small" /]
 
 - If you install DC/OS 1.9 using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
 - CoreOS [1235.12.0](https://coreos.com/releases/#1235.12.0).
 
-### Expanded Docker Engine Support
+### Expanded Docker Engine Support [enterprise type="inline" size="small" /]
 
 - Docker 1.12 and 1.13 are now [supported](/1.9/installing/ent/custom/system-requirements/). Docker 1.13 is the default version.
 
-### Upgrades
+### Upgrades [enterprise type="inline" size="small" /]
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 
@@ -205,7 +217,7 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 - DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/1.9/installing/ent/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.ee.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
 
   ```bash
-  $ ./dcos_generate_config.ee.sh --aws-cloudformation
+  $ ./dcos_generate_config.sh --aws-cloudformation
   ====> EXECUTING AWS CLOUD FORMATION TEMPLATE GENERATION
   Generating configuration files...
   Starting new HTTPS connection (1): s3.amazonaws.com
