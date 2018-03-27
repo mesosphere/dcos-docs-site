@@ -82,6 +82,8 @@ Disabled THP entirely by adding the following flag below to your Linux kernel bo
 transparent_hugepage=never
 ```
 
+Usually this requires changes to the GRUB boot-loader config in the directory *"/boot/grub"* or *"/etc/grub.d"* on newer systems. Red Hat covers this in more detail in this article *(same method on CentOS)*: [https://access.redhat.com/solutions/46111](https://access.redhat.com/solutions/46111).
+
 *Note: reboot the system after this change to clear out any previous huge pages and validate that the setting will persist on reboot.*
 
 ### MongoDB
