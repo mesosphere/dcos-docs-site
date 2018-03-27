@@ -8,6 +8,11 @@ model: /services/kafka/data.yml
 render: mustache
 ---
 
+## Version 2.2.0-1.0.0
+
+### New Features
+- Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster.
+
 ## Version 2.1.0-1.0.0
 
 ### New Features
