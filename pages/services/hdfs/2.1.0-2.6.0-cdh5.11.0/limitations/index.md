@@ -23,4 +23,6 @@ DC/OS Zones allow the service to implement rack-awareness. When the service is d
 
 Kerberos authentication cannot be toggled (enabled / disabled). In order to enable or disable Kerberos, the service must be uninstalled and reinstalled with the desired configuration.
 
-<!-- TBD? ### Transport Encryption -->
+### Toggling Transport Encryption
+
+Transport Encryption (TLS) cannot toggled (enabled / disabled). In order to enable or disable TLS, the service must be uninstalled and reinstalled with the desired configuration.
