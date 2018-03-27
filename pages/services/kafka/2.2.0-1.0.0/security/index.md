@@ -234,7 +234,7 @@ As a concrete example, using the custom domain of `cluster-1.acmeco.net` the bro
 
 Transport encryption alone does not require any additional changes. Endpoint discovery will work as normal, and clients will be able to connect securely with the custom domain as long as they are configured as described [here](#transport-encryption-for-clients).
 
-Kerberos, however, does require slightly different configuration. As noted in the section [Create Principals](#create-principals), the principals of the service depend on the hostame of the service. When creating the Kerberos principals, be sure to use the correct domain.
+Kerberos, however, does require slightly different configuration. As noted in the section [Create Principals](#create-principals), the principals of the service depend on the hostname of the service. When creating the Kerberos principals, be sure to use the correct domain.
 
 For example, if installing with these settings:
 ```json
