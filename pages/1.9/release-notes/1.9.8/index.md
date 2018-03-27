@@ -19,7 +19,7 @@ These are the release notes for DC/OS 1.9.8.
 
 # Notable Changes in DC/OS 1.9.8
 
-- Updated to Metronome 0.3.5 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.5))
+- Updated to Metronome 0.3.5 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.5)).
 
 
 # Issues Fixed in DC/OS 1.9.7
