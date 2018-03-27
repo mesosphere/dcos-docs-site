@@ -217,7 +217,7 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 - DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/1.9/installing/ent/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.ee.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
 
   ```bash
-  $ ./dcos_generate_config.ee.sh --aws-cloudformation
+  $ ./dcos_generate_config.sh --aws-cloudformation
   ====> EXECUTING AWS CLOUD FORMATION TEMPLATE GENERATION
   Generating configuration files...
   Starting new HTTPS connection (1): s3.amazonaws.com
