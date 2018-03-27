@@ -76,7 +76,17 @@ We recommend NUMA is disabled on the DC/OS Agent node. Please consult your opera
 
 Recent versions of CentOS and RedHat enable a memory optimisation named Transparent HugePages. We recommend this is disabled as it does not perform optimally under MongoDB *(or most other)* workloads.
 
-Disabled THP entirely by adding the following flag below to your Linux kernel boot options:
+MongoDB will log the following warning if Transparent HugePages are enabled:
+
+```shell
+2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] 
+2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+```
+
+Disable THP entirely by adding the following flag below to your Linux kernel boot options:
 
 ```shell
 transparent_hugepage=never
