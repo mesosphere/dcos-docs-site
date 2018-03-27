@@ -30,15 +30,15 @@ This parameter specifies the type of storage backend to use for Exhibitor. You c
 
 *   `exhibitor_storage_backend: static`
     This option specifies that the Exhibitor storage backend is managed internally within your cluster.
-    
+
     **Important:** If [master_discovery](#master-discovery) is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.
-    
+
 *   `exhibitor_storage_backend: zookeeper`
     This option specifies a ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
     *   **exhibitor_zk_hosts**
         This parameter specifies a comma-separated list (`<ZK_IP>:<ZK_PORT>, <ZK_IP>:<ZK_PORT>, <ZK_IP:ZK_PORT>`) of one or more ZooKeeper node IP and port addresses to use for configuring the internal Exhibitor instances. Exhibitor uses this ZooKeeper cluster to orchestrate it's configuration. Multiple ZooKeeper instances are recommended for failover in production environments.
     *   **exhibitor_zk_path**
-        This parameter specifies the filepath that Exhibitor uses to store data. 
+        This parameter specifies the filepath that Exhibitor uses to store data.
 *   `exhibitor_storage_backend: aws_s3`
     This option specifies an Amazon Simple Storage Service (S3) bucket for shared storage. If you specify `aws_s3`, you must also specify these parameters:
     *  **aws_access_key_id**
@@ -85,7 +85,7 @@ This option specifies that Mesos agents are used to discover the masters by givi
        This required parameter specifies the number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 
 **Important:**
- 
+
 * If master_discovery is set to `master_http_loadbalancer`, then [exhibitor_storage_backend](#exhibitor-storage-backend) cannot be set to `static`.
 * On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability.
 
@@ -122,8 +122,8 @@ This parameter specifies whether to enable DC/OS virtual networks.
         ```
 
         *  `vtep_subnet` This parameter specifies a dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be routeable from outside the agents or master.
-        *  `vtep_mac_oui` This parameter specifies the MAC address of the interface connecting to it in the public node. 
-            
+        *  `vtep_mac_oui` This parameter specifies the MAC address of the interface connecting to it in the public node.
+
             **Important:** The last 3 bytes must be `00`.
         *  __overlays__
             *  `name` This parameter specifies the canonical name (see [limitations](/1.8/administration/virtual-networks/) for constraints on naming virtual networks).
@@ -160,28 +160,28 @@ This required parameter specifies a YAML nested list (`-`) of DNS resolvers for 
 
 ### use_proxy
 
-This parameter specifies whether to enable the DC/OS proxy. 
+This parameter specifies whether to enable the DC/OS proxy.
 
 *  `use_proxy: 'false'` Do not configure DC/OS [components](/1.8/overview/components/) to use a custom proxy. This is the default value.
 *  `use_proxy: 'true'` Configure DC/OS [components](/1.8/overview/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
-    
+
     *  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` This parameter specifies the HTTP proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` This parameter specifies the HTTPS proxy.
     *  `no_proxy: - .<(sub)domain>` This parameter specifies YAML nested list (-) of addresses to exclude from the proxy.
-    
-    **Important:** 
-    
+
+    **Important:**
+
     - The specified proxies must be resolvable from the provided list of [resolvers](#resolvers).
-    - If an HTTP proxy is configured for your operating system, the IP addresses of all DC/OS nodes must be included in the `no_proxy` list. 
+    - If an HTTP proxy is configured for your operating system, the IP addresses of all DC/OS nodes must be included in the `no_proxy` list.
 
 For more information, see the [examples](#http-proxy).
 
-**Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy). 
+**Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
 
 ## Performance and Tuning
 
 ### <a name="docker-remove"></a>docker_remove_delay
-This parameter specifies the amount of time to wait before removing stale Docker images stored on the agent nodes and the Docker image generated by the installer. It is recommended that you accept the default value 1 hour.
+The amount of time to wait before removing docker containers (i.e., `docker rm`) after Mesos regards the container as TERMINATED (e.g., 3days, 2weeks, etc). This only applies for the Docker Containerizer. It is recommended that you accept the default value 1 hour.
 
 ### <a name="gc-delay"></a>gc_delay
 This parameter specifies the maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of 2 days.
