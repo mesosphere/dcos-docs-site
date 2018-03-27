@@ -14,6 +14,7 @@ __PRs that add or change user-facing functionality must also have documentation 
 - [Uninstalling](uninstall.md)
 - [Connecting Clients](connecting-clients.md)
 - [Managing](managing.md)
+- [MongoDB Administration](mongodb-administration.md)
 - [Authentication](authentication.md)
 - [Disaster Recovery](disaster-recovery.md)
 - [Deployment Best Practices](deploy-best-practice.md)
