@@ -10,6 +10,7 @@ enterprise: true
 
 With this installation method, you package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
 
+
 The advanced installer requires:
 
 *   The bootstrap node must be network accessible from the cluster nodes.
@@ -111,9 +112,13 @@ In this step, an IP detect script is created. This script reports the IP address
 
 By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled. You must include a fault domain detection script in your `/genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
 
+
 1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
    We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>` We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+
+   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work if you use proxies in your environment. If you use a proxy, the script may seem to be functional, and the cluster install/upgrade will succeed; however, the cluster will be left in a non-functional state.</td> </tr> </table>
+
 
 1. Add the script to the `/genconf` directory of your bootstrap node.
 

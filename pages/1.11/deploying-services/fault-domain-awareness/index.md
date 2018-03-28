@@ -18,6 +18,7 @@ DC/OS now supports fault domain awareness. Use fault domain awareness to make yo
 
 DC/OS currently supports Mesos' 2-level hierarchical fault domains: zone and region.
 
+
 # Zone fault domains
 Zone fault domains offer a moderate degree of fault isolation because they share the same region. However, network latency between zones in the same region is moderately low (typically < 10ms).
 
@@ -59,6 +60,8 @@ You can deploy your instances in a specific region region based on the available
 1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
    We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>` We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+
+   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work if you use proxies in your environment. If you use a proxy, the script may seem to be functional, and the cluster install/upgrade will succeed; however, the cluster will be left in a non-functional state.</td> </tr> </table>
 
 1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/ent/custom/advanced/#create-a-fault-domain-detection-script).
 
