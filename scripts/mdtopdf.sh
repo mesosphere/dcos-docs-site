@@ -69,12 +69,25 @@ function main
         # Target all the files whithin the foler by the same name
         NEW_FILE="${d}/${FILE_NAME}"
 
+        while read -r MARKDOWN_SOURCE;
+        do
+          if [[ "${MARKDOWN_SOURCE}" =~ title:[[:space:]]([ a-zA-Z0-9]*) ]]; then
+            TITLE=${BASH_REMATCH[1]}
+            echo "" >> "${TEMP_FILE}"
+            echo "# $TITLE" >> "${TEMP_FILE}"
+            echo "" >> "${TEMP_FILE}"
+          fi
+        done < "${NEW_FILE}"
+
         if [ -f "${NEW_FILE}" ]
         then
+
+
           # Create temporary file with all md content to send to pandoc
           # this avoids very long urls & long strings (Pandoc has a string limit)
           TEMP_FILES="${TEMP_FILES} ${TEMP_FILE}"
           echo "" >> "${TEMP_FILE}"
+
           cat "${NEW_FILE}" >> "${TEMP_FILE}"
         fi
       # Find recursively all the directories whithin a folder
@@ -114,9 +127,9 @@ function main
       PDF_FILE_NAME="MesosphereDCOS"
     fi
 
-    #scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
+    scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
     # Pandoc gets the string of files and outputs the pdf.
-    echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
+    #echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
 
    done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)

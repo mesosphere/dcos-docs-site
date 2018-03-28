@@ -38,12 +38,14 @@ check-images: # scan through markdown to validate Github flavoured markdown
 check-markdown: #scan through all the markdown and show the warnings
 	node ./scripts/mdlinter.js ./pages
 
-check-nonutf: #scan through the all the markdown and find non-utf8
-	./scripts/charcheck.sh ./pages
+compress-images: #script to compress images
+	node ./scripts/compressimages.js ./pages
 
 build-pdf-production:
-	./scripts/mdtopdf.sh ./pages ./build-pdf
+	./scripts/mdtopdf.sh ./pages/1.11 ./build-pdf
 
+concat-mesosphere-pdf: #script to concat the final mesosphere book
+	.scripts/mesosphereconcat.sh ./build-pdf ./build-pdf
 #
 # Build API
 #

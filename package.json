@@ -29,6 +29,7 @@
     "bootprint-openapi": "^1.1.0",
     "browser-sync": "^2.18.12",
     "cheerio": "^1.0.0-rc.2",
+    "compress-images": "^1.2.0",
     "crawler": "^1.0.5",
     "css-loader": "^0.28.4",
     "debug": "^3.1.0",
