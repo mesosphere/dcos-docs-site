@@ -1,6 +1,11 @@
-## Deployment Best Practices
+---
+post_title: Deployment Best Practices
+menu_order: 45
+post_excerpt: ""
+enterprise: 'no'
+---
 
-### Minimum Requirements
+# Minimum MongoDB Node Requirements
 
 The following resources are the service default, recommended for Development and testing only:
 - 3 x MongoDB Nodes *('count')*
@@ -8,7 +13,7 @@ The following resources are the service default, recommended for Development and
 - 1024MB RAM per node
 - 1000MB Disk per node, ['ROOT' Disk-type](https://docs.mesosphere.com/1.10/storage/mount-disk-resources/)
 
-### Production Requirements
+# Production MongoDB Node Requirements
 
 The following resources are recommended for a Production deployment:
 - 3 x MongoDB Nodes *('count')*
@@ -19,11 +24,13 @@ The following resources are recommended for a Production deployment:
 
 **WARNING: Disks cannot be resized after deployment! Adjust the disk space requirements for the volume of your use case!**
 
-### Block Device / Storage
+# Production DC/OS Agent Node Requirements
 
-*Note: The recommendations in this section are for the DC/OS Agent block-device/disks containing the MongoDB data only.*
+The recommendations in this section apply to the DC/OS Agent nodes running the percona-mongo service.
 
-#### Disk Recommendations
+## Block Device / Storage
+
+### Disk Recommendations
 
 MongoDB performs best when using disks with fast read and write patterns.
 
@@ -34,14 +41,14 @@ We generally recommend the following:
   - MongoDB implements its own redundancy in storage, via replication. Keep this in mind when adding possibly-duplicated redundancy to storage.
 - For better performance, use Solid-State Disks vs. Spinning disks or allocate more memory to cache more data, reducing the use of disks.
 
-#### Filesystem
+### Filesystem
 The ['XFS' filesystem](https://en.wikipedia.org/wiki/XFS) is required when using [WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/), the default [MongoDB Storage Engine](https://docs.mongodb.com/manual/core/storage-engines/). Serious stability problems have been observed when running WiredTiger on other filesystems.
 
 We **strongly recommend** the ['EXT3' filesystem](https://en.wikipedia.org/wiki/Ext3) is never used with MongoDB due to poor pre-allocation performance!
 
 When in doubt, always use the ['XFS' filesystem](https://en.wikipedia.org/wiki/XFS).
 
-#### Read-Ahead and I/O Scheduler
+### Read-Ahead and I/O Scheduler
 
 For block device read-ahead, we recommend a setting of 32 sectors (=16KB) for most MongoDB workloads.
 
@@ -54,23 +61,21 @@ Both the IO scheduler and read-ahead can be changed by adding a file to the udev
 ACTION=="add|change", KERNEL=="sda", ATTR{queue/scheduler}="deadline", ATTR{bdi/read_ahead_kb}="16"
 ```
 
-### System
+## Linux / Operating System
 
-The recommendations in this section apply to the DC/OS Agent nodes running this service.
-
-#### Linux Kernel
+### Linux Kernel
 
 Your Linux operating system should at minimum use Linux 2.6.36 and Glibc 2.13 or newer.
 
 We strongly recommend Linux kernels 3.2 or greater are used to take benefit of significant optimisations.
 
-#### NUMA Architecture
+### NUMA Architecture
 
-NUMA (Non-Uniform Memory Access) Architecture should be disabled on the DC/OS Agent node, as MongoDB operates inefficiently when it is enabled.
+NUMA *(Non-Uniform Memory Access)* Architecture should be disabled on the DC/OS Agent node, as MongoDB operates inefficiently when it is enabled.
 
 We recommend NUMA is disabled on the DC/OS Agent node. Please consult your operating system or system manual to do this.
 
-#### Transparent HugePages (RedHat/CentOS only)
+### Transparent HugePages *(RedHat/CentOS only)*
 
 *Note: this section does not apply to Debian/Ubuntu or CentOS/RedHat 5 and lower*
 
@@ -96,9 +101,8 @@ Usually this requires changes to the GRUB boot-loader config in the directory *"
 
 *Note: reboot the system after this change to clear out any previous huge pages and validate that the setting will persist on reboot.*
 
-### MongoDB
+# MongoDB
 
-#### Further Reading
 See more Production recommendations here:
 - [MongoDB Production Notes](https://docs.mongodb.com/manual/administration/production-notes/)
 - ["Tuning Linux for MongoDB" - Percona Database Performance Blog](https://www.percona.com/blog/2016/08/12/tuning-linux-for-mongodb/)
