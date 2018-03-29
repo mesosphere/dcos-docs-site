@@ -14,11 +14,9 @@ OUTPUT_PATH=${2}
 echo "pandoc --toc --pdf-engine=xelatex --resource-path=./pages ./templates/style.yaml ${INPUT_FILES} -o ${OUTPUT_PATH}.pdf --listings -H ./templates/listings-setup.tex  --biblatex --template=./templates/mesosphere.latex"
 iconv -t utf-8 "${INPUT_FILES}" | pandoc  \
     --from=markdown_github+yaml_metadata_block \
-    --variable=H1[:title] \
     --toc \
     --highlight-style=zenburn \
     --listings \
-    --number-offset=3 \
     --pdf-engine=xelatex \
     --resource-path=./pages \
     --listings \

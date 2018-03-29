@@ -45,7 +45,7 @@ build-pdf-production:
 	./scripts/mdtopdf.sh ./pages/1.11 ./build-pdf
 
 concat-mesosphere-pdf: #script to concat the final mesosphere book
-	.scripts/mesosphereconcat.sh ./build-pdf ./build-pdf
+	./scripts/mesosphereconcat.sh ./build-pdf ./build-pdf
 #
 # Build API
 #
