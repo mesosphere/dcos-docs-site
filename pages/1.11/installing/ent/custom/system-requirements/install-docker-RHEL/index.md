@@ -1,46 +1,28 @@
 ---
 layout: layout.pug
-navigationTitle:  RHEL 7.4 prerequisites
-title: Prepare RHEL 7.4 for DC/OS installation
+navigationTitle:  Install Docker on RHEL
+title: Install Docker on RHEL
 menuWeight: 3
 excerpt:
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
-
 # Requirements and Recommendations
 
 Before installing Docker on RHEL, review the general [requirements and recommendations for running Docker on DC/OS][1] and utilize the instructions below:
 
-* Use these directions to install the DC/OS bootstrap node on RHEL 7.4
-
-* These directions cover the installation of Docker CE 17.05+ on RHEL
-
-* OverlayFS is now the default in Docker CE. There is no longer a need to specify or configure the overlay driver.
-
-* These instructions are specific to RHEL 7.4. Other versions of RHEL 7 should work but might require minor modifications to the commands.
-
-
+* These directions cover the installation of Docker CE 17.05 on RHEL
 
 # Installation Procedure
 
-The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/OS. All of the commands should be run as root or by prefixing each command with 'sudo'
-
-1.  Disable the firewall
-
-    ```bash
-    systemctl stop firewalld && systemctl disable firewalld
-    ```
+The following instructions demonstrate how to install Docker CE on RHEL 7.4.
 
 1.  Subscribe the RHEL system in subscription-manager and add the repos
 
     ```bash
     subscription-manager register --username <RHEL-SUBSCRIPTION-USERNAME> --password ******** --auto-attach
-    
+
     subscription-manager repos --enable=rhel-7-server-rpms
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     subscription-manager repos --enable=rhel-7-server-optional-rpms
@@ -59,101 +41,57 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
     yum update --exclude=docker-engine,docker-engine-selinux,centos-release* --assumeyes --tolerant
     ```
 
-1.  Install other necessary tools:
-
-    ```bash
-    yum install -y wget curl zip unzip ipset ntp screen bind-utils
-    ```
-
-1.  Install jq for better parsing of .json files
-
-    ```bash
-    wget http://stedolan.github.io/jq/download/linux64/jq
-    
-    chmod +x ./jq
-    
-    cp jq /usr/bin
-    ```
-
-1.  Add a group called nogroup
-
-    ```bash
-    groupadd nogroup
-    ```
-
-1.  Enable non-TTY sudo
-
-    ```bash
-    sed -i -e 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers
-    ```
-
-1.  Disable IPv6 (optional)
-
-    ```bash
-    sysctl -w net.ipv6.conf.all.disable_ipv6=1
-    sysctl -w net.ipv6.conf.default.disable_ipv6=1
-    ```
-    
-1.  Disable SElinux
-
-    ```bash
-    sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/selinux/config
-    set enforce 0
-    ```
-    
-1.  Disable DNSmasq (DC/OS requires access to port 53)
-
-    ```bash
-    systemctl stop dnsmasq
-    systemctl disable dnsmasq.service
-    ```
-
 1.  Un-install old versions of Docker (if present)
 
-	```bash
-	sudo yum remove docker \
+    ```bash
+    sudo yum remove docker \
                   docker-common \
                   docker-selinux \
                   docker-engine
-	```
-	
-1.  Set up Docker CE repo
+    ```
 
-	```bash
-	yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-	```
-	
-1.  Show versions of Docker CE. The remainder of these instructions assume that you have installed the latest version.
+1.  Configure yum to use the Docker yum repo:
 
-	```bash
-	yum list docker-ce --showduplicates | sort -r
-	```
-	
-1.  Install Docker CE
+    ```bash
+    sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
+    [dockerrepo]
+    name=Docker Repository
+    baseurl=https://yum.dockerproject.org/repo/main/centos/7
+    enabled=1
+    gpgcheck=1
+    gpgkey=https://yum.dockerproject.org/gpg
+    EOF
+    ```
 
-	```bash
-	yum install docker-ce
-	```
-	
-1.  Start Docker
+1.  Configure systemd to run the Docker Daemon with OverlayFS:
 
-	```bash
-	systemctl start docker
-	```
-	
+    ```bash
+    sudo mkdir -p /etc/systemd/system/docker.service.d && sudo tee /etc/systemd/system/docker.service.d/override.conf <<- EOF
+    [Service]
+    ExecStart=
+    ExecStart=/usr/bin/dockerd --storage-driver=overlay
+    EOF
+    ```
+
+1. Install the Docker engine, daemon, and service.
+
+    ```bash
+    sudo yum install -y docker-engine-17.05.0.ce docker-engine-selinux-17.05.0.ce
+    sudo systemctl start docker
+    sudo systemctl enable docker
+    ```
+
 1.  Test Docker with hello-world app
 
-	```bash
-	docker run hello-world
-	```
-	
+    ```bash
+    docker run hello-world
+    ```
+
 1.  Verify that Docker is using the overlay driver
 
-	```bash
-	docker info | grep Storage
-	```
+    ```bash
+    docker info | grep Storage
+    ```
 
 To continue setting up DC/OS, [please jump to the Advanced Installer][2]
 
