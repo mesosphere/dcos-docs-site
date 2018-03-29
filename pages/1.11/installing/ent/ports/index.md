@@ -11,7 +11,7 @@ enterprise: false
 
 DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
-**Important:** These ports must not be used in a firewall configuration between nodes or cluster zones.
+**Important:** These ports must not be used in a firewall configuration between nodes or cluster zones. For DC/OS to install and function as intended, these ports are open and accessible upon initial installation. Therefore, network-specific security measures - from outside of the cluster as well as between internal cluster nodes and zones - for each of these ports should be evaluated and put in place if necessary by the network administrator before installing and implementing DC/OS.
 
 ## All nodes
 
