@@ -103,6 +103,14 @@ Usually this requires changes to the GRUB boot-loader config in the directory *"
 
 # MongoDB
 
+## MongoDB User-per-Application
+
+It is important to never give applications access to administrative functions of MongoDB. It is strongly recommended that a user is created for each application connecting to MongoDB. Generally applications need the ["readWrite" MongoDB Privilege](https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite) only to access the database(s) they require.
+
+See the "MongoDB Administration" section of the documentation for steps on adding an application-level user.
+
+## Links
+
 See more Production recommendations here:
 - [MongoDB Production Notes](https://docs.mongodb.com/manual/administration/production-notes/)
 - ["Tuning Linux for MongoDB" - Percona Database Performance Blog](https://www.percona.com/blog/2016/08/12/tuning-linux-for-mongodb/)

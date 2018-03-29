@@ -37,14 +37,30 @@ enterprise: 'no'
           ]
         }
     ```
-1. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool *(replace username/password for your situation)*.
+1. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool and the *clusterAdmin* user *(replace username/password for your situation)*.
     ```shell
     $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     ```
-1. Change to MongoDB database "test" and write a document to the collection "test".
+1. Create a non-admin user for your application and exit the shell.
     ```shell
-    > use test
-    > db.test.insert({ message: "this is a test!" })
+    > use admin;
+    > db.createUser({
+          user: "myApp",
+          pwd: "myAppPasswd123456",
+          roles: [
+              { db: "myApp", role: "readWrite" }
+          ]
+      });
+    > quit()
+    ```
+1. Reconnect using your new application-level user *"myApp"*.
+    ```shell
+    $ mongo mongodb://myApp:myAppPasswd123456@mongo-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    ```
+1. Change to MongoDB database "myApp" and write a document to the collection "test".
+    ```shell
+    > use myApp;
+    > db.test.insert({ message: "this is a test!" });
     WriteResult({ "nInserted" : 1 })
     >
     ```
