@@ -13,7 +13,8 @@ render: mustache
 
 ## Features
 
-- Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster.
+- Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/services/kafka-zookeeper/2.2.0-3.4.11/security/#securely-exposing-dcos-kafka-zookeeper-outside-the-cluster).
+
 
 # Version 2.1.0-3.4.11
 
