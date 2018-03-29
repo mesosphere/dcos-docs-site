@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
 navigationTitle:  Install Docker on CentOS
-excerpt:
 title: Install Docker on CentOS
 menuWeight: 2
----
+excerpt:
 
+enterprise: false
+---
 
 # Requirements and Recommendations
 
@@ -15,17 +16,17 @@ Before installing Docker on CentOS, review the general [requirements and recomme
 
 * Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if they want.
 
-* Use CentOS 7.2 or greater. OverlayFS support was improved in 7.2 to fix <a href="https://github.com/docker/docker/issues/10294" target="_blank">a bug with XFS</a>.
+* Use CentOS 7.2 or greater. OverlayFS support was improved in 7.2 to fix [a bug with XFS][2]
 
-* Format node storage as XFS with the `ftype=1` option. As of CentOS 7.2, "<a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html" target="_blank">only XFS is currently supported for use as a lower layer file system</a>".
+* Format node storage as XFS with the `ftype=1` option. As of CentOS 7.2, [only XFS is currently supported for use as a lower layer file system][3].
 
-  ```bash
-  mkfs -t xfs -n ftype=1 /dev/sdc1
-  ```
+    ```bash
+    mkfs -t xfs -n ftype=1 /dev/sdc1
+    ```
 
 # Installation Procedure
 
-Follow the Docker <a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank">CentOS-specific installation instructions</a>.
+Follow the Docker [CentOS-specific installation instructions][4]
 
 
 # Example: Installing Docker with OverlayFS
@@ -35,8 +36,7 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 1.  Upgrade CentOS to 7.4:
 
     ```bash
-    sudo yum upgrade --assumeyes --tolerant
-    sudo yum update --assumeyes
+    sudo yum update --exclude=docker-engine,docker-engine-selinux --assumeyes --tolerant
     ```
 
 1.  Verify that the kernel is at least 3.10:
@@ -93,7 +93,7 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 1.  Install the Docker engine, daemon, and service.
 
     ```bash
-    sudo yum install -y docker-engine-1.13.1 docker-engine-selinux-1.13.1
+    sudo yum install -y docker-engine-17.05.0.ce docker-engine-selinux-17.05.0.ce
     sudo systemctl start docker
     sudo systemctl enable docker
     ```
@@ -105,12 +105,21 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
     Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
     ```
 
-1. Test that Docker is properly installed:
+1.  Test Docker with hello-world app
 
     ```bash
-    sudo docker ps
+    docker run hello-world
+    ```
+
+1.  Verify that Docker is using the overlay driver
+
+    ```
+    docker info | grep Storage
     ```
 
 For more generic Docker requirements, see [System Requirements: Docker][1].
 
-[1]: /1.11/installing/oss/custom/system-requirements/#docker
+[1]: /1.11/installing/ent/custom/system-requirements/#docker
+[2]: https://github.com/docker/docker/issues/10294
+[3]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html
+[4]: https://docs.docker.com/engine/installation/linux/centos/
