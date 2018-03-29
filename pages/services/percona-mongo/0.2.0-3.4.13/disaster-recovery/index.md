@@ -9,8 +9,6 @@ enterprise: 'no'
 
 The service supports a custom plan named 'backup' for creating a consistent backup of the MongoDB replica set. This custom plan launches an instance of [Percona-Lab/mongodb_consistent_backup](), creates a consistent backup of the replica set and uploads the backup to remote storage. 
 
-**Note: mongodb_consistent_backup is an open-source tool with best-effort, community support ONLY!**
-
 Currently only AWS S3 is supported as an upload destination for backups, more upload methods coming in the future!
 
 There are two ways to configure backups, via the service definition section 'backup' (via the GUI or CLI) and/or the DCOS CLI.
@@ -52,7 +50,10 @@ A task named *'mongodb-consistent-backup-0-backup'* will exist for the duration 
 
 ### Stopping a Backup
 
-TBD
+To stop a running backup process:
+```bash
+dcos percona-mongo backup stop s3
+```
 
 ### Troubleshooting a Backup
 
