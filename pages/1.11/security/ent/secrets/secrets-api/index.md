@@ -99,7 +99,7 @@ Authentication tokens expire after five days by default. If your program needs t
 
 ## Text and binary secrets
 
-From DC/OS Enterprise version 1.11 the Secrets API supports text and binary secrets. A text secret is a text value encoded with UTF-8 encoding. The Secrets API passes through this value to a secret store backend without any modification. A binary secret is automatically encoded with base64 codec to a text format before it is passed to a secrets store backend.
+From DC/OS Enterprise version 1.11 the Secrets API supports text and binary secrets. A text secret is a text value encoded with UTF-8 encoding. The Secrets API passes through this value to a secret store backend without any modification. A binary secret is automatically encoded with the base64 codec to a text format before it is passed to a secrets store backend.
 
 Use cases for secret types:
 
@@ -107,22 +107,22 @@ Use cases for secret types:
 
 * **Binary**: all the text secrets and also binary files, like Java KeyStore, Kerberos keytab files
 
-**Note**: It is not recommended to use binary secrets values as environment variables. The POSIX environment variables cannot contain NUL bytes.
+**Note**: It is not recommended to use binary secrets values as environment variables. POSIX environment variables cannot contain `NUL` bytes.
 
 ### Storing a secret
 
-When an HTTP client is sending a secret value to the Secrets API it should send a `Content-Type` header containing information about a secret type. For backward compatibility with existing HTTP clients if a `PUT`/`PATCH` request is sent without the `Content-Type` header the Secrets API assumes that the secret is a text secret and it behaves as if `application/json` was included in a request.
+When an HTTP client is sending a secret value to the Secrets API it should send a `Content-Type` header containing information about a secret type. For backward compatibility with existing HTTP clients if a `PUT`/`PATCH` request is sent without a `Content-Type` header the DC/OS Secrets service assumes that the secret is a text secret and it behaves as if `application/json` was included in a request.
 
 Endpoints which accept both `application/json` and `application/octet-stream` values:
 
 * `PUT /secret/{store}/{path/to/secret}`
 * `PATCH /secret/{store}/{path/to/secret}`
 
-**Note**: The maximum file size for a `BASE64` encoded file is approximately one MiB, subtracting approximately one KB for the secret store metadata. This gives a room for storing a file of approximately max size of 768 KiB.
+**Note**: The maximum file size for a `BASE64` encoded file is approximately one MiB, subtracting approximately one KB for the secret store metadata. This gives a room for storing a file of approximately maximum size of 768 KiB.
 
 ### Retrieving a secret
 
-When retrieving a secret using the Secrets API an HTTP client issues a `GET /secret/{store}/{path/to/secret}` HTTP request. A request can contain an `Accept` header to indicate the Secrets API in what format would client like to get a secret value. It is possible to use `Accept: application/json` or `Accept: application/octet-stream` headers. If a client does not provide `Accept` header the Secrets API returns a secret value in the format in which it was stored in the DC/OS Secrets service. The Secrets API sends a `Content-Type` header in an HTTP response to indicate what type of value is being sent back in the response.
+To retrieve a secret using the Secrets API an HTTP client issues a `GET /secret/{store}/{path/to/secret}` HTTP request. A request can contain an `Accept` header to indicate the Secrets API in what format would client like to get a secret value. It is possible to use `Accept: application/json` or `Accept: application/octet-stream` headers. If a client does not provide an `Accept` header the Secrets API returns a secret value in the format in which it was stored in the DC/OS Secrets service. The Secrets API sends a `Content-Type` header in an HTTP response to indicate what type of value is being sent back in the response.
 
 For example, it is possible to store a text secret and retrieve it as binary data by providing an `Accept: application/octet-stream` header in an HTTP request.
 
