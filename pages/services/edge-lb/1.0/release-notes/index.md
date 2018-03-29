@@ -35,7 +35,8 @@ Shortlist:
 * The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.0/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
-* Marathon-LB and Edge-LB pool servers cannot run on the same agent without changing the default ports because they both require 80 and 443 by default.
+* Marathon-LB and Edge-LB pool servers cannot run on the same agent without changing the default ports because they both require 80/443 for serving traffic and 9090 for HAProxy statistics by default.
+
  An example is listed on [pool configuration with non-default ports](/services/edge-lb/1.0/pool-configuration/v2-examples/#internal-east-west-load-balancing/).
 
 # v1.0.0
