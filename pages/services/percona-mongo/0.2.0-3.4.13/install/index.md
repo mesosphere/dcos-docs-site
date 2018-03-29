@@ -4,12 +4,7 @@ menu_order: 20
 enterprise: 'no'
 ---
 
-## Note (remove before publishing)
-__The Install and Customization section will include recommended application configuration for (1) minimal (default) for development and (2) production environment.  These recommendations will be given by the TCS application SME consultant for the particular framework.__
-
------
-
-The default DC/OS Percona Server for MongoDB Service installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depeneding on the context of the deployment.
+The default DC/OS Percona Server for MongoDB Service installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 ## Prerequisites
 

@@ -4,9 +4,6 @@ menu_order: 90
 enterprise: 'no'
 ---
 
-## Note (remove before publishing)
-__Troubleshooting tips will also include a section for application (base technology) troubleshooting.__
-
 <a name="accessing-logs"></a>
 # Accessing Logs
 

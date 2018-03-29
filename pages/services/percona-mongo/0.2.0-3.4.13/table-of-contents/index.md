@@ -15,4 +15,3 @@ Table of Contents
 - [Limitations](limitations.md)
 - [Terms](terms-of-use.md)
 - [Support](support.md)
-- [Feature Matrix](feature-matrix.md)
