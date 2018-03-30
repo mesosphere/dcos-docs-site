@@ -30,6 +30,105 @@ The pmm-client will be installed, configured and started at the start time of th
 
 *Note: The PMM Client uses the ['clusterMonitor' MongoDB user](#system-users)*
 
+### Running PMM Server as a Marathon Job
+
+*Note: this feature is in beta. Some functionality of PMM Server may not function correctly.*
+
+The following process launches a single PMM Server container in DC/OS. This should be done **before** starting the percona-mongo service:
+1. Visit the *'Services'* tab in DC/OS.
+1. Select *'Run a Service'*.
+1. Select *'JSON Configuration'*.
+1. Paste the following PMM Server job definition, modify if required:
+```javascript
+{
+  "id": "/pmm-server",
+  "container": {
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "external": {
+          "name": "pmm-prometheus",
+          "provider": "dvdi",
+          "options": {
+            "dvdi/driver": "rexray"
+          }
+        },
+        "mode": "RW",
+        "containerPath": "/opt/prometheus/data"
+      },
+      {
+        "external": {
+          "name": "pmm-consul",
+          "provider": "dvdi",
+          "options": {
+            "dvdi/driver": "rexray"
+          }
+        },
+        "mode": "RW",
+        "containerPath": "/opt/consul-data"
+      },
+      {
+        "external": {
+          "name": "pmm-mysql",
+          "provider": "dvdi",
+          "options": {
+            "dvdi/driver": "rexray"
+          }
+        },
+        "mode": "RW",
+        "containerPath": "/var/lib/mysql"
+      },
+      {
+        "external": {
+          "name": "pmm-grafana",
+          "provider": "dvdi",
+          "options": {
+            "dvdi/driver": "rexray"
+          }
+        },
+        "mode": "RW",
+        "containerPath": "/var/lib/grafana"
+      }
+    ],
+    "docker": {
+      "image": "percona/pmm-server:1.8.1"
+    },
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 0,
+        "labels": {
+          "VIP_0": "/pmm-server:80"
+        },
+        "protocol": "tcp",
+        "name": "pmm-server"
+      }
+    ]
+  },
+  "cpus": 2,
+  "healthChecks": [
+    {
+      "portIndex": 0,
+      "protocol": "MESOS_HTTP",
+      "path": "/ping"
+    }
+  ],
+  "instances": 1,
+  "mem": 2048,
+  "networks": [
+    {
+      "name": "dcos",
+      "mode": "container"
+    }
+  ],
+  "requirePorts": false,
+  "constraints": [],
+  "fetch": []
+}
+```
+1. On success, the service will become available at the DC/OS VIP *'pmm-server.marathon.l4lb.thisdcos.directory:80'*. You may need to to use a [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administration/access-node/tunnel/) to visit the PMM HTTP interface *(at 'http://pmm-server.marathon.l4lb.thisdcos.directory')*.
+1. Use the DC/OS VIP *'pmm-server.marathon.l4lb.thisdcos.directory:80'* as the *'Percona PMM server address'* parameter in your DC/OS percona-mongo service configuration.
+
 ## Auditing
 
 The [Percona Server for MongoDB Auditing](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html) allows detailed logging of actions in MongoDB and is the configuration is automated by the DC/OS percona-mongo service.
