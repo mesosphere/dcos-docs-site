@@ -60,7 +60,6 @@ function main
 
     # echo "find ${INPUT_FOLDER}/${FILE_PATH} -type d -depth"
     # echo file -I "${FILE_PATH}"
-    # done=0
 
     # We find the index.md per folder so the final pdf is organised per folder not natively recursive
     while IFS= read -r SOURCE_FOLDERS
@@ -69,32 +68,30 @@ function main
         local d="$SOURCE_FOLDERS"
         # Target all the files whithin the foler by the same name
         NEW_FILE="${d}/${FILE_NAME}"
-        # Target the title in metadata to introduce them as h1 in the documents
-        while read -r MARKDOWN_SOURCE;
-        do
-          if [[ "${MARKDOWN_SOURCE}" =~ title:[[:space:]]([ a-zA-Z0-9]*) ]]; then
-            TITLE="${BASH_REMATCH[1]}"
-            echo "" >> "${TEMP_FILE}"
-            echo "# $TITLE" >> "${TEMP_FILE}"
-            echo "" >> "${TEMP_FILE}"
-            # "${done}"=1
-          fi
-          # I purposely break out of the loop so I dont loop through all the lines, I know title will be in the metadata
-          # if [ "{$done}" -ne 0 ]; then
-          #   break
-          # fi
-        done < "${NEW_FILE}"
 
         if [ -f "${NEW_FILE}" ]
         then
-
+          cat "${NEW_FILE}" >> "${TEMP_FILE}"
+          # Fix for all current H2
+          sed -i 's/^#[[:space:]]/## /g' "${TEMP_FILE}"
+          # Target the title in metadata to introduce them as h1 in the documents
+          while read -r MARKDOWN_SOURCE;
+          do
+            if [[ "${MARKDOWN_SOURCE}" =~ title:[[:space:]]([ a-zA-Z0-9]*) ]]; then
+              TITLE="${BASH_REMATCH[1]}"
+              sed -i "1i" ${TEMP_FILE}
+              sed -i "1i" "# $TITLE"  ${TEMP_FILE}
+              sed -i "1i" ${TEMP_FILE}
+              break
+            fi
+          done < "${TEMP_FILE}"
 
           # Create temporary file with all md content to send to pandoc
           # this avoids very long urls & long strings (Pandoc has a string limit)
           TEMP_FILES="${TEMP_FILES} ${TEMP_FILE}"
           echo "" >> "${TEMP_FILE}"
 
-          cat "${NEW_FILE}" >> "${TEMP_FILE}"
+          #cat "${NEW_FILE}" >> "${TEMP_FILE}"
         fi
       # Find recursively all the directories whithin a folder
       done < <(find "${INPUT_FOLDER}"/"${FILE_PATH}" -type d -depth)
