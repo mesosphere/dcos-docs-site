@@ -17,7 +17,7 @@ const imageExp = new RegExp(/(jpeg|png|svg|gif|jpg)/i);
 const mdv = require('mdv');
 
 // we activate the options
-const options = {debug: true};
+const options = { debug: true };
 
 // script that checks for broken image links in markdown files
 function walk(dir, done) {
@@ -58,14 +58,14 @@ function walk(dir, done) {
                         return `${line} : Image has anchors with empty text.`;
                       } else if (validate.localRefNoHash.length > 0) {
                         return `${line} : Image local ref has no hash.`;
-                      } else {
-                        return;
                       }
+                        return;
+
                     };
 
-                    let lineCheck = mdv.validate(line, options);
+                    const lineCheck = mdv.validate(line, options);
 
-                    let resultError = validateError(lineCheck);
+                    const resultError = validateError(lineCheck);
                     if (resultError) {
                       console.log(resultError);
                     }
