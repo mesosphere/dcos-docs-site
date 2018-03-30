@@ -24,7 +24,7 @@ The following resources are recommended for a Production deployment:
 
 **WARNING: Disks cannot be resized after deployment! Adjust the disk space requirements for the volume of your use case!**
 
-# Production DC/OS Agent Node Requirements
+# Production DC/OS Agent Node
 
 The recommendations in this section apply to the DC/OS Agent nodes running the percona-mongo service.
 

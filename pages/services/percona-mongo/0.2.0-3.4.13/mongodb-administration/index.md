@@ -17,7 +17,7 @@ Monitoring of [Percona Server for MongoDB](https://www.percona.com/software/mong
 
 The installation and configuration of the PMM Client is automated via the DC/OS percona-mongo Service.
 
-To enable the installation of the PMM Client on all MongoDB nodes launched by the service, visit the 'Percona Pmm' tab of the service configuration.
+To enable the installation of the PMM Client on all MongoDB nodes launched by the service, visit the 'Percona Pmm' tab of the service configuration and set the *"enabled"* field to true.
 
 In the 'Percona Pmm' tab there are fields to set the:
 - PMM Server Address *(hostname:port)*
@@ -27,16 +27,31 @@ In the 'Percona Pmm' tab there are fields to set the:
 - PMM Client Version
 - Port numbers for Linux and MongoDB monitoring *(default: 0 causes random port assignment)*
 
-The pmm-client will be installed, configured and started at the start time of the MongoDB tasks.
+The pmm-client will be installed, configured and started at the start time of the MongoDB tasks. Combined with the mongod logs, you will see the following lines *(or similar)* in the stdout logs:
+    ```shell
+    2018-03-29 17:51:38.114 3     mongodb-executor-linux  INFO    MongoDB server is now reachable
+    2018-03-29 17:51:38.114 3     mongodb-executor-linux  INFO    Repairing all PMM client services
+    2018-03-29 17:51:38.124 3     mongodb-executor-linux  INFO    Listing PMM services
+    2018-03-29 17:51:38.177 3     mongodb-executor-linux  INFO    Starting PMM metrics services  linux_port=1025 max_retries=5 mongodb_port=1026
+    2018-03-29 17:51:38.429 3     mongodb-executor-linux  INFO    Added PMM service linux:metrics, pmm-admin out: 'OK, now monitoring this system.'
+    2018-03-29 17:51:38.502 3     mongodb-executor-linux  INFO    Added PMM service mongodb:metrics, pmm-admin out: 'OK, now monitoring MongoDB metrics using URI clustermonitor:***@localhost:27017' 
+    2018-03-29 17:51:38.502 3     mongodb-executor-linux  INFO    Listing PMM services
+    2018-03-29 17:51:38.531 3     mongodb-executor-linux  INFO    Starting PMM Query Analytics (QAN) agent service  max_retries=5
+    2018-03-29 17:51:40.705 3     mongodb-executor-linux  INFO    Added PMM service mongodb:queries, pmm-admin out: 'OK, now monitoring MongoDB queries using URI clustermonitor:***@localhost:27017
+    It is required for correct operation that profiling of monitored MongoDB databases be enabled.
+    Note that profiling is not enabled by default because it may reduce the performance of your MongoDB server.
+    For more information read PMM documentation (https://www.percona.com/doc/percona-monitoring-and-management/conf-mongodb.html).'
+    2018-03-29 17:51:40.705 3     mongodb-executor-linux  INFO    Completed PMM client executor 
+    ```
 
 *Note: The PMM Client uses the ['clusterMonitor' MongoDB user](#system-users) to gather data*
 
 ### Running PMM Server as a Marathon Job
 
-*Note: this feature is in beta. Some features of the PMM Server and PMM Query Analytics may not function correctly.*
+*Note: this feature is in Beta. Some features of the PMM Server and PMM Query Analytics may not function correctly.*
 
 The following process launches a single PMM Server container in DC/OS. This should be done **before** starting the percona-mongo service:
-1. Visit the *'Services'* tab in DC/OS UI.
+1. Visit the *'Services'* tab of the DC/OS UI.
 1. Select *'Run a Service'*.
 1. Select *'JSON Configuration'*.
 1. Paste the following PMM Server job definition, modify if required:
@@ -132,11 +147,11 @@ The following process launches a single PMM Server container in DC/OS. This shou
 
 ## Auditing
 
-The [Percona Server for MongoDB Auditing](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html) allows detailed logging of actions in MongoDB and is the configuration is automated by the DC/OS percona-mongo service.
+The [Percona Server for MongoDB Auditing](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html) feature allows detailed logging of actions in MongoDB. The configuration of Auditing is automated by the DC/OS percona-mongo service.
 
 To enable Auditing via the UI:
 1. Edit a new or existing service configuration.
-1. Visit the 'Mongodb Auditlog' tab of the configuration.
+1. Visit the 'Mongodb Auditlog' tab of the service configuration.
 
 In the 'Mongodb Auditlog' tab there are fields to:
 1. Enable/disable the feature.
