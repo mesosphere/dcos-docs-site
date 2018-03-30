@@ -10,7 +10,7 @@ Please see the "Disaster and Recovery" section of the documentation.
 
 ## Monitoring
 
-Monitoring of Percona Server for MongoDB is currently only possible via the optional Percona Monitoring and Management. Monitoring via DC/OS Metrics is planned in the near future.
+Monitoring of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is currently only possible via the optional [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) support. Monitoring via DC/OS Metrics is planned in the near future.
 
 <a name="installing-pmm-client"></a>
 ### Installing PMM Client
@@ -36,7 +36,7 @@ The pmm-client will be installed, configured and started at the start time of th
 *Note: this feature is in beta. Some features of the PMM Server and PMM Query Analytics may not function correctly.*
 
 The following process launches a single PMM Server container in DC/OS. This should be done **before** starting the percona-mongo service:
-1. Visit the *'Services'* tab in DC/OS.
+1. Visit the *'Services'* tab in DC/OS UI.
 1. Select *'Run a Service'*.
 1. Select *'JSON Configuration'*.
 1. Paste the following PMM Server job definition, modify if required:
