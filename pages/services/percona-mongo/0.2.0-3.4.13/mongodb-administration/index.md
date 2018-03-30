@@ -12,7 +12,7 @@ Please see the "Disaster and Recovery" section of the documentation.
 
 Monitoring of Percona Server for MongoDB is currently only possible via the optional Percona Monitoring and Management. Monitoring via DC/OS Metrics is planned in the near future.
 
-<a name="installing-pmm-client">
+<a name="installing-pmm-client"></a>
 ### Installing PMM Client
 
 The installation and configuration of the PMM Client is automated via the DC/OS percona-mongo Service.
@@ -29,7 +29,7 @@ In the 'Percona Pmm' tab there are fields to set the:
 
 The pmm-client will be installed, configured and started at the start time of the MongoDB tasks.
 
-*Note: The PMM Client uses the ['clusterMonitor' MongoDB user](#system-users)*
+*Note: The PMM Client uses the ['clusterMonitor' MongoDB user](#system-users) to gather data*
 
 ### Running PMM Server as a Marathon Job
 
