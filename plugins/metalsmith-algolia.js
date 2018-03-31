@@ -3,6 +3,7 @@ const semverRegex = require('semver-regex');
 const semverSort = require('semver-sort');
 const sanitizeHtml = require('sanitize-html');
 const extname = require('path').extname;
+const sep = require('path').sep;
 const debug = require('debug')('metalsmith-algolia');
 
 /**
@@ -152,7 +153,7 @@ const buildSemverMap = (files) => {
 
   // Filter
   for(let file in files) {
-    const pathParts = file.split('/');
+    const pathParts = file.split(sep);
     if(pathParts[0] == 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) == -1) {
       versions.push(pathParts[2]);
     }
@@ -181,7 +182,7 @@ const buildSemverMap = (files) => {
 // Get shared attributes for a record.
 const getSharedAttributes = (fileData, hierarchy, semverMap) => {
 
-  const pathParts = fileData.path.split('/')
+  const pathParts = fileData.path.split(sep)
   let record = {};
 
   if (pathParts[0] === 'test') {

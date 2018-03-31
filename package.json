@@ -13,9 +13,9 @@
     ]
   },
   "scripts": {
-    "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
-    "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
-    "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
+    "dev": "cross-env NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
+    "build": "cross-env NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
+    "build-pdf": "cross-env NODE_ENV=pdf DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
     "eslint-init": "eslint --init",
@@ -30,6 +30,7 @@
     "browser-sync": "^2.18.12",
     "cheerio": "^1.0.0-rc.2",
     "crawler": "^1.0.5",
+    "cross-env": "^5.1.4",
     "css-loader": "^0.28.4",
     "debug": "^3.1.0",
     "eslint": "^4.3.0",

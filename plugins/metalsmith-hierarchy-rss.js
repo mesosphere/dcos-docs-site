@@ -20,8 +20,8 @@ function createFeed(opts, metalsmith, page) {
     feedOptions.description = metadata.description;
   }
   if(metadata.url && page.path) {
-    feedOptions.feed_url = path.join(metadata.url, page.path, 'rss.xml');
-    feedOptions.site_url = path.join(metadata.url, page.path);
+    feedOptions.feed_url = metadata.url.concat(page.path, '/rss.xml');
+    feedOptions.site_url = metadata.url.concat(page.path);
   }
   if(metadata.copyright) {
     feedOptions.copyright = metadata.copyright;
@@ -46,7 +46,7 @@ function createFeed(opts, metalsmith, page) {
         }
       }
       if(c.path) {
-        itemOptions.url = path.join(metadata.url, c.path);
+        itemOptions.url = metadata.url.concat(c.path);
       }
       feed.item(itemOptions);
       walk(c);

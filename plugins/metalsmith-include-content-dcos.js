@@ -2,6 +2,7 @@
 
 const debug = require('debug')('metalsmith-include-content-dcos');
 const pluginKit = require('metalsmith-plugin-kit');
+const path = require('path');
 
 /**
  * A Metalsmith plugin that allows content to be included (nested)
@@ -31,7 +32,9 @@ module.exports = function (options) {
                 includePath = includePath.slice(1)
             }
             // Trim any whitespace, e.g. trailing newline from regex:
-            includePath = includePath.trim()
+            includePath = includePath.trim();
+            // Normalize path to platform specific path segment separator
+            includePath = path.normalize(includePath);
 
             debug('Including %s in %s...', includePath, filename);
             if (!files[includePath]) {
