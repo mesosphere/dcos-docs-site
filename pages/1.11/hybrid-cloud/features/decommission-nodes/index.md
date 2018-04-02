@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Decommission Nodes
-title: Decomission Nodes
+title: Decommission Nodes
 menuWeight: 15
 excerpt:
 enterprise: false
@@ -18,12 +18,12 @@ If your node has gone down in an unplanned way, skip to the Decomission the Node
 1. Enter the following commands to stop the node.
 
   -  **Private agent**
-    
+
   ```bash
   sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
   ```
   -  **Public agent**
-    
+
   ```bash
   ⁠⁠⁠⁠sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave-public && systemctl stop dcos-mesos-slave-public'
   ```

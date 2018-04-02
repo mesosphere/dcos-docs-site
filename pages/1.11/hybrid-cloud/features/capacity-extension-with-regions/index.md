@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Capactiy Extensions with Regions
-title: Capactiy Extensions with Regions
+navigationTitle:  Capacity Extensions with Regions
+title: Capacity Extensions with Regions
 menuWeight: 10
 excerpt:
 enterprise: false
