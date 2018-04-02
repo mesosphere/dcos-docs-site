@@ -5,7 +5,6 @@ title: System Requirements
 menuWeight: 0
 excerpt:
 
-enterprise: true
 ---
 
 
@@ -108,7 +107,7 @@ Here are the agent node hardware requirements.
 *   Each node is network accessible from the bootstrap node.
 *   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 *   All ports should be open for communication from the master nodes to the agent nodes and vice versa.
-*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
+*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`.
 
 ### High Speed Internet Access
 
@@ -122,7 +121,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 Docker must be installed on all bootstrap and cluster nodes. The supported versions of Docker are:
 
-- 1.7.x 
+- 1.7.x
 - 1.8.x
 - 1.9.x
 - 1.10.x
@@ -154,7 +153,7 @@ For more more information, see Docker's <a href="http://docs.docker.com/engine/i
 
 ### Disable sudo password prompts
 
-To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo. 
+To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo.
 
 Add the following line to your `/etc/sudoers` file. This disables the sudo password prompt.
 
@@ -168,7 +167,7 @@ Alternatively, you can SSH as the root user.
 
 Before installing DC/OS, you must ensure that your bootstrap node has the following prerequisites.
 
-**Important:** 
+**Important:**
 
 * If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.7/administration/installing/ent/custom/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
