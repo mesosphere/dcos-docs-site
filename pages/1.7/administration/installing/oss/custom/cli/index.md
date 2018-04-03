@@ -4,6 +4,7 @@ excerpt:
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200
+oss: true
 ---
 
 The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options.
