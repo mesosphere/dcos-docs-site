@@ -290,6 +290,6 @@ For example, if installing with these settings:
 then the principals to create would be:
 ```
 example/zookeeper-0-server.agoodexample.cluster-1.example.net@EXAMPLE
-example/zookeeper-0-server.agoodexample.cluster-1.example.net@EXAMPLE
-example/zookeeper-0-server.agoodexample.cluster-1.example.net@EXAMPLE
+example/zookeeper-1-server.agoodexample.cluster-1.example.net@EXAMPLE
+example/zookeeper-2-server.agoodexample.cluster-1.example.net@EXAMPLE
 ```
