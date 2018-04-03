@@ -29,7 +29,6 @@
     "bootprint-openapi": "^1.1.0",
     "browser-sync": "^2.18.12",
     "cheerio": "^1.0.0-rc.2",
-    "compress-images": "^1.2.0",
     "crawler": "^1.0.5",
     "css-loader": "^0.28.4",
     "debug": "^3.1.0",
@@ -42,6 +41,10 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "fs-finder": "^1.8.1",
     "html-minifier": "^3.5.3",
+    "imagemin": "^5.3.1",
+    "imagemin-gifsicle": "^5.2.0",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^5.1.0",
     "inputformat-to-jstransformer": "^1.2.1",
     "js-yaml": "^3.9.1",
     "jstransformer": "^1.0.0",
@@ -84,6 +87,7 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
+    "imagemin-svgo": "^6.0.0",
     "to-vfile": "^2.2.0"
   }
 }
