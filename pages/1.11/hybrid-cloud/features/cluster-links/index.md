@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Cluster Links
-title: Cluster Links
+navigationTitle:  Linked Clusters
+title: Linked Clusters
 menuWeight: 0
 excerpt:
 enterprise: true
 ---
 
-A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster.
+A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster to achieve linked clusters.
 
 You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) and [dcos cluster unlink](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) commands and the [cluster link API](/1.11/administering-clusters/multiple-clusters/cluster-link-api). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
 
