@@ -71,27 +71,31 @@ function main
 
         if [ -f "${NEW_FILE}" ]
         then
-          cat "${NEW_FILE}" >> "${TEMP_FILE}"
-          # Fix for all current H2
-          sed -i 's/^#[[:space:]]/## /g' "${TEMP_FILE}"
+          MARKDOWN_FILE=$(mktemp)
+
           # Target the title in metadata to introduce them as h1 in the documents
           while read -r MARKDOWN_SOURCE;
           do
             if [[ "${MARKDOWN_SOURCE}" =~ title:[[:space:]]([ a-zA-Z0-9]*) ]]; then
               TITLE="${BASH_REMATCH[1]}"
-              sed -i "1i" ${TEMP_FILE}
-              sed -i "1i" "# $TITLE"  ${TEMP_FILE}
-              sed -i "1i" ${TEMP_FILE}
+              echo "" >> ${MARKDOWN_FILE}
+              echo "# ${TITLE}" >> ${MARKDOWN_FILE}
+              echo "" >> ${MARKDOWN_FILE}
               break
             fi
-          done < "${TEMP_FILE}"
+          done < "${NEW_FILE}"
+
+          cat ${NEW_FILE} >> ${MARKDOWN_FILE}
+
+          # Fix for all current H2
+          sed -i '4,$s/^#[[:space:]]/## /g' "${MARKDOWN_FILE}"
 
           # Create temporary file with all md content to send to pandoc
           # this avoids very long urls & long strings (Pandoc has a string limit)
           TEMP_FILES="${TEMP_FILES} ${TEMP_FILE}"
           echo "" >> "${TEMP_FILE}"
-
-          #cat "${NEW_FILE}" >> "${TEMP_FILE}"
+          cat "${MARKDOWN_FILE}" >> "${TEMP_FILE}"
+          rm -f ${MARKDOWN_FILE}
         fi
       # Find recursively all the directories whithin a folder
       done < <(find "${INPUT_FOLDER}"/"${FILE_PATH}" -type d -depth)
