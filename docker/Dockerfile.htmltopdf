@@ -15,16 +15,16 @@ RUN mkdir /src
 WORKDIR /src
 ADD . /src/
 
-#RUN npm install
+RUN npm install
 
-#RUN make build-swagger
-#RUN make build-ngindox
+RUN make build-swagger
+RUN make build-ngindox
 
-#RUN GIT_BRANCH=$git_branch
+RUN GIT_BRANCH=$git_branch
 # npm run build-pdf
 
 #
-# Lint images and markdown
+# Lint images and markdown # This are turned off and to be moved to checkout pipeline
 #
 #RUN make check-images
 #RUN make check-markdown
@@ -43,8 +43,6 @@ RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55
 RUN apt-get install -y software-properties-common python-software-properties
 RUN add-apt-repository -y ppa:jonathonf/texlive-2016
 RUN apt-get update
-
-#RUN apt-get -yq update && apt-get install -y python-pip wget texlive-full librsvg2-bin
 
 RUN apt-get -yq update && apt-get install -y python-pip wget texlive-xmltex passivetex jadetex xindy texlive-xetex texlive-science-doc texlive-science texlive-publishers texlive-luatex texlive-bibtex-extra  texlive-metapost texlive-latex-recommended librsvg2-bin
 
