@@ -29,7 +29,7 @@ You can also access the logs via the Mesos UI:
 
 <a name="accessing-metrics"></a>
 # Accessing Metrics
-_PROVIDE INSTRUCTIONS FOR ACCESSING METRICS OR INDICATE A LACK OF METRICS W/I LIMITATIONS.MD._
+Service-level metrics will be added in a future release of this service.
 
 <a name="restarting-a-node"></a>
 # Restarting a Node

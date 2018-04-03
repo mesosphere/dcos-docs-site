@@ -13,11 +13,11 @@ enterprise: false
 
 Welcome to the documentation for the DC/OS [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) service. For more information about new and changed features, see the [release notes](https://github.com/mesosphere/dcos-mongo/releases/).
 
-[Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is a free, enhanced, fully compatible, open source, drop-in replacement for the MongoDB® Community Server that includes enterprise-grade features and functionality [Percona Server for MongoDB](https://www.percona.com/softtware/mongo-database/percona-server-for-mongodb) provides enterprises all the cost and agility benefits provided by free, proven open source software that delivers all the latest MongoDB Community Edition features, with additional Enterprise features and a greater choice of storage engines. Along with improved insight into the database environment, the solution provides enhanced control options for optimizing a wider range of database workloads with greater reliability and security.
+[Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is a free, enhanced, fully compatible, open source, drop-in replacement for the MongoDB® Community Server that includes enterprise-grade features and functionality. [Percona Server for MongoDB](https://www.percona.com/softtware/mongo-database/percona-server-for-mongodb) provides enterprises all the cost and agility benefits provided by free, proven open source software that delivers all the latest MongoDB Community Edition features, with additional Enterprise features and a greater choice of storage engines. Along with improved insight into the database environment, the solution provides enhanced control options for optimizing a wider range of database workloads with greater reliability and security.
 
 This DC/OS service installs and configures a [MongoDB Replica Set](https://docs.mongodb.com/manual/replication/) and provides additional features for administration, monitoring and backups.
 
-Benefits
+# Benefits
 
 DC/OS percona-mongo offers the following benefits of a semi-managed service:
 

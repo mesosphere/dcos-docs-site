@@ -164,10 +164,6 @@ Let's say we have the following deployment of our nodes
     1. Redeploy `mongo-rs-1` from the decommissioned node to somewhere within the new whitelist: `dcos percona-mongo pod replace mongo-rs-1`
 1. Wait for `mongo-rs-1` to be up and healthy before continuing with any other replacement operations.
 
-_ADD ONE OR MORE SECTIONS HERE TO DESCRIBE RE-CONFIGURATION OF HIGHLIGHTED SERVICE-WIDE OPTIONS EXPOSED BY YOUR PRODUCT INTEGRATION._
-
-_ADD ONE OR MORE SECTIONS HERE TO DESCRIBE RE-CONFIGURATION OF HIGHLIGHTED NODE-SPECIFIC OPTIONS EXPOSED BY YOUR PRODUCT INTEGRATION._
-
 <a name="restarting-a-node"></a>
 ## Restarting a Node
 
@@ -182,13 +178,50 @@ This operation will move a node to a new system and will discard the persistent 
 
 **Note:** Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can automate node replacement according to your own preferences.
 
-1. _ANY STEPS TO WIND DOWN A NODE BEFORE IT'S WIPED/DECOMMISSIONED GO HERE._
+1. For data safety, ensure there is at least one healthy node in the replica set and ideally a recent successful backup of MongoDB data! Ensure there is a ["majority" in the MongoDB Replica Set](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern._dq_majority_dq_) if you do not want the replica set to become read-only during the node replacement!
+1. Connect to the node and check if the node is the [Replica Set Primary](https://docs.mongodb.com/manual/core/replica-set-primary/). If the *'rs.isMaster().ismaster'* command returns *'true'*, the node is the PRIMARY member.
+    ```shell
+    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    > rs.isMaster().ismaster
+    true
+    ```
+1. If the node is the PRIMARY member, run a [Replica Set Step Down](https://docs.mongodb.com/manual/reference/method/rs.stepDown/).
+    ```shell
+    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    > rs.stepDown()
+    2018-04-03T13:58:29.166+0200 E QUERY    [thread1] Error: error doing query: failed: network error while attempting to run command 'replSetStepDown' on host '10.2.3.1:27017'  :
+    DB.prototype.runCommand@src/mongo/shell/db.js:132:1
+    DB.prototype.adminCommand@src/mongo/shell/db.js:150:16
+    rs.stepDown@src/mongo/shell/utils.js:1274:12
+    @(shell):1:1
+    2018-04-03T13:58:29.167+0200 I NETWORK  [thread1] trying reconnect to 10.2.3.1:27017 (10.2.3.1) failed
+    2018-04-03T13:58:29.168+0200 I NETWORK  [thread1] reconnect 10.2.3.1:27017 (10.2.3.1) ok
+    test1:SECONDARY> 
+    ```
 1. Run `dcos percona-mongo pod replace mongo-rs-<NUM>` to halt the current instance with id `<NUM>` (if still running) and launch a new instance elsewhere.
 
 For example, let's say `mongo-rs-2`'s host system has died and `mongo-rs-2` needs to be moved.
 
-1. _DETAILED INSTRUCTIONS FOR WINDING DOWN A NODE, IF NEEDED FOR YOUR SERVICE, GO HERE._
-1. _"NOW THAT THE NODE HAS BEEN DECOMMISSIONED," (IF NEEDED BY YOUR SERVICE)_ start `mongo-rs-2` at a new location in the cluster.
+1. Connect to the node and check if the node is the [Replica Set Primary](https://docs.mongodb.com/manual/core/replica-set-primary/). If the *'rs.isMaster().ismaster'* command returns *'true'*, the node is the PRIMARY member.
+    ```shell
+    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    > rs.isMaster().ismaster
+    true
+    ```
+1. If the node is the PRIMARY member, run a [Replica Set Step Down](https://docs.mongodb.com/manual/reference/method/rs.stepDown/).
+    ```shell
+    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    > rs.stepDown()
+    2018-04-03T13:58:29.166+0200 E QUERY    [thread1] Error: error doing query: failed: network error while attempting to run command 'replSetStepDown' on host '10.2.3.1:27017'  :
+    DB.prototype.runCommand@src/mongo/shell/db.js:132:1
+    DB.prototype.adminCommand@src/mongo/shell/db.js:150:16
+    rs.stepDown@src/mongo/shell/utils.js:1274:12
+    @(shell):1:1
+    2018-04-03T13:58:29.167+0200 I NETWORK  [thread1] trying reconnect to 10.2.3.1:27017 (10.2.3.1) failed
+    2018-04-03T13:58:29.168+0200 I NETWORK  [thread1] reconnect 10.2.3.1:27017 (10.2.3.1) ok
+    test1:SECONDARY> 
+    ```
+1. Now that the node has been decommissioned, start `mongo-rs-2` at a new location in the cluster.
     ```shell
     dcos percona-mongo pod replace mongo-rs-2
     ```

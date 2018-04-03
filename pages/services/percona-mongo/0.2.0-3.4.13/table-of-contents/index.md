@@ -7,7 +7,6 @@ Table of Contents
 - [Connecting Clients](connecting-clients.md)
 - [Managing](managing.md)
 - [MongoDB Administration](mongodb-administration.md)
-- [Authentication](authentication.md)
 - [Disaster Recovery](disaster-recovery.md)
 - [Deployment Best Practices](deploy-best-practice.md)
 - [Troubleshooting](troubleshooting.md)

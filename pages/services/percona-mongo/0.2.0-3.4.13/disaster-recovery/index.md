@@ -20,7 +20,7 @@ The service supports the ability to launch a dedicated MongoDB [hidden secondary
 
 The use of a dedicated backup secondary gurrantees backups *(a very resource-intensive process)* do not impact database nodes used by the application, therefore we recommend this is enabled when using backups. Enabling a hidden secondary will add a task named *'backup-0-mongod'* to the service. This node will inherit all settings from the other replica set nodes.
 
-### Start a Backup
+### Starting a Backup
 
 Backups are started using the 'percona-mongo' CLI modules 'backup' command.
 

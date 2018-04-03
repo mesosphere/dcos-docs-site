@@ -12,7 +12,7 @@ The default DC/OS Percona Server for MongoDB Service installation provides reaso
   - `strict` [security mode](https://docs.mesosphere.com/latest/administration/installing/custom/configuration-parameters/#security) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
-- Your cluster must have at least _NUMBER_ private nodes.
+- Your cluster must have at least 3 private nodes.
 
 # Installing from the DC/OS CLI
 
@@ -32,7 +32,7 @@ dcos package install percona-mongo --options=options.json
 
 For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
 
-## Installng from the DC/OS Web Interface
+## Installing from the DC/OS Web Interface
 
 You can [install percona-mongo from the DC/OS web interface](https://docs.mesosphere.com/latest/usage/managing-services/install/). If you install percona-mongo from the web interface, you must install the DC/OS percona-mongo CLI subcommands separately. From the DC/OS CLI, enter:
 

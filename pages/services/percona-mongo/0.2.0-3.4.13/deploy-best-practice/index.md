@@ -7,7 +7,7 @@ enterprise: 'no'
 
 # Minimum MongoDB Node Requirements
 
-The following resources are the service default, recommended for Development and testing only:
+The following resources are the service default, recommended for Development and Testing only:
 - 3 x MongoDB Nodes *('count')*
 - 1 x CPUs per node
 - 1024MB RAM per node
@@ -15,7 +15,7 @@ The following resources are the service default, recommended for Development and
 
 # Production MongoDB Node Requirements
 
-The following resources are recommended for a Production deployment:
+The following resources are recommended for a production deployment:
 - 3 x MongoDB Nodes *('count')*
 - 4 x CPUs per node
 - 4096MB RAM per node
@@ -75,11 +75,11 @@ NUMA *(Non-Uniform Memory Access)* Architecture should be disabled on the DC/OS 
 
 We recommend NUMA is disabled on the DC/OS Agent node. Please consult your operating system or system manual to do this.
 
-### Transparent HugePages *(RedHat/CentOS only)*
+### Transparent HugePages *(Red Hat/CentOS only)*
 
-*Note: this section does not apply to Debian/Ubuntu or CentOS/RedHat 5 and lower*
+*Note: this section does not apply to Debian/Ubuntu or CentOS/Red Hat 5 and lower.*
 
-Recent versions of CentOS and RedHat enable a memory optimisation named Transparent HugePages. We recommend this is disabled as it does not perform optimally under MongoDB *(or most other)* workloads.
+Recent versions of CentOS and Red Hat enable a memory optimisation named Transparent HugePages. We recommend this is disabled as it does not perform optimally under MongoDB *(or most other)* workloads.
 
 MongoDB will log the following warning if Transparent HugePages are enabled:
 
