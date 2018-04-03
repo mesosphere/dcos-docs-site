@@ -10,23 +10,30 @@
 
 /* 1. Set the variables so I get the data that was either introduced or changed  */
 
-/*    *****************
-*     Get information from Last Changes Plugin and set up Env. Variables
-*     *****************
+/*     *******************************************************************
+**      Get information from Last Changes Plugin and set up Env.Variables
+**     *******************************************************************
 */
-// pipeline {
-//     agent { docker {image 'node:6.3'} }
 
-//     stages {
-//         stage('build') {
-//             steps {
-//                 sh 'npm --version'
+pipeline {
+    agent any
 
-//             }
-//         }
-//     }
-// }
-
-/* 2. Find those files and run the scripts to lint */
-
-/* 3. Run the compression script on any images */
+    stages {
+        stage('Checkout') {
+            git 'https://github.com/jenkinsci/last-changes-plugin.git'
+        }
+        stage("last-changes") {
+            def publisher = LastChanges.getLastChangesPublisher "PREVIOUS_REVISION", "SIDE", "LINE", true, true, "", "", "", "", ""
+                publisher.publishLastChanges()
+                def changes = publisher.getLastChanges()
+                println(changes.getEscapeDiff())
+                for (commit in changes.getCommit()) {
+                    println(commit)
+                    def commitInfo = commit.getCommitInfo()
+                    println(commitInfo)
+                    println(commitInfo.getCommitMessage())
+                    println(commit.getChanges())
+                }
+        }
+    }
+}
