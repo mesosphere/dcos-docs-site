@@ -3,5 +3,5 @@
   <Description>description</Description>
   <Url type="text/html" method="get" template="https://docs.mesosphere.com?={searchTerms}"/>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image height="32" width="32"type="image/png">linkToImage</Image>
+  <Image height="32" width="32" type="image/png">linkToImage</Image>
 </OpenSearchDescription>
