@@ -15,6 +15,12 @@
 **     *******************************************************************
 */
 
+/* Set up the files I need to read variables into:
+*/
+def definingFile = "./scripts/set-folders-to-build.js";
+def newFile = new File(definingFile)
+def w = newFile.newWriter()
+
 pipeline {
     agent any
 
@@ -31,8 +37,15 @@ pipeline {
                     println(commit)
                     def commitInfo = commit.getCommitInfo()
                     println(commitInfo)
+                    def commitMessage = commitInfor.getCommitMessage()
                     println(commitInfo.getCommitMessage())
+                    def commitChanges = commit.getChanges()
                     println(commit.getChanges())
+
+                    // write the variables into the file, and close the writer
+                    newFile.newWriter().withWriter { w ->
+                        w << sh "echo $commitInfo, $commitMessage, $commitChanges"
+                    }
                 }
         }
     }
