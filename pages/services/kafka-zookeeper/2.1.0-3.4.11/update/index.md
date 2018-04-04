@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:
 excerpt:
-title: Uninstall
-menuWeight: 30
+title: Update
+menuWeight: 130
 
 model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
-#include /services/include/uninstall.tmpl
+#include /services/include/update.tmpl

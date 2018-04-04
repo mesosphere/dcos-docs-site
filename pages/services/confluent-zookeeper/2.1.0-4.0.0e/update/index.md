@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:
 excerpt:
-title: Upgrade
+title: Update
 menuWeight: 130
 
 model: /services/confluent-zookeeper/data.yml
@@ -11,5 +11,4 @@ render: mustache
 
 <!-- Imported from git@github.com:mesosphere/dcos-zookeeper.git:update-docs -->
 
-# Overview
-We support upgrade/rollback between adjacent versions only. Concretely, to upgrade from version 2 to version 4, you must upgrade from 2 -> 3, then from 3 -> 4.
+#include /services/include/update.tmpl

@@ -1,8 +1,8 @@
 # Common values:
 
-packageName: kafka
-serviceName: kafka
-techName: Confluent
+packageName: confluent-kafka
+serviceName: confluent-kafka
+techName: Confluent Kafka
 techShortName: Kafka
 
 # Values specific to certain templates:
