@@ -78,8 +78,7 @@ You can use either of the following methods to determine the security mode of an
 
 - [SSH](/1.10/administering-clusters/sshcluster/) into your master and view the contents of `/opt/mesosphere/etc/bootstrap-config.json`.
 
-- Use the DC/OS UI/Dashboard and go to:
-DC/OS UI -> Cluster -> Overview -> Scroll down to the bottom, to Bootstrap config: ![SECURITY MODE strict](/1.10/img/discover-security-mode.png).
+- Use the DC/OS UI/Dashboard to find the security mode.
 
 # <a name="authentication"></a>Authentication
 All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/1.10/security/ent/service-auth/).
