@@ -107,7 +107,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 ### adminrouter_auth_cache_enabled
 [/enterprise]
 
-_This option was Added in DC/OS 1.11.1._
+_This option was added in DC/OS 1.11.1._
 
 Controls whether the Admin Router authorization cache is enabled.
 
