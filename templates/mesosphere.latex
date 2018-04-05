@@ -23,6 +23,7 @@ $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
+\listfiles
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -250,7 +251,7 @@ $endif$
 $if(numbersections)$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
 $else$
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{2}
 $endif$
 $if(beamer)$
 $else$
@@ -425,9 +426,10 @@ $endif$
 % TOC depth and
 % section numbering depth
 %
-\setcounter{tocdepth}{1}
+\setcounter{section}{3}
+\setcounter{tocdepth}{3}
 %$if(numbersections)$
-%\setcounter{secnumdepth}{1}
+\setcounter{secnumdepth}{7}
 %$endif$
 
 %
@@ -496,7 +498,6 @@ $endif$
 \usepackage{titling}
 \title{$title$}
 \author{$for(author)$$author$$sep$, $endfor$}
-
 %
 % tables
 %
@@ -510,7 +511,7 @@ $if(tables)$
 \setlength\heavyrulewidth{0.3ex}      % thickness of \toprule, \bottomrule
 \renewcommand{\arraystretch}{1.3}     % spacing (padding)
 \rowcolors{3}{}{table-row-color!100}  % row color
-
+\setcounter{section}{2}
 % Reset rownum counter so that each table
 % starts with the same row colors.
 % https://tex.stackexchange.com/questions/170637/restarting-rowcolors
@@ -689,7 +690,7 @@ $else$
 $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
 $endif$
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{3}
 \tableofcontents
 }
 $endif$

@@ -41,6 +41,10 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "fs-finder": "^1.8.1",
     "html-minifier": "^3.5.3",
+    "imagemin": "^5.3.1",
+    "imagemin-gifsicle": "^5.2.0",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^5.1.0",
     "inputformat-to-jstransformer": "^1.2.1",
     "js-yaml": "^3.9.1",
     "jstransformer": "^1.0.0",
@@ -83,6 +87,7 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
+    "imagemin-svgo": "^6.0.0",
     "to-vfile": "^2.2.0"
   }
 }
