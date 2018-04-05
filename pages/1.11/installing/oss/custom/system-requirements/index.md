@@ -78,6 +78,13 @@ The agent nodes must also have:
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
     ```
 
+* Disable DNSmasq (DC/OS requires access to port 53)
+
+    ```bash
+    sudo systemctl stop dnsmasq
+    sudo systemctl disable dnsmasq.service
+    ```
+
 *   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` must be on the same mountpoint as `/`.  This is required because DC/OS installs systemd unit files under `/opt/mesosphere`. All systemd units must be available for enumeration during the initializing of the initial ramdisk at boot. If `/opt` is on a different partition or volume, systemd will fail to discover these units during the initialization of the ramdisk and DC/OS will not automatically restart upon reboot.
 
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
@@ -103,10 +110,12 @@ The agent nodes must also have:
 
 ### Port and Protocol Configuration
 
-*   Secure Shell (SSH) must be enabled on all nodes.
+*   Secure shell (SSH) must be enabled on all nodes.
 *   Internet Control Message Protocol (ICMP) must be enabled on all nodes.
+*   All hostnames (FQDN and short hostnames) must be resolvable in DNS; both forward and reverse lookups must succeed.
 *   Each node is network accessible from the bootstrap node.
 *   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
+*   All ports should be open for communication from the master nodes to the agent nodes and vice versa.
 *   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`.
 
 ### High Speed Internet Access
@@ -137,8 +146,7 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 Each Linux distribution requires Docker to be installed in a specific way:
 
-*   **CentOS** - [Install Docker from Docker's yum repository][2].
-*   **RHEL** - Install Docker by using a subscription channel. For more information, see <a href="https://access.redhat.com/articles/881893" target="_blank">Docker Formatted Container Images on Red Hat Systems</a>. <!-- curl -sSL https://get.docker.com | sudo sh -->
+*   **CentOS/RHEL** - [Install Docker from Docker's yum repository][2].
 *   **CoreOS** - Comes with Docker pre-installed and pre-configured.
 
 For more more information, see Docker's <a href="http://docs.docker.com/engine/installation/" target="_blank">distribution-specific installation instructions</a>.
