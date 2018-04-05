@@ -111,19 +111,8 @@ _This option was Added in DC/OS 1.11.1._
 
 Controls whether the Admin Router authorization cache is enabled.
 
-Most DC/OS authorizers (Mesos, Marathon, etc.) cache a user's permissions for 5 seconds after performing an authorization check for that user.
-This prevents users who issue bursts of requests from overloading the IAM.
-To date Admin Router did not implement caching of permissions.
-This meant that every request to certain endpoints through Admin Router triggered an authorization check to ensure that the user has sufficient permissions to do so.
-While this works well for typical human interaction with a DC/OS cluster we found that applications connecting to the cluster through Admin Router often issued many requests in the space of a fewf seconds.
-Such a high volume of requests, each leading to a separate authorization check, easily placed too much load on the IAM.
-With the IAM overloaded its performance would degrade and authorization checks throughout the cluster would begin to timeout.
-The solution was to give Admin Router a short-lived authorization cache similar to that implemented by Mesos and Marathon.
-As some users may rely on Admin Router not caching permissions we decided not to enable this feature by default until the next major DC/OS release, namely DC/OS 1.12.
-Users who can tolerate a 5 seconds delay from modifying a user's permissions to having them take effect through Admin Router are recommended to enable this feature.
-
 *   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
-*   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5s after performing an authorization check. This prevents users that issue bursts of requests from overloading the IAM.
+*   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5s after performing an authorization check.
 
 ### adminrouter_tls_1_0_enabled
 
