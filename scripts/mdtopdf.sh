@@ -56,10 +56,8 @@ function main
 
      # There is an index.md whithing every file
      FILE_NAME="index.md"
+     # We create a tmpfile to send to Pandoc with the markdown
      TEMP_FILE=$(mktemp)
-
-    # echo "find ${INPUT_FOLDER}/${FILE_PATH} -type d -depth"
-    # echo file -I "${FILE_PATH}"
 
     # We find the index.md per folder so the final pdf is organised per folder not natively recursive
     while IFS= read -r SOURCE_FOLDERS
@@ -77,6 +75,7 @@ function main
           while read -r MARKDOWN_SOURCE;
           do
             if [[ "${MARKDOWN_SOURCE}" =~ title:[[:space:]]([ a-zA-Z0-9]*) ]]; then
+              # Find the title in the file and put it in the file
               TITLE="${BASH_REMATCH[1]}"
               echo "" >> ${MARKDOWN_FILE}
               echo "# ${TITLE}" >> ${MARKDOWN_FILE}
@@ -85,7 +84,7 @@ function main
             fi
           done < "${NEW_FILE}"
 
-          cat ${NEW_FILE} >> ${MARKDOWN_FILE}
+          cat "${NEW_FILE}" >> "${MARKDOWN_FILE}"
 
           # Fix for all current H2
           sed -i '4,$s/^#[[:space:]]/## /g' "${MARKDOWN_FILE}"
@@ -98,7 +97,7 @@ function main
           rm -f ${MARKDOWN_FILE}
         fi
       # Find recursively all the directories whithin a folder
-      done < <(find "${INPUT_FOLDER}"/"${FILE_PATH}" -type d -depth)
+      done < <(find "${INPUT_FOLDER}"/"${FILE_PATH}" )
 
      # Fix for absolute paths images urls
      sed -i 's,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.png\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.jpg\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.jpeg\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.gif\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.svg\),..\1\2,g' "${TEMP_FILE}"
