@@ -178,14 +178,14 @@ This operation will move a node to a new system and will discard the persistent 
 
 **Note:** Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can automate node replacement according to your own preferences.
 
-1. For data safety, ensure there is at least one healthy node in the replica set and ideally a recent successful backup of MongoDB data! Ensure there is a ["majority" in the MongoDB Replica Set](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern._dq_majority_dq_) if you do not want the replica set to become read-only during the node replacement!
+1. For data safety, ensure there is at least one healthy node in the replica set and a recent successful backup of MongoDB data! Ensure there is a ["majority" in the MongoDB Replica Set](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern._dq_majority_dq_) if you do not want the replica set to become read-only during the node replacement!
 1. Connect to the node and check if the node is the [Replica Set Primary](https://docs.mongodb.com/manual/core/replica-set-primary/). If the *'rs.isMaster().ismaster'* command returns *'true'*, the node is the PRIMARY member.
     ```shell
     $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     > rs.isMaster().ismaster
     true
     ```
-1. If the node is the PRIMARY member, run a [Replica Set Step Down](https://docs.mongodb.com/manual/reference/method/rs.stepDown/).
+1. If the node is the PRIMARY member, run a [Replica Set Step Down](https://docs.mongodb.com/manual/reference/method/rs.stepDown/). Skip this step if you received *'false'* from the last step.
     ```shell
     $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     > rs.stepDown()
@@ -208,7 +208,8 @@ For example, let's say `mongo-rs-2`'s host system has died and `mongo-rs-2` need
     > rs.isMaster().ismaster
     true
     ```
-1. If the node is the PRIMARY member, run a [Replica Set Step Down](https://docs.mongodb.com/manual/reference/method/rs.stepDown/).
+1. If the node is the PRIMARY member, run a [Replica Set Step Down](https://docs.mongodb.com/manual/reference/method/rs.stepDown/). Skip this step if you received *
+'false'* from the last step.
     ```shell
     $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     > rs.stepDown()

@@ -29,7 +29,9 @@ You can also access the logs via the Mesos UI:
 
 <a name="accessing-metrics"></a>
 # Accessing Metrics
-Service-level metrics will be added in a future release of this service.
+Service-level metrics will be added to DC/OS in a future release of this service.
+
+Please use the optional [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) functionality of this service to gather metrics regarding MongoDB and its resources. See the "Monitoring" area of the "MongoDB Management" section for steps to install the optional [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) support. 
 
 <a name="restarting-a-node"></a>
 # Restarting a Node
