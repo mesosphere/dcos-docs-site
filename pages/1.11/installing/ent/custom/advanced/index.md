@@ -110,7 +110,7 @@ In this step, an IP detect script is created. This script reports the IP address
 
 # Create a fault domain detection script
 
-By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, thereby requiring no changes to your `config.yaml` to enable functionality. However, you must include a fault domain detection script named `fault-domain-detect` in your `/genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
+By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, thereby requiring no changes to your `config.yaml` to enable this functionality. However, you must include a fault domain detection script named `fault-domain-detect` in your `/genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
 
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
