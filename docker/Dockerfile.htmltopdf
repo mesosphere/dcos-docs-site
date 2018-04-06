@@ -24,10 +24,10 @@ RUN GIT_BRANCH=$git_branch
 # npm run build-pdf
 
 #
-# Lint images and markdown # This are turned off and to be moved to checkout pipeline
+# Lint images and markdown
 #
-#RUN make check-images
-#RUN make check-markdown
+RUN make check-images
+RUN make check-markdown
 
 #
 # Build PDF
