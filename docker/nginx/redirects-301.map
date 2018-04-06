@@ -53,8 +53,8 @@
 /1.10/administration/installing/custom/gui/ /1.10/installing/custom/gui/;
 /1.10/administration/installing/custom/system-requirements/ /1.10/installing/custom/system-requirements/;
 /1.10/administration/installing/custom/system-requirements/install-docker-centos/ /1.10/installing/custom/system-requirements/install-docker-centos/;
-/1.10/administration/installing/custom/troubleshooting/ /1.10/installing/oss/troubleshooting/;
-/1.10/administration/installing/custom/uninstall/ /1.10/installing/custom/oss/uninstall/;
+/1.10/administration/installing/custom/troubleshooting/ /1.10/installing/troubleshooting/;
+/1.10/administration/installing/custom/uninstall/ /1.10/installing/oss/custom/uninstall/;
 /1.10/administration/installing/deploying-a-local-dcos-universe/ /1.10/administering-clusters/deploying-a-local-dcos-universe/;
 /1.10/administration/installing/local/ /1.10/installing/local/;
 /1.10/administration/installing/opt-out/ /1.10/installing/ent/custom/opt-out/;
@@ -79,11 +79,11 @@
 /1.10/administration/monitoring/metrics/ /1.10/metrics/;
 /1.10/administration/monitoring/metrics/metrics-api/ /1.10/metrics/metrics-api/;
 /1.10/administration/monitoring/metrics/quickstart/ /1.10/metrics/quickstart/;
-/1.10/administration/monitoring/nagios/ /1.10/monitoring/performance-monitoring/nagios/;
+/1.10/administration/monitoring/nagios/ /1.10/performance-monitoring/nagios/;
 /1.10/administration/monitoring/performance-monitoring/ /1.10/monitoring/performance-monitoring/;
 /1.10/administration/monitoring/performance-monitoring/nagios/ /1.10/monitoring/performance-monitoring/nagios/;
 /1.10/administration/overlay-networks/ /1.10/networking/virtual-networks/;
-/1.10/administration/overlay-networks/ip-per-container/ /1.10/networking/virtual-networks/ip-per-container/;
+/1.10/administration/overlay-networks/ip-per-container/ /1.10/virtual-networks/ip-per-container/;
 /1.10/administration/overlay-networks/isolation/ /1.10/administration/virtual-networks/isolation/;
 /1.10/administration/release-notes/ /1.10/release-notes/;
 /1.10/administration/remove-agent/ /1.10/remove-agent/;
@@ -92,9 +92,9 @@
 /1.10/administration/storage/mount-disk-resources/ /1.10/storage/mount-disk-resources/;
 /1.10/administration/storage/nfs/ /1.10/storage/nfs/;
 /1.10/administration/tls-ssl/ /1.10/security/oss/tls-ssl/;
-/1.10/administration/tls-ssl/haproxy-adminrouter/ /1.10/security/oss/tls-ssl/haproxy-adminrouter/;
+/1.10/administration/tls-ssl/haproxy-adminrouter/ /1.10/networking/tls-ssl/haproxy-adminrouter/;
 /1.10/administration/upgrading/ /1.10/installing/upgrading/;
-/1.10/administration/user-management/ /1.10/security/ent/users-groups/
+/1.10/administration/user-management/ /1.10/security/ent/users-groups/;
 /1.10/administration/virtual-networks/ /1.10/networking/virtual-networks/;
 /1.10/administration/virtual-networks/ip-per-container/ /1.10/networking/virtual-networks/ip-per-container/;
 /1.10/administration/virtual-networks/isolation/ /1.10/networking/virtual-networks/isolation/;
