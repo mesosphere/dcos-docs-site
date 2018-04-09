@@ -1,7 +1,11 @@
 ---
-post_title: Install and Customize
-menu_order: 20
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Installing and Customizing
+title: Installing and Customizing
+menuWeight: 20
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 The default DC/OS Percona Server for MongoDB Service installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
@@ -19,7 +23,7 @@ The default DC/OS Percona Server for MongoDB Service installation provides reaso
 To start a basic test cluster of percona-mongo, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing percona-mongo on Enterprise DC/OS](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/).
 
 ```shell
-dcos package install percona-mongo 
+dcos package install percona-mongo
 ```
 
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.

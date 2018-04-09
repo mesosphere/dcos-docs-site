@@ -1,7 +1,11 @@
 ---
-post_title: Release Notes
-menu_order: 150
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Release Notes
+title: Release Notes
+menuWeight: 150
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 ## Version 0.2.0-3.4.13

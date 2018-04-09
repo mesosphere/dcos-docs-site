@@ -5,6 +5,16 @@ post_excerpt: ""
 enterprise: 'no'
 ---
 
+---
+layout: layout.pug
+navigationTitle:  Deployment Best Practices
+title: Deployment Best Practices
+menuWeight: 50
+excerpt:
+featureMaturity:
+enterprise: false
+---
+
 # Minimum MongoDB Node Requirements
 
 The following resources are the service default, recommended for Development and Testing only:
@@ -20,7 +30,7 @@ The following resources are recommended for a production deployment:
 - 4 x CPUs per node
 - 4096MB RAM per node
 - 8000MB Disk per node, ['MOUNT' Disk-type](https://docs.mesosphere.com/1.10/storage/mount-disk-resources/)
-- ['XFS' filesystem](https://en.wikipedia.org/wiki/XFS) 
+- ['XFS' filesystem](https://en.wikipedia.org/wiki/XFS)
 
 **WARNING: Disks cannot be resized after deployment! Adjust the disk space requirements for the volume of your use case!**
 
@@ -35,7 +45,7 @@ The recommendations in this section apply to the DC/OS Agent nodes running the p
 MongoDB performs best when using disks with fast read and write patterns.
 
 We generally recommend the following:
-- Always prefer locally-attached storage. Remote storage adds points of failure, add latency/overhead to block requests and are more complicated to troubleshoot. 
+- Always prefer locally-attached storage. Remote storage adds points of failure, add latency/overhead to block requests and are more complicated to troubleshoot.
 - For redundant disk arrays, prefer RAID10 *(0+1)*. This RAID level provides the best performance and redundancy balance.
   - Enable RAID controller caching when using a Battery-Backed controller.
   - MongoDB implements its own redundancy in storage, via replication. Keep this in mind when adding possibly-duplicated redundancy to storage.
@@ -52,7 +62,7 @@ When in doubt, always use the ['XFS' filesystem](https://en.wikipedia.org/wiki/X
 
 For block device read-ahead, we recommend a setting of 32 sectors (=16KB) for most MongoDB workloads.
 
-For the kernel-level I/O Scheduler, we recommend "deadline" is used. 
+For the kernel-level I/O Scheduler, we recommend "deadline" is used.
 
 Both the IO scheduler and read-ahead can be changed by adding a file to the udev configuration in the *"/etc/udev/rules.d"* directory. This example assumes the block device serving mongo data is named *"/dev/sda"*. In the example "deadline" is set as the IO scheduler and 16kb/32-sectors as the read-ahead:
 
@@ -86,7 +96,7 @@ MongoDB will log the following warning if Transparent HugePages are enabled:
 ```shell
 2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
 2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
-2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] 
+2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten]
 2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
 2018-03-26T13:47:28.929+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
 ```

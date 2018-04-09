@@ -1,7 +1,11 @@
 ---
-post_title: Percona Server for MongoDB Administration
-menu_order: 65
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Percona Server for MongoDB Administration
+title: Percona Server for MongoDB Administration
+menuWeight: 65
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 ## Backups
@@ -34,14 +38,14 @@ The pmm-client will be installed, configured and started at the start time of th
     2018-03-29 17:51:38.124 3     mongodb-executor-linux  INFO    Listing PMM services
     2018-03-29 17:51:38.177 3     mongodb-executor-linux  INFO    Starting PMM metrics services  linux_port=1025 max_retries=5 mongodb_port=1026
     2018-03-29 17:51:38.429 3     mongodb-executor-linux  INFO    Added PMM service linux:metrics, pmm-admin out: 'OK, now monitoring this system.'
-    2018-03-29 17:51:38.502 3     mongodb-executor-linux  INFO    Added PMM service mongodb:metrics, pmm-admin out: 'OK, now monitoring MongoDB metrics using URI clustermonitor:***@localhost:27017' 
+    2018-03-29 17:51:38.502 3     mongodb-executor-linux  INFO    Added PMM service mongodb:metrics, pmm-admin out: 'OK, now monitoring MongoDB metrics using URI clustermonitor:***@localhost:27017'
     2018-03-29 17:51:38.502 3     mongodb-executor-linux  INFO    Listing PMM services
     2018-03-29 17:51:38.531 3     mongodb-executor-linux  INFO    Starting PMM Query Analytics (QAN) agent service  max_retries=5
     2018-03-29 17:51:40.705 3     mongodb-executor-linux  INFO    Added PMM service mongodb:queries, pmm-admin out: 'OK, now monitoring MongoDB queries using URI clustermonitor:***@localhost:27017
     It is required for correct operation that profiling of monitored MongoDB databases be enabled.
     Note that profiling is not enabled by default because it may reduce the performance of your MongoDB server.
     For more information read PMM documentation (https://www.percona.com/doc/percona-monitoring-and-management/conf-mongodb.html).'
-    2018-03-29 17:51:40.705 3     mongodb-executor-linux  INFO    Completed PMM client executor 
+    2018-03-29 17:51:40.705 3     mongodb-executor-linux  INFO    Completed PMM client executor
     ```
 
 *Note: The PMM Client uses the ['clusterMonitor' MongoDB user](#system-users) to gather data*

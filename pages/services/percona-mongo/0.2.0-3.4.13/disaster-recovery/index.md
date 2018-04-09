@@ -1,13 +1,16 @@
 ---
-post_title: Disaster Recovery
-menu_order: 80
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Disaster Recovery
+title: Disaster Recovery
+menuWeight: 80
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 ## Backup
 
-The service supports a custom plan named 'backup' for creating a consistent backup of the MongoDB replica set. This custom plan launches an instance of [Percona-Lab/mongodb_consistent_backup](), creates a consistent backup of the replica set and uploads the backup to remote storage. 
+The service supports a custom plan named 'backup' for creating a consistent backup of the MongoDB replica set. This custom plan launches an instance of [Percona-Lab/mongodb_consistent_backup](), creates a consistent backup of the replica set and uploads the backup to remote storage.
 
 Currently only AWS S3 is supported as an upload destination for backups, more upload methods coming in the future!
 

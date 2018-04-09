@@ -1,7 +1,11 @@
 ---
-post_title: Troubleshooting
-menu_order: 90
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Troubleshooting
+title: Troubleshooting
+menuWeight: 90
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 <a name="accessing-logs"></a>
@@ -31,7 +35,7 @@ You can also access the logs via the Mesos UI:
 # Accessing Metrics
 Service-level metrics will be added to DC/OS in a future release of this service.
 
-Please use the optional [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) functionality of this service to gather metrics regarding MongoDB and its resources. See the "Monitoring" area of the "MongoDB Management" section for steps to install the optional [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) support. 
+Please use the optional [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) functionality of this service to gather metrics regarding MongoDB and its resources. See the "Monitoring" area of the "MongoDB Management" section for steps to install the optional [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) support.
 
 <a name="restarting-a-node"></a>
 # Restarting a Node
@@ -47,5 +51,3 @@ The DC/OS Percona Server for MongoDB Service is resilient to temporary node fail
 ```shell
 dcos percona-mongo --name=<service-name> pod replace <node_id>
 ```
-
-

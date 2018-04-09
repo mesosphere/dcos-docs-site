@@ -1,8 +1,11 @@
 ---
-post_title: Supported Versions
-menu_order: 130
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Supported Versions
+title: Supported Versions
+menuWeight: 130
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 # Support
