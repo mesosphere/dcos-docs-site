@@ -1,26 +1,30 @@
 ---
-post_title: Limitations
-menu_order: 110
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Limitations
+title: Limitations
+menuWeight: 110
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
-## Service user		
-		
+## Service user
+
 The DC/OS Mongo Service uses a Docker image to manage its dependencies for Percona Server for MongoDB. Since the Docker image contains a full Linux userspace with its own `/etc/users` file, it is possible for the default service user `nobody` to have a different UID inside the container than on the host system. Although user `nobody` has UID `65534` by convention on many systems, this is not always the case. As Mesos does not perform UID mapping between Linux user namespaces, specifying a service user of `nobody` in this case will cause access failures when the container user attempts to open or execute a filesystem resource owned by a user with a different UID, preventing the service from launching. If the hosts in your cluster have a UID for `nobody` other than 65534, you will need to specify a service user of `root` to run DC/OS Mongo Service.
-		
-To determine the UID of `nobody`, run the command `id nobody` on a host in your cluster:		
-```		
-$ id nobody		
-uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)		
-```		
-		
-If the returned UID is not `65534`, then the DC/OS Mongo Service can be installed as root by setting the service user at install time:		
-```		
-"service": {		
-        "user": "root",		
-        ...		
-}		
-...		
+
+To determine the UID of `nobody`, run the command `id nobody` on a host in your cluster:
+```
+$ id nobody
+uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)
+```
+
+If the returned UID is not `65534`, then the DC/OS Mongo Service can be installed as root by setting the service user at install time:
+```
+"service": {
+        "user": "root",
+        ...
+}
+...
 ```
 
 ## MongoDB
@@ -34,7 +38,7 @@ To provide an odd number of votes, only a node count of 1, 3 *(default)*, 5 or 7
 
 ### Percona Server for MongoDB Version
 
-This percona-mongo package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.4 major-release only, starting from version 3.4.13. The use of other versions are unsupported and untested! 
+This percona-mongo package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.4 major-release only, starting from version 3.4.13. The use of other versions are unsupported and untested!
 
 ### Configuration
 

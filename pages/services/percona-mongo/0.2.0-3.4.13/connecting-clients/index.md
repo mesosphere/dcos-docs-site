@@ -1,8 +1,11 @@
 ---
-post_title: Connecting Clients
-menu_order: 50
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Connecting Clients
+title: Connecting Clients
+menuWeight: 50
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 # Connecting Clients
@@ -50,7 +53,7 @@ $ dcos percona-mongo endpoints mongo-port
 
 ```
 $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
-> db.serverStatus(); 
+> db.serverStatus();
 ```
 
 Or for applications, most MongoDB drivers will accept *'mongodb://'* connection-string used in the example above to connect to MongoDB.

@@ -1,8 +1,11 @@
 ---
-post_title: Managing
-menu_order: 60
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Managing
+title: Managing
+menuWeight: 60
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 # Updating Configuration
@@ -196,7 +199,7 @@ This operation will move a node to a new system and will discard the persistent 
     @(shell):1:1
     2018-04-03T13:58:29.167+0200 I NETWORK  [thread1] trying reconnect to 10.2.3.1:27017 (10.2.3.1) failed
     2018-04-03T13:58:29.168+0200 I NETWORK  [thread1] reconnect 10.2.3.1:27017 (10.2.3.1) ok
-    test1:SECONDARY> 
+    test1:SECONDARY>
     ```
 1. Run `dcos percona-mongo pod replace mongo-rs-<NUM>` to halt the current instance with id `<NUM>` (if still running) and launch a new instance elsewhere.
 
@@ -220,7 +223,7 @@ For example, let's say `mongo-rs-2`'s host system has died and `mongo-rs-2` need
     @(shell):1:1
     2018-04-03T13:58:29.167+0200 I NETWORK  [thread1] trying reconnect to 10.2.3.1:27017 (10.2.3.1) failed
     2018-04-03T13:58:29.168+0200 I NETWORK  [thread1] reconnect 10.2.3.1:27017 (10.2.3.1) ok
-    test1:SECONDARY> 
+    test1:SECONDARY>
     ```
 1. Now that the node has been decommissioned, start `mongo-rs-2` at a new location in the cluster.
     ```shell

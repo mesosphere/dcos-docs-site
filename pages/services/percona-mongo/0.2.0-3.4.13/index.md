@@ -1,8 +1,11 @@
 ---
-post_title: Version 0.2.0-3.4.13
-menu_order: 10
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Version 0.2.0-3.4.13
+title: Version 0.2.0-3.4.13
+menuWeight: 10
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 DC/OS percona-mongo is an automated service that makes it easy to deploy and manage [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all of the complexity traditionally associated with managing a cluster of percona-mongo nodes.
