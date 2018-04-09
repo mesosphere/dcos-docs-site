@@ -13,8 +13,6 @@ const dir = process.argv[2];
 
 const tovfile = require('to-vfile');
 
-const vfile = require('vfile');
-
 const vreporter = require('vfile-reporter');
 
 // pattern to match the files we want to process.
@@ -23,15 +21,7 @@ const fileRX = new RegExp(/.*\/(index.md)/g);
 // require the script
 const remark = require('remark');
 
-const styleguideWritability = require('remark-preset-lint-styleguide/writability');
-
-const styleguideConsistent = require('remark-preset-lint-consistent');
-
-const styleguide = require('remark-preset-lint-styleguide');
-
 const styleguideLint = require('remark-preset-lint-markdown-style-guide');
-
-const report = require('vfile-reporter');
 
 // script that lints markdown files
 // async parallel recursive loop
