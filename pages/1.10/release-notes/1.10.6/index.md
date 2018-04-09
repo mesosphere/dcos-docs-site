@@ -14,7 +14,7 @@ These are the release notes for DC/OS 1.10.6.
 # Issues Fixed in DC/OS 1.10.6
 
 - DCOS-19865 - Fixed focus/change/blur behavior.
-- SOAK-68/COS-21451 - Fixed 404 error returned by adminrouter on Maration UI/Prevent reusing tcp sockets by AR's cache code [1.11].
+- SOAK-68/DCOS-21451 - Fixed 404 error returned by adminrouter on Maration UI/Prevented the reuse of tcp sockets by AR's cache code [1.11].
 
 # Notable Changes in DC/OS 1.10.6
 
