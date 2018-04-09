@@ -12,10 +12,8 @@ These are the release notes for DC/OS 1.10.6.
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 # Issues Fixed in DC/OS 1.10.6
-- CORE-1425 - 
+
 - DCOS-19865 - Fixed focus/change/blur behavior.
-- DCOS-20401 - 
-- QUALITY-1525 - 
 - SOAK-68/COS-21451 - Fixed 404 error returned by adminrouter on Maration UI/Prevent reusing tcp sockets by AR's cache code [1.11].
 
 # Notable Changes in DC/OS 1.10.6
@@ -28,6 +26,7 @@ These are the release notes for DC/OS 1.10.6.
 - DCOS_OSS-1903 - Bumped OpenSSL.
 - DCOS_OSS-2181 - Bumped OpenResty to version 1.13.6.
 - DCOS_OSS-2229 - Bumped Navstar.
+- QUALITY-1525 - Support for Docker CE 17.03.0.
 
 
 
