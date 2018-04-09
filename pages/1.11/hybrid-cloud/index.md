@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Hybrid Cloud
-title: Hybrid Cloud
-menuWeight: 115
+navigationTitle:  Features
+title: Features
+menuWeight: 0
 excerpt:
 ---
 
-The seamless hybrid cloud operations are simplified management of multi-cloud, edge cloud, remote office infrastructures, enabling multi-region Business Continuity/Disaster Recovery (BCDR), and workload bursting.
-
-The hybrid cloud features are cluster linking, fault domain awareness with zones, capacity extension with regions and decommission nodes. 
-
-
+The hybrid cloud has the following features in Mesosphere DC/OS:
+- Cluster Linking 
+- Fault Domain Awareness with Zones
+- Capacity Extension with Regions
+- Decommission Nodes
