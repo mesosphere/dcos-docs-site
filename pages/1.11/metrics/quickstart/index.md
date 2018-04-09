@@ -22,7 +22,7 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         ```json
         {
           "id": "/test-metrics",
-          "cmd": "while true;do echo stdout;echo stderr >&2;sleep 1;done",
+          "cmd": "/opt/mesosphere/bin/statsd-emitter",
           "cpus": 0.001,
           "instances": 1,
           "mem": 128
