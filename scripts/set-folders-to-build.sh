@@ -20,3 +20,7 @@ echo "${LOG}"
 COMMIT_INFO=${1}
 COMMIT_CHANGES=${2}
 COMMIT_FILES=${3}
+
+echo ${COMMIT_INFO} "This is the commit info"
+echo ${COMMIT_CHANGES} "These are the commit changes"
+echo ${COMMIT_FILES} "these are the commit files"
