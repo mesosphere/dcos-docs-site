@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Deployment Best Practices
 title: Deployment Best Practices
-menuWeight: 50
+menuWeight: 45
 excerpt:
 featureMaturity:
 enterprise: false
