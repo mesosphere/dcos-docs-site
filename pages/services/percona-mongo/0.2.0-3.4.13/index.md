@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Version 0.2.0-3.4.13
-title: Version 0.2.0-3.4.13
+navigationTitle:  Percona-Mongo 0.2.0-3.4.13
+title: Percona-Mongo 0.2.0-3.4.13
 menuWeight: 10
 excerpt:
 featureMaturity:
