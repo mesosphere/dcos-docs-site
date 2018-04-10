@@ -38,7 +38,7 @@ To provide an odd number of votes, only a node count of 1, 3 *(default)*, 5 or 7
 
 ### Percona Server for MongoDB Version
 
-This percona-mongo package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.4 major-release only, starting from version 3.4.13. The use of other versions are unsupported and untested!
+This Percona-Mongo package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.4 major-release only, starting from version 3.4.13. The use of other versions are unsupported and untested!
 
 ### Configuration
 

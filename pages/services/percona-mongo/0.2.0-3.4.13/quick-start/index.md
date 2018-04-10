@@ -14,13 +14,13 @@ enterprise: false
 
 # Steps
 
-1. If you are using open source DC/OS, install percona-mongo cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
+1. If you are using open source DC/OS, install Percona-Mongo cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
     ```shell
     dcos package install percona-mongo
     ```
 
-    Alternatively, you can install percona-mongo from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/).
+    Alternatively, you can install Percona-Mongo from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/).
 
 1. The service will now deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface.
 

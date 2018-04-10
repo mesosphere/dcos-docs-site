@@ -19,7 +19,7 @@ Monitoring of [Percona Server for MongoDB](https://www.percona.com/software/mong
 <a name="installing-pmm-client"></a>
 ### Installing PMM Client
 
-The installation and configuration of the PMM Client is automated via the DC/OS percona-mongo Service.
+The installation and configuration of the PMM Client is automated via the DC/OS Percona-Mongo Service.
 
 To enable the installation of the PMM Client on all MongoDB nodes launched by the service, visit the 'Percona Pmm' tab of the service configuration and set the *"enabled"* field to true.
 
@@ -54,7 +54,7 @@ The pmm-client will be installed, configured and started at the start time of th
 
 *Note: this feature is in Beta. Some features of the PMM Server and PMM Query Analytics may not function correctly.*
 
-The following process launches a single PMM Server container in DC/OS. This should be done **before** starting the percona-mongo service:
+The following process launches a single PMM Server container in DC/OS. This should be done **before** starting the Percona-Mongo service:
 1. Visit the *'Services'* tab of the DC/OS UI.
 1. Select *'Run a Service'*.
 1. Select *'JSON Configuration'*.
@@ -147,11 +147,11 @@ The following process launches a single PMM Server container in DC/OS. This shou
     }
     ```
 1. On success, the service will become available at the DC/OS VIP *'pmm-server.marathon.l4lb.thisdcos.directory:80'*. You may need to to use a [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administration/access-node/tunnel/) to visit the PMM HTTP interface *(at 'http://pmm-server.marathon.l4lb.thisdcos.directory')*.
-1. Use the DC/OS VIP *'pmm-server.marathon.l4lb.thisdcos.directory:80'* as the *'Percona PMM server address'* parameter in your DC/OS percona-mongo service configuration ['Percona Pmm' section](#installing-pmm-client).
+1. Use the DC/OS VIP *'pmm-server.marathon.l4lb.thisdcos.directory:80'* as the *'Percona PMM server address'* parameter in your DC/OS Percona-Mongo service configuration ['Percona Pmm' section](#installing-pmm-client).
 
 ## Auditing
 
-The [Percona Server for MongoDB Auditing](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html) feature allows detailed logging of actions in MongoDB. The configuration of Auditing is automated by the DC/OS percona-mongo service.
+The [Percona Server for MongoDB Auditing](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html) feature allows detailed logging of actions in MongoDB. The configuration of Auditing is automated by the DC/OS Percona-Mongo service.
 
 To enable Auditing via the UI:
 1. Edit a new or existing service configuration.
@@ -203,14 +203,14 @@ dcos task exec --tty --interactive <task-id> /bin/bash
 ## Users
 <a name="mongodb-users"></a>
 
-The percona-mongo service contains several custom plans for modifying MongoDB Users via the percona-mongo CLI tool.
+The Percona-Mongo service contains several custom plans for modifying MongoDB Users via the Percona-Mongo CLI tool.
 
 All actions require the username ands password of the MongoDB clusterAdmin *(defined in service configuration)*.
 
-### DC/OS percona-mongo System Users
+### DC/OS Percona-Mongo System Users
 <a name="system-users"></a>
 
-The percona-mongo service deploys 4 x default MongoDB users for various purposes.
+The Percona-Mongo service deploys 4 x default MongoDB users for various purposes.
 
 **Note: These users cannot be modified or removed! Tasks that modify the users below will receive an error**
 
@@ -237,7 +237,7 @@ To add a user:
 }
 ```
 
-1. Add the user to the percona-mongo service using the service CLI tool, providing the filename of the user definition.
+1. Add the user to the Percona-Mongo service using the service CLI tool, providing the filename of the user definition.
 
 ```shell
 dcos percona-mongo user add <database> <user-json-file> <useradmin-username> <useradmin-password>
@@ -258,7 +258,7 @@ dcos percona-mongo user add <database> <user-json-file> <useradmin-username> <us
 }
 ```
 
-1. Update the user using the percona-mongo CLI tool by providing the filename of the user definition:
+1. Update the user using the Percona-Mongo CLI tool by providing the filename of the user definition:
 
 ```shell
 dcos percona-mongo user update <database> <user-json-file> <useradmin-username> <useradmin-password>
@@ -272,9 +272,9 @@ To remove a user, provide the database and username to the percona-mongo CLI too
 dcos percona-mongo user remove <database> <username> <useradmin-username> <useradmin-password>
 ```
 
-### Reload percona-mongo Service/System Users
+### Reload Percona-Mongo Service/System Users
 
-To reload the percona-mongo [System Users](#system-users), run the following command using the percona-mongo CLI tool:
+To reload the Percona-Mongo [System Users](#system-users), run the following command using the Percona-Mongo CLI tool:
 
 ```shell
 dcos percona-mongo user reload-system <useradmin-username> <useradmin-password>

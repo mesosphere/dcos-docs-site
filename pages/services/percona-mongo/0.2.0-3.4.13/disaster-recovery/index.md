@@ -25,7 +25,7 @@ The use of a dedicated backup secondary gurrantees backups *(a very resource-int
 
 ### Starting a Backup
 
-Backups are started using the 'percona-mongo' CLI modules 'backup' command.
+Backups are started using the Percona-Mongo CLI module's `backup` command.
 
 If the AWS Access Key, Secret Key, S3 Bucket Name and S3 Bucket Prefix are already defined in your service options the following will start a backup:
 ```bash
