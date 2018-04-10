@@ -9,9 +9,12 @@
 
 set -o errexit -o nounset -o pipefail
 
-INPUT_FOLDER=${1}
+#INPUT_FOLDER=${1}
 OUTPUT_FOLDER=${2}
 PARALLEL_TEMPFILE=$(mktemp)
+
+# Log should be a
+CHANGED_FILES=${LOG}
 
 TEMP_FILES=""
 
@@ -25,7 +28,21 @@ function clean
     rm -rf "${1}"
     rm -f "${PARALLEL_TEMPFILE}"
 }
-echo "Started pdf Pandoc build $(date)"
+
+# Function to determine what to build
+function selectFolder
+{
+  # if changed files is not empty, then we take that as an input folder,
+  # otherwise, the script will run in the pages directory
+  if [[ ! -z "${CHANGED_FILES}" ]]
+  then
+    INPUT_FOLDER="${CHANGED_FILES}"
+  else
+    INPUT_FOLDER="${1}"
+  fi
+}
+selectFolder "${CHANGED_FILES}"
+
 function main
 {
    # cd $INPUT_FOLDER
