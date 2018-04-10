@@ -1,11 +1,4 @@
 ---
-post_title: Deployment Best Practices
-menu_order: 45
-post_excerpt: ""
-enterprise: 'no'
----
-
----
 layout: layout.pug
 navigationTitle:  Deployment Best Practices
 title: Deployment Best Practices
