@@ -17,6 +17,8 @@ ADD . /src/
 
 RUN npm install
 
+RUN make get-folders-for-build
+
 RUN make build-swagger
 RUN make build-ngindox
 
@@ -75,4 +77,4 @@ RUN mkdir /src/build-pdf
 WORKDIR /src
 COPY --from=pdf-builder /tmp/pdf/build-pdf ./build-pdf
 
-#RUN make build-pdf-concat-production
+RUN make concat-mesosphere-pdf
