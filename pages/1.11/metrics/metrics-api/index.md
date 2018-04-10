@@ -24,19 +24,19 @@ For examples of how to use the Metrics API, see the [Metrics Quick Start Guide](
 
 # Routes
 
-Access to the Metrics API is proxied through the Admin Router on each node using the following route:
+Access to the Metrics API is proxied via Admin Router to each node. Statistics for the current leader are prefixed with:
 
 ```
 /system/v1/metrics/v0/
 ```
 
-Access to the Metrics API of the agent nodes is also proxied through the master nodes:
+Statistics for an agent are prefixed with:
 
 ```
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/1.11/api/access/).
+To determine the URL of your cluster, see [Cluster Access](/1.11/api/access/). The agent ID of a node is its Mesos ID.
 
 
 # Format
