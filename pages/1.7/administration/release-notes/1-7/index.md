@@ -4,7 +4,7 @@ title: DC/OS 1.7
 menuWeight: 4
 excerpt:
 
-enterprise: true
+enterprise: false
 ---
 
 The release notes provide a list of useful topics and links for DC/OS.
@@ -13,13 +13,13 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 You can now install packages from the DC/OS Universe with a single click in the web interface. The packages can be installed with defaults or customized directly in the UI. For more information, see the [documentation][1].
 
-![UI Universe](/assets/images/ui-universe-ee.gif)
+![UI Universe](/administration/img/ui-universe-ee.gif)
 
 # DC/OS component health available in the UI
 
 You can monitor the health of your cluster components from the DC/OS web interface. The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit. For more information, see the [documentation][2].
 
-![UI system health](/assets/images/ui-system-health-ee.gif)
+![UI system health](/administration/img/ui-system-health-ee.gif)
 
 # <a name="dcos"></a>Improved DC/OS installation
 
@@ -42,11 +42,9 @@ You can monitor the health of your cluster components from the DC/OS web interfa
 
 *   **Stateful applications using External Volumes (Experimental)** Consumption (attach & detach to containers) support in DC/OS for Amazon Web Services EBS, OpenStack Cinder, EMC Isilon, ScaleIO, VMAX, XtremeIO & Google Compute Engine). For more information, see the [documentation][5].
 
-# Fine-grained DC/OS access control
+# Fine-grained DC/OS access control  [enterprise type="inline" size="small"/]
 
-<!-- Enterprise only. --> You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the
-
-[documentation][6].
+<!-- Enterprise only. --> You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the  [documentation][6].
 
 # DC/OS Marathon Updates
 
@@ -74,7 +72,7 @@ You can monitor the health of your cluster components from the DC/OS web interfa
 
 <!-- Enterprise Edition -->
 
-**Support for Authentication and Authorization** It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules.
+**Support for Authentication and Authorization** [enterprise type="inline" size="small"/] It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules.
 
 For the full set of changes, please refer to the [Marathon Release Notes][7].
 
@@ -106,7 +104,7 @@ For the full set of changes, please refer to the [Marathon Release Notes][7].
 
 *   **External/network volumes** No RO access from multiple tasks [emccode/dvdcli/issues/15][13]
 
-*   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DC/OS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials.
+*   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DC/OS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials. [enterprise type="inline" size="small"/]
 
 See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
 
