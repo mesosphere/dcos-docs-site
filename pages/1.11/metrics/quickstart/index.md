@@ -13,7 +13,6 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
-- Optional: the CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
   
 1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 
