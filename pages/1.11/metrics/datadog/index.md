@@ -3,7 +3,6 @@ layout: layout.pug
 title: Sending DC/OS Metrics to Datadog
 menuWeight: 3
 excerpt:
-beta: true
 enterprise: false
 ---
 
