@@ -20,7 +20,7 @@ The default DC/OS Percona Server for MongoDB Service installation provides reaso
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of percona-mongo, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing percona-mongo on Enterprise DC/OS](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/).
+To start a basic test cluster of Percona-Mongo, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing percona-mongo on Enterprise DC/OS](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/).
 
 ```shell
 dcos package install percona-mongo
@@ -38,7 +38,7 @@ For more information on building the `options.json` file, see [DC/OS documentati
 
 ## Installing from the DC/OS Web Interface
 
-You can [install percona-mongo from the DC/OS web interface](https://docs.mesosphere.com/latest/usage/managing-services/install/). If you install percona-mongo from the web interface, you must install the DC/OS percona-mongo CLI subcommands separately. From the DC/OS CLI, enter:
+You can [install Percona-Mongo from the DC/OS web interface](https://docs.mesosphere.com/latest/usage/managing-services/install/). If you install Percona-Mongo from the web interface, you must install the DC/OS Percona-Mongo CLI subcommands separately. From the DC/OS CLI, enter:
 
 ```shell
 dcos package install percona-mongo --cli

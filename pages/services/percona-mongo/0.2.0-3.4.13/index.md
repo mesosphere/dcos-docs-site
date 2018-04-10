@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: false
 ---
 
-DC/OS percona-mongo is an automated service that makes it easy to deploy and manage [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all of the complexity traditionally associated with managing a cluster of percona-mongo nodes.
+DC/OS Percona-Mongo is an automated service that makes it easy to deploy and manage [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all of the complexity traditionally associated with managing a cluster of Percona-Mongo nodes.
 
 ## Features
 
@@ -16,7 +16,7 @@ DC/OS percona-mongo is an automated service that makes it easy to deploy and man
 
 This DC/OS service installs and configures a [MongoDB Replica Set](https://docs.mongodb.com/manual/replication/) and provides additional features for administration, monitoring and backups.
 
-DC/OS percona-mongo service features:
+DC/OS Percona-Mongo service features:
 *   Single-command installation for rapid provisioning
 *   Multiple MongoDB Replica Sets within a single DC/OS cluster
 *   Storage volumes for enhanced data durability, known as Mesos Dynamic Reservations and Persistent Volumes
