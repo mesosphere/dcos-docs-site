@@ -9,12 +9,12 @@
 
 set -o errexit -o nounset -o pipefail
 
-#INPUT_FOLDER=${1}
+INPUT_FOLDER=${1}
 OUTPUT_FOLDER=${2}
 PARALLEL_TEMPFILE=$(mktemp)
 
 # Log should be a
-CHANGED_FILES=${LOG}
+CHANGED_FILES=${3}
 
 TEMP_FILES=""
 
@@ -42,6 +42,9 @@ function selectFolder
   fi
 }
 selectFolder "${CHANGED_FILES}"
+
+# if there is onely one folder version to rebuild then that's fine
+# if there are two, i keep callin main, up until the array is empty.
 
 function main
 {

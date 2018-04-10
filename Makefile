@@ -33,7 +33,7 @@ build-development: build-api
 # Build PDF
 #
 get-folders-for-build:
-	node ./scripts/set-folders-to-build.js
+	./scripts/set-folders-to-build.sh
 
 check-images: # scan through markdown to validate Github flavoured markdown
 	node ./scripts/linkchecker.js ./pages
@@ -45,7 +45,7 @@ compress-images: #script to compress images
 	node ./scripts/compressimages.js ./pages
 
 build-pdf-production:
-	./scripts/mdtopdf.sh ./pages ./build-pdf
+	./scripts/mdtopdf.sh ./pages ./build-pdf ./pages/1.7/usage/faq/index.md
 
 concat-mesosphere-pdf: #script to concat the final mesosphere book
 	./scripts/mesosphereconcat.sh ./build-pdf ./build-pdf
