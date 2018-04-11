@@ -20,7 +20,7 @@ ci/pdf/1-setup-env.sh
 
 # Get a log of all the md files modified or new in the new push
 # Source it so the variable it's currently available at any time
-source ./ci/pdf/6-jenkins-build-changes.sh
+export ./ci/pdf/6-jenkins-build-changes.sh
 
 ci/pdf/2-build-pdf-image.sh
 DOCKER_IMAGE="$(cat ".pdf-image")"

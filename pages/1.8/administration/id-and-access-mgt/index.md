@@ -5,13 +5,7 @@ title: Identity and Access Management
 menuWeight: 1
 excerpt:
 enterprise: true
-
 ---
-
-
-
-
-
 
 # User Identity and Access Management
 
@@ -19,10 +13,11 @@ Managing access to services is a basic requirement in any enterprise-grade setup
 
 ![Overview of the DC/OS User Identity and Access Management](/1.8/administration/id-and-access-mgt/ent/img/iam-overview.png)
 
-1. When one of your users attempts to access a service the request is first routed through a system component called Admin Router.
-1. The Admin Router coordinates with the Identity and Access Management (IAM) system component to verify if a certain user can access the targeted service. The IAM system component uses a highly available, replicated data store to keep track of user identities. The access verification process comprises:
-  * **Authentication**: in the first step the user identity is verified; the user identity can be verified locally (DC/OS cluster-internal) or against external sources using protocols like LDAP, SAML, or OpenID Connect (OIDC).
-  * **Access control**: if the user identity has been confirmed, the permissions of the respective users are checked against the resource in question (here: `service 2`).
+1.  When one of your users attempts to access a service the request is first routed through a system component called Admin Router.
+1.  The Admin Router coordinates with the Identity and Access Management (IAM) system component to verify if a certain user can access the targeted service. The IAM system component uses a highly available, replicated data store to keep track of user identities. The access verification process comprises:
+
+* **Authentication**: in the first step the user identity is verified; the user identity can be verified locally (DC/OS cluster-internal) or against external sources using protocols like LDAP, SAML, or OpenID Connect (OIDC).
+* **Access control**: if the user identity has been confirmed, the permissions of the respective users are checked against the resource in question (here: `service 2`).
 
 # Authentication
 
@@ -30,7 +25,7 @@ DC/OS Enterprise user authentication is performed in the Admin security zone and
 
 Below is an example of a complete end to end sequence diagram of all the steps in authenticating any user request.
 
-![DC/OS Enterprise Authentication Sequence] (/1.9/img/dcos-authN-sequence.png)
+![DC/OS Enterprise Authentication Sequence](/1.9/img/dcos-authN-sequence.png)
 
 Besides [adding a user locally](/1.8/administration/id-and-access-mgt/ent/users-groups/add-local-user/) you can use either of the following two mechanisms to authenticate users via an external source: directory-based (using LDAP, for example, Active Directory) as well as identity provider-based (SAML and OIDC).
 

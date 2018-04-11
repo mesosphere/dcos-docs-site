@@ -23,6 +23,8 @@ services:
       - build-pdf:/src/build-pdf
   pdf:
     image: mesosphere/dcos-docs-pdf
+    environment:
+      - LOG
     build:
       context: ../
       dockerfile: ./docker/Dockerfile.htmltopdf
