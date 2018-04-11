@@ -68,11 +68,16 @@ There are many ways to run a Prometheus server. This is the simplest way to get 
 1. Run a Grafana UI proxy with `dcos marathon app add grafana.json`.
 1. Open the DC/OS UI and wait for all the services in the newly created 'monitoring' folder to become healthy.
 
-# Viewing metrics
+# Working with metrics in Prometheus
 
-1. Download the [ statsd-emitter](https://raw.githubusercontent.com/dcos/dcos-metrics/master/plugins/prometheus/marathon/statsd-emitter.json) test task.
-1. Run the app with `dcos marathon app add statsd-emitter.json`.
-1. Check your Prometheus frontend for the `statsd_tester_time_uptime` metric. For example:
+You can find the Prometheus UI by hovering your cursor over the prometheus application in the 'monitoring' folder and clicking on the link that appears. This
+Prometheus service is configured to discover all the agents and masters in your cluster and pull metrics from them. Running the statsd-emitter test application
+described in the [quickstart](/1.9/metrics/quickstart) documentation will allow you to query for `statsd_tester_time_uptime`, which should yield a graph that
+looks like this:
 
    ![statsd_tester_time_uptime](/1.9/img/statsd_tester_time_uptime.png)
 
+# Working with metrics in Grafana
+
+You can find the Grafana UI similarly to the Prometheus UI, by hovering your cursor over the grafana application in the 'monitoring' folder and clicking on the
+link that appears. Adding a Prometheus datasource on http://localhost:9090 called DC/OS Metrics will allow you to build dashboards with data from DC/OS. 
