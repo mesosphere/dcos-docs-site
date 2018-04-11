@@ -6,13 +6,13 @@ excerpt:
 enterprise: false
 ---
 
-The Datadog metrics standalone plugin supports sending metrics from the DC/OS metrics service directly to [DatadogHQ](https://www.datadoghq.com/). The plugin includes the function of the Datadog agent. You must install a plugin on each node in your cluster. This plugin works with DC/OS 1.9.4 and higher.
+The Datadog metrics plugin supports sending metrics from the DC/OS metrics service directly to [DatadogHQ](https://www.datadoghq.com/). The plugin includes the function of the Datadog agent. You must install a plugin on each node in your cluster. This plugin works with DC/OS 1.9.4 and higher.
 
 **Prerequisite:**
 
 - You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
-# Install the DC/OS Datadog standalone metrics plugin
+# Install the DC/OS Datadog metrics plugin
 
 For each node in your cluster, transfer your plugin binary and then add a systemd unit to manage the service. This unit differs slightly between master and agent nodes.
 
