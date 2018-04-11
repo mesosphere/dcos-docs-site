@@ -10,11 +10,11 @@ enterprise: false
 
 ## Backup
 
-The service supports a custom plan named 'backup' for creating a consistent backup of the MongoDB replica set. This custom plan launches an instance of [Percona-Lab/mongodb_consistent_backup](), creates a consistent backup of the replica set and uploads the backup to remote storage.
+The service supports a custom plan for creating a consistent backup of the MongoDB replica set that is uploaded to a remote location. The backup plan launches an instance of [Percona-Lab/mongodb_consistent_backup](https://github.com/Percona-Lab/mongodb_consistent_backup), creates a consistent backup of the replica set and uploads the backup to remote storage.
 
-Currently only AWS S3 is supported as an upload destination for backups, more upload methods coming in the future!
+Currently only AWS S3 is supported as an upload destination for backups via the plan named 'backup-s3'. More upload methods coming in the future!
 
-There are two ways to configure backups, via the service definition section 'backup' (via the GUI or CLI) and/or the DCOS CLI.
+There are two ways to configure backups, via the DC/OS Percona-Mongo service configuration section 'backup' in the DC/OS GUI and/or the DC/OS CLI.
 
 ### Hidden Secondary Member
 The service supports the ability to launch a dedicated MongoDB [hidden secondary](https://docs.mongodb.com/manual/core/replica-set-hidden-member/) replica set member for purpose of performing backups.
