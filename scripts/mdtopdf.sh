@@ -9,7 +9,8 @@
 
 set -o errexit -o nounset -o pipefail
 
-INPUT_FOLDER=${1}
+# We turn off this variable because we will set it up by knowing what directories should we build
+#INPUT_FOLDER=${1}
 OUTPUT_FOLDER=${2}
 PARALLEL_TEMPFILE=$(mktemp)
 
@@ -30,21 +31,43 @@ function clean
 }
 
 # Function to determine what to build
+CHANGED_FILES=${LOG}
+
+PAGES_DIR="./pages/"
+FINAL_PATH=""
+ALL_FOLDERS=""
+# Function to determine which version need to be built
 function selectFolder
 {
-  # if changed files is not empty, then we take that as an input folder,
-  # otherwise, the script will run in the pages directory
-  if [[ ! -z "${CHANGED_FILES}" ]]
-  then
-    INPUT_FOLDER="${CHANGED_FILES}"
-  else
-    INPUT_FOLDER="${1}"
-  fi
-}
-selectFolder "${CHANGED_FILES}"
+    # Check if changed files is not empty
+    if [[ ! -z "${CHANGED_FILES}" ]]
+    then
+        # substitute all spaces with a broken line
+        # "/path/to/file /path/to/file2 /path/to/file3 /path/to/file4 /path/to/file5"\ | tr " " "\n"
+        NEW_PATH=$(echo "${CHANGED_FILES}"\ | tr " " "\n")
+        # loop through each line
+        # remove the ./pages directory
+        for i in ${NEW_PATH}
+        do
+            # Remove ./pages from the directories to build
+            local path="${i#$PAGES_DIR}"
+            # Store and break the resulting folders to build in lines
+            FINAL_PATH="$FINAL_PATH $(echo "${path}" \ | tr " " "\\n")"
+            # Set up a string of folders to build (Version1.11, Version1.7, Services...)
+            ALL_FOLDERS="$ALL_FOLDERS $(echo "$path"  | head -n1 | cut -d "/" -f1)"
+        done
 
-# if there is onely one folder version to rebuild then that's fine
-# if there are two, i keep callin main, up until the array is empty.
+        # This is going to output all final paths
+        FINAL_PATH=$(echo "${FINAL_PATH}"\ | tr " " "\\n")
+        # Clean duplicate directories
+        ALL_DIRECTORIES=$(echo "$ALL_FOLDERS" | tr ' ' '\n' | sort | uniq)
+        # Make INPUT_FOLDER be one of those at a time
+    else
+        # Otherwise, set it to build the entire ./pages directory
+        INPUT_FOLDER="${PAGES_DIR}"
+    fi
+}
+selectFolder "${CHANGED_FILES}" "${TEST_DIR}"
 
 function main
 {
@@ -52,7 +75,7 @@ function main
    while IFS= read -r -d '' SOURCE_FILE
    do
      # Strip the input_folder from filepath, not to include it within output folder and Destination filename
-     local FILE_PATH=${SOURCE_FILE#$INPUT_FOLDER}
+     local FILE_PATH=${SOURCE_FILE#$INPUT_FOLDERd}
      # Strip the filename and get only the full directory path for the file
      local FILE_PATH="${FILE_PATH%/*}"
      # Strip the first / or ./ from the beginning of file path
