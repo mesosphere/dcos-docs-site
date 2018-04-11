@@ -10,7 +10,7 @@ The Datadog metrics standalone plugin supports sending metrics from the DC/OS me
 
 **Prerequisite:**
 
-- DC/OS is [installed](/1.10/installing/oss/)
+- You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
 # Install the DC/OS Datadog standalone metrics plugin
 
