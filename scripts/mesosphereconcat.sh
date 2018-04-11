@@ -32,5 +32,5 @@ function main
     echo "scripts/pandocbook.sh ${PDF_FILES} ${INPUT_PATH}/${FINAL_PDF}"
     #echo "Finished building $(date)"
 }
-
+clean "${OUTPUT_PATH}"
 main "${INPUT_PATH}"

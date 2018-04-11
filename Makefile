@@ -45,7 +45,7 @@ compress-images: #script to compress images
 	node ./scripts/compressimages.js ./pages
 
 build-pdf-production:
-	./scripts/mdtopdf.sh ./pages ./build-pdf ./pages/1.7/usage/faq/index.md
+	./scripts/mdtopdf.sh  ./build-pdf
 
 concat-mesosphere-pdf: #script to concat the final mesosphere book
 	./scripts/mesosphereconcat.sh ./build-pdf ./build-pdf

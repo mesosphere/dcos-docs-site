@@ -9,13 +9,12 @@
 
 set -o errexit -o nounset -o pipefail
 
+
+LOG='./pages/1.7/usage/faq/index.md ./pages/1.8/administration/access-node/sshcluster/index.md'
 # We turn off this variable because we will set it up by knowing what directories should we build
 #INPUT_FOLDER=${1}
-OUTPUT_FOLDER=${2}
+OUTPUT_FOLDER=${1}
 PARALLEL_TEMPFILE=$(mktemp)
-
-# Log should be a
-CHANGED_FILES=${3}
 
 TEMP_FILES=""
 
@@ -62,12 +61,21 @@ function selectFolder
         # Clean duplicate directories
         ALL_DIRECTORIES=$(echo "$ALL_FOLDERS" | tr ' ' '\n' | sort | uniq)
         # Make INPUT_FOLDER be one of those at a time
+        for d in $ALL_DIRECTORIES
+        do
+          INPUT_FOLDER=$d
+          # delete d from ALL directories
+          # main
+          echo main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
+          main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
+        done
     else
         # Otherwise, set it to build the entire ./pages directory
         INPUT_FOLDER="${PAGES_DIR}"
+        main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
     fi
 }
-selectFolder "${CHANGED_FILES}" "${TEST_DIR}"
+
 
 function main
 {
@@ -75,7 +83,7 @@ function main
    while IFS= read -r -d '' SOURCE_FILE
    do
      # Strip the input_folder from filepath, not to include it within output folder and Destination filename
-     local FILE_PATH=${SOURCE_FILE#$INPUT_FOLDERd}
+     local FILE_PATH=${SOURCE_FILE}
      # Strip the filename and get only the full directory path for the file
      local FILE_PATH="${FILE_PATH%/*}"
      # Strip the first / or ./ from the beginning of file path
@@ -101,7 +109,7 @@ function main
      FILE_NAME="index.md"
      # We create a tmpfile to send to Pandoc with the markdown
      TEMP_FILE=$(mktemp)
-
+     echo $FILE_PATH
     # We find the index.md per folder so the final pdf is organised per folder not natively recursive
     while IFS= read -r SOURCE_FOLDERS
       do
@@ -140,7 +148,7 @@ function main
           rm -f ${MARKDOWN_FILE}
         fi
       # Find recursively all the directories whithin a folder
-      done < <(find "${INPUT_FOLDER}"/"${FILE_PATH}" )
+      done < <(find "${FILE_PATH}" )
 
      # Fix for absolute paths images urls
      sed -i 's,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.png\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.jpg\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.jpeg\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.gif\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.svg\),..\1\2,g' "${TEMP_FILE}"
@@ -173,24 +181,26 @@ function main
     if [ -z "${PDF_FILE_NAME}" ]
     then
       PDF_DEST_DIR=''
-      PDF_FILE_NAME="MesosphereDCOS"
+      PDF_FILE_NAME=${INPUT_FOLDER}
     fi
 
-    #scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
+    # scripts/pandocpdf.sh "${TEMP_FILE}" "${PDF_DEST_DIR}"/"${PDF_FILE_NAME}" "${INPUT_FOLDER}"
     # Pandoc gets the string of files and outputs the pdf.
+
     echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
 
-   done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
+   done <  <(find "${PAGES_DIR}${INPUT_FOLDER}" -type f -name "*.md" -print0)
 
   # Execute theconversion in parallel
   echo "checking pwd"
   pwd
   echo "======="
   echo "Starting pdf build $(date)"
-  cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-6}"
+  cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-8}"
   echo "Finished build $(date)"
 }
 
 clean "${OUTPUT_FOLDER}"
-main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
+#main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
+selectFolder "${CHANGED_FILES}" "${PAGES_DIR}"
