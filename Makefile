@@ -32,9 +32,6 @@ build-development: build-api
 #
 # Build PDF
 #
-get-folders-for-build:
-	./scripts/set-folders-to-build.sh
-
 check-images: # scan through markdown to validate Github flavoured markdown
 	node ./scripts/linkchecker.js ./pages
 
