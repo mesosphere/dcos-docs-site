@@ -55,17 +55,24 @@ For each node in your cluster, download the plugin binary and then add a systemd
     3. Start the systemd service with `sudo systemctl start dcos-metrics-prometheus`.
     4. View the system logs and verify the plugin is running with `sudo journalctl -u dcos-metrics-prometheus`.
 
-# Run a Prometheus server
+# Run a Prometheus server on DC/OS
 
-1. Download a [Prometheus Marathon app definition](https://raw.githubusercontent.com/dcos/dcos-metrics/master/plugins/prometheus/marathon/prometheus.json).
-2. Create a `prometheus.yml` configuration file. 
-3. Configure the IP address of each node and the Prometheus port configured in the environment file in the `static_configs` array in the [`scrape_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#<scrape_config>) section.
-2. Run the app with `dcos marathon app add prometheus.json`.
+There are many ways to run a Prometheus server. This is the simplest way to get started with self-hosted metrics on DC/OS. 
 
-# Test a metric emitter
+1. Download three marathon configurations from the dcos-metrics repository:
+    1. [metrics.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/metrics.json)
+    1. [prometheus.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/prometheus.json)
+    1. [grafana.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/grafana.json)
+1. Run Prometheus and Grafana in a pod with `dcos marathon pod add metrics.json`.
+1. Run a Prometheus UI proxy with `dcos marathon app add prometheus.json`.
+1. Run a Grafana UI proxy with `dcos marathon app add grafana.json`.
+1. Open the DC/OS UI and wait for all the services in the newly created 'monitoring' folder to become healthy.
+
+# Viewing metrics
 
 1. Download the [ statsd-emitter](https://raw.githubusercontent.com/dcos/dcos-metrics/master/plugins/prometheus/marathon/statsd-emitter.json) test task.
 1. Run the app with `dcos marathon app add statsd-emitter.json`.
 1. Check your Prometheus frontend for the `statsd_tester_time_uptime` metric. For example:
 
    ![statsd_tester_time_uptime](/1.9/img/statsd_tester_time_uptime.png)
+
