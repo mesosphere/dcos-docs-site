@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Install and Customize
 menuWeight: 20
@@ -125,7 +125,7 @@ Steps:
 	 Select the group or user you created. Select **ADD PERMISSION** and then toggle to **INSERT PERMISSION STRING**. Add each of the following permissions to your user or group, and then click **ADD PERMISSIONS**.
 
            ```
-		   dcos:adminrouter:service:marathon full				
+		   dcos:adminrouter:service:marathon full
 		   dcos:service:marathon:marathon:services:/testing full
 		   dcos:adminrouter:ops:mesos full
 		   dcos:adminrouter:ops:slave full
@@ -203,4 +203,4 @@ dcos kafka --name=/kafka update start --options=options.json
 
  [4]: #custom-installation
  [5]: https://github.com/mesosphere/dcos-vagrant
- [6]: https://docs.mesosphere.com/services/kafka/configure/#configuration-options
+ [6]: https://docs.mesosphere.com/services/kafka/v1.1.19.1-0.10.1.0/configure/#configuration-options
