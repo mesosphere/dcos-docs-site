@@ -11,9 +11,9 @@
 #    Get information from Last Changes Plugin and set up Env.Variables
 #   *******************************************************************
 
-DESTINATION_DIR="/scripts/lint-process-generator.js"
+#DESTINATION_DIR="/scripts/lint-process-generator.js"
 
 # Shows all markdown files changes
 LOG=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep .md)
-echo "${LOG}" > "${DESTINATION_DIR}"
+echo "${LOG}"
 
