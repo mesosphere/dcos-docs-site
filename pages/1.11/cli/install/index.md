@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The recommended method to install the DC/OS CLI is from the DC/OS web interface. Or, you can manually install the CLI by using the instructions [below](#manual). 
+The recommended method to install the DC/OS CLI is from the DC/OS web interface. Or, you can manually install the CLI by using the instructions [below](#manual).
 
 # Installing CLI from the web interface
 
@@ -22,7 +22,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 1.  Select **Install CLI**.
 
     ![CLI install UI](/1.11/img/install-cli.png)
-    
+
 1.  Copy and paste the code snippets into your terminal.
 
     ![CLI copy/paste](/1.11/img/install-cli-terminal.png)
@@ -47,7 +47,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
 
     ```bash
-    curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.10/dcos
+    curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.11/dcos
     ```
 
     **Important:** The CLI must be installed on a system that is external to your DC/OS cluster.
@@ -55,7 +55,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 1.  Move the CLI binary to your local bin directory.
 
     ```bash
-    sudo mv dcos /usr/local/bin 
+    sudo mv dcos /usr/local/bin
     ```
 
 1.  Make the CLI binary executable.
@@ -88,7 +88,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
 
     ```bash
-    curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.10/dcos
+    curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.11/dcos
     ```
 
     **Important:** The CLI must be installed on a system that is external to your DC/OS cluster.
@@ -122,7 +122,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 1.  Run command-line environment as Administrator.
 
-1.  Download the DC/OS CLI executable to your local directory ([dcos.exe](https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.10/dcos.exe)).
+1.  Download the DC/OS CLI executable to your local directory ([dcos.exe](https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.11/dcos.exe)).
 
 1.  Set up the connection from the CLI to your DC/OS cluster. In this example, `http://example.com` is the master node URL.
 
