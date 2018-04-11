@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle: Limits
 excerpt:
 title: Limits
-menuWeight: 0
+menuWeight: 140
 featureMaturity:
 
 ---
@@ -16,13 +16,13 @@ Mesosphere has scale-tested Spark on DC/OS by running a CPU-bound Monte Carlo ap
 ## Cluster characteristics
 - 2560 cores total
 - 40 m4.16xlarge EC2 instances
- 
+
 ### Single executor per node:
 - 40 executors
-- Each executor: 64 cores, 2GB memory 
+- Each executor: 64 cores, 2GB memory
 - CPU utilization was > 90%, with majority of time spent in task computation
 
-### Multiple executors per node: 
+### Multiple executors per node:
 On a smaller, 1024-core, 16 node (m4.16xlarge) cluster, the following variations were tested:
 
  | Executors | Time to Launch all Executors | Executors per Node |
@@ -31,4 +31,4 @@ On a smaller, 1024-core, 16 node (m4.16xlarge) cluster, the following variations
  | 400       | 17 s.                        | 64                 |
  | 820       | 28 s.                        | 64                 |
 
-In all tests, the application completed successfully. 
+In all tests, the application completed successfully.
