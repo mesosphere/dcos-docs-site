@@ -17,7 +17,6 @@ ADD . /src/
 
 RUN npm install
 
-RUN make get-folders-for-build
 
 RUN make build-swagger
 RUN make build-ngindox
