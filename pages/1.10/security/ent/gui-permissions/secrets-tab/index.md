@@ -7,6 +7,6 @@ excerpt:
 
 enterprise: true
 ---
-Access to the **Secrets** tab has not been implemented as of version 1.10.6
+Access to the **Secrets** tab has not been implemented as of version 1.10.6 for non-superusers.
 
 ---
