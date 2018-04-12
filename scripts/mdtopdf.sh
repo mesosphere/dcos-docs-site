@@ -10,6 +10,7 @@
 set -o errexit -o nounset -o pipefail
 
 
+
 #LOG='./pages/1.7/usage/faq/index.md ./pages/1.8/administration/access-node/sshcluster/index.md'
 # We turn off this variable because we will set it up by knowing what directories should we build
 #INPUT_FOLDER=${1}
