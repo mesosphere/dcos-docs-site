@@ -18,11 +18,11 @@ These are the release notes for DC/OS 1.10.6.
 
 # Notable Changes in DC/OS 1.10.6
 
-- COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.x version.
-- CORE-1447/CORE-1448/CORE-1449 - Bumped version of dcos-ee-mesos-modules.
-- DCOS-21578 - Bumped DC/OS E2E version to 2018.03.07.0 in Enterprise DC/OS. [enterprise type="inline" size="small"/]
+- COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.x version. ([changelog](https://github.com/mesosphere/mesos/compare/c8bfe874c68cdf6b9d7e4b7ab0dd81c45b26bc79...178a8addd30f5f4e72c5aa3d61bc07e15e75fe87)).
+- CORE-1447/CORE-1448/CORE-1449 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service.
 - DCOS-21683 - Bumped CockroachDB to version 1.1.7.
 - DCOS-21709 - Updated DC/OS configuration to remove marathon GPU defaults on installation.
+- DCOS-16431 - Added short-lived Admin Router permission cache. Enabled by setting adminrouter_auth_cache_enabled: true in config.yaml. This option is disabled by default.
 - DCOS_OSS-1903 - Bumped OpenSSL.
 - DCOS_OSS-2181 - Bumped OpenResty to version 1.13.6.
 - DCOS_OSS-2229 - Bumped Navstar.
