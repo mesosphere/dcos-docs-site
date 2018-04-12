@@ -15,6 +15,6 @@
 
 # Shows all markdown files changes
 LOG=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep .md)
-export LOG
-echo "${LOG}"
+export $(cat LOG)
+echo "${LOG}" > ".log"
 
