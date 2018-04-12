@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 #   Usage:        Get a list of the changes between builds
 #
