@@ -11,7 +11,7 @@ featureMaturity:
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-## Version Spark and Spark History 2.3.0-2.2.1-2
+## Version Spark and Spark History 2.3.1-2.2.1-1
 
 ### Updates
 - Updated libmesos version version with critical bug fix, [MESOS-8171](https://issues.apache.org/jira/browse/MESOS-8171)
