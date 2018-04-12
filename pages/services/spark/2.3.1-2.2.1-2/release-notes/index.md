@@ -17,7 +17,7 @@ featureMaturity:
 - Updated libmesos version version with critical bug fix, [MESOS-8171](https://issues.apache.org/jira/browse/MESOS-8171)
 
 ### Documentation
-- Added a [page](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-1/limits/) documenting results from scale testing of Spark on DC/OS.
+- Added a [page](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/limits/) documenting results from scale testing of Spark on DC/OS.
 
 
 ## Version 2.3.0-2.2.1-2
