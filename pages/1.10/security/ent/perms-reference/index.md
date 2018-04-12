@@ -21,7 +21,7 @@ The DC/OS permissions are enforced based on your security mode.
 |-----------------------------------------------------|:--------:|:----------:|:------:|
 | [Admin Router permissions](#admin-router) (`dcos:adminrouter`)       |     x    |      x     |    x   |
 | [Mesos permissions](#mesos) (`dcos:mesos`)                    |          |            |    x   |
-| [Marathon and Metronome permissions](#marathon-metronome) (`dcos:service`) |          |      x     |    x   |
+| [Marathon and Metronome permissions](#marathon-metronome) (`dcos:service`) |          |            |    x   |
 | [Secret store permissions](#secrets) (`dcos:secrets`)           |     x    |      x     |    x   |
 | [Superuser permissions](#superuser) (`dcos:superuser`)            |     x    |      x     |    x   |
 
