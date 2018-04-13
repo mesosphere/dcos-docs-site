@@ -103,7 +103,7 @@ See [Configuration Options][6] for a list of fields that can be customized via a
 
 Installing multiple Kafka clusters is identical to installing Kafka clusters with custom configurations as described above. The only requirement on the operator is that a unique `name` is specified for each installation. For example:
 
-```
+```bash
 $ cat kafka1.json
 {
     "service": {
