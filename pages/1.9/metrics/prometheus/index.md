@@ -32,7 +32,7 @@ For each node in your cluster, download the plugin binary and then add a systemd
         Description=DC/OS Metrics Prometheus Plugin
 
         [Service]
-        ExecStart=/opt/mesosphere/bin/dcos-metrics-prometheus -dcos-role master
+        ExecStart=/opt/mesosphere/bin/dcos-metrics-prometheus --dcos-role master --prometheus-port 61091
         ```
 
     2. Reload the systemd state by running `sudo systemctl daemon-reload`.
@@ -48,7 +48,7 @@ For each node in your cluster, download the plugin binary and then add a systemd
         Description=DC/OS Metrics Prometheus Plugin
 
         [Service]
-        ExecStart=/opt/mesosphere/bin/dcos-metrics-prometheus -dcos-role agent
+        ExecStart=/opt/mesosphere/bin/dcos-metrics-prometheus --dcos-role agent --prometheus-port 61091
         ```
 
     2. Reload the systemd state by running `sudo systemctl daemon-reload`.
