@@ -40,6 +40,6 @@ $ dcos package install {{ model.packageName }} --options=options.json
 ```
 
 <!-- TODO: Check the relative link -->
-For more information on how to define a DC/OS {{ model.techShortName }} model, see the [../model-definition] documentation. More options for configuring the {{ modlel.techName }} service are listed in the [../configuration] documentation.
+For more information on how to define a DC/OS {{ model.techShortName }} model, see the [../model-definition] documentation. More options for configuring the {{ model.techName }} service are listed in the [../configuration] documentation.
 
 #include /services/include/install2.tmpl

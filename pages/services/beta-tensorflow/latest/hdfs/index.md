@@ -30,7 +30,7 @@ For example, if `http://mydomain.com/hdfs-config/hdfs-site.xml` and `http://mydo
 ```
 This can also be done through the UI.
 
-If you are using a DC/OS {{ hdfs_model.techName }} service with a service name of {{ hdfs_mode.serviceName }}, the endpoint to specify here would be {{ hdfs_mode.endpoint }}.
+If you are using a DC/OS {{ hdfs_model.techName }} service with a service name of {{ hdfs_model.serviceName }}, the endpoint to specify here would be {{ hdfs_model.endpoint }}.
 
 ## Accessing files
 
