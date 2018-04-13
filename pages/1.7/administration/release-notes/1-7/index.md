@@ -13,7 +13,7 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 You can now install packages from the DC/OS Universe with a single click in the web interface. The packages can be installed with defaults or customized directly in the UI. For more information, see the [documentation][1].
 
-![UI Universe](,,/pages/1.7/administration/img/ui-universe-ee.gif)
+![UI Universe](../1.7/administration/img/ui-universe-ee.gif)
 
 # DC/OS component health available in the UI
 
