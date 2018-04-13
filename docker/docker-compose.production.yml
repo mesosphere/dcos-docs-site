@@ -28,6 +28,11 @@ services:
       dockerfile: ./docker/Dockerfile.htmltopdf
       args:
         git_branch: ${GIT_BRANCH}
+        log: ${LOG}
+    # env_file:
+    #    - pdf-variables.env
+    environment:
+      - LOG=${LOG}
     volumes:
       - build-pdf:/src/build-pdf
   test:

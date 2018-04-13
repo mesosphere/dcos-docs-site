@@ -36,6 +36,8 @@ CHANGED_FILES=${LOG}
 PAGES_DIR="./pages/"
 FINAL_PATH=""
 ALL_FOLDERS=""
+echo LOG
+echo "You should have seen Log before this message"
 # Function to determine which version need to be built
 function selectFolder
 {

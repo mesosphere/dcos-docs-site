@@ -13,6 +13,7 @@ if [[ "$docker_image_build_id" != "" ]]; then
   docker rmi $docker_image
 fi
 
-LOG=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep .md) \
+#LOG="THIS IS DEBUG MESSAGE AND ITS VERY IMPORTANT" \
+#LOG=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep .md) \
 GIT_BRANCH=$GIT_BRANCH \
-docker-compose -f -e LOG ./docker/docker-compose.production.yml build --no-cache pdf
+docker-compose -f ./docker/docker-compose.production.yml build --no-cache pdf
