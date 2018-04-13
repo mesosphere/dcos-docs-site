@@ -18,7 +18,7 @@ These are the release notes for DC/OS 1.10.6.
 
 # Notable Changes in DC/OS 1.10.6
 
-- COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.x version. ([changelog](https://github.com/mesosphere/mesos/compare/c8bfe874c68cdf6b9d7e4b7ab0dd81c45b26bc79...178a8addd30f5f4e72c5aa3d61bc07e15e75fe87)).
+- COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.x version. ([changelog](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.4.x-24d3886/CHANGELOG)).
 - CORE-1447/CORE-1448/CORE-1449 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service.
 - DCOS-21683 - Bumped CockroachDB to version 1.1.7.
 - DCOS-21709 - Marathon supports preferential GPU scheduling on DC/OS.
