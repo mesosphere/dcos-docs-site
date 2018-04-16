@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:
 excerpt:
 title: Troubleshooting
-menuWeight: 90
+menuWeight: 70
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---
-
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
 
 #include /services/include/troubleshooting.tmpl
 
@@ -19,7 +16,8 @@ Kafka may become unhealthy when it detects any underreplicated partitions. This 
 
 Possible repair actions include [restarting the affected broker](#restarting-a-node) and [destructively replacing the affected broker](#replacing-a-permanently-failed-node). The replace operation is destructive and will irrevocably lose all data associated with the broker. The restart operation is not destructive and indicates an attempt to restart a broker process.
 
-## Extending the Kill Grace Period
+
+## Broker Shutdown
 
 If the Kafka brokers are not completing the clean shutdown within the configured
-`brokers.kill_grace_period` (Kill Grace Period), extend the Kill Grace Period, see [Managing - Extend the Kill Grace Period](../managing/#extend-the-kill-grace-period).
+`brokers.kill_grace_period` (Kill Grace Period), extend the Kill Grace Period.

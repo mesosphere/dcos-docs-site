@@ -8,10 +8,6 @@ model: /services/confluent-kafka/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
-# Version 2.
-
 # Version 2.1.0-4.0.0e
 
 ## New Features

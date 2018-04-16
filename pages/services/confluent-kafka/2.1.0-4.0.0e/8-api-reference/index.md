@@ -3,51 +3,12 @@ layout: layout.pug
 navigationTitle:
 excerpt:
 title: API Reference
-menuWeight: 70
+menuWeight: 90
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
-
 #include /services/include/api-reference.tmpl
-
-# Connection Information
-
-Kafka comes with many useful tools of its own that often require either Zookeeper connection information or the list of broker endpoints. This information can be retrieved in an easily consumable format from the `/endpoints` endpoint (assuming your service is named "{{ model.serviceName }}"):
-
-```bssh
-$ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/endpoints/broker"
-{
-  "vip": "broker.{{ model.serviceName }}.l4lb.thisdcos.directory:9092",
-  "address": [
-    "10.0.0.35:1028",
-    "10.0.1.249:1030"
-  ],
-  "dns": [
-    "kafka-0-broker.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1028",
-    "kafka-1-broker.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1030"
-  ],
-}
-```
-
-The same information can be retrieved through the DC/OS CLI:
-
-```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints broker
-{
-  "vip": "broker.{{ model.serviceName }}.l4lb.thisdcos.directory:9092",
-  "address": [
-    "10.0.0.35:1028",
-    "10.0.1.249:1030"
-  ],
-  "dns": [
-    "kafka-0-broker.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1028",
-    "kafka-1-broker.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:1030"
-  ],
-}
-```
 
 # Topic Operations
 
