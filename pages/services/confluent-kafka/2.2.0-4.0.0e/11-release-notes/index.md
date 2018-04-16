@@ -8,13 +8,13 @@ model: /services/confluent-kafka/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
 
 # Version 2.2.0-4.0.0e
 
 ## New Features
 
 - Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/services/confluent-kafka/2.2.0-4.0.0e/security/#securely-exposing-dcos-confluent-kafka-outside-the-cluster).
+- Support for deploying the service in a remote region.
 
 
 # Version 2.1.0-4.0.0e

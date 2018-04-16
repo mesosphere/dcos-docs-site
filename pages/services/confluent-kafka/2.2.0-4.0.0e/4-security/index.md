@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:
 excerpt:
 title: Security
-menuWeight: 22
+menuWeight: 50
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---
-
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
 
 
 # DC/OS {{ model.techName }} Security
@@ -202,6 +199,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 
 <!-- TODO. @Evan, did you write something for this already? Or am I mis-remembering? -->
 *Note*:  It is possible to enable Authorization after initial installation, but the service may be unavailable during the transition. Additionally, {{ model.techShortName }} clients may fail to function if they do not have the correct ACLs assigned to their principals. During the transition `service.security.authorization.allow_everyone_if_no_acl_found` can be set to `true` to prevent clients from being failing until their ACLs can be set correctly. After the transition, `service.security.authorization.allow_everyone_if_no_acl_found` should be reversed to `false`
+
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
 
