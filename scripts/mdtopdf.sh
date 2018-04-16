@@ -95,7 +95,7 @@ function main
      # Destination directory for pdf file
      local PDF_DEST_DIR="${OUTPUT_FOLDER}"/"${FILE_PATH}"
      # Remove INPUT_FOLDER from filename
-     local PDF_FILE_NAME="${SOURCE_FILE#$              }"
+     local PDF_FILE_NAME="${SOURCE_FILE#$INPUT_FOLDER}"
      # Remove leading ./ or / from filename, as find will output files with leading ./ or /
      local PDF_FILE_NAME="${PDF_FILE_NAME#*/}"
      # Replace all "/" characters in filename to "-" and append .pdf
