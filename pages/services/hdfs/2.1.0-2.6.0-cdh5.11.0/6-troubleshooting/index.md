@@ -2,18 +2,15 @@
 layout: layout.pug
 navigationTitle:
 excerpt:
-title: Managing
-menuWeight: 60
+title: Troubleshooting
+menuWeight: 70
 model: /services/hdfs/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
+#include /services/include/troubleshooting.tmpl
 
-
-#include /services/include/managing.tmpl
-
-# Replacing Journal Nodes
+# Troubleshooting a Replaced Journal Node
 
 The following section describes how to perform a `replace` of a Journal Node. This guide uses Journal Node 0 to
 refer to the unhealthy Journal Node as it's the replaced Journal Node.
