@@ -22,7 +22,7 @@ For each node in your cluster, download the plugin binary and then add a systemd
    1. Rename the plugin to `dcos-metrics-prometheus` and move to `/opt/mesosphere/bin`.
    1. Assign permissions to the plugin: `chmod 0755 /opt/mesosphere/bin/dcos-metrics-prometheus`.
 
-1.  On every master node:
+1.  On every master node do the following steps:
     1. Download the plugin systemd service file from downloads.mesosphere.io: [prometheus-plugin.service](https://downloads.mesosphere.io/dcos-metrics/plugins/prometheus.service).
     1. Copy the service file to `/etc/systemd/system/dcos-metrics-prometheus.service`. Edit it and ensure that the dcos-role flag is set to 'master'.
 
@@ -38,7 +38,7 @@ For each node in your cluster, download the plugin binary and then add a systemd
     3. Start the systemd service with `sudo systemctl start dcos-metrics-prometheus`.
     4. View the system logs and verify the plugin is running with `sudo journalctl -u dcos-metrics-prometheus`.
 
-1.  On every agent node:
+1.  On every agent node do the following steps:
     1. Download the plugin systemd service file from downloads.mesosphere.io: [prometheus-plugin.service](https://downloads.mesosphere.io/dcos-metrics/plugins/prometheus.service)
     1. Copy the service file to `/etc/systemd/system/dcos-metrics-prometheus.service`. Edit it and ensure that the dcos-role flag is set to 'agent'.
 
@@ -56,7 +56,7 @@ For each node in your cluster, download the plugin binary and then add a systemd
 
 # Run a Prometheus server on DC/OS
 
-There are many ways to run a Prometheus server. This is the simplest way to get started with self-hosted metrics on DC/OS. 
+There are several ways to run a Prometheus server. The simplest way to get started with self-hosted metrics on DC/OS is listed below:
 
 1. Download three marathon configurations from the dcos-metrics repository:
     1. [metrics.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/metrics.json)
