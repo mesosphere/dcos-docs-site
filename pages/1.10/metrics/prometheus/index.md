@@ -23,7 +23,7 @@ For each node in your cluster, download the plugin binary and then add a systemd
    1. Assign permissions to the plugin: `chmod 0755 /opt/mesosphere/bin/dcos-metrics-prometheus`.
 
 1.  On every master node:
-    1. Download the plugin systemd service file from downloads.mesosphere.io: [prometheus-plugin.service](https://downloads.mesosphere.io/dcos-metrics/plugins/prometheus.service)
+    1. Download the plugin systemd service file from downloads.mesosphere.io: [prometheus-plugin.service](https://downloads.mesosphere.io/dcos-metrics/plugins/prometheus.service).
     1. Copy the service file to `/etc/systemd/system/dcos-metrics-prometheus.service`. Edit it and ensure that the dcos-role flag is set to 'master'.
 
         ```

@@ -40,7 +40,7 @@ For each node in your cluster, download the plugin binary and then add a systemd
     4. View the system logs and verify the plugin is running with `sudo journalctl -u dcos-metrics-prometheus`.
 
 1.  On every agent node:
-    1. Download the plugin systemd service file from downloads.mesosphere.io: [prometheus-plugin.service](https://downloads.mesosphere.io/dcos-metrics/plugins/prometheus.service)
+    1. Download the plugin systemd service file from downloads.mesosphere.io: [prometheus-plugin.service](https://downloads.mesosphere.io/dcos-metrics/plugins/prometheus.service).
     1. Copy the service file to `/etc/systemd/system/dcos-metrics-prometheus.service`. Edit it and ensure that the dcos-role flag is set to 'agent'.
 
         ```
