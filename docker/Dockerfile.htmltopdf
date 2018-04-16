@@ -52,7 +52,7 @@ RUN apt-get install -y software-properties-common python-software-properties
 RUN add-apt-repository -y ppa:jonathonf/texlive-2016
 RUN apt-get update
 
-RUN apt-get -yq update && apt-get install -y python-pip wget texlive librsvg2-bin xzdec perl-tk
+RUN apt-get -yq update && apt-get install -y python-pip wget texlive-full librsvg2-bin xzdec perl-tk
 
 RUN tlmgr init-usertree
 
