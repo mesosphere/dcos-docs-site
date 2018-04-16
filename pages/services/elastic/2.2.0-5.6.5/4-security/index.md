@@ -3,14 +3,10 @@ layout: layout.pug
 navigationTitle:
 excerpt:
 title: Security
-menuWeight: 22
+menuWeight: 50
 model: /services/elastic/data.yml
 render: mustache
 ---
-
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
-
 
 # DC/OS {{ model.techName }} Security
 
