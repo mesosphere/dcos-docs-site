@@ -17,6 +17,6 @@ if [ -d "./build-ngindox" ]; then
   rm -rf "./build-ngindox"
 fi
 
-if [ -d "./build-pdf" ]; then
-  rm -rf "./build-pdf"
-fi
+# if [ -d "./build-pdf" ]; then
+#   rm -rf "./build-pdf"
+# fi

@@ -3,6 +3,7 @@
 #
 
 FROM node:8.1.2-slim as ms-pdf-builder
+
 RUN pwd
 RUN ls -la
 ARG git_branch
@@ -10,6 +11,7 @@ ARG git_branch
 RUN apt-get update -qq
 RUN apt-get install -y build-essential
 RUN apt-get install -y ghostscript
+
 
 RUN mkdir /src
 WORKDIR /src
@@ -28,6 +30,11 @@ RUN GIT_BRANCH=$git_branch
 # Build PDF
 #
 FROM ubuntu:16.04 as pdf-builder
+
+ARG log
+ENV log=${log}
+RUN LOG=${log}
+
 RUN apt-get update -qq
 
 RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55
@@ -39,7 +46,13 @@ RUN apt-get install -y software-properties-common python-software-properties
 RUN add-apt-repository -y ppa:jonathonf/texlive-2016
 RUN apt-get update
 
-RUN apt-get -yq update && apt-get install -y python-pip wget texlive-full librsvg2-bin
+RUN apt-get -yq update && apt-get install -y python-pip wget texlive-full librsvg2-bin xzdec perl-tk
+
+RUN tlmgr init-usertree
+
+RUN tlmgr update --all
+
+#RUN tlmgr install biber context tex-common
 
 RUN wget https://github.com/jgm/pandoc/releases/download/2.1/pandoc-2.1-1-amd64.deb && \
     dpkg -i pandoc-2.1-1-amd64.deb && \
