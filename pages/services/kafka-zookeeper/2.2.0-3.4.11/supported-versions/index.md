@@ -9,4 +9,4 @@ model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
-#include /services/include/supported-versions.tmpl
+#include /services/include/support-policy.tmpl

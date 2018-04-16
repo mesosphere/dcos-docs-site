@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:
-title: Supported Versions
+title: Support Policy
 menuWeight: 110
 excerpt:
-
-model: /services/kafka-zookeeper/data.yml
+model: /services/cassandra/data.yml
 render: mustache
 ---
 

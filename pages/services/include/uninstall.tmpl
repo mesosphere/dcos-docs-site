@@ -115,7 +115,7 @@ If you are running DC/OS 1.9 or older, or a version of the {{model.techName }} s
 1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`.
 
 ```bash
-$ MY_SERVICE_NAME={{ model.serviceName }}-dev
+$ MY_SERVICE_NAME=<service-name>
 $ dcos package uninstall --app-id=$MY_SERVICE_NAME {{ model.packageName }}`.
 $ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
     -r $MY_SERVICE_NAME-role \

@@ -11,7 +11,7 @@ render: mustache
 <!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
 
 
-#include /services/include/supported-versions.tmpl
+#include /services/include/support-policy.tmpl
 
 ### Confluent Kafka
 
