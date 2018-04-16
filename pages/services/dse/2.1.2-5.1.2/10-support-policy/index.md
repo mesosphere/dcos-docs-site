@@ -1,20 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Supported Versions
-title: Supported Versions
+navigationTitle:
+title: Support Policy
 menuWeight: 110
 excerpt:
-
+model: /services/dse/data.yml
+render: mustache
 ---
-## Supported Versions
 
-DC/OS and certified package version support policy are described in detail [here](https://docs.mesosphere.com/version-policy)
+#include /services/include/support-policy.tmpl
 
-## Contacting Technical Support
-
-### Mesosphere DC/OS
-
-[Submit a request](https://support.mesosphere.com/hc/en-us/requests/new).
 
 ## Contacting DataStax Technical Support
 To start a support case for issues related to DataStax, please email support@datastax.com.

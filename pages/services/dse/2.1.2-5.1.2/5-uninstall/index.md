@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Uninstall
+navigationTitle:
 excerpt:
 title: Uninstall
-menuWeight: 30
-
+menuWeight: 60
+model: /services/dse/data.yml
+render: mustache
 ---
-
 
 #include /services/include/uninstall.tmpl

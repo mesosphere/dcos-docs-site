@@ -1,134 +1,27 @@
 ---
 layout: layout.pug
-navigationTitle: Installing and Customizing
-title: Installing and Customizing
-menuWeight: 20
+navigationTitle:
 excerpt:
-
+title: Configuration
+menuWeight: 20
+model: /services/dse/data.yml
+render: mustache
 ---
 
-## Installation with Default Settings
-The service comes with reasonable defaults for trying it out, but which should not be used in production. See note below.
 
-Each DSE Node has:
-- 2.5 CPUs
-- 2500 MB mem
-- Ports: [see here](https://docs.datastax.com/en/latest-dse/datastax_enterprise/sec/configFirewallPorts.html)
+#include /services/include/configuration-install-with-options.tmpl
 
-The OpsCenter Node has:
-- 1 instance
-- 2 CPUs
-- 6000 MB mem
-- 1 10240 MB disk
-- Ports: [see here](https://docs.datastax.com/en/latest-opscenter/opsc/reference/opscLcmPorts.html)
+## Datastax Opscenter
+The DC/OS Datastax Opscenter can be installed from the `datastax-ops` package. It is managed identically to datastax-dse. This guide primarily covers `datastax-dse` for conciseness. See the later sections of the guide for any configuration specifics of Opscenter.
 
-From the CLI, DSE may be installed with a default configuration as follows:
-```
-$ dcos package install datastax-dse
-$ dcos package install datastax-ops
-```
+#include /services/include/configuration-service-settings.tmpl
 
-From the DC/OS Dashboard website, DSE may be installed with a default configuration as follows:
-1. Visit http://yourcluster.com/ to view the DC/OS Dashboard.
-1. Navigate to `Catalog` and find the `datastax-dse` package.
-1. Click `Deploy` to use default settings.
-1. To use the built-in OpsCenter, repeat steps 2 and 3, but substitute `datastax-ops` for `datastax-dse`.
+## Best Practices
 
-### NOTE: DSE should not be deployed to production with the default settings. In production, the DSE nodes should be operated with 32 GB of memory and 16 GB of heap.
+- Use Mesosphere Enterprise DC/OS's placement rules to map your DSE cluster nodes or DC to different availability zones to achieve high resiliency.
+- Set up a routine backup services using OpsCenter to back up your business critical data in a regular basis.  The data can be stored on the DSE nodes themselves or on AWS S3 buckets depending on your IT policy or business needs.
+- Set up a routine repair services using OpsCenter to ensure all data on a replica is consistent within your DSE clusters.
 
-## Installation with Custom Settings
-You may customize settings at initial install. See below for an explanation of some of those settings and how they may be used.
-
-From the CLI, DSE may be installed with a custom configuration as follows:
-```
-$ dcos package install datastax-dse --options=your-dse-options.json
-```
-OpsCenter can be installed with a custom configuration the same way:
-```
-$ dcos package install datastax-ops --options=your-datastax-ops-options.json
-```
-For more information about building the options.json file, see the [DC/OS Documentation](/latest/deploying-services/config-universe-service/).
-
-From the DC/OS Dashboard website, DSE may be installed with a custom configuration as follows:
-1. Visit http://yourcluster.com/ to view the DC/OS Dashboard.
-1. Navigate to `Universe` => `Packages` and find the `datastax-dse` package.
-1. Click `Install`, then in the pop up dialog click `Advanced` to see the customization dialog.
-1. Make your changes to the default configuration in the customization dialog, then click `Review`.
-1. Examine the configuration summary for any needed changes. Click `Back` to make changes, or `Install` to confirm the settings and install the service.
-1. If using built-in OpsCenter, repeat the above steps, but substitute `datastax-ops` for `datastax-dse`.
-
-<!-- THIS BLOCK DUPLICATES THE OPERATIONS GUIDE -->
-
-## Integration with DC/OS access controls
-
-In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, `staging/dse` and `production/dse`.
-
-Steps:
-
-1. In the DC/OS GUI, create a group, then add a user to the group. Or, just create a user. Click **Organization** > **Groups** > **+** or **Organization** > **Users** > **+**. If you create a group, you must also create a user and add them to the group.
-1. Give the user permissions for the folder where you will install your service. In this example, we are creating a user called `developer`, who will have access to the `/testing` folder.
-   Select the group or user you created. Select **ADD PERMISSION** and then toggle to **INSERT PERMISSION STRING**. Add each of the following permissions to your user or group, and then click **ADD PERMISSIONS**.
-
-   ```
-   dcos:adminrouter:service:marathon full
-   dcos:service:marathon:marathon:services:/testing full
-   dcos:adminrouter:ops:mesos full
-   dcos:adminrouter:ops:slave full
-   ```
-1. Install your service into a folder called `test`. Go to **Catalog**, then search for **datastax-dse**.
-1. Click **CONFIGURE** and change the service name to `/testing/dse`, then deploy.
-
-   The slashes in your service name are interpreted as folders. You are deploying Kafka in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
-
-**Important:**
-- Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders.
-- DC/OS 1.9 and earlier does not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.
-
-### Interacting with your foldered service
-
-- Interact with your foldered service via the DC/OS CLI with this flag: `--name=/path/to/myservice`.
-- To interact with your foldered service over the web directly, use `http://<dcos-url>/service/path/to/myservice`. E.g., `http://<dcos-url>/service/testing/kafka/v1/endpoints`.
-
-<!-- END DUPLICATE BLOCK -->
-
-## Zones
-
-Placement constraints can be applied to zones by referring to the `@zone` key. For example, one could spread pods across a minimum of 3 different zones by specifying the constraint `[["@zone", "GROUP_BY", "3"]]`.
-
-<!--
-When the region awareness feature is enabled (currently in beta), the `@region` key can also be referenced for defining placement constraints. Any placement constraints that do not reference the `@region` key are constrained to the local region.
--->
-### Example
-
-Suppose we have a Mesos cluster with zones `a`,`b`,`c`.
-
-## Balanced Placement for a Single Region
-
-```
-{
-   ...
-  "count": 6,
-  "placement_constraint": "[[\"@zone\", \"GROUP_BY\", \"3\"]]",
-  ...
-}
-```
-
-- Instances will all be evenly divided between zones `a`,`b`,`c`.
-
-## Service Settings
-### Service Name
-Each instance of DSE must have a different service name. You can configure the service name in the **service** section of the install dialog. The default service name (used in many examples here) is `datastax-dse`.
-
-### DSE Cluster and Datacenter
-You may customize both the Cluster name and Datacenter name for a given service instance. Their defaults are `cluster_datastax` and `dc_datastax`, respectively. These may both be configured under the **cluster** configuration section.
-
-### Selecting DSE Components
-DSE Search, Analytics, and Graph are enabled by default, but you can disable any or all of them by modifying the default configuration.
-
-Go to the **cluster** configuration section. Enable/disable the following options as desired (all enabled by default):
-- `Enable DSE Search`
-- `Enable DSE Analytics`
-- `Enable DSE Graph`
 
 ## Node Settings
 The following settings may be adjusted to customize the amount of resources allocated to each DSE Node. Datastax's minimum system requirements must be taken into consideration when adjusting these values. Reducing these values may result in adverse performance and possibly even task failures.

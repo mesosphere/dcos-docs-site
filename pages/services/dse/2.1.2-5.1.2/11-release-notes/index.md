@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
+navigationTitle:
+excerpt:
 title: Release Notes
 menuWeight: 120
-excerpt:
-
+model: /services/dse/data.yml
+render: mustache
 ---
 
 # Version 2.1.2-5.1.2
