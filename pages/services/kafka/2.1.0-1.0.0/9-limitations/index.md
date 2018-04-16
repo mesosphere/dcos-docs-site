@@ -8,14 +8,12 @@ model: /services/kafka/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
-
 #include /services/include/limitations.tmpl
+#include /services/include/limitations-zones.tmpl
 
-## Configurations
+## Log Retention Bytes
 
-The "disk" configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated "disk" configuration. See the Configuring section for instructions for customizing these values.
+The "disk" configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated "disk" configuration. See the Configuration section for instructions for customizing these values.
 
 ## Security
 

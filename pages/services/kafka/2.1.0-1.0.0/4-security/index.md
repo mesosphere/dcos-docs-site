@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:
 excerpt:
 title: Security
-menuWeight: 22
+menuWeight: 50
 model: /services/kafka/data.yml
 render: mustache
 ---
-
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
 
 
 # DC/OS {{ model.techName }} Security
@@ -202,3 +199,61 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 
 <!-- TODO. @Evan, did you write something for this already? Or am I mis-remembering? -->
 *Note*:  It is possible to enable Authorization after initial installation, but the service may be unavailable during the transition. Additionally, {{ model.techShortName }} clients may fail to function if they do not have the correct ACLs assigned to their principals. During the transition `service.security.authorization.allow_everyone_if_no_acl_found` can be set to `true` to prevent clients from being failing until their ACLs can be set correctly. After the transition, `service.security.authorization.allow_everyone_if_no_acl_found` should be reversed to `false`
+
+
+## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
+
+Both transport encryption and Kerberos are tightly coupled to the DNS hosts of the Kafka brokers. As such, exposing a secure {{ model.techName }} service outside of the cluster requires additional setup.
+
+### Broker to Client Connection
+
+To expose a secure {{ model.techName }} service outside of the cluster, any client connecting to it must be able to access all brokers of the service via the IP address assigned to the broker. This IP address will be one of: an IP address on a virtual network or the IP address of the agent the broker is running on.
+
+### Forwarding DNS and Custom Domain
+
+Every DC/OS cluster has a unique cryptographic ID which can be used to forward DNS queries to that Cluster. To securely expose the service outside the cluster, external clients must have an upstream resolver configured to forward DNS queries to the DC/OS cluster of the service as described [here](https://docs.mesosphere.com/latest/networking/DNS/mesos-dns/expose-mesos-zone/).
+
+With only forwarding configured, DNS entries within the DC/OS cluster will be resolvable at `<task-domain>.autoip.dcos.<cryptographic-id>.dcos.directory`. However, if you configure a DNS alias, you can use a custom domain. For example, `<task-domain>.cluster-1.acmeco.net`. In either case, the DC/OS {{ model.techName }} service will need to be installed with an additional security option:
+```json
+{
+    "service": {
+        "security": {
+            "custom_domain": "<custom-domain>"
+        }
+    }
+}
+```
+where `<custom-domain>` is one of `autoip.dcos.<cryptographic-id>.dcos.directory` or your organization specific domain (e.g., `cluster-1.acmeco.net`).
+
+As a concrete example, using the custom domain of `cluster-1.acmeco.net` the broker 0 task would have a host of `kafka-0-broker.<service-name>.cluster-1.acmeco.net`.
+
+### Kerberos Principal Changes
+
+Transport encryption alone does not require any additional changes. Endpoint discovery will work as normal, and clients will be able to connect securely with the custom domain as long as they are configured as described [here](#transport-encryption-for-clients).
+
+Kerberos, however, does require slightly different configuration. As noted in the section [Create Principals](#create-principals), the principals of the service depend on the hostname of the service. When creating the Kerberos principals, be sure to use the correct domain.
+
+For example, if installing with these settings:
+```json
+{
+    "service": {
+        "name": "a/good/example",
+        "security": {
+            "custom_domain": "cluster-1.example.net",
+            "kerberos": {
+                "primary": "example",
+                "realm": "EXAMPLE"
+            }
+        }
+    },
+    "brokers": {
+        "count": 3
+    }
+}
+```
+then the principals to create would be:
+```
+example/kafka-0-broker.agoodexample.cluster-1.example.net@EXAMPLE
+example/kafka-1-broker.agoodexample.cluster-1.example.net@EXAMPLE
+example/kafka-2-broker.agoodexample.cluster-1.example.net@EXAMPLE
+```

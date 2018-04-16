@@ -1,14 +1,11 @@
 ---
 layout: layout.pug
 navigationTitle:
-title: Supported Versions
+title: Support Policy
 menuWeight: 110
 excerpt:
 model: /services/kafka/data.yml
 render: mustache
 ---
-
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
 
 #include /services/include/support-policy.tmpl
