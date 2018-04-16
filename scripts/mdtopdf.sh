@@ -29,6 +29,8 @@ function clean
     rm -rf "${1}"
     rm -f "${PARALLEL_TEMPFILE}"
 }
+LOG=${log}
+echo ${LOG}
 
 # Function to determine what to build
 CHANGED_FILES=${LOG}
@@ -36,8 +38,7 @@ CHANGED_FILES=${LOG}
 PAGES_DIR="./pages/"
 FINAL_PATH=""
 ALL_FOLDERS=""
-echo LOG
-echo "You should have seen Log before this message"
+INPUT_FOLDER=""
 # Function to determine which version need to be built
 function selectFolder
 {
@@ -94,7 +95,7 @@ function main
      # Destination directory for pdf file
      local PDF_DEST_DIR="${OUTPUT_FOLDER}"/"${FILE_PATH}"
      # Remove INPUT_FOLDER from filename
-     local PDF_FILE_NAME="${SOURCE_FILE#$INPUT_FOLDER}"
+     local PDF_FILE_NAME="${SOURCE_FILE#$              }"
      # Remove leading ./ or / from filename, as find will output files with leading ./ or /
      local PDF_FILE_NAME="${PDF_FILE_NAME#*/}"
      # Replace all "/" characters in filename to "-" and append .pdf
@@ -193,7 +194,7 @@ function main
     echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
 
-   done <  <(find "${PAGES_DIR}${INPUT_FOLDER}" -type f -name "*.md" -print0)
+   done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
 
   # Execute theconversion in parallel
   echo "checking pwd"
