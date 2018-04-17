@@ -117,7 +117,7 @@ Commands:
 
 Go to the DC/OS dashboard to validate that the Cassandra service is running and healthy:
 
-![Cassandra in the dashboard](/1.7/usage/tutorials/cassandra/img/cassandra-dashboard.png)
+![Cassandra in the dashboard](img/cassandra-dashboard.png)
 
 ## Perform Cassandra CRUD operations
 

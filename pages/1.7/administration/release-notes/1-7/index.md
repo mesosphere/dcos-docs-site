@@ -23,13 +23,13 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 You can now install packages from the DC/OS Universe with a single click in the web interface. The packages can be installed with defaults or customized directly in the UI. For more information, see the [documentation][1].
 
-![UI Universe](/1.8/usage/img/ui-universe-ee.gif)
+![UI Universe](/assets/images/ui-universe-ee.gif)
 
 # DC/OS component health available in the UI
 
 You can monitor the health of your cluster components from the DC/OS web interface. The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit. For more information, see the [documentation][2].
 
-![UI system health](/1.8/usage/img/ui-system-health-ee.gif)
+![UI system health](/assets/images/ui-system-health-ee.gif)
 
 # <a name="dcos"></a>Improved DC/OS installation
 
@@ -41,7 +41,7 @@ You can monitor the health of your cluster components from the DC/OS web interfa
 
 # DC/OS Networking
 
-*   DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. You can assign a VIP to your application by using the DC/OS Marathon web interface.
+*   DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. You can assign a VIP to your application by using the DC/OS Marathon web interface. 
 *   Distributed DNS Server to enable highly available DNS deployment for service discovery and service availability. <!-- where is the documentation for this? -->
 *   You can now use the DC/OS Networking tab in the DC/OS web interface to view aggregated metrics for Virtual IPs. You can monitor VIP performance metrics across DC/OS cluster. For more information, see the [documentation][3]. <!-- This Networking feature is enterprise only. -->
 *   To enable new DNS caching and VIP features, be sure to open ports 32768-65535 inclusive for both UDP and TCP between all machines in the cluster.
@@ -98,21 +98,21 @@ For the full set of changes, please refer to the [Marathon Release Notes][7].
 
 *   You cannot use an NFS mount for Exhibitor storage with the automated command line installation method. To use an NFS mount for Exhibitor storage (`exhibitor_storage_backend: shared_filesystem`), you must use the [Manual command line installation method][9].
 *   The Service and Agent panels of the DC/OS Web Interface won't render over 5,000 tasks. If you have a service or agent that has over 5,000 your browser may experience slowness. In this case you can close said browser tab and reopen the DC/OS web interface.
-*   After providing the **Agent Private IP List**, the automated GUI installer continues to show a warning for **Master Private IP List** that you can ignore: `agent_list must be provided along with master_list`.
-*   The automated GUI installer does not validate whether there are duplicate IPs in the **Master Private IP List** and **Agent Private IP List** until you go back and re-click in the **Master Private IP List** window.
+*   After providing the **Agent Private IP List**, the automated GUI installer continues to show a warning for **Master Private IP List** that you can ignore: `agent_list must be provided along with master_list`. 
+*   The automated GUI installer does not validate whether there are duplicate IPs in the **Master Private IP List** and **Agent Private IP List** until you go back and re-click in the **Master Private IP List** window. 
 *   If you stop and restart the automated GUI installer after running pre-flight, the setup page will not show you which IP detect script was selected.
 *   The automated installer only provisions private agents. To install public agents please see the [documentation][10].
 *   Occasionally the system health backend might panic and exit because of [this bug][11] in godbus library.
 *   You can sort system health by systemd unit. However, this search can bring up misleading information as the service itself can be healthy but the node on which it runs is not. This manifests itself as a service showing "healthy" but nodes associated with that service as "unhealthy". Some people find this behavior confusing.
 *   The system health API relies on Mesos DNS to know about all the cluster hosts. It finds these hosts by combining a query from `mesos.master` A records as well as `leader.mesos:5050/slaves` to get the complete list of hosts in the cluster. This system has a known bug where an agent will not show up in the list returned from `leader.mesos:5050/slaves` if the Mesos slave service is not healthy. This means the system health API will not show this host. If you experience this behavior it's most likely your Mesos slave service on the missing host is unhealthy.
-*   Beginning with the next release of DC/OS the `slave_public` role for public agents is changing to `agent_public`.
+*   Beginning with the next release of DC/OS the `slave_public` role for public agents is changing to `agent_public`. 
 
 **DC/OS Marathon**
 
 *   **Persistent local volumes** With Docker, the containerPath must be relative and will always appear in `/mnt/mesos/sandbox/`. If your application (e.g. a DB) needs an absolute directory this won’t work.
-
+    
     *   Volume cleanup [MESOS-2408][12]
-    *   If you go above your quota, your task will be killed and that task can never recover.
+    *   If you go above your quota, your task will be killed and that task can never recover. 
 
 *   **External/network volumes** No RO access from multiple tasks [emccode/dvdcli/issues/15][13]
 
@@ -127,8 +127,8 @@ See additional known issues at <a href="https://support.mesosphere.com" target="
 
 Issues fixed:
 
-- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/ent/custom/configuration-parameters/).
-- Various bug fixes to enable upgrades.
+- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/ent/custom/configuration-parameters/). 
+- Various bug fixes to enable upgrades. 
 
 ## <a name="1-7-3"></a>1.7.3 - July 27, 2016
 
@@ -136,7 +136,7 @@ New features and changes:
 
 - REX-Ray is upgraded to 0.3.3.
 - Marathon is upgraded to [1.1.2](https://github.com/mesosphere/marathon/releases/tag/v1.1.2).
-- New Mesos config (`'docker_stop_timeout'`) that allows you to set an explicit Docker timeout. By default this is set to `'docker_stop_timeout': '20secs'`.
+- New Mesos config (`'docker_stop_timeout'`) that allows you to set an explicit Docker timeout. By default this is set to `'docker_stop_timeout': '20secs'`. 
 - Assign disk resources to the Mesos default role, rather than all (`*`).
 - The DC/OS [Admin Router](/1.7/overview/concepts/#adminrouter) now configures the Mesos master cache for less upstream stress.
 - DC/OS installations on Azure now use Docker 1.11.0 (previously version 1.11.2).
@@ -144,7 +144,7 @@ New features and changes:
 
 Issues fixed:
 
-- [MESOS-5389](https://issues.apache.org/jira/browse/MESOS-5389) - docker containerizer should prefix relative volume.container_path values with the path to the sandbox
+- [MESOS-5389](https://issues.apache.org/jira/browse/MESOS-5389) - docker containerizer should prefix relative volume.container_path values with the path to the sandbox 
 - [MESOS-5680](https://issues.apache.org/jira/browse/MESOS-5680) - We should not 'chown -R' on persistent volumes every time container tries to use it
 - [MESOS-5341](https://issues.apache.org/jira/browse/MESOS-5341) - Enabled docker volume support for DockerContainerizer
 - [MESOS-5449](https://issues.apache.org/jira/browse/MESOS-5449) - Memory leak in SchedulerProcess.declineOffer

@@ -30,7 +30,7 @@ We're going to create a job that runs every 10 seconds and prints the current da
 
 1.  In the Chronos UI, click the **New Job** link to bring up the form for creating jobs.
 
-    ![Chronos in the services view](/1.7/usage/tutorials/img/ui-chronos-new-job.png)
+    ![Chronos in the services view](../img/ui-chronos-new-job.png)
 
 1.    Fill in the following values:
 

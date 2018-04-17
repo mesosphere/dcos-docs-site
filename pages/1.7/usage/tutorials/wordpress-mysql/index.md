@@ -21,7 +21,7 @@ The goal of this tutorial is to deploy a simple WordPress website that consists 
 
 Thanks to **VIPs** you are only required to specify a virtual address for the database service and then use it as a static configuration in your web app. The traffic is automatically load balanced from the app to the service. Also, when instances of the database service die (due to power failures or other issues), new connections will automatically be directed to healthy instances of the service with a very short reaction time.
 
-This feature solves 3 of the hardest problems involved in running a service-oriented architecture:
+This feature solves 3 of the hardest problems involved in running a service-oriented architecture: 
 
  - Finding where the service is running in the datacenter.
  - Determining which instance to send traffic to to avoid overloading any particular one.
@@ -211,17 +211,17 @@ For more information on port configuration, see the [ports documentation][1].
 
 Once the deployments have finished and your applications appear to be running, Marathon will start performing its [health checks](https://mesosphere.github.io/marathon/docs/health-checks.html). Provided that your cluster has enough resources, you should see both services as running and healthy after a few minutes.
 
-![Web App Running](/1.7/usage/tutorials/img/ui-marathon-running-services.png)
+![Web App Running](../img/ui-marathon-running-services.png)
 
 Click the `/wordpress` app and inspect the Tasks list. You will use the public slave node's public IP address in combination with the running instance's host port to access the WordPress installation URL.
 
-![WordPress Task](/1.7/usage/tutorials/img/ui-marathon-wordpress-task.png)
+![WordPress Task](../img/ui-marathon-wordpress-task.png)
 
 Assuming your public node's IP address is 192.168.1.1, then you'd point your browser to `http://192.168.1.1:31094`, assuming that `31094` is the host port assigned to your service as shown in the screenshot.
 
 At this address, you will be greeted by the WordPress setup page. From there, you'll be able to finish the installation against your MySQL database.
 
-![WordPress up and running](/1.7/usage/tutorials/img/wordpress-running.png)
+![WordPress up and running](../img/wordpress-running.png)
 
 ## Conclusions
 
