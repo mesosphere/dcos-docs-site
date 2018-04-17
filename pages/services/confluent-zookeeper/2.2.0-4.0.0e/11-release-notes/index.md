@@ -15,6 +15,7 @@ render: mustache
 - Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/services/confluent-zookeeper/2.2.0-4.0.0e/security/#securely-exposing-dcos-confluent-zookeeper-outside-the-cluster).
 - Support for deploying the service in a remote region.
 
+
 # Version 2.1.0-4.0.0e
 
 This is the initial GA release of the DC/OS Confluent ZooKeeper service.
