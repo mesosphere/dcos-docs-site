@@ -9,11 +9,7 @@
 
 set -o errexit -o nounset -o pipefail
 
-
-
-LOG='./pages/1.7/usage/faq/index.md'
-# We turn off this variable because we will set it up by knowing what directories should we build
-#INPUT_FOLDER=${1}
+#LOG='./pages/1.7/usage/faq/index.md'
 OUTPUT_FOLDER=${1}
 PARALLEL_TEMPFILE=$(mktemp)
 
@@ -29,8 +25,8 @@ function clean
     rm -rf "${1}"
     rm -f "${PARALLEL_TEMPFILE}"
 }
-LOG=${log}
-echo ${LOG}
+# LOG=${LOG}
+# echo ${LOG}
 
 # Function to determine what to build
 CHANGED_FILES=${LOG}
