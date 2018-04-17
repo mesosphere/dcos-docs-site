@@ -17,11 +17,11 @@ RUN mkdir /src
 WORKDIR /src
 ADD . /src/
 
-RUN npm install
+# RUN npm install
 
 
-RUN make build-swagger
-RUN make build-ngindox
+# RUN make build-swagger
+# RUN make build-ngindox
 
 RUN GIT_BRANCH=$git_branch
 # npm run build-pdf
@@ -31,8 +31,8 @@ RUN GIT_BRANCH=$git_branch
 #
 FROM ubuntu:16.04 as pdf-builder
 
-ARG LOG
-ENV LOG=${LOG}
+ARG LATEST_MDFILES=${LATEST_MDFILES}
+RUN echo ${LATEST_MDFILES}
 
 RUN apt-get update -qq
 

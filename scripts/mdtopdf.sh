@@ -25,11 +25,12 @@ function clean
     rm -rf "${1}"
     rm -f "${PARALLEL_TEMPFILE}"
 }
-# LOG=${LOG}
-# echo ${LOG}
 
+LATEST_MDFILES=${LATEST_MDFILES}
+echo ${LATEST_MDFILES}
+echo "--------------------------"
 # Function to determine what to build
-CHANGED_FILES=${LOG}
+CHANGED_FILES=${LATEST_MDFILES}
 
 PAGES_DIR="./pages/"
 FINAL_PATH=""

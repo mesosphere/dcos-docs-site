@@ -20,9 +20,8 @@ ci/pdf/1-setup-env.sh
 
 # Get a log of all the md files modified or new in the new push
 # Source it so the variable it's currently available at any time
-ci/pdf/6-jenkins-build-changes.sh
-LOG="$(cat ".log")"
-export LOG
+LATEST_MDFILES=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep \.md)
+export $LATEST_MDFILES
 
 ci/pdf/2-build-pdf-image.sh
 DOCKER_IMAGE="$(cat ".pdf-image")"
