@@ -12,7 +12,7 @@ These are the release notes for DC/OS 1.11.1.
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-## <a name="issues-fixed"></a>Improvements and Issues Fixed in DC/OS 1.11.1 
+# <a name="issues-fixed"></a>Improvements and Issues Fixed in DC/OS 1.11.1 
 
 - INFINITY-3331 - Fixed cleaning up other framework's volumes.
 - DCOS_OSS-2292 - Fixed a situation where dcos task --follow task might crash.
@@ -33,13 +33,19 @@ These are the release notes for DC/OS 1.11.1.
 - DCOS_OSS-1878 - Prevented dcos-checks from ignoring the value of  --detect-ip flag when looking for the location of IP detect script.
 - DCOS_OSS-2162 - Modified mesos modules to accept ZK configuration stored in files.
 
-## <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 
+# <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 
 - DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
 - DCOS-21938 - Bumped Mesos SHA to the latest 1.5.x version.[changelog](https://github.com/apache/mesos/blob/b0a33cb782db57d054f68335c8126ecae078b238/CHANGELOG).
 - DCOS-21703 - Added integration tests for DC/OS Enterprise Exhibitor checks.
 - DCOS-21000 - Fixed Marathon's authorization logic to support the 'full' action. [enterprise type="inline" size="small" /]
 - DCOS-19073 - Stores ZK configuration in files thus preventing their contents to appear in logs.
 
+
+# Intergrated Technologies 
+Apache Mesos 1.5, Marathon 1.6, and Kubernetes 1.9 Integrated.
+- DC/OS 1.11.0 is based on Mesos 1.5. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
+- DC/OS 1.11.0 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+- DC/OS 1.11.0 supports the latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, [view the documentation](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3).
 
 # About DC/OS 1.11
 DC/OS 1.11 includes many new capabilities, with a focus on:
@@ -50,18 +56,8 @@ DC/OS 1.11 includes many new capabilities, with a focus on:
 
 Provide feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
 
-# Contents
-- [New Features and Capabilities](#new-features)
-- [Issues Fixed](#issues-fixed)
-- [Notable Changes](#notable-changes)
-
 <a name="new-features"></a>
 ## New Features and Capabilities
-
-### Apache Mesos 1.5, Marathon 1.6, and Kubernetes 1.9 Integrated.
-- DC/OS 1.11.0 is based on Mesos 1.5. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
-- DC/OS 1.11.0 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
-- DC/OS 1.11.0 supports the latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, [view the documentation](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3).
 
 ### Platform
 - Multi-region management - Enables a DC/OS Cluster to span multiple datacenters, clouds, and remote branches while providing a unified management and control cluster. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
@@ -102,3 +98,11 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - New DC/OS Kafka ZooKeeper service. [View the documentation](/services/kafka-zookeeper).
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
+
+
+## <a name="known-issues"></a>Known Issues and Limitations
+- DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
+- DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](https://docs.mesosphere.com/1.11/installing).
+- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. 
+- DCOS_OSS-2132	- `dcos-log` does not handle the journald files rotation properly.
+- INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.
