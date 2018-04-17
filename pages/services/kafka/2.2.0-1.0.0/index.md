@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Kafka 2.2.0-1.0.0
 excerpt:
 title: Kafka 2.2.0-1.0.0
-menuWeight: -12345
+menuWeight: 9
 model: /services/kafka/data.yml
 render: mustache
 ---
