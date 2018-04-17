@@ -42,10 +42,10 @@ These are the release notes for DC/OS 1.11.1.
 
 
 # Intergrated Technologies 
-Apache Mesos 1.5, Marathon 1.6, and Kubernetes 1.9 Integrated.
-- DC/OS 1.11.0 is based on Mesos 1.5. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
-- DC/OS 1.11.0 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
-- DC/OS 1.11.0 supports the latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, [view the documentation](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3).
+
+- DC/OS 1.11.1 is based on Mesos 1.5.x version. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
+- DC/OS 1.11.1 is integrated with the latest 1.6.352 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+- DC/OS 1.11.1 is integrated with Metronome 1.4.1 version. 
 
 # About DC/OS 1.11
 DC/OS 1.11 includes many new capabilities, with a focus on:
