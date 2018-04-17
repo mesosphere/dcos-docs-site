@@ -73,7 +73,7 @@ docker-site-run: ## Run site container.
 	docker-compose -f ./docker/docker-compose.production.yml up -d docs
 
 docker-pdf-run: ## Run pdf container.
-	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
+	docker-compose -f ./docker/docker-compose.test.yml up -d pdf
 
 docker-site-check-links: ## Run link checker test
 	docker-compose -f ./docker/docker-compose.production.yml up test
