@@ -1,38 +1,59 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.11.0
-title: Release Notes for 1.11.0
-menuWeight: 10
+navigationTitle:  Release Notes for 1.11.1
+title: Release Notes for 1.11.1
+menuWeight: 0
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.11.0.
+These are the release notes for DC/OS 1.11.1.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
+# <a name="issues-fixed"></a>Improvements and Issues Fixed in DC/OS 1.11.1 
 
+- INFINITY-3331 - Fixed cleaning up other framework's volumes.
+- DCOS_OSS-2292 - Fixed a situation where dcos task --follow task might crash.
+- DCOS_OSS-2247 - Fixed bug in dcos-checks to treat command timeout as a failed check.
+- DCOS_OSS-2210 - Fixed an edge case as of which the history service would crash-loop.
+- DCOS_OSS-2087 - Cosmos: Improved readability on user facing messages during service uninstallation.
+- DCOS_OSS-1759 - Cosmos: Updated package-manager.yaml to fix the schema error in package management API.
+- DCOS-21305 - Introduced 'minimal DC/OS version' when installing universe packages (e.g., cannot install a package which requires DC/OS 1.11 on DC/OS 1.10).
+- DCOS-21337 - DC/OS UI: Improved error handling when consuming the Mesos event streaming HTTP API.
+- DCOS-21266 - DC/OS UI: Fixed file navigation when browsing task sandbox.
+- DCOS-21128 - DC/OS UI: Fixed a scenario in which the services tab crashed after uninstalling a service.
+- DCOS-19648 - Added a placement constraint validator to the service creation view.
+- INFINITY-3358 - DC/OS UI: Implemented a region picker for region awareness.
+- DCOS_OSS-2229 - Bumped dcos-net. Performance improvements and bug fixes in [lashup](https://github.com/dcos/lashup).
+- DCOS-21683 - Fixed a rare IAM database deadlock as of which the cluster installation might fail.
+- CORE-1447 - Fixed a bug in which, under certain conditions, mesos would never refresh its token.
+- DCOS-21359 - Prevented an uninstalled service to break the UI when the "remove" modal was open.
+- DCOS_OSS-1878 - Prevented dcos-checks from ignoring the value of  --detect-ip flag when looking for the location of IP detect script.
+- DCOS_OSS-2162 - Modified mesos modules to accept ZK configuration stored in files.
+
+# <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 
+- DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
+- DCOS-21938 - Bumped Mesos SHA to the latest 1.5.x version.[changelog](https://github.com/apache/mesos/blob/b0a33cb782db57d054f68335c8126ecae078b238/CHANGELOG).
+- DCOS-21703 - Added integration tests for DC/OS Enterprise Exhibitor checks.
+- DCOS-21000 - Fixed Marathon's authorization logic to support the 'full' action. [enterprise type="inline" size="small" /]
+- DCOS-19073 - Stores ZK configuration in files thus preventing their contents to appear in logs.
+- DC/OS 1.11.1 is based on Mesos 1.5.x version. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
+- DC/OS 1.11.1 is integrated with the latest 1.6.352 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+- DC/OS 1.11.1 is integrated with Metronome 1.4.1 version. 
+
+# About DC/OS 1.11
 DC/OS 1.11 includes many new capabilities, with a focus on:
-- Managing clusters across multiple clouds
-- Production Kubernetes-as-a-service 
-- Enhanced data security
+- Managing clusters across multiple clouds [enterprise type="inline" size="small" /]
+- Production Kubernetes-as-a-service
+- Enhanced data security [enterprise type="inline" size="small" /]
 - Updated data services
 
 Provide feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
 
-# Contents
-- [New Features and Capabilities](#new-features)
-- [Known Issues and Limitations](#known-issues)
-- [Issues Fixed](#fixed-issues)
-
 <a name="new-features"></a>
 ## New Features and Capabilities
-
-### Apache Mesos 1.5, Marathon 1.6, and Kubernetes 1.9 Integrated.
-- DC/OS 1.11.0 is is based on Mesos 1.5. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
-- DC/OS 1.11.0 is integrated with the latest 1.6 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
-- DC/OS 1.11.0 supports the latest Kubernetes 1.9 Container Scheduler. For more information about Kubernetes 1.0 on DC/OS, [view the documentation](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3).
 
 ### Platform
 - Multi-region management - Enables a DC/OS Cluster to span multiple datacenters, clouds, and remote branches while providing a unified management and control cluster. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
@@ -41,13 +62,13 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Decommission node - Support for permanently decommissioning nodes makes it easier to manage “spot” cloud instances, allowing for immediate task rescheduling.
 - UCR
   - Support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
-  - Support for Docker image pull secrets.
+  - Support for Docker image pull secrets. [enterprise type="inline" size="small" /]
 
 ### Networking
 - Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`. Please read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
+- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage.
 
 [enterprise]
 ### Security
@@ -67,31 +88,17 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
 
 ### Updated DC/OS Data Services
-- TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported.
-- Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
+- TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported. [enterprise type="inline" size="small" /]
+- Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [enterprise type="inline" size="small" /]
 - New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpoint to relaunch a node in an idle command state for debugging purposes.
 - New DC/OS Kafka ZooKeeper service. [View the documentation](/services/kafka-zookeeper).
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
 
+
 ## <a name="known-issues"></a>Known Issues and Limitations
 - DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
 - DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](https://docs.mesosphere.com/1.11/installing).
-- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. 
+- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. [enterprise type="inline" size="small" /]
 - DCOS_OSS-2132	- `dcos-log` does not handle the journald files rotation properly.
 - INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.
-
-## <a name="fixed-issues"></a>Improvements and Major Issues Fixed Since 1.11.0 Release Candidate 4
-- COPS-2201 - `dcos-diagnostics` no longer fails after running gen_resolvconf.py.
-- DCOS-13066 - Rename the 3DT service to DC/OS Diagnostics.
-- DCOS-19008 - The `exhibitor_address` configuration option can now be an IPv4 address without causing certificate verification errors.
-- DCOS-19896 - Add `--linked` flag to `dcos cluster list`.
-- DCOS-20351 - Add the `dcos-license` subcommand to `dcos-enterprise-cli`. [enterprise type="inline" size="small" /]
-- DCOS-21130 - Make list of services visible in grid view of nodes. 
-- DCOS_OSS-671 - Improve filenames in the diagnostics bundle.
-- DCOS_OSS-1275 - Add support for custom check executables during on-premises installation.
-- DCOS_OSS-1321 - Search paths are configurable when executing check commands using `dcos-diagnostics check`.
-- DCOS_OSS-1340 - Spartan "autoip" DNS resolves to host IP for UCR in bridge network.
-- DCOS_OSS-1449 - Remove support for `--appId` from CLI.
-- DCOS_OSS-1489 - Add support for cgroup blkio statistics in `dcos-metrics`.
-- DCOS_OSS-2003 - Modify DC/OS overlay networking to work with systemd networkd.
