@@ -91,16 +91,13 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - DCOS-21128 - Fixed uninstalling failing service breaks the services tab.
 - DCOS-20680 - Phrased the license violation message on banners.
 - DCOS-19648 - Added placement constraint validator to make sure the operator/ field combo is unique.
-- PRODUCT-288 - Enabled persistent volumes for PODs.
-- PRODUCT-224 - Storage service support in Marathon.
-- PRODUCT-893 - API endpoint to determine if DC/OS is OSS or EE.
 - INFINITY-3358 - Implemented UI with region picker.
 
 ## <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 Release
 - DCOS_OSS-2229 - Bumped dcos-net. Performance improvements and bug fixes in [lashup](https://github.com/dcos/lashup).
 - DCOS_OSS-2162 - Bumped mesos modules enabling file based ZK configuration.
 - DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
-- DCOS_OSS-1878 - Prevented dcos-checks from ignoring  the value of the --detect-ip flag when looking for the location of the IP detect script.
+- DCOS_OSS-1878 - Prevented dcos-checks from ignoring the value of  --detect-ip flag when looking for the location of IP detect script.
 - DCOS-21938 - Bumped Mesos SHA to the latest 1.5.x version.[changelog](https://github.com/apache/mesos/blob/b0a33cb782db57d054f68335c8126ecae078b238/CHANGELOG).
 - DCOS-21703 - Added integration tests for DC/OS Enterprise Exhibitor checks.
 - DCOS-21359 - Prevented an uninstalled service to break the UI when the "remove" modal was open.
@@ -108,4 +105,4 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - DCOS-19157 - Fixed SAML integration tests for 1.11.
 - DCOS-19073 - Bumped Mesos modules enabling file based ZK configuration.
 - CORE-1447 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service.
-- - DCOS-21683 - Bumped CockroachDB to v1.1.7 version.
+- DCOS-21683 - Bumped CockroachDB to v1.1.7 version.
