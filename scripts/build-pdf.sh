@@ -15,5 +15,6 @@ fi
 
 #LOG="THIS IS DEBUG MESSAGE AND ITS VERY IMPORTANT" \
 LOG=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep .md) \
+echo "=============>" \
 GIT_BRANCH=$GIT_BRANCH \
 docker-compose -f ./docker/docker-compose.production.yml build --no-cache pdf
