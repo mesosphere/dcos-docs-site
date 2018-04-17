@@ -8,15 +8,44 @@ excerpt:
 
 These are the release notes for DC/OS 1.11.1.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
+## <a name="issues-fixed"></a>Improvements and Issues Fixed in DC/OS 1.11.1 
 
+- INFINITY-3331 - Fixed cleaning up other framework's volumes.
+- DCOS_OSS-2292 - Fixed a situation where dcos task --follow task might crash.
+- DCOS_OSS-2247 - Fixed bug in dcos-checks to treat command timeout as a failed check.
+- DCOS_OSS-2210 - Fixed an edge case as of which the history service would crash-loop.
+- DCOS_OSS-2087 - Cosmos: Improved readability on user facing messages during service uninstallation.
+- DCOS_OSS-1759 - Cosmos: Updated package-manager.yaml to fix the schema error in package management API.
+- DCOS-21305 - Introduced 'minimal DC/OS version' when installing universe packages (e.g., cannot install a package which requires DC/OS 1.11 on DC/OS 1.10).
+- DCOS-21337 - DC/OS UI: Improved error handling when consuming the Mesos event streaming HTTP API.
+- DCOS-21266 - DC/OS UI: Fixed file navigation when browsing task sandbox.
+- DCOS-21128 - DC/OS UI: Fixed a scenario in which the services tab crashed after uninstalling a service.
+- DCOS-19648 - Added a placement constraint validator to the service creation view.
+- INFINITY-3358 - DC/OS UI: Implemented a region picker for region awareness.
+- DCOS_OSS-2229 - Bumped dcos-net. Performance improvements and bug fixes in [lashup](https://github.com/dcos/lashup).
+- DCOS-21683 - Fixed a rare IAM database deadlock as of which the cluster installation might fail.
+- CORE-1447 - Fixed a bug in which, under certain conditions, mesos would never refresh its token.
+- DCOS-21359 - Prevented an uninstalled service to break the UI when the "remove" modal was open.
+- DCOS_OSS-1878 - Prevented dcos-checks from ignoring the value of  --detect-ip flag when looking for the location of IP detect script.
+- DCOS_OSS-2162 - Modified mesos modules to accept ZK configuration stored in files.
+
+## <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 
+- DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
+- DCOS-21938 - Bumped Mesos SHA to the latest 1.5.x version.[changelog](https://github.com/apache/mesos/blob/b0a33cb782db57d054f68335c8126ecae078b238/CHANGELOG).
+- DCOS-21703 - Added integration tests for DC/OS Enterprise Exhibitor checks.
+- DCOS-21000 - Fixed Marathon's authorization logic to support the 'full' action. [enterprise type="inline" size="small" /]
+- DCOS-19073 - Stores ZK configuration in files thus preventing their contents to appear in logs.
+
+
+# About DC/OS 1.11
 DC/OS 1.11 includes many new capabilities, with a focus on:
-- Managing clusters across multiple clouds
+- Managing clusters across multiple clouds [enterprise type="inline" size="small" /]
 - Production Kubernetes-as-a-service
-- Enhanced data security
+- Enhanced data security [enterprise type="inline" size="small" /]
 - Updated data services
 
 Provide feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
@@ -41,7 +70,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Decommission node - Support for permanently decommissioning nodes makes it easier to manage “spot” cloud instances, allowing for immediate task rescheduling.
 - UCR
   - Support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
-  - Support for Docker image pull secrets.
+  - Support for Docker image pull secrets. [enterprise type="inline" size="small" /]
 
 ### Networking
 - Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
@@ -67,42 +96,9 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
 
 ### Updated DC/OS Data Services
-- TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported.
-- Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
+- TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported. [enterprise type="inline" size="small" /]
+- Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [enterprise type="inline" size="small" /]
 - New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpoint to relaunch a node in an idle command state for debugging purposes.
 - New DC/OS Kafka ZooKeeper service. [View the documentation](/services/kafka-zookeeper).
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
-
-## <a name="issues-fixed"></a>Improvements and Issues Fixed in DC/OS 1.11.1 Release
-
-- INFINITY-3331 - Fixed cleaning up other framework's volumes.
-- DCOS_OSS-2292 - Fixed crashes on empty lines for DC/OS CLI.
-- DCOS_OSS-2255 - Fixed dcos-installer-ui package failure to build.
-- DCOS_OSS-2247 - Fixed fatal error on checks that exceeded timeout on dcos-diagnostic service.
-- DCOS_OSS-2223 - Added encoders to support package registry. Fixed comsos to initialize empty objects for optional json elements from json schema.
-- DCOS_OSS-2210 - Ensured that cache timestamps are well-formed.
-- DCOS_OSS-2184 - Removed an invalid dns record for marathon.mesos.
-- DCOS_OSS-2087 - Improved readability on user facing messages during service uninstallation.
-- DCOS_OSS-1759 - Updated package-manager.yaml to fix the schema error in packaage management API.
-- DCOS-21305 - Added a feature on DC/OS to support the minimal requested version when installing universe packages(cannot install a package which requires 1.11 on 1.10).
-- DCOS-21337 - Added linearBackoff retry to the Mesos stream.
-- DCOS-21266 - Fixed file navigation in the UI.
-- DCOS-21128 - Fixed uninstalling failing service breaks the services tab.
-- DCOS-20680 - Phrased the license violation message on banners.
-- DCOS-19648 - Added placement constraint validator to make sure the operator/ field combo is unique.
-- INFINITY-3358 - Implemented UI with region picker.
-
-## <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 Release
-- DCOS_OSS-2229 - Bumped dcos-net. Performance improvements and bug fixes in [lashup](https://github.com/dcos/lashup).
-- DCOS_OSS-2162 - Bumped mesos modules enabling file based ZK configuration.
-- DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
-- DCOS_OSS-1878 - Prevented dcos-checks from ignoring the value of  --detect-ip flag when looking for the location of IP detect script.
-- DCOS-21938 - Bumped Mesos SHA to the latest 1.5.x version.[changelog](https://github.com/apache/mesos/blob/b0a33cb782db57d054f68335c8126ecae078b238/CHANGELOG).
-- DCOS-21703 - Added integration tests for DC/OS Enterprise Exhibitor checks.
-- DCOS-21359 - Prevented an uninstalled service to break the UI when the "remove" modal was open.
-- DCOS-21000 - Supported Marathon Security Plugin for 1.11.
-- DCOS-19157 - Fixed SAML integration tests for 1.11.
-- DCOS-19073 - Bumped Mesos modules enabling file based ZK configuration.
-- CORE-1447 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service.
-- DCOS-21683 - Bumped CockroachDB to v1.1.7 version.
