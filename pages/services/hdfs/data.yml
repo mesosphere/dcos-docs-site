@@ -19,7 +19,7 @@ managing:
 
 supportedVersions:
   techExampleVersion: 2.9.0
-  techLink: "[HDFS](http://hadoop.apache.org/releases.html)"
+  techLink: "[HDFS](https://hadoop.apache.org/releases.html)"
 
 security:
   plaintext: ", \"allow_plaintext\": <true|false default false>"
@@ -28,3 +28,6 @@ kerberos:
   spn: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory
   upn: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
   principal: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+
+
+endpoints: https://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints
