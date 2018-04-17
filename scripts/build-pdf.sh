@@ -17,4 +17,4 @@ fi
 # export LATEST_MDFILES
 
 GIT_BRANCH=$GIT_BRANCH \
-docker-compose -f ./docker/docker-compose.test.yml build --no-cache pdf
+docker-compose -f ./docker/docker-compose.production.yml build --no-cache pdf
