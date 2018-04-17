@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0
 title: Release Notes for 1.11.0
-menuWeight: 5
+menuWeight: 10
 excerpt:
 ---
 
