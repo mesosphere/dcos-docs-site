@@ -17,7 +17,7 @@ menuWeight: 12
 
 ## Run the container
 
-Download the Tomcat `marathon.json` app definition file to your local host where the DC/OS CLI is installed. 
+Download the Tomcat `marathon.json` app definition file to your local host where the DC/OS CLI is installed.
 
 ```
 curl -O /1.7/usage/tutorials/tomcat/marathon.json
@@ -94,7 +94,7 @@ ID       MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
 
 ## View Tomcat
 
-To view Apache Tomcat running, navigate to `http://<public_agent_public_ip>` and see the install success page. You can find your public agent IP by running this command from your terminal. 
+To view Apache Tomcat running, navigate to `http://<public_agent_public_ip>` and see the install success page. You can find your public agent IP by running this command from your terminal.
 
 ```
 dcos node ssh --option StrictHostKeyChecking=no --option LogLevel=quiet --master-proxy --mesos-id=$(dcos task --json | jq --raw-output '.[] | select(.name == "tomcat") | .slave_id') "curl -s ifconfig.co" 2>/dev/null
@@ -109,21 +109,21 @@ dcos node ssh --option StrictHostKeyChecking=no --option LogLevel=quiet --master
 
 By default this command closes the SSH connection.
 
-![Apache Tomcat Install Success](img/tomcat-screenshot.png)
+![Apache Tomcat Install Success](/1.7/usage/tutorials/tomcat/img/tomcat-screenshot.png)
 
 ### View task logs in DC/OS UI
 
 From the Services page of the DC/OS UI click on Marathon to see the list of tasks running on Marathon, including Tomcat.
 
-![Marathon task List](img/dashboard-services.png)
+![Marathon task List](/1.7/usage/tutorials/tomcat/img/dashboard-services.png)
 
 Click on the Tomcat task
 
-![Tomcat task files](img/dashboard-tomcat-task-files.png)
+![Tomcat task files](/1.7/usage/tutorials/tomcat/img/dashboard-tomcat-task-files.png)
 
 Click on the Log Viewer Tab
 
-![Tomcat task log viewer](img/dashboard-tomcat-task-log-viewer.png)
+![Tomcat task log viewer](/1.7/usage/tutorials/tomcat/img/dashboard-tomcat-task-log-viewer.png)
 
 ### View task logs with DC/OS CLI
 

@@ -40,7 +40,7 @@ This tutorial demonstrates how you can build a complete load-balanced data pipel
 <ol>
 <li>From the DC/OS web interface <strong>Universe</strong> tab, install the packages with a single click.
 
-<img src="/assets/images/webui-universe-install.png" alt="Universe UI" />
+<img src="/1.7/usage/managing-services/img/webui-universe-install.png" alt="Universe UI" />
 
 <strong>Tip:</strong> You can also install DC/OS packages from the DC/OS CLI with the <a href="/1.7/usage/cli/command-reference/"><code>dcos package install</code></a> command.
 
@@ -55,8 +55,8 @@ This tutorial demonstrates how you can build a complete load-balanced data pipel
 <ul>
 <li>From the DC/OS CLI, create a JSON options file, here called <code>zeppelin-options.json</code>, that sets spark.cores.max to 8:
 
-<pre><code>{  
-   "spark":{  
+<pre><code>{
+   "spark":{
       "cores_max":"8"
    }
 }
@@ -122,7 +122,7 @@ In this step you deploy the containerized Tweeter app.
 
 Go to the Marathon web interface to verify your app is up and healthy. Then, navigate to <code>http://&lt;public_agent_hostname&gt;</code> to see the Tweeter UI and post a Tweet.
 
-<img src="/assets/images/tweeter.png" alt="Tweeter" />
+<img src="/1.8/usage/tutorials/img/tweeter.png" alt="Tweeter" />
 
 # Post 100K Tweets
 
@@ -133,7 +133,7 @@ Use the <code>post-tweets.json</code> app a large number of Shakespeare tweets f
 
 The app will post more than 100k tweets one by one, so you'll see them coming in steadily when you refresh the page. Click the <strong>Network</strong> tab in the DC/OS web interface to see the load balancing in action:
 
-<img src="/assets/images/network-tab.png" alt="Network Tab" />
+<img src="/1.9/img/network-tab.png" alt="Network Tab" />
 
 The post-tweets app works by streaming to the VIP <code>1.1.1.1:30000</code>. This address is declared in the <code>cmd</code> parameter of the <code>post-tweets.json</code> app definition. The app uses the service discovery and load balancer service that is installed on every DC/OS node. You can see the Tweeter app defined with this VIP in the json definition under <code>VIP_0</code>.
 
@@ -151,4 +151,4 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
 <li><p>Run the Top Tweeters SQL query, which counts the number of tweets per user using the table created in the previous step. The table updates continuously as new tweets come in, so re-running the query will produce a different result every time.</p></li>
 </ol>
 
-<p><img src="/assets/images/top-tweeters.png" alt="Top Tweeters" />
+<p><img src="/1.8/usage/tutorials/img/top-tweeters.png" alt="Top Tweeters" />

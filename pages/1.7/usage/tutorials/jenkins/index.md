@@ -141,11 +141,11 @@ same resource group in which you've launched your DC/OS cluster.
 In this particular example, let's create the storage account `mh9storage` in
 the resource group `mh9`:
 
-![Azure Portal: Storage Account](img/azure-portal-storage.png)
+![Azure Portal: Storage Account](/1.7/usage/tutorials/jenkins/img/azure-portal-storage.png)
 
 Now, create a file share. In this example, I used `jenkins`:
 
-![Azure Portal: File Service](img/azure-portal-storage-fileshare.png)
+![Azure Portal: File Service](/1.7/usage/tutorials/jenkins/img/azure-portal-storage-fileshare.png)
 
 ### Mounting an Azure CIFS file share on Debian
 
@@ -153,7 +153,7 @@ Next, login to the DC/OS master node. To determine the master, look up the SSH
 connection string labeled `SSHMASTER0` in the `Outputs` section of the
 `Microsoft.Template`.
 
-![Azure Portal: Deployment Output](img/azure-portal-deployment-output.png)
+![Azure Portal: Deployment Output](/1.7/usage/tutorials/jenkins/img/azure-portal-deployment-output.png)
 
 Next, add the private SSH key locally:
 
@@ -191,11 +191,11 @@ Be sure to replace the `REDACTED` value for the `username` and `password`
 options with your username and password. Note that the value for `password` is
 `KEY2` from `Access keys`, as shown here:
 
-![Azure Portal: Storage Account Access Keys](img/azure-portal-storage-accesskeys.png)
+![Azure Portal: Storage Account Access Keys](/1.7/usage/tutorials/jenkins/img/azure-portal-storage-accesskeys.png)
 
 To check if the file share works, we upload a test file via the Azure portal:
 
-![Azure Portal: Storage File Upload](img/azure-portal-storage-fileupload.png)
+![Azure Portal: Storage File Upload](/1.7/usage/tutorials/jenkins/img/azure-portal-storage-fileupload.png)
 
 If all is well, you should be able to list the contents of the mounted file
 share on the DC/OS master node:
@@ -227,22 +227,22 @@ same availability zone as as your DC/OS cluster.
 
 Select the VPC of your DC/OS cluster and click `Next Step`:
 
-![Amazon EFS: Configure Access](img/amazon-efs-configure-access.png)
+![Amazon EFS: Configure Access](/1.7/usage/tutorials/jenkins/img/amazon-efs-configure-access.png)
 
 Optional settings can be left blank, or you can add tags to the volume if
 desired.  Click `Next Step`:
 
-![Amazon EFS: Optional Settings](img/amazon-efs-optional-settings.png)
+![Amazon EFS: Optional Settings](/1.7/usage/tutorials/jenkins/img/amazon-efs-optional-settings.png)
 
 You will see a "Review and create" screen. Double check that the
 appropriate availability zone is selected, then click `Create File System`:
 
-![Amazon EFS: Review and Create](img/amazon-efs-review-and-create.png)
+![Amazon EFS: Review and Create](/1.7/usage/tutorials/jenkins/img/amazon-efs-review-and-create.png)
 
 Once your EFS volume has been created, Amazon provides a link (click `here`)
 on instructions for mounting on Amazon, Red Hat, and SuSE Linux:
 
-![Amazon EFS: Created](img/amazon-efs-created.png)
+![Amazon EFS: Created](/1.7/usage/tutorials/jenkins/img/amazon-efs-created.png)
 
 See below for instructions on mounting an NFS volume on CoreOS.
 
@@ -275,13 +275,13 @@ following steps:
   https://github.com/mesosphere/jenkins-marathon-plugin/releases
   2. Upload the `.hpi` plugin file via the "Advanced" tab within the Jenkins
   plugin manager:
-  ![Jenkins plugin installation](img/jenkins-plugin-install.png)
+  ![Jenkins plugin installation](/1.7/usage/tutorials/jenkins/img/jenkins-plugin-install.png)
   3. Restart Jenkins to load the new plugin.
 
 Next, you'll configure a Jenkins job that clones a repository, builds the
 image, pushes it to Docker Hub, and deploys it to Marathon.
 
-![Configure Git repository](img/jenkins-scm-repo.png)
+![Configure Git repository](/1.7/usage/tutorials/jenkins/img/jenkins-scm-repo.png)
 
 For the build step, you may use (or adapt) the following build script:
 
@@ -296,11 +296,11 @@ docker push $IMAGE_NAME
 
 Finally, configure a post-build step using the Marathon plugin:
 
-![Marathon deployment post-build step](img/jenkins-marathon-post-build-step.png)
+![Marathon deployment post-build step](/1.7/usage/tutorials/jenkins/img/jenkins-marathon-post-build-step.png)
 
 An example of a Marathon deployment follows:
 
-![Marathon deployment post-build configuration](img/jenkins-marathon-post-build-config.png)
+![Marathon deployment post-build configuration](/1.7/usage/tutorials/jenkins/img/jenkins-marathon-post-build-config.png)
 
 ## Uninstalling Jenkins
 

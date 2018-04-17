@@ -15,7 +15,7 @@ DC/OS cluster nodes generate logs that contain diagnostic and status information
 
 ## Service and Task Logs
 
-If you're running something on top of DC/OS, you can get started right away by running this [DC/OS CLI][2] command: 
+If you're running something on top of DC/OS, you can get started right away by running this [DC/OS CLI][2] command:
 
 ```bash
 dcos task log --follow my-service-name
@@ -27,7 +27,7 @@ For more information about accessing your logs, see the service and task logs [d
 
 You can find which components are unhealthy in the DC/OS UI on the **System** tab.
 
-![system health](../img/ui-system-health-logging.gif)
+![system health](/1.7/administration/img/ui-system-health-logging.gif)
 
 You can also aggregate your system logs by using ELK and Splunk. See our [ELK][3] and [Splunk][4] tutorials to get started.
 
@@ -37,10 +37,10 @@ All of the DC/OS components use `systemd-journald` to store their logs. To acces
 journalctl -u "dcos-*" -b
 ```
 
-You can also view the logs for specific components by entering the component name: 
+You can also view the logs for specific components by entering the component name:
 
 **Admin Router**
-    
+
 ```bash
 journalctl -u dcos-adminrouter -b
 ```
@@ -68,24 +68,24 @@ journalctl -u dcos-marathon -b
 ```bash
 journalctl -u dcos-gen-resolvconf -b
 ```
-   
+
 **Identity and Access Management service**
 
 ```bash
 journalctl -u dcos-bouncer -b
-``` 
+```
 
 **Native Marathon (Services)**
 
 ```bash
 journalctl -u dcos-marathon -b
-``` 
+```
 
 **Mesos master node**
 
 ```bash
 journalctl -u dcos-mesos-master -b
-``` 
+```
 
 **Mesos agent node**
 

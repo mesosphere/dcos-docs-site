@@ -24,7 +24,7 @@ DC/OS agent nodes can be designated as [public](/1.7/overview/concepts/#public-a
 
     For example, with the AWS cloud installation, you can specify a public agent node with the `PublicSlaveInstanceCount` box:
 
-    ![alt text](../img/dcos-aws-step2c.png)
+    ![alt text](/1.7/usage/tutorials/img/dcos-aws-step2c.png)
 
 1.  Create a Marathon app definition with the `"acceptedResourceRoles":["slave_public"]` parameter specified. For example:
 

@@ -41,7 +41,7 @@ You can install DC/OS on Oracle Cloud Compute.
 
   In the dialog box, enter a name and the value of the SSH public key that you generated, and then click `Add`. Note: Paste the key value exactly as it was generated. Don't append or insert any extra characters, line breaks, or spaces. Now your SSH public key is added to Oracle Compute Cloud Service:
 
-  ![SSH public key added to Oracle Compute Cloud Service](img/occ00.png)
+  ![SSH public key added to Oracle Compute Cloud Service](/1.7/administration/installing/oss/cloud/img/occ00.png)
 
 3. Upload a CentOS7 image to the [Oracle Compute Cloud Service](http://www.oracle.com/pls/topic/lookup?ctx=stcomputecs&id=STCSG-GUID-799D6F6D-BDED-4DDE-9B3D-BE23BE5F687F). Note: while uploading the image file, you must specify a **unique name** for the target object, to differentiate the image that you're uploading from other images in Oracle Storage Cloud Service.
 
@@ -51,7 +51,7 @@ You can install DC/OS on Oracle Cloud Compute.
 
 1. Sign in to the Oracle Cloud My Services application at [https://myservices.us.oraclecloud.com/mycloud/faces/dashboard.jsp](https://myservices.us.oraclecloud.com/mycloud/faces/dashboard.jsp) and click on `Oracle Compute Cloud Service` -> `Open Service Console`. You will be shown the instance overview page.
 
-  ![Oracle Compute Cloud Service - Instances](img/occ01.png)
+  ![Oracle Compute Cloud Service - Instances](/1.7/administration/installing/oss/cloud/img/occ01.png)
 
 2. Click on `Create Instance`.
 
@@ -59,19 +59,19 @@ You can install DC/OS on Oracle Cloud Compute.
 
 4. Select shape `oc3` and click `>`.
 
-  ![Oracle Compute Cloud Service - oc3](img/occ02.png)
+  ![Oracle Compute Cloud Service - oc3](/1.7/administration/installing/oss/cloud/img/occ02.png)
 
 5. In the next screen provide the instance an appropriate label and name. Add `default` as security list. Select the pre-uploaded SSH keys and click `>`.
 
 6. In the next `Volumes` screen leave the default values as it is and click `>`.
 
-  ![Oracle Compute Cloud Service - volumes](img/occ03.png)
+  ![Oracle Compute Cloud Service - volumes](/1.7/administration/installing/oss/cloud/img/occ03.png)
 
 7. Review your settings and click on `Create`.
 
 8. Now you should be able to see the instance spinning up.
 
-  ![Oracle Compute Cloud Service - instance spinning up](img/occ04.png)
+  ![Oracle Compute Cloud Service - instance spinning up](/1.7/administration/installing/oss/cloud/img/occ04.png)
 
 9. Wait for the instance to reach `Running` status, which might take a few minutes.
 
@@ -305,7 +305,7 @@ These steps assume that you've spun up the bootstrap instance and that you are l
 
 If all goes well you can now access the [DC/OS Dashboard](/1.7/usage/webinterface/) at `http://<public-ip-of-a-master-node>`:
 
-![DC/OS Dashboard](img/occ05.png)
+![DC/OS Dashboard](/1.7/administration/installing/oss/cloud/img/occ05.png)
 
 # Next steps
 
