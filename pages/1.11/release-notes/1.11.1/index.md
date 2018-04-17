@@ -74,7 +74,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
 
-## <a name="issues-fixed"></a>Issues Fixed in DC/OS 1.11.1
+## <a name="issues-fixed"></a>Improvements and Issues Fixed in DC/OS 1.11.1 Release
 
 - INFINITY-3331 - Fixed cleaning up other framework's volumes.
 - DCOS_OSS-2292 - Fixed crashes on empty lines for DC/OS CLI.
@@ -91,9 +91,12 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - DCOS-21128 - Fixed uninstalling failing service breaks the services tab.
 - DCOS-20680 - Phrased the license violation message on banners.
 - DCOS-19648 - Added placement constraint validator to make sure the operator/ field combo is unique.
+- PRODUCT-288 - Enabled persistent volumes for PODs.
+- PRODUCT-224 - Storage service support in Marathon.
+- PRODUCT-893 - API endpoint to determine if DC/OS is OSS or EE.
+- INFINITY-3358 - Implemented UI with region picker.
 
-
-## <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1
+## <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 Release
 - DCOS_OSS-2229 - Bumped dcos-net. Performance improvements and bug fixes in [lashup](https://github.com/dcos/lashup).
 - DCOS_OSS-2162 - Bumped mesos modules enabling file based ZK configuration.
 - DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
@@ -102,6 +105,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - DCOS-21703 - Added integration tests for DC/OS Enterprise Exhibitor checks.
 - DCOS-21359 - Prevented an uninstalled service to break the UI when the "remove" modal was open.
 - DCOS-21000 - Supported Marathon Security Plugin for 1.11.
-- DCOS-19157 - Fixed SAML integration tests [1.11].
+- DCOS-19157 - Fixed SAML integration tests for 1.11.
 - DCOS-19073 - Bumped Mesos modules enabling file based ZK configuration.
 - CORE-1447 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service.
+- - DCOS-21683 - Bumped CockroachDB to v1.1.7 version.
