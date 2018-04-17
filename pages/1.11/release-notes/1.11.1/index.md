@@ -39,10 +39,6 @@ These are the release notes for DC/OS 1.11.1.
 - DCOS-21703 - Added integration tests for DC/OS Enterprise Exhibitor checks.
 - DCOS-21000 - Fixed Marathon's authorization logic to support the 'full' action. [enterprise type="inline" size="small" /]
 - DCOS-19073 - Stores ZK configuration in files thus preventing their contents to appear in logs.
-
-
-# Intergrated Technologies 
-
 - DC/OS 1.11.1 is based on Mesos 1.5.x version. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
 - DC/OS 1.11.1 is integrated with the latest 1.6.352 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 - DC/OS 1.11.1 is integrated with Metronome 1.4.1 version. 
@@ -103,6 +99,6 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 ## <a name="known-issues"></a>Known Issues and Limitations
 - DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
 - DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](https://docs.mesosphere.com/1.11/installing).
-- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. 
+- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. [enterprise type="inline" size="small" /]
 - DCOS_OSS-2132	- `dcos-log` does not handle the journald files rotation properly.
 - INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.
