@@ -4,7 +4,6 @@ navigationTitle:  Release Notes for 1.11.1
 title: Release Notes for 1.11.1
 menuWeight: 1
 excerpt:
----
 
 These are the release notes for DC/OS 1.11.1.
 
@@ -15,7 +14,7 @@ These are the release notes for DC/OS 1.11.1.
 
 DC/OS 1.11 includes many new capabilities, with a focus on:
 - Managing clusters across multiple clouds
-- Production Kubernetes-as-a-service 
+- Production Kubernetes-as-a-service
 - Enhanced data security
 - Updated data services
 
@@ -47,7 +46,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`. Please read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
+- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage.
 
 [enterprise]
 ### Security
@@ -79,7 +78,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - INFINITY-3331 - Fixed cleaning up other framework's volumes.
 - DCOS_OSS-2292 - Fixed crashes on empty lines for DC/OS CLI.
 - DCOS_OSS-2255 - Fixed dcos-installer-ui package failure to build.
-- DCOS_OSS-2247 - Fixed fatal error on checks that exceeded timeout on dcos-diagnostic service. 
+- DCOS_OSS-2247 - Fixed fatal error on checks that exceeded timeout on dcos-diagnostic service.
 - DCOS_OSS-2223 - Added encoders to support package registry. Fixed comsos to initialize empty objects for optional json elements from json schema.
 - DCOS_OSS-2210 - Ensured that cache timestamps are well-formed.
 - DCOS_OSS-2184 - Removed an invalid dns record for marathon.mesos.
