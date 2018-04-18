@@ -28,7 +28,7 @@ To manage users:
 
     **Tip:** Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.
 
-    ![new DC/OS user](/1.8/administration/id-and-access-mgt/oss/img/ui-add-user.gif)
+    ![new DC/OS user](../img/ui-add-user.gif)
 
     ### Delete users
 
@@ -41,7 +41,7 @@ To manage users:
 
     *   To log out of the DC/OS web interface, click on your username in the lower left corner and select **Sign Out**.
 
-        ![log out](/1.8/administration/id-and-access-mgt/oss/img/auth-enable-logout-user.gif)
+        ![log out](../img/auth-enable-logout-user.gif)
 
         You can now log in as another user.
 
@@ -78,14 +78,14 @@ The DC/OS CLI stores the token in a configuration file in the `.dcos` directory 
 
 1.  Copy the URL in your terminal prompt and paste it into your browser.
 
-    ![alt](/1.8/administration/id-and-access-mgt/oss/img/auth-login.png)
+    ![alt](../img/auth-login.png)
 
-1.  Click the button that corresponds to your preferred identity provider.
+1.  Click the button that corresponds to your preferred identity provider. 
 
-1.  Provide your credentials to the identity provider if prompted. If you have already authenticated to the identity provider during your current browser session, you won't need to do so again.
+1.  Provide your credentials to the identity provider if prompted. If you have already authenticated to the identity provider during your current browser session, you won't need to do so again.  
 
-    ![alt](/1.8/administration/id-and-access-mgt/oss/img/auth-login-token.png)
-
+    ![alt](../img/auth-login-token.png)
+    
 1.  Click **Copy to Clipboard**.
 
 1.  Return to your terminal prompt and paste the OpenID Connect ID token value in at the prompt.
@@ -152,4 +152,4 @@ security features as well as on introducing new ones in the coming releases.
 - [Learn how to monitor a DC/OS cluster](/1.8/administration/monitoring/)
 
  [1]: https://en.wikipedia.org/wiki/STARTTLS
-
+ 

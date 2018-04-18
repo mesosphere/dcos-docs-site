@@ -39,7 +39,7 @@ all HTTP traffic to HTTPS to properly secure access to your cluster.
 
 After you have a valid TLS certificate, install the certificate on each master.
 Copy the certificate and private key to a well known location, such as under
-`/etc/ssl/certs`.
+`/etc/ssl/certs`. 
 
 If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/1.8/administration/tls-ssl/ent/haproxy-adminrouter/).
 
@@ -73,7 +73,7 @@ managing ingress traffic.
 
 A typical AWS deployment including AWS Load Balancers is shown below:
 
-![Security Zones](/1.8/administration/img/security-zones.jpg)
+![Security Zones](../img/security-zones.jpg)
 
 ## Admin Router
 

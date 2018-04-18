@@ -31,13 +31,13 @@ enterprise: true
 1. Select one of the following.
 
     - **Simple bind**: if your LDAP user name is part of your [distinguished name (DN)](https://www.ldap.com/ldap-dns-and-rdns).
-
+    
     - **Search/bind**: if you have an LDAP user name that is not a part of the [distinguished name (DN)](https://www.ldap.com/ldap-dns-and-rdns).
 
 1.  Refer to the section that corresponds to your selection.
 
     - [Specifying simple bind parameters](#specifying-simple-bind-parameters)
-
+    
     - [Specifying search/bind parameters](#specifying-searchbind-parameters)
 
 # Specifying simple bind parameters
@@ -50,7 +50,7 @@ enterprise: true
 
 1.  When you have completed your entries, the dialog should look something like the following.
 
-   ![Simple bind parameters](/1.8/administration/id-and-access-mgt/ent/ldap/img/ldap-add-dir-auth-simple-bind.png)
+   ![Simple bind parameters](../img/ldap-add-dir-auth-simple-bind.png)  
 
 1.  Click **Add Directory**.
 
@@ -70,7 +70,7 @@ While the simple bind connection takes place in a single step, the search/bind o
 
 1.  When you have completed your entries, the dialog should look something like the following.
 
-   ![Search/bind parameters](/1.8/administration/id-and-access-mgt/ent/ldap/img/ldap-add-dir-auth-search-bind.png)
+   ![Search/bind parameters](../img/ldap-add-dir-auth-search-bind.png)
 
 1.  Click **Add Directory**.
 

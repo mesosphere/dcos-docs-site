@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Identity and Access Management for DC/OS Enterprise
-menuWeight: 20
+menuWeight: 20 
 excerpt:
 enterprise: true
 
@@ -29,7 +29,7 @@ DC/OS Enterprise user authentication is performed in the Admin security zone and
 
 Below is an example of a complete end to end sequence diagram of all the steps in authenticating any user request.
 
-![DC/OS Enterprise Authentication Sequence] (/1.9/img/dcos-authN-sequence.png)
+![DC/OS Enterprise Authentication Sequence] (/assets/images/dcos-authN-sequence.png)
 
 Besides [adding a user locally](/1.8/administration/id-and-access-mgt/ent/users-groups/add-local-user/) you can use either of the following two mechanisms to authenticate users via an external source: directory-based (using LDAP, for example, Active Directory) as well as identity provider-based (SAML and OIDC).
 

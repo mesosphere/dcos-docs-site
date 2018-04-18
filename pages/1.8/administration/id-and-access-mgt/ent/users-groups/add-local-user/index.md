@@ -20,8 +20,8 @@ enterprise: true
 3. From the **System** -> **Organization** -> **Users** tab, click **New User**.
 
 4. If a menu drops down from the button, select **Add Local User**.
-
-   ![Add User](/1.9/img/auth-enable-add-user.gif)
-
-5. Type in the user's full name, username, and password.
+        
+   ![Add User](/assets/images/auth-enable-add-user.gif)
+   
+5. Type in the user's full name, username, and password. 
 

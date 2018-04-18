@@ -4,6 +4,7 @@ excerpt:
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200
+oss: true
 ---
 
 The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options.
@@ -51,10 +52,10 @@ The DC/OS installation creates these folders:
 
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
-## Prerequisites
+# Prerequisites
 Your cluster must meet the software and hardware [requirements](/1.8/administration/installing/oss/custom/system-requirements/).
 
-# Configure your cluster
+## Configure your cluster
 
 1. Create a directory named `genconf` on your bootstrap node.
 
@@ -327,17 +328,17 @@ To install DC/OS:
 
     __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
 
-    ![alt text](/1.8/administration/installing/oss/custom/img/chef-zk-status.png)
+    ![alt text](../img/chef-zk-status.png)
 
     When the status icons are green, you can access the DC/OS web interface.
 
 7.  Launch the DC/OS web interface at `http://<public-master-ip>/` and login. If this doesn't work, take a look at the [troubleshooting docs][9]
 
-    ![alt text](/1.8/administration/installing/oss/custom/img/ui-installer-login.gif)
+    ![alt text](../img/ui-installer-login.gif)
 
     You are done!
 
-    ![dashboard](/1.8/administration/installing/oss/custom/img/ui-dashboard.gif)
+    ![dashboard](../img/ui-dashboard.gif)
 
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.

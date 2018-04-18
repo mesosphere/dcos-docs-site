@@ -78,7 +78,7 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 6. When completed, your dialog should look something like the following.
 
-   ![LDAP Group Import Configuration](/1.8/administration/id-and-access-mgt/ent/users-groups/img/ldap-group-import.png)
+   ![LDAP Group Import Configuration](../img/ldap-group-import.png)
 
 7. Click **Save Configuration**.
 

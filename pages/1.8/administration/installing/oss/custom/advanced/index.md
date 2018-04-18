@@ -88,7 +88,7 @@ Your cluster must meet the software and hardware [requirements](/1.8/administrat
     use_proxy: 'true'
     http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
     https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
-    no_proxy:
+    no_proxy: 
     - 'foo.bar.com'
     - '.baz.com'
     ```
@@ -173,7 +173,7 @@ Your cluster must meet the software and hardware [requirements](/1.8/administrat
 
 In this step you create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you package the DC/OS distribution yourself and connect to every server manually and run the commands.
 
-**Important:**
+**Important:** 
 
 - Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.8/administration/installing/oss/custom/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][8].
@@ -281,7 +281,7 @@ To install DC/OS:
 
     __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.8/administration/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
 
-    ![alt text](/1.8/administration/installing/oss/custom/img/chef-zk-status.png)
+    ![alt text](../img/chef-zk-status.png)
 
     When the status icons are green, you can access the DC/OS web interface.
 
