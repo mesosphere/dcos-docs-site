@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Release Notes
-menuWeight: 12
+menuWeight: 60
 excerpt:
 
 enterprise: false
