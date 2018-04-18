@@ -9,7 +9,6 @@
 
 set -o errexit -o nounset -o pipefail
 
-#LOG='./pages/1.7/usage/faq/index.md'
 OUTPUT_FOLDER=${1}
 PARALLEL_TEMPFILE=$(mktemp)
 
@@ -32,7 +31,7 @@ echo "--------------------------"
 # Function to determine what to build
 CHANGED_FILES=${LATEST_MDFILES}
 
-PAGES_DIR="./pages/"
+PAGES_DIR="pages/"
 FINAL_PATH=""
 ALL_FOLDERS=""
 INPUT_FOLDER=""
@@ -44,27 +43,33 @@ function selectFolder
     then
         # substitute all spaces with a broken line
         # "/path/to/file /path/to/file2 /path/to/file3 /path/to/file4 /path/to/file5"\ | tr " " "\n"
-        NEW_PATH=$(echo "${CHANGED_FILES}"\ | tr " " "\n")
+        NEW_PATH=$(echo "${CHANGED_FILES}"\ | tr " " "\\n")
+        echo $NEW_PATH
         # loop through each line
         # remove the ./pages directory
         for i in ${NEW_PATH}
         do
             # Remove ./pages from the directories to build
             local path="${i#$PAGES_DIR}"
+            echo $path 'this is i'
             # Store and break the resulting folders to build in lines
             FINAL_PATH="$FINAL_PATH $(echo "${path}" \ | tr " " "\\n")"
             # Set up a string of folders to build (Version1.11, Version1.7, Services...)
             ALL_FOLDERS="$ALL_FOLDERS $(echo "$path"  | head -n1 | cut -d "/" -f1)"
+            echo "All folders = " $ALL_FOLDERS
         done
 
         # This is going to output all final paths
         FINAL_PATH=$(echo "${FINAL_PATH}"\ | tr " " "\\n")
+        echo "All final paths = " $FINAL_PATH
         # Clean duplicate directories
         ALL_DIRECTORIES=$(echo "$ALL_FOLDERS" | tr ' ' '\n' | sort | uniq)
+        echo "ALl directories here" $ALL_DIRECTORIES
         # Make INPUT_FOLDER be one of those at a time
         for d in $ALL_DIRECTORIES
         do
           INPUT_FOLDER=$d
+          echo "-------- ${d}"
           # delete d from ALL directories
           # main
           echo main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
@@ -72,7 +77,7 @@ function selectFolder
         done
     else
         # Otherwise, set it to build the entire ./pages directory
-        INPUT_FOLDER="${PAGES_DIR}"
+        INPUT_FOLDER=""
         main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
     fi
 }
@@ -80,9 +85,10 @@ function selectFolder
 
 function main
 {
-   # cd $INPUT_FOLDER
+   #cd $INPUT_FOLDER
    while IFS= read -r -d '' SOURCE_FILE
    do
+    echo $SOURCE_FILE
      # Strip the input_folder from filepath, not to include it within output folder and Destination filename
      local FILE_PATH=${SOURCE_FILE}
      # Strip the filename and get only the full directory path for the file
@@ -118,7 +124,7 @@ function main
         local d="$SOURCE_FOLDERS"
         # Target all the files whithin the foler by the same name
         NEW_FILE="${d}/${FILE_NAME}"
-
+        echo "new file here " $NEW_FILE
         if [ -f "${NEW_FILE}" ]
         then
           MARKDOWN_FILE=$(mktemp)
@@ -149,7 +155,7 @@ function main
           rm -f ${MARKDOWN_FILE}
         fi
       # Find recursively all the directories whithin a folder
-      done < <(find "${FILE_PATH}" )
+      done < <(find "${PAGES_DIR}${FILE_PATH}" )
 
      # Fix for absolute paths images urls
      sed -i 's,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.png\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.jpg\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.jpeg\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.gif\),\1\2,g;s,\([:[:space:](]\)/\([-0-9A-Za-z/_.]*\.svg\),..\1\2,g' "${TEMP_FILE}"
@@ -191,7 +197,7 @@ function main
     echo "scripts/pandocpdf.sh ${TEMP_FILE} ${PDF_DEST_DIR}/${PDF_FILE_NAME}" >> "${PARALLEL_TEMPFILE}"
 
 
-   done <  <(find "${INPUT_FOLDER}" -type f -name "*.md" -print0)
+   done <  <(find "${PAGES_DIR}${INPUT_FOLDER}" -type f -name "*.md" -print0)
 
   # Execute theconversion in parallel
   echo "checking pwd"
