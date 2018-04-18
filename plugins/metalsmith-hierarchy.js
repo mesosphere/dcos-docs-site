@@ -66,13 +66,13 @@ function walk(opts, file, files, array, children, level) {
   children.sort((a, b) => {
     let x = (a.menuWeight > b.menuWeight) ? 1 : (a.menuWeight < b.menuWeight) ? -1 : 0;
     if(x == 0 && a.navigationTitle && b.navigationTitle) {
-      let x1 = a.navigationTitle.toUpperCase();
-      let x2 = b.navigationTitle.toUpperCase();
+      let x1 = a.navigationTitle.toString().toUpperCase();
+      let x2 = b.navigationTitle.toString().toUpperCase();
       x = (x1 > x2 ) ? 1 : (x1 < x2) ? -1 : 0;
     }
     if(x == 0 && a.title && b.title) {
-      let x1 = a.title.toUpperCase();
-      let x2 = b.title.toUpperCase();
+      let x1 = a.title.toString().toUpperCase();
+      let x2 = b.title.toString().toUpperCase();
       x = (x1 > x2 ) ? 1 : (x1 < x2) ? -1 : 0;
     }
     return x;
