@@ -27,7 +27,7 @@ You can can configure Marathon-LB with various topologies. Here are some example
 
 Here, we discuss the fourth option above to highlight the features of Marathon-LB.
 
-![lb1](/1.7/usage/service-discovery/marathon-lb/img/lb1.png)
+![lb1](img/lb1.png)
 
 # Next Steps
 

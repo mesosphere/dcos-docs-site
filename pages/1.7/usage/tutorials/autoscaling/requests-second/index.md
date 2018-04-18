@@ -15,7 +15,7 @@ You can use the [marathon-lb-autoscale][1] application to implement request rate
 
 marathon-lb-autoscale collects data from all HAProxy instances to determine the current RPS (requests per second) for your apps. The autoscale controller then attempts to maintain a defined target number of requests per second per service instance. marathon-lb-autoscale makes API calls to Marathon to scale the app.
 
-![marathon-lb-autoscale-1.png](/1.7/usage/tutorials/autoscaling/img/marathon-lb-autoscale-1.png)
+![marathon-lb-autoscale-1.png](../img/marathon-lb-autoscale-1.png)
 
 **Prerequisites**
 

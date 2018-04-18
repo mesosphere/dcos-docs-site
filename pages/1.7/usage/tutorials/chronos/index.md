@@ -46,7 +46,7 @@ Chronos is the "cron" for your Mesosphere DC/OS. It is a highly-available distri
 
     Go to the **Services** tab and verify that Chronos shows up in the list as **Healthy**.
 
-    ![Chronos in the services view](/1.7/usage/tutorials/chronos/img/ui-services-chronos.png)
+    ![Chronos in the services view](img/ui-services-chronos.png)
 
     ### DC/OS CLI
 
@@ -75,11 +75,11 @@ Chronos is the "cron" for your Mesosphere DC/OS. It is a highly-available distri
 
     1.  Click on the **Explorer** tab and navigate to the `chronos` folder.
 
-        ![Exhibitor status view](/1.7/usage/tutorials/chronos/img/chef-zk-status.png)
+        ![Exhibitor status view](img/chef-zk-status.png)
 
     2.  Choose Type **Delete**, enter the required **Username**, **Ticket/Code**, and **Reason** fields, and click **Next**.
 
-        ![Delete the Chronos path from ZooKeeper](/1.7/usage/tutorials/chronos/img/zkchronosdelete.png)
+        ![Delete the Chronos path from ZooKeeper](img/zkchronosdelete.png)
 
     3.  Click **OK** to confirm your deletion.
 

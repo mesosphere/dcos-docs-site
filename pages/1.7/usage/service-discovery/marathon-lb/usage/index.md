@@ -25,7 +25,7 @@ To demonstrate Marathon-LB, you can boot a DC/OS cluster on AWS to run an intern
 
     To check that Marathon-LB is working, [find the IP for your public node][3] and navigate to `http://<public agent ip>:9090/haproxy?stats`. You willl see a statistics report page like this:
 
-    ![lb2](/1.7/usage/service-discovery/marathon-lb/img/lb2.jpg)
+    ![lb2](../img/lb2.jpg)
 
 2.  Set up your internal load balancer. To do this, we must first specify some configuration options for the Marathon-LB package. Create a file called `options.json` with the following contents:
 
@@ -169,7 +169,7 @@ To demonstrate Marathon-LB, you can boot a DC/OS cluster on AWS to run an intern
 
     Each of these should return the NGINX ‘Welcome’ page:
 
-    ![lb3](/1.7/usage/service-discovery/marathon-lb/img/lb3.jpg)
+    ![lb3](../img/lb3.jpg)
 
 ## Virtual hosts
 
@@ -177,7 +177,7 @@ An important feature of Marathon-LB is support for virtual hosts. This allows yo
 
 To test the vhost feature, navigate to the AWS console and look for your public ELB. Now, if you navigate to the instances tab, you should see the instances listed as `InService`, like this:
 
-![lb5](/1.7/usage/service-discovery/marathon-lb/img/lb5.jpg)
+![lb5](../img/lb5.jpg)
 
 Our ELB is able to route traffic to HAProxy. Next, let’s modify our NGINX app to expose our service. To do this, you’ll need to get the public DNS name for the ELB from the `Description` tab. In this example, my public DNS name is `brenden-j-PublicSl-1LTLKZEH6B2G6-1145355943.us-west-2.elb.amazonaws.com`.
 
@@ -218,7 +218,7 @@ We’ve added the label `HAPROXY_0_VHOST`, which tells Marathon-LB to expose NGI
 
 Now, if you navigate to the ELB public DNS address in your browser, you should see the following:
 
-![lb6](/1.7/usage/service-discovery/marathon-lb/img/lb6.jpg)
+![lb6](../img/lb6.jpg)
 
  [1]: /1.7/administration/installing/oss/
  [2]: /1.7/usage/cli/install/

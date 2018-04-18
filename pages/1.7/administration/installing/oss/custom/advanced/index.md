@@ -48,7 +48,7 @@ The DC/OS installation creates these folders:
     cluster_name: '<cluster-name>'
     exhibitor_storage_backend: static
     ip_detect_filename: /genconf/ip-detect
-    master_discovery: static
+    master_discovery: static 
     master_list:
     - <master-private-ip-1>
     - <master-private-ip-2>
@@ -241,7 +241,7 @@ To install DC/OS:
 
     **Tip:** This process can take about 10 minutes. During this time you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
-    ![alt text](/1.7/administration/installing/oss/custom/img/chef-zk-status.png)
+    ![alt text](../img/chef-zk-status.png)
 
     When the status icons are green, you can access the DC/OS web interface.
 

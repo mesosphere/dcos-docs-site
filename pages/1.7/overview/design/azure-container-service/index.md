@@ -90,7 +90,7 @@ The Azure Container Service implementation brings several more benefits to you:
 
 The default ACS architecture looks like this:
 
-![Azure Container Service archictecture using DC/OS.](/1.7/overview/design/img/dcos-acs.png)
+![Azure Container Service archictecture using DC/OS.](../img/dcos-acs.png)
 
 
 
