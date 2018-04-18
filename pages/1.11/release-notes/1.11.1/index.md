@@ -14,7 +14,6 @@ These are the release notes for DC/OS 1.11.1.
 
 # <a name="issues-fixed"></a>Improvements and Issues Fixed in DC/OS 1.11.1 
 
-- INFINITY-3331 - Fixed cleaning up other framework's volumes.
 - DCOS_OSS-2292 - Fixed a situation where dcos task --follow task might crash.
 - DCOS_OSS-2247 - Fixed bug in dcos-checks to treat command timeout as a failed check.
 - DCOS_OSS-2210 - Fixed an edge case as of which the history service would crash-loop.
