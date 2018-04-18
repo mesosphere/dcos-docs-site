@@ -45,13 +45,13 @@ You must have an Amazon EC2 Key Pair for the same region as your cluster. Key pa
 
 2.  On the **Select Template** page, accept the defaults and click **Next**.
 
-    ![Launch stack](/1.7/administration/installing/ent/cloud/img/dcos-aws-step2b.png)
+    ![Launch stack](../img/dcos-aws-step2b.png)
 
 3.  On the **Specify Details** page, specify a cluster name (`Stack name`), Key Pair (`KeyName`), authentication (`OAuthEnabled`), public agent (`PublicSlaveInstanceCount`), private agent (`SlaveInstanceCount`), and click **Next**.
 
     **Important:** The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
 
-    ![Create stack](/1.7/administration/installing/ent/cloud/img/dcos-aws-step2c.png)
+    ![Create stack](../img/dcos-aws-step2c.png)
 
 4.  On the **Options** page, accept the defaults and click **Next**.
 
@@ -82,13 +82,13 @@ Launch the DC/OS web interface by entering the Mesos Master hostname:
 
     **Tip:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">Amazon CloudFormation Management</a> page.
 
-    ![Monitor stack creation](/1.7/administration/installing/ent/cloud/img/dcos-aws-step3a.png)
+    ![Monitor stack creation](../img/dcos-aws-step3a.png)
 
-    ![DC/OS dashboard](/1.7/administration/installing/ent/cloud/img/ui-dashboard.gif)
+    ![DC/OS dashboard](../img/ui-dashboard.gif)
 
 1.  Click the dropup menu on the lower-left side to install the DC/OS [Command-Line Interface (CLI)][2]. You must install the CLI to administer your DCOS cluster.
 
-    ![install CLI](/1.7/administration/installing/ent/cloud/img/ui-dashboard-install-cli.gif)
+    ![install CLI](../img/ui-dashboard-install-cli.gif)
 
 
 # Next steps

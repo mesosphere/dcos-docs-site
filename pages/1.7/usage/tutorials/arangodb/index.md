@@ -43,15 +43,15 @@ This command installs the `arangodb3` subcommand and starts an instance of the A
 
 Open the DC/OS web interface in your browser and click the Services tab to watch ArangoDB start up on your Open DC/OS cluster:
 
-![Services](/1.7/usage/tutorials/arangodb/img/services.png)
+![Services](img/services.png)
 
 Click the ArangoDB task to reveal the subtask that the framework has started:
 
-![Tasks](/1.7/usage/tutorials/arangodb/img/tasks.png)
+![Tasks](img/tasks.png)
 
 Click “Open Service” to open the ArangoDB web interface.
 
-![Dashboard](/1.7/usage/tutorials/arangodb/img/arangodb.png)
+![Dashboard](img/arangodb.png)
 
 Congratulations! You now have ArangoDB running on DC/OS.
 

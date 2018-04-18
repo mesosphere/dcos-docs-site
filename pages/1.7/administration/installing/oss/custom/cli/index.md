@@ -4,6 +4,7 @@ excerpt:
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200
+oss: true
 ---
 
 The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options.
@@ -316,17 +317,17 @@ To install DC/OS:
 
     **Tip:** This process can take about 10 minutes. During this time you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
-    ![alt text](/1.7/administration/installing/oss/custom/img/chef-zk-status.png)
+    ![alt text](../img/chef-zk-status.png)
 
     When the status icons are green, you can access the DC/OS web interface.
 
 7.  Launch the DC/OS web interface at `http://<public-master-ip>/` and login. If this doesn't work, take a look at the [troubleshooting docs][9]
 
-    ![alt text](/1.7/administration/installing/oss/custom/img/ui-installer-login.gif)
+    ![alt text](../img/ui-installer-login.gif)
 
     You are done!
 
-    ![dashboard](/1.7/administration/installing/oss/custom/img/ui-dashboard.gif)
+    ![dashboard](../img/ui-dashboard.gif)
 
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.
