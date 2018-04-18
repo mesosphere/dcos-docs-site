@@ -64,7 +64,18 @@ function walk(opts, file, files, array, children, level) {
   }
   // Sort
   children.sort((a, b) => {
-    return (a.menuWeight > b.menuWeight) ? 1 : (a.menuWeight < b.menuWeight) ? -1 : 0;
+    let x = (a.menuWeight > b.menuWeight) ? 1 : (a.menuWeight < b.menuWeight) ? -1 : 0;
+    if(x == 0 && a.navigationTitle && b.navigationTitle) {
+      let x1 = a.navigationTitle.toUpperCase();
+      let x2 = b.navigationTitle.toUpperCase();
+      x = (x1 > x2 ) ? 1 : (x1 < x2) ? -1 : 0;
+    }
+    if(x == 0 && a.title && b.title) {
+      let x1 = a.title.toUpperCase();
+      let x2 = b.title.toUpperCase();
+      x = (x1 > x2 ) ? 1 : (x1 < x2) ? -1 : 0;
+    }
+    return x;
   });
   return children;
 }
