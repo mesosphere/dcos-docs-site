@@ -133,7 +133,8 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
+     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
    ```
    
    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`. 
@@ -173,16 +174,18 @@ To view task details and logs, you must grant access to the [Mesos UI](/1.11/sec
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon \
-   -d '{"description":"Grants access to the Marathon UI"}'
+     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     -H 'Content-Type: application/json' \
+     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon \
+     -d '{"description":"Grants access to the Marathon UI"}'
    ```
    
 1.  Grant the following privileges to the user `uid`.
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
+     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
    ```
    
    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`. 
@@ -194,9 +197,10 @@ To view task details and logs, you must grant access to the [Mesos UI](/1.11/sec
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F \
-   -d '{"description":"Grants access to launch Marathon task from UI"}'
+     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     -H 'Content-Type: application/json' \
+     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F \
+     -d '{"description":"Grants access to launch Marathon task from UI"}'
    ```
    
 1.  Grant the following privileges to the user `uid`.

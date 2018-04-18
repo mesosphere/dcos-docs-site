@@ -206,7 +206,9 @@ The procedure varies by interface. Refer to the section that corresponds to your
    Alternatively, use the Marathon API to deploy the app as shown below.
 
    ```bash
-   curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
+   curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps \
+     -d @myservice.json -H "Content-type: application/json" 
+     -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
    ```
 
 1. Open the DC/OS GUI.

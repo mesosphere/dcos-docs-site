@@ -93,9 +93,11 @@ You can grant users access to the **Components** tab. By default, new users have
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice/users/<uid>/full
+      -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+      $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice/users/<uid>/full
     curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
+      -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+      $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
     
     **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`. 
@@ -121,9 +123,11 @@ You can grant users access to the **Components** tab. By default, new users have
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice/users/<uid>/full
+      -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+      $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice/users/<uid>/full
     curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
+      -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+      $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
     
     **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
@@ -149,9 +153,11 @@ You can grant users access to the **Components** tab. By default, new users have
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice/users/<uid>/full
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" 
+    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice/users/<uid>/full
     curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" 
+    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
     
     **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`. 

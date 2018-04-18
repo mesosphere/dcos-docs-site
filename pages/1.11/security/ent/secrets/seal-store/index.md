@@ -26,7 +26,8 @@ The intended status of the seal is persisted, so after sealing the store the res
 1. From a terminal prompt, check the status of the Secret Store via the following command.
 
    ```bash
-   curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
+   curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
    ```
 
 1. The Secret Store service should return a response like the following.
@@ -40,13 +41,15 @@ The intended status of the seal is persisted, so after sealing the store the res
 1. Use the following command to seal the Secret Store.
 
    ```bash
-   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/seal/default
+   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     $(dcos config show core.dcos_url)/secrets/v1/seal/default
    ```
 
 1. Confirm that the Secret Store was sealed with this command.
 
    ```bash
-   curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
+   curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
    ```
 
 1. It should return the following JSON.

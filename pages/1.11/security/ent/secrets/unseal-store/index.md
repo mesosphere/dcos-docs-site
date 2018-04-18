@@ -47,13 +47,15 @@ The intended status of the seal is persisted, so if one of the prerequisites for
 1. Use the following curl command to unseal the store.
 
     ```bash
-    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/auto-unseal/default
+    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+      $(dcos config show core.dcos_url)/secrets/v1/auto-unseal/default
     ```
 
 1. Confirm that the Secret Store was indeed unsealed with this command.
 
    ```bash
-   curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
+   curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
    ```
 
 1. The Secret Store service should return the following JSON response, indicating success.

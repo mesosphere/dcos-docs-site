@@ -18,5 +18,6 @@ If you have not [set up a proxy](/1.11/security/ent/tls-ssl/haproxy-adminrouter/
 An example follows which assumes that the file is named `dcos-ca.crt` and located in the current directory.
 
 ```bash
-curl -X GET --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/users
+curl -X GET --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+  $(dcos config show core.dcos_url)/acs/api/v1/users
 ```

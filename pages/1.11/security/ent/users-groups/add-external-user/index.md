@@ -93,15 +93,19 @@ In this example a group named `johngroup` is imported.
 1.  Initiate import with this command:
 
     ```bash
-    curl -i -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data '{"groupname": "johngroup"}' --header "Content-Type: application/json" $(dcos config show core.dcos_url)/acs/api/v1/ldap/importgroup
+    curl -i -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+      --data '{"groupname": "johngroup"}' --header "Content-Type: application/json" \
+      $(dcos config show core.dcos_url)/acs/api/v1/ldap/importgroup
     ```
 
 1.  Confirm that `johngroup` is added:
 
     ```bash
-    curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/groups/johngroup
+    curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+      $(dcos config show core.dcos_url)/acs/api/v1/groups/johngroup
     ```
 
     ```bash
-    curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/groups/johngroup/users
+    curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+      $(dcos config show core.dcos_url)/acs/api/v1/groups/johngroup/users
     ```

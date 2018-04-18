@@ -104,7 +104,8 @@ You can determine what access your service account requires by using this proced
 
    ```bash
    curl -x put --cacert dcos-ca.crt \
-   -h "authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/<service-account-id>/full
+   -h "authorization: token=$(dcos config show core.dcos_acs_token)" \
+     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/<service-account-id>/full
    ```
 
 For more information, see the [permissions reference](/1.11/security/ent/perms-reference/). 
@@ -122,7 +123,9 @@ For example, to authorize the [Cassandra service](/services/cassandra/cass-auth/
 1.  Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and the allowed actions (`create`).
 
     ```bash
-    dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:cassandra-role create --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
+    dcos security org users grant <service-account-id> \
+      dcos:mesos:master:framework:role:cassandra-role create \
+      --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
     ```
 
 ### Using the GUI

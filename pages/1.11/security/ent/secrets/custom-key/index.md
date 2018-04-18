@@ -137,13 +137,16 @@ enterprise: true
 27. Use the following curl command to initialize the Secret Store with the new GPG public key. Replace the `"pgp_keys"` value with the value returned by GPG in the previous step.
 
    ```bash
-   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -d '{"shares":1,"threshold":1,"pgp_keys":["mQIN...xQPE="]}' $(dcos config show core.dcos_url)/secrets/v1/init/default -H 'Content-Type: application/json'
+   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     -d '{"shares":1,"threshold":1,"pgp_keys":["mQIN...xQPE="]}' \
+     $(dcos config show core.dcos_url)/secrets/v1/init/default -H 'Content-Type: application/json'
    ```
 
 28. The Secret Store service should return the unseal key encrypted with the public key, indicating success.
 
    ```json
-   {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
+   {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],
+    "root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
 29. Congratulations! You have successfully reinitialized your Secret Store. To unseal it, refer to [Unsealing a Secret Store sealed with custom keys](/1.11/security/ent/secrets/unseal-store/#unseal-cust-keys).

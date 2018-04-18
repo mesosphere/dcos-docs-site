@@ -62,7 +62,9 @@ This procedure describes how to create a secret called `my-secret` inside the `d
 1. Use the following command to create the secret.
 
    ```bash
-   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -d '{"value":"very-secret"}' $(dcos config show core.dcos_url)/secrets/v1/secret/default/developer/my-secret -H 'Content-Type: application/json'
+   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+     -d '{"value":"very-secret"}' $(dcos config show core.dcos_url)/secrets/v1/secret/default/developer/my-secret \
+     -H 'Content-Type: application/json'
    ```
 
 # <a name="cli"></a>Creating key/value pair secrets via the DC/OS Enterprise CLI

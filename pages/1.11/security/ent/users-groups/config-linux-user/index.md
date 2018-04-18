@@ -57,7 +57,9 @@ Once you have met these prerequisites, complete the following steps to override 
 1. Deploy the service using the [Marathon API](/1.11/deploying-services/marathon-api/).
 
   ```bash
-curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
+curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps \
+   -d @myservice.json -H "Content-type: application/json" \
+   -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
   ```
 
 
@@ -117,7 +119,9 @@ Once you have met these prerequisites, complete the following steps to override 
 1. Deploy the job using the [Metronome REST API](https://dcos.github.io/metronome/docs/generated/api.html).
 
    ```bash
-   curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d @myjob.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
+   curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/metronome/v1/jobs \
+     -d @myjob.json -H "Content-type: application/json" \
+     -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
    ```
 
 1. Check the **Jobs** tab of the DC/OS GUI to confirm that your job has successfully deployed.

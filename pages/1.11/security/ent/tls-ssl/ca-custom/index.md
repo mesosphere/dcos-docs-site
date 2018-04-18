@@ -165,7 +165,9 @@ In order to do that you first need to obtain the DC/OS CA bundle of the deployed
 Provided you have obtained the DC/OS CA bundle and stored it in a file named `dcos-ca.crt`, issue the following command in the directory containing the `dcos-ca.crt` file in order to check that Admin Router on a master node uses a certificate signed by the custom CA:
 
 ```bash
-openssl s_client -verify_ip <private_ip_master_node_X> -CAfile dcos-ca.crt -connect <public_ip_master_node_X>:443 | grep -e "s:" -e "i:" -e "return code:"
+openssl s_client -verify_ip <private_ip_master_node_X> -CAfile dcos-ca.crt \
+  -connect <public_ip_master_node_X>:443 | \
+  grep -e "s:" -e "i:" -e "return code:"
 ```
 
 The output should look similar to the following:
@@ -209,6 +211,7 @@ Here is an example of the `issuer` and `subject` fields of a custom root CA cert
 cd $DCOS_INSTALL_DIR
 openssl x509 -in genconf/dcos-ca-certificate.crt -issuer -subject -noout
 ```
+
 ```bash
 issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
 subject= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
@@ -250,7 +253,9 @@ Here is an example of a corresponding CA certificate chain:
 
 ```bash 
 cd $DCOS_INSTALL_DIR
-cat genconf/dcos-ca-certificate-chain.crt | awk -v cmd="openssl x509 -issuer -subject -noout && echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
+cat genconf/dcos-ca-certificate-chain.crt | \
+   awk -v cmd="openssl x509 -issuer -subject -noout && \
+   echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
 ```
 ```bash
 issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
@@ -296,7 +301,9 @@ Here is an example of a corresponding CA certificate chain:
 
 ```bash
 cd $DCOS_INSTALL_DIR
-cat genconf/dcos-ca-certificate-chain.crt | awk -v cmd="openssl x509 -issuer -subject -noout && echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
+cat genconf/dcos-ca-certificate-chain.crt | \
+   awk -v cmd="openssl x509 -issuer -subject -noout && \
+   echo" '/-----BEGIN/ { c = $0; next } c { c = c "\n" $0 } /-----END/ { print c|cmd; close(cmd); c = 0 }'
 ```
 ```bash
 issuer= /DC=io/DC=integration-test/C=DE/ST=Utopia/O=DC/OS/OU=Programmer Unit/CN=Integration Test Root CA
