@@ -18,15 +18,15 @@ The component health page provides the health status of all DC/OS system compone
 
 Launch the [DC/OS UI](/1.8/usage/webinterface/) and navigate to the **System -> Components** page. You can sort components by health.
 
-![system health](/1.8/administration/monitoring/img/component-system-view.png)
+![system health](img/component-system-view.png)
 
 You can click on a DC/OS component to view the details, including role, node, and health.
 
-![node detail](/1.8/administration/monitoring/img/component-node-detail.png)
+![node detail](img/component-node-detail.png)
 
 You can debug further by clicking the node to view the component journald (log) output.
 
-![log](/1.8/administration/monitoring/img/component-node-output.png)
+![log](img/component-node-output.png)
 
 ## Health States
 
@@ -53,7 +53,7 @@ Aggregation of the cluster health endpoints is accomplished by the same diagnost
 curl --unix-socket /run/dcos/3dt.sock http://localhost/system/health/v1/units
 curl --unix-socket /run/dcos/3dt.sock http://localhost/system/health/v1/nodes
 curl --unix-socket /run/dcos/3dt.sock http://localhost/system/health/v1/report
-```
+``` 
 
 The DC/OS user interface uses these aggregation endpoints to generate the data you explore in the system health console.
 

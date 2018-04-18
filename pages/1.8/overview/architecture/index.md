@@ -16,7 +16,7 @@ To simplify the understanding of DC/OS, we will reuse the Linux terminology for 
 
 The DC/OS kernel space is comprised of Mesos masters and Mesos agents. The user space includes System Components such as Mesos-DNS, Distributed DNS Proxy, and services such as Marathon or Spark. The user space also includes processes that are managed by the services, for example a Marathon application.
 
-![DC/OS architecture 100,000ft view](/1.8/overview/img/dcos-architecture-100000ft.png)
+![DC/OS architecture 100,000ft view](../img/dcos-architecture-100000ft.png)
 
 Before we dive into the details of the interaction between different DC/OS components, let's define the terminology used.
 
@@ -100,15 +100,15 @@ This section describes the management of processes in a DC/OS cluster, from the 
 
 At a high level, this interaction takes place between the DC/OS components when a user launches a process. Communication occurs between the different layers, such as the user interacting with the scheduler, and within a layer, for example, a master communicating with agents.
 
-![Concept of distributed process management in DC/OS](/1.8/overview/img/dcos-architecture-distributed-process-management-concept.png)
+![Concept of distributed process management in DC/OS](../img/dcos-architecture-distributed-process-management-concept.png)
 
 Here is an example, using the Marathon service and a user launching a container based on a Docker image:
 
-![Example of distributed process management in DC/OS](/1.8/overview/img/dcos-architecture-distributed-process-management-example.png)
+![Example of distributed process management in DC/OS](../img/dcos-architecture-distributed-process-management-example.png)
 
 The chronological interaction between the above components looks like this. Notice that Executors and Task are folded into one block since in practice this is often the case:
 
-![Sequence diagram for distributed process management in DC/OS](/1.8/overview/img/dcos-architecture-distributed-process-management-seq-diagram.png)
+![Sequence diagram for distributed process management in DC/OS](../img/dcos-architecture-distributed-process-management-seq-diagram.png)
 
 In detail, here are the steps:
 

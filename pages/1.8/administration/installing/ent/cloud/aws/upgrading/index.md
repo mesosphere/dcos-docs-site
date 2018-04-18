@@ -38,11 +38,11 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
    1. Go to `http://master-node/exhibitor`.
 
       1. Go to config tab , it should have three fields which have (`/var/lib/zookeeper`).
-        ![Exhibitor UI](/1.8/administration/installing/ent/cloud/aws/img/dcos-exhibitor-fields-before.png)
-        ![Exhibitor UI](/1.8/administration/installing/ent/cloud/aws/img/dcos-exhibitor-fields-before-2.png)
+        ![Exhibitor UI](../img/dcos-exhibitor-fields-before.png)
+        ![Exhibitor UI](../img/dcos-exhibitor-fields-before-2.png)
       1. Edit the config and change all three fields that contain (`/var/lib/zookeeper/`) to (`/var/lib/dcos/exhibitor/zookeeper/`).
-        ![Exhibitor UI](/1.8/administration/installing/ent/cloud/aws/img/dcos-exhibitor-fields-after.png)
-        ![Exhibitor UI](/1.8/administration/installing/ent/cloud/aws/img/dcos-exhibitor-fields-after-2.png)
+        ![Exhibitor UI](../img/dcos-exhibitor-fields-after.png)
+        ![Exhibitor UI](../img/dcos-exhibitor-fields-after-2.png)
       1. Commit and perform a rolling restart. This will take a couple of minutes and during that time the Exhibitor UI will flash, wait for the commit to be performed fully.
 
    1. Make sure the cluster is healthy at this point.
