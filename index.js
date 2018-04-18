@@ -13,6 +13,7 @@ const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const timer            = require('metalsmith-timer');
+const copy             = require('metalsmith-copy');
 
 // Local Plugins
 const reduce                  = require('./plugins/metalsmith-revision').reduce;
@@ -102,6 +103,17 @@ let CB = branch()
 
 // Start timer
 CB.use(timer('CB: Init'))
+
+// Remove the ordr prefix from structured files. Constrained to the services directory
+// @bwood is responsible for this abomination.
+CB.use(copy({
+  pattern: 'services/**',
+  transform: function(file) {
+    return file.replace(/ordr_[0-9]+-/, "")
+  },
+  move: true
+}))
+CB.use(timer('CB: Copy'))
 
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
