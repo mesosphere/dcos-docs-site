@@ -72,12 +72,13 @@ function cleanVersion
             rm -rf "./build-pdf/${INPUT_FOLDER}"
           fi
         done
-    else
-        # Otherwise, set it to build the entire ./pages directory
-        if [ -d "./build-pdf" ]; then
-          rm -rf "./build-pdf"
-        fi
-    fi
+    # else
+    #     # Otherwise, set it to build the entire ./pages directory
+    #     # if [ -d "./build-pdf" ]; then
+    #     #   rm -rf "./build-pdf"
+    #     # fi
+
+    # fi
 }
 
 
