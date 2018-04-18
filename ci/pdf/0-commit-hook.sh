@@ -25,12 +25,12 @@ export LATEST_MDFILES
 
 
 # Settings values to upload the right directories
-FULLDATE_LAST_SUCCESFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESFUL_COMMIT}" --format=%ci)
-DATE_LAST_SUCCESFUL_COMMIT="$(echo "${FULLDATE_LAST_SUCCESFUL_COMMIT}" | cut -c1-10)"
-GIT_HASH="$(git rev-parse "${GIT_PREVIOUS_SUCCESFUL_COMMIT}")"
+FULLDATE_LAST_SUCCESSFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}" --format=%ci)
+DATE_LAST_SUCCESSFUL_COMMIT="$(echo "${FULLDATE_LAST_SUCCESSFUL_COMMIT}" | cut -c1-10)"
+GIT_HASH="$(git rev-parse "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}")"
 GIT_HASH_TRIM="$(echo "$GIT_HASH" | cut -c1-8)"
 export GIT_HASH_TRIM
-export DATE_LAST_SUCCESFUL_COMMIT
+export DATE_LAST_SUCCESSFUL_COMMIT
 
 
 ci/pdf/2-build-pdf-image.sh
