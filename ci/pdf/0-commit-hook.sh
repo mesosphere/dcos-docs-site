@@ -23,6 +23,16 @@ ci/pdf/1-setup-env.sh
 LATEST_MDFILES=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep \.md)
 export LATEST_MDFILES
 
+
+# Settings values to upload the right directories
+FULLDATE_LAST_SUCCESFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESFUL_COMMIT}" --format=%ci)
+DATE_LAST_SUCCESFUL_COMMIT="$(echo "${FULLDATE_LAST_SUCCESFUL_COMMIT}" | cut -c1-10)"
+GIT_HASH="$(git rev-parse "${GIT_PREVIOUS_SUCCESFUL_COMMIT}")"
+GIT_HASH_TRIM="$(echo "$GIT_HASH" | cut -c1-8)"
+export GIT_HASH_TRIM
+export DATE_LAST_SUCCESFUL_COMMIT
+
+
 ci/pdf/2-build-pdf-image.sh
 DOCKER_IMAGE="$(cat ".pdf-image")"
 export DOCKER_IMAGE # export separately so errexit works :(

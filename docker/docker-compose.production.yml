@@ -30,8 +30,12 @@ services:
       args:
         git_branch: ${GIT_BRANCH}
         LATEST_MDFILES: ${LATEST_MDFILES}
+        GIT_HASH_TRIM: ${GIT_HASH_TRIM}
+        DATE_LAST_SUCCESFUL_COMMIT: ${DATE_LAST_SUCCESFUL_COMMIT}
     environment:
       - LATEST_MDFILES=${LATEST_MDFILES}
+      - GIT_HASH_TRIM=${GIT_HASH_TRIM}
+      - DATE_LAST_SUCCESFUL_COMMIT=${DATE_LAST_SUCCESFUL_COMMIT}
     volumes:
       - build-pdf:/src/build-pdf
   test:
