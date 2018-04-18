@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Release Notes
+title: Release Notes for  1.7.0
 menuWeight: 60
 excerpt:
 
