@@ -40,6 +40,11 @@ FROM ubuntu:16.04 as pdf-builder
 ARG LATEST_MDFILES=${LATEST_MDFILES}
 RUN echo ${LATEST_MDFILES}
 
+ARG GIT_HASH_TRIM=${GIT_HASH_TRIM}
+
+ARG DATE_LAST_SUCCESFUL_COMMIT=${DATE_LAST_SUCCESFUL_COMMIT}
+
+
 RUN apt-get update -qq
 
 RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55

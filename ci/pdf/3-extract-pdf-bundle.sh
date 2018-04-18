@@ -18,12 +18,6 @@ cd "${project_dir}"
 echo "Extracting PDF Bundle..."
 
 
-# get url where pdf is hosted in tgz
-PREVIOUS_PDF_BUNDLE="build-pdf/dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
-# download folder
-# place 1.7 version inside (or another version)
-# tgz it and send it up
-
 PDF_BUNDLE_DIR="build-pdf"
 PDF_BUNDLE_NAME="build-pdf.tgz"
 
