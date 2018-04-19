@@ -31,6 +31,7 @@ These are the release notes for DC/OS 1.11.1.
 - DCOS-21359 - Prevented an uninstalled service to break the UI when the "remove" modal was open.
 - DCOS_OSS-1878 - Prevented dcos-checks from ignoring the value of  --detect-ip flag when looking for the location of IP detect script.
 - DCOS_OSS-2162 - Modified mesos modules to accept ZK configuration stored in files.
+- DCOS-19586 - Updated volume table and volume detail for pods.
 
 # <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 
 - DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
