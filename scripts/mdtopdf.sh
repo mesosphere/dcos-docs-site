@@ -261,6 +261,8 @@ PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/dcos-docs-p
 
 curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" ${PREVIOUS_PDF_BUNDLE}
 
+mkdir -p ${OUTPUT_FOLDER}
+
 tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" -C ${OUTPUT_FOLDER}
 
 # Clean the previous pdf
