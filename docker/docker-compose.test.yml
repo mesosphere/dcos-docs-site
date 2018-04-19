@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  pdf:
+    image: mesosphere/dcos-docs-pdf
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.test
+      args:
+        git_branch: ${GIT_BRANCH}
+        LATEST_MDFILES: ${LATEST_MDFILES}
+    environment:
+      - LATEST_MDFILES=${LATEST_MDFILES}
+    volumes:
+      - build-pdf:/src/build-pdf
+volumes:
+  build:
+  build-pdf:
