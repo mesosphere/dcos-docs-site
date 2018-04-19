@@ -12,6 +12,7 @@ These are the release notes for DC/OS 1.11.1.
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
+
 # <a name="known-issue"></a>Known Issue in DC/OS 1.11.1
 
 - DCOS-22128 - When using pods with volumes, if a container in the pod is not configured to mount the volume, the cluster cannot access any service via the UI. As a workaround, when using pods with volumes, use the CLI instead. 
@@ -101,10 +102,3 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
 
-
-## <a name="known-issues"></a>Known Issues and Limitations
-- DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
-- DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](https://docs.mesosphere.com/1.11/installing).
-- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. [enterprise type="inline" size="small" /]
-- DCOS_OSS-2132	- `dcos-log` does not handle the journald files rotation properly.
-- INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.
