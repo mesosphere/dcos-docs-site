@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
-title: Release Notes for  1.7.0
-menuWeight: 60
+navigationTitle:  Release Notes for 1.7.0
+title: Release Notes for 1.7.0
+menuWeight: 2
 excerpt:
 
 enterprise: false

@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
-title: Release Notes for  1.7.3
+navigationTitle:  Release Notes for 1.7.3
+title: Release Notes for 1.7.3
+menuWeight: 2
 excerpt:
 
-enterprise: false
----
+enterprise: false---
 
 The release notes provide a list of useful topics and links for DC/OS.
 
