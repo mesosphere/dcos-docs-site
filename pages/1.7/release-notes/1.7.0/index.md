@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Release Notes
-menuWeight: 12
+title: Release Notes for  1.7.0
+menuWeight: 60
 excerpt:
 
 enterprise: false
@@ -13,13 +13,12 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 You can now install packages from the DC/OS Universe with a single click in the web interface. The packages can be installed with defaults or customized directly in the UI. For more information, see the [documentation][1].
 
-![UI Universe](/1.7/administration/img/ui-universe-ee.gif)
-
+![UI Universe](/1.7/img/ui-universe.gif)
 # DC/OS component health available in the UI
 
 You can monitor the health of your cluster components from the DC/OS web interface. The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit. For more information, see the [documentation][2].
 
-![UI system health](/1.7/administration/img/ui-system-health-ee.gif)
+![UI system health](/1.7/img/component-system-view.png)
 
 # <a name="dcos"></a>Improved DC/OS installation
 
