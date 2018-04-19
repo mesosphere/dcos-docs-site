@@ -1,0 +1,10 @@
+#
+# Build MS PDF
+#
+
+FROM ubuntu:16.04 as pdf-builder
+
+ARG LATEST_MDFILES=${LATEST_MDFILES}
+# RUN LATEST_MDFILES=${LATEST_MDFILES}
+RUN echo "----------------------------"
+RUN echo $LATEST_MDFILES

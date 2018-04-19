@@ -78,7 +78,7 @@ function cleanVersion
     #     #   rm -rf "./build-pdf"
     #     # fi
 
-    # fi
+    fi
 }
 
 
