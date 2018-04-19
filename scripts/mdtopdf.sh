@@ -259,7 +259,7 @@ function main
 # get url where pdf is hosted in tgz
 PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 
-curl ${PREVIOUS_PDF_BUNDLE}
+curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" ${PREVIOUS_PDF_BUNDLE}
 tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" -C ./build-pdf
 
 # Clean the previous pdf
