@@ -12,29 +12,32 @@ These are the release notes for DC/OS 1.11.1.
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
+# <a name="known-issue"></a>Known Issue in DC/OS 1.11.1
+
+- DCOS-22128 - When using pods with volumes, if a container in the pod is not configured to mount the volume, the cluster cannot access any service via the UI. As a workaround, when using pods with volumes, use the CLI instead. 
+
 # <a name="issues-fixed"></a>Issues Fixed in DC/OS 1.11.1 
 
-- DCOS_OSS-2292 - Fixed a situation where dcos task --follow task might crash.
-- DCOS_OSS-2247 - Fixed bug in dcos-checks to treat command timeout as a failed check.
-- DCOS_OSS-2210 - Fixed an edge case as of which the history service would crash-loop.
-- DCOS_OSS-2087 - Cosmos: Improved readability on user facing messages during service uninstallation.
-- DCOS_OSS-1759 - Cosmos: Updated package-manager.yaml to fix the schema error in package management API.
+- CORE-1447 - Fixed a bug in which, under certain conditions, mesos would never refresh its token.
 - DCOS-21305 - Introduced 'minimal DC/OS version' when installing universe packages (e.g., cannot install a package which requires DC/OS 1.11 on DC/OS 1.10).
 - DCOS-21337 - DC/OS UI: Improved error handling when consuming the Mesos event streaming HTTP API.
 - DCOS-21266 - DC/OS UI: Fixed file navigation when browsing task sandbox.
 - DCOS-21128 - DC/OS UI: Fixed a scenario in which the services tab crashed after uninstalling a service.
 - DCOS-19648 - Added a placement constraint validator to the service creation view.
-- INFINITY-3358 - DC/OS UI: Implemented a region picker for region awareness.
-- DCOS_OSS-2229 - Bumped dcos-net. Performance improvements and bug fixes in [lashup](https://github.com/dcos/lashup).
 - DCOS-21683 - Fixed a rare IAM database deadlock as of which the cluster installation might fail.
-- CORE-1447 - Fixed a bug in which, under certain conditions, mesos would never refresh its token.
 - DCOS-21359 - Prevented an uninstalled service to break the UI when the "remove" modal was open.
+- DCOS_OSS-2292 - Fixed a situation where dcos task --follow task might crash.
+- DCOS_OSS-2247 - Fixed bug in dcos-checks to treat command timeout as a failed check.
+- DCOS_OSS-2210 - Fixed an edge case as of which the history service would crash-loop.
+- DCOS_OSS-2087 - Cosmos: Improved readability on user facing messages during service uninstallation.
+- DCOS_OSS-1759 - Cosmos: Updated package-manager.yaml to fix the schema error in package management API.
+- DCOS_OSS-2229 - Bumped dcos-net. Performance improvements and bug fixes in [lashup](https://github.com/dcos/lashup).
 - DCOS_OSS-1878 - Prevented dcos-checks from ignoring the value of  --detect-ip flag when looking for the location of IP detect script.
 - DCOS_OSS-2162 - Modified mesos modules to accept ZK configuration stored in files.
-- DCOS-19586 - Updated volume table and volume detail for pods.
+- INFINITY-3358 - DC/OS UI: Implemented a region picker for region awareness.
 
 # <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1 
-- DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
+
 - DCOS-21938 - Bumped Mesos SHA to the latest 1.5.x version.[changelog](https://github.com/apache/mesos/blob/b0a33cb782db57d054f68335c8126ecae078b238/CHANGELOG).
 - DCOS-21703 - Added integration tests for DC/OS Enterprise Exhibitor checks.
 - DCOS-21000 - Fixed Marathon's authorization logic to support the 'full' action. [enterprise type="inline" size="small" /]
@@ -42,8 +45,11 @@ These are the release notes for DC/OS 1.11.1.
 - DC/OS 1.11.1 is based on Mesos 1.5.x version. View the [Mesos changelog](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG).
 - DC/OS 1.11.1 is integrated with the latest 1.6.352 release of Marathon. For more information about Marathon 1.6, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 - DC/OS 1.11.1 is integrated with Metronome 1.4.1 version. 
+- DCOS_OSS-2130 - Support for CoreOS 1632.2.1.
+
 
 # About DC/OS 1.11
+
 DC/OS 1.11 includes many new capabilities, with a focus on:
 - Managing clusters across multiple clouds [enterprise type="inline" size="small" /]
 - Production Kubernetes-as-a-service
