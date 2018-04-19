@@ -12,7 +12,7 @@ These are the release notes for DC/OS 1.11.1.
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-# <a name="issues-fixed"></a>Improvements and Issues Fixed in DC/OS 1.11.1 
+# <a name="issues-fixed"></a>Issues Fixed in DC/OS 1.11.1 
 
 - DCOS_OSS-2292 - Fixed a situation where dcos task --follow task might crash.
 - DCOS_OSS-2247 - Fixed bug in dcos-checks to treat command timeout as a failed check.
