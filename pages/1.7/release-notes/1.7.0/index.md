@@ -108,37 +108,6 @@ For the full set of changes, please refer to the [Marathon Release Notes][7].
 
 See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
 
-
-# Minor releases
-
-## <a name="1-7-2"></a>1.7.2 - June 15, 2016
-
-Issues fixed:
-
-- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/ent/custom/configuration-parameters/).
-- Various bug fixes to enable upgrades.
-
-## <a name="1-7-3"></a>1.7.3 - July 27, 2016
-
-New features and changes:
-
-- REX-Ray is upgraded to 0.3.3.
-- Marathon is upgraded to [1.1.2](https://github.com/mesosphere/marathon/releases/tag/v1.1.2).
-- New Mesos config (`'docker_stop_timeout'`) that allows you to set an explicit Docker timeout. By default this is set to `'docker_stop_timeout': '20secs'`.
-- Assign disk resources to the Mesos default role, rather than all (`*`).
-- The DC/OS [Admin Router](/1.7/overview/concepts/#adminrouter) now configures the Mesos master cache for less upstream stress.
-- DC/OS installations on Azure now use Docker 1.11.0 (previously version 1.11.2).
-- For better stability, DC/OS installations on Azure are pinned to the Ubuntu 16.04 LTS image.
-
-Issues fixed:
-
-- [MESOS-5389](https://issues.apache.org/jira/browse/MESOS-5389) - docker containerizer should prefix relative volume.container_path values with the path to the sandbox
-- [MESOS-5680](https://issues.apache.org/jira/browse/MESOS-5680) - We should not 'chown -R' on persistent volumes every time container tries to use it
-- [MESOS-5341](https://issues.apache.org/jira/browse/MESOS-5341) - Enabled docker volume support for DockerContainerizer
-- [MESOS-5449](https://issues.apache.org/jira/browse/MESOS-5449) - Memory leak in SchedulerProcess.declineOffer
-- [MESOS-5576](https://issues.apache.org/jira/browse/MESOS-5576) - Masters may drop the first message they send between masters after a network partition
-
-
  [1]: /1.7/usage/managing-services/install/
  [2]: /1.7/administration/monitoring/
  [3]: /1.7/usage/service-discovery/virtual-ip-addresses/
