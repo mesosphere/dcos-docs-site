@@ -259,12 +259,15 @@ function main
 # get url where pdf is hosted in tgz
 PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 
-curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" ${PREVIOUS_PDF_BUNDLE}
+# get the files and output it to Previous_pdf_bundle destination
+curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
 
-mkdir -p ${OUTPUT_FOLDER}
+mkdir -p "${OUTPUT_FOLDER}"
+echo pwd
+ls "${OUTPUT_FOLDER}"
+tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" -C "${OUTPUT_FOLDER}"
 
-tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" -C ${OUTPUT_FOLDER}
-
+#
 # Clean the previous pdf
 cleanVersion "${LATEST_MDFILES}"
 
