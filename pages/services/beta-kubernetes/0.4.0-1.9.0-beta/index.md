@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Beta Kubernetes Version 0.4.0-1.9.0-beta
-title: Beta Kubernetes Version 0.4.0-1.9.0-beta
-menuWeight: 10
+navigationTitle:  Beta Kubernetes 0.4.0-1.9.0-beta
+title: Beta Kubernetes 0.4.0-1.9.0-beta
+menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false

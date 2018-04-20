@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Node Settings
 menuWeight: 27
 excerpt:
@@ -101,7 +101,7 @@ Cassandra's "rack"-based fault domain support may be enabled by specifying a pla
 
 # Virtual networks
 
-Cassandra supports deployment on virtual networks on DC/OS (including the `dcos` overlay network) allowing each node to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+Cassandra supports deployment on [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network) allowing each node to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {

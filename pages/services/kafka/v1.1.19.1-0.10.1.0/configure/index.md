@@ -15,22 +15,22 @@ enterprise: false
 
 # Changing Configuration at Runtime
 
-You can customize your cluster in-place when it is up and running. The Kafka scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS GUI. 
+You can customize your cluster in-place when it is up and running. The Kafka scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS GUI.
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the Kafka service to be updated.
 
     ![Kafka GUI](/services/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui.png)
-    
+
 1.  Within the Kafka instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
     ![Kafka edit](/services/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui2.png)
-    
+
 1.  Click the **Environment** tab and make your updates. For a description of possible updates, see the [Configuration Update Plans](#configuration-update-plans). For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT` key.
 
     **Important:** Do not edit the values for `FRAMEWORK_NAME`, `BROKER_DISK`, `PLACEMENT_STRATEGY`, or `ENABLE_BROKER_HEALTH_CHECK`.
-    
+
     ![Update broker count](/services/kafka/v1.1.19.1-0.10.1.0/img/kafka-service-gui3.png)
-    
+
 1.  Click **REVIEW & RUN** to apply any changes and cleanly reload the Kafka scheduler. The Kafka cluster itself will persist across the change.
 
 ## Configuration Deployment Strategy
@@ -213,7 +213,7 @@ After you execute the continue operation, the plan will look like this:
       ],
       "errors": [],
       "status": "IN_PROGRESS"
-    }   
+    }
 
 
 
@@ -227,6 +227,8 @@ If you enter `continue` a second time, the rest of the plan will be executed wit
     }
 
 **Note:** The interrupt command can’t stop a step that is `InProgress`, but it will stop the change on the subsequent steps.
+
+<a name="configuration-options"></a>
 
 # Configuration Options
 
@@ -248,7 +250,7 @@ Configure the number of brokers running in a given Kafka cluster. The default co
 
 ## Broker Port
 
-Configure the port number that the brokers listen on. If the port is set to a particular value, this will be the port used by all brokers. The default port is 9092.  Note that this requires that `placement-strategy` be set to `NODE` to take effect, since having every broker listening on the same port requires that they be placed on different hosts. Setting the port to 0 indicates that each Broker should have a random port in the 9092-10092 range. 
+Configure the port number that the brokers listen on. If the port is set to a particular value, this will be the port used by all brokers. The default port is 9092.  Note that this requires that `placement-strategy` be set to `NODE` to take effect, since having every broker listening on the same port requires that they be placed on different hosts. Setting the port to 0 indicates that each Broker should have a random port in the 9092-10092 range.
 
 *   **In DC/OS CLI options.json**: `broker-port`: integer (default: `9092`)
 *   **DC/OS GUI**: `BROKER_PORT`: `integer`
@@ -282,7 +284,7 @@ The defaults can be overridden at install time by specifying an options.json fil
 These same values are also represented as environment variables for the scheduler in the form `KAFKA_OVERRIDE_LOG_RETENTION_HOURS` and may be modified through the DC/OS GUI and deployed during a rolling upgrade as [described here][12].
 
 <a name="disk-type"></a>
-## Disk Type 
+## Disk Type
 
 The type of disks that can be used for storing broker data are: `ROOT` (default) and `MOUNT`.  The type of disk may only be specified at install time.
 
@@ -290,8 +292,8 @@ The type of disks that can be used for storing broker data are: `ROOT` (default)
 * `MOUNT`: Broker data will be stored on a dedicated volume attached to the agent. Dedicated MOUNT volumes have performance advantages and a disk error on these MOUNT volumes will be correctly reported to Kafka.
 
 Configure Kafka service to use dedicated disk volumes:
-* **DC/OS cli options.json**: 
-    
+* **DC/OS cli options.json**:
+
 ```json
     {
         "brokers": {
@@ -323,7 +325,7 @@ Kafka service allows configuration of JVM Heap Size for the broker JVM process. 
 
 **Note**: The total memory allocated for the Mesos task is specified by the `BROKER_MEM` configuration parameter. The value for `BROKER_HEAP_MB` should not be greater than `BROKER_MEM` value. Also, if `BROKER_MEM` is greater than `BROKER_HEAP_MB` then the Linux operating system will use `BROKER_MEM` - `BROKER_HEAP_MB` for [PageCache](https://en.wikipedia.org/wiki/Page_cache).
 
-## Alternate ZooKeeper 
+## Alternate ZooKeeper
 
 By default the Kafka framework uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster. You can configure an alternate ZooKeeper at install time.
 To configure it:
@@ -372,7 +374,7 @@ Configure the minimum amount of time before a broker should be replaced:
 * **DC/OS CLI options.json**:
 
 ```json
-    {   
+    {
         "recover_in_place_grace_period_secs":{
             "description":"The minimum amount of time (in minutes) which must pass before a Broker may be destructively replaced.",
             "type":"number",

@@ -49,7 +49,7 @@ You can customize the Elastic cluster in a variety of ways by specifying a JSON 
 The command below creates a cluster using a `options.json` file:
 
 ```bash
-$ dcos package install elastic --options=options.json 
+$ dcos package install elastic --options=options.json
 ```
 
 # Multiple Elastic Cluster Installation
@@ -82,4 +82,4 @@ Elastic supports deployment on the `dcos` overlay network, a virtual network on 
     }
 }
 ```
-As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on the overlay network, it cannot be updated to use the host network. 
+Note that once the service is deployed on the overlay network, it cannot be updated to use the host network.
