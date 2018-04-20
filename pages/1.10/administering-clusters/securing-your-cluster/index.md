@@ -39,7 +39,7 @@ all HTTP traffic to HTTPS to properly secure access to your cluster.
 
 After you have a valid TLS certificate, install the certificate on each master.
 Copy the certificate and private key to a well known location, such as under
-`/etc/ssl/certs`.
+`/etc/ssl/certs`. 
 
 If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/1.10/security/oss/tls-ssl/haproxy-adminrouter/).
 

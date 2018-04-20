@@ -33,7 +33,7 @@ The purpose of the feature maturity phases is to educate customers, partners, an
 
 # <a name="phases"></a>Phases
 
-## <a name="experimental"></a>Experimental
+## <a name="experimental"></a>Experimental [enterprise type="inline" size="small" /]
 
 Use these features at your own risk. We might add, change, or delete any functionality.
 
@@ -50,7 +50,7 @@ Use these features at your own risk. We might add, change, or delete any functio
 * Limited or no system test
 * Limited or no Mesosphere dogfooding
 
-## <a name="preview"></a>Preview
+## <a name="preview"></a>Preview [enterprise type="inline" size="small" /]
 
 We might add, change, or delete any functionality.
 

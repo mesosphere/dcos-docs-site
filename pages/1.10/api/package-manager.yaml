@@ -153,12 +153,15 @@ definitions:
     properties:
       appId:
         type: string
+      cli:
+        $ref: '#/definitions/cli'
       packageName:
         type: string
       packageVersion:
         type: string
+      postInstallNotes:
+        type: string
     required:
-      - appId
       - packageName
       - packageVersion
     type: object

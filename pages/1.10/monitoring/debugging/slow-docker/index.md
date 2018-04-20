@@ -45,6 +45,6 @@ You will need to change the configurations for your DC/OS installation (if you a
 
 1. SSH to each Mesos agent node.
 
-1. On each node, change the configuration in `/opt/mesosphere/etc/mesos-slave-common` to `MESOS_CGROUPS_ENABLE_CFS=false`
+1. On each node, create the file `/var/lib/dcos/mesos-slave-common` (if it does not exist) and add (or modify) the line `MESOS_CGROUPS_ENABLE_CFS=false`.
 
 1. Restart the Mesos agent process with `sudo systemctl restart dcos-mesos-slave`.
