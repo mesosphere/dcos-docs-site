@@ -16,7 +16,7 @@ You can make changes to the service after it has been launched. Configuration ma
 
 Edit the runtime environment of the scheduler to make configuration changes. After making a change, the scheduler will be restarted and automatically deploy any detected changes to the service.
 
-Some changes, such as decreasing the number of brokers or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
+Some changes, such as decreasing the number of brokers or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/confluent-kafka/v2.0.0.1-3.3.0e/limitations/).
 
 To see a full list of available options, run `dcos package describe --config beta-confluent-kafka` in the CLI, or browse the Confluent Kafka install dialog in the DC/OS web interface.
 

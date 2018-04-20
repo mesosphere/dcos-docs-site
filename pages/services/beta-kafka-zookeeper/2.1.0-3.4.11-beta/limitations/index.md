@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Limitations
 menuWeight: 100
 excerpt:
@@ -57,7 +57,7 @@ When the service is deployed on a virtual network, the service may not be switch
 
 ## Kerberos
 
-Enabling Kerberos is not currently supported on virtual networks.
+Enabling Kerberos is not currently supported on [virtual networks](/1.10/networking/virtual-networks/).
 
 # Task Environment Variables
 

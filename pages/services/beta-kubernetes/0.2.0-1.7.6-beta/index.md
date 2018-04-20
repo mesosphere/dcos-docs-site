@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Beta Kubernetes Version 0.2.0-1.7.6-beta
-title: Beta Kubernetes Version 0.2.0-1.7.6-beta
-menuWeight: 50
+navigationTitle:  Beta Kubernetes 0.2.0-1.7.6-beta
+title: Beta Kubernetes 0.2.0-1.7.6-beta
+menuWeight: 80
 excerpt:
 featureMaturity:
 enterprise: false

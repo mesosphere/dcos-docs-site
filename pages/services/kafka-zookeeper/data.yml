@@ -1,0 +1,34 @@
+# Common values:
+
+packageName: kafka-zookeeper
+serviceName: kafka-zookeeper
+techName: Kafka ZooKeeper
+techShortName: ZooKeeper
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: three
+  nodeDescription: with three servers
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/kafka-zookeeper/kafka-zookeeper-auth/
+
+managing:
+  podType: zookeeper
+  taskType: server
+
+supportedVersions:
+  techExampleVersion: 0.11.0.2
+  techLink: "[Apache Kafka](https://kafka.apache.org/downloads)"
+
+kerberos:
+  spn: example/zookeeper-0-server.agoodexample.autoip.dcos.thisdcos.directory
+  upn: example/zookeeper-0-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+  principal: example/zookeeper-0-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    └─ node-update (serial strategy) (COMPLETE)
+       ├─ zookeeper-0:[server, metrics] (COMPLETE)
+       ├─ zookeeper-1:[server, metrics] (COMPLETE)
+       └─ zookeeper-2:[server, metrics] (COMPLETE)
