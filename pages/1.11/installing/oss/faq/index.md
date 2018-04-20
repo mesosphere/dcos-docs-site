@@ -4,6 +4,7 @@ excerpt:
 title: Frequently Asked Questions
 navigationTitle: FAQ
 menuWeight: 203
+oss: true
 ---
 
 ## Q. Can I install DC/OS on an already running Mesos cluster?

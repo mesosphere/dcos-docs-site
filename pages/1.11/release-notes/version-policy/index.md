@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Mesosphere Versioning and Release Policy
-title: Mesosphere Versioning and Release Policy
+navigationTitle: Versioning and Release Policy
+title: Versioning and Release Policy
 menuWeight: 110
 excerpt:
 ---
@@ -63,27 +63,6 @@ Our interoperability guarantees in the scenario above will be as follows:
 </tr>
 </tbody>
 </table>
-
-# Parking Lot/Future
-
-<!-- ### Semantic Versioning
-
-Semantic versioning is a widely-adopted scheme for describing meaning about the underlying code and what has been modified from one version to the next.  It is  well documented at [www.semver.org](http://www.semver.org/) and is based on a release number which has 3 primary components: major release number, minor release number and patch release number.
-
-### `<MAJOR>.<MINOR>.<PATCH>`
--->
-
-## Major
-
-A major release means modifications or enhancements to the same software product as designated by a change in the major release number.  A major release may include new breaking API changes. Major Releases do not include separate or different products marketed by Mesosphere under a different name even if such products are compatible with the relevant software product.
-
-## Minor
-
-A minor release means modifications or enhancements to the same software product as designated by a change in the minor release number. Minor releases will continue to provide backward compatibility to all released APIs.
-
-## Patch
-
-A patch release means bug fixes and new enhancements to the same software product as designated by a change in the patch release number.
 
 # Mesosphere Versioning and Upgrade Policy
 

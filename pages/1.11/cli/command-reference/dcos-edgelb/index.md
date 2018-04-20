@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-This command manages [Edge-LB](/1.11/networking/edge-lb/).
+This command manages [Edge-LB](https://docs.mesosphere.com/services/edge-lb/).
 
 # Usage
 

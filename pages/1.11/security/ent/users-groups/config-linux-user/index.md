@@ -23,8 +23,9 @@ The procedure for overriding the default Linux user varies by the type of servic
 
 # <a name="universe"></a>Overriding the default Linux user of a Universe service
 
-Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.11/security/ent/service-auth/). Refer to the section that pertains to the service of interest for step-by-step instructions. The procedures also include how to configure the service to use encryption and service accounts.  
+Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.11/security/ent/service-auth/). Refer to the section that pertains to the service of interest for step-by-step instructions. The procedures also include how to configure the service to use encryption and service accounts.
 
+Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Universe service is launched with. See [Mesos Permissions](https://docs.mesosphere.com/1.11/security/ent/perms-reference/#mesos-permissions) for more information.
 
 # <a name="marathon-app-def"></a>Overriding the default Linux user via Marathon app definition
 
@@ -35,8 +36,9 @@ The following procedure will walk you through a quick tutorial to demonstrate ho
 - The Linux user account already exists on the agent.
 - You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
 - If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You have granted permission to perform the `create` action on the `dcos:mesos:master:task:user:<linux-user-name>` resource to the `dcos_marathon` DC/OS service account user.
 
-Once you have met these prerequisites, complete the following steps to override the default Linux user. 
+Once you have met these prerequisites, complete the following steps to override the default Linux user.
 
 1. Create a Marathon app definition and save it with an informative name such as `myservice.json`. The following service will write the name of the user it's running under to the logs, create a new file, and fetch the Mesosphere logo from dcos.io.
 
@@ -77,7 +79,7 @@ curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/mara
 
 # <a name="metronome-job-def"></a>Overriding the default Linux user via Metronome job definition
 
-Metronome job definitions provide a `"user"` key which you can use to override the default Linux user. 
+Metronome job definitions provide a `"user"` key which you can use to override the default Linux user.
 
 **Tip:** Refer to the [Jobs documentation](/1.11/deploying-jobs/quickstart/) for more information about creating and deploying jobs.
 
@@ -86,14 +88,15 @@ The following procedure will walk you through a quick tutorial to demonstrate ho
 - The Linux user account already exists on the agent.
 - You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
 - If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You have granted permission to perform the `create` action on the `dcos:mesos:master:task:user:<linux-user-name>` resource to the `dcos_metronome` DC/OS service account user.
 
-Once you have met these prerequisites, complete the following steps to override the default Linux user. 
+Once you have met these prerequisites, complete the following steps to override the default Linux user.
 
 
 1. Create a Metronome job definition and save it with an informative name such as `myjob.json`.
 
   ```json
-{ 
+{
   "id": "test-user-override",
   "run": {
     "artifacts": [
