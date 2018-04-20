@@ -2,29 +2,29 @@
 layout: layout.pug
 navigationTitle:  >
 title: >
-  Release Notes for 1.10.0 Release
-  Candidate 1
+  Release Notes for 1.10.0 Release Candidate 1
 menuWeight: 40
 excerpt:
 ---
 
+These are the release notes for DC/OS 1.10.0 Release Candidate 1.
+
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
 
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/1.10.0-rc1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 <h3>This release candidate is for testing only and not to be used in production.</h3>
-<h3>Limitations:</h3>
 
+DC/OS 1.10 Release Candidate 1 has a number of limitations that will be resolved at GA time.
 <ul>
 <li>You must upgrade Marathon-LB <em>before</em> upgrading to DC/OS 1.10.0. See the <a href="/1.10/installing/oss/upgrading/">upgrade section</a> for more information.</li>
 
 <li>During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.</li>
-
 </ul>
-<br />
+
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 </td> </tr> </table>
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
-
+DC/OS 1.10 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
 - Enterprise-ready networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
@@ -55,7 +55,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1.9/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
 ## Security
@@ -72,7 +72,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
 
 - Docker `pullConfig` parameter.
   Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise).
- 
+
  - Enterprise CLI permissions management commands.
    It is now possible to manage permissions to protect resources using the [DC/OS Enterprise CLI](/1.10/security/ent/perms-management/).
 
@@ -145,13 +145,12 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - New flow to change the `dcos_url` and log in.
   The new command to set up your cluster URL is `dcos cluster setup <dcos_url>`. For details, see [CLI](#cli).
- 
+
 - Marathon Jenkins Plugin and Marathon-Client Breaking Change
   Marathon 1.5, released with DCOS 1.10, made breaking changes to the API around Docker and management of networks. This breaking change has not yet been incorporated in the marathon-client, which is used by the marathon jenkins plugin. Marathon client and Marathon Jenkins Plugin _will_ work in general, however they will _fail_ to propagate configurations for networks if working with DCOS 1.10 or Marathon 1.5. A solution will be provided for the DCOS 1.10 GA release.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrade: During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
-- Marathon-LB does not work with secrets. [enterprise type="inline" size="small" /]
 - DCOS-14534 - Marathon: Verbose Server Banner.
 - DCOS-14536 - UI Vulnerable to Clickjacking (aka UI Redressing).
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.

@@ -1,28 +1,58 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.3
-title: Release Notes for 1.10.3
-menuWeight: 10
+navigationTitle:  Release Notes for 1.10.5
+title: Release Notes for 1.10.5
+menuWeight: 0
 excerpt:
 ---
 
-These are the release notes for DC/OS Enterprise 1.10.3.
+These are the release notes for DC/OS 1.10.5.
 
-DC/OS Enterprise 1.10.3 is a patch release. If you are currently running DC/OS Enterprise 1.10.0, DC/OS 1.10.1, or DC/OS 1.10.2, your cluster may be susceptible to a failure mode in the DC/OS IAM (Identity and Access Manager). This mode can lead to a degraded cluster state in which DC/OS masters fail to come online for some period of time after failover or restart. Follow the procedure below to prevent cluster downtime.
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-**Note:** DC/OS open source users are not affected by this bug and can upgrade to version 1.10.4 when it becomes available.
 
-- If you are currently running _DC/OS Enterprise 1.9.X_ and plan to upgrade to DC/OS Enterprise 1.10, upgrade directly to DC/OS Enterprise 1.10.3 following the standard upgrade procedure. No additional remediations are required.
+# Issues Fixed in DC/OS 1.10.5
 
-- If you are currently running _DC/OS Enterprise 1.10.0, 1.10.1, or 1.10.2_, first restart CockroachDB, on each master, in a rolling fashion, by running:
+- COPS-1963 - The agent admin router no longer exposes the default Nginx page.
+- DCOS-13824 - Removed list of cluster packages from cloud config and turned it into a build artifact that is downloaded during node setup.
+- DCOS-18784 - The DC/OS UI now shows the correct number of instances in a pod.
+- DCOS-19008 - Master certificates now include exhibitor_address if exhibitor_address is an IP address. [enterprise type="inline" size="small"/]
+- DCOS-20629 - Fixed a deadlock in the go-zookeeper library.
+- DCOS-20683 - Fixed an error in encoding metrics to JSON when executing the DataDog plugin for DC/OS.
+- DCOS-20158 - Updated marked npm package to address two security vulnerabilities: [CVE-2017-17461](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [CVE-2017-1000427](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427).
+- DCOS-20184 - Users can now be authenticated if two non-leading master nodes are simultaneously partitioned from the network, via IP tables.
+- DCOS-20352 - Fixed a configuration issue with CockroachDB related to the number of master nodes. [enterprise type="inline" size="small"/]
+- DCOS-19694 - Fixed an issue for backwards-incompatibility with CockroachDB. [enterprise type="inline" size="small"/]
+- DCOS_OSS-1919 - A master node in a DC/OS cluster with three master nodes now restarts after termination.
+- DCOS_OSS-2003 - Modified DC/OS overlay networking to work with systemd networkd.
+- DCOS_OSS-2095 - Fixed an issue with the scheduled_jobs API in Metronome 0.3.4.
 
-```shell
-$ systemctl restart dcos-cockroach
-```
+# Notable Changes in DC/OS 1.10.5
 
-After restarting all instances, upgrade to DC/OS 1.10.3, following the standard upgrade procedure.
+- Updated to Marathon 1.5.6 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.6)).
+- Updated to Mesos 1.4.1 ([changelog](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)).
+- DCOS_OSS-2128 - Bumped Mesos package to 1.4.x version.
 
-You can find additional information and a more robust remediation procedure in <a href="https://support.mesosphere.com/hc/en-us/articles/115005698043">our latest critical product advisory</a>.
+# Issues Fixed in DC/OS 1.10.4
+
+- CORE-1375 - Docker executor does not hang due to lost messages.
+- DOCS-2169 - Updated [ports list](https://docs.mesosphere.com/1.10/installing/ent/ports/) for DC/OS. [enterprise type="inline" size="small"/]
+- DCOS-18777 - DC/OS CA certificate bundle now gets propagated to public slaves. [enterprise type="inline" size="small"/]
+- DCOS-19327 - Diagnostics bundles no longer contain sensitive cluster configuration values related to Cloudformation templates.
+- DCOS-19399 - Marathon now supports upgrading to JDK 1.8.0_152.
+- DCOS_OSS-1828 - Prometheus plugin now authenticates on master nodes.
+- DCOS_OSS-1898 - DC/OS CLI can now retrieve metrics for Dockerized tasks.
+- DCOS_OSS-1942 - Prometheus plugin now has permissions to access file socket.
+
+# Notable Changes in DC/OS 1.10.4
+
+- Updated to Marathon 1.5.5 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.5)).
+- DC/OS Java Developer Kit updated to the latest version: JDK 8u152.
+- DC/OS compatible with the newest Docker version: 17.05.0.
+
+# Issues Fixed in DC/OS 1.10.3
+
+- Fixed an issue related to a failure mode in DC/OS IAM (Identity and Access Manager), which can cause DC/OS master nodes not to come online for a period of time after failover or restart. [enterprise type="inline" size="small" /]
 
 # Issues Fixed in DC/OS 1.10.2
 
@@ -36,13 +66,13 @@ You can find additional information and a more robust remediation procedure in <
 - DCOS-19383 - UI: Secrets are no longer removed from an app when non-superusers edit a Marathon service that uses secrets. [enterprise type="inline" size="small" /]
 - DCOS-19452 - The DC/OS OpenSSL library is now configured to not support TLS compression anymore (compression allows for the CRIME attack). [enterprise type="inline" size="small" /]
 
-# Notable changes in DC/OS 1.10.2
+# Notable Changes in DC/OS 1.10.2
 
 - Support for RHEL 7.4.
 - Updated to Mesos 1.4.0 ([changelog](https://git-wip-us.apache.org/repos/asf?p=mesos.git;a=blob_plain;f=CHANGELOG;hb=1.4.0)).
 - Updated to Marathon 1.5.2 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.2)).
-- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/ent/custom/configuration/examples/#docker-credentials).
-- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise).
+- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small"/]
+- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise). [enterprise type="inline" size="small"/]
 - DOCS-1925 - Clarified how operators can [recover from a full agent disk](/1.10/administering-clusters/recovering-agent-disk-space/).
 - DOCS-2153 - Updated [Metrics names](/1.10/metrics/reference/).
 
@@ -106,7 +136,7 @@ Please try out the new features and updated data services. Provide any feedback 
 
 ## Networking
 - Configurable Spartan upstreams for domains (dnames).
-  You can now configure Spartan to delegate a particular domain (e.g. "\*.foo.company.com") to a particular upstream. <!-- I could use more information here -->
+  You can now configure Spartan to delegate a particular domain (e.g. "\*.foo.company.com") to a particular upstream.
 
 - Increased CNI network support.
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
