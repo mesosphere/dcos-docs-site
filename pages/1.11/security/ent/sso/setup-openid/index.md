@@ -109,7 +109,7 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. Click to allow DC/OS access to your Google account information.
 
-1. You should see an **Access Denied** message from DC/OC. This signifies that the logon was successful, the user account has been added to DC/OS, but the new user has no permissions and therefore cannot view anything in the DC/OS GUI.
+1. You should see an **Access Denied** message from DC/OS. This signifies that the logon was successful, the user account has been added to DC/OS, but the new user has no permissions and therefore cannot view anything in the DC/OS GUI.
 
 1. Click **LOG OUT**.
 

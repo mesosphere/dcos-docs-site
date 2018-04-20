@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  GUI Installer
-title: GUI Installer
+navigationTitle:  GUI Installer (Retired Feature)
+title: GUI Installer (Retired Feature)
 menuWeight: 100
 excerpt:
 ---
-
+## The GUI installer is retired in version 1.11 and is not supported.
+This installer will be decomissioned in 1.12 release.
 
 The automated GUI installer provides a simple graphical interface that guides you through the installation of DC/OS. The GUI installer provides a basic installation that is suitable for demonstrations and POCs. Only a subset of the configuration options are available with the GUI method. This is the fastest way to get started with DC/OS.
 
@@ -13,7 +14,7 @@ This installation method uses a bootstrap node to administer the DC/OS installat
 
 **Important:** Upgrades are not supported with this installation method.
 
-The DC/OS installation creates these folders:
+The DC/OS installation creates the below folders:
 
 | Folder                                  | Description                                                                                                                                    |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,51 +64,51 @@ Your cluster must meet the software and hardware [requirements][1].
 
     ![alt text](/1.11/img/gui-installer-setup-ee.gif)
 
-    ### Deployment Settings
+    * 4.1\. **Deployment Settings**  
 
-    #### Master Private IP List
+        * 4.1.1\. Master Private IP List  
     Specify a comma-separated list of your internal static master IP addresses.
 
-    #### Agent Private IP List
+        * 4.1.2\. Agent Private IP List  
     Specify a comma-separated list of your internal static [private agent](/1.11/overview/concepts/#private-agent-node) private IP addresses.
 
-    #### Agent Public IP List
+        * 4.1.3\. Agent Public IP List  
     Specify a comma-separated list of your internal static [public agent](/1.11/overview/concepts/#public-agent-node) private IP addresses.
 
-    #### Master Public IP
+        * 4.1.4\. Master Public IP  
     Specify a publicly accessible proxy IP address to one of your master nodes. If you don't have a proxy or already have access to the network where you are deploying this cluster, you can use one of the master IP's that you specified in the master list. This proxy IP address is used to access the DC/OS web interface on the master node after DC/OS is installed.
 
-    #### SSH Username
+        * 4.1.5\. SSH Username  
     Specify the SSH username, for example `centos`.
 
-    #### SSH Listening Port
+        * 4.1.6\. SSH Listening Port  
     Specify the port to SSH to, for example `22`.
 
-    #### Private SSH Key
+        * 4.1.7\. Private SSH Key  
     Specify the private SSH key with access to your master IPs.
 
-    #### Customer ID
+        * 4.1.8\. Customer ID  
     Specify the 30-character UUID that was given to you by the Mesosphere customer representative.
 
-    ### DC/OS Environment Settings
+    * 4.2\. **DC/OS Environment Settings**
 
-    #### Username
+        * 4.2.1\. Username  
     Specify a user name for the initial superuser account. At least one superuser account is required for DC/OS Enterprise. For more information about security, see the [documentation](/1.11/security/).
 
-    #### Password
+        * 4.2.2\. Password  
     Specify the password of the superuser account.
 
-    #### Upstream DNS Servers
+        * 4.2.3\. Upstream DNS Servers  
     Specify a comma-separated list of DNS resolvers for your DC/OS cluster nodes. Set this parameter to the most authoritative nameservers that you have. If you want to resolve internal hostnames, set it to a nameserver that can resolve them. If you have no internal hostnames to resolve, you can set this to a public nameserver like Google or AWS. In the example above, the <a href="https://developers.google.com/speed/public-dns/docs/using" target="_blank">Google Public DNS IP addresses (IPv4)</a> are specified: `8.8.8.8` and `8.8.4.4`. If Google DNS is not available in your country, you can replace the Google DNS servers with your local DNS servers.
 
-    *Caution:* If you set this parameter incorrectly, you will have to reinstall DC/OS. For more information about service discovery, see the [documentation][3].
+    **Caution:** If you set this parameter incorrectly, you will have to reinstall DC/OS. For more information about service discovery, see the [documentation][3].
 
-    #### IP Detect Script
+        * 4.2.4\. IP Detect Script  
     Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced installation [documentation](/1.11/installing/ent/custom/advanced/#ip-detect-script).
 
-    *Important:* The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
+    **Important:** The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
 
-    #### Send Anonymous Telemetry
+        * 4.2.5\. Send Anonymous Telemetry  
     Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/1.11/overview/telemetry/).
 
 5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the [system requirements](/1.11/installing/ent/custom/system-requirements/). This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
@@ -175,5 +176,5 @@ Now you can [assign user roles][6].
  [1]: /1.11/installing/ent/custom/system-requirements/
  [2]: /1.11/img/gui-installer-setup-ee.gif
  [3]: /1.11/networking/
- [4]: /1.11/img/ui-installer-auth-1-7.gif
+ [4]: /1.11/img/ui-installer-auth2.png
  [6]: /1.11/security/
