@@ -37,7 +37,9 @@ You will need to change the configurations for your DC/OS installation (if you a
 
 ### Reinstallation method
 
-1. In your [dcos-config.yaml](https://raw.githubusercontent.com/dcos/dcos/master/gen/dcos-config.yaml) set `MESOS_CGROUPS_ENABLE_CFS=false`.
+1. If the file `/var/lib/dcos/mesos-slave-common` does not exist, create it.
+
+1. Edit `/var/lib/dcos/mesos-slave-common` to add `MESOS_CGROUPS_ENABLE_CFS=false`. 
 
 1. [Reinstall](/1.10/installing/oss/) DC/OS.
 
