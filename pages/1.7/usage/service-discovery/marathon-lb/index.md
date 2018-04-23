@@ -18,7 +18,7 @@ Up to date documentation for Marathon-LB can be found on the GitHub page.
  * [Marathon-LB GitHub project][1]
  * [Detailed templates documentation][2]
 
-You can can configure Marathon-LB with various topologies. Here are some examples of how you might use Marathon-LB:
+You can configure Marathon-LB with various topologies. Here are some examples of how you might use Marathon-LB:
 
 *   Use Marathon-LB as your edge load balancer and service discovery mechanism. You could run Marathon-LB on public-facing nodes to route ingress traffic. You would use the IP addresses of your public-facing nodes in the A-records for your internal or external DNS records (depending on your use-case).
 *   Use Marathon-LB as an internal LB and service discovery mechanism, with a separate HA load balancer for routing public traffic in. For example, you may use an external F5 load balancer on-premise, or an Elastic Load Balancer on Amazon Web Services.
