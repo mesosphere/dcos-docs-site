@@ -24,7 +24,7 @@ A good overview of these features can be found [here](https://hadoop.apache.org/
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
-#include /services/include/security-transport-encryption-clients.tmpl
+<!-- #include /services/include/security-transport-encryption-clients.tmpl -->
 
 <!--
 TO BE CONFIRMED
