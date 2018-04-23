@@ -38,7 +38,7 @@ DC/OS 1.10.6 includes the following integrated technologies:
 - DCOS_OSS-2229 - Bumped Navstar.
 - QUALITY-1525 - Support for Docker CE 17.03.0.
 
-
+**Note:** The current Docker and Operating System versions are located in [version policy page](https://docs.mesosphere.com/version-policy/).
 
 # About DC/OS 1.10
 
@@ -55,7 +55,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
-## <a name="new-features"></a>New Features and Capabilities
+## New Features and Capabilities
 
 ### Networking
 - Configurable Spartan upstreams for domains (dnames).
@@ -141,7 +141,6 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - The "System Overview" tab has been renamed to "Overview".
 
 
-<a name="breaking-changes"></a>
 ## Breaking Changes
 
 - Marathon Networking API Changes in 1.5.
@@ -169,7 +168,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
   DC/OS 1.10 enforces hard CPU limits with CFS isolation for both the Docker and Universal Container Runtimes. This will give more predictable performance across all tasks but might lead to a slowdown for tasks (and thereby also deployments) who have previously have consumed more CPU cycles than allocated. See [MESOS-6134](https://issues.apache.org/jira/browse/MESOS-6134) for more details.
 
-## <a name="known-issues"></a>Known Issues
+## Known Issues
 - Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
 - CORE-1125 - Docker image pull config is re-used.
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
