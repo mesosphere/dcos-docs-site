@@ -12,10 +12,6 @@ These are the release notes for DC/OS 1.11.1.
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-# <a name="known-issue"></a>Known Issue in DC/OS 1.11.1
-
-- DCOS-22128 - When using pods with volumes, if a container in the pod is not configured to mount the volume, the cluster cannot access any service via the UI. As a workaround, when using pods with volumes, use the CLI instead.
-
 # <a name="issues-fixed"></a>Issues Fixed in DC/OS 1.11.1
 
 - COPS-2952 - Networking: Fixed a bug due to which the telemetry API did not emit metrics. [enterprise type="inline" size="small" /]
@@ -59,6 +55,11 @@ These are the release notes for DC/OS 1.11.1.
 - DCOS-16431 - Introduced a new DC/OS configuration variable `adminrouter_auth_cache_enabled` for controlling Admin Router's permission cache. [enterprise type="inline" size="small" /]
 - DCOS-21545 - Moved Prometheus producer to port 61091.
 - DCOS_OSS-2130 - Added support for CoreOS 1632.2.1.
+
+# <a name="known-issue"></a>Known Issue in DC/OS 1.11.1
+
+- DCOS-22128 - When using pods with volumes, if a container in the pod is not configured to mount the volume, the cluster cannot access any service via the UI. As a workaround, when using pods with volumes, use the CLI instead.
+
 
 # About DC/OS 1.11
 
