@@ -6,8 +6,6 @@ menuWeight: 0
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.10.6.
-
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.6/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
@@ -33,6 +31,13 @@ These are the release notes for DC/OS 1.10.6.
 - DCOS_OSS-2229 - Bumped Navstar.
 - QUALITY-1525 - Support for Docker CE 17.03.0.
 
+# Integrated Technologies
+
+DC/OS 1.10.6 includes the following integrated technologies:
+
+- [Apache Mesos 1.4.x](https://github.com/dcos/dcos/commit/5f7c5d97e7c098124896885ac7037293335a5c4a)
+- [Marathon 1.5.7](https://github.com/dcos/dcos/blob/1.10.6/packages/marathon/buildinfo.json)
+- [Metronome 0.4.2](https://github.com/dcos/dcos/blob/1.10.6/packages/metronome/buildinfo.json)
 
 
 # About DC/OS 1.10
@@ -50,14 +55,9 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
-# <a name="new-features"></a>New Features and Capabilities
+## <a name="new-features"></a>New Features and Capabilities
 
-## Apache Mesos 1.4 and Marathon 1.5 Integrated.
-- DC/OS 1.10.0 is based on Mesos 1.4.0, here using master branch (pre-release) SHA 013f7e21, with over 1200 commits since the previous Mesos version. View the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
-
-- DC/OS 1.10.0 is integrated with the latest release of Marathon, version 1.5. Resulting breaking changes and new features are documented below. For more information about Marathon 1.5, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
-
-## Networking
+### Networking
 - Configurable Spartan upstreams for domains (dnames).
   You can now configure Spartan to delegate a particular domain (e.g. "\*.foo.company.com") to a particular upstream.
 
@@ -69,7 +69,7 @@ Please try out the new features and updated data services. Provide any feedback 
   Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
-## Security
+### Security
 [/ enterprise]
 
 - Custom CA certificate support.
@@ -87,11 +87,11 @@ Please try out the new features and updated data services. Provide any feedback 
  - Enterprise CLI permissions management commands.
    It is now possible to manage permissions to protect resources using the [DC/OS Enterprise CLI](/1.10/security/ent/perms-management/).
 
-## Kubernetes on DC/OS
+### Kubernetes on DC/OS
 
 - Kubernetes on DC/OS is beta with DC/OS 1.10.0. Install from the DC/OS Service Catalog or use the [quickstart](https://github.com/mesosphere/dcos-kubernetes-quickstart).
 
-## Updated DC/OS Data Services
+### Updated DC/OS Data Services
 
 - Rolling Configuration Update and Upgrades support via the CLI. [enterprise type="inline" size="small" /]
 - Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
@@ -109,7 +109,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 
 - Apache Spark. [Documentation](/services/spark/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
 
-## Platform
+### Platform
 - Node and cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
 - Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks. [enterprise type="inline" size="small" /]
@@ -117,7 +117,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
 - Scale and performance limits.
 
-## CLI
+### CLI
 
 - DC/OS 1.10.0 requires DC/OS CLI 0.5.x.
 - DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
@@ -132,7 +132,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
     - _Before_ you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
   - CLI modules are cluster-specific and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. Therefore you must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
 
-## GUI
+### GUI
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - The "Deployments" subpage under the "Services" tab has been moved to a toggle-able modal in the "Services" page.
@@ -142,7 +142,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 
 <a name="breaking-changes"></a>
-# Breaking Changes
+## Breaking Changes
 
 - Marathon Networking API Changes in 1.5.
 
@@ -168,7 +168,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
   DC/OS 1.10 enforces hard CPU limits with CFS isolation for both the Docker and Universal Container Runtimes. This will give more predictable performance across all tasks but might lead to a slowdown for tasks (and thereby also deployments) who have previously have consumed more CPU cycles than allocated. See [MESOS-6134](https://issues.apache.org/jira/browse/MESOS-6134) for more details.
 
-# <a name="known-issues"></a>Known Issues and Limitations
+## <a name="known-issues"></a>Known Issues and Limitations
 - Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
 - CORE-1125 - Docker image pull config is re-used.
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
