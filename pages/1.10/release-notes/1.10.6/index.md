@@ -8,13 +8,18 @@ excerpt:
 
 These are the release notes for DC/OS 1.10.6.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.6/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 # Issues Fixed in DC/OS 1.10.6
 
+- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Maration UI/Prevented the reuse of tcp sockets by AR's cache code [1.11].
+- COPS-2931 - Fixed an error response that occurred when accessing DC/OS Services UI.
+- CORE-1425 - Fixed launching nested containers to be more reliable.
 - DCOS-19865 - Fixed focus/change/blur behavior.
-- SOAK-68/DCOS-21451 - Fixed 404 error returned by adminrouter on Maration UI/Prevented the reuse of tcp sockets by AR's cache code [1.11].
+- DCOS-22016 - Updated prometheus documentation with metrics in Prometheus.
+- DCOS_OSS-2376 - Ensured that names cannot begin with numbers in Prometheus plugin.
+
 
 # Notable Changes in DC/OS 1.10.6
 
@@ -44,11 +49,6 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Ability to deploy to CNI-Based virtual networks.
   
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
-
-### Contents
-- [New Features and Capabilities](#new-features)
-- [Breaking Changes](#breaking-changes)
-- [Known Issues and Limitations](#known-issues)
 
 # <a name="new-features"></a>New Features and Capabilities
 
