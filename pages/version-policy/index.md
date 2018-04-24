@@ -92,7 +92,7 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
      <tr>
         <td>CentOS 7.4</td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE/CE 17.06</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE/CE 17.06</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
     </tr>
