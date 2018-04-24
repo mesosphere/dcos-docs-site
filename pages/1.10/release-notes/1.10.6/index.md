@@ -1,85 +1,49 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.3
-title: Release Notes for 1.10.3
-menuWeight: 15
+navigationTitle:  Release Notes for 1.10.6
+title: Release Notes for 1.10.6
+menuWeight: 0
 excerpt:
 ---
 
-These are the release notes for DC/OS Enterprise 1.10.3.
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.6/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-DC/OS Enterprise 1.10.3 is a patch release. If you are currently running DC/OS Enterprise 1.10.0, DC/OS 1.10.1, or DC/OS 1.10.2, your cluster may be susceptible to a failure mode in the DC/OS IAM (Identity and Access Manager). This mode can lead to a degraded cluster state in which DC/OS masters fail to come online for some period of time after failover or restart. Follow the procedure below to prevent cluster downtime.
+DC/OS 1.10.6 includes the following:
+- Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)
+- Marathon 1.5.7 [change log](https://github.com/mesosphere/marathon/blob/v1.5.7/changelog.md)
+- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/blob/v0.4.2/changelog.md)
 
-**Note:** DC/OS open source users are not affected by this bug and can upgrade to version 1.10.4 when it becomes available.
 
-- If you are currently running _DC/OS Enterprise 1.9.X_ and plan to upgrade to DC/OS Enterprise 1.10, upgrade directly to DC/OS Enterprise 1.10.3 following the standard upgrade procedure. No additional remediations are required.
+# Issues Fixed in DC/OS 1.10.6
 
-- If you are currently running _DC/OS Enterprise 1.10.0, 1.10.1, or 1.10.2_, first restart CockroachDB, on each master, in a rolling fashion, by running:
+- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Maration UI/Prevented the reuse of tcp sockets by AR's cache code.
+- COPS-2931 - Fixed an error response that occurred when accessing DC/OS Services UI.
+- CORE-1425 - Fixed launching nested containers to be more reliable.
+- DCOS-19865 - Fixed focus/change/blur behavior.
+- DCOS-22016 - Updated prometheus documentation with metrics in Prometheus.
+- DCOS_OSS-2376 - Ensured that names cannot begin with numbers in Prometheus plugin.
 
-```shell
-$ systemctl restart dcos-cockroach
-```
 
-After restarting all instances, upgrade to DC/OS 1.10.3, following the standard upgrade procedure.
+# Notable Changes in DC/OS 1.10.6
 
-You can find additional information and a more robust remediation procedure in <a href="https://support.mesosphere.com/hc/en-us/articles/115005698043">our latest critical product advisory</a>.
+- COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.x version. ([changelog](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.4.x-24d3886/CHANGELOG)).
+- CORE-1447/CORE-1448/CORE-1449 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service. [enterprise type="inline" size="small" /]
+- DCOS-21683 - Bumped CockroachDB to version 1.1.7. [enterprise type="inline" size="small" /]
+- DCOS-21709 - Marathon supports preferential GPU scheduling on DC/OS.
+- DCOS-16431 - Added short-lived Admin Router permission cache. Enabled by setting adminrouter_auth_cache_enabled: true in config.yaml. This option is disabled by default.
+- DCOS_OSS-1903 - Upgraded `openssl` from version 1.0.2k to 1.0.2n.
+- DCOS_OSS-2181 - Bumped OpenResty to version 1.13.6.
+- DCOS_OSS-2229 - Bumped Navstar.
+- QUALITY-1525 - Support for Docker CE 17.03.0.
 
-# Issues Fixed in DC/OS 1.10.2
+**Note:** DC/OS 1.10.6 release supports new CoreOS and Docker versions on RHEL listed in the [compatibility matrix](https://docs.mesosphere.com/version-policy/#compatibility-matrix).
 
-- DCOS_OSS-1508 - The DC/OS CLI now ignores output when opening a browser window so that users do not see error information when prompted for the authentication token.
-- DCOS_OSS-1795 - Removed sensitive config values from diagnostics bundles and build output.
-- DCOS_OSS-1818 - DC/OS Metrics now sanitizes metrics names.
-- DCOS_OSS-1825 - DC/OS layer 4 load balancer now periodically checks that the IPVS configuration matches the desired configuration and reapplies if the configuration is absent.
-- DCOS-17192 - When using a custom CA certificate, the DC/OS bootstrap no longer stores the cluster private key in ZooKeeper as an operator is responsible for copying the private key to all master nodes. [enterprise type="inline" size="small" /]
-- DCOS-19009 - The DC/OS CLI can now retrieve metrics for DC/OS data services.
-- DCOS-19090 - Fixed undocumented privilege being required for setting up CLI access for a non-superuser. [enterprise type="inline" size="small" /]
-- DCOS-19383 - UI: Secrets are no longer removed from an app when non-superusers edit a Marathon service that uses secrets. [enterprise type="inline" size="small" /]
-- DCOS-19452 - The DC/OS OpenSSL library is now configured to not support TLS compression anymore (compression allows for the CRIME attack). [enterprise type="inline" size="small" /]
 
-# Notable changes in DC/OS 1.10.2
-
-- Support for RHEL 7.4.
-- Updated to Mesos 1.4.0 ([changelog](https://git-wip-us.apache.org/repos/asf?p=mesos.git;a=blob_plain;f=CHANGELOG;hb=1.4.0)).
-- Updated to Marathon 1.5.2 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.2)).
-- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/ent/custom/configuration/examples/#docker-credentials).
-- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise).
-- DOCS-1925 - Clarified how operators can [recover from a full agent disk](/1.10/administering-clusters/recovering-agent-disk-space/).
-- DOCS-2153 - Updated [Metrics names](/1.10/metrics/reference/).
-
-# Issues Fixed in DC/OS 1.10.1
-
-- COPS-974 - Master node fails to start after configuration change. This was was due to tmp mountpoints being marked as noexec. Bug fixed.
-- COPS-1293 - Timeout creating service account. The timeout was due to tmp mountpoints being marked as noexec. Bug fixed. [enterprise type="inline" size="small" /]
-- DCOS-17600 - Fix security CLI secret creation following wrong secret schema. This fix clarifies which fields the secrets service stores. [enterprise type="inline" size="small" /]
-- DCOS-18212 - In the UI, the name of the containerizer runtime in the service creation form has been changed from MESOS RUNTIME to UNIVERSAL CONTAINER RUNTIME (UCR).
-- DCOS-18634 - DC/OS authenticator fails to cache Bouncer's public key, causing an increase in request rates against Bouncer's JWKS endpoint. Bug fixed. [enterprise type="inline" size="small" /]
-- DCOS-18694 - Pod Endpoints protocol json parser adds 0 to json. Bug fixed.
-- DCOS-18788 - The JSON editor duplicates and fails to properly parse app definition. Bug fixed.
-- DCOS-19197 - DC/OS UI deletes environment variables with non-string values from Marathon app/pod definitions. Bug fixed.
-- DCOS_OSS-1661 - Installer prints large traceback when checks fail during --postflight. A clearer error message is now provided.
-- DOCS-2077 - DC/OS 1.10 Custom Installation documentation: clarified where the `/opt/mesosphere` directory must be.
-
-# Notable Changes in DC/OS 1.10.1
-
-- Support for Docker CE 17.03.0.
-- Marathon 1.5.1.2 and Mesos 1.4.0-rc4 are integrated with DC/OS 1.10.1.
-- DCOS-18055 - Improvements for deployment behavior in Catalog. You now have a "Review & Run" button that allows you to cancel, modify your configuration, or install with defaults.
-- Support for Centos 7.4.
-
-# Issues Fixed in DC/OS 1.10.0
-
-- CASSANDRA-457 - Redirect deprecated `/v1/nodes/connect` to `/v1/connect`.
-- CORE-849 - Support DC/OS commons services on public agents.
-- DCOS-13988 - Filter/Search Design Update.
-- DCOS-16029 - Addition of new `pullConfig` properties break validation.
-- DCOS-10863 - Launch containers on `DockerContainerizer` if network mode is "NONE".
-- DCOS_OSS-1340 - Spartan "autoip" DNS should resolve to host IP for UCR in bridge network. [enterprise type="inline" size="small" /]
-- INFINITY-1143 - Update / Uninstall. DSE does not support rolling upgrade. [enterprise type="inline" size="small" /]
-- MARATHON_EE-734 - Marathon needs to support a default "bridge" network for UCR.
 
 # About DC/OS 1.10
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
+DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on: 
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
@@ -89,34 +53,24 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Rolling configuration update and upgrade support via the CLI. [enterprise type="inline" size="small" /]
   - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
-
+  
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
-### Contents
-- [New Features and Capabilities](#new-features)
-- [Breaking Changes](#breaking-changes)
-- [Known Issues and Limitations](#known-issues)
+## New Features and Capabilities
 
-# <a name="new-features"></a>New Features and Capabilities
-
-## Apache Mesos 1.4 and Marathon 1.5 Integrated.
-- DC/OS 1.10.0 is based on Mesos 1.4.0, here using master branch (pre-release) SHA 013f7e21, with over 1200 commits since the previous Mesos version. View the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
-
-- DC/OS 1.10.0 is integrated with the latest release of Marathon, version 1.5. Resulting breaking changes and new features are documented below. For more information about Marathon 1.5, consult the [Marathon changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
-
-## Networking
+### Networking
 - Configurable Spartan upstreams for domains (dnames).
-  You can now configure Spartan to delegate a particular domain (e.g. "\*.foo.company.com") to a particular upstream. <!-- I could use more information here -->
+  You can now configure Spartan to delegate a particular domain (e.g. "\*.foo.company.com") to a particular upstream.
 
 - Increased CNI network support.
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
-
+  
   Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
-## Security
+### Security
 [/ enterprise]
 
 - Custom CA certificate support.
@@ -134,11 +88,11 @@ Please try out the new features and updated data services. Provide any feedback 
  - Enterprise CLI permissions management commands.
    It is now possible to manage permissions to protect resources using the [DC/OS Enterprise CLI](/1.10/security/ent/perms-management/).
 
-## Kubernetes on DC/OS
+### Kubernetes on DC/OS
 
 - Kubernetes on DC/OS is beta with DC/OS 1.10.0. Install from the DC/OS Service Catalog or use the [quickstart](https://github.com/mesosphere/dcos-kubernetes-quickstart).
 
-## Updated DC/OS Data Services
+### Updated DC/OS Data Services
 
 - Rolling Configuration Update and Upgrades support via the CLI. [enterprise type="inline" size="small" /]
 - Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
@@ -156,7 +110,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 
 - Apache Spark. [Documentation](/services/spark/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
 
-## Platform
+### Platform
 - Node and cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
 - Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks. [enterprise type="inline" size="small" /]
@@ -164,10 +118,12 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
 - Scale and performance limits.
 
-## CLI
+### CLI
 
-- DC/OS 1.10.0 requires DC/OS CLI 0.5.x.
-- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
+- DC/OS 1.10.0 requires DC/OS CLI 0.5.x. [enterprise type="inline" size="small" /]
+- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. [enterprise type="inline" size="small" /]
+
+ Multi-cluster support has a number of consequences:
 
    - DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files. DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
@@ -179,7 +135,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
     - _Before_ you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
   - CLI modules are cluster-specific and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. Therefore you must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
 
-## GUI
+### GUI
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - The "Deployments" subpage under the "Services" tab has been moved to a toggle-able modal in the "Services" page.
@@ -188,8 +144,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - The "System Overview" tab has been renamed to "Overview".
 
 
-<a name="breaking-changes"></a>
-# Breaking Changes
+## Breaking Changes
 
 - Marathon Networking API Changes in 1.5.
 
@@ -205,7 +160,8 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - REX-Ray configuration change.
 
-  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
+  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. 
+  **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in.
 
@@ -215,7 +171,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
   DC/OS 1.10 enforces hard CPU limits with CFS isolation for both the Docker and Universal Container Runtimes. This will give more predictable performance across all tasks but might lead to a slowdown for tasks (and thereby also deployments) who have previously have consumed more CPU cycles than allocated. See [MESOS-6134](https://issues.apache.org/jira/browse/MESOS-6134) for more details.
 
-# <a name="known-issues"></a>Known Issues and Limitations
+## Known Issues
 - Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
 - CORE-1125 - Docker image pull config is re-used.
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
