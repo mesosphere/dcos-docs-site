@@ -13,7 +13,7 @@ DC/OS 1.10.6 includes the following integrated technologies:
 
 - Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)
 - Marathon 1.5.7 [change log](https://github.com/mesosphere/marathon/blob/v1.5.7/changelog.md)
-- Metronome 0.4.2 [change log] ()
+- Metronome 0.4.2
 
 
 # Issues Fixed in DC/OS 1.10.6
