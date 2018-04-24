@@ -25,6 +25,7 @@ The cluster nodes are designated Mesos masters and agents during installation.
 
 The supported operating systems and environments are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
 
+DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` may be created prior to installing DC/OS, but it must be either an empty directory or a symlink to an empty directory. DC/OS may be installed to a separate volume mount by creating an empty directory on the mounted volume, creating a symlink at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
 
 ### Master nodes
 
@@ -78,8 +79,6 @@ The agent nodes must also have:
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
     ```
 
-*   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` must be on the same mountpoint as `/`.  This is required because DC/OS installs systemd unit files under `/opt/mesosphere`. All systemd units must be available for enumeration during the initializing of the initial ramdisk at boot. If `/opt` is on a different partition or volume, systemd will fail to discover these units during the initialization of the ramdisk and DC/OS will not automatically restart upon reboot.
-
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
@@ -114,8 +113,6 @@ The agent nodes must also have:
 High speed internet access is recommended for DC/OS installation. A minimum 10 MBit per second is required for DC/OS services. The installation of some DC/OS services will fail if the artifact download time exceeds the value of MESOS_EXECUTOR_REGISTRATION_TIMEOUT within the file `/opt/mesosphere/etc/mesos-slave-common`. The default value for MESOS_EXECUTOR_REGISTRATION_TIMEOUT is 10 minutes.
 
 # Software Prerequisites
-
-**Tip:** Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.11/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
 
 ## All Nodes
 

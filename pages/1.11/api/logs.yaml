@@ -2,7 +2,7 @@ swagger: '2.0'
 
 info:
   version: "0.0.1"
-  title: DC/OS Log API
+  title: DC/OS Log API v1
   description: >
     The first version of the DC/OS Log API.
     Note that the endpoints in this spec are all *service-specific*. dcos-log

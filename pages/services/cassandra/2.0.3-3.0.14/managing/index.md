@@ -214,7 +214,7 @@ recovery (IN_PROGRESS)
 
 # Configuring Multi-data-center Deployments
 
-To replicate data across data centers, Apache Cassandra requires that you configure each cluster with the addresses of the seed nodes from every remote cluster. Here's what starting a multi-data-center Apache Cassandra deployment would like, running inside of a single DC/OS cluster.
+To replicate data across data centers, Apache Cassandra requires that you configure each cluster with the addresses of the seed nodes from every remote cluster. Here's what starting a multi-data-center Apache Cassandra deployment would look like, running inside of a single DC/OS cluster.
 
 Launch the first cluster with the default configuration:
 ```
