@@ -28,8 +28,8 @@ DC/OS 1.10.6 includes the following:
 # Notable Changes in DC/OS 1.10.6
 
 - COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.x version. ([changelog](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.4.x-24d3886/CHANGELOG)).
-- CORE-1447/CORE-1448/CORE-1449 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service.
-- DCOS-21683 - Bumped CockroachDB to version 1.1.7.
+- CORE-1447/CORE-1448/CORE-1449 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service. [enterprise type="inline" size="small" /]
+- DCOS-21683 - Bumped CockroachDB to version 1.1.7. [enterprise type="inline" size="small" /]
 - DCOS-21709 - Marathon supports preferential GPU scheduling on DC/OS.
 - DCOS-16431 - Added short-lived Admin Router permission cache. Enabled by setting adminrouter_auth_cache_enabled: true in config.yaml. This option is disabled by default.
 - DCOS_OSS-1903 - Upgraded `openssl` from version 1.0.2k to 1.0.2n.
@@ -120,8 +120,10 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 
 ### CLI
 
-- DC/OS 1.10.0 requires DC/OS CLI 0.5.x.
-- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
+- DC/OS 1.10.0 requires DC/OS CLI 0.5.x. [enterprise type="inline" size="small" /]
+- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. [enterprise type="inline" size="small" /]
+
+ Multi-cluster support has a number of consequences:
 
    - DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files. DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
