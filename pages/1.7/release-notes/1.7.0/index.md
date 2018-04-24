@@ -15,14 +15,14 @@ You can now install packages from the DC/OS Universe with a single click in the 
 
 ![UI Universe](/1.7/img/ui-universe.gif)
 
-Figure 1.1 - DC/OS universe
+Figure 1 - DC/OS Universe
 # DC/OS component health available in the UI
 
 You can monitor the health of your cluster components from the DC/OS web interface. The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit. For more information, see the [documentation][2].
 
 ![UI system health](/1.7/img/component-system-view.png)
 
-Figure 1.1 - Component System View 
+Figure 2 - Component System View
 
 # <a name="dcos"></a>Improved DC/OS installation
 
