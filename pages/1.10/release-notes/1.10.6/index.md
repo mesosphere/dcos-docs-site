@@ -35,10 +35,12 @@ DC/OS 1.10.6 includes the following integrated technologies:
 - DCOS-16431 - Added short-lived Admin Router permission cache. Enabled by setting adminrouter_auth_cache_enabled: true in config.yaml. This option is disabled by default.
 - DCOS_OSS-1903 - Upgraded `openssl` from version 1.0.2k to 1.0.2n.
 - DCOS_OSS-2181 - Bumped OpenResty to version 1.13.6.
-- DCOS_OSS-2229 - Bumped Navstar.
+- DCOS_OSS-2229 - Bumped Navstar.ion-policy/
 - QUALITY-1525 - Support for Docker CE 17.03.0.
 
-**Note:** The current Docker and Operating System versions are located in [version policy page](https://docs.mesosphere.com/version-policy/).
+**Note:** DC/OS 1.10.6 release supports new CoreOS and Docker versions on RHEL listed in the [compatibility matrix](https://docs.mesosphere.com/version-policy/#compatibility-matrix).
+
+
 
 # About DC/OS 1.10
 
