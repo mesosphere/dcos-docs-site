@@ -17,7 +17,7 @@ DC/OS 1.10.6 includes the following:
 
 # Issues Fixed in DC/OS 1.10.6
 
-- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Maration UI/Prevented the reuse of tcp sockets by AR's cache code [1.11].
+- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Maration UI/Prevented the reuse of tcp sockets by AR's cache code.
 - COPS-2931 - Fixed an error response that occurred when accessing DC/OS Services UI.
 - CORE-1425 - Fixed launching nested containers to be more reliable.
 - DCOS-19865 - Fixed focus/change/blur behavior.
@@ -34,7 +34,7 @@ DC/OS 1.10.6 includes the following:
 - DCOS-16431 - Added short-lived Admin Router permission cache. Enabled by setting adminrouter_auth_cache_enabled: true in config.yaml. This option is disabled by default.
 - DCOS_OSS-1903 - Upgraded `openssl` from version 1.0.2k to 1.0.2n.
 - DCOS_OSS-2181 - Bumped OpenResty to version 1.13.6.
-- DCOS_OSS-2229 - Bumped Navstar.ion-policy/
+- DCOS_OSS-2229 - Bumped Navstar.
 - QUALITY-1525 - Support for Docker CE 17.03.0.
 
 **Note:** DC/OS 1.10.6 release supports new CoreOS and Docker versions on RHEL listed in the [compatibility matrix](https://docs.mesosphere.com/version-policy/#compatibility-matrix).
