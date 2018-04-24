@@ -10,10 +10,9 @@ excerpt:
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 DC/OS 1.10.6 includes the following:
-
 - Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)
 - Marathon 1.5.7 [change log](https://github.com/mesosphere/marathon/blob/v1.5.7/changelog.md)
-- Metronome 0.4.2 [chanfe log](https://github.com/dcos/metronome/blob/v0.4.2/changelog.md)
+- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/blob/v0.4.2/changelog.md)
 
 
 # Issues Fixed in DC/OS 1.10.6
