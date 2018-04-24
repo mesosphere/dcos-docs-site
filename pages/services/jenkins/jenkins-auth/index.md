@@ -189,7 +189,7 @@ If you are in `strict` mode or want to be ready to upgrade to `strict` mode, con
 
 With the following curl commands you can rapidly provision the Jenkins service account with the permissions required in `strict` mode. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
 
-**Prerequisite:** If your [security mode](/latest/security/ent/#security-modes/) is `permissive` or `strict`, follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](1.11/security/ent/tls-ssl/get-cert) before issuing the curl commands in this section. If your [security mode](/latest/security/ent/#security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+**Prerequisite:** If your [security mode](/latest/security/ent/#security-modes/) is `permissive` or `strict`, follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/latest/security/ent/#security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Issue the following commands to create the necessary permissions.
 
