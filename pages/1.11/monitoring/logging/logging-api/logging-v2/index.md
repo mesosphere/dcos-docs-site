@@ -34,76 +34,29 @@ As noted above, in DC/OS versions prior to 1.11.0 task logs were available via [
 Access to the Logging API is proxied through the Admin Router on each node using the following route:
 
 ```
-/system/v1/logs/v1/
+/system/v1/logs/
 ```
 
-Access to the Logging API of the agent nodes is also proxied through the master nodes:
+Access to the Logging API of the agent nodes is proxied through the master node to the appropriate agent node based on `{agent_id}`:
 
 ```
-/system/v1/agent/{agent_id}/logs/v1/
+/system/v1/agent/{agent_id}/
 ```
 
 To determine the address of your cluster, see [Cluster Access](/1.11/api/access/).
 
-Access to the Logging API v2 is proxied through the Admin Router on each node using the following route:
-
-```
-/system/v1/logs/v2/
-```
-
-Access to the Logging API of the agent nodes is proxied through the master nodes to the appropriate agent node based on `{agent_id}`:
-
-```
-/system/v1/agent/{agent_id}/logs/v2/
-```
-
-### Any node
-`/system/v1/logs/v2/component` - Read the entire journald log.
-
-`/system/v1/logs/v2/component/{component_name}` - Read the journald logs for a given component name.
 
 ### Master routes
 Master routes which are serving task logs are also called discovery endpoints. When the user makes a GET request to one of the discovery endpoint, the user will get back a temporarily redirect to the appropriate agent node with the right endpoint.
 
-`/system/v1/logs/v2/task/{task_id}` - Read default stdout file for the given task.
 
-`/system/v1/logs/v2/task/{task_id}/file/{filename}` - Read the {filename} for the given task.
-
-`/system/v1/logs/v2/task/{task_id}/browse` - List the files from the sandbox for the given task.
-
-`/system/v1/logs/v2/task/{task_id}/download` - Download default file `stdout` from the sandbox for the given task.
-
-`/system/v1/logs/v2/task/{task_id}/file/{filename}/download` - Download the specific file {filename} from the sandbox.
 
 ### Agent routes
 Agent routes which are serving task logs, are being redirected to by a discovery endpoints from the master node. Typically user should not call these endpoints directly, but rather rely on master node to construct the correct endpoint on agent node.
 
 The parameters used in the request are coming from mesos state.json and are called task metadata.
 
-`{framework_id}, {executor_id}, {container_id}, {id}` {filename} stands for a requested file from the sandbox.
-
-`/system/v1/logs/v2/task/frameworks/{framework_id}/executors/{executor_id}/runs/{id}/files/browse` - Browse standalone task files.
-
-`/system/v1/logs/v2/task/frameworks/{framework_id}/executors/{executor_id}/runs/{id}/tasks/{container_id}/files/browse` - Browse pod task files.
-
-`/system/v1/logs/v2/task/frameworks/{framework_id}/executors/{executor_id}/runs/{id}/tasks/{container_id}/{filename}` - Read the standalone task log.
-
-`/system/v1/logs/v2/task/frameworks/{framework_id}/executors/{executor_id}/runs/{container_id}/{filename}` - Read the pod task log.
-
-`/system/v1/logs/v2/task/frameworks/{framework_id}/executors/{executor_id}/runs/{id}/tasks/{container_id}/{filename}/download` - Download the standalone task log file.
-
-`/system/v1/logs/v2/task/frameworks/{framework_id}/executors/{executor_id}/runs/{container_id}/{filename}/download` - Download the pod task log file.
-
-## GET parameters
-`?limit=<N>` limits the number of log entries in lines
-
-`?skip=<+/-N>` skips a number of lines
-
-`?cursor=<string|BEG|END>` sets the cursor to a particular position in the log. For component logs it would be a cursor string, for task logs it would be an offset
-
-`?filter=<key:value> *` (can only be used for component logs at the moment) filters logs by key:value pair.
-
-For example `?filter=_SYSTEMD_UNIT:dcos-mesos-master.service`
+`
 
 
 
