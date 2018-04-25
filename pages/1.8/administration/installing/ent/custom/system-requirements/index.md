@@ -31,7 +31,7 @@ Here are the master node hardware requirements.
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
 | Nodes       | 1         | 3 or 5      |
-| OS          |RHEL/CentOS 7.2 |RHEL/CentOS 7.2 |
+| OS          |RHEL/CentOS 7.4 |RHEL/CentOS 7.4 |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
@@ -50,7 +50,7 @@ Here are the agent node hardware requirements.
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
 | Nodes       | 1         | 6 or more   |
-| OS          |RHEL/CentOS 7.2 |RHEL/CentOS 7.2 |
+| OS          |RHEL/CentOS 7.4 |RHEL/CentOS 7.4 |
 | Processor   | 2 cores   | 2 cores     |
 | Memory      | 16 GB RAM | 16 GB RAM   |
 | Hard disk   | 60 GB     | 60 GB       |
