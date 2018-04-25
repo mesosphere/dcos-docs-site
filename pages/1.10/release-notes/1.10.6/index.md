@@ -13,12 +13,12 @@ These are the release notes for DC/OS 1.10.6
 DC/OS 1.10.6 includes the following:
 - Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)
 - Marathon 1.5.7 [change log](https://github.com/mesosphere/marathon/blob/v1.5.7/changelog.md)
-- Metronome 0.4.2 [change log](ttps://github.com/dcos/metronome/releases/tag/v0.4.2)
+- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/blob/v0.4.2/changelog.md)
 
 
 # Issues Fixed in DC/OS 1.10.6
 
-- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Maration UI/Prevented the reuse of tcp sockets by AR's cache code.
+- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Marathon UI/Prevented the reuse of tcp sockets by AR's cache code.
 - COPS-2931 - Fixed an error response that occurred when accessing DC/OS Services UI.
 - CORE-1425 - Fixed launching nested containers to be more reliable.
 - DCOS-19865 - Fixed focus/change/blur behavior.
