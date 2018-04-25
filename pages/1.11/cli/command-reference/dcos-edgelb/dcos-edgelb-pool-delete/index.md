@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool delete
 title: dcos edgelb pool delete
 menuWeight: 6
-excerpt:
+excerpt: How to delete and uninstall an Edge-LB pool
 
 enterprise: true
 ---
 
 # Description
-Delete and uninstall an Edge-LB pool.
+The dcos edgelb pool delete command will delete and uninstall an Edge-LB pool.
 
 # Usage
 
@@ -45,4 +45,3 @@ dcos edgelb [<flags>] pool delete <name>
 # Examples
 
 See the [Edge-LB Quick Start Guide](/1.11/networking/edge-lb/quickstart/).
-

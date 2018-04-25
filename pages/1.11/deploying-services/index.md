@@ -9,9 +9,7 @@ enterprise: false
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
-DC/OS uses Marathon to manage processes and services.
+ DC/OS uses Marathon to manage your processes and services.
 
 Marathon is the "init system" for DC/OS. Marathon starts and monitors your applications and services, automatically healing failures.
 

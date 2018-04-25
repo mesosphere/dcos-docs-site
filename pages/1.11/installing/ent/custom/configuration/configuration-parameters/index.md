@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 600
-excerpt:
+excerpt: Discover configuration parameters available to DC/OS
 
 enterprise: true
 ---

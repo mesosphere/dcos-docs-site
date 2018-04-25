@@ -3,11 +3,10 @@ layout: layout.pug
 navigationTitle:  Agent Routes
 title: Agent Routes
 menuWeight: 11
-excerpt:
+excerpt: Learn how to use the Admin Router Agent running on DC/OS agent nodes.
 
 ---
-
-Admin Router Agent runs on DC/OS agent nodes and exposes the following API routes.
+The Admin Router Agent runs on DC/OS agent nodes. It exposes the following API routes.
 
 Admin Router Agent listens on port `61001` (HTTP).
 

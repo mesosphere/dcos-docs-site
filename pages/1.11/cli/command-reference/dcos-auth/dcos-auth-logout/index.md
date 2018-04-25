@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos auth logout
 title: dcos auth logout
 menuWeight: 3
-excerpt:
+excerpt: How to log out of DC/OS authentication.
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool lb
 title: dcos edgelb pool lb
 menuWeight: 7
-excerpt:
+excerpt: How to display pool load balancer instance information
 
 enterprise: true
 ---
 
 # Description
-Pool LB instance information.
+The dcos edgelb pool lb command will list pool LB instance information.
 
 # Usage
 

@@ -3,10 +3,12 @@ layout: layout.pug
 navigationTitle:  Identity and Access Management API
 title: Identity and Access Management API
 menuWeight: 110
-excerpt:
+excerpt: Managing users and permissions with the IAM API
 
 enterprise: true
 ---
+
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 The Identity and Access Management API allows you to manage users, user groups, permissions, and LDAP configuration settings through a RESTful interface. It offers more functionality as the DC/OS GUI.
 

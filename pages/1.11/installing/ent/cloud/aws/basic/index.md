@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Running DC/OS on AWS EC2 Basic
 menuWeight: 100
-excerpt:
+excerpt: Creating a basic cluster using DC/OS templates
 
 enterprise: true
 ---
@@ -38,12 +38,12 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 1.  Click **Create Stack**.
 
-1.  On the **Select Template** page, in the Choose a template field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from sales. 
+1.  On the **Select Template** page, in the Choose a template field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from sales.
 
   **Important:** Do not click the **View/Edit template in Designer** link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
 
     ![Launch stack](/1.11/img/dcos-aws-step2b.png)
-    
+
 2.  Click **Next**.
 
 3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), public agent (`PublicSlaveInstanceCount`), private agent (`SlaveInstanceCount`), and click **Next**. Depending on the DC/OS services that you install, you might need to change the number of agent nodes after cluster creation. For more information, see [Scaling the DC/OS cluster in AWS][1].
@@ -88,7 +88,7 @@ You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your 
 
 1.  Click the dropdown menu on the upper-left of the DC/OS GUI and select **Install CLI**.
 
-1.  Copy the code snippet and run in a terminal. Provide the sudo password, accept the fingerprint of the cluster certificate, and provide the superuser name and password to authenticate the CLI. 
+1.  Copy the code snippet and run in a terminal. Provide the sudo password, accept the fingerprint of the cluster certificate, and provide the superuser name and password to authenticate the CLI.
 
 # Next steps
 

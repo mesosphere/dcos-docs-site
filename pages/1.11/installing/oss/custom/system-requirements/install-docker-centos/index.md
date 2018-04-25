@@ -1,13 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:  Install Docker on CentOS
-excerpt:
+excerpt: Installation requirements for Docker on CentOS
 title: Install Docker on CentOS
 menuWeight: 2
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-# Requirements and Recommendations
+# Requirements and recommendations
 
 Before installing Docker on CentOS, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS-specific recommendations:
 

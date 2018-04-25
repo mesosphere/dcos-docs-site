@@ -3,10 +3,12 @@ layout: layout.pug
 navigationTitle:  Secrets
 title: Secrets
 menuWeight: 60
-excerpt:
+excerpt: Understanding the Secret store
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 Use the DC/OS Enterprise Secret Store to secure sensitive information like database passwords, API tokens, and private keys. Storing secrets in secret paths allows you to restrict which services can retrieve the value.
 

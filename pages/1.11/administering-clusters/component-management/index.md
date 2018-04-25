@@ -3,12 +3,14 @@ layout: layout.pug
 navigationTitle:  Component Management
 title: Component Management
 menuWeight: 5
-excerpt:
+excerpt: Installation and management of DC/OS component services
 
 enterprise: false
 ---
 
-The component management API controls installation and management of DC/OS component services. It is used by the DC/OS installer during install, upgrade, and uninstall. It is not designed for interaction by DC/OS users.
+The component management API controls installation and management of DC/OS component services.
+
+It is used by the DC/OS installer during install, upgrade, and uninstall. It is not designed for interaction by DC/OS users.
 
 ## Component Package Manager
 

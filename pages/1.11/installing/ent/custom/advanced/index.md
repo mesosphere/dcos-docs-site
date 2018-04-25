@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Advanced Installer
 title: Advanced Installer
 menuWeight: 300
-excerpt:
+excerpt: How to package a DC/OS distribution
 
 enterprise: true
 ---

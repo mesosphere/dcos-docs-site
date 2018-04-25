@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos experimental
 title: dcos experimental
 menuWeight: 0
-excerpt:
+excerpt: How to add a DC/OS package to DC/OS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
-Add a DC/OS package to DC/OS.
+The dcos experimental command will add a DC/OS package to DC/OS.
 
 # Usage
 

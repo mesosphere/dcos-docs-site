@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Stuck Deployments
 title: Stuck Deployments
 menuWeight: 30
-excerpt:
+excerpt: Understanding offer matching and failed deployments
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 # How Offer Matching Works

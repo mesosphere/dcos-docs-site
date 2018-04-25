@@ -3,16 +3,10 @@ layout: layout.pug
 navigationTitle:  Metrics API
 title: Metrics API
 menuWeight: 1
-excerpt: >
-  You can use the Metrics API to
-  periodically poll for data about your
-  cluster, hosts, containers, and
-  applications. You can then pass this
-  data to a third party service of your
-  choice to achieve informative charts,
-  dashboards, and alerts.
+excerpt: Using the Metrics API
 beta: true
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications.
 You can then pass this data to a third party service of your choice to achieve informative charts, dashboards, and alerts.

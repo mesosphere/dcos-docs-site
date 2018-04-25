@@ -2,12 +2,12 @@
 layout: layout.pug
 title: Uninstalling DC/OS on AWS EC2
 menuWeight: 299
-excerpt:
+excerpt: How to uninstall DC/OS on AWS EC2
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can uninstall DC/OS running on AWS EC2 with these instructions.
 
