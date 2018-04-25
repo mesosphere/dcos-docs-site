@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Installing DC/OS using Open Source
 title: DC/OS Open Source
 menuWeight: 030
 oss: true

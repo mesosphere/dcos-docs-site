@@ -3,13 +3,12 @@ layout: layout.pug
 navigationTitle:  Opt-Out
 title: Opt-Out
 menuWeight: 501
-excerpt:
+excerpt: Opting-out of telemetry
 
 enterprise: true
 ---
 
-
-
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 ## Telemetry

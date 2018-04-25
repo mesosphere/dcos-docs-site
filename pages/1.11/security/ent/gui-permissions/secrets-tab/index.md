@@ -3,10 +3,13 @@ layout: layout.pug
 navigationTitle:  Granting Access to the Secrets Tab
 title: Granting Access to the Secrets Tab
 menuWeight: 50
-excerpt:
+excerpt: Granting access to the Secrets tab
 
 enterprise: true
 ---
+
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 You can grant users access to the **Secrets** tab. By default, new users have no permissions.
 
 **Tip:** This procedure grants full user access to the **Secrets** tab. If you are running in `strict` or `permissive` [security mode](/1.11/security/ent/#security-modes) and want to configure fine-grained user access, see the [documentation](/1.11/security/ent/secrets/use-secrets/).

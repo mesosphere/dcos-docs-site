@@ -3,14 +3,16 @@ layout: layout.pug
 navigationTitle:  Upgrading
 title: Upgrading
 menuWeight: 4
-excerpt:
+excerpt: Upgrading a DC/OS cluster
 
 enterprise: true
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-This document provides instructions for upgrading a DC/OS cluster.
 
-If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
+This section explains how to upgrade a DC/OS cluster.
+
+If an upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
 

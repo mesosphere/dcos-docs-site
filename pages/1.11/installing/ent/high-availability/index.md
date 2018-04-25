@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  High Availability
 title: High Availability
 menuWeight: 5
-excerpt:
+excerpt: Understanding High Availability
 
 enterprise: false
 ---

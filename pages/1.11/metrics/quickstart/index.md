@@ -1,24 +1,24 @@
 ---
 layout: layout.pug
 navigationTitle:  Quick Start
-title: Quick Start
+title: Metrics Quick Start
 menuWeight: 0
-excerpt:
+excerpt: Getting Started with DC/OS metrics
 beta: true
 ---
 
 
 Use this guide to get started with the DC/OS metrics component. The metrics component is natively integrated with DC/OS and no additional setup is required.
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 - Optional: the CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
-  
+
 1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 
-    1.  Create the following Marathon app definition and save as `test-metrics.json`. 
-        
+    1.  Create the following Marathon app definition and save as `test-metrics.json`.
+
         ```json
         {
           "id": "/test-metrics",
@@ -28,9 +28,9 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
           "mem": 128
         }
         ```
-    
+
     1.  Deploy the app with this CLI command:
-        
+
         ```bash
         dcos marathon app add test-metrics.json
         ```
@@ -40,9 +40,9 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
     ```bash
     dcos config show core.dcos_acs_token
     ```
-    
+
     The output should resemble:
-    
+
     ```bash
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIi...
     ```
@@ -52,51 +52,51 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
     ```
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
-    
+
     **Tip:** To get the Mesos ID of the node that is running your app, run `dcos task` followed by `dcos node`. For example:
-    
+
     1.  Running `dcos task` shows that host `10.0.0.193` is running the Marathon task `test-metrics.93fffc0c-fddf-11e6-9080-f60c51db292b`.
-    
+
         ```bash
         dcos task
         NAME          HOST        USER  STATE  ID                                                  
         test-metrics  10.0.0.193  root    R    test-metrics.93fffc0c-fddf-11e6-9080-f60c51db292b  
         ```
-    
+
     1.  Running `dcos node` shows that host `10.0.0.193` has the Mesos ID `7749eada-4974-44f3-aad9-42e2fc6aedaf-S1`.
-    
+
         ```bash
         dcos node
          HOSTNAME       IP                         ID                    
         10.0.0.193  10.0.0.193  7749eada-4974-44f3-aad9-42e2fc6aedaf-S1  
         ```
 
-1.  View metrics. 
+1.  View metrics.
 
     -   **Metrics for all containers running on a host**
 
-        To show all containers that are deployed on the agent node, run this command from your agent node with your authentication token (`<auth-token>`) specified. 
-        
+        To show all containers that are deployed on the agent node, run this command from your agent node with your authentication token (`<auth-token>`) specified.
+
         ```bash
         curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
         ```
-    
+
         The output should resemble this:
-        
+
         ```json
         ["121f82df-b0a0-424c-aa4b-81626fb2e369","87b10e5e-6d2e-499e-ae30-1692980e669a"]
         ```
 
     -   **<a name="container-metrics"></a>Metrics for a specific container**
-        
-        To view the metrics for a specific container, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified. 
-    
+
+        To view the metrics for a specific container, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified.
+
         ```bash
         curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers/<container-id>/app | jq
         ```
 
         The output should resemble:
-        
+
         ```json
         {
           "datapoints": [
@@ -122,17 +122,17 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
           }
         }
         ```
-    
+
     -   **<a name="container-metrics"></a>Metrics from container-level cgroup allocations**
- 
+
         To view cgroup allocations, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified.
-      
+
         ```bash
         curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers/<container-id> | jq
         ```
-    
+
         The output will contain a `datapoints` array that contains information about container resource allocation and utilization provided by Mesos. For example:
-    
+
         ```json
         {
           "datapoints": [
@@ -161,9 +161,9 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
               "timestamp": "2016-12-13T23:15:19Z"
             },
         ```
-    
+
         The output will also contain an object named `dimensions` that contains metadata about the `cluster/node/app`.
-            
+
         ```json
         ...
         "dimensions": {
@@ -203,9 +203,9 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         ```bash
         curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/node | jq
         ```
-        
+
         The output will contain a `datapoints` array about resource allocation and utilization. For example:
-        
+
         ```json
         ...
         "datapoints": [
@@ -229,9 +229,9 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
             }
         ...    
         ```
-        
+
         The output will contain an object named `dimensions` that contains metadata about the cluster and node. For example:
-        
+
         ```json
         ...
         "dimensions": {

@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Installing DC/OS locally
 title: Install DC/OS Locally
 navigationTitle: Local
 menuWeight: 3
 oss: true
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 Two tools automate the local installation of DC/OS for development and testing:
 

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Template Reference
-excerpt:
+excerpt: Understanding advanced template parameters
 title: Template Reference
 menuWeight: 200
 ---

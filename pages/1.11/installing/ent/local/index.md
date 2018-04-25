@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Local
 title: Install DC/OS Locally
 menuWeight: 3
-excerpt:
+excerpt: Installing DC/OS locally
 
 enterprise: true
 ---

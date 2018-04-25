@@ -1,10 +1,12 @@
 ---
 layout: layout.pug
 navigationTitle:  NFS Server
-excerpt:
+excerpt: Mounting a shared network drive
 title: NFS Server
 menuWeight: 1
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 # Overview
 

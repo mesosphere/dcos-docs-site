@@ -2,14 +2,15 @@
 layout: layout.pug
 title: Authenticating DC/OS Services
 menuWeight: 100
-excerpt:
+excerpt: Authenticating DC/OS services
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 This topic details how to configure authentication for custom apps and pods launched on DC/OS.
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 - [DC/OS Enterprise CLI 0.4.14 or later installed](/1.11/cli/enterprise-cli/#ent-cli-install).
@@ -23,8 +24,8 @@ Create a public-private key pair and save each value into a separate file within
 ```bash
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
-    
-**Tip:** You can use the [DC/OS Secret Store](/1.11/security/ent/secrets/) to secure the key pair. 
+
+**Tip:** You can use the [DC/OS Secret Store](/1.11/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 You can use either the DC/OS Enterprise CLI or the DC/OS GUI to create a service account.
@@ -49,15 +50,15 @@ dcos security org service-accounts show <service-account-id>
 1. Click the **+** icon in the top right.
 
    ![Click the service account create button](/1.11/img/new-service-account-button.png)
-   
+
 1. Enter a description and type the Service Account ID in the **ID** field.
 1. Paste the public key associated with the account into the **PUBLIC KEY** field.
-   
+
    ![Create service account UI](/1.11/img/create-service-account.png)
-   
+
 <!-- # Create a Secret -->
 # Create a Secret
-Create a secret (`<secret-name>`) with your service account (`service-account-id>`) and private key specified (`<private-key>.pem`). 
+Create a secret (`<secret-name>`) with your service account (`service-account-id>`) and private key specified (`<private-key>.pem`).
 
 ## Permissive
 
@@ -66,12 +67,12 @@ dcos security secrets create-sa-secret <private-key>.pem <service-account-id> <s
 ```
 
 ## Strict
-In strict mode, the service account name (`<service-account-id>`) must match the name specified in the framework `principal`. 
+In strict mode, the service account name (`<service-account-id>`) must match the name specified in the framework `principal`.
 ```bash
 dcos security secrets create-sa-secret --strict <private-key>.pem <service-account-id> <secret-name>
 ```
 
-**Tip:** 
+**Tip:**
 You can list the secrets with this command:
 
 ```bash
@@ -79,9 +80,9 @@ dcos security secrets list /
 ```
 
 # <a name="give-perms"></a>Create and Assign Permissions
-                                     
+
 ## Determine the Required Permissions
-You can determine what access your service account requires by using this procedure. This will allow you to rule out any functional issues that might be caused by incorrect permissions. 
+You can determine what access your service account requires by using this procedure. This will allow you to rule out any functional issues that might be caused by incorrect permissions.
 
 1.  [SSH to your node](/1.11/administering-clusters/sshcluster/).
 
@@ -94,11 +95,11 @@ You can determine what access your service account requires by using this proced
     ```bash
     journalctl -u "dcos-*" |grep "audit" |grep "<service-account-id>" |grep "deny"
     ```
-    
-    This command will return a list of the audit logs that are generated when your service was denied access due to insufficient permissions or a bad token. The rejection messages should include the permission that was missing. You might need to repeat this process several times to determine the full list of required permissions.
-    
 
-**Troubleshooting:** 
+    This command will return a list of the audit logs that are generated when your service was denied access due to insufficient permissions or a bad token. The rejection messages should include the permission that was missing. You might need to repeat this process several times to determine the full list of required permissions.
+
+
+**Troubleshooting:**
 
 -  You can grant your service superuser permission to rule out any functional issues. All valid services should be able to run as superuser.
 
@@ -107,10 +108,10 @@ You can determine what access your service account requires by using this proced
    -h "authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/<service-account-id>/full
    ```
 
-For more information, see the [permissions reference](/1.11/security/ent/perms-reference/). 
+For more information, see the [permissions reference](/1.11/security/ent/perms-reference/).
 
 ## Assign the Permissions
-Using the [permissions reference](/1.11/security/ent/perms-reference/) and the log output, assign permissions to your service. 
+Using the [permissions reference](/1.11/security/ent/perms-reference/) and the log output, assign permissions to your service.
 
 All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/).
 
@@ -132,7 +133,7 @@ For example, to authorize the [Cassandra service](/services/cassandra/cass-auth/
 1.  Select the name of the service account to grant the permission to.
 
     ![Select service acccount](/1.11/img/add-service-account-permission.png)
-    
+
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 1.  Copy and paste the permission in the **Permissions Strings** field.
@@ -141,7 +142,7 @@ For example, to authorize the [Cassandra service](/services/cassandra/cass-auth/
 
 # <a name="req-auth-tok"></a>Request an Authentication Token
 
-Generate a [service login token](/1.11/security/ent/service-auth/)), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified. 
+Generate a [service login token](/1.11/security/ent/service-auth/)), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
 
 ```bash
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem

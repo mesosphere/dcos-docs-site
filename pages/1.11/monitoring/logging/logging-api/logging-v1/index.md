@@ -3,10 +3,13 @@ layout: layout.pug
 navigationTitle:  Logging API v1
 title: Logging API v1
 menuWeight: 1
-excerpt:
+excerpt: Using the Logging API in DC/OS 1.9 through 1.10
 beta: true
 enterprise: false
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+The Logging API was added in DC/OS 1.9.0. Prior to DC/OS 1.9.0, all node, component, and container logs were managed by Logrotate.
+
 
 The Logging API exposes node, component, and container (task) logs.
 
@@ -19,7 +22,6 @@ For usage examples, see [Logging API Examples](/1.11/monitoring/logging/logging-
 
 # Compatibility
 
-The Logging API was added in DC/OS 1.9.0. Prior to DC/OS 1.9.0, all node, component, and container logs were managed by Logrotate.
 
 In DC/OS 1.9.0 and later, node and component logs are managed by journald. However, the [Mesos task journald log sink was disabled](https://github.com/dcos/dcos/pull/1269) due to [journald performance issues](https://github.com/systemd/systemd/issues/5102). So container log files are still accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 

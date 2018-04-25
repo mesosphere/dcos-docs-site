@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Troubleshooting
-excerpt:
+excerpt: Troubleshooting installation issues
 title: Troubleshooting
 menuWeight: 400
 oss: true

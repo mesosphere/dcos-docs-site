@@ -2,12 +2,12 @@
 layout: layout.pug
 title: Debugging from the DC/OS CLI
 menuWeight: 10
-excerpt:
+excerpt: Debugging from the command line interface
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 The DC/OS CLI provides commands to debug services that are not deploying or behaving as expected.

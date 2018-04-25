@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Service Naming
 title: Service Naming
 menuWeight: 0
-excerpt:
+excerpt: Defining DNS top-level domains for Mesos tasks
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 Mesos-DNS defines the DNS top-level domain `.mesos` for Mesos tasks that are running on DC/OS. Tasks and services are discovered by looking up A and, optionally, SRV records within this Mesos domain.

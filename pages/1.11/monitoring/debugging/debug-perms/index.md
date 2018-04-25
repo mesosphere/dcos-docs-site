@@ -3,14 +3,15 @@ layout: layout.pug
 navigationTitle:  Granting Access to dcos task exec
 title: Granting Access to dcos task exec
 menuWeight: 4
-excerpt:
+excerpt: Granting access for debugging
 beta: true
 enterprise: true
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can grant users access to containers for debugging sessions.  
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 - A [user account](/1.11/security/ent/users-groups/) to assign permissions to.
@@ -36,12 +37,12 @@ dcos security org users grant <uid> dcos:adminrouter:ops:slave full
 ```
 
 ## Strict
-With `strict` security mode, you can control whether a user can launch an interactive debugging session or not. You can also restrict which containers a user can access for debugging. This ensures that users cannot execute arbitrary commands in containers that do not pertain to them. 
+With `strict` security mode, you can control whether a user can launch an interactive debugging session or not. You can also restrict which containers a user can access for debugging. This ensures that users cannot execute arbitrary commands in containers that do not pertain to them.
 
 ### <a name="debug-without-tty"></a>Granting Non-Pseudo Terminal Debug Access
 
 Grant the following privileges to the user `uid`.
-    
+
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
 dcos security org users grant <uid> dcos:adminrouter:ops:slave full
@@ -51,7 +52,7 @@ dcos security org users grant <uid> dcos:mesos:master:executor:app_id:/test-grou
 dcos security org users grant <uid> dcos:mesos:master:framework:role:* read --description "Controls access to frameworks registered with the Mesos default role"
 dcos security org users grant <uid> dcos:mesos:master:task:app_id:/test-group read --description "Controls access to tasks running inside test-group"
 ```   
-    
+
 ### <a name="debug-with-tty"></a>Granting Pseudo Terminal Debug Access
 
 Grant the following privileges to the user `uid`.

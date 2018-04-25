@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Boot Sequence
 title: Boot Sequence
 menuWeight: 6
-excerpt:
+excerpt: Understanding the DC/OS component services boot sequence
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 During installation, the DC/OS component services are all started in parallel but initialize and become responsive in a relatively consistent sequence because of interdependencies.

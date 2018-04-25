@@ -2,10 +2,12 @@
 layout: layout.pug
 title: Sending DC/OS Metrics to Datadog
 menuWeight: 3
-excerpt:
+excerpt: Sending DC/OS metrics to Datadog
 beta: true
 enterprise: false
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 The Datadog metrics standalone plugin supports sending metrics from the DC/OS metrics service directly to [DatadogHQ](https://www.datadoghq.com/). The plugin includes the function of the Datadog agent. You must install a plugin on each node in your cluster. This plugin works with DC/OS 1.9.4 and higher.
 

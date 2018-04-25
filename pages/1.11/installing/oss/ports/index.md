@@ -2,10 +2,12 @@
 layout: layout.pug
 title: DC/OS Ports
 menuWeight: 5
-excerpt:
+excerpt: Understanding DC/OS ports
 oss: true
 enterprise: false
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 [DC/OS components](/docs/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 

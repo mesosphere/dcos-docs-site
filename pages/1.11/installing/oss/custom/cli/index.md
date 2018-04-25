@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Using the automated CLI installer
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200
@@ -364,7 +364,7 @@ It is recommended that you save your DC/OS installer file immediately after inst
     scp -i $username@$node-ip:~/genconf/serve/dcos-install.tar ~
     ```
 
-# Next Steps
+# Next steps
 
 - [Add users to your cluster][10]
 - [Add a public agent post-installation][11]

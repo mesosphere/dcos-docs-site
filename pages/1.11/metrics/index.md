@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  Metrics
 title: Metrics
 menuWeight: 100
-excerpt:
+excerpt: Learn about the metrics component of DC/OS
 beta: true
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-This section will discuss the metrics component of DC/OS, which collects data about your ecosystem.
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 The [metrics component](/1.11/overview/architecture/components/#dcos-metrics) provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS that send StatsD metrics to the Mesos Metrics Module. The metrics component is natively integrated with DC/OS and is available per-host from the `/system/v1/metrics/v0` HTTP API endpoint.
 

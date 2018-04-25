@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos auth list-providers
 title: dcos auth list-providers
 menuWeight: 1
-excerpt:
+excerpt: How to list configured authentication providers for your cluster.
 
 enterprise: true
 ---
 
 # Description
-List configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.11/security/ent/service-auth/).
+This command lists configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.11/security/ent/service-auth/).
 
 # Usage
 
