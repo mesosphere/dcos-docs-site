@@ -5,6 +5,7 @@ title: Release Notes for 1.10.6
 menuWeight: 0
 excerpt:
 ---
+These are the release notes for DC/OS 1.10.6
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.6/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
@@ -43,7 +44,7 @@ DC/OS 1.10.6 includes the following:
 
 # About DC/OS 1.10
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on: 
+DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
@@ -53,7 +54,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Rolling configuration update and upgrade support via the CLI. [enterprise type="inline" size="small" /]
   - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
-  
+
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
 ## New Features and Capabilities
@@ -66,7 +67,7 @@ Please try out the new features and updated data services. Provide any feedback 
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
-  
+
   Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
@@ -120,7 +121,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 
 ### CLI
 
-- DC/OS 1.10.0 requires DC/OS CLI 0.5.x. 
+- DC/OS 1.10.0 requires DC/OS CLI 0.5.x.
 - DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands.
 
 
@@ -161,7 +162,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - REX-Ray configuration change.
 
-  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. 
+  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS.
   **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in.
