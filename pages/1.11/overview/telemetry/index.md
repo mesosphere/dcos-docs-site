@@ -3,10 +3,12 @@ layout: layout.pug
 navigationTitle:  Telemetry
 title: Telemetry
 menuWeight: 7
-excerpt:
+excerpt: Learn about the telemetry components that let you monitor your DC/OS installation
 
 enterprise: false
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 To continuously improve the DC/OS experience, a telemetry component is included that reports anonymous usage data to Mesosphere. This data is used to monitor the reliability of core DC/OS components, installations, user interface, and to find out which features are most popular.
 

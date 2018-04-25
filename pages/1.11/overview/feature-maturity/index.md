@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Feature Maturity
 title: Feature Maturity
 menuWeight: 10
-excerpt:
+excerpt: Learn about the lifecycle of Mesosphere DC/OS features
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 # <a name="lifecycle"></a>Mesosphere DC/OS Feature Maturity Lifecycle
 
