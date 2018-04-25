@@ -73,7 +73,7 @@ Copy the example service and name it `svc-blue.json`.
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "nlsun/httpd"
+            "image": "mesosphere/httpd"
         }
     },
     "portDefinitions": [
@@ -105,7 +105,7 @@ Make another copy of the example service and name it `svc-green.json`.
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "nlsun/httpd"
+            "image": "mesosphere/httpd"
         }
     },
     "portDefinitions": [
@@ -182,7 +182,7 @@ Make another copy of the example service and name it `svc-green.json`.
      }
    }
    ```
-   
+
 1. Upload the modified configuration to Edge-LB.
 
    ```

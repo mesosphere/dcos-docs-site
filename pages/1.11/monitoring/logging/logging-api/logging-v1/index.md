@@ -60,8 +60,8 @@ The Logging API also requires authorization via the following permissions:
 
 | Route | Permission |
 |-------|----------|
-| `/system/v1/logs/v0/` | `dcos:adminrouter:ops:system-logs` |
-| `/system/v1/agent/{agent_id}/logs/v0/` | `dcos:adminrouter:system:agent` |
+| `/system/v1/logs/v1/` | `dcos:adminrouter:ops:system-logs` |
+| `/system/v1/agent/{agent_id}/logs/v1/` | `dcos:adminrouter:system:agent` |
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 

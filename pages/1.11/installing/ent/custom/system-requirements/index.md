@@ -27,6 +27,7 @@ The cluster nodes are designated Mesos masters and agents during installation.
 
 The supported operating systems and environments are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
 
+DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` may be created prior to installing DC/OS, but it must be either an empty directory or a symlink to an empty directory. DC/OS may be installed to a separate volume mount by creating an empty directory on the mounted volume, creating a symlink at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
 
 ### Master nodes
 
@@ -79,8 +80,6 @@ The agent nodes must also have:
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
     ```
-
-*   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` must be on the same mountpoint as `/`.  This is required because DC/OS installs systemd unit files under `/opt/mesosphere`. All systemd units must be available for enumeration during the initializing of the initial ramdisk at boot. If `/opt` is on a different partition or volume, systemd will fail to discover these units during the initialization of the ramdisk and DC/OS will not automatically restart upon reboot.
 
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 

@@ -24,12 +24,15 @@ In DC/OS < 1.11.0 task logs were available via [files API](http://mesos.apache.o
 ## Routes
 Access to the Logging API v2 is proxied through the Admin Router on each node using the following route:
 
-`/system/v1/logs/v2/`
+```
+/system/v1/logs/v2/
+```
 
-Access to the Logging API of the agent nodes is proxied through the master nodes to appropriate agent node based on {agent_id}:
+Access to the Logging API of the agent nodes is proxied through the master nodes to the appropriate agent node based on `{agent_id}`:
 
-`/system/v1/agent/{agent_id}/logs/v2/`
-
+```
+/system/v1/agent/{agent_id}/logs/v2/
+```
 
 ### Any node
 `/system/v1/logs/v2/component` - Read the entire journald log.
@@ -88,7 +91,7 @@ The API request header can be any the following:
 
 `text/event-stream` request logs in Server-Sent-Events format
 
-DC/OS Logging v2 follows the [Server-Sent-Event specifications](https://www.w3.org/TR/2009/WD-eventsource-20090421/). It supports reading the log entry from a specific cursor position, if client specifies a request header Last-Event-ID as defined in SSE specifications. Every log entry in SSE format, contains an id with a token id: <token>. This allows client to know the current log entry and gives ability to resume logs consumption if it was interrupted. 
+DC/OS Logging v2 follows the [Server-Sent-Event specifications](https://www.w3.org/TR/2009/WD-eventsource-20090421/). It supports reading the log entry from a specific cursor position, if client specifies a request header Last-Event-ID as defined in SSE specifications. Every log entry in SSE format, contains an id with a token id: <token>. This allows client to know the current log entry and gives ability to resume logs consumption if it was interrupted.
 
 ## Auth
 All Logging API routes require authentication to use.
@@ -101,6 +104,11 @@ The Logging API also requires authorization via the following permissions:
 | /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
 
 All routes may also be reached by users with the _dcos:superuser_ permission.
+
 To assign permissions to your account, see Permissions Reference.
- 
- 
+
+ # Resources
+
+ The following resources are available under both of the above routes:
+
+ [swagger api='/1.11/api/logs2.yaml']

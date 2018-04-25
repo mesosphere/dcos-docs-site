@@ -8,8 +8,6 @@ model: /services/hdfs/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
 Welcome to the documentation for DC/OS Apache HDFS. DC/OS Apache HDFS is a managed service that makes it easy to deploy and manage an HA (High Availability) Apache HDFS cluster on Mesosphere DC/OS. [Apache HDFS](http://hadoop.apache.org/) (Hadoop Distributed File System) is an open source distributed file system based on Google's GFS (Google File System) paper. It is a replicated and distributed file system interface for use with "big data" and "fast data" applications.
 
 ## Benefits
