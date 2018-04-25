@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  CLI Installer
 title: CLI Installer
 menuWeight: 200
-excerpt: How to install the command line interface using the installer
+excerpt: Installing the command line interface using the installer
 
 enterprise: false
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options.
 
