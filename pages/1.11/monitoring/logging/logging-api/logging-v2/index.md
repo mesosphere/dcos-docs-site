@@ -9,7 +9,7 @@ menuWeight: 2
 
 The Logging API exposes node, component, and container (task) logs.
 
-The Logging API is backed by the DC/OS Log component, which runs on all nodes in the cluster.
+The Logging API is backed by the [DC/OS Log component](/1.11/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster.
 
 For more information about using the Logging API, see [Logging](/1.11/monitoring/logging/index.md).
 
@@ -26,6 +26,21 @@ The Logging API v2 was added in DC/OS 1.11.0
 In DC/OS < 1.11.0 task logs were available via [files API](http://mesos.apache.org/documentation/latest/endpoints/#files-1), starting DC/OS 1.11.0, the user can leverage the consolidated API for both component and task logs.
 
 ## Routes
+
+Access to the Logging API is proxied through the Admin Router on each node using the following route:
+
+```
+/system/v1/logs/v1/
+```
+
+Access to the Logging API of the agent nodes is also proxied through the master nodes:
+
+```
+/system/v1/agent/{agent_id}/logs/v1/
+```
+
+To determine the address of your cluster, see [Cluster Access](/1.11/api/access/).
+
 Access to the Logging API v2 is proxied through the Admin Router on each node using the following route:
 
 ```
