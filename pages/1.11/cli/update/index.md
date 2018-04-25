@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Updating the CLI
 title: Updating the CLI
 menuWeight: 3
-excerpt: How to update the command line interface
+excerpt: Updating the command line interface
 
 enterprise: false
 ---

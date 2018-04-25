@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2
-excerpt: How to configure the command line interface
+excerpt: Configuring the command line interface
 
 enterprise: false
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Uninstalling the CLI
 title: Uninstalling the CLI
 menuWeight: 4
-excerpt: How to uninstall the command line interface
+excerpt: Configuring the command line interface
 
 enterprise: false
 ---

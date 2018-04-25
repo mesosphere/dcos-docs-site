@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Upgrading
-excerpt: Upgrade a DC/OS cluster
+excerpt: Upgrading a DC/OS cluster using DC/OS Open Source
 title: Upgrading
 menuWeight: 3.1
 ---
