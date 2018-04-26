@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Logging API v2 ***DC/OS 1.11
+navigationTitle: Logging API v2 DC/OS 1.11
 excerpt: Using the Logging API in DC/OS 1.11
 title: Logging API v2
 menuWeight: 2

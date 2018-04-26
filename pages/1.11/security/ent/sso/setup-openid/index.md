@@ -6,16 +6,12 @@ title: >
   provider
 menuWeight: 2
 excerpt: >
-  This topic discusses OpenID Connect IdPs
-  in general and provides a step-by-step
-  procedure for setting up a Google OpenID
-  Connect IdP.
+  Setting up a Google OpenID Connect IdP
 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-<!-- Note from editor: This is a 'hidden' page, so do not add a navigationTitle value other than a blank or a > character. -->
 
 
 

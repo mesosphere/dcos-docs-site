@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:  Frequently Asked Questions
-title: Frequently Asked Questions
+title: Deploying Services Frequently Asked Questions
 menuWeight: 120
-excerpt:
+excerpt: Frequently asked questions about deploying services
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 We've collected some questions we often encounter concerning the usage of DC/OS. Have got a new question you'd like to see? Use the `Submit feedback` button at the bottom of this page to suggest it or check out how you can [contribute](https://dcos.io/contribute/) also the answer to it.
