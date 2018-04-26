@@ -32,7 +32,7 @@ In versions of DC/OS prior to 1.11, task logs were available via [files API](htt
 
 In versions of DC/OS prior to 1.11, node and component logs are managed by journald. However, the [Mesos task journald log sink was disabled](https://github.com/dcos/dcos/pull/1269) due to [journald performance issues](https://github.com/systemd/systemd/issues/5102). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 
-
+<a name="routes"></a>
 # Routes
 
 Access to the Logging API is proxied through the Admin Router on each node using the following route:
@@ -56,6 +56,23 @@ Master routes which are serving task logs are also called *'discovery endpoints'
 
 The parameters used in the request are coming from mesos `state.json` and are called *'task metadata'*.
 
+
+# Auth
+
+All Logging API routes require authentication to use.
+
+To authenticate API requests, see [Obtaining an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/obtaining-an-authentication-token) and [Passing an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/passing-an-authentication-token).
+
+The Logging API also requires authorization via the following permissions:
+| Path |  Permission |
+| :---  | :---        |
+| /system/v1/logs/v2/ | dcos:adminrouter:ops:system-logs |
+| /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
+
+All routes may also be reached by users with the _dcos:superuser_ permission.
+
+To assign permissions to your account, see [Permissions Reference](/1.10/security/ent/perms-reference/).
+
 # Format
 
 The API request header can be any the following:
@@ -66,24 +83,8 @@ The API request header can be any the following:
 
 DC/OS Logging follows the [Server-Sent-Event specifications](https://www.w3.org/TR/2009/WD-eventsource-20090421/). It supports reading the log entry from a specific cursor position, if client specifies a request header Last-Event-ID as defined in SSE specifications. Every log entry in SSE format, contains an id with a token id: <token>. This allows client to know the current log entry and gives ability to resume logs consumption if it was interrupted.
 
-# Auth
-
-All Logging API routes require authentication to use.
-
-To authenticate API requests, see [Obtaining an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/obtaining-an-authentication-token) and [Passing an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/passing-an-authentication-token).
-
-The Logging API also requires authorization via the following permissions:
-| Route |  Permission |
-| :---  | :---        |
-| /system/v1/logs/v2/ | dcos:adminrouter:ops:system-logs |
-| /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
-
-All routes may also be reached by users with the _dcos:superuser_ permission.
-
-To assign permissions to your account, see Permissions Reference.
-
 # Resources
 
- The following resources are available under both of the above routes:
+ The following resources are available under both of the [above routes](#routes):
 
  [swagger api='/1.11/api/logs2.yaml']
