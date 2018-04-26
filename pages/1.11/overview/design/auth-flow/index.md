@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Authentication Architecture
-excerpt:
+excerpt: Understanding DC/OS authentication operations
 title: Authentication Architecture
 menuWeight: 1
 ---

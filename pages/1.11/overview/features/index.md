@@ -3,14 +3,9 @@ layout: layout.pug
 navigationTitle:  Features
 title: Features
 menuWeight: 3
-excerpt:
+excerpt: Learn about the features that make DC/OS more than the sum of its parts
 ---
-
-
-
-
-
-This is an overview of the features that make DC/OS more than the sum of its parts.
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 ## <a name="high-resource-utilization"></a>High Resource Utilization
@@ -186,4 +181,4 @@ DC/OS comes built-in with support Virtual Networks leveraging Container Network 
 
 ## <a name="network-isolation"></a>Network Isolation of Virtual Network Subnets
 
-DC/OS now supports the creation of multiple virtual networks at install time and associate non-overlapping subnets with each of the virtual networks. Further, DC/OS users can program Network Isolation rules across DC/OS Agent nodes to ensure that traffic across Virtual Network subnets is isolated. 
+DC/OS now supports the creation of multiple virtual networks at install time and associate non-overlapping subnets with each of the virtual networks. Further, DC/OS users can program Network Isolation rules across DC/OS Agent nodes to ensure that traffic across Virtual Network subnets is isolated.

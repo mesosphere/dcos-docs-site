@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Concepts
 title: Concepts
 menuWeight: 5
-excerpt:
+excerpt: Understanding DC/OS and its components
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 DC/OS is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you are familiar with, however, they might be used in a different way with DC/OS.

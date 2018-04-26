@@ -3,15 +3,13 @@ layout: layout.pug
 navigationTitle:  High Availability
 title: High Availability
 menuWeight: 6
-excerpt:
+excerpt: Learn about the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-
-This document discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
 
 # Leader/Follower Architecture
 
@@ -49,7 +47,7 @@ HA services should be decoupled, with responsibilities divided amongst services.
 
 Single points of failure come in many forms. For example, a service like ZooKeeper can become a single point of failure when every service in your system shares one ZooKeeper cluster. You can reduce risks by running multiple ZooKeeper clusters for separate services. There's an Exhibitor [Universe package](https://github.com/mesosphere/exhibitor-dcos) that makes this easy.
 
-Other common single points of failure include: 
+Other common single points of failure include:
 
 - Single database instances (like a MySQL)
 - One-off services
