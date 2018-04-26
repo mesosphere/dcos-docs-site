@@ -2,8 +2,7 @@
 layout: layout.pug
 navigationTitle:  Configuring services and pods to use
 secrets
-title: Configuring services and pods to use
-  secrets
+title: Configuring services and pods to use secrets
 menuWeight: 1
 excerpt: Configuring secrets as environmental variables or as a file
 
