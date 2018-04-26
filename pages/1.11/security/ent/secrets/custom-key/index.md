@@ -2,8 +2,7 @@
   layout: layout.pug
   navigationTitle:  >
   title: >
-    Reinitializing the Secret Store with a
-    custom GPG keypair
+    Reinitializing the Secret Store with a custom GPG keypair
   menuWeight: -1
   excerpt: In this section, you will re-initalize the secret store with a custom GPG pair.
 
