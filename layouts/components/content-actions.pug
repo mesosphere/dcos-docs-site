@@ -8,11 +8,13 @@ if !rssPath
   if parent
     - rssPath = parent.path + '/rss.xml'
 - var feedbackPath = 'https://jira.dcos.io/secure/CreateIssueDetails!init.jspa'
-- feedbackPath += '?pid=14107'
-- feedbackPath += '&issuetype=10600'
+- feedbackPath += '?pid=14105'
+- feedbackPath += '&issuetype=1'
 - feedbackPath += '&summary=Feedback+for+' + title.replace(' ', '+')
 - feedbackPath += '&description=Source:%20' + url + '/' + path
 - feedbackPath += '&labels=documentation'
+- feedbackPath += '&components=19804'
+- feedbackPath += '&priority=3'
 
 div(class='actions')
   ul(class='actions__list')
