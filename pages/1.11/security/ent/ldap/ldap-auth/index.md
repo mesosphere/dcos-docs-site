@@ -1,7 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle:  >
-title: Specifying LDAP Authentication and Parameters
+title: >
+  Specifying authentication method and
+  parameters
 menuWeight: 2
 excerpt: Specifying authentication method and
 parameters
