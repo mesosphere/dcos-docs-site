@@ -2,7 +2,7 @@
 layout: layout.pug
 title: What is DC/OS?
 menuWeight: 1
-excerpt: 
+excerpt: Understanding the DC/OS distributed system
 
 enterprise: false
 ---
