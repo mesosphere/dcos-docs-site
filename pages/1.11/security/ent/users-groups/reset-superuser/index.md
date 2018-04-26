@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Resetting the Superuser
 title: Resetting the Superuser
 menuWeight: 30
-excerpt: Resetting the Superuser
+excerpt: Resetting the Superuser or creating a new user
 
 enterprise: true
 ---

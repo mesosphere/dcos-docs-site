@@ -7,6 +7,7 @@ excerpt: Learn how to administer clusters, manage agent nodes, and secure your i
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 DC/OS makes it easy to set up and manage clusters.
