@@ -71,7 +71,7 @@ The Logging API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the _dcos:superuser_ permission.
 
-To assign permissions to your account, see Permissions Reference.
+To assign permissions to your account, see [Permissions Reference](/1.10/security/ent/perms-reference/).
 
 # Format
 
