@@ -3,13 +3,12 @@ layout: layout.pug
 navigationTitle:  Service Endpoints
 title: Service Endpoints
 menuWeight: 3
-excerpt:
+excerpt: Understanding service endpoints
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 Containerized services can be placed anywhere in the cluster. Many DC/OS services provide endpoints to allow clients to find them.
 

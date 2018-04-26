@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Service Ports
 title: Service Ports
 menuWeight: 3
-excerpt:
+excerpt: Using virtual IP addresses to manage service ports
 
 enterprise: false
 ---

@@ -1,14 +1,13 @@
 ---
 layout: layout.pug
 navigationTitle:  Quick Start
-title: Quick Start
+title: Deploying Services Quick Start
 menuWeight: 0
-excerpt:
+excerpt: Getting started deploying services
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 ### Prerequisites
 - DC/OS [installed](/1.11/installing/oss/)

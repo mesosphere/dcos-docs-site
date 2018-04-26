@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Updating a User-Created Service
 title: Updating a User-Created Service
 menuWeight: 3
-excerpt:
+excerpt: Updating a service you have created yourself
 
 enterprise: false
 ---

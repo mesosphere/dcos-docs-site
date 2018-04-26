@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Examples
 title: Examples
 menuWeight: 30
-excerpt:
+excerpt: Learning about field definitions and usage examples for pods
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 This topic provides field definitions and usage examples for pods. For more details on field definitions, see [Marathon Configuration Reference](/1.11/deploying-services/marathon-parameters).
 

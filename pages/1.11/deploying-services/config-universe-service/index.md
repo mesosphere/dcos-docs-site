@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuring Universe Services
 title: Configuring Universe Services
 menuWeight: 2
-excerpt: How to discover and change default parameters
+excerpt: Discovering and changing default parameters
 
 enterprise: false
 ---

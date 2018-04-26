@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Scaling a Service
 title: Scaling a Service
 menuWeight: 3
-excerpt:
+excerpt: Scaling a service using the web interface and the CLI
 
 enterprise: false
 ---
@@ -30,16 +30,16 @@ This tutorial shows how to scale a service using the web interface and the CLI.
     ```bash
     dcos marathon app update <app-id> instances=<total_desired_instances>
     ```
-    
-1.  Enter this command to see your scaled service. 
+
+1.  Enter this command to see your scaled service.
 
     ```bash
     dcos task <task-id>
     ```
-    
+
 
 For example, this task is scaled to 6 instances:
-    
+
 ```bash
 dcos marathon app update basic-0 instances=6
 dcos task basic-0
@@ -49,8 +49,5 @@ basic-0  10.0.1.101  root    R    basic-0.1c739626-0b47-11e7-a8b6-de4438bbb8f0
 basic-0  10.0.1.41   root    R    basic-0.1c736f14-0b47-11e7-a8b6-de4438bbb8f0  
 basic-0  10.0.1.92   root    R    basic-0.12d5bbc2-0b47-11e7-a8b6-de4438bbb8f0  
 basic-0  10.0.1.92   root    R    basic-0.1c73bd37-0b47-11e7-a8b6-de4438bbb8f0  
-basic-0  10.0.3.180  root    R    basic-0.1c739625-0b47-11e7-a8b6-de4438bbb8f0 
+basic-0  10.0.3.180  root    R    basic-0.1c739625-0b47-11e7-a8b6-de4438bbb8f0
 ```
-    
-    
-    
