@@ -1,12 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Specifying authentication method and
-  parameters
-menuWeight: 2
-excerpt: Specifying authentication method and
+navigationTitle: Specifying authentication method and
 parameters
+title: Specifying authentication method and parameters
+menuWeight: 2
+excerpt: Setting up authentication method and parameters
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

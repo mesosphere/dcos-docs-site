@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Sealing the Secret Store
 title: Sealing the Secret Store
 menuWeight: 2
-excerpt: Sealing the Secret store
+excerpt: Manually sealing the Secret Store
 
 enterprise: true
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Uninstalling Services
 title: Uninstalling Services
 menuWeight: 7
-excerpt:
+excerpt: Uninstalling services from the CLI
 
 enterprise: false
 ---

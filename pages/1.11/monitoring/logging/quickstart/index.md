@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Quick Start
+navigationTitle:  Logging Quick Start
 title: Logging Quick Start
 menuWeight: 0
 excerpt: Getting started with DC/OS logging

@@ -1,6 +1,7 @@
 ---
 layout: layout.pug
 title: Installing and Upgrading DC/OS
+navigationTitle:  Installing and Upgrading DC/OS
 menuWeight: 30
 excerpt: Installing and upgrading the DC/OS Enterprise and Open Source deployments
 

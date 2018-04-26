@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using the Certificate Authority API
 title: Using the Certificate Authority API
 menuWeight: 500
-excerpt: View the TLS certificates used by DC/OS Enterprise, create Certificate Signing Requests (CSRs), and have the DC/OS CA sign CSRs
+excerpt: Using the Certificate Authority API
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

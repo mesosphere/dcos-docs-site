@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Tutorial: Deploying a Docker-based Service
+navigationTitle:  Deploying a Docker-based Service
 title: Deploying a Docker-based Service
 menuWeight: 100
 excerpt: Creating a custom Docker image

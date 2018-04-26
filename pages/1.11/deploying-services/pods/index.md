@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Pods
 title: Pods
 menuWeight: 85
-excerpt:
+excerpt: Using pods to share resources
 enterprise: false
 ---
 

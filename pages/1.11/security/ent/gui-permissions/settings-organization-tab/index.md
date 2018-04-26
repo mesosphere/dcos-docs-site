@@ -1,9 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Granting Access to the Settings and
-Organization tabs
-title: Granting Access to the Settings and
-  Organization tabs
+navigationTitle:  Granting Access to the Settings and Organization tabs
+title: Granting Access to the Settings and Organization tabs
 menuWeight: 70
 excerpt: Granting access to the Settings and Organization tabs
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Deploying a Load-Balanced Data Pipeline
 title: Deploying a Load-Balanced Data Pipeline
 menuWeight: 3
-excerpt:
+excerpt: Building a load-balanced data pipeline
 
 ---
 This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes!

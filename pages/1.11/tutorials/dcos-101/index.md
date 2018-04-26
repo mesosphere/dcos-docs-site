@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Getting started using DC/OS
 title: DC/OS 101
 menuWeight: 0
 ---

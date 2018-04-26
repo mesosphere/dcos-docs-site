@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Deploying Marathon Apps with Jenkins
 title: Deploying Marathon Apps with Jenkins
 menuWeight: 4
-excerpt:
+excerpt: Deploying Marathon apps on Jenkins for DC/OS
 
 enterprise: false
 ---
@@ -12,7 +12,7 @@ This tutorial shows how to deploy applications on [Marathon][1] using Jenkins fo
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
-**Prerequisite:** 
+**Prerequisite:**
 This tutorial assumes that you have a working Jenkins installation and permission to launch applications on Marathon. Jenkins for DC/OS must be installed as described on the [Jenkins Quickstart](/services/jenkins/quickstart/) page.
 
 # The Example Project
@@ -25,7 +25,7 @@ This tutorial uses [Docker Hub][6] to store the created image and requires accou
 
 # Accessing Jenkins for DC/OS
 
-Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/1.11/gui/). 
+Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/1.11/gui/).
 
 Click the “Jenkins” service and then "Open Service" to access the Jenkins web interface.
 

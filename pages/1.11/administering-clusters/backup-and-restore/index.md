@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Backup and Restore
-title: Backup and Restore
+navigationTitle:  Back up and Restore
+title: Back up and Restore
 menuWeight: 7
 excerpt: Backing up and restoring the native Marathon instance of your clusters
 

@@ -1,16 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Configuring services and pods to use
+navigationTitle:  Configuring services and pods to use
+secrets
+title: Configuring services and pods to use
   secrets
 menuWeight: 1
-excerpt:
+excerpt: Configuring secrets as environmental variables or as a file
 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-<!-- Note from editor: This is a 'hidden' page, so do not add a navigationTitle value other than a blank or a > character. -->
 Your service definition can reference secrets as environment variables or as a file.
 
 ## File-based secrets

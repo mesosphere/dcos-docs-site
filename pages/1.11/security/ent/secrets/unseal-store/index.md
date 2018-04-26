@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Unsealing the Secret Store
 title: Unsealing the Secret Store
 menuWeight: 3
-excerpt: Understanding how to unseal the Secret store
+excerpt: Unsealing the Secret Store
 
 enterprise: true
 ---

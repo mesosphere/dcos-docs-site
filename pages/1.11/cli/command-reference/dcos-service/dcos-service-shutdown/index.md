@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Shutdown a service.
+Shut down a service.
 
 # Usage
 
@@ -22,7 +22,7 @@ dcos service shutdown <service-id> [OPTION]
 
 # Options
 
-None. 
+None.
 
 # Positional arguments
 
@@ -34,4 +34,4 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos service](/1.11/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 
+| [dcos service](/1.11/cli/command-reference/dcos-service/)   | Manage DC/OS services. |

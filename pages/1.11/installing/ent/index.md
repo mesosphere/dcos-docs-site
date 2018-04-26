@@ -1,6 +1,7 @@
 ---
 layout: layout.pug
 title: DC/OS Enterprise
+navigationTitle:  DC/OS Enterprise
 menuWeight: 30
 excerpt: Installing DC/OS using the Enterprise version
 

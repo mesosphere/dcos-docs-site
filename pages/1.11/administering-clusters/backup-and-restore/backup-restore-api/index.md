@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Backup and Restore API
-title: Backup and Restore API
+navigationTitle:  Back up and Restore API
+title: Back up and Restore API
 menuWeight: 10
 excerpt: Backing up and restoring your cluster using the API
 
