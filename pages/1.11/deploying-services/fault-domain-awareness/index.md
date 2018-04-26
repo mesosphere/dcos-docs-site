@@ -5,7 +5,7 @@ title: >
   Fault Domain Awareness and Capacity
   Extension
 menuWeight: 3
-excerpt:
+excerpt: Understanding fault domain awareness 
 
 enterprise: false
 ---

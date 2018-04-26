@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon Placement Constrainsts
+navigationTitle:  Marathon Placement Constraints
 title: Marathon Placement Constrainsts
 menuWeight: 3
-excerpt:
+excerpt: Understanding Marathon placement contraints
 
 enterprise: false
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Installing Services
 title: Installing Services
 menuWeight: 0
-excerpt:
+excerpt: Installing services using the web interface and the CLI 
 
 enterprise: false
 ---

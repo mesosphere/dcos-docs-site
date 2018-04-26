@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Marathon API
 title: Marathon API
 menuWeight: 40
-excerpt:
+excerpt: Understanding the Marathon API
 
 enterprise: true
 ---
