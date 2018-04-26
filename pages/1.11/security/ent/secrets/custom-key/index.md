@@ -5,14 +5,12 @@
     Reinitializing the Secret Store with a
     custom GPG keypair
   menuWeight: -1
-  excerpt:
+  excerpt: In this section, you will re-initalize the secret store with a custom GPG pair.
 
   enterprise: true
 
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-
-In this section, you will re-initalize the secret store with a custom GPG pair.
 
 **Prerequisites:**
 
