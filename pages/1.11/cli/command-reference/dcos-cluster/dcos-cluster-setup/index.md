@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos cluster setup
 title: dcos cluster setup
 menuWeight: 6
-excerpt: Configuring a connection to a DC/OS cluster
+excerpt: Connects, authenticates, and attaches the DC/OS CLI to a DC/OS cluster
 
 enterprise: false
 ---
 
 # Description
-Configure the connection to a DC/OS cluster, authenticate to DC/OS, and attach to the cluster.
+Connects, authenticates, and attaches the DC/OS CLI to a DC/OS cluster. Combines [`dcos config set core.dcos_url`](/1.11/cli/command-reference/dcos-config/dcos-config-set/), [`dcos auth login`](/1.11/cli/command-reference/dcos-auth/dcos-auth-login/), and `docs cluster attach`. 
 
 # Usage
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos cluster link
 title: dcos cluster link
 menuWeight: 3
-excerpt: Linking a connected cluster to another cluster
+excerpt: Link a connected cluster to another cluster 
 enterprise: true
 ---
 
