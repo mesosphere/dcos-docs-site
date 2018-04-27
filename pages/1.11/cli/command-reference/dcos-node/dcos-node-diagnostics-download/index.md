@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics download
 title: dcos node diagnostics download
 menuWeight: 3
-excerpt: Download a diagnostics download
+excerpt: Download a diagnostics bundle
 
 enterprise: false
 ---

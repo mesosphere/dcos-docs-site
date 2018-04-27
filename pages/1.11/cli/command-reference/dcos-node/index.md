@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos node
 title: dcos node
 menuWeight: 11
-excerpt:
+excerpt: View DC/OS node information
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-View DC/OS node information.
+The `dcos node` commands let you view DC/OS node information.
 
 # Usage
 

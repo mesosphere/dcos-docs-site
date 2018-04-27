@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics delete
 title: dcos node diagnostics delete
 menuWeight: 2
-excerpt: Delete a s bundle
+excerpt: Delete a diagnostics bundle
 
 enterprise: false
 ---

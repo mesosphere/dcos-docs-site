@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos node ssh
 title: dcos node ssh
 menuWeight: 6
-excerpt: Establish and SSH connection
+excerpt: Establish an SSH connection
 
 enterprise: false
 ---
