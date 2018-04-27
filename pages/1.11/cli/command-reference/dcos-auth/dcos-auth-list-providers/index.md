@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos auth list-providers
 title: dcos auth list-providers
 menuWeight: 1
-excerpt: How to list configured authentication providers for your cluster.
+excerpt: Listing configured authentication providers for your cluster
 
 enterprise: true
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos auth login
 title: dcos auth login
 menuWeight: 2
-excerpt: How to authenticate to DC/OS.
+excerpt: Authenticating to DC/OS
 
 enterprise: false
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  CLI
 title: CLI
 menuWeight: 50
-excerpt: Learn about the command line interface utility in DC/OS.
+excerpt: Understanding the command line interface utility in DC/OS
 
 enterprise: false
 ---
