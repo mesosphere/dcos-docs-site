@@ -1,31 +1,28 @@
 ---
 layout: layout.pug
 navigationTitle:  Template Reference
+excerpt:
 title: Template Reference
 menuWeight: 200
-excerpt:
-
-enterprise: true
 ---
 
 These advanced template parameters are specified in the individual JSON files. During DC/OS installation these template files are used to generate a customized DC/OS build.
 
-### Zen templates
-The [Zen](#zen) templates orchestrate the individual component templates to create a DC/OS cluster.
+#### [Zen](#zen) template
+The [Zen](/1.11/installing/oss/cloud/aws/advanced/template-reference/#zen) templates orchestrate the individual component templates to create a DC/OS cluster.
 
-### Agent templates
-The [agent](#private-agent) templates create [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup.
+#### Agent template
+The [agent](/1.11/installing/oss/cloud/aws/advanced/template-reference/#private-agent) templates create [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup.
 
-### Master templates
-The [master](#master) templates create master nodes, on top of the infrastructure stack already created.
+#### Master template
+The [master](/1.11/installing/oss/cloud/aws/advanced/template-reference/#master) templates create master nodes, on top of the infrastructure stack already created.
 
-### Infrastructure template
-The [infrastructure](#infrastructure) template defines and creates a DC/OS specific infrastructure that works well with an existing VPC.
+#### Infrastructure template
+The [infrastructure](/1.11/installing/oss/cloud/aws/advanced/template-reference/#infrastructure) template defines and creates a DC/OS specific infrastructure that works well with an existing VPC.
 
 
 ## <a name="zen"></a>Zen
-
-The Zen templates (e.g. `ee.elzen-1.json`) orchestrate the individual component templates.
+The Zen templates (e.g. `el7-zen-1.json`) orchestrate the individual component templates.
 
 <table class="table">
   <tr>
@@ -34,7 +31,7 @@ The Zen templates (e.g. `ee.elzen-1.json`) orchestrate the individual component 
   </tr>
   <tr>
     <td>AdminLocation</td>
-    <td>Optional: Specify the IP range to whitelist for access to the admin zone. Must be a valid CIDR. To allow access from any IP address, use <code>0.0.0.0/0</code>.</td>
+    <td>Optional: Specify the IP range to whitelist for access to the admin zone. Must be a valid CIDR. To allow access from any IP address, use `0.0.0.0/0`.</td>
   </tr>
   <tr>
     <td>CustomAMI</td>
@@ -42,7 +39,7 @@ The Zen templates (e.g. `ee.elzen-1.json`) orchestrate the individual component 
   </tr>
   <tr>
     <td>InternetGateway</td>
-    <td>Internet Gateway ID, must be attached to the <code>Vpc</code>. Used by all nodes for outgoing Internet access.</td>
+    <td>Internet Gateway ID, must be attached to the 'Vpc'. Used by all nodes for outgoing Internet access.</td>
   </tr>
   <tr>
     <td>KeyName</td>
@@ -85,7 +82,7 @@ The Zen templates (e.g. `ee.elzen-1.json`) orchestrate the individual component 
 
 ## <a name="private-agent"></a>Private agents
 
-The private agent template (`advanced-priv-agent.json`) creates agents which are then attached to a DC/OS cluster as a part of an AutoScalingGroup. To configure the template, specify the VPC, subnet, and master DNS address for the DC/OS cluster to join.
+The private agent template creates agents which are then attached to a DC/OS cluster as a part of an AutoScalingGroup. To configure the template, specify the VPC, subnet, and master DNS address for the DC/OS cluster to join.
 
 <table class="table">
   <tr>
@@ -122,7 +119,7 @@ The private agent template (`advanced-priv-agent.json`) creates agents which are
 
 ## <a name="public-agent"></a>Public agents
 
-The public agent template (`advanced-pub-agent.json`) creates agents which are then attached to a DC/OS cluster as a part of an AutoScalingGroup. To configure the template, specify the VPC, subnet, and master DNS address for the DC/OS cluster to join.
+The public agent template creates agents which are then attached to a DC/OS cluster as a part of an AutoScalingGroup. To configure the template, specify the VPC, subnet, and master DNS address for the DC/OS cluster to join.
 
 <table class="table">
   <tr>
@@ -157,7 +154,7 @@ The public agent template (`advanced-pub-agent.json`) creates agents which are t
 
 ## <a name="master"></a>Master
 
-The master templates (`advanced-master-1.json`, `advanced-master-3.json`, `advanced-master-5.json`, `advanced-master-7.json`) create masters, on top of the infrastructure stack already created.
+The master templates create masters, on top of the infrastructure stack already created.
 
 <table class="table">
   <tr>
@@ -170,7 +167,7 @@ The master templates (`advanced-master-1.json`, `advanced-master-3.json`, `advan
   </tr>
   <tr>
     <td>ExhibitorS3Bucket</td>
-    <td>S3 Bucket resource name. Used by Exhibitor for Zookeeper discovery and coordination. See Exhibitor documentation on 'shared configuration': https://github.com/Netflix/exhibitor/wiki/Shared-Configuration for more information</td>
+    <td>S3 Bucket resource name. Used by Exhibitor for ZooKeeper discovery and coordination. See Exhibitor documentation on 'shared configuration': https://github.com/Netflix/exhibitor/wiki/Shared-Configuration for more information</td>
   </tr>
   <tr>
     <td>KeyName</td>
@@ -208,7 +205,7 @@ The master templates (`advanced-master-1.json`, `advanced-master-3.json`, `advan
 
 ## <a name="infrastructure"></a>Infrastructure
 
-The infrastructure template (`infra.json`) defines, and creates, a DC/OS specific infrastructure that works well with a VPC already created. This is the lowest building block of a DC/OS cluster and the components created in this stack are consumed by the dependent templates (master and agents).
+The infrastructure template `infra.json` defines, and creates, a DC/OS specific infrastructure that works well with a VPC already created. This is the lowest building block of a DC/OS cluster and the components created in this stack are consumed by the dependent templates (master and agents).
 
 <table class="table">
   <tr>
