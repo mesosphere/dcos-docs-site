@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Managing AWS
 title: Managing AWS
 menuWeight: 9
-excerpt: Learn to scale your AWS cluster or change the number of agent nodes.
+excerpt: Scaling your AWS cluster or changing the number of agent nodes
 enterprise: false
 ---
 

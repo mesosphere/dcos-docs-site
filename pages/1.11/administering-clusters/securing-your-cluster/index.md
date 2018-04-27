@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Securing a Cluster
 title: Securing a Cluster
-excerpt: Learn about the security features in DC/OS and best practices for deploying DCOS securely.
+excerpt: Understanding the security features in DC/OS and best practices for deploying DCOS securely
 menuWeight: 7
 ---
 

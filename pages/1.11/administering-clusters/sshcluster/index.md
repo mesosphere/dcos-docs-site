@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  SSHing into Nodes
 title: SSHing into Nodes
 menuWeight: 0
-excerpt: Learn to set up an SSH connection to your DC/OS cluster from an outside network.
+excerpt: Setting up an SSH connection to your DC/OS cluster from an outside network
 
 enterprise: false
 ---

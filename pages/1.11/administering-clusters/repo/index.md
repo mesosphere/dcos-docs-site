@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Managing Package Repositories
 title: Managing Package Repositories
 menuWeight: 50
-excerpt: Learn to use the web interface or CLI to manage your package repositories.
+excerpt: Using the web interface or CLI to manage your package repositories
 enterprise: false
 ---
 

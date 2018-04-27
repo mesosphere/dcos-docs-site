@@ -15,7 +15,7 @@ A cluster license file contains all of the information to determine if the terms
 
 - A private key used by the DC/OS licensing component to sign the audit data checksum.
 - A public key used to decrypt the audit data checksum.
-- The terms of the license:
+- The terms of the license describe:
    - The maximum number of nodes allowed to be connected at any time.
    - The start and end dates of the license.
 

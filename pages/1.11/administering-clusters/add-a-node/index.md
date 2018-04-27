@@ -3,14 +3,9 @@ layout: layout.pug
 navigationTitle:  Adding Agent Nodes
 title: Adding Agent Nodes
 menuWeight: 800
-excerpt: This section shows you how to add agent nodes to an existing DC/OS cluster.
-
-
+excerpt: Adding agent nodes to a DC/OS cluster
 enterprise: false
 ---
-
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 
 Agent nodes are designated as [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.

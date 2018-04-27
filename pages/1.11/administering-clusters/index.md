@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Administering Clusters
 title: Administering Clusters
 menuWeight: 60
-excerpt: Learn how to administer clusters, manage agent nodes, and secure your installation.
+excerpt: Understanding how to administer clusters, manage agent nodes, and secure your installation.
 enterprise: false
 ---
 

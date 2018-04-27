@@ -1,12 +1,13 @@
 ---
 layout: layout.pug
 navigationTitle:  Back up and Restore CLI
-title: Back up and Restore CLI
+title: Back Up and Restore CLI
 menuWeight: 0
 excerpt: Backing up and restoring your cluster using the CLI
 
 enterprise: true
 ---
+You can use the CLI to create and restore backups of your cluster.
 
 # Prerequisites
 - A DC/OS Enterprise cluster.
@@ -15,10 +16,9 @@ enterprise: true
 
 **Important:** See the [Limitations](/1.11/administering-clusters/backup-and-restore/#limitations) of backup and restore.
 
-
 # Back up a cluster
 
-Backups are stored on the local file system of the master node. Backup state is maintained by a service running in the cluster and backup/restore operations are initiated by hitting this service directly.
+Backups are stored on the local file system of the master node. The backup state is maintained by a service running in the cluster. Backup and restore operations are initiated by hitting this service directly.
 
 1. Create a backup and assign it a meaningful label.
    The label has the following restrictions:
