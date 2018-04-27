@@ -3,15 +3,12 @@ layout: layout.pug
 navigationTitle:  Cluster Access
 title: Cluster Access
 menuWeight: 1
-excerpt: Learn how to gain access to a cluster URL.
+excerpt: Gaining access to a cluster URL
 
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
-You can get the cluster URL by using the following methods:
+You can get the cluster URL by using one of the following methods:
 
 - Log into the DC/OS GUI and copy the scheme and domain name from the browser address bar.
 - Log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL.

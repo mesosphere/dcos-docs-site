@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  API Versioning
 title: API Versioning
 menuWeight: 2
-excerpt:
+excerpt: Understanding what versioning mechanisms the DC/OS API supports
 
 enterprise: false
 ---
-
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 This section discusses the DC/OS API's components.
 
