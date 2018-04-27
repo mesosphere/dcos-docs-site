@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos marathon app version list
 title: dcos marathon app version list
 menuWeight: 10
-excerpt:
+excerpt: List the version history of an application
 
 enterprise: false
 ---

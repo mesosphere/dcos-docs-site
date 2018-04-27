@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos marathon group remove
 title: dcos marathon group remove
 menuWeight: 19
-excerpt:
+excerpt: Remove a group
 
 enterprise: false
 ---
@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Deploy and manage applications to DC/OS.
+Remove a group.
 
 # Usage
 

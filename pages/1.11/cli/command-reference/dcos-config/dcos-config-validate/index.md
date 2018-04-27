@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos config validate
 title: dcos config validate
 menuWeight: 4
-excerpt: How to validate changes to the configuration file
+excerpt: Validate changes to the configuration file
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-The dcos config validate command will validate changes to the configuration file.
+The `dcos config validate` command will validate changes to the configuration file.
 
 # Usage
 

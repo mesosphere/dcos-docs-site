@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics delete
 title: dcos node diagnostics delete
 menuWeight: 2
-excerpt:
+excerpt: Delete a s bundle
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-    
 # Description
-View the details of diagnostics bundles.
+Delete a diagnostics bundle.
 
 # Usage
 
@@ -34,7 +31,6 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 <!-- # Examples -->
-

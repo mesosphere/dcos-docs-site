@@ -6,7 +6,7 @@ menuWeight: 9
 excerpt: Display DC/OS license information
 enterprise: true
 ---
-The dcos license command lets you list, get, audit and retrieve the status of your DC/OS license.
+The `dcos license` command lets you list, get, audit and retrieve the status of your DC/OS license.
 
 ```
 dcos license

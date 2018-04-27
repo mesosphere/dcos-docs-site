@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool status
 title: dcos edgelb pool status
 menuWeight: 2
-excerpt: How to display Edge-LB pool status information
+excerpt: Display Edge-LB pool status information
 
 enterprise: true
 ---
 
 
 # Description
-The dcos edgelb pool status command will display Edge-LB pool status information.
+The `dcos edgelb pool status` command will display Edge-LB pool status information.
 
 # Usage
 

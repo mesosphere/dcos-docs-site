@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package repo add
 title: dcos package repo add
 menuWeight: 3
-excerpt:
+excerpt: Add a package repository to DC/OS
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Add a package repository to DC/OS.
@@ -32,7 +29,7 @@ dcos package repo add <repo-name> <repo-url> [OPTION]
 |---------|-------------|-------------|
 | `<repo-name>`   |             |  Name of the package repository. For example, `Universe`. |
 | `<repo-url>`   |             |  URL of the package repository. For example, https://universe.mesosphere.com/repo. |
-        
+
 # Parent command
 
 | Command | Description |

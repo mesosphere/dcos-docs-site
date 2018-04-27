@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos task ls
 title: dcos task ls
 menuWeight: 2
-excerpt:
+excerpt: List the files in the Mesos task sandbox
 
 enterprise: false
 ---
@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Print the list of files in the Mesos task sandbox.
+Show the list of files in the Mesos task sandbox.
 
 # Usage
 

@@ -3,14 +3,11 @@ layout: layout.pug
 navigationTitle:  dcos job update
 title: dcos job update
 menuWeight: 12
-excerpt:
+excerpt: Update a job
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-    
 # Description
 Update a job.
 

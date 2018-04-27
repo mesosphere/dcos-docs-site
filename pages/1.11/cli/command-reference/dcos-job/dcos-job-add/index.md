@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos job add
 title: dcos job add
 menuWeight: 0
-excerpt:
+excerpt: Add a job
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
 Add a job.
 

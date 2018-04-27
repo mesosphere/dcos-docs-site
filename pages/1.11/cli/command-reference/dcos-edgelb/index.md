@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos edgelb
 title: dcos edgelb
 menuWeight: 5
-excerpt: How to manage Edge-LB
+excerpt: Manage Edge-LB
 
 enterprise: true
 ---
 
 # Description
-The dcos edgelb commands manage [Edge-LB](https://docs.mesosphere.com/services/edge-lb/).
+The `dcos edgelb` commands manage [Edge-LB](https://docs.mesosphere.com/services/edge-lb/).
 
 # Usage
 
@@ -28,3 +28,5 @@ dcos edgelb [<flags>] [OPTIONS] [<args> ...]
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   |             |  Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   |             |  Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   |             |  Name of the service instance to query. |
+
+# Child commands

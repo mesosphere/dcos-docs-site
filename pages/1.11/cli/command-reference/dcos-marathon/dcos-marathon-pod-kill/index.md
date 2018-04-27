@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod kill
 title: dcos marathon pod kill
 menuWeight: 24
-excerpt:
+excerpt: Kill a pod instance
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Kill one or more running pod instances.

@@ -3,14 +3,11 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics
 title: dcos node diagnostics
 menuWeight: 0
-excerpt:
+excerpt: Show the details of diagnostics bundles
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-    
 # Description
 View the details of diagnostics bundles.
 
@@ -33,7 +30,6 @@ dcos node diagnostics [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 <!-- # Examples -->
-

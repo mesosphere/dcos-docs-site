@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon app list
 title: dcos marathon app list
 menuWeight: 3
-excerpt:
+excerpt: List the installed applications
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

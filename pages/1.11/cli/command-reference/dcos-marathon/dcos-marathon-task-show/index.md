@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos marathon task show
 title: dcos marathon task show
 menuWeight: 30
-excerpt:
+excerpt: Show a specific task
 
 enterprise: false
 ---
@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-List a specific task.
+Show a specific task.
 
 # Usage
 

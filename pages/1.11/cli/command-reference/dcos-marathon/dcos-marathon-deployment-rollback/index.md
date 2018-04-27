@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon deployment rollback
 title: dcos marathon deployment rollback
 menuWeight: 15
-excerpt:
+excerpt: Remove a deployed application
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool artifact
 title: dcos edgelb pool artifact
 menuWeight: 8
-excerpt: How to list artifacts available to the Edge-LB pool.
+excerpt: List artifacts available to the Edge-LB pool
 
 enterprise: true
 ---
 
 # Description
-the dcos edgelb pool artifact command will list artifacts available for an Edge-LB pool.
+This command will list artifacts available for an Edge-LB pool.
 
 # Usage
 

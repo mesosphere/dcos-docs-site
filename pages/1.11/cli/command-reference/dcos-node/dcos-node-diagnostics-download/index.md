@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics download
 title: dcos node diagnostics download
 menuWeight: 3
-excerpt:
+excerpt: Download a diagnostics download
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
-View the details of diagnostics bundles.
+Download a diagnostics bundle.
 
 # Usage
 
@@ -36,7 +34,6 @@ dcos node diagnostics download <bundle> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 <!-- # Examples -->
-

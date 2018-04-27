@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos config unset
 title: dcos config unset
 menuWeight: 3
-excerpt: How to remove a property from the configuration file
+excerpt: Remove a property from the configuration file
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-the dcos config unset command will remove a property from the configuration file.
+The `dcos config unset` command will remove a property from the configuration file.
 
 # Usage
 

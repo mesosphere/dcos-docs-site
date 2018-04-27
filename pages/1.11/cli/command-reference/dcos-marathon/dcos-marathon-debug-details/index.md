@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos marathon debug details
 title: dcos marathon debug details
 menuWeight: 11
-excerpt:
+excerpt: View debugging information for Marathon application deployments that are waiting
 
 enterprise: false
 ---
@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-View debugging information for Marathon application deployments that are waiting. 
+View debugging information for Marathon application deployments that are waiting.
 
 # Usage
 

@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon app kill
 title: dcos marathon app kill
 menuWeight: 2
-excerpt:
+excerpt: Kill a running application instance
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Kill a running application instance.

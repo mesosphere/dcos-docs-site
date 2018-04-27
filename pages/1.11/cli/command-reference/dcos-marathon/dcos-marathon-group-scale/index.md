@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon group scale
 title: dcos marathon group scale
 menuWeight: 20
-excerpt:
+excerpt: Scale a group
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

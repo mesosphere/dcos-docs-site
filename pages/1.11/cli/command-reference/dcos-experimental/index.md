@@ -8,9 +8,6 @@ excerpt: List of commands that are under development
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
 This section lists commands that are under development and subject to change.
 
@@ -27,3 +24,5 @@ dcos experimental [OPTION]
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
 | `--version, v`   |             | Print version information. |  
+
+# Child commands

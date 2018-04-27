@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool config
 title: dcos edgelb pool config
 menuWeight: 5
-excerpt: How to view or update the configuration of an Edge-LB pool
+excerpt: View or update the configuration of an Edge-LB pool
 
 enterprise: true
 ---
 
 
 # Description
-The dcos edgelb pool config command will let you view or update the config for an Edge-LB pool.
+The `dcos edgelb pool config` command will let you view or update the config for an Edge-LB pool.
 
 # Usage
 

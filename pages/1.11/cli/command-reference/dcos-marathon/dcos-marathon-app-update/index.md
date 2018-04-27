@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos marathon app update
 title: dcos marathon app update
 menuWeight: 9
-excerpt:
+excerpt: Add an application
 
 enterprise: false
 ---

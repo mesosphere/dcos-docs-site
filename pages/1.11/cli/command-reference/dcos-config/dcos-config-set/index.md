@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos config set
 title: dcos config set
 menuWeight: 1
-excerpt: How to add or set DC/OS configuration properties
+excerpt: Add or set a DC/OS configuration property
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-The dcos config set command will add or set DC/OS configuration properties. Here are the available properties.
+The `dcos config set` command will add or set DC/OS configuration properties. Here are the available properties.
 
 | **Property**  | **Description** |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

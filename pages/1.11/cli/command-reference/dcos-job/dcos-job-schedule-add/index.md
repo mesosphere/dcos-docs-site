@@ -3,14 +3,11 @@ layout: layout.pug
 navigationTitle:  dcos job schedule add
 title: dcos job schedule add
 menuWeight: 6
-excerpt:
+excerpt: Add a schedule to a job
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-    
 # Description
 Add a schedule to a job.
 

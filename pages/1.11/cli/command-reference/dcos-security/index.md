@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos security
 title: dcos security
 menuWeight: 13
-excerpt:
+excerpt: Manage the DC/OS Certificate Authority
 
 enterprise: true
 ---

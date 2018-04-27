@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos task exec
 title: dcos task exec
 menuWeight: 0
-excerpt:
+excerpt: Launch a process inside of a task's container
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

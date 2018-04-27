@@ -3,14 +3,11 @@ layout: layout.pug
 navigationTitle:  dcos job run
 title: dcos job run
 menuWeight: 5
-excerpt:
+excerpt: Run a job now
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-    
 # Description
 Run a job now.
 

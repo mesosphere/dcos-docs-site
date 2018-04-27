@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The dcos-cluster-rename command will rename a cluster.
+The `dcos cluster rename` command will rename a cluster.
 
 # Usage
 

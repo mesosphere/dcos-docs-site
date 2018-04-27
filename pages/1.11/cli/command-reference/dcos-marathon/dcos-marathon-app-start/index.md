@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon app start
 title: dcos marathon app start
 menuWeight: 7
-excerpt:
+excerpt: Start an application
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

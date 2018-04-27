@@ -8,8 +8,6 @@ excerpt: Understanding the command line interface utility in DC/OS
 enterprise: false
 ---
 
-<!-- Thesource repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
 

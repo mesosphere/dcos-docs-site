@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos license status
 title: dcos license status
 menuWeight: 4
-excerpt:
+excerpt: Get the cluster license status
 
 enterprise: true
 ---

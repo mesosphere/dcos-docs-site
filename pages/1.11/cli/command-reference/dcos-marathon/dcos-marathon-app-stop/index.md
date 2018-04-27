@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos marathon app stop
 title: dcos marathon app stop
 menuWeight: 8
-excerpt:
+excerpt: Stop an application
 
 enterprise: false
 ---

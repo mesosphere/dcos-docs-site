@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos job show runs
 title: dcos job show runs
 menuWeight: 11
-excerpt:
+excerpt: Show status (success or failure) of job runs
 
 enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
+
 # Description
 Show the successful and failure status of job runs.
 

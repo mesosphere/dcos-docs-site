@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos edgelb config
 title: dcos edgelb config
 menuWeight: 2
-excerpt: How to view or update your Edge-LB configuration
+excerpt: View or update your Edge-LB configuration
 
 enterprise: true
 ---
 
 
 # Description
-The dcos edgelb config command lets you view or update your Edge-LB configuration.
+The `dcos edgelb config` command lets you view or update your Edge-LB configuration.
 
 # Usage
 

@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos task log
 title: dcos task log
 menuWeight: 1
-excerpt:
+excerpt: View the task log
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Print the task log.

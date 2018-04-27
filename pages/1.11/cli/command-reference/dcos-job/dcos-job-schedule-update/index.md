@@ -3,14 +3,11 @@ layout: layout.pug
 navigationTitle:  dcos job schedule update
 title: dcos job schedule update
 menuWeight: 9
-excerpt:
+excerpt: Update a job schedule
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-    
 # Description
 Update a job schedule.
 

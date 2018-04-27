@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon group list
 title: dcos marathon group list
 menuWeight: 18
-excerpt:
+excerpt: Show the list of groups
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

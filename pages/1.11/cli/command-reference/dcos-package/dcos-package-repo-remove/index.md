@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package repo remove
 title: dcos package repo remove
 menuWeight: 5
-excerpt:
+excerpt: Remove a package repository from DC/OS
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Remove a package repository from DC/OS.
@@ -31,7 +28,7 @@ dcos package repo remove <repo-name> [OPTION]
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
 | `<repo-name>`   |             |  Name of the package repository. For example, `Universe`. |
-        
+
 # Parent command
 
 | Command | Description |

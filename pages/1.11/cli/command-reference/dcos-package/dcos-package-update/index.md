@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos package update
 title: dcos package update
 menuWeight: 8
-excerpt:
+excerpt: This command has been deprecated
 
 enterprise: false
 ---

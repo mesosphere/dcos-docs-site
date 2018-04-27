@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod add
 title: dcos marathon pod add
 menuWeight: 23
-excerpt:
+excerpt: Add a pod
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

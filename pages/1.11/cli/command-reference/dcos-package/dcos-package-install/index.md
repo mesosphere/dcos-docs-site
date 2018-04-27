@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package install
 title: dcos package install
 menuWeight: 1
-excerpt:
+excerpt: Install a package
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
@@ -36,7 +34,7 @@ dcos package install <package-name> [OPTION]
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |
-        
+
 # Parent command
 
 | Command | Description |

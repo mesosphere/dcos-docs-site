@@ -3,14 +3,11 @@ layout: layout.pug
 navigationTitle:  dcos job schedule show
 title: dcos job schedule show
 menuWeight: 8
-excerpt:
+excerpt: Show a job schedule
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-    
 # Description
 Show a job schedule.
 
@@ -47,9 +44,9 @@ In this example, a job named `my-scheduled-job` is reviewed.
 ```bash
 dcos job schedule show my-scheduled-job
 ```
-   
+
 Here is the output:
-     
+
 ```bash
 ID             CRON        ENABLED            NEXT RUN            CONCURRENCY POLICY  
 sleep-nightly  20 0 * * *    True   2017-02-19T00:20:00.000+0000        ALLOW

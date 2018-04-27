@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  dcos service shutdown
 title: dcos service shutdown
 menuWeight: 1
-excerpt:
+excerpt: Shut down a service
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

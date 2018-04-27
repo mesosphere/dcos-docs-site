@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon debug summary
 title: dcos marathon debug summary
 menuWeight: 13
-excerpt:
+excerpt: List the current queue and debugging information of Marathon application deployments that are waiting
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon app show
 title: dcos marathon app show
 menuWeight: 6
-excerpt:
+excerpt: Deploy and manage applications for DC/OS
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

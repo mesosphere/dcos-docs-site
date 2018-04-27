@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon app restart
 title: dcos marathon app restart
 menuWeight: 5
-excerpt:
+excerpt: Restart an application
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

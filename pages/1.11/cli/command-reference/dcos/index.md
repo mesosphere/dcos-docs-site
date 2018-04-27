@@ -12,7 +12,7 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 # Description
-The dcos command helps you manage DC/OS environment variables.
+The `dcos` command helps you manage DC/OS environment variables.
 
 # Usage
 

@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon deployment list
 title: dcos marathon deployment list
 menuWeight: 14
-excerpt:
+excerpt: List currently deployed applications
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Print a list of currently deployed applications.

@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 # Description
-The dcos-cluster list command will list the clusters that are connected to the DC/OS CLI.
+The `dcos-cluster list` command will list the clusters that are connected to the DC/OS CLI.
 
 # Usage
 
