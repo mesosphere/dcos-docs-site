@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Creating a DC/OS cluster on DigitalOcean using Terraform
 title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
 menuWeight: 2

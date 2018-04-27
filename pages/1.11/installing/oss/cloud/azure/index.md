@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-excerpt:
-title: Running DC/OS on Azure
+excerpt: Running DC/OS on Azure
+title: Intalling DC/OS on Azure 
 navigationTitle: Azure
 menuWeight: 1
 ---
