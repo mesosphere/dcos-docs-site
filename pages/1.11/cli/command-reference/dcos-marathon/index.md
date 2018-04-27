@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon
 title: dcos marathon
 menuWeight: 10
-excerpt: Deploy and manage applications to DC/OS
+excerpt: Deploy and manage applications to DC/OS using Marathon
 
 enterprise: false
 ---
 
 
 # Description
-Deploy and manage applications to DC/OS.
+Deploy and manage applications to DC/OS using Marathon.
 
 # Usage
 

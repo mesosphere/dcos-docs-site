@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Running DC/OS on Packet
 title: Running DC/OS on Packet
 navigationTitle: Packet
 menuWeight: 3
