@@ -29,7 +29,7 @@ dcos cluster
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster attach](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/)   |  Attach the CLI to a connected or linked cluster. |
+| [dcos&nbsp;cluster&nbsp;attach](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/)   |  Attach the CLI to a connected or linked cluster. |
 | [dcos cluster link](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/)       |  (DC/OS Enterprise only) Link a cluster to another cluster.  |
 | [dcos cluster list](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-list/)       |  List the clusters that are connected to the DC/OS CLI.  |
 | [dcos cluster remove](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-remove/)   |  Remove a cluster from the DC/OS CLI configuration.   |
