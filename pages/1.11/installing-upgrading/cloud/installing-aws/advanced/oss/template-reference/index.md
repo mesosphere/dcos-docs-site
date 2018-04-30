@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Template Reference
+navigationTitle: Template Reference
 excerpt:
 title: Template Reference
 menuWeight: 1

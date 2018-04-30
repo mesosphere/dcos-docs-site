@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Troubleshooting
+navigationTitle: Troubleshooting
 title: Troubleshooting
 menuWeight: 1
 excerpt:

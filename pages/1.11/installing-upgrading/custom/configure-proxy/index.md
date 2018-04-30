@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
 title: Configure DC/OS for Proxy
-menuWeight: 900
+navigationTitle: Configure DC/OS for Proxy
+menuWeight: 20
 excerpt:
 
 enterprise: false

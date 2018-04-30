@@ -1,6 +1,7 @@
 ---
 layout: layout.pug
 title: Uninstalling DC/OS
+navigationTitle: Uninstalling DC/OS
 menuWeight: 30
 excerpt:
 
