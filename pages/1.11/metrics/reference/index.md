@@ -4,7 +4,6 @@ navigationTitle:  Metrics Reference
 title: Metrics Reference
 menuWeight: 2
 excerpt:
-beta: true
 enterprise: false
 ---
 
