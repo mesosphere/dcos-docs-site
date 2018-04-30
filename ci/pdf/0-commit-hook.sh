@@ -25,13 +25,17 @@ export LATEST_MDFILES
 
 
 # Settings values to upload the right directories
-FULLDATE_LAST_SUCCESSFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}" --format=%ci)
+#FULLDATE_LAST_SUCCESSFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}" --format=%ci)
+FULLDATE_LAST_SUCCESSFUL_COMMIT=${BUILD_ID}
 DATE_LAST_SUCCESSFUL_COMMIT="$(echo "${FULLDATE_LAST_SUCCESSFUL_COMMIT}" | cut -c1-10)"
 GIT_HASH="$(git rev-parse "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}")"
 GIT_HASH_TRIM="$(echo "$GIT_HASH" | cut -c1-8)"
 export GIT_HASH_TRIM
 export DATE_LAST_SUCCESSFUL_COMMIT
 
+# Setting the date of the last succesfull build
+# JOB_NAME=""
+# LAST_S_BUILD="https://jenkins-docs.mesosphere.com/job/${JOB_NAME}/api/json?tree=timestamp"
 
 ci/pdf/2-build-pdf-image.sh
 DOCKER_IMAGE="$(cat ".pdf-image")"
