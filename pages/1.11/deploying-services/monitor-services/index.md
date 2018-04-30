@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Monitoring Services
 title: Monitoring Services
 menuWeight: 3
-excerpt:
+excerpt: Monitoring deployed services from the CLI or the web interface
 
 enterprise: false
 ---
@@ -13,7 +13,7 @@ enterprise: false
 
 You can monitor deployed DC/OS services from the CLI and web interface.
 
-# Monitoring Universe services 
+# Monitoring Universe services
 
 ## CLI
 

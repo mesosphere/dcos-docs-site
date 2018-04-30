@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Examples
 title: Examples
 menuWeight: 30
-excerpt: Learning about field definitions and usage examples for pods
+excerpt: Understanding field definitions and usage examples for pods
 enterprise: false
 ---
 

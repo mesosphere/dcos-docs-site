@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Decommission Nodes
 title: Decommission Nodes
 menuWeight: 15
-excerpt: How to decommission nodes
+excerpt: Decommission nodes
 enterprise: false
 ---
 

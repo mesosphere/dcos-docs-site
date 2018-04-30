@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0
-excerpt: Learn the available properties for Marathon applications
+excerpt: Understanding the properties for Marathon applications
 
 enterprise: false
 ---

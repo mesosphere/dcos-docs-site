@@ -1,18 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:  >
-title: >
-  Configuring browsers to trust your DC/OS
-  CA
+title: Configuring browsers to trust your DC/OS CA
 menuWeight: 200
-excerpt: >
-  How to configure Chrome and Firefox to
-  trust your DC/OS CA.
+excerpt: Configure Chrome and Firefox to trust your DC/OS CA.
 beta: true
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-<!-- Note from editor: This is a 'hidden' page, so do not add a navigationTitle value other than a blank or a > character. -->
+
 
 # About configuring browsers to trust your DC/OS CA
 

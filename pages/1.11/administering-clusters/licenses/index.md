@@ -4,7 +4,7 @@ navigationTitle:  Licenses
 title: Licenses
 menuWeight: 1100
 enterprise: true
-excerpt: Administer your cluster in conformance with your license requirements.
+excerpt: Administering your cluster in conformance with your license requirements.
 ---
 
 The DC/OS licensing component allows you to administer your cluster in conformance with your license requirements.

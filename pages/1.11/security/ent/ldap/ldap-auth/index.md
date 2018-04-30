@@ -1,7 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Specifying authentication method and
-parameters
+navigationTitle: Specifying authentication method and parameters
 title: Specifying authentication method and parameters
 menuWeight: 2
 excerpt: Setting up authentication method and parameters

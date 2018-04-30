@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Granting Access to Jobs
 title: Granting Access to Jobs
 menuWeight: 200
-excerpt: How to grant access to jobs using the CLI or the web interface
+excerpt: Granting access to jobs using the CLI or the web interface
 
 enterprise: true
 ---

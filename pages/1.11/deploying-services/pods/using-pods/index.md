@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using Pods
 title: Using Pods
 menuWeight: 20
-excerpt:
+excerpt: Creating and managing pods via the CLI or API
 enterprise: false
 ---
 

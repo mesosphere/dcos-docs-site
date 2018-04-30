@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Docker Engine
 title: Docker Engine
 menuWeight: 20
-excerpt: How to launch Docker containers from Docker images
+excerpt: Launching Docker containers from Docker images
 
 enterprise: false
 ---

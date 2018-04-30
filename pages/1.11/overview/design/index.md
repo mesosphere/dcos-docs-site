@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Learn the details of specific DS/OS engineering implementations
+excerpt: Understand DS/OS engineering implementations
 title: Design
 navigationTitle: Design
 menuWeight: 10

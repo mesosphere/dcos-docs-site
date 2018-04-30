@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Universal Container Runtime (UCR)
 title: Universal Container Runtime (UCR)
 menuWeight: 10
-excerpt: How to use the UCR to launch Mesos containers
+excerpt: Using the UCR to launch Mesos containers
 enterprise: false
 ---
 

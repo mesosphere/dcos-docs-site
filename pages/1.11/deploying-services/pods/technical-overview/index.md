@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Technical Overview
 title: Technical Overview
 menuWeight: 10
-excerpt:
+excerpt: Understanding pods as a special Mesos task group
 enterprise: false
 ---
 

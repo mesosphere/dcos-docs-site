@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Deploying Services and Pods
 title: Deploying Services and Pods
 menuWeight: 130
-excerpt:
+excerpt: Using Marathon to manage processes and services
 
 enterprise: false
 ---

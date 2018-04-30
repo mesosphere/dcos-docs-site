@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Feature Maturity
 title: Feature Maturity
 menuWeight: 10
-excerpt: Learn about the lifecycle of Mesosphere DC/OS features
+excerpt: Understand the lifecycle of Mesosphere DC/OS features
 
 enterprise: false
 ---

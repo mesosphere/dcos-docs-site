@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Software Defined Networks
 title: Software Defined Networks
 menuWeight: 4
-excerpt: Learn about launching UCR and Docker containers on DC/OS
+excerpt: Launching UCR and Docker containers on DC/OS
 enterprise: false
 ---
 

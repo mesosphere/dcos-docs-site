@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Controlling Access to Task Logs
 title: Controlling Access to Task Logs
 menuWeight: 2
-excerpt: Manage user access to task logs using Marathon groups
+excerpt: Managing user access to task logs using Marathon groups
 beta: true
 enterprise: true
 ---

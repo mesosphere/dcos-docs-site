@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Features
 title: Features
 menuWeight: 3
-excerpt: Learn about the features that make DC/OS more than the sum of its parts
+excerpt: Understanding the unique features of DC/OS
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

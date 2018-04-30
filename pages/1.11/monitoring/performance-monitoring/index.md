@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1
-excerpt: Learn about monitoring a DC/OS cluster
+excerpt: Monitoring a DC/OS cluster
 
 enterprise: false
 ---

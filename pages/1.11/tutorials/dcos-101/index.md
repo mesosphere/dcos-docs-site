@@ -2,6 +2,7 @@
 layout: layout.pug
 excerpt: Getting started using DC/OS
 title: DC/OS 101
+excerpt: Understanding DC/OS basics
 menuWeight: 0
 ---
 

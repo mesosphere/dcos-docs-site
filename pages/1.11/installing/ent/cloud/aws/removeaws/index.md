@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Uninstalling DC/OS on AWS EC2
 menuWeight: 299
-excerpt: How to uninstall DC/OS on AWS EC2
+excerpt: Uninstalling DC/OS on AWS EC2
 
 enterprise: false
 ---

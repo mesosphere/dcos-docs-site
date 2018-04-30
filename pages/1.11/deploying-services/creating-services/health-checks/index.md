@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Health Checks
 title: Health Checks
 menuWeight: 200
-excerpt:
+excerpt: Defining health checks for DC/OS services
 
 enterprise: false
 ---

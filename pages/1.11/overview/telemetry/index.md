@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Telemetry
 title: Telemetry
 menuWeight: 7
-excerpt: Learn about the telemetry components that let you monitor your DC/OS installation
+excerpt: Understanding telemetry components 
 
 enterprise: false
 ---

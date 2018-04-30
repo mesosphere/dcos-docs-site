@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Labeling Tasks and Jobs
 title: Labeling Tasks and Jobs
 menuWeight: 5
-excerpt:
+excerpt: Understanding how to label tasks and jobs
 
 enterprise: false
 ---
@@ -25,10 +25,10 @@ From the DC/OS web interface, click the **Services** tab. You can add labels whe
 
 ## Assign a Label to an Application or Task from the DC/OS CLI
 
-You can also specify label values in the `labels` parameter of your application definition. 
+You can also specify label values in the `labels` parameter of your application definition.
 
     vi myapp.json
-    
+
     {
         "id": "myapp",
         "cpus": 0.1,
@@ -61,10 +61,10 @@ From the DC/OS web interface, click the **Jobs** tab. You can add labels when yo
 
 ## Assign a Label to a Job from the DC/OS CLI
 
-You can also specify label values in the `labels` parameter of your job definition. 
+You can also specify label values in the `labels` parameter of your job definition.
 
     vi myjob.json
-    
+
      ```json
         {
           "id": "my-job",
@@ -93,7 +93,7 @@ dcos job add <myjob>.json
 Once your application is deployed and started, you can filter by label from the **Services** tab of the DC/OS UI.
 
 You can also use the Marathon HTTP API from the DC/OS CLI to query the running applications based on the label value criteria.
- 
+
 The code snippet below shows an HTTP request issued to the Marathon HTTP API. The curl program is used in this example to submit the HTTP GET request, but you can use any program that is able to send HTTP GET/PUT/DELETE requests. You can see the HTTP end-point is `https://52.88.210.228/marathon/v2/apps` and the parameters sent along with the HTTP request include the label criteria `?label=COST_CENTER==0001`:
 
     curl --insecure \
