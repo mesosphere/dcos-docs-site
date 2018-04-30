@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: DC/OS Debugging Applications
+title: Debugging Applications on DC/OS
 excerpt: DC/OS is a powerful platform for deploying and managing applications, but what can you do if your app is failing or not even deploying?
 menuWeight: 55
 ---
@@ -17,9 +17,9 @@ You should have a working knowledge of DC/OS in order to complete this tutorial.
 
 Expecting failures and preparing for it, is probably to most important tip for working with distributed system (and as such also a design criteria for DC/OS). So a few of the most important steps are – hopefully – happening before the actual debugging:
 
-- Design your applications for debuggability
-- Follow best practices for deployments
-- Set up monitoring and alerts so you can resolve issues as early as possible
+- [Design your applications for debuggability](https://schd.ws/hosted_files/mesosconeu17/a6/MesosCon%20EU%202017%20University%20Slides.pdf)
+- [Follow best practices for deployments](https://mesosphere.com/blog/improving-your-deployments/)
+- [Set up monitoring and alerts so you can resolve issues as early as possible](https://docs.mesosphere.com/1.10/cli/command-reference/dcos-node/dcos-node-diagnostics/)
 
  We will first look at [some potential problems](#problems) you might face when deploying an application on DC/OS. Next, we will look at the [standard set of tools](#tools) for debugging. Then, after introducing [a general strategy for using those tools](#strategy), we have two [concrete examples](#examples) to illustrate how the strategy works in practice.
 
@@ -27,16 +27,26 @@ We encourage everyone to first try debugging these yourself, but we also provide
 
 <a name=problems></a>
 
-# Problems with Application Deployment on DC/OS
+# Problems with Application Deployment
+
+The range of problems that can be encountered and require debugging is far too large to be covered in a single blog-post. Some of the problems that may need troubleshooting on DC/OS include applications:
+
+- Not deploying at all
+- Deploying very slowly
+- Deploying but do not start correctly (or behave incorrectly)
+- Restarting repeatedly
+- Not being reachable inside (or outside) of the DC/OS cluster
+
+DC/OS consists of a number of different components - most notably Apache Mesos and Marathon. As each of these components could be involved in the issue you are encountering, it might be difficult to even locate the component causing the issue. Accordingly, this tutorial aims to engage several types of such issues.
 
 <a name=tools></a>
 
-# Tools for Application Deployment Debugging on DC/OS
+# Tools for Debugging Application Deployment on DC/OS
 
 <a name=strategy></a>
 
-# Deployment Debugging on DC/OS: General Strategy
+# General Strategy: Debugging Application Deployment on DC/OS
 
 <a name=examples></a>
 
-# Deployment Debugging on DC/OS: Hands On
+# Hands On: Debugging Application Deployment on DC/OS
