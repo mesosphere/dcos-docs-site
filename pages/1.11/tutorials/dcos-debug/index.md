@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Debugging Applications on DC/OS
-excerpt: DC/OS is a powerful platform for deploying and managing applications, but what can you do if your app is failing or not even deploying?
+excerpt: DC/OS is a powerful platform for deploying and managing applications, but what can you do if your app is failing to deploy as expected?
 menuWeight: 55
 ---
 
@@ -25,7 +25,7 @@ Expecting failures and preparing for it, is probably to most important tip for w
 
 We encourage everyone to first try debugging these yourself, but we also provide detailed guidance for debugging them.
 
-<a name=problems></a>
+<a name="problems"></a>
 
 # Problems with Application Deployment
 
@@ -37,11 +37,81 @@ The range of problems that can be encountered and require debugging is far too l
 - Restarting repeatedly
 - Not being reachable inside (or outside) of the DC/OS cluster
 
-DC/OS consists of a number of different components - most notably Apache Mesos and Marathon. As each of these components could be involved in the issue you are encountering, it might be difficult to even locate the component causing the issue. Accordingly, this tutorial aims to engage several types of such issues.
+DC/OS consists of [a number of different components](https://docs.mesosphere.com/1.11/overview/architecture/components/) - most notably [Apache Mesos](http://mesos.apache.org/) and Marathon(https://mesosphere.github.io/marathon/). As any of these components could be involved in the issue you are encountering, it might be difficult to even locate the component causing the issue. Accordingly, this tutorial aims to cover several types of such issues.
 
-<a name=tools></a>
+Of course, there are a myriad of other potential sorts of problems that can affect your cluster besides application failures: networking problems, DC/OS installation issues, and DC/OS internal configuration issues could each be causing issues on your cluster. These are unfortunately out of scope for this tutorial, but we encourage you to reach out via our [Community channels](https://dcos.io/community/) with ideas and feedback.
+
+<a name="tools"></a>
 
 # Tools for Debugging Application Deployment on DC/OS
+
+DC/OS comes with a number of tools for debugging. In this section we will try to provid=58e an overview of the relevant tools for application debugging.
+
+In particular we discuss:
+
+- [DC/OS UIs](#dcos-uis)
+
+- Logs
+
+- Metrics
+
+- Debugging Tasks Interactively
+
+- HTTP Endpoints
+
+- Community
+
+- Other tools
+
+<a name="dcos-uis"></a>
+
+## DC/OS UIs
+
+While DC/OS provide a set of different UIs for various components, these are particularly applicable for debugging application deployment issues:
+
+- [DC/OS UI](#dcos-ui)
+
+- Mesos UI
+
+- Zookeeper/Exhibitor UI
+
+<a name="dcos-ui"></a>
+
+The **DC/OS UI** is a great place to start debugging as it provides quick access to:
+
+- **Cluster Resource Allocation** to provide an overview of available cluster resources
+- **Task Logs** to provide insight into tasks failures
+- **Task Debug Information** about the most recent task offers and/or why a task did not start
+
+[Pic of DC/OS UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+
+### Mesos UI
+
+Despite the DC/OS UI showing most of the information that you’d need for debugging, sometimes accessing the Mesos UI itself can be helpful, for example when checking failed tasks or registered frameworks. The Mesos UI can be accessed via https://<cluster>/mesos.
+
+[Pic of Mesos UI](https://mesosphere.com/wp-content/uploads/2018/04/Screen-Shot-2018-04-15-at-17.56.16.png)
+
+### ZooKeeper UI
+
+[Pic of ZooKeeper/Exhibitor UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <a name=strategy></a>
 
