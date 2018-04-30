@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on Google Compute Engine
 navigationTitle: GCE
-menuWeight: 3
+menuWeight: 15
 
 oss: true
 ---

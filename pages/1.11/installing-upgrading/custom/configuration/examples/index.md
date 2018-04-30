@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Examples
 title: Examples
-menuWeight: 700
+menuWeight: 1
 excerpt:
 
 enterprise: false

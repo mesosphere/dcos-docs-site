@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: DC/OS Ports
-menuWeight: 5
+menuWeight: 1
 excerpt:
 
 enterprise: false

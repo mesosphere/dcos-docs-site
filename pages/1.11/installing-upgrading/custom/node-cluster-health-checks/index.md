@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Node and Cluster Health Checks
 title: Node and Cluster Health Checks
-menuWeight: 1000
+menuWeight: 25
 excerpt:
 
 enterprise: false

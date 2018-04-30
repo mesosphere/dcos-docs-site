@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on AWS EC2 Advanced
 navigationTitle: AWS EC2 Advanced
-menuWeight: 200
+menuWeight: 0
 
 oss: true
 ---

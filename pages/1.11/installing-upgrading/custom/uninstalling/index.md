@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Uninstalling DC/OS
-menuWeight: 500
+menuWeight: 30
 excerpt:
 
 enterprise: false

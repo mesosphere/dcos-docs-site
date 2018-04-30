@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  High Availability
 excerpt:
 title: High Availability
-menuWeight: 05
+menuWeight: 1
 oss: true
 ---
 

@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on Packet
 navigationTitle: Packet
-menuWeight: 3
+menuWeight: 20
 
 oss: true
 ---

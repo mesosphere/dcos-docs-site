@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Advanced DC/OS Installation Guide
 navigationTitle: Advanced
-menuWeight: 300
+menuWeight: 10
 ---
 
 With this installation method, you package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.

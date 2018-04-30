@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
-menuWeight: 200
+menuWeight: 0
 oss: true
 ---
 
