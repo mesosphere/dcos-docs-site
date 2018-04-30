@@ -98,17 +98,17 @@ function selectFolder
         do
             # Remove ./pages from the directories to build
             local path="${i#$PAGES_DIR}"
-            echo $path 'this is i'
+            #echo $path 'this is i'
             # Store and break the resulting folders to build in lines
             FINAL_PATH="$FINAL_PATH $(echo "${path}" \ | tr " " "\\n")"
             # Set up a string of folders to build (Version1.11, Version1.7, Services...)
             ALL_FOLDERS="$ALL_FOLDERS $(echo "$path"  | head -n1 | cut -d "/" -f1)"
-            echo "All folders = " $ALL_FOLDERS
+            #echo "All folders = " $ALL_FOLDERS
         done
 
         # This is going to output all final paths
         FINAL_PATH=$(echo "${FINAL_PATH}"\ | tr " " "\\n")
-        echo "All final paths = " $FINAL_PATH
+        #echo "All final paths = " $FINAL_PATH
         # Clean duplicate directories
         ALL_DIRECTORIES=$(echo "$ALL_FOLDERS" | tr ' ' '\n' | sort | uniq)
         echo "ALl directories here" $ALL_DIRECTORIES
@@ -116,7 +116,7 @@ function selectFolder
         for d in $ALL_DIRECTORIES
         do
           INPUT_FOLDER=$d
-          echo "-------- ${d}"
+          #echo "-------- ${d}"
           # delete d from ALL directories
           # main
           echo main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"
@@ -260,8 +260,18 @@ function main
 PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 
 # get the files and output it to Previous_pdf_bundle destination
-curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+# if the dowload is empty then
+# if the number is 30
+DATE=0000-00-01
+if curl --output "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" --silent --head --fail; then
 
+  curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+
+else
+
+  DATE_LAST_SUCCESSFUL_COMMIT=${DATE_LAST_SUCCESSFUL_COMMIT}+${DATE}
+  curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+fi
 echo "directory here"
 pwd
 echo "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
