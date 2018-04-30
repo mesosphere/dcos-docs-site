@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: DC/OS Custom Installation Options
-menuWeight: 0
+menuWeight: 30
 excerpt:
 
 enterprise: true

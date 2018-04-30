@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on Azure
 navigationTitle: Azure
-menuWeight: 1
+menuWeight: 5
 
 oss: true
 ---

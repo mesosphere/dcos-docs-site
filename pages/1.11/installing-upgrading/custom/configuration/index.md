@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Configuration
 title: Configuration
-menuWeight: 600
+menuWeight: 15
 excerpt:
 
 enterprise: false

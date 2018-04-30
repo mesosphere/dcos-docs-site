@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
-menuWeight: 2
+menuWeight: 10
 
 oss: true
 ---

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Running DC/OS on AWS EC2 Basic
-menuWeight: 100
+menuWeight: 0
 excerpt:
 
 enterprise: true

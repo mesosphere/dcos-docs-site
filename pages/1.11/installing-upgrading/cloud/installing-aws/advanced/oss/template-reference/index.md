@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Template Reference
 excerpt:
 title: Template Reference
-menuWeight: 200
+menuWeight: 1
 ---
 
 These advanced template parameters are specified in the individual JSON files. During DC/OS installation these template files are used to generate a customized DC/OS build.

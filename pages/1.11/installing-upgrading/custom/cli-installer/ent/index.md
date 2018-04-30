@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  CLI Installer
 title: CLI Installer
-menuWeight: 200
+menuWeight: 1
 excerpt:
 
 enterprise: false

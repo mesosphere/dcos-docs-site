@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  System Requirements
 excerpt:
 title: System Requirements
-menuWeight: 000
+menuWeight: 0
 ---
 
 

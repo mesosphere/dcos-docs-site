@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Install Docker on CentOS
 excerpt:
 title: Install Docker on CentOS
-menuWeight: 2
+menuWeight: 0
 ---
 
 
