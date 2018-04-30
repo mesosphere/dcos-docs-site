@@ -1,6 +1,7 @@
 ---
 layout: layout.pug
 title: Running DC/OS on AWS EC2
+navigationTitle: Running DC/OS on AWS EC2
 menuWeight: 100
 excerpt:
 

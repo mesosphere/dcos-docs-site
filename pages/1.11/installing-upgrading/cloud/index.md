@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+navigationTitle: DC/OS Cloud Installation Options
 title: DC/OS Cloud Installation Options
 menuWeight: 1
 excerpt:

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Examples
+navigationTitle: Examples
 title: Examples
 menuWeight: 1
 excerpt:
