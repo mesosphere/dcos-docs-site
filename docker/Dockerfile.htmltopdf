@@ -27,6 +27,13 @@ RUN GIT_BRANCH=$git_branch
 # npm run build-pdf
 
 #
+# Lint images and markdown 
+# This are turned off and to be moved to checkout pipeline
+#
+# RUN make check-images
+# RUN make check-markdown
+
+#
 # Build PDF
 #
 FROM ubuntu:16.04 as pdf-builder

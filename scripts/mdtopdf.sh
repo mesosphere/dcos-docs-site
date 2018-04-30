@@ -264,11 +264,13 @@ curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_
 
 echo "directory here"
 pwd
+echo "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 ls -la "${OUTPUT_FOLDER}"
 
 #
 # Clean the previous pdf
+#
 cleanVersion "${LATEST_MDFILES}"
 
 selectFolder "${CHANGED_FILES}" "${PAGES_DIR}"
