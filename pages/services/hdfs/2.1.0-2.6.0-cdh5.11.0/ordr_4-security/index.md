@@ -26,9 +26,7 @@ A good overview of these features can be found [here](https://hadoop.apache.org/
 
 #include /services/include/security-transport-encryption-clients.tmpl
 
-<!--
-TO BE CONFIRMED
-*Note*: It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavilable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to true. -->
+
 
 ## Authentication
 
