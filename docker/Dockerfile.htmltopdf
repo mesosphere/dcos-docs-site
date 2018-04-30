@@ -29,8 +29,8 @@ RUN GIT_BRANCH=$git_branch
 #
 # Lint images and markdown # This are turned off and to be moved to checkout pipeline
 #
-#RUN make check-images
-#RUN make check-markdown
+# RUN make check-images
+# RUN make check-markdown
 
 #
 # Build PDF

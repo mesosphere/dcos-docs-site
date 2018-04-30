@@ -270,6 +270,7 @@ ls -la "${OUTPUT_FOLDER}"
 
 #
 # Clean the previous pdf
+#
 cleanVersion "${LATEST_MDFILES}"
 
 selectFolder "${CHANGED_FILES}" "${PAGES_DIR}"
