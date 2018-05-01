@@ -9,13 +9,11 @@ menuWeight: 55
 
 DC/OS provides a platform for running complex distributed systems both for Big Data applications and also custom containerized applications. But what happens if your application keeps failing? Debugging in distributed systems is always difficult and while DC/OS provides a number of tools for debugging, it might be difficult to choose which of these tools to apply in which situation.
 
-This tutorial provides an overview to debugging applications and their deployments on DC/OS.
+This tutorial provides an overview to debugging applications and their deployments on DC/OS. As such, it should not be considered an exhaustive resource for debugging on DC/OS, but rather a starting point.
 
-This tutorial should not be considered an exhaustive resource for debugging on DC/OS, but rather a starting point.
+You should have a working knowledge of DC/OS in order to complete this tutorial. However, if needed there are plenty of other [tutorials to get you up and running](/1.11/tutorials/).
 
-You should have a working knowledge of DC/OS in order to complete this tutorial. There are plenty of other [tutorials](/1.11/tutorials/) to get you up and running with DC/OS.
-
-Expecting failures and preparing for it, is probably to most important tip for working with distributed system (and as such also a design criteria for DC/OS). So a few of the most important steps are – hopefully – happening before the actual debugging:
+It is helpful to keep in mind that failures are to be expected when working with distributed systems. Many components must be configured to work together, and this takes detailed preparation and awareness during installation and initial configuration. Fortunately, it also means a few of the most important steps can be taken care of before any debugging is necessary:
 
 - [Design your applications for debuggability](https://schd.ws/hosted_files/mesosconeu17/a6/MesosCon%20EU%202017%20University%20Slides.pdf)
 - [Follow best practices for deployments](https://mesosphere.com/blog/improving-your-deployments/)
@@ -37,7 +35,7 @@ The range of problems that can be encountered and require debugging is far too l
 - Restarting repeatedly
 - Not being reachable inside (or outside) of the DC/OS cluster
 
-DC/OS consists of [a number of different components](https://docs.mesosphere.com/1.11/overview/architecture/components/) - most notably [Apache Mesos](http://mesos.apache.org/) and Marathon(https://mesosphere.github.io/marathon/). As any of these components could be involved in the issue you are encountering, it might be difficult to even locate the component causing the issue. Accordingly, this tutorial aims to cover several types of such issues.
+DC/OS consists of [a number of different components](https://docs.mesosphere.com/1.11/overview/architecture/components/) - most notably [Apache Mesos](http://mesos.apache.org/) and [Marathon](https://mesosphere.github.io/marathon/). As any of these components could be involved in the issue you are encountering, it might be difficult to even locate the component causing the issue. Accordingly, this tutorial aims to cover several types of such issues.
 
 Of course, there are a myriad of other potential sorts of problems that can affect your cluster besides application failures: networking problems, DC/OS installation issues, and DC/OS internal configuration issues could each be causing issues on your cluster. These are unfortunately out of scope for this tutorial, but we encourage you to reach out via our [Community channels](https://dcos.io/community/) with ideas and feedback.
 
@@ -71,9 +69,9 @@ While DC/OS provide a set of different UIs for various components, these are par
 
 - [DC/OS UI](#dcos-ui)
 
-- Mesos UI(#mesos-ui)
+- [Mesos UI](#mesos-ui)
 
-- Zookeeper/Exhibitor UI(#zoo-ui)
+- [Zookeeper/Exhibitor UI](#zoo-ui)
 
 <a name="dcos-ui"></a>
 
@@ -100,6 +98,32 @@ Despite the DC/OS UI showing most of the information that you’d need for debug
 ### ZooKeeper UI
 
 [Pic of ZooKeeper/Exhibitor UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
+
+
+<a name="logs"></a>
+
+## Logs
+
+<a name="metrics"></a>
+
+## Metrics
+
+<a name="interactive"></a>
+
+## Interactive
+
+<a name="endpoints"></a>
+
+## HTTP Endpoints
+
+<a name="community-tool"></a>
+
+## Community
+
+<a name="other-tools"></a>
+
+## Other Tools
+
 
 
 
