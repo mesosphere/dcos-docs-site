@@ -51,17 +51,17 @@ In particular we discuss:
 
 - [DC/OS UIs](#dcos-uis)
 
-- Logs
+- [Logs](#logs)
 
-- Metrics
+- [Metrics](#metrics)
 
-- Debugging Tasks Interactively
+- [Debugging Tasks Interactively](#interactive)
 
-- HTTP Endpoints
+- [HTTP Endpoints](#endpoints)
 
-- Community
+- [Community](#community-tool)
 
-- Other tools
+- [Other tools](#other-tools)
 
 <a name="dcos-uis"></a>
 
@@ -71,25 +71,31 @@ While DC/OS provide a set of different UIs for various components, these are par
 
 - [DC/OS UI](#dcos-ui)
 
-- Mesos UI
+- Mesos UI(#mesos-ui)
 
-- Zookeeper/Exhibitor UI
+- Zookeeper/Exhibitor UI(#zoo-ui)
 
 <a name="dcos-ui"></a>
+
+### DC/OS UI
 
 The **DC/OS UI** is a great place to start debugging as it provides quick access to:
 
 - **Cluster Resource Allocation** to provide an overview of available cluster resources
 - **Task Logs** to provide insight into tasks failures
-- **Task Debug Information** about the most recent task offers and/or why a task did not start
+- **Task Debug Information** to provide information about the most recent task offers and/or why a task did not start
 
 [Pic of DC/OS UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+
+<a name="mesos-ui"></a>
 
 ### Mesos UI
 
 Despite the DC/OS UI showing most of the information that you’d need for debugging, sometimes accessing the Mesos UI itself can be helpful, for example when checking failed tasks or registered frameworks. The Mesos UI can be accessed via https://<cluster>/mesos.
 
 [Pic of Mesos UI](https://mesosphere.com/wp-content/uploads/2018/04/Screen-Shot-2018-04-15-at-17.56.16.png)
+
+<a name="zoo-ui"></a>
 
 ### ZooKeeper UI
 
