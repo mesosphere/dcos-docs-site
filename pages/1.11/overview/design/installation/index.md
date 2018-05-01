@@ -1,20 +1,19 @@
 ---
 layout: layout.pug
-excerpt:
-title: >
-    Design: Installation
+excerpt: Understanding how the installation process works
+title: Design: Installation
 navigationTitle: Installation
 menuWeight: 4
 ---
 
-Building, installing and operating DC/OS must be a repeatable process. Even small error rates are unacceptable when you’re working with 10,000 hosts. Because DC/OS is comprised of more than 30 different libraries, services and support packages, a non-standard approach is required. Trying to treat each of those components as independent artifacts to install and configure on target hosts would introduce failures that would get in the way of relying on the system.
+Building, installing and operating DC/OS must be a repeatable process. Even small error rates are unacceptable when you’re working with 10,000 hosts. Because DC/OS comprises more than 30 different libraries, services and support packages, a non-standard approach is required. Trying to treat each of those components as independent artifacts to install and configure on target hosts would introduce failures that would get in the way of relying on the system.
 
 Inspired by the approaches of many mature operating systems, it is possible to build a system that is bulletproof. Once the build process is complete, you end up with a single artifact that contains all the components required to install and run. This looks very similar to the ISO that you end up using to install your favorite Linux distribution.
 
-Having a single artifact allows us to make some assumptions and guarantees. 
+Having a single artifact allows us to make some assumptions and guarantees.
 
-- The bits are identical on every host, they just have different roles and use a different subset of components. 
-- Upgrades are atomic and don’t end up having odd component incompatibilities. 
+- The bits are identical on every host, they just have different roles and use a different subset of components.
+- Upgrades are atomic and don’t end up having odd component incompatibilities.
 - Downloads do not depend on multiple different sources since there is just a single file that is trivial to verify for completion and corruption.
 
 
