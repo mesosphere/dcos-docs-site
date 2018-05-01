@@ -37,7 +37,7 @@ These components are divided across multiple node types:
 - Private Agent Nodes
 - Public Agent Nodes
 
-For DC/OS to be installed, each node must already be provisioned with one of the supported host operating systems.
+To install DC/OS, you must first provision each node with one of the supported host operating systems.
 
 For more information, see [Components](/1.11/overview/architecture/components/), [Node Types](/1.11/overview/architecture/node-types/), and [Host Operating System](/1.11/overview/concepts/#host-operating-system).
 
