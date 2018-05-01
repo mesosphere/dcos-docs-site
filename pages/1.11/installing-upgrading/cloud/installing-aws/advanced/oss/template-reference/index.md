@@ -9,16 +9,16 @@ menuWeight: 10
 These advanced template parameters are specified in the individual JSON files. During DC/OS installation these template files are used to generate a customized DC/OS build.
 
 #### [Zen](#zen) template
-The [Zen](/1.11/installing/oss/cloud/aws/advanced/template-reference/#zen) templates orchestrate the individual component templates to create a DC/OS cluster.
+The [Zen](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/template-reference/#zen) templates orchestrate the individual component templates to create a DC/OS cluster.
 
 #### Agent template
-The [agent](/1.11/installing/oss/cloud/aws/advanced/template-reference/#private-agent) templates create [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup.
+The [agent](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/template-reference/#private-agent) templates create [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup.
 
 #### Master template
-The [master](/1.11/installing/oss/cloud/aws/advanced/template-reference/#master) templates create master nodes, on top of the infrastructure stack already created.
+The [master](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/template-reference/#master) templates create master nodes, on top of the infrastructure stack already created.
 
 #### Infrastructure template
-The [infrastructure](/1.11/installing/oss/cloud/aws/advanced/template-reference/#infrastructure) template defines and creates a DC/OS specific infrastructure that works well with an existing VPC.
+The [infrastructure](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/template-reference//#infrastructure) template defines and creates a DC/OS specific infrastructure that works well with an existing VPC.
 
 
 ## <a name="zen"></a>Zen
