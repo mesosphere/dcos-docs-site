@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
-excerpt: Getting started with DC/oS logging
+excerpt: Getting started with DC/OS logging
 preview: true
 ---
 
@@ -93,7 +93,7 @@ You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `
     Thu Dec 15 00:51:31 2016 ip-10-0-1-177.us-west-2.compute.internal Command Executor (Task: test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd) (Command: sh -c 'while true;d...') [7131] stdout
     ```
 
-# View the Mesos and DC/OS logs 
+# View the Mesos and DC/OS logs
 
 You can view logs from tasks or the host subsystem with the `dcos node log` command.
 
