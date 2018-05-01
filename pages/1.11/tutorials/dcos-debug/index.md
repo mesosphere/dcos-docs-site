@@ -23,7 +23,7 @@ It is helpful to keep in mind that failures are to be expected when working with
 - [Follow best practices for deployments](https://mesosphere.com/blog/improving-your-deployments/)
 - [Set up monitoring and alerts so you can resolve issues as early as possible](https://docs.mesosphere.com/1.10/cli/command-reference/dcos-node/dcos-node-diagnostics/)
 
- We will first look at [some potential problems](#problems) you might face when deploying an application on DC/OS. Next, we will look at the [standard set of tools](#tools) for debugging. Then, after introducing [a general strategy for using those tools](#strategy), we have two [concrete examples](#examples) to illustrate how the strategy works in practice.
+ We will first look at [some potential problems](#problems) you might face when deploying an application on DC/OS. Next, we will look at the [standard set of tools](#tools) for debugging. Then, after introducing [a general strategy for using those tools](#strategy), we have two [concrete examples](#hands-on) to illustrate how the strategy works in practice.
 
 We encourage everyone to first try debugging these challenges yourself, but we also provide detailed guidance for debugging them.
 
@@ -316,59 +316,72 @@ There are other debugging tools as well, both [internal to DC/OS](/1.11/monitori
 
 At this point, you’re probably thinking “That’s a great set of tools, but how do I know which tool to apply for any given problem?”
 
-First, let’s take a look at a general strategy for troubleshooting on DC/OS. Then, let’s dive into some more concrete examples of how to apply this strategy in the hands-on section below.
+First, let’s take a look at a general strategy for troubleshooting on DC/OS. Then, let’s dive into some more concrete examples of how to apply this strategy in the [hands-on section](#hands-on) below.
 
 If there is no additional information, a reasonable approach is to consider the potential problem sources in the following order:
 
-1. Task Logs
-1. Scheduler
-1. Mesos Agent
-1. Task interactive
-1. Master
-1. Community
+- 1. [Check Task Logs](#task-strat)
+- 1. [Check Scheduler Logs](#schedule-strat)
+- 1. [Check Agent Logs](#agent-strat)
+- 1. [Test Task Interactively](#interactive-strat)
+- 1. [Master](#master-strat)
+- 1. [Community](#community-strat)
 
-### Task Logs
+<a name="task-strat"></a>
 
-Start by examining the GUI (or use the CLI) to check the status of the task.
+### Step 1: Check Task Logs
 
-If the task defines a health check, it’s also a good idea to check the task’s health status.
+Start by examining the GUI (or use the CLI) to [check the status](/latest/deploying-services/task-handling/) of the task.
 
-Next, checking the task logs, either via the DC/OS UI or the CLI, helps us to understand what might have happened to the application. If the issue is related to our app not deploying (i.e., the task status is waiting) looking at the Debug UI might be helpful to understand the resources being offered by Mesos.
+If the task has an associated [health check](/latest/deploying-services/creating-services/health-checks/), it’s also a good idea to check the task’s health status.
 
-### Scheduler
+Next, checking the task logs, either via the DC/OS UI or the CLI, helps us to understand what might have happened to the application. If the issue is related to our app not deploying (i.e., the task status is waiting) looking at the ['Debug' page](/1.10/monitoring/debugging/gui-debugging/#debugging-page) might be helpful to understand the resources being offered by Mesos.
+
+<a name="schedule-strat"></a>
+
+### Step 2: Check Scheduler Logs
 
 If there is a deployment problem, it can be helpful to double check the app definition and then check the Marathon UI or log to figure out how it was scheduled or why not.
 
-### Mesos Agent
+<a name="agent-strat"></a>
+
+### Step 3: Check Agent Logs
 
 The Mesos Agent logs provide information regarding how the task (and its environment) is being started. Recall that increasing the log level might be helpful in some cases.
 
-### Task Interactive
+<a name="interactive-strat"></a>
 
-The next step is to interactively look at the task running inside the container. If the task is still running dcos task exec or docker exec  are helpful to start an interactive debugging session. If the application is based on a Docker container image, manually starting it using docker run and then using docker exec can also be helpful.
+### Step 4: Test Task Interactively
 
-### Mesos Master
+The next step is to interactively look at the task running inside the container. If the task is still running, `dcos task exec` or `docker exec` can be helpful to start an interactive debugging session. If the application is based on a Docker container image, manually starting it using `docker run` followed by `docker exec` can also get you started in the right direction.
+
+<a name="master-strat"></a>
+
+### Step 5: Check Master Logs
 
 If you want to understand why a particular scheduler has received certain resources or a particular status, then the master logs can be very helpful. Recall that the master is forwarding all status updates between the agents and scheduler, so it might even be helpful in cases where the agent node might not be reachable (for example, network partition or node failure).
+
+<a name="community-strat"></a>
 
 ### Community
 As mentioned above, the community, either using the DC/OS slack or the mailing list can be very helpful in debugging further.
 
 <!-- IV. Hands On Examples Section -->
 
-<a name=examples></a>
+<a name=hands-on></a>
 
 # Hands On: Debugging Application Deployment on DC/OS
 
 Now it’s time to apply our new knowledge and start debugging! We encourage you to try to solve these exercises by yourself before skipping to the solution.
-
 
 #### Prerequisites
 
 - running [DC/OS cluster](/1.11/installing/oss/)
 - configured [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/)
 
-Note that these exercises require a running [DC/OS cluster](/1.11/installing/oss/) and a configured [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/). Please note that we are using a cluster with 4 private agents and 1 public agent *that is not running any workloads prior to this challenge*. Therefore, of course, your results may vary if use a different cluster setup.
+Note that these exercises require a running [DC/OS cluster](/1.11/installing/oss/) and a configured [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/). Further note that we are using a cluster with 4 private agents and 1 public agent *that is not running any workloads prior to this challenge*. Therefore, of course, your results may vary if use a different cluster setup.
+
+<a name=c1></a>
 
 ## Challenge 1: Resources
 
@@ -475,3 +488,9 @@ Remove the app with:
 `$ dcos marathon app remove /app-scaling-1`
 
 End Challenge 1.
+
+<a name=c2></a>
+
+## Challenge 2: Out of Memory
+
+#### Setup
