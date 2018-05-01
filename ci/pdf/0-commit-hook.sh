@@ -23,7 +23,7 @@ ci/pdf/1-setup-env.sh
 LATEST_MDFILES=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep \.md)
 export LATEST_MDFILES
 
-echo " Logging all envs down below"
+echo " Logging all envs down below "
 printenv
 # Settings values to upload the right directories
 #FULLDATE_LAST_SUCCESSFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}" --format=%ci)
@@ -35,8 +35,8 @@ export GIT_HASH_TRIM
 export DATE_LAST_SUCCESSFUL_COMMIT
 
 # Setting the date of the last succesfull build
-# JOB_NAME=""
-# LAST_S_BUILD="https://jenkins-docs.mesosphere.com/job/${JOB_NAME}/api/json?tree=timestamp"
+JOB_NAME=${JOB_NAME}
+LAST_SUCCESSFUL_BUILD="https://jenkins-docs.mesosphere.com/job/${JOB_NAME}/api/json?tree=timestamp"
 
 ci/pdf/2-build-pdf-image.sh
 DOCKER_IMAGE="$(cat ".pdf-image")"

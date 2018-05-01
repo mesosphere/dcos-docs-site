@@ -260,18 +260,11 @@ function main
 PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 
 # get the files and output it to Previous_pdf_bundle destination
-# if the dowload is empty then
-# if the number is 30
-# DATE=0000-00-01
-# if curl --output "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" --silent --head --fail; then
 
-#   curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+echo curl -o ${LAST_SUCCESSFUL_BUILD}
 
-# else
+curl -o "dcos-docs-pdf-bundle-develop-2014-04-24-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
 
-#   DATE_LAST_SUCCESSFUL_COMMIT=${DATE_LAST_SUCCESSFUL_COMMIT}+${DATE}
-#   curl -o "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
-# fi
 echo "directory here"
 pwd
 echo "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
