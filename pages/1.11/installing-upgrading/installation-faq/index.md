@@ -13,13 +13,13 @@ excerpt:
 We recommend starting with a fresh cluster to ensure all defaults are set to expected values. This prevents unexpected conditions related to mismatched versions and configurations.
 
 ## Q. What are the OS requirements of DC/OS?
-See the [system requirements](/1.11/installing/ent/custom/system-requirements/).
+See the [system requirements](/1.11/installing-upgrading/custom/system-requirements/).
 
 ## Q. Does DC/OS install ZooKeeper, or can I use my own ZooKeeper quorum?
 DC/OS runs its own ZooKeeper supervised by Exhibitor and systemd, but users are able to create their own ZooKeeper quorums as well. The ZooKeeper quorum installed by default will be available at `master.mesos:[2181|2888|3888]`.
 
 ## Q. Is it necessary to maintain a bootstrap node after the cluster is created?
-If you specify an Exhibitor storage backend type other than `exhibitor_storage_backend: static` in your cluster configuration [file](/1.11/installing/ent/custom/configuration/configuration-parameters/), you must maintain the external storage for the lifetime of your cluster to facilitate leader elections. If your cluster is mission critical, you should harden your external storage by using S3 or running the bootstrap ZooKeeper as a quorum. Interruptions of service from the external storage can be tolerated, but permanent loss of state can lead to unexpected conditions.
+If you specify an Exhibitor storage backend type other than `exhibitor_storage_backend: static` in your cluster configuration [file](/1.11/installing-upgrading/custom/configuration/configuration-parameters/), you must maintain the external storage for the lifetime of your cluster to facilitate leader elections. If your cluster is mission critical, you should harden your external storage by using S3 or running the bootstrap ZooKeeper as a quorum. Interruptions of service from the external storage can be tolerated, but permanent loss of state can lead to unexpected conditions.
 
 ## Q. How to add Mesos attributes to nodes to use Marathon constraints?
 
@@ -74,7 +74,7 @@ oauth_enabled: 'false'
 
 You can opt-out of providing anonymous data by disabling telemetry for your cluster. To disable telemetry, you can either:
 
-- Add this parameter to your [`config.yaml`][4] file during installation (note this requires using the [CLI][1] or [advanced][2] installers):
+- Add this parameter to your [`config.yaml`][3] file during installation (note this requires using the [CLI][1] or [advanced][2] installers):
 
     ```yaml
     telemetry_enabled: 'false'
@@ -86,9 +86,9 @@ Or
 
 Note that if you’ve already installed your cluster and would like to disable this in-place, you can go through an [upgrade][3] with the same parameter set.
 
-[1]: /1.11/installing/oss/custom/cli/
-[2]: /1.11/installing/oss/custom/advanced/
-[3]: /1.11/installing/oss/custom/configuration/configuration-parameters/
-[4]: /1.11/installing/oss/custom/configuration/configuration-parameters/
+[1]: /1.11/installing-upgrading/custom/cli-installer/
+[2]: /1.11/installing-upgrading/custom/advanced-installer/
+[3]: /1.11/installing-upgrading/custom/configuration/configuration-parameters/
+
 
 

@@ -53,7 +53,7 @@ The DC/OS installation creates these folders:
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
 # Prerequisites
-Your cluster must meet the software and hardware [requirements](/1.11/installing/oss/custom/system-requirements/).
+Your cluster must meet the software and hardware [requirements](/1.11/installing-upgrading/custom/system-requirements/).
 
 ## Configure your cluster
 
@@ -69,7 +69,7 @@ Your cluster must meet the software and hardware [requirements](/1.11/installing
 
     **Important:**
 
-    - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing/oss/custom/uninstall/).
+    - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing-upgrading/custom/uninstall/).
     - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
     Create an IP detect script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line. You can use the examples below.
@@ -199,7 +199,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 **Important:**
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.11/installing/oss/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.11/installing-upgrading/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][7].
 
 To install DC/OS:
@@ -399,10 +399,10 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
     ```
 
  [2]: /1.11/cli/install/
- [4]: /1.11/installing/oss/custom/system-requirements/
+ [4]: /1.11/installing-upgrading/custom/system-requirements/
  [5]: https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
- [6]: /1.11/installing/oss/custom/configuration/configuration-parameters/
- [7]: /1.11/installing/oss/custom/uninstall/
- [9]: /1.11/installing/oss/troubleshooting/
+ [6]: /1.11/installing-upgrading/custom/configuration/configuration-parameters/
+ [7]: /1.11/installing-upgrading/custom/uninstall/
+ [9]: /1.11/installing-upgrading/troubleshooting/
  [10]: /1.11/security/ent/users-groups/
  [11]: /1.11/administering-clusters/convert-agent-type/

@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Running DC/OS on AWS EC2 Basic 
 navigationTitle: Running DC/OS on AWS EC2 Basic
-menuWeight: 1
+menuWeight: 10
 excerpt:
 
 enterprise: true
@@ -12,7 +12,7 @@ You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS 
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing/ent/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing-upgrading/cloud/installing-aws/advanced/ent/).
 
 **Important:** Upgrades are not supported with this installation method.
 

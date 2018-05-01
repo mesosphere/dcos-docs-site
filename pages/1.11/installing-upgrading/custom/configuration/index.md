@@ -9,7 +9,7 @@ excerpt:
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The DC/OS configuration parameters are specified in YAML format in a config.yaml file. This file is stored on your [bootstrap node](/1.11/installing/ent/custom/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
+The DC/OS configuration parameters are specified in YAML format in a config.yaml file. This file is stored on your [bootstrap node](/1.11/installing-upgrading/custom/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
 
 **Important:** If you want to modify the configuration file after installation, you must follow the [DC/OS upgrade process](/1.11/installing/ent/upgrading/). 
 
@@ -58,22 +58,22 @@ Some parameters are dependent on others. These dependent parameters are ignored 
 
 | Parameter                              | Description                                                                                                                                               |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [agent_list](/1.11/installing/ent/custom/configuration/configuration-parameters/#agent-list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.11/overview/concepts/#private-agent-node) host names.                  |
-| [bootstrap_url](/1.11/installing/ent/custom/configuration/configuration-parameters/#bootstrap-url)                          | This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files.                                         |
-| [cluster_name](/1.11/installing/ent/custom/configuration/configuration-parameters/#cluster-name)                           | This parameter specifies the name of your cluster.    |
-| [customer_key](/1.11/installing/ent/custom/configuration/configuration-parameters/#customer-key)                  | [enterprise type="inline" size="small" /] This parameter specifies the DC/OS Enterprise customer key.   |
-| [exhibitor_storage_backend](/1.11/installing/ent/custom/configuration/configuration-parameters/#exhibitor-storage-backend)         | This parameter specifies the type of storage backend to use for Exhibitor.          |
-| [master_discovery](/1.11/installing/ent/custom/configuration/configuration-parameters/#master-discovery)                          | This required parameter specifies the Mesos master discovery method.         |
-| [public_agent_list](/1.11/installing/ent/custom/configuration/configuration-parameters/#public-agent-list)       | This parameter specifies a YAML nested list (-) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.    |
-| [resolvers](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers)       | This required parameter specifies a block of YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.   |
-| [security](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)                           | [enterprise type="inline" size="small" /] This parameter specifies the security mode: disabled, permissive, strict.  |
-| [ssh_port](/1.11/installing/ent/custom/configuration/configuration-parameters/#ssh-port)                           | This parameter specifies the port to SSH to, for example 22.          |
-| [ssh_user](/1.11/installing/ent/custom/configuration/configuration-parameters/#ssh-user)                           | This parameter specifies the SSH username, for example `centos`.     |
-| [superuser_password_hash](/1.11/installing/ent/custom/configuration/configuration-parameters/#superuser-password-hash)            | [enterprise type="inline" size="small" /] This required parameter specifies the hashed superuser password.      |
-| [superuser_username](/1.11/installing/ent/custom/configuration/configuration-parameters/#superuser-username)               | [enterprise type="inline" size="small" /] This required parameter specifies the user name of the superuser.    |
-| [use_proxy](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)        | This parameter specifies whether to enable the DC/OS proxy.     |
+| [agent_list](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#agent-list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.11/overview/concepts/#private-agent-node) host names.                  |
+| [bootstrap_url](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#bootstrap-url)                          | This required parameter specifies the URI path for the DC/OS installer to store the customized DC/OS build files.                                         |
+| [cluster_name](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#cluster-name)                           | This parameter specifies the name of your cluster.    |
+| [customer_key](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#customer-key)                  | [enterprise type="inline" size="small" /] This parameter specifies the DC/OS Enterprise customer key.   |
+| [exhibitor_storage_backend](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#exhibitor-storage-backend)         | This parameter specifies the type of storage backend to use for Exhibitor.          |
+| [master_discovery](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#master-discovery)                          | This required parameter specifies the Mesos master discovery method.         |
+| [public_agent_list](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#public-agent-list)       | This parameter specifies a YAML nested list (-) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.    |
+| [resolvers](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#resolvers)       | This required parameter specifies a block of YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.   |
+| [security](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#security-enterprise)                           | [enterprise type="inline" size="small" /] This parameter specifies the security mode: disabled, permissive, strict.  |
+| [ssh_port](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#ssh-port)                           | This parameter specifies the port to SSH to, for example 22.          |
+| [ssh_user](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#ssh-user)                           | This parameter specifies the SSH username, for example `centos`.     |
+| [superuser_password_hash](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#superuser-password-hash)            | [enterprise type="inline" size="small" /] This required parameter specifies the hashed superuser password.      |
+| [superuser_username](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#superuser-username)               | [enterprise type="inline" size="small" /] This required parameter specifies the user name of the superuser.    |
+| [use_proxy](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#use-proxy)        | This parameter specifies whether to enable the DC/OS proxy.     |
 
 
 # Advanced settings
 
-See the [configuration reference](/1.11/installing/ent/custom/configuration/configuration-parameters/) and [examples](/1.11/installing/ent/custom/configuration/examples/).
+See the [configuration reference](/1.11/installing-upgrading/custom/configuration/configuration-parameters) and [examples](/1.11/installing-upgrading/custom/configuration/examples/).

@@ -53,7 +53,7 @@ The DC/OS installation creates these folders:
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
 # Prerequisites
-Your cluster must meet the software and hardware [requirements](/1.11/installing/oss/custom/system-requirements/).
+Your cluster must meet the software and hardware [requirements](/1.11/installing-upgrading/custom/system-requirements/).
 
 ## Configure your cluster
 
@@ -181,7 +181,7 @@ Your cluster must meet the software and hardware [requirements](/1.11/installing
 In this step you create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you package the DC/OS distribution yourself and connect to every server manually and run the commands.
 
 **Important:**
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.11/installing/oss/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.11/installing-upgrading/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][8].
 
 **Prerequisites**
@@ -303,11 +303,11 @@ To install DC/OS:
 - [Troubleshooting DC/OS installation][9]
 - [Uninstalling DC/OS][8]
 
-[1]: /1.11/installing/oss/custom/configuration/configuration-parameters/
+[1]: /1.11/installing-upgrading/custom/configuration/configuration-parameters/
 [2]: /1.11/cli/install/
 [4]: https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
 [6]: /1.11/overview/concepts/#public-agent-node
 [7]: /1.11/overview/concepts/#private-agent-node
-[8]: /1.11/installing/oss/custom/uninstall/
-[9]: /1.11/installing/oss/troubleshooting/
+[8]: /1.11/installing-upgrading/custom/uninstalling/
+[9]: /1.11/installing-upgrading/troubleshooting/
 [10]: /1.11/security/ent/users-groups/

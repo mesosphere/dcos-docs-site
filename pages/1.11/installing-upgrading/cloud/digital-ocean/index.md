@@ -103,7 +103,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
     ![terraform apply output](/1.11/img/digitalocean_terraform_output.png)
 
-You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, you'll want to check out the [troubleshooting](/1.11/installing/oss/troubleshooting/) documentation.
+You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, you'll want to check out the [troubleshooting](/1.11/installing-upgrading/troubleshooting) documentation.
 
 # Launch DC/OS
 Launch the DC/OS web interface by entering the Mesos master IP address:

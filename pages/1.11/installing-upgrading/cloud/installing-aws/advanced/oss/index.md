@@ -29,7 +29,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 - An AWS EC2 Key Pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 Key Pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
 - The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation)
-* A node that meets the bootstrap node [system requirements](/1.11/installing/oss/custom/system-requirements/).
+* A node that meets the bootstrap node [system requirements](/1.11/installing-upgrading/custom/system-requirements/).
 * An AWS S3 bucket with read-write access.
     * The S3 bucket must have a bucket policy that allows the launched AWS instances to download the files from the S3 bucket. Here is a sample policy that allows anyone to download:
     
@@ -153,13 +153,13 @@ Use the `zen.sh` script to create the Zen template dependencies. These dependenc
 ## <a name="launch"></a>Launch the DC/OS advanced template on CloudFormation
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
-1.  On the **Select Template** page, upload the [Zen](/1.11/installing/oss/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json`) from your workstation and click **Next**.
+1.  On the **Select Template** page, upload the [Zen](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json`) from your workstation and click **Next**.
 1.  On the **Specify Details** page, specify these values and and click **Next**.
 
     ![AWS UI](/1.11/img/aws-advanced-1.png)
 
     *  **Stack name** Specify the cluster name.
-    *  **CustomAMI** Optional: Specify the AMI ID. For more information, see [Installing Using a Custom AMI](/1.11/installing/oss/cloud/aws/advanced/aws-ami).
+    *  **CustomAMI** Optional: Specify the AMI ID. For more information, see [Installing Using a Custom AMI](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/aws-ami/).
     *  **InternetGateway** Specify the `InternetGatewayID` output value from the `zen.sh` script. The Internet Gateway ID must be attached to the VPC. This Internet Gateway will be used by all nodes for outgoing internet access.
     *  **KeyName** Specify your AWS EC2 Key Pair.
     *  **MasterInstanceType** Specify the AWS EC2 instance type. The <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance type is recommended.
@@ -221,7 +221,7 @@ Now that your advanced template DC/OS installation is up and running you can add
 
 ### Add more agent nodes
 
-You can add more agent nodes by creating a new stack by using the [private agent](/1.11/installing/oss/cloud/aws/advanced/template-reference/#private-agent) or [public agent](/1.11/installing/oss/cloud/aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
+You can add more agent nodes by creating a new stack by using the [private agent](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/template-reference/#private-agent) or [public agent](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
 
 Use the output values from the `zen.sh` script and your Master and Infra stacks. These new agent nodes will automatically be added to your DC/OS cluster.
 
@@ -244,6 +244,6 @@ Public agents:
 *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents.
 
 ### Template reference
-For the complete advanced configuration options, see the template reference [documentation](/1.11/installing/oss/cloud/aws/advanced/template-reference/).
+For the complete advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/installing-aws/advanced/oss/template-reference/).
 
  [2]: /1.11/cli/install/

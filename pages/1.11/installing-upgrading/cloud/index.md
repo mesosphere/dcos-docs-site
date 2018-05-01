@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: DC/OS Cloud Installation Options
 title: DC/OS Cloud Installation Options
-menuWeight: 1
+menuWeight: 0
 excerpt:
 ---
 
@@ -31,6 +31,6 @@ Not all clouds have template support, but not worry, you can still configure the
 
 - [Custom Installation Guides][3]
 
-[1]: /1.11/installing/oss/cloud/aws/
-[2]: /1.11/installing/oss/cloud/azure/
-[3]: /1.11/installing/oss/custom/
+[1]: /1.11/installing-upgrading/cloud/installing-aws/
+[2]: /1.11/installing-upgrading/cloud/azure/
+[3]: /1.11/installing-upgrading/custom/
