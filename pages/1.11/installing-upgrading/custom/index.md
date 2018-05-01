@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: DC/OS Custom Installation Options
-navigationTitle: Custom
+title: Custom Installation 
+navigationTitle: Custom Installation
 menuWeight: 5
 
 ent: true

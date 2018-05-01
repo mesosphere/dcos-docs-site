@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  High Availability
 excerpt:
 title: High Availability
-menuWeight: 1
+menuWeight: 20
 ---
 
 This document discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
