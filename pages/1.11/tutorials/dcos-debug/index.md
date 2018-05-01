@@ -320,16 +320,16 @@ First, let’s take a look at a general strategy for troubleshooting on DC/OS. T
 
 If there is no additional information, a reasonable approach is to consider the potential problem sources in the following order:
 
-- 1. [Check Task Logs](#task-strat)
-- 1. [Check Scheduler Logs](#schedule-strat)
-- 1. [Check Agent Logs](#agent-strat)
-- 1. [Test Task Interactively](#interactive-strat)
-- 1. [Master](#master-strat)
-- 1. [Community](#community-strat)
+- 1: [Check Task Logs](#task-strat)
+- 2: [Check Scheduler Logs](#schedule-strat)
+- 3: [Check Agent Logs](#agent-strat)
+- 4: [Test Task Interactively](#interactive-strat)
+- 5: [Master](#master-strat)
+- 6: [Community](#community-strat)
 
 <a name="task-strat"></a>
 
-### Step 1: Check Task Logs
+## Step 1: Check Task Logs
 
 Start by examining the GUI (or use the CLI) to [check the status](/latest/deploying-services/task-handling/) of the task.
 
@@ -339,32 +339,32 @@ Next, checking the task logs, either via the DC/OS UI or the CLI, helps us to un
 
 <a name="schedule-strat"></a>
 
-### Step 2: Check Scheduler Logs
+## Step 2: Check Scheduler Logs
 
 If there is a deployment problem, it can be helpful to double check the app definition and then check the Marathon UI or log to figure out how it was scheduled or why not.
 
 <a name="agent-strat"></a>
 
-### Step 3: Check Agent Logs
+## Step 3: Check Agent Logs
 
 The Mesos Agent logs provide information regarding how the task (and its environment) is being started. Recall that increasing the log level might be helpful in some cases.
 
 <a name="interactive-strat"></a>
 
-### Step 4: Test Task Interactively
+## Step 4: Test Task Interactively
 
 The next step is to interactively look at the task running inside the container. If the task is still running, `dcos task exec` or `docker exec` can be helpful to start an interactive debugging session. If the application is based on a Docker container image, manually starting it using `docker run` followed by `docker exec` can also get you started in the right direction.
 
 <a name="master-strat"></a>
 
-### Step 5: Check Master Logs
+## Step 5: Check Master Logs
 
 If you want to understand why a particular scheduler has received certain resources or a particular status, then the master logs can be very helpful. Recall that the master is forwarding all status updates between the agents and scheduler, so it might even be helpful in cases where the agent node might not be reachable (for example, network partition or node failure).
 
 <a name="community-strat"></a>
 
-### Community
-As mentioned above, the community, either using the DC/OS slack or the mailing list can be very helpful in debugging further.
+## Step 6:  Community
+As mentioned above, the community, either using the DC/OS Slack or the mailing list can be very helpful in debugging further.
 
 <!-- IV. Hands On Examples Section -->
 
@@ -374,18 +374,20 @@ As mentioned above, the community, either using the DC/OS slack or the mailing l
 
 Now it’s time to apply our new knowledge and start debugging! We encourage you to try to solve these exercises by yourself before skipping to the solution.
 
-#### Prerequisites
+## Prerequisites
 
 - running [DC/OS cluster](/1.11/installing/oss/)
+    - 4 private agent nodes
+    - 1 public agent node
 - configured [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/)
 
 Note that these exercises require a running [DC/OS cluster](/1.11/installing/oss/) and a configured [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/). Further note that we are using a cluster with 4 private agents and 1 public agent *that is not running any workloads prior to this challenge*. Therefore, of course, your results may vary if use a different cluster setup.
 
 <a name=c1></a>
 
-## Challenge 1: Resources
+## Challenge 1: Resource Allocation
 
-#### Setup
+### Setup
 
 For challenge 1 please deploy [this app definition](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json) as follows:
 
@@ -429,7 +431,7 @@ APP             POD  ACTION  PROGRESS  ID
 
 So now we know that some (6/1000) instances of the application have successfully deployed, but the overall deployment status is “Waiting”. But what does this mean?
 
-#### Resolution
+### Resolution
 
 The “Waiting” state means that DC/OS (or more precisely Marathon) is waiting for a suitable resource offer. So it seems to be an deployment issue and we should start by checking the available resources.
 
@@ -445,7 +447,7 @@ We can see that there are no matching CPU resources, but we recall that the over
 
 [Pic of details](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-22.png)
 
-So some of the remaining CPU resources are in a different[Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application which runs in role `*` (which is the default role).
+So some of the remaining CPU resources are in a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application which runs in role '*' (which is the default role).
 
 To check the roles of different resources let us have a look at the state-summary endpoint, which you can access via https://<master-ip>/mesos/state-summary.
 
@@ -475,22 +477,194 @@ The second kind has unused CPU resources, but these resources are reserved in th
 
 We now know that the issue is that there are not enough resources in the desired resource role across the entire cluster. As a solution we could either scale down the application (1000 instances does seem a bit excessive), or we need to add more resources to the cluster.
 
-#### General Pattern
+### General Pattern
 
 If the framework for your app (e.g. Marathon) is not accepting resource offers you should check whether there are sufficient resources available in the respective resource role.
 
-This was a straightforward scenario with too few CPU resources. Typically resource issues are more likely caused by more complex factors - such as improperly configured port resources or placement constraints. Nonetheless, this general workflow still applies.
+This was a straightforward scenario with too few CPU resources. Typically resource issues are more likely caused by more complex factors - such as improperly configured [port resources](/1.11/deploying-services/service-ports/) or [placement constraints](/1.11/deploying-services/marathon-constraints/). Nonetheless, this general workflow pattern still applies.
 
-#### Cleanup
+### Cleanup
 
 Remove the app with:
 
 `$ dcos marathon app remove /app-scaling-1`
 
-End Challenge 1.
+Challenge 1 complete!
 
 <a name=c2></a>
 
 ## Challenge 2: Out of Memory
 
-#### Setup
+### Setup
+
+Deploy the file [`app-oom.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-oom.json):
+
+```bash
+$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
+```
+
+Now when we take a look at the DC/OS GUI, we see some strange results under CPU Allocation:
+
+[Pic of CPU allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-25.png)
+
+How is it that CPU Allocation is oscillating? Let’s take a look at the app details in the GUI:
+
+[Pic of Task tab](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-24.png)
+
+It looks like our app runs for a few seconds and then fails. Let’s find out why.
+
+### Resolution
+
+Let’s start by looking at the app logs, either in the GUI or via the CLI. You can find the app logs in the GUI by :
+
+[Pic of app logs](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-15.png)
+
+The log output “Eating Memory” is a pretty generous hint that the issue might be related to memory, but there is no direct failure message (and you should keep in mind that *most apps are not so friendly as to log that they are eating up memory*).
+
+As suspected, this might be an application-related issue, and this app is scheduled via Marathon. So let’s check the Marathon logs using the CLI:
+
+```bash
+$ dcos service log marathon
+```
+
+One helpful time saving-tip is to `grep` for 'TASK_FAILED'.
+
+We see a log entry similar to:
+
+```bash
+Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [2018-03-27 00:46:36,960] INFO  Acknowledge status update for task app-oom.4af344fa-3158-11e8-b60b-a2f459e14528: TASK_FAILED (Memory limit exceeded: Requested: 64MB Maximum Used: 64MB
+```
+
+**Now we have confirmed that we exceeded the previously set container memory limit in [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6)**
+
+If you’ve been paying close attention you might shout now “wait a sec” because you noticed that the memory limit we set in the app definition is 32 MB, but the error message mentions 64MB. DC/OS automatically reserves some overhead memory for the [executor](/1.11/overview/architecture/task-types/#executors) which in this case is 32 MB.
+
+Please note that OOM `kill` is performed by the Linux kernel itself, hence we can also check the kernel logs directly:
+
+```bash
+dcos node ssh --master-proxy --mesos-id=$(dcos task app-oom --json | jq -r '.[] | .slave_id')
+
+journalctl -f _TRANSPORT=kernel
+
+Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: [ pid ]   uid  tgid total_vm      rss nr_ptes nr_pmds swapents oom_score_adj name
+
+Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: [16846]     0 16846    30939    11021      62       3        0             0 mesos-container
+
+Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: [16866]     0 16866   198538    12215      81       4        0             0 mesos-executor
+
+Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: [16879]     0 16879     2463      596      11       3        0             0 sh
+
+Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: [16883]     0 16883  1143916    14756      52       6        0             0 oomApp
+
+Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: Memory cgroup out of memory: Kill process 16883 (oomApp) score 877 or sacrifice child
+
+Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: Killed process 16883 (oomApp) total-vm:4575664kB, anon-rss:57784kB, file-rss:1240kB, shmem-rss:0kB
+
+Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: oom_reaper: reaped process 16883 (oomApp), now anon-rss:0kB, file-rss:0kB, shmem-rss:0kB
+```
+
+The resolution in such cases is to either increase the resource limits for that container, in case it was configured too low to begin with. Or, as in this case, fix the memory leak in the application itself.
+
+### General Pattern
+
+As we are dealing with a failing task it is good to check the application and scheduler logs (in this case our scheduler is Marathon). If this isn’t sufficient it can help to look at the Mesos Agent logs and/or to use `dcos task exec` when using UCR (or ssh to the node and use `docker exec` when using the Docker containerizer).
+
+### Cleanup
+
+Remove the app with
+
+```bash
+$ dcos marathon app remove /app-oom
+```
+
+Challenge 2 complete!
+
+<a name="c3"></a>
+
+## Challenge 3: Docker Images
+
+### Setup
+
+Deploy this [`dockerimage.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json) file:
+
+```bash
+$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json
+```
+
+We see the app fail almost immediately:
+
+[Pic of failure](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-17.png)
+
+### Resolution
+
+As we learned [earlier](#strategy), with app failures the [first step](#task-strat) is to check the [task logs](#task-logs).
+
+[Pic of empty log output](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
+
+Unfortunately, it is completely empty. Normally we would at least see some output from the setup of the task. What could be happening?
+
+[Step 2] is to check the scheduler logs - in this case Marathon:
+
+```bash
+$ dcos service log marathon
+```
+
+which should produce something like the following output in response:
+
+```bash
+Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: [2018-03-27 21:21:11,297] INFO  Received status update for task docker-image.c4cdf565-3204-11e8-8a20-82358f3033d1: TASK_FAILED (
+
+Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (mesosphere.marathon.MarathonScheduler:Thread-1723)
+```
+
+However, this does not shed much light on why the task failed. So then to [Step 3](#agent-strat) of our [strategy](#strategy), and check the [Mesos agent logs](#agent-logs):
+
+```bash
+$ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
+```
+
+producing a response resembling the following output:
+
+```bash
+8-4520-af33-53cade35e8f9-0001 failed to start: Failed to run 'docker -H unix:///var/run/docker.sock pull noimage:idonotexist': exited with status 1; stderr='Error: image library/noimage:idonotexist not found
+
+2018-03-27 21:27:15: '
+
+2018-03-27 21:27:15: I0327 21:27:15.325984  4765 slave.cpp:6227] Executor 'docker-image.9dc468b5-3205-11e8-8a20-82358f3033d1' of framework 6512d7cc-b7f8-4520-af33-53cade35e8f9-0001 has terminated with unknown status
+```
+
+It looks like the specific Docker image could not be found, perhaps because it doesn’t exist. Does the image exist in the specified location (in this case noimage:idonotexist in dockerhub)? If not, you will have to correct the location or move the file to the specified location. Was there an error in the location or filename specified? Also, check whether the container image registry (especially when using a private registry) is accessible.
+
+### General Pattern
+
+Being an application error, we again start by looking at task logs, followed by scheduler logs.
+
+In this case we have a Docker daemon-specific issue. Many such issues can be uncovered by examining the Mesos Agent logs. In some cases, where we need to dig deeper, accessing the Docker daemon logs is required. First, ssh into the master node:
+
+```bash
+$ dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')
+```
+
+then to get the logs:
+
+```bash
+$ journalct1 -u docker
+```
+
+Please note the more complex pattern used here to retrieve the mesos-id in comparison to the earlier example. This pattern lists already failed tasks and running tasks, while the earlier pattern only lists running tasks.
+
+### Cleanup
+
+Run:
+
+```bash
+$ dcos marathon app remove docker-image
+```
+
+Challenge 2 complete!
+
+## Ready, Set, Debug!
+
+There are more hands-on exercises in the [dcos-debugging github repository](https://github.com/dcos-labs/dcos-debugging/tree/master/1.10).  Also feel free to contribute your own debugging scenarios to this repository.
+
+So dive in, challenge yourself, and master the art of debugging DC/OS!
