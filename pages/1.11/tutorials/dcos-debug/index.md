@@ -9,7 +9,7 @@ menuWeight: 55
 
 DC/OS provides a platform for running complex distributed systems both for Big Data applications and also custom containerized applications. But what happens if your application keeps failing? Debugging in distributed systems is always difficult and while DC/OS provides a number of tools for debugging, it might be difficult to choose which of these tools to apply in which situation.
 
-This tutorial provides an overview to debugging applications and their deployments on DC/OS. As such, it should not be considered an exhaustive resource for debugging on DC/OS, but rather a starting point.
+This tutorial only aims to provide a top-down introduction to debugging applications during and after their deployment on DC/OS. As such, it should not be considered an exhaustive resource for debugging on DC/OS, but rather a starting point.
 
 You should have a working knowledge of DC/OS in order to complete this tutorial. However, if needed there are plenty of other [tutorials to get you up and running](/1.11/tutorials/).
 
@@ -37,15 +37,13 @@ The range of problems that can be encountered and require debugging is far too l
 
 DC/OS consists of [a number of different components](https://docs.mesosphere.com/1.11/overview/architecture/components/) - most notably [Apache Mesos](http://mesos.apache.org/) and [Marathon](https://mesosphere.github.io/marathon/). As any of these components could be involved in the issue you are encountering, it might be difficult to even locate the component causing the issue. Accordingly, this tutorial aims to cover several types of such issues.
 
-Of course, there are a myriad of other potential sorts of problems that can affect your cluster besides application failures: networking problems, DC/OS installation issues, and DC/OS internal configuration issues could each be causing issues on your cluster. These are unfortunately out of scope for this tutorial, but we encourage you to reach out via our [Community channels](https://dcos.io/community/) with ideas and feedback.
+Of course, there are a myriad of other potential sorts of problems that can affect your cluster besides application-related failures: networking problems, DC/OS installation issues, and DC/OS internal configuration issues could each be causing issues on your cluster. These are unfortunately out of scope for this tutorial, but we encourage you to reach out via our [Community channels](https://dcos.io/community/) with ideas and feedback.
 
 <a name="tools"></a>
 
 # Tools for Debugging Application Deployment on DC/OS
 
-DC/OS comes with a number of tools for debugging. In this section we will try to provid=58e an overview of the relevant tools for application debugging.
-
-In particular we discuss:
+DC/OS comes with a number of tools for debugging. In this section, we look at the relevant tools for application debugging:
 
 - [DC/OS UIs](#dcos-uis)
 
@@ -89,7 +87,7 @@ The **DC/OS UI** is a great place to start debugging as it provides quick access
 
 ### Mesos UI
 
-Despite the DC/OS UI showing most of the information that you’d need for debugging, sometimes accessing the Mesos UI itself can be helpful, for example when checking failed tasks or registered frameworks. The Mesos UI can be accessed via https://<cluster>/mesos.
+Despite the DC/OS UI showing most of the information that you’d need for debugging, sometimes accessing the Mesos UI itself can be helpful, for example when checking failed tasks or registered frameworks. The Mesos UI can be accessed via `https://<cluster-address>/mesos`.
 
 [Pic of Mesos UI](https://mesosphere.com/wp-content/uploads/2018/04/Screen-Shot-2018-04-15-at-17.56.16.png)
 
@@ -97,8 +95,9 @@ Despite the DC/OS UI showing most of the information that you’d need for debug
 
 ### ZooKeeper UI
 
-[Pic of ZooKeeper/Exhibitor UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
+As much of the cluster and framework state is stored in Zookeeper, it can be helpful to check its state. This can be done by using Exhibitor UI via `https://<cluster-address>/exhibitor`. This is particularly helpful as frameworks such as Marathon, Kafka, Cassandra, as many store information in Zookeeper. A failure during uninstalling of one of those frameworks might leave entries behind. So then, if you experience difficulties when reinstalling a framework you have uninstalled earlier, this UI is worth checking.
 
+[Pic of ZooKeeper/Exhibitor UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
 
 <a name="logs"></a>
 
@@ -108,25 +107,25 @@ Logs are useful tools to see events and conditions that occurred before the prob
 
 DC/OS has a number of different sources for logs, including these which we will look at more detail below:
 
-- [Tasks/Applications](#tasks-logs)
-- [Mesos Agents](#agent-logs)
-- [Mesos Master](#master-logs)
-- [Service Scheduler](#scheduler-logs) (e.g., Marathon)
+- [Task/Application Logs](#tasks-logs)
+- [Mesos Agent Logs](#agent-logs)
+- [Mesos Master Logs](#master-logs)
+- [Service Scheduler Logs](#scheduler-logs) (e.g., Marathon)
 - [System Logs](#system-logs)
 
 DC/OS unifies these different logs and makes them accessible via different options: the DC/OS UI, the DC/OS CLI, or HTTP endpoints. Also logs are log-rotated by default in order to avoid filling all available disk space.
 
 **Tip** If you require a scalable way to manage and search your logs it might be worth building an [ELK stack for log aggregation and filtering](/1.11/monitoring/logging/aggregating/filter-elk/).
 
-Also, as with other systems, in some cases it is helpful to increase the level of detail written to the log temporarily to obtain detailed troubleshooting information. For most components this can be done by accessing an endpoint. For example, when you want to increase [the log level of a Mesos Agent](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) for 5 minutes following the server receiving the call:
+Also, as with other systems, in some cases it is helpful to increase the level of detail written to the log temporarily to obtain detailed troubleshooting information. For most components this can be done by accessing an endpoint. For example, if you want to increase [the log level of a Mesos Agent](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) for 5 minutes after the server receives the API call, you could simply follow something like this two step process:
 
-#### 1. Connect to Master Node
+##### 1. Connect to Master Node
 
 ```bash
 $ dcos node ssh --master-proxy --leader
 ```
 
-#### 2. Raise Log Level on Mesos Agent 10.0.2.219
+##### 2. Raise Log Level on Mesos Agent 10.0.2.219
 
 ```bash
 $ curl -X POST 10.0.2.219:5051/logging/toggle?level=3&duration=5mins
@@ -134,16 +133,19 @@ $ curl -X POST 10.0.2.219:5051/logging/toggle?level=3&duration=5mins
 
 <a name="task-logs"></a>
 
-### Tasks/Application Logs
+### Task/Application Logs
 
+Task/application logs are often helpful in understanding the state of the application.
 
+By default applications logs are written (together with execution logs) to the `STDERR` and `STDOUT` files in the task workdirectory. When looking at the task in the DC/OS UI you can just simply view the logs as shown below.
 
+[Pic of task log](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-16.png)
 
+You can also do the same from the DC/OS CLI:
 
-
-
-
-
+```bash
+$ dcos task log --follow <service-name>
+```
 
 <a name="metrics"></a>
 
