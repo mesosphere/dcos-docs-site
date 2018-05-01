@@ -104,6 +104,47 @@ Despite the DC/OS UI showing most of the information that you’d need for debug
 
 ## Logs
 
+Logs are useful tools to see events and conditions that occurred before the problem. Very often logs include error messages that shed light on the cause of the error. As logging is an important topic, we also recommend to have a look at the [DC/OS logging documentation](/1.11/monitoring/logging/#system-logs), for more information.
+
+DC/OS has a number of different sources for logs, including these which we will look at more detail below:
+
+- [Tasks/Applications](#tasks-logs)
+- [Mesos Agents](#agent-logs)
+- [Mesos Master](#master-logs)
+- [Service Scheduler](#scheduler-logs) (e.g., Marathon)
+- [System Logs](#system-logs)
+
+DC/OS unifies these different logs and makes them accessible via different options: the DC/OS UI, the DC/OS CLI, or HTTP endpoints. Also logs are log-rotated by default in order to avoid filling all available disk space.
+
+**Tip** If you require a scalable way to manage and search your logs it might be worth building an [ELK stack for log aggregation and filtering](/1.11/monitoring/logging/aggregating/filter-elk/).
+
+Also, as with other systems, in some cases it is helpful to increase the level of detail written to the log temporarily to obtain detailed troubleshooting information. For most components this can be done by accessing an endpoint. For example, when you want to increase [the log level of a Mesos Agent](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) for 5 minutes following the server receiving the call:
+
+#### 1. Connect to Master Node
+
+```bash
+$ dcos node ssh --master-proxy --leader
+```
+
+#### 2. Raise Log Level on Mesos Agent 10.0.2.219
+
+```bash
+$ curl -X POST 10.0.2.219:5051/logging/toggle?level=3&duration=5mins
+```
+
+<a name="task-logs"></a>
+
+### Tasks/Application Logs
+
+
+
+
+
+
+
+
+
+
 <a name="metrics"></a>
 
 ## Metrics
