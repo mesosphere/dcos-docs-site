@@ -108,9 +108,9 @@ Logs are useful tools to see events and conditions that occurred before the prob
 DC/OS has a number of different sources for logs, including these which we will look at more detail below:
 
 - [Task/Application Logs](#tasks-logs)
+- [Service Scheduler Logs](#scheduler-logs) (e.g., Marathon)
 - [Mesos Agent Logs](#agent-logs)
 - [Mesos Master Logs](#master-logs)
-- [Service Scheduler Logs](#scheduler-logs) (e.g., Marathon)
 - [System Logs](#system-logs)
 
 DC/OS unifies these different logs and makes them accessible via different options: the DC/OS UI, the DC/OS CLI, or HTTP endpoints. Also logs are log-rotated by default in order to avoid filling all available disk space.
@@ -146,6 +146,31 @@ You can also do the same from the DC/OS CLI:
 ```bash
 $ dcos task log --follow <service-name>
 ```
+
+<a name="scheduler-logs"></a>
+
+### Scheduler/Marathon Logs
+
+Recall that the scheduler matches tasks to available resources and Marathon is our default scheduler when starting an application. Scheduler logs, and Marathon logs in particular, are a great source of information to help you  understand why and how something was scheduled (or not) on which node. The scheduler also receives task status updates, so the log also contains detailed information about task failures.
+
+You can retrieve and view a scheduler log about a specific service through the list of services found in the DC/OS UI, or via the following command:
+
+```bash
+$ dcos service log --follow <scheduler-service-name>
+```
+
+Note that as Marathon is the “Init” system of DC/OS and hence is running as SystemD unit (same of the other system components). You need the CLI command to access its logs.
+
+<a name="agent-logs"></a>
+
+### Agent Logs
+
+### Master Logs
+
+###
+
+
+
 
 <a name="metrics"></a>
 
