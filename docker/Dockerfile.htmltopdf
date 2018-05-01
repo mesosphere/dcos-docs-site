@@ -27,7 +27,7 @@ RUN GIT_BRANCH=$git_branch
 # npm run build-pdf
 
 #
-# Lint images and markdown 
+# Lint images and markdown
 # This are turned off and to be moved to checkout pipeline
 #
 # RUN make check-images
@@ -45,7 +45,7 @@ ARG GIT_HASH_TRIM=${GIT_HASH_TRIM}
 
 ARG DATE_LAST_SUCCESSFUL_COMMIT=${DATE_LAST_SUCCESSFUL_COMMIT}
 
-
+ARG LAST_SUCCESSFUL_BUILD=${LAST_SUCCESSFUL_BUILD}
 RUN apt-get update -qq
 
 RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55
