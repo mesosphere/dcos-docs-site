@@ -4,8 +4,6 @@ title: DC/OS Ports
 navigationTitle: DC/OS Ports
 menuWeight: 1
 excerpt:
-
-enterprise: false
 ---
 
 [DC/OS components](/docs/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.

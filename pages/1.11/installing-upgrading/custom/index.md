@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: DC/OS Custom Installation Options
 navigationTitle: Custom
-menuWeight: 1
+menuWeight: 5
 
 ent: true
 oss: true

@@ -4,8 +4,6 @@ navigationTitle: Troubleshooting
 title: Troubleshooting
 menuWeight: 1
 excerpt:
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

@@ -4,8 +4,6 @@ navigationTitle:  Local
 title: Install DC/OS Locally
 menuWeight: 1
 excerpt:
-
-enterprise: true
 ---
 
 Two tools automate the local installation of DC/OS for development and testing:

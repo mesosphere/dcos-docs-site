@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: CLI DC/OS Installation Guide
-navigationTitle: CLI
+title: CLI Installer for Open Source DC/OS
+navigationTitle: CLI Installer for Open Source DC/OS
 menuWeight: 0
 oss: true
 ---

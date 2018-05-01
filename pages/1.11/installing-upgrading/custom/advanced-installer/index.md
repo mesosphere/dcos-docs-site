@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: Advanced DC/OS Installation Guide
-navigationTitle: Advanced
+title: Advanced Installer
+navigationTitle: Advanced Installer for DC/OS
 menuWeight: 10
 ---
 
