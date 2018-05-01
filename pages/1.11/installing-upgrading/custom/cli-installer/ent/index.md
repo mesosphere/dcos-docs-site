@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  CLI Installer
-title: CLI Installer
+navigationTitle:  CLI Installer for Enterprise DC/OS
+title: CLI Installer for Enterprise DC/OS
 menuWeight: 1
 excerpt:
 

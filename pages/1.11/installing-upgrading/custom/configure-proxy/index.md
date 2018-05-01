@@ -4,8 +4,6 @@ title: Configure DC/OS for Proxy
 navigationTitle: Configure DC/OS for Proxy
 menuWeight: 20
 excerpt:
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

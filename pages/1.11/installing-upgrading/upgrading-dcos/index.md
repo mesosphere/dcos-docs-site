@@ -4,8 +4,6 @@ navigationTitle:  Upgrading
 title: Upgrading
 menuWeight: 1
 excerpt:
-
-enterprise: true
 ---
 
 This document provides instructions for upgrading a DC/OS cluster.

@@ -4,8 +4,6 @@ navigationTitle:  Configuration
 title: Configuration
 menuWeight: 15
 excerpt:
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

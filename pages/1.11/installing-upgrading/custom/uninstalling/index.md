@@ -4,8 +4,6 @@ title: Uninstalling DC/OS
 navigationTitle: Uninstalling DC/OS
 menuWeight: 30
 excerpt:
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

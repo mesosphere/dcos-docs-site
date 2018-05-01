@@ -4,8 +4,6 @@ navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 0
 excerpt:
-
-enterprise: true
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
