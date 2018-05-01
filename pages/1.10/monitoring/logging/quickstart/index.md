@@ -139,8 +139,6 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
         
         ```bash
         dcos-diagnostics.service
-        dcos-adminrouter-reload.service
-        dcos-adminrouter-reload.timer
         dcos-adminrouter.service
         dcos-cosmos.service
         dcos-epmd.service
@@ -162,8 +160,6 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
        ```bash
        dcos-diagnostics.service
        dcos-diagnostics.socket
-       dcos-adminrouter-agent-reload.service
-       dcos-adminrouter-agent-reload.timer
        dcos-adminrouter-agent.service
        dcos-docker-gc.service
        dcos-docker-gc.timer
