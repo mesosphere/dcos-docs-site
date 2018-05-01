@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Upgrading
 title: Upgrading
-menuWeight: 1
+menuWeight: 35
 excerpt:
 ---
 
