@@ -25,7 +25,7 @@ We encourage everyone to first try debugging these yourself, but we also provide
 
 <a name="problems"></a>
 
-# Problems with Application Deployment
+# **Problems** with Application Deployment
 
 The range of problems that can be encountered and require debugging is far too large to be covered in a single blog-post. Some of the problems that may need troubleshooting on DC/OS include applications:
 
@@ -41,7 +41,7 @@ Of course, there are a myriad of other potential sorts of problems that can affe
 
 <a name="tools"></a>
 
-# Tools for Debugging Application Deployment on DC/OS
+# **Tools** for Debugging Application Deployment on DC/OS
 
 DC/OS comes with a number of tools for debugging. In this section, we look at the relevant tools for application debugging:
 
@@ -119,13 +119,13 @@ DC/OS unifies these different logs and makes them accessible via different optio
 
 Also, as with other systems, in some cases it is helpful to increase the level of detail written to the log temporarily to obtain detailed troubleshooting information. For most components this can be done by accessing an endpoint. For example, if you want to increase [the log level of a Mesos Agent](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) for 5 minutes after the server receives the API call, you could simply follow something like this two step process:
 
-##### 1. Connect to Master Node
+##### Connect to Master Node
 
 ```bash
 $ dcos node ssh --master-proxy --leader
 ```
 
-##### 2. Raise Log Level on Mesos Agent 10.0.2.219
+##### Raise Log Level on Mesos Agent 10.0.2.219
 
 ```bash
 $ curl -X POST 10.0.2.219:5051/logging/toggle?level=3&duration=5mins
@@ -221,7 +221,7 @@ You can either retrieve the Master logs from the Mesos UI via `<cluster-name>/me
 
 We have now covered the most important log sources in the DC/OS environment, but there are many more logs available. Every DC/OS component writes a log. For instance, [each DC/OS component](/1.11/overview/architecture/components/) is running as one systemd unit for which you can [retrieve the logs directly](/latest/monitoring/logging/#system-logs) on the particular node by accessing that node via SSH and then typing `journalctl -u <systemd-unit-name>`. In my experience, the two most popular system units considered during debugging (besides Mesos and Marathon) are the `docker.service` and the `dcos-exhibitor.service`.
 
-As an example, let’s consider the system unit for the docker daemon on the Mesos agent ffc913d8-4012-4953-b693-1acc33b400ce-S0 (recall the dcos node command retrieves the Mesos ID).
+As an example, consider the system unit for the docker daemon on the Mesos agent `ffc913d8-4012-4953-b693-1acc33b400ce-S0` (recall the `dcos node` command retrieves the Mesos ID).
 
 First we connect to that agent via SSH using the corresponding SSH key:
 
@@ -245,48 +245,60 @@ Apr 09 23:51:50 ip-10-0-3-81.us-west-2.compute.internal systemd[1]: Starting Doc
 Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="2018-04-09T23:51:51.293577691Z" level=info msg="Graph migration to content-addressability took 0.00 seconds"
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="metrics"></a>
 
 ## Metrics
+
+Metrics are useful because they help identify problems before they become problems. Imagine a container using up all allocated memory and you can detect that while it is running but before it gets killed.
+
+In DC/OS there are three main endpoints for metrics:
+
+- DC/OS metrics
+    - endpoint exposing combined metrics from tasks/container, nodes, and applications
+- Mesos metrics
+    - endpoint exposing Mesos-specific metrics
+- Marathon metrics
+    - endppoint exposing Marathon-specific metrics
+
+The best way to leverage metrics for debugging is to set up a dashboard with the important metrics related to the services you want to monitor, for example [using prometheus and grafana](https://github.com/dcos/dcos-metrics/blob/master/docs/quickstart/prometheus.md#dcos-metrics-with-prometheus-and-grafana). Ideally then, you can identify potential problems before they become real issues. Moreover, when issues do indeed arise, such a dashboard can be extremely helpful in determining the cause (for example, maybe a cluster has no free resources). For each of the endpoints listed above, there is a link fropm the list item including recommendations for the metrics you should monitor.
 
 <a name="interactive"></a>
 
 ## Interactive
 
+If the tasks logs are not helpful, then you may want use your favorite Linux tools (e.g., `curl`, `cat`, `ping`, etc) to understand what is really going on inside the application from an interactive point of view. You can use `dcos task exec` if you are using [Universal Container Runtime (UCR)](/latest/deploying-services/containerizers/ucr/) or SSH into the node and use `docker exec` if your are using the docker containerizer. For example, by using `dcos task exec -it <mycontainerid>` in bash, you are presented with an interactive bash shell inside that container.
+
+If you alter the state of the container, you must update the stored `app-definition` and restart the container from the updated `app-definition`. Otherwise your changes will be lost the next time the container restarts.
+
 <a name="endpoints"></a>
 
 ## HTTP Endpoints
+
+DC/OS has a large number of additional endpoints. Here are some of the most useful ones for debugging:
+
+- `<cluster>/mesos/master/state-summary`
+
+This endpoint gives you a json encoded summary of the agents, tasks, and frameworks inside the cluster. This is especially helpful when looking at the different resources as it shows you whether there are reserved resources for a particular role (we will see more details of this in one of the Hand-On exercises).
+
+This endpoint lists all tasks in the queue to be scheduled by Marathon.
+
+- `<cluster>/marathon/v2/queue`
+
+This endpoint is valuable when troubleshooting scaling or deployment problems.
+
+**TIP** See the [complete list of Mesos endpoints](http://mesos.apache.org/documentation/latest/endpoints/).
 
 <a name="community-tool"></a>
 
 ## Community
 
+The [DC/OS community](https://dcos.io/community/?_ga=2.183442662.1394567794.1525106895-1279864600.1520288020) is a great place to ask additional questions either via [Slack](http://chat.dcos.io/?_ga=2.183442662.1394567794.1525106895-1279864600.1520288020) or the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/users). Keep in mind that both [Mesos](http://mesos.apache.org/community/) and [Marathon](https://mesosphere.github.io/marathon/support.html) have their own communities in addition to the DC/OS community.
+
 <a name="other-tools"></a>
 
 ## Other Tools
 
-
+There are other debugging tools as well, both [internal to DC/OS](/1.11/monitoring/debugging/), as well as external tools such as [Sysdig](https://sysdig.com/blog/monitoring-mesos/) or [Instana](https://www.instana.com/). These tools can be especially helpful in determining non DC/OS specific issues, e.g., Linux Kernel or networking problems.
 
 
 
@@ -307,8 +319,8 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 
 <a name=strategy></a>
 
-# General Strategy: Debugging Application Deployment on DC/OS
+# **General Strategy**: Debugging Application Deployment on DC/OS
 
 <a name=examples></a>
 
-# Hands On: Debugging Application Deployment on DC/OS
+# **Hands On**: Debugging Application Deployment on DC/OS
