@@ -5,7 +5,11 @@ excerpt: DC/OS is a powerful platform for deploying and managing applications, b
 menuWeight: 55
 ---
 
+<!-- i. Support Disclaimer -->
+
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+
+<!-- ii. Intro/Set Expectations for this Tutorial -->
 
 DC/OS provides a platform for running complex distributed systems both for Big Data applications and also custom containerized applications. But what happens if your application keeps failing? Debugging in distributed systems is always difficult and while DC/OS provides a number of tools for debugging, it might be difficult to choose which of these tools to apply in which situation.
 
@@ -21,11 +25,13 @@ It is helpful to keep in mind that failures are to be expected when working with
 
  We will first look at [some potential problems](#problems) you might face when deploying an application on DC/OS. Next, we will look at the [standard set of tools](#tools) for debugging. Then, after introducing [a general strategy for using those tools](#strategy), we have two [concrete examples](#examples) to illustrate how the strategy works in practice.
 
-We encourage everyone to first try debugging these yourself, but we also provide detailed guidance for debugging them.
+We encourage everyone to first try debugging these challenges yourself, but we also provide detailed guidance for debugging them.
+
+<!-- I. Problems Section -->
 
 <a name="problems"></a>
 
-# **Problems** with Application Deployment
+# Problems with Application Deployment
 
 The range of problems that can be encountered and require debugging is far too large to be covered in a single blog-post. Some of the problems that may need troubleshooting on DC/OS include applications:
 
@@ -39,9 +45,11 @@ DC/OS consists of [a number of different components](https://docs.mesosphere.com
 
 Of course, there are a myriad of other potential sorts of problems that can affect your cluster besides application-related failures: networking problems, DC/OS installation issues, and DC/OS internal configuration issues could each be causing issues on your cluster. These are unfortunately out of scope for this tutorial, but we encourage you to reach out via our [Community channels](https://dcos.io/community/) with ideas and feedback.
 
+<!-- II. Tools Section -->
+
 <a name="tools"></a>
 
-# **Tools** for Debugging Application Deployment on DC/OS
+# Tools for Debugging Application Deployment on DC/OS
 
 DC/OS comes with a number of tools for debugging. In this section, we look at the relevant tools for application debugging:
 
@@ -253,11 +261,11 @@ Metrics are useful because they help identify problems before they become proble
 
 In DC/OS there are three main endpoints for metrics:
 
-- DC/OS metrics
+- [DC/OS metrics](https://github.com/dcos/dcos-metrics)
     - endpoint exposing combined metrics from tasks/container, nodes, and applications
-- Mesos metrics
+- [Mesos metrics](http://mesos.apache.org/documentation/latest/monitoring/)
     - endpoint exposing Mesos-specific metrics
-- Marathon metrics
+- [Marathon metrics](https://mesosphere.github.io/marathon/docs/metrics.html)
     - endppoint exposing Marathon-specific metrics
 
 The best way to leverage metrics for debugging is to set up a dashboard with the important metrics related to the services you want to monitor, for example [using prometheus and grafana](https://github.com/dcos/dcos-metrics/blob/master/docs/quickstart/prometheus.md#dcos-metrics-with-prometheus-and-grafana). Ideally then, you can identify potential problems before they become real issues. Moreover, when issues do indeed arise, such a dashboard can be extremely helpful in determining the cause (for example, maybe a cluster has no free resources). For each of the endpoints listed above, there is a link fropm the list item including recommendations for the metrics you should monitor.
@@ -300,27 +308,170 @@ The [DC/OS community](https://dcos.io/community/?_ga=2.183442662.1394567794.1525
 
 There are other debugging tools as well, both [internal to DC/OS](/1.11/monitoring/debugging/), as well as external tools such as [Sysdig](https://sysdig.com/blog/monitoring-mesos/) or [Instana](https://www.instana.com/). These tools can be especially helpful in determining non DC/OS specific issues, e.g., Linux Kernel or networking problems.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- III. Strategy Section -->
 
 <a name=strategy></a>
 
-# **General Strategy**: Debugging Application Deployment on DC/OS
+# General Strategy: Debugging Application Deployment on DC/OS
+
+At this point, you’re probably thinking “That’s a great set of tools, but how do I know which tool to apply for any given problem?”
+
+First, let’s take a look at a general strategy for troubleshooting on DC/OS. Then, let’s dive into some more concrete examples of how to apply this strategy in the hands-on section below.
+
+If there is no additional information, a reasonable approach is to consider the potential problem sources in the following order:
+
+1. Task Logs
+1. Scheduler
+1. Mesos Agent
+1. Task interactive
+1. Master
+1. Community
+
+### Task Logs
+
+Start by examining the GUI (or use the CLI) to check the status of the task.
+
+If the task defines a health check, it’s also a good idea to check the task’s health status.
+
+Next, checking the task logs, either via the DC/OS UI or the CLI, helps us to understand what might have happened to the application. If the issue is related to our app not deploying (i.e., the task status is waiting) looking at the Debug UI might be helpful to understand the resources being offered by Mesos.
+
+### Scheduler
+
+If there is a deployment problem, it can be helpful to double check the app definition and then check the Marathon UI or log to figure out how it was scheduled or why not.
+
+### Mesos Agent
+
+The Mesos Agent logs provide information regarding how the task (and its environment) is being started. Recall that increasing the log level might be helpful in some cases.
+
+### Task Interactive
+
+The next step is to interactively look at the task running inside the container. If the task is still running dcos task exec or docker exec  are helpful to start an interactive debugging session. If the application is based on a Docker container image, manually starting it using docker run and then using docker exec can also be helpful.
+
+### Mesos Master
+
+If you want to understand why a particular scheduler has received certain resources or a particular status, then the master logs can be very helpful. Recall that the master is forwarding all status updates between the agents and scheduler, so it might even be helpful in cases where the agent node might not be reachable (for example, network partition or node failure).
+
+### Community
+As mentioned above, the community, either using the DC/OS slack or the mailing list can be very helpful in debugging further.
+
+<!-- IV. Hands On Examples Section -->
 
 <a name=examples></a>
 
-# **Hands On**: Debugging Application Deployment on DC/OS
+# Hands On: Debugging Application Deployment on DC/OS
+
+Now it’s time to apply our new knowledge and start debugging! We encourage you to try to solve these exercises by yourself before skipping to the solution.
+
+
+#### Prerequisites
+
+- running [DC/OS cluster](/1.11/installing/oss/)
+- configured [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/)
+
+Note that these exercises require a running [DC/OS cluster](/1.11/installing/oss/) and a configured [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/). Please note that we are using a cluster with 4 private agents and 1 public agent *that is not running any workloads prior to this challenge*. Therefore, of course, your results may vary if use a different cluster setup.
+
+## Challenge 1: Resources
+
+#### Setup
+
+For challenge 1 please deploy [this app definition](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json) as follows:
+
+```bash
+$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json
+```
+
+If you check the app status using the DC/OS GUI, you should see something similar to the following:
+
+[Pic of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-14.png)
+
+With the status of the application most likely to be “Waiting” followed by some number of thousanths “x/1000”. "Waiting" refers to the overall application status and the number; "x" here represents how many instances have successfully deployed (6 in this example).
+
+You can also check this status from the CLI:
+
+```bash
+$ dcos marathon app list
+```
+
+would produce the following output in response:
+
+```bash
+ID              MEM   CPUS  TASKS   HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
+
+/app-scaling-1  128    1    6/1000   ---      scale     True       mesos    sleep 10000
+```
+
+Or, if you want to see all ongoing deployments, enter:
+
+```bash
+$ dcos marathon deployment list
+```
+
+to see something like the following:
+
+```bash
+APP             POD  ACTION  PROGRESS  ID
+
+/app-scaling-1  -    scale     1/2     c51af187-dd74-4321-bb38-49e6d224f4c8
+```
+
+So now we know that some (6/1000) instances of the application have successfully deployed, but the overall deployment status is “Waiting”. But what does this mean?
+
+#### Resolution
+
+The “Waiting” state means that DC/OS (or more precisely Marathon) is waiting for a suitable resource offer. So it seems to be an deployment issue and we should start by checking the available resources.
+
+If we look at the DC/OS dashboard we should see a pretty high CPU allocation similar to the following (exact percentage depends on your cluster):
+
+[Pic of CPU Allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-20.png)
+
+Since we are not yet at 100% allocation, but we are still waiting to deploy, let’s look at the recent resource offers in the debug view of the DC/OS GUI.
+
+[Pic of relevant instance of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+
+We can see that there are no matching CPU resources, but we recall that the overall CPU allocation was only at 75%. However, when we take a look at the 'Details' section further below, we can see how the latest offers from different host match the resource requirements of our app. So, for example, the first offer coming from host `10.0.0.96` matched the role, constraint (not present in this `app-definition`) memory, disk, port resource requirements --- but failed the CPU resource requirements. The last offer also seems to have the resource requirements. Let us understand what that means exactly by looking at this offer in more detail.
+
+[Pic of details](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-22.png)
+
+So some of the remaining CPU resources are in a different[Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application which runs in role `*` (which is the default role).
+
+To check the roles of different resources let us have a look at the state-summary endpoint, which you can access via https://<master-ip>/mesos/state-summary.
+
+That endpoint will give us a rather long json output, so it is helpful to use jq to make the output readable.
+
+```bash
+curl -skSL
+
+-X GET
+
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)"
+
+-H "Content-Type: application/json"
+
+"$(dcos config show core.dcos_url)/mesos/state-summary" |
+
+jq '.'
+```
+
+When looking at the agent information we can see two different kinds of agent.
+
+The first kind has no free CPU resources and also no reserved resources, although this might be different if you had other workloads running on your cluster prior to these exercises. Note that these unreserved resources correspond to the default role '*' in which we are trying to deploy our tasks.
+
+[Pic of cluster information](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-19.png)
+
+The second kind has unused CPU resources, but these resources are reserved in the role 'slave_public'.
+
+We now know that the issue is that there are not enough resources in the desired resource role across the entire cluster. As a solution we could either scale down the application (1000 instances does seem a bit excessive), or we need to add more resources to the cluster.
+
+#### General Pattern
+
+If the framework for your app (e.g. Marathon) is not accepting resource offers you should check whether there are sufficient resources available in the respective resource role.
+
+This was a straightforward scenario with too few CPU resources. Typically resource issues are more likely caused by more complex factors - such as improperly configured port resources or placement constraints. Nonetheless, this general workflow still applies.
+
+#### Cleanup
+
+Remove the app with:
+
+`$ dcos marathon app remove /app-scaling-1`
+
+End Challenge 1.
