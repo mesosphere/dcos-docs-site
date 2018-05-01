@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: DC/OS Custom Installation Options
-title: DC/OS Custom Installation Options
+navigationTitle: Installing and Upgrading DC/OS - new structure
+title: Installing and Upgrading DC/OS - new structure
 menuWeight: 30
 excerpt:
 ---
