@@ -151,7 +151,7 @@ $ dcos task log --follow <service-name>
 
 ### Scheduler/Marathon Logs
 
-Recall that the scheduler matches tasks to available resources and Marathon is our default scheduler when starting an application. Scheduler logs, and Marathon logs in particular, are a great source of information to help you  understand why and how something was scheduled (or not) on which node. The scheduler also receives task status updates, so the log also contains detailed information about task failures.
+Recall that the scheduler matches tasks to available resources and [Marathon](https://mesosphere.github.io/marathon/) is our default scheduler when starting an application. Scheduler logs, and Marathon logs in particular, are a great source of information to help you understand why and how something was scheduled (or not) on which node. The scheduler also receives task status updates, so the log also contains detailed information about task failures.
 
 You can retrieve and view a scheduler log about a specific service through the list of services found in the DC/OS UI, or via the following command:
 
@@ -163,11 +163,105 @@ Note that as Marathon is the “Init” system of DC/OS and hence is running as 
 
 <a name="agent-logs"></a>
 
-### Agent Logs
+### Mesos Agent Logs
 
-### Master Logs
+Mesos agent logs are a helpful tool for understanding how an application was started by the agent and also why it might have failed. You can launch the Mesos UI using  https://<cluster_name>/mesos and examine the agent logs as shown below, or use `dcos node log --mesos-id=<node-id>` from the DC/OS CLI, where you can find the corresponding `node-id` dcos node. Enter:
 
-###
+```bash
+$ dcos node
+```
+
+where you will see something similar to the following output:
+
+```bash
+HOSTNAME        IP                         ID                    TYPE
+
+10.0.1.51    10.0.1.51   ffc913d8-4012-4953-b693-1acc33b400ce-S3  agent
+
+10.0.2.50    10.0.2.50   ffc913d8-4012-4953-b693-1acc33b400ce-S1  agent
+
+10.0.2.68    10.0.2.68   ffc913d8-4012-4953-b693-1acc33b400ce-S2  agent
+
+10.0.3.192   10.0.3.192  ffc913d8-4012-4953-b693-1acc33b400ce-S4  agent
+
+10.0.3.81    10.0.3.81   ffc913d8-4012-4953-b693-1acc33b400ce-S0  agent
+
+master.mesos.  10.0.4.215    ffc913d8-4012-4953-b693-1acc33b400ce   master (leader)
+```
+
+Then, in this example, you could enter:
+
+```bash
+$ dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
+```
+
+to get the following log output:
+
+```bash
+2018-04-09 19:04:22: I0410 02:38:22.711650  3709 http.cpp:1185] HTTP GET for /slave(1)/state from 10.0.3.81:56595 with User-Agent='navstar@10.0.3.81 (pid 3168)'
+
+2018-04-09 19:04:24: I0410 02:38:24.752534  3708 logfmt.cpp:178] dstip=10.0.3.81 type=audit timestamp=2018-04-10 02:38:24.752481024+00:00 reason="Valid authorization token" uid="dcos_net_agent" object="/slave(1)/state" agent="navstar@10.0.3.81 (pid 3168)" authorizer="mesos-agent" action="GET" result=allow srcip=10.0.3.81 dstport=5051 srcport=56595
+```
+
+[Pic of Mesos agent UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-23.png)
+
+<a name="master-logs"></a>
+
+### Mesos Master Logs
+
+The Mesos Master is responsible for matching available resources to the scheduler and also forwards task status updates from the Agents to the corresponding scheduler. This makes the Mesos Master logs a great resource for understanding the overall state of the cluster.
+
+Please be aware that typically there are (or at least should be in an HA setup) multiple Mesos Masters and you should identify the currently leading Master to get the most up-to-date logs (in some cases it might make sense to retrieve logs from another Mesos master as well: e.g., a master node has failed over and you want to understand why).
+
+You can either retrieve the Master logs from the Mesos UI via `<cluster-name>/mesos`, via `dcos node log --leader`, or for a specific master node using `ssh master` and `journalctl -u dcos-mesos-master`.
+
+<a name="system-logs"></a>
+
+### System Logs
+
+We have now covered the most important log sources in the DC/OS environment, but there are many more logs available. Every DC/OS component writes a log. For instance, [each DC/OS component](/1.11/overview/architecture/components/) is running as one systemd unit for which you can [retrieve the logs directly](/latest/monitoring/logging/#system-logs) on the particular node by accessing that node via SSH and then typing `journalctl -u <systemd-unit-name>`. In my experience, the two most popular system units considered during debugging (besides Mesos and Marathon) are the `docker.service` and the `dcos-exhibitor.service`.
+
+As an example, let’s consider the system unit for the docker daemon on the Mesos agent ffc913d8-4012-4953-b693-1acc33b400ce-S0 (recall the dcos node command retrieves the Mesos ID).
+
+First we connect to that agent via SSH using the corresponding SSH key:
+
+```bash
+$ dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0
+```
+
+Then we use `journatlctl`, to look at the Docker logs:
+
+```bash
+$ journalctl -u docker
+```
+
+which outputs something like this:
+
+```bash
+-- Logs begin at Mon 2018-04-09 23:50:05 UTC, end at Tue 2018-04-10 02:52:41 UTC. --
+
+Apr 09 23:51:50 ip-10-0-3-81.us-west-2.compute.internal systemd[1]: Starting Docker Application Container Engine...
+
+Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="2018-04-09T23:51:51.293577691Z" level=info msg="Graph migration to content-addressability took 0.00 seconds"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
