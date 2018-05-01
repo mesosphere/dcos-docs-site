@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
-menuWeight: 1
+menuWeight: 30
 excerpt:
 ---
 

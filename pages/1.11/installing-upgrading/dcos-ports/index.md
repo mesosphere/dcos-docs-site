@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Ports
 navigationTitle: DC/OS Ports
-menuWeight: 1
+menuWeight: 15
 excerpt:
 ---
 

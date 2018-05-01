@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Local
-title: Install DC/OS Locally
-menuWeight: 1
+navigationTitle:  Local Installation 
+title: Install Local Installation
+menuWeight: 10
 excerpt:
 ---
 
