@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Metrics
 title: Metrics
 menuWeight: 100
-excerpt: Learn about the metrics component of DC/OS
+excerpt: Understanding the metrics component of DC/OS
 beta: true
 enterprise: false
 ---

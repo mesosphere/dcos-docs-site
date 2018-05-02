@@ -18,7 +18,7 @@ DC/OS 1.10.6 includes the following:
 
 # Issues Fixed in DC/OS 1.10.6
 
-- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Maration UI/Prevented the reuse of tcp sockets by AR's cache code.
+- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Marathon UI/Prevented the reuse of tcp sockets by AR's cache code.
 - COPS-2931 - Fixed an error response that occurred when accessing DC/OS Services UI.
 - CORE-1425 - Fixed launching nested containers to be more reliable.
 - DCOS-19865 - Fixed focus/change/blur behavior.
