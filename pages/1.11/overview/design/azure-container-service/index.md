@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 excerpt: Understanding how DC/OS implements the Azure Container Service
-title: Reference implementation: The Azure Container Service
+title: Reference implementation - The Azure Container Service
 navigationTitle: ACS
 menuWeight: 2
 ---
