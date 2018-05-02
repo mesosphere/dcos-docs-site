@@ -59,11 +59,11 @@ DC/OS comes with a number of tools for debugging. In this section, we look at th
 
 - [Metrics](#metrics)
 
-- [Debugging Tasks Interactively](#interactive)
+- Interactive Tasks](#interactive)
 
 - [HTTP Endpoints](#endpoints)
 
-- [Community](#community-tool)
+- [DC/OS Community](#community-tool)
 
 - [Other tools](#other-tools)
 
@@ -272,7 +272,7 @@ The best way to leverage metrics for debugging is to set up a dashboard with the
 
 <a name="interactive"></a>
 
-## Interactive
+## Interactive Tasks
 
 If the tasks logs are not helpful, then you may want use your favorite Linux tools (e.g., `curl`, `cat`, `ping`, etc) to understand what is really going on inside the application from an interactive point of view. You can use `dcos task exec` if you are using [Universal Container Runtime (UCR)](/latest/deploying-services/containerizers/ucr/) or SSH into the node and use `docker exec` if your are using the docker containerizer. For example, by using `dcos task exec -it <mycontainerid>` in bash, you are presented with an interactive bash shell inside that container.
 
