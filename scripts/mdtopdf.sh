@@ -5,7 +5,6 @@
 # Description: Sends html files to Docker container wkhtmltopdf-aas
 #              and generates a pdf for each file
 #
-#Set PARALLEL_JOBS Environment Variable for parallel jobs count, should not be more than the number of CPU
 
 set -o errexit -o nounset -o pipefail
 
@@ -131,6 +130,7 @@ function selectFolder
 
 function main
 {
+   #Set PARALLEL_JOBS Environment Variable for parallel jobs count, should not be more than the number of CPU
    PARALLEL_TEMPFILE=$(mktemp)
    #cd $INPUT_FOLDER
    while IFS= read -r -d '' SOURCE_FILE
