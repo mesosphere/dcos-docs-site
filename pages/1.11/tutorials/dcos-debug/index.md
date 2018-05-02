@@ -11,7 +11,7 @@ menuWeight: 55
 
 <!-- ii. Intro/Set Expectations for this Tutorial -->
 
-DC/OS provides a platform for running complex distributed systems both for Big Data applications and also custom containerized applications. But what happens if your application keeps failing? Debugging in distributed systems is always difficult and while DC/OS provides a number of tools for debugging, it might be difficult to choose which of these tools to apply in which situation.
+DC/OS provides a platform for running complex distributed systems both for Big Data applications and also custom containerized applications. But what happens if your application keeps failing? Debugging applications in distributed systems is always difficult. So while DC/OS provides a number of tools for debugging, it might be difficult to choose which of these tools to apply in which situation.
 
 This tutorial only aims to provide a top-down introduction to debugging applications during and after their deployment on DC/OS. As such, it should not be considered an exhaustive resource for debugging on DC/OS, but rather a starting point.
 
@@ -489,7 +489,7 @@ Remove the app with:
 
 `$ dcos marathon app remove /app-scaling-1`
 
-Challenge 1 complete!
+**Challenge 1 complete!**
 
 <a name=c2></a>
 
@@ -577,7 +577,7 @@ Remove the app with
 $ dcos marathon app remove /app-oom
 ```
 
-Challenge 2 complete!
+**Challenge 2 complete!**
 
 <a name="c3"></a>
 
@@ -661,7 +661,7 @@ Run:
 $ dcos marathon app remove docker-image
 ```
 
-Challenge 2 complete!
+**Challenge 2 complete!**
 
 ## Ready, Set, Debug!
 
