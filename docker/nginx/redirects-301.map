@@ -9,13 +9,12 @@
 /services/cassandra/2.1.0-3.0.16/11-release-notes/ /services/cassandra/2.1.0-3.0.16/release-notes/;
 /services/elastic/2.3.0-5.6.5/11-release-notes/ /services/elastic/2.3.0-5.6.5/release-notes/;
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
+/services/spark/uninstall/ /services/spark/2.3.1-2.2.1-2/uninstall/;
 /1.11/installing/high-availability/ /1.11/installing/oss/high-availability;
 /1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
 /1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
 ~^/1.11/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
-/1.11/monitoring/logging/logging-api/logging-v1/ /1.11/monitoring/logging/logging-api/;
-/1.11/monitoring/logging/logging-api/logging-v2/ /1.11/monitoring/logging/logging-api/;
 /1.11/release-notes/version-policy/ /version-policy/;
 /1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
 /1.10/administration/access-node/tunnel/ /1.10/developing-services/tunnel/;
