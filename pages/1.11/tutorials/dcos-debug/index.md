@@ -59,7 +59,7 @@ DC/OS comes with a number of tools for debugging. In this section, we look at th
 
 - [Metrics](#metrics)
 
-- Interactive Tasks](#interactive)
+- [Interactive Tasks](#interactive)
 
 - [HTTP Endpoints](#endpoints)
 
@@ -115,7 +115,7 @@ Logs are useful tools to see events and conditions that occurred before the prob
 
 DC/OS has a number of different sources for logs, including these which we will look at more detail below:
 
-- [Task/Application Logs](#tasks-logs)
+- [Task/Application Logs](#task-logs)
 - [Service Scheduler Logs](#scheduler-logs) (e.g., Marathon)
 - [Mesos Agent Logs](#agent-logs)
 - [Mesos Master Logs](#master-logs)
