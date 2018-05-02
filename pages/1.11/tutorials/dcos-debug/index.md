@@ -353,7 +353,7 @@ The Mesos Agent logs provide information regarding how the task (and its environ
 
 <a name="interactive-strat"></a>
 
-## Step 4: Test Task Interactively
+## Step 4: Test a Task Interactively
 
 The next step is to interactively look at the task running inside the container. If the task is still running, `dcos task exec` or `docker exec` can be helpful to start an interactive debugging session. If the application is based on a Docker container image, manually starting it using `docker run` followed by `docker exec` can also get you started in the right direction.
 
@@ -365,7 +365,7 @@ If you want to understand why a particular scheduler has received certain resour
 
 <a name="community-strat"></a>
 
-## Step 6:  Community
+## Step 6:  Consult the Community
 As mentioned above, the community, either using the [DC/OS Slack](http://chat.dcos.io/?_ga=2.172301539.1394567794.1525106895-1279864600.1520288020) or the[mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/users) can be very helpful in debugging further.
 
 <!-- IV. Hands On Examples Section -->
