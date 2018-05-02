@@ -111,7 +111,7 @@ For more information, see the [system requirements](/1.11/installing/oss/custom/
 
 A DC/OS service is a set of one or more service instances that can be started and stopped as a group and restarted automatically if they exit before being stopped.
 
-- Service is currently just a DC/OS GUI abstraction that translates to Marathon apps and pods in the CLI and API. This distinction will change over time as the name "service" is pushed upstream into component APIs.
+- Service is currently a DC/OS GUI abstraction that translates to Marathon apps and pods in the CLI and API. This distinction will change over time as the name "service" is pushed upstream into component APIs.
 - Sometimes "service" may also refer to a systemd service on the host OS. These are generally considered components and do not actually run on Marathon or Mesos.
 - A service may be either a system service or a user service. This distinction is new and still evolving as namespacing is transformed into a system-wide first class pattern.
 

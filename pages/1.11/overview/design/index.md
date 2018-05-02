@@ -6,4 +6,4 @@ navigationTitle: Design
 menuWeight: 10
 ---
 
-This section explains some technical details of specific DC/OS engineering implementations. 
+This section explains the technical details of specific DC/OS engineering implementations.
