@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 excerpt: Understanding the design of Mesos-DNS
-title: Design: Distributed DNS
+title: Design - Distributed DNS
 navigationTitle: Distributed DNS
 menuWeight: 3
 ---
