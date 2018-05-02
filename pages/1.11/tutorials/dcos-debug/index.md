@@ -364,7 +364,7 @@ If you want to understand why a particular scheduler has received certain resour
 <a name="community-strat"></a>
 
 ## Step 6:  Community
-As mentioned above, the community, either using the DC/OS Slack or the mailing list can be very helpful in debugging further.
+As mentioned above, the community, either using the [DC/OS Slack](http://chat.dcos.io/?_ga=2.172301539.1394567794.1525106895-1279864600.1520288020) or the[mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/users) can be very helpful in debugging further.
 
 <!-- IV. Hands On Examples Section -->
 
