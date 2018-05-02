@@ -59,19 +59,11 @@ DC/OS comes with a number of tools for debugging. In this section, we look at th
 
 - [Metrics](#metrics)
 
-<<<<<<< HEAD
 - [Interactive Tasks](#interactive)
 
 - [HTTP Endpoints](#endpoints)
 
 - [DC/OS Community](#community-tool)
-=======
-- [Debugging Tasks Interactively](#interactive)
-
-- [HTTP Endpoints](#endpoints)
-
-- [Community](#community-tool)
->>>>>>> 55ef177f04581d0a29961d7ac26329d34e13e76c
 
 - [Other tools](#other-tools)
 
@@ -123,11 +115,7 @@ Logs are useful tools to see events and conditions that occurred before the prob
 
 DC/OS has a number of different sources for logs, including these which we will look at more detail below:
 
-<<<<<<< HEAD
 - [Task/Application Logs](#task-logs)
-=======
-- [Task/Application Logs](#tasks-logs)
->>>>>>> 55ef177f04581d0a29961d7ac26329d34e13e76c
 - [Service Scheduler Logs](#scheduler-logs) (e.g., Marathon)
 - [Mesos Agent Logs](#agent-logs)
 - [Mesos Master Logs](#master-logs)
@@ -284,11 +272,7 @@ The best way to leverage metrics for debugging is to set up a dashboard with the
 
 <a name="interactive"></a>
 
-<<<<<<< HEAD
 ## Interactive Tasks
-=======
-## Interactive
->>>>>>> 55ef177f04581d0a29961d7ac26329d34e13e76c
 
 If the tasks logs are not helpful, then you may want use your favorite Linux tools (e.g., `curl`, `cat`, `ping`, etc) to understand what is really going on inside the application from an interactive point of view. You can use `dcos task exec` if you are using [Universal Container Runtime (UCR)](/latest/deploying-services/containerizers/ucr/) or SSH into the node and use `docker exec` if your are using the docker containerizer. For example, by using `dcos task exec -it <mycontainerid>` in bash, you are presented with an interactive bash shell inside that container.
 
@@ -380,7 +364,7 @@ If you want to understand why a particular scheduler has received certain resour
 <a name="community-strat"></a>
 
 ## Step 6:  Community
-As mentioned above, the community, either using the DC/OS Slack or the mailing list can be very helpful in debugging further.
+As mentioned above, the community, either using the [DC/OS Slack](http://chat.dcos.io/?_ga=2.172301539.1394567794.1525106895-1279864600.1520288020) or the[mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/users) can be very helpful in debugging further.
 
 <!-- IV. Hands On Examples Section -->
 
