@@ -269,7 +269,7 @@ curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_B
 echo "directory here"
 pwd
 echo "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
-tar "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz"
+tar -xvzf "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz"
 #tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 ls -la "${OUTPUT_FOLDER}"
 
