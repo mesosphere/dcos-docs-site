@@ -6,7 +6,7 @@ navigationTitle: Installation
 menuWeight: 4
 ---
 
-Building, installing and operating DC/OS must be a repeatable process. Even small error rates are unacceptable when you are working with 10,000 hosts. Because DC/OS comprises more than 30 different libraries, services and support packages, a non-standard approach is required. Trying to treat each of those components as independent artifacts to install and configure on target hosts would introduce failures that would get in the way of relying on the system.
+Building, installing and operating DC/OS must be a repeatable process. Even small error rates are unacceptable when you are working with 10,000 hosts. Because DC/OS comprises more than 30 different libraries, services and support packages, a non-standard approach is required. Trying to treat each of those components as independent artifacts to install and configure on target hosts would introduce failures that would prevent customers from relying on the system.
 
 Inspired by the approaches of many mature operating systems, it is possible to build a system that is bulletproof. Once the build process is complete, you end up with a single artifact that contains all the components required to install and run. This looks very similar to the ISO that you end up using to install your favorite Linux distribution.
 
