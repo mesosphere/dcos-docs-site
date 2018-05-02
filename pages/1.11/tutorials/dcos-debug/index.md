@@ -33,7 +33,9 @@ We encourage everyone to first try debugging these challenges yourself, but we a
 
 # Problems with Application Deployment
 
-The range of problems that can be encountered and require debugging is far too large to be covered in a single blog-post. Some of the problems that may need troubleshooting on DC/OS include applications:
+The range of problems that can be encountered and require debugging applications in DC/OS is wide. Here is a helpful set of symptoms your application might be expressing:
+
+Your application might:
 
 - Not deploying at all
 - Deploying very slowly
@@ -41,7 +43,7 @@ The range of problems that can be encountered and require debugging is far too l
 - Restarting repeatedly
 - Not being reachable inside (or outside) of the DC/OS cluster
 
-DC/OS consists of [a number of different components](https://docs.mesosphere.com/1.11/overview/architecture/components/) - most notably [Apache Mesos](http://mesos.apache.org/) and [Marathon](https://mesosphere.github.io/marathon/). As any of these components could be involved in the issue you are encountering, it might be difficult to even locate the component causing the issue. Accordingly, this tutorial aims to cover several types of such issues.
+DC/OS consists of [a number of different components](https://docs.mesosphere.com/1.11/overview/architecture/components/) - most notably [Apache Mesos](http://mesos.apache.org/) and [Marathon](https://mesosphere.github.io/marathon/). As any number of these components could be involved in the issue you are encountering, it can be difficult to even locate the component causing the issue. Accordingly, this tutorial aims to cover several types of such issues by applyiung a [general strategy](#strategy) in some [hands-on cases](#hands-on).
 
 Of course, there are a myriad of other potential sorts of problems that can affect your cluster besides application-related failures: networking problems, DC/OS installation issues, and DC/OS internal configuration issues could each be causing issues on your cluster. These are unfortunately out of scope for this tutorial, but we encourage you to reach out via our [Community channels](https://dcos.io/community/) with ideas and feedback.
 
