@@ -59,7 +59,7 @@ You can deploy your instances in a specific region region based on the available
 
 1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
-We recommend the format for the script output be
+We recommend the format for the script output be:
 
 ```json
   {
