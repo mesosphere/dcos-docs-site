@@ -10,7 +10,6 @@
 set -o errexit -o nounset -o pipefail
 
 OUTPUT_FOLDER=${1}
-PARALLEL_TEMPFILE=$(mktemp)
 
 TEMP_FILES=""
 
@@ -132,6 +131,7 @@ function selectFolder
 
 function main
 {
+   PARALLEL_TEMPFILE=$(mktemp)
    #cd $INPUT_FOLDER
    while IFS= read -r -d '' SOURCE_FILE
    do
