@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: Running DC/OS on AWS EC2
-navigationTitle: AWS
+title: Installing on AWS
+navigationTitle: Installing on AWS
 menuWeight: 0
 ---
 

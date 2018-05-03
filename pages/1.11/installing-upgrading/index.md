@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Installing and Upgrading DC/OS - new structure
-title: Installing and Upgrading DC/OS - new structure
+navigationTitle: Installing and Upgrading DC/OS
+title: Installing and Upgrading DC/OS
 menuWeight: 30
 excerpt:
 ---

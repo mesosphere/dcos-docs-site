@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: Running DC/OS on DigitalOcean
-navigationTitle: DigitalOcean
+title: Installing on DigitalOcean
+navigationTitle: Installing on DigitalOcean
 menuWeight: 10
 
 oss: true

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Cloud Installation  
-title: Cloud Installation 
+title: Cloud Installation
 menuWeight: 0
 excerpt:
 ---

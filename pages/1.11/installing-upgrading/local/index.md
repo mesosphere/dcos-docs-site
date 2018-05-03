@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Local Installation 
-title: Install Local Installation
+navigationTitle:  Local Installation
+title: Local Installation
 menuWeight: 10
 excerpt:
 ---

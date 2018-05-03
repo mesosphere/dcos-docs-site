@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: Running DC/OS on Google Compute Engine
-navigationTitle: GCE
+title: Installing on Google Compute Engine
+navigationTitle: Installing on GCE
 menuWeight: 15
 
 oss: true
@@ -283,8 +283,3 @@ Specify the concurrent downloads of the DC/OS installer to the cluster of master
 
 ### dcos_bootstrap_container
 Specify the name of the DC/OS bootstrap container running on the bootstrap node. Default: `dcosinstaller`.
-
-
-
-
-

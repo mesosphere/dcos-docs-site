@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: Running DC/OS on Packet
-navigationTitle: Packet
+title: Installing on Packet
+navigationTitle: Installing on Packet
 menuWeight: 20
 
 oss: true

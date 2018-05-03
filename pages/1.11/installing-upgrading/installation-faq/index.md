@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Frequently Asked Questions
-title: Frequently Asked Questions
+navigationTitle:  Installation FAQ
+title: Installation FAQ
 menuWeight: 30
 excerpt:
 ---
@@ -89,6 +89,3 @@ Note that if you’ve already installed your cluster and would like to disable t
 [1]: /1.11/installing-upgrading/custom/cli-installer/
 [2]: /1.11/installing-upgrading/custom/advanced-installer/
 [3]: /1.11/installing-upgrading/custom/configuration/configuration-parameters/
-
-
-

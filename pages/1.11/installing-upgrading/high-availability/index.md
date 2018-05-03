@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  High Availability
+navigationTitle: High Availability
 excerpt:
 title: High Availability
 menuWeight: 20
