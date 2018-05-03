@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: CLI Installers
-navigationTitle: CLI Installers
+title: CLI Installer for Open Source DC/OS
+navigationTitle: CLI Installer for Open Source DC/OS
 menuWeight: 5
 ---
 

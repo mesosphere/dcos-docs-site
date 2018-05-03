@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Upgrading
-title: Upgrading
+navigationTitle:  Upgrading DC/OS
+title: Upgrading DC/OS
 menuWeight: 35
 excerpt:
 ---

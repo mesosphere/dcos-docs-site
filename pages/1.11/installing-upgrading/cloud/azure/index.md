@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: Running DC/OS on Azure
-navigationTitle: Azure
+title: Installing on Azure
+navigationTitle: Installing on Azure
 menuWeight: 5
 
 oss: true
