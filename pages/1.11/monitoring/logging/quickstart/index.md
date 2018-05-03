@@ -7,9 +7,9 @@ excerpt: Getting started with DC/OS logging
 beta: true
 enterprise: false
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-w
+Use this guide to get started with DC/OS logging.
+
 **Prerequisites:**
 
 - You must have DC/OS and the DC/OS CLI [installed](/1.11/installing/oss/).
