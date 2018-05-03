@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 600
-excerpt:
+excerpt: Understanding the DC/OS Enterprise configuration reference
 
 enterprise: true
 ---
@@ -266,16 +266,16 @@ A sample definition is as follows:
 
 ```
 dns_forward_zones:
-- - "a.contoso.com"
- - - - "1.1.1.1"
-     - 53
-   - - "2.2.2.2"
-     - 53
-- - "b.contoso.com"
- - - - "3.3.3.3"
-     - 53
-   - - "4.4.4.4"
-     - 53
+  - "a.contoso.com"
+    - "1.1.1.1"
+      - 53
+    - "2.2.2.2"
+      - 53
+  - "b.contoso.com"
+    - "3.3.3.3"
+      - 53
+    - "4.4.4.4"
+      - 53
 ```
 
 In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
