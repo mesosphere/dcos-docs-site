@@ -30,7 +30,7 @@ The DC/OS Identity and Access Management (IAM) SAML service provider implementat
 
 ### Apache Mesos 1.2.2 and Marathon 1.4.7 integrated
 
-- Marathon 1.4.7 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.4.5).
+- Marathon 1.4.7 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.4.7).
 - Apache Mesos 1.2.2 [CHANGELOG](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.2.1-rc1/CHANGELOG). We also include patches from the forthcoming Apache Mesos 1.2.3.
 
 ## Container Orchestration

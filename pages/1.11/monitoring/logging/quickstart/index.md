@@ -140,8 +140,6 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
 
         ```bash
         dcos-diagnostics.service
-        dcos-adminrouter-reload.service
-        dcos-adminrouter-reload.timer
         dcos-adminrouter.service
         dcos-cosmos.service
         dcos-epmd.service
@@ -163,8 +161,6 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
        ```bash
        dcos-diagnostics.service
        dcos-diagnostics.socket
-       dcos-adminrouter-agent-reload.service
-       dcos-adminrouter-agent-reload.timer
        dcos-adminrouter-agent.service
        dcos-docker-gc.service
        dcos-docker-gc.timer
@@ -186,3 +182,4 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
     Thu Dec 15 00:34:08 2016 ip-10-0-6-165.us-west-2.compute.internal java [2541] [2016-12-15 00:34:08,121] INFO  Received status update for task test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd: TASK_RUNNING (Reconciliation: Latest task state) (mesosphere.marathon.MarathonScheduler$$EnhancerByGuice$$28056dde:Thread-297)
     ...
     ```
+
