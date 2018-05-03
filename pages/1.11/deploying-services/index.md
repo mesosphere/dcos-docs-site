@@ -8,10 +8,10 @@ excerpt:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
+ DC/OS uses Marathon to manage your processes and services.
 
-
-DC/OS uses Marathon to manage processes and services. Marathon is the "init system" for DC/OS. Marathon starts and monitors your applications and services, automatically healing failures.
+Marathon is the "init system" for DC/OS. Marathon starts and monitors your applications and services, automatically healing failures.
 
 A native Marathon instance is installed as a part of DC/OS installation. After DC/OS has started, you can manage the native Marathon instance through the DC/OS CLI with the `dcos marathon` command.
 

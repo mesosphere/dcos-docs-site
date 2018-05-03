@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Custom Installation Options
 menuWeight: 0
-excerpt:
+excerpt: Installing DC/OS with customer options
 
 enterprise: true
 ---

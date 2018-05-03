@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Architecture
 title: Architecture
 menuWeight: 2
-excerpt:
+excerpt: Understanding DC/OS architecture
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 DC/OS is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic to the infrastructure layer. This means that the infrastructure may consist of virtual or physical hardware as long as it provides compute, storage, and networking.

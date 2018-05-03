@@ -11,7 +11,8 @@ excerpt: >
 beta: true
 enterprise: true
 ---
-
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+<!-- Note from editor: This is a 'hidden' page, so do not add a navigationTitle value other than a blank or a > character. -->
 
 # About configuring browsers to trust your DC/OS CA
 
@@ -27,12 +28,12 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 
 # <a name="osx-chrome"></a>Configuring Google Chrome on OS X to trust your DC/OS CA
 
-**Notes:** 
+**Notes:**
 
 - Procedure works best with Chrome 56.
 
 - At any time in this procedure, you may be prompted for your password to allow modifications to your keychain. Provide your password at the prompt.
-     
+
 1. Click the magnifying glass icon in the top right of your desktop to open Spotlight Search. Type **Keychain Access** in the box.
 
      ![Launch Keychain Access](/1.11/img/osx-chrome-launch-keychain.png)
@@ -46,7 +47,7 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 1. Double-click the certificate in the keychain, expand the **Trust** section, and select **Always Trust** in **When using this certificate**.
 
      ![Always Trust Certificate](/1.11/img/osx-chrome-always-trust.png)
-     
+
 1. Close the dialog.
 
 1. Open a new Incognito Chrome window and open the DC/OS web interface. The path to the DC/OS web interface in the address bar should be marked **Secure**. You can also try visiting the public IP address of each of your masters to confirm that all show up as **Secure**.
@@ -68,7 +69,7 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 
 1. Click **Next** on the **Welcome** page of the Certificate Import Wizard.
 
-1. Click **Browse**. 
+1. Click **Browse**.
 
 1. Navigate to your `dcos-ca.crt` file, select it, and click **Open**.
 

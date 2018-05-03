@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Components
 title: Components
 menuWeight: 4
-excerpt:
+excerpt: Understanding DC/OS components
 ---
 
 <style type="text/css">

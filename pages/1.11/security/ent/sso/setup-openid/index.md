@@ -13,13 +13,15 @@ excerpt: >
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
+<!-- Note from editor: This is a 'hidden' page, so do not add a navigationTitle value other than a blank or a > character. -->
 
 
 
 # About adding an OpenID Connect identity provider
 
-DC/OS Enterprise can integrate with any identity provider (IdP) that uses OpenID Connect 1.0. 
+DC/OS Enterprise can integrate with any identity provider (IdP) that uses OpenID Connect 1.0.
 
 The following procedure will take a Google IdP as an example and walk you through each step of the set up process.
 
@@ -49,7 +51,7 @@ The following procedure will take a Google IdP as an example and walk you throug
 
 1. Paste the URL of your cluster into the **Authorized JavaScript origins** box. Example: `https://jp-ybwutd-elasticl-1r2iui8i0z9b7-1590150926.us-west-2.elb.amazonaws.com`
 
-    **Note:** If your cluster is fronted by a load balancer (recommended) the cluster URL will be the path to the load balancer. The cluster URL is the same as the path to the DC/OS GUI and can be copied from your browser bar. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get your cluster URL. 
+    **Note:** If your cluster is fronted by a load balancer (recommended) the cluster URL will be the path to the load balancer. The cluster URL is the same as the path to the DC/OS GUI and can be copied from your browser bar. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get your cluster URL.
 
 1. Paste your cluster URL into the **Authorized redirect URIs** field as well.
 
@@ -75,13 +77,13 @@ The following procedure will take a Google IdP as an example and walk you throug
 
 1. Paste the following into the **Issuer** field: `https://accounts.google.com`.
 
-1. Paste your cluster URL into the **Base URI** field. Please see the previous section for more information on obtaining this value. 
+1. Paste your cluster URL into the **Base URI** field. Please see the previous section for more information on obtaining this value.
 
 1. Paste the client ID value from Google into the **Client ID** field.
 
 1. Paste the client secret value from Google into the **Client Secret** field.
 
-    ![Google IdP Configuration](/1.11/img/oidc-google.png) 
+    ![Google IdP Configuration](/1.11/img/oidc-google.png)
 
 11. Click **Submit**.
 
@@ -119,8 +121,8 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. You should see your new user listed there.
 
-1. Assign this user the appropriate [permissions](/1.11/security/ent/perms-reference/). 
- 
+1. Assign this user the appropriate [permissions](/1.11/security/ent/perms-reference/).
+
 ### <a name="using-cli"></a>Using the DC/OS CLI
 
 **Prerequisite:** [DC/OS CLI installed](/1.11/cli/install/).
@@ -130,7 +132,7 @@ You can use either of the following to verify that you have set up your IdP corr
    ```bash
    dcos auth login --provider=google-idp --username=<user-email> --password=<secret-password>
    ```
-   
+
 1. The CLI should return a message similar to the following.
 
    ```bash
@@ -138,19 +140,19 @@ You can use either of the following to verify that you have set up your IdP corr
 
     https://eanicich-elasticl-c3kpgqk7jdft-820516824.us-west-2.elb.amazonaws.com/acs/api/v1/auth/login?oidc-provider=google-idp&target=dcos:authenticationresponse:html
    ```
-   
-1. Copy the path and paste it into your browser. 
+
+1. Copy the path and paste it into your browser.
 
 1. You should see a message similar to the following.
 
     ![CLI IdP Auth Token](/1.11/img/cli-auth-token.png)
-    
+
 1. Click **Copy to clipboard**.
 
 1. Return to your terminal prompt and paste in the authentication token value.
 
-1. You should receive the following message. 
+1. You should receive the following message.
 
    ```bash
-   Login successful! 
+   Login successful!
    ```

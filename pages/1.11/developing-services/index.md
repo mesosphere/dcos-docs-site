@@ -2,12 +2,10 @@
 layout: layout.pug
 title: Developing DC/OS Services
 menuWeight: 160
-excerpt:
+excerpt: How to develop your own DC/OS components
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 This section describes the developer-specific DC/OS components, explaining what is necessary to package and provide your own service on DC/OS.

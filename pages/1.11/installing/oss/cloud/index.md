@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Installing DC/OS using Open Source
 title: DC/OS Cloud Installation Options
 navigationTitle: Cloud
 menuWeight: 1
 oss: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 Looking to install DC/OS on your cloud of choice? Look no further! You can use a template or use our advanced custom installer.
 

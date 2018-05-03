@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
 navigationTitle:  System Requirements
-excerpt:
+excerpt: Installation system prerequisites
 title: System Requirements
 menuWeight: 000
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 # Hardware Prerequisites

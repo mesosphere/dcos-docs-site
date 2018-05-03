@@ -3,21 +3,19 @@ layout: layout.pug
 navigationTitle:  Creating Jobs
 title: Creating Jobs
 menuWeight: 10
-excerpt:
+excerpt: How to create jobs
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 You can create and administer jobs in the DC/OS web interface, from the DC/OS CLI, or via the API.
 
-# DC/OS Web Interface
+# DC/OS Web interface
 
 **Note:** The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the [dcos job](/1.11/cli/command-reference/dcos-job/) commands or the Jobs [API](#jobs-api).
 
-## Add a Job
+## Add a job
 
 From the DC/OS web interface, click the **Jobs** tab, then the **Create a Job** button. Fill in the following fields, or toggle to JSON mode to edit the JSON directly.
 
@@ -46,7 +44,7 @@ Check the **Run on a Schedule** to reveal the following fields.
 ## Job Groups
 You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.11/deploying-jobs/job-groups) to implement fine-grained user access.
 
-## Modify, View, or Remove a Job
+## Modify, view, or remove a job
 
 From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
 
@@ -54,7 +52,7 @@ From the **Jobs** tab, click the name of your job and then the menu on the upper
 
 You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands, run `dcos job --help`.
 
-## Add a Job
+## Add a job
 
 1. Create a job file in JSON format. The `id` parameter is the job ID. You will use this ID later to manage your job.
 
@@ -109,7 +107,7 @@ If you use the same schedule for more than one job, you can create a separate JS
 }
 ```
 
-## Remove a Job
+## Remove a job
 
 1. Enter the following command on the DC/OS CLI:
 
@@ -123,7 +121,7 @@ If you use the same schedule for more than one job, you can create a separate JS
     dcos job list
     ```
 
-## Modify a Job
+## Modify a job
 
 To modify your job, update your JSON job file, then run
 
@@ -131,11 +129,11 @@ To modify your job, update your JSON job file, then run
 dcos job update <job-file>.json
 ```
 
-### Modify a Job's Schedule
+### Modify a job's schedule
 
 You can update the schedule of your job in two ways, depending if your job has a schedule specified in the `<job-file>.json` or if your job's schedule is kept in a separate file.
 
-#### Modify a Job with a Schedule
+#### Modify a job with a schedule
 
 Modify the `schedules` parameter of your `<job-file>.json`. Then run
 
@@ -143,7 +141,7 @@ Modify the `schedules` parameter of your `<job-file>.json`. Then run
 dcos job update <job-file>.json
 ```
 
-#### Modify a Job with a Separate Schedule file
+#### Modify a job with a separate schedule file
 
 Modify `<schedule-file>.json`. Then, run one of the following commands:
 
@@ -153,7 +151,7 @@ dcos job schedule remove <job-id> <schedule-id>
 dcos job schedule update <job-id> <schedule-file>.json
 ```
 
-## View Job Details
+## View job details
 
 List all jobs:
 
@@ -179,9 +177,9 @@ To view details about your job's schedule, run:
 dcos job schedule show <job-id>
 ```
 
-### Read Job logs
+### View job logs
 
-Inspect the log for your job:
+To view the log for your job:
 
 ```
 dcos task log --completed <job-id>
@@ -199,7 +197,7 @@ You can also create and administer jobs via the API. [View the full API here](ht
 
 **Note:** The DC/OS CLI and web interface support a combined JSON format (accessed via the `/v0` endpoint) that allows you to specify a schedule in the job descriptor. To schedule a job via the API, use two calls: one to add an unscheduled job and another to associate a `<schedule-file>.json` with the job.
 
-## Add a Job
+## Add a job
 
 The following command adds a job called `myjob.json`.
 
@@ -207,7 +205,7 @@ The following command adds a job called `myjob.json`.
 curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d@/Users/<your-username>/<myjob>.json
 ```
 
-## Remove a Job
+## Remove a job
 
 The following command removes a job regardless of whether the job is running:
 ```
@@ -216,7 +214,7 @@ curl -X DELETE -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 To remove a job only if it is not running, set `stopCurrentJobRuns` to `False`.
 
-## Modify or View a Job
+## Modify or view a job
 
 The following command shows all jobs:
 
@@ -237,7 +235,7 @@ curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "
 ```
 
 <a name="add-sched"></a>
-## Add a Schedule to a Job
+## Add a schedule to a job
 
 The following command adds a schedule to a job:
 

@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Slow Docker Apps and Deployments
 title: Slow Docker Apps and Deployments
 menuWeight: 40
-excerpt:
+excerpt: Troubleshooting slow Docker apps and deployments
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 If you recently upgraded to DC/OS 1.10 or configured `MESOS_CGROUPS_ENABLE_CFS=true` in your Mesos agent configuration, you may see slow-running Docker applications or slow deployments.
@@ -39,7 +39,7 @@ You will need to change the configurations for your DC/OS installation (if you a
 
 1. If the file `/var/lib/dcos/mesos-slave-common` does not exist, create it.
 
-1. Edit `/var/lib/dcos/mesos-slave-common` to add `MESOS_CGROUPS_ENABLE_CFS=false`. 
+1. Edit `/var/lib/dcos/mesos-slave-common` to add `MESOS_CGROUPS_ENABLE_CFS=false`.
 
 1. [Reinstall](/1.11/installing/oss/) DC/OS.
 

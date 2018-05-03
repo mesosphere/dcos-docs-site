@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-excerpt:
-title: Frequently Asked Questions
+excerpt: Frequently asked questions about installing DC/OS open source
+title: Installation Frequently Asked Questions
 navigationTitle: FAQ
 menuWeight: 203
 oss: true
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 ## Q. Can I install DC/OS on an already running Mesos cluster?
 We recommend starting with a fresh cluster to ensure all defaults are set to expected values. This prevents unexpected conditions related to mismatched versions and configurations.

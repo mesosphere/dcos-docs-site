@@ -3,9 +3,10 @@ layout: layout.pug
 navigationTitle:  GUI Installer (Retired Feature)
 title: GUI Installer (Retired Feature)
 menuWeight: 100
-excerpt:
+excerpt: GUI installer retired
 ---
 ## The GUI installer is retired in version 1.11 and is not supported.
+
 This installer will be decomissioned in 1.12 release.
 
 The automated GUI installer provides a simple graphical interface that guides you through the installation of DC/OS. The GUI installer provides a basic installation that is suitable for demonstrations and POCs. Only a subset of the configuration options are available with the GUI method. This is the fastest way to get started with DC/OS.

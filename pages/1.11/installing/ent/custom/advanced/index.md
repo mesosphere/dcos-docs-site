@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Advanced Installer
 title: Advanced Installer
 menuWeight: 300
-excerpt:
+excerpt: Packaging a DC/OS distribution
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 With this installation method, you package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
 

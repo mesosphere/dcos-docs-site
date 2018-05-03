@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Permissions Reference
 title: Permissions Reference
 menuWeight: 40
-excerpt:
+excerpt: Understanding DC/OS access and permissions references
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can control DC/OS access by resource and operation.
 See [Permissions Management](/1.11/security/ent/perms-management/) for details on how to control permissions.

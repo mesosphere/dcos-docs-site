@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  Using Virtual IP Addresses
 title: Using Virtual IP Addresses
 menuWeight: 10
-excerpt:
+excerpt: Using virtual IP addresses
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. DC/OS VIPs are **name-based**, which means clients connect with a service address instead of an IP address. 
+DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. DC/OS VIPs are **name-based**, which means clients connect with a service address instead of an IP address.
 
 DC/OS automatically generates name-based VIPs that do not collide with IP VIPs, so you don’t have to worry about collisions. This feature allows name-based VIPs to be created automatically when the service is installed.
 
@@ -26,7 +26,7 @@ You can assign a VIP to your application from the DC/OS GUI. The values you ente
 - `portMappings` if using Docker containers
 
 VIPs follow this naming convention:
- 
+
 ```
 <service-name>.marathon.l4lb.thisdcos.directory:<port>
 ```
@@ -40,24 +40,24 @@ VIPs follow this naming convention:
 1.  From the DC/OS [GUI](/1.11/gui/), click on the **Services** then **RUN A SERVICE**.
     1.  From the **Networking** tab, select  **NETWORK TYPE** > **Virtual Network: dcos**.
     2.  Expand **ADD SERVICE ENDPOINT** and provide responses for:
-    
+
         -  **CONTAINER PORT**
         -  **SERVICE ENDPOINT NAME**
         -  **PORT MAPPING**
         -  **LOAD BALANCED SERVICE ADDRESS**
-        
+
         As you fill in these fields, the service addresses that Marathon sets up will appear at the bottom of the screen. You can assign multiple VIPs to your app by clicking **ADD SERVICE ENDPOINT**.
-        
+
         ![VIP service definition](/1.11/img/vip-service-definition.png)
 
         In the example above, clients can access the service at `my-service.marathon.l4lb.thisdcos.directory:5555`.
-        
+
     1.  Click **REVIEW & RUN** and **RUN SERVICE**.
-    
+
 You can click on the **Networking** tab to view networking details for your service.
 
 ![VIP output](/1.11/img/vip-service-definition-output.png)
-    
+
 For more information on port configuration, see the [Marathon ports documentation](/1.11/deploying-services/service-ports/).
 
 ## Using VIPs with DC/OS Services
@@ -69,22 +69,22 @@ Follow these steps to view the VIP for Kafka.
 ### Via the GUI
 
 1.  Click **Networking** > **Networks** and select **dcos**.
-1.  Select your task to view details. 
+1.  Select your task to view details.
 
     ![](/1.11/img/vip-service-details.png)
 
 ### Via the CLI
 
-**Prerequisite:** The Kafka service and CLI must be [installed](/services/kafka/). 
+**Prerequisite:** The Kafka service and CLI must be [installed](/services/kafka/).
 
-1.  Run this command: 
+1.  Run this command:
 
     ```bash
     dcos kafka endpoints broker
     ```
-    
+
     The output should resemble:
-    
+
     ```json
     {
       "address": [
