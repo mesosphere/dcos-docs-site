@@ -167,7 +167,7 @@ Specify the service account (`<service-account-id>`) and secret path (`kafka/<se
 {
   "service": {
     "service_account": "<service-account-id>",
-    "service_account_name": "kafka/<secret-name>"
+    "service_account_secret": "kafka/<secret-name>"
   }
 }
 ```
