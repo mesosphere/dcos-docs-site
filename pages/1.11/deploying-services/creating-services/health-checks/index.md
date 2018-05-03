@@ -52,63 +52,12 @@ When creating a service, you can configure JSON health checks in the DC/OS GUI o
 | GUI | JSON | Default | Description |
 |----------------------|--------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GRACE PERIOD(S)** |gracePeriodSeconds| 15 | Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. |
-| **INTERVAL(S)** | `intervalSeconds` | `10` | Specifies the amount of time (in seconds) to wait between health checks. |
-| **MAX FAILURES** | `maxConsecutiveFailures` | `3` | Specifies the number of consecutive health check failures that can occur before a task is killed. |
-| **PROTOCOL** | `protocol` | `HTTP` | Specifies the protocol of the requests: `HTTP`, `HTTPS`, `TCP`, or `Command`. |
-| **SERVICE ENDPOINT** | `path` | `\` | If `"protocol": "HTTP"`, this option specifies the path to the task health status endpoint. For example, `“/path/to/health”`. |
-| N/A | `portIndex` | `0` | Specifies the port index in the ports array that is used for health requests. A port index allows the app to use any port, such as `“[0, 0, 0]”` and tasks could be started with port environment variables such as `$PORT1`. |
-| **TIMEOUT(S)** | `timeoutSeconds` | `20` | Specifies the amount of time (in seconds) before a health check fails, regardless of the response. |
-
-<table class="table">
-<tr>
-<th>GUI</th>
-<th>JSON</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-<tr>
-<td><b>GRACE PERIOD(S)</b></td>
-<td><code>gracePeriodSeconds</code></td>
-<td><code>15</code></td>
-<td>Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. </td>
-</tr>
-<tr>
-<td><b>INTERVAL(S)</b></td>
-<td> <code>intervalSeconds</code></td>
-<td><code>10</code></td>
-<td>Specifies the amount of time (in seconds) to wait between health checks. </td>
-</tr>
-<tr>
-<td><b>MAX FAILURES</b></td>
-<td> <code>maxConsecutiveFailures</code></td>
-<td><code>3</code></td>
-<td>Specifies the number of consecutive health check failures that can occur before a task is killed. </td>
-</tr>
-<tr>
-<td><b>PROTOCOL </b></td>
-<td> <code>protocol</code></code></td>
-<td><code>HTTP</code></td>
-<td>Specifies the protocol of the requests: <code>HTTP</code>, <code>HTTPS</code>, <code>TCP</code>, or <code>Command</code>. </td>
-</tr>
-<tr>
-<td><b>SERVICE ENDPOINT</b></td>
-<td> <code>path</code></td>
-<td><code>\`</td>
-<td> If <code>"protocol": "HTTP"</code>, this option specifies the path to the task health status endpoint. For example, <code>“/path/to/health”</code>. </td>
-</tr>
-<tr>
-<td>N/A </td>
-<td> <code>portIndex</code></td>
-<td><code>0</code></td>
-<td> Specifies the port index in the ports array that is used for health requests. A port index allows the app to use any port, such as </code>“[0, 0, 0]”</code> and tasks could be started with port environment variables such as </code>$PORT1</code>.</td>
-</tr>
-<tr>
-<td><b>TIMEOUT(S)</b> </td>
-<td> <code>timeoutSeconds</code></td>
-<td><code>20</code></td>
-<td>  Specifies the amount of time (in seconds) before a health check fails, regardless of the response.</td>
-</tr>
-</table>
+| **INTERVAL(S)** | intervalSeconds | 10 | Specifies the amount of time (in seconds) to wait between health checks. |
+| **MAX FAILURES** | maxConsecutiveFailures | 3 | Specifies the number of consecutive health check failures that can occur before a task is killed. |
+| **PROTOCOL** | protocol | HTTP | Specifies the protocol of the requests: `HTTP`, `HTTPS`, `TCP`, or `Command`. |
+| **SERVICE ENDPOINT** | path | \ | If `"protocol": "HTTP"`, this option specifies the path to the task health status endpoint. For example, `“/path/to/health”`. |
+| N/A | portIndex | 0 | Specifies the port index in the ports array that is used for health requests. A port index allows the app to use any port, such as `“[0, 0, 0]”` and tasks could be started with port environment variables such as `$PORT1`. |
+| **TIMEOUT(S)** | timeoutSeconds | 20 | Specifies the amount of time (in seconds) before a health check fails, regardless of the response. |
 
 
 For example, here is the health check specified as JSON in an application definition.
