@@ -67,9 +67,45 @@ When creating a service, you can configure JSON health checks in the DC/OS GUI o
 <th>Description</th>
 </tr>
 <tr><td>**GRACE PERIOD(S)**</td>
-<td>&nbsp;`gracePeriodSeconds`&nbsp;</td>
+<td>`gracePeriodSeconds`</td>
 <td>`15`</td>
 <td>Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. </td>
+</tr>
+<tr><td>**INTERVAL(S)**</td>
+<td> `intervalSeconds`</td>
+<td>`10`</td>
+<td>Specifies the amount of time (in seconds) to wait between health checks. </td>
+</tr>
+<tr>
+<td>**MAX FAILURES**</td>
+<td> `maxConsecutiveFailures`</td>
+<td>`3`</td>
+<td>Specifies the number of consecutive health check failures that can occur before a task is killed. </td>
+</tr>
+<tr>
+<td>**PROTOCOL** </td>
+<td> `protocol`</td>
+<td>`HTTP`</td>
+<td>Specifies the protocol of the requests: `HTTP`, `HTTPS`, `TCP`, or `Command`. </td>
+</tr>
+<tr>
+<td>**SERVICE ENDPOINT**</td>
+<td> `path`</td>
+<td>`\`</td>
+<td> If `"protocol": "HTTP"`, this option specifies the path to the task health status endpoint. For example, `“/path/to/health”`. </td>
+</tr>
+<tr>
+<td>N/A </td>
+<td> `portIndex`</td>
+<td>`0`</td>
+<td> Specifies the port index in the ports array that is used for health requests. A port index allows the app to use any port, such as `“[0, 0, 0]”` and tasks could be started with port environment variables such as `$PORT1`.</td>
+</tr>
+<tr>
+<td>**TIMEOUT(S)** </td>
+<td> `timeoutSeconds`</td>
+<td>`20`</td>
+<td>  Specifies the amount of time (in seconds) before a health check fails, regardless of the response.</td>
+</tr>
 </table>
 
 
