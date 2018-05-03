@@ -89,7 +89,7 @@ The **DC/OS UI** is a great place to start debugging as it provides quick access
 - **Task Logs** to provide insight into tasks failures
 - **Task Debug Information** to provide information about the most recent task offers and/or why a task did not start
 
-[Pic of DC/OS UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+![Pic of DC/OS UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
 
 <a name="mesos-ui"></a>
 
@@ -97,7 +97,7 @@ The **DC/OS UI** is a great place to start debugging as it provides quick access
 
 Despite the DC/OS UI showing most of the information that you’d need for debugging, sometimes accessing the Mesos UI itself can be helpful, for example when checking failed tasks or registered frameworks. The Mesos UI can be accessed via `https://<cluster-address>/mesos`.
 
-[Pic of Mesos UI](https://mesosphere.com/wp-content/uploads/2018/04/Screen-Shot-2018-04-15-at-17.56.16.png)
+![Pic of Mesos UI](https://mesosphere.com/wp-content/uploads/2018/04/Screen-Shot-2018-04-15-at-17.56.16.png)
 
 <a name="zoo-ui"></a>
 
@@ -105,7 +105,7 @@ Despite the DC/OS UI showing most of the information that you’d need for debug
 
 As much of the cluster and framework state is stored in Zookeeper, it can be helpful to check its state. This can be done by using Exhibitor UI via `https://<cluster-address>/exhibitor`. This is particularly helpful as frameworks such as Marathon, Kafka, Cassandra, as many store information in Zookeeper. A failure during uninstalling of one of those frameworks might leave entries behind. So then, if you experience difficulties when reinstalling a framework you have uninstalled earlier, this UI is worth checking.
 
-[Pic of ZooKeeper/Exhibitor UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
+![Pic of ZooKeeper/Exhibitor UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
 
 <a name="logs"></a>
 
@@ -147,7 +147,7 @@ Task/application logs are often helpful in understanding the state of the applic
 
 By default applications logs are written (together with execution logs) to the `STDERR` and `STDOUT` files in the task workdirectory. When looking at the task in the DC/OS UI you can just simply view the logs as shown below.
 
-[Pic of task log](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-16.png)
+![Pic of task log](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-16.png)
 
 You can also do the same from the DC/OS CLI:
 
@@ -211,7 +211,7 @@ to get the following log output:
 2018-04-09 19:04:24: I0410 02:38:24.752534  3708 logfmt.cpp:178] dstip=10.0.3.81 type=audit timestamp=2018-04-10 02:38:24.752481024+00:00 reason="Valid authorization token" uid="dcos_net_agent" object="/slave(1)/state" agent="navstar@10.0.3.81 (pid 3168)" authorizer="mesos-agent" action="GET" result=allow srcip=10.0.3.81 dstport=5051 srcport=56595
 ```
 
-[Pic of Mesos agent UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-23.png)
+![Pic of Mesos agent UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-23.png)
 
 <a name="master-logs"></a>
 
@@ -397,7 +397,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debuggi
 
 If you check the app status using the DC/OS GUI, you should see something similar to the following:
 
-[Pic of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-14.png)
+![Pic of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-14.png)
 
 With the status of the application most likely to be “Waiting” followed by some number of thousanths “x/1000”. "Waiting" refers to the overall application status and the number; "x" here represents how many instances have successfully deployed (6 in this example).
 
@@ -437,15 +437,15 @@ The “Waiting” state means that DC/OS (or more precisely Marathon) is waiting
 
 If we look at the DC/OS dashboard we should see a pretty high CPU allocation similar to the following (exact percentage depends on your cluster):
 
-[Pic of CPU Allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-20.png)
+![Pic of CPU Allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-20.png)
 
 Since we are not yet at 100% allocation, but we are still waiting to deploy, let’s look at the recent resource offers in the debug view of the DC/OS GUI.
 
-[Pic of relevant instance of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+![Pic of relevant instance of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
 
 We can see that there are no matching CPU resources, but we recall that the overall CPU allocation was only at 75%. However, when we take a look at the 'Details' section further below, we can see how the latest offers from different host match the resource requirements of our app. So, for example, the first offer coming from host `10.0.0.96` matched the role, constraint (not present in this `app-definition`) memory, disk, port resource requirements --- but failed the CPU resource requirements. The last offer also seems to have the resource requirements. Let us understand what that means exactly by looking at this offer in more detail.
 
-[Pic of details](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-22.png)
+![Pic of details](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-22.png)
 
 So some of the remaining CPU resources are in a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application which runs in role '*' (which is the default role).
 
@@ -471,7 +471,7 @@ When looking at the agent information we can see two different kinds of agent.
 
 The first kind has no free CPU resources and also no reserved resources, although this might be different if you had other workloads running on your cluster prior to these exercises. Note that these unreserved resources correspond to the default role '*' in which we are trying to deploy our tasks.
 
-[Pic of cluster information](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-19.png)
+![Pic of cluster information](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-19.png)
 
 The second kind has unused CPU resources, but these resources are reserved in the role 'slave_public'.
 
@@ -505,11 +505,11 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 
 Now when we take a look at the DC/OS GUI, we see some strange results under CPU Allocation:
 
-[Pic of CPU allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-25.png)
+![Pic of CPU allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-25.png)
 
 How is it that CPU Allocation is oscillating? Let’s take a look at the app details in the GUI:
 
-[Pic of Task tab](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-24.png)
+![Pic of Task tab](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-24.png)
 
 It looks like our app runs for a few seconds and then fails. Let’s find out why.
 
@@ -517,7 +517,7 @@ It looks like our app runs for a few seconds and then fails. Let’s find out wh
 
 Let’s start by looking at the app logs, either in the GUI or via the CLI. You can find the app logs in the GUI by :
 
-[Pic of app logs](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-15.png)
+![Pic of app logs](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-15.png)
 
 The log output “Eating Memory” is a pretty generous hint that the issue might be related to memory, but there is no direct failure message (and you should keep in mind that *most apps are not so friendly as to log that they are eating up memory*).
 
@@ -593,13 +593,13 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debuggi
 
 We see the app fail almost immediately:
 
-[Pic of failure](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-17.png)
+![Pic of failure](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-17.png)
 
 ### Resolution
 
 As we learned [earlier](#strategy), with app failures the [first step](#task-strat) is to check the [task logs](#task-logs).
 
-[Pic of empty log output](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
+![Pic of empty log output](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
 Unfortunately, it is completely empty. Normally we would at least see some output from the setup of the task. What could be happening?
 
