@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Running DC/OS Open Source on AWS EC2 Advanced
-navigationTitle: Running DC/OS Open Source on AWS EC2 Advanced
+title: AWS Advanced Installation
+navigationTitle: AWS Advanced Installation
 menuWeight: 5
 excerpt:
 ---

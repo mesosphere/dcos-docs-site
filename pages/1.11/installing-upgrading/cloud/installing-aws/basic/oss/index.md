@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 excerpt:
-title: Running DC/OS Open Source on AWS EC2 Basic
-navigationTitle: Running DC/OS Open Source on AWS EC2 Basic
+title: AWS Basic Installation for DC/OS Open Source
+navigationTitle: AWS Basic Installation for DC/OS Open Source
 menuWeight: 5
 
 oss: true

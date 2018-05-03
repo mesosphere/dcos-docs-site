@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Running DC/OS on AWS EC2 Basic
-navigationTitle: Running DC/OS on AWS EC2 Basic
+title: AWS Basic Installation
+navigationTitle: AWS Basic Installation
 menuWeight: 0
 excerpt:
 
