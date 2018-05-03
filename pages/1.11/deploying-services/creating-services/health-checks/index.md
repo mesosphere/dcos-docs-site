@@ -51,7 +51,7 @@ When creating a service, you can configure JSON health checks in the DC/OS GUI o
 
 | GUI | JSON | Default | Description |
 |----------------------|--------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GRACE PERIOD (S)** | `gracePeriodSeconds` | `15` | Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. |
+| **GRACE&nbsp;PERIOD (S)** | `gracePeriodSeconds` | `15` | Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. |
 | **INTERVAL (S)** | `intervalSeconds` | `10` | Specifies the amount of time (in seconds) to wait between health checks. |
 | **MAX FAILURES** | `maxConsecutiveFailures` | `3` | Specifies the number of consecutive health check failures that can occur before a task is killed. |
 | **PROTOCOL** | `protocol` | `HTTP` | Specifies the protocol of the requests: `HTTP`, `HTTPS`, `TCP`, or `Command`. |
