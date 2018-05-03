@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Install and Customize
 menuWeight: 20
-excerpt: Installing and customizing Apache Zookeeper
+excerpt: Installing and customizing Apache ZooKeeper
 featureMaturity:
 enterprise: false
 ---

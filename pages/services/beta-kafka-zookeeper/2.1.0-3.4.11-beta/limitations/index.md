@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Limitations
 menuWeight: 100
-excerpt:
+excerpt: Understanding Apache ZooKeeper node limits
 featureMaturity:
 enterprise: false
 ---
@@ -11,17 +11,17 @@ enterprise: false
 <!-- https://github.com/mesosphere/dcos-zookeeper/ -->
 
 
-# Zookeeper Configuration
+# ZooKeeper Configuration
 
-## Node Count
+## Node count
 
-Only 3 or 5 Zookeeper nodes are allowed.
+Only 3 or 5 ZooKeeper nodes are allowed.
 
-## Rack-aware Replication
+## Rack-aware replication
 
 Rack placement and awareness are not supported at this time.
 
-## Updating Zookeeper settings
+## Updating ZooKeeper settings
 Reconfiguration of certain ZooKeeper settings is not allowed after deployment:
 - ticktime
 - client port
