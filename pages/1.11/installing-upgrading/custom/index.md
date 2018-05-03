@@ -1,12 +1,9 @@
 ---
 layout: layout.pug
 excerpt:
-title: Custom Installation 
+title: Custom Installation
 navigationTitle: Custom Installation
 menuWeight: 5
-
-ent: true
-oss: true
 ---
 
 You can install DC/OS on bare metal, virtual machines and every cloud. With the custom installers, you have the flexibility to configure each installation of DC/OS exactly how you like it.

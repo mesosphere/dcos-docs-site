@@ -6,7 +6,7 @@ title: Troubleshooting
 menuWeight: 400
 oss: true
 ---
-
+x
 # <a name="general"></a>General troubleshooting approach
 
 1.  Verify you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.

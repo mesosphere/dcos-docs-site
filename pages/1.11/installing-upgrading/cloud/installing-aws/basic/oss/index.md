@@ -4,6 +4,8 @@ excerpt:
 title: Running DC/OS Open Source on AWS EC2 Basic
 navigationTitle: Running DC/OS Open Source on AWS EC2 Basic
 menuWeight: 5
+
+oss: true
 ---
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">DC/OS templates for AWS CloudFormation</a>.
