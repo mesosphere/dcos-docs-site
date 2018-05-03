@@ -5,12 +5,10 @@
 # Description: Sends html files to Docker container wkhtmltopdf-aas
 #              and generates a pdf for each file
 #
-#Set PARALLEL_JOBS Environment Variable for parallel jobs count, should not be more than the number of CPU
 
 set -o errexit -o nounset -o pipefail
 
 OUTPUT_FOLDER=${1}
-PARALLEL_TEMPFILE=$(mktemp)
 
 TEMP_FILES=""
 
@@ -132,6 +130,8 @@ function selectFolder
 
 function main
 {
+   #Set PARALLEL_JOBS Environment Variable for parallel jobs count, should not be more than the number of CPU
+   PARALLEL_TEMPFILE=$(mktemp)
    #cd $INPUT_FOLDER
    while IFS= read -r -d '' SOURCE_FILE
    do
@@ -263,12 +263,14 @@ PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/dcos-docs-p
 
 echo curl -o ${LAST_SUCCESSFUL_BUILD}
 
-curl -o "dcos-docs-pdf-bundle-develop-2014-04-24-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+#curl -o "dcos-docs-pdf-bundle-develop-2014-04-24-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
 
 echo "directory here"
 pwd
 echo "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
-tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
+tar -xvzf "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz"
+#tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 ls -la "${OUTPUT_FOLDER}"
 
 #
