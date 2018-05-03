@@ -67,9 +67,9 @@ When creating a service, you can configure JSON health checks in the DC/OS GUI o
 <th>Description</th>
 </tr>
 <tr>
-<td><strong>GRACE PERIOD(S)</strong></td>
+<td><b>GRACE PERIOD(S)</b></td>
 <td><code>gracePeriodSeconds</code></td>
-<td>`15`</td>
+<td><code>15</code></td>
 <td>Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. </td>
 </tr>
 <tr><td>INTERVAL(S)</td>
