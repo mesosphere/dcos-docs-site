@@ -49,15 +49,15 @@ DC/OS supports the following health check protocols:
 
 When creating a service, you can configure JSON health checks in the DC/OS GUI or directly as JSON. This table shows the equivalent GUI fields and JSON options.
 
-| GUI | JSON | Default | Description |
+| GUI |&nbsp;&nbsp;&nbsp;JSON&nbsp;&nbsp;&nbsp; | Default | Description |
 |----------------------|--------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GRACE PERIOD&nbsp;(S)** |&nbsp;`gracePeriodSeconds`&nbsp;| `15` | Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. |
-| **INTERVAL&nbsp;(S)** | `intervalSeconds` | `10` | Specifies the amount of time (in seconds) to wait between health checks. |
+| **GRACE PERIOD(S)** |&nbsp;`gracePeriodSeconds`&nbsp;| `15` | Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time. |
+| **INTERVAL(S)** | `intervalSeconds` | `10` | Specifies the amount of time (in seconds) to wait between health checks. |
 | **MAX FAILURES** | `maxConsecutiveFailures` | `3` | Specifies the number of consecutive health check failures that can occur before a task is killed. |
 | **PROTOCOL** | `protocol` | `HTTP` | Specifies the protocol of the requests: `HTTP`, `HTTPS`, `TCP`, or `Command`. |
 | **SERVICE ENDPOINT** | `path` | `\` | If `"protocol": "HTTP"`, this option specifies the path to the task health status endpoint. For example, `“/path/to/health”`. |
 | N/A | `portIndex` | `0` | Specifies the port index in the ports array that is used for health requests. A port index allows the app to use any port, such as `“[0, 0, 0]”` and tasks could be started with port environment variables such as `$PORT1`. |
-| **TIMEOUT&nbsp;(S)** | `timeoutSeconds` | `20` | Specifies the amount of time (in seconds) before a health check fails, regardless of the response. |
+| **TIMEOUT(S)** | `timeoutSeconds` | `20` | Specifies the amount of time (in seconds) before a health check fails, regardless of the response. |
 
 For example, here is the health check specified as JSON in an application definition.
 
