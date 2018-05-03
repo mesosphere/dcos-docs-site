@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Running DC/OS Enterprise on AWS EC2 Advanced
-navigationTitle: Running DC/OS Enterprise on AWS EC2 Advanced
+title: AWS Advanced Installation for Enterprise
+navigationTitle: AWS Advanced Installation for Enterprise
 menuWeight: 10
 excerpt:
 
