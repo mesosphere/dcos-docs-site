@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 600
-excerpt: Understanding the DC/OS open source configuration reference
+excerpt:
 
 enterprise: false
 ---
@@ -190,16 +190,16 @@ A sample definition is as follows:
 
 ```
 dns_forward_zones:
-  - "a.contoso.com"
-    - "1.1.1.1"
-      - 53
-    - "2.2.2.2"
-      - 53
-  - "b.contoso.com"
-    - "3.3.3.3"
-      - 53
-    - "4.4.4.4"
-      - 53
+- - "a.contoso.com"
+ - - - "1.1.1.1"
+     - 53
+   - - "2.2.2.2"
+     - 53
+- - "b.contoso.com"
+ - - - "3.3.3.3"
+     - 53
+   - - "4.4.4.4"
+     - 53
 ```
 
 In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
@@ -390,8 +390,8 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
 The <a href="https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/" target="_blank">REX-Ray</a> configuration for enabling external persistent volumes in Marathon. REX-Ray is a storage orchestration engine. The following is an example configuration.
 
     rexray_config:
-        rexray:
-          loglevel: info
+        rexray: 
+          loglevel: info 
           service: ebs
         libstorage:
           integration:
