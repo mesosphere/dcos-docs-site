@@ -1,8 +1,21 @@
 ---
+layout: layout.pug
+navigationTitle:  overview
+title: overview
+menuWeight: 10
+excerpt:
+featureMaturity:
+enterprise: false
+------
+2
 post_title: Version 1.5-NiFi
+3
 menu_order: 10
+4
 post_excerpt: ""
+5
 enterprise: 'no'
+6
 ---
 
 # Components
