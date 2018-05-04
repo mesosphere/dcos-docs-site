@@ -1,9 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle:  diagnostictools
+title: Diagnostic Tools
+menuWeight: 23
 excerpt:
-title: Managing
-menuWeight: 60
+featureMaturity:
+enterprise: false
 ---
 
 # Diagnostic Tools
