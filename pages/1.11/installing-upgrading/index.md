@@ -10,4 +10,4 @@ DC/OS is installed in your environment by using a dynamically generated setup fi
 
 The DC/OS installation process requires a cluster of nodes to install DC/OS onto and a single node to run the DC/OS installation from.
 
-Contact your sales representative or <sales@mesosphere.io> for access to the [DC/OS setup file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
+Contact your sales representative or sales@mesosphere.io for access to the DC/OS Enterprise setup file, or visit dcos.io/releases to download DC/OS open source. 
