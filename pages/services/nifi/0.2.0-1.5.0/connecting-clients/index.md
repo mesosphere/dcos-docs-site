@@ -1,8 +1,11 @@
 ---
-post_title: Connecting Clients
-menu_order: 50
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Connecting Clients
+title: Connecting Clients
+menuWeight: 50
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 # Connecting Clients
