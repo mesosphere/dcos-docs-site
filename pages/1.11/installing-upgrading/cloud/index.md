@@ -6,13 +6,6 @@ menuWeight: 0
 excerpt:
 ---
 
-DC/OS cloud installation for enterprise and open source is listed below:
-
-1. DC/OS cloud installation for enterprise: You can install DC/OS on AWS by using cloud templates. [enterprise type="inline" size="small" /]
-
-
-1. DC/OS cloud installation for open source: You can use a template or use our advanced custom installer. [open source type="inline" size="small" /]
-
 # Amazon Web Services
 
 You can use CloudFormation to create an entire DC/OS cluster in about 10 minutes. To get started, check out the [instructions][1].

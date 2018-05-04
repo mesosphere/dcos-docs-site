@@ -4,8 +4,6 @@ navigationTitle:  Template Reference
 title: Template Reference
 menuWeight: 10
 excerpt:
-
-enterprise: true
 ---
 
 These advanced template parameters are specified in the individual JSON files. During DC/OS installation these template files are used to generate a customized DC/OS build.

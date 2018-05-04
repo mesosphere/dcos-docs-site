@@ -15,14 +15,14 @@ If this upgrade is performed on a supported OS with all prerequisites fulfilled,
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
 - There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Pay specific attention to the `fault_domain_enabled` and `enable_ipv6`. Please review the sample file [here](/latest/installing-upgrading/custom/advanced-installer/#create-a-configuration-file)
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the upgrade to succeed.
-- DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the upgrade will fail.
+- DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the upgrade will fail. [enterprise type="inline" size="small" /]
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. For example, an upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. When this occurs:
 
     - The DC/OS GUI may not provide an accurate list of services.
     - For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - An upgraded DC/OS Marathon leader cannot connect to an non-secure (i.e. not upgraded) leading Mesos master. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
-- DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
+- DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported upgrade paths
 - From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
@@ -50,7 +50,7 @@ Here is a list of the parameters that you can modify:
     - [`https_proxy`](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#use-proxy)
     - [`no_proxy`](/1.11/installing-upgrading/custom/configuration/configuration-parameters/#use-proxy)
 
-The security mode (`security`) can be changed but has special caveats.
+The security mode (`security`) can be changed but has special caveats. [enterprise type="inline" size="small" /]
 
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `permissive` mode and you want to downgrade to `disabled` mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from `disabled` to `strict` mode. To increase from `disabled` to `strict` mode you must first update to `permissive` mode, and then update from `permissive` to `strict` mode.
