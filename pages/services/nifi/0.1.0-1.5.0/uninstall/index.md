@@ -1,7 +1,11 @@
 ---
-post_title: Uninstall
-menu_order: 30
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Uninstalling
+title: Uninstalling
+menuWeight: 30
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 ## DC/OS 1.10
