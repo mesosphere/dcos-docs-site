@@ -1,8 +1,11 @@
 ---
-post_title: Quick Start
-menu_order: 40
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Quick Start
+title: Quick Start
+menuWeight: 40
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 # Prerequisite
