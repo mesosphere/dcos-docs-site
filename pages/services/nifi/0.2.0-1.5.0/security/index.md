@@ -1,8 +1,11 @@
 ---
-post_title: Version 1.5-NiFi
-menu_order: 10
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  security
+title: Security
+menuWeight: 33
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 # DC/OS Apache NiFi Security
