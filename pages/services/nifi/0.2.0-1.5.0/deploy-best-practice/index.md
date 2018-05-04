@@ -1,3 +1,12 @@
+---
+layout: layout.pug
+navigationTitle:  Deployment Best Practices
+title: Deployment Best Practices
+menuWeight: 21
+excerpt:
+featureMaturity:
+enterprise: false
+---
 # Deployment Best Practices
 
 ## Configuration Best Practices for Production
