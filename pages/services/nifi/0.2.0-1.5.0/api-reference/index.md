@@ -1,7 +1,11 @@
 ---
-post_title: API Reference
-menu_order: 70
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  API Reference
+title: API Reference
+menuWeight: 70
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 <!-- {% raw %} disable mustache templating in this file: retain nifid examples as-is -->
