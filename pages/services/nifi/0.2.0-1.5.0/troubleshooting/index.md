@@ -1,7 +1,11 @@
 ---
-post_title: Troubleshooting
-menu_order: 90
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Troubleshooting
+title: Troubleshooting
+menuWeight: 90
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
 # Configuration update errors
