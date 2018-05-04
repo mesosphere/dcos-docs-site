@@ -8,46 +8,6 @@ featureMaturity:
 enterprise: false
 ---
 
-# Components---
-2
-layout: layout.pug
-3
-navigationTitle:  overview
-4
-title: overview
-5
-menuWeight: 10
-6
-excerpt:
-7
-featureMaturity:
-8
-enterprise: false
-9
-------
-10
-2
-11
-post_title: Version 1.5-NiFi
-12
-3
-13
-menu_order: 10
-14
-4
-15
-post_excerpt: ""
-16
-5
-17
-enterprise: 'no'
-18
-6
-19
----
-20
-​
-21
 # Components
 
 The following components work together to deploy and maintain the service.
