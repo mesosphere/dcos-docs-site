@@ -12,7 +12,7 @@ This document explains how to install DC/OS 1.11 using the Azure Resource Manage
 
 **Tip:** To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
 
-**Important:** Upgrades are not supported with this installation method.
+[message type="Warning"] Upgrades are not supported with this installation method.
 
 # System requirements
 
