@@ -10,9 +10,13 @@
 /services/elastic/2.3.0-5.6.5/11-release-notes/ /services/elastic/2.3.0-5.6.5/release-notes/;
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
 <<<<<<< HEAD
+<<<<<<< HEAD
 /1.11/installing/high-availability/ /1.11/installing/oss/high-availability;
 =======
 /1.11/installing/ent/ /1.11/installing-upgrading/;
+=======
+/1.11/installing/ent /1.11/installing-upgrading/;
+>>>>>>> c1d20f5f... Redirect old links to new links in  redirects map
 /1.11/installing/ent/cloud/aws/ /1.11/installing-upgrading/cloud/installing-aws/;
 /1.11/installing/ent/cloud/ /1.11/installing-upgrading/cloud/;
 /1.11/installing/ent/cloud/aws/basic/ /1.11/installing-upgrading/cloud/installing-aws/basic/;
@@ -75,7 +79,10 @@
 
 
 
+<<<<<<< HEAD
 >>>>>>> 4736fa91... Used wild cards for redirects
+=======
+>>>>>>> c1d20f5f... Redirect old links to new links in  redirects map
 /1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
 /1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
