@@ -19,8 +19,8 @@
 /1.11/installing/ent/ports/ /1.11/installing-upgrading/dcos-ports/;
 /1.11/installing/ent/troubleshooting/ /1.11/installing-upgrading/troubleshooting/;
 /1.11/installing/ent/upgrading/ /1.11/installing-upgrading/upgrading-dcos/;
-/1.11/installing/oss / /1.11/installing-upgrading/;
-/1.11/installing/oss /cloud/(.*)$ /1.11/installing-upgrading/cloud/$1;
+/1.11/installing/oss/ /1.11/installing-upgrading/;
+/1.11/installing/oss/cloud/(.*)$ /1.11/installing-upgrading/cloud/$1;
 /1.11/installing/oss/custom/(.*)$ /1.11/installing-upgrading/custom/$1;
 /1.11/installing/oss/high-availability/(.*)$ /1.11/installing-upgrading/high-availability/$1;
 /1.11/installing/oss/faq/ /1.11/installing-upgrading/installation-faq/;
