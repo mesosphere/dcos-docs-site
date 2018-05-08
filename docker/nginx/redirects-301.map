@@ -668,10 +668,10 @@
 /administration/ /latest/administration/;
 /development/ /latest/development/;
 /documentation/ /latest/;
-/latest/installing/ /latest/installing/oss/;
-/latest/installing/cloud/ /latest/installing/oss/cloud/;
-/latest/installing/custom/ /latest/installing/oss/custom/;
-/latest/installing/local/ /latest/installing/oss/local/;
+/latest/installing/ /latest/installing-upgrading;
+/latest/installing/cloud/ /latest/installing-upgrading/cloud/;
+/latest/installing/custom/ /latest/installing-upgrading/custom/;
+/latest/installing/local/ /latest/installing-upgrading/local/;
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
 /services/beta-cassandra/v1.0.30-3.0.13-beta/ /services/beta-cassandra/1.0.30-3.0.13-beta/;
