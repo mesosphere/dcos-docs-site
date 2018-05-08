@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Release Notes
 menuWeight: 110
-excerpt: Release note for the DC/OS Kafka ZooKeeper framework
+excerpt: Release note for version 0.1.0-3.4.11-beta
 featureMaturity:
 enterprise: false
 ---
@@ -15,7 +15,7 @@ enterprise: false
 
 ## NOTICE
 
-This is a beta release of the DC/OS Kafka ZooKeeper framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
+This is a beta release of the DC/OS Kafka ZooKeeper framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do **not** operate this version in production.
 
 ### Launch features
 - Support for Kerberos authorization and authentication.

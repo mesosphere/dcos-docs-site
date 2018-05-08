@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Install and Customize
 menuWeight: 20
-excerpt: Installing and customizing Apache ZooKeeper
+excerpt: Installing DC/OS Apache ZooKeeper service from the CLI and the web interface
 featureMaturity:
 enterprise: false
 ---
@@ -38,7 +38,7 @@ dcos package install beta-kafka-zookeeper --options=options.json
 
 For more information on building the `options.json` file, see the [DC/OS documentation](/latest/usage/managing-services/config-universe-service/) for service configuration access.
 
-# Installng from the DC/OS web interface
+# Installing from the DC/OS web interface
 
 You can [install Apache ZooKeeper from the DC/OS web interface](/latest/usage/managing-services/install/). If you install Apache ZooKeeper from the web interface, you must install the DC/OS Apache ZooKeeper CLI subcommands separately. From the DC/OS CLI, enter:
 

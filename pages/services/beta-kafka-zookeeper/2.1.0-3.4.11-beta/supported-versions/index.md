@@ -15,7 +15,7 @@ enterprise: false
 # Package Versioning Scheme
 
 - Apache ZooKeeper: 3.4.10
-- DC/OS: 1.9 and higher
+- DC/OS: 1.9 and later
 
 Packages are versioned with an `a.b.c-x.y.z` format, where `a.b.c` is the version of the DC/OS integration and `x.y.z` indicates the version of Apache ZooKeeper. For example, `1.5.0-3.2.1` indicates version `1.5.0` of the DC/OS integration and version `3.2.1` of Apache ZooKeeper.
 

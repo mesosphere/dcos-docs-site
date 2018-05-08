@@ -15,7 +15,7 @@ enterprise: false
 
 - [DC/OS installed on your cluster](/latest/administration/installing/).
 
-1. If you are using open source DC/OS, install an Apache ZooKeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
+1. If you are using open source DC/OS, install an Apache ZooKeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the [Install and Customize](/latest/install/) section for information.
 
    ```shell
    dcos package install beta-kafka-zookeeper
@@ -54,7 +54,7 @@ You will use the values in the `address` field for the final step.
 
 # Install the ZooKeeper CLI
 
-1. [SSH into one your agent nodes](/1.10/administering-clusters/sshcluster/).
+1. [SSH into one of your agent nodes](/1.10/administering-clusters/sshcluster/).
 
    ```
    dcos node ssh --master-proxy --mesos-id=<agent-id>
@@ -98,7 +98,7 @@ To get a list of possible commands, run:
 help
 ```
 
-And receive:
+You should see:
 
 ```
 ZooKeeper -server host:port cmd args

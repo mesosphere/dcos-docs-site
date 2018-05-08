@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Service Settings
 menuWeight: 27
-excerpt: Adjusting your service settings
+excerpt: Configuring the resources allocated to each node
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

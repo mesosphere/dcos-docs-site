@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Apache ZooKeeper API reference guide
 title: API Reference
 menuWeight: 70
 

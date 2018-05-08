@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Node Settings
 menuWeight: 27
-excerpt:
+excerpt: Configuring the resources allocated to each node
 
 ---
 

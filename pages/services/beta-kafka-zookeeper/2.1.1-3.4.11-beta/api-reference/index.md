@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: API Reference
 menuWeight: 70
-excerpt: Understanding the DC/OS Apache ZooKeeper Service
+excerpt: Apache ZooKeeper API reference guide
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

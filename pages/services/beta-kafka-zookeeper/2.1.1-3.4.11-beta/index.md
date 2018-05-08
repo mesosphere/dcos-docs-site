@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Beta Kafka ZooKeeper 2.1.1-3.4.11-beta
 title: Beta Kafka ZooKeeper 2.1.1-3.4.11-beta
 menuWeight: 20
-excerpt: Understanding DC/OS Apache ZooKeeper
+excerpt: Understanding DC/OS Apache ZooKeeper features
 featureMaturity:
 enterprise: false
 ---

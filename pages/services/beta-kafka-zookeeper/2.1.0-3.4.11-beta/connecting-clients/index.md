@@ -13,7 +13,7 @@ enterprise: false
 
 # Connecting Clients
 
-One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Because they can be deployed anywhere in the cluster, clients need a way to find the service. This is where service discovery comes in.
+One of the benefits of running containerized services is that they can be placed anywhere in the cluster. This means that clients need a way to find the service. This is where service discovery comes in.
 
 <a name="discovering-endpoints"></a>
 ## Discovering endpoints
@@ -48,12 +48,12 @@ To see node addresses for the `clientport` endpoints, run `dcos beta-kafka-zooke
 }
 ```
 
-In general, the `.thisdcos` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use the direct IPs (assuming you are on the same network as the private agents) or set up a proxy service that acts as a frontend to your DC/OS Apache ZooKeeper instance. For development and testing purposes, you can use [DC/OS Tunnel](/latest/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
+In general, the `.thisdcos` endpoints will only work from inside the same DC/OS cluster. From outside the cluster, you can either use the direct IP addresses (assuming you are on the same network as the private agents) or set up a proxy service that acts as a front end to your DC/OS Apache ZooKeeper instance. For development and testing purposes, you can use [DC/OS Tunnel](/latest/administration/access-node/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
 
 <a name="connecting-kafka-to-zookeeper"></a>
 ## Connecting Kafka to ZooKeeper
 
-One important use for the DC/OS Apache ZooKeeper service is to have your DC/OS Apache Kafka service connect to it. This enables you to increase Kafka's capacity and removes the system ZooKeeper's involvment in the service.
+One important use for the DC/OS Apache ZooKeeper service is to have your DC/OS Apache Kafka service connect to it. This lets you increase Kafka's capacity and removes the system ZooKeeper's involvement in the service.
 
 Follow the "Alternate ZooKeeper" instructions in the [Kafka documentation](/service-docs/kafka/2.0.2-0.11.0/install/#alternate-zookeeper). To obtain the proper value for the `kafka_zookeeper_uri`, run:
 

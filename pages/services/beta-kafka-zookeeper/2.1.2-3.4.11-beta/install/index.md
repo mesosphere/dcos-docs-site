@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Installing DC/OS Apache ZooKeeper service from the CLI and the web interface
 title: Install and Customize
 menuWeight: 20
 
