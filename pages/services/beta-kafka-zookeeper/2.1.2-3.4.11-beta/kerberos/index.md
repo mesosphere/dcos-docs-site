@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Setting up Apache ZooKeeper with Kerberos
 title: Kerberos
 menuWeight: 61
 ---

@@ -15,7 +15,7 @@ enterprise: false
 
 - [DC/OS installed on your cluster](/latest/administration/installing/).
 
-1. If you are using open source DC/OS, install an Apache ZooKeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the [Install and Customize](/latest/install/) section for information.
+1. If you are using open source DC/OS, install an Apache ZooKeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
    ```shell
    dcos package install beta-kafka-zookeeper
@@ -66,7 +66,7 @@ You will use the values in the `address` field for the final step.
    curl -O http://www.trieuvan.com/apache/zookeeper/zookeeper-3.4.11/zookeeper-3.4.11.tar.gz
    tar -xzf zookeeper-3.4.11.tar.gz
    ```
-1. Run the the `zkCli.sh` script with the proper arguments, including one of the IPs that you found earlier.
+1. Run the the `zkCli.sh` script with the proper arguments, including one of the IP addreses that you found earlier.
 
    ```
    docker run -it zookeeper zkCli.sh -server 10.0.3.206:1140
@@ -150,7 +150,7 @@ Created /test
 # High Availability
 We can also connect to every node in the cluster when running native ZooKeeper commands. If the connection to a single node in the cluster is lost, ZooKeeper will automatically try to connect you to the next available node in the cluster.
 
-To enable this, pass a comma-delimited list of all agent IPs as an argument to the `zkCli.sh` script. With this example, the command would be:
+To enable this, pass a comma-delimited list of all agent IP addresses as an argument to the `zkCli.sh` script. With this example, the command would be:
 
 ```
 docker run -it zookeeper zkCli.sh -server 10.0.3.206:1140 10.0.3.206:1140,10.0.1.244:1140,10.0.0.244:1140

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Troubleshooting Apache ZooKeeper
 title: Troubleshooting
 menuWeight: 90
 

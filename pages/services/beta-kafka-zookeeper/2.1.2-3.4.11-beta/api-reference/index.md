@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:
 excerpt: Apache ZooKeeper API reference guide
-title: API Reference
+title: Apache ZooKeeper API reference guide
 menuWeight: 70
 
 ---
@@ -53,7 +53,7 @@ dcos beta-kafka-zookeeper plan list
 
 ## Plan status
 
-Add the name of the plan to your API request to see the status of a particular plan.
+Add the name of the plan to your API request to see its status.
 
 ### HTTP example
 

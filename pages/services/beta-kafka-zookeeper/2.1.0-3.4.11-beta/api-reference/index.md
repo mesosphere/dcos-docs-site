@@ -54,7 +54,7 @@ dcos beta-kafka-zookeeper plan list
 
 ## Plan status
 
-Add the name of the plan to your API request to see the status of a particular plan.
+Add the name of the plan to your API request to see its status.
 
 ### HTTP example
 

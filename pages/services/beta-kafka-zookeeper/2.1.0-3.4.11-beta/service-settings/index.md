@@ -28,7 +28,7 @@ dcos kafka --name=/kafka update start --options=options.json
 Customize the `Node Count` setting (default 3) under the **node** configuration section. You may only have Node Count value of 3 or 5.
 -->
 
-Customize the Node Count setting (default 3) by modifying the following JSON. Enter a Node Count value of 3 or 5 only.
+Customize the Node Count setting (default 3) by modifying the following JSON. You may only hae a Node Count value of 3 or 5.
 
 ```json
 {
@@ -46,7 +46,7 @@ You can customize the number of CPU resources allocated to each node. A value of
 
 <!-- Change this value by editing the **cpus** value under the **node** configuration section. Turning this too low will result in throttled tasks. -->
 
-Change this value by modifying the following JSON. Setting this value too low will cause tasks to be throttled.
+Change this value by modifying the following JSON. Setting this value too low will throttle your tasks.
 
 ```json
 {

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Connecting Clients
 menuWeight: 50
-excerpt: Understanding connections
+excerpt: Using service discovery to connect clients
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

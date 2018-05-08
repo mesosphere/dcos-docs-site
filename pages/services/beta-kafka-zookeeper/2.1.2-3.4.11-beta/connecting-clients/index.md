@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Connecting Clients
 menuWeight: 50
-excerpt:
+excerpt: Using service discovery to connect clients
 
 ---
 
