@@ -4,6 +4,7 @@ navigationTitle:
 title: Kerberos
 menuWeight: 28
 excerpt: Setting up Apache ZooKeeper with Kerberos
+enterprise: true
 ---
 
 

@@ -4,6 +4,7 @@ navigationTitle:
 excerpt: Setting up Apache ZooKeeper with Kerberos
 title: Kerberos
 menuWeight: 61
+enterprise: true
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
