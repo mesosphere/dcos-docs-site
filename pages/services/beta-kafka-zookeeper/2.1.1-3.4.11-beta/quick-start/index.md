@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Quick Start
 menuWeight: 40
-excerpt:
+excerpt: Getting started with Apache ZooKeeper
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
@@ -13,17 +13,17 @@ excerpt:
 
 - [DC/OS installed on your cluster](/latest/administration/installing/).
 
-1. If you are using open source DC/OS, install an Apache Zookeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
+1. If you are using open source DC/OS, install an Apache ZooKeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
    ```shell
-   dcos package install kafka-zookeeper
+   dcos package install beta-kafka-zookeeper
    ```
 
-   Alternatively, you can install Apache Zookeeper from [the DC/OS web interface](/latest/usage/webinterface/).
+   Alternatively, you can install Apache ZooKeeper from [the DC/OS web interface](/latest/usage/webinterface/).
 
 1. The service will now deploy with a default configuration. You can monitor its deployment on the **Services** tab of the DC/OS web interface.
 
-1. Connect a client to Apache Zookeeper.
+1. Connect a client to Apache ZooKeeper.
    ```shell
    dcos beta-kafka-zookeeper endpoints
    [
@@ -53,13 +53,13 @@ You will use the values in the `address` field for the final step.
 # Install the ZooKeeper CLI
 
 1. [SSH into one your agent nodes](/1.10/administering-clusters/sshcluster/).
-   
+
    ```
    dcos node ssh --master-proxy --mesos-id=<agent-id>
    ```
-   
+
 1. Download the [latest ZooKeeper release](http://zookeeper.apache.org/releases.html) to the node and uncompress it.
-   
+
    ```
    curl -O http://www.trieuvan.com/apache/zookeeper/zookeeper-3.4.11/zookeeper-3.4.11.tar.gz
    tar -xzf zookeeper-3.4.11.tar.gz

@@ -13,11 +13,11 @@ enterprise: true
 
 In order to run Apache ZooKeeper with Kerberos security enabled, a principal needs to be added for every node in the ensemble. For example, a three node ensemble with the default service primary (`service.security.kerberos.primary`) of `zookeeper` will require to following principals:
 ```
-zookeeper/zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory@LOCAL
-zookeeper/zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory@LOCAL
-zookeeper/zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory@LOCAL
+zookeeper/zookeeper-0-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory@LOCAL
+zookeeper/zookeeper-1-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory@LOCAL
+zookeeper/zookeeper-2-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory@LOCAL
 ```
-(assuming a default service name of `kafka-zookeeper`)
+(assuming a default service name of `beta-kafka-zookeeper`)
 
 Note that due to a limitation in the current version of Apache ZooKeeper, it is required that the principals for the agent hostnames also be added as well as the DC/OS DNS names. `{{AGENT-0-HOSTNAME}}` can be determined by running `hostname` on the agent where Apache ZooKeeper will be installed.
 
@@ -45,7 +45,7 @@ Create the following `kerberos-options.json` file:
 ```json
 {
     "service": {
-        "name": "kafka-zookeeper",
+        "name": "beta-kafka-zookeeper",
         "security": {
             "kerberos": {
                 "enabled": true,
@@ -66,5 +66,5 @@ Note the specification of the secret name as created in the previous step and th
 
 The kerberized Apache ZooKeeper service is then deployed by running:
 ```bash
-$ dcos package install kafka-zookeeper --options=kerberos-options.json
+$ dcos package install beta-kafka-zookeeper --options=kerberos-options.json
 ```

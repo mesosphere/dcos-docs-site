@@ -15,17 +15,17 @@ enterprise: false
 
 - [DC/OS installed on your cluster](/latest/administration/installing/).
 
-1. If you are using open source DC/OS, install an Apache Zookeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
+1. If you are using open source DC/OS, install an Apache ZooKeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
    ```shell
    dcos package install beta-kafka-zookeeper
    ```
 
-   Alternatively, you can install Apache Zookeeper from [the DC/OS web interface](/latest/usage/webinterface/).
+   Alternatively, you can install Apache ZooKeeper from [the DC/OS web interface](/latest/usage/webinterface/).
 
 1. The service will now deploy with a default configuration. You can monitor its deployment on the **Services** tab of the DC/OS web interface.
 
-1. Connect a client to Apache Zookeeper.
+1. Connect a client to Apache ZooKeeper.
    ```shell
    dcos beta-kafka-zookeeper endpoints --name=kafka-zookeeper
    [

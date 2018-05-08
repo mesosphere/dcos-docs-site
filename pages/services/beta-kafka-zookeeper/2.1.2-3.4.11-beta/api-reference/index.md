@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: API Reference
 menuWeight: 70
@@ -42,13 +42,13 @@ Use the `/plans` endpoint to list the plans configured for the service.
 ### HTTP example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/plans/
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/plans/
 ```
 
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan list
+dcos beta-kafka-zookeeper plan list
 ```
 
 ## Plan status
@@ -58,13 +58,13 @@ Add the name of the plan to your API request to see the status of a particular p
 ### HTTP example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/plans/deploy
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/plans/deploy
 ```
 
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan status deploy
+dcos beta-kafka-zookeeper plan status deploy
 ```
 
 **Tip:** To view the full JSON from the CLI, pass the `--json` flag.
@@ -76,13 +76,13 @@ Begin installing a new plan.
 ### HTTP example
 
 ```shell
-curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/plans/deploy/start
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/plans/deploy/start
 ```
 
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan start deploy
+dcos beta-kafka-zookeeper plan start deploy
 ```
 
 ## Pause installation
@@ -92,13 +92,13 @@ The installation will pause after completing installation of the current node an
 ### HTTP example
 
 ```shell
-curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/plans/deploy/interrupt
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/plans/deploy/interrupt
 ```
 
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan pause deploy
+dcos beta-kafka-zookeeper plan pause deploy
 ```
 
 ## Resume installation
@@ -108,13 +108,13 @@ The REST API request below will resume installation at the next pending node.
 ### HTTP example
 
 ```shell
-curl -X PUT -H "Authorization:token=$auth_token" <dcos_surl>/service/kafka-zookeeper/v1/plans/deploy/continue
+curl -X PUT -H "Authorization:token=$auth_token" <dcos_surl>/service/beta-kafka-zookeeper/v1/plans/deploy/continue
 ```
 
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan resume deploy
+dcos beta-kafka-zookeeper plan resume deploy
 ```
 
 # Connection API
@@ -126,13 +126,13 @@ List all available endpoints.
 ### HTTP example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/endpoints/
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/endpoints/
 ```
 
 ### CLI example
 
 ```shell
-dcos /1.11/deploying-services/config-universe-service/kafka-zookeeper endpoints
+dcos /1.11/deploying-services/config-universe-service/beta-kafka-zookeeper endpoints
 ```
 
 ## Display endpoints
@@ -140,11 +140,11 @@ dcos /1.11/deploying-services/config-universe-service/kafka-zookeeper endpoints
 Display information about a particular endpoint. The contents of the endpoint response contain details sufficient for clients to connect to the service.
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/endpoints/clientport
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/endpoints/clientport
 ```
 
 ```shell
-dcos kafka-zookeeper endpoints clientport
+dcos beta-kafka-zookeeper endpoints clientport
 ```
 
 # Nodes API
@@ -158,13 +158,13 @@ A list of available node ids can be retrieved by sending a GET request to `/v1/p
 ### HTTP Example
 
 ```shell
-curl  -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/pod
+curl  -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/pod
 ```
 
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper pod list
+dcos beta-kafka-zookeeper pod list
 ```
 
 ## Node Info
@@ -174,19 +174,19 @@ You can retrieve node information by sending a GET request to `/v1/pod/<node-id>
 ### HTTP example
 
 ```shell
-curl  -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/pod/<node-id>/info
+curl  -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/pod/<node-id>/info
 ```
 
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper pod info zookeeper-0
+dcos beta-kafka-zookeeper pod info zookeeper-0
 ```
 
 HTTP Example
 
 ```shell
-curl  -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/pod/zookeeper-0/info
+curl  -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/pod/zookeeper-0/info
 ```
 ## Replace a Node
 
@@ -195,13 +195,13 @@ The replace endpoint can be used to replace a node with an instance running on a
 ### HTTP Example
 
 ```shell
-curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/pod/<node-id>/replace
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/pod/<node-id>/replace
 ```
 
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper pod replace <node-id>
+dcos beta-kafka-zookeeper pod replace <node-id>
 ```
 
 If the operation succeeds, a `200 OK` is returned.
@@ -213,13 +213,13 @@ The restart endpoint can be used to restart a node in place on the same agent no
 ### HTTP Example
 
 ```shell
-curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/pod/<node-id>/restart
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/pod/<node-id>/restart
 ```
 
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper pod restart <node-id>
+dcos beta-kafka-zookeeper pod restart <node-id>
 ```
 
 If the operation succeeds a `200 OK` is returned.
@@ -235,13 +235,13 @@ You can view the current target configuration by sending a GET request to `/v1/c
 ### HTTP Example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/configurations/target
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/configurations/target
 ```
 
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper config target
+dcos beta-kafka-zookeeper config target
 ```
 
 ## List Configs
@@ -251,13 +251,13 @@ You can list all configuration IDs by sending a GET request to `/v1/configuratio
 ### HTTP Example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/configurations
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/configurations
 ```
 
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper config list
+dcos beta-kafka-zookeeper config list
 ```
 
 ## View Specified Config
@@ -267,13 +267,13 @@ You can view a specific configuration by sending a GET request to `/v1/configura
 ### HTTP Example
 
 ```shell
-curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/configurations/9a8d4308-ab9d-4121-b460-696ec3368ad6
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/beta-kafka-zookeeper/v1/configurations/9a8d4308-ab9d-4121-b460-696ec3368ad6
 ```
 
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper config show 9a8d4308-ab9d-4121-b460-696ec3368ad6
+dcos beta-kafka-zookeeper config show 9a8d4308-ab9d-4121-b460-696ec3368ad6
 ```
 
 # Service Status Info
@@ -284,11 +284,11 @@ You can use this request to troubleshoot: if you think DC/OS Apache ZooKeeper sh
 ### HTTP example
 
 ```shell
-curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka-zookeeper/v1/state/properties/suppressed"
+curl -H "Authorization: token=$auth_token" "<dcos_url>/service/beta-kafka-zookeeper/v1/state/properties/suppressed"
 ```
 
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper debug state property suppressed
+dcos beta-kafka-zookeeper debug state property suppressed
 ```

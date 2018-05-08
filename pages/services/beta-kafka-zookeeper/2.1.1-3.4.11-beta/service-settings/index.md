@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Service Settings
 menuWeight: 27
-excerpt:
+excerpt: Adjusting your service settings
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
@@ -182,7 +182,7 @@ To configure the `dataLogDir` disk type, modify the following JSON.
 }
 ```
 
-<!-- 
+<!--
 - _In the DC/OS CLI options.json_: _`log_disk_type`_: string (default: _`ROOT`_)
 - _DC/OS web interface_: _`ZOOKEEPER_LOG_TYPE`_: string
 -->

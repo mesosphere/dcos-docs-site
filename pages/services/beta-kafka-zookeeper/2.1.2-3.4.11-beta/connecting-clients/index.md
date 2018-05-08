@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Connecting Clients
 menuWeight: 50
 excerpt:
@@ -20,17 +20,17 @@ One of the benefits of running containerized services is that they can be placed
 Once the service is running, you may view information about its endpoints via either of the following methods:
 
 - CLI:
-  - List endpoint types: `dcos kafka-zookeeper endpoints`
-  - View endpoints for an endpoint type: `dcos kafka-zookeeper endpoints <endpoint>`
+  - List endpoint types: `dcos beta-kafka-zookeeper endpoints`
+  - View endpoints for an endpoint type: `dcos beta-kafka-zookeeper endpoints <endpoint>`
 - Web:
-  - List endpoint types: `<dcos-url>/service/kafka-zookeeper/v1/endpoints`
-  - View endpoints for an endpoint type: `<dcos-url>/service/kafka-zookeeper/v1/endpoints/<endpoint>`
+  - List endpoint types: `<dcos-url>/service/beta-kafka-zookeeper/v1/endpoints`
+  - View endpoints for an endpoint type: `<dcos-url>/service/beta-kafka-zookeeper/v1/endpoints/<endpoint>`
 
 ZooKeeper returns the following endpoint:
 
 - `clientport`
 
-To see node addresses for the `clientport` endpoints, run `dcos kafka-zookeeper endpoints clientport`. A typical response resembles the following:
+To see node addresses for the `clientport` endpoints, run `dcos beta-kafka-zookeeper endpoints clientport`. A typical response resembles the following:
 
 ```json
 {
@@ -40,9 +40,9 @@ To see node addresses for the `clientport` endpoints, run `dcos kafka-zookeeper 
     "10.0.1.27:1140"
   ],
   "dns": [
-    "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
-    "zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
-    "zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
+    "zookeeper-0-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
+    "zookeeper-1-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
+    "zookeeper-2-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
   ]
 }
 ```
@@ -56,7 +56,7 @@ One important use for the DC/OS Apache ZooKeeper service is to have your DC/OS A
 
 Follow the "Alternate ZooKeeper" instructions in the [Kafka documentation](https://docs.mesosphere.com/service-docs/kafka/2.0.2-0.11.0/install/#alternate-zookeeper). To obtain the proper value for the `kafka_zookeeper_uri`, run:
 
-`dcos kafka-zookeeper endpoints clientport`
+`dcos beta-kafka-zookeeper endpoints clientport`
 
 Then, set the `kafka_zookeeper_uri` to the comma-delimited list of DNS addresses.
 
@@ -67,7 +67,7 @@ Alternatively, you can install from the DC/OS CLI with the following `options.js
 ```json
 {
     "kafka": {
-      "kafka_zookeeper_uri": "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
+      "kafka_zookeeper_uri": "zookeeper-0-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
     }
 }
 ```

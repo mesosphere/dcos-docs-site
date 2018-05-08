@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Understanding Apache ZooKeeper limitations
 title: Limitations
 menuWeight: 100
 

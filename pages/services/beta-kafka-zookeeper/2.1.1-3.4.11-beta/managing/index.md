@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Managing
 menuWeight: 60
-excerpt:
+excerpt: Managing your configuration
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

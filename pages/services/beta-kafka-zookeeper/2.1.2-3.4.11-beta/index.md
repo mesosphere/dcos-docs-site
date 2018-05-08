@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Beta Kafka ZooKeeper 2.1.2-3.4.11
 title: Beta Kafka ZooKeeper 2.1.2-3.4.11
 menuWeight: 10
-excerpt:
+excerpt: Deploying and managing Apache ZooKeeper
 featureMaturity:
 enterprise: false
 ---
@@ -11,8 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-DC/OS Apache ZooKeeper is an automated service that makes it easy to deploy and manage Apache ZooKeeper on [DC/OS](https://mesosphere.com/product/) for the purposes of running the DC/OS
-Apache Kafka and DC/OS Confluent Kafka Services. ZooKeeper is a centralized service for maintaining configuration and naming information, as well as providing distributed synchronization and group services.
+DC/OS Apache ZooKeeper is an automated service that makes it easy to deploy and manage Apache ZooKeeper on [DC/OS](https://mesosphere.com/product/) for the purposes of running the DC/OS Apache Kafka and DC/OS Confluent Kafka Services. ZooKeeper is a centralized service for maintaining configuration and naming information, as well as providing distributed synchronization and group services.
 
 For more information on Apache ZooKeeper, see the [ZooKeeper documentation](http://zookeeper.apache.org/). In particular, the [ZooKeeper Admin Guide](https://zookeeper.apache.org/doc/r3.4.10/zookeeperAdmin.html).
 

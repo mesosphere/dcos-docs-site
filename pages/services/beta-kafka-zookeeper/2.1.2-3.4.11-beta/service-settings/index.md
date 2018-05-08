@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Node Settings
 menuWeight: 27
 excerpt:
@@ -183,7 +183,7 @@ To configure the `dataLogDir` disk type, modify the following JSON.
 }
 ```
 
-<!-- 
+<!--
 - _In the DC/OS CLI options.json_: _`log_disk_type`_: string (default: _`ROOT`_)
 - _DC/OS web interface_: _`ZOOKEEPER_LOG_TYPE`_: string
 -->
@@ -204,7 +204,7 @@ A common task is to specify a list of whitelisted systems to deploy to. To achie
 
 You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service without that system.
 
-For an example of updating placement constraints, see [Managing](/services/kafka-zookeeper/2.1.2-3.4.11/managing/) below.
+For an example of updating placement constraints, see [Managing](/services/beta-kafka-zookeeper/2.1.2-3.4.11/managing/) below.
 
 <a name="overlay-networks"></a>
 ### Overlay Networks
