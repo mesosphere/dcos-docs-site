@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Kerberos
 menuWeight: 70
-excerpt:
+excerpt: Adding principals for agent hostnames
 featureMaturity:
 enterprise: true
 ---
