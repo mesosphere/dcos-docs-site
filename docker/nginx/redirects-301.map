@@ -672,6 +672,7 @@
 /latest/installing/ /latest/installing-upgrading;
 /latest/installing/cloud/ /latest/installing-upgrading/cloud/;
 /latest/installing/custom/ /latest/installing-upgrading/custom/;
+/latest/installing/custom/advanced/ /latest/installing-upgrading/custom/advanced-installer/;
 /latest/installing/local/ /latest/installing-upgrading/local/;
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
