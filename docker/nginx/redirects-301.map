@@ -9,7 +9,7 @@
 /services/cassandra/2.1.0-3.0.16/11-release-notes/ /services/cassandra/2.1.0-3.0.16/release-notes/;
 /services/elastic/2.3.0-5.6.5/11-release-notes/ /services/elastic/2.3.0-5.6.5/release-notes/;
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
-/1.11/installing/ent /1.11/installing-upgrading/;
+/1.11/installing/ent/ /1.11/installing-upgrading/;
 /1.11/installing/ent/cloud/aws/ /1.11/installing-upgrading/cloud/installing-aws/;
 /1.11/installing/ent/cloud/ /1.11/installing-upgrading/cloud/;
 /1.11/installing/ent/cloud/aws/basic/ /1.11/installing-upgrading/cloud/installing-aws/basic/;
@@ -415,7 +415,7 @@
 /1.8/usage/service-discovery/custom-domain-service-discovery/ /1.8/usage/service-discovery/mesos-dns/custom-domain-service-discovery/;
 /1.8/usage/service-discovery/dns-naming/ /1.8/usage/service-discovery/mesos-dns/service-naming/#dns-naming;
 /1.8/usage/service-discovery/haproxy-adminrouter/ /1.8/administration/haproxy-adminrouter/;
-/1.8/usage/service-discovery/load-balancing-vips/overlay-networks/ /.8/usage/service-discovery/load-balancing-vips/virtual-networks/;
+/1.8/usage/service-discovery/load-balancing-vips/overlay-networks/ /1.8/usage/service-discovery/load-balancing-vips/virtual-networks/;
 /1.8/usage/service-discovery/marathon-lb/quickstart/ /1.8/usage/service-discovery/marathon-lb/marathon-lb-basic-tutorial/;
 /1.8/usage/service-discovery/mesos-dns/custom-domain-service-discovery/ /1.8/usage/service-discovery/mesos-dns/expose-mesos-zone/;
 /1.8/usage/service-discovery/virtual-ip-addresses/ /1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
