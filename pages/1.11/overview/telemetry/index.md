@@ -3,7 +3,9 @@ layout: layout.pug
 navigationTitle:  Telemetry
 title: Telemetry
 menuWeight: 7
-excerpt: Learn about the telemetry components that let you monitor your DC/OS installation
+
+excerpt: Understanding the telemetry reporting component
+
 
 enterprise: false
 ---
@@ -279,11 +281,11 @@ Here is an example of the JSON telemetry report that is collected:
 
 # <a name="user-interface"></a>User interface telemetry
 
-The DC/OS UI sends two types of notifications to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support:
+The DC/OS UI sends two types of notifications to [Segment](https://segment.com/docs/), which Mesosphere then uses to track usage metrics and customer support:
 
 - Login information
-- The pages you’ve viewed while navigating the UI
+- The pages you have viewed while navigating the UI
 
 ## Opt-Out
 
-You can also choose to opt-out of the telemetry features. For more information, see the [documentation](/1.11/installing/oss/opt-out/).
+You can also choose to opt out of the telemetry features. For more information, see the [documentation](/1.11/installing/oss/opt-out/).

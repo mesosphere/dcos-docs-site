@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle:  Node Types
 title: Node Types
 menuWeight: 1
-excerpt: Understanding DC/OS node types
+excerpt: Understanding the three types of nodes: master, private and public
+
 
 enterprise: false
 ---

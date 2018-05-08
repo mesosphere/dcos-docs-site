@@ -2,13 +2,10 @@
 layout: layout.pug
 title: What is DC/OS?
 menuWeight: 1
-excerpt:
+excerpt: Understanding DC/OS: a distributed system, cluster manager, container platform and operating system
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
 

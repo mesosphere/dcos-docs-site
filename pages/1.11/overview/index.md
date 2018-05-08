@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Overview
 title: Overview
 menuWeight: 20
-excerpt:
+excerpt: Getting started with DC/OS fundamentals
 
 enterprise: false
 ---

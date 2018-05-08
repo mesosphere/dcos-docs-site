@@ -3,15 +3,12 @@ layout: layout.pug
 navigationTitle:  Concepts
 title: Concepts
 menuWeight: 5
-excerpt:
+excerpt: Understanding DC/OS terminology
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
-DC/OS is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you are familiar with, however, they might be used in a different way with DC/OS.
+DC/OS is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you are familiar with; however, they might be used in a different way in DC/OS.
 
 # <a name="dcos"></a>DC/OS
 
@@ -21,7 +18,7 @@ DC/OS is a [distributed operating system](https://en.wikipedia.org/wiki/Distribu
 - Unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
 - DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#apache-mesos)) and a container orchestration engine ([Marathon](#marathon)).
 - Prior to version 1.6, DC/OS was known as The Datacenter Operating System (DCOS). With version 1.6 the platform was renamed to DC/OS and open sourced.
-- While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features (e.g. multitenancy, fine-grained permissions, secrets management, and end-to-end encryption).
+- While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multitenancy, fine-grained permissions, secrets management, and end-to-end encryption.
 
 # <a name="dcos-gui"></a>DC/OS GUI
 
@@ -114,8 +111,8 @@ For more information, see the [system requirements](/1.11/installing/oss/custom/
 
 A DC/OS service is a set of one or more service instances that can be started and stopped as a group and restarted automatically if they exit before being stopped.
 
-- Services is currently just a DC/OS GUI abstraction that translates to Marathon apps and pods in the CLI and API. This distinction will change over time as the name "service" is pushed upstream into component APIs.
-- Sometimes "service" may also refer to a systemd service on the host OS. These are generally considered components and don’t actually run on Marathon or Mesos.
+- Service is currently a DC/OS GUI abstraction that translates to Marathon apps and pods in the CLI and API. This distinction will change over time as the name "service" is pushed upstream into component APIs.
+- Sometimes "service" may also refer to a systemd service on the host OS. These are generally considered components and do not actually run on Marathon or Mesos.
 - A service may be either a system service or a user service. This distinction is new and still evolving as namespacing is transformed into a system-wide first class pattern.
 
 ## <a name="marathon-service"></a>Marathon Service
@@ -123,13 +120,13 @@ A DC/OS service is a set of one or more service instances that can be started an
 A Marathon service consists of zero or more containerized service instances. Each service instance consists of one or more containerized Mesos tasks.
 
 - Marathon apps and pods are both considered services.
-    - Marathon app instances map 1 to 1 with tasks.
-    - Marathon pod instances map 1 to many with tasks.
+    - Marathon app instances map one-to-one with tasks.
+    - Marathon pod instances map one-to-many with tasks.
 - Service instances are restarted as a new Mesos Task when they exit prematurely.
 - Service instances may be re-scheduled onto another agent node if they exit prematurely and the agent is down or does not have enough resources any more.
 - Services can be installed directly via the [DC/OS API (Marathon)](/1.11/deploying-services/marathon-api/) or indirectly via the [DC/OS Package Manager (Cosmos)](#package-manager) from a [package repository](#dcos-package-registry) like [Mesosphere Universe](#mesosphere-universe). The [DC/OS GUI](#dcos-gui) and [DC/OS CLI](#dcos-cli) may be used to interact with the DC/OS Package Manager (Cosmos) more easily.
 - A Marathon service may be a [DC/OS scheduler](#dcos-scheduler), but not all services are schedulers.
-- A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers (e.g. DC/OS Jobs (Metronome), Jenkins) have their own names for abstractions around Mesos tasks.
+- A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers such as DC/OS Jobs (Metronome) or Jenkins have their own names for abstractions around Mesos tasks.
 
 Examples: Cassandra (scheduler), Marathon-on-Marathon, Kafka (scheduler), Nginx, Tweeter.
 
@@ -137,7 +134,7 @@ Examples: Cassandra (scheduler), Marathon-on-Marathon, Kafka (scheduler), Nginx,
 
 A systemd service is a service that consists of a single, optionally containerized, machine operating system process, running on the master or agent nodes, managed by systemd, owned by DC/OS itself.
 
-- All systemd service are currently either host OS service, DC/OS dependencies, DC/OS components, or services manually managed by the system administrator.
+- All systemd services are currently either host OS service, DC/OS dependencies, DC/OS components, or services manually managed by the system administrator.
 
 Examples: Most DC/OS components, (system) Marathon.
 
