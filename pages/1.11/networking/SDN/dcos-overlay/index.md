@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  DC/OS Overlay
 title: DC/OS Overlay
 menuWeight: 10
-excerpt:
+excerpt: Understanding DC/OS overlay
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS and is enabled by default. 
+DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS and is enabled by default.
 
-DC/OS overlay has the ability to run multiple virtual network instances in a given DC/OS cluster. 
+DC/OS overlay has the ability to run multiple virtual network instances in a given DC/OS cluster.
 
 Starting DC/OS 1.11, DC/OS overlay has support for creating IPv6 networks (*NOTE: IPv6 support is available only for Docker containers*).
 
@@ -48,7 +48,7 @@ Each virtual network is identified by a canonical `name` (see [limitations](#lim
 
 The bits reserved for ContainerID (6 in this example) are then subdivided into two equal groups (of 5 bits in this example) that are used for Mesos containers and Docker containers respectively. With the default configuration, each agent will be able to host a maximum of 2^5=32 Mesos containers and 32 docker containers. With this specific configuration, if a service tries to launch more than 32 tasks on the Mesos containerizer or the Docker containerizer, it will receive a `TASK_FAILED`. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more about this constraint.
 
-While the above example is specifically for an IPv4 virtual network, the same logic can be applied to the IPv6 virtual network `dcos6` as well. The only caveat being that currently IPv6 is supported only for Docker containers. `(NOTE: Trying to launch a UCR container on` *dcos6*`, will result in a container launch failure.)` 
+While the above example is specifically for an IPv4 virtual network, the same logic can be applied to the IPv6 virtual network `dcos6` as well. The only caveat being that currently IPv6 is supported only for Docker containers. `(NOTE: Trying to launch a UCR container on` *dcos6*`, will result in a container launch failure.)`
 
 The operator can modify the default virtual network configuration and can add more virtual networks if needed. Currently, the operator can only add or delete a virtual network at install time. Addition, deletion and modification of virtual networks are described in the following sections.
 

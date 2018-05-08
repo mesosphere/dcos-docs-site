@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Services
 title: Services
 menuWeight: 2
-excerpt:
+excerpt: Using the Services tab
 ---
 
 The Services tab provides a full-featured interface to the native DC/OS Marathon instance. This Services tab provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
@@ -41,4 +41,3 @@ Whenever a change to the Service has been requested by DC/OS, the instance is ki
 
 ## Stopped
 A Service with target instances of 0 and who's running tasks count is 0. Previously referred to as “Suspended” in the UI.
-

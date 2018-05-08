@@ -52,6 +52,8 @@ Deploy a sample Marathon app for use in this quick start guide.
 
 You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `dcos task log` command. In this example, a task is launched and the stderr and stdout logs from Mesos are accessed.
 
+You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `dcos task log` command. In this example, a task is launched and the stderr and stdout logs from Mesos are accessed.
+
 1.  Run this command to view the stdout logs, where `<task_id>` is the task ID:
 
     ```bash
@@ -93,7 +95,9 @@ You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `
     Thu Dec 15 00:51:31 2016 ip-10-0-1-177.us-west-2.compute.internal Command Executor (Task: test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd) (Command: sh -c 'while true;d...') [7131] stdout
     ```
 
+
 # View the Mesos and DC/OS logs
+
 
 You can view logs from tasks or the host subsystem with the `dcos node log` command.
 
@@ -139,8 +143,6 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
 
         ```bash
         dcos-diagnostics.service
-        dcos-adminrouter-reload.service
-        dcos-adminrouter-reload.timer
         dcos-adminrouter.service
         dcos-cosmos.service
         dcos-epmd.service
@@ -162,8 +164,6 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
        ```bash
        dcos-diagnostics.service
        dcos-diagnostics.socket
-       dcos-adminrouter-agent-reload.service
-       dcos-adminrouter-agent-reload.timer
        dcos-adminrouter-agent.service
        dcos-docker-gc.service
        dcos-docker-gc.timer
@@ -185,3 +185,4 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
     Thu Dec 15 00:34:08 2016 ip-10-0-6-165.us-west-2.compute.internal java [2541] [2016-12-15 00:34:08,121] INFO  Received status update for task test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd: TASK_RUNNING (Reconciliation: Latest task state) (mesosphere.marathon.MarathonScheduler$$EnhancerByGuice$$28056dde:Thread-297)
     ...
     ```
+

@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos config
 title: dcos config
 menuWeight: 4
-excerpt:
+excerpt: How to manage the DC/OS configuration file
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 This command manages the DC/OS configuration file created when you run [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:

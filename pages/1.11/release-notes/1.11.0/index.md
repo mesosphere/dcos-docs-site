@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0
 title: Release Notes for 1.11.0
 menuWeight: 10
-excerpt:
+excerpt: Release notes for DC/OS 1.11.0
 ---
 
 These are the release notes for DC/OS 1.11.0.
@@ -15,7 +15,7 @@ These are the release notes for DC/OS 1.11.0.
 
 DC/OS 1.11 includes many new capabilities, with a focus on:
 - Managing clusters across multiple clouds
-- Production Kubernetes-as-a-service 
+- Production Kubernetes-as-a-service
 - Enhanced data security
 - Updated data services
 
@@ -47,7 +47,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`. Please read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage. 
+- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage.
 
 [enterprise]
 ### Security
@@ -77,7 +77,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 ## <a name="known-issues"></a>Known Issues and Limitations
 - DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
 - DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](https://docs.mesosphere.com/1.11/installing).
-- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. 
+- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11.
 - DCOS_OSS-2132	- `dcos-log` does not handle the journald files rotation properly.
 - INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.
 
@@ -87,7 +87,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - DCOS-19008 - The `exhibitor_address` configuration option can now be an IPv4 address without causing certificate verification errors.
 - DCOS-19896 - Add `--linked` flag to `dcos cluster list`.
 - DCOS-20351 - Add the `dcos-license` subcommand to `dcos-enterprise-cli`. [enterprise type="inline" size="small" /]
-- DCOS-21130 - Make list of services visible in grid view of nodes. 
+- DCOS-21130 - Make list of services visible in grid view of nodes.
 - DCOS_OSS-671 - Improve filenames in the diagnostics bundle.
 - DCOS_OSS-1275 - Add support for custom check executables during on-premises installation.
 - DCOS_OSS-1321 - Search paths are configurable when executing check commands using `dcos-diagnostics check`.

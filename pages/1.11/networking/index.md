@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Networking
 title: Networking
 menuWeight: 70
-excerpt:
+excerpt: Learn about the DC/OS networking stack
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 The DC/OS network stack provides IP connectivity to containers, has built-in DNS-based service discovery, and provides layer 4 and layer 7 load balancing.
 

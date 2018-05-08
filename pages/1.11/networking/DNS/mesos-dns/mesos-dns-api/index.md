@@ -3,10 +3,12 @@ layout: layout.pug
 navigationTitle:  Mesos DNS API
 title: Mesos DNS API
 menuWeight: 201
-excerpt:
+excerpt: Discovering IP addresses and ports using Mesos DNA API
 
 enterprise: true
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 You can use the Mesos DNS API to discover the IP addresses and ports of other applications.
 
@@ -76,7 +78,7 @@ The output should resemble:
   "URL": "https://github.com/mesosphere/mesos-dns",
   "Version": "dev"
  }
-``` 
+```
 
 
 ## <a name="get-config"></a>GET /v1/config
@@ -86,7 +88,7 @@ Lists in JSON format the Mesos-DNS configuration parameters.
 ```bash
 curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/config
 ```
-    
+
 The output for DC/OS open source should resemble:
 
 ```json

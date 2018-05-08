@@ -3,11 +3,11 @@ layout: layout.pug
 navigationTitle:  Cluster Link API
 title: Cluster Link API
 menuWeight: 3
-excerpt:
+excerpt: Learn to manage cluster links with the Cluster Link API.
 enterprise: true
 ---
 
-You use the Cluster Link API to manage cluster links.
+You can use the Cluster Link API to manage cluster links.
 
 # Routes
 

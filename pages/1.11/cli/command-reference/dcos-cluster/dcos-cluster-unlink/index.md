@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos cluster unlink
 title: dcos cluster unlink
 menuWeight: 3
-excerpt:
+excerpt: How to unlink a cluster from another cluster
 
 enterprise: true
 ---
 
 # Description
-Unlink a cluster from another cluster.
+The dcos cluster unlink command will unlink a cluster from another cluster.
 
 # Usage
 

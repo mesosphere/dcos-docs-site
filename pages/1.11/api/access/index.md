@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Cluster Access
 title: Cluster Access
 menuWeight: 1
-excerpt:
+excerpt: Learn how to gain access to a cluster URL.
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can get the cluster URL by using the following methods:

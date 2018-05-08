@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  Overriding the default Linux user
 title: Overriding the default Linux user
 menuWeight: 31
-excerpt: >
-  Learn how to override the default Linux
-  user of your tasks and sandboxes.
-
+excerpt: Learn how to override the default Linux user of your tasks and sandboxes.
 enterprise: true
 ---
-
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 # About overriding the default Linux user
 

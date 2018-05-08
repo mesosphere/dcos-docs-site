@@ -4,6 +4,7 @@ navigationTitle:  License CLI
 title: License CLI
 menuWeight: 0
 enterprise: true
+excerpt: Use the command line interface to manage your DC/OS license.
 ---
 
 # Prerequisites
