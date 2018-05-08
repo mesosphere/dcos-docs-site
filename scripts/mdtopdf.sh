@@ -264,11 +264,14 @@ PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/dcos-docs-p
 echo curl -o ${LAST_SUCCESSFUL_BUILD}
 
 #curl -o "dcos-docs-pdf-bundle-develop-2014-04-24-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+#curl -o "dcos-docs-pdf-bundle-develop-${LAST_SUCCESFUL_BUILD}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
 curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
 
 echo "directory here"
 pwd
-echo "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
+echo "dcos-docs-pdf-bundle-${GIT_BRANCH}-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
+#tar -xvzf "dcos-docs-pdf-bundle-${GIT_BRANCH}-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
+echo "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz"
 tar -xvzf "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz"
 #tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 ls -la "${OUTPUT_FOLDER}"
