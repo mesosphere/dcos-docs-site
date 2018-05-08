@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos edgelb version
 title: dcos edgelb version
 menuWeight: 2
-excerpt:
+excerpt: How to display the Edge-LB version
 
 enterprise: true
 ---
 
 
 # Description
-Edge-LB version.
+The dcos edgelb version command will display the Edge-LB version.
 
 # Usage
 

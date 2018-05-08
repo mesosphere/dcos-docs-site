@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos cluster setup
 title: dcos cluster setup
 menuWeight: 6
-excerpt:
+excerpt: How to configure a connection to a DC/OS cluster.
 
 enterprise: false
 ---

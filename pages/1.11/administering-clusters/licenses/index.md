@@ -4,9 +4,12 @@ navigationTitle:  Licenses
 title: Licenses
 menuWeight: 1100
 enterprise: true
+excerpt: Administer your cluster in conformance with your license requirements.
 ---
 
-Mesosphere uses licenses to ensure that customers respect their contract terms. The DC/OS licensing component tracks the state of a cluster license, collects information to check if any licensing terms have been breached, and supports operations for updating the license when a contract is extended or changed.
+The DC/OS licensing component allows you to administer your cluster in conformance with your license requirements.
+
+DC/OS licensing tracks the state of a cluster license, collects information to check if any licensing terms have been breached, and supports operations for updating the license when a contract is extended or changed.
 
 A cluster license file contains all of the information to determine if the terms of a contract agreement has been breached. It also contains the set of keys necessary to encrypt and decrypt a checksum of the audit data collected by the DC/OS licensing component. The license text contains:
 

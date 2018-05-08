@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  Managing AWS
 title: Managing AWS
 menuWeight: 9
-excerpt:
-
+excerpt: Learn to scale your AWS cluster or change the number of agent nodes.
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
+You can scale your AWS cluster or change the number of agent nodes.
 
 ## Scaling an AWS cluster
 

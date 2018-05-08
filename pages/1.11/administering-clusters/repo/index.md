@@ -3,13 +3,11 @@ layout: layout.pug
 navigationTitle:  Managing Package Repositories
 title: Managing Package Repositories
 menuWeight: 50
-excerpt:
-
+excerpt: Learn to use the web interface or CLI to manage your package repositories.
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 DC/OS comes pre-configured with the [Mesosphere Universe](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages, but other package repositories can also be added.
 
@@ -47,7 +45,7 @@ NAME   VERSION        SELECTED  FRAMEWORK  DESCRIPTION
 spark  1.0.9-2.1.0-1  True      False      Spark is a fast and general cluster computing system for Big Data.  Documenta...
 ```
 
-## <a name="adding"></a>Adding a Repository
+## <a name="adding"></a>Adding a repository
 
 To add a repo, run this command:
 
@@ -63,7 +61,7 @@ dcos package repo add your-repo https://universe.yourcompany.com/repo
 
 For full instructions on how to build and run your own Universe repo see the [Universe Server Documentation](https://github.com/mesosphere/universe#universe-server)
 
-## <a name="removing"></a>Removing a Repository
+## <a name="removing"></a>Removing a repository
 
 To remove a repo, run this command:
 

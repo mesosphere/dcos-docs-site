@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  dcos
 title: dcos
 menuWeight: 0
-excerpt:
+excerpt: How to manage DC/OS environment variables.
+
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 # Description
-Manage DC/OS environment variables.
+The dcos command helps you manage DC/OS environment variables.
 
 # Usage
 
@@ -37,4 +37,3 @@ The severity levels are:
 * warning  Prints warning, error, and critical messages.
 * error    Prints error and critical messages.
 * critical Prints only critical messages to stderr.
-
