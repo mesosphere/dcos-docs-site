@@ -2,7 +2,7 @@
 layout: layout.pug
 title: What is DC/OS?
 menuWeight: 1
-excerpt: Understanding DC/OS: a distributed system, cluster manager, container platform and operating system
+excerpt: Understanding DC/OS
 
 enterprise: false
 ---
