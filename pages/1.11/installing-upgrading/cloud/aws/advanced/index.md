@@ -170,7 +170,7 @@ Use this script to create the template dependencies. These dependencies will be 
     ![AWS UI](/1.11/img/aws-advanced-1.png)
 
     *  **Stack name** Specify the cluster name.
-    *  **CustomAMI** Optional: Specify the AMI ID. For more information, see [Installing Using a Custom AMI](/1.11/installing-upgrading/cloud/aws/advanced/aws-ami).
+    *  **CustomAMI** Optional: Specify the AMI ID. For more information, see [Installing Using a Custom AMI](/1.11/installing-upgrading/cloud/aws/advanced/aws-ami/).
     *  **InternetGateway** Specify the `InternetGatewayID` output value from the `zen.sh` script. The Internet Gateway ID must be attached to the VPC. This Internet Gateway will be used by all nodes for outgoing internet access.
     *  **KeyName** Specify your AWS EC2 Key Pair.
     *  **MasterInstanceType** Specify the AWS EC2 instance type. The <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance type is recommended.
@@ -264,7 +264,7 @@ Public agents:
 *  **PublicAgentSecurityGroup** Specify the security group ID for public agents. This group should have limited external access. You can find this value in the **Outputs** tab of the Infrastructure stack (`<stack-name>-Infrastructure-<stack-id>`).
 *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents.
 
-For all of the advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/aws/advanced/template-reference).
+For all of the advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/aws/advanced/template-reference/).
 
 
 # Limitations
@@ -276,7 +276,7 @@ For all of the advanced configuration options, see the template reference [docum
 
 
 # Template reference
-For the complete advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/aws/advanced/template-reference).
+For the complete advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/aws/advanced/template-reference/).
 
 **AWS Advanced Installation** [open source type="inline" size="small" /]
 
