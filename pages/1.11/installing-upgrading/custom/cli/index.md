@@ -44,7 +44,7 @@ In this step, an IP detect script is created. This script reports the IP address
 
 **Important:**
 
-- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing-upgrading/custom/uninstalling/).
+- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing-upgrading/custom/uninstall/).
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
 
@@ -384,12 +384,12 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
 
 
  [1]: /1.11/installing-upgrading/custom/system-requirements/
- [2]: /1.11/installing-upgrading/custom/uninstalling/
+ [2]: /1.11/installing-upgrading/custom/uninstall/
  [3]: /1.11/installing-upgrading/custom/configuration/configuration-parameters/
  [5]: /1.11/installing-upgrading/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
  [7]: /1.11/storage/external-storage/
- [8]: /1.11/installing-upgrading/custom/advanced-installer/#configuration
+ [8]: /1.11/installing-upgrading/custom/advanced/#configuration
  [9]: /1.11/img/chef-zk-status.png
  [10]: /1.11/img/gui-installer-login-ee.gif
  [11]: /1.11/img/dashboard-ee.png

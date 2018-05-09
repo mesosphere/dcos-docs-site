@@ -8,12 +8,12 @@ excerpt:
 
 This document provides instructions for upgrading a DC/OS cluster.
 
-If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
+If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-installer].
 
 **Important:**
 
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
-- There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Pay specific attention to the `fault_domain_enabled` and `enable_ipv6`. Please review the sample file [here](/latest/installing-upgrading/custom/advanced-installer/#create-a-configuration-file)
+- There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Pay specific attention to the `fault_domain_enabled` and `enable_ipv6`. Please review the sample file [here](/latest/installing-upgrading/custom/advanced/#create-a-configuration-file)
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the upgrade to succeed.
 - DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the upgrade will fail. [enterprise type="inline" size="small" /]
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. For example, an upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. When this occurs:
@@ -71,7 +71,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [Advanced DC/OS Installation Guide][advanced-installer].
 - Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
-- [Take a snapshot of the IAM database](/1.11/installing-upgrading/installation-faq/#q-how-do-i-backup-the-iam-database) prior to upgrading.
+- [Take a snapshot of the IAM database](/1.11/installing-upgrading/faq/#q-how-do-i-backup-the-iam-database) prior to upgrading.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.11/administering-clusters/backup-and-restore/).
@@ -105,7 +105,7 @@ This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11 without changing the 
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the [nginx][advanced-install] container to serve the installation files.
+    1.  Run the [nginx][advanced-installer] container to serve the installation files.
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
@@ -130,7 +130,7 @@ To update a cluster from disabled security to permissive security, complete the 
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the [nginx][advanced-install] container to serve the installation files.
+    1.  Run the [nginx][advanced-installer] container to serve the installation files.
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
@@ -156,7 +156,7 @@ To update a cluster from permissive security to strict security, complete the fo
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the [nginx][advanced-install] container to serve the installation files.
+    1.  Run the [nginx][advanced-installer] container to serve the installation files.
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
@@ -265,4 +265,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.11 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.11/installing-upgrading/custom/advanced-installer/
+[advanced-installer]: /1.11/installing-upgrading/custom/advanced/

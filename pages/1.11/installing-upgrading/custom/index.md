@@ -22,5 +22,5 @@ When you're ready to integrate DC/OS with your configuration management tools or
 - [Advanced DC/OS Installation Guide][2]
 
 
-[1]: cli-installer/
-[2]: advanced-installer/
+[1]: cli/
+[2]: advanced/

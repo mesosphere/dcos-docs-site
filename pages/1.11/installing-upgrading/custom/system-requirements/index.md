@@ -231,7 +231,7 @@ You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 - [CLI DC/OS Installation Guide][1]
 - [Advanced DC/OS Installation Guide][4]
 
-[1]: /1.11/installing-upgrading/custom/cli-installer/
+[1]: /1.11/installing-upgrading/custom/cli/
 [2]: /1.11/installing-upgrading/custom/system-requirements/install-docker-centos/
 [3]: https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
-[4]: /1.11/installing-upgrading/custom/advanced-installer/
+[4]: /1.11/installing-upgrading/custom/advanced/
