@@ -17,7 +17,10 @@
 /1.11/monitoring/logging/logging-api/logging-v1/ /1.11/monitoring/logging/logging-api/;
 /1.11/monitoring/logging/logging-api/logging-v2/ /1.11/monitoring/logging/logging-api/;
 /1.11/release-notes/version-policy/ /version-policy/;
-/1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
+/1.11/usage/storage/ /1.11/storage/;
+/1.11/usage/storage/persistent-volume/ /1.11/storage/persistent-volume/;
+/1.11/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/ /1.11/networking/load-balancing-vips/virtual-ip-addresses/;
+~^/1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
 /1.10/administration/access-node/tunnel/ /1.10/developing-services/tunnel/;
 /1.10/administration/component-management/ /1.10/administering-clusters/component-management/;
 /1.10/administration/debugging/ /1.10/usage/debugging/cli-debugging/task-exec/;
