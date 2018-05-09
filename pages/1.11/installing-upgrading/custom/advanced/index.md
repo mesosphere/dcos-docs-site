@@ -308,6 +308,6 @@ To install DC/OS:
 [4]: https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
 [6]: /1.11/overview/concepts/#public-agent-node
 [7]: /1.11/overview/concepts/#private-agent-node
-[8]: /1.11/installing-upgrading/custom/uninstalling/
+[8]: /1.11/installing-upgrading/custom/uninstall/
 [9]: /1.11/installing-upgrading/troubleshooting/
 [10]: /1.11/security/ent/users-groups/

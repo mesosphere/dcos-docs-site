@@ -164,13 +164,13 @@ Use this script to create the template dependencies. These dependencies will be 
 # <a name="launch"></a>Launch the templates on CloudFormation
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
-1.  On the **Select Template** page, upload the [Zen](/1.11/installing-upgrading/cloud/installing-aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json`) from your workstation and click **Next**.
+1.  On the **Select Template** page, upload the [Zen](/1.11/installing-upgrading/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json`) from your workstation and click **Next**.
 1.  On the **Specify Details** page, specify these values and and click **Next**.
 
     ![AWS UI](/1.11/img/aws-advanced-1.png)
 
     *  **Stack name** Specify the cluster name.
-    *  **CustomAMI** Optional: Specify the AMI ID. For more information, see [Installing Using a Custom AMI](/1.11/installing-upgrading/cloud/installing-aws/advanced/aws-ami).
+    *  **CustomAMI** Optional: Specify the AMI ID. For more information, see [Installing Using a Custom AMI](/1.11/installing-upgrading/cloud/aws/advanced/aws-ami/).
     *  **InternetGateway** Specify the `InternetGatewayID` output value from the `zen.sh` script. The Internet Gateway ID must be attached to the VPC. This Internet Gateway will be used by all nodes for outgoing internet access.
     *  **KeyName** Specify your AWS EC2 Key Pair.
     *  **MasterInstanceType** Specify the AWS EC2 instance type. The <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance type is recommended.
@@ -242,7 +242,7 @@ Now that your advanced template DC/OS installation is up and running you can add
 
 ### Add more agent nodes
 
-You can add more agent nodes by creating a new stack by using the [advanced-priv-agent.json](/1.11/installing-upgrading/cloud/installing-aws/advanced/template-reference/#private-agent) or [advanced-pub-agent.json](/1.11/installing-upgrading/cloud/installing-aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
+You can add more agent nodes by creating a new stack by using the [advanced-priv-agent.json](/1.11/installing-upgrading/cloud/aws/advanced/template-reference/#private-agent) or [advanced-pub-agent.json](/1.11/installing-upgrading/cloud/aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
 
 Use the output values from the `zen.sh` script and your Master and Infra stacks. These new agent nodes will automatically be added to your DC/OS cluster.
 
@@ -264,7 +264,7 @@ Public agents:
 *  **PublicAgentSecurityGroup** Specify the security group ID for public agents. This group should have limited external access. You can find this value in the **Outputs** tab of the Infrastructure stack (`<stack-name>-Infrastructure-<stack-id>`).
 *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents.
 
-For all of the advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/installing-aws/advanced/template-reference).
+For all of the advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/aws/advanced/template-reference/).
 
 
 # Limitations
@@ -276,7 +276,7 @@ For all of the advanced configuration options, see the template reference [docum
 
 
 # Template reference
-For the complete advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/installing-aws/advanced/template-reference).
+For the complete advanced configuration options, see the template reference [documentation](/1.11/installing-upgrading/cloud/aws/advanced/template-reference/).
 
 **AWS Advanced Installation** [open source type="inline" size="small" /]
 
@@ -377,7 +377,7 @@ Your cluster must meet the software and hardware [requirements](/1.11/installing
 
     **Important:**
 
-    - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing-upgrading/custom/uninstalling/).
+    - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing-upgrading/custom/uninstall/).
     - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
     Create an IP detect script for your environment and save as `genconf/ip-detect`. This script must be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line. You can use the examples below.
@@ -582,7 +582,7 @@ To install DC/OS:
 [4]: https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
 [6]: /1.11/overview/concepts/#public-agent-node/
 [7]: /1.11/overview/concepts/#private-agent-node/
-[8]: /1.11/installing-upgrading/custom/uninstalling/
+[8]: /1.11/installing-upgrading/custom/uninstall/
 [9]: /1.11/installing-upgrading/troubleshooting/
 [10]: /1.11/security/ent/users-groups/
 

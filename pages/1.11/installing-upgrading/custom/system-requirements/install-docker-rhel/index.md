@@ -161,4 +161,4 @@ To continue setting up DC/OS, [please jump to the Advanced Installer][2]
 For more generic Docker requirements, see [System Requirements: Docker][1].
 
 [1]: /1.11/installing-upgrading/custom/system-requirements/#docker
-[2]: /1.11/installing-upgrading/custom/advanced-installer/
+[2]: /1.11/installing-upgrading/custom/advanced/
