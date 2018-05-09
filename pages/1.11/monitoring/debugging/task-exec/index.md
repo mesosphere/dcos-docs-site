@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Using dcos task exec
 title: Using dcos task exec
 menuWeight: 20
-excerpt:
+excerpt: Understanding command execution inside a task container
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 The `dcos task exec` command allows you to execute an arbitrary command inside of a task's container and stream its output back to your local terminal to learn more about how a given task is behaving. It offers an experience very similar to [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/), without any need for SSH keys.

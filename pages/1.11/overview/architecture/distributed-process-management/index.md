@@ -3,10 +3,12 @@ layout: layout.pug
 navigationTitle:  Distributed Process Management
 title: Distributed Process Management
 menuWeight: 5
-excerpt: Understanding the management of processes in a DC/OS cluster
+excerpt: Understanding distributed process management in a DC/OS cluster
+
 
 enterprise: false
 ---
+
 
 This section describes the management of processes in a DC/OS cluster, from the resource allocation to the execution of a process.
 

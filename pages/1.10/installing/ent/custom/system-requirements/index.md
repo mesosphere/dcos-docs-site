@@ -28,17 +28,23 @@ The supported operating systems and environments are listed on the [version poli
 
 ### Master nodes
 
-The below table represents the master node hardware requirements.
+The below table represents the master node hardware requirements:
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| Nodes       | 1         | 3 or 5      |
+| Nodes       | 1*        | 3 or 5      |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
 
-There are many mixed workloads on the masters.<br>
-An example: Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. 
+
+There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least 3 masters. For more information about highly availability requirements see the [High Availability documentation][0].
+
+[0]: https://docs.mesosphere.com/1.10/overview/high-availability/
+
+**Note:** For business critical 3 master nodes are required rather than 1 master node.
+
+Examples of mixed workloads on the masters are: Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. 
 
 Thus, the following hardwares are recommended: 
 

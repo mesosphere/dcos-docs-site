@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  External Persistent Volumes
 title: External Persistent Volumes
 menuWeight: 20
-excerpt:
+excerpt: Using external persistent volumes with Marathon
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 **Warning:** Volume size is specified in GiB.
@@ -23,7 +23,7 @@ Marathon applications normally lose their state when they terminate and are rela
 
 You can specify an external volume in your [Marathon app definition][6].
 
-### Using the Universal Container Runtime 
+### Using the Universal Container Runtime
 
 The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
@@ -70,7 +70,7 @@ The `cmd` in this app definition appends the output of the `date` command to `te
 
 ### Using a Docker Engine
 
-Below is a sample app definition that uses a Docker Engine and specifies an external volume. The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output. 
+Below is a sample app definition that uses a Docker Engine and specifies an external volume. The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
 ```json
 {
@@ -107,7 +107,7 @@ Below is a sample app definition that uses a Docker Engine and specifies an exte
 
 #### Volume configuration options
 
-* `containerPath` must be absolute. 
+* `containerPath` must be absolute.
 *  Only certain versions of Docker are compatible with the REX-Ray volume driver. Refer to the [REX-Ray documentation][11].
 
 ## Create an application from the DC/OS web interface

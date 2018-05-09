@@ -1,20 +1,23 @@
 ---
 layout: layout.pug
-navigationTitle:  Adding a SAML identity provider
-title: Adding a SAML identity provider
+navigationTitle:  Configuring an Identity Provider
+title: Configuring an Identity Provider
 menuWeight: 1
-excerpt: "This topic discusses what's required of SAML IdPs in general and provides a step-by-step procedure for setting up a OneLogin IdP."
+excerpt: Adding a SAML identity provider or a OneLogin identify provider
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
+
+This topic discusses what is required of SAML IdPs in general and provides a step-by-step procedure for setting up a OneLogin IdP.
 
 # About adding a SAML identity provider
 
 DC/OS Enterprise requires the SAML identity provider (IdP) to:
 
 - Sign its authentication assertion.
-- Not use `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` as its `NameIDFormat`. 
+- Not use `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` as its `NameIDFormat`.
 
 Upon receiving the SAML response from the IdP, DC/OS searches it for a value that it can use as the DC/OS user ID. It does so in the following sequence, stopping upon locating the necessary value.
 
@@ -34,9 +37,9 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 4. Type a descriptive name for this IdP in the **Display Name** field.
 5. Click **Save**.
 7. Click the **SSO** tab.
-8. Copy the **Issuer URL** value. 
-9. Make a `GET` request to the **Issuer URL** from either a browser or using curl. 
-10. It should return the identity provider XML. 
+8. Copy the **Issuer URL** value.
+9. Make a `GET` request to the **Issuer URL** from either a browser or using curl.
+10. It should return the identity provider XML.
 
   ```xml
 <?xml version="1.0?>
@@ -45,8 +48,8 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 </EntityDescriptor>
   ```
 
-11. Copy the XML to a clipboard or into a text editor. 
-12. Click the **Access** tab. 
+11. Copy the XML to a clipboard or into a text editor.
+12. Click the **Access** tab.
 13. Activate all roles you want to be able to log in to your cluster. For example: **Employee** and **Engineer**.
 
     **Tip:** Don't click **Save** at this stage; it will fail.
@@ -56,9 +59,9 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 1. Log in to the DC/OS GUI as a user in the `superuser` group or with the `dcos:superuser` permission.
 1. Open the **Settings** -> **Identity Providers** tab.
 1. Click the **+** icon in the top right.
-1. Click **SAML 2.0**. 
+1. Click **SAML 2.0**.
 1. In the **Provider ID** field, type an identifier for your IdP that can be passed in a URL, i.e., only lowercase alphanumeric and `-` characters. Each SAML IdP that you configure needs a unique identifier. If you have another SAML IdP, you must pick a different identifier for this one. Example: `my-saml-idp`.
-1. Type a descriptive name for the IdP in the **Description** field. This string will appear in a button presented to the user to allow them to select the IdP that they want to use. For example, if you type `Fantastic SAML IdP` in the **Description** field, the button will read **Login with Fantastic SAML IdP**. 
+1. Type a descriptive name for the IdP in the **Description** field. This string will appear in a button presented to the user to allow them to select the IdP that they want to use. For example, if you type `Fantastic SAML IdP` in the **Description** field, the button will read **Login with Fantastic SAML IdP**.
 1. Paste the identity provider XML metadata obtained in the previous section into the **IDP Metadata** field.
 1. Copy the URL in the top of your browser, everything before the first slash, and paste it into the **Service Provider Base URL** field.
 1. Click **Submit**.
@@ -105,7 +108,7 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 
    **Note:** This indicates that DC/OS verified your account with the third party provider and imported it into DC/OS. Since your account has no permissions by default, it returns "Access denied."
 
-## Assign permissions 
+## Assign permissions
 
 1. Log into the DC/OS GUI as a user with the `dcos:superuser` permission.
 2. Locate the email address of the user you just tried to log in as in the **Organization** -> **Users** tab and double-click it.
@@ -121,4 +124,3 @@ SAML SSO authentication not successful. Could not extract the subject identity f
 ```
 
 Check to see if the IdP's SAML response includes `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`. DC/OS does not support `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
-

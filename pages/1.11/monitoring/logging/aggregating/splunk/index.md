@@ -3,16 +3,15 @@ layout: layout.pug
 navigationTitle:  Log Management with Splunk
 title: Log Management with Splunk
 menuWeight: 3
-excerpt:
+excerpt: Managing system and application logs with a Splunk server
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 You can pipe system and application logs from a DC/OS cluster to your existing Splunk server. This document describes how to configure a Splunk universal forwarder to send output from each node to a Splunk installation. This document does not explain how to set up and configure a Splunk server.
 
-These instructions are based on CoreOS and might differ substantially from other Linux distributions. 
+These instructions are based on CoreOS and might differ substantially from other Linux distributions.
 
 **Prerequisites**
 
@@ -88,7 +87,7 @@ For each master node in your DC/OS cluster:
 For each agent node in your DC/OS cluster:
 
 1.  Create a script `$SPLUNK_HOME/bin/scripts/journald-agent.sh` that will obtain the Mesos agent logs from `journald`.
-    
+
     **Tip:** This script can be used with DC/OS and DC/OS Enterprise. Log entries that do not apply are ignored.
 
         #!/bin/sh

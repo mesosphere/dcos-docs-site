@@ -8,4 +8,4 @@ featureMaturity:
 enterprise: false
 ---
 
-Welcome to the documentation for the DC/OS {{ model.techName }} service. Choose a version to get started!
+Welcome to the documentation for the DC/OS Confluent ZooKeeper service. Choose a version to get started!

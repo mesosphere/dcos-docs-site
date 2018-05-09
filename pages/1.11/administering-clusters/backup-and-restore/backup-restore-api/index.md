@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Backup and Restore API
 title: Backup and Restore API
 menuWeight: 10
-excerpt:
+excerpt: Backing up and restoring your cluster using the API
 
 enterprise: true
 ---
 
-You can use the Backup and Restore API to create and restore backups of your cluster. 
+You can use the Backup and Restore API to create and restore backups of your cluster.
 
 **Important:** See the [Limitations](/1.11/administering-clusters/backup-and-restore/#limitations) of backup and restore.
 
@@ -55,7 +55,7 @@ All routes can also be reached by users with the `dcos:superuser` permission.
 To assign permissions to your account, see the [permissions reference](/1.11/security/ent/perms-reference/).
 
 
-# API Reference
+# API reference
 
 The Backup and Restore API allows you to manage backup and restore operations on your DC/OS cluster.
 

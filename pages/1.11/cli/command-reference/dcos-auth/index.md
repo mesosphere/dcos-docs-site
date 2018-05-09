@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle:  dcos auth
 title: dcos auth
 menuWeight: 1
-excerpt:
+excerpt: How to manage DC/OS identity and access.
+
 
 enterprise: false
 ---
@@ -14,7 +15,7 @@ This command manages DC/OS identity and access.
 # Usage
 
 ```bash
-dcos auth 
+dcos auth
 ```
 
 # Options
