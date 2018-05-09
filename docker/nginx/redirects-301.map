@@ -12,6 +12,8 @@
 /1.11/installing/ /1.11/installing-upgrading/;
 ~^/1.11/installing/ent/(.*)$ /1.11/installing-upgrading/$1;
 ~^/1.11/installing/oss/(.*)$ /1.11/installing-upgrading/$1;
+~^/1.11/installing/custom/(.*)$ /1.11/installing-upgrading/custom/$1;
+~^/1.11/installing/cloud/(.*)$ /1.11/installing-upgrading/cloud/$1;
 ~^/1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
 /1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
@@ -653,6 +655,8 @@
 /documentation/ /latest/;
 /latest/installing/ /latest/installing-upgrading;
 ~^/latest/installing/(.*)$ /latest/installing-upgrading/$1;
+~^/latest/installing/custom/(.*)$ /latest/installing-upgrading/custom/$1;
+~^/latest/installing/cloud/(.*)$ /latest/installing-upgrading/cloud/$1;
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
 /services/beta-cassandra/v1.0.30-3.0.13-beta/ /services/beta-cassandra/1.0.30-3.0.13-beta/;
