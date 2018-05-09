@@ -3,13 +3,14 @@ layout: layout.pug
 navigationTitle:  Task Types
 title: Task Types
 menuWeight: 2
-excerpt: Understanding DC/OS task types
+excerpt: Understanding Mesos tasks
+
 
 enterprise: false
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 DC/OS can run many different kinds of workloads, which are composed of tasks.
 

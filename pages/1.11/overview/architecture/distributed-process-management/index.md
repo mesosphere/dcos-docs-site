@@ -5,10 +5,9 @@ title: Distributed Process Management
 menuWeight: 5
 excerpt: Understanding distributed process management in a DC/OS cluster
 
+
 enterprise: false
 ---
-
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 This section describes the management of processes in a DC/OS cluster, from the resource allocation to the execution of a process.

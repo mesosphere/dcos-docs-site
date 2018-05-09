@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Quick Start
 menuWeight: 30
-excerpt:
+excerpt: Getting started with Apache ZooKeeper
 featureMaturity:
 enterprise: false
 ---
@@ -18,7 +18,7 @@ enterprise: false
 1. If you are using open source DC/OS, install an Apache Zookeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
    ```shell
-   dcos package install kafka-zookeeper
+   dcos package install beta-kafka-zookeeper
    ```
 
    Alternatively, you can install Apache Zookeeper from [the DC/OS web interface](/latest/usage/webinterface/).
@@ -27,12 +27,12 @@ enterprise: false
 
 1. Connect a client to Apache Zookeeper.
    ```shell
-   dcos kafka-zookeeper endpoints
+   dcos beta-kafka-zookeeper endpoints --name=kafka-zookeeper
    [
      "clientport"
    ]
 
-   dcos kafka-zookeeper endpoints clientport
+   dcos beta-kafka-zookeeper endpoints clientport --name=kafka-zookeeper
    {
        "vips": ["clientport.zookeeper.l4lb.thisdcos.directory:1140"],
        "address": [
@@ -55,13 +55,13 @@ You will use the values in the `address` field for the final step.
 # Install the ZooKeeper CLI
 
 1. [SSH into one your agent nodes](/1.10/administering-clusters/sshcluster/).
-   
+
    ```
    dcos node ssh --master-proxy --mesos-id=<agent-id>
    ```
-   
+
 1. Download the [latest ZooKeeper release](http://zookeeper.apache.org/releases.html) to the node and uncompress it.
-   
+
    ```
    curl -O http://www.trieuvan.com/apache/zookeeper/zookeeper-3.4.11/zookeeper-3.4.11.tar.gz
    tar -xzf zookeeper-3.4.11.tar.gz
