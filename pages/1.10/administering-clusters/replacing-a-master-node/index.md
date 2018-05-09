@@ -16,9 +16,9 @@ You can replace a master node in an existing DC/OS cluster. Only one master shou
 ### Prerequisites:
 
 *   The DC/OS cluster has 3 or 5 master nodes.
-*   DC/OS is installed using the [custom](/1.11/installing/oss/custom/) installation method.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.11/installing/oss/custom/gui/#backup).
-*   Available master node that satisfies the [system requirements](/1.11/installing/oss/custom/system-requirements/).
+*   DC/OS is installed using the [custom](/1.10/installing/oss/custom/) installation method.
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.10/installing/oss/custom/gui/#backup).
+*   Available master node that satisfies the [system requirements](/1.10/installing/oss/custom/system-requirements/).
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
@@ -52,4 +52,4 @@ In order to confirm that the new master has joined the cluster successfully you 
 
 The procedure is identical to the verification performed following a master node upgrade.
 
-The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.11/installing-upgrading/upgrading/#dcos-masters) section in the upgrade documentation.
+The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.10/installing-upgrading/upgrading/#dcos-masters) section in the upgrade documentation.
