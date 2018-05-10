@@ -106,7 +106,7 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
     - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.10/installing/oss/custom/uninstall/).
     - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
-    Create an IP detect script for your environment and save as `genconf/ip-detect`. This script must be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line. You can use the examples below.
+    Create an IP detect script for your environment and save as `genconf/ip-detect`. This script must be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line. You can use the examples below:
 
     *   #### Use the AWS Metadata Server
 
