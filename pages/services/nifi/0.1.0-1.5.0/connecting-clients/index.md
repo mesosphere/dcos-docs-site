@@ -12,7 +12,7 @@ enterprise: false
 One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Since they can be deployed anywhere on it, clients need a way to find the service. This is where service discovery comes in.
 
 
-## Discovering Endpoints
+## Discovering endpoints
 
 Once the service is running, you may view information about its endpoints via either of the following methods:
 - CLI:
@@ -31,7 +31,7 @@ Returned endpoints will include the following:
 In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use direct IPs or set up a proxy service that acts as a front end to your nifi instance. For development and testing purposes, you can use [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administering-clusters/sshcluster/) to access services from outside the cluster, but this option is not suitable for production use.
 
 
-## Connection Response
+## Connection response
 
 The response, for both the CLI and the REST API is as follows.
 
@@ -52,7 +52,7 @@ This JSON array contains a list of valid nodes that the client can use to connec
 
 When Transport Layer Security (TLS) is enabled, an endpoint named node-tls should also be listed. To verify a TLS connection from a client, the DC/OS trust bundle with a CA certificate is required.
 
-## Accessing Nifi UI with Edge-LB Configuration
+## Accessing Nifi UI with Edge-LB configuration
 
 ### Assumptions
     - NiFi is installed on DCOS without TLS and Kerberos
