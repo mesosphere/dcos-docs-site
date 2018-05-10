@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 50
-excerpt:
+excerpt: Connecting clients through service discovery
 featureMaturity:
 enterprise: false
 ---
