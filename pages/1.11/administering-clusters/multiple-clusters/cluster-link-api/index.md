@@ -39,7 +39,7 @@ Content-Type: application/json
 
 All Cluster Link API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.11/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/ent/iam-api/#passing-an-authentication-token).
 
 The Cluster Link API also requires authorization via the following permissions:
 
