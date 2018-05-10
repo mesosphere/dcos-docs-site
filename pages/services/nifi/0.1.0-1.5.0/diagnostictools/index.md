@@ -72,7 +72,7 @@ Either or both of these lists may be useful, depending on the context. Click on 
 
 [<img src="../service/7_Task_stderr_out.png" alt="task stderr and stdout" width="1000"/>](../service/7_Task_stderr_out.png)
 
-_Figure 7. - Output of `Stderr` log file
+_Figure 7. - Output of `Stderr` log file_
 
 ## Mesos Agent logs
 
@@ -149,4 +149,4 @@ DC/OS comes with Exhibitor, a commonly used front-end for viewing ZooKeeper. Exh
 	
 [<img src="../service/14_zookeeper_exhibitor.png" alt="zookeeper exhibitor" width="700"/>](../service/14_zookeeper_exhibitor.png)
 
-_Figure 13. - ZooKeeper Exhibitor_
+_Figure 13. - Exhibitor for ZooKeeper directory_
