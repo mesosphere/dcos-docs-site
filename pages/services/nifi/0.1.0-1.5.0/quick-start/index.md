@@ -1,27 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle:  Quick Start
-title: Quick Start
+navigationTitle:  Command Reference
+title: Command Reference
 menuWeight: 40
-excerpt:
+excerpt: Commands used in the DC/OS NiFi Service
 featureMaturity:
 enterprise: false
 ---
 
-# Prerequisite
-
-- DC/OS should be installed on your cluster. Know about installing DCOS [here](../install/index.md).
-
-# Steps
-
-If you are using open source DC/OS, install nifi on the cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
-
-```shell
-dcos package install nifi
-```
-Alternatively, you can install nifi from [the DC/OS web interface].
-
-Once the install command is triggered, the service will deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface. Mentioned below is the complete list of DCOS Nifi Commands Available:
+Here is the complete list of DCOS NiFi Service commands available:
 
 1. List IDs of all available configurations
 
@@ -83,13 +70,13 @@ Once the install command is triggered, the service will deploy with a default co
     ```shell
     dcos nifi debug state refresh_cache
     ```
-13. Pauses a pod's tasks for debugging      
+13. Pause a pod's tasks for debugging      
 
     ```shell
     dcos nifi debug pod pause [<flags>] <pod>           
     -t, --tasks=TASKS ...  List of specific tasks to be paused, otherwise the entire pod
     ```
-14. Resumes a pod's normal execution following a pause command
+14. Resume a pod's normal execution following a `pause` command
 
     ```shell
     dcos nifi debug pod resume [<flags>] <pod>         
@@ -142,7 +129,9 @@ Once the install command is triggered, the service will deploy with a default co
     ```shell 
     dcos nifi plan force-restart <plan> <phase> <step>
     ```       
-24. Force complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed
+24. Force complete a specific step in the provided phase. Example uses include the following: 
+
+Abort a sidecar operation due to observed failure or known required manual preparation that was not performed
 
     ```shell 
     dcos nifi plan force-complete <plan> [<phase> [<step>]]
@@ -167,12 +156,12 @@ Once the install command is triggered, the service will deploy with a default co
     dcos nifi pod info <pod>
     ```      
 
-28. Restarts a given pod without moving it to a new agent
+28. Restart a given pod without moving it to a new agent
 
     ```shell 
     dcos nifi pod restart <pod>
     ```      
-29. Destroys a given pod and moves it to a new agent  
+29. Destroy a given pod and move it to a new agent  
  
     ```shell 
     dcos nifi pod replace <pod>
@@ -200,7 +189,7 @@ Once the install command is triggered, the service will deploy with a default co
     ```shell 
     dcos nifi state refresh_cache
     ```     
-34. Launches an update operation
+34. Launch an update operation
  
     ```shell 
     dcos nifi update start [<flags>]
