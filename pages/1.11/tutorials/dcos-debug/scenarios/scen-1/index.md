@@ -1,4 +1,9 @@
-
+---
+layout: layout.pug
+title: Scenario 1
+excerpt: Resource Allocation
+menuWeight: 1
+---
 
 <a name=c1></a>
 
@@ -68,7 +73,7 @@ Let's look at the 'Details' more closely.
 
 Interesting. According to this, some of the remaining CPU resources are allocated to a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application (it runs in role '*', the default role).
 
-To check the roles of different resources let us have a [look at the state-summary endpoint](#state-summary), which you can access at `https://<master-ip>/mesos/state-summary`.
+To check the roles of different resources let us have a [look at the state-summary endpoint](/1.11/tutorials/dcos-debug/tools/#state-summary), which you can access at `https://<master-ip>/mesos/state-summary`.
 
 That endpoint will give us a rather long json output, so it is helpful to use jq to make the output readable:
 

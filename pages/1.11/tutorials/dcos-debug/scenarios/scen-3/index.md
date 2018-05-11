@@ -1,8 +1,13 @@
-<a name="c3"></a>
+---
+layout: layout.pug
+title: Scenario 3
+excerpt: Docker Images
+menuWeight: 21
+---
 
-## Scenario 3: Docker Images
+# Scenario 3: Docker Images
 
-### Setup
+## Setup
 
 Start by deploying this [`dockerimage.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json) file:
 
@@ -14,9 +19,9 @@ We see the app fail almost immediately:
 
 ![Pic of failure](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-17.png)
 
-### Resolution
+## Resolution
 
-As we learned [earlier](#strategy), with application failures the [first step](#task-strat) is to check the [task logs](#task-logs).
+As we learned [earlier](/1.11/tutorials/dcos-debug/gen-strat/), with application failures the [first step](/1.11/tutorials/dcos-debug/gen-strat/#task-strat) is to check the [task logs](/1.11/tutorials/dcos-debug/tools/#task-logs).
 
 ![Pic of empty log output](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
@@ -36,7 +41,7 @@ Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: [201
 Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (mesosphere.marathon.MarathonScheduler:Thread-1723)
 ```
 
-However, this does not shed much light on why the task failed. So then to [Step 3](#agent-strat) of our [strategy](#strategy): check the [Mesos agent logs](#agent-logs) using:
+However, this does not shed much light on why the task failed. So then to [Step 3](/1.11/tutorials/dcos-debug/gen-strat/#agent-strat) of our [strategy](/1.11/tutorials/dcos-debug/gen-strat/): check the [Mesos agent logs](/1.11/tutorials/dcos-debug/tools/#agent-logs) using:
 
 ```bash
 $ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
@@ -53,7 +58,7 @@ to output something resembling the following:
 ```
 
 It looks like **the specific Docker image could not be found**, perhaps because it doesn’t exist. Does the image exist in the specified location (in this case `noimage:idonotexist` in Dockerhub)? If it does not, you will have to correct the location or move the file to the specified location. Furthermore, was there an error in the specified location or file name? Lastly, check whether the container image registry is accessible (especially when using a private registry).
-
+s
 ### General Pattern
 
 Being an application error, we again start by looking at task logs, followed by scheduler logs.
@@ -72,16 +77,10 @@ $ journalct1 -u docker
 
 Please note the more complex pattern used here to retrieve the `mesos-id` in comparison to the earlier example. This pattern lists previously failed tasks as well as running tasks, whereas **the earlier pattern only lists running tasks**.
 
-### Cleanup
+## Cleanup
 
 Run:
 
 ```bash
 $ dcos marathon app remove docker-image
 ```
-
-## Ready, Set, Debug!
-
-There are more hands-on exercises in the [dcos-debugging github repository](https://github.com/dcos-labs/dcos-debugging/tree/master/1.10).  Also feel free to contribute your own debugging scenarios to this repository.
-
-So dive in, challenge yourself, and master the art of debugging DC/OS!

@@ -1,10 +1,17 @@
+---
+layout: layout.pug
+title: Practice Deployment Debugging Scenarios on DC/OS
+excerpt: Now apply the application debugging
+menuWeight: 31
+---
+
 <!-- IV. Hands On Examples Section -->
 
 <a name=hands-on></a>
 
-# Hands On: Debugging Application Deployment on DC/OS
+# Practice Deployment Debugging on DC/OS
 
-In this section, there are three basic debugging scenarios for practice. We encourage you to try to debug these scenarios without the solution before skipping to the solution.
+In this section, there are three basic debugging scenarios to practice. We encourage you to try to debug these scenarios without the solution before skipping to the solution.
 
 ## Prerequisites
 

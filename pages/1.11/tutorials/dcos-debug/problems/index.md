@@ -1,3 +1,10 @@
+---
+layout: layout.pug
+title: Problems
+excerpt: What sorts of problems might arise for application deployments?
+menuWeight: 1
+---
+
 <!-- I. Problems Section -->
 
 <a name="problems"></a>

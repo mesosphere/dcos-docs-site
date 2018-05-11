@@ -1,3 +1,10 @@
+---
+layout: layout.pug
+title: Scenario 2
+excerpt: Out of Memory
+menuWeight: 11
+---
+
 <a name=c2></a>
 
 ## Scenario 2: Out of Memory

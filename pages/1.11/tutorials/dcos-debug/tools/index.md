@@ -1,3 +1,9 @@
+---
+layout: layout.pug
+title: Tools
+excerpt: What tools are there for debugging applications on DC/OS?
+menuWeight: 11
+---
 <!-- II. Tools Section -->
 
 <a name="tools"></a>
