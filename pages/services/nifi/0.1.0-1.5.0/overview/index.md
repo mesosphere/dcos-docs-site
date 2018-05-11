@@ -88,7 +88,7 @@ The scheduler starts with the following state:
 
 6. The Scheduler deploys those missing tasks through the Mesos offer cycle using a Deployment Plan to determine the ordering of that deployment.
 
-7. Once the Scheduler has launched the missing tasks, its current configuration should match the desired configuration defined by the “Service Spec” extracted from svc.yml.
+7. Once the Scheduler has launched the missing tasks, its current configuration should match the desired configuration defined by the “Service Spec” extracted from `svc.yml`.
  a. When the current configuration matches the desired configuration, the Scheduler will tell Mesos to suspend sending new offers, as there is nothing to be done.
  b. The Scheduler idles until it receives an RPC from Mesos notifying it of a task status change, it receives an RPC from an end user against one of its HTTP APIs, or until it is killed by Marathon as the result of a configuration change.
 
@@ -144,7 +144,7 @@ When started in uninstall mode, the Scheduler performs the following actions:
     
 # Pods
 
-A task generally maps to a single process within the service. A pod is a collection of colocated tasks that share an environment. All tasks in a pod will come up and go down together. Therefore, most maintenance operations against the service are at pod granularity rather than task granularity.
+A task generally maps to a single process within the service. A pod is a collection of co-located tasks that share an environment. All tasks in a pod will come up and go down together. Therefore, most maintenance operations against the service are at pod granularity rather than task granularity.
     
 # Plans
 
