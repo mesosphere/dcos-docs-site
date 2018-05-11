@@ -3,18 +3,18 @@ layout: layout.pug
 navigationTitle:  API Reference
 title: API Reference
 menuWeight: 70
-excerpt:
+excerpt: DC/OS Apache NiFi Service API Reference
 featureMaturity:
 enterprise: false
 ---
 
 <!-- {% raw %} disable mustache templating in this file: retain nifid examples as-is -->
 
-The DC/OS Apache Nifi Service implements a REST API that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS Apache Nifi Service is deployed.
+The DC/OS Apache NiFi Service implements a REST API that may be accessed from outside the cluster. The `<dcos_url>` parameter referenced below represents the base URL of the DC/OS cluster on which the DC/OS Apache NiFi Service is deployed.
 
 <a name="#rest-auth"></a>
 # REST API Authentication
-REST API requests must be authenticated. This authentication is only applicable for interacting with the DC/OS Apache Nifi REST API directly. You do not need the token to access the Apache Nifi nodes themselves.
+REST API requests must be authenticated. This authentication only applies to interacting with the DC/OS Apache NiFi Service REST API directly. You do not need the authentication token to access the Apache NiFi nodes themselves.
 
 If you are using Enterprise DC/OS, follow these instructions to [create a service account](../security/serviceaccountdetail.md) and an [authentication token](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. 
 
@@ -101,7 +101,7 @@ The contents of the endpoint response contain details sufficient for clients to 
 
 The pod API provides endpoints for retrieving information about nodes, restarting them, and replacing them.
 
-## List Nodes
+## List nodes
 
 A list of available node ids can be retrieved by sending a GET request to `/v1/pod`:
 
@@ -121,7 +121,7 @@ You will see a response similar to the following:
 
 <!-- TODO: provide pod list example (default options) output -->
 
-## Node Info
+## Node information
 
 You can retrieve node information by sending a GET request to `/v1/pod/<node-id>/info`:
 
@@ -149,7 +149,7 @@ You will see a response similar to the following:
 
 <!-- TODO: provide pod <node-id> example (default options) output -->
 
-## Replace a Node
+## Replace a node
 
 The replace endpoint can be used to replace a node with an instance running on another agent node.
 
@@ -167,7 +167,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/pod
 
 If the operation succeeds, a `200 OK` is returned.
 
-## Restart a Node
+## Restart a node
 
 The restart endpoint can be used to restart a node in place on the same agent node.
 
@@ -185,7 +185,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/pod
 
 If the operation succeeds a `200 OK` is returned.
 
-## Pause a Node
+## Pause a node
 The pause endpoint can be used to relaunch a node in an idle command state for debugging purposes.
 
 CLI example
@@ -200,12 +200,11 @@ HTTP Example
 curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/pod/<node-id>/pause
 ```
 
-
 # Configuration API
 
 The configuration API provides an endpoint to view current and previous configurations of the cluster.
 
-## View Target Config
+## View target config
 
 You can view the current target configuration by sending a GET request to `/v1/configurations/target`.
 
@@ -225,7 +224,7 @@ You will see a response similar to the following:
 
 <!-- TODO: provide configurations/target example (default options) output -->
 
-## List Configs
+## List configurations
 
 You can list all configuration IDs by sending a GET request to `/v1/configurations`.
 
@@ -245,7 +244,7 @@ You will see a response similar to the following:
 
 <!-- TODO: provide configurations example (default options) output -->
 
-## View Specified Config
+## View specific config
 
 You can view a specific configuration by sending a GET request to `/v1/configurations/<config-id>`.
 
@@ -263,9 +262,10 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/configurati
 
 You will see a response similar to the target config above.
 
-# Service Status Info
+# Service status info
 Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if DC/OS Apache Nifi is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
-You can use this request to troubleshoot: if you think DC/OS Apache Nifi should be receiving resource offers, but is not, you can use this API call to see if DC/OS Apache Nifi is suppressed.
+
+You can use this request to troubleshoot: if you think DC/OS Apache NiFi should be receiving resource offers, but is not, you can use this API call to see if DC/OS Apache Nifi is suppressed.
 
 ```shell
 curl -H "Authorization: token=$auth_token" "<dcos_url>/service/nifi/v1/state/properties/suppressed"
@@ -273,11 +273,11 @@ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/nifi/v1/state/pro
 
 
 
-# Apache Nifi Node Operations
-These operations provide access to the Nifi cluster node using the available Nifi REST Api. The Rest Api provides programmatic access to command and control a NiFi instance in real time. You can see the [Nifi REST Api](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) for more about the available Api.
+# Apache NiFi node operations
+These operations provide access to the NiFi cluster node using the available NiFi REST API. The REST API provides programmatic access to command and control a NiFi instance in real time. You can see the [NiFi REST API](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) for more about the available API.
 
 
-## List Nifi Cluster Summary
+## List NiFi cluster summary
 
 CLI Example
 ```shell
@@ -291,7 +291,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/cluster/
 ```
 
 
-## List Nifi Node
+## List NiFi node
 
 CLI Example
 ```shell
@@ -304,7 +304,7 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nodes/
 ```
 
-## List Nifi Node for a status
+## List NiFi node for a status
 
 CLI Example
 ```shell
@@ -317,7 +317,7 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nodes/status/<nifi_node_status>
 ```
 
-## Details of a Nifi Node
+## Details of a NiFi node
 
 CLI Example
 ```shell
@@ -331,7 +331,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nodes/<nifi
 ```
 
 
-## Remove a Nifi Node
+## Remove a NiFi node
 
 CLI Example
 ```shell
@@ -344,9 +344,7 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nodes/remove/<nifi_node_id>
 ```
 
-
-
-## Control Nifi Node using GET endpoint
+## Control NiFi node using GET endpoint
 All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses GET method are accessable using below DC/OS cli and http.
 
 CLI Example
@@ -360,7 +358,7 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi-api/get?uri=<nifi_get_endpoints_uri>
 ```
 
-## Control Nifi Node using POST endpoint
+## Control NiFi node using POST endpoint
 All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses POST method are accessable using below DC/OS cli and http.
 
 CLI Example
@@ -378,8 +376,6 @@ OR
 dcos nifi api post <nifi_post_endpoints_uri> <json_payload_file>
 ```
 
-
-
 HTTP Example
 
 ```shell
@@ -390,7 +386,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nif
 }
 ```
 
-## Control Nifi Node using PUT endpoint
+## Control NiFi node using PUT endpoint
 All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses PUT method are accessable using below DC/OS cli and http.
 
 CLI Example
@@ -408,8 +404,6 @@ OR
 dcos nifi api post <nifi_put_endpoints_uri> <json_payload_file>
 ```
 
-
-
 HTTP Example
 
 ```shell
@@ -420,8 +414,7 @@ curl -X PUT -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi
 }
 ```
 
-
-## Control Nifi Node using DELETE endpoint
+## Control NiFi node using DELETE endpoint
 All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses DELETE method are accessable using below DC/OS cli and http.
 
 CLI Example
