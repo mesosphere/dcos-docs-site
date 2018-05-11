@@ -357,7 +357,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi-api/ge
 ```
 
 ## Control NiFi node using POST endpoint
-All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses POST method are accessable using below DC/OS cli and http.
+All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses POST method are accessable using below DC/OS cli and http.
 
 CLI Example
 ```shell
@@ -385,7 +385,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nif
 ```
 
 ## Control NiFi node using PUT endpoint
-All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses PUT method are accessable using below DC/OS cli and http.
+All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses PUT method are accessable using below DC/OS cli and http.
 
 CLI Example
 ```shell
@@ -413,7 +413,7 @@ curl -X PUT -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi
 ```
 
 ## Control NiFi node using DELETE endpoint
-All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses DELETE method are accessable using below DC/OS cli and http.
+All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses DELETE method are accessable using below DC/OS cli and http.
 
 CLI Example
 ```shell
@@ -425,3 +425,4 @@ HTTP Example
 ```shell
 curl -X DELETE -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi-api/delete?uri=<nifi_delete_endpoints_uri>
 ```
+
