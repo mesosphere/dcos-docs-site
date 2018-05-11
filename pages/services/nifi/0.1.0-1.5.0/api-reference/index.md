@@ -103,7 +103,7 @@ The pod API provides endpoints for retrieving information about nodes, restartin
 
 ## List nodes
 
-A list of available node ids can be retrieved by sending a GET request to `/v1/pod`:
+A list of available node IDs can be retrieved by sending a GET request to `/v1/pod`:
 
 CLI Example
 
@@ -263,18 +263,16 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/configurati
 You will see a response similar to the target config above.
 
 # Service status info
-Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if DC/OS Apache Nifi is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
+Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if DC/OS Apache NiFi Service is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
 
-You can use this request to troubleshoot: if you think DC/OS Apache NiFi should be receiving resource offers, but is not, you can use this API call to see if DC/OS Apache Nifi is suppressed.
+You can use this request to troubleshoot. If you think DC/OS Apache NiFi Service should be receiving resource offers, but is not, you can use this API call to see if DC/OS Apache NiFi Service is suppressed.
 
 ```shell
 curl -H "Authorization: token=$auth_token" "<dcos_url>/service/nifi/v1/state/properties/suppressed"
 ```
 
-
-
-# Apache NiFi node operations
-These operations provide access to the NiFi cluster node using the available NiFi REST API. The REST API provides programmatic access to command and control a NiFi instance in real time. You can see the [NiFi REST API](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) for more about the available API.
+# Apache NiFi Service node operations
+These operations provide access to the DC/OS Apache NiFi Service cluster node using the available NiFi REST API. The REST API provides programmatic access to command and control a NiFi instance in real time. You can see the [NiFi REST API](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) for more about the available API.
 
 
 ## List NiFi cluster summary
