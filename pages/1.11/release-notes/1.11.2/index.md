@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.11.2
+navigationTitle: Release Notes for 1.11.2
 title: Release Notes for 1.11.2
 menuWeight: 0
 excerpt: Release notes for DC/OS 1.11.2
@@ -14,10 +14,23 @@ These are the release notes for DC/OS 1.11.2.
 
 # <a name="issues-fixed"></a>Issues Fixed in DC/OS 1.11.2
 
+- DCOS-14199 - Prevented DC/OS from recovering when disk space is full.
+- DCOS_OSS-2378/SOAK-88 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
+- SOAK-92 - 
+- DCOS-22128: Supported pods with volumes but no volume mounts.
+
+
 # <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.2
+
+- DCOS-21557/DCOS-22326/DCOS_OSS-2367 - Mitigated security risk in DC/OS by providing more secure default settings.
+- DCOS_OSS-2367 - Updated curl to version 7.59.
+- DCOS-22326 - Disabled the 3DES bulk encryption, algorithm and TLS 1.1 protocol by default for master Admin router's TLS.
+- QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
+- QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported. 
 
 # <a name="known-issue"></a>Known Issue in DC/OS 1.11.2
 
+- DCOS-20568 - Fixed dcos-diagnostics master service account permission issue.
 
 
 
