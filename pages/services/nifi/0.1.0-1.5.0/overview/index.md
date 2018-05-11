@@ -34,7 +34,7 @@ The following components work together to deploy and maintain the DC/OS NiFi Ser
 
 - Packaging
 
-    Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache Nifi, this Marathon app is the scheduler for the service
+    Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache NiFi, this Marathon app is the scheduler for the service
 
     For further discussion of DC/OS components, see the [architecture documentation](https://docs.mesosphere.com/latest/overview/architecture/components/).
 
@@ -42,7 +42,7 @@ The following components work together to deploy and maintain the DC/OS NiFi Ser
 
 Internally, DC/OS NiFi Service treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
 
- - When Nifi is first installed, deployment moves from a null configuration to a deployed configuration.
+ - When NiFi is first installed, deployment moves from a null configuration to a deployed configuration.
  - When the deployed configuration is changed by editing an environment variable in the scheduler, deployment moves from an initial running configuration to a new proposed configuration.
 
 In this section, we will describe how these scenarios are handled by the scheduler.
@@ -57,7 +57,7 @@ This is the flow for deploying a new service:
 
 2. A request is sent to the Cosmos packaging service to deploy the requested package along with a set of configuration options.
 
-3. Cosmos creates a Marathon app definition by rendering Nifi’s `marathon.json.mustache` file with the configuration options provided in the request, which represents Nifi’s Scheduler. Cosmos queries Marathon to create the app.
+3. Cosmos creates a Marathon app definition by rendering NiFi’s `marathon.json.mustache` file with the configuration options provided in the request, which represents NiFi’s Scheduler. Cosmos queries Marathon to create the app.
 
 4. Marathon launches the NiFi’s scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
 
