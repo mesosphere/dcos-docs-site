@@ -113,7 +113,7 @@ The DC/OS Apache NiFi Service requires a Kerberos principal for the service prin
    ```
 ### Place service keytab in DC/OS Secret Store
 
-The DC/OS Apache NiFi Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name __dcos_base64__secret_name .The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets)
+The DC/OS Apache NiFi Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name `__dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets)
 
 Documentation for adding a file to the secret store can be found [here.](https://docs.mesosphere.com/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
 
