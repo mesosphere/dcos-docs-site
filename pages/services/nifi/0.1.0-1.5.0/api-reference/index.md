@@ -3,18 +3,18 @@ layout: layout.pug
 navigationTitle:  API Reference
 title: API Reference
 menuWeight: 70
-excerpt: DC/OS Apache NiFi Service API Reference
+excerpt: DC/OS NiFi Service API Reference
 featureMaturity:
 enterprise: false
 ---
 
 <!-- {% raw %} disable mustache templating in this file: retain nifid examples as-is -->
 
-The DC/OS Apache NiFi Service implements a REST API that may be accessed from outside the cluster. The `<dcos_url>` parameter referenced below represents the base URL of the DC/OS cluster on which the DC/OS Apache NiFi Service is deployed.
+The DC/OS NiFi Service implements a REST API that may be accessed from outside the cluster. The `<dcos_url>` parameter referenced below represents the base URL of the DC/OS cluster on which the DC/OS  NiFi Service is deployed.
 
 <a name="#rest-auth"></a>
 # REST API Authentication
-REST API requests must be authenticated. This authentication only applies to interacting with the DC/OS Apache NiFi Service REST API directly. You do not need the authentication token to access the Apache NiFi nodes themselves.
+REST API requests must be authenticated. This authentication only applies to interacting with the DC/OS  NiFi Service REST API directly. You do not need the authentication token to access the Apache NiFi nodes themselves.
 
 If you are using Enterprise DC/OS, follow these instructions to [create a service account](../security/serviceaccountdetail.md) and an [authentication token](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. 
 
@@ -265,16 +265,16 @@ You will see a response similar to the target config above.
 
 # Service status info
 
-Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if DC/OS Apache NiFi Service is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
+Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if DC/OS NiFi Service is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
 
-You can use this request to troubleshoot. If you think DC/OS Apache NiFi Service should be receiving resource offers, but is not, you can use this API call to see if DC/OS Apache NiFi Service is suppressed.
+You can use this request to troubleshoot. If you think DC/OS  NiFi Service should be receiving resource offers, but is not, you can use this API call to see if DC/OS NiFi Service is suppressed.
 
 ```shell
 curl -H "Authorization: token=$auth_token" "<dcos_url>/service/nifi/v1/state/properties/suppressed"
 ```
 
 # Apache NiFi Service node operations
-These operations provide access to the DC/OS Apache NiFi Service cluster node using the available NiFi REST API. The REST API provides programmatic access to command and control a NiFi instance in real time. You can see the [NiFi REST API](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) for more about the available API.
+These operations provide access to the DC/OS NiFi Service cluster node using the available NiFi REST API. The REST API provides programmatic access to command and control a NiFi instance in real time. You can see the [NiFi REST API](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) for more about the available API.
 
 
 ## List NiFi cluster summary
@@ -360,7 +360,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi-api/ge
 
 ## Control NiFi node using POST endpoint
 
-All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the POST method are accessable using following DC/OS CLI and HTTP commands.
+All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the POST method are accessable using following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
@@ -389,7 +389,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nif
 
 ## Control NiFi node using PUT endpoint
 
-All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the PUT method are accessable using the following DC/OS CLI and HTTP commands.
+All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the PUT method are accessable using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
@@ -418,7 +418,7 @@ curl -X PUT -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi
 
 ## Control NiFi node using DELETE endpoint
 
-All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the DELETE method are accessable using the following DC/OS CLI and HTTP commands.
+All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the DELETE method are accessable using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
