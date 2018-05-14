@@ -122,7 +122,7 @@
 /1.10/installing/custom/ /1.10/installing/oss/custom/;
 /1.10/installing/custom/configuration/configuration-parameters/ /1.10/installing/ent/custom/configuration/configuration-parameters/;
 /1.10/installing/custom/configuration-parameters/ /1.10/installing/oss/custom/configuration/configuration-parameters/;
-/1.10/installing/local/ /1.10/installing/oss/local/;
+/1.10/installing/local/ /1.10/installing/ent/local/;
 /1.10/monitoring/debugging/cli-debugging/task-exec/ /1.10/monitoring/debugging/task-exec/;
 /1.10/networking/mesos-dns/http-interface/ /1.10/networking/mesos-dns/mesos-dns-api/;
 ~^/1.10/networking/edge-lb/(.*)$ /services/edge-lb/$1;
