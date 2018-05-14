@@ -50,7 +50,7 @@ You may view the current state of a listed plan:
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/plans/<plan>
 ```
 
-The CLI may be used to show a formatted tree of the plan (default), or the underlying JSON data as retrieved from the above HTTP endpoint:
+Use the CLI to display a formatted tree of the plan (default), or the underlying JSON data as retrieved from the HTTP endpoint:
 
 ```shell
 dcos nifi --name=nifi plan show <plan>
@@ -59,7 +59,6 @@ dcos nifi --name=nifi plan show <plan>
 ```shell
 dcos nifi --name=nifi plan show <plan> --json
 ```
-
 
 ## Pause plan
 
@@ -87,6 +86,8 @@ dcos nifi --name=nifi plan continue deploy
 
 # Connection API
 
+The contents of the endpoint response contain details sufficient for clients to connect to the service.
+
 ```shell
 curl -H "Authorization:token=$auth_token" dcos_url/service/nifi/v1/endpoints/<endpoint>
 ```
@@ -95,7 +96,6 @@ You will see a response similar to the following:
 
 <!-- TODO: provide endpoint <endpoint> example (default options) output -->
 
-The contents of the endpoint response contain details sufficient for clients to connect to the service.
 
 # Nodes API
 
@@ -186,6 +186,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/pod
 If the operation succeeds a `200 OK` is returned.
 
 ## Pause a node
+
 The pause endpoint can be used to relaunch a node in an idle command state for debugging purposes.
 
 CLI example
@@ -263,6 +264,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/configurati
 You will see a response similar to the target config above.
 
 # Service status info
+
 Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if DC/OS Apache NiFi Service is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
 
 You can use this request to troubleshoot. If you think DC/OS Apache NiFi Service should be receiving resource offers, but is not, you can use this API call to see if DC/OS Apache NiFi Service is suppressed.
@@ -287,7 +289,6 @@ HTTP Example
 ```shell
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/cluster/
 ```
-
 
 ## List NiFi node
 
@@ -343,7 +344,8 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nodes/remov
 ```
 
 ## Control NiFi node using GET endpoint
-All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses GET method are accessable using below DC/OS cli and http.
+
+All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the GET method are accessable using following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
@@ -357,7 +359,8 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi-api/ge
 ```
 
 ## Control NiFi node using POST endpoint
-All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses POST method are accessable using below DC/OS cli and http.
+
+All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the POST method are accessable using following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
@@ -385,7 +388,8 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nif
 ```
 
 ## Control NiFi node using PUT endpoint
-All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses PUT method are accessable using below DC/OS cli and http.
+
+All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the PUT method are accessable using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
@@ -413,7 +417,8 @@ curl -X PUT -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi
 ```
 
 ## Control NiFi node using DELETE endpoint
-All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) uses DELETE method are accessable using below DC/OS cli and http.
+
+All DC/OS Apache NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the DELETE method are accessable using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
