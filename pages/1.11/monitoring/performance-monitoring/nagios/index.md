@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Monitoring with Nagios
 title: Monitoring with Nagios
 menuWeight: 0
-excerpt:
+excerpt: Monitoring a DC/OS cluster with Nagios
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 Nagios is a popular monitoring framework for distributed hosts. This guide explains how to monitor a DC/OS cluster with [Nagios Core 4x](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-linux.html) using [NRPE](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/addons.html#nrpe).
@@ -71,5 +71,3 @@ Status for dcos-adminrouter-reload.service is not 0, got 2
 Monitoring Docker via Nagios can be tricky, as there are many aspects you might want to watch. If your intent is to check if the service is available and running, (i.e., Docker service is running and enabled and healthy according to systemd) then we recommend a NRPE script that does just that.
 
 If your intent is to monitor what is going on inside the container, we recommend you run a service such as [cAdvisor](https://github.com/google/cadvisor).
-
-

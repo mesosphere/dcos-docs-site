@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Cluster Links
 title: Cluster Links
 menuWeight: 0
-excerpt:
+excerpt: How to manage cluster links
 enterprise: true
 ---
 
@@ -56,7 +56,7 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, its status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.11/administering-clusters/multiple-clusters/cluster-connections).
 
-# Remove a linked cluster 
+# Remove a linked cluster
 
 To remove a link, `dcos cluster unlink` command and supply the **name** or **ID** of a linked cluster. For example:
 
@@ -102,7 +102,7 @@ If you are superuse, you can also switch to a linked cluster in the Linked Clust
 
 
 
-# Example of linking and switching cluster 
+# Example of linking and switching cluster
 
 ## Link clusters as a superuser operator via CLI
 

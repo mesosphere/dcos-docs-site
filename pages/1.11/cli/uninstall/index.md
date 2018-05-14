@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Uninstalling the CLI
 title: Uninstalling the CLI
 menuWeight: 4
-excerpt:
+excerpt: How to uninstall the command line interface
 
 enterprise: false
 ---
@@ -23,7 +23,7 @@ You can uninstall the CLI with these commands for your operating system.
     ```bash
     rm -rf ~/.dcos
     ```
-    
+
 1.  Delete the `dcos` executable.  By default, this file is located in `/usr/local/bin/dcos`.
 
     ```bash
@@ -32,5 +32,5 @@ You can uninstall the CLI with these commands for your operating system.
 
 ## <a name="windows"></a>Windows
 
-1.  Delete the hidden `.dcos` directory. This will delete the configuration files for your DC/OS CLI connections. 
+1.  Delete the hidden `.dcos` directory. This will delete the configuration files for your DC/OS CLI connections.
 1.  Delete the `dcos` executable.  

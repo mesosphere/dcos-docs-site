@@ -2,12 +2,12 @@
 layout: layout.pug
 title: Debugging from the DC/OS Web Interface
 menuWeight: 0
-excerpt:
+excerpt: Using the DC/OS web interface for debugging
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 You can debug your service or pod from the DC/OS web interface.

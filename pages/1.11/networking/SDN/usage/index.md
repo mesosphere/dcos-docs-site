@@ -1,25 +1,25 @@
 ---
 layout: layout.pug
-navigationTitle:  Usage
-title: Usage
+navigationTitle:  Using SDNs
+title: Using an SDN
 menuWeight: 20
-excerpt:
+excerpt: Using a software defined network
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-DC/OS provides each container with its own IP address by allowing operators to run containers on a wide-variety of IP-based virtual networks. 
+DC/OS provides each container with its own IP address by allowing operators to run containers on a wide-variety of IP-based virtual networks.
 
 In order to run containers on a virtual network, the operator needs to install a CNI or CNM network out-of-band. DC/OS itself comes with its own virtual networking solution called DC/OS overlay which the operator could use to provide containers with unique IP addresses.
 
 
 # Using Virtual Networks
 
-First, the operator needs to [configure the virtual networks](/pages/1.11/networking/virtual-networks/).
+First, you must [configure the virtual networks](/pages/1.11/networking/virtual-networks/).
 
-Currently, virtual networks are configured at install time. The operator will have to specify a canonical name for each network in the `config.yaml`. When your service needs to launch a container, refer to it by that canonical name.
+Virtual networks are configured at install time. You must specify a canonical name for each network in the `config.yaml`. When your service needs to launch a container, refer to it by that canonical name.
 
 To use a virtual network in a Marathon app definition, specify the `"network": "USER"` property along with an `ipAddress` field in the form: `{"ipAddress": {"network": "$MYNETWORK"}}`. The value of `$MYNETWORK` is the canonical name of the network.
 

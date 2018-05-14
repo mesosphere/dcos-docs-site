@@ -1,17 +1,16 @@
 ---
 layout: layout.pug
 navigationTitle:  >
-title: >
-  Specifying authentication method and
-  parameters
+title: Specifying LDAP Authentication and Parameters
 menuWeight: 2
-excerpt: >
-  Next, set up the authentication method
-  and parameters needed to connect to the
-  LDAP server.
+excerpt: Specifying authentication method and
+parameters
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
+
+In this section you will set up the authentication method and parameters for your LDAP directory.
 
 # Selecting the authentication method
 
@@ -30,13 +29,13 @@ enterprise: true
 1. Select one of the following.
 
     - **Simple bind**: if your LDAP user name is part of your [distinguished name (DN)](https://www.ldap.com/ldap-dns-and-rdns).
-    
+
     - **Search/bind**: if you have an LDAP user name that is not a part of the [distinguished name (DN)](https://www.ldap.com/ldap-dns-and-rdns).
 
 1.  Refer to the section that corresponds to your selection.
 
     - [Specifying simple bind parameters](#specifying-simple-bind-parameters)
-    
+
     - [Specifying search/bind parameters](#specifying-searchbind-parameters)
 
 # Specifying simple bind parameters

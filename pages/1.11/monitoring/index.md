@@ -3,11 +3,13 @@ layout: layout.pug
 navigationTitle:  Monitoring, Logging, and Debugging
 title: Monitoring, Logging, and Debugging
 menuWeight: 110
-excerpt:
+excerpt: Learn how to monitor the health of your datacenter operations with DC/OS
 ---
 
 
-Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
+Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshooting hard-to-diagnose bugs.
+
+You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
 
 DC/OS components are the [systemd units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-diagnostics.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/1.11/overview/architecture/components/).
 
@@ -49,7 +51,7 @@ curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/healt
 Aggregation of the cluster health endpoints is accomplished by the same diagnostics application on the master nodes. You can explore this API further by making a few queries to any master in your cluster:
 
 1.  SSH to your master node:
-    
+
     ```bash
     dcos node ssh --master-proxy --leader
     ```
@@ -59,19 +61,19 @@ Aggregation of the cluster health endpoints is accomplished by the same diagnost
     sudo su -
     ```
 1.  Run these commands to get cluster health:
-   
+
     -  System health by unit:
-       
+
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/units
        ```
     -  System health by node:
-    
+
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/nodes
        ```
     -  System health report:
-    
+
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/report
        ```

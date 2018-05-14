@@ -59,9 +59,22 @@ You can deploy your instances in a specific region region based on the available
 
 1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
-   We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>` We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+We recommend the format for the script output be:
 
-   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
+```json
+  {
+    "fault_domain": {
+      "region": {
+        "name": <region>,
+        "zone": <zone>
+      }
+    }
+  }
+```
+
+We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+
+<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
 
 1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/ent/custom/advanced/#create-a-fault-domain-detection-script).
 
@@ -72,11 +85,11 @@ You can deploy your instances in a specific region region based on the available
    From the DC/OS CLI, enter `dcos node`. You should see output similar to the following, where the region and zone of each node is listed:
 
    ```bash
-   HOSTNAME        IP                         ID                    TYPE               REGION      ZONE     
-  	10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a  
-  	10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b  
-	master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A     
-	master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b      
+   HOSTNAME        IP                         ID                    TYPE               REGION      ZONE
+  	10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a
+  	10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b
+	master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A
+	master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b
 	master.mesos.  10.0.7.111    a2ea1578-22ee-430e-aeb8-82ee1b74d88a   master (leader)  us-east-1  us-east-1c
 	```
 

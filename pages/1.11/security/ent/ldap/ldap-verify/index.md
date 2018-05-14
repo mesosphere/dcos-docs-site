@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  Verifying the LDAP connection
 title: Verifying the LDAP connection
 menuWeight: 3
-excerpt: >
-  Lastly, verify that the parameters you
-  provided allow DC/OS to connect the LDAP
-  server.
+excerpt: Verifying your connection to the LDAP server
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
+In this section, you will verify that the parameters you provided allow DC/OS to connect to the LDAP server.
 
-
-1. Click **Test Connection** to validate your connection. 
+1. Click **Test Connection** to validate your connection.
 
 1. Provide the user name of a user in the external LDAP directory in the **LDAP Username** field.  
 

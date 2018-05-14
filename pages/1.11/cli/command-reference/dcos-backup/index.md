@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos backup
 title: dcos backup
 menuWeight: 2
-excerpt:
+excerpt: How to create backups and restore from them.
 
 enterprise: true
 ---
 
 
 ## dcos backup
-Create backups and restore from them.
+The dcos backup command will let you create backups and restore from them.
 
 ```
 dcos backup

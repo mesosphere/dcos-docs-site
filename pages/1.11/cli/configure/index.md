@@ -3,18 +3,16 @@ layout: layout.pug
 navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2
-excerpt:
+excerpt: How to configure the command line interface
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can access DC/OS CLI configuration with the [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) and [dcos config](/1.11/cli/command-reference/dcos-config/) command groups.
 
 
-# Configuring HTTP Proxy
+# Configuring HTTP proxy
 
 If you use a proxy server to connect to the internet, you can configure the CLI to use your proxy server.
 

@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  dcos cluster rename
 title: dcos cluster rename
 menuWeight: 5
-excerpt:
+excerpt: How to rename a cluster.
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
-Rename a cluster.
+The dcos-cluster-rename command will rename a cluster.
 
 # Usage
 
