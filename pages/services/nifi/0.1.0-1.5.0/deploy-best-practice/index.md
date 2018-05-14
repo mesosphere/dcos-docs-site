@@ -26,7 +26,7 @@ For the partitions handling the various NiFi repos, turn off things like `atime`
         
 ## Hardware sizing recommendations
 
-Following is the recommnded hardware for NiFi production installation:
+Following is the recommended hardware for NiFi production installation:
 
 [<img src="../service/HardwareRecommendation.png" alt="Hardware Recommendation" width="700"/>](../service/HardwareRecommendation.png)
 
@@ -40,6 +40,6 @@ Apache NiFi performs best when using disks with fast read and write patterns.
 
 We recommend the following:
 
- 1. Always prefer locally-attached storage. Remote storage adds points of failure, add latency/overhead to block requests, and are more complicated to troubleshoot.  
- 2. For better performance, use solid-state disks vs. spinning disks. Spinning disks allocate more memory to cache more data, thereby reducing the processing memory available.
+ 1. Always prefer locally-attached storage. Remote storage adds points of failure, add latency/overhead to block requests, and is more complicated to troubleshoot.  
+ 2. For better performance, use solid-state disks rather than spinning disks. Spinning disks allocate more memory to cache more data, thereby reducing the processing memory available.
 
