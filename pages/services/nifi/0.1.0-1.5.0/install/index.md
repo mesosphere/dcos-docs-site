@@ -21,7 +21,7 @@ The default DC/OS NiFi Service installation provides reasonable defaults for try
  - The `disabled` security mode does not require a service account.
  - Your cluster must have at least three private nodes.
 
-- **Tip:** A complete guide to Configuring DC/OS Access for Nifi can be found [here](../security/serviceaccountdetail.md).
+- **Tip:** A complete guide to Configuring DC/OS Access for NiFi can be found [here](../security/serviceaccountdetail.md).
 
 # Installing from the DC/OS CLI
 
