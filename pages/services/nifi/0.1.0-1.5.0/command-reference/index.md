@@ -236,10 +236,3 @@ Abort a sidecar operation due to observed failure or known required manual prepa
     dcos nifi update status [<flags>]
     --json  Show raw JSON response instead of user-friendly tree
     ```               
-
-# See Also
-
-- [Connecting clients][1].
-
- [1]: https://docs.mesosphere.com/service-docs/<Template>/connecting-clients/
-
