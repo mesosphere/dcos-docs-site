@@ -21,6 +21,7 @@
 /1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
 ~^/1.11/networking/marathon-lb/(.*)$ /services/marathon-lb/$1;
 /1.11/release-notes/version-policy/ /version-policy/;
+/1.11/usage/managing-services/install/#installing-a-service-using-the-cli/ /1.11/deploying-services/install/;
 /1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
 /1.10/administration/access-node/tunnel/ /1.10/developing-services/tunnel/;
 /1.10/administration/component-management/ /1.10/administering-clusters/component-management/;
@@ -33,14 +34,11 @@
 /1.10/administration/id-and-access-mgt/ /1.10/security/;
 /1.10/administration/id-and-access-mgt/add-user-script/ /1.10/security/oss/add-user-script/;
 /1.10/administration/id-and-access-mgt/configure-your-security/ /1.10/security/;
-<<<<<<< HEAD
 /1.10/administration/id-and-access-mgt/service-auth/kafka-auth/ /services/kafka/kafka-auth/;
 /1.10/administration/id-and-access-mgt/(.*)$ /1.10/security/oss/$1;
 /1.10/administration/installing/ /1.10/installing/;
 /1.10/administration/installing/cloud/aws/(.*)$ /1.10/installing/oss/cloud/aws/$1;
-/1.10/administration/installing/cloud/(.*)$ /1.10/installing/oss/cloud/$1;
 /1.10/administration/installing/custom/ /1.10/installing/oss/custom/;
-=======
 /1.10/administration/id-and-access-mgt/iam-api/ /1.10/security/oss/iam-api/;
 /1.10/administration/id-and-access-mgt/managing-authentication/ /1.10/security/oss/managing-authentication/;
 /1.10/administration/id-and-access-mgt/user-management/ /1.10/security/ent/users-groups/;
@@ -61,7 +59,6 @@
 /1.10/administration/installing/cloud/packet/ /1.10/installing/cloud/packet/;
 /1.10/administration/installing/custom/ /1.10/installing/custom/;
 /1.10/administration/installing/custom/add-a-node/ /1.10/administering-clusters/add-a-node/;
->>>>>>> 7199fbb46146928eca6818a726cd0b3be290fd44
 /1.10/administration/installing/custom/advanced/ /1.10/installing/oss/custom/advanced/;
 /1.10/administration/installing/custom/cli/ /1.10/installing/oss/custom/cli/;
 /1.10/administration/installing/custom/configuration-parameters/ /1.10/installing/oss/custom/configuration/configuration-parameters/;
@@ -69,15 +66,12 @@
 /1.10/administration/installing/custom/gui/ /1.10/installing/oss/custom/gui/;
 /1.10/administration/installing/custom/system-requirements/ /1.10/installing/oss/custom/system-requirements/;
 /1.10/administration/installing/custom/system-requirements/install-docker-centos/ /1.10/installing/oss/custom/system-requirements/install-docker-centos/;
-<<<<<<< HEAD
 /1.10/administration/installing/custom/add-a-node/ /1.10/administering-clusters/add-a-node/;
 /1.10/administration/installing/custom/convert-agent-type/ /1.10/administering-clusters/convert-agent-type/;
 /1.10/administration/installing/custom/troubleshooting/ /1.10/installing/troubleshooting/;
 /1.10/administration/installing/custom/uninstall/ /1.10/installing/custom/uninstall/;
-=======
 /1.10/administration/installing/custom/troubleshooting/ /1.10/installing/oss/troubleshooting/;
 /1.10/administration/installing/custom/uninstall/ /1.10/installing/custom/oss/uninstall/;
->>>>>>> 7199fbb46146928eca6818a726cd0b3be290fd44
 /1.10/administration/installing/deploying-a-local-dcos-universe/ /1.10/administering-clusters/deploying-a-local-dcos-universe/;
 /1.10/administration/installing/local/ /1.10/installing/local/;
 /1.10/administration/installing/opt-out/ /1.10/installing/ent/custom/opt-out/;
@@ -87,7 +81,6 @@
 /1.10/administration/locate-public-agent/ /1.10/administering-clusters/locate-public-agent/;
 /1.10/administration/logging/(.*)$ /1.10/monitoring/logging/$1;
 /1.10/administration/managing-aws/ /1.10/administering-clusters/managing-aws/;
-<<<<<<< HEAD
 /1.10/administration/metrics/(.*)$ /1.10/administration/monitoring/metrics/$1;
 /1.10/administration/monitoring/ /1.10/monitoring/;
 /1.10/administration/monitoring/metrics/(.*)$ /1.10/metrics/$1;
@@ -103,7 +96,6 @@
 /1.10/administration/upgrading/ /1.10/installing/upgrading/;
 /1.10/administration/user-management/ /1.10/administration/id-and-access-mgt/user-management/;
 /1.10/administration/virtual-networks/(.*)$ /1.10/networking/virtual-networks/$1;
-=======
 /1.10/administration/metrics/ /1.10/metrics/;
 /1.10/administration/metrics/metrics-api/ /1.10/metrics/metrics-api/;
 /1.10/administration/metrics/quickstart/ /1.10/metrics/quickstart/;
@@ -130,7 +122,6 @@
 /1.10/administration/virtual-networks/ /1.10/networking/virtual-networks/;
 /1.10/administration/virtual-networks/ip-per-container/ /1.10/networking/virtual-networks/ip-per-container/;
 /1.10/administration/virtual-networks/isolation/ /1.10/networking/virtual-networks/isolation/;
->>>>>>> 7199fbb46146928eca6818a726cd0b3be290fd44
 /1.10/debugging/cli-debugging/task-exec/quickstart/ /1.10/monitoring/debugging/cli-debugging/task-exec/;
 /1.10/developing-services/create-package/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/developing-services/dcos-integration/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
@@ -442,6 +433,7 @@
 /1.9/administration/installing/custom/uninstall/ /1.9/installing/custom/uninstall/;
 /1.9/administration/installing/deploying-a-local-dcos-universe/ /1.9/administering-clusters/deploying-a-local-dcos-universe/;
 /1.9/administration/installing/local/ /1.9/installing/local/;
+/1.9/installing/local/ /1.9/installing/ent/local/;
 /1.9/administration/installing/opt-out/ /1.9/installing/custom/opt-out/;
 /1.9/administration/installing/ports/ /1.9/installing/ports/;
 /1.9/administration/installing/update-a-node/ /1.9/administering-clusters/update-a-node/;
