@@ -34,7 +34,7 @@ These are the release notes for DC/OS 1.11.2.
 - DCOS-29122 - Upgraded multi-region SDK package to Universe services.
 - DCOS-29168 - 
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
-- QUALITY-2007/QUALITY-2055 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
+- QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2060 - Certified DC/OS 1.11.2 with CoreOS 1688.5.3.
 **Note:** Previous 1.11 point releases are not supported for CoreOS 1688.5.3.
