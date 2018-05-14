@@ -36,17 +36,19 @@ This is the first release to Universe. Reported bugs will be fixed in subsequent
 
 Released first version of Service Guide with following topics:
 
-- Overview
-- Install and Customize
-- Security
-- Uninstall
-- Command Reference
-- Connecting Clients
-- Managing
-- Diagnostic Tools
-- API Reference
-- Troubleshooting
-- Limitations
-- Supported Versions
-- Release Notes
-- Upgrade
+## Table of Contents
+
+- [Overview](overview/index.md)
+- [Install and Customize](install/index.md)
+- [Deployment Best Practices](deploymentbestpractice/index.md)
+- [Security](security/index.md)
+- [Uninstall](uninstall/index.md)
+- [Command Reference](command-reference/index.md)
+- [Connecting Clients](connecting-clients/index.md)
+- [Managing](managing/index.md)
+- [Diagnostic Tools](diagnostictools/index.md)
+- [API Reference](api-reference/index.md)
+- [Troubleshooting](troubleshooting/index.md)
+- [Limitations](limitations/index.md)
+- [Supported Versions](supported-versions/index.md)
+- [Release Notes](release-notes/index.md)
