@@ -119,7 +119,7 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
 </table>
 
-<sup>*</sup> CoreOS 1688.5.3 requires 1.11.2 or later releases.
+<sup>*</sup> CoreOS 1688.5.3 requires DC/OS 1.11.2 or later releases.
 
 
 ## Version Compatibility Matrix
