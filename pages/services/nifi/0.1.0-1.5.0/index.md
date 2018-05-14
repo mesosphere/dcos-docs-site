@@ -8,9 +8,9 @@ featureMaturity:
 enterprise: false
 ---
 
-Apache NiFi is a dataflow system based on the concepts of flow-based programming. It supports powerful and scalable directed graphs of data routing, transformation and system mediation logic. NiFi uses a web-based interface for design, control, feedback, and monitoring of dataflows. It is highly configurable along several dimensions of quality of service, such as loss-tolerant versus guaranteed delivery, low latency versus high throughput, and priority-based queuing. NiFi provides fine-grained data provenance for all data received, forked, joined, cloned, modified, sent and ultimately dropped upon reaching its configured end-state.
+Apache NiFi is a dataflow system based on the concepts of flow-based programming. It supports powerful and scalable directed graphs of data routing, transformation and system mediation logic. Apache NiFi uses a web-based interface for design, control, feedback, and monitoring of dataflows. It is highly configurable along several dimensions of quality of service, such as loss-tolerant versus guaranteed delivery, low latency versus high throughput, and priority-based queuing. Apache NiFi provides fine-grained data provenance for all data received, forked, joined, cloned, modified, sent and ultimately dropped upon reaching its configured end-state.
 
-DC/OS NiFi Service is an automated service that makes it easy to deploy and manage Apache Nifi on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all complexities that are traditionally associated with managing a cluster of NiFi nodes.
+DC/OS NiFi Service is an automated service that makes it easy to deploy and manage Apache NiFi on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all the complexities that are traditionally associated with managing a cluster of NiFi nodes.
 
 ## Benefits
 
@@ -20,7 +20,7 @@ DC/OS NiFi Service offers the following benefits of a semi-managed service:
 2. Multiple NiFi clusters 
 3. Elastic scaling of nodes
 4. Replication and graceful shutdown for high availability 
-5. Nifi cluster and node monitoring
+5. NiFi cluster and node monitoring
 
 DC/OS NiFi Service provides the following features:
 
@@ -40,7 +40,7 @@ DC/OS NiFi Service provides the following features:
 - [Deployment Best Practices](deploymentbestpractice/index.md)
 - [Security](security/index.md)
 - [Uninstall](uninstall/index.md)
-- [Quick Start](quick-start/index.md)
+- [Command Reference](command-reference/index.md)
 - [Connecting Clients](connecting-clients/index.md)
 - [Managing](managing/index.md)
 - [Diagnostic Tools](diagnostictools/index.md)
