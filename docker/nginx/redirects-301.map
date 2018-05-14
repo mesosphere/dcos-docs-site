@@ -20,6 +20,7 @@
 /1.11/usage/storage/ /1.11/storage/;
 /1.11/usage/storage/persistent-volume/ /1.11/storage/persistent-volume/;
 /1.11/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/ /1.11/networking/load-balancing-vips/virtual-ip-addresses/;
+/1.11/usage/managing-services/install/ /1.11/deploying-services/install/;
 ~^/1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
 /1.10/administration/access-node/tunnel/ /1.10/developing-services/tunnel/;
 /1.10/administration/component-management/ /1.10/administering-clusters/component-management/;
