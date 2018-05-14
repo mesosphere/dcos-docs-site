@@ -77,7 +77,7 @@ dcos nifi --name=nifi plan pause deploy
 The REST API request below will resume installation at the next pending node.
 
 ```shell
-curl -X PUT <dcos_surl>/service/nifi/v1/plans/deploy/continue
+curl -X PUT <dcos_url>/service/nifi/v1/plans/deploy/continue
 ```
 
 ```shell
@@ -345,7 +345,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nodes/remov
 
 ## Control NiFi node using GET endpoint
 
-All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the GET method are accessable using following DC/OS CLI and HTTP commands.
+All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the GET method are accessible using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
@@ -360,7 +360,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi-api/ge
 
 ## Control NiFi node using POST endpoint
 
-All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the POST method are accessable using following DC/OS CLI and HTTP commands.
+All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the POST method are accessible using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
@@ -389,7 +389,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nif
 
 ## Control NiFi node using PUT endpoint
 
-All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the PUT method are accessable using the following DC/OS CLI and HTTP commands.
+All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the PUT method are accessible using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
@@ -418,7 +418,7 @@ curl -X PUT -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nifi
 
 ## Control NiFi node using DELETE endpoint
 
-All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the DELETE method are accessable using the following DC/OS CLI and HTTP commands.
+All DC/OS NiFi Service [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the DELETE method are accessible using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
