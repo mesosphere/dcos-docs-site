@@ -12,34 +12,51 @@ These are the release notes for DC/OS 1.11.2.
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
+DC/OS 1.11.2 includes the following:
+
+Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/27d91e1fe46f09b2c74f2dc4efe4f58ae59ae0a8/CHANGELOG).
+Marathon 1.6.392 [change log](https://github.com/mesosphere/marathon/releases).
+Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
+
+
 # <a name="issues-fixed"></a>Issues Fixed in DC/OS 1.11.2
 
 - DCOS-14199 - Fixed an issue that prevented DC/OS from recovering when available disk space was low.
+- DCOS-21596-  Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
+- DCOS-22016 - Updated Prometheus documentation.
 - DCOS-22128 - Supported pods with volumes but no volume mounts. [enterprise type="inline" size="small" /]
+- DCOS-34465 - Updated documentation on using multiple methods to SSH to a master node. 
+- DCOS_OSS-2132 - Added a new journal reader function `Follow()` to track the `journald` files rotation.
+- DCOS_OSS-2360 - Ordered numeric characters for Metric names in dcos-metrics Prometheus endpoint.
 - DCOS_OSS-2378/SOAK-88 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
-- SOAK-92 - 
-
 
 
 # <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.2
 
-- DCOS-22326 - Disabled the insecure 3DES bulk encryption algorithm and TLS 1.1 protocol by default for Master Admin Router.
-- DCOS-21557/DCOS_OSS-2367 - Upgraded curl to version 7.59, which fixed several curl security vulnerabilities from previous version.
-- QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
-- QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported. 
-- DCOS-29080, DCOS-29122, DCOS-29168, DCOS-29188, DCOS-29216, DCOS-29265, DCOS-29282, DCOS-29299, DCOS-29384, DCOS-29455, DCOS-29520, DCOS-29532, DCOS-29544, DCOS-29567, DCOS-29601, DCOS-29616, DCOS-29634, and DCOS-29703 - Implemented remote region support for data engineering services.
-
-- DCOS-29216, DCOS-29384, DCOS-29384, DCOS-29455, DCOS-29520, DCOS-29532, DCOS-29567, DCOS-29080 - Implemented remote region support for data engineering services.
-- DCOS-29634 - Implement region validation and config-sniffing in SDK.
+- Updated to [Mesos 1.5.1](https://github.com/mesosphere/mesos/blob/b2eeb11ede805a7830cd6fb796d0b21a647aba04/CHANGELOG).
+- Updated to [Marathon 1.6.392](https://github.com/mesosphere/marathon/releases).
+- Updated to [Metronome 0.4.2](https://github.com/dcos/metronome/releases/tag/v0.4.2).
+- DCOS-16431 - Cached PQ endpoint for bouncer/adminrouter. [enterprise type="inline" size="small" /]
+- DCOS-22021 - Removed IAM database migration from Zookeeper to Cockroach. [enterprise type="inline" size="small" /]
+- DCOS-22041 - Removed policyquery cache race condition in Bouncer. [enterprise type="inline" size="small" /]
+- DCOS-22296 - Added the lvm2 command-line utilities (e.g. lvcreate, vgs, etc.) for csilvm CSI plugin. [enterprise type="inline" size="small" /]
+- DCOS-22308 - Bumped CockroachDB to v1.1.8. [enterprise type="inline" size="small" /]
+- DCOS-22326 - Disabled the insecure 3DES bulk encryption algorithm and TLS 1.1 protocol by default for Master Admin Router. [enterprise type="inline" size="small" /]
+- DCOS-22439 - Promoted metrics documentation to staging. 
 - DCOS-29122 - Upgraded multi-region SDK package to Universe services.
-- DCOS-29168 - 
+- DCOS-29634 - Implement region validation and config-sniffing in SDK.
+- DCOS_OSS-2377 - Agent operator API: Displayed resource provider resources in GET_RESOURCE_PROVIDER response.
+- DCOS_OSS-2688 - Supported secrets in Metronome.
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2060 - Certified DC/OS 1.11.2 with CoreOS 1688.5.3.
-**Note:** Previous 1.11 point releases are not supported for CoreOS 1688.5.3.
 
-**Note:** Implemented region awareness support for SDK based services.
+**Note:** 
+1. Previous 1.11 point releases are not supported for CoreOS 1688.5.3.
+
+2. Implemented region awareness support for SDK based services are implemented in this release.
+
 
 # <a name="known-issue"></a>Known Issue in DC/OS 1.11.2
 
