@@ -4,7 +4,7 @@ navigationTitle:  Metrics
 title: Metrics
 menuWeight: 100
 excerpt: Understanding the metrics component of DC/OS
-beta: true
+beta: false
 enterprise: false
 ---
 

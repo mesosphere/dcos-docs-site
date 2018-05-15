@@ -4,7 +4,7 @@ navigationTitle:  Metrics API
 title: Metrics API
 menuWeight: 1
 excerpt: Using the Metrics API
-beta: true
+beta: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
