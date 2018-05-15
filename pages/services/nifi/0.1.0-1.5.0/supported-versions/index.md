@@ -24,7 +24,7 @@ The use of other versions of Apache NiFi is not supported.
 
 ## Contacting technical support
 
-### Support Email of DCOS Apache NiFi package
+### Support Email for DCOS Apache NiFi package
 
 [Email: support@mesosphere.io]
 
