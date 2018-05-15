@@ -1,14 +1,5 @@
---
-layout: layout.pug
-navigationTitle: Service Account
-title: Service Account Details
-menuWeight: 30
-excerpt: Configuring DC/OS access for NiFi
-featureMaturity:
-enterprise: false
---
 
-
+# Service Account Configuration
 This topic describes how to configure DC/OS access for NiFi. Depending on your security mode, NiFi requires service authentication for access to DC/OS.
 
     Security Mode     Service Account
