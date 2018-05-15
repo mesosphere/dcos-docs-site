@@ -14,12 +14,12 @@ These are the release notes for DC/OS 1.11.2.
 
 DC/OS 1.11.2 includes the following:
 
-Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/27d91e1fe46f09b2c74f2dc4efe4f58ae59ae0a8/CHANGELOG).
-Marathon 1.6.392 [change log](https://github.com/mesosphere/marathon/releases).
-Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
+- Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/27d91e1fe46f09b2c74f2dc4efe4f58ae59ae0a8/CHANGELOG).
+- Marathon 1.6.392 [change log](https://github.com/mesosphere/marathon/releases).
+- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 
 
-# <a name="issues-fixed"></a>Issues Fixed in DC/OS 1.11.2
+# Issues Fixed in DC/OS 1.11.2
 
 - DCOS-14199 - Fixed an issue that prevented DC/OS from recovering when available disk space was low.
 - DCOS-21596-  Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
@@ -31,11 +31,8 @@ Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4
 - DCOS_OSS-2378/SOAK-88 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
 
 
-# <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.2
+# Notable Changes in DC/OS 1.11.2
 
-- Updated to [Mesos 1.5.1](https://github.com/mesosphere/mesos/blob/b2eeb11ede805a7830cd6fb796d0b21a647aba04/CHANGELOG).
-- Updated to [Marathon 1.6.392](https://github.com/mesosphere/marathon/releases).
-- Updated to [Metronome 0.4.2](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 - DCOS-16431 - Cached PQ endpoint for bouncer/adminrouter. [enterprise type="inline" size="small" /]
 - DCOS-22021 - Removed IAM database migration from Zookeeper to Cockroach. [enterprise type="inline" size="small" /]
 - DCOS-22041 - Removed policyquery cache race condition in Bouncer. [enterprise type="inline" size="small" /]
@@ -46,7 +43,7 @@ Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4
 - DCOS-29122 - Upgraded multi-region SDK package to Universe services.
 - DCOS-29634 - Implement region validation and config-sniffing in SDK.
 - DCOS_OSS-2377 - Agent operator API: Displayed resource provider resources in GET_RESOURCE_PROVIDER response.
-- DCOS_OSS-2688 - Supported secrets in Metronome.
+- DCOS_OSS-2688 - Supported secrets in Metronome. [enterprise type="inline" size="small" /]
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
@@ -56,6 +53,8 @@ Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4
 1. Previous 1.11 point releases are not supported for CoreOS 1688.5.3.
 
 2. Implemented region awareness support for SDK based services are implemented in this release.
+
+3. New Docker versions supported on RHEL 7.4 and CoreOS 1688.5.3. For details see [compatibility matrix](https://docs.mesosphere.com/version-policy/).
 
 
 # <a name="known-issue"></a>Known Issue in DC/OS 1.11.2
@@ -74,7 +73,7 @@ DC/OS 1.11 includes many new capabilities, with a focus on:
 
 Provide feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
 
-<a name="new-features"></a>
+
 ## New Features and Capabilities
 
 ### Platform
@@ -117,8 +116,4 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
 
-## <a name="known-issues"></a>Known Issues
-- DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
-- DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](https://docs.mesosphere.com/1.11/installing).
-- DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. [enterprise type="inline" size="small" /]
-- INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.
+
