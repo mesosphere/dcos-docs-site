@@ -124,7 +124,7 @@ Here is the complete list of DCOS NiFi Service commands available:
     ```shell 
     dcos nifi plan resume <plan> [<phase>]
     ```    
-23. Restart the plan with the provided name, or a specific phase in the plan with the provided name, or a specific step in a              phase of the plan with the provided step name.   
+23. Restart the plan with the provided name, or a specific phase in the plan with the provided name, or a specific step in a  phase of the plan with the provided step name.   
     
     ```shell 
     dcos nifi plan force-restart <plan> <phase> <step>
