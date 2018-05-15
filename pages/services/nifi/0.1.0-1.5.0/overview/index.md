@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  overview
-title: overview
+navigationTitle:  Overview
+title: Overview
 menuWeight: 10
 excerpt: Getting started with DC/OS NiFi Service fundamentals
 featureMaturity:
@@ -189,7 +189,7 @@ By default, the service will use the Deployment Plan when rolling out a configur
 
 # Virtual networks
 
-The SDK allows pods to join virtual networks, with the dcos virtual network available by defualt. You can specify that a pod should join the virtual network by using the `networks` keyword in your YAML definition. Refer to the [Developer Guide](https://mesosphere.github.io/dcos-commons/developer-guide/) for more information about how to define virtual networks in your service.
+The SDK allows pods to join virtual networks, with the dcos virtual network available by default. You can specify that a pod should join the virtual network by using the `networks` keyword in your YAML definition. Refer to the [Developer Guide](https://mesosphere.github.io/dcos-commons/developer-guide/) for more information about how to define virtual networks in your service.
 
 When a pod is on a virtual network such as the dcos:
 
