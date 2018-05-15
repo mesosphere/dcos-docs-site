@@ -8,6 +8,8 @@ featureMaturity:
 enterprise: false
 ---
 
+The following topics address some common errors you may encounter while configuring or managing your DC/OS NiFi Service.
+
 # Configuration update errors
 
 After a configuration change, the service may enter an unhealthy state. This commonly occurs when an invalid configuration change was made by the user. Certain configuration values may not be changed, or may not be decreased. To determine whether this is the case, check the service’s Deploy Plan for any errors.
@@ -82,7 +84,7 @@ The pod recovery may then be monitored via the Recovery Plan.
   dcos nifi --name=nifi-dev plan show recovery
   ```
   
-# Accidentially deleted Marathon task but not service
+# Accidentally deleted Marathon task but not service
 
 A common user mistake is to remove the Scheduler task from Marathon, which does not uninstall the service tasks themselves. If you do this, you have two options:
 
