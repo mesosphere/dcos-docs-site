@@ -1,24 +1,25 @@
 ---
 layout: layout.pug
-navigationTitle:  security
+navigationTitle:  Security
 title: Security
 menuWeight: 33
-excerpt: DC/OS Apache NiFi Service encryption, authentication and authorization
+excerpt: DC/OS NiFi Service encryption, authentication and authorization
 featureMaturity:
 enterprise: false
 ---
 
 # Components
 
-# DC/OS Apache NiFi Security
+# DC/OS NiFi Security
 
-The DC/OS Apache NiFi service supports Apache NiFi’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
+The DC/OS NiFi service supports Apache NiFi’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
 
-A good overview of these features can be found  [here](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html). 
+A good overview of these features can be found in the [Apache NiFi Administration Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html). 
 
 ## Transport Encryption and SSL Authentication
-With transport encryption enabled, DC/OS Apache NiFi Service will automatically deploy all nodes with the correct configuration to encrypt communication via SSL. The nodes will communicate securely between themselves using SSL. SSL authentication requires that all NiFi nodes present a valid certificate from which their identity can be derived for communicating between themselves.
-DC/OS Apache NiFi Service uses the CN of the SSL certificate as the principal for a given node. 
+With transport encryption enabled, the DC/OS NiFi Service will automatically deploy all nodes with the correct configuration to encrypt communication via SSL. The nodes will communicate securely between themselves using SSL. SSL authentication requires that all NiFi nodes present a valid certificate. From this certificate, their identity can be derived for communicating between nodes.
+
+DC/OS NiFi Service uses the CN of the SSL certificate as the principal for a given node. 
 
 Example: CN=nifi-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C=US.
 
@@ -32,8 +33,7 @@ The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/
 
 ## Configure Transport Encryption
 
-**Tip:** A complete guide to Configuring DC/OS Access for NiFi can be found [here](serviceaccountdetail.md).
-
+See the [Guide to Configuring DC/OS Access for NiFi](serviceaccountdetail.md).
 
 ## Set up the service account
 
@@ -55,7 +55,7 @@ where `<service name>` is the name of the service to be installed.
 
 ## Install the service
 
-Install the DC/OS Apache NiFi Service, including the following options in addition to your own:
+Install the DC/OS NiFi Service, including the following options in addition to your own:
 
    ```shell
    {
@@ -79,21 +79,21 @@ With Transport Encryption enabled, service clients will need to be configured to
 
 ## Authentication
 
-DC/OS Apache NiFi Service supports two authentication mechanisms, SSL and Kerberos. The two are supported independently and may not be combined. If both SSL and Kerberos authentication are enabled, the service will use Kerberos authentication.
+DC/OS NiFi Service supports two authentication mechanisms, SSL and Kerberos. The two are supported independently and may not be combined. If both SSL and Kerberos authentication are enabled, the service will use Kerberos authentication.
 
 **Note:** Kerberos authentication can be combined with transport encryption.
 
 ## CA based authentication between nodes
 
-DC/OS Apache NiFi Service requires certificated based authentication between nodes. 
+DC/OS NiFi Service requires certificated based authentication between nodes. 
 
-DC/OS Apache NiFi Service uses the CN of the SSL certificate as the principal for a given node. 
+DC/OS NiFi Service uses the CN of the SSL certificate as the principal for a given node. 
 
 Example: CN=nifi-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C=US.
 
 ## Kerberos authentication for end users
 
-Kerberos authentication relies on a central authority to verify that NiFi users' clients are who they say they are. DC/OS Apache NiFi Service integrates with your existing Kerberos infrastructure to verify the identity of clients.
+Kerberos authentication relies on a central authority to verify that NiFi users' clients are who they say they are. DC/OS NiFi Service integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 ### Prerequisites
 - The hostname and port of a KDC reachable from your DC/OS cluster
@@ -105,7 +105,7 @@ Kerberos authentication relies on a central authority to verify that NiFi users'
 ## Configure Kerberos authentication
 ### Create principals
 
-The DC/OS Apache NiFi Service requires a Kerberos principal for the service principal and user principal. Each principal must be of the form
+The DC/OS NiFi Service requires a Kerberos principal for the service principal and user principal. Each principal must be of the form
 
    ```shell
    nifinode@<service realm>
@@ -113,14 +113,14 @@ The DC/OS Apache NiFi Service requires a Kerberos principal for the service prin
    ```
 ### Place service keytab in DC/OS Secret Store
 
-The DC/OS Apache NiFi Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name `__dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets)
+The DC/OS NiFi Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name `__dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets)
 
 Documentation for adding a file to the secret store can be found [here.](https://docs.mesosphere.com/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
 
 **Note:** Secrets access is controlled by [DC/OS Spaces](https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets), which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service. 
 
 ### Install the service
-Install the DC/OS Apache NiFi Service with the following options in addition to your own:
+Install the DC/OS NiFi Service with the following options in addition to your own:
    ```shell
    {
     "service": {
