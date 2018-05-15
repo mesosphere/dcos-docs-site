@@ -287,14 +287,13 @@ or with a command which includes plan parameters:
 
 However, the backup can also be started with the following command:
 
-
-
 Once this plan is executed, the backup will be uploaded to S3. 
+
 The NiFi backup is performed using the NiFi toolkit. The NiFi backup will be performed using three sidecar tasks:
 
 1. `Backup` - Back up to local node (ROOT/MOUNT)
        
-   The Backup task is responsible for making a backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volumne.
+   The Backup task is responsible for making a backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volume.
 
    [<img src="../service/Backup.png" alt="backup" width="800"/>](../service/Backup.png)
    
@@ -327,7 +326,7 @@ The admin toolkit contains command line utilities for administrators to support 
 - Node Manager — The node manager tool allows administrators to perform a status check on a node as well as to connect, disconnect, or remove nodes that are part of a cluster.
 - File Manager — The file manager tool allows administrators to backup, install or restore a NiFi installation from backup.
 
-The admin toolkit is bundled with the `nifi-toolkit` and can be executed with scripts found in the bin folder. Further docmentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit). 
+The admin toolkit is bundled with the `nifi-toolkit` and can be executed with scripts found in the bin folder. Further documentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit). 
 
 To execute the Nifi Administration Toolkit commands, we need to do a `dcos task exec` to a NiFi node, and set the JAVA_HOME using the command:
 
