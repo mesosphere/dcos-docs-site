@@ -4,7 +4,7 @@ navigationTitle:  Components
 title: Components
 menuWeight: 4
 excerpt: Understanding DC/OS components
-
+---
 
 <style type="text/css">
 h1 .badge,
