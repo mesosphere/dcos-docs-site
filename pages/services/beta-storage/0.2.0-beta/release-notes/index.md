@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 80
-excerpt:
+excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service.
+enterprise: true
 ---
 
 # Version 0.2.0

@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle:  Install
 title: Install
 menuWeight: 30
-excerpt:
+excerpt: Instructions for installing the DC/OS Storage Service on a DC/OS cluster.
+enterprise: true
 ---
 
 # Prerequisites
@@ -29,7 +30,7 @@ $ tar zxvf package.tgz
 $ cd package
 ```
 
-Build the Docker image that will serve both the local universe and the artifacts used by DC/OS storage service.
+Build the Docker image that will serve both the local universe and the artifacts used by DC/OS Storage Service.
 Specify the `DOCKER_IMAGE` environment variable accordingly so that the image can be pushed to docker hub or your local docker registry.
 
 **Note:** Do not specify the tag of the Docker image.
