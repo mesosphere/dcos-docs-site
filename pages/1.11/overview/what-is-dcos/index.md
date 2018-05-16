@@ -1,8 +1,9 @@
 ---
 layout: layout.pug
+navigationTitle:  What is DC/OS
 title: What is DC/OS?
 menuWeight: 1
-excerpt: Understanding DC/OS 
+excerpt: Understanding DC/OS
 
 enterprise: false
 ---
