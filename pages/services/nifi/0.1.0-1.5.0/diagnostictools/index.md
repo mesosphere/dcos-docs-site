@@ -92,7 +92,7 @@ You can also access logs via the DC/OS CLI using the `dcos task log` command. Fo
 
 [<img src="../service/9_Dcos_task.png" alt="dcos task" width="1000"/>](../service/9_Dcos_task.png)
 
-_Figure 8. - Output of command `dcos task log`_
+_Figure 9. - Output of command `dcos task log`_
 
 ## Running commands within containers
 
@@ -111,19 +111,19 @@ Once you are set up, running commands is very straightforward. For example, assu
 
 [<img src="../service/10_Multiple_task.png" alt="multiple task" width="1000"/>](../service/10_Multiple_task.png)
 
-_Figure 9. - Multiple tasks error message_
+_Figure 10. - Multiple tasks error message_
 
 Therefore you must be more specific:
 
 [<img src="../service/11_dcos_task_specific.png" alt="task specific" width="1000"/>](../service/11_dcos_task_specific.png)
 
-_Figure 10. - Output of command `dcos_task_specific`_
+_Figure 11. - Output of command `dcos_task_specific`_
 
 You can also run interactive commands using the `-it` flags (short for `--interactive --tty`):
 
 [<img src="../service/12_Interactive_mode.png" alt="interactive mode" width="1000"/>](../service/12_Interactive_mode.png)
 
-_Figure 11. - Interactive commands_
+_Figure 12. - Interactive commands_
 
 While you could technically change the container file system using `dcos task exec`, any changes will be destroyed if the container restarts.
 
@@ -139,7 +139,7 @@ For full documentation of each command, see the API Reference. Here is an exampl
 
 [<img src="../service/13_Curl_helloworld.png" alt="curl hello world" width="1000"/>](../service/13_Curl_helloworld.png)
 
-_Figure 12. - Output of `hello-world`_
+_Figure 13. - Output of `hello-world`_
 
 ## ZooKeeper/Exhibitor
 
@@ -149,4 +149,4 @@ DC/OS comes with Exhibitor, a commonly used front-end for viewing ZooKeeper. Exh
 	
 [<img src="../service/14_zookeeper_exhibitor.png" alt="zookeeper exhibitor" width="700"/>](../service/14_zookeeper_exhibitor.png)
 
-_Figure 13. - Exhibitor for ZooKeeper directory_
+_Figure 14. - Exhibitor for ZooKeeper directory_
