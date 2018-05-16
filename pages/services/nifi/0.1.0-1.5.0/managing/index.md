@@ -302,7 +302,7 @@ The NiFi backup is performed using the NiFi toolkit. The NiFi backup will be per
        
 2. `Upload_to_S3` - Upload the backup from the local node to S3
     
-   This sidecar task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
+   This task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
        
    [<img src="../service/S3Upload.png" alt="S3Upload.png" width="800"/>](../service/S3Upload.png)     
    
@@ -333,7 +333,7 @@ To execute the Nifi Administration Toolkit commands, we need to do a `dcos task 
 ```shell
 export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH
 ````
-Then run the node manager commands from $MESOS_SANDBOX/nifi-toolkit-1.5.0/bin directory:
+Then run the node manager commands from `$MESOS_SANDBOX/nifi-toolkit-1.5.0/bin` directory:
 
 To connect, disconnect, or remove a node from a cluster:
 
@@ -372,7 +372,7 @@ The following options are available :
 **To check for dcos tasks**
 
 ```shell
->> dcos task
+dcos task
 
 NAME            HOST         USER   STATE  ID                                                    MESOS ID                                 
 nifi            10.0.0.196   root     R    nifi.9b11498f-415f-11e8-81a4-e25c6192ea05             1d166af3-8666-4f3e-8add-dcaad139c900-S3  
