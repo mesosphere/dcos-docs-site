@@ -22,18 +22,17 @@ DC/OS 1.11.2 includes the following:
 # Issues Fixed in DC/OS 1.11.2
 
 - DCOS-14199 - Fixed an issue that prevented DC/OS from recovering when available disk space was low.
-- DCOS-21596-  Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
+- DCOS-21596 -  Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
 - DCOS-22016 - Updated Prometheus documentation.
 - DCOS-22128 - Supported pods with volumes but no volume mounts. [enterprise type="inline" size="small" /]
 - DCOS-34465 - Updated documentation on using multiple methods to SSH to a master node. 
 - DCOS_OSS-2132 - Added a new journal reader function `Follow()` to track the `journald` files rotation.
 - DCOS_OSS-2360 - Ordered numeric characters for Metric names in dcos-metrics Prometheus endpoint.
-- DCOS_OSS-2378/SOAK-88 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
+- DCOS_OSS-2378 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
 
 
 # Notable Changes in DC/OS 1.11.2
 
-- DCOS-16431 - Cached PQ endpoint for bouncer/adminrouter. [enterprise type="inline" size="small" /]
 - DCOS-22021 - Removed IAM database migration from Zookeeper to Cockroach. [enterprise type="inline" size="small" /]
 - DCOS-22041 - Removed policyquery cache race condition in Bouncer. [enterprise type="inline" size="small" /]
 - DCOS-22296 - Added the lvm2 command-line utilities (e.g. lvcreate, vgs, etc.) for csilvm CSI plugin. [enterprise type="inline" size="small" /]
@@ -54,10 +53,10 @@ DC/OS 1.11.2 includes the following:
 
 2. Implemented region awareness support for SDK based services are implemented in this release.
 
-3. New Docker versions supported on RHEL 7.4 and CoreOS 1688.5.3. For details see [compatibility matrix](https://docs.mesosphere.com/version-policy/).
+3. New Docker versions supported on RHEL 7.4 and CoreOS 1688.5.3. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
 
 
-# <a name="known-issue"></a>Known Issue in DC/OS 1.11.2
+# Known Issue in DC/OS 1.11.2
 
 - DCOS-20568 - Fixed dcos-diagnostics master service account permission issue.
 
