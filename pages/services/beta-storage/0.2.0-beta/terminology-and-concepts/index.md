@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle: Terminology and Concepts
 title: Terminology and Concepts
 menuWeight: 10
-excerpt:
+excerpt: Common definitions and terms used throughout DC/OS Storage Service documentation.
+enterprise: true
 ---
 
 We use the following terminology throughout the documentation.
@@ -28,7 +29,7 @@ See more details about CSI terminology [here](https://github.com/container-stora
 A Mesos component that drives a single CSI plugin to manage storage resources that are local to an agent.
 It presents these storage resources (both raw capacity and in the form of volumes) to Mesos and translates operations on those resources to CSI RPCs which it executes against the CSI plugin.
 Examples of CSI plugins are those for LVM2, Raw GPT, other direct-attached storage.
-Learn more details about SLRP in [Mesos documentation](http://mesos.apache.org/documentation/latest/csi/#storage-local-resource-provider/).
+Learn more details about SLRP in [Mesos documentation](http://mesos.apache.org/documentation/latest/csi/#storage-local-resource-provider).
 
 # Storage External Resource Provider (SERP)
 
