@@ -25,6 +25,6 @@ It can be encouraging to keep in mind that failures are highly likely when worki
 
 We will first look at [some potential problems](/1.11/tutorials/dcos-debug/problems/) you might face when deploying an application on DC/OS. Next, we will look at the [standard set of tools](/1.11/tutorials/dcos-debug/tools/) for debugging. Then, after introducing [a general strategy for using those tools](/1.11/tutorials/dcos-debug/gen-strat/), we have two [concrete examples](/1.11/tutorials/dcos-debug/scenarios/) to illustrate how the strategy works in practice.
 
-We encourage everyone to first try debugging these challenges yourself, but we also provide detailed guidance for debugging them.
+We encourage everyone to first try debugging these challenges yourself, but we also provide detailed guidance for debugging them as well.
 
 There are even more scenarios like these in the [dcos-debugging github repository](https://github.com/dcos-labs/dcos-debugging/tree/master/1.10/). Also please feel free to contribute your own debugging scenarios to this repository.
