@@ -3,16 +3,19 @@ layout: layout.pug
 navigationTitle:  Feature Maturity
 title: Feature Maturity
 menuWeight: 10
-excerpt:
+
+excerpt: Understanding Mesosphere's feature maturity lifecycle
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
+=======
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 # <a name="lifecycle"></a>Mesosphere DC/OS Feature Maturity Lifecycle
 
-This document gives guidance to Mesosphere customers, partners, users, and operators about Mesosphere's feature maturity lifecycle.  The guidelines below apply to the version of DC/OS and its catalog packages that this document resides in.
+This document explains Mesosphere's feature maturity lifecycle to Mesosphere customers, partners, users, and operators.  The following guidelines apply to the version of DC/OS and its catalog packages that this document resides in.
 
 A Mesosphere DC/OS feature will progress through a multi-stage lifecycle.  This lifecycle can be used to determine if and when a given feature is used for various stages of deployment.  These stages of deployment can include, but are not limited to, development, testing, evaluation or production.  In order to determine if a feature should be used, a customer of Mesosphere DC/OS should carefully examine the ramifications of using the feature based on its Maturity State as described below.
 

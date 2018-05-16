@@ -2,12 +2,11 @@
 layout: layout.pug
 title: Sending DC/OS Metrics to Prometheus
 menuWeight: 4.5
-excerpt:
+excerpt: Monitoring your workload with Prometheus and Grafana self-hosted instances
 enterprise: false
 ---
 
-DC/OS 1.11 exports Prometheus metrics by default. There is no need to install a metrics plugin, as in DC/OS 1.9 and 1.10. This guide details how to run a
-self-hosted Prometheus instance to monitor your workload, and a self-hosted Grafana instance for powerful dashboards and visualizations.
+DC/OS 1.11 exports Prometheus metrics by default. There is no need to install a metrics plugin, as in DC/OS 1.9 and 1.10. This guide details how to run a self-hosted Prometheus instance to monitor your workload, and a self-hosted Grafana instance for powerful dashboards and visualizations.
 
 **Prerequisite:**
 
@@ -15,7 +14,7 @@ self-hosted Prometheus instance to monitor your workload, and a self-hosted Graf
 
 # Run a Prometheus server on DC/OS
 
-There are many ways to run a Prometheus server. This is the simplest way to get started with self-hosted metrics on DC/OS. 
+There are many ways to run a Prometheus server. This is the simplest way to get started with self-hosted metrics on DC/OS.
 
 1. Download three marathon configurations from the dcos-metrics repository:
     1. [metrics.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/metrics.json)
@@ -38,4 +37,4 @@ looks like this:
 # Working with metrics in Grafana
 
 You can find the Grafana UI similarly to the Prometheus UI, by hovering your cursor over the grafana application in the 'monitoring' folder and clicking on the
-link that appears. Adding a Prometheus datasource on http://localhost:9090 called DC/OS Metrics will allow you to build dashboards with data from DC/OS. 
+link that appears. Adding a Prometheus datasource on http://localhost:9090 called DC/OS Metrics will allow you to build dashboards with data from DC/OS.

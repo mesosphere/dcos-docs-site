@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Capacity Extensions with Regions
 title: Capacity Extensions with Regions
 menuWeight: 10
-excerpt:
+excerpt: How to use local and remote regions
 enterprise: false
 ---
 

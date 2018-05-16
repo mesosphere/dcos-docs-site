@@ -243,7 +243,7 @@ For Mesos frameworks and DC/OS services that run tasks which are not managed by 
           "taskNamePattern": "^broker-*$"
         },
         "endpoint": {
-          "port": "1025"
+          "port": 1025
         }
       }]
     }]

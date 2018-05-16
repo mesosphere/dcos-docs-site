@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Log Aggregation
 title: Log Aggregation
 menuWeight: 3
-excerpt:
+excerpt: Understanding how to aggregate system logs with ELK and Splunk
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-
-You can aggregate your system logs by using ELK and Splunk. 
+You can aggregate your system logs by using ELK and Splunk.

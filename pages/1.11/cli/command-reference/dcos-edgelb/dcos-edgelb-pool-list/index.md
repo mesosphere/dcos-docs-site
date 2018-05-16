@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool list
 title: dcos edgelb pool list
 menuWeight: 4
-excerpt:
+excerpt: How to list pool names
 
 enterprise: true
 ---
 
 
 # Description
-List pool names.
+The dcos edgelb pool list command lists pool names.
 
 # Usage
 

@@ -2,12 +2,12 @@
 layout: layout.pug
 title: DC/OS Enterprise CLI
 menuWeight: 5
-excerpt:
+excerpt: How to configure the DC/OS Enterprise command line interface
 
 enterprise: true
 ---
 
-The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features: 
+The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features:
 
 - [`dcos backup`](/1.11/cli/command-reference/dcos-backup)
 - [`dcos license`](/1.11/cli/command-reference/dcos-license)

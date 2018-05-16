@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle:  Quick Start
-title: Quick Start
+title: Logging Quick Start
 menuWeight: 0
-excerpt:
+excerpt: Getting started with DC/OS logging
 beta: true
 enterprise: false
 ---

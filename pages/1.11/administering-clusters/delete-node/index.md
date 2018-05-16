@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Shut Down and Decommission Nodes
 title: Shut Down and Decommission Nodes
 menuWeight: 810
-excerpt:
+excerpt: Learn to shut down and decomission agent nodes.
 
 enterprise: false
 ---
@@ -19,12 +19,12 @@ If your node has gone down in an unplanned way, skip to [Decommission the node](
 1. Ente the following commands to stop the node.
 
   -  **Private agent**
-    
+
   ```bash
   sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
   ```
   -  **Public agent**
-    
+
   ```bash
   ⁠⁠⁠⁠sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave-public && systemctl stop dcos-mesos-slave-public'
   ```

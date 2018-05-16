@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Fault Domain Awareness with Zones
 title: Fault Domain Awareness with Zones
 menuWeight: 5
-excerpt:
+excerpt: Understanding fault domains
 enterprise: false
 ---
 
@@ -33,4 +33,4 @@ For on-premise deployments, a region might be a data center.
 
 For public cloud deployments, most cloud providers expose a "region" concept.
 
-You can deploy your instances in a specific region region based on the available capacity. 
+You can deploy your instances in a specific region region based on the available capacity.

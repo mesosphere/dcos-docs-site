@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Logging API
 title: Logging API
 menuWeight: 3
-excerpt:
+excerpt: Using the Logging API
 beta: true
 enterprise: false
 ---

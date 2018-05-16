@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Upgrade
 menuWeight: 120
-excerpt:
+excerpt: Understanding Apache ZooKeeper upgrades and rollbacks
 featureMaturity:
 enterprise: false
 ---

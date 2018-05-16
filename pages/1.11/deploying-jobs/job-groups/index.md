@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  Granting Access to Jobs
 title: Granting Access to Jobs
 menuWeight: 200
-excerpt:
+excerpt: How to grant access to jobs using the CLI or the web interface
 
 enterprise: true
 ---
 
-You can implement fine-grained user access to jobs by using either the DC/OS GUI, the CLI or [the API](/1.11/security/ent/iam-api/). The [Metronome permissions](/1.11/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
+You can implement fine-grained user access to jobs by using either the DC/OS web interface, the CLI or [the API](/1.11/security/ent/iam-api/). The [Metronome permissions](/1.11/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 - A [user account](/1.11/security/ent/users-groups/) to assign permissions to.
@@ -38,52 +38,52 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
     ### Disabled
 
     -  **DC/OS jobs access:**
-    
-       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`. 
-    
+
+       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
+
        ```bash
        dcos:adminrouter:service:metronome full
        dcos:service:metronome:metronome:jobs:<job-group>/<job-name> <action>
        ```
 
     -  **DC/OS service tasks and logs:**
-    
+
        ```bash
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
        ```
-    
+
     ### Permissive
-    
+
     -  **DC/OS jobs access:**
-    
-       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`. 
-    
+
+       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
+
        ```bash
        dcos:adminrouter:service:metronome full
        dcos:service:metronome:metronome:jobs:<job-group>/<job-name> <action>
        ```
 
     -  **DC/OS service tasks and logs:**
-    
+
        ```bash
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
        ```
-       
+
     ### Strict
-    
+
     -  **DC/OS jobs access:**
-    
-       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`. 
-    
+
+       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
+
        ```bash
        dcos:adminrouter:service:metronome full
        dcos:service:metronome:metronome:jobs:<job-group>/<job-name> <action>
        ```
 
     -  **DC/OS service tasks and logs:**
-    
+
        ```bash
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
@@ -101,13 +101,13 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
 
 # <a name="job-group-access-via-cli"></a>Via the CLI
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 
-**Tips:** 
+**Tips:**
 
-- To grant permissions to a group instead of a user, replace `users grant <user-name>` with `groups grant <gid>`. 
+- To grant permissions to a group instead of a user, replace `users grant <user-name>` with `groups grant <gid>`.
 
 ### Disabled
 This mode does not offer fine-grained control.
@@ -117,12 +117,12 @@ This mode does not offer fine-grained control.
 -  **DC/OS jobs access:**
 
     1.  Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
-            
+
         ```bash
         dcos security org users grant <user-name> adminrouter:service:metronome full --description "Controls access to Metronome services"
         dcos security org users grant <user-name> service:metronome:metronome:jobs:<job-group>/<job-name> full --description "Controls access to <job-group>/<job-name>"
         ```
-        
+
 -  **DC/OS service tasks and logs:**
 
     1.  Grant the permission to a user (`<user-name>`).
@@ -137,16 +137,16 @@ This mode does not offer fine-grained control.
 -  **DC/OS jobs access:**
 
     1.  Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
-    
+
         ```bash
         dcos security org users grant <user-name> adminrouter:service:metronome full --description "Controls access to Metronome services"
         dcos security org users grant <user-name> service:metronome:metronome:jobs:<job-group>/<job-name> full --description "Controls access to <job-group>/<job-name>"
         ```
-        
+
 -  **DC/OS service tasks and logs:**
 
    1.  Grant the permission to the user (`<user-name>`) and group (`<job-group>`).
-   
+
         ```bash
         dcos security org users grant <user-name> adminrouter:ops:mesos full --description "Grants access to the Mesos master API/UI and task details"
         dcos security org users grant <user-name> adminrouter:ops:slave full --description "Grants access to the Mesos agent API/UI and task details such as logs"
@@ -157,4 +157,4 @@ This mode does not offer fine-grained control.
         dcos security org users grant <user-name> mesos:agent:executor:app_id:/<job-group>/<job-name> read --description "Controls access to executors running inside <job-group>/<job-name>"
         dcos security org users grant <user-name> mesos:agent:task:app_id:/<job-group>/<job-name> read --description "Controls access to tasks running inside <job-group>/<job-name>"
         dcos security org users grant <user-name> mesos:agent:sandbox:app_id:/<gid>/ read --description "Controls access to the sandboxes of <job-group>/<job-name>"
-        ``` 
+        ```

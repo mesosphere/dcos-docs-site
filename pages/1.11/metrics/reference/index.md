@@ -3,11 +3,12 @@ layout: layout.pug
 navigationTitle:  Metrics Reference
 title: Metrics Reference
 menuWeight: 2
-excerpt:
+excerpt: Understanding metrics collected by DC/OS
+beta: false
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 These metrics are automatically collected by DC/OS.
@@ -85,7 +86,7 @@ The following per-container resource utilization metrics are collected.
 |-------------------|------------------------------|
 | disk.limit    | Hard capacity limit for disk in bytes. |
 | disk.used    | Hard capacity used in bytes.  |
-   
+
 ### Memory metrics
    <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
 
@@ -93,7 +94,7 @@ The following per-container resource utilization metrics are collected.
 |-------------------|------------------------------|
 | mem.limit    | Hard memory limit for a container. |
 | mem.total    | Total memory of a process in RAM (as opposed to in swap). |   
-   
+
 ### Network metrics
    <!-- http://mesos.apache.org/documentation/latest/port-mapping-isolator -->
 
@@ -116,7 +117,7 @@ Dimensions are metadata about the metrics. The following table lists the availab
 | Dimension | Description | Entity |
 |-----------|-------------|--------|
 | mesos_id   | The Mesos ID of the node.  | node, container |
-| cluster_id   |  The ID of the Mesos cluster. | node, container | 
+| cluster_id   |  The ID of the Mesos cluster. | node, container |
 | container_id  | The ID of the container.  | metric, container |
 | executor_id  |  The ID of the task executor. | metric, container |
 | executor_name   |  The name of the task executor. | metric |

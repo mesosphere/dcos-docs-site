@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  API Reference
 title: API Reference
 menuWeight: 150
-excerpt:
+excerpt: This section contains the DC/OS API reference manual.
 
 enterprise: true
 ---
@@ -37,7 +37,7 @@ Admin Router runs on each DC/OS node in one of two configurations:
 Other routes, like component management, are for internal use only.
 
 
-# Route Types
+# Route types
 
 Admin Router exposes several types of routes:
 
@@ -48,7 +48,7 @@ Admin Router exposes several types of routes:
 - **Rewrite Routes** translate routes into other routes.
 
 
-# Cluster Access
+# Cluster access
 
 To determine the URL of your cluster, see [Cluster Access](/1.11/api/access/).
 
@@ -79,7 +79,7 @@ Permission enforcement can be performed at two levels.
 [Permissions Management](/1.11/security/ent/perms-management/) can be performed by users with the [Superuser permission](/1.11/security/ent/perms-reference/#superuser) using the [Identity and Access Management API](/1.11/security/ent/iam-api/). Users with the Superuser permission also have implicit permission to access all routes.
 
 
-# Route Usage
+# Route usage
 
 - To determine the full URL of a API resource through a **proxy route**, join the cluster URL, route, and backend component resource path.
 

@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Deploying Jobs
 title: Deploying Jobs
 menuWeight: 120
-excerpt:
+excerpt: How to create a job without installing a separate service
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can create scheduled jobs in DC/OS without installing a separate service. Create and administer jobs in the DC/OS web interface, the DC/OS CLI, or via an API.

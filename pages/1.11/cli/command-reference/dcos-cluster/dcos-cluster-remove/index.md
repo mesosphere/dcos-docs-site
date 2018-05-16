@@ -3,13 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos cluster remove
 title: dcos cluster remove
 menuWeight: 4
-excerpt:
+excerpt: How to remove a connected cluster from the DC/OS CLI.
+
 
 enterprise: false
 ---
 
 # Description
-Remove a connected cluster from the DC/OS CLI.
+The dcos-cluster remove command will remove a connected cluster from the DC/OS CLI.
 
 # Usage
 

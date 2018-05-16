@@ -17,7 +17,10 @@
 /1.11/monitoring/logging/logging-api/logging-v1/ /1.11/monitoring/logging/logging-api/;
 /1.11/monitoring/logging/logging-api/logging-v2/ /1.11/monitoring/logging/logging-api/;
 /1.11/release-notes/version-policy/ /version-policy/;
-/1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
+/1.11/usage/storage/ /1.11/storage/;
+/1.11/usage/storage/persistent-volume/ /1.11/storage/persistent-volume/;
+/1.11/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/ /1.11/networking/load-balancing-vips/virtual-ip-addresses/;
+~^/1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
 /1.10/administration/access-node/tunnel/ /1.10/developing-services/tunnel/;
 /1.10/administration/component-management/ /1.10/administering-clusters/component-management/;
 /1.10/administration/debugging/ /1.10/usage/debugging/cli-debugging/task-exec/;
@@ -119,7 +122,7 @@
 /1.10/installing/custom/ /1.10/installing/oss/custom/;
 /1.10/installing/custom/configuration/configuration-parameters/ /1.10/installing/ent/custom/configuration/configuration-parameters/;
 /1.10/installing/custom/configuration-parameters/ /1.10/installing/oss/custom/configuration/configuration-parameters/;
-/1.10/installing/local/ /1.10/installing/oss/local/;
+/1.10/installing/local/ /1.10/installing/ent/local/;
 /1.10/monitoring/debugging/cli-debugging/task-exec/ /1.10/monitoring/debugging/task-exec/;
 /1.10/networking/mesos-dns/http-interface/ /1.10/networking/mesos-dns/mesos-dns-api/;
 ~^/1.10/networking/edge-lb/(.*)$ /services/edge-lb/$1;
@@ -463,6 +466,7 @@
 /1.9/developing-services/service-requirements-spec/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.9/development/ /1.9/developing-services/;
 /1.9/installing/custom/configuration-parameters/ /1.9/installing/custom/configuration/configuration-parameters/;
+/1.9/installing/local/ /1.9/installing/ent/local/;
 /1.9/monitoring/debugging/cli-debugging/task-exec/ /1.9/monitoring/debugging/task-exec/;
 /1.9/networking/mesos-dns/http-interface/ /1.9/networking/mesos-dns/mesos-dns-api/;
 /1.9/overview/components/ /1.9/overview/architecture/components/;

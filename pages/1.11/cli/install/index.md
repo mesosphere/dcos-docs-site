@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Installing the CLI
 title: Installing the CLI
 menuWeight: 1
-excerpt:
+excerpt: How to install the command line interface
 
 enterprise: false
 ---
