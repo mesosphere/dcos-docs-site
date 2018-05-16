@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Health Checks
 title: Health Checks
 menuWeight: 200
-excerpt:
+excerpt: Defining health checks for your DC/OS services
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can define health checks for your DC/OS services. Health checks are defined on a per application basis, and are run against that application's tasks.
