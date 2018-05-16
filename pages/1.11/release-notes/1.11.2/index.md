@@ -40,7 +40,7 @@ DC/OS 1.11.2 includes the following:
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
-- QUALITY-2060 - Certified DC/OS 1.11.2 with CoreOS 1688.5.3.
+
 
 **Note:** 
 1. Previous 1.11 point releases are not supported for CoreOS 1688.5.3.
