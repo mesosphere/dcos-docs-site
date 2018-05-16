@@ -1,27 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle:  Quick Start
-title: Quick Start
+navigationTitle:  Command Reference
+title: Command Reference
 menuWeight: 40
-excerpt:
+excerpt: Understanding the DC/OS NiFi Service commands
 featureMaturity:
 enterprise: false
 ---
 
-# Prerequisite
 
-- DC/OS should be installed on your cluster. Know about installing DCOS [here](../install/index.md).
-
-# Steps
-
-If you are using open source DC/OS, install nifi on the cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
-
-```shell
-dcos package install nifi
-```
-Alternatively, you can install nifi from [the DC/OS web interface].
-
-Once the install command is triggered, the service will deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface. Mentioned below is the complete list of DCOS Nifi Commands Available:
+Here is the complete list of DCOS NiFi Commands Available:
 
 1. List IDs of all available configurations
 
@@ -245,9 +233,3 @@ Once the install command is triggered, the service will deploy with a default co
     dcos nifi update status [<flags>]
     --json  Show raw JSON response instead of user-friendly tree
     ```               
-
-# See Also
-
-- [Connecting clients][1].
-
- [1]: https://docs.mesosphere.com/service-docs/<Template>/connecting-clients/
