@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 50
-excerpt:
+excerpt: Connecting clients through service discovery
 featureMaturity:
 enterprise: false
 ---
@@ -52,7 +52,7 @@ This JSON array contains a list of valid nodes that the client can use to connec
 
 When TLS is enabled, an endpoint named node-tls should also be listed. To verify a TLS connection from a client the DC/OS trust bundle with a CA certificate is required.
 
-## Accessing Nifi UI with Edge-LB Configuration
+## Accessing NiFi UI with Edge-LB Configuration
 
 ### Assumptions
     - NiFi is installed on DCOS without TLS and Kerberos
