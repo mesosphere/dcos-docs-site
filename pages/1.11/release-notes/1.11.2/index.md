@@ -14,35 +14,29 @@ These are the release notes for DC/OS 1.11.2.
 
 DC/OS 1.11.2 includes the following:
 
-- Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/27d91e1fe46f09b2c74f2dc4efe4f58ae59ae0a8/CHANGELOG).
+- Apache Mesos 1.5.1-dev [change log](https://github.com/mesosphere/mesos/blob/27d91e1fe46f09b2c74f2dc4efe4f58ae59ae0a8/CHANGELOG).
 - Marathon 1.6.392 [change log](https://github.com/mesosphere/marathon/releases).
 - Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 
 
 # Issues Fixed in DC/OS 1.11.2
 
-- DCOS-14199 - Fixed an issue that prevented DC/OS from recovering when available disk space was low.
-- DCOS-21596 -  Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
-- DCOS-22016 - Updated Prometheus documentation.
+- DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
+- DCOS-20514 - Added licensing information to the diagnostics bundle.
+- DCOS-21596 - Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
 - DCOS-22128 - Supported pods with volumes but no volume mounts. [enterprise type="inline" size="small" /]
-- DCOS-34465 - Updated documentation on using multiple methods to SSH to a master node. 
-- DCOS_OSS-2132 - Added a new journal reader function `Follow()` to track the `journald` files rotation.
-- DCOS_OSS-2360 - Ordered numeric characters for Metric names in dcos-metrics Prometheus endpoint.
+- DCOS_OSS-2360 - DC/OS Metrics: metric names are sanitized for better compatibility with Prometheus.
 - DCOS_OSS-2378 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
+- DC/OS UI: Incorporated [multiple](https://github.com/dcos/dcos/pull/2799) fixes and improvements.
 
 
 # Notable Changes in DC/OS 1.11.2
 
-- DCOS-22021 - Removed IAM database migration from Zookeeper to Cockroach. [enterprise type="inline" size="small" /]
-- DCOS-22041 - Removed policyquery cache race condition in Bouncer. [enterprise type="inline" size="small" /]
-- DCOS-22296 - Added the lvm2 command-line utilities (e.g. lvcreate, vgs, etc.) for csilvm CSI plugin. [enterprise type="inline" size="small" /]
-- DCOS-22308 - Bumped CockroachDB to v1.1.8. [enterprise type="inline" size="small" /]
-- DCOS-22326 - Disabled the insecure 3DES bulk encryption algorithm and TLS 1.1 protocol by default for Master Admin Router. [enterprise type="inline" size="small" /]
-- DCOS-22439 - Promoted metrics documentation to staging. 
-- DCOS-29122 - Upgraded multi-region SDK package to Universe services.
+- DCOS-21958 - Admin Router on the DC/OS master nodes now does not support TLS 1.1 and the 3DES bulk encryption algorithm anymore by default.
+- DCOS-22326 - Disabled the insecure 3DES bulk encryption algorithm and TLS 1.1 protocol by default for Master Admin Router. [enterprise type="inline" size="small" /] 
+- DCOS-29122 - Support for launching services in a remote region.
 - DCOS-29634 - Implement region validation and config-sniffing in SDK.
 - DCOS_OSS-2377 - Agent operator API: Displayed resource provider resources in GET_RESOURCE_PROVIDER response.
-- DCOS_OSS-2688 - Supported secrets in Metronome. [enterprise type="inline" size="small" /]
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
@@ -51,15 +45,9 @@ DC/OS 1.11.2 includes the following:
 **Note:** 
 1. Previous 1.11 point releases are not supported for CoreOS 1688.5.3.
 
-2. Implemented region awareness support for SDK based services are implemented in this release.
+2. Implemented region awareness support for SDK based services are implemented in this release. [enterprise type="inline" size="small" /]
 
 3. New Docker versions supported on RHEL 7.4 and CoreOS 1688.5.3. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
-
-
-# Known Issue in DC/OS 1.11.2
-
-- DCOS-20568 - Fixed dcos-diagnostics master service account permission issue.
-
 
 
 # About DC/OS 1.11
