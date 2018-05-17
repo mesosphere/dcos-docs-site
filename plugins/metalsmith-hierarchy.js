@@ -6,6 +6,8 @@ const md = require('markdown-it')({
 });
 const { StringDecoder } = require('string_decoder');
 const decoder = new StringDecoder('utf8');
+const semver = require('semver');
+const semverRegex = require('semver-regex');
 
 function walk(opts, file, files, array, children, level) {
   // Get path
@@ -65,6 +67,11 @@ function walk(opts, file, files, array, children, level) {
   // Sort
   children.sort((a, b) => {
     let x = (a.menuWeight > b.menuWeight) ? 1 : (a.menuWeight < b.menuWeight) ? -1 : 0;
+    if(x == 0 && a.id && b.id && semverRegex().test(a.id) && semverRegex().test(b.id)) {
+      let x1 = semverRegex().exec(a.id)[0] || a.id;
+      let x2 = semverRegex().exec(b.id)[0] || b.id;
+      x = semver.rcompare(x1, x2);
+    }
     if(x == 0 && a.navigationTitle && b.navigationTitle) {
       let x1 = a.navigationTitle.toString().toUpperCase();
       let x2 = b.navigationTitle.toString().toUpperCase();
