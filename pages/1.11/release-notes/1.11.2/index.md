@@ -23,25 +23,28 @@ DC/OS 1.11.2 includes the following:
 
 - COPS-3195 - Mesos: Fixed an issue as of which the authentication token refresh would not be performed. [enterprise type="inline" size="small" /]
 - DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
-- DCOS-20514 - Added licensing information to the diagnostics bundle.
+- DCOS-20514 - Added licensing information to the diagnostics bundle. [enterprise type="inline" size="small" /]
+- DCOS-20568 - Fixed diagnostics bundle creation bug as of insufficient service account permissions. [enterprise type="inline" size="small" /]
 - DCOS-21596 - Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
-- DCOS-21611 - The IP detect script and fault domain detect script may now be changed with a config upgrade. 
+- DCOS-21611 - The IP detect script and fault domain detect script can be changed with a config upgrade. 
 - DCOS-22128 - Fixed an issue in the Service view of DC/OS UI, when cluster has pods with not every container mounting a volume [enterprise type="inline" size="small" /]
+- DCOS-22041 - Admin Router: Fixed a race condition in the permission data cache. [enterprise type="inline" size="small" /]
 - DCOS-22133 - DC/OS IAM: Fixed a rare case where the database bootstrap transaction would not insert some data. [enterprise type="inline" size="small" /]
 - DCOS_OSS-2317 - Consolidated pkgpanda's package download method.
 - DCOS_OSS-2335 - Increased the Mesos executor re-registration timeout to consolidate an agent failover scenario.
 - DCOS_OSS-2360 - DC/OS Metrics: metric names are sanitized for better compatibility with Prometheus.
-- DCOS_OSS-2378 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
-- DC/OS UI: Incorporated [multiple](https://github.com/dcos/dcos/pull/2799) fixes and improvements.
+- DCOS_OSS-2378 - DC/OS Net: Improved stability of distribution protocol over TLS. 
+- DC/OS UI: Incorporated [multiple](https://github.com/dcos/dcos/pull/2799) fixes and improvements. 
 
 
 # Notable Changes in DC/OS 1.11.2
 
+- DCOS-21465 - Updated python3-saml for [CVE-2017-11427](https://www.kb.cert.org/vuls/id/475445). [enterprise type="inline" size="small" /] 
 - DCOS-21958 - Admin Router on the DC/OS master nodes now does not support TLS 1.1 and the 3DES bulk encryption algorithm anymore by default.
 - DCOS-22326 - Disabled the insecure 3DES bulk encryption algorithm and TLS 1.1 protocol by default for Master Admin Router. [enterprise type="inline" size="small" /] 
 - DCOS-29122 - Support for launching services in a remote region.
 - DCOS-29634 - Implement region validation and config-sniffing in SDK.
-- MARATHON-8090 - Reverted the Marathon configuration change for GPU resources which was introduced with the 1.11.1 release.
+- MARATHON-8090 - Reverted the Marathon configuration change for GPU resources which was introduced in 1.11.1 release.
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
