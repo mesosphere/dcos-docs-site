@@ -39,22 +39,18 @@ DC/OS 1.11.2 includes the following:
 
 # Notable Changes in DC/OS 1.11.2
 
-- DCOS-21465 - Updated python3-saml for [CVE-2017-11427](https://www.kb.cert.org/vuls/id/475445). [enterprise type="inline" size="small" /] 
-- DCOS-21958 - Admin Router on the DC/OS master nodes now does not support TLS 1.1 and the 3DES bulk encryption algorithm anymore by default.
 - DCOS-22326 - Disabled the insecure 3DES bulk encryption algorithm and TLS 1.1 protocol by default for Master Admin Router. [enterprise type="inline" size="small" /] 
-- DCOS-29122 - Support for launching services in a remote region.
-- DCOS-29634 - Implement region validation and config-sniffing in SDK.
 - MARATHON-8090 - Reverted the Marathon configuration change for GPU resources which was introduced in 1.11.1 release.
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
 
+# Security Enhancements
 
-**Note:** 
+- DCOS-21465 - Updated python3-saml for [CVE-2017-11427](https://www.kb.cert.org/vuls/id/475445). [enterprise type="inline" size="small" /] 
+- DCOS-21958 - Admin Router on the DC/OS master nodes now does not support TLS 1.1 and the 3DES bulk encryption algorithm anymore by default.
 
-1. Implemented region awareness support for SDK based services are implemented in this release. [enterprise type="inline" size="small" /]
-
-2. New Docker versions supported on RHEL 7.4. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
+**Note:** New Docker versions supported on RHEL 7.4. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
 
 
 # About DC/OS 1.11
