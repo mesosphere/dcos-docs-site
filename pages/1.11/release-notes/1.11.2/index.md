@@ -21,10 +21,15 @@ DC/OS 1.11.2 includes the following:
 
 # Issues Fixed in DC/OS 1.11.2
 
+- COPS-3195 - Mesos: Fixed an issue as of which the authentication token refresh would not be performed. [enterprise type="inline" size="small" /]
 - DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
 - DCOS-20514 - Added licensing information to the diagnostics bundle.
 - DCOS-21596 - Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
+- DCOS-21611 - The IP detect script and fault domain detect script may now be changed with a config upgrade. 
 - DCOS-22128 - Fixed an issue in the Service view of DC/OS UI, when cluster has pods with not every container mounting a volume [enterprise type="inline" size="small" /]
+- DCOS-22133 - DC/OS IAM: Fixed a rare case where the database bootstrap transaction would not insert some data. [enterprise type="inline" size="small" /]
+- DCOS_OSS-2317 - Consolidated pkgpanda's package download method.
+- DCOS_OSS-2335 - Increased the Mesos executor re-registration timeout to consolidate an agent failover scenario.
 - DCOS_OSS-2360 - DC/OS Metrics: metric names are sanitized for better compatibility with Prometheus.
 - DCOS_OSS-2378 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
 - DC/OS UI: Incorporated [multiple](https://github.com/dcos/dcos/pull/2799) fixes and improvements.
@@ -36,17 +41,17 @@ DC/OS 1.11.2 includes the following:
 - DCOS-22326 - Disabled the insecure 3DES bulk encryption algorithm and TLS 1.1 protocol by default for Master Admin Router. [enterprise type="inline" size="small" /] 
 - DCOS-29122 - Support for launching services in a remote region.
 - DCOS-29634 - Implement region validation and config-sniffing in SDK.
+- MARATHON-8090 - Reverted the Marathon configuration change for GPU resources which was introduced with the 1.11.1 release.
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
 
 
 **Note:** 
-1. Previous 1.11 point releases are not supported for CoreOS 1688.5.3.
 
-2. Implemented region awareness support for SDK based services are implemented in this release. [enterprise type="inline" size="small" /]
+1. Implemented region awareness support for SDK based services are implemented in this release. [enterprise type="inline" size="small" /]
 
-3. New Docker versions supported on RHEL 7.4 and CoreOS 1688.5.3. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
+2. New Docker versions supported on RHEL 7.4. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
 
 
 # About DC/OS 1.11
