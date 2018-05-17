@@ -15,7 +15,7 @@ These are the release notes for DC/OS 1.11.2.
 DC/OS 1.11.2 includes the following:
 
 - Apache Mesos 1.5.1-dev [change log](https://github.com/mesosphere/mesos/blob/27d91e1fe46f09b2c74f2dc4efe4f58ae59ae0a8/CHANGELOG).
-- Marathon 1.6.392 [change log](https://github.com/mesosphere/marathon/releases).
+- Marathon 1.6.392 [change log](https://github.com/dcos/dcos/pull/2678).
 - Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 
 
