@@ -24,7 +24,7 @@ DC/OS 1.11.2 includes the following:
 - DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
 - DCOS-20514 - Added licensing information to the diagnostics bundle.
 - DCOS-21596 - Added local user to LDAP group if local username matches LDAP username. [enterprise type="inline" size="small" /]
-- DCOS-22128 - Supported pods with volumes but no volume mounts. [enterprise type="inline" size="small" /]
+- DCOS-22128 - Fixed an issue in the Service view of DC/OS UI, when cluster has pods with not every container mounting a volume [enterprise type="inline" size="small" /]
 - DCOS_OSS-2360 - DC/OS Metrics: metric names are sanitized for better compatibility with Prometheus.
 - DCOS_OSS-2378 - DC/OS Net: Improved stability of distribution protocol over TLS. [enterprise type="inline" size="small" /]
 - DC/OS UI: Incorporated [multiple](https://github.com/dcos/dcos/pull/2799) fixes and improvements.
@@ -36,7 +36,6 @@ DC/OS 1.11.2 includes the following:
 - DCOS-22326 - Disabled the insecure 3DES bulk encryption algorithm and TLS 1.1 protocol by default for Master Admin Router. [enterprise type="inline" size="small" /] 
 - DCOS-29122 - Support for launching services in a remote region.
 - DCOS-29634 - Implement region validation and config-sniffing in SDK.
-- DCOS_OSS-2377 - Agent operator API: Displayed resource provider resources in GET_RESOURCE_PROVIDER response.
 - QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
 - QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
 - QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
