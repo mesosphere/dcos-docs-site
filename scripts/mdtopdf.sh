@@ -37,7 +37,7 @@ INPUT_FOLDER=""
 
 DATE_LAST_SUCCESSFUL_COMMIT=${DATE_LAST_SUCCESSFUL_COMMIT}
 GIT_HASH_TRIM=${GIT_HASH_TRIM}
-
+JOB_NAME=${JOB_NAME}
 
 function cleanVersion
 {
@@ -70,12 +70,6 @@ function cleanVersion
             rm -rf "./build-pdf/${INPUT_FOLDER}"
           fi
         done
-    # else
-    #     # Otherwise, set it to build the entire ./pages directory
-    #     # if [ -d "./build-pdf" ]; then
-    #     #   rm -rf "./build-pdf"
-    #     # fi
-
     fi
 }
 
@@ -255,24 +249,25 @@ function main
   echo "Finished build $(date)"
 }
 
+# Getting the date of the last successful build
 
+LAST_SUCCESSFUL_BUILD_DATE=$(./scripts/jenkins-lastbuild-date.groovy)
+echo $LAST_SUCCESSFUL_BUILD_DATE
 # get url where pdf is hosted in tgz
-PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
+PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
 
 # get the files and output it to Previous_pdf_bundle destination
-
 echo curl -o ${LAST_SUCCESSFUL_BUILD}
 
 #curl -o "dcos-docs-pdf-bundle-develop-2014-04-24-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
-#curl -o "dcos-docs-pdf-bundle-develop-${LAST_SUCCESFUL_BUILD}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
-curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
+curl -o "${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+#curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
 
 echo "directory here"
 pwd
-echo "dcos-docs-pdf-bundle-${GIT_BRANCH}-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
-#tar -xvzf "dcos-docs-pdf-bundle-${GIT_BRANCH}-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
-echo "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz"
-tar -xvzf "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz"
+echo "${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
+tar -xvzf "${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
+
 #tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 ls -la "${OUTPUT_FOLDER}"
 
