@@ -16,8 +16,8 @@ One of the benefits of running containerized services is that they can be placed
 ## Discovering endpoints
 
 Once the service is running, you can view information about its endpoints using either of the following methods:
-- List endpoint types: `dcos beta-confluent-kafka endpoints --name=confluent-kafka`
-- View endpoints for an endpoint type: `dcos beta-confluent-kafka endpoints  <endpoint> --name=confluent-kafka`
+- List endpoint types: `dcos confluent-kafka endpoints --name=confluent-kafka`
+- View endpoints for an endpoint type: `dcos confluent-kafka endpoints  <endpoint> --name=confluent-kafka`
 
 Returned endpoints will include the following:
 - `.mesos` hostnames for each instance, which will follow them if they're moved within the DC/OS cluster.
