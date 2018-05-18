@@ -250,8 +250,9 @@ function main
 }
 
 # Getting the date of the last successful build
-LAST_SUCCESSFUL_BUILD_DATE=$(./scripts/jenkins-lastbuild-date.groovy)
 
+LAST_SUCCESSFUL_BUILD_DATE=$(./scripts/jenkins-lastbuild-date.groovy)
+echo $LAST_SUCCESSFUL_BUILD_DATE
 # get url where pdf is hosted in tgz
 PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
 
