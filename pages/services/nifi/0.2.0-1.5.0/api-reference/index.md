@@ -119,7 +119,12 @@ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/pod
 
 You will see a response similar to the following:
 
-<!-- TODO: provide pod list example (default options) output -->
+```json
+[
+  "nifi-0",
+  "nifi-1"
+]
+```
 
 ## Node Info
 
