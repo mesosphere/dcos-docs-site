@@ -22,7 +22,7 @@ As of this writing, the best and fastest way to view and download logs is via th
 
 _Figure 1. - Mesos front page_
 
-The Sandbox link for one of these tasks shows a list of files from within the task itself. For example, here’s a sandbox view of a nifi-node-0 task from the above list:
+The Sandbox link for one of these tasks shows a list of files from within the task itself. For example, here’s a sandbox view of a nifi-0-node task from the above list:
 
 [<img src="../service/2_Inside_Task.png" alt="inside task" width="1000"/>](../service/2_Inside_Task.png)
 
