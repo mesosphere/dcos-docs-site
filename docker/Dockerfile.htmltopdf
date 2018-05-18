@@ -46,6 +46,7 @@ ARG GIT_HASH_TRIM=${GIT_HASH_TRIM}
 ARG DATE_LAST_SUCCESSFUL_COMMIT=${DATE_LAST_SUCCESSFUL_COMMIT}
 
 ARG LAST_SUCCESSFUL_BUILD=${LAST_SUCCESSFUL_BUILD}
+ARG JOB_NAME=${JOB_NAME}
 RUN apt-get update -qq
 
 RUN apt-get install -y -qq wget parallel make sqlite3 libfontconfig libicu55
