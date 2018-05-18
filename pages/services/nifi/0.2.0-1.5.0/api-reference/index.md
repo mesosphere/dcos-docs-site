@@ -93,7 +93,19 @@ curl -H "Authorization:token=$auth_token" dcos_url/service/nifi/v1/endpoints/<en
 
 You will see a response similar to the following:
 
-<!-- TODO: provide endpoint <endpoint> example (default options) output -->
+```json
+{
+  "address": [
+    "10.0.0.197:1025",
+    "10.0.0.155:1025"
+  ],
+  "dns": [
+    "nifi-0-node.nifi.autoip.dcos.thisdcos.directory:1025",
+    "nifi-1-node.nifi.autoip.dcos.thisdcos.directory:1025"
+  ],
+  "vip": "node.nifi.l4lb.thisdcos.directory:1025"
+}
+```
 
 The contents of the endpoint response contain details sufficient for clients to connect to the service.
 
