@@ -131,7 +131,4725 @@ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/pod/<node-
 
 You will see a response similar to the following:
 
-<!-- TODO: using node-0 here, but ensure that the node name matches a Apache NiFi service node type -->
+```bash
+[ {
+  "info" : {
+    "name" : "nifi-0-backup",
+    "taskId" : {
+      "value" : ""
+    },
+    "slaveId" : {
+      "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-S4"
+    },
+    "resources" : [ {
+      "providerId" : null,
+      "name" : "cpus",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 0.5
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "600b5325-54d3-4375-b245-d1ec4657760d"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "mem",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 512.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "23146ae9-272b-42fe-8aae-8c8546d4dd42"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "disk",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 1000.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "9efcf4e8-f41e-4015-9265-b3091a5fd0e0"
+          } ]
+        }
+      } ],
+      "disk" : {
+        "persistence" : {
+          "id" : "043c88e3-10d7-46fa-b92d-0023645683b0",
+          "principal" : "nifi-principal"
+        },
+        "volume" : {
+          "mode" : "RW",
+          "containerPath" : "nifi-backup",
+          "hostPath" : null,
+          "image" : null,
+          "source" : null
+        },
+        "source" : null
+      },
+      "revocable" : null,
+      "shared" : null
+    } ],
+    "executor" : {
+      "type" : "DEFAULT",
+      "executorId" : {
+        "value" : "nifi__4e03dd7d-8635-47e6-ade6-db0995dedb8a"
+      },
+      "frameworkId" : {
+        "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-0007"
+      },
+      "command" : null,
+      "container" : {
+        "type" : "MESOS",
+        "volumes" : [ ],
+        "hostname" : null,
+        "docker" : null,
+        "mesos" : null,
+        "networkInfos" : [ ],
+        "linuxInfo" : null,
+        "rlimitInfo" : {
+          "rlimits" : [ {
+            "type" : "RLMT_NOFILE",
+            "hard" : 50000,
+            "soft" : 50000
+          }, {
+            "type" : "RLMT_NPROC",
+            "hard" : 10000,
+            "soft" : 10000
+          } ]
+        },
+        "ttyInfo" : null
+      },
+      "resources" : [ {
+        "providerId" : null,
+        "name" : "cpus",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 0.1
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "2f853459-817e-4b7d-aac4-734f77da6f87"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      }, {
+        "providerId" : null,
+        "name" : "mem",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 32.0
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "d38648f9-9c11-4fea-97cc-65ba144e2b44"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      }, {
+        "providerId" : null,
+        "name" : "disk",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 256.0
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "655888c9-885e-44c8-9105-fbdcd87a83fd"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      } ],
+      "name" : "nifi",
+      "source" : null,
+      "data" : null,
+      "discovery" : null,
+      "shutdownGracePeriod" : null,
+      "labels" : {
+        "labels" : [ {
+          "key" : "DCOS_SPACE",
+          "value" : "/nifi"
+        } ]
+      }
+    },
+    "command" : {
+      "uris" : [ {
+        "value" : "https://downloads.mesosphere.com/java/server-jre-8u162-linux-x64.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://downloads.mesosphere.com/dcos-commons/artifacts/0.40.2/bootstrap.zip",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-us-west-1.amazonaws.com/nifi-binary/nifi-1.5.0-bin.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://downloads.mesosphere.com/dcos-commons/artifacts/0.40.2/executor.zip",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-ap-southeast-2.amazonaws.com/nifi-toolkit/nifi-toolkit-1.5.0-bin.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-janitor.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-statsd.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-api-access.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-us-west-1.amazonaws.com/nifi-python/python-2.7.14.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      } ],
+      "environment" : {
+        "variables" : [ {
+          "name" : "FRAMEWORK_HOST",
+          "type" : null,
+          "value" : "nifi.autoip.dcos.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_NAME",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_VIP_HOST",
+          "type" : null,
+          "value" : "nifi.l4lb.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "NIFI_BOOTSTRAP_JVM_MAX",
+          "type" : null,
+          "value" : "512",
+          "secret" : null
+        }, {
+          "name" : "NIFI_BOOTSTRAP_JVM_MIN",
+          "type" : null,
+          "value" : "512",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FIREWALL_FILE",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_CANDIDATES",
+          "type" : null,
+          "value" : "3",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_WAIT_TIME",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_IS_NODE",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_CONNECTION_TIMEOUT",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_EVENT_HISTORY_SIZE",
+          "type" : null,
+          "value" : "25",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_PROTOCOL_PORT",
+          "type" : null,
+          "value" : "12000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_PROTOCOL_THREADS",
+          "type" : null,
+          "value" : "10",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_READ_TIMEOUT",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_PROTOCOL_HEARTBEAT_INTERVAL",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_PROTOCOL_IS_SECURE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CN_DN_NODE_IDENTITY",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "NIFI_COMPONENTS_STATUS_REPOSITORY_BUFFER_SIZE",
+          "type" : null,
+          "value" : "1440",
+          "secret" : null
+        }, {
+          "name" : "NIFI_COMPONENTS_STATUS_SNAPSHOT_FREQUENCY",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_CLAIM_MAX_APPENDABLE_SIZE",
+          "type" : null,
+          "value" : "10 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_CLAIM_MAX_FLOW_FILES",
+          "type" : null,
+          "value" : "100",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_RETENTION_PERIOD",
+          "type" : null,
+          "value" : "12 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_USAGE_PERCENTAGE",
+          "type" : null,
+          "value" : "50%",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "content-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_VIEWER_URL",
+          "type" : null,
+          "value" : "/nifi-content-viewer/",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_BORED_YIELD_DURATION",
+          "type" : null,
+          "value" : "10 millis",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWCONTROLLER_AUTORESUMESTATE",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWCONTROLLER_GRACEFUL_SHUTDOWN_PERIOD",
+          "type" : null,
+          "value" : "10 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWSERVICE_WRITEDELAY_INTERVAL",
+          "type" : null,
+          "value" : "500 ms",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_COUNT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_STORAGE",
+          "type" : null,
+          "value" : "500 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_TIME",
+          "type" : null,
+          "value" : "30 days",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_PROCESSOR_SCHEDULING_TIMEOUT",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_UI_AUTOREFRESH_INTERVAL",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_UI_BANNER_TEXT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_DATABASE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "database-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_CHECKPOINT_INTERVAL",
+          "type" : null,
+          "value" : "2 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "flowfile-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_PARTITIONS",
+          "type" : null,
+          "value" : "256",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FRAMEWORK_USER",
+          "type" : null,
+          "value" : "nobody",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_AUTHENTICATION_EXPIRATION",
+          "type" : null,
+          "value" : "12 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_DEFAULT_REALM",
+          "type" : null,
+          "value" : "LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_SERVICE_PRINCIPAL",
+          "type" : null,
+          "value" : "nifiprincipal@LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_USER_PRINCIPAL",
+          "type" : null,
+          "value" : "nifiadmin@LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KILL_GRACE_PERIOD",
+          "type" : null,
+          "value" : "20",
+          "secret" : null
+        }, {
+          "name" : "NIFI_METRICS_FREQUENCY",
+          "type" : null,
+          "value" : "20",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_BUFFER_SIZE",
+          "type" : null,
+          "value" : "100000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_COMPRESS_ON_ROLLOVER",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_CONCURRENT_MERGE_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_DEBUG_FREQUENCY",
+          "type" : null,
+          "value" : "1_000_000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "provenance-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_ID",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_IMPLEMENTATION",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_LOCATION",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_ATTRIBUTES",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_FIELDS",
+          "type" : null,
+          "value" : "EventType, FlowFileUUID, Filename, ProcessorID, Relationship",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_SHARD_SIZE",
+          "type" : null,
+          "value" : "500 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_JOURNAL_COUNT",
+          "type" : null,
+          "value" : "16",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_ATTRIBUTE_LENGTH",
+          "type" : null,
+          "value" : "65536",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_SIZE",
+          "type" : null,
+          "value" : "1 GB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_TIME",
+          "type" : null,
+          "value" : "24 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_QUERY_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_SIZE",
+          "type" : null,
+          "value" : "100 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_TIME",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_WARM_CACHE_FREQUENCY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_QUEUE_SWAP_THRESHOLD",
+          "type" : null,
+          "value" : "20000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_HTTP_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_HTTP_TRANSACTION_TTL",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_SECURE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_SOCKET_PORT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_NEEDCLIENTAUTH",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_OCSP_RESPONDER_CERTIFICATE",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_OCSP_RESPONDER_URL",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_USER_AUTHORIZER",
+          "type" : null,
+          "value" : "file-provider",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_ADDITIONAL_KEYS",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_ALGORITHM",
+          "type" : null,
+          "value" : "PBEWITHMD5AND256BITAES-CBC-OPENSSL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_KEY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_KEY_PROTECTED",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_PROVIDER",
+          "type" : null,
+          "value" : "BC",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_IN_PERIOD",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_IN_THREADS",
+          "type" : null,
+          "value" : "1",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_OUT_PERIOD",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_OUT_THREADS",
+          "type" : null,
+          "value" : "4",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VARIABLE_REGISTRY_PROPERTIES",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VERSION",
+          "type" : null,
+          "value" : "1.5.0",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_BLOCK_SIZE",
+          "type" : null,
+          "value" : "32 KB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_MAX_SIZE",
+          "type" : null,
+          "value" : "100 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_HOST",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_NETWORK_INTERFACE_DEFAULT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_PORT",
+          "type" : null,
+          "value" : "1026",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_HOST",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_NETWORK_INTERFACE_DEFAULT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_PORT",
+          "type" : null,
+          "value" : "1025",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_JETTY_THREADS",
+          "type" : null,
+          "value" : "200",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_JETTY_WORKING_DIRECTORY",
+          "type" : null,
+          "value" : "./work/jetty",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_WAR_DIRECTORY",
+          "type" : null,
+          "value" : "./lib",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_CONNECT_STRING",
+          "type" : null,
+          "value" : "master.mesos:2181",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_CONNECT_TIMEOUT",
+          "type" : null,
+          "value" : "3 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_SESSION_TIMEOUT",
+          "type" : null,
+          "value" : "3 secs",
+          "secret" : null
+        }, {
+          "name" : "PLACEMENT_REFERENCED_REGION",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "PLACEMENT_REFERENCED_ZONE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "POD_INSTANCE_INDEX",
+          "type" : null,
+          "value" : "0",
+          "secret" : null
+        }, {
+          "name" : "SCHEDULER_API_HOSTNAME",
+          "type" : null,
+          "value" : "api.nifi.marathon.l4lb.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_DEBUG",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_ENABLED",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_KDC_HOSTNAME",
+          "type" : null,
+          "value" : "kdc.marathon.autoip.dcos.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_KDC_PORT",
+          "type" : null,
+          "value" : "2500",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_PRIMARY",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_REALM",
+          "type" : null,
+          "value" : "LOCAL",
+          "secret" : null
+        }, {
+          "name" : "TASK_NAME",
+          "type" : null,
+          "value" : "nifi-0-backup",
+          "secret" : null
+        }, {
+          "name" : "nifi-0-backup",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "REGION",
+          "type" : null,
+          "value" : "aws/ap-southeast-2",
+          "secret" : null
+        }, {
+          "name" : "ZONE",
+          "type" : null,
+          "value" : "aws/ap-southeast-2c",
+          "secret" : null
+        } ]
+      },
+      "shell" : null,
+      "value" : "export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*) ; sh $MESOS_SANDBOX/nifi-toolkit-${NIFI_VERSION}/bin/file-manager.sh -o backup -b nifi-backup -c $MESOS_SANDBOX/../../tasks/nifi-$POD_INSTANCE_INDEX-node*/nifi-1.5.0 -v;\n",
+      "arguments" : [ ],
+      "user" : "nobody"
+    },
+    "container" : {
+      "type" : "MESOS",
+      "volumes" : [ ],
+      "hostname" : null,
+      "docker" : null,
+      "mesos" : null,
+      "networkInfos" : [ ],
+      "linuxInfo" : {
+        "capabilityInfo" : null,
+        "boundingCapabilities" : null,
+        "effectiveCapabilities" : null,
+        "sharePidNamespace" : false
+      },
+      "rlimitInfo" : {
+        "rlimits" : [ {
+          "type" : "RLMT_NOFILE",
+          "hard" : 50000,
+          "soft" : 50000
+        }, {
+          "type" : "RLMT_NPROC",
+          "hard" : 10000,
+          "soft" : 10000
+        } ]
+      },
+      "ttyInfo" : null
+    },
+    "healthCheck" : null,
+    "check" : null,
+    "killPolicy" : {
+      "gracePeriod" : {
+        "nanoseconds" : 0
+      }
+    },
+    "data" : null,
+    "labels" : {
+      "labels" : [ {
+        "key" : "goal_state",
+        "value" : "ONCE"
+      }, {
+        "key" : "index",
+        "value" : "0"
+      }, {
+        "key" : "offer_attributes",
+        "value" : ""
+      }, {
+        "key" : "offer_hostname",
+        "value" : "10.0.0.197"
+      }, {
+        "key" : "offer_region",
+        "value" : "aws/ap-southeast-2"
+      }, {
+        "key" : "offer_zone",
+        "value" : "aws/ap-southeast-2c"
+      }, {
+        "key" : "target_configuration",
+        "value" : "29bf852c-7e17-48ba-ac8e-84634fb99f86"
+      }, {
+        "key" : "task_type",
+        "value" : "nifi"
+      } ]
+    },
+    "discovery" : null
+  },
+  "status" : null
+}, {
+  "info" : {
+    "name" : "nifi-0-metrics",
+    "taskId" : {
+      "value" : "nifi-0-metrics__82d8bdc2-ce76-4cb3-9273-d17ce4ce9a95"
+    },
+    "slaveId" : {
+      "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-S4"
+    },
+    "resources" : [ {
+      "providerId" : null,
+      "name" : "cpus",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 0.2
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "da91c4df-e3fe-49ae-8b0e-12430306cb05"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "mem",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 32.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "adee1367-584f-4b99-8a81-52646d44783e"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    } ],
+    "executor" : {
+      "type" : "DEFAULT",
+      "executorId" : {
+        "value" : "nifi__4e03dd7d-8635-47e6-ade6-db0995dedb8a"
+      },
+      "frameworkId" : {
+        "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-0007"
+      },
+      "command" : null,
+      "container" : {
+        "type" : "MESOS",
+        "volumes" : [ ],
+        "hostname" : null,
+        "docker" : null,
+        "mesos" : null,
+        "networkInfos" : [ ],
+        "linuxInfo" : null,
+        "rlimitInfo" : {
+          "rlimits" : [ {
+            "type" : "RLMT_NOFILE",
+            "hard" : 50000,
+            "soft" : 50000
+          }, {
+            "type" : "RLMT_NPROC",
+            "hard" : 10000,
+            "soft" : 10000
+          } ]
+        },
+        "ttyInfo" : null
+      },
+      "resources" : [ {
+        "providerId" : null,
+        "name" : "cpus",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 0.1
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "2f853459-817e-4b7d-aac4-734f77da6f87"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      }, {
+        "providerId" : null,
+        "name" : "mem",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 32.0
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "d38648f9-9c11-4fea-97cc-65ba144e2b44"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      }, {
+        "providerId" : null,
+        "name" : "disk",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 256.0
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "655888c9-885e-44c8-9105-fbdcd87a83fd"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      } ],
+      "name" : "nifi",
+      "source" : null,
+      "data" : null,
+      "discovery" : null,
+      "shutdownGracePeriod" : null,
+      "labels" : {
+        "labels" : [ {
+          "key" : "DCOS_SPACE",
+          "value" : "/nifi"
+        } ]
+      }
+    },
+    "command" : {
+      "uris" : [ {
+        "value" : "https://downloads.mesosphere.com/java/server-jre-8u162-linux-x64.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://downloads.mesosphere.com/dcos-commons/artifacts/0.40.2/bootstrap.zip",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-us-west-1.amazonaws.com/nifi-binary/nifi-1.5.0-bin.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://downloads.mesosphere.com/dcos-commons/artifacts/0.40.2/executor.zip",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-ap-southeast-2.amazonaws.com/nifi-toolkit/nifi-toolkit-1.5.0-bin.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-janitor.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-statsd.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-api-access.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-us-west-1.amazonaws.com/nifi-python/python-2.7.14.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      } ],
+      "environment" : {
+        "variables" : [ {
+          "name" : "FRAMEWORK_HOST",
+          "type" : null,
+          "value" : "nifi.autoip.dcos.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_NAME",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_VIP_HOST",
+          "type" : null,
+          "value" : "nifi.l4lb.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "NIFI_BOOTSTRAP_JVM_MAX",
+          "type" : null,
+          "value" : "512",
+          "secret" : null
+        }, {
+          "name" : "NIFI_BOOTSTRAP_JVM_MIN",
+          "type" : null,
+          "value" : "512",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FIREWALL_FILE",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_CANDIDATES",
+          "type" : null,
+          "value" : "3",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_WAIT_TIME",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_IS_NODE",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_CONNECTION_TIMEOUT",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_EVENT_HISTORY_SIZE",
+          "type" : null,
+          "value" : "25",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_PROTOCOL_PORT",
+          "type" : null,
+          "value" : "12000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_PROTOCOL_THREADS",
+          "type" : null,
+          "value" : "10",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_READ_TIMEOUT",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_PROTOCOL_HEARTBEAT_INTERVAL",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_PROTOCOL_IS_SECURE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CN_DN_NODE_IDENTITY",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "NIFI_COMPONENTS_STATUS_REPOSITORY_BUFFER_SIZE",
+          "type" : null,
+          "value" : "1440",
+          "secret" : null
+        }, {
+          "name" : "NIFI_COMPONENTS_STATUS_SNAPSHOT_FREQUENCY",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_CLAIM_MAX_APPENDABLE_SIZE",
+          "type" : null,
+          "value" : "10 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_CLAIM_MAX_FLOW_FILES",
+          "type" : null,
+          "value" : "100",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_RETENTION_PERIOD",
+          "type" : null,
+          "value" : "12 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_USAGE_PERCENTAGE",
+          "type" : null,
+          "value" : "50%",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "content-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_VIEWER_URL",
+          "type" : null,
+          "value" : "/nifi-content-viewer/",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_BORED_YIELD_DURATION",
+          "type" : null,
+          "value" : "10 millis",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWCONTROLLER_AUTORESUMESTATE",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWCONTROLLER_GRACEFUL_SHUTDOWN_PERIOD",
+          "type" : null,
+          "value" : "10 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWSERVICE_WRITEDELAY_INTERVAL",
+          "type" : null,
+          "value" : "500 ms",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_COUNT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_STORAGE",
+          "type" : null,
+          "value" : "500 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_TIME",
+          "type" : null,
+          "value" : "30 days",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_PROCESSOR_SCHEDULING_TIMEOUT",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_UI_AUTOREFRESH_INTERVAL",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_UI_BANNER_TEXT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_DATABASE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "database-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_CHECKPOINT_INTERVAL",
+          "type" : null,
+          "value" : "2 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "flowfile-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_PARTITIONS",
+          "type" : null,
+          "value" : "256",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FRAMEWORK_USER",
+          "type" : null,
+          "value" : "nobody",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_AUTHENTICATION_EXPIRATION",
+          "type" : null,
+          "value" : "12 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_DEFAULT_REALM",
+          "type" : null,
+          "value" : "LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_SERVICE_PRINCIPAL",
+          "type" : null,
+          "value" : "nifiprincipal@LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_USER_PRINCIPAL",
+          "type" : null,
+          "value" : "nifiadmin@LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KILL_GRACE_PERIOD",
+          "type" : null,
+          "value" : "20",
+          "secret" : null
+        }, {
+          "name" : "NIFI_METRICS_FREQUENCY",
+          "type" : null,
+          "value" : "20",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_BUFFER_SIZE",
+          "type" : null,
+          "value" : "100000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_COMPRESS_ON_ROLLOVER",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_CONCURRENT_MERGE_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_DEBUG_FREQUENCY",
+          "type" : null,
+          "value" : "1_000_000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "provenance-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_ID",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_IMPLEMENTATION",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_LOCATION",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_ATTRIBUTES",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_FIELDS",
+          "type" : null,
+          "value" : "EventType, FlowFileUUID, Filename, ProcessorID, Relationship",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_SHARD_SIZE",
+          "type" : null,
+          "value" : "500 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_JOURNAL_COUNT",
+          "type" : null,
+          "value" : "16",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_ATTRIBUTE_LENGTH",
+          "type" : null,
+          "value" : "65536",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_SIZE",
+          "type" : null,
+          "value" : "1 GB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_TIME",
+          "type" : null,
+          "value" : "24 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_QUERY_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_SIZE",
+          "type" : null,
+          "value" : "100 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_TIME",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_WARM_CACHE_FREQUENCY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_QUEUE_SWAP_THRESHOLD",
+          "type" : null,
+          "value" : "20000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_HTTP_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_HTTP_TRANSACTION_TTL",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_SECURE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_SOCKET_PORT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_NEEDCLIENTAUTH",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_OCSP_RESPONDER_CERTIFICATE",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_OCSP_RESPONDER_URL",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_USER_AUTHORIZER",
+          "type" : null,
+          "value" : "file-provider",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_ADDITIONAL_KEYS",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_ALGORITHM",
+          "type" : null,
+          "value" : "PBEWITHMD5AND256BITAES-CBC-OPENSSL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_KEY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_KEY_PROTECTED",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_PROVIDER",
+          "type" : null,
+          "value" : "BC",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_IN_PERIOD",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_IN_THREADS",
+          "type" : null,
+          "value" : "1",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_OUT_PERIOD",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_OUT_THREADS",
+          "type" : null,
+          "value" : "4",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VARIABLE_REGISTRY_PROPERTIES",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VERSION",
+          "type" : null,
+          "value" : "1.5.0",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_BLOCK_SIZE",
+          "type" : null,
+          "value" : "32 KB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_MAX_SIZE",
+          "type" : null,
+          "value" : "100 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_HOST",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_NETWORK_INTERFACE_DEFAULT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_PORT",
+          "type" : null,
+          "value" : "1026",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_HOST",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_NETWORK_INTERFACE_DEFAULT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_PORT",
+          "type" : null,
+          "value" : "1025",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_JETTY_THREADS",
+          "type" : null,
+          "value" : "200",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_JETTY_WORKING_DIRECTORY",
+          "type" : null,
+          "value" : "./work/jetty",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_WAR_DIRECTORY",
+          "type" : null,
+          "value" : "./lib",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_CONNECT_STRING",
+          "type" : null,
+          "value" : "master.mesos:2181",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_CONNECT_TIMEOUT",
+          "type" : null,
+          "value" : "3 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_SESSION_TIMEOUT",
+          "type" : null,
+          "value" : "3 secs",
+          "secret" : null
+        }, {
+          "name" : "PLACEMENT_REFERENCED_REGION",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "PLACEMENT_REFERENCED_ZONE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "POD_INSTANCE_INDEX",
+          "type" : null,
+          "value" : "0",
+          "secret" : null
+        }, {
+          "name" : "SCHEDULER_API_HOSTNAME",
+          "type" : null,
+          "value" : "api.nifi.marathon.l4lb.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_DEBUG",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_ENABLED",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_KDC_HOSTNAME",
+          "type" : null,
+          "value" : "kdc.marathon.autoip.dcos.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_KDC_PORT",
+          "type" : null,
+          "value" : "2500",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_PRIMARY",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_REALM",
+          "type" : null,
+          "value" : "LOCAL",
+          "secret" : null
+        }, {
+          "name" : "TASK_NAME",
+          "type" : null,
+          "value" : "nifi-0-metrics",
+          "secret" : null
+        }, {
+          "name" : "nifi-0-metrics",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "REGION",
+          "type" : null,
+          "value" : "aws/ap-southeast-2",
+          "secret" : null
+        }, {
+          "name" : "ZONE",
+          "type" : null,
+          "value" : "aws/ap-southeast-2c",
+          "secret" : null
+        } ]
+      },
+      "shell" : null,
+      "value" : "export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH\nusernodesecret=`cat usernode.keytab`\necho \"Before running statsd\"\nsleep 180\ncp ../../misc-repository/url-info.properties .\njava -jar nifi-statsd.jar url-info.properties $STATSD_UDP_HOST $STATSD_UDP_PORT ${NIFI_METRICS_FREQUENCY} ${SECURITY_KERBEROS_ENABLED} ${NIFI_KERBEROS_USER_PRINCIPAL} \"$usernodesecret\"\necho \"After running statsd\"\n",
+      "arguments" : [ ],
+      "user" : "nobody"
+    },
+    "container" : {
+      "type" : "MESOS",
+      "volumes" : [ ],
+      "hostname" : null,
+      "docker" : null,
+      "mesos" : null,
+      "networkInfos" : [ ],
+      "linuxInfo" : {
+        "capabilityInfo" : null,
+        "boundingCapabilities" : null,
+        "effectiveCapabilities" : null,
+        "sharePidNamespace" : false
+      },
+      "rlimitInfo" : {
+        "rlimits" : [ {
+          "type" : "RLMT_NOFILE",
+          "hard" : 50000,
+          "soft" : 50000
+        }, {
+          "type" : "RLMT_NPROC",
+          "hard" : 10000,
+          "soft" : 10000
+        } ]
+      },
+      "ttyInfo" : null
+    },
+    "healthCheck" : null,
+    "check" : null,
+    "killPolicy" : {
+      "gracePeriod" : {
+        "nanoseconds" : 0
+      }
+    },
+    "data" : null,
+    "labels" : {
+      "labels" : [ {
+        "key" : "goal_state",
+        "value" : "RUNNING"
+      }, {
+        "key" : "index",
+        "value" : "0"
+      }, {
+        "key" : "offer_attributes",
+        "value" : ""
+      }, {
+        "key" : "offer_hostname",
+        "value" : "10.0.0.197"
+      }, {
+        "key" : "offer_region",
+        "value" : "aws/ap-southeast-2"
+      }, {
+        "key" : "offer_zone",
+        "value" : "aws/ap-southeast-2c"
+      }, {
+        "key" : "target_configuration",
+        "value" : "29bf852c-7e17-48ba-ac8e-84634fb99f86"
+      }, {
+        "key" : "task_type",
+        "value" : "nifi"
+      } ]
+    },
+    "discovery" : null
+  },
+  "status" : {
+    "taskId" : {
+      "value" : "nifi-0-metrics__82d8bdc2-ce76-4cb3-9273-d17ce4ce9a95"
+    },
+    "state" : "TASK_RUNNING",
+    "message" : null,
+    "source" : "SOURCE_EXECUTOR",
+    "reason" : null,
+    "data" : null,
+    "slaveId" : {
+      "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-S4"
+    },
+    "executorId" : {
+      "value" : "nifi__4e03dd7d-8635-47e6-ade6-db0995dedb8a"
+    },
+    "timestamp" : 1.526653359317726E9,
+    "uuid" : "yzIJnt7yTtGiRtkFHDD0Og==",
+    "healthy" : null,
+    "checkStatus" : null,
+    "labels" : null,
+    "containerStatus" : {
+      "containerId" : {
+        "value" : "cf3e720e-5e44-4086-a532-b52cac1e128c",
+        "parent" : {
+          "value" : "06131b60-ffc2-4721-977e-881518b5547a",
+          "parent" : null
+        }
+      },
+      "networkInfos" : [ {
+        "ipAddresses" : [ {
+          "protocol" : null,
+          "ipAddress" : "10.0.0.197"
+        } ],
+        "name" : null,
+        "groups" : [ ],
+        "labels" : null,
+        "portMappings" : [ ]
+      } ],
+      "cgroupInfo" : null,
+      "executorPid" : 15010
+    },
+    "unreachableTime" : null
+  }
+}, {
+  "info" : {
+    "name" : "nifi-0-node",
+    "taskId" : {
+      "value" : "nifi-0-node__8f0a64cb-1b65-4e15-8446-35d81c2d8129"
+    },
+    "slaveId" : {
+      "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-S4"
+    },
+    "resources" : [ {
+      "providerId" : null,
+      "name" : "ports",
+      "type" : "RANGES",
+      "scalar" : null,
+      "ranges" : {
+        "range" : [ {
+          "begin" : 1025,
+          "end" : 1025
+        } ]
+      },
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "0bdbcff3-244b-42a2-b921-dbda93b158e3"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "cpus",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 1.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "0205ff52-edd1-440e-8db6-b3d22af486e4"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "mem",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 4096.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "dcef570f-f60e-4c65-9de8-48dde5ab7fe2"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "disk",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 1000.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "96d5d225-4714-4f64-bc72-040139158e49"
+          } ]
+        }
+      } ],
+      "disk" : {
+        "persistence" : {
+          "id" : "92143280-3d4c-4411-99a2-bf977c2d854c",
+          "principal" : "nifi-principal"
+        },
+        "volume" : {
+          "mode" : "RW",
+          "containerPath" : "database-repository",
+          "hostPath" : null,
+          "image" : null,
+          "source" : null
+        },
+        "source" : null
+      },
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "disk",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 1000.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "0d48b1db-a5a8-4c4f-928f-4f598eb74759"
+          } ]
+        }
+      } ],
+      "disk" : {
+        "persistence" : {
+          "id" : "e1d0a391-6b39-49e0-ad49-7fcefce1710f",
+          "principal" : "nifi-principal"
+        },
+        "volume" : {
+          "mode" : "RW",
+          "containerPath" : "flowfile-repository",
+          "hostPath" : null,
+          "image" : null,
+          "source" : null
+        },
+        "source" : null
+      },
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "disk",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 1000.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "68d8edee-ff86-40a6-b534-cc537de7442c"
+          } ]
+        }
+      } ],
+      "disk" : {
+        "persistence" : {
+          "id" : "307226e0-30ae-4bb2-912b-fec502b3500e",
+          "principal" : "nifi-principal"
+        },
+        "volume" : {
+          "mode" : "RW",
+          "containerPath" : "provenance-repository",
+          "hostPath" : null,
+          "image" : null,
+          "source" : null
+        },
+        "source" : null
+      },
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "disk",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 1000.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "9040df53-97ad-431b-a903-4ac913d0d3ad"
+          } ]
+        }
+      } ],
+      "disk" : {
+        "persistence" : {
+          "id" : "19f7bc15-e8bc-4c3f-9412-b6f675da015d",
+          "principal" : "nifi-principal"
+        },
+        "volume" : {
+          "mode" : "RW",
+          "containerPath" : "content-repository",
+          "hostPath" : null,
+          "image" : null,
+          "source" : null
+        },
+        "source" : null
+      },
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "disk",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 1000.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "e576dae7-2475-4891-ac7b-b56237617aa0"
+          } ]
+        }
+      } ],
+      "disk" : {
+        "persistence" : {
+          "id" : "1a3a9789-7af7-4843-8c80-26466943ae0d",
+          "principal" : "nifi-principal"
+        },
+        "volume" : {
+          "mode" : "RW",
+          "containerPath" : "misc-repository",
+          "hostPath" : null,
+          "image" : null,
+          "source" : null
+        },
+        "source" : null
+      },
+      "revocable" : null,
+      "shared" : null
+    } ],
+    "executor" : {
+      "type" : "DEFAULT",
+      "executorId" : {
+        "value" : "nifi__4e03dd7d-8635-47e6-ade6-db0995dedb8a"
+      },
+      "frameworkId" : {
+        "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-0007"
+      },
+      "command" : null,
+      "container" : {
+        "type" : "MESOS",
+        "volumes" : [ ],
+        "hostname" : null,
+        "docker" : null,
+        "mesos" : null,
+        "networkInfos" : [ ],
+        "linuxInfo" : null,
+        "rlimitInfo" : {
+          "rlimits" : [ {
+            "type" : "RLMT_NOFILE",
+            "hard" : 50000,
+            "soft" : 50000
+          }, {
+            "type" : "RLMT_NPROC",
+            "hard" : 10000,
+            "soft" : 10000
+          } ]
+        },
+        "ttyInfo" : null
+      },
+      "resources" : [ {
+        "providerId" : null,
+        "name" : "cpus",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 0.1
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "2f853459-817e-4b7d-aac4-734f77da6f87"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      }, {
+        "providerId" : null,
+        "name" : "mem",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 32.0
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "d38648f9-9c11-4fea-97cc-65ba144e2b44"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      }, {
+        "providerId" : null,
+        "name" : "disk",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 256.0
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "655888c9-885e-44c8-9105-fbdcd87a83fd"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      } ],
+      "name" : "nifi",
+      "source" : null,
+      "data" : null,
+      "discovery" : null,
+      "shutdownGracePeriod" : null,
+      "labels" : {
+        "labels" : [ {
+          "key" : "DCOS_SPACE",
+          "value" : "/nifi"
+        } ]
+      }
+    },
+    "command" : {
+      "uris" : [ {
+        "value" : "https://downloads.mesosphere.com/java/server-jre-8u162-linux-x64.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://downloads.mesosphere.com/dcos-commons/artifacts/0.40.2/bootstrap.zip",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-us-west-1.amazonaws.com/nifi-binary/nifi-1.5.0-bin.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://downloads.mesosphere.com/dcos-commons/artifacts/0.40.2/executor.zip",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-ap-southeast-2.amazonaws.com/nifi-toolkit/nifi-toolkit-1.5.0-bin.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-janitor.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-statsd.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-api-access.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-us-west-1.amazonaws.com/nifi-python/python-2.7.14.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://api.nifi.marathon.l4lb.thisdcos.directory/v1/artifacts/template/29bf852c-7e17-48ba-ac8e-84634fb99f86/nifi/node/nifi.properties",
+        "executable" : null,
+        "extract" : false,
+        "cache" : null,
+        "outputFile" : "config-templates/nifi.properties"
+      }, {
+        "value" : "http://api.nifi.marathon.l4lb.thisdcos.directory/v1/artifacts/template/29bf852c-7e17-48ba-ac8e-84634fb99f86/nifi/node/bootstrap.conf",
+        "executable" : null,
+        "extract" : false,
+        "cache" : null,
+        "outputFile" : "config-templates/bootstrap.conf"
+      }, {
+        "value" : "http://api.nifi.marathon.l4lb.thisdcos.directory/v1/artifacts/template/29bf852c-7e17-48ba-ac8e-84634fb99f86/nifi/node/statemanagement.conf",
+        "executable" : null,
+        "extract" : false,
+        "cache" : null,
+        "outputFile" : "config-templates/statemanagement.conf"
+      } ],
+      "environment" : {
+        "variables" : [ {
+          "name" : "CONFIG_TEMPLATE_BOOTSTRAP_CONF",
+          "type" : null,
+          "value" : "config-templates/bootstrap.conf,nifi-1.5.0/conf/bootstrap.conf",
+          "secret" : null
+        }, {
+          "name" : "CONFIG_TEMPLATE_NIFI_PROPERTIES",
+          "type" : null,
+          "value" : "config-templates/nifi.properties,nifi-1.5.0/conf/nifi.properties",
+          "secret" : null
+        }, {
+          "name" : "CONFIG_TEMPLATE_STATEMANAGEMENT_CONF",
+          "type" : null,
+          "value" : "config-templates/statemanagement.conf,nifi-1.5.0/conf/state-management.xml",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_HOST",
+          "type" : null,
+          "value" : "nifi.autoip.dcos.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_NAME",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_VIP_HOST",
+          "type" : null,
+          "value" : "nifi.l4lb.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "NIFI_BOOTSTRAP_JVM_MAX",
+          "type" : null,
+          "value" : "512",
+          "secret" : null
+        }, {
+          "name" : "NIFI_BOOTSTRAP_JVM_MIN",
+          "type" : null,
+          "value" : "512",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FIREWALL_FILE",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_CANDIDATES",
+          "type" : null,
+          "value" : "3",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_WAIT_TIME",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_IS_NODE",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_CONNECTION_TIMEOUT",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_EVENT_HISTORY_SIZE",
+          "type" : null,
+          "value" : "25",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_PROTOCOL_PORT",
+          "type" : null,
+          "value" : "12000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_PROTOCOL_THREADS",
+          "type" : null,
+          "value" : "10",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_READ_TIMEOUT",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_PROTOCOL_HEARTBEAT_INTERVAL",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_PROTOCOL_IS_SECURE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CN_DN_NODE_IDENTITY",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "NIFI_COMPONENTS_STATUS_REPOSITORY_BUFFER_SIZE",
+          "type" : null,
+          "value" : "1440",
+          "secret" : null
+        }, {
+          "name" : "NIFI_COMPONENTS_STATUS_SNAPSHOT_FREQUENCY",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_CLAIM_MAX_APPENDABLE_SIZE",
+          "type" : null,
+          "value" : "10 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_CLAIM_MAX_FLOW_FILES",
+          "type" : null,
+          "value" : "100",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_RETENTION_PERIOD",
+          "type" : null,
+          "value" : "12 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_USAGE_PERCENTAGE",
+          "type" : null,
+          "value" : "50%",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "content-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_VIEWER_URL",
+          "type" : null,
+          "value" : "/nifi-content-viewer/",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_BORED_YIELD_DURATION",
+          "type" : null,
+          "value" : "10 millis",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWCONTROLLER_AUTORESUMESTATE",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWCONTROLLER_GRACEFUL_SHUTDOWN_PERIOD",
+          "type" : null,
+          "value" : "10 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWSERVICE_WRITEDELAY_INTERVAL",
+          "type" : null,
+          "value" : "500 ms",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_COUNT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_STORAGE",
+          "type" : null,
+          "value" : "500 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_TIME",
+          "type" : null,
+          "value" : "30 days",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_PROCESSOR_SCHEDULING_TIMEOUT",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_UI_AUTOREFRESH_INTERVAL",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_UI_BANNER_TEXT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_DATABASE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "database-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_CHECKPOINT_INTERVAL",
+          "type" : null,
+          "value" : "2 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "flowfile-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_PARTITIONS",
+          "type" : null,
+          "value" : "256",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FRAMEWORK_USER",
+          "type" : null,
+          "value" : "nobody",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_AUTHENTICATION_EXPIRATION",
+          "type" : null,
+          "value" : "12 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_DEFAULT_REALM",
+          "type" : null,
+          "value" : "LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_SERVICE_PRINCIPAL",
+          "type" : null,
+          "value" : "nifiprincipal@LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_USER_PRINCIPAL",
+          "type" : null,
+          "value" : "nifiadmin@LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KILL_GRACE_PERIOD",
+          "type" : null,
+          "value" : "20",
+          "secret" : null
+        }, {
+          "name" : "NIFI_METRICS_FREQUENCY",
+          "type" : null,
+          "value" : "20",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_BUFFER_SIZE",
+          "type" : null,
+          "value" : "100000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_COMPRESS_ON_ROLLOVER",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_CONCURRENT_MERGE_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_DEBUG_FREQUENCY",
+          "type" : null,
+          "value" : "1_000_000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "provenance-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_ID",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_IMPLEMENTATION",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_LOCATION",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_ATTRIBUTES",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_FIELDS",
+          "type" : null,
+          "value" : "EventType, FlowFileUUID, Filename, ProcessorID, Relationship",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_SHARD_SIZE",
+          "type" : null,
+          "value" : "500 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_JOURNAL_COUNT",
+          "type" : null,
+          "value" : "16",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_ATTRIBUTE_LENGTH",
+          "type" : null,
+          "value" : "65536",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_SIZE",
+          "type" : null,
+          "value" : "1 GB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_TIME",
+          "type" : null,
+          "value" : "24 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_QUERY_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_SIZE",
+          "type" : null,
+          "value" : "100 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_TIME",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_WARM_CACHE_FREQUENCY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_QUEUE_SWAP_THRESHOLD",
+          "type" : null,
+          "value" : "20000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_HTTP_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_HTTP_TRANSACTION_TTL",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_SECURE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_SOCKET_PORT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_NEEDCLIENTAUTH",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_OCSP_RESPONDER_CERTIFICATE",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_OCSP_RESPONDER_URL",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_USER_AUTHORIZER",
+          "type" : null,
+          "value" : "file-provider",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_ADDITIONAL_KEYS",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_ALGORITHM",
+          "type" : null,
+          "value" : "PBEWITHMD5AND256BITAES-CBC-OPENSSL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_KEY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_KEY_PROTECTED",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_PROVIDER",
+          "type" : null,
+          "value" : "BC",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_IN_PERIOD",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_IN_THREADS",
+          "type" : null,
+          "value" : "1",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_OUT_PERIOD",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_OUT_THREADS",
+          "type" : null,
+          "value" : "4",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VARIABLE_REGISTRY_PROPERTIES",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VERSION",
+          "type" : null,
+          "value" : "1.5.0",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_BLOCK_SIZE",
+          "type" : null,
+          "value" : "32 KB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_MAX_SIZE",
+          "type" : null,
+          "value" : "100 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_HOST",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_NETWORK_INTERFACE_DEFAULT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_PORT",
+          "type" : null,
+          "value" : "1026",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_HOST",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_NETWORK_INTERFACE_DEFAULT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_PORT",
+          "type" : null,
+          "value" : "1025",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_JETTY_THREADS",
+          "type" : null,
+          "value" : "200",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_JETTY_WORKING_DIRECTORY",
+          "type" : null,
+          "value" : "./work/jetty",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_WAR_DIRECTORY",
+          "type" : null,
+          "value" : "./lib",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_CONNECT_STRING",
+          "type" : null,
+          "value" : "master.mesos:2181",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_CONNECT_TIMEOUT",
+          "type" : null,
+          "value" : "3 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_SESSION_TIMEOUT",
+          "type" : null,
+          "value" : "3 secs",
+          "secret" : null
+        }, {
+          "name" : "NODE_CPUS",
+          "type" : null,
+          "value" : "1",
+          "secret" : null
+        }, {
+          "name" : "NODE_MEM",
+          "type" : null,
+          "value" : "4096",
+          "secret" : null
+        }, {
+          "name" : "PLACEMENT_REFERENCED_REGION",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "PLACEMENT_REFERENCED_ZONE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "POD_INSTANCE_INDEX",
+          "type" : null,
+          "value" : "0",
+          "secret" : null
+        }, {
+          "name" : "PORT_WEB",
+          "type" : null,
+          "value" : "1025",
+          "secret" : null
+        }, {
+          "name" : "SCHEDULER_API_HOSTNAME",
+          "type" : null,
+          "value" : "api.nifi.marathon.l4lb.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_DEBUG",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_ENABLED",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_KDC_HOSTNAME",
+          "type" : null,
+          "value" : "kdc.marathon.autoip.dcos.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_KDC_PORT",
+          "type" : null,
+          "value" : "2500",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_PRIMARY",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_REALM",
+          "type" : null,
+          "value" : "LOCAL",
+          "secret" : null
+        }, {
+          "name" : "TASK_NAME",
+          "type" : null,
+          "value" : "nifi-0-node",
+          "secret" : null
+        }, {
+          "name" : "nifi-0-node",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "REGION",
+          "type" : null,
+          "value" : "aws/ap-southeast-2",
+          "secret" : null
+        }, {
+          "name" : "ZONE",
+          "type" : null,
+          "value" : "aws/ap-southeast-2c",
+          "secret" : null
+        } ]
+      },
+      "shell" : null,
+      "value" : "./bootstrap \nexport JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH\necho \"INSTALL\" > misc-repository/readiness-info.txt\ninit_status=`cat misc-repository/init-status.txt`\necho $init_status\nif [ \"$init_status\" == \"Y\" ] ; then\n  mv misc-repository/login-identity-providers.xml nifi-1.5.0/conf\n  mv misc-repository/authorizers.xml nifi-1.5.0/conf \n  echo \"N\" > misc-repository/init-status.txt\nfi\n./nifi-${NIFI_VERSION}/bin/nifi.sh run\n",
+      "arguments" : [ ],
+      "user" : "nobody"
+    },
+    "container" : {
+      "type" : "MESOS",
+      "volumes" : [ ],
+      "hostname" : null,
+      "docker" : null,
+      "mesos" : null,
+      "networkInfos" : [ ],
+      "linuxInfo" : {
+        "capabilityInfo" : null,
+        "boundingCapabilities" : null,
+        "effectiveCapabilities" : null,
+        "sharePidNamespace" : false
+      },
+      "rlimitInfo" : {
+        "rlimits" : [ {
+          "type" : "RLMT_NOFILE",
+          "hard" : 50000,
+          "soft" : 50000
+        }, {
+          "type" : "RLMT_NPROC",
+          "hard" : 10000,
+          "soft" : 10000
+        } ]
+      },
+      "ttyInfo" : null
+    },
+    "healthCheck" : null,
+    "check" : {
+      "type" : "COMMAND",
+      "command" : {
+        "command" : {
+          "uris" : [ ],
+          "environment" : {
+            "variables" : [ {
+              "name" : "FRAMEWORK_HOST",
+              "type" : null,
+              "value" : "nifi.autoip.dcos.thisdcos.directory",
+              "secret" : null
+            }, {
+              "name" : "FRAMEWORK_NAME",
+              "type" : null,
+              "value" : "nifi",
+              "secret" : null
+            }, {
+              "name" : "FRAMEWORK_VIP_HOST",
+              "type" : null,
+              "value" : "nifi.l4lb.thisdcos.directory",
+              "secret" : null
+            }, {
+              "name" : "NIFI_BOOTSTRAP_JVM_MAX",
+              "type" : null,
+              "value" : "512",
+              "secret" : null
+            }, {
+              "name" : "NIFI_BOOTSTRAP_JVM_MIN",
+              "type" : null,
+              "value" : "512",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_FIREWALL_FILE",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_CANDIDATES",
+              "type" : null,
+              "value" : "3",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_WAIT_TIME",
+              "type" : null,
+              "value" : "1 mins",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_IS_NODE",
+              "type" : null,
+              "value" : "true",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_NODE_CONNECTION_TIMEOUT",
+              "type" : null,
+              "value" : "5 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_NODE_EVENT_HISTORY_SIZE",
+              "type" : null,
+              "value" : "25",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_NODE_PROTOCOL_PORT",
+              "type" : null,
+              "value" : "12000",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_NODE_PROTOCOL_THREADS",
+              "type" : null,
+              "value" : "10",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_NODE_READ_TIMEOUT",
+              "type" : null,
+              "value" : "5 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_PROTOCOL_HEARTBEAT_INTERVAL",
+              "type" : null,
+              "value" : "5 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CLUSTER_PROTOCOL_IS_SECURE",
+              "type" : null,
+              "value" : "false",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CN_DN_NODE_IDENTITY",
+              "type" : null,
+              "value" : "nifi",
+              "secret" : null
+            }, {
+              "name" : "NIFI_COMPONENTS_STATUS_REPOSITORY_BUFFER_SIZE",
+              "type" : null,
+              "value" : "1440",
+              "secret" : null
+            }, {
+              "name" : "NIFI_COMPONENTS_STATUS_SNAPSHOT_FREQUENCY",
+              "type" : null,
+              "value" : "1 mins",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CONTENT_CLAIM_MAX_APPENDABLE_SIZE",
+              "type" : null,
+              "value" : "10 MB",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CONTENT_CLAIM_MAX_FLOW_FILES",
+              "type" : null,
+              "value" : "100",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CONTENT_REPOSITORY_ALWAYS_SYNC",
+              "type" : null,
+              "value" : "false",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_ENABLED",
+              "type" : null,
+              "value" : "true",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_RETENTION_PERIOD",
+              "type" : null,
+              "value" : "12 hours",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_USAGE_PERCENTAGE",
+              "type" : null,
+              "value" : "50%",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CONTENT_REPOSITORY_DIRECTORY",
+              "type" : null,
+              "value" : "content-repository",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CONTENT_VIEWER_URL",
+              "type" : null,
+              "value" : "/nifi-content-viewer/",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_BORED_YIELD_DURATION",
+              "type" : null,
+              "value" : "10 millis",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_FLOWCONTROLLER_AUTORESUMESTATE",
+              "type" : null,
+              "value" : "true",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_FLOWCONTROLLER_GRACEFUL_SHUTDOWN_PERIOD",
+              "type" : null,
+              "value" : "10 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_FLOWSERVICE_WRITEDELAY_INTERVAL",
+              "type" : null,
+              "value" : "500 ms",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_ENABLED",
+              "type" : null,
+              "value" : "true",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_COUNT",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_STORAGE",
+              "type" : null,
+              "value" : "500 MB",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_TIME",
+              "type" : null,
+              "value" : "30 days",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_PROCESSOR_SCHEDULING_TIMEOUT",
+              "type" : null,
+              "value" : "1 mins",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_UI_AUTOREFRESH_INTERVAL",
+              "type" : null,
+              "value" : "30 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_CORE_UI_BANNER_TEXT",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_DATABASE_REPOSITORY_DIRECTORY",
+              "type" : null,
+              "value" : "database-repository",
+              "secret" : null
+            }, {
+              "name" : "NIFI_FLOWFILE_REPOSITORY_ALWAYS_SYNC",
+              "type" : null,
+              "value" : "false",
+              "secret" : null
+            }, {
+              "name" : "NIFI_FLOWFILE_REPOSITORY_CHECKPOINT_INTERVAL",
+              "type" : null,
+              "value" : "2 mins",
+              "secret" : null
+            }, {
+              "name" : "NIFI_FLOWFILE_REPOSITORY_DIRECTORY",
+              "type" : null,
+              "value" : "flowfile-repository",
+              "secret" : null
+            }, {
+              "name" : "NIFI_FLOWFILE_REPOSITORY_PARTITIONS",
+              "type" : null,
+              "value" : "256",
+              "secret" : null
+            }, {
+              "name" : "NIFI_FRAMEWORK_USER",
+              "type" : null,
+              "value" : "nobody",
+              "secret" : null
+            }, {
+              "name" : "NIFI_KERBEROS_AUTHENTICATION_EXPIRATION",
+              "type" : null,
+              "value" : "12 hours",
+              "secret" : null
+            }, {
+              "name" : "NIFI_KERBEROS_DEFAULT_REALM",
+              "type" : null,
+              "value" : "LOCAL",
+              "secret" : null
+            }, {
+              "name" : "NIFI_KERBEROS_SERVICE_PRINCIPAL",
+              "type" : null,
+              "value" : "nifiprincipal@LOCAL",
+              "secret" : null
+            }, {
+              "name" : "NIFI_KERBEROS_USER_PRINCIPAL",
+              "type" : null,
+              "value" : "nifiadmin@LOCAL",
+              "secret" : null
+            }, {
+              "name" : "NIFI_KILL_GRACE_PERIOD",
+              "type" : null,
+              "value" : "20",
+              "secret" : null
+            }, {
+              "name" : "NIFI_METRICS_FREQUENCY",
+              "type" : null,
+              "value" : "20",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_ALWAYS_SYNC",
+              "type" : null,
+              "value" : "false",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_BUFFER_SIZE",
+              "type" : null,
+              "value" : "100000",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_COMPRESS_ON_ROLLOVER",
+              "type" : null,
+              "value" : "true",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_CONCURRENT_MERGE_THREADS",
+              "type" : null,
+              "value" : "2",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_DEBUG_FREQUENCY",
+              "type" : null,
+              "value" : "1_000_000",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_DIRECTORY",
+              "type" : null,
+              "value" : "provenance-repository",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_ID",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_IMPLEMENTATION",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_LOCATION",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_ATTRIBUTES",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_FIELDS",
+              "type" : null,
+              "value" : "EventType, FlowFileUUID, Filename, ProcessorID, Relationship",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_SHARD_SIZE",
+              "type" : null,
+              "value" : "500 MB",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_THREADS",
+              "type" : null,
+              "value" : "2",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_JOURNAL_COUNT",
+              "type" : null,
+              "value" : "16",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_ATTRIBUTE_LENGTH",
+              "type" : null,
+              "value" : "65536",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_SIZE",
+              "type" : null,
+              "value" : "1 GB",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_TIME",
+              "type" : null,
+              "value" : "24 hours",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_QUERY_THREADS",
+              "type" : null,
+              "value" : "2",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_SIZE",
+              "type" : null,
+              "value" : "100 MB",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_TIME",
+              "type" : null,
+              "value" : "30 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_PROVENANCE_REPOSITORY_WARM_CACHE_FREQUENCY",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_QUEUE_SWAP_THRESHOLD",
+              "type" : null,
+              "value" : "20000",
+              "secret" : null
+            }, {
+              "name" : "NIFI_REMOTE_INPUT_HTTP_ENABLED",
+              "type" : null,
+              "value" : "true",
+              "secret" : null
+            }, {
+              "name" : "NIFI_REMOTE_INPUT_HTTP_TRANSACTION_TTL",
+              "type" : null,
+              "value" : "30 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_REMOTE_INPUT_SECURE",
+              "type" : null,
+              "value" : "false",
+              "secret" : null
+            }, {
+              "name" : "NIFI_REMOTE_INPUT_SOCKET_PORT",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SECURITY_NEEDCLIENTAUTH",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SECURITY_OCSP_RESPONDER_CERTIFICATE",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SECURITY_OCSP_RESPONDER_URL",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SECURITY_USER_AUTHORIZER",
+              "type" : null,
+              "value" : "file-provider",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SENSITIVE_PROPS_ADDITIONAL_KEYS",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SENSITIVE_PROPS_ALGORITHM",
+              "type" : null,
+              "value" : "PBEWITHMD5AND256BITAES-CBC-OPENSSL",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SENSITIVE_PROPS_KEY",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SENSITIVE_PROPS_KEY_PROTECTED",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SENSITIVE_PROPS_PROVIDER",
+              "type" : null,
+              "value" : "BC",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SWAP_IN_PERIOD",
+              "type" : null,
+              "value" : "5 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SWAP_IN_THREADS",
+              "type" : null,
+              "value" : "1",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SWAP_OUT_PERIOD",
+              "type" : null,
+              "value" : "5 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_SWAP_OUT_THREADS",
+              "type" : null,
+              "value" : "4",
+              "secret" : null
+            }, {
+              "name" : "NIFI_VARIABLE_REGISTRY_PROPERTIES",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_VERSION",
+              "type" : null,
+              "value" : "1.5.0",
+              "secret" : null
+            }, {
+              "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_BLOCK_SIZE",
+              "type" : null,
+              "value" : "32 KB",
+              "secret" : null
+            }, {
+              "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_MAX_SIZE",
+              "type" : null,
+              "value" : "100 MB",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_HTTPS_HOST",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_HTTPS_NETWORK_INTERFACE_DEFAULT",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_HTTPS_PORT",
+              "type" : null,
+              "value" : "1026",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_HTTP_HOST",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_HTTP_NETWORK_INTERFACE_DEFAULT",
+              "type" : null,
+              "value" : "",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_HTTP_PORT",
+              "type" : null,
+              "value" : "1025",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_JETTY_THREADS",
+              "type" : null,
+              "value" : "200",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_JETTY_WORKING_DIRECTORY",
+              "type" : null,
+              "value" : "./work/jetty",
+              "secret" : null
+            }, {
+              "name" : "NIFI_WEB_WAR_DIRECTORY",
+              "type" : null,
+              "value" : "./lib",
+              "secret" : null
+            }, {
+              "name" : "NIFI_ZOOKEEPER_CONNECT_STRING",
+              "type" : null,
+              "value" : "master.mesos:2181",
+              "secret" : null
+            }, {
+              "name" : "NIFI_ZOOKEEPER_CONNECT_TIMEOUT",
+              "type" : null,
+              "value" : "3 secs",
+              "secret" : null
+            }, {
+              "name" : "NIFI_ZOOKEEPER_SESSION_TIMEOUT",
+              "type" : null,
+              "value" : "3 secs",
+              "secret" : null
+            }, {
+              "name" : "NODE_CPUS",
+              "type" : null,
+              "value" : "1",
+              "secret" : null
+            }, {
+              "name" : "NODE_MEM",
+              "type" : null,
+              "value" : "4096",
+              "secret" : null
+            }, {
+              "name" : "PLACEMENT_REFERENCED_REGION",
+              "type" : null,
+              "value" : "true",
+              "secret" : null
+            }, {
+              "name" : "PLACEMENT_REFERENCED_ZONE",
+              "type" : null,
+              "value" : "false",
+              "secret" : null
+            }, {
+              "name" : "POD_INSTANCE_INDEX",
+              "type" : null,
+              "value" : "0",
+              "secret" : null
+            }, {
+              "name" : "PORT_WEB",
+              "type" : null,
+              "value" : "1025",
+              "secret" : null
+            }, {
+              "name" : "SCHEDULER_API_HOSTNAME",
+              "type" : null,
+              "value" : "api.nifi.marathon.l4lb.thisdcos.directory",
+              "secret" : null
+            }, {
+              "name" : "SECURITY_KERBEROS_DEBUG",
+              "type" : null,
+              "value" : "false",
+              "secret" : null
+            }, {
+              "name" : "SECURITY_KERBEROS_ENABLED",
+              "type" : null,
+              "value" : "false",
+              "secret" : null
+            }, {
+              "name" : "SECURITY_KERBEROS_KDC_HOSTNAME",
+              "type" : null,
+              "value" : "kdc.marathon.autoip.dcos.thisdcos.directory",
+              "secret" : null
+            }, {
+              "name" : "SECURITY_KERBEROS_KDC_PORT",
+              "type" : null,
+              "value" : "2500",
+              "secret" : null
+            }, {
+              "name" : "SECURITY_KERBEROS_PRIMARY",
+              "type" : null,
+              "value" : "nifi",
+              "secret" : null
+            }, {
+              "name" : "SECURITY_KERBEROS_REALM",
+              "type" : null,
+              "value" : "LOCAL",
+              "secret" : null
+            }, {
+              "name" : "TASK_NAME",
+              "type" : null,
+              "value" : "nifi-0-node",
+              "secret" : null
+            }, {
+              "name" : "nifi-0-node",
+              "type" : null,
+              "value" : "true",
+              "secret" : null
+            } ]
+          },
+          "shell" : null,
+          "value" : "# The Nifi node has started when it logs a specific \n# \"${TASK_NAME}.${FRAMEWORK_HOST}:$nifi_web_port is now connected\" log line. \n# An example is below:\n# 2018/03/05 11:11:37 nifi-0-node.nifi.autoip.dcos.thisdcos.directory:1025 is now connected.\nnifi_server_log_files=nifi-${NIFI_VERSION}/logs/nifi-app.log\nnifi_authorizations_file=$MESOS_SANDBOX/../../misc-repository/authorizations.xml\nnifi_host_name=${TASK_NAME}.${FRAMEWORK_HOST}\nnifi_web_port=${PORT_WEB}\nreadiness_info=`cat misc-repository/readiness-info.txt`\necho \"Executing shell script.\"\necho \"$readiness_info\"\nif [ \"$readiness_info\" == \"INSTALL\" ] ; then\n  echo \"Checking for successful log line in $nifi_server_log_files.\"\n  echo \"Looking for \\\"$nifi_host_name:$nifi_web_port is now connected or NiFi has started.\\\" in the server log file.\"\n  grep -q \"$nifi_host_name:$nifi_web_port is now connected\\|NiFi has started.\" $nifi_server_log_files\n  if [ $? -eq 0 ] ; then\n    echo \"Found started log line.\"\n    echo \"READY\" > misc-repository/readiness-info.txt\n    echo \"HOST=$nifi_host_name\" > misc-repository/url-info.properties\n    echo \"PORT=$nifi_web_port\" >> misc-repository/url-info.properties\n    echo \"AUTHORIZATIONS_FILE=$nifi_authorizations_file\" >> misc-repository/url-info.properties\n  else\n    echo \"started log line not found. Exiting.\"\n    exit 1\n  fi\n  echo \"Required log line found. Nifi is ready.\"\nelif [ $readiness_info == \"READY\" ] ; then\n  echo \"Nifi is ready.\"\n  misc_repo_path=../../misc-repository\n  usernodesecret=`cat usernode.keytab`\n  cp $misc_repo_path/readiness-info.txt .\n  cp $misc_repo_path/url-info.properties .\n  echo \"Executing Janitor program to clean the Nifi disconnected node.\"\n  export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH\n  java -jar nifi-janitor.jar readiness-info.txt url-info.properties ${SECURITY_KERBEROS_ENABLED} ${NIFI_KERBEROS_USER_PRINCIPAL} \"$usernodesecret\"\nelif [ $readiness_info == \"RUNNING\" ] ; then\n  echo \"Nifi is running.\"\n  misc_repo_path=../../misc-repository\n  usernodesecret=`cat usernode.keytab`\n  cp $misc_repo_path/readiness-info.txt .\n  cp $misc_repo_path/url-info.properties .\n  echo \"Executing Janitor program to clean the Nifi disconnected node.\"\n  export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH\n  java -jar nifi-janitor.jar readiness-info.txt url-info.properties ${SECURITY_KERBEROS_ENABLED} ${NIFI_KERBEROS_USER_PRINCIPAL} \"$usernodesecret\"\nfi\nexit 0\n",
+          "arguments" : [ ],
+          "user" : null
+        }
+      },
+      "http" : null,
+      "tcp" : null,
+      "delaySeconds" : 10.0,
+      "intervalSeconds" : 5.0,
+      "timeoutSeconds" : 120.0
+    },
+    "killPolicy" : {
+      "gracePeriod" : {
+        "nanoseconds" : 0
+      }
+    },
+    "data" : null,
+    "labels" : {
+      "labels" : [ {
+        "key" : "goal_state",
+        "value" : "RUNNING"
+      }, {
+        "key" : "index",
+        "value" : "0"
+      }, {
+        "key" : "offer_attributes",
+        "value" : ""
+      }, {
+        "key" : "offer_hostname",
+        "value" : "10.0.0.197"
+      }, {
+        "key" : "offer_region",
+        "value" : "aws/ap-southeast-2"
+      }, {
+        "key" : "offer_zone",
+        "value" : "aws/ap-southeast-2c"
+      }, {
+        "key" : "target_configuration",
+        "value" : "29bf852c-7e17-48ba-ac8e-84634fb99f86"
+      }, {
+        "key" : "task_type",
+        "value" : "nifi"
+      } ]
+    },
+    "discovery" : {
+      "visibility" : "CLUSTER",
+      "name" : "nifi-0-node",
+      "environment" : null,
+      "location" : null,
+      "version" : null,
+      "ports" : {
+        "ports" : [ {
+          "number" : 1025,
+          "name" : "node",
+          "protocol" : "tcp",
+          "visibility" : "EXTERNAL",
+          "labels" : {
+            "labels" : [ {
+              "key" : "VIP_cbdf1bcf-2363-40b9-85f9-0894453e3282",
+              "value" : "node:1025"
+            } ]
+          }
+        } ]
+      },
+      "labels" : null
+    }
+  },
+  "status" : {
+    "taskId" : {
+      "value" : "nifi-0-node__8f0a64cb-1b65-4e15-8446-35d81c2d8129"
+    },
+    "state" : "TASK_RUNNING",
+    "message" : null,
+    "source" : "SOURCE_EXECUTOR",
+    "reason" : "REASON_TASK_CHECK_STATUS_UPDATED",
+    "data" : null,
+    "slaveId" : {
+      "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-S4"
+    },
+    "executorId" : {
+      "value" : "nifi__4e03dd7d-8635-47e6-ade6-db0995dedb8a"
+    },
+    "timestamp" : 1.5266533810304341E9,
+    "uuid" : "64gHf/tlSFCZIPKoCce8tQ==",
+    "healthy" : null,
+    "checkStatus" : {
+      "type" : "COMMAND",
+      "command" : {
+        "exitCode" : 0
+      },
+      "http" : null,
+      "tcp" : null
+    },
+    "labels" : null,
+    "containerStatus" : {
+      "containerId" : {
+        "value" : "698604de-538f-4baa-b7b6-80bf9e6171f3",
+        "parent" : {
+          "value" : "06131b60-ffc2-4721-977e-881518b5547a",
+          "parent" : null
+        }
+      },
+      "networkInfos" : [ {
+        "ipAddresses" : [ {
+          "protocol" : null,
+          "ipAddress" : "10.0.0.197"
+        } ],
+        "name" : null,
+        "groups" : [ ],
+        "labels" : null,
+        "portMappings" : [ ]
+      } ],
+      "cgroupInfo" : null,
+      "executorPid" : 7710
+    },
+    "unreachableTime" : null
+  }
+}, {
+  "info" : {
+    "name" : "nifi-0-restart-cleanup",
+    "taskId" : {
+      "value" : ""
+    },
+    "slaveId" : {
+      "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-S4"
+    },
+    "resources" : [ {
+      "providerId" : null,
+      "name" : "cpus",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 0.5
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "7e02eed8-0968-4212-86a9-929ff376d4ed"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    }, {
+      "providerId" : null,
+      "name" : "mem",
+      "type" : "SCALAR",
+      "scalar" : {
+        "value" : 512.0
+      },
+      "ranges" : null,
+      "set" : null,
+      "role" : null,
+      "allocationInfo" : null,
+      "reservation" : null,
+      "reservations" : [ {
+        "type" : "DYNAMIC",
+        "role" : "nifi-role",
+        "principal" : "nifi-principal",
+        "labels" : {
+          "labels" : [ {
+            "key" : "resource_id",
+            "value" : "71dc9b48-33cd-440d-9d02-d0fb44c8e014"
+          } ]
+        }
+      } ],
+      "disk" : null,
+      "revocable" : null,
+      "shared" : null
+    } ],
+    "executor" : {
+      "type" : "DEFAULT",
+      "executorId" : {
+        "value" : "nifi__4e03dd7d-8635-47e6-ade6-db0995dedb8a"
+      },
+      "frameworkId" : {
+        "value" : "f16589ce-d94e-44ee-9663-f2a6ca8809e0-0007"
+      },
+      "command" : null,
+      "container" : {
+        "type" : "MESOS",
+        "volumes" : [ ],
+        "hostname" : null,
+        "docker" : null,
+        "mesos" : null,
+        "networkInfos" : [ ],
+        "linuxInfo" : null,
+        "rlimitInfo" : {
+          "rlimits" : [ {
+            "type" : "RLMT_NOFILE",
+            "hard" : 50000,
+            "soft" : 50000
+          }, {
+            "type" : "RLMT_NPROC",
+            "hard" : 10000,
+            "soft" : 10000
+          } ]
+        },
+        "ttyInfo" : null
+      },
+      "resources" : [ {
+        "providerId" : null,
+        "name" : "cpus",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 0.1
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "2f853459-817e-4b7d-aac4-734f77da6f87"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      }, {
+        "providerId" : null,
+        "name" : "mem",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 32.0
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "d38648f9-9c11-4fea-97cc-65ba144e2b44"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      }, {
+        "providerId" : null,
+        "name" : "disk",
+        "type" : "SCALAR",
+        "scalar" : {
+          "value" : 256.0
+        },
+        "ranges" : null,
+        "set" : null,
+        "role" : null,
+        "allocationInfo" : null,
+        "reservation" : null,
+        "reservations" : [ {
+          "type" : "DYNAMIC",
+          "role" : "nifi-role",
+          "principal" : "nifi-principal",
+          "labels" : {
+            "labels" : [ {
+              "key" : "resource_id",
+              "value" : "655888c9-885e-44c8-9105-fbdcd87a83fd"
+            } ]
+          }
+        } ],
+        "disk" : null,
+        "revocable" : null,
+        "shared" : null
+      } ],
+      "name" : "nifi",
+      "source" : null,
+      "data" : null,
+      "discovery" : null,
+      "shutdownGracePeriod" : null,
+      "labels" : {
+        "labels" : [ {
+          "key" : "DCOS_SPACE",
+          "value" : "/nifi"
+        } ]
+      }
+    },
+    "command" : {
+      "uris" : [ {
+        "value" : "https://downloads.mesosphere.com/java/server-jre-8u162-linux-x64.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://downloads.mesosphere.com/dcos-commons/artifacts/0.40.2/bootstrap.zip",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-us-west-1.amazonaws.com/nifi-binary/nifi-1.5.0-bin.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "http://downloads.mesosphere.com/dcos-commons/artifacts/0.40.2/executor.zip",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-ap-southeast-2.amazonaws.com/nifi-toolkit/nifi-toolkit-1.5.0-bin.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-janitor.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-statsd.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://devdcos3.s3.amazonaws.com/autodelete7d/nifi/20180518-141627-MKsCyLUzJH3VtAzw/nifi-api-access.jar",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      }, {
+        "value" : "https://s3-us-west-1.amazonaws.com/nifi-python/python-2.7.14.tar.gz",
+        "executable" : null,
+        "extract" : null,
+        "cache" : null,
+        "outputFile" : null
+      } ],
+      "environment" : {
+        "variables" : [ {
+          "name" : "FRAMEWORK_HOST",
+          "type" : null,
+          "value" : "nifi.autoip.dcos.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_NAME",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "FRAMEWORK_VIP_HOST",
+          "type" : null,
+          "value" : "nifi.l4lb.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "NIFI_BOOTSTRAP_JVM_MAX",
+          "type" : null,
+          "value" : "512",
+          "secret" : null
+        }, {
+          "name" : "NIFI_BOOTSTRAP_JVM_MIN",
+          "type" : null,
+          "value" : "512",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FIREWALL_FILE",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_CANDIDATES",
+          "type" : null,
+          "value" : "3",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_FLOW_ELECTION_MAX_WAIT_TIME",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_IS_NODE",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_CONNECTION_TIMEOUT",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_EVENT_HISTORY_SIZE",
+          "type" : null,
+          "value" : "25",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_PROTOCOL_PORT",
+          "type" : null,
+          "value" : "12000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_PROTOCOL_THREADS",
+          "type" : null,
+          "value" : "10",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_NODE_READ_TIMEOUT",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_PROTOCOL_HEARTBEAT_INTERVAL",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CLUSTER_PROTOCOL_IS_SECURE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CN_DN_NODE_IDENTITY",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "NIFI_COMPONENTS_STATUS_REPOSITORY_BUFFER_SIZE",
+          "type" : null,
+          "value" : "1440",
+          "secret" : null
+        }, {
+          "name" : "NIFI_COMPONENTS_STATUS_SNAPSHOT_FREQUENCY",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_CLAIM_MAX_APPENDABLE_SIZE",
+          "type" : null,
+          "value" : "10 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_CLAIM_MAX_FLOW_FILES",
+          "type" : null,
+          "value" : "100",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_RETENTION_PERIOD",
+          "type" : null,
+          "value" : "12 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_ARCHIVE_MAX_USAGE_PERCENTAGE",
+          "type" : null,
+          "value" : "50%",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "content-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CONTENT_VIEWER_URL",
+          "type" : null,
+          "value" : "/nifi-content-viewer/",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_BORED_YIELD_DURATION",
+          "type" : null,
+          "value" : "10 millis",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWCONTROLLER_AUTORESUMESTATE",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWCONTROLLER_GRACEFUL_SHUTDOWN_PERIOD",
+          "type" : null,
+          "value" : "10 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOWSERVICE_WRITEDELAY_INTERVAL",
+          "type" : null,
+          "value" : "500 ms",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_COUNT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_STORAGE",
+          "type" : null,
+          "value" : "500 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_FLOW_CONFIGURATION_ARCHIVE_MAX_TIME",
+          "type" : null,
+          "value" : "30 days",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_PROCESSOR_SCHEDULING_TIMEOUT",
+          "type" : null,
+          "value" : "1 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_UI_AUTOREFRESH_INTERVAL",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_CORE_UI_BANNER_TEXT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_DATABASE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "database-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_CHECKPOINT_INTERVAL",
+          "type" : null,
+          "value" : "2 mins",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "flowfile-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FLOWFILE_REPOSITORY_PARTITIONS",
+          "type" : null,
+          "value" : "256",
+          "secret" : null
+        }, {
+          "name" : "NIFI_FRAMEWORK_USER",
+          "type" : null,
+          "value" : "nobody",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_AUTHENTICATION_EXPIRATION",
+          "type" : null,
+          "value" : "12 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_DEFAULT_REALM",
+          "type" : null,
+          "value" : "LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_SERVICE_PRINCIPAL",
+          "type" : null,
+          "value" : "nifiprincipal@LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KERBEROS_USER_PRINCIPAL",
+          "type" : null,
+          "value" : "nifiadmin@LOCAL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_KILL_GRACE_PERIOD",
+          "type" : null,
+          "value" : "20",
+          "secret" : null
+        }, {
+          "name" : "NIFI_METRICS_FREQUENCY",
+          "type" : null,
+          "value" : "20",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ALWAYS_SYNC",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_BUFFER_SIZE",
+          "type" : null,
+          "value" : "100000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_COMPRESS_ON_ROLLOVER",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_CONCURRENT_MERGE_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_DEBUG_FREQUENCY",
+          "type" : null,
+          "value" : "1_000_000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_DIRECTORY",
+          "type" : null,
+          "value" : "provenance-repository",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_ID",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_IMPLEMENTATION",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ENCRYPTION_KEY_PROVIDER_LOCATION",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_ATTRIBUTES",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEXED_FIELDS",
+          "type" : null,
+          "value" : "EventType, FlowFileUUID, Filename, ProcessorID, Relationship",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_SHARD_SIZE",
+          "type" : null,
+          "value" : "500 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_INDEX_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_JOURNAL_COUNT",
+          "type" : null,
+          "value" : "16",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_ATTRIBUTE_LENGTH",
+          "type" : null,
+          "value" : "65536",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_SIZE",
+          "type" : null,
+          "value" : "1 GB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_MAX_STORAGE_TIME",
+          "type" : null,
+          "value" : "24 hours",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_QUERY_THREADS",
+          "type" : null,
+          "value" : "2",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_SIZE",
+          "type" : null,
+          "value" : "100 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_ROLLOVER_TIME",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_PROVENANCE_REPOSITORY_WARM_CACHE_FREQUENCY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_QUEUE_SWAP_THRESHOLD",
+          "type" : null,
+          "value" : "20000",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_HTTP_ENABLED",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_HTTP_TRANSACTION_TTL",
+          "type" : null,
+          "value" : "30 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_SECURE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "NIFI_REMOTE_INPUT_SOCKET_PORT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_NEEDCLIENTAUTH",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_OCSP_RESPONDER_CERTIFICATE",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_OCSP_RESPONDER_URL",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_USER_AUTHORIZER",
+          "type" : null,
+          "value" : "file-provider",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_ADDITIONAL_KEYS",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_ALGORITHM",
+          "type" : null,
+          "value" : "PBEWITHMD5AND256BITAES-CBC-OPENSSL",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_KEY",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_KEY_PROTECTED",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SENSITIVE_PROPS_PROVIDER",
+          "type" : null,
+          "value" : "BC",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_IN_PERIOD",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_IN_THREADS",
+          "type" : null,
+          "value" : "1",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_OUT_PERIOD",
+          "type" : null,
+          "value" : "5 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_SWAP_OUT_THREADS",
+          "type" : null,
+          "value" : "4",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VARIABLE_REGISTRY_PROPERTIES",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VERSION",
+          "type" : null,
+          "value" : "1.5.0",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_BLOCK_SIZE",
+          "type" : null,
+          "value" : "32 KB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_VOLATILE_CONTENT_REPOSITORY_MAX_SIZE",
+          "type" : null,
+          "value" : "100 MB",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_HOST",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_NETWORK_INTERFACE_DEFAULT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTPS_PORT",
+          "type" : null,
+          "value" : "1026",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_HOST",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_NETWORK_INTERFACE_DEFAULT",
+          "type" : null,
+          "value" : "",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_HTTP_PORT",
+          "type" : null,
+          "value" : "1025",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_JETTY_THREADS",
+          "type" : null,
+          "value" : "200",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_JETTY_WORKING_DIRECTORY",
+          "type" : null,
+          "value" : "./work/jetty",
+          "secret" : null
+        }, {
+          "name" : "NIFI_WEB_WAR_DIRECTORY",
+          "type" : null,
+          "value" : "./lib",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_CONNECT_STRING",
+          "type" : null,
+          "value" : "master.mesos:2181",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_CONNECT_TIMEOUT",
+          "type" : null,
+          "value" : "3 secs",
+          "secret" : null
+        }, {
+          "name" : "NIFI_ZOOKEEPER_SESSION_TIMEOUT",
+          "type" : null,
+          "value" : "3 secs",
+          "secret" : null
+        }, {
+          "name" : "PLACEMENT_REFERENCED_REGION",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "PLACEMENT_REFERENCED_ZONE",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "POD_INSTANCE_INDEX",
+          "type" : null,
+          "value" : "0",
+          "secret" : null
+        }, {
+          "name" : "SCHEDULER_API_HOSTNAME",
+          "type" : null,
+          "value" : "api.nifi.marathon.l4lb.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_DEBUG",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_ENABLED",
+          "type" : null,
+          "value" : "false",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_KDC_HOSTNAME",
+          "type" : null,
+          "value" : "kdc.marathon.autoip.dcos.thisdcos.directory",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_KDC_PORT",
+          "type" : null,
+          "value" : "2500",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_PRIMARY",
+          "type" : null,
+          "value" : "nifi",
+          "secret" : null
+        }, {
+          "name" : "SECURITY_KERBEROS_REALM",
+          "type" : null,
+          "value" : "LOCAL",
+          "secret" : null
+        }, {
+          "name" : "TASK_NAME",
+          "type" : null,
+          "value" : "nifi-0-restart-cleanup",
+          "secret" : null
+        }, {
+          "name" : "nifi-0-restart-cleanup",
+          "type" : null,
+          "value" : "true",
+          "secret" : null
+        }, {
+          "name" : "REGION",
+          "type" : null,
+          "value" : "aws/ap-southeast-2",
+          "secret" : null
+        }, {
+          "name" : "ZONE",
+          "type" : null,
+          "value" : "aws/ap-southeast-2c",
+          "secret" : null
+        } ]
+      },
+      "shell" : null,
+      "value" : "# Clean Nifi Application i.e. remove all disconnected node.\nmisc_repo_path=../../misc-repository\nsleep 180\nusernodesecret=`cat usernode.keytab`\ncp $misc_repo_path/readiness-info.txt .\ncp $misc_repo_path/url-info.properties .\necho \"Executing Janitor program to clean the Nifi disconnected node.\"\nexport JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH\njava -jar nifi-janitor.jar readiness-info.txt url-info.properties ${SECURITY_KERBEROS_ENABLED} ${NIFI_KERBEROS_USER_PRINCIPAL} \"$usernodesecret\"\n",
+      "arguments" : [ ],
+      "user" : "nobody"
+    },
+    "container" : {
+      "type" : "MESOS",
+      "volumes" : [ ],
+      "hostname" : null,
+      "docker" : null,
+      "mesos" : null,
+      "networkInfos" : [ ],
+      "linuxInfo" : {
+        "capabilityInfo" : null,
+        "boundingCapabilities" : null,
+        "effectiveCapabilities" : null,
+        "sharePidNamespace" : false
+      },
+      "rlimitInfo" : {
+        "rlimits" : [ {
+          "type" : "RLMT_NOFILE",
+          "hard" : 50000,
+          "soft" : 50000
+        }, {
+          "type" : "RLMT_NPROC",
+          "hard" : 10000,
+          "soft" : 10000
+        } ]
+      },
+      "ttyInfo" : null
+    },
+    "healthCheck" : null,
+    "check" : null,
+    "killPolicy" : {
+      "gracePeriod" : {
+        "nanoseconds" : 0
+      }
+    },
+    "data" : null,
+    "labels" : {
+      "labels" : [ {
+        "key" : "goal_state",
+        "value" : "ONCE"
+      }, {
+        "key" : "index",
+        "value" : "0"
+      }, {
+        "key" : "offer_attributes",
+        "value" : ""
+      }, {
+        "key" : "offer_hostname",
+        "value" : "10.0.0.197"
+      }, {
+        "key" : "offer_region",
+        "value" : "aws/ap-southeast-2"
+      }, {
+        "key" : "offer_zone",
+        "value" : "aws/ap-southeast-2c"
+      }, {
+        "key" : "target_configuration",
+        "value" : "29bf852c-7e17-48ba-ac8e-84634fb99f86"
+      }, {
+        "key" : "task_type",
+        "value" : "nifi"
+      } ]
+    },
+    "discovery" : null
+  },
+  "status" : null
+} ]
+```
 
 CLI Example
 
