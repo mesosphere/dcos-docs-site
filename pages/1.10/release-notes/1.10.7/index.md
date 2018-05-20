@@ -7,17 +7,18 @@ excerpt:
 ---
 These are the release notes for DC/OS 1.10.7
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.6/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 DC/OS 1.10.7 includes the following:
-- Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)
-- Marathon 1.5.7 [change log](https://github.com/mesosphere/marathon/blob/v1.5.7/changelog.md)
-- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/blob/v0.4.2/changelog.md)
+- Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/621ac66716a8606c498c14cc57298af3f1b15597/CHANGELOG)
+- Marathon 1.5.8 [change log](https://github.com/mesosphere/marathon/blob/v1.5.8/changelog.md)
+- Metronome 0.5.0 [change log](https://github.com/dcos/metronome/blob/v0.5.0/changelog.md)
 
 
 # Issues Fixed in DC/OS 1.10.7
 
+- DCOS-21596 - Prevented username conflict where LDAP username matched a local username during group import.[enterprise type="inline" size="small" /]
 
 # Notable Changes in DC/OS 1.10.7
 
