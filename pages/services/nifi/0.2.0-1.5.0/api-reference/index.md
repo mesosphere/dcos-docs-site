@@ -3,20 +3,20 @@ layout: layout.pug
 navigationTitle:  API Reference
 title: API Reference
 menuWeight: 70
-excerpt: DC/OS Apache NiFi Service API Reference
+excerpt: DC/OS NiFi Service API Reference
 featureMaturity:
 enterprise: false
 ---
 
 <!-- {% raw %} disable mustache templating in this file: retain nifid examples as-is -->
 
-The DC/OS Apache NiFi Service implements a REST API that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS Apache NiFfi Service is deployed.
+The DC/OS NiFi Service implements a REST API that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS Apache NiFfi Service is deployed.
 
 <a name="#rest-auth"></a>
 # REST API Authentication
 REST API requests must be authenticated. This authentication is only applicable for interacting with the DC/OS Apache NiFi REST API directly. You do not need the token to access the Apache NiFi nodes themselves.
 
-If you are using Enterprise DC/OS, follow these instructions to [create a service account](../security/serviceaccountdetail.md) and an [authentication token](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. 
+If you are using Enterprise DC/OS, follow these instructions to [create a service account](../security/serviceaccountdetail.md) and an [authentication token](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires.
 
 Once you have the authentication token, you can store it in an environment variable and reference it in your REST API calls:
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  diagnostictools
+navigationTitle: Diagnostic Tools
 title: Diagnostic Tools
 menuWeight: 23
 excerpt: Troubleshooting clusters
@@ -64,8 +64,8 @@ _Figure 6. - Tasks running in a framework_
 In the list above, you can see separate lists of active and completed tasks:
 
    - Active tasks are still running. These give a picture of the current activity of the service.
-   - Completed tasks have exited for some reason, whether successfully or due to a failure. These give a picture of recent activity of the service. 
-    
+   - Completed tasks have exited for some reason, whether successfully or due to a failure. These give a picture of recent activity of the service.
+
 **Note:** Older completed tasks will be automatically deleted, and their data may no longer be available here.
 
 Either or both of these lists may be useful, depending on the context. Click on the Sandbox link for one of these tasks and then start looking at sandbox content. Files named `stderr` and `stdout` contain logs produced by the SDK Executor process (a small wrapper around the service task), as well as any logs produced by the task itself. These files are automatically paginated at 2MB increments, so older logs may also be examined until they are automatically pruned.
@@ -104,7 +104,7 @@ DC/OS 1.9 introduced the task `exec command`, which can be used to run.
 
    - SSH keys for accessing your configured cluster (such as via `ssh-add`). SSH is used behind the scenes to get into the cluster.
    - A recent version of the [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/) with support for the `task exec` command
-    
+
 ### Using `dcos task exec`    
 
 Once you are set up, running commands is very straightforward. For example, assume the list of tasks from the CLI logs section above. There are two `broker-0` tasks, one named `broker-0__81f56cc1-7b3d-4003-8c21-a9cd45ea6a21` and another named `broker-0__75bcf7fd-7831-4f70-9cb8-9cb6693f4237`. Unlike with task logs, you can only run `task exec` on one command at a time, so if two tasks match the task filter then you see the following error:
@@ -146,7 +146,7 @@ _Figure 13. - Output of `hello-world`_
 **Warning:** This option should only be used as a last resort. Modifying anything in ZooKeeper directly may cause your service to behave in unpredictable ways.
 
 DC/OS comes with Exhibitor, a commonly used front-end for viewing ZooKeeper. Exhibitor may be accessed at `<dcos-url/exhibitor>`. A given SDK service will have a node named `dcos-service-<svcname>` visible here. This is where the Scheduler puts its state, so that it is not lost if the Scheduler is restarted. In practice, it is far easier to access this information via the Scheduler API (or via the service CLI) as described earlier, but direct access using Exhibitor can be useful in situations where the Scheduler itself is unavailable or otherwise unable to serve requests.
-	
+
 [<img src="../service/14_zookeeper_exhibitor.png" alt="zookeeper exhibitor" width="700"/>](../service/14_zookeeper_exhibitor.png)
 
 _Figure 14. - Exhibitor for ZooKeeper directory_

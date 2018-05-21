@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  diagnostictools
+navigationTitle: Diagnostic Tools
 title: Diagnostic Tools
 menuWeight: 23
 excerpt: Troubleshooting clusters
@@ -65,7 +65,7 @@ _Figure 6. - Tasks running in a framework_
 In the list above, we see separate lists of Active and Completed tasks:
 
 - Active tasks are still running. These give a picture of the current activity of the service.
-- Completed tasks have exited for some reason, whether successfully or due to a failure. These give a picture of recent activity of the service. 
+- Completed tasks have exited for some reason, whether successfully or due to a failure. These give a picture of recent activity of the service.
 
 **Note:** Older completed tasks will be automatically deleted and their data may no longer be available here.
 
@@ -105,7 +105,7 @@ DC/OS 1.9 introduced the task exec command, which can be used to run.
 
 - SSH keys for accessing your cluster configured, for example, via `ssh-add`. SSH is used behind the scenes to get into the cluster.
 - A recent version of the [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/) with support for the `task exec` command.
-    
+
 ### Using dcos task exec    
 
 Once you are set up, running commands is very straightforward. For example, let’s assume the list of tasks from the CLI logs section above, where there’s two broker-0 tasks, one named broker-0__81f56cc1-7b3d-4003-8c21-a9cd45ea6a21 and another named broker-0__75bcf7fd-7831-4f70-9cb8-9cb6693f4237. Unlike with task logs, we can only run task exec on one command at a time, so if two tasks match the task filter then we see the following error:
@@ -147,7 +147,7 @@ _Figure 13. - Output of `hello-world`_
 **Warning:** This option should only be used as a last resort. Modifying anything in ZooKeeper directly may cause your service to behave in unpredictable ways.
 
 DC/OS comes with Exhibitor, a commonly used frontend for viewing ZooKeeper. Exhibitor may be accessed at dcos-url/exhibitor. A given SDK service will have a node named dcos-service-<svcname> visible here. This is where the Scheduler puts its state, so that it isn’t lost if the Scheduler is restarted. In practice it is far easier to access this information via the Scheduler API (or via the service CLI) as described earlier, but direct access using Exhibitor can be useful in situations where the Scheduler itself is unavailable or otherwise unable to serve requests.
-	
+
 [<img src="../service/14_zookeeper_exhibitor.png" alt="zookeeper exhibitor" width="700"/>](../service/14_zookeeper_exhibitor.png)
 
 _Figure 14. - Exhibitor for ZooKeeper directory_

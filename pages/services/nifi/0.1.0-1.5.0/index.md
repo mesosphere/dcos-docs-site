@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  DSE 2.0.2-5.1.2
-title: DSE 2.0.2-5.1.2
+navigationTitle: NiFi 0.1.0 - 1.5.0
+title: NiFi 0.1.0 - 1.5.0
 menuWeight: 60
-excerpt: Overview of DC/OS NiFi Service
+excerpt: Overview of DC/OS Apache NiFi 0.1.0 - 1.5.0
 featureMaturity:
 enterprise: false
 ---
@@ -16,10 +16,10 @@ DC/OS NiFi Service is an automated service that makes it easy to deploy and mana
 
 DC/OS NiFi Service offers the following benefits of a semi-managed service:
 
-1. Easy installation 
-2. Multiple NiFi clusters 
+1. Easy installation
+2. Multiple NiFi clusters
 3. Elastic scaling of nodes
-4. Replication and graceful shutdown for high availability 
+4. Replication and graceful shutdown for high availability
 5. NiFi cluster and node monitoring
 
 DC/OS NiFi Service provides the following features:
@@ -32,20 +32,3 @@ DC/OS NiFi Service provides the following features:
 6. Integration with `statsd`-compatible metrics services for capacity and performance monitoring
 
 # DC/OS NiFi Service Documentation
-
-## Table of Contents
-
-- [Overview](overview/index.md)
-- [Install and Customize](install/index.md)
-- [Deployment Best Practices](deploymentbestpractice/index.md)
-- [Security](security/index.md)
-- [Uninstall](uninstall/index.md)
-- [Command Reference](command-reference/index.md)
-- [Connecting Clients](connecting-clients/index.md)
-- [Managing](managing/index.md)
-- [Diagnostic Tools](diagnostictools/index.md)
-- [API Reference](api-reference/index.md)
-- [Troubleshooting](troubleshooting/index.md)
-- [Limitations](limitations/index.md)
-- [Supported Versions](supported-versions/index.md)
-- [Release Notes](release-notes/index.md)
