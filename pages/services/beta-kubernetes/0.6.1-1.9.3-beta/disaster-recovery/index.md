@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Disaster Recovery
 title: Disaster Recovery
 menuWeight: 80
-excerpt:
+excerpt: Backing up and restoring a Kubernetes cluster
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
@@ -43,7 +43,7 @@ must be installed and some steps need to be fulfilled.
   aws iam create-access-key --user-name heptio-ark
   ```
 
-## Backup the cluster
+## Back up the cluster
 
 ```
 usage: dcos beta-kubernetes backup [<flags>]
@@ -68,7 +68,7 @@ $ dcos beta-kubernetes backup --aws-region=us-east1-d --aws-bucket=my_bucket --a
 Backup has been successfully created!
 ```
 
-**IMPORTANT:** this package doesn not manage S3 buckets so its usage should be monitored by the user.
+**Warning:** This package does not manage S3 buckets, so its usage should be monitored by the user.
 
 ## Restore the cluster
 

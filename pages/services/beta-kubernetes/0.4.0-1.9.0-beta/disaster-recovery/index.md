@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Disaster Recovery
 title: Disaster Recovery
 menuWeight: 90
-excerpt:
+excerpt: Backing up and restoring a Kubernetes cluster
 enterprise: false
 ---
 
@@ -31,7 +31,7 @@ must be installed and some steps need to be fulfilled.
   aws iam attach-user-policy \
     --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess \
     --user-name heptio-ark
-aws iam attach-user-policy \
+  aws iam attach-user-policy \
     --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess \
     --user-name heptio-ark
   ```
@@ -41,7 +41,7 @@ aws iam attach-user-policy \
   aws iam create-access-key --user-name heptio-ark
   ```
 
-## Backup the cluster
+## Back up the cluster
 
 ```
 usage: dcos kubernetes [<flags>] backup [<flags>] [<backup-name>]
@@ -80,7 +80,7 @@ Starting backup process [kubernetes]...
 
 ```
 
-**IMPORTANT:** this package doesn not manage S3 buckets so its usage should be monitored by the user.
+**Warning:** This package does not manage S3 buckets, so its usage should be monitored by the user.
 
 ## Restore the cluster
 
