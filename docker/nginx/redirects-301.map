@@ -8,11 +8,13 @@
 /services/confluent-kafka/2.2.0-4.0.0e/11-release-notes/ /services/confluent-kafka/2.2.0-4.0.0e/release-notes/;
 /services/confluent-zookeeper/2.2.0-4.0.0e/11-release-notes/ /services/confluent-zookeeper/2.2.0-4.0.0e/release-notes/;
 /services/kafka/2.2.0-1.0.0/11-release-notes/ /services/kafka/2.2.0-1.0.0/release-notes/;
+/services/kafka/v1.1.19.1-0.10.1.0/uninstall/1.9/deploying-services/uninstall/ /1.9/deploying-services/uninstall/;
 /services/kafka-zookeeper/2.2.0-3.4.11/11-release-notes/ /services/kafka-zookeeper/2.2.0-3.4.11/release-notes/;
 /services/dse/2.1.2-5.1.2/11-release-notes/ /services/dse/2.1.2-5.1.2/release-notes/;
 /services/cassandra/2.1.0-3.0.16/11-release-notes/ /services/cassandra/2.1.0-3.0.16/release-notes/;
 /services/elastic/2.3.0-5.6.5/11-release-notes/ /services/elastic/2.3.0-5.6.5/release-notes/;
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
+/1.11/img/ui-installer-auth2.png/ /1.11/img/ui-installer-auth2.png/;
 /1.11/installing/high-availability/ /1.11/installing/oss/high-availability;
 /1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
@@ -371,6 +373,7 @@
 /1.8/administration/telemetry/ /1.8/overview/telemetry/;
 /1.8/administration/user-management/ /1.8/administration/id-and-access-mgt/user-management/;
 /1.8/networking/mesos-dns/http-interface/ /1.8/networking/mesos-dns/mesos-dns-api/;
+/1.8/usage/img/ui-dashboard-network.gif/ /1.11/img/ui-dashboard-network.gif/;
 /1.8/usage/managing-services/application-basics/ /1.8/usage/managing-services/creating-services/;
 /1.8/usage/managing-services/application-basics/deploy-docker-app/ /1.8/usage/managing-services/creating-services/deploy-docker-app/;
 /1.8/usage/managing-services/config/ /1.8/usage/managing-services/config-universe-service/;
