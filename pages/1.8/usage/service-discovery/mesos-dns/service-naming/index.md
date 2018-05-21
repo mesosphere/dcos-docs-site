@@ -200,6 +200,8 @@ The following table shows the rules that govern SRV generation:
 
 </table>
 
+_Table 1. - SRV generation rules_
+
 # <a name="other-records"></a>Other Records
 
 Mesos-DNS generates a few special records:
