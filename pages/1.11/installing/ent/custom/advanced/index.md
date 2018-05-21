@@ -191,7 +191,8 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 **Important:**
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.11/installing/ent/troubleshooting/).
+- Due to an issue in DC/OS 1.11.0, 1.11.1, and 1.11.2, we currently recommend setting `enable_ipv6` to `false` in `config.yaml` when upgrading _or_ configuring a new cluster.  If you have already upgraded to DC/OS 1.11.x with `enable_ipv6` not configured or set to `true` in `config.yaml`, we recommend not to add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical product advisory.
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. You can see troubleshooting [here](/1.11/installing/ent/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][2].
 
 **Prerequisites**
