@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Troubleshooting
-title: Troubleshooting 
+title: Troubleshooting
 menuWeight: 400
 excerpt: Troubleshooting a DC/OS Enterprise installation
 
@@ -39,7 +39,7 @@ enterprise: false
     1. Exhibitor
     1. Mesos master
     1. Mesos DNS
-    1. DNS Dispatcher
+    1. DNS Dispatcher (Spartan)
     1. DC/OS Marathon
     1. Jobs
     1. Admin Router
@@ -58,7 +58,7 @@ enterprise: false
 
 1. Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
-   Ensure that services that bind to port `53`, which is required by DNS Dispatcher (`dcos-net.service`), are disabled and stopped. For example:
+   Ensure that services that bind to port `53`, which is required by DNS Dispatcher (`docs-spartan.service`), are disabled and stopped. For example:
 
    ```bash
    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
@@ -110,10 +110,10 @@ enterprise: false
 
             **Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 
-1.  Verify whether you can ping the DNS Dispatcher (`ready.dcos-net`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
+1.  Verify whether you can ping the DNS Dispatcher (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
     ```bash
-    journalctl -flu dcos-net
+    journalctl -flu dcos-spartan
     ```
 
 1.  Verify that you can ping `⁠⁠⁠⁠leader.mesos` and ﻿⁠⁠⁠⁠`master.mesos`. If not:
@@ -124,7 +124,7 @@ enterprise: false
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
        ```
 
-    -  If you are able to ping `ready.dcos-net`, but not `leader.mesos`, review the Mesos master service logs by using this command:
+    -  If you are able to ping `ready.spartan`, but not `leader.mesos`, review the Mesos master service logs by using this command:
 
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
