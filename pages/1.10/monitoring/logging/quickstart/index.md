@@ -52,8 +52,6 @@ Deploy a sample Marathon app for use in this quick start guide.
 
 You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `dcos task log` command. In this example, a task is launched and the stderr and stdout logs from Mesos are accessed.
 
-You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `dcos task log` command. In this example, a task is launched and the stderr and stdout logs from Mesos are accessed.
-
 1.  Run this command to view the stdout logs, where `<task_id>` is the task ID:
 
     ```bash
