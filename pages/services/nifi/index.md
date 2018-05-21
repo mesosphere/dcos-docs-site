@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: NiFi
 menuWeight: 20
 excerpt:
 featureMaturity:
-enterprise: true
+enterprise: false
 ---
 
 Welcome to the documentation for DC/OS Apache NiFi. Choose a version to get started!
