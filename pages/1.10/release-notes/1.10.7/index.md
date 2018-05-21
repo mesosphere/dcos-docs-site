@@ -18,11 +18,10 @@ DC/OS 1.10.7 includes the following:
 
 # Issues Fixed in DC/OS 1.10.7
 
+- DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
+- DCOS-21468 - DC/OS UI: Fixed labels reducer to support labels with an empty string value.
 - DCOS-21596 - Prevented username conflict where LDAP username matched a local username during group import.[enterprise type="inline" size="small" /]
-
-# Notable Changes in DC/OS 1.10.7
-
-
+ 
 
 # About DC/OS 1.10
 
@@ -37,7 +36,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
 
-Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
+You can try out the new features and updated data services. Provide feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
 ## New Features and Capabilities
 
