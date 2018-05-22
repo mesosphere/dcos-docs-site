@@ -11,7 +11,7 @@ These are the release notes for DC/OS 1.10.7
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 DC/OS 1.10.7 includes the following:
-- Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/621ac66716a8606c498c14cc57298af3f1b15597/CHANGELOG).
+- Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG).
 - Marathon 1.5.8 [change log](https://github.com/dcos/dcos/pull/2707).
 - Metronome 0.5.0 [change log](https://github.com/dcos/metronome/blob/v0.5.0/changelog.md).
 
