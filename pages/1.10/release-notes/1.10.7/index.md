@@ -1,46 +1,33 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.6
-title: Release Notes for 1.10.6
-menuWeight: 5
+navigationTitle:  Release Notes for 1.10.7
+title: Release Notes for 1.10.7
+menuWeight: 0
 excerpt:
 ---
-These are the release notes for DC/OS 1.10.6
+These are the release notes for DC/OS 1.10.7
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.6/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-DC/OS 1.10.6 includes the following:
-- Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)
-- Marathon 1.5.7 [change log](https://github.com/mesosphere/marathon/blob/v1.5.7/changelog.md)
-- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/blob/v0.4.2/changelog.md)
+DC/OS 1.10.7 includes the following:
+- Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG).
+- Marathon 1.5.8 [change log](https://github.com/dcos/dcos/pull/2707).
+- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 
 
-# Issues Fixed in DC/OS 1.10.6
+# Issues Fixed in DC/OS 1.10.7
 
-- COPS-2931/DCOS-21451/SOAK-68 - Fixed 404 error returned by adminrouter on Marathon UI/Prevented the reuse of tcp sockets by AR's cache code.
-- COPS-2931 - Fixed an error response that occurred when accessing DC/OS Services UI.
-- CORE-1425 - Fixed launching nested containers to be more reliable.
-- DCOS-19865 - Fixed focus/change/blur behavior.
-- DCOS-22016 - Updated prometheus documentation with metrics in Prometheus.
-- DCOS_OSS-2376 - Ensured that names cannot begin with numbers in Prometheus plugin.
+- COPS-3158 - Block DC/OS install if mesos work directory or Docker root directory is XFS but not mounted with ftype=1.
+- DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
+- DCOS-21596 - DC/OS Bouncer: Prevented local users getting added to LDAP-derived groups containing a matching name.[enterprise type="inline" size="small" /]
+- DCOS-22308 - Cockroachdb: Updated to version 1.1.8. [enterprise type="inline" size="small" /]
+- DCOS_OSS-2335 - Increase the mesos executor registration timeout from 2 seconds to 20 seconds.
+- 
 
+# Security Enhancements in DC/OS 1.10.7 
 
-# Notable Changes in DC/OS 1.10.6
-
-- COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.x version. ([changelog](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.4.x-24d3886/CHANGELOG)).
-- CORE-1447/CORE-1448/CORE-1449 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service. [enterprise type="inline" size="small" /]
-- DCOS-21683 - Bumped CockroachDB to version 1.1.7. [enterprise type="inline" size="small" /]
-- DCOS-21709 - Marathon supports preferential GPU scheduling on DC/OS.
-- DCOS-16431 - Added short-lived Admin Router permission cache. Enabled by setting adminrouter_auth_cache_enabled: true in config.yaml. This option is disabled by default.
-- DCOS_OSS-1903 - Upgraded `openssl` from version 1.0.2k to 1.0.2n.
-- DCOS_OSS-2181 - Bumped OpenResty to version 1.13.6.
-- DCOS_OSS-2229 - Bumped Navstar.
-- QUALITY-1525 - Support for Docker CE 17.03.0.
-
-**Note:** DC/OS 1.10.6 release supports new CoreOS and Docker versions on RHEL listed in the [compatibility matrix](https://docs.mesosphere.com/version-policy/#compatibility-matrix).
-
-
+- DCOS-21958 - Disabled the 3DES bulk encryption algorithm for Master Admin Router's TLS. [enterprise type="inline" size="small" /]
 
 # About DC/OS 1.10
 
@@ -55,7 +42,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
 
-Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
+You can try out the new features and updated data services. Provide feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
 ## New Features and Capabilities
 
