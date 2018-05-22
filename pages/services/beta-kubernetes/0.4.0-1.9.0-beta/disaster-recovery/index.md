@@ -12,21 +12,21 @@ enterprise: false
 
 # Disaster Recovery
 
-This feature allows for backing up and restoring a Kubernetes cluster, in case of disaster.
-The state of the cluster is comprised of the package service configuration and any existing
+This feature allows you to back up and restore a Kubernetes cluster, in case of disaster.
+The state of the cluster comprises the package service configuration and any existing
 Kubernetes resources when the backup is performed.
 
-One can use this feature by means of two `dcos kubernetes` subcommands: `restore` and `backup`.
+You can use this feature by means of two `dcos kubernetes` subcommands: `restore` and `backup`.
 
 For the time being, the backup artifacts are stored in an AWS S3 bucket. Therefore, the AWS CLI
 must be installed and some steps need to be fulfilled.
 
-* Create an IAM user:
+1. Create an IAM user:
   ```
   aws iam create-user --user-name heptio-ark
   ```
 
-* Attach a policy to give heptio-ark the necessary permissions:
+2. Attach a policy to give heptio-ark the necessary permissions:
   ```
   aws iam attach-user-policy \
     --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess \
@@ -36,14 +36,16 @@ must be installed and some steps need to be fulfilled.
     --user-name heptio-ark
   ```
 
- * Create an access key for the user:
+3. Create an access key for the user:
   ```
   aws iam create-access-key --user-name heptio-ark
   ```
 
 ## Back up the cluster
 
-```
+The subcommand `backup` saves the backup artifacts to a specified location. Here is the command list and flags. Note that the flags `--aws-region`, `--aws-bucket`, `--aws-access-key-id` and `--aws-secret-access-key` are mandatory.
+
+````
 usage: dcos kubernetes [<flags>] backup [<flags>] [<backup-name>]
 
 Flags:
@@ -66,11 +68,11 @@ Flags:
 
 Args:
   [<name>]  Name of the generated backup
-```
+````
 
-The flags `--aws-region`, `--aws-bucket`, `--aws-access-key-id` and `--aws-secret-access-key` are mandatory.
+Example:
 
-```
+````
 $ dcos kubernetes backup --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
 
 Starting backup process [kubernetes]...
@@ -78,7 +80,7 @@ Starting backup process [kubernetes]...
 
 >> Backup has been successfully created! <<
 
-```
+````
 
 **Warning:** This package does not manage S3 buckets, so its usage should be monitored by the user.
 
