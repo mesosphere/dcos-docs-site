@@ -11,17 +11,24 @@ These are the release notes for DC/OS 1.10.7
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 DC/OS 1.10.7 includes the following:
-- Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/621ac66716a8606c498c14cc57298af3f1b15597/CHANGELOG)
-- Marathon 1.5.8 [change log](https://github.com/mesosphere/marathon/blob/v1.5.8/changelog.md)
-- Metronome 0.5.0 [change log](https://github.com/dcos/metronome/blob/v0.5.0/changelog.md)
+- Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/621ac66716a8606c498c14cc57298af3f1b15597/CHANGELOG).
+- Marathon 1.5.8 [change log](https://github.com/dcos/dcos/pull/2707).
+- Metronome 0.5.0 [change log](https://github.com/dcos/metronome/blob/v0.5.0/changelog.md).
 
 
 # Issues Fixed in DC/OS 1.10.7
 
+- COPS-3158 - Block DC/OS install if mesos work directory or Docker root directory is XFS but not mounted with ftype=1.
 - DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
 - DCOS-21468 - DC/OS UI: Fixed labels reducer to support labels with an empty string value.
-- DCOS-21596 - Prevented username conflict where LDAP username matched a local username during group import.[enterprise type="inline" size="small" /]
- 
+- DCOS-21596 - DC/OS Bouncer: Prevented local users getting added to LDAP-derived groups containing a matching name.[enterprise type="inline" size="small" /]
+- DCOS-22308 - Cockroachdb: Updated to version 1.1.8. [enterprise type="inline" size="small" /]
+- DCOS_OSS-2335 - Increase the mesos executor registration timeout from 2 seconds to 20 seconds.
+- 
+
+# Security Enhancements in DC/OS 1.10.7 
+
+- DCOS-21958 - Disabled the 3DES bulk encryption algorithm for Master Admin Router's TLS. [enterprise type="inline" size="small" /]
 
 # About DC/OS 1.10
 
