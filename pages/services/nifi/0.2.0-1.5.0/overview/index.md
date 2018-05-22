@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  overview
-title: overview
+navigationTitle: Overview
+title: Overview
 menuWeight: 10
 excerpt: Getting started with DC/OS NiFi Service
 featureMaturity:
@@ -108,18 +108,18 @@ In addition, the Scheduler now has a fourth piece:
 Scheduler reconfiguration is slightly different from initial deployment because the Scheduler is now comparing its current state to a non-empty prior state and determining what needs to be changed.
 
   1. After the Scheduler has rendered its `svc.yml` against the new environment variables, it has two Service Specs, reflecting two different configurations.
-  
+
 - The Service Spec that was just rendered, reflecting the configuration change.
 - The prior Service Spec (or “Target Configuration”) that was previously stored in ZooKeeper.
-    
+
   2. The Scheduler automatically compares the changes between the old and new Service Specs.
-  
+
   a. Change validation: Certain changes, such as editing volumes and scale-down, are not currently supported because they are complicated and dangerous to get wrong.
      - If an invalid change is detected, the Scheduler will send an error message and refuse to proceed until the user has reverted the change by relaunching the Scheduler app in Marathon with the prior config.
      - If the changes are valid, the new configuration is stored in ZooKeeper as the new Target Configuration and the change deployment proceeds as described below.
-                
+
  b. Change deployment: The Scheduler produces a diff between the current state and some future state, including all of the Mesos calls (reserve, unreserve, launch, destroy, etc.) needed to get there. For example, if the number of tasks has been increased, then the Scheduler will launch the correct number of new tasks. If a task configuration setting has been changed, the Scheduler will deploy that change to the relevant affected tasks by relaunching them. Tasks that aren’t affected by the configuration change will be left as-is.
-            
+
 c. Custom update logic: Some services may have defined a custom update Plan in its svc.yml, in cases where different logic is needed for an update/upgrade than is needed for the initial deployment. When a custom update plan is defined, the Scheduler will automatically use this Plan, instead of the default deploy Plan, when rolling out an update to the service.
 
 ## Uninstallation
@@ -138,11 +138,11 @@ When started in uninstall mode, the Scheduler performs the following actions:
 - Any Mesos resource reservations are unreserved.
 **Warning:** Any data stored in reserved disk resources will be irretrievably lost.
 - Preexisting state in ZooKeeper is deleted.
-    
+
 # Pods
 
 A Task generally maps to a single process within the service. A Pod is a collection of colocated Tasks that share an environment. All Tasks in a Pod will come up and go down together. Therefore, most maintenance operations against the service are at Pod granularity rather than Task granularity.
-    
+
 # Plans
 
 The Scheduler organizes its work into a list of Plans. Every SDK Scheduler has at least a Deployment Plan and a Recovery Plan, but other Plans may also be added for things like custom Backup operations. The Deployment Plan is in charge of performing an initial deployment of the service. It is also used for rolling out configuration changes to the service (or in more abstract terms, handling the transition needed to get the service from some state to another state), unless the service developer provided a custom update Plan. The Recovery Plan is in charge of relaunching any exited tasks that should always be running.
@@ -234,9 +234,8 @@ Click CONFIGURE and change the service name to /testing/nifi, then deploy.
 
 Interact with your foldered service via the DC/OS CLI with this flag: `--name=/path/to/myservice`.
 
-To interact with your foldered service over the web directly, use http://<dcos-url>/service/path/to/myservice. 
+To interact with your foldered service over the web directly, use http://<dcos-url>/service/path/to/myservice.
 
 Example:
 
 http://<dcos-url>/service/testing/nifi/v1/endpoints.
-

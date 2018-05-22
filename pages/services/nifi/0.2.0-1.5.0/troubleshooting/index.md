@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 90
-excerpt:
+excerpt: Troubleshooting DC/OS Apache NiFi issues
 featureMaturity:
 enterprise: false
 ---
@@ -81,7 +81,7 @@ The pod recovery may then be monitored via the recovery plan.
   ```shell
   dcos nifi --name=nifi-dev plan show recovery
   ```
-  
+
 # Accidentially deleted Marathon task but not service
 
 A common user mistake is to remove the scheduler task from Marathon, which doesn’t do anything to uninstall the service tasks themselves. If you do this, you have two options:
@@ -101,7 +101,7 @@ Long story short, you forgot to run janitor.py the last time you ran the service
     1. You ran dcos package nifi --app-id nifi. This destroyed the scheduler and its associated tasks, but didn’t clean up its reserved resources.
     2. Later on, you tried to reinstall the service. The scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by janitor.py. The scheduler tried to re-register using that framework ID.
     3. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
-    
+
 # Stuck deployments
 
 You can sometimes get into valid situations where a deployment is being blocked by a repair operation or vice versa. For example, say you were rolling out an update to a 500 node Nifi cluster. The deployment gets paused at node #394 because it’s failing to come back, and, for whatever reason, we don’t have the time or the inclination to pod replace it and wait for it to come back.
@@ -196,4 +196,3 @@ Now, we see that the step is again marked as PENDING as the Scheduler again atte
 This example shows how steps in the deployment Plan (or any other Plan) can be manually retriggered or forced to a completed state by querying the Scheduler. This doesn’t come up often, but it can be a useful tool in certain situations.
 
 Note: The dcos plan commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that isn’t the same one we were expecting (but which had the same name).
-  
