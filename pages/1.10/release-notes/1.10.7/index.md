@@ -23,7 +23,7 @@ DC/OS 1.10.7 includes the following:
 - DCOS-21596 - DC/OS Bouncer: Prevented local users getting added to LDAP-derived groups containing a matching name.[enterprise type="inline" size="small" /]
 - DCOS-22308 - Cockroachdb: Updated to version 1.1.8. [enterprise type="inline" size="small" /]
 - DCOS_OSS-2335 - Increase the mesos executor registration timeout from 2 seconds to 20 seconds.
-- 
+
 
 # Security Enhancements in DC/OS 1.10.7 
 
