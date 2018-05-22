@@ -1,6 +1,11 @@
 ~^([^.]*[^/])$ $1/;
 ~^(/[^/]*)$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
+/administration/admin-tutorials/installdatacenter/ /1.11/tutorials/dcos-101/redis-package/;
+/administration/id-and-access-mgt/ /1.11/security/ent/iam-api/;
+/administration/installing/cloud/aws/ /1.11/installing/oss/cloud/aws/;
+/administration/release-notes/ /1.11/release-notes/1.11.2/;
+/administration/release-notes/community-edition/dcos-1-6/ 
 /pages/1.11/networking/DNS/mesos-dns/ /1.11/networking/DNS/mesos-dns/;
 /pages/1.11/networking/load-balancing-vips/ /1.11/networking/load-balancing-vips/;
 /pages/services/edge-lb/ /services/edge-lb/;
@@ -379,6 +384,7 @@
 /1.8/usage/managing-services/config/ /1.8/usage/managing-services/config-universe-service/;
 /1.8/usage/managing-services/list/ /1.8/usage/managing-services/monitoring/;
 /1.8/usage/managing-services/monitoring/ /1.8/usage/managing-services/monitor-services/;
+/1.8/usage/managing-services/ports/service-ports/ /1.8/usage/managing-services/service-ports/;
 /1.8/usage/marathon/ /1.8/usage/managing-services/;
 /1.8/usage/marathon/application-basics/ /1.8/usage/managing-services/creating-services/;
 /1.8/usage/marathon/ports/ /1.8/usage/managing-services/ports/service-ports/;
@@ -388,9 +394,12 @@
 /1.8/usage/service-discovery/dns-naming/ /1.8/usage/service-discovery/mesos-dns/service-naming/#dns-naming;
 /1.8/usage/service-discovery/haproxy-adminrouter/ /1.8/administration/haproxy-adminrouter/;
 /1.8/usage/service-discovery/load-balancing-vips/overlay-networks/ /.8/usage/service-discovery/load-balancing-vips/virtual-networks/;
+/1.8/usage/service-discovery/load-balancing-vips/name-based-vips/ /1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
 /1.8/usage/service-discovery/marathon-lb/quickstart/ /1.8/usage/service-discovery/marathon-lb/marathon-lb-basic-tutorial/;
 /1.8/usage/service-discovery/mesos-dns/custom-domain-service-discovery/ /1.8/usage/service-discovery/mesos-dns/expose-mesos-zone/;
 /1.8/usage/service-discovery/virtual-ip-addresses/ /1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
+/1.8/usage/service-guides/hdfs/uninstall/ /services/hdfs/v1.3.0-2.6.0-cdh5.9.1/uninstall/;
+/1.8/usage/service-guides/kafka/uninstall/ /1.8/usage/service-guides/kafka/uninstall/;
 /1.8/usage/tutorials/docker-app/ /1.8/usage/managing-services/creating-services/deploy-docker-app/;
 /1.8/usage/tutorials/inline-update/ /1.8/usage/managing-services/update-user-service/;
 /1.8/usage/tutorials/marathon/ /1.8/usage/tutorials/dcos-101/;
@@ -494,7 +503,16 @@
 /1.9/developing-services/dcos-integration/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.9/developing-services/service-requirements-spec/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.9/development/ /1.9/developing-services/;
-/1.9/installing/custom/configuration-parameters/ /1.9/installing/custom/configuration/configuration-parameters/;
+/1.9/installing/custom/configuration-parameters/ /1.9/installing/oss/custom/configuration/configuration-parameters/;
+/1.9/installing/ent/custom/configuration-parameters/ /1.9/installing/oss/custom/configuration/configuration-parameters/;
+/1.9/overview/security/security-modes/ /1.9/security/ent/#security-modes/;
+/1.9/overview/service-discovery/ /1.9/tutorials/dcos-101/service-discovery/;
+/1.9/security/iam-api/ /1.9/security/ent/iam-api/;
+/1.9/security/perms-reference/ /1.9/security/ent/perms-reference/;
+/1.9/security/secrets/ /1.9/security/ent/secrets/;
+/1.9/security/service-auth/ /1.9/security/ent/service-auth/;
+/1.9/security/service-auth/custom-service-auth/ /1.9/security/ent/service-auth/custom-service-auth/;
+/1.9/security/users-groups/ /1.9/security/ent/users-groups/;
 /1.9/installing/local/ /1.9/installing/ent/local/;
 /1.9/monitoring/debugging/cli-debugging/task-exec/ /1.9/monitoring/debugging/task-exec/;
 /1.9/networking/mesos-dns/http-interface/ /1.9/networking/mesos-dns/mesos-dns-api/;
@@ -661,6 +679,7 @@
 /1.9/usage/service-discovery/mesos-dns/http-interface/ /1.9/networking/mesos-dns/http-interface/;
 /1.9/usage/service-discovery/mesos-dns/service-naming/ /1.9/networking/mesos-dns/service-naming/;
 /1.9/usage/service-discovery/mesos-dns/troubleshooting/ /1.9/networking/mesos-dns/troubleshooting/;
+/1.9/usage/service-guides/kafka/configure/ /services/kafka/2.0.3-0.11.0/install/;
 /1.9/usage/storage/ /1.9/storage/;
 /1.9/usage/storage/external-storage/ /1.9/storage/external-storage/;
 /1.9/usage/storage/persistent-volume/ /1.9/storage/persistent-volume/;
