@@ -13,14 +13,13 @@ These are the release notes for DC/OS 1.10.7
 DC/OS 1.10.7 includes the following:
 - Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG).
 - Marathon 1.5.8 [change log](https://github.com/dcos/dcos/pull/2707).
-- Metronome 0.5.0 [change log](https://github.com/dcos/metronome/blob/v0.5.0/changelog.md).
+- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 
 
 # Issues Fixed in DC/OS 1.10.7
 
 - COPS-3158 - Block DC/OS install if mesos work directory or Docker root directory is XFS but not mounted with ftype=1.
 - DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
-- DCOS-21468 - DC/OS UI: Fixed labels reducer to support labels with an empty string value.
 - DCOS-21596 - DC/OS Bouncer: Prevented local users getting added to LDAP-derived groups containing a matching name.[enterprise type="inline" size="small" /]
 - DCOS-22308 - Cockroachdb: Updated to version 1.1.8. [enterprise type="inline" size="small" /]
 - DCOS_OSS-2335 - Increase the mesos executor registration timeout from 2 seconds to 20 seconds.
