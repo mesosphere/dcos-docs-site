@@ -2,17 +2,17 @@
 layout: layout.pug
 navigationTitle: Security
 title: Security
-menuWeight: 33
-excerpt: DC/OS NiFi Service encryption, authentication and authorization
+menuWeight: 50
+excerpt: DC/OS Apache NiFi Service encryption, authentication and authorization
 featureMaturity:
 enterprise: false
 ---
 
 # Components
 
-# DC/OS NiFi Security
+# DC/OS Apache NiFi Security
 
-The DC/OS NiFi service supports Apache NiFi’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
+The DC/OS Apache NiFi service supports Apache NiFi’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
 
 A good overview of these features can be found in the [Apache NiFi Administration Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html).
 

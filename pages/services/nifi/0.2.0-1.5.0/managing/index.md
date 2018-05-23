@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Managing
 title: Managing
-menuWeight: 60
+menuWeight: 80
 excerpt: Managing your DC/OS NiFi configuration
 featureMaturity:
 enterprise: false

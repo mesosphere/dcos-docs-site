@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Diagnostic Tools
 title: Diagnostic Tools
-menuWeight: 23
-excerpt: Troubleshooting clusters
+menuWeight: 103
+excerpt: Tools for diagnosing cluster problems
 featureMaturity:
 enterprise: false
 ---
