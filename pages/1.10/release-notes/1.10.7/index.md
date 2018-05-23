@@ -5,7 +5,8 @@ title: Release Notes for 1.10.7
 menuWeight: 0
 excerpt:
 ---
-These are the release notes for DC/OS 1.10.7
+
+DC/OS 1.10.7 was released on May 22, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
