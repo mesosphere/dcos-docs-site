@@ -20,6 +20,7 @@ DC/OS 1.10.7 includes the following:
 # Issues Fixed in DC/OS 1.10.7
 
 - COPS-3158 - Block DC/OS install if mesos work directory or Docker root directory is XFS but not mounted with ftype=1.
+- COPS-3195 - Fixed issues with Mesos authentication token refresh in strict mode cluster. [enterprise type="inline" size="small" /]
 - DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
 - DCOS-21596 - DC/OS Bouncer: Prevented local users getting added to LDAP-derived groups containing a matching name.[enterprise type="inline" size="small" /]
 - DCOS-22308 - Cockroachdb: Updated to version 1.1.8. [enterprise type="inline" size="small" /]
@@ -32,7 +33,7 @@ DC/OS 1.10.7 includes the following:
 
 # About DC/OS 1.10
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
+DC/OS 1.10.0 includes many new capabilities for operators and expands the collection of Data & Developer Services with a focus on:
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
