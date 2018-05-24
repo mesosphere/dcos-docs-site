@@ -10,17 +10,23 @@ These are the release notes for DC/OS 1.9.5.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+<a name="fixed-issues"></a>
+# Issues Fixed in 1.9.5
+
+- CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
+- DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
+- DCOS-18830 - Dashboard CPU allocation not rounding correctly.
+- DCOS-18350 - DC/OS IAM (Bouncer): set TMPDIR to `/var/lib/dcos/bouncer/tmp`. This allows `/tmp`, and other directories, to be mounted as `noexec`.
+- DCOS_OSS-1574 - Navstar updated due to crashes on Core OS 1465+.
+- MARATHON-7576 - Change default `UnreachableStrategy` to `0,0`.
+
+# About DC/OS 1.9
+
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services.
-
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
-- [Issues Fixed in 1.9.5](#fixed-issues)
 
 # <a name="breaking"></a>Breaking Changes
 
@@ -177,13 +183,3 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
   ```yaml
   mesos_max_completed_tasks_per_framework: 20
   ```
-
-<a name="fixed-issues"></a>
-# Issues Fixed in 1.9.5
-
-- CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
-- DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
-- DCOS-18830 - Dashboard CPU allocation not rounding correctly.
-- DCOS-18350 - DC/OS IAM (Bouncer): set TMPDIR to `/var/lib/dcos/bouncer/tmp`. This allows `/tmp`, and other directories, to be mounted as `noexec`.
-- DCOS_OSS-1574 - Navstar updated due to crashes on Core OS 1465+.
-- MARATHON-7576 - Change default `UnreachableStrategy` to `0,0`.

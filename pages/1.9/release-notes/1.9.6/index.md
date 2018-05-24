@@ -27,15 +27,6 @@ These are the release notes for DC/OS 1.9.6.
 - [Open SSL 1.0.2m](https://www.openssl.org/news/cl102.txt) integrated.
 - [Latest JDK 8](http://www.oracle.com/technetwork/java/javase/8all-relnotes-2226344.html) integrated.
 
-# Issues Fixed in 1.9.5
-
-- CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
-- DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
-- DCOS-18830 - Dashboard CPU allocation not rounding correctly.
-- DCOS-18350 - DC/OS IAM (Bouncer): set TMPDIR to `/var/lib/dcos/bouncer/tmp`. This allows `/tmp`, and other directories, to be mounted as `noexec`.
-- DCOS_OSS-1574 - Navstar updated due to crashes on Core OS 1465+.
-- MARATHON-7576 - Change default `UnreachableStrategy` to `0,0`.
-
 # About DC/OS 1.9
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
@@ -45,10 +36,6 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services.
 
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
 
 # <a name="breaking"></a>Breaking Changes
 

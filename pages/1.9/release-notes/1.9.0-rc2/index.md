@@ -9,6 +9,16 @@ These are the release notes for DC/OS 1.9.0 Release Candidate 2.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/7f1ce42734aa54053291f403d71e3cb378bd13f3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+# <a name="fixed-issues"></a>Issues Fixed since 1.9.0-rc1
+
+- DCOS-9738 - CLI-only packages show up as installable in the UI.
+- DCOS-14045 - Exhibitor requests hang/deadlock on a five master cluster.
+- DCOS-14201 - Minuteman module minuteman_lb_mgr crashes.
+- DCOS-14053 - Can't switch from Docker containerizer to Mesos containerizer.
+- DCOS-14140 - Metrics service fails to start with umask of 077. <!-- Enterprise -->
+
+# About DC/OS 1.9
+
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
@@ -17,10 +27,6 @@ DC/OS 1.9 includes many new capabilities and expands the collection of data and 
 
 Please try out the new features and updated services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
 
-### Contents
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.9.0-rc1](#fixed-issues)
 
 # <a name="whats-new"></a>What's New
 
@@ -138,11 +144,3 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 - Marathon-LB does not support pods.
 - This release candidate has [task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
 - [4137](https://github.com/mesosphere/marathon/issues/4137) - Volumes do not persist.
-
-# <a name="fixed-issues"></a>Issues Fixed since 1.9.0-rc1
-
-- DCOS-9738 - CLI-only packages show up as installable in the UI.
-- DCOS-14045 - Exhibitor requests hang/deadlock on a five master cluster.
-- DCOS-14201 - Minuteman module minuteman_lb_mgr crashes.
-- DCOS-14053 - Can't switch from Docker containerizer to Mesos containerizer.
-- DCOS-14140 - Metrics service fails to start with umask of 077. <!-- Enterprise -->

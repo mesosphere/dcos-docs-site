@@ -10,17 +10,19 @@ These are the release notes for DC/OS 1.9.4.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+
+<a name="fixed-issues"></a>
+# Issues Fixed since 1.9.3
+
+- MESOS-7926 - Abnormal termination of default executor can cause MesosContainerizer::destroy to fail.
+- MESOS-7934 - OOM due to LibeventSSLSocket send incorrectly returning 0 after shutdown.
+
+# About DC/OS 1.9
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services.
-
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.9.2](#fixed-issues)
 
 # <a name="breaking"></a>Breaking Changes
 
@@ -177,9 +179,3 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
   ```yaml
   mesos_max_completed_tasks_per_framework: 20
   ```
-
-<a name="fixed-issues"></a>
-# Issues Fixed since 1.9.3
-
-- MESOS-7926 - Abnormal termination of default executor can cause MesosContainerizer::destroy to fail.
-- MESOS-7934 - OOM due to LibeventSSLSocket send incorrectly returning 0 after shutdown.

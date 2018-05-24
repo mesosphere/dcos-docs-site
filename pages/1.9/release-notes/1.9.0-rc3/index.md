@@ -9,6 +9,7 @@ These are the release notes for DC/OS 1.9.0 Release Candidate 3.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/e5b5e6e336763ba9c8ed2d8266c798873e501cb2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+# About DC/OS 1.9
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
@@ -17,11 +18,6 @@ DC/OS 1.9 includes many new capabilities and expands the collection of data and 
 
 Please try out the new features and updated services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
 
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
-<!-- - [Issues Fixed since 1.9.0-rc2](#fixed-issues) -->
 
 # <a name="breaking"></a>Breaking Changes
 

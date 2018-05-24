@@ -24,32 +24,6 @@ These are the release notes for DC/OS 1.9.7.
 - Updated to Marathon 1.4.11 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.4.11)).
 - Updated to Metronome 0.3.2 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.2)).
 
-# Issues Fixed in DC/OS 1.9.6
-
-- COPS-980 - Marathon's default task unreachable behavior reinstated.
-- DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
-- DCOS-19217 - Metronome adheres to crontab standard.
-- DCOS-19453 - TLS compression disabled because TLS is vulnerable to the CRIME attack. [enterprise type="inline" size="small" /]
-- DCOS-19508 - Non-superusers can now edit an app that uses secrets. [enterprise type="inline" size="small" /]
-- DOCS-2130 - [Security hardening guide](/1.9/security/ent/hardening/) improvements. [enterprise type="inline" size="small" /]
-- DOCS-2153	- [Metrics documentation](/1.9/metrics/) improvements.
-
-# Notable Changes in DC/OS 1.9.6
-
-- Latest [Mesos 1.2.x](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.2.x-f8706e5/CHANGELOG) integrated (f8706e5).
-- [Marathon 1.4.9](https://github.com/mesosphere/marathon/releases/tag/v1.4.9) integrated.
-- [Open SSL 1.0.2m](https://www.openssl.org/news/cl102.txt) integrated.
-- [Latest JDK 8](http://www.oracle.com/technetwork/java/javase/8all-relnotes-2226344.html) integrated.
-
-# Issues Fixed in DC/OS 1.9.5
-
-- CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
-- DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
-- DCOS-18830 - Dashboard CPU allocation not rounding correctly.
-- DCOS-18350 - DC/OS IAM (Bouncer): set TMPDIR to `/var/lib/dcos/bouncer/tmp`. This allows `/tmp`, and other directories, to be mounted as `noexec`.
-- DCOS_OSS-1574 - Navstar updated due to crashes on Core OS 1465+.
-- MARATHON-7576 - Change default `UnreachableStrategy` to `0,0`.
-
 # About DC/OS 1.9
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
@@ -58,11 +32,6 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services.
-
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
 
 # <a name="breaking"></a>Breaking Changes
 
@@ -84,7 +53,7 @@ Added support for pods, GPUs, and made significant scalability improvements.
 Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
 
 [preview]
-#### GPU 
+#### GPU
 [/preview]
 - Leverage GPUs to run novel algorithms.
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.

@@ -10,6 +10,13 @@ These are the release notes for DC/OS 1.9.0 Release Candidate 4.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/10b4b02efc86e0e6d7f19d3734c766f5580d04d4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+# <a name="fixed-issues"></a>Issues Fixed since 1.9.0-rc3
+- DCOS-OSS-743 - If you are using Docker 1.13 on CentOS 7.3, the custom CLI installation method fails while installing prerequisites (`--install-prereqs`).
+- DCOS-14047 - Marathon is killed during upgrades. This is expected behavior as of Marathon 1.3.6.
+- MARATHON-1713 - Volumes do not persist.
+
+
+# About DC/OS 1.9
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
@@ -17,12 +24,6 @@ DC/OS 1.9 includes many new capabilities and expands the collection of data and 
 - New data and developer services. <!-- NEED A LINK -->
 
 Please try out the new features and updated services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
-
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.9.0-rc3](#fixed-issues)
 
 # <a name="breaking"></a>Breaking Changes
 
@@ -149,8 +150,3 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 - DCOS-14021 - [Task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
 - DCOS-14433 - The [Universal container runtime](/1.9/deploying-services/containerizers/) does not support Azure cloud with Ubuntu.
 - Marathon-7133 - Marathon application history is lost after Marathon restart.
-
-# <a name="fixed-issues"></a>Issues Fixed since 1.9.0-rc3
-- DCOS-OSS-743 - If you are using Docker 1.13 on CentOS 7.3, the custom CLI installation method fails while installing prerequisites (`--install-prereqs`).
-- DCOS-14047 - Marathon is killed during upgrades. This is expected behavior as of Marathon 1.3.6.
-- MARATHON-1713 - Volumes do not persist.
