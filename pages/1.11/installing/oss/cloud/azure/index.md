@@ -30,7 +30,7 @@ lessons learned discussed herein still apply.
 
 #### General Machine Configurations ####
 We recommend *disabling* swap on your VMs, which is typically the default for
-the Azure Linux images. We've found that using the
+the Azure Linux images. We have found that using the
 ephemeral SSDs for swap (via WAAgent configuration)
 can conflict with the disk caching configuration of
 the `D` series of VMs. For other series of VMs, (e.g. `L` series),
@@ -45,7 +45,7 @@ identify and alert as to when workloads are nearing Azure defined limits.
 On Azure, raw network performance is roughly determined by VM size.
 VMs with 8 or more cores (e.g. `Standard_D8_v3`) are eligible for
 [Azure Accelerated Networking (SR-IOV)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).
-We've seen much lower latency and more available and stable bandwidth using SR-IOV
+We have seen much lower latency and more available and stable bandwidth using SR-IOV
 as opposed to relying on the Azure hypervisor vswitches.
 For example, in our testing, a `Standard_D16s_v3` without SR-IOV
 can push approximately 450MB/s of data between two VMs, while the same size
@@ -64,9 +64,11 @@ is required in order to achieve bandwidth control.
 In order to achieve performant, reliable cluster operation on Azure,
 Premium SSDs are recommended in particular disk configurations.
 Managed Disks (MDs) are preferred over Unmanaged Disks (UMDs)
-because then the operator need not worry about Storage Account limitations:
+to avoid Storage Account limitations:
 The Azure fabric will place the managed disks appropriately to meet the
 guaranteed SLAs.
+Storage account limitations for UMDs are documented
+[here](https://docs.microsoft.com/en-us/azure/storage/common/storage-performance-checklist).
 
 On Azure, Premium SSDs have a limited number of synchronous IOPs possible
 limited by the latency of the underlying disk fabric.
