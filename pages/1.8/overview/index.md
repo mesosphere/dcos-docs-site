@@ -2,13 +2,12 @@
 layout: layout.pug
 navigationTitle:  Overview
 title: Overview
-menuWeight: 1
-excerpt:
+menuWeight: 2
+excerpt: Getting started with DC/OS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 The overview topics help you get started and learn the DC/OS fundamentals.

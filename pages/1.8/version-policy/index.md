@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Mesosphere Versioning and Release Policy
 title: Mesosphere Versioning and Release Policy
-menuWeight: 5
-excerpt:
+menuWeight: 10
+excerpt: Understanding the format of Mesosphere DC/OS versioning
 
 ---
 
@@ -20,13 +20,13 @@ Modifications or enhancements to the same software product as designated by a ch
 ### Minor
 Bug fixes and new enhancements to the same software product as designated by a change in the patch release number.
 
-For example, version 5.6.3, means `R` is 5, `V` is 6, an d`M` is 3. 
+For example, version 5.6.3, means `R` is 5, `V` is 6, an d`M` is 3.
 
 ## Mesosphere Software End of Life Policy
 
 Mesosphere will support product releases for the currently released version (Release N) and the previous 2 feature (major or minor release) releases (Releases N-1 and N-2). At the time of Release N-1, Mesosphere will announce End of Life (EOL) date of Release N-2. When Release N is generally available, Mesosphere will EOL Release N-2.
 
-Here is a hypothetical example to help you understand which version is the supported version. 
+Here is a hypothetical example to help you understand which version is the supported version.
 
 1.  May 2020 - Product X v1.0 is released.
 1.  Aug 2020 - Product X v1.1 is released, v1.0 EOL date is announced.
@@ -59,7 +59,7 @@ Semantic versioning is a widely-adopted scheme for describing meaning about the 
 ### `<MAJOR>.<MINOR>.<PATCH>`
 -->
 
-#### Major 
+#### Major
 A major release means modifications or enhancements to the same software product as designated by a change in the major release number.  A major release may include new breaking API changes. Major Releases do not include separate or different products marketed by Mesosphere under a different name even if such products are compatible with the relevant software product.
 
 #### Minor

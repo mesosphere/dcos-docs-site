@@ -2,13 +2,12 @@
 layout: layout.pug
 navigationTitle:  Administration
 title: Administration
-menuWeight: 2
-excerpt:
+menuWeight: 3
+excerpt: Administering and managing your DC/OS cluster
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The administration topics help you set up, administer, and manage your DC/OS cluster. 
+The administration topics help you set up, administer, and manage your DC/OS cluster.
