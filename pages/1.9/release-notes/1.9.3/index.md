@@ -9,7 +9,7 @@ These are the release notes for DC/OS 1.9.3.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-# <a name="fixed-issues"></a>Issues Fixed since 1.9.2
+# <a name="fixed-issues"></a>Issues Fixed in 1.9.3
 
 - DCOS-15771 - mesos-dns doesn't return all SRV records of running tasks.
 - DCOS-16151 - Marathon Endpoints are not responding.
@@ -39,7 +39,7 @@ DC/OS 1.9 includes many new capabilities and expands the collection of data and 
 
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
+The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
 
 # <a name="whats-new"></a>What's New
 
@@ -144,15 +144,16 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
+
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5.
+- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->

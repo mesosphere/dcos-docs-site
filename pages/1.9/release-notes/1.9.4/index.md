@@ -12,7 +12,7 @@ These are the release notes for DC/OS 1.9.4.
 
 
 <a name="fixed-issues"></a>
-# Issues Fixed since 1.9.3
+# Issues Fixed in 1.9.4
 
 - MESOS-7926 - Abnormal termination of default executor can cause MesosContainerizer::destroy to fail.
 - MESOS-7934 - OOM due to LibeventSSLSocket send incorrectly returning 0 after shutdown.
@@ -26,7 +26,7 @@ DC/OS 1.9 includes many new capabilities and expands the collection of data and 
 
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs.
+The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
 
 # <a name="whats-new"></a>What's New
 
@@ -131,15 +131,16 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
+
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5.
+- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->

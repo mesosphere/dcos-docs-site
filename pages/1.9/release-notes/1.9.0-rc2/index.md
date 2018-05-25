@@ -9,7 +9,7 @@ These are the release notes for DC/OS 1.9.0 Release Candidate 2.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/7f1ce42734aa54053291f403d71e3cb378bd13f3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-# <a name="fixed-issues"></a>Issues Fixed since 1.9.0-rc1
+# <a name="fixed-issues"></a>Issues Fixed in 1.9.0-rc2
 
 - DCOS-9738 - CLI-only packages show up as installable in the UI.
 - DCOS-14045 - Exhibitor requests hang/deadlock on a five master cluster.
@@ -37,13 +37,13 @@ Please try out the new features and updated services. Provide any feedback throu
 
 ## Container Orchestration
 
-- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [maturity-badge status='preview']
-- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [maturity-badge status='preview']
+- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [preview type="inline" size="small" /]
+- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [preview type="inline" size="small" /]
 - Significant scalability improvements.
 
 ## DC/OS Monitoring and Operations
 
-### Remote Process Injection for Debugging [maturity-badge status='experimental']
+### Remote Process Injection for Debugging [experimental type="inline" size="small" /]
 
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
 
@@ -53,7 +53,7 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 
 For more information, see the documentation for the `dcos task exec` command [here](/1.9/monitoring/debugging/).
 
-### Logging [maturity-badge status='experimental']
+### Logging [experimental type="inline" size="small" /]
 
 Stream task and system logs to journald by setting the `mesos_container_log_sink` install-time parameter to `journald` or `journald+logrotate`. This allows you to:
 
@@ -63,7 +63,7 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 
 For more information, see the [documentation](/1.9/monitoring/logging/).
 
-### Metrics [maturity-badge status='experimental']
+### Metrics [experimental type="inline" size="small" /]
 
 - Node-level HTTP API that returns metrics from tasks, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.
@@ -112,15 +112,16 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
+
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5.
+- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 

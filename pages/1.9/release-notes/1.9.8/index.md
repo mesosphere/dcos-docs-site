@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Release Notes for 1.9.8
 title: Release Notes for 1.9.8
 menuWeight: 0
-excerpt:
+excerpt: Release Notes for DC/OS 1.9.8
 ---
 
 These are the release notes for DC/OS 1.9.8.
@@ -33,7 +33,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs.
+The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
 
 # <a name="whats-new"></a>What's New
 
@@ -158,7 +158,7 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Docker 1.12 and 1.13 are now [supported](/1.9/installing/ent/custom/system-requirements/). Docker 1.13 is the default version.
 
-### Upgrades [enterprise type="inline" size="small" /]
+### Upgrades
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 
