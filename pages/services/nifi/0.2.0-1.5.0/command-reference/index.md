@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Command Reference
 title: Command Reference
-menuWeight: 40
+menuWeight: 60
 excerpt: Commands used in the DC/OS NiFi Service
 featureMaturity:
 enterprise: false
