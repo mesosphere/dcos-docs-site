@@ -58,7 +58,7 @@ enterprise: false
 
 1. Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
-   Ensure that services that bind to port `53`, which is required by DNS Dispatcher (`docs-spartan.service`), are disabled and stopped. For example:
+   Ensure that services that bind to port `53`, which is required by DNS Dispatcher (`dcos-spartan.service`), are disabled and stopped. For example:
 
    ```bash
    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
