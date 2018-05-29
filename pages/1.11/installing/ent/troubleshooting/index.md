@@ -109,7 +109,7 @@ enterprise: false
 
             **Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 
-1.  Verify whether you can ping the DNS Forwarder (`ready.dcos-net`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
+1.  Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
     ```bash
     journalctl -flu dcos-net﻿⁠⁠⁠⁠
