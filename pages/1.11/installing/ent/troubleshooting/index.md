@@ -8,7 +8,6 @@ excerpt: Troubleshooting a DC/OS Enterprise installation
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # <a name="general"></a>General troubleshooting approach
@@ -124,7 +123,7 @@ enterprise: false
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
        ```
 
-    -  If you are able to ping `ready.dcos-net`, but not `leader.mesos`, review the Mesos master service logs by using this command:
+    -  If you are able to ping `ready.spartan`, but not `leader.mesos`, review the Mesos master service logs by using this command:
 
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
