@@ -143,11 +143,21 @@
 /services/kafka/2.0.4-1.0.0/managing/configure.md/ /services/kafka/2.0.4-1.0.0/managing/;
 /services/kafka/2.0.4-1.0.0/troubleshooting/managing.md/ /services/kafka/2.0.4-1.0.0/managing/#extend-the-kill-grace-period/;
 /services/kafka/configure/ /services/kafka/kafka-auth/;
-
-
-
-
-
+/services/kafka/connecting-clients/ /services/kafka/2.0.4-1.0.0/connecting-clients/;
+/services/kafka/v2.0.0-0.11.0/api-reference/quick-start.md/ /services/kafka/v2.0.0-0.11.0/api-reference/;
+/services/kafka/v2.0.0-0.11.0/install/api-reference.md/ /services/kafka/v2.0.0-0.11.0/api-reference/;
+/services/kafka/v2.0.0-0.11.0/managing/configure.md/ /services/kafka/v2.0.0-0.11.0/managing/;
+/services/marathon/ /services/marathon-lb/;
+/services/overview/ /services/;
+/services/spark/v1.1.0-2.1.1/img/spark-gui-install.gif /services/spark/v1.1.0-2.1.1/img/spark-gui-install.png;
+/services/spark/v1.1.1-2.2.0/img/spark-gui-install.gif /services/spark/v1.1.1-2.2.0/img/spark-gui-install.png;
+/services/spark/v2.0.1-2.2.0-1/img/spark-gui-install.gif /services/spark/v2.0.1-2.2.0-1/img/spark-gui-install.png;
+/tutorials/ /latest/tutorials/;
+/tutorials/launch-docker-container-on-mesosphere/ /latest/deploying-services/creating-services/deploy-docker-app/;
+/usage/cli/ /latest/cli/;
+/usage/managing-services/config/ /latest/deploying-services/config-universe-service/;
+/s/downloads/ /s/;
+/getting-started/support/ /s/;
 /services/confluent-kafka/2.2.0-4.0.0e/11-release-notes/ /services/confluent-kafka/2.2.0-4.0.0e/release-notes/;
 /services/confluent-zookeeper/2.2.0-4.0.0e/11-release-notes/ /services/confluent-zookeeper/2.2.0-4.0.0e/release-notes/;
 /services/kafka/2.2.0-1.0.0/11-release-notes/ /services/kafka/2.2.0-1.0.0/release-notes/;
