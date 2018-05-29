@@ -113,7 +113,7 @@ enterprise: false
 1.  Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
     ```bash
-    journalctl -flu spartan
+    journalctl -flu dcos-spartan
     ```
 
 1.  Verify that you can ping `⁠⁠⁠⁠leader.mesos` and ﻿⁠⁠⁠⁠`master.mesos`. If not:
