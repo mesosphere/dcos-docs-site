@@ -21,7 +21,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
 - If IPv6 is disabled in the kernel, the `config.yaml` file will need to contain `enable_ipv6: 'false'`
-- The Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the  DC/OS Installation Guide][-install] before proceeding.
+- The Advanced installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
 - The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using the DC/OS UI and APIs until all masters have been upgraded and have rejoined the cluster.
 - Task history in the Mesos UI will not persist through the upgrade.
 
@@ -34,7 +34,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 - All hosts (masters and agents) must be able to communicate with all other hosts on all ports, for both TCP and UDP.
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`.
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
-- You must be familiar with the  DC/OS Installation Guide][-install].
+- You must be familiar with the [Advanced DC/OS Installation Guide][advanced-install].
 - Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 - Verify that all Marathon application constraints are valid before beginning the upgrade.  Use this [script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
@@ -70,7 +70,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
         dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the [nginx][-install] container to serve the installation files. <!-- ?? -->
+    1.  Run the [nginx][advanced-install] container to serve the installation files. <!-- ?? -->
 
 ### DC/OS Masters
 
@@ -154,4 +154,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.11 Universe are newer than those in the DC/OS 1.10 Universe. Services are not automatically upgraded when DC/OS 1.10 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.11/installing/oss/custom/
+[advanced-install]: /1.11/installing/oss/custom/advanced
