@@ -16,9 +16,9 @@ You can make changes to the service after it has been launched. Configuration ma
 
 Edit the runtime environment of the scheduler to make configuration changes. After making a change, the scheduler will be restarted and automatically deploy any detected changes to the service.
 
-Some changes, such as decreasing the number of brokers or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
+Some changes, such as decreasing the number of brokers or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/confluent-kafka/v2.0.0.1-3.3.0e/limitations/).
 
-To see a full list of available options, run `dcos package describe --config beta-confluent-kafka` in the CLI, or browse the Confluent Kafka install dialog in the DC/OS web interface.
+To see a full list of available options, run `dcos package describe --config confluent-kafka` in the CLI, or browse the Confluent Kafka install dialog in the DC/OS web interface.
 
 ## Adding a Node
 The service deploys `BROKER_COUNT` tasks by default. This can be customized at initial deployment or after the cluster is running. Shrinking the cluster is not supported.
@@ -58,4 +58,4 @@ Let's say we have the following deployment of our brokers:
 
 This operation will restart a broker while keeping it at its current location and with its current persistent volume data. This may be thought of as similar to restarting a system process, but it also deletes any data that is not on a persistent volume.
 
-1. Run `dcos beta-confluent-kafka pods restart kafka-0 --name=confluent-kafka`
+1. Run `dcos confluent-kafka pods restart kafka-0 --name=confluent-kafka`

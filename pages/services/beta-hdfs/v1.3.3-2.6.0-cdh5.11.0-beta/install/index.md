@@ -226,4 +226,4 @@ HDFS supports deployment on the `dcos` overlay network, a virtual network on DC/
     }
 }
 ```
-As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on the overlay network, it cannot be updated to use the host network.
+Note that once the service is deployed on the overlay network, it cannot be updated to use the host network.

@@ -1,16 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:  Managing users and groups
-title: Managing users and groups
+title: Managing Users and Groups
 menuWeight: 0
-excerpt:
+excerpt: Managing users and groups
 
 enterprise: true
 ---
 
-
-
-
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 DC/OS Enterprise can manage two types of users:
 

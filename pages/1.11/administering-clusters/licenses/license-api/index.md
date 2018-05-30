@@ -4,10 +4,8 @@ navigationTitle:  License API
 title: License API
 menuWeight: 3
 enterprise: true
+excerpt: Use the License API to manage DC/OS licenses.
 ---
-
-You use the License API to manage DC/OS licenses.
-
 # Routes
 
 Access to the License API is proxied through the Admin Router on each master node using the following route:
@@ -57,7 +55,7 @@ All routes can also be reached by users with the `dcos:superuser` permission.
 To assign permissions to your account, see the [permissions reference](/1.11/security/ent/perms-reference/).
 
 
-# API Reference
+# API reference
 
 The License API allows you to manage license operations on your DC/OS cluster.
 

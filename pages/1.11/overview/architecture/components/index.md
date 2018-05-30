@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle:  Components
 title: Components
 menuWeight: 4
-excerpt:
+excerpt: Understanding DC/OS components
+
 ---
 
 <style type="text/css">
@@ -21,14 +22,13 @@ DC/OS is composed of many open source microservice components meticulously tuned
 
 Mesosphere DC/OS Enterprise includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
 
-![Mesosphere DC/OS Enterprise Components](/1.11/img/dcos-enterprise-components-1.10-portrait.png)
+![Mesosphere DC/OS Enterprise Components](/1.11/img/dcos-components-1.11-portrait.png)
 
 From the top, DC/OS is a batteries-included container platform that handles container orchestration, package management, and security.
 
-From the bottom, DC/OS is an operating system built on top of [Apache Mesos](http://mesos.apache.org/) that handles cluster management and software defined networking while simplifying logging and metrics collection.
+From the bottom, DC/OS is an operating system built on top of [Apache Mesos](http://mesos.apache.org/) that handles cluster management and software defined networking, while simplifying logging and metrics collection.
 
-
-# Cluster Management
+# Cluster management
 
 DC/OS provides a way to view and operate a large number of individual machine-level systems as a single cluster-level system. It hides the complexity of Mesos, the distributed systems kernel, with higher level abstractions, interfaces, and tools. Cluster management is the core of that functionality, including the kernel, its dependencies, and its user interfaces.
 
@@ -427,7 +427,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 
 # Networking
 
-In a world where machines are are given numbers instead of names, tasks are scheduled automatically, dependencies are declaratively defined, and services run in distributed sets, network administration also needs to be elevated from plugging in cables to configuring software-defined networks. To accomplish this, DC/OS includes a fleet of networking components for routing, proxying, name resolution, virtual IPs, load balancing, and distributed reconfiguration.
+In a world where machines are given numbers instead of names, tasks are scheduled automatically, dependencies are declaratively defined, and services run in distributed sets, network administration also needs to be elevated from plugging in cables to configuring software-defined networks. To accomplish this, DC/OS includes a fleet of networking components for routing, proxying, name resolution, virtual IPs, load balancing, and distributed reconfiguration.
 
 <div data-role="collapsible">
 <h2 id="admin-router">Admin Router</h2>
@@ -471,21 +471,24 @@ In a world where machines are are given numbers instead of names, tasks are sche
 </div>
 
 <div data-role="collapsible">
-<h2 id="dns-forwarder">DNS Forwarder (Spartan)</h2>
+<h2 id="dns-forwarder">DC/OS Net</h2>
 <div>
-<p><strong>Description:</strong> DNS Forwarder (Spartan) forwards DNS requests to multiple DNS servers. Spartan Watchdog restarts Spartan when it is unhealthy.</p>
+<p><strong>Description:</strong> <em>dcos-net</em> is an Erlang VM that hosts the following networking applications:
+    <li><em>dcos-dns</em>: A distributed DNS-based service discovery.</li>
+    <li><em>dcos-overlay</em>: An SDN solution for UCR and Docker containers.</li>
+    <li><em>dcos-l4lb</em>: A distributed layer-4 load-balancer.</li>
+</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
-    <li><code class="nowrap">dcos-spartan.service</code></li>
-    <li><code class="nowrap">dcos-spartan-watchdog.service</code></li>
-    <li><code class="nowrap">dcos-spartan-watchdog.timer</code></li>
+    <li><code class="nowrap">dcos-net.service</code></li>
+    <li><code class="nowrap">dcos-net-watchdog.service</code></li>
   </ul>
 </p>
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="https://github.com/dcos/spartan">Source</a></li>
+    <li><a href="https://github.com/dcos/dcos-net">Source</a></li>
   </ul>
 </p>
 </div>
@@ -511,58 +514,6 @@ In a world where machines are are given numbers instead of names, tasks are sche
 </div>
 </div>
 
-<div data-role="collapsible">
-<h2 id="minuteman">Minuteman</h2>
-<div>
-<p><strong>Description:</strong> Minuteman provides distributed <a href="https://en.wikipedia.org/wiki/Transport_layer">Layer 4</a> virtual IP load balancing.</p>
-<p><strong>System Service(s):</strong> N/A - Included in <a href="#navstar">Navstar</a>.</p>
-<p>
-  <strong>See Also:</strong>
-  <ul>
-    <li><a href="/1.11/networking/load-balancing-vips/">Documentation</a></li>
-    <li><a href="https://github.com/dcos/minuteman">Source</a></li>
-  </ul>
-</p>
-</div>
-</div>
-
-<div data-role="collapsible">
-<h2 id="navstar">Navstar</h2>
-<div>
-<p><strong>Description:</strong> Navstar orchestrates virtual overlay networks using <a href="https://en.wikipedia.org/wiki/Virtual_Extensible_LAN">VXLAN</a> and manages distributed Layer 4 virtual IP load balancing.</p>
-<p>
-  <strong>System Service(s):</strong>
-  <ul>
-    <li><code class="nowrap">dcos-navstar.service</code></li>
-  </ul>
-</p>
-<p>
-  <strong>See Also:</strong>
-  <ul>
-    <li><a href="https://github.com/dcos/navstar">Source</a></li>
-  </ul>
-</p>
-</div>
-</div>
-
-<div data-role="collapsible">
-<h2 id="epmd">Erlang Port Mapping Daemon (EPMD)</h2>
-<div>
-<p><strong>Description:</strong> Erlang Port Mapping Daemon (EPMD) facilitates communication between distributed Erlang programs.</p>
-<p>
-  <strong>System Service(s):</strong>
-  <ul>
-    <li><code class="nowrap">dcos-epmd.service</code></li>
-  </ul>
-</p>
-<p>
-  <strong>See Also:</strong>
-  <ul>
-    <li><a href="https://github.com/erlang/epmd">Source</a></li>
-  </ul>
-</p>
-</div>
-</div>
 
 
 # Package Management
@@ -631,7 +582,7 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
   <strong>See Also:</strong>
   <ul>
     <li><a href="/1.11/security/">Documentation</a></li>
-    <li><a href="/1.11/security/iam-api/">API Reference</a></li>
+    <li><a href="/1.11/security/ent/iam-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -692,8 +643,8 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.11/security/secrets/">Documentation</a></li>
-    <li><a href="/1.11/security/secrets/secrets-api/">API Reference</a></li>
+    <li><a href="/1.11/security/ent/secrets/">Documentation</a></li>
+    <li><a href="/1.11/security/ent/secrets/secrets-api/">API Reference</a></li>
   </ul>
 </p>
 </div>

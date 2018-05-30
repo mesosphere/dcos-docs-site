@@ -1,0 +1,27 @@
+# Common values:
+
+packageName: kafka-zookeeper
+serviceName: kafka-zookeeper
+techName: Kafka ZooKeeper
+techShortName: ZooKeeper
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: three
+  nodeDescription: with three servers
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/kafka-zookeeper/kafka-zookeeper-auth/
+
+managing:
+  podType: zookeeper
+  taskType: server
+
+supportedVersions:
+  techExampleVersion: 0.11.0.2
+  techLink: "[Apache Kafka](https://kafka.apache.org/downloads)"
+
+# # Values specific to Kafka's own docs content:
+
+# kafka:
+#   zookeeperPackageName: beta-kafka-zookeeper
+#   zookeeperServiceName: kafka-zookeeper

@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Slow Docker Apps and Deployments
 title: Slow Docker Apps and Deployments
 menuWeight: 40
-excerpt:
+excerpt: Troubleshooting slow Docker apps and deployments
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 If you recently upgraded to DC/OS 1.10 or configured `MESOS_CGROUPS_ENABLE_CFS=true` in your Mesos agent configuration, you may see slow-running Docker applications or slow deployments.
@@ -35,12 +35,13 @@ You will need to change the configurations for your DC/OS (or Mesos) installatio
 
 **Note:** If you are considering changing this configuration, consult the [Mesos oversubscription](http://mesos.apache.org/documentation/latest/oversubscription/) documentation for additional considerations and configuration options.
 
-
 ### Configuration change
 
-1. Create or modify the file `/var/lib/dcos/mesos-slave-common` on each agent node; Add or set the line `MESOS_CGROUPS_ENABLE_CFS=false`.
+1. Create or modify the file `/var/lib/dcos/mesos-slave-common` on each agent node.
 
-1. Restart the Mesos agent process with `sudo systemctl restart dcos-mesos-slave`. Note, if this is done prior to installing the Mesos agent it will pick up the configuration automatically.
+1. Add or set the line `MESOS_CGROUPS_ENABLE_CFS=false`.
+
+1. Restart the Mesos agent process with `sudo systemctl restart dcos-mesos-slave`. **Note** If this is done before installing the Mesos agent it will pick up the configuration automatically.
 
 1. After restarting all of the Mesos agents, restart all tasks. Restarting the agent won’t cause the tasks to restart but they also won’t pick up the new setting so need to be restarted.
 

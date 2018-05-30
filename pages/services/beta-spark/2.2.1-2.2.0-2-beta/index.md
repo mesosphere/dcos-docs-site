@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Spark 2.2.1-2.2.0-2-beta
-title: Spark 2.2.1-2.2.0-2-beta
+navigationTitle: Beta Spark 2.2.1-2.2.0-2-beta
+title: Beta Spark 2.2.1-2.2.0-2-beta
 menuWeight: 20
 excerpt:
 featureMaturity:

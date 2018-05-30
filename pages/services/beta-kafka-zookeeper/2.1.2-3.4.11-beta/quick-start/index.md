@@ -12,7 +12,7 @@ excerpt:
 
 # Prerequisite
 
-- [DC/OS installed on your cluster](/latest/administration/installing/).
+- [DC/OS installed on your cluster](/1.11/installing/).
 
 1. If you are using open source DC/OS, install an Apache ZooKeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
@@ -20,18 +20,18 @@ excerpt:
    dcos package install kafka-zookeeper
    ```
 
-   Alternatively, you can install Apache ZooKeeper from [the DC/OS web interface](/latest/usage/webinterface/).
+   Alternatively, you can install Apache ZooKeeper from [the DC/OS web interface](/1.11/gui/catalog/).
 
 1. The service will now deploy with a default configuration. You can monitor its deployment on the **Services** tab of the DC/OS web interface.
 
 1. Connect a client to Apache ZooKeeper.
    ```shell
-   dcos beta-kafka-zookeeper endpoints
+   dcos kafka-zookeeper endpoints
    [
      "clientport"
    ]
 
-   dcos beta-kafka-zookeeper endpoints clientport
+   dcos kafka-zookeeper endpoints clientport
    {
        "vips": ["clientport.zookeeper.l4lb.thisdcos.directory:1140"],
        "address": [
@@ -53,7 +53,7 @@ You will use the values in the `address` field for the final step.
 
 # Install the ZooKeeper CLI
 
-1. [SSH into one your agent nodes](/1.10/administering-clusters/sshcluster/).
+1. [SSH into one your agent nodes](/1.11/administering-clusters/sshcluster/).
 
    ```
    dcos node ssh --master-proxy --mesos-id=<agent-id>
@@ -159,4 +159,4 @@ docker run -it zookeeper zkCli.sh -server 10.0.3.206:1140 10.0.3.206:1140,10.0.1
 
 - [Connecting clients][1].
 
- [1]: connecting-clients.md
+ [1]: /services/kafka-zookeeper/2.1.2-3.4.11/connecting-clients/

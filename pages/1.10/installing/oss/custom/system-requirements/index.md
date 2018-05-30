@@ -23,6 +23,8 @@ You must have a single bootstrap node, an odd number of Mesos master nodes, and 
 
 The cluster nodes are designated Mesos masters and agents during installation.
 
+The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+
 ### Master nodes
 
 You must have an odd number of master nodes.
@@ -31,14 +33,12 @@ Here are the master node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2       |      7.4    |
-| CoreOS      | 1235.9.0  | 1235.9.0    |
 | Nodes       | 1         | 3 or 5      |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
 
-There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following: 
+There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
@@ -50,14 +50,12 @@ Here are the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| RHEL/CentOS | 7.2       |      7.4    |
-| CoreOS      | 1235.9.0  | 1235.9.0    |
 | Nodes       | 1         | 6 or more   |
 | Processor   | 2 cores   | 2 cores     |
 | Memory      | 16 GB RAM | 16 GB RAM   |
 | Hard disk   | 60 GB     | 60 GB       |
 
-The agent nodes must also have: 
+The agent nodes must also have:
 
 - A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both the [Universal Container Runtime and Docker Engine](/1.10/deploying-services/containerizers/).
 
@@ -78,9 +76,9 @@ The agent nodes must also have:
 *   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` must be on the same mountpoint as `/`.  This is required because DC/OS installs systemd unit files under `/opt/mesosphere`. All systemd units must be available for enumeration during the initializing of the initial ramdisk at boot. If `/opt` is on a different partition or volume, systemd will fail to discover these units during the initialization of the ramdisk and DC/OS will not automatically restart upon reboot.
 
 *   The Mesos master and agent persistent information of the cluster is stored in the `/var/lib/mesos` directory.
-    
+
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
-    
+
 *   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.    
 
 ### Port and Protocol Configuration
@@ -97,20 +95,13 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 # Software Prerequisites
 
-**Tip:** Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
-
 ## All Nodes
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported versions of Docker are:
-
-- 1.12.x
-- 1.11.x
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
 
 **Recommendations**
-
-* Docker 1.11.x - 1.12.x is recommended <a href="https://github.com/docker/docker/issues/9718" target="_blank">for stability reasons</a>.
 
 * Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
 
@@ -156,7 +147,7 @@ timedatectl
 
 Before installing DC/OS, you must ensure that your bootstrap node has the following prerequisites.
 
-**Important:** 
+**Important:**
 
 * If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.10/installing/oss/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.

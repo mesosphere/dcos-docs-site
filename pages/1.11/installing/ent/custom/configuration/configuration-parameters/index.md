@@ -5,13 +5,13 @@ title: Configuration Reference
 menuWeight: 600
 excerpt:
 
-enterprise: false
+enterprise: true
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This topic provides all available configuration parameters. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/).
+This topic provides configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/). For configuration parameters available for [DC/OS](https://dcos.io/) please refer to [Configuration Reference for DC/OS](/1.11/installing/oss/custom/configuration/configuration-parameters/).
 
 # Cluster Setup
 
@@ -36,6 +36,7 @@ This topic provides all available configuration parameters. Except where explici
 | [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
+| [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.        |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.  |
@@ -54,6 +55,15 @@ This topic provides all available configuration parameters. Except where explici
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
 | [resolvers](#resolvers)                               | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.|
 | [use_proxy](#use-proxy)                               | Indicates whether to enable the DC/OS proxy. |
+|[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. |
+| [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
+|[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
+
+# Storage
+
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | [enterprise type="inline" size="small" /] A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage)|
 
 # Performance and Tuning
 
@@ -71,13 +81,17 @@ This topic provides all available configuration parameters. Except where explici
 
 | Parameter                          | Description                                                                                                                                                |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [adminrouter_auth_cache_enabled](#adminrouter-auth-cache-enabled-enterprise)    | [enterprise type="inline" size="small" /] Controls whether the Admin Router authorization cache is enabled. |
+| [adminrouter_tls_1_0_enabled](#adminrouter-tls-1-0-enabled)    | Indicates whether to enable TLSv1 support in Admin Router. |
+| [adminrouter_tls_1_1_enabled](#adminrouter-tls-1-1-enabled)    | Indicates whether to enable TLSv1.1 support in Admin Router. |
+| [adminrouter_tls_1_2_enabled](#adminrouter-tls-1-2-enabled)    | Indicates whether to enable TLSv1.2 support in Admin Router. |
+| [adminrouter_tls_cipher_suite](#adminrouter-tls-cipher-suite)    | Override the default TLS cipher suite in Admin Router. |
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | [enterprise type="inline" size="small" /] Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | [enterprise type="inline" size="small" /] Sets the auth token time-to-live (TTL) for Identity and Access Management. |
 | [customer_key](#customer-key-enterprise)                       | [enterprise type="inline" size="small" /] (Required) The DC/OS Enterprise customer key. |
-| [ca_certificate_path](#ca-certificate-path-enterprise)                   | [enterprise type="inline" size="small" /] Path to a file in the OpenSSL PEM format containing a single X.509 CA certificate. Can be a root (self-issued) certificate or an intermediate (cross-certificate) certificate. |
-| [ca_certificate_key_path](#ca-certificate-key-path-enterprise)           | [enterprise type="inline" size="small" /] Path to a file in the PKCS#8 PEM format containing the private key corresponding to the CA certificate in `ca_certificate_path`. Required if `ca_certificate_path` is specified. |
-| [ca_certificate_chain_path](#ca-certificate-chain-enterprise)       | [enterprise type="inline" size="small" /] Path to a file in the OpenSSL PEM format containing the complete CA certification chain required for end-entity certificate verification. Must be left undefined if `ca_certificate_path` is a root CA certificate. Required if `ca_certificate_path` is specified and the specified certificate is an intermediate CA certificate. |
-| [oauth_enabled](#oauth-enabled-dc-os-only-)                                | (DC/OS Only) Indicates whether to enable authentication for your cluster.  |
+| ca_certificate_path                   | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
+| ca_certificate_key_path           | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
+| ca_certificate_chain_path       | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
 | [security](#security-enterprise)                               | [enterprise type="inline" size="small" /] The security mode: disabled, permissive, or strict.  |
 | [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
@@ -88,6 +102,58 @@ This topic provides all available configuration parameters. Except where explici
 | [zk_super_credentials](#zk-superuser)            | [enterprise type="inline" size="small" /] The ZooKeeper superuser credentials.  |
 | [zk_master_credentials](#zk-master)          | [enterprise type="inline" size="small" /] The ZooKeeper master credentials.  |
 | [zk_agent_credentials](#zk-agent)           | [enterprise type="inline" size="small" /] The ZooKeeper agent credentials.  |
+
+[enterprise]
+### adminrouter_auth_cache_enabled
+[/enterprise]
+
+_This option was added in DC/OS 1.11.1._
+
+Controls whether the Admin Router authorization cache is enabled.
+
+*   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
+*   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
+
+### adminrouter_tls_1_0_enabled
+
+Indicates whether to enable TLS 1.0 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
+
+- `adminrouter_tls_1_0_enabled: 'true'` Enable the TLS 1.0 protocol in Admin Router.
+- `adminrouter_tls_1_0_enabled: 'false'` Disable the TLS 1.0 protocol in Admin Router. This is the default value.
+
+You are advised not to enable TLS 1.0 as the protocol is considered insecure.
+
+If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_0_enabled` parameter set to the desired value.
+
+### adminrouter_tls_1_1_enabled
+
+Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
+
+- `adminrouter_tls_1_1_enabled: 'true'` Enable the TLS 1.1 protocol in Admin Router. This is the default value.
+- `adminrouter_tls_1_1_enabled: 'false'` Disable the TLS 1.1 protocol in Admin Router.
+
+If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_1_enabled` parameter set to the desired value.
+
+### adminrouter_tls_1_2_enabled
+
+Indicates whether to enable TLS 1.2 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
+
+- `adminrouter_tls_1_2_enabled: 'true'` Enable the TLS 1.2 protocol in Admin Router. This is the default value.
+- `adminrouter_tls_1_2_enabled: 'false'` Disable the TLS 1.2 protocol in Admin Router.
+
+It is advised to keep this protocol version enabled as its most secure widely supported TLS version.
+
+If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_2_enabled` parameter set to the desired value.
+
+### adminrouter_tls_cipher_suite
+
+Provide a custom list of TLS cipher suites. The value will be passed directly into Admin Router's [`ssl_ciphers`](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers) configuration directive. There is no validation of this string. Setting it incorrectly will cause DC/OS installation to fail. This configuration settings affects only Admin Routers running on DC/OS master nodes.
+
+If not provided the default value `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;` is used.
+
+To validate correctness of provided value use the `openssl ciphers` utility and provide your own value: `openssl ciphers <cipher-suites>`. For a list of all available ciphers see the [OpenSSL documentation](https://www.openssl.org/docs/man1.0.2/apps/ciphers.html).
+
+*Note:* Due to Java jurisdiction limitations it is not possible to install DC/OS with only AES256 cipher suites.
 
 ### agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.11/overview/concepts/#private-agent-node) host names.
@@ -119,40 +185,6 @@ bouncer_expiration_auth_token_days: '0.5'
 ```
 
 For more information, see the [security documentation](/1.11/security/ent/).
-
-[enterprise]
-### ca_certificate_path
-[/enterprise]
-
-Path to a file within the `genconf` directory containing a single X.509 CA certificate in the OpenSSL PEM format. For example: `genconf/CA_cert`.
-
-Can be a _root CA certificate_ ("self-signed") or an _intermediate CA certificate_ ("cross-certificate") signed by some other certificate authority.
-
-If provided, this is the custom CA certificate. It is used as the signing CA certificate, i.e., the DC/OS CA will use this certificate for signing end-entity certificates (the subject of this certificate will be the issuer for certificates signed by the DC/OS CA).
-
-If not provided, the DC/OS cluster generates a unique root CA certificate during the initial bootstrap phase and uses that as the signing CA certificate.
-
-The public key associated with the custom CA certificate must be of type RSA.
-
-[enterprise]
-### ca_certificate_key_path
-[/enterprise]
-
-Path to a file within the `genconf` directory containing the private key corresponding to the custom CA certificate, encoded in the OpenSSL (PKCS#8) PEM format. For example: `genconf/CA_cert.key`.
-
-**Note:** this is highly sensitive data. The configuration processor accesses this file only for configuration validation purposes, and does not copy the data. After successful configuration validation this file needs to be placed out-of-band into the file system of all DC/OS master nodes to the path `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` before most DC/OS systemd units can start up. The file must be readable by the root user, and should have have 0600 permissions set.
-
-Required if `ca_certificate_path` is specified.
-
-[enterprise]
-### ca_certificate_chain_path
-[/enterprise]
-
-Path to a file within the `genconf` directory containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. For example: `genconf/CA_cert_chain.pem`.
-
-Must be left undefined if `ca_certificate_path` points to a _root CA certificate_.
-
-Required if `ca_certificate_path` is specified and if the custom CA certificate is an _intermediate CA certificate_. This needs to contain all CA certificates comprising the complete sequence starting precisely with the CA certificate that was used to sign the custom CA certificate and ending with a root CA certificate (where issuer and subject are equivalent), yielding a gapless certification path. The order is significant and the list must contain at least one certificate.
 
 ### cluster_docker_credentials
 The dictionary of Docker credentials to pass.
@@ -258,7 +290,7 @@ Indicates whether to enable DC/OS virtual networks.
 
     *  `dcos_overlay_network` This group of parameters defines a virtual network for DC/OS.  The default configuration of DC/OS provides a virtual network named `dcos` with this YAML configuration:
 
-        ```
+        ```yaml
         dcos_overlay_network:
             vtep_subnet: 44.128.0.0/20
             vtep_mac_oui: 70:B3:D5:00:00:00
@@ -282,22 +314,18 @@ Indicates whether to enable DC/OS virtual networks.
 A list of IP addresses that DC/OS DNS resolvers cannot bind to.
 
 ### dns_forward_zones
-A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
+A list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
 
 A sample definition is as follows:
 
-```
+```yaml
 dns_forward_zones:
-- - "a.contoso.com"
- - - - "1.1.1.1"
-     - 53
-   - - "2.2.2.2"
-     - 53
-- - "b.contoso.com"
- - - - "3.3.3.3"
-     - 53
-   - - "4.4.4.4"
-     - 53
+a.contoso.com:
+- "1.1.1.1:53"
+- "2.2.2.2:53"
+b.contoso.com:
+- "3.3.3.3:53"
+- "4.4.4.4:53"
 ```
 
 In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
@@ -407,7 +435,7 @@ The path to the installer host logs from the SSH processes. By default this is s
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
     *  `exhibitor_address`
-       (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/networking/tls-ssl/).
+       (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/security/ent/tls-ssl/).
 
        The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
     *  `num_masters`
@@ -424,6 +452,9 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 *  `master_dns_bindall: 'true'` The master DNS port is open. This is the default value.
 *  `master_dns_bindall: 'false'` The master DNS port is closed.
 
+### master_external_loadbalancer
+The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the [DC/OS certificate](/1.11/security/ent/tls-ssl/) of the Admin Router on the master nodes.
+
 ### mesos_container_log_sink
 
 The log manager for containers (tasks). The options are:
@@ -436,7 +467,7 @@ The default is `logrotate`. Due to performance issues, `journald` is not recomme
 
 ### mesos_dns_set_truncate_bit
 
-Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.  
+Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.
 
 *  `mesos_dns_set_truncate_bit: 'true'`  Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet and is truncated. This is the default behavior and is in compliance with RFC7766.
 *  `mesos_dns_set_truncate_bit: 'false'`  Mesos-DNS does not set the truncate bit if the response is too large to fit in a single packet. If you know your applications crash when resolving truncated DNS responses over TCP, or for performance reasons you want to avoid receiving the complete set of DNS records in response to your DNS requests, you should set this option to `false` and note that the DNS responses you receive from Mesos-DNS may be missing entries that were silently discarded. This means that truncated DNS responses will appear complete even though they aren't and therefore won't trigger a retry over TCP. This behavior does not conform to RFC7766.
@@ -445,14 +476,6 @@ For more information regarding truncated DNS responses and retrying over TCP see
 
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
-
-### oauth_enabled (DC/OS Only)
-Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
-
-- `oauth_enabled: true` Enable authentication for your cluster. This is the default value.
-- `oauth_enabled: false` Disable authentication for your cluster.
-
-If you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.
 
 ### platform
 The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: `aws`, `azure`, `oneview`, `openstack`, `vsphere`, `vagrant-virtualbox`, `onprem` (default).
@@ -531,13 +554,13 @@ The SSH username, for example `centos`.
 ### superuser_password_hash
 [/enterprise]
 
-(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. For more information, see the [security documentation](/1.11/security/ent/).
+(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.11/security/ent/).
 
 [enterprise]
 ### superuser_username
 [/enterprise]
 
-(Required) The user name of the superuser. For more information, see the [security documentation](/1.11/security/ent/).
+(Required) The user name of the superuser. This account uses the `superuser_password_hash`. For more information, see the [security documentation](/1.11/security/ent/).
 
 ### telemetry_enabled
 Indicates whether to enable sharing of anonymous data for your cluster. <!-- DC/OS auth -->
@@ -563,6 +586,35 @@ Indicates whether to enable the DC/OS proxy.
 For more information, see the [examples](/1.11/installing/ent/custom/configuration/examples/#http-proxy).
 
 **Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
+
+### enable_ipv6
+* `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is default value.
+* `enable_ipv6: 'false'`: Disables IPv6 networking in DC/OS.
+
+Currently IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
+* Users can create IPv6 DC/OS overlay networks (`NOTE:` This will work only for Docker containers).
+* Service discovery for IPv6 containers will be available.
+* Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
+
+### dcos_l4lb_enable_ipv6
+Indicates whether layer-4 load-balancing is available for IPv6 containers.
+*  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.11/networking/load-balancing-vips) for IPv6 containers. This is the default value.
+*  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. `NOTE: Layer-4 load balancing for IPv6 containers should be turned on with caution.`[DCOS_OSS-2010](https://jira.mesosphere.com/browse/DCOS_OSS-2010)
+
+### dcos_ucr_default_bridge_subnet
+Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by the `mesos-bridge` CNI network. The `mesos-bridge` CNI network represents the network that is used to launch UCR containers when bridge-mode networking is selected for UCR containers.
+
+The bridge-mode networking for UCR is identical to bridge mode networking for Docker and hence `ucr-br0` plays the same role as `docker0` bridge for Docker bridge-mode networking.
+
+The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_subnet` is that the subnet should not be used on the network to which the agents are connected. In other words, this subnet should be routeable from only within an agent.
+
+[enterprise]
+### feature_dcos_storage_enabled
+[/enterprise]
+
+Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins.
+* `feature_dcos_storage_enabled: 'false'` Disables CSI support in  DC/OS. This is the default value.
+* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage)
 
 <a id="zk-superuser"></a>
 [enterprise]

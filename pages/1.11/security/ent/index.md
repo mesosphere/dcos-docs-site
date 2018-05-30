@@ -1,12 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Security
-title: Security
+navigationTitle: DC/OS Enterprise Security
+title: DC/OS Enterprise Security
 menuWeight: 80
-excerpt:
+excerpt: Understanding DC/OS Enterprise security features
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 DC/OS Enterprise offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster.
 
@@ -136,8 +137,7 @@ The `OPT` sequence in the diagram illustrates how permission enforcement varies 
 
 - The Admin Router and the Secret Store enforce their permissions in all security modes.
 
-- Metronome and Marathon enforce their permissions in `permissive` and `strict` modes. However, the enforcement in `permissive` mode only occurs if the requestor presents an authentication token, which is optional in `permissive` mode. If an in-cluster requestor does not present an authentication token, the `dcos_anonymous` account will be used, which has the `dcos:superuser` permission.
-
+- Metronome and Marathon enforce their permissions in `permissive` and `strict` modes. However, the enforcement in `permissive` mode only occurs if the requestor presents an authentication token, which is optional in `permissive` mode. If an in-cluster requestor does not present an authentication token, Metronome and Marathon will act as if the request was made by a user with the `dcos:superuser` permission.
 - The Mesos masters and agents enforce their permissions only in `strict` security mode.
 
 The diagram does not show the Secret Store sequence. The Admin Router does not check the permissions on requests to the Secret Store. It routes these requests to the Secret Store, which enforces its own permissions on each request.

@@ -1,13 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:  Securing a Cluster
-excerpt:
 title: Securing a Cluster
+excerpt: Understanding the security features in DC/OS
 menuWeight: 7
 ---
-
-This topic discusses the security features in DC/OS and
-best practices for deploying DC/OS securely.
 
 ## General security concepts
 
@@ -18,7 +15,7 @@ network interfaces with iptables or other firewalls, and regularly applying
 updates from the Linux distribution used with DC/OS to ensure that system
 libraries, utilities and core services like systemd and OpenSSH are secure.
 
-## Security Zones
+## Security zones
 
 At the highest level we can distinguish three security zones in a DC/OS
 deployment, namely the admin, private, and public security zones.
@@ -31,7 +28,7 @@ the other nodes in the cluster via URL routing. For security, the DC/OS cloud
 template allows configuring a whitelist so that only specific IP address
 ranges are permitted to access the admin zone.
 
-#### Steps for Securing Admin Router
+#### Steps for securing Admin Router
 
 By default, Admin Router will permit unencrypted HTTP traffic. This is not
 considered secure, and you must provide a valid TLS certificate and redirect
@@ -39,7 +36,7 @@ all HTTP traffic to HTTPS to properly secure access to your cluster.
 
 After you have a valid TLS certificate, install the certificate on each master.
 Copy the certificate and private key to a well known location, such as under
-`/etc/ssl/certs`. 
+`/etc/ssl/certs`.
 
 If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/1.11/security/oss/tls-ssl/haproxy-adminrouter/).
 

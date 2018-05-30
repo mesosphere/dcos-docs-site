@@ -5,85 +5,57 @@
 # Description: Sends html files to Docker container wkhtmltopdf-aas
 #              and generates a pdf for each file
 #
+#Set PARALLEL_JOBS Environment Variable for parallel jobs count, should not be more than the number of CPU
 
-# Formatting colors
-GREEN='\033[0;32m'
-BLUE='\033[0;33m'
-PURPLE='\033[0;35m'
-NC='\033[0m'
+set -o errexit -o nounset -o pipefail
+
+INPUT_FOLDER="${1}"
+OUTPUT_FOLDER="${2}"
+PARALLEL_TEMPFILE=$(mktemp)
 
 function clean
 {
-  if [ -d $1 ]; then
-    rm -rf $1
-  fi
+    rm -rf "${1}"
+    rm -f "${PARALLEL_TEMPFILE}"
 }
 
 function main
 {
-  # Each argument
-  for d in $1; do
-    if [ -d "$d" ]; then
-      ( printf "${GREEN}Entering ${BLUE}$d${NC}\n" )
-      # For each folder or file
-      for f in $d/*; do
-        # If folder
-        if [ -d "$f" ]; then
-          ( printf "${GREEN}Folder ${BLUE}$f${NC}\n" )
-          ( main $f $2 $3 )
-        fi
-        # If.html file
-        if [ -f "$f" ] && [ ${f: -5} == ".html" ]; then
-          (
+   #cd $INPUT_FOLDER
+   while IFS= read -r -d '' SOURCE_FILE
+   do
+     #Strip the input_folder from filepath, not to include it within output folner and Destination filename
+     local FILE_PATH="${SOURCE_FILE#$INPUT_FOLDER}"
+     #Strip the filename and get only the full directory path for the file
+     local FILE_PATH="${FILE_PATH%/*}"
+     #Strip the first / or ./ from the beginning of file path
+     local FILE_PATH="${FILE_PATH#*/}"
 
-            # Debug
-            printf "${GREEN}File ${BLUE}$f${NC}\n"
+     #Destination directory for pdf file
+     local PDF_DEST_DIR="${OUTPUT_FOLDER}"/"${FILE_PATH}"
 
-            # Remove ./build from path name
-            clean_path=$(echo $d | sed 's/.*\.\/build\///')
+     #Remove INPUT_FOLDER from filename
+     local PDF_FILE_NAME="${SOURCE_FILE#$INPUT_FOLDER}"
+     #Remove leading ./ or / from filename, as find will output files with leading ./ or /
+     local PDF_FILE_NAME="${PDF_FILE_NAME#*/}"
+     #Replace all "/" characters in filename to "-" and append .pdf
+     local PDF_FILE_NAME="${FILE_PATH//\//-}.pdf"
+     #Change file extension from .html to .pdf
+     #local PDF_FILE_NAME="${PDF_FILE_NAME/%.html/.pdf}"
+     #For example if SOURCE_FILE=./build/1.10/cli/dcos-marathon-group-scale-index.html
+     #PDF_FILE_NAME will be 1.10-cli-dcos-marathon-group-scale-index.html.p
+     #Make the Destination directory
+     mkdir -p "${PDF_DEST_DIR}"
+     echo "phantomjs scripts/genpdf.js '${SOURCE_FILE}' '${PDF_DEST_DIR}/${PDF_FILE_NAME}' A4" >> "${PARALLEL_TEMPFILE}"
 
-            # Create filename based on cleaned path name
-            pdf_file_name=$(echo $clean_path | tr '/' '-').pdf
+   done <  <(find "${INPUT_FOLDER}" -type f -name "*.html" -print0)
 
-            # Make build dir
-            # Example: ./build/example/index.html -> ./build-pdf/example/example.pdf
-            build_dir=$2/$clean_path
+  #Execute theconversion in parallel
+  echo "Starting pdf build $(date)"
+  cat "${PARALLEL_TEMPFILE}" | parallel --halt-on-error 2 --progress --eta --workdir "${PWD}" --jobs "${PARALLEL_JOBS:-4}"
+  echo "Finished build $(date)"
 
-            #if [ -d "$build_dir" ]; then
-            #  rm -rf "$build_dir"
-            #fi
-            mkdir -p $build_dir
-            printf "${GREEN}Temp Dir${BLUE} $build_dir${NC}\n"
-
-            # Debug
-            printf "${GREEN}Creating PDF File ${PURPLE}$d/$pdf_file_name${NC}\n"
-
-            # Create PDF
-            # Directly use lib in container
-            if [[ -z "$3" ]]; then
-              wkhtmltopdf --print-media-type --disable-internal-links --disable-external-links "$f" "$build_dir/$pdf_file_name"
-
-            # Use http service if host is set
-            else
-              printf "${GREEN}Using${PURPLE} $3${NC}\n"
-              options='options={"print-media-type":"","disable-internal-links":"","disable-external-links":""}'
-              curl -X POST -vv -F "file=@$f" -F $options  $3 -o "$build_dir/$pdf_file_name"
-            fi
-
-          )
-        fi
-      done
-    fi
-  done
 }
 
-#
-#
-#
-
-INPUT_FOLDER=$1
-OUTPUT_FOLDER=$2
-DOCKER_HOST_PORT=$3
-
-clean $OUTPUT_FOLDER
-main $INPUT_FOLDER $OUTPUT_FOLDER $DOCKER_HOST_PORT
+clean "${OUTPUT_FOLDER}"
+main "${INPUT_FOLDER}" "${OUTPUT_FOLDER}"

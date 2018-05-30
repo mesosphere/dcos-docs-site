@@ -60,7 +60,7 @@ To import an external user:
 
 You can import existing LDAP user groups into DC/OS. Importing LDAP groups is a one-time operation: DC/OS does not maintain any connection to the LDAP group after importing.
 
-**Requirement:** Group entries in the LDAP directory must list their members with the `member` attribute.
+**Requirement:** Group entries in the LDAP directory must list their members with the `member` or `uniquemember` attribute.
 
 Group size is limited to 100 users. To increase this limit, contact Mesosphere customer support. If the user name matches an existing user, it is not reimported. You can check the logs to determine if this has occurred.
 
@@ -102,7 +102,7 @@ You can import a group of LDAP users by using the `/ldap/importuser` [API](/1.8/
 **Prerequisites:**
 
 -  The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
--  The existing group entries must list their members by using the `member` attribute.
+-  The existing group entries must list their members by using the `member` or `uniquemember` attribute.
 
 -  If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 

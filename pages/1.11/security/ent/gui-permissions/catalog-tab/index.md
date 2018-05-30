@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Granting Access to the Catalog Tab
 title: Granting Access to the Catalog Tab
 menuWeight: 80
-excerpt:
+excerpt: Granting access to the Catalog tab
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can grant users access to the **Catalog** tab. By default, new users have no permissions.
 

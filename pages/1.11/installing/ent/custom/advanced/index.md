@@ -10,6 +10,7 @@ enterprise: true
 
 With this installation method, you package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
 
+
 The advanced installer requires:
 
 *   The bootstrap node must be network accessible from the cluster nodes.
@@ -79,7 +80,6 @@ In this step, an IP detect script is created. This script reports the IP address
         curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
         ```
 
-
     *   #### Use the IP address of an existing interface
 
         This method discovers the IP address of a particular interface of the node.
@@ -110,15 +110,18 @@ In this step, an IP detect script is created. This script reports the IP address
 
 # Create a fault domain detection script
 
-By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled. You must include a fault domain detection script in your `/genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
+By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, thereby requiring no changes to your `config.yaml` to enable this functionality. However, you must include a fault domain detection script named `fault-domain-detect` in your `/genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
 
-1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
+
+1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
    We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>` We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
-1. Add the script to the `/genconf` directory of your bootstrap node.
+   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
 
-1. To opt
+
+2. Add your newly created `fault-domain-detect` script to the `/genconf` directory of your bootstrap node.
+
 
 # Create a configuration file
 
@@ -148,12 +151,15 @@ In this step you create a YAML configuration file that is customized for your en
     **Tips:**
 
     - If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
-    - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `/genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <path-to-ip-script>`.        
+    - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `/genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <path-to-ip-script>`.
 
     ```json
-    bootstrap_url: http://<bootstrap_ip>:80      
-    cluster_name: '<cluster-name>'
-    customer_key: <customer-key>
+    bootstrap_url: http://<bootstrap_ip>:80
+    cluster_name: <cluster-name>
+    superuser_username:
+    superuser_password_hash:
+    #customer_key in yaml file has been replaced by genconf/license.txt in DC/OS 1.11
+    #customer_key: <customer-key>
     exhibitor_storage_backend: static
     master_discovery: static
     ip_detect_public_filename: <relative-path-to-ip-script>
@@ -171,8 +177,12 @@ In this step you create a YAML configuration file that is customized for your en
     http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
     https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
     no_proxy:
-    - 'foo.bar.com'         
+    - 'foo.bar.com'
     - '.baz.com'
+    # Fault domain entry required for DC/OS Enterprise 1.11+
+    fault_domain_enabled: false
+    #If IPv6 is disabled in your kernel, you must disable it in the config.yaml
+    enable_ipv6: 'false'
     ```
 
 # <a name="install-bash"></a>Install DC/OS
@@ -181,7 +191,8 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 **Important:**
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.11/installing/ent/troubleshooting/).
+- Due to a cluster configuration issue with overlay networks, we currently recommend setting `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. You can see troubleshooting [here](/1.11/installing/ent/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][2].
 
 **Prerequisites**

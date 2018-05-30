@@ -3,15 +3,14 @@ layout: layout.pug
 navigationTitle:  SSHing into Nodes
 title: SSHing into Nodes
 menuWeight: 0
-excerpt:
+excerpt: Learn to set up an SSH connection to your DC/OS cluster from an outside network.
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-
-These instructions explain how to set up an SSH connection to your DC/OS cluster from an outside network. If you are on the same network as your cluster or connected by using VPN, you can instead use the `dcos node ssh` command. For more information, see the [dcos node section][1] of the CLI reference.
+If you are on the same network as your cluster or connected by using VPN, you can instead use the `dcos node ssh` command. For more information, see the [dcos node section][1] of the CLI reference.
 
 *   [SSH to your DC/OS cluster on Unix/Linux (macOS, Ubuntu, etc)][2]
 *   [SSH to your DC/OS cluster on Windows][3]
@@ -55,14 +54,14 @@ These instructions explain how to set up an SSH connection to your DC/OS cluster
 
     *   **To SSH to an agent node:**
 
-        1.  From the DC/OS CLI, enter the following command, where `<mesos-id>` is your agent ID. 
+        1.  From the DC/OS CLI, enter the following command, where `<mesos-id>` is your agent ID.
 
             ```bash
             dcos node ssh --master-proxy --mesos-id=<mesos-id>
             ```
-            
-            **Tip:** To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.11/gui/) and click **Details**. 
-            
+
+            **Tip:** To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.11/gui/) and click **Details**.
+
             ![Web interface node ID](/1.11/img/ssh-node-id.png)
 
 
@@ -152,5 +151,3 @@ To install these programs, download the Windows installer <a href="http://www.ch
  [2]: #unix
  [3]: #windows
  [4]: /1.11/installing/oss/cloud/aws/
-
-

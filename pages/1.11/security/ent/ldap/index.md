@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Directory-based authentication via LDAP
 title: Directory-based authentication via LDAP
 menuWeight: 50
-excerpt:
+excerpt: Setting up a directory-based authentication server via LDAP
 enterprise: true
 ---
 
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 If your organization has user records stored in a directory server supporting LDAP, you can configure DC/OS Enterprise to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS.

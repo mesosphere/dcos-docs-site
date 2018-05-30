@@ -89,7 +89,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
 <a name="secret-store-instructions"></a>
 # Referencing private Docker registry credentials in the secrets store [enterprise type="inline" size="small" /]
 
-Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/1.11/security/secrets/), and then reference that secret in your service definition.
+Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/1.11/security/ent/secrets/), and then reference that secret in your service definition.
 
 **Note:** This functionality is available only with the [Universal Containerizer Runtime](/1.11/deploying-services/containerizers/ucr/). If you need to use the Docker Engine, follow the [URI instructions](#uri-instructions) above.
 

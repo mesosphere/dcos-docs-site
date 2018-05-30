@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Local Persistent Volumes
 title: Local Persistent Volumes
 menuWeight: 10
-excerpt:
+excerpt: Using local persistent volumes
 
 enterprise: false
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 When you specify a local volume or volumes, tasks and their associated data are "pinned" to the node they are first launched on and will be relaunched on that node if they terminate. The resources the application requires are also reserved. Marathon will implicitly reserve an appropriate amount of disk space (as declared in the volume via `persistent.size`) in addition to the sandbox `disk` size you specify as part of your application definition.
@@ -40,7 +41,7 @@ Configure a persistent volume with the following options:
 - `mode`: The access mode of the volume. Currently, `"RW"` is the only possible value and will let your application read from and write to the volume.
 - `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
 - `persistent.size`: The size of the persistent volume in MiBs.
-- `persistent.profileName`: (not seen above) The storage [volume profile](/1.11/storage/volume-profiles). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
+- `persistent.profileName`: (not seen above) The storage [volume profile](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
 - `persistent.maxSize`: (not seen above) For `root` Mesos disk resources, the optional maximum size of an exclusive mount volume to be considered.
 - `persistent.constraints`: Constraints restricting where new persistent volumes should be created. Currently, it is only possible to constrain the path of the disk resource by regular expression.
 
@@ -52,7 +53,7 @@ To set up a stateful application, set `unreachableStrategy` to "disabled".
 "unreachableStrategy": "disabled",
 ```
 
-- 
+-
 <a name="abs-paths"></a>
 ## Specify an unsupported container path
 
@@ -94,7 +95,7 @@ When you scale your app down, the volumes associated with the terminated instanc
 
 Since all the resources your application needs are still reserved when a volume is detached, you may wish to destroy detached volumes to allow other applications and frameworks to use the resources. You may wish to leave them in the detached state, however, if you think you will be scaling your app up again; the data on the volume will still be there.
 
-**Notes:** 
+**Notes:**
 
 -  If your app is destroyed, any associated volumes and reserved resources will also be deleted.
 -  Mesos will currently not remove the data but might do so in the future.
@@ -132,7 +133,7 @@ where
 - `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
 - `persistent.size`: The size of the persistent volume in MiBs.
 - `persistent.maxSize`: (not seen above) For `root` Mesos disk resources, the optional maximum size of an exclusive mount volume to be considered.
-- `persistent.profileName`: (not seen above) The storage [volume profile](/1.11/storage/volume-profiles). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
+- `persistent.profileName`: (not seen above) The storage [volume profile](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
 - `persistent.constraints`: Constraints restricting where new persistent volumes should be created. Currently, it is only possible to constrain the path of the disk resource by regular expression.
 
 ## Configure stateful pod
@@ -221,9 +222,9 @@ A model app definition for PostgreSQL on Marathon would look like the following.
   "cpus": 1,
   "instances": 1,
   "mem": 512,
-  "networks": [ 
+  "networks": [
     {
-      "mode": "container/bridge" 
+      "mode": "container/bridge"
     }
   ],
   "container": {
@@ -299,9 +300,9 @@ The complete JSON application definition reads as follows:
   "mem": 512,
   "disk": 0,
   "instances": 1,
-  "networks": [ 
+  "networks": [
     {
-      "mode": "container/bridge" 
+      "mode": "container/bridge"
     }
   ],
   "container": {
@@ -465,15 +466,15 @@ response:
 
 ```json
 {
-  "appId": "/postgres", 
-  "host": "10.0.0.168", 
-  "id": "postgres.53ab8733-fd96-11e5-8e70-76a1c19f8c3d", 
+  "appId": "/postgres",
+  "host": "10.0.0.168",
+  "id": "postgres.53ab8733-fd96-11e5-8e70-76a1c19f8c3d",
   "localVolumes": [
     {
-      "containerPath": "pgdata", 
+      "containerPath": "pgdata",
       "persistenceId": "postgres#pgdata#53ab8732-fd96-11e5-8e70-76a1c19f8c3d"
     }
-  ], 
+  ],
   "slaveId": "d935ca7e-e29d-4503-94e7-25fe9f16847c-S1"
 }
 ```

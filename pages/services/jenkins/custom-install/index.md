@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Customizing your install
 title: Customizing your install
-menuWeight: 1
+menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
@@ -30,7 +30,7 @@ You can perform a custom installation from either the web interface or the CLI.
 
 <pre><code class="bash">nano jenkins-config.json
 </code></pre></li>
-<li>Use the information in the <a href="#config-ref">configuration reference</a> below to build your JSON. This example creates a new Jenkins for DC/OS service named <code>jenkins-myteam</code> and uses the NFS share located at <code>/mnt/nfs/jenkins-data</code>.
+<li>Use the information in the configuration reference below to build your JSON. This example creates a new Jenkins for DC/OS service named <code>jenkins-myteam</code> and uses the NFS share located at <code>/mnt/nfs/jenkins-data</code>.
 
 <pre><code class="json">{
     "service": {

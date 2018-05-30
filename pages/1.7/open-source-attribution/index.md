@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Mesosphere DC/OS Open Source Attribution
 menuWeight: 4
-excerpt:
+excerpt: List of third party open source software provided by Mesosphere
 
 ---
 
