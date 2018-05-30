@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Patch
 title: Patch
-menuWeight: 0
+menuWeight: 3
 excerpt: 
 ---
 

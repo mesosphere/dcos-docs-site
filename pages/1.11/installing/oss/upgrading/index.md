@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Upgrading
 excerpt:
 title: Upgrading
-menuWeight: 3.1
+menuWeight: 4
 ---
 
 ## Summary
