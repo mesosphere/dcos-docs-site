@@ -8,9 +8,9 @@ excerpt:
 
 # Patching live clusters with No downtime
 
-A DC/OS Patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a Patch. 
+A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a Patch. 
 
-A Patching process includes the following:
+A patching process includes the following:
 - Addresses fixed issues, known issues/limitations, notable changes and security enhancements.
 - Does not impact workloads which is an essential piece of patching live clusters with No downtime.
 - Helps users to understand the minor changes impacting the functionality of DC/OS.
