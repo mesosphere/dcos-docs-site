@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Upgrading
 excerpt:
 title: Upgrading
-menuWeight: 3.1
+menuWeight: 4
 ---
 
 An upgrade is the process of adding new features, replacing the existing features with new features/functionality or adding a major configuration change. You can upgrade DC/OS only if you have used the installation process to install DC/OS on your cluster.
