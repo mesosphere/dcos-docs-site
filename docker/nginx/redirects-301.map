@@ -271,6 +271,7 @@
 /1.10/administration/release-notes/ /1.10/release-notes/;
 /1.10/administration/remove-agent/ /1.10/remove-agent/;
 /1.10/administration/securing-your-cluster/ /1.10/administering-clusters/securing-your-cluster/;
+/1.10/administration/secrets/troubleshooting/ /1.10/security/ent/secrets/;
 /1.10/administration/storage/ /1.10/storage/;
 /1.10/administration/storage/mount-disk-resources/ /1.10/storage/mount-disk-resources/;
 /1.10/administration/storage/nfs/ /1.10/storage/nfs/;
