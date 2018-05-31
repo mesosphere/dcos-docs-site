@@ -11,8 +11,6 @@ Example: 1.X to 1.Y (1.11 --> 1.12)
 
 **Note:** An upgrade occurs only between major releases.
 
-## Summary
-
  If an upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster. This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
