@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Installing and Upgrading DC/OS
+title: Installing, Patching, and Upgrading DC/OS
 menuWeight: 30
 excerpt:
 

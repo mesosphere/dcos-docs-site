@@ -15,6 +15,6 @@ A patching process includes the following:
 - Does not impact workloads which is an essential piece of patching live clusters with No downtime.
 - Helps users to understand the minor changes impacting the functionality of DC/OS.
 
-Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2) 
+Example: DC/OS 1.X.A to 1.X.B (1.9.1 --> 1.9.2) 
 
 **Note:** A patching process occurs only between minor releases.
