@@ -250,23 +250,25 @@ function main
 }
 
 # Getting the date of the last successful build
-
+# The last successful build has been at this point (24/04/2018)
 LAST_SUCCESSFUL_BUILD_DATE=$(groovy scripts/jenkins-lastbuild-date.groovy)
 echo $LAST_SUCCESSFUL_BUILD_DATE
 # get url where pdf is hosted in tgz
-PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
+#PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
+PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-24-04-2018-${GIT_HASH_TRIM}.tgz"
+
 
 # get the files and output it to Previous_pdf_bundle destination
 echo curl -o ${LAST_SUCCESSFUL_BUILD}
 
 #curl -o "dcos-docs-pdf-bundle-develop-2014-04-24-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
-curl -o "${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+curl -o "${JOB_NAME}-24-04-2018-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
 #curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
 
 echo "directory here"
 pwd
-echo "${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
-tar -xvzf "${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
+echo "${JOB_NAME}-24-04-2018-${GIT_HASH_TRIM}.tgz"
+tar -xvzf "${JOB_NAME}-24-04-2018-${GIT_HASH_TRIM}.tgz"
 
 #tar -xvzf "dcos-docs-pdf-bundle-develop-${DATE_LAST_SUCCESSFUL_COMMIT}-${GIT_HASH_TRIM}.tgz"
 ls -la "${OUTPUT_FOLDER}"
