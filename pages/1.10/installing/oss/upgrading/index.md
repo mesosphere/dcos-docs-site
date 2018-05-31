@@ -13,7 +13,7 @@ Example: 1.X to 1.Y (1.10 --> 1.11)
 
 ## Summary
 
-This document provides instructions for upgrading a DC/OS cluster from version 1.9 to 1.10. If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
+If an upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
 
