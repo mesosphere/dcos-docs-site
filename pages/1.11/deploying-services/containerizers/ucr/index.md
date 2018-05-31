@@ -95,7 +95,7 @@ Container Image Auto GC is enabled by default, configured by an image GC config 
 
 ## [Manual Image GC](http://mesos.apache.org/documentation/latest/container-image/#manual-image-gc-through-http-api)
 
-Container Image Manual GC can be triggered via the HTTP Operator API. Please see `PRUNE_IMAGES` section in the [v1 Operator API doc](http://mesos.apache.org/documentation/latest/operator-http-api/#prune_images) for more details.
+Comtainer Image Manual GC can be triggered via the HTTP Operator API. Please see `PRUNE_IMAGES` section in the [v1 Operator API doc](http://mesos.apache.org/documentation/latest/operator-http-api/#prune_images) for more details.
 
 # Further Reading
 - [View the Mesos docs for the UCR](http://mesos.apache.org/documentation/latest/container-image/).
