@@ -251,7 +251,7 @@ function main
 
 # Getting the date of the last successful build
 # The last successful build has been at this point (24/04/2018)
-LAST_SUCCESSFUL_BUILD_DATE=$(groovy scripts/jenkins-lastbuild-date.groovy)
+#LAST_SUCCESSFUL_BUILD_DATE=$(groovy scripts/jenkins-lastbuild-date.groovy)
 echo $LAST_SUCCESSFUL_BUILD_DATE
 
 
@@ -259,7 +259,7 @@ echo $LAST_SUCCESSFUL_BUILD_DATE
 ##########  here ##########################################
 ##########################################################
 
-DATE_STRING=$LAST_SUCCESSFUL_BUILD_DATE
+DATE_STRING=${DATE_LAST_SUCCESSFUL_COMMIT}
 COUNT=0
 CHECK_DATE=$(date -d "$DATE_STRING + $COUNT days" +%d-%m-%Y)
 EXITED=0
