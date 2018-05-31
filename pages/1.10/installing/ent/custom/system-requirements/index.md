@@ -15,10 +15,7 @@ You must have a single Bootstrap node, Mesos master nodes, and Mesos agent nodes
 
 ## Bootstrap node
 
-1 node with 2 cores, 16 GB RAM, 60 GB HDD. This is the node where DC/OS installation is run. This bootstrap node must also have:
-
-*  A high-availability (HA) TCP/Layer 3 load balancer, such as HAProxy, to balance the following TCP ports to all master nodes: 80, 443.
-*  An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
+DC/OS installation is run on a Bootstrap node. 1 node with 2 cores, 16 GB RAM, 60 GB HDD. 
 
 ## Cluster nodes
 
