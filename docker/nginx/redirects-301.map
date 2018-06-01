@@ -1,12 +1,11 @@
 ~^([^.]*[^/])$ $1/;
 ~^(/[^/]*)$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
-/administration/admin-tutorials/installdatacenter/ /1.11/tutorials/dcos-101/redis-package/;
-/administration/admin-tutorials/installdatacenter/ /1.11/security/ent/tls-ssl/;
-/administration/id-and-access-mgt/ /1.11/security/ent/iam-api/;
-/administration/installing/cloud/aws/ /1.11/installing/oss/cloud/aws/;
-/administration/release-notes/ /1.11/release-notes/1.11.2/;
-/administration/release-notes/community-edition/dcos-1-6/ 
+/administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;
+/administration/admin-tutorials/installdatacenter/ /latest/security/ent/tls-ssl/;
+/administration/id-and-access-mgt/ /latest/security/ent/iam-api/;
+/administration/installing/cloud/aws/ /latest/installing/oss/cloud/aws/;
+/administration/release-notes/ /latest/release-notes/;
 /assets/images/chef-zk-status.png /1.11/img/chef-zk-status.png;
 /assets/images/dashboard-ee.gif /1.11/img/dashboard-ee.png;
 /assets/images/gui-installer-begin-ee.gif /1.11/img/gui-installer-begin-ee.gif;
@@ -34,16 +33,16 @@
 /img/hdfs-service-gui3.gif /services/beta-hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui3.gif;
 /img/hdfs-service-gui3.png /services/hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui3.png;
 /img/spark-gui-install.png /services/spark/v2.0.1-2.2.0-1/img/spark-gui-install.png;
-/install/awscluster/ /1.11/installing/oss/cloud/aws/;
-/install/cli/ /1.11/installing/oss/custom/cli/;
-/install/removeaws/ /1.11/installing/oss/custom/uninstall/;
-/install/sshcluster/ /1.11/administering-clusters/sshcluster/;
-/intro-course/ /1.11/tutorials/dcos-101/;
+/install/awscluster/ /latest/installing/oss/cloud/aws/;
+/install/cli/ /latest/installing/oss/custom/cli/;
+/install/removeaws/ /latest/installing/oss/custom/uninstall/;
+/install/sshcluster/ /latest/administering-clusters/sshcluster/;
+/intro-course/ /latest/tutorials/dcos-101/;
 /overview/release-notes/dcos1-4/ /latest/release-notes/;
-/overview/universe/ /1.11/deploying-services/config-universe-service/;
-/pages/1.11/networking/DNS/mesos-dns/ /1.11/networking/DNS/mesos-dns/;
-/pages/1.11/networking/load-balancing-vips/ /1.11/usage/service-discovery/load-balancing-vips/;
-/pages/1.11/networking/load-balancing-vips/virtual-ip-addresses/
+/overview/universe/ /latest/deploying-services/config-universe-service/;
+/pages/1.11/networking/DNS/mesos-dns/ /latest/networking/DNS/mesos-dns/;
+/pages/1.11/networking/load-balancing-vips/ /latest/usage/service-discovery/load-balancing-vips/;
+/pages/1.11/networking/load-balancing-vips/virtual-ip-addresses/ /latest/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
 /pages/services/edge-lb/ /services/edge-lb/;
 /pages/services/marathon-lb/ /services/marathon-lb/;
 /services/beta-cassandra/2.1.0-3.0.15-beta/install/quick-start.md/ /services/beta-cassandra/2.1.0-3.0.15-beta/quick-start/;
@@ -156,8 +155,6 @@
 /tutorials/launch-docker-container-on-mesosphere/ /latest/deploying-services/creating-services/deploy-docker-app/;
 /usage/cli/ /latest/cli/;
 /usage/managing-services/config/ /latest/deploying-services/config-universe-service/;
-/s/downloads/ /s/;
-/getting-started/support/ /s/;
 /services/confluent-kafka/2.2.0-4.0.0e/11-release-notes/ /services/confluent-kafka/2.2.0-4.0.0e/release-notes/;
 /services/confluent-zookeeper/2.2.0-4.0.0e/11-release-notes/ /services/confluent-zookeeper/2.2.0-4.0.0e/release-notes/;
 /services/kafka/2.2.0-1.0.0/11-release-notes/ /services/kafka/2.2.0-1.0.0/release-notes/;
