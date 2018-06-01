@@ -86,8 +86,7 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
     - <master-private-ip-2>
     - <master-private-ip-3>
     resolvers:
-    - 8.8.4.4
-    - 8.8.8.8
+    - 169.254.169.253
     use_proxy: 'true'
     http_proxy: http://<proxy_host>:<http_proxy_port>
     https_proxy: https://<proxy_host>:<https_proxy_port>
@@ -97,7 +96,7 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
     ```
 
 <a id="ip-detect-script"></a>
-2.  Create an `ip-detect` script.
+2.8  Create an `ip-detect` script.
 
     In this step, an IP detect script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
