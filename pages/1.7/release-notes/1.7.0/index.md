@@ -2,13 +2,15 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.7.0
 title: Release Notes for 1.7.0
-menuWeight: 2
-excerpt:
+menuWeight: 9
+excerpt: Release Notes for 1.7.0
 
 enterprise: false
 ---
 
-The release notes provide a list of useful topics and links for DC/OS.
+# About 1.7
+
+These release notes provide a list of useful topics and links for the 1.7 release of DC/OS.
 
 # Packages installable from the UI
 
@@ -46,7 +48,7 @@ Figure 2 - Component System View
 
 *   **Stateful applications using External Volumes (Experimental)** Consumption (attach & detach to containers) support in DC/OS for Amazon Web Services EBS, OpenStack Cinder, EMC Isilon, ScaleIO, VMAX, XtremeIO & Google Compute Engine). For more information, see the [documentation][5].
 
-# Fine-grained DC/OS access control  [enterprise type="inline" size="small"/]
+# [enterprise] Fine-grained DC/OS access control  [/enterprise]
 
 <!-- Enterprise only. --> You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the  [documentation][6].
 
@@ -76,7 +78,7 @@ Figure 2 - Component System View
 
 <!-- Enterprise Edition -->
 
-**Support for Authentication and Authorization** [enterprise type="inline" size="small"/] It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules.
+**Support for Authentication and Authorization**  It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules. [enterprise type="inline" size="small"/]
 
 For the full set of changes, please refer to the [Marathon Release Notes][7].
 
