@@ -26,19 +26,31 @@ then
 else
     LATEST_MDFILES=$(git diff "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"..HEAD --name-only | grep \.md)
     export LATEST_MDFILES
+
+
+    # echo " Logging all envs down below "
+    # printenv
+    # Settings values to upload the right directories
+    FULLDATE_LAST_SUCCESSFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}" --format=%ci)
+    FULLDATE_LAST_SUCCESSFUL_COMMIT=${BUILD_ID}
+    DATE_LAST_SUCCESSFUL_COMMIT="$(echo "${FULLDATE_LAST_SUCCESSFUL_COMMIT}" | cut -c1-10)"
+    GIT_HASH="$(git rev-parse "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}")"
+    GIT_HASH_TRIM="$(echo "$GIT_HASH" | cut -c1-8)"
+    export GIT_HASH_TRIM
+    export DATE_LAST_SUCCESSFUL_COMMIT
 fi
 
 
-echo " Logging all envs down below "
-printenv
-# Settings values to upload the right directories
-FULLDATE_LAST_SUCCESSFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}" --format=%ci)
-FULLDATE_LAST_SUCCESSFUL_COMMIT=${BUILD_ID}
-DATE_LAST_SUCCESSFUL_COMMIT="$(echo "${FULLDATE_LAST_SUCCESSFUL_COMMIT}" | cut -c1-10)"
-GIT_HASH="$(git rev-parse "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}")"
-GIT_HASH_TRIM="$(echo "$GIT_HASH" | cut -c1-8)"
-export GIT_HASH_TRIM
-export DATE_LAST_SUCCESSFUL_COMMIT
+# echo " Logging all envs down below "
+# printenv
+# # Settings values to upload the right directories
+# FULLDATE_LAST_SUCCESSFUL_COMMIT=$(git show -s "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}" --format=%ci)
+# FULLDATE_LAST_SUCCESSFUL_COMMIT=${BUILD_ID}
+# DATE_LAST_SUCCESSFUL_COMMIT="$(echo "${FULLDATE_LAST_SUCCESSFUL_COMMIT}" | cut -c1-10)"
+# GIT_HASH="$(git rev-parse "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}")"
+# GIT_HASH_TRIM="$(echo "$GIT_HASH" | cut -c1-8)"
+# export GIT_HASH_TRIM
+# export DATE_LAST_SUCCESSFUL_COMMIT
 
 # Setting the date of the last succesfull build
 JOB_NAME=${JOB_NAME}
