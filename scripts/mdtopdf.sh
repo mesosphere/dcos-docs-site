@@ -249,65 +249,63 @@ function main
   echo "Finished build $(date)"
 }
 
-# Getting the date of the last successful build
-# The last successful build has been at this point (24/04/2018)
-#echo $LAST_SUCCESSFUL_BUILD_DATE
 
-
-###########################################################
-##########  here ##########################################
 ##########################################################
-
-DATE_STRING=${DATE_LAST_SUCCESSFUL_COMMIT}
-COUNT=0
-CHECK_DATE=$(date -d "$DATE_STRING + $COUNT days" +%d-%m-%Y)
-EXITED=0
-
-URL="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-
-
-while ! $(curl -o /dev/null --silent --head --fail "$URL")
-do
-    COUNT=$(expr $COUNT + 1)
-    CHECK_DATE=$(date -d "$DATE_STRING + $COUNT days" +%d-%m-%Y)
-    URL="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-
-    if [ $COUNT -eq 10 ]; then
-        # echo "breaking"
-        EXITED=$(expr 1)
-        break;
-    fi
-done
-
-echo $EXITED
-echo $URL
-echo $CHECK_DATE
-
-
-if [ $EXITED -eq 1 ];
+##########  Final Implementation             #############
+##########################################################
+# Check if changed files is not empty
+if [[ ! -z "${CHANGED_FILES}" ]]
 then
-  exit 1;
+  DATE_STRING=${DATE_LAST_SUCCESSFUL_COMMIT}
+  COUNT=0
+  CHECK_DATE=$(date -d "$DATE_STRING + $COUNT days" +%d-%m-%Y)
+  EXITED=0
+
+  URL="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+
+
+  while ! $(curl -o /dev/null --silent --head --fail "$URL")
+  do
+      COUNT=$(expr $COUNT + 1)
+      CHECK_DATE=$(date -d "$DATE_STRING + $COUNT days" +%d-%m-%Y)
+      URL="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+
+      if [ $COUNT -eq 10 ]; then
+          # echo "breaking"
+          EXITED=$(expr 1)
+          break;
+      fi
+  done
+
+  echo $EXITED
+  echo $URL
+  echo $CHECK_DATE
+
+
+  if [ $EXITED -eq 1 ];
+  then
+    exit 1;
+  fi
+  # get url where pdf is hosted in tgz
+  PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+
+
+  # get the files and output it to Previous_pdf_bundle destination
+  echo curl -o ${LAST_SUCCESSFUL_BUILD}
+
+  curl -o "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+  #curl -o "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+  #curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
+
+  echo "directory here"
+  pwd
+  #echo "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+  #tar -xvzf "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+
+  echo "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+  tar -xvzf "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+  ls -la "${OUTPUT_FOLDER}"
 fi
-# get url where pdf is hosted in tgz
-PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-
-
-# get the files and output it to Previous_pdf_bundle destination
-echo curl -o ${LAST_SUCCESSFUL_BUILD}
-
-curl -o "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
-#curl -o "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
-#curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
-
-echo "directory here"
-pwd
-#echo "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-#tar -xvzf "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-
-echo "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-tar -xvzf "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-ls -la "${OUTPUT_FOLDER}"
-
 #
 # Clean the previous pdf
 #
