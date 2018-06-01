@@ -264,7 +264,6 @@ CHECK_DATE=$(date -d "$DATE_STRING + $COUNT days" +%d-%m-%Y)
 EXITED=0
 
 URL="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-#URL="http://localhost:8081/thing-${CHECK_DATE}.html"
 
 
 while ! $(curl -o /dev/null --silent --head --fail "$URL")
@@ -290,7 +289,6 @@ then
   exit 1;
 fi
 # get url where pdf is hosted in tgz
-#PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${LAST_SUCCESSFUL_BUILD_DATE}-${GIT_HASH_TRIM}.tgz"
 PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
 
 
