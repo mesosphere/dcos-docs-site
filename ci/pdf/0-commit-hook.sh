@@ -19,8 +19,9 @@ DCOS_CRT="${DCOS_CRT}" # ex: docs-us.crt
 ci/pdf/1-setup-env.sh
 
 # Get a log of all the md files modified or new in the new push
+set -o nounset
 
-if [ -z ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ];
+if [ ! -z ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ];
 then
     echo "var is unset";
 else
