@@ -545,7 +545,6 @@
 /1.8/usage/service-discovery/mesos-dns/custom-domain-service-discovery/ /1.8/usage/service-discovery/mesos-dns/expose-mesos-zone/;
 /1.8/usage/service-discovery/virtual-ip-addresses/ /1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
 /1.8/usage/service-guides/hdfs/uninstall/ /services/hdfs/v1.3.0-2.6.0-cdh5.9.1/uninstall/;
-/1.8/usage/service-guides/kafka/uninstall/ /1.8/usage/service-guides/kafka/uninstall/;
 /1.8/usage/tutorials/docker-app/ /1.8/usage/managing-services/creating-services/deploy-docker-app/;
 /1.8/usage/tutorials/inline-update/ /1.8/usage/managing-services/update-user-service/;
 /1.8/usage/tutorials/marathon/ /1.8/usage/tutorials/dcos-101/;
