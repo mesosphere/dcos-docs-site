@@ -8,8 +8,8 @@ set -o errexit -o nounset -o pipefail
 # requires inputs
 DOCKER_IMAGE="${DOCKER_IMAGE}"
 GIT_BRANCH="${GIT_BRANCH}"
-DATE_LAST_SUCCESSFUL_COMMIT="${DATE_LAST_SUCCESSFUL_COMMIT}"
-GIT_HASH_TRIM="${GIT_HASH_TRIM}"
+# DATE_LAST_SUCCESSFUL_COMMIT="${DATE_LAST_SUCCESSFUL_COMMIT}"
+# GIT_HASH_TRIM="${GIT_HASH_TRIM}"
 
 # run from repo root
 project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
