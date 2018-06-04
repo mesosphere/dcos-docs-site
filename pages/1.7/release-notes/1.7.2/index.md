@@ -73,7 +73,7 @@ Figure 2 - Component System View
 
 # [enterprise] Fine-grained DC/OS access control  [/enterprise]
 
-<!-- Enterprise only. --> You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the  [documentation][6].
+You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the [documentation][6].
 
 # DC/OS Marathon Updates
 
@@ -85,7 +85,7 @@ Figure 2 - Component System View
 
 **Support for Persistent Storage** You can now launch tasks that use persistent volumes by specifying volumes either via the UI or the REST API. Marathon will reserve all required resources on a matching agent, and subsequently launch a task on that same agent if needed. Data within the volume will be retained even after relaunching the associated task.
 
-**Support for Scheduler Upgrades** Scheduler are specific applications to Marathon, since they can also launch tasks. A deployment in Marathon for upgrading schedulers also includes the migration of all tasks, the scheduler has started via a protocol.
+**Support for Scheduler Upgrades** Schedulers are specific applications to Marathon, since they can also launch tasks. A deployment in Marathon for upgrading schedulers also includes the migration of all tasks, the scheduler has started via a protocol.
 
 **Support for Ports Metadata** The v2 REST API was extended to support additional ports metadata (protocol, name, and labels) through the portDefinition application field. Marathon will pass this new information to Mesos, who will in turn make it available for service discovery purposes.
 
