@@ -241,7 +241,7 @@ dns_forward_zones:
       - 53
 ```
 
-In the above example, a DNS query to `myapp.a.contoso.com` will be forward by DC/OS to DNS server  `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded by DC/OS to DNS server `3.3.3.3:53` or `4.4.4.4:53`.
+In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded by DC/OS to DNS server  `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded by DC/OS to DNS server `3.3.3.3:53` or `4.4.4.4:53`.
 
 
 ### dns_search
