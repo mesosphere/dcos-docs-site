@@ -22,6 +22,7 @@ You will need a single boostrap node with two cores, 16 GB RAM, 60 GB HDD. This 
 
 Since the bootstrap node is only used during the installation and upgrade process, there are no specific recommendations for high performance storage or separated mount points.
 
+
 ## Cluster nodes
 
 The cluster nodes are designated Mesos masters and agents during installation.
