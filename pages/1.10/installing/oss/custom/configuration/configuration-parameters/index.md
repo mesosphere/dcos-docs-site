@@ -48,7 +48,7 @@ This topic provides configuration parameters available for [DC/OS](https://dcos.
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [dcos_overlay_enable](#dcos-overlay-enable)           | Block of parameters that specifies whether to enable DC/OS virtual networks. |
 | [dns_bind_ip_blacklist](#dns-bind-ip-blacklist)       | A list of IP addresses that DC/OS DNS resolvers cannot bind to.|
-| [dns_forward_zones](#dns-forward-zones)               | A list of DNS zones, server IP addresses, and server ports that configure custom forwarding behavior of DNS queries. Queries for these DNS zones are forwarded to the specified servers. The servers can be either caching or authoritative servers so long as they can resolve the zones. Most often authoritative servers are used. For redundancy, multiple servers are recommended.|
+| [[dns_forward_zones](#dns-forward-zones)               | A list of DNS zones, server IP addresses, and server ports that configure custom forwarding behavior of DNS queries. |
 | [dns_search](#dns-search)                             | A space-separated list of domains that are tried when an unqualified domain is entered.  |
 | [master_dns_bindall](#master-dns-bindall)             | Indicates whether the master DNS port is open.  |
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
@@ -188,18 +188,14 @@ A list of DNS zones, server IP addresses, and server ports that configure custom
 
 A sample definition is as follows:
 
-```
+```yaml
 dns_forward_zones:
-  - "a.contoso.com"
-    - "1.1.1.1"
-      - 53
-    - "2.2.2.2"
-      - 53
-  - "b.contoso.com"
-    - "3.3.3.3"
-      - 53
-    - "4.4.4.4"
-      - 53
+a.contoso.com:
+- "1.1.1.1:53"
+- "2.2.2.2:53"
+b.contoso.com:
+- "3.3.3.3:53"
+- "4.4.4.4:53"
 ```
 
 In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded by DC/OS to DNS servers `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded by DC/OS to DNS server `3.3.3.3:53` or `4.4.4.4:53`.
