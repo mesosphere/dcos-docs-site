@@ -17,7 +17,7 @@ DC/OS automatically generates name-based VIPs that do not collide with IP VIPs, 
 A named VIP contains these components:
 
  * Private virtual IP address
- * Port (a port which the service is available on)
+ * Port (a port on which the service is available)
  * Service name
 
 You can assign a VIP to your application from the DC/OS GUI. The values you enter when you deploy a new service are translated into these Marathon application definition entries:
@@ -37,7 +37,7 @@ VIPs follow this naming convention:
 
 ## Creating a VIP
 
-1.  From the DC/OS [GUI](/1.11/gui/), click on the **Services** then **RUN A SERVICE**.
+1.  From the DC/OS [GUI](/1.11/gui/), click on the **Services** tab, then on **RUN A SERVICE**.
     1.  From the **Networking** tab, select  **NETWORK TYPE** > **Virtual Network: dcos**.
     2.  Expand **ADD SERVICE ENDPOINT** and provide responses for:
 
@@ -104,6 +104,6 @@ You can use this VIP to address any one of the Kafka brokers in the cluster.
 
 ### Connections seem to close at random times
 
-This behavior is often experienced with applications that have long lived connections, such as databases (e.g. PostgreSQL). To fix, try turning on keepalives. The keepalive can be an application specific mechanism like a heartbeat, or something in the protocol like a TCP keepalive. A keepalive is required because a load balancer cannot differentiate between idle or dead connections as no packets are sent in either case. The default timeout depends on the kernel configuration, but is usually 5 minutes.
+This behavior is often experienced with applications that have long lived connections, such as databases (for example, PostgreSQL). To fix, try turning on keepalives. The keepalive can be an application specific mechanism like a heartbeat, or something in the protocol like a TCP keepalive. A keepalive is required because a load balancer cannot differentiate between idle or dead connections as no packets are sent in either case. The default timeout depends on the kernel configuration, but is usually 5 minutes.
 
  [1]: /1.11/deploying-services/service-ports/

@@ -227,21 +227,19 @@ A list of DNS zones, server IP addresses, and server ports that configure custom
 
 A sample definition is as follows:
 
-```
+```yaml
 dns_forward_zones:
-  - "a.contoso.com"
-    - "1.1.1.1"
-      - 53
-    - "2.2.2.2"
-      - 53
-  - "b.contoso.com"
-    - "3.3.3.3"
-      - 53
-    - "4.4.4.4"
-      - 53
+
+a.contoso.com:
+- "1.1.1.1:53"
+- "2.2.2.2:53"
+b.contoso.com:
+- "3.3.3.3:53"
+- "4.4.4.4:53"
 ```
 
 In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded by DC/OS to DNS server  `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded by DC/OS to DNS server `3.3.3.3:53` or `4.4.4.4:53`.
+
 
 
 ### dns_search

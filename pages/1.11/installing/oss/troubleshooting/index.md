@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Troubleshooting
 excerpt:
 title: Troubleshooting
-menuWeight: 400
+menuWeight: 9
 oss: true
 ---
 

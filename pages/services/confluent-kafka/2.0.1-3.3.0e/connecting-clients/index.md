@@ -158,7 +158,7 @@ The code snippet below demonstrates how to connect a Kafka Consumer to the clust
 
 The following code connects to a DC/OS-hosted Kafka instance using `bin/kafka-console-producer.sh` and `bin/kafka-console-consumer.sh` as an example:
 
-    dcos beta-confluent-kafka endpoints broker
+    dcos confluent-kafka endpoints broker
     {
       "address": [
         "10.0.0.49:1025",
