@@ -271,8 +271,6 @@
 /1.10/administration/storage/nfs/ /1.10/storage/nfs/;
 /1.10/administration/tls-ssl/ /1.10/security/oss/tls-ssl/;
 /1.10/administration/tls-ssl/haproxy-adminrouter/ /1.10/networking/tls-ssl/haproxy-adminrouter/;
-/1.10/administration/user-management/ /1.10/administration/id-and-access-mgt/user-management/;
-/1.10/administration/virtual-networks/(.*)$ /1.10/networking/virtual-networks/$1;
 /1.10/administration/overlay-networks/ /1.10/networking/virtual-networks/;
 /1.10/administration/overlay-networks/ip-per-container/ /1.10/virtual-networks/ip-per-container/;
 /1.10/administration/overlay-networks/isolation/ /1.10/administration/virtual-networks/isolation/;
