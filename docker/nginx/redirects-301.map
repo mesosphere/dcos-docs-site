@@ -271,7 +271,6 @@
 /1.10/administration/storage/nfs/ /1.10/storage/nfs/;
 /1.10/administration/tls-ssl/ /1.10/security/oss/tls-ssl/;
 /1.10/administration/tls-ssl/haproxy-adminrouter/ /1.10/networking/tls-ssl/haproxy-adminrouter/;
-/1.10/administration/upgrading/ /1.10/installing/upgrading/;
 /1.10/administration/user-management/ /1.10/administration/id-and-access-mgt/user-management/;
 /1.10/administration/virtual-networks/(.*)$ /1.10/networking/virtual-networks/$1;
 /1.10/administration/overlay-networks/ /1.10/networking/virtual-networks/;
@@ -436,8 +435,7 @@
 /1.10/usage/managing-services/service-ports/ /1.10/deploying-services/service-ports/;
 /1.10/usage/managing-services/task-handling/ /1.10/deploying-services/task-handling/;
 /1.10/usage/managing-services/task-handling/configure-task-handling/ /1.10/deploying-services/task-handling/configure-task-handling/;
-/1.10/usage/managing-services/uninstall /1.10/deploying-services/uninstall;
-/1.10/usage/managing-services/uninstall/ /1.10/deploying-services/uninstall/;
+/1.10/usage/managing-services/uninstall/ /1.10/deploying-services/uninstall;
 /1.10/usage/managing-services/update-user-service/ /1.10/deploying-services/update-user-service/;
 /1.10/usage/marathon/ /1.10/usage/managing-services/;
 /1.10/usage/marathon/application-basics/ /1.10/deploying-services/creating-services/;
