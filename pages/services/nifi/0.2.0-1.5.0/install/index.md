@@ -94,7 +94,36 @@ In DC/OS 1.10 and above, services may be installed into folders by specifying a 
    ```
 The above example will install the service under a path of foldered => path => to => nifi. It can then be reached using dcos nifi  CLI commands or directly over HTTP as described below.
 
-Note:  The service folder location cannot be changed after initial install.Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.
+Note:  The service folder location cannot be changed after initial install.Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance. 
+
+Also while doing folder installation cn_dn_node_identity value should be in accordance with the service name i.e., its value will be service name without any slash(/). For changing the value of cn_dn_node_identity, you have to use option.json file and in the option.json file, change the value of cn_dn_node_identity. For example: if you have given the service name as "/demo/nifi" then option.json will be as below: 
+
+   ```shell
+   {
+   "node": {
+       "count": 1,
+       "cpus": 1
+       },
+   "service": {
+       "name": "demo/nifi",
+       "security": {
+           "kerberos": {
+               "enabled": true
+           },
+           "tls_ssl": {
+               "enable": true
+           }
+       },
+       "service_account": "dcosnifi",
+       "service_account_secret": "dcosnifisecret",
+       "virtual_network_enabled": true
+       "cn_dn_node_identity": "demonifi"
+       }
+   }
+   ```
+
+
+In case of default installation there is no need to change cn_dn_node_identity value as by defualt its nifi only.
 
 ## Addressing named instances
 
