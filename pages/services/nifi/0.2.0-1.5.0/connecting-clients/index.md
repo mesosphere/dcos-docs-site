@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Connecting Clients
 title: Connecting Clients
-menuWeight: 50
+menuWeight: 70
 excerpt: Connecting clients through service discovery
 featureMaturity:
 enterprise: false
@@ -58,7 +58,7 @@ When TLS is enabled, an endpoint named node-tls should also be listed. To verify
     - NiFi is installed on DCOS without TLS and Kerberos
     - Edge LB is installed (with service account and service account secret in strict mode)
 
-### Steps 
+### Steps
 
 Following are the steps for Edge-LB Pool configuration:
 
@@ -71,7 +71,7 @@ Following are the steps for Edge-LB Pool configuration:
   dcos nifi endpoints web --name=<service_name>
   ```  
   3. **Create the configration json file with required parameters to access nifi web.**
-  
+
   Example as follows (Without TLS and Kerberos):
 
   ```shell
@@ -170,4 +170,3 @@ with TLS and Kerberos:
   ```shell
   http://<Public IP of the Public Node of the cluster>>:8080/nifi
   ```      
-  

@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Managing
 title: Managing
-menuWeight: 60
-excerpt:
+menuWeight: 80
+excerpt: Managing your DC/OS NiFi configuration
 featureMaturity:
 enterprise: false
 ---
@@ -118,7 +118,7 @@ Modify the COUNT `"node":{"count":3}` environment variable to update the node co
 
 The CPU and Memory requirements of each node can be increased or decreased as follows:
 - CPU: ` "node": {"cpus": <CPU Value>}`
-- Memory (in MB): `"node": {"mem": 4096}` 
+- Memory (in MB): `"node": {"mem": 4096}`
 
 **Note:** Volume requirements (type and/or size) cannot be changed after initial deployment.
 
@@ -145,16 +145,16 @@ Let's say we have the following deployment of our nodes
 
     1. Remove the decommissioned IP and add a new IP to the placement rule whitelist by editing `placement_constraint`:
 
-	
+
 ```shell
 	hostname:LIKE:10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123
-```	
+```
     2. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist: `dcos nifi pod replace _NODEPOD_-1`
     3. Wait for `_NODEPOD_-1` to be up and healthy before continuing with any other replacement operations.
-    
+
 The placement constraints can be modified by configuring the "placement constraint" section of the Config.json file:
 
-	
+
 ```shell
 	"placement_constraint": {
           "type": "string",
@@ -195,7 +195,7 @@ The following sections describe advanced commands that be used to interact with 
 
 ### Monitoring the update
 
-Once the Scheduler has been restarted, it will begin a new deployment plan as individual pods are restarted with the new configuration. 
+Once the Scheduler has been restarted, it will begin a new deployment plan as individual pods are restarted with the new configuration.
 
 You can query the status of the update as follows:
 
@@ -260,7 +260,7 @@ The DCOS Nifi Framework allows backup of Nifi Application to Amazon S3. The foll
     3. AWS_REGION
     4. S3_BUCKET_NAME
 
-To enable backup, we have to trigger the backup-S3 Plan with the following plan parameters: 
+To enable backup, we have to trigger the backup-S3 Plan with the following plan parameters:
 ```shell
 {
  'AWS_ACCESS_KEY_ID': key_id,
@@ -290,24 +290,24 @@ However, the backup can also be started with the following command:
 
 
 
-Once this plan execution is completed, the backup will be uploaded to S3. 
+Once this plan execution is completed, the backup will be uploaded to S3.
 The Nifi backup is taken using the Nifi toolkit. The Nifi backup will be done using three sidecar tasks:
 
     1. Backup - Backup to local node (ROOT/MOUNT)
-       
+
        The Backup task is responsible for taking backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volumne.
 
    [<img src="../service/Backup.png" alt="backup" width="800"/>](../service/Backup.png)
 
-       
+
     2. Upload_to_S3 - Upload the backup from the local node to S3
-    
+
        This sidecar task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
-       
+
    [<img src="../service/S3Upload.png" alt="S3Upload.png" width="800"/>](../service/S3Upload.png)       
-       
+
     3. Cleanup - Remove the backup from local node.
-    
+
        Once, Step 2 is complete and the Backup has been uploaded to S3, a Sidecar Task known as Cleanup is triggered. This task cleans up/ removes the backup folder from the local Root/Mount volumes.
    [<img src="../service/Cleanup.png" alt="cleanup" width="800"/>](../service/Cleanup.png)
 
@@ -323,7 +323,7 @@ The admin toolkit contains command line utilities for administrators to support 
 
     File Manager — The file manager tool allows administrators to backup, install or restore a NiFi installation from backup.
 
-The admin toolkit is bundled with the nifi-toolkit and can be executed with scripts found in the bin folder. Further docmentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit). 
+The admin toolkit is bundled with the nifi-toolkit and can be executed with scripts found in the bin folder. Further docmentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit).
 
 To execute the Nifi Administration Toolkit commands, we need to do a dcos task exec to a Nifi node, set the JAVA_HOME using the command:
 ```shell
@@ -407,20 +407,20 @@ To check the metrics for the NiFi instances on individual agent nodes, we need t
       dcos config show core.dcos_acs_token
    ````
   We need to keep a copy of this token for later use.
-   
+
   2. In the next step we need to ssh into the private agent on which we have the tasks running:
    ```shell
       dcos node ssh --master-proxy --mesos-id=<agent-mesos-id>
    ````  
   3. Finally we need to make the following curl requests as per the security settings:
-  
+
      **TLS & KDC Mode:**
-   
+
      ```shell
       curl -k -H "Authorization: token=<acs_token>" https://localhost:61002/system/v1/metrics/v0/containers | jq
      ````
      **Non TLS & KDC Mode:**
-   
+
      ```shell
       curl -k -H "Authorization: token=<acs_token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
      ````  

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
-excerpt:
+excerpt: Installing DC/OS NiFi from the web interface or the CLI
 featureMaturity:
 enterprise: false
 ---
@@ -13,7 +13,7 @@ enterprise: false
 The default DC/OS NiFi Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 ## Prerequisites
-   
+
 - If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
     - ***Tip:*** A complete guide to Configuring DC/OS Access for Nifi can be found [here](../security/serviceaccountdetail.md).
@@ -23,10 +23,10 @@ The default DC/OS NiFi Service installation provides reasonable defaults for try
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of NiFi, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. 
+To start a basic test cluster of NiFi, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
 
    ```shell
-   dcos package install nifi 
+   dcos package install nifi
    ```
 
 This command creates a new instance with the default name nifi. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, weherein we can install the same application in different folders.
@@ -48,8 +48,8 @@ For more information on building the `options.json` file, see [DC/OS documentati
 ## Installing from the DC/OS Web Interface
 
 Note:  Alternatively, you can install Nifi from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
-   
-If you install Apache Nifi from the DC/OS web interface, the 
+
+If you install Apache Nifi from the DC/OS web interface, the
 dcos nifi CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 
@@ -74,7 +74,7 @@ When the above JSON configuration is passed to the package install nifi  command
    ```shell
    dcos package install nifi --options=nifi-other.json
    ```
-   
+
 Multiple instances of Apache Nifi may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Apache Nifi named nifi-staging and another named nifi-prod, each with its own custom  configuration.
 
 After specifying a custom name for your instance, it can be reached using dcos nifi CLI commands or directly over HTTP as described below.
@@ -115,7 +115,7 @@ Likewise, if you had an instance in a folder like /foldered/path/to/nifi, the fo
    ```shell
    dcos nifi --name=/foldered/path/to/nifi pod list
    ```
-   
+
 Similarly, it could be queried directly over HTTP as follows:
 
    ```shell

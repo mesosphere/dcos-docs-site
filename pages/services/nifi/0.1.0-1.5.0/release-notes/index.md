@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 120
-excerpt: Release Notes for version 0.1.0 - 1.5.0
+menuWeight: 130
+excerpt: Release Notes for version 0.1.0-1.5.0
 featureMaturity:
 enterprise: false
 ---
@@ -21,7 +21,7 @@ This is a first release and you must perform a fresh install.
 Based on the latest stable release of the `dcos-commons` SDK (Version 0.40.2), this installation provides numerous benefits:
 
 - Integration with DC/OS features such as virtual networking and integration with DC/OS access controls
-- Orchestrated software and configuration update, ability to add new nodes, increase memory and CPU. Installation on DCOS 
+- Orchestrated software and configuration update, ability to add new nodes, increase memory and CPU. Installation on DCOS
 Cluster provides the ability to restart and replace nodes.
 - Placement constraints for pods
 - Uniform user experience across all Nifi Cluster nodes

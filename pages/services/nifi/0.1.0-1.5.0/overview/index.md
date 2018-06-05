@@ -1,16 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle:  Overview
+navigationTitle: Overview
 title: Overview
 menuWeight: 10
-excerpt: Getting started with DC/OS NiFi Service fundamentals
+excerpt: Getting started with DC/OS Apache NiFi Service fundamentals
 featureMaturity:
 enterprise: false
 ---
 
 # Components
 
-The following components work together to deploy and maintain the DC/OS NiFi Service.
+The following components work together to deploy and maintain the DC/OS Apache NiFi Service.
 
 - Mesos
 
@@ -34,13 +34,13 @@ The following components work together to deploy and maintain the DC/OS NiFi Ser
 
 - Packaging
 
-    Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache NiFi, this Marathon app is the scheduler for the service
+    DC/OS Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache NiFi, this Marathon app is the scheduler for the service
 
     For further discussion of DC/OS components, see the [architecture documentation](https://docs.mesosphere.com/latest/overview/architecture/components/).
 
 # Deployment
 
-Internally, DC/OS NiFi Service treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
+Internally, DC/OS Apache NiFi Service treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
 
  - When NiFi is first installed, deployment moves from a null configuration to a deployed configuration.
  - When the deployed configuration is changed by editing an environment variable in the scheduler, deployment moves from an initial running configuration to a new proposed configuration.
@@ -68,9 +68,9 @@ This is the flow for deploying a new service:
 The scheduler starts with the following state:
 
 - A `svc.yml` template that represents the service configuration.
-    
+
 - Environment variables are provided by Marathon, to be applied onto the `svc.yml` template.
-    
+
 - Any custom logic implemented by the service developer in the Main function (assume this is left with defaults for the purposes of this explanation).
 
 1. The `svc.yml` template is rendered using the environment variables provided by Marathon.
@@ -94,7 +94,7 @@ The scheduler starts with the following state:
 
 ## Reconfiguration
 
-This is the flow for reconfiguring a DC/OS NiFi Service either in order to update specific configuration values, or to upgrade it to a new package version.
+This is the flow for reconfiguring a DC/OS Apache NiFi service either in order to update specific configuration values, or to upgrade it to a new package version.
 
 ### Steps handled by the Scheduler
 
@@ -111,18 +111,18 @@ In addition, the Scheduler now has a fourth piece:
 Scheduler reconfiguration is slightly different from initial deployment because the Scheduler is now comparing its current state to a non-empty prior state and determining what needs to be changed.
 
 1. After the Scheduler has rendered its `svc.yml` against the new environment variables, it has two Service Specs, reflecting two different configurations.
-  
+
  - The Service Spec that was just rendered, reflecting the configuration change
  - The prior Service Spec (or “Target Configuration”) that was previously stored in ZooKeeper
-    
+
 2. The Scheduler automatically compares the changes between the old and new Service Specs.
-  
+
  a. Change validation: Certain changes, such as editing volumes and scale-down, are not currently supported because they are complicated and dangerous to get wrong.
   - If an invalid change is detected, the Scheduler will send an error message and refuse to proceed until the user has reverted the change by relaunching the Scheduler app in Marathon with the prior config.
   - If the changes are valid, the new configuration is stored in ZooKeeper as the new target configuration and the change deployment proceeds as described below.
-                
+
  b. Change deployment: The Scheduler produces a diff between the current state and some future state, including all of the Mesos calls (reserve, unreserve, launch, destroy, and so forth) needed to get there. For example, if the number of tasks has been increased, then the Scheduler will launch the correct number of new tasks. If a task configuration setting has been changed, the Scheduler will deploy that change to the relevant affected tasks by relaunching them. Tasks that are not affected by the configuration change will be left as-is.
-            
+
  c. Custom update logic: Some services may have defined a custom update Plan in its `svc.yml`, in cases where different logic is needed for an update/upgrade than is needed for the initial deployment. When a custom update plan is defined, the Scheduler will automatically use this Plan, instead of the default deploy Plan, when rolling out an update to the service.
 
 ## Uninstallation
@@ -141,11 +141,11 @@ When started in uninstall mode, the Scheduler performs the following actions:
  - Any Mesos resource reservations are unreserved.
 **Warning:** Any data stored in reserved disk resources will be irretrievably lost.
  - Preexisting state in ZooKeeper is deleted.
-    
+
 # Pods
 
 A task generally maps to a single process within the service. A pod is a collection of co-located tasks that share an environment. All tasks in a pod will come up and go down together. Therefore, most maintenance operations against the service are at pod granularity rather than task granularity.
-    
+
 # Plans
 
 The Scheduler organizes its work into a list of plans. Every SDK Scheduler has at least a Deployment Plan and a Recovery Plan, but other plans may also be added for things like custom backup operations. The Deployment Plan is in charge of performing an initial deployment of the service. It is also used for rolling out configuration changes to the service (or in more abstract terms, handling the transition needed to get the service from some state to another state), unless the service developer provided a custom update plan. The Recovery Plan is in charge of relaunching any exited tasks that should always be running.
@@ -201,7 +201,7 @@ When a pod is on a virtual network such as the dcos:
 
 # Placement constraints
 
-Placement constraints allow you to customize where a service is deployed in the DC/OS cluster. Depending on the service, some or all components may be configurable using Marathon operators (reference) with this syntax: 
+Placement constraints allow you to customize where a service is deployed in the DC/OS cluster. Depending on the service, some or all components may be configurable using Marathon operators (reference) with this syntax:
 `field:OPERATOR[:parameter]`. For example, if the reference lists `[["hostname", "UNIQUE"]]`, you should use `hostname:UNIQUE`.
 
 A common task is to specify a list of whitelisted systems to deploy to. To achieve this, use the following syntax for the placement constraint:
@@ -239,4 +239,3 @@ The slashes in your service name are interpreted as folders. You are deploying `
 
     Interact with your foldered service via the DC/OS CLI with this flag: --name=/path/to/myservice.
     To interact with your foldered service over the web directly, use http://<dcos-url>/service/path/to/myservice. E.g., http://<dcos-url>/service/testing/nifi/v1/endpoints.
-

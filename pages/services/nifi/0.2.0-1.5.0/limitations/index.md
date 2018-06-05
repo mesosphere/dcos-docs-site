@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Limitations
 title: Limitations
-menuWeight: 100
-excerpt:
+menuWeight: 110
+excerpt: Understanding configuration Limitations
 featureMaturity:
 enterprise: false
 ---
