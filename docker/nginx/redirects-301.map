@@ -177,12 +177,13 @@
 /1.11/networking/tls-ssl/get-cert/ /1.11/security/ent/tls-ssl/get-cert/;
 /1.11/networking/virtual-networks/ /1.11/networking/SDN/dcos-overlay/;
 /1.11/release-notes/version-policy/ /version-policy/;
+/1.11/usage/managing-services/install/ /1.11/deploying-services/install/;
 /1.11/security/iam-api/ /1.11/security/ent/iam-api/;
 /1.11/security/secrets/ /1.11/security/ent/secrets/;
 /1.11/security/secrets/secrets-api/ /1.11/security/ent/secrets/secrets-api/;
 /1.11/security/sso/ /1.11/security/ent/sso/;
 /1.11/security/sso/setup-openid/ /1.11/security/ent/sso/setup-openid/;
-/1.11/storage/volume-profiles/ /services/beta-storage/0.1.0-beta/terminology-and-concepts/#volume-profile/;
+/1.11/storage/volume-profiles/ /services/beta-storage/0.1.0-beta/terminology-and-concepts/;
 /1.11/usage/storage/ /1.11/storage/;
 /1.11/usage/storage/persistent-volume/ /1.11/storage/persistent-volume/;
 /1.11/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/ /1.11/networking/load-balancing-vips/virtual-ip-addresses/;
@@ -283,7 +284,7 @@
 /1.10/developing-services/dcos-integration/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/developing-services/service-requirements-spec/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/development/ /1.10/developing-services/;
-# ~^/1.10/installing/(?!oss/)(.*)$ /1.10/installing/oss/$1;
+~^/1.10/installing/(?!oss/)(.*)$ /1.10/installing/oss/$1;
 /1.10/installing/ /1.10/installing/oss/;
 /1.10/installing/cloud/ /1.10/installing/oss/cloud/;
 /1.10/installing/cloud/aws/ /1.10/installing/oss/cloud/aws/;
