@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.0 Beta 1
 title: Release Notes for 1.10.0 Beta 1
-menuWeight: 60
+menuWeight: 50
 excerpt:
 ---
 These are the release notes for DC/OS 1.10.0 Beta 1.

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Troubleshooting
-excerpt:
+excerpt: Troubleshooting DC/OS Open Source installation
 title: Troubleshooting
 menuWeight: 400
 ---
@@ -9,42 +9,42 @@ menuWeight: 400
 # <a name="general"></a>General troubleshooting approach
 
 1.  Verify you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
-    
+
     ## <a name="ip-detect-script"></a>IP detect script
-    
+
     You must have a valid [ip-detect](/1.9/installing/oss/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
-    
+
     - extra lines
     - white space
-    - special or hidden characters 
-    
+    - special or hidden characters
+
     It is recommended that you use the `ip-detect` [examples](/1.9/installing/oss/custom/advanced/).
-      
+
     ## DNS resolvers
-      
+
     You must have working DNS resolvers, specified in your [config.yaml](/1.9/installing/oss/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
-    
+
     - `hostname -f` returns the FQDN
     - `hostname -s` returns the short hostname
-    
+
     You should sanity check the output of `hostnamectl` on all of your nodes as well.
 
-    When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence: 
-    
-    1. Exhibitor 
-    1. Mesos master 
-    1. Mesos DNS 
+    When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
+
+    1. Exhibitor
+    1. Mesos master
+    1. Mesos DNS
     1. DNS Forwarder (Spartan)
     1. DC/OS Marathon
-    1. Jobs 
+    1. Jobs
     1. Admin Router
 
     Be sure to check that all services are up and healthy on the masters before checking the agents.
-    
+
     ### NTP
-    
+
     Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
-    
+
     ```bash
     ntptime
     adjtimex -p
@@ -52,9 +52,9 @@ menuWeight: 400
     ```
 
 1. Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
-    
+
    Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-spartan.service`), are disabled and stopped. For example:
-   
+
    ```bash
    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
    ```
@@ -62,23 +62,23 @@ menuWeight: 400
 1.  Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
 
     -  [SSH](/1.9/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
-        
+
         ```bash
         journalctl -flu dcos-exhibitor
         ```
-    
+
     -  Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. To repair `/tmp` mounted with `noexec`:
-        
-        1.  Enter this command: 
-        
+
+        1.  Enter this command:
+
             ```bash
             mount -o remount,exec /tmp
             ```
-        
+
         1.  Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
-        
+
             For example, [SSH](/1.9/administering-clusters/sshcluster/) to your master node and enter this command:
-            
+
             ```bash
             curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
             [
@@ -102,15 +102,15 @@ menuWeight: 400
                 }
             ]
             ```
-        
+
             **Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 
 1.  Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
     ```bash
-    journalctl -flu dcos-spartan﻿⁠⁠⁠⁠
+    journalctl -flu dcos-spartan
     ```
-    
+
 1.  Verify that you can ping `⁠⁠⁠⁠leader.mesos` and ﻿⁠⁠⁠⁠`master.mesos`. If not:
 
     -  Review the Mesos-DNS service logs with this command: ﻿
@@ -118,9 +118,9 @@ menuWeight: 400
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
        ```
-    
-    -  If you are able to ping `ready.spartan`, but not `leader.mesos`, review the Mesos master service logs by using this command: 
-    
+
+    -  If you are able to ping `ready.spartan`, but not `leader.mesos`, review the Mesos master service logs by using this command:
+
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
        ```
@@ -205,7 +205,7 @@ DC/OS Marathon is started on the master nodes. The native Marathon instance that
     ```bash
     journalctl -u dcos-marathon -b
     ```
-    
+
     For example, here is a snippet of the DC/OS Marathon log as it converges to a successful state:
 
     ```bash

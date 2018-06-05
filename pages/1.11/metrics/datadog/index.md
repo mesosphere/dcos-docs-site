@@ -3,7 +3,7 @@ layout: layout.pug
 title: Sending DC/OS Metrics to Datadog
 menuWeight: 3
 excerpt: Sending DC/OS metrics to Datadog
-beta: true
+beta: false
 enterprise: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

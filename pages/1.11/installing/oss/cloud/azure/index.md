@@ -6,7 +6,7 @@ navigationTitle: Azure
 menuWeight: 1
 ---
 
-This document explains how to install DC/OS 1.11 using the Azure Resource Manager templates.
+This page explains how to install DC/OS 1.11 using the Azure Resource Manager templates.
 
 **Tip:** To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
 
@@ -19,6 +19,106 @@ This document explains how to install DC/OS 1.11 using the Azure Resource Manage
 To use all of the services offered in DC/OS, you should choose at least five Mesos Agents using `Standard_D2` [Virtual Machines](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/), which is the default size in the DC/OS Azure Marketplace offering.
 
 Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services such as distributed datastores not to work properly (from installation issues to operational limitations).
+
+### Production-Ready Cluster Configurations ###
+
+These recommendations are based on operation of a multiple DC/OS clusters over
+multiple years scaling
+a mix of stateful and stateless services under a live production load.
+Your service mix may perform differently, but the principles and
+lessons learned discussed herein still apply.
+
+#### General Machine Configurations ####
+We recommend *disabling* swap on your VMs, which is typically the default for
+the Azure Linux images. We have found that using the
+ephemeral SSDs for swap (via WAAgent configuration)
+can conflict with the disk caching configuration of
+the `D` series of VMs. For other series of VMs, (e.g. `L` series),
+it may be possible to use the SSDs for swap and other purposes.
+
+See the following section for particulars on disk configuration.
+
+Monitoring (such as Node Exporter with Prometheus) should be used to
+identify and alert as to when workloads are nearing Azure defined limits.
+
+#### Networking ####
+On Azure, raw network performance is roughly determined by VM size.
+VMs with 8 or more cores (e.g. `Standard_D8_v3`) are eligible for
+[Azure Accelerated Networking (SR-IOV)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).
+We have seen much lower latency and more available and stable bandwidth using SR-IOV
+as opposed to relying on the Azure hypervisor vswitches.
+For example, in our testing, a `Standard_D16s_v3` without SR-IOV
+can push approximately 450MB/s of data between two VMs, while the same size
+machines can push closer to 1000MB/s of data using SR-IOV.
+Thus, SR-IOV should be employed when possible and you should benchmark your
+instance sizes (e.g. using [iperf3](https://github.com/esnet/iperf)) to make sure your network requirements
+are met.
+
+Additionally, while multiple NICs are supported per virtual machine, the
+amount of bandwidth is per-VM, not per NIC. Thus, while segmenting
+your network into control and data planes (or other networks) may be
+useful for organizational or security purposes, linux level traffic shaping
+is required in order to achieve bandwidth control.
+
+#### Disk Configurations ####
+In order to achieve performant, reliable cluster operation on Azure,
+Premium SSDs are recommended in particular disk configurations.
+Managed Disks (MDs) are preferred over Unmanaged Disks (UMDs)
+to avoid Storage Account limitations:
+The Azure fabric will place the managed disks appropriately to meet the
+guaranteed SLAs.
+Storage account limitations for UMDs are documented
+[here](https://docs.microsoft.com/en-us/azure/storage/common/storage-performance-checklist).
+
+On Azure, Premium SSDs have a limited number of synchronous IOPs possible
+limited by the latency of the underlying disk fabric.
+Services such as etcd, Zookeeper and databases which utilize a
+write-ahead-log (WAL) are particular sensitive to this I/O configuration.
+Thus, much of the system engineering described herein is focused on
+minimizing and/or eliminating I/O contention on the Azure Disks.
+
+Additionally, exceeding the I/O allocation on a machine will result in
+throttling. Users are advised to study [this article](https://blogs.technet.microsoft.com/xiangwu/2017/05/14/azure-vm-storage-performance-and-throttling-demystify/)
+in detail to
+understand the theoretical background of the recommendations herein.
+
+Given the need to separate synchronous from asynchronous I/O loads in order
+to maintain performance, the following disk mounting configurations are
+recommended:
+- Masters:
+    - / - P10
+    - /var/lib/etcd - (for those running etcd on CoreOS) - P10
+    - /var/log - P10
+    - /var/lib/dcos/exhibitor - P10
+- Public Agents:
+    - / - P10
+    - /var/log - P10
+    - /var/lib/docker - P10
+    - /var/lib/mesos/slave - P10
+- Private Agents:
+    - / - P10
+    - /var/log - P10
+    - /var/lib/docker - P10
+    - /var/lib/mesos/slave - P20
+
+It is certainly possible to run clusters with smaller and/or fewer disks,
+but for production use, the above has proven to have substantial advantages
+for any non-trivial cluster sizes.
+
+Additionally, we recommend attaching appropriate
+Premium SSDs to `/dcos/volume0 ... /dcos/volumeN`
+using Mesos MOUNT disk resources, which can then be dedicated to data
+intensive services without I/O contention.
+
+For data intensive services (e.g. postgres, mysql) you should consider
+attaching LVM RAID stripes to those MOUNT resources to increase the
+possible transactions per second of the databases.
+
+With respect to configuring the disk caches, the following general rules apply:
+- OS disks should be set to `ReadWrite`
+- Data disks with a mixed or read heavy load (database bulk storage, etc) should
+be set to `ReadOnly`
+- Data disks with high sequential write loads (WAL disks) should be set to `None`.
 
 ## Software
 

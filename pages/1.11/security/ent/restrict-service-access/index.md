@@ -1,6 +1,7 @@
 ---
 layout: layout.pug
-title: Tutorial: Restricting Access to DC/OS Service Groups
+title: Restricting Access to DC/OS Service Groups
+navigationTitle: Restricting Access to DC/OS Service Groups
 menuWeight: 90
 excerpt: Using the DC/OS web interface to achieve multi-tenancy in permissive mode
 

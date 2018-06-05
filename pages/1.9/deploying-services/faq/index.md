@@ -41,10 +41,6 @@ A comprehensive overview of a few common service discovery implementations is av
 
 This is not currently supported. For more information, see [this document](/1.9/installing/high-availability/).
 
-## How to add Mesos roles for a node to dedicate this node for some apps?
-
-Please review this link on [the Mesosphere Knowledge Base][4].
-
 ## How can I upload files to Spark driver/executor?
 
 Here is the example of a command you should launch to make it work:

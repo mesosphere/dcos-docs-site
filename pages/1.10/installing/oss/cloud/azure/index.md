@@ -6,7 +6,7 @@ navigationTitle: Azure
 menuWeight: 1
 ---
 
-This document explains how to install DC/OS 1.10 using the Azure Resource Manager templates.
+This page explains how to install DC/OS 1.10 using the Azure Resource Manager templates.
 
 **Tip:** To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
 
