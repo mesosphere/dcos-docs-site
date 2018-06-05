@@ -164,7 +164,7 @@
 /services/elastic/2.3.0-5.6.5/11-release-notes/ /services/elastic/2.3.0-5.6.5/release-notes/;
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
 /1.11/img/ui-installer-auth2.png /1.11/img/ui-installer-auth2.png;
-/1.11/installing/high-availability/ /1.11/installing/oss/high-availability;
+/1.11/installing/high-availability/ /1.11/installing/oss/high-availability/;
 /1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
 /1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
