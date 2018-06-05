@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos auth login
 title: dcos auth login
 menuWeight: 2
-excerpt:
+excerpt: How to authenticate to DC/OS.
 
 enterprise: false
 ---
@@ -43,5 +43,3 @@ If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--c
 | Command | Description |
 |---------|-------------|
 | [dcos auth](/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
-
-# Examples

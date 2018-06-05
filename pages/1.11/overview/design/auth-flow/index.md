@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Authentication Architecture
-excerpt:
+excerpt: Understanding authentication operations
 title: Authentication Architecture
 menuWeight: 1
 ---
@@ -9,30 +9,30 @@ menuWeight: 1
 
 An authentication operation via the DC/OS UI proceeds as follows:
 
-1. The user opens the cluster front page URL in their browser.
-2. If the user has a valid [authentication token](/1.11/security/oss/managing-authentication#log-in-cli) cookie (checked by Admin Router)
-   they may proceed to the cluster front page. If not, they are redirected to
+1. Open the cluster front page URL in your browser.
+2. If you have a valid [authentication token](/1.11/security/oss/managing-authentication#log-in-cli) cookie (checked by Admin Router)
+   you may proceed to the cluster front page. If not, you are redirected to
    the login page.
 3. The login page in the DC/OS UI loads the login page at `dcos.auth0.com` in an iframe,
-   which presents the user a choice of identity providers, including Google,
+   which presents you with a choice of identity providers, including Google,
    GitHub, and Microsoft account.
-4. The user selects an identity provider and completes the OAuth protocol flow
-   in a popup window that returns an RS256-signed JWT for the user. The
+4. Select an identity provider and complete the OAuth protocol flow
+   in a popup window that returns an RS256-signed JWT for you. This user
    token is currently issued to be valid for 5 days, based on the standard
    `exp` claim.
-5. The login page dispatches a request with the user token to the
+5. The login page dispatches a request with your user token to the
    `http://<master-host-name>/acs/api/v1/auth/login` Admin Router endpoint which forwards it to the
-   [dcos-oauth](https://github.com/dcos/dcos-oauth) service. If the user is the
+   [dcos-oauth](https://github.com/dcos/dcos-oauth) service. If you are the
    first user accessing the cluster, an account is automatically created. Any
    subsequent users must be added by any other user in the cluster as described
    in the [User Management](/1.11/security/oss/user-management/) page.
    If the user logging into the cluster is determined to be valid, they are
-   issued with a HS256-signed JWT containing a `uid` claim which is specific to
+   issued a HS256-signed JWT containing a `uid` claim, which is specific to
    the cluster they are logging in to.
 
 For the dcos-oauth service to validate tokens it receives during login operations,
-it needs to have access to `dcos.auth0.com` to fetch required public keys via
-HTTPS. Using a proxy to make this request is not currently supported.
+it must have access to `dcos.auth0.com` to fetch required public keys via
+HTTPS. It is not currently supported to use a proxy to make this request.
 
 The shared secret used to sign the cluster-specific tokens with the HS256
 algorithm is generated during cluster boot and stored at

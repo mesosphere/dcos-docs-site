@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos edgelb ping
 title: dcos edgelb ping
 menuWeight: 3
-excerpt:
+excerpt: How to test the readiness of the Edge-LB API server
 
 enterprise: true
 ---
 
 
 # Description
-Test the readiness of the Edge-LB API server.
+The dcos edgelb test command will test the readiness of the Edge-LB API server.
 
 # Usage
 

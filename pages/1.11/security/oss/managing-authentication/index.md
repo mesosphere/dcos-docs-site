@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:  Managing Authentication
-excerpt:
+excerpt: Managing authentication in the DC/OS web interface and CLI
 title: Managing Authentication
 menuWeight: 1
 ---
 
-Authentication is managed in the DC/OS web interface.
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can authorize individual users. You can grant access to users who are local or remote to your datacenter.
+You can authorize individual users, and grant access to users who are local or remote from your datacenter.
 
 The DC/OS user database is persisted in ZooKeeper by running on the master nodes in [znodes](https://zookeeper.apache.org/doc/r3.1.2/zookeeperProgrammers.html#sc-zkDataModel-znodes) under the path `/dcos/users`. Tokens that are sent to DC/OS in an HTTP Authorization header must be in this format: `token=<token>`. In future versions `Bearer <token>` will also be supported.
 
@@ -80,12 +80,12 @@ The DC/OS CLI stores the token in a configuration file in the `.dcos` directory 
 
     ![alt](/1.11/img/auth-login.png)
 
-1.  Click the button that corresponds to your preferred identity provider. 
+1.  Click the button that corresponds to your preferred identity provider.
 
 1.  Provide your credentials to the identity provider if prompted. If you have already authenticated to the identity provider during your current browser session, you won't need to do so again.  
 
     ![alt](/1.11/img/auth-login-token.png)
-    
+
 1.  Click **Copy to Clipboard**.
 
 1.  Return to your terminal prompt and paste the OpenID Connect ID token value in at the prompt.
@@ -152,4 +152,3 @@ security features as well as on introducing new ones in the coming releases.
 - [Learn how to monitor a DC/OS cluster](/1.11/monitoring/)
 
  [1]: https://en.wikipedia.org/wiki/STARTTLS
- 

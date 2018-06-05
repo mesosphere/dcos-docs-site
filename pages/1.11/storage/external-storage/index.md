@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  External Persistent Volumes
 title: External Persistent Volumes
 menuWeight: 20
-excerpt:
+excerpt: Using external persistent volumes with Marathon
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 **Warning:** Volume size is specified in GiB.
@@ -23,7 +23,7 @@ Marathon applications normally lose their state when they terminate and are rela
 
 You can specify an external volume in your [Marathon app definition][6].
 
-### Using the Universal Container Runtime 
+### Using the Universal Container Runtime
 
 The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
@@ -70,7 +70,7 @@ The `cmd` in this app definition appends the output of the `date` command to `te
 
 ### Using a Docker Engine
 
-Below is a sample app definition that uses a Docker Engine and specifies an external volume. The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output. 
+Below is a sample app definition that uses a Docker Engine and specifies an external volume. The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
 ```json
 {
@@ -107,7 +107,7 @@ Below is a sample app definition that uses a Docker Engine and specifies an exte
 
 #### Volume configuration options
 
-* `containerPath` must be absolute. 
+* `containerPath` must be absolute.
 *  Only certain versions of Docker are compatible with the REX-Ray volume driver. Refer to the [REX-Ray documentation][11].
 
 ## Create an application from the DC/OS web interface
@@ -135,7 +135,7 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 *   The volumes you create are not automatically cleaned up. If you delete your cluster, you must go to your storage provider and delete the volumes you no longer need. If you're using EBS, find them by searching by the `container.volumes.external.name` that you set in your Marathon app definition. This name corresponds to an EBS volume `Name` tag.
 *   Volumes are namespaced by their storage provider. If you're using EBS, volumes created on the same AWS account share a namespace. Choose unique volume names to avoid conflicts.
 *   If you are using Docker, you must use a compatible Docker version. Refer to the [REX-Ray documentation][11] to learn which versions of Docker are compatible with the REX-Ray volume driver.
-*   If you are using Amazon's EBS, it is possible to create clusters in different availability zones (AZs). If you create a cluster with an external volume in one AZ and destroy it, a new cluster may not have access to that external volume because it could be in a different AZ.
+*   If you are using Amazon's EBS, it is important to note that EBS volumes can only be attached in the availability zone (AZ) for which they were created [12]. It is possible to create clusters in different AZs, and, it is possible to create a cluster that spans multiple availability zones. Be sure to either use consistent availability zones, or, in the case of spanning multiple, use Marathon constraints to force the instance to only deploy in a single AZ.
 *   Launch time might increase for applications that create volumes implicitly. The amount of the increase depends on several factors which include the size and type of the volume. Your storage provider's method of handling volumes can also influence launch time for implicitly created volumes.
 *   For troubleshooting external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the systemd journal.
 
@@ -147,3 +147,4 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 [9]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/
 [10]: https://github.com/emccode/dvdcli#extra-options
 [11]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/#docker-containerizer-with-marathon
+[12]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html

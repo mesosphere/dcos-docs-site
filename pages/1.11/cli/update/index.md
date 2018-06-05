@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Updating the CLI
 title: Updating the CLI
 menuWeight: 3
-excerpt:
+excerpt: How to update the command line interface
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can update the DC/OS CLI to the latest version or downgrade to an older version.

@@ -6,4 +6,4 @@ menuWeight: 0
 excerpt:
 ---
 
-Release notes for DC/OS 1.11.
+This section includes the release notes for DC/OS 1.11, as well as our Open Source attribution and version policy.

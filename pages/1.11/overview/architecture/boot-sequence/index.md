@@ -3,15 +3,13 @@ layout: layout.pug
 navigationTitle:  Boot Sequence
 title: Boot Sequence
 menuWeight: 6
-excerpt:
-
+excerpt: Understanding the DC/OS component services boot sequence
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-During installation, the DC/OS component services are all started in parallel but initialize and become responsive in a relatively consistent sequence because of interdependencies.
+During installation, the DC/OS component services all start in parallel. They then initialize and become responsive in a relatively consistent sequence because of interdependencies.
 
 The DC/OS Diagnostics service monitors component service and node health. A node is marked as healthy when all its component services are healthy.
 
@@ -83,7 +81,7 @@ The following is the boot sequence of a DC/OS service.
 1. Leading Marathon schedules the service onto agent nodes with sufficient resources
 1. Mesos Agent starts the service as one or more containerized tasks
 
-### Scheduler Services
+### Scheduler services
 
 Some DC/OS services are also schedulers that interact with DC/OS to manage tasks.
 
@@ -96,6 +94,6 @@ The following is the boot sequence of a DC/OS scheduler service.
 1. Scheduler service registers with leading Mesos Master
 1. Leading Mesos Master starts offering agent node resources to the new scheduler service
 
-### More Information
+### More information 
 
 For more information about tasks and services, see [Distributed Process Management](/1.11/overview/architecture/distributed-process-management/).

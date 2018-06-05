@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: API Reference
 menuWeight: 60
-excerpt:
+excerpt: Apache ZooKeeper API reference guide
 featureMaturity:
 enterprise: false
 ---

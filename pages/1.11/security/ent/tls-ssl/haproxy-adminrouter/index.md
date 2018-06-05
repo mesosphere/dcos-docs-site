@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  Configuring HAProxy in Front of Admin Router
 title: Configuring HAProxy in Front of Admin Router
 menuWeight: 6
-excerpt:
+excerpt: Using the HAProxy to set up an HTTP proxy for the DC/OS Admin Router
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 You can use HAProxy to set up an HTTP proxy in front of the DC/OS [Admin Router](/1.11/overview/architecture/components/#admin-router). For example, this can be useful if you want to present a custom server certificate to user agents connecting to the cluster via HTTPS. DC/OS does not currently support adding your own certificates directly into Admin Router.
- 
+
 The HTTP Proxy must perform on-the-fly HTTP request and response header modification because DC/OS is not aware of the custom hostname and port that is being used by user agents to address the HTTP proxy.
 
 These instructions provide a tested [HAProxy](http://www.haproxy.org/) configuration example that handles the named request/response rewriting. This example ensures that the communication between HAProxy and DC/OS Admin Router is TLS-encrypted.
@@ -22,13 +22,13 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
 1.  Create an HAProxy configuration for DC/OS. This example is for a DC/OS cluster on AWS. For more information on HAProxy configuration parameters, see the [documentation](https://cbonte.github.io/haproxy-dconv/configuration-1.6.html#3).
 
     **Tip:** You can find your task IP by using the agent IP address DNS entry.
-    
+
     ```
     <taskname>.<framework_name>.agentip.dcos.thisdcos.directory
     ```
-    
+
     Where:
-    
+
     * `taskname`: The name of the task.
     * `framework_name`: The name of the framework, if you are unsure, it is likely `marathon`.
 
@@ -48,9 +48,9 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
       timeout connect  5000
       timeout client  50000
       timeout server  50000
-    
+
     frontend http
-      # Bind on port 9090. HAProxy will listen on port 9090 on each 
+      # Bind on port 9090. HAProxy will listen on port 9090 on each
       # available network for new HTTP connections.
       bind 0.0.0.0:9090
       # Specify your own server certificate chain and associated private key.
@@ -59,13 +59,13 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
       #
       # Name of backend configuration for DC/OS.
       default_backend dcos
-    
+
       # Store request Host header temporarily in transaction scope
       # so that its value is accessible during response processing.
       # Note: RFC 7230 requires clients to send the Host header and
       # specifies it to contain both, host and port information.
       http-request set-var(txn.request_host_header) req.hdr(Host)
-    
+
       # Overwrite Host header to 'dcoshost'. This makes the Location
       # header in DC/OS Admin Router upstream responses contain a
       # predictable hostname (NGINX uses this header value when
@@ -73,17 +73,17 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
       # in the response Location header rewrite logic (see regular
       # expression-based rewrite in the backend section below).
       http-request set-header Host dcoshost
-    
+
     backend dcos
       # Option 1: use TLS-encrypted communication with DC/OS Admin Router and
       # perform server certificate verification (including hostname verification).
-      # If you are using the community-supported version of DC/OS, you must 
-      # configure Admin Router with a custom TLS server certificate, see 
-      # /1.11/administering-clusters/. This step 
+      # If you are using the community-supported version of DC/OS, you must
+      # configure Admin Router with a custom TLS server certificate, see
+      # /1.11/administering-clusters/. This step
       # is not required for DC/OS Enterprise.
       #
       # Explanation for the parameters in the following `server` definition line:
-      # 
+      #
       # 1.2.3.4:443
       #
       #   IP address and port that HAProxy uses to connect to DC/OS Admin
@@ -109,9 +109,9 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
       #   (expect the server certificate to contain a DNSName SAN that is
       #   equivalent to the hostname defined here). The hostname shown here is
       #   just an example and needs to be adjusted to your setup.
-    
+
       server dcos-1 1.2.3.4:443 ssl verify required ca-file dcos-ca.crt verifyhost frontend-xxx.eu-central-1.elb.amazonaws.com
-    
+
       # Option 2: use TLS-encrypted communication with DC/OS Admin Router, but do
       # not perform server certificate verification (warning: this is insecure, and
       # we hope that you know what you are doing).
@@ -123,4 +123,4 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
       http-response replace-header Location https?://dcoshost((/.*)?) "http://%[var(txn.request_host_header)]\1"
     ```
 
-1.  Start HAProxy with these settings. 
+1.  Start HAProxy with these settings.

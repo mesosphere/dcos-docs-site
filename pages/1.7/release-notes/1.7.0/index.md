@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
-title: Release Notes for  1.7.0
-menuWeight: 60
+navigationTitle:  Release Notes for 1.7.0
+title: Release Notes for 1.7.0
+menuWeight: 2
 excerpt:
 
 enterprise: false
@@ -14,11 +15,15 @@ The release notes provide a list of useful topics and links for DC/OS.
 You can now install packages from the DC/OS Universe with a single click in the web interface. The packages can be installed with defaults or customized directly in the UI. For more information, see the [documentation][1].
 
 ![UI Universe](/1.7/img/ui-universe.gif)
+
+Figure 1 - DC/OS Universe
 # DC/OS component health available in the UI
 
 You can monitor the health of your cluster components from the DC/OS web interface. The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit. For more information, see the [documentation][2].
 
 ![UI system health](/1.7/img/component-system-view.png)
+
+Figure 2 - Component System View
 
 # <a name="dcos"></a>Improved DC/OS installation
 
@@ -106,37 +111,6 @@ For the full set of changes, please refer to the [Marathon Release Notes][7].
 *   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DC/OS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials. [enterprise type="inline" size="small"/]
 
 See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
-
-
-# Minor releases
-
-## <a name="1-7-2"></a>1.7.2 - June 15, 2016
-
-Issues fixed:
-
-- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/ent/custom/configuration-parameters/).
-- Various bug fixes to enable upgrades.
-
-## <a name="1-7-3"></a>1.7.3 - July 27, 2016
-
-New features and changes:
-
-- REX-Ray is upgraded to 0.3.3.
-- Marathon is upgraded to [1.1.2](https://github.com/mesosphere/marathon/releases/tag/v1.1.2).
-- New Mesos config (`'docker_stop_timeout'`) that allows you to set an explicit Docker timeout. By default this is set to `'docker_stop_timeout': '20secs'`.
-- Assign disk resources to the Mesos default role, rather than all (`*`).
-- The DC/OS [Admin Router](/1.7/overview/concepts/#adminrouter) now configures the Mesos master cache for less upstream stress.
-- DC/OS installations on Azure now use Docker 1.11.0 (previously version 1.11.2).
-- For better stability, DC/OS installations on Azure are pinned to the Ubuntu 16.04 LTS image.
-
-Issues fixed:
-
-- [MESOS-5389](https://issues.apache.org/jira/browse/MESOS-5389) - docker containerizer should prefix relative volume.container_path values with the path to the sandbox
-- [MESOS-5680](https://issues.apache.org/jira/browse/MESOS-5680) - We should not 'chown -R' on persistent volumes every time container tries to use it
-- [MESOS-5341](https://issues.apache.org/jira/browse/MESOS-5341) - Enabled docker volume support for DockerContainerizer
-- [MESOS-5449](https://issues.apache.org/jira/browse/MESOS-5449) - Memory leak in SchedulerProcess.declineOffer
-- [MESOS-5576](https://issues.apache.org/jira/browse/MESOS-5576) - Masters may drop the first message they send between masters after a network partition
-
 
  [1]: /1.7/usage/managing-services/install/
  [2]: /1.7/administration/monitoring/
