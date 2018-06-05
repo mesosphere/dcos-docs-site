@@ -278,9 +278,7 @@
 /1.10/administration/overlay-networks/isolation/ /1.10/administration/virtual-networks/isolation/;
 /1.10/administration/upgrading/ /1.10/installing/upgrading/;
 /1.10/administration/user-management/ /1.10/security/ent/users-groups/;
-/1.10/administration/virtual-networks/ /1.10/networking/virtual-networks/;
-/1.10/administration/virtual-networks/ip-per-container/ /1.10/networking/virtual-networks/ip-per-container/;
-/1.10/administration/virtual-networks/isolation/ /1.10/networking/virtual-networks/isolation/;
+/1.10/administration/virtual-networks/(.*)$  /1.10/networking/virtual-networks/$1;
 /1.10/debugging/cli-debugging/task-exec/quickstart/ /1.10/monitoring/debugging/cli-debugging/task-exec/;
 /1.10/developing-services/create-package/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/developing-services/dcos-integration/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
