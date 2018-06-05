@@ -164,9 +164,9 @@
 /services/elastic/2.3.0-5.6.5/11-release-notes/ /services/elastic/2.3.0-5.6.5/release-notes/;
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
 /1.11/administering-clusters/cluster-connections/ /1.11/administering-clusters/multiple-clusters/cluster-connections/;
-/1.11/cli/command-reference/dcos-cluster-link//1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/;
+/1.11/cli/command-reference/dcos-cluster-link/ /1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/;
 /1.11/cli/command-reference/dcos-cluster-unlink/ /1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink/;
-/1.11/cli/command-reference/dcos-cluster/dcos-auth-login//1.11/cli/command-reference/dcos-auth/dcos-auth-login/;
+/1.11/cli/command-reference/dcos-cluster/dcos-auth-login/ /1.11/cli/command-reference/dcos-auth/dcos-auth-login/;
 /1.11/cli/command-reference/dcos-cluster/dcos-config-set/ /1.11/cli/command-reference/dcos-config/dcos-config-set/;
 /1.11/img/new-user-group-prod-permission-done.png /1.11/img/new-user-group-prod-permission.png;
 /1.11/img/ui-installer-auth2.png /1.11/img/ui-installer-auth2.png;
