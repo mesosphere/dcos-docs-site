@@ -55,11 +55,11 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
 | [resolvers](#resolvers)                               | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.|
 | [use_proxy](#use-proxy)                               | Indicates whether to enable the DC/OS proxy. |
-|[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. | 
+|[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. |
 | [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
-|[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. | 
+|[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
 
-# Storage 
+# Storage
 
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -81,6 +81,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 
 | Parameter                          | Description                                                                                                                                                |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [adminrouter_auth_cache_enabled](#adminrouter-auth-cache-enabled-enterprise)    | [enterprise type="inline" size="small" /] Controls whether the Admin Router authorization cache is enabled. |
 | [adminrouter_tls_1_0_enabled](#adminrouter-tls-1-0-enabled)    | Indicates whether to enable TLSv1 support in Admin Router. |
 | [adminrouter_tls_1_1_enabled](#adminrouter-tls-1-1-enabled)    | Indicates whether to enable TLSv1.1 support in Admin Router. |
 | [adminrouter_tls_1_2_enabled](#adminrouter-tls-1-2-enabled)    | Indicates whether to enable TLSv1.2 support in Admin Router. |
@@ -101,6 +102,17 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [zk_super_credentials](#zk-superuser)            | [enterprise type="inline" size="small" /] The ZooKeeper superuser credentials.  |
 | [zk_master_credentials](#zk-master)          | [enterprise type="inline" size="small" /] The ZooKeeper master credentials.  |
 | [zk_agent_credentials](#zk-agent)           | [enterprise type="inline" size="small" /] The ZooKeeper agent credentials.  |
+
+[enterprise]
+### adminrouter_auth_cache_enabled
+[/enterprise]
+
+_This option was added in DC/OS 1.11.1._
+
+Controls whether the Admin Router authorization cache is enabled.
+
+*   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
+*   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
 
 ### adminrouter_tls_1_0_enabled
 
@@ -455,7 +467,7 @@ The default is `logrotate`. Due to performance issues, `journald` is not recomme
 
 ### mesos_dns_set_truncate_bit
 
-Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.  
+Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.
 
 *  `mesos_dns_set_truncate_bit: 'true'`  Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet and is truncated. This is the default behavior and is in compliance with RFC7766.
 *  `mesos_dns_set_truncate_bit: 'false'`  Mesos-DNS does not set the truncate bit if the response is too large to fit in a single packet. If you know your applications crash when resolving truncated DNS responses over TCP, or for performance reasons you want to avoid receiving the complete set of DNS records in response to your DNS requests, you should set this option to `false` and note that the DNS responses you receive from Mesos-DNS may be missing entries that were silently discarded. This means that truncated DNS responses will appear complete even though they aren't and therefore won't trigger a retry over TCP. This behavior does not conform to RFC7766.
@@ -542,13 +554,13 @@ The SSH username, for example `centos`.
 ### superuser_password_hash
 [/enterprise]
 
-(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. For more information, see the [security documentation](/1.11/security/ent/).
+(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.11/security/ent/).
 
 [enterprise]
 ### superuser_username
 [/enterprise]
 
-(Required) The user name of the superuser. For more information, see the [security documentation](/1.11/security/ent/).
+(Required) The user name of the superuser. This account uses the `superuser_password_hash`. For more information, see the [security documentation](/1.11/security/ent/).
 
 ### telemetry_enabled
 Indicates whether to enable sharing of anonymous data for your cluster. <!-- DC/OS auth -->
@@ -585,7 +597,7 @@ Currently IPv6 networks are supported only for Docker containers. Setting this f
 * Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
 
 ### dcos_l4lb_enable_ipv6
-Indicates whether layer-4 load-balancing is available for IPv6 containers. 
+Indicates whether layer-4 load-balancing is available for IPv6 containers.
 *  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.11/networking/load-balancing-vips) for IPv6 containers. This is the default value.
 *  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. `NOTE: Layer-4 load balancing for IPv6 containers should be turned on with caution.`[DCOS_OSS-2010](https://jira.mesosphere.com/browse/DCOS_OSS-2010)
 
@@ -600,7 +612,7 @@ The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_sub
 ### feature_dcos_storage_enabled
 [/enterprise]
 
-Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins. 
+Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins.
 * `feature_dcos_storage_enabled: 'false'` Disables CSI support in  DC/OS. This is the default value.
 * `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage)
 

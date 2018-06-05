@@ -1,12 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Securing communication with TLS
-title: Securing communication with TLS
+navigationTitle:  Securing Communication with TLS
+title: Securing Communication with TLS
 menuWeight: 120
-excerpt:
+excerpt: Securing encrypted communications using TLS certificates
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 In `permissive` and `strict` security modes, your DC/OS certificate authority (CA) signs the TLS certificates and provisions them to systemd-started services during the bootstrap sequence. This accomplishes encrypted communications with no manual intervention. Each DC/OS cluster has its own DC/OS CA and a unique root certificate.

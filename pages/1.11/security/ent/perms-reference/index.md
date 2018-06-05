@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Permissions Reference
 title: Permissions Reference
 menuWeight: 40
-excerpt:
+excerpt: Understanding DC/OS access and permissions references
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can control DC/OS access by resource and operation.
 See [Permissions Management](/1.11/security/ent/perms-management/) for details on how to control permissions.
@@ -72,6 +73,7 @@ through Admin Router.
 | `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                         | x    |   |   |   |   |
 | `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/1.11/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                               | x    |   |   |   |   |
 | `dcos:adminrouter:ops:ca:rw`<br>Controls user access to all endpoints of the [Certificate Authority API](/1.11/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                                    | x    |   |   |   |   |
+| `dcos:adminrouter:ops:cockroachdb`<br> Controls access to the [CockroachDB UI](https://www.cockroachlabs.com/docs/v1.1/admin-ui-overview-dashboard.html).  | x    |   |   |   |   |
 | `dcos:adminrouter:ops:exhibitor`<br> Controls access to the Exhibitor UI and API. This permission allows users to [remove the ZooKeeper state](/1.11/deploying-services/uninstall/#framework-cleaner) after uninstalling a service.                                                | x    |   |   |   |   |
 | `dcos:adminrouter:ops:historyservice`<br>Controls access to the [History Service](/1.11/overview/architecture/components/#dcos-history). This includes access to potentially sensitive data from Mesos such as the names of all frameworks, its used resources, and the number of tasks in each status.                                                                                                                                        | x    |   |   |   |   |
 | `dcos:adminrouter:ops:mesos-dns`<br> Controls access to the [Mesos DNS API](/1.11/networking/mesos-dns/mesos-dns-api/).                                                                                                                                                           | x    |   |   |   |   |
@@ -140,9 +142,9 @@ a new Marathon app in the `/dev` service group.
 |                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/1.11/deploying-services/marathon-api/#/info).                                                                                                                         |      |   | x |   |   |
-| `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoint [GET /v2/events](/1.11/deploying-services/marathon-api/#/events).                                                                                                           |      |   | x |   |   |
+| `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoint [GET /v2/events](/1.11/deploying-services/marathon-api/#/events).                                                                                                           | x    |   | x |   |   |
 | `dcos:service:marathon:marathon:admin:leader` <br> Controls access to the [GET/DELETE /v2/leader](/1.11/deploying-services/marathon-api/#/leader) endpoint.                                                                                                                       | x    |   | x | x |   |
-| `dcos:service:marathon:marathon:services:/[<service-group>]` Controls access to [DC/OS services](/1.11/deploying-services) launched by the native Marathon instance.                                                                                                                | x    | x | x | x | x |
+| `dcos:service:marathon:marathon:services:/[<service-group>]` <br> Controls access to [DC/OS services](/1.11/deploying-services) launched by the native Marathon instance. <br> [POST /v2/group](/1.11/deploying-services/marathon-api/#/groups) requires the `full` action. | x    | x | x | x | x |
 | `dcos:service:metronome:metronome:jobs[:<job-group>]`<br>  Controls access to [jobs and job groups](/1.11/deploying-jobs/).                                                                                                                                                        | x    | x | x | x | x |
 
 

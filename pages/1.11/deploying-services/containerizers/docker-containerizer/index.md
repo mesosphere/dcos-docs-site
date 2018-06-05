@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Docker Engine
 title: Docker Engine
 menuWeight: 20
-excerpt:
+excerpt: How to launch Docker containers from Docker images
 
 enterprise: false
 ---
@@ -15,7 +15,7 @@ enterprise: false
 
 # Provision a container with the Docker Engine
 
-**Important:** 
+**Important:**
 * The default entry point is the launch command for the container. If the entry point accepts arguments, you can specify them in the `args` field of the Marathon app definition. If there is no default entry point, you must specify a command in the `cmd` field. It is invalid to supply both `cmd` and `args` for the same app.
 * When you run a Docker image in the Docker Engine, the underlying Docker log files are not truncated or rotated. These files can become arbitrarily large (and often go to a system disk rather than a storage disk). This can cause a server with limited disk space to run out of disk space. Mesosphere recommends that you disable Docker logging if you are using Docker Engine. To do this, set the `log-driver` parameter to `none` in the `containers.docker.parameters` field of your app definition. If you are provisioning the container using the DC/OS web interface:
   1. Click the **JSON EDITOR** toggle.
@@ -54,7 +54,7 @@ In your [Marathon application definition](/1.11/deploying-services/creating-serv
            {
              "key": "log-driver",
              "value": "none"
-           } 
+           }
          ]
       }
    },

@@ -147,8 +147,7 @@ In this step you create a YAML configuration file that is customized for your en
     - <master-private-ip-2>
     - <master-private-ip-3>
     resolvers:
-    - 8.8.4.4
-    - 8.8.8.8
+    - 169.254.169.253
     # Choose your security mode: permissive, strict, or disabled
     security: <security-mode>
     # A custom proxy is optional. For details, see the config documentation.

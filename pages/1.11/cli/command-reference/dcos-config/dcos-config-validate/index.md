@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos config validate
 title: dcos config validate
 menuWeight: 4
-excerpt:
+excerpt: How to validate changes to the configuration file
 
 enterprise: false
 ---
@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Validate changes to the configuration file.
+The dcos config validate command will validate changes to the configuration file.
 
 # Usage
 
@@ -29,4 +29,3 @@ None.
 | Command | Description |
 |---------|-------------|
 | [dcos config](/1.11/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
-

@@ -31,16 +31,20 @@ Marathon-LB has a templating feature for specifying custom HAProxy configuration
 
 ### Global Template
 
+**Note: The HAPROXY_HEAD section of the template changed in Marathon-LB version 1.12: `daemon` was removed and `stats socket /var/run/haproxy/socket expose-fd listeners` was added to the global section. Ensure that these changes have been made to your custom HAPROXY_HEAD before upgrading to version 1.12.**
+
 To specify a global template:
 
 1.  On your local machine, create a file called `HAPROXY_HEAD` in a directory called `templates` with the contents below:
 
         global
-          daemon
           log /dev/log local0
           log /dev/log local1 notice
           maxconn 4096
           tune.ssl.default-dh-param 2048
+          stats socket /var/run/haproxy/socket expose-fd listeners
+          server-state-file global
+          server-state-base /var/state/haproxy/
         defaults
           log global
           retries 3
@@ -54,6 +58,7 @@ To specify a global template:
           balance mode http
           stats enable monitor-uri /_haproxy_health_check
     In the code above, the following items have changed from the default: `maxconn`, `timeout client`, and `timeout server`.
+    **Note: The current full default HAPROXY_HEAD can be found here: ** [https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head](https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head).
 
 2.  Tar or zip the file. [Here’s a handy script you can use to do this][1].
 

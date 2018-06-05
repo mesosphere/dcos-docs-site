@@ -3,26 +3,22 @@ layout: layout.pug
 navigationTitle:  Features
 title: Features
 menuWeight: 3
-excerpt:
+excerpt: Understanding the unique features of DC/OS
 ---
-
-
-
-
 
 This is an overview of the features that make DC/OS more than the sum of its parts.
 
 
 ## <a name="high-resource-utilization"></a>High Resource Utilization
 
-DC/OS makes it easy to get the most out of your compute resources.
+DC/OS makes it easy to get the most out of your computing resources.
 
-Deciding where to run processes to best utilize cluster resources is hard, NP-hard in-fact. Deciding where to place long-running services which have changing resource requirements over time is even harder. In reality there's no single scheduler that can efficiently and effectively place all types of tasks. There's no way for a single scheduler to be infinitely configurable, universally portable, lightning fast, and easy to use - all at the same time.
+Deciding where to run processes to best utilize cluster resources is hard. Deciding where to place long-running services which have changing resource requirements over time is even harder. In reality there is no single scheduler that can efficiently and effectively place all types of tasks. There is no way for a single scheduler to be infinitely configurable, universally portable, lightning fast, and easy to use, all at the same time.
 
 DC/OS manages this problem by separating resource management from task scheduling. Mesos manages CPU, memory, disk, and GPU resources. Task placement is delegated to higher level schedulers that are more aware of their task's specific requirements and constraints. This model, known as two-level scheduling, enables multiple workloads to be colocated efficiently.
 
 
-## <a name="mixed-workload-colocation"></a>Mixed Workload Colocation
+## <a name="mixed-workload-colocation"></a>Mixed Workload colocation
 
 DC/OS makes it easy to run all your computing tasks on the same hardware.
 
@@ -33,7 +29,7 @@ For other types of work, DC/OS makes it easy to select and install from a librar
 For complex custom workloads, you can even write your own scheduler to optimize and precisely control the scheduling logic for specific tasks.
 
 
-## <a name="container-orchestration"></a>Container Orchestration
+## <a name="container-orchestration"></a>Container orchestration
 
 DC/OS provides easy-to-use container orchestration right out of the box.
 
@@ -42,7 +38,7 @@ Docker provides a great development experience, but trying to run Docker contain
 With Marathon, you have the ability to reach extreme scale, scheduling tens of thousands of tasks across thousands of nodes. You can use highly configurable declarative application definitions to enforce advanced placement constraints with node, cluster, and grouping affinities.
 
 
-## <a name="extensible-resource-isolation"></a>Extensible Resource Isolation
+## <a name="extensible-resource-isolation"></a>Extensible resource isolation
 
 DC/OS makes it possible to configure multiple resource isolation zones.
 
@@ -51,7 +47,7 @@ Not all tasks have the same requirements. Some require maximum isolation for sec
 The simplest isolation method is to just delegate to Docker. It’s trivial to run Docker containers on DC/OS, but Docker is a bit of a blunt instrument when it comes to isolation. The [Mesos containerizer](http://mesos.apache.org/documentation/latest/mesos-containerizer/) is much more flexible, with multiple independently configurable isolators, and pluggable custom isolators. The Mesos containerizer can even run Docker containers without being chained to the fragility of `dockerd`.
 
 
-## <a name="stateful-storage-support"></a>Stateful Storage Support
+## <a name="stateful-storage-support"></a>Stateful storage support
 
 DC/OS gives your services multiple persistent and ephemeral storage options.
 
@@ -64,7 +60,7 @@ Local ephemeral storage is the Mesos default for allocating temporary disk space
 Local persistent volumes bridge the gap and provide fast, persistent storage. If your service is replicating data already or your drives are RAID and backed up to nearline or tape drive, local volumes might give you enough fault tolerance without the speed tax.
 
 
-## <a name="package-management"></a>Public Management
+## <a name="package-management"></a>Public management
 
 DC/OS makes it easy to install both public community and private proprietary packaged services.
 
@@ -73,7 +69,7 @@ The Mesosphere Universe Package Repository connects you with a library of open s
 DC/OS also supports installing from multiple package repositories: you can host your own private packages to be shared within your company or with your customers.
 
 
-## <a name="cloud-agnostic-installer"></a>Cloud-Agnostic Installer
+## <a name="cloud-agnostic-installer"></a>Cloud-agnostic installer
 
 The DC/OS Installer makes it easy to install DC/OS on any cluster of physical or virtual machines.
 
@@ -84,7 +80,7 @@ For users deploying to the public cloud, DC/OS offers several configurable cloud
 For the advanced user, the Advanced Installer provides a scriptable, automatable interface to integrate with your prefered configuration management system.
 
 
-## <a name="web-and-command-line-interfaces"></a>Web and Command Line Interfaces
+## <a name="web-and-command-line-interfaces"></a>Web and command line interfaces
 
 The DC/OS web and command line interfaces make it easy to monitor and manage the cluster and its services.
 
@@ -93,7 +89,7 @@ The DC/OS web interface lets you monitor resource allocation, running services, 
 The DC/OS command line interface provides control of DC/OS from the comfort of a terminal. It’s powerful, yet easily scriptable, with handy plugins to interact with installed services.
 
 
-## <a name="elastic-scalability"></a>Elastic Scalability
+## <a name="elastic-scalability"></a>Elastic scalability
 
 DC/OS gives you the power to easily scale your services up and down with the turn of a dial.
 
@@ -104,7 +100,7 @@ Vertical scaling is also supported in Marathon, allowing you to allocate more or
 Adding nodes to a DC/OS cluster is a snap too. The DC/OS Installer uses immutable artifacts that allow you to provision new nodes without having to recompile, reconfigure, or re-download component packages from flaky remote repositories.
 
 
-## <a name="high-availability"></a>High Availability
+## <a name="high-availability"></a>High availability
 
 DC/OS is highly available and makes it easy for your services to be highly available too.
 
@@ -115,7 +111,7 @@ To achieve self-healing, DC/OS services are monitored by Marathon and restarted 
 To achieve fault tolerance, DC/OS can run in multiple master configurations. This provides not just system-level fault tolerance but also scheduler-level fault tolerance. DC/OS can even survive node failure during an upgrade with no loss of service.
 
 
-## <a name="zero-downtime-upgrades"></a>Zero Downtime Upgrades
+## <a name="zero-downtime-upgrades"></a>Zero downtime upgrades
 
 DC/OS provides automation for updating services and the systems with zero downtime.
 
@@ -124,26 +120,26 @@ DC/OS services running on Marathon can all be updated with rolling, blue-green, 
 DC/OS itself also supports zero-downtime upgrades with its powerful installer. Stay up-to-date with the latest open source components with a single combined update.
 
 
-## <a name="integration-tested-components"></a>Integration-Tested Components
+## <a name="integration-tested-components"></a>Integration-tested components
 
 DC/OS provides a well-tested set of open source components and bakes them all together with a single combined installer.
 
 Mixing and matching open source components can be a pain. You never know which versions will work together or what the side effects of their interactions will be. Let the Mesos experts handle it for you! Get to production quickly and focus on the quality of your products, not the stability of your platform.
 
 
-## <a name="service-discovery-and-dist-load-balancing"></a>Service Discovery and Distributed Load Balancing
+## <a name="service-discovery-and-dist-load-balancing"></a>Service discovery and distributed load balancing
 
 DC/OS includes several options for automating service discovery and load balancing.
 
 Distributed services create distributed problems, but you don't have to solve them all yourself. DC/OS includes automatic DNS endpoint generation, an API for service lookup, transport layer (L4) virtual IP proxying for high speed internal communication, and application layer (L7) load balancing for external-facing services.
 
-## <a name="lb—mgmt-plane"></a>Control and Management plane for Distributed Load Balancers
+## <a name="lb—mgmt-plane"></a>Control and management plane for distributed load balancers
 
 DC/OS Enterprise provides a centralized management &amp; control plane for service availability &amp; performance monitoring.
 
 While Distributed Load Balancers are ideal for service discovery and service availability of DC/OS Services, monitoring and managing them requires tooling and effort. DC/OS Enterprise comes with centralized control and management plane for DC/OS Distributed Load balancer that consists of an aggregation API which unifies all distributed engines into a single service centric view and single set of service health metrics. DC/OS Enterprise, also includes a Service Performance &amp; health monitoring UI that helps monitor service performance as well as root cause service degradation issues and identify root causes.
 
-## <a name="perimeter-security"></a>Cluster Perimeter Security
+## <a name="perimeter-security"></a>Cluster perimeter security
 
 DC/OS provides prescriptive design to ensure administrative and programmatic communication between DC/OS Clusters &amp; any client (UI/Browsers, CLIs, API Clients etc.) happens over the Admin security zone and all requests are transported over SSL secured channel. DC/OS Master nodes are the entry point into the DC/OS Cluster within the Admin security zone and more specifically, the API Gateway is a component named ‘Admin Router’ that serves as reverse proxy managing all administrative connectivity into DC/OS Clusters.
 
@@ -151,22 +147,22 @@ DC/OS provides prescriptive design to ensure administrative and programmatic com
 ## <a name="identity-access-mgmt"></a>Identity and Access Management
 [/enterprise]
 
-DC/OS Enterprise includes built-in Identity and Access Management that allows our users to create Users and Groups and assign varying level of Authorization privileges to each user and group. DC/OS Enterprise supports following types of Users and Groups:
+DC/OS Enterprise includes built-in Identity and Access Management that allows you to create users and groups, and assign varying level of authorization privileges to each user and group. DC/OS Enterprise supports the following types of users and groups:
 
-* Local Users
-* Local Groups
-* Remote LDAP Users
-* Remote LDAP Groups (only for importing into local group)
-* Remote SAML User
-* Service User Account
+* Local users
+* Local groups
+* Remote LDAP users
+* Remote LDAP groups (only for importing into local group)
+* Remote SAML users
+* Service user accounts
 
-DC/OS Enterprise IAM Service also includes support for authorization controls that can be assigned to each of the above principals/users. Users can be given specific set of permissions in the form ‘Subject’ can perform ‘Action’ on ‘Object’ where ‘Object’ can be an API endpoint to a particular DC/OS Service to a Marathon Application group and ‘Action’ enumerates the set of actions that are possible on the Object such as “Create, Read, Update or Delete”.
+DC/OS Enterprise IAM service also includes support for authorization controls that can be assigned to each of the above principals/users. Users can be given specific set of permissions in the form ‘Subject’ can perform ‘Action’ on ‘Object’, where ‘Object’ can be an API endpoint to a particular DC/OS service to a Marathon application group and ‘Action’ enumerates the set of actions that are possible on the object such as “Create, Read, Update or Delete”.
 
 [enterprise]
-## <a name="identity-provider"></a>External Identity Provider with LDAP, SAML &amp; OpenID Connect
+## <a name="identity-provider"></a>External Identity Provider with LDAP, SAML &amp; OpenID connect
 [/enterprise]
 
-DC/OS Enterprise integrates Identity Providers that support LDAP v3 Interface (including Microsoft Active Directory) and SAML based identity providers such that you can import users external to DC/OS from your existing User Directory and manage authorization on those users and user group within  DC/OS.
+DC/OS Enterprise integrates Identity Providers that support LDAP v3 interface (including Microsoft Active Directory) and SAML based identity providers, such that you can import users external to DC/OS from your existing user directory, and manage user and group authorizations within DC/OS.
 
 [enterprise]
 ## <a name="cluster-encryption"></a>Cluster security with encrypted communication
@@ -175,15 +171,15 @@ DC/OS Enterprise integrates Identity Providers that support LDAP v3 Interface (i
 DC/OS Enterprise is designed to run securely on-premises and in the cloud. To ensure cluster security, DC/OS Enterprise supports encrypted communication between DC/OS Cluster Internal components. This is achieved by ensuring that DC/OS runs with a Certificate Authority that issues certificates for DC/OS Master Nodes and all Agent nodes have an installed CA.crt at bootstrap time. This mechanism ensures all communication between the various services within DC/OS cluster are over secure SSL channels.
 
 [enterprise]
-## <a name="workload-isolation"></a>Workload Isolation with Container level authorization
+## <a name="workload-isolation"></a>Workload isolation with container level authorization
 [/enterprise]
 
-DC/OS Enterprise supports fine-grained workload isolation to enable multiple business groups within an organization to run containers &amp; workloads within a shared cluster but still be guaranteed that there is security isolation in addition to performance isolation provided by Linux cGroups between the varying workloads. Workload security isolation is performed by a DC/OS Authorization module that runs on every agent node and is responsible for making authorization checks against DC/OS IAM Service to verify that the user/owner of the workload is authorized to perform the action they are trying to execute anywhere within the cluster including on the Agent node.
+DC/OS Enterprise supports fine-grained workload isolation to enable multiple business groups within an organization to run containers and workloads within a shared cluster. You are guaranteed that there is security isolation in addition to performance isolation provided by Linux cGroups between the varying workloads. Workload security isolation is performed by a DC/OS Authorization module that runs on every agent node. This module is responsible for making authorization checks against DC/OS IAM Service to verify that the user/owner of the workload is authorized to perform the action they are trying to execute anywhere within the cluster, including on the Agent node.
 
-## <a name="software-defined-networks"></a>IP per Container with Extensible Virtual Networks (SDN)
+## <a name="software-defined-networks"></a>IP per container with extensible virtual networks (SDN)
 
-DC/OS comes built-in with support Virtual Networks leveraging Container Network Interface(CNI) standard. By default, there is one virtual network named `dcos` is created and any container that attaches to a Virtual Network, receives its own dedicated IP. This allows users to run workloads that are not friendly to dynamically assigned ports and would rather bind the existing ports that is in their existing app configuration. Now, with support for dedicated IP/Container, workloads are free to bind to any port as every container has access to the entire available port range.
+DC/OS comes built-in with support for virtual networks, leveraging the Container Network Interface (CNI) standard. By default, one virtual network named `dcos` is created and any container that attaches to a Virtual Network receives its own dedicated IP. This allows you to run workloads that are not friendly to dynamically assigned ports and would rather bind the existing ports that are in their existing app configuration. Now, with support for dedicated IP/Container, workloads are free to bind to any port, since every container can access the entire available port range.
 
-## <a name="network-isolation"></a>Network Isolation of Virtual Network Subnets
+## <a name="network-isolation"></a>Network Isolation of virtual network subnets
 
-DC/OS now supports the creation of multiple virtual networks at install time and associate non-overlapping subnets with each of the virtual networks. Further, DC/OS users can program Network Isolation rules across DC/OS Agent nodes to ensure that traffic across Virtual Network subnets is isolated. 
+DC/OS now supports the creation of multiple virtual networks at install time and associates non-overlapping subnets with each of the virtual networks. DC/OS users can program network isolation rules across DC/OS agent nodes, to ensure that traffic across virtual network subnets is isolated.

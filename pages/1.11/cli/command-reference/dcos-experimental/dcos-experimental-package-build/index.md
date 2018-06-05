@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  dcos experimental package build
 title: dcos experimental package build
 menuWeight: 1
-excerpt:
+excerpt: How to build a local package
 
 enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
+
 # Description
-Build a package locally to be added to DC/OS or to be shared with Universe.
+The dcos experimental package build command lets you build a package locally to be added to DC/OS or to be shared with the DC/OS Universe.
 
 # Usage
 
@@ -26,7 +26,7 @@ dcos experimental package build <build-definition> [OPTION]
 |---------|-------------|-------------|
 | `--json`   |             |  JSON-formatted data. |
 | `--output-directory=<output-directory>`   | current working directory | Path to the directory where the data should be stored.|
-    
+
 # Positional arguments
 
 | Name, shorthand | Default | Description |

@@ -3,25 +3,22 @@ layout: layout.pug
 navigationTitle:  Architecture
 title: Architecture
 menuWeight: 2
-excerpt:
+excerpt: Understanding DC/OS architecture
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
-DC/OS is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic to the infrastructure layer. This means that the infrastructure may consist of virtual or physical hardware as long as it provides compute, storage, and networking.
+DC/OS is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic with respect to the infrastructure layer. This means that the infrastructure may consist of virtual or physical hardware, as long as it provides computing resources, storage, and networking.
 
 ![DC/OS Architecture Layers](/1.11/img/dcos-architecture-layers.png)
 
-## Software Layer
+## Software layer
 
-At the software layer, DC/OS provides package management and a package repository to easily install and manage multiple types of services: databases, message queues, stream processors, artifact repositories, monitoring solutions, continuous integration tools, source control management, log aggregators, etc. In addition to these packaged apps and services, the user may install their own custom apps, services, and scheduled jobs.
+At the software layer, DC/OS provides package management and a package repository to install and manage several types of services: databases, message queues, stream processors, artifact repositories, monitoring solutions, continuous integration tools, source control management, log aggregators, and so forth. In addition to these packaged apps and services, you may install your own custom apps, services, and scheduled jobs.
 
 For more information, see [Task Types](/1.11/overview/architecture/task-types/).
 
-## Platform Layer
+## Platform layer
 
 At the platform layer there are dozens of components grouped into the following categories:
 
@@ -40,16 +37,16 @@ These components are divided across multiple node types:
 - Private Agent Nodes
 - Public Agent Nodes
 
-For DC/OS to be installed, each node must already be provisioned with one of the supported host operating systems.
+To install DC/OS, you must first provision each node with one of the supported host operating systems.
 
 For more information, see [Components](/1.11/overview/architecture/components/), [Node Types](/1.11/overview/architecture/node-types/), and [Host Operating System](/1.11/overview/concepts/#host-operating-system).
 
-## Infrastructure Layer
+## Infrastructure layer
 
-At the infrastructure layer, DC/OS can be installed on public clouds, private clouds, or on-premises hardware. Some of these install targets have automated provisioning tools, but almost any infrastructure can be used, as long as it includes multiple x86 machines on a shared IPv4 network.
+At the infrastructure layer, you can install DC/OS on public clouds, private clouds, or on-premises hardware. Some of these install targets have automated provisioning tools, but almost any infrastructure can be used, as long as it includes multiple x86 machines on a shared IPv4 network.
 
 For more information, see [Installing](/1.11/installing/).
 
-## External Components
+## External components
 
 In addition to the software that runs in the datacenter, DC/OS includes and integrates with several external components: the [GUI](/1.11/gui/), [CLI](/1.11/cli/), [package repository](/1.11/administering-clusters/repo/), and [container registry](/1.11/overview/concepts/#container-registry).

@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Install DC/OS Locally
 navigationTitle: Local
-menuWeight: 3
+menuWeight: 2
 oss: true
 ---
 

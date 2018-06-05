@@ -3,15 +3,16 @@ layout: layout.pug
 navigationTitle:  Deploying a Local Universe
 title: Deploying a Local Universe
 menuWeight: 1000
-excerpt:
+excerpt: Learn to install and run DC/OS services on a local Universe datacenter
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
+
+You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe).
 
 
-
-You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe). You can deploy a local Universe that includes all Certified packages (easiest), or a local Universe that includes selected packages (advanced).
+You can deploy a local Universe that includes all Certified packages (easiest), or a local Universe that includes selected packages (advanced).
 
 **Prerequisites:**
 
@@ -233,8 +234,6 @@ You can install and run DC/OS services on a datacenter without internet access w
 1.  Close the SSH session by typing `exit` or open a new terminal prompt. Repeat steps 28-30 on each agent node.
 
 1.  To verify your success, log into the DC/OS web interface and click the **Catalog** tab. You should see a list of Certified packages. Install one of the packages.
-
-
 
 ### FAQ
 

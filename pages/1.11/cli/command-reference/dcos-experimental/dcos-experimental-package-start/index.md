@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos experimental service start
 title: dcos experimental service start
 menuWeight: 2
-excerpt:
+excerpt: How to start a service from a non-native DC/OS package
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
-Start a service from a non-native DC/OS package. See `dcos experimental package add` for information on how to add a package to DC/OS.
+The dcos experimental service start command will start a service from a non-native DC/OS package. See `dcos experimental package add` for information on how to add a package to DC/OS.
 
 # Usage
 
@@ -27,7 +25,7 @@ dcos experimental service start <package-name> [OPTION]
 | `--json`   |             |  JSON-formatted data. |
 | `--options=<options-file>`   |             | Path to a JSON file that contains customized package execution options. |
 | `--package-version=<package-version>`   |             | The package version. |
-    
+
 # Positional arguments
 
 | Name, shorthand | Default | Description |

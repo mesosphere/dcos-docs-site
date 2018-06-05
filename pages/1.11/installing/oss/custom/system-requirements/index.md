@@ -17,6 +17,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 *  A high-availability (HA) TCP/Layer 3 load balancer, such as HAProxy, to balance the following TCP ports to all master nodes: 80, 443.
 *  An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
+*  DC/OS installation is run on a Bootstrap node. 1 node with 2 cores, 16 GB RAM, 60 GB HDD. 
 *  Since the bootstrap node is only used during the installation and upgrade process, there are no specific recommendations for high performance storage or separated mount points.
 
 ## Cluster nodes
@@ -25,6 +26,7 @@ The cluster nodes are designated Mesos masters and agents during installation.
 
 The supported operating systems and environments are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
 
+DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` may be created prior to installing DC/OS, but it must be either an empty directory or a symlink to an empty directory. DC/OS may be installed to a separate volume mount by creating an empty directory on the mounted volume, creating a symlink at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
 
 ### Master nodes
 
@@ -36,20 +38,20 @@ Here are the master node hardware requirements.
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
 
-There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following: 
+There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
 - RAID controller cache configured in writeback mode
 - If separation of storage mount points is possible, the following storage mount points are recommended on the master node. These recommendations will optimize the performance of a busy DC/OS cluster by isolating the I/O of various services.
   | Directory Path | Description |
-  |:-------------- | :---------- | 
+  |:-------------- | :---------- |
   | _/var/lib/dcos_ | A majority of the I/O on the master nodes will occur within this directory structure. If you are planning a cluster with hundreds of nodes or intend to have a high rate of deploying and deleting workloads, isolating this directory to dedicated SSD storage is recommended.
 
-- Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes. 
-  
+- Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes.
+
   | Directory Path | Description |
-  |:-------------- | :---------- | 
+  |:-------------- | :---------- |
   | _/var/lib/dcos/mesos/master_ | logging directories |
   | _/var/lib/dcos/cockroach_ | CockroachDB |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
@@ -67,7 +69,7 @@ Here are the agent node hardware requirements.
 | Memory      | 16 GB RAM | 16 GB RAM   |
 | Hard disk   | 60 GB     | 60 GB       |
 
-The agent nodes must also have: 
+The agent nodes must also have:
 
 - A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.11/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
@@ -78,21 +80,19 @@ The agent nodes must also have:
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
     ```
 
-*   DC/OS is installed to `/opt/mesosphere`. `/opt/mesosphere` must be on the same mountpoint as `/`.  This is required because DC/OS installs systemd unit files under `/opt/mesosphere`. All systemd units must be available for enumeration during the initializing of the initial ramdisk at boot. If `/opt` is on a different partition or volume, systemd will fail to discover these units during the initialization of the ramdisk and DC/OS will not automatically restart upon reboot.
-
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
-    
+
 *   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.
 
 *   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
-  
+
     | Directory Path | Description |
-    |:-------------- | :---------- | 
+    |:-------------- | :---------- |
     | _/var/lib/mesos/_ | Most of the I/O from the Agent nodes will be directed at this directory. Also, the disk space that Apache Mesos advertises in its UI is the sum of the space advertised by filesystem(s) underpinning _/var/lib/mesos_ |
-   
-*  Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes. 
+
+*  Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes.
 
    | Directory path | Description |
    |:-------------- |:----------- |
@@ -114,8 +114,6 @@ The agent nodes must also have:
 High speed internet access is recommended for DC/OS installation. A minimum 10 MBit per second is required for DC/OS services. The installation of some DC/OS services will fail if the artifact download time exceeds the value of MESOS_EXECUTOR_REGISTRATION_TIMEOUT within the file `/opt/mesosphere/etc/mesos-slave-common`. The default value for MESOS_EXECUTOR_REGISTRATION_TIMEOUT is 10 minutes.
 
 # Software Prerequisites
-
-**Tip:** Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.11/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
 
 ## All Nodes
 
@@ -169,7 +167,7 @@ timedatectl
 
 Before installing DC/OS, you must ensure that your bootstrap node has the following prerequisites.
 
-**Important:** 
+**Important:**
 
 * If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.

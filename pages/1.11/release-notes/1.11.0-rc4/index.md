@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0 Release Candidate 4
 title: Release Notes for 1.11.0 RC 4
-menuWeight: 5
-excerpt:
+menuWeight: 15
+excerpt: Release notes DC/OS 1.11.0 Release Candidate 4
 ---
 
 These are the release notes for DC/OS 1.11.0 Release Candidate 4.

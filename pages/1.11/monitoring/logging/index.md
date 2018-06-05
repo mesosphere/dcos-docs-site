@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Logging
 title: Logging
 menuWeight: 3
-excerpt:
+excerpt: Learn about diagnostic and status logs for DC/OS core components and services
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services.

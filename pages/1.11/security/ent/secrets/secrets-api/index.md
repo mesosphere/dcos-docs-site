@@ -3,37 +3,38 @@ layout: layout.pug
 navigationTitle:  Secrets API
 title: Secrets API
 menuWeight: 6
-excerpt:
+excerpt: Understanding the Secrets API
 
 enterprise: true
 ---
 
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 
 # About the Secrets API
 
-The Secrets API allows you to manage secrets and perform some backend functions such as sealing and unsealing the Secret Store. It offers more functionality than the DC/OS GUI. 
+The Secrets API allows you to manage secrets and perform some backend functions such as sealing and unsealing the Secret Store. It offers more functionality than the DC/OS GUI.
 
 # Request and response format
 
 The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
 
     Content-Type: application/json
-    
+
 
 # Host name and base path
 
 The host name to use varies according to where your app is running.
 
-* If your app will run outside of the DC/OS cluster, you should use the cluster URL. To obtain the cluster URL, launch the DC/OS GUI and copy the domain name from the browser. In a production environment, this should be the path to the load balancer that sits in front of your masters. 
+* If your app will run outside of the DC/OS cluster, you should use the cluster URL. To obtain the cluster URL, launch the DC/OS GUI and copy the domain name from the browser. In a production environment, this should be the path to the load balancer that sits in front of your masters.
 
 * If your app will run inside of the cluster, use `master.mesos`.
 
 Append `/secrets/v1/<api_endpoint>` to the host name, as shown below.
 
-    https://<host-name-or-ip>/secrets/v1/<api_endpoint> 
-    
+    https://<host-name-or-ip>/secrets/v1/<api_endpoint>
+
 
 # Authentication and authorization
 
@@ -67,7 +68,7 @@ dcos config show core.dcos_acs_token
 
 ### Via the HTTP header
 
-Copy the token value and pass it in the `Authorization` field of the HTTP header, as shown below. 
+Copy the token value and pass it in the `Authorization` field of the HTTP header, as shown below.
 
 ```http
 Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg
@@ -101,4 +102,4 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # Logging
 
-While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.11/monitoring/logging/) for instructions 
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.11/monitoring/logging/) for instructions

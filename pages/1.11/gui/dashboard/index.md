@@ -3,13 +3,15 @@ layout: layout.pug
 navigationTitle:  Dashboard
 title: Dashboard
 menuWeight: 1
-excerpt:
+excerpt: Using the Dashboard
 ---
 The dashboard is the home page of the DC/OS web interface and provides an overview of your DC/OS cluster.
 
 [message type="Info"]The Secrets tab is available only in DC/OS Enterprise.[/message]
 
 ![Dashboard](/1.11/img/dashboard-ee.png)
+
+*Figure - 1 The Dashboard tab*
 
 From the dashboard you can easily monitor the health of your cluster.
 

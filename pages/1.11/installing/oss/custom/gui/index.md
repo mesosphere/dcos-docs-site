@@ -2,7 +2,7 @@
 layout: layout.pug
 excerpt:
 title: GUI DC/OS Installation Guide ***Retired Feature
-navigationTitle: GUI ***Retired feature
+navigationTitle: GUI 
 menuWeight: 100
 oss: true
 ---

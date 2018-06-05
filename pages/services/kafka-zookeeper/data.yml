@@ -24,3 +24,11 @@ kerberos:
   spn: example/zookeeper-0-server.agoodexample.autoip.dcos.thisdcos.directory
   upn: example/zookeeper-0-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
   principal: example/zookeeper-0-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    └─ node-update (serial strategy) (COMPLETE)
+       ├─ zookeeper-0:[server, metrics] (COMPLETE)
+       ├─ zookeeper-1:[server, metrics] (COMPLETE)
+       └─ zookeeper-2:[server, metrics] (COMPLETE)

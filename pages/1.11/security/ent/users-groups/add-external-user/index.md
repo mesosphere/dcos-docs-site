@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Adding external users
 title: Adding external users
 menuWeight: 20
-excerpt:
+excerpt: Adding an external user to DC/OS
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 After you have configured a directory service or an identity provider, you can add the users to DC/OS so that you can assign permissions.
 

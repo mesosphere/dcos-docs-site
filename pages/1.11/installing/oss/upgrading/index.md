@@ -3,19 +3,22 @@ layout: layout.pug
 navigationTitle:  Upgrading
 excerpt:
 title: Upgrading
-menuWeight: 3.1
+menuWeight: 4
 ---
 
-## Summary
+An upgrade is the process of adding new features, replacing the existing features with new features/functionality or adding a major configuration change. You can upgrade DC/OS only if you have used the installation process to install DC/OS on your cluster.
+Example: 1.X to 1.Y (1.11 --> 1.12)
 
-This document provides instructions for upgrading a DC/OS cluster from version 1.10 to 1.11. If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
+**Note:** An upgrade occurs only between major releases.
+
+ If an upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster. This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
 
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
 - If IPv6 is disabled in the kernel, the `config.yaml` file will need to contain `enable_ipv6: 'false'`
-- The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
-- The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster.
+- The Advanced installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
+- The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using the DC/OS UI and APIs until all masters have been upgraded and have rejoined the cluster.
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Prerequisites
@@ -25,7 +28,7 @@ This document provides instructions for upgrading a DC/OS cluster from version 1
 - You must have access to copies of the config files used with DC/OS 1.10: `config.yaml` and `ip-detect`.
 - You must be using systemd 218 or newer to maintain task state.
 - All hosts (masters and agents) must be able to communicate with all other hosts on all ports, for both TCP and UDP.
-- In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
+- In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`.
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [Advanced DC/OS Installation Guide][advanced-install].
 - Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
@@ -147,4 +150,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.11 Universe are newer than those in the DC/OS 1.10 Universe. Services are not automatically upgraded when DC/OS 1.10 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.11/installing/oss/custom/advanced/
+[advanced-install]: /1.11/installing/oss/custom/advanced

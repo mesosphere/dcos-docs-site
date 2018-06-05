@@ -3,15 +3,15 @@ layout: layout.pug
 navigationTitle:  Logging API Examples
 title: Logging API Examples
 menuWeight: 4
-excerpt:
+excerpt: Understanding the Logging API
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-This topic provides common usage examples for the Logging API.
+Here are some common usage examples for the Logging API.
 
 **Prerequisites:**
 
