@@ -7,7 +7,7 @@ menuWeight: 6
 oss: true
 ---
 
-This document discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
+This page discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
 
 # Terminology
 
