@@ -4,7 +4,7 @@ navigationTitle:  Quick Start
 title: Metrics Quick Start
 menuWeight: 0
 excerpt: Getting Started with DC/OS metrics
-beta: true
+beta: false
 ---
 
 

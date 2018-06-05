@@ -3,8 +3,9 @@ layout: layout.pug
 navigationTitle:  Components
 title: Components
 menuWeight: 4
-excerpt: Understanding DC/OS microservice components
+excerpt: Understanding DC/OS components
 
+---
 
 <style type="text/css">
 h1 .badge,
@@ -426,7 +427,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 
 # Networking
 
-In a world where machines are are given numbers instead of names, tasks are scheduled automatically, dependencies are declaratively defined, and services run in distributed sets, network administration also needs to be elevated from plugging in cables to configuring software-defined networks. To accomplish this, DC/OS includes a fleet of networking components for routing, proxying, name resolution, virtual IPs, load balancing, and distributed reconfiguration.
+In a world where machines are given numbers instead of names, tasks are scheduled automatically, dependencies are declaratively defined, and services run in distributed sets, network administration also needs to be elevated from plugging in cables to configuring software-defined networks. To accomplish this, DC/OS includes a fleet of networking components for routing, proxying, name resolution, virtual IPs, load balancing, and distributed reconfiguration.
 
 <div data-role="collapsible">
 <h2 id="admin-router">Admin Router</h2>

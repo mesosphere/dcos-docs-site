@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Install and Customize
 menuWeight: 20
 excerpt:
@@ -16,7 +16,7 @@ Kafka is available in the Universe and can be installed by using either the web 
 ##  <a name="install-enterprise"></a>Prerequisites
 
 - Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/service-docs/kafka/kafka-auth/) before installing Confluent Kafka. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.  
+	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - Your cluster must have at least three private nodes.
@@ -25,19 +25,19 @@ Kafka is available in the Universe and can be installed by using either the web 
 
 To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kafka on Enterprise DC/OS](#install-enterprise).
 
-    $ dcos package install beta-confluent-kafka
+    $ dcos package install confluent-kafka
 
 
 This command creates a new Confluent Kafka cluster with the default name `confluent-kafka`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires [customizing the `name` at install time][4] for each additional instance.
 
-All `dcos beta-confluent-kafka` CLI commands have a `--name` argument allowing the user to specify which Kafka instance to query. If you do not specify a service name, the CLI assumes the default value, `confluent-kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
+All `dcos confluent-kafka` CLI commands have a `--name` argument allowing the user to specify which Kafka instance to query. If you do not specify a service name, the CLI assumes the default value, `confluent-kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
-    $ dcos beta-confluent-kafka --name confluent-kafka-dev <cmd>
+    $ dcos confluent-kafka --name confluent-kafka-dev <cmd>
 
 **Note:** Alternatively, you can [install Beta Confluent Kafka from the DC/OS web interface](/1.9/deploying-services/install/). If you install Beta Confluent Kafka from the web interface, you must install the Beta Confluent Kafka DC/OS CLI subcommands separately. From the DC/OS CLI, enter:
 
 ```bash
-dcos package install beta-confluent-kafka --cli
+dcos package install confluent-kafka --cli
 ```
 
 # Minimal Installation
@@ -57,7 +57,7 @@ To start a minimal cluster with a single broker, create a JSON options file name
 
 The command below creates a cluster using `sample-confluent-kafka-minimal.json`:
 
-    $ dcos package install --options=sample-confluent-kafka-minimal.json beta-confluent-kafka
+    $ dcos package install --options=sample-confluent-kafka-minimal.json confluent-kafka
 
 <a name="custom-installation"></a>
 # Custom Installation
@@ -84,7 +84,7 @@ Sample JSON options file named `sample-confluent-kafka-custom.json`:
 
 The command below creates a cluster using `sample-confluent-kafka.json`:
 
-    $ dcos package install --options=sample-confluent-kafka-custom.json beta-confluent-kafka
+    $ dcos package install --options=sample-confluent-kafka-custom.json confluent-kafka
 
 **Recommendation:** Store your custom configuration in source control.
 
@@ -101,7 +101,7 @@ Installing multiple Kafka clusters is identical to installing Kafka clusters wit
         }
     }
 
-    $ dcos package install beta-confluent-kafka --options=confluent-kafka1.json
+    $ dcos package install confluent-kafka --options=confluent-kafka1.json
 
 <!-- THIS BLOCK DUPLICATES THE OPERATIONS GUIDE -->
 
@@ -116,12 +116,12 @@ Steps:
    Select the group or user you created. Select **ADD PERMISSION** and then toggle to **INSERT PERMISSION STRING**. Add each of the following permissions to your user or group, and then click **ADD PERMISSIONS**.
 
    ```
-   dcos:adminrouter:service:marathon full				
+   dcos:adminrouter:service:marathon full
    dcos:service:marathon:marathon:services:/testing full
    dcos:adminrouter:ops:mesos full
    dcos:adminrouter:ops:slave full
    ```
-1. Install your service into a folder called `test`. Go to **Catalog**, then search for **beta-confluent**.
+1. Install your service into a folder called `test`. Go to **Catalog**, then search for **confluent**.
 1. Click **CONFIGURE** and change the service name to `/testing/confluent`, then deploy.
 
    The slashes in your service name are interpreted as folders. You are deploying Kafka in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.

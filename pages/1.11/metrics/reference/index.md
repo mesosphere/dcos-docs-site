@@ -4,7 +4,7 @@ navigationTitle:  Metrics Reference
 title: Metrics Reference
 menuWeight: 2
 excerpt: Understanding metrics collected by DC/OS
-beta: true
+beta: false
 enterprise: false
 ---
 

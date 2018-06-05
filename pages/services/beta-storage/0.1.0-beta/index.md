@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Overview
-title: Overview
+navigationTitle: DC/OS Storage Service 0.1.0
+title: DC/OS Storage Service 0.1.0
 menuWeight: 0
 excerpt:
 ---

@@ -8,8 +8,6 @@ excerpt: Getting started with DC/OS fundamentals
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 The overview topics help you get started and learn the DC/OS fundamentals.
 

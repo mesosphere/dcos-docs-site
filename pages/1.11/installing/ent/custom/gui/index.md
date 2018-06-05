@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  GUI Installer (Retired Feature)
-title: GUI Installer (Retired Feature)
+title: GUI DC/OS Installation Guide ***Retired Feature
+navigationTitle: GUI 
 menuWeight: 100
 excerpt:
 ---
