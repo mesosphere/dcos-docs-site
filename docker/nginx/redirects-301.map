@@ -210,7 +210,6 @@
 /1.10/administration/id-and-access-mgt/(.*)$ /1.10/security/oss/$1;
 /1.10/administration/installing/ /1.10/installing/;
 /1.10/administration/installing/cloud/aws/(.*)$ /1.10/installing/oss/cloud/aws/$1;
-/1.10/administration/installing/custom/ /1.10/installing/oss/custom/;
 /1.10/administration/id-and-access-mgt/iam-api/ /1.10/security/oss/iam-api/;
 /1.10/administration/id-and-access-mgt/managing-authentication/ /1.10/security/oss/managing-authentication/;
 /1.10/administration/id-and-access-mgt/user-management/ /1.10/security/ent/users-groups/;
@@ -228,7 +227,7 @@
 /1.10/administration/installing/cloud/digitalocean/ /1.10/installing/cloud/digitalocean/;
 /1.10/administration/installing/cloud/gce/ /1.10/installing/cloud/gce/;
 /1.10/administration/installing/cloud/packet/ /1.10/installing/cloud/packet/;
-/1.10/administration/installing/custom/ /1.10/installing/custom/;
+/1.10/administration/installing/custom/ /1.10/installing/oss/custom/;
 /1.10/administration/installing/custom/add-a-node/ /1.10/administering-clusters/add-a-node/;
 /1.10/administration/installing/custom/advanced/ /1.10/installing/oss/custom/advanced/;
 /1.10/administration/installing/custom/cli/ /1.10/installing/oss/custom/cli/;
