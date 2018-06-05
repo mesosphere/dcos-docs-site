@@ -213,7 +213,6 @@
 /1.10/administration/installing/custom/ /1.10/installing/oss/custom/;
 /1.10/administration/id-and-access-mgt/iam-api/ /1.10/security/oss/iam-api/;
 /1.10/administration/id-and-access-mgt/managing-authentication/ /1.10/security/oss/managing-authentication/;
-/1.10/administration/id-and-access-mgt/service-auth/kafka-auth/ /services/kafka/kafka-auth/;
 /1.10/administration/id-and-access-mgt/user-management/ /1.10/security/ent/users-groups/;
 /1.10/administration/installing/ /1.10/installing/oss/;
 /1.10/administration/installing/cloud/ /1.10/installing/cloud/;
