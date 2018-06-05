@@ -1,4 +1,4 @@
-// source - rasterize.js https://github.com/ariya/phantomjs/blob/master/examples/rasterize.js
+// Source - rasterize.js https://github.com/ariya/phantomjs/blob/master/examples/rasterize.js
 
 "use strict";
 var page = require('webpage').create(),
