@@ -16,7 +16,7 @@ Uninstall the service from the DC/OS CLI, by entering `dcos package uninstall <p
 For example, to uninstall the Prometheus instance named prometheus-dev, run:
 
 ```shell
-dcos package uninstall --app-id=nifi-dev prometheus
+dcos package uninstall --app-id=prometheus-dev prometheus
 ```
 
 ### Uninstall Flow
@@ -138,6 +138,6 @@ If all else fails, one can simply manually perform the uninstall themselves. To 
 
 ```shell
 dcos service --inactive | grep prometheus
-nifi     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
+prometheus     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 ```
