@@ -4,9 +4,9 @@ navigationTitle:  Release Notes for 1.7.2
 title: Release Notes for 1.7.2
 menuWeight: 5
 excerpt: Release Notes for 1.7.2
-
 enterprise: false
 ---
+
 
 These release notes provide a list of useful topics and links for the 1.7.2 release of DC/OS.
 
@@ -108,6 +108,8 @@ For the full set of changes, please refer to the [Marathon Release Notes][7].
 # <a name="mesos"></a>DC/OS Mesos Update
 
 *   The Apache Mesos kernel is now at [version 0.28][8].
+=======
+The release notes provide a list of useful topics and links for DC/OS.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
