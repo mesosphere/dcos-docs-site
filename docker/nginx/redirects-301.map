@@ -293,6 +293,7 @@
 /1.10/installing/oss/oss/ /1.10/installing/oss/;
 /1.10/installing/oss/ent/custom/ /1.10/installing/ent/custom/;
 /1.10/installing/oss/ent/patching/ /1.10/installing/ent/patching/;
+/1.10/installing/oss/ent/upgrading/ /1.10/installing/ent/upgrading/;
 /1.10/monitoring/debugging/cli-debugging/task-exec/ /1.10/monitoring/debugging/task-exec/;
 /1.10/networking/mesos-dns/http-interface/ /1.10/networking/mesos-dns/mesos-dns-api/;
 ~^/1.10/networking/edge-lb/(.*)$ /services/edge-lb/$1;
