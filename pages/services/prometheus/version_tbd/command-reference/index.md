@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  Command Reference
 title: Command Reference
 menuWeight: 60
-excerpt: Commands used in the DC/OS NiFi Service
+excerpt: Commands used in the DC/OS Prometheus Service
 featureMaturity:
 enterprise: false
 ---
 
 
-Here is the complete list of DCOS NiFi Commands Available:
+Here is the complete list of DCOS Prometheus Commands Available:
 
 1. List IDs of all available configurations
 
