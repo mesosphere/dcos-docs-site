@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Mesosphere Versioning and Release Policy
 title: Mesosphere Versioning and Release Policy
 menuWeight: 10
-excerpt: Understanding the format of Mesosphere DC/OS versioning
+excerpt: Understanding Mesosphere's software versioning and lifecycle policies
 
 ---
 
