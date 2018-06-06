@@ -3,21 +3,21 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
-excerpt: Release Notes for version 0.2.0-1.5.0
+excerpt: Release Notes for version 0.1.0-2.2.1
 featureMaturity:
 enterprise: false
 ---
 
 
-## Version 0.2.0-1.5.0
+## Version 0.1.0-2.2.1
 
 ### New Features
 - Support for Kerberos and SSL authorization and authentication.
-- Support for Nifi CLI.
-- Support for Nifi Metrics using DCOS Metrics API
+- Support for Prometheus CLI.
+- Support for Prometheus Metrics using DCOS Metrics API
 
 ### Updates
-- Removing configurable settings for Nifi like container path and some default configurations.
+- Removing configurable settings for Prometheus like container path and some default configurations.
 
 
 ## Version 0.1.0-1.5.0
