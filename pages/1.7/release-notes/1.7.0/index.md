@@ -2,18 +2,12 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.7.0
 title: Release Notes for 1.7.0
-
 menuWeight: 9
 excerpt: Release Notes for 1.7.0
-=======
-
-
 enterprise: false
 ---
 
 # About 1.7
-
-These release notes provide a list of useful topics and links for the 1.7 release of DC/OS.
 
 # Packages installable from the UI
 
@@ -116,6 +110,7 @@ For the full set of changes, please refer to the [Marathon Release Notes][7].
 *   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DC/OS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials. [enterprise type="inline" size="small"/]
 
 See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
+
 
  [1]: /1.7/usage/managing-services/install/
  [2]: /1.7/administration/monitoring/
