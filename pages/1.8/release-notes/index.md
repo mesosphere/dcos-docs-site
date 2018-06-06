@@ -99,7 +99,7 @@ Download the CLI binaries directly from the DC/OS UI. For more information, see 
 [/preview]
 Easy to deploy offline Universe. For more information, see the [documentation](/1.8/administration/installing/ent/deploying-a-local-dcos-universe/).
 
-## Security and Governance Services [enterprise type="inline" size="small" /]
+## [enterprise] Security and Governance Services [/enterprise]
 
 - Security Event Audit Logging [enterprise type="inline" size="small" /] <!-- Needs more information -->
 - Support for importing LDAP Groups [enterprise type="inline" size="small" /] <!-- Needs more information -->
