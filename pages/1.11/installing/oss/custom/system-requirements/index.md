@@ -18,6 +18,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 *  A high-availability (HA) TCP/Layer 3 load balancer, such as HAProxy, to balance the following TCP ports to all master nodes: 80, 443.
 *  An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
+*  DC/OS installation is run on a Bootstrap node. 1 node with 2 cores, 16 GB RAM, 60 GB HDD. 
 *  Since the bootstrap node is only used during the installation and upgrade process, there are no specific recommendations for high performance storage or separated mount points.
 
 ## Cluster nodes

@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: DC/OS Cloud Installation Options
 navigationTitle: Cloud
-menuWeight: 1
+menuWeight: 0
 oss: true
 ---
 

@@ -1,24 +1,54 @@
 ---
 layout: layout.pug
-title: Release Notes for  1.7.0
-menuWeight: 60
-excerpt:
-
+navigationTitle:  Release Notes for 1.7.2
+title: Release Notes for 1.7.2
+menuWeight: 5
+excerpt: Release Notes for 1.7.2
 enterprise: false
 ---
 
-The release notes provide a list of useful topics and links for DC/OS.
+
+These release notes provide a list of useful topics and links for the 1.7.2 release of DC/OS.
+
+# <a name="1-7-2"></a>1.7.2 - June 15, 2016
+
+Issues fixed:
+
+- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/ent/custom/configuration-parameters/).
+- Various bug fixes to enable upgrades.
+
+
+ [1]: /1.7/usage/managing-services/install/
+ [2]: /1.7/administration/monitoring/
+ [3]: /1.7/usage/service-discovery/virtual-ip-addresses/
+ [4]: http://mesosphere.github.io/marathon/docs/persistent-volumes.html
+ [5]: /1.7/usage/storage/external-storage/
+ [6]: /1.7/administration/id-and-access-mgt/ent/managing-permissions/
+ [7]: https://github.com/mesosphere/marathon/releases/edit/v1.0.0-RC1
+ [8]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12334661
+ [9]: /1.7/administration/installing/ent/custom/advanced/
+ [10]: /1.7/usage/tutorials/public-app/
+ [11]: https://github.com/godbus/dbus/issues/45
+ [12]: https://issues.apache.org/jira/browse/MESOS-2408
+ [13]: https://github.com/emccode/dvdcli/issues/15
+
+
+# About 1.7
 
 # Packages installable from the UI
 
 You can now install packages from the DC/OS Universe with a single click in the web interface. The packages can be installed with defaults or customized directly in the UI. For more information, see the [documentation][1].
 
 ![UI Universe](/1.7/img/ui-universe.gif)
+
+Figure 1 - DC/OS Universe
 # DC/OS component health available in the UI
 
 You can monitor the health of your cluster components from the DC/OS web interface. The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit. For more information, see the [documentation][2].
 
 ![UI system health](/1.7/img/component-system-view.png)
+
+Figure 2 - Component System View
 
 # <a name="dcos"></a>Improved DC/OS installation
 
@@ -41,9 +71,9 @@ You can monitor the health of your cluster components from the DC/OS web interfa
 
 *   **Stateful applications using External Volumes (Experimental)** Consumption (attach & detach to containers) support in DC/OS for Amazon Web Services EBS, OpenStack Cinder, EMC Isilon, ScaleIO, VMAX, XtremeIO & Google Compute Engine). For more information, see the [documentation][5].
 
-# Fine-grained DC/OS access control  [enterprise type="inline" size="small"/]
+# [enterprise] Fine-grained DC/OS access control  [/enterprise]
 
-<!-- Enterprise only. --> You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the  [documentation][6].
+You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the [documentation][6].
 
 # DC/OS Marathon Updates
 
@@ -55,7 +85,7 @@ You can monitor the health of your cluster components from the DC/OS web interfa
 
 **Support for Persistent Storage** You can now launch tasks that use persistent volumes by specifying volumes either via the UI or the REST API. Marathon will reserve all required resources on a matching agent, and subsequently launch a task on that same agent if needed. Data within the volume will be retained even after relaunching the associated task.
 
-**Support for Scheduler Upgrades** Scheduler are specific applications to Marathon, since they can also launch tasks. A deployment in Marathon for upgrading schedulers also includes the migration of all tasks, the scheduler has started via a protocol.
+**Support for Scheduler Upgrades** Schedulers are specific applications to Marathon, since they can also launch tasks. A deployment in Marathon for upgrading schedulers also includes the migration of all tasks, the scheduler has started via a protocol.
 
 **Support for Ports Metadata** The v2 REST API was extended to support additional ports metadata (protocol, name, and labels) through the portDefinition application field. Marathon will pass this new information to Mesos, who will in turn make it available for service discovery purposes.
 
@@ -71,7 +101,7 @@ You can monitor the health of your cluster components from the DC/OS web interfa
 
 <!-- Enterprise Edition -->
 
-**Support for Authentication and Authorization** [enterprise type="inline" size="small"/] It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules.
+**Support for Authentication and Authorization**  It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules. [enterprise type="inline" size="small"/]
 
 For the full set of changes, please refer to the [Marathon Release Notes][7].
 
@@ -106,37 +136,6 @@ For the full set of changes, please refer to the [Marathon Release Notes][7].
 *   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DC/OS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials. [enterprise type="inline" size="small"/]
 
 See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
-
-
-# Minor releases
-
-## <a name="1-7-2"></a>1.7.2 - June 15, 2016
-
-Issues fixed:
-
-- The DNS port for Mesos masters is now open by default. This parameter is set in the `master_dns_bindall` parameter of the [configuration file](/1.7/administration/installing/ent/custom/configuration-parameters/).
-- Various bug fixes to enable upgrades.
-
-## <a name="1-7-3"></a>1.7.3 - July 27, 2016
-
-New features and changes:
-
-- REX-Ray is upgraded to 0.3.3.
-- Marathon is upgraded to [1.1.2](https://github.com/mesosphere/marathon/releases/tag/v1.1.2).
-- New Mesos config (`'docker_stop_timeout'`) that allows you to set an explicit Docker timeout. By default this is set to `'docker_stop_timeout': '20secs'`.
-- Assign disk resources to the Mesos default role, rather than all (`*`).
-- The DC/OS [Admin Router](/1.7/overview/concepts/#adminrouter) now configures the Mesos master cache for less upstream stress.
-- DC/OS installations on Azure now use Docker 1.11.0 (previously version 1.11.2).
-- For better stability, DC/OS installations on Azure are pinned to the Ubuntu 16.04 LTS image.
-
-Issues fixed:
-
-- [MESOS-5389](https://issues.apache.org/jira/browse/MESOS-5389) - docker containerizer should prefix relative volume.container_path values with the path to the sandbox
-- [MESOS-5680](https://issues.apache.org/jira/browse/MESOS-5680) - We should not 'chown -R' on persistent volumes every time container tries to use it
-- [MESOS-5341](https://issues.apache.org/jira/browse/MESOS-5341) - Enabled docker volume support for DockerContainerizer
-- [MESOS-5449](https://issues.apache.org/jira/browse/MESOS-5449) - Memory leak in SchedulerProcess.declineOffer
-- [MESOS-5576](https://issues.apache.org/jira/browse/MESOS-5576) - Masters may drop the first message they send between masters after a network partition
-
 
  [1]: /1.7/usage/managing-services/install/
  [2]: /1.7/administration/monitoring/

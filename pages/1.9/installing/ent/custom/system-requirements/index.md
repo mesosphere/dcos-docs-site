@@ -3,15 +3,14 @@ layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 0
-excerpt: Hardware and software requirements for DC/OS Enterprise
+excerpt: Understanding system requirements for node settings
 
 enterprise: true
 ---
 
-
 # Hardware Prerequisites
 
-You must have a single Bootstrap node, Mesos master nodes, and Mesos agent nodes.
+The hardware prerequisites are a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
 
 ## Bootstrap node
 
@@ -29,25 +28,21 @@ The supported operating systems and environments are listed on the [version poli
 
 ### Master nodes
 
-The below table represents the master node hardware requirements:
+The table below shows the master node hardware requirements:
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
-| Nodes       | 1*        | 3 or 5      |
+| Nodes       | 1*         | 3 or 5     |
 | Processor   | 4 cores   | 4 cores     |
 | Memory      | 32 GB RAM | 32 GB RAM   |
 | Hard disk   | 120 GB    | 120 GB      |
+&ast; For business critical deployments, three master nodes are required rather than one master node.
 
+There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least 3 masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least 3 masters. For more information about highly availability requirements see the [High Availability documentation][0].
+[0]: https://docs.mesosphere.com/1.10/overview/high-availability/
 
-[0]: https://docs.mesosphere.com/1.9/overview/high-availability/
-
-**Note:** For business critical 3 master nodes are required rather than 1 master node.
-
-Examples of mixed workloads on the masters are: Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O.
-
-Thus, the following hardwares are recommended:
+Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
@@ -55,7 +50,7 @@ Thus, the following hardwares are recommended:
 
 ### Agent nodes
 
-The below table represents the agent node hardware requirements:
+The table below shows the agent node hardware requirements.
 
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
@@ -74,7 +69,7 @@ The agent nodes must also have:
   - Disk quotas are not supported by Docker tasks, so these can overflow the disk regardless of configuration.
 - Network Access to a public Docker repository or to an internal Docker registry.
 
-*   On RHEL 7 and CentOS 7, firewalld must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that firewalld interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
+*   On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
@@ -104,7 +99,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 # Software Prerequisites
 
-**Tip:** Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.9.1/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
+Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.9.1/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
 
 ## All Nodes
 
@@ -223,7 +218,9 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
+
 **Note:** It may take a few minutes for your node to come back online after reboot.
+
 
 ### Locale requirements
 You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
