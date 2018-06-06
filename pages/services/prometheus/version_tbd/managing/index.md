@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  Managing
 title: Managing
 menuWeight: 80
-excerpt: Managing your DC/OS NiFi configuration
+excerpt: Managing your DC/OS Prometheus configuration
 featureMaturity:
 enterprise: false
 ---
 
 # Updating Configuration
 
-You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles Nifi deployment itself.
+You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles Prometheus deployment itself.
 
-After making a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `nifi-0`, then `nifi-1`, and so on.
+After making a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `prometheus-0`, then `prometheus-1`, and so on.
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence.
 
@@ -31,11 +31,11 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 + Service with 1.5.0 version.
 + [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
-  + You can install just the subcommand CLI by running `dcos package install --cli --yes nifi`.
+  + You can install just the subcommand CLI by running `dcos package install --cli --yes prometheus`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```shell
-    dcos package uninstall --cli nifi
-    dcos package install --cli nifi
+    dcos package uninstall --cli prometheus
+    dcos package install --cli prometheus
     ```
 
 #### Preparing configuration
@@ -43,7 +43,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```shell
-dcos nifi describe > options.json
+dcos prometheus describe > options.json
 ```
 
 Make any configuration changes to the `options.json` file.
@@ -56,12 +56,12 @@ If you installed this service with a prior version of DC/OS, this configuration 
 
 If the `options.json` from when the service was last installed or updated is not available, you will need to manually recreate it using the following steps.
 
-First, we'll fetch the default application's environment, current application's environment, and the actual nifi that maps config values to the environment:
+First, we'll fetch the default application's environment, current application's environment, and the actual prometheus that maps config values to the environment:
 
 1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
 2. Set the service name that you're using, for example:
 	```shell
-	SERVICE_NAME=nifi
+	SERVICE_NAME=prometheus
 	```
 3. Get the version of the package that is currently installed:
 	```shell
@@ -75,7 +75,7 @@ First, we'll fetch the default application's environment, current application's 
 	```shell
 	dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
 	```
-6. We'll also get the entire application nifi:
+6. We'll also get the entire application prometheus:
 	```shell
 	dcos package describe $SERVICE_NAME --app > marathon.json.mustache
 	```
@@ -86,7 +86,7 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 	```shell
 	diff <(jq -S . default_env.json) <(jq -S . current_env.json)
 	```
-2. Now compare these values to the values contained in the `env` section in application nifi:
+2. Now compare these values to the values contained in the `env` section in application prometheus:
 	```shell
 	less marathon.json.mustache
 	```
@@ -97,14 +97,14 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
 ```shell
-dcos nifi update start --options=options.json
+dcos prometheus update start --options=options.json
 ```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
 
-To see a full listing of available options, run `dcos package describe --config nifi` in the CLI, or browse the DC/OS nifi Service install dialog in the DC/OS Dashboard.
+To see a full listing of available options, run `dcos package describe --config prometheus` in the CLI, or browse the DC/OS prometheus Service install dialog in the DC/OS Dashboard.
 
 <a name="adding-a-node"></a>
 ### Adding a Node
@@ -133,9 +133,9 @@ Let's say we have the following deployment of our nodes
 - Tasks:
 
 ```shell
-10.0.10.3: nifi-0
-10.0.10.8: nifi-1
-10.0.10.26: nifi-2
+10.0.10.3: prometheus-0
+10.0.10.8: prometheus-1
+10.0.10.26: prometheus-2
 10.0.10.28: empty
 10.0.10.84: empty
 ```
@@ -143,13 +143,13 @@ Let's say we have the following deployment of our nodes
 
 `10.0.10.8` is being decommissioned and we should move away from it. Steps:
 
-    1. Remove the decommissioned IP and add a new IP to the placement rule whitelist by editing `placement_constraint`:
+    1. Remove the decommissioned IP and add a new IP to the placement rule whitelist by editing `placement_constraint`:1.69 KB
 
 
 ```shell
 	hostname:LIKE:10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123
 ```
-    2. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist: `dcos nifi pod replace _NODEPOD_-1`
+    2. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist: `dcos prometheus pod replace _NODEPOD_-1`
     3. Wait for `_NODEPOD_-1` to be up and healthy before continuing with any other replacement operations.
 
 The placement constraints can be modified by configuring the "placement constraint" section of the Config.json file:
@@ -167,26 +167,20 @@ The placement constraints can be modified by configuring the "placement constrai
 ```
 
 <a name="restarting-a-node"></a>
-## Restarting a Node
 
-This operation will restart a node, while keeping it at its current location and with its current persistent volume data. This may be thought of as similar to restarting a system process, but it also deletes any data that is not on a persistent volume.
-
-1. Run `dcos nifi pod restart nifi-<NUM>`, e.g. `nifi_-2`.
-
-<a name="replacing-a-node"></a>
 ## Replacing a Node
 
 This operation will move a node to a new agent and will discard the persistent volumes at the prior system to be rebuilt at the new system. Perform this operation if a given system is about to be offlined or has already been offlined.
 
 **Note:** Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can automate node replacement according to your own preferences.
 
-1. Run `dcos nifi pod replace nifi-<NUM>`, e.g. `nifi_-2` to halt the current instance with id `<NUM>` (if still running) and launch a new instance on a different agent.
+1. Run `dcos prometheus pod replace prometheus-<NUM>`, e.g. `prometheus-2` to halt the current instance with id `<NUM>` (if still running) and launch a new instance on a different agent.
 
-For example, let's say `nifi-2`'s host system has died and `nifi-2` needs to be moved.
+For example, let's say `prometheus-2`'s host system has died and `prometheus-2` needs to be moved.
 
-1. NOW THAT THE NODE HAS BEEN DECOMMISSIONED, (IF NEEDED BY YOUR SERVICE) start `nifi-2` at a new location in the cluster.
+1. NOW THAT THE NODE HAS BEEN DECOMMISSIONED, (IF NEEDED BY YOUR SERVICE) start `prometheus-2` at a new location in the cluster.
     ```shell
-    dcos nifi pod replace nifi-2
+    dcos prometheus pod replace prometheus-2
     ```
 
 ## Advanced update actions
@@ -200,7 +194,7 @@ Once the Scheduler has been restarted, it will begin a new deployment plan as in
 You can query the status of the update as follows:
 
 ```shell
-dcos nifi update status
+dcos prometheus update status
 ```
 
 If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS GUI to check the status of the restart.
@@ -210,7 +204,7 @@ If the Scheduler is still restarting, DC/OS will not be able to route to it and 
 To pause an ongoing update, issue a pause command:
 
 ```shell
-dcos nifi update pause
+dcos prometheus update pause
 ```
 
 You will receive an error message if the plan has already completed or has been paused. Once completed, the plan will enter the `WAITING` state.
@@ -220,7 +214,7 @@ You will receive an error message if the plan has already completed or has been 
 If a plan is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the plan:
 
 ```shell
-dcos nifi update resume
+dcos prometheus update resume
 ```
 
 You will receive an error message if you attempt to `resume` a plan that is already in progress or has already completed.
@@ -230,7 +224,7 @@ You will receive an error message if you attempt to `resume` a plan that is alre
 In order to manually "complete" a step (such that the Scheduler stops attempting to launch a task), you can issue a `force-complete` command. This will instruct to Scheduler to mark a specific step within a phase as complete. You need to specify both the phase and the step, for example:
 
 ```shell
-dcos nifi update force-complete service-phase service-0:[node]
+dcos prometheus update force-complete service-phase service-0:[node]
 ```
 
 ### Force Restart
@@ -239,21 +233,21 @@ Similar to force complete, you can also force a restart. This can either be done
 
 To restart the entire plan:
 ```shell
-dcos nifi update force-restart
+dcos prometheus update force-restart
 ```
 
 Or for all steps in a single phase:
 ```shell
-dcos nifi update force-restart service-phase
+dcos prometheus update force-restart service-phase
 ```
 
 Or for a specific step within a specific phase:
 ```shell
-dcos nifi update force-restart service-phase service-0:[node]
+dcos prometheus update force-restart service-phase service-0:[node]
 ```
 ## Taking Backup
 
-The DCOS Nifi Framework allows backup of Nifi Application to Amazon S3. The following information / values are required for Backup.
+The DCOS Prometheus Framework allows backup of Prometheus Application to Amazon S3. The following information / values are required for Backup.
 
     1. AWS_ACCESS_KEY_ID
     2. AWS_SECRET_ACCESS_KEY
@@ -272,13 +266,13 @@ To enable backup, we have to trigger the backup-S3 Plan with the following plan 
 This plan can be executed with the following command:
 ```shell
 {
- dcos nifi --name=<service_name> plan start <plan_name> -p <plan_parameters>
+ dcos prometheus --name=<service_name> plan start <plan_name> -p <plan_parameters>
 }
 ```
 or with a command, including plan parameters itself:
 ```shell
 {
- dcos nifi --name=<SERVICE_NAME> plan start backup-s3 \
+ dcos prometheus --name=<SERVICE_NAME> plan start backup-s3 \
   -p AWS_ACCESS_KEY_ID=<ACCESS_KEY> \
   -p AWS_SECRET_ACCESS_KEY=<SECRET_ACCESS_KEY> \
   -p AWS_REGION=<REGION> \
@@ -291,7 +285,7 @@ However, the backup can also be started with the following command:
 
 
 Once this plan execution is completed, the backup will be uploaded to S3.
-The Nifi backup is taken using the Nifi toolkit. The Nifi backup will be done using three sidecar tasks:
+The Prometheus backup is taken using the Prometheus toolkit. The Prometheus backup will be done using three sidecar tasks:
 
     1. Backup - Backup to local node (ROOT/MOUNT)
 
@@ -312,30 +306,30 @@ The Nifi backup is taken using the Nifi toolkit. The Nifi backup will be done us
    [<img src="../service/Cleanup.png" alt="cleanup" width="800"/>](../service/Cleanup.png)
 
 
-## Nifi Toolkit Commands
+## Prometheus Toolkit Commands
 
 
-The admin toolkit contains command line utilities for administrators to support NiFi maintenance in standalone and clustered environments. These utilities include:
+The admin toolkit contains command line utilities for administrators to support Prometheus maintenance in standalone and clustered environments. These utilities include:
 
-    Notify — The notification tool allows administrators to send bulletins to the NiFi UI using the command line.
+    Notify — The notification tool allows administrators to send bulletins to the Prometheus UI using the command line.
 
     Node Manager — The node manager tool allows administrators to perform a status check on a node as well as to connect, disconnect, or remove nodes that are part of a cluster.
 
-    File Manager — The file manager tool allows administrators to backup, install or restore a NiFi installation from backup.
+    File Manager — The file manager tool allows administrators to backup, install or restore a Prometheus installation from backup.
 
-The admin toolkit is bundled with the nifi-toolkit and can be executed with scripts found in the bin folder. Further docmentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit).
+The admin toolkit is bundled with the prometheus-toolkit and can be executed with scripts found in the bin folder. Further docmentation is available at [Prometheus Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit).
 
-To execute the Nifi Administration Toolkit commands, we need to do a dcos task exec to a Nifi node, set the JAVA_HOME using the command:
+To execute the Prometheus Administration Toolkit commands, we need to do a dcos task exec to a Prometheus node, set the JAVA_HOME using the command:
 ```shell
 export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH
 ````
-and then run the node manager commands from $MESOS_SANDBOX/nifi-toolkit-1.5.0/bin directory:
+and then run the node manager commands from $MESOS_SANDBOX/prometheus-toolkit-1.5.0/bin directory:
 ```shell
 
 
 To connect, disconnect, or remove a node from a cluster:
 
-node-manager.sh -d <NIFI_HOME> –b <nifi bootstrap file path>
+node-manager.sh -d <PROMETHEUS_HOME> –b <prometheus bootstrap file path>
 -o {remove|disconnect|connect|status} [-u {url list}] [-p {proxy name}] [-v]
 
 To show help:
@@ -346,7 +340,7 @@ The following are available options:
 
     -b,--bootstrapConf <arg> Existing Bootstrap Configuration file (required)
 
-    -d,--nifiInstallDir <arg> NiFi Root Folder (required)
+    -d,--prometheusInstallDir <arg> Prometheus Root Folder (required)
 
     -h,--help Help Text (optional)
 
@@ -360,68 +354,3 @@ The following are available options:
 
 ````
 
-### Example
-
-**To check for dcos tasks**
-
-```shell
->> dcos task
-
-NAME            HOST         USER   STATE  ID                                                    MESOS ID                                 
-nifi            10.0.0.196   root     R    nifi.9b11498f-415f-11e8-81a4-e25c6192ea05             1d166af3-8666-4f3e-8add-dcaad139c900-S3  
-nifi-0-metrics  10.0.0.199  nobody    R    nifi-0-metrics__958e2af9-c7d0-4cb9-b1fc-08c810b05254  1d166af3-8666-4f3e-8add-dcaad139c900-S1  
-nifi-0-node     10.0.0.199  nobody    R    nifi-0-node__68c0d8a0-4c36-4a86-a287-5dc67ce19fde     1d166af3-8666-4f3e-8add-dcaad139c900-S1  
-nifi-1-metrics  10.0.0.58   nobody    R    nifi-1-metrics__e58b8f2d-e19f-48f7-b154-6d11e65c54a9  1d166af3-8666-4f3e-8add-dcaad139c900-S5  
-nifi-1-node     10.0.0.58   nobody    R    nifi-1-node__1a3d71c6-3c23-4a96-bba3-859de2c0615d     1d166af3-8666-4f3e-8add-dcaad139c900-S5
-````
-**To enter into a dcos node**
-
-```shell
-dcos task exec -ti nifi-0-node__68c0d8a0-4c36-4a86-a287-5dc67ce19fde bash
-````
-
-**To set Java Path**
-
-```shell
-export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH
-````
-**Tip:** To check for Java Home, run the following command:
-```shell
-echo $JAVA_HOME
-````
-This would return the Java home Path:
-
-/var/lib/mesos/slave/slaves/1d166af3-8666-4f3e-8add-dcaad139c900-S1/frameworks/1d166af3-8666-4f3e-8add-dcaad139c900-0003/executors/nifi__78b829b7-3963-4083-b33b-4147fcab559f/runs/fb826e37-17e6-4349-b7c4-63060b51ff0a/containers/8bd354e5-a2a6-4185-9454-647b98b9b327/jdk1.8.0_162/jre
-
-**Example of Backup Command through Toolkit**
-```shell
- sh $MESOS_SANDBOX/nifi-toolkit-${NIFI_VERSION}/bin/file-manager.sh -o backup -b nifi-backup -c $MESOS_SANDBOX/../../tasks/nifi-$POD_INSTANCE_INDEX-node*/nifi-{{NIFI_VERSION}} -v;
-````
-
-## Metrics
-
-To check the metrics for the NiFi instances on individual agent nodes, we need to do the following:
-
-  1. In the first step we need to obtain the dcos auth token by issuing the following command:
-   ```shell
-      dcos config show core.dcos_acs_token
-   ````
-  We need to keep a copy of this token for later use.
-
-  2. In the next step we need to ssh into the private agent on which we have the tasks running:
-   ```shell
-      dcos node ssh --master-proxy --mesos-id=<agent-mesos-id>
-   ````  
-  3. Finally we need to make the following curl requests as per the security settings:
-
-     **TLS & KDC Mode:**
-
-     ```shell
-      curl -k -H "Authorization: token=<acs_token>" https://localhost:61002/system/v1/metrics/v0/containers | jq
-     ````
-     **Non TLS & KDC Mode:**
-
-     ```shell
-      curl -k -H "Authorization: token=<acs_token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
-     ````  
-More details about Metrics can be found [here](https://docs.mesosphere.com/1.10/metrics/quickstart/).
