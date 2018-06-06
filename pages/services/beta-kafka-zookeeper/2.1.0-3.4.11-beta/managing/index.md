@@ -7,9 +7,7 @@ excerpt: Managing Apache ZooKeeper
 featureMaturity:
 enterprise: false
 ---
-
 <!-- https://github.com/mesosphere/dcos-zookeeper/ -->
-
 
 <a name="updating-configuration"></a>
 # Updating Configuration
@@ -17,18 +15,18 @@ You can make changes to the service after it has been launched. Configuration ma
 
 Edit the runtime environment of the scheduler to make configuration changes. After making a change, the scheduler will be restarted and automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `zookeeper-0-server`, then `zookeeper-1-server`, and so on.
 
-Nodes are configured with a "readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. In this case, the "readiness check" checks if the node has successfully joined quorum. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
+Nodes are configured with a "readiness check" to ensure that the underlying service appears to be in a healthy state before continuing to apply a given change to the next node in the sequence. In this case, the "readiness check" checks if the node has successfully joined quorum. However, this basic check is not foolproof; you should take reasonable care to ensure that a given configuration change will not negatively affect the behavior of the service.
 
 Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
 
-To make configuration changes via scheduler environment updates, perform the following steps (documented in full [here](/1.9/deploying-services/config-universe-service/):
+To make configuration changes via scheduler environment updates, perform the following steps (documented in full [here](/1.9/deploying-services/config-universe-service/)):
 
 1. In the DC/OS GUI, go to your service, then click the **Configuration** tab to view the service configuration.
 2. With your favorite text editor, create a file named 'options.json'.
 3. In the first level of the JSON object, list the type of configuration from the tab it is from (`service`, `node`, or `zookeeper`).
 4. In the next level of the JSON object, list the configuration and the new value you would like in key:value format.
 5. Save your file.
-6. Run this following command from the DC/OS CLI.
+6. Run the following command from the DC/OS CLI.
 
 ```
 dcos beta-kafka-zookeeper update start --options=options.json
@@ -55,7 +53,7 @@ A sample valid `options.json` looks like:
 
 Passing in this file after deployment would increase each node CPU value from the default value of 1.0, and change the ZooKeeper-specific values `maxCilentCnxns` and `minSessionTimeout` as well.  
 
-***IMPORTANT***: Reconfiguration changes to node count, service name, ZooKeeper ticktime, and all ZooKeeper-specific port values (client port, follower port, and leader election port) will be blocked. These are blocked for the safety of the service. Please exercise caution when performing reconfigurations, as many configurations are unsafe to change after deployment. Reconfigurations can cause unpredictable behavior and should only be done to debug or increase service performance.
+***IMPORTANT***: Reconfiguration changes to node count, service name, ZooKeeper ticktime, and all ZooKeeper-specific port values (client port, follower port, and leader election port) will be blocked for the safety of the service. Please exercise caution when performing reconfigurations, as many configurations are unsafe to change after deployment. Reconfigurations can cause unpredictable behavior and should only be done to debug or increase service performance.
 
 <a name="adding-a-node"></a>
 ## Adding a node
@@ -86,7 +84,7 @@ Let's say we have the following deployment of our nodes:
 10.0.10.84: empty
 ```
 
-`10.0.10.8` is being decommissioned and we should move away from it. Steps:
+`10.0.10.8` is being decommissioned and we should move away from it.
 
 1. Remove the decommissioned IP and add a new IP to the placement rule whitelist by editing `NODE_PLACEMENT`:
 
@@ -101,14 +99,14 @@ Let's say we have the following deployment of our nodes:
 
 This operation will restart a node while keeping it at its current location and with its current persistent volume data. This may be thought of as similar to restarting a system process, but it also deletes any data that is not on a persistent volume.
 
-1. Run `dcos beta-kafka-zookeeper pods restart zookeeper-<NUM>`, e.g. `zookeeper-2`.
+Run `dcos beta-kafka-zookeeper pods restart zookeeper-<NUM>`, e.g. `zookeeper-2`.
 
 <a name="replacing-a-node"></a>
 ## Replacing a node
 
 This operation will move a node to a new system and will discard the persistent volumes at the prior system to be rebuilt at the new system. Perform this operation if a given system is about to be offlined or has already been offlined.
 
-**Note:** Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can build your own automation to perform node replacement automatically according to your own preferences.
+**Note:** Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can build your own automation to replace a node according to your own preferences.
 
 1. Back up ZooKeeper log and directory files in case of cluster outage.
 2. Run `dcos beta-kafka-zookeeper pods replace zookeeper-<NUM>` to halt the current instance (if still running) and launch a new instance elsewhere.

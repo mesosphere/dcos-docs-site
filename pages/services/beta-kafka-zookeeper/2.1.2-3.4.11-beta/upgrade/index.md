@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
+navigationTitle:
+excerpt: Understanding upgrades and rollbacks
 title: Upgrade
 menuWeight: 130
 

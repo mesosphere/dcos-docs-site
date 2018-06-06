@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
+navigationTitle:
+excerpt: Release notes for version 2.1.2-3.4.11
 title: Release Notes
 menuWeight: 120
 
@@ -27,7 +27,7 @@ menuWeight: 120
 
 ## NOTICE
 
-This is a beta release of the DC/OS Apache Zookeeper framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do not operate this version in production.
+This is a beta release of the DC/OS Apache ZooKeeper framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do not operate this version in production.
 
 ## Version 0.1.0-3.4.11-beta
 

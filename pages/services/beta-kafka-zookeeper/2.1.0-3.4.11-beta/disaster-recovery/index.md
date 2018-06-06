@@ -29,4 +29,4 @@ This command puts you in your Mesos sandbox in an interactive bash environment. 
 
 To restore a cluster to a particular state, stop the cluster, restore the latest (or desired) log file to the `zookeeper-log-path`, and restart the cluster from that state.
 
-It is best practice to keep 3-5 of the latest, desired log files in case the restored log file restores the cluster to an invalid state with ephemeral nodes. You can update ZooKeeper-specific configurations like `autopurge.Interval` to manage the purging of superfluous files.
+It is best practice to keep threee to five of the latest, desired log files in case the restored log file restores the cluster to an invalid state with ephemeral nodes. You can update ZooKeeper-specific configurations like `autopurge.Interval` to manage the purging of superfluous files.

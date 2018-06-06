@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Connecting Clients
 menuWeight: 50
-excerpt:
+excerpt: Using service discovery to connect clients
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
@@ -22,10 +22,10 @@ Once the service is running, you may view information about its endpoints via ei
   - List endpoint types: `dcos beta-kafka-zookeeper endpoints`
   - View endpoints for an endpoint type: `dcos beta-kafka-zookeeper endpoints <endpoint>`
 - Web:
-  - List endpoint types: `<dcos-url>/service/kafka-zookeeper/v1/endpoints`
-  - View endpoints for an endpoint type: `<dcos-url>/service/kafka-zookeeper/v1/endpoints/<endpoint>`
+  - List endpoint types: `<dcos-url>/service/beta-kafka-zookeeper/v1/endpoints`
+  - View endpoints for an endpoint type: `<dcos-url>/service/beta-kafka-zookeeper/v1/endpoints/<endpoint>`
 
-Zookeeper returns the following endpoint:
+ZooKeeper returns the following endpoint:
 
 - `clientport`
 
@@ -39,9 +39,9 @@ To see node addresses for the `clientport` endpoints, run `dcos beta-kafka-zooke
     "10.0.1.27:1140"
   ],
   "dns": [
-    "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
-    "zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
-    "zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
+    "zookeeper-0-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
+    "zookeeper-1-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140",
+    "zookeeper-2-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
   ]
 }
 ```
@@ -66,7 +66,7 @@ Alternatively, you can install from the DC/OS CLI with the following `options.js
 ```json
 {
     "kafka": {
-      "kafka_zookeeper_uri": "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
+      "kafka_zookeeper_uri": "zookeeper-0-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.beta-kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
     }
 }
 ```

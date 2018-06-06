@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Node Settings
 menuWeight: 60
-excerpt: Customizing the resources allocated to each node
+excerpt: Configuring the resources allocated to each node
 featureMaturity:
 enterprise: false
 ---
@@ -28,7 +28,7 @@ dcos kafka --name=/kafka update start --options=options.json
 Customize the `Node Count` setting (default 3) under the **node** configuration section. You may only have Node Count value of 3 or 5.
 -->
 
-Customize the Node Count setting (default 3) by modifying the following JSON. You may only have Node Count value of 3 or 5.
+Customize the Node Count setting (default 3) by modifying the following JSON. You may only hae a Node Count value of 3 or 5.
 
 ```json
 {
@@ -42,11 +42,11 @@ Customize the Node Count setting (default 3) by modifying the following JSON. Yo
 <a name="cpu"></a>
 # CPU
 
-You can customize the amount of CPU allocated to each node. A value of `1.0` equates to one full CPU core on a machine.
+You can customize the number of CPU resources allocated to each node. A value of `1.0` equates to one full CPU core on a machine.
 
 <!-- Change this value by editing the **cpus** value under the **node** configuration section. Turning this too low will result in throttled tasks. -->
 
-Change this value by modifying the following JSON. Turning this too low will result in throttled tasks.
+Change this value by modifying the following JSON. Setting this value too low will throttle your tasks.
 
 ```json
 {
@@ -59,7 +59,7 @@ Change this value by modifying the following JSON. Turning this too low will res
 <a name="memory"></a>
 # Memory
 
-You can customize the amount of RAM allocated to each node. <!-- Change this value by editing the **mem** value (in MB) under the **node** configuration section.--> Turning this too low will result in out-of-memory errors.
+You can customize the amount of RAM allocated to each node. <!-- Change this value by editing the **mem** value (in MB) under the **node** configuration section.--> Setting this value too low will cause out-of-memory errors.
 
 Change this value by modifying the following JSON.
 
@@ -90,11 +90,11 @@ Change this value by modifying the following JSON.
 
 You can customize the ports exposed by the service via the service configuration. You only need to customize ports if you require multiple instances to share a single machine. However, ZooKeeper best practice dictates that nodes in the cluster reside on different machines in the event of single server failure.
 
-You may specify the value each of these ports, and that port will be allocated for ZooKeeper's purpose. However, the port values across all machines in the ZooKeeper cluster remain the same. Crucial ports include:
+You may specify the value each of these ports, and that port will be allocated for ZooKeeper's purpose. However, the port values across all machines in the ZooKeeper cluster remain the same. Crucial ports include the client port, follower port, and leader election port.
 
 ## Client Port
 
-You can customize the port that Apache ZooKeeper listens on for client connections.
+You can customize the port that Apache ZooKeeper monitors for client connections.
 
 Change this value by modifying the following JSON.
 
@@ -113,7 +113,7 @@ Change this value by modifying the following JSON.
 
 ## Follower Port
 
-You can customize the port that followers listen on to connect to their leader.
+You can customize the port that followers monitor to connect to their leader.
 
 Change this value by modifying the following JSON.
 
@@ -193,9 +193,9 @@ To configure the `dataLogDir` disk type, modify the following JSON.
 
 <!-- stopped here -->
 
-Placement constraints allow you to customize where the service is deployed in the DC/OS cluster. Placement constraints support all [Marathon operators](http://mesosphere.github.io/marathon/docs/constraints.html).
+Placement constraints allow you to configure where the service is deployed in the DC/OS cluster. Placement constraints support all [Marathon operators](http://mesosphere.github.io/marathon/docs/constraints.html).
 
-By default, DC/OS Apache ZooKeeper has a placement strategy of `[["hostname", "UNIQUE"]]`. This is to minimize risk from single node failure.
+By default, DC/OS Apache ZooKeeper has a placement strategy of `[["hostname", "UNIQUE"]]` to minimize risk from single node failure.
 
 A common task is to specify a list of whitelisted systems to deploy to. To achieve this, use the following syntax for the placement constraint:
 
@@ -205,9 +205,9 @@ A common task is to specify a list of whitelisted systems to deploy to. To achie
 
 You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service without that system.
 
-For an example of updating placement constraints, see [Managing](#managing) below.
+For an example of updating placement constraints, see [Managing](#managing).
 
 <a name="overlay-networks"></a>
-### Overlay Networks
+### Overlay networks
 
-The ZooKeeper service can be run on the DC/OS overlay network, affording each node its own IP address (IP-per-container). For details about virtual networks on DC/OS see the [documentation](/1.9/networking/virtual-networks/#virtual-network-service-dns). For the ZooKeeper service, using the overlay network means that nodes no longer use reserved port resources on the Mesos agents. This means that nodes that share machines with other applications may need to use the same ports that ZooKeeper does. That means, however, that we cannot guarantee that the ports on the agents containing the reserved resources for ZooKeeper will be available, therefore we do not allow a service to change from the overlay network to the host network. Once the service is deployed on the overlay network it must remain on the overlay network. The only way to move your data to ZooKeeper on the host network is through a migration.
+The ZooKeeper service can be run on the DC/OS overlay network, affording each node its own IP address (IP-per-container). For details about virtual networks on DC/OS see the [documentation](/1.9/networking/virtual-networks/#virtual-network-service-dns). For the ZooKeeper service, using the overlay network means that nodes no longer use reserved port resources on the Mesos agents. Nodes that share machines with other applications may need to use the same ports that ZooKeeper does. However, we cannot guarantee that the ports on the agents containing the reserved resources for ZooKeeper will be available, therefore we do not allow a service to change from the overlay network to the host network. Once the service is deployed on the overlay network it must remain on the overlay network. The only way to move your data to ZooKeeper on the host network is through a migration.

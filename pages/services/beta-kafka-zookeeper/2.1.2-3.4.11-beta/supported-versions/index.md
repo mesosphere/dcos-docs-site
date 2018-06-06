@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Supported Versions
 menuWeight: 110
-excerpt:
+excerpt: Understanding versioning and packaging
 
 ---
 
