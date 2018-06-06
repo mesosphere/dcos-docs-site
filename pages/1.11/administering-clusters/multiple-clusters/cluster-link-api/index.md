@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Cluster Link API
 title: Cluster Link API
 menuWeight: 3
-excerpt: Learn to manage cluster links with the Cluster Link API.
+excerpt: Managing cluster links with the Cluster Link API
 enterprise: true
 ---
 
