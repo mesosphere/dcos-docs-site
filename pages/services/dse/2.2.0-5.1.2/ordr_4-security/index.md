@@ -23,7 +23,7 @@ The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s nati
 #include /services/include/security-transport-encryption-clients.tmpl
 
 ## DSE Authentication/Authorization Schemes
-DSE in DC/OS currently supports both internal and ldap authentication/authorization schemes.  You can configure both schemes and then select the order in which they are used, or you can configure just one, in which case only that scheme will be used.  DSE will try to authenticate with the default scheme first and fall back to the alternate scheme if it has been configured. More information about how DSE handles this can be found in [DataStax's documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secDSEUnifiedAuthAbout.html).
+DSE in DC/OS currently supports both internal and ldap authentication/authorization schemes.  You can configure both schemes and then select the order in which they are used, or you can configure just one, in which case only that scheme will be used.  DSE will try to authenticate with the default scheme first and fall back to the alternate scheme if it has been configured. More information about how DSE handles this can be found in [DataStax's documentation](https://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secDSEUnifiedAuthAbout.html).
 
 ## Enabling DSE Authentication/Authorization
 To enable DSE authentication/authorization, follow these steps:
@@ -75,7 +75,7 @@ When you enable LDAP authentication in DataStax Enterprise, users and groups tha
       cqlsh> GRANT EXECUTE ON (INTERNAL|LDAP) SCHEME TO <role-name>;
       ```
 
-      Please refer to [DataStax's documentation](https://docs.datastax.com/en/5.1/datastax_enterprise/sec/authLdapConfig.html) for more detailed description of each field above.
+      Please refer to [DataStax's documentation](https://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secLDAPScheme.html) for more detailed description of each field above.
 
 ## OpsCenter LDAP Configuration
 Configure LDAP (Lightweight Directory Access Protocol) for users accessing OpsCenter.
@@ -100,7 +100,7 @@ Configure LDAP (Lightweight Directory Access Protocol) for users accessing OpsCe
         - Set `group_name_attribute`  ex. `cn`
         - Set `admin_group_name`  ex. `mygroup`, `manager`, `developer`
 
-      Please refer to [DataStax's documentation](https://docs.datastax.com/en/6.1/opsc/configure/opscConfigLDAP.html) for more detailed description of each field above.
+      Please refer to [DataStax's documentation](https://docs.datastax.com/en/opscenter/6.1/opsc/configure/opscConfigLDAP.html) for more detailed description of each field above.
       
       Once your DSE Package service instance is ready, you can use your LDAP account to log in to OpsCenter to manage your DSE cluster.
 
