@@ -12,7 +12,7 @@ render: mustache
 
 
 ## Contacting DataStax Technical Support
-To start a support case for issues related to DataStax, please email support@datastax.com.
+To start a support case for issues related to DataStax, please email [support@datastax.com](mailto:support@datastax.com).
 
 ## Contacting Mesosphere Technical Support
-To start a support case for issues related to DC/OS or the integration of DSE with DC/OS, please email support@mesosphere.com.
+To start a support case for issues related to DC/OS or the integration of DSE with DC/OS, please email [support@mesosphere.com](mailto:support@mesosphere.com).
