@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Beta Kafka ZooKeeper
 title: Beta Kafka ZooKeeper
-menuWeight: 105
+menuWeight: 163
 excerpt:
 featureMaturity:
 enterprise: false
