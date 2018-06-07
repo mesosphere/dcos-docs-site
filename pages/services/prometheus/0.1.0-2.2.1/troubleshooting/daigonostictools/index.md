@@ -22,7 +22,7 @@ As of this writing, the best and fastest way to view and download logs is via th
 
 _Figure 1. - Mesos front page_
 
-The Sandbox link for one of these tasks shows a list of files from within the task itself. For example, here’s a sandbox view of a nifi-0-node task from the above list:
+The Sandbox link for one of these tasks shows a list of files from within the task itself. For example, here’s a sandbox view of a prometheus-0-node task from the above list:
 
 [<img src="../service/2_Inside_Task.png" alt="inside task" width="1000"/>](../service/2_Inside_Task.png)
 
@@ -30,7 +30,7 @@ _Figure 2. - Task file list_
 
 If the task is based on a Docker image, this list will only show the contents of `/mnt/sandbox`, and not the rest of the filesystem. If you need to view filesystem contents outside of this directory, you will need to use `dcos task exec` or `nsenter` as described below under Running commands within containers.
 
-In the above task list there are multiple services installed, resulting in a pretty large list. The list can be filtered using the text box at the upper right, but there may be duplicate names across services. For example there are two instances of nifi and they’re each running a node-0. As the cluster grows, this confusion gets proportionally worse. We want to limit the task list to only the tasks that are relevant to the service being diagnosed. To do this, click “Frameworks” on the upper left to see a list of all the installed frameworks (mapping to our services):
+In the above task list there are multiple services installed, resulting in a pretty large list. The list can be filtered using the text box at the upper right, but there may be duplicate names across services. For example there are two instances of prometheus and they’re each running a node-0. As the cluster grows, this confusion gets proportionally worse. We want to limit the task list to only the tasks that are relevant to the service being diagnosed. To do this, click “Frameworks” on the upper left to see a list of all the installed frameworks (mapping to our services):
 
 [<img src="../service/3_Active_Frameworks.jpg" alt="active frameworks" width="1000"/>](../service/3_Active_Frameworks.jpg)
 
@@ -48,7 +48,7 @@ From Mesos’s perspective, the Scheduler is being run as a Marathon app. Theref
 
 _Figure 4. - List of active tasks_
 
-Scheduler logs can be found either via the main Mesos frontpage in small clusters (possibly using the filter box at the top right), or by navigating into the list of tasks registered against the marathon framework in large clusters. In SDK services, the Scheduler is typically given the same name as the service. For example a `nifi-dev` service’s Scheduler would be named `nifi-dev`. Use the Sandbox link to view the Sandbox portion of the Scheduler filesystem, which contains files named `stdout` and `stderr`. These files respectively receive the `stdout/stderr` output of the Scheduler process, and can be examined to see what the Scheduler is doing.
+Scheduler logs can be found either via the main Mesos frontpage in small clusters (possibly using the filter box at the top right), or by navigating into the list of tasks registered against the marathon framework in large clusters. In SDK services, the Scheduler is typically given the same name as the service. For example a `prometheus-dev` service’s Scheduler would be named `prometheus-dev`. Use the Sandbox link to view the Sandbox portion of the Scheduler filesystem, which contains files named `stdout` and `stderr`. These files respectively receive the `stdout/stderr` output of the Scheduler process, and can be examined to see what the Scheduler is doing.
 
 [<img src="../service/5_Stderr_out.png" alt="stdout and stderr" width="1000"/>](../service/5_Stderr_out.png)
 
@@ -142,12 +142,4 @@ For full documentation of each command, see the API Reference. Here is an exampl
 
 _Figure 13. - Output of `hello-world`_
 
-## ZooKeeper/Exhibitor
 
-**Warning:** This option should only be used as a last resort. Modifying anything in ZooKeeper directly may cause your service to behave in unpredictable ways.
-
-DC/OS comes with Exhibitor, a commonly used frontend for viewing ZooKeeper. Exhibitor may be accessed at dcos-url/exhibitor. A given SDK service will have a node named dcos-service-<svcname> visible here. This is where the Scheduler puts its state, so that it isn’t lost if the Scheduler is restarted. In practice it is far easier to access this information via the Scheduler API (or via the service CLI) as described earlier, but direct access using Exhibitor can be useful in situations where the Scheduler itself is unavailable or otherwise unable to serve requests.
-
-[<img src="../service/14_zookeeper_exhibitor.png" alt="zookeeper exhibitor" width="700"/>](../service/14_zookeeper_exhibitor.png)
-
-_Figure 14. - Exhibitor for ZooKeeper directory_
