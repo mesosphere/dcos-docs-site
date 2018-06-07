@@ -146,7 +146,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
         "service_account_secret": "<secret path>",
         "security": {
             "transport_encryption": {
-                "enabled": <true|false default false>,
+                "enabled": true,
             },
             "ssl_authentication": {
                 "enabled": true
