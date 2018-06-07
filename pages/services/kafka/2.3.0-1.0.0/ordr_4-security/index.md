@@ -93,6 +93,7 @@ example/kafka-2-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 
 #### Install the Service
 
+
 Install the DC/OS {{ model.techName }} service with the following options in addition to your own:
 ```json
 {
@@ -136,6 +137,7 @@ SSL authentication requires that all clients be they brokers, producers, or cons
 - Completion of the section [Transport Encryption](#transport-encryption) above
 
 #### Install the Service
+CHANGED
 
 Install the DC/OS {{ model.techName }} service with the following options in addition to your own:
 ```json
@@ -145,7 +147,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
         "service_account_secret": "<secret path>",
         "security": {
             "transport_encryption": {
-                "enabled": true
+                "enabled": <true|false default false>,
             },
             "ssl_authentication": {
                 "enabled": true
