@@ -39,7 +39,7 @@ This topic provides all available configuration parameters. Except where explici
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [dcos_overlay_enable](#dcos-overlay-enable)          | This block of parameters specifies whether to enable DC/OS virtual networks.                                                              |
-| [dns_forward_zones](#dns-forward-zones)              | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers. |
+| [dns_forward_zones](#dns-forward-zones)              |A list of DNS zones, server IP addresses, and server ports that configure custom forwarding behavior of DNS queries.  |
 | [dns_search](#dns-search)                   | A space-separated list of domains that are tried when an unqualified domain is entered.                                                  |
 | [resolvers](#resolvers)                    | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.                                                |
 | [master_dns_bindall](#master-dns-bindall)                    | Indicates whether the master DNS port is open.                                               |
@@ -221,23 +221,25 @@ For more information, see the [example](/1.9/installing/ent/custom/configuration
 
 ### dns_forward_zones
 
-**Important:** Available for DC/OS 1.9.1 and higher.
+**Important:** Available for DC/OS 1.9.1 and later.
 
-A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
+A list of DNS zones, server IP addresses, and server ports that configure custom forwarding behavior of DNS queries. Queries for these DNS zones are forwarded to the specified servers. The servers can be either caching or authoritative servers so long as they can resolve the zones. Most often authoritative servers are used. For redundancy, multiple servers are recommended.
 
 A sample definition is as follows:
 
 ```yaml
 dns_forward_zones:
+
 a.contoso.com:
 - "1.1.1.1:53"
 - "2.2.2.2:53"
 b.contoso.com:
 - "3.3.3.3:53"
 - "4.4.4.4:53"
+
 ```
 
-In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
+In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded by DC/OS to DNS servers `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded by DC/OS to DNS server `3.3.3.3:53` or `4.4.4.4:53`.
 
 
 ### dns_search
