@@ -137,7 +137,6 @@ SSL authentication requires that all clients be they brokers, producers, or cons
 - Completion of the section [Transport Encryption](#transport-encryption) above
 
 #### Install the Service
-CHANGED
 
 Install the DC/OS {{ model.techName }} service with the following options in addition to your own:
 ```json
