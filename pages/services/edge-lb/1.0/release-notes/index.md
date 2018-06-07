@@ -10,6 +10,46 @@ enterprise: false
 
 Release notes for Edge-LB.
 
+# v1.0.3
+
+## Noteworthy changes:
+
+- Bumps SDK to version 0.42.1
+
+Shortlist:
+
+```
+% git shortlog v1.0.2..HEAD
+
+Deepak Goel (2):
+      bump sdk to 0.42.1
+      Fixes sidecar deploy plan from FINISHED to FINISH
+
+Drew Kerrigan (2):
+      Reorganize / Refactor Code (#130)
+      Update mesos proto (#136)
+
+Pawel Rozlach (2):
+      dcos-template: mesosTaskFrameworkFilter tests
+      dcos-template: dcosServiceFilter tests
+
+Paweł Rozlach (2):
+      docs: Mesos proto should be specified for both permissive and strict modes (#133)
+      dcos-template: Reintroduce consul-template/upstream tests (#134)
+```
+
+## Known Limitations
+
+* Edge-LB does not currently support `Disabled` security mode.
+* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but does work in DC/OS 1.11 strict mode.
+* Edge-LB does not currently support self-service configuration; all configuration must be handled centrally.
+
+## Known Issues
+
+* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.0/uninstalling/).
+* Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
+
 # v1.0.2
 
 ## Noteworthy changes:
