@@ -41,7 +41,7 @@
 /install/removeaws/ /latest/installing/oss/custom/uninstall/;
 /install/sshcluster/ /latest/administering-clusters/sshcluster/;
 /intro-course/ /latest/tutorials/dcos-101/;
-/latest/installing/custom/advanced/ /1.11/installing/ent/custom/advanced/;
+/latest/installing/custom/advanced/ /latest/installing/ent/custom/advanced/;
 /overview/release-notes/dcos1-4/ /latest/release-notes/;
 /overview/universe/ /latest/deploying-services/config-universe-service/;
 /pages/1.11/networking/DNS/mesos-dns/ /latest/networking/DNS/mesos-dns/;
