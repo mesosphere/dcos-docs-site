@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:
 title: NiFi
-menuWeight: 20
+menuWeight: 82
 excerpt:
 featureMaturity:
 enterprise: false
