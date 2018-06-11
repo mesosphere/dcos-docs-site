@@ -292,7 +292,6 @@
 /1.10/installing/cloud/aws/ /1.10/installing/oss/cloud/aws/;
 /1.10/installing/custom/ /1.10/installing/oss/custom/;
 /1.10/installing/custom/advanced/ /1.10/installing/ent/custom/advanced/;
-/1.10/installing/custom/system-requirements/ /1.10/installing/ent/custom/system-requirements/;
 /1.10/installing/custom/configuration/configuration-parameters/ /1.10/installing/oss/custom/configuration/configuration-parameters/;
 /1.10/installing/custom/configuration-parameters/ /1.10/installing/oss/custom/configuration/configuration-parameters/;
 /1.10/installing/custom/system-requirements/ /1.10/installing/oss/custom/system-requirements/;
