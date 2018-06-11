@@ -93,166 +93,114 @@ On a DC/OS cluster, ports are offered by agent nodes in the same way as other re
 The following table shows the rules that govern SRV generation:
 
 <table class="table">
-  <thead>
-    <tr>
-      <th>
-        Service
-      </th>
 
-      <th>
-        Container IP Known
-      </th>
+<thead>
 
-      <th>
-        DiscoveryInfo Provided
-      </th>
+<tr>
 
-      <th>
-        Target Host
-      </th>
+<th>Service</th>
 
-      <th>
-        Target Port
-      </th>
+<th>Container IP Known</th>
 
-      <th>
-        A Record Target IP
-      </th>
-    </tr>
-  </thead>
+<th>DiscoveryInfo Provided</th>
 
-  <tbody>
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<th>Target Host</th>
 
-      <td>
-        No
-      </td>
+<th>Target Port</th>
 
-      <td>
-        No
-      </td>
+<th>A Record Target IP</th>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+</tr>
 
-      <td>
-        Host Port
-      </td>
+</thead>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<tbody>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<tr>
 
-      <td>
-        Yes
-      </td>
+<td>_mytask._protocol.myservice.mesos</td>
 
-      <td>
-        No
-      </td>
+<td>No</td>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+<td>No</td>
 
-      <td>
-        Host Port
-      </td>
+<td>mytask.myservice.slave.mesos</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<td>Host Port</td>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        No
-      </td>
+</tr>
 
-      <td>
-        Yes
-      </td>
+<tr>
 
-      <td>
-        mytask.myservice.mesos
-      </td>
+<td>_mytask._protocol.myservice.mesos</td>
 
-      <td>
-        DiscoveryInfo Port
-      </td>
+<td>Yes</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<td>No</td>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<td>mytask.myservice.slave.mesos</td>
 
-      <td>
-        Yes
-      </td>
+<td>Host Port</td>
 
-      <td>
-        Yes
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        mytask.myservice.mesos
-      </td>
+</tr>
 
-      <td>
-        DiscoveryInfo Port
-      </td>
+<tr>
 
-      <td>
-        Container IP
-      </td>
-    </tr>
+<td>_mytask._protocol.myservice.mesos</td>
 
-    <tr>
-      <td>
-        mytask.protocol.myservice.slave.mesos
-      </td>
+<td>No</td>
 
-      <td>
-        N/A
-      </td>
+<td>Yes</td>
 
-      <td>
-        N/A
-      </td>
+<td>mytask.myservice.mesos</td>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+<td>DiscoveryInfo Port</td>
 
-      <td>
-        Host Port
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
-  </tbody>
+</tr>
+
+<tr>
+
+<td>_mytask._protocol.myservice.mesos</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>mytask.myservice.mesos</td>
+
+<td>DiscoveryInfo Port</td>
+
+<td>Container IP</td>
+
+</tr>
+
+<tr>
+
+<td>mytask.protocol.myservice.slave.mesos</td>
+
+<td>N/A</td>
+
+<td>N/A</td>
+
+<td>mytask.myservice.slave.mesos</td>
+
+<td>Host Port</td>
+
+<td>Agent IP</td>
+
+</tr>
+
+</tbody>
+
 </table>
+
+_Table 1. - SRV generation rules_
 
 # <a name="other-records"></a>Other Records
 

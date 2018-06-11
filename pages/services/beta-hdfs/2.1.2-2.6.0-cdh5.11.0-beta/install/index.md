@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Installing and customizing HDFS from CLI or web interface
 title: Install and Customize
 menuWeight: 20
 

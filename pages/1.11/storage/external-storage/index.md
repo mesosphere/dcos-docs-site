@@ -133,10 +133,13 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 
 *   You can assign only one task per volume. Your storage provider might have other limitations.
 *   The volumes you create are not automatically cleaned up. If you delete your cluster, you must go to your storage provider and delete the volumes you no longer need. If you're using EBS, find them by searching by the `container.volumes.external.name` that you set in your Marathon app definition. This name corresponds to an EBS volume `Name` tag.
-*   Volumes are namespaced by their storage provider. If you're using EBS, volumes created on the same AWS account share a namespace. Choose unique volume names to avoid conflicts.
+*   Volumes are namespaced by their storage provider. Choose unique volume names to avoid conflicts.
 *   If you are using Docker, you must use a compatible Docker version. Refer to the [REX-Ray documentation][11] to learn which versions of Docker are compatible with the REX-Ray volume driver.
-*   If you are using Amazon's EBS, it is important to note that EBS volumes can only be attached in the availability zone (AZ) for which they were created [12]. It is possible to create clusters in different AZs, and, it is possible to create a cluster that spans multiple availability zones. Be sure to either use consistent availability zones, or, in the case of spanning multiple, use Marathon constraints to force the instance to only deploy in a single AZ.
 *   Launch time might increase for applications that create volumes implicitly. The amount of the increase depends on several factors which include the size and type of the volume. Your storage provider's method of handling volumes can also influence launch time for implicitly created volumes.
+*   EBS specific:
+    * Volumes created on the same AWS account share a namespace. Choose unique volume names to avoid conflicts when multiple clusters are launched under the same account.
+    * EBS volumes are also namespaced by their availability zone (AZ), and an EBS volume [can only be attached to an EC2 instance in the same AZ][12]. As a result, attempts to launch a task in an agent running in a different AZ will lead to the creation of a new volume of the same name. If you create a cluster in one AZ, destroy it, be sure to create your cluster in the same AZ if you wish to reuse any external volumes. If a cluster spans multiple AZs, use Marathon constraints to only launch an instance in the same AZ.
+    * REX-Ray by default will fail after 13 EBS volumes are attached. While REX-Ray [0.11.0 introduced the config option `useLargeDeviceRange` to extend this limit][13], DC/OS v1.11.0 bundles REX-Ray 0.9.0.
 *   For troubleshooting external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the systemd journal.
 
 [4]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
@@ -148,3 +151,4 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 [10]: https://github.com/emccode/dvdcli#extra-options
 [11]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/#docker-containerizer-with-marathon
 [12]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html
+[13]: https://rexray.readthedocs.io/en/v0.11.0/user-guide/storage-providers/aws/#configuration-notes

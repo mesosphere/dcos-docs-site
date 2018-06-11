@@ -2,13 +2,12 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.7.0
 title: Release Notes for 1.7.0
-menuWeight: 2
-excerpt:
-
+menuWeight: 9
+excerpt: Release Notes for 1.7.0
 enterprise: false
 ---
 
-The release notes provide a list of useful topics and links for DC/OS.
+# About 1.7
 
 # Packages installable from the UI
 
@@ -46,9 +45,9 @@ Figure 2 - Component System View
 
 *   **Stateful applications using External Volumes (Experimental)** Consumption (attach & detach to containers) support in DC/OS for Amazon Web Services EBS, OpenStack Cinder, EMC Isilon, ScaleIO, VMAX, XtremeIO & Google Compute Engine). For more information, see the [documentation][5].
 
-# Fine-grained DC/OS access control  [enterprise type="inline" size="small"/]
+# [enterprise] Fine-grained DC/OS access control  [/enterprise]
 
-<!-- Enterprise only. --> You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the  [documentation][6].
+You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the [documentation][6].
 
 # DC/OS Marathon Updates
 
@@ -60,7 +59,7 @@ Figure 2 - Component System View
 
 **Support for Persistent Storage** You can now launch tasks that use persistent volumes by specifying volumes either via the UI or the REST API. Marathon will reserve all required resources on a matching agent, and subsequently launch a task on that same agent if needed. Data within the volume will be retained even after relaunching the associated task.
 
-**Support for Scheduler Upgrades** Scheduler are specific applications to Marathon, since they can also launch tasks. A deployment in Marathon for upgrading schedulers also includes the migration of all tasks, the scheduler has started via a protocol.
+**Support for Scheduler Upgrades** Schedulers are specific applications to Marathon, since they can also launch tasks. A deployment in Marathon for upgrading schedulers also includes the migration of all tasks, the scheduler has started via a protocol.
 
 **Support for Ports Metadata** The v2 REST API was extended to support additional ports metadata (protocol, name, and labels) through the portDefinition application field. Marathon will pass this new information to Mesos, who will in turn make it available for service discovery purposes.
 
@@ -76,7 +75,7 @@ Figure 2 - Component System View
 
 <!-- Enterprise Edition -->
 
-**Support for Authentication and Authorization** [enterprise type="inline" size="small"/] It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules.
+**Support for Authentication and Authorization**  It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules. [enterprise type="inline" size="small"/]
 
 For the full set of changes, please refer to the [Marathon Release Notes][7].
 
@@ -111,6 +110,7 @@ For the full set of changes, please refer to the [Marathon Release Notes][7].
 *   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DC/OS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials. [enterprise type="inline" size="small"/]
 
 See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
+
 
  [1]: /1.7/usage/managing-services/install/
  [2]: /1.7/administration/monitoring/

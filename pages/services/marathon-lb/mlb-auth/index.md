@@ -36,11 +36,15 @@ To set up a service account for Marathon-LB, complete the following steps.
 1. [Provision the service account with the necessary permissions.](#give-perms)
 1. [Create a config.json file.](#create-json)
 
-**Requirement:** In `strict` mode, the name of the service account must match the name that the service uses as its `principal`. By default, Marathon-LB uses `mlb-principal` as the name of its `principal`. That's the value that we use in the following procedures. Should you modify the default, you must change `mlb-principal` throughout to match.
+**Note:** This document assumes the following:
+* `marathon-lb` as the marathon-lb marathon service name; if you are installing marathon-lb in a different location, you will have to change the secret location accordingly.
+* `marathon-lb/service-account-secret` as the the full path for the secret used to store the credentials for the Marathon-LB service account; if you change the marathon-lb service name, you will have to change this.
+* `mlb-private-key.pem` as the name of the file containing the private key.
+* `mlb-public-key.pem` as the name of the file containing the public key. 
 
-**Note:** We will use `mlb-secret` as the name of the secret, `mlb-private-key.pem` as the name of the file containing the private key, and `mlb-public-key.pem` as the name of the file containing the public key. We recommend sticking to these names as it will make it easier to copy and paste the commands. If you do decide to change the names, make sure to modify the commands before issuing them. 
+We recommend sticking to these names as it will make it easier to copy and paste the commands. If you do decide to change the names, make sure to modify the commands before issuing them. 
 
-**Important:** We store the secret in the `marathon-lb` path. This protects it from other services, so we do not recommend changing this.
+**Important:** We store the secret in the `marathon-lb/service-account-secret` path. This protects it from other services, so we do not recommend changing this.
 
 # <a name="create-a-keypair"></a>Create a key pair
 
@@ -68,16 +72,16 @@ Next, you must create a service account. This section describes how to use eithe
 
 **Prerequisite:** You must have the [DC/OS CLI installed](/1.10/cli/install/), the [DC/OS Enterprise CLI 0.4.14 or later installed](/1.10/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
-1. Use the following command to create a new service account called `mlb-principal` containing the public key you just generated.
+1. Use the following command to create a new service account called `marathon-lb-sa` containing the public key you just generated.
 
     ```bash
-    dcos security org service-accounts create -p mlb-public-key.pem -d "Marathon-LB service account" mlb-principal
+    dcos security org service-accounts create -p mlb-public-key.pem -d "Marathon-LB service account" marathon-lb-sa
     ```
 
 1. Verify your new service account using the following command.
 
     ```bash
-    dcos security org service-accounts show mlb-principal
+    dcos security org service-accounts show marathon-lb-sa
     ```
 
 1. Continue to [Create a service account secret](#create-an-sa-secret).
@@ -102,18 +106,18 @@ Next, you need to create a secret associated with the service account that conta
 
 **Prerequisite:** You must have the [DC/OS CLI installed](/1.10/cli/install/), the [DC/OS Enterprise CLI 0.4.14 or later installed](/1.10/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
-1. Depending on your security mode, use one of the following commands to create a new secret called `mlb-secret` in the `marathon-lb` path. Locating the secret inside the `marathon-lb` path will ensure that only the Marathon-LB service can access it. The secret will contain the private key, the name of the service account, and other data.
+1. Depending on your security mode, use one of the following commands to create a new secret called `service-account-secret` in the `marathon-lb` path (the full secret path will be `marathon-lb/service-account-secret`. Locating the secret inside the `marathon-lb` path will ensure that only the Marathon-LB service can access it. The secret will contain the private key, the name of the service account, and other data.
 
     **strict or permissive:**
 
     ```bash
-    dcos security secrets create-sa-secret --strict mlb-private-key.pem mlb-principal marathon-lb/mlb-secret
+    dcos security secrets create-sa-secret --strict mlb-private-key.pem marathon-lb-sa marathon-lb/service-account-secret
     ```
     
     **disabled:**
     
     ```bash
-    dcos security secrets create-sa-secret mlb-private-key.pem mlb-principal marathon-lb/mlb-secret
+    dcos security secrets create-sa-secret mlb-private-key.pem marathon-lb-sa marathon-lb/service-account-secret
     ```
 
 1. Ensure the secret was created successfully:
@@ -125,7 +129,7 @@ Next, you need to create a secret associated with the service account that conta
 1. If you have [jq 1.5 or later](https://stedolan.github.io/jq/download) installed, you can also use the following command to retrieve the secret and ensure that it contains the correct service account ID and private key.
 
     ```bash
-    dcos security secrets get /marathon-lb/mlb-secret --json | jq -r .value | jq
+    dcos security secrets get /marathon-lb/service-account-secret --json | jq -r .value | jq
     ```
 
    **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you're in `strict` or `permissive` mode and HTTP if you are in `disabled` mode. If the URL begins with `https` and you are in `disabled` mode, try [upgrading the DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
@@ -146,14 +150,14 @@ Next, you need to create a secret associated with the service account that conta
 
 1. Click **New Secret**.
 
-1. Type `marathon-lb/mlb-secret` into the **ID** field to create a new secret called `mlb-secret` in the `marathon-lb` path. Locating the secret inside the `marathon-lb` path will ensure that only the Marathon-LB service can access it. 
+1. Type `marathon-lb/service-account-secret` into the **ID** field to create a new secret called `service-account-secret` in the `marathon-lb` path. Locating the secret inside the `marathon-lb` path will ensure that only the Marathon-LB service can access it. 
 
 1. If you have a `strict` or `permissive` cluster, paste the following JSON into the **Value** field.
 
   ```json
   {
       "scheme": "RS256",
-      "uid": "mlb-principal",
+      "uid": "marathon-lb-sa",
       "private_key": "<private-key-value>",
       "login_endpoint": "https://master.mesos/acs/api/v1/auth/login"
   }
@@ -164,7 +168,7 @@ Next, you need to create a secret associated with the service account that conta
   ```json
   {
       "scheme": "RS256",
-      "uid": "mlb-principal",
+      "uid": "marathon-lb-sa",
       "private_key": "<private-key-value>",
       "login_endpoint": "http://master.mesos/acs/api/v1/auth/login"
   }
@@ -187,8 +191,8 @@ All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-a
 1. Grant the permissions and the allowed action to the service account using the following commands.
 
    ```bash
-   dcos security org users grant mlb-principal dcos:service:marathon:marathon:services:/ read --description "Allows access to any service launched by the native Marathon instance"
-   dcos security org users grant mlb-principal dcos:service:marathon:marathon:admin:events read --description "Allows access to Marathon events"
+   dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:services:/ read --description "Allows access to any service launched by the native Marathon instance"
+   dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:admin:events read --description "Allows access to Marathon events"
    ```
 
 1. Continue to the [next section](#create-json).
@@ -201,12 +205,12 @@ The necessary contents of the `config.json` file vary according to your [securit
 
 ## Strict and permissive mode config.json
 
-If you have called the secret `mlb-secret`, you can copy and paste the following JSON into a new file and save it with the name `config.json`. Otherwise, change the name `mlb-secret` as needed.
+If you have called the secret `marathon-lb/service-account-secret`, you can copy and paste the following JSON into a new file and save it with the name `config.json`. Otherwise, change the name `marathon-lb/service-account-secret` as needed.
 
 ```json
 {
     "marathon-lb": {
-        "secret_name": "marathon-lb/mlb-secret",
+        "secret_name": "marathon-lb/service-account-secret",
         "marathon-uri": "https://marathon.mesos:8443"
     }
 }
@@ -218,12 +222,12 @@ Continue to [Install Marathon-LB](#install-mlb).
 
 ## Disabled mode config.json
 
-If you have called the secret `marathon-lb/mlb-secret`, you can copy and paste the following JSON into a new file and save it with the name `config.json`. Otherwise, change the name `marathon-lb/mlb-secret` as needed.
+If you have called the secret `marathon-lb/service-account-secret`, you can copy and paste the following JSON into a new file and save it with the name `config.json`. Otherwise, change the name `marathon-lb/service-account-secret` as needed.
  
 ```json
 {
     "marathon-lb": {
-        "secret_name": "marathon-lb/mlb-secret"
+        "secret_name": "marathon-lb/service-account-secret"
     }
 }
 ```
