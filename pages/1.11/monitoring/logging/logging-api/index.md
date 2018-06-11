@@ -4,7 +4,7 @@ navigationTitle:  Logging API
 title: Logging API
 menuWeight: 3
 excerpt: Using the Logging API
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -26,11 +26,35 @@ The Logging API has been updated significantly for DC/OS 1.11.
 
 ## Logging features new for DC/OS 1.11
 
-In versions of DC/OS prior to 1.11, task logs were available via [files API](http://mesos.apache.org/documentation/latest/endpoints/#files-1). Now the user can leverage the consolidated API *for both component and task logs*.
+In versions of DC/OS prior to 1.11, task logs were available via [files API](http://mesos.apache.org/documentation/latest/endpoints/#files-1). Now you can leverage the consolidated API *for both component and task logs*.
 
 ## Notes on Previous Versions
 
-In versions of DC/OS prior to 1.11, node and component logs are managed by journald. However, the [Mesos task journald log sink was disabled](https://github.com/dcos/dcos/pull/1269) due to [journald performance issues](https://github.com/systemd/systemd/issues/5102). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
+In versions of DC/OS prior to 1.11, node and component logs were managed by journald. However, the [Mesos task journald log sink was disabled](https://github.com/dcos/dcos/pull/1269) due to [journald performance issues](https://github.com/systemd/systemd/issues/5102). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
+
+The following code may be useful:
+
+```
+FRAMEWORK_NAME="marathon"
+APP_ID="nginx"
+
+# get the mesos task state json
+MESOS_STATE="$(curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" ${DCOS_URL}/mesos/state)"
+TASK_STATE="$(echo "${MESOS_STATE}" | jq ".frameworks[] | select(.name == \"${FRAMEWORK_NAME}\") | .tasks[] | select(.name == \"${APP_ID}\")")"
+
+# extract values from the task json
+AGENT_ID="$(echo "${TASK_STATE}" | jq -r '.slave_id')"
+TASK_ID="$(echo "${TASK_STATE}" | jq -r '.id')"
+FRAMEWORK_ID="$(echo "${TASK_STATE}" | jq -r '.framework_id')"
+EXECUTOR_ID="$(echo "${TASK_STATE}" | jq -r '.executor_id')"
+CONTAINER_ID="$(echo "${TASK_STATE}" | jq -r '.statuses[0].container_status.container_id.value')"
+
+# default to container ID when executor ID is empty
+EXECUTOR_ID="${EXECUTOR_ID:-${TASK_ID}}"
+
+# Using Mesos API, agent/files endpoint
+curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_ID}/files/read?path=/var/lib/mesos/slave/slaves/${AGENT_ID}/frameworks/${FRAMEWORK_ID}/executors/${EXECUTOR_ID}/runs/${CONTAINER_ID}/stdout&offset=0&length=50000"
+```
 
 <a name="routes"></a>
 # Routes

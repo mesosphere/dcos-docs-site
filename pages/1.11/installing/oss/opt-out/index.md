@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Opt-Out
 excerpt:
 title: Opt-Out
-menuWeight: 5
+menuWeight: 7
 oss: true
 ---
 
