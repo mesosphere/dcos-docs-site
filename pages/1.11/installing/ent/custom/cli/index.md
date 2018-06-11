@@ -8,7 +8,7 @@ excerpt:
 enterprise: false
 ---
 
-The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options. 
+The automated CLI installer provides a guided installation of DC/OS from the command line. Using this method, you can choose from the complete set of DC/OS configuration options. 
 
 This installation method uses a bootstrap node to administer the DC/OS installation across your cluster. The bootstrap node uses an unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported. This requirement is only for CLI Installer.
 
