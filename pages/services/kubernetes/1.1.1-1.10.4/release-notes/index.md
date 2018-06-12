@@ -17,8 +17,10 @@ None
 
 ## Improvements
 
-* Kubernetes v1.10.4
-* Etcd v3.3.7
+* Kubernetes v1.10.4.
+* Etcd v3.3.7.
+* Placement constraints for control plane components and nodes are now
+  supported.
 
 ## Bug Fixes
 
@@ -27,6 +29,7 @@ None
 ## Documentation
 
 * Add section `Placement constraints` to `Advanced Installation` page.
+* Added a new `Exposing the Kubernetes API` page.
 
 ## Known Issues
 
