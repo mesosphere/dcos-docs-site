@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 0
+render: mustache  
 excerpt: Understanding system requirements for node settings
 
 enterprise: true
@@ -44,7 +45,9 @@ There are many mixed workloads on the masters. Workloads that are expected to be
 
 [0]: https://docs.mesosphere.com/1.10/overview/high-availability/
 
+
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
+
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
@@ -227,7 +230,16 @@ On each of your cluster nodes, use the following command to:
     **Tip:** It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.    
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+
+- For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
+
+- On Linux:
+````
+localectl set-locale LANG=en_US.utf8
+````
+
+- For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
 
 # Next steps
 
