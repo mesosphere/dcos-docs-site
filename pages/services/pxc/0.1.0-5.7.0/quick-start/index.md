@@ -7,7 +7,7 @@ enterprise: 'no'
 
 # Prerequisite
 
-- DC/OS should be installed on your cluster. To know about installing DCOS visit (https://github.com/mesosphere/dcos-pxc/blob/config_param/docs/install.md).
+- DC/OS should be installed on your cluster. To know about installing DC/OS visit (Link will be here).
 
 # Steps
 
@@ -18,7 +18,7 @@ dcos package install pxc
 ```
 Alternatively, you can install pxc from [the DC/OS web interface].
 
-Once the install command is triggered, the service will deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface. Mentioned below is the complete list of DCOS Pxc Commands Available:
+Once the install command is triggered, the service will deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface. Mentioned below is the complete list of DC/OS PXC Commands Available:
 
 1. List IDs of all available configurations
 
@@ -38,7 +38,7 @@ Once the install command is triggered, the service will deploy with a default co
 4. List ID of the target configuration      
 
     ```shell
-    dcos pxc config target_id
+    dcos pxc config <target_id>
     ```
 5. List IDs of all available configurations     
 
@@ -58,12 +58,12 @@ Once the install command is triggered, the service will deploy with a default co
 8. List ID of the target configuration   
     
     ```shell
-    dcos pxc debug config target_id
+    dcos pxc debug config <target_id>
     ```
 9. Display the Mesos framework ID   
     
     ```shell
-    dcos pxc debug state framework_id
+    dcos pxc debug state <framework_id>
     ```
 10. List names of all custom properties  
     
@@ -245,6 +245,6 @@ Once the install command is triggered, the service will deploy with a default co
 
 # See Also
 
-- [Connecting clients][1].
+- [Connecting clients][1]. TBD
 
  [1]: https://docs.mesosphere.com/service-docs/<Template>/connecting-clients/
