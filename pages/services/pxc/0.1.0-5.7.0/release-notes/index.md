@@ -4,7 +4,7 @@ menu_order: 120
 enterprise: 'no'
 ---
 
-## Version 5.7.17-29.20
+## Version 5.7.21-29.26
 
 This is the first release of Percona XtraDB Cluster the latest stable release version of Percona XtraDB Cluster installation would be supported on DCOS cluster 1.09 and above. This has been built using current stable version of SDK (Version 0.40.2).
 
@@ -14,7 +14,7 @@ This is a first release and you must perform a fresh install . You cannot upgrad
 
 ### Improvements
 
-Based on the latest stable release of the dcos-commons SDK (Version 0.40.2), this installation provides numerous benefits:
+Based on the latest stable release of the dcos-commons SDK (Version 0.42.0), this installation provides numerous benefits:
 
     - Integration with DC/OS features such as virtual networking and integration with DC/OS access controls.
     - Orchestrated software and configuration update, ability to add new nodes, increase memory and CPU. Installation on DCOS Cluster provides the ability to restart and replace nodes.
