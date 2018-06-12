@@ -128,7 +128,7 @@ Scheduler reconfiguration is slightly different from initial deployment because 
 
 ## Uninstallation
 
-This is the flow for uninstalling nifi.
+This is the flow for uninstalling pxc.
 
 ### Steps handled by the Cluster
 
