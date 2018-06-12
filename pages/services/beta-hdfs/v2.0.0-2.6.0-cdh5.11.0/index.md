@@ -1,9 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Beta HDFS Version
-  1.3.0-2.6.0-cdh5.9.1-beta
+navigationTitle:  Beta HDFS 2.1.2-2.6.0-cdh5.11.0-beta
+title: Beta HDFS 2.0.0-2.6.0-cdh5.11.0-beta
 menuWeight: 40
 excerpt:
 featureMaturity:
