@@ -20,22 +20,9 @@ Shortlist:
 
 ```
 % git shortlog v1.0.2..HEAD
-
-Deepak Goel (2):
-      bump sdk to 0.42.1
-      Fixes sidecar deploy plan from FINISHED to FINISH
-
-Drew Kerrigan (2):
-      Reorganize / Refactor Code (#130)
+      bump sdk to 0.42.1 (#137)
+      Fixes sidecar deploy plan from FINISHED to FINISH (#137)
       Update mesos proto (#136)
-
-Pawel Rozlach (2):
-      dcos-template: mesosTaskFrameworkFilter tests
-      dcos-template: dcosServiceFilter tests
-
-Paweł Rozlach (2):
-      docs: Mesos proto should be specified for both permissive and strict modes (#133)
-      dcos-template: Reintroduce consul-template/upstream tests (#134)
 ```
 
 ## Known Limitations
