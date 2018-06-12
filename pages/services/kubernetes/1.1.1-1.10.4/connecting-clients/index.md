@@ -29,7 +29,7 @@ Kubernetes package through the DC/OS UI, then they further need to install the
 The user should also ensure that `dcos` is adequately configured to access the
 desired DC/OS cluster before proceeding.
 
-### Disabling TLS verification
+### Without TLS verification
 
 In order to configure `kubectl` to access the Kubernetes API without validating
 the presented TLS certificate, the user must run the following command:
@@ -43,7 +43,7 @@ $ dcos kubernetes kubeconfig \
 The user must replace `https://kube-apiserver.example.com:6443` with the URL at
 which the Kubernetes API is exposed to outside the DC/OS cluster.
 
-### Enabling TLS verification
+### With TLS verification
 
 In order to configure `kubectl` to access the Kubernetes API while validating
 the presented TLS certificate, the user must run the following command:

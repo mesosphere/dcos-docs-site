@@ -221,8 +221,9 @@ Also at this point, it should be possible to reach the Kubernetes API:
 ```
 
 To configure `kubectl` in order to access the Kubernetes API using this setup,
-the user should now follow the steps described in
-[Connecting Clients](connecting-clients.md#disabling-tls-verification).
+the user should now follow the steps described in the "Without TLS
+verification" subsection of the [Connecting Clients](../connecting-clients)
+page.
 
 ## Example 2: Using HAProxy and establishing trust
 
@@ -307,9 +308,9 @@ frontend frontend_all
     (...)
 ```
 
-At this point, the user can
-[enable TLS verification](connecting-clients.md#enabling-tls-verification) on
-`kubectl`.
+At this point, the user should follow the steps described in the "With TLS
+verification" subsection of the [Connecting Clients](../connecting-clients)
+page.
 
 ### Step 3: Serving multiple services/endpoints using HAProxy
 
