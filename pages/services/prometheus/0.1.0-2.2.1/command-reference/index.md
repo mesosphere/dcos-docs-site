@@ -9,18 +9,22 @@ enterprise: false
 ---
 
 
-Here is the complete list of DCOS Prometheus Commands Available:
-
 usage: dcos prometheus [<flags>] <command>
+  
 
 
 Flags:
+
   -h, --help               Show context-sensitive help.
+  
   -v, --verbose            Enable extra logging of requests/responses
+  
       --name="prometheus"  Name of the service instance to query
 
 Commands:
+
   help [<command> ...]
+  
     Show help.
 
 
