@@ -23,24 +23,27 @@ Flags:
 
 Commands:
 
-  help [<command> ...]
+  help 
+  
+  [<command> ...]
   
     Show help.
 
 
   config list
-    [Deprecated (TBR 1.11, -> debug config list)]List IDs of all available
+    [Deprecated (TBR 1.11, -> debug config list)]
+    List IDs of all available
     configurations
 
 
   config show <config_id>
-    [Deprecated (TBR 1.11, -> debug config show)] Display a specified
-    configuration
+    [Deprecated (TBR 1.11, -> debug config show)]
+    Display a specified configuration
 
 
   config target
-    [Deprecated (TBR 1.11, -> debug config target)] Display the target
-    configuration
+    [Deprecated (TBR 1.11, -> debug config target)]  
+    Display the target configuration
 
 
   config target_id
