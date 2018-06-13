@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- {% raw %} disable mustache templating in this file: retain nifid examples as-is -->
 
-The DC/OS Prometheus Service have exppression browser that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS Prometheus Service is deployed.
+The DC/OS Prometheus Service have exppression browser that may be accessed from outside the cluster.
 
 The expression browser is available at /graph on the Prometheus server, allowing you to enter any expression and see its result either in a table or graphed over time.
 
