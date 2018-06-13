@@ -11,13 +11,9 @@ The default DC/OS Prometheus Service installation provides reasonable defaults f
 
 ## Configuration Best Practices for Production
   
-    - Install Alert Manager with first build of framework , for installing remaining framework alert manager check box not to be ticked.
-    
-      All the rest of the prometheus servers will point to the same alert manager which was installed with base build.
+    - Install Alert Manager with base\first build of framework , its recommended to install remaining framework without alert manager and alert manager check box not to be checked, all the rest of the prometheus servers should point to the same alert manager which was installed with base\first build,to do this you would require to pass alert manager endpoint as target to your  prometheus servers.
         
-                  
-    - Install global prometheus when required , global prometheus check box not to be ticked until you require data to be federate from         other prometheus servers 
-              
+    - Install global prometheus when required ,its recommended for global prometheus check box not to be checked until you require data to be federate from other salve prometheus servers,to federate data from promethes slave server to global prometheus,slave prometheus server endpoints to be passed as target into global prometheus server.
       
 ## Prerequisites
    
@@ -62,6 +58,22 @@ dcos prometheus CLI commands are not automatically installed to your workstation
    ```shell
    dcos package install prometheus --cli
    ```
+
+## Installing HA-alert manager with base build :
+   
+   By default , prometheus will launch HA-prometheus server and to spin up with HA-Alert manager , alert manager check box need to be checked.
+   
+## Installing HA-alert manager without base build
+
+ To install HA-Prometheus without alert manager , alert manager check box not to be checked under alert manager config.
+ and to point HA-Prometheus server to base\first build HA-Alert manger we require to pass alert manager endpoint as target for each of HA-Prometheus services we run.
+
+## Installing HA-global prometheus 
+
+To federate data from slave prometheus to global prometheus,HA-global prometheus is requird to be installed.
+To install global prometheus, enable global prometheus box to be checked and slave prometheus end points needs to be passed as target with in single quotes comma separated.
+
+Note: enable global prometheus box only to be checked when you require federation else its not recommended to be checked.
 
 ## Installing multiple instances
 
