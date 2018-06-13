@@ -24,173 +24,147 @@ Flags:
 Commands:
 
   help 
-  
-  [<command> ...]
-  
-    Show help.
+    [<command> ...]
+      Show help.
 
 
   config list
-    [Deprecated (TBR 1.11, -> debug config list)]
     List IDs of all available
     configurations
 
 
   config show <config_id>
-    [Deprecated (TBR 1.11, -> debug config show)]
     Display a specified configuration
 
 
   config target
-    [Deprecated (TBR 1.11, -> debug config target)]  
     Display the target configuration
 
-
-  config target_id
-    [Deprectaed (TBR 1.11, -> debug config target_id)] List ID of the target
+config target_id
     configuration
 
-
-  debug config list
+debug config list
     List IDs of all available configurations
 
 
-  debug config show <config_id>
+debug config show <config_id>
     Display a specified configuration
 
-
-  debug config target
+debug config target
     Display the target configuration
 
-
-  debug config target_id
+debug config target_id
     List ID of the target configuration
 
-
-  debug state framework_id
+debug state framework_id
     Display the Mesos framework ID
 
-
-  debug state properties
+debug state properties
     List names of all custom properties
 
-
-  debug state property <name>
+debug state property <name>
     Display the content of a specified property
 
-
-  debug state refresh_cache
+debug state refresh_cache
     Refresh the state cache, used for debugging
 
-
-  debug pod pause [<flags>] <pod>
+debug pod pause [<flags>] <pod>
     Pauses a pod's tasks for debugging
 
     -t, --tasks=TASKS ...  List of specific tasks to be paused, otherwise the
                            entire pod
-
-
-  debug pod resume [<flags>] <pod>
+debug pod resume [<flags>] <pod>
     Resumes a pod's normal execution following a pause command
 
     -t, --tasks=TASKS ...  List of specific tasks to be resumed, otherwise the
                            entire pod
-
-
-  describe
+describe
     View the configuration for this service
 
-
-  endpoints [<name>]
+endpoints [<name>]
     View client endpoints
 
-
-  plan list
+plan list
     Show all plans for this service
 
-
-  plan status [<flags>] <plan>
+plan status [<flags>] <plan>
     Display the status of the plan with the provided plan name
 
-    --json  Show raw JSON response instead of user-friendly tree
+--json  Show raw JSON response instead of user-friendly tree
 
 
-  plan start [<flags>] <plan>
+plan start [<flags>] <plan>
     Start the plan with the provided name and any optional plan arguments
 
     -p, --params=PARAMS ...  Envvar definition in VAR=value form; can be
                              repeated for multiple variables
 
 
-  plan stop <plan>
+plan stop <plan>
     Stop the running plan with the provided name
 
 
-  plan pause <plan> [<phase>]
+plan pause <plan> [<phase>]
     Pause the plan, or a specific phase in that plan with the provided phase
     name (or UUID)
 
 
-  plan resume <plan> [<phase>]
+plan resume <plan> [<phase>]
     Resume the plan, or a specific phase in that plan with the provided phase
     name (or UUID)
 
 
-  plan force-restart <plan> [<phase> [<step>]]
+plan force-restart <plan> [<phase> [<step>]]
     Restart the plan with the provided name, or a specific phase in the plan
     with the provided name, or a specific step in a phase of the plan with the
     provided step name.
 
 
-  plan force-complete <plan> <phase> <step>
+plan force-complete <plan> <phase> <step>
     Force complete a specific step in the provided phase. Example uses include
     the following: Abort a sidecar operation due to observed failure or known
     required manual preparation that was not performed
 
 
-  pod list
+pod list
     Display the list of known pod instances
 
 
-  pod status [<flags>] [<pod>]
+pod status [<flags>] [<pod>]
     Display the status for tasks in one pod or all pods
 
     --json  Show raw JSON response instead of user-friendly tree
 
 
-  pod info <pod>
+pod info <pod>
     Display the full state information for tasks in a pod
 
 
-  pod restart <pod>
+pod restart <pod>
     Restarts a given pod without moving it to a new agent
 
 
-  pod replace <pod>
+pod replace <pod>
     Destroys a given pod and moves it to a new agent
 
 
-  state framework_id
-    [Deprecated (TBR 1.11, -> debug state framework_id)] Display the Mesos
-    framework ID
+state framework_id
+ Display the Mesos framework ID
 
 
-  state properties
-    [Deprecated (TBR 1.11, -> debug state properties)] List names of all custom
-    properties
+state properties
+List names of all custom properties
 
 
-  state property <name>
-    [Deprecated (TBR 1.11, -> debug state property)] Display the content of a
-    specified property
+state property <name>
+Display the content of a specified property
 
 
-  state refresh_cache
-    [Deprecated (TBR 1.11, -> debug state refresh_cache)] Refresh the state
-    cache, used for debugging
+state refresh_cache
+Refresh the state cache, used for debugging
 
 
-  update start [<flags>]
+update start [<flags>]
     Launches an update operation
 
     --options=OPTIONS  Path to a JSON file that contains customized package
@@ -201,27 +175,27 @@ Commands:
                        the existing configuration and options are merged.
 
 
-  update force-complete <phase> <step>
+update force-complete <phase> <step>
     Force complete a specific step in the provided phase
 
 
-  update force-restart [<phase> [<step>]]
+update force-restart [<phase> [<step>]]
     Restart update plan, or specific step in the provided phase
 
 
-  update package-versions
+update package-versions
     View a list of available package versions to downgrade or upgrade to
 
 
-  update pause
+update pause
     Pause update plan
 
 
-  update resume
+update resume
     Resume update plan
 
 
-  update status [<flags>]
+update status [<flags>]
     View status of a running update
 
     --json  Show raw JSON response instead of user-friendly tree
