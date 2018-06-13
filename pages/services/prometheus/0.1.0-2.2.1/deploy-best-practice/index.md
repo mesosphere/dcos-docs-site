@@ -10,30 +10,27 @@ enterprise: false
 # Deployment Best Practices
 
 ## Configuration Best Practices for Production
-
-- Increase the number of TCP socket ports available. This is particularly important if the flow will be setting up and tearing down a large number of sockets in small period of time.
-
-           sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
-
-- Tell Linux you never want NiFi to swap. Swapping is fantastic for some applications. It is not good for something like NiFi that always wants to be running.
-
-To set swapping off you can edit `/etc/sysctl.conf` to add the following line
-
-           vm.swappiness = 0
-
-For the partitions handling the various NiFi repos turn off things like `atime`. Doing so can cause a surprising bump in throughput. Edit the `/etc/fstab` file and for the partition(s) of interest add the `noatime` option.
-
 ## Hardware Sizing Recommendations
 
-Following is the recommnded hardware for NiFi roduction installation:
-
-[<img src="../service/HardwareRecommendation.png" alt="Hardware Recommendation" width="700"/>](../service/HardwareRecommendation.png)
+In practice this can only really be determined empirically, as it varies organisation by organisation and machine by machine.
+Below link will help deciding on how much ram does your prometheus would need :
+    
+    https://www.robustperception.io/how-much-ram-does-my-prometheus-need-for-ingestion/
 
 ## Block Device / Storage
 
-### Disk Recommendations
+Prometheus disk is hard to determing as it all depends on the organization to organization.
+Prometheus includes a local on-disk time series database, but also optionally integrates with remote storage systems.
 
-Apache NiFi performs best when using disks with fast read and write patterns.
+Prometheus has several flags that allow configuring the local storage. The most important ones are:
+
+    --storage.tsdb.path: This determines where Prometheus writes its database. Defaults to data/.
+    --storage.tsdb.retention: This determines when to remove old data. Defaults to 15d.
+
+On average, Prometheus uses only around 1-2 bytes per sample. Thus, to plan the capacity of a Prometheus server, you can use the rough formula:
+
+needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample
+
 
 We recommend the following:
 
