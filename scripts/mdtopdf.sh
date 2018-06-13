@@ -284,32 +284,34 @@ then
 
   if [ $EXITED -eq 1 ];
   then
-    exit 1;
+    echo "Unable to download previous bundle.";
+  else
+    # get url where pdf is hosted in tgz
+    PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+
+    # get the files and output it to Previous_pdf_bundle destination
+    echo curl -o ${LAST_SUCCESSFUL_BUILD}
+
+    curl -o "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+    #curl -o "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
+    #curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
+
+    echo "directory here"
+    pwd
+    #echo "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+    #tar -xvzf "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+
+    echo "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+    tar -xvzf "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
+    ls -la "${OUTPUT_FOLDER}"
+
   fi
-  # get url where pdf is hosted in tgz
-  PREVIOUS_PDF_BUNDLE="https://downloads.mesosphere.com/dcos-docs-site/${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-
-
-  # get the files and output it to Previous_pdf_bundle destination
-  echo curl -o ${LAST_SUCCESSFUL_BUILD}
-
-  curl -o "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
-  #curl -o "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz" "${PREVIOUS_PDF_BUNDLE}"
-  #curl -o "dcos-docs-pdf-bundle-develop-2018-04-24-e4160586.tgz" "${PREVIOUS_PDF_BUNDLE}"
-
-  echo "directory here"
-  pwd
-  #echo "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-  #tar -xvzf "${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-
-  echo "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-  tar -xvzf "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
-  ls -la "${OUTPUT_FOLDER}"
+  cleanVersion "${LATEST_MDFILES}"
 fi
 #
 # Clean the previous pdf
 #
-cleanVersion "${LATEST_MDFILES}"
+#cleanVersion "${LATEST_MDFILES}"
 
 selectFolder "${CHANGED_FILES}" "${PAGES_DIR}"
 clean
