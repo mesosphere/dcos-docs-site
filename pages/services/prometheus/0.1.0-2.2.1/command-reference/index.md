@@ -29,15 +29,18 @@ Commands:
 
 
   config list
+    
     List IDs of all available
     configurations
 
 
   config show <config_id>
+    
     Display a specified configuration
 
 
   config target
+    
     Display the target configuration
 
 config target_id
