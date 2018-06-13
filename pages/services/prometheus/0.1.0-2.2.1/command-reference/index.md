@@ -80,13 +80,13 @@ debug state refresh_cache
     
     Refresh the state cache, used for debugging
 
-debug pod pause [<flags>] <pod>
+debug pod pause <flags> <pod>
     
     Pauses a pod's tasks for debugging
 
     -t, --tasks=TASKS ...  List of specific tasks to be paused, otherwise the
                            entire pod
-debug pod resume [<flags>] <pod>
+debug pod resume <flags> <pod>
     
     Resumes a pod's normal execution following a pause command
 
@@ -104,7 +104,7 @@ plan list
     
     Show all plans for this service
 
-plan status [<flags>] <plan>
+plan status <flags> <plan>
     
     Display the status of the plan with the provided plan name
 
@@ -114,19 +114,19 @@ plan stop <plan>
     Stop the running plan with the provided name
 
 
-plan pause <plan> [<phase>]
+plan pause <plan> <phase>
     
     Pause the plan, or a specific phase in that plan with the provided phase
     name (or UUID)
 
 
-plan resume <plan> [<phase>]
+plan resume <plan> <phase>
     
     Resume the plan, or a specific phase in that plan with the provided phase
     name (or UUID)
 
 
-plan force-restart <plan> [<phase> [<step>]]
+plan force-restart <plan> <phase> <step>
     
     Restart the plan with the provided name, or a specific phase in the plan
     with the provided name, or a specific step in a phase of the plan with the
