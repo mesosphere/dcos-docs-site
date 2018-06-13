@@ -96,7 +96,7 @@ describe
     
     View the configuration for this service
 
-endpoints [<name>]
+endpoints <name>
     
     View client endpoints
 
@@ -145,7 +145,7 @@ pod list
     Display the list of known pod instances
 
 
-pod status [<flags>] [<pod>]
+pod status <flags> <pod>
     
     Display the status for tasks in one pod or all pods
 
@@ -183,7 +183,7 @@ state property <name>
 state refresh_cache Refresh the state cache, used for debugging
 
 
-update start [<flags>]
+update start <flags>
     
     Launches an update operation
 
@@ -200,7 +200,7 @@ update force-complete <phase> <step>
     Force complete a specific step in the provided phase
 
 
-update force-restart [<phase> [<step>]]
+update force-restart <phase> <step>
          
     Restart update plan, or specific step in the provided phase
 
@@ -220,7 +220,7 @@ update resume
     Resume update plan
 
 
-update status [<flags>]
+update status <flags>
     
     View status of a running update
 
