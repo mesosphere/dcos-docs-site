@@ -305,8 +305,9 @@ then
     tar -xvzf "dcos-docs-pdf-bundle-${JOB_NAME}-${CHECK_DATE}-${GIT_HASH_TRIM}.tgz"
     ls -la "${OUTPUT_FOLDER}"
 
+    cleanVersion "${LATEST_MDFILES}"
   fi
-  cleanVersion "${LATEST_MDFILES}"
+
 fi
 #
 # Clean the previous pdf
