@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-usage: dcos prometheus [<flags>]
+usage: dcos prometheus
   
 
 
