@@ -56,9 +56,9 @@ A change to the load balancer pool (such as adding a secret) will trigger a rela
 
 By default, Edge-LB load balancer instances are tied to a given node; when the node goes down, Edge-LB does not automatically relocate the pod containing the Edge-LB load balancer instance to a new node. You must issue a `pod replace` command to the pool scheduler to tell it to start the load balancer instance on a new node. If a machine hosting a pod is permanently lost, manual intervention is required to discard the missing pod and start it on a new node.
 
-This can all be done using the dcos `edgelb-pool` subcommand (note that this is distinct from the `edgelb` subcommand, and must be installed separately if it has not yet been installed).
+This can all be done using the dcos CLI `edgelb-pool` subcommand (note that this is distinct from the `edgelb` subcommand, and must be installed separately if it has not yet been installed).
 
-1. Install the `edgelb-pool cli`:
+1. Install the `edgelb-pool` CLI subcommand:
 
 ```
 $ dcos package install edgelb-pool --cli --yes
