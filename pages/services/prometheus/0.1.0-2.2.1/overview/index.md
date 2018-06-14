@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Overview
 title: Overview
 menuWeight: 10
-excerpt: Getting started with DC/OS NiFi Service
+excerpt: Getting started with DC/OS Prometheus Service
 featureMaturity:
 enterprise: false
 ---
