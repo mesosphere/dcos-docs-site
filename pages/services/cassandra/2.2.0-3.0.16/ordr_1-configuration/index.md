@@ -29,6 +29,8 @@ Customize the `Node Count` setting (default 3) under the **node** configuration 
 
 You can customize the amount of CPU allocated to each node. A value of `1.0` equates to one full CPU core on a machine. Change this value by editing the **cpus** value under the **node** configuration section. Turning this too low will result in throttled tasks.
 
+Please note that each Cassandra node will use an additonal 1.0 CPU for sidecar services such as backup and nodetool. When provisioning 3 CPUS for each Cassandra node, the actual usage will be 4 CPUS, and this should be taken into account when configuring Cassandra to maximize resource utilization on an agent.
+
 *   **In DC/OS CLI options.json**: `cpus`: number (default: `0.5`)
 *   **DC/OS web interface**: `CASSANDRA_CPUS`: `number`
 
