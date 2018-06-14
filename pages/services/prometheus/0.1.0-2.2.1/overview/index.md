@@ -40,9 +40,9 @@ The following components work together to deploy and maintain the service.
 
 # Deployment
 
-Internally, NiFi treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
+Internally, Prometheus treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
 
-    - When Nifi is first installed, deployment is moving from a null configuration to a deployed configuration.
+    - When Prometheus is first installed, deployment is moving from a null configuration to a deployed configuration.
     - When the deployed configuration is changed by editing an environment variable in the scheduler, deployment is moving from an initial running configuration to a new proposed configuration.
 
 In this section, we’ll describe how these scenarios are handled by the scheduler.
@@ -53,15 +53,15 @@ This is the flow for deploying a new service:
 
 ### Steps handled by the DC/OS cluster
 
-   1. The user runs dcos package install NiFi in the DC/OS CLI or clicks Install for a given package on the DC/OS Dashboard.
+   1. The user runs dcos package install Prometheus in the DC/OS CLI or clicks Install for a given package on the DC/OS Dashboard.
 
    2. A request is sent to the Cosmos packaging service to deploy the requested package along with a set of configuration options.
 
-   3. Cosmos creates a Marathon app definition by rendering NiFi’s marathon.json.mustache with the configuration options provided in the request, which represents NiFi’s Scheduler. Cosmos queries Marathon to create the app.
+   3. Cosmos creates a Marathon app definition by rendering Prometheus marathon.json.mustache with the configuration options provided in the request, which represents Prometheus Scheduler. Cosmos queries Marathon to create the app.
 
-   4. Marathon launches the NiFi’s scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
+   4. Marathon launches the Prometheus scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
 
-   5. NiFi’s scheduler is launched. From this point onwards, the SDK handles deployment.
+   5. Prometheus scheduler is launched. From this point onwards, the SDK handles deployment.
 
 ### Steps handled by the Scheduler
 
@@ -80,7 +80,7 @@ The scheduler starts with the following state:
 - If the Framework ID is present, the Scheduler will attempt to reconnect to Mesos using that ID. This may result in a “Framework has been removed” error if Mesos doesn’t recognize that Framework ID, indicating an incomplete uninstall.
 - If the Framework ID is not present, the Scheduler will attempt to register with Mesos as a Framework. Assuming this is successful, the resulting Framework ID is then immediately stored.
 
-  4. Now that the Scheduler has registered as a Mesos Framework, it is able to start interacting with Mesos and receiving offers. When this begins, the scheduler will begin running the Offer Cycle and deploying NiFi. See that section for more information.
+  4. Now that the Scheduler has registered as a Mesos Framework, it is able to start interacting with Mesos and receiving offers. When this begins, the scheduler will begin running the Offer Cycle and deploying Prometheus. See that section for more information.
 
   5. The Scheduler retrieves its deployed task state from ZooKeeper and finds that there are tasks that should be launched. This is the first launch, so all tasks need to be launched.
 
@@ -124,7 +124,7 @@ c. Custom update logic: Some services may have defined a custom update Plan in i
 
 ## Uninstallation
 
-This is the flow for uninstalling NiFi.
+This is the flow for uninstalling Prometheus.
 
 ### Steps handled by the Cluster
 
@@ -222,11 +222,11 @@ Steps:
     dcos:adminrouter:ops:mesos full
     dcos:adminrouter:ops:slave full
     ```    
-    Install a service (in this example, nifi) into a folder called `test`. Go to Catalog, then search for `beta-nifi`.
+    Install a service (in this example, prometheus) into a folder called `test`. Go to Catalog, then search for `beta-prometheus`.
 
-Click CONFIGURE and change the service name to /testing/nifi, then deploy.
+Click CONFIGURE and change the service name to /testing/prometheus, then deploy.
 
-    The slashes in your service name are interpreted as folders. You are deploying nifi in the /testing folder. Any user with access to the /testing folder will have access to the service.
+    The slashes in your service name are interpreted as folders. You are deploying prometheus in the /testing folder. Any user with access to the /testing folder will have access to the service.
 
 **Caution:** Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 and earlier versions do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.
 
@@ -238,4 +238,4 @@ To interact with your foldered service over the web directly, use http://<dcos-u
 
 Example:
 
-http://<dcos-url>/service/testing/nifi/v1/endpoints.
+http://<dcos-url>/service/testing/prometheus/v1/endpoints.
