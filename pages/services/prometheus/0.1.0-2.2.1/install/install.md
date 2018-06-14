@@ -11,9 +11,11 @@ The default DC/OS Prometheus Service installation provides reasonable defaults f
 
 ## Configuration Best Practices for Production
   
-    - Install Alert Manager with base\first build of framework , its recommended to install remaining framework without alert manager and alert manager check box not to be checked, all the rest of the prometheus servers should point to the same alert manager which was installed with base\first build,to do this you would require to pass alert manager endpoint as target to your  prometheus servers.
+    - Install Alert Manager with base\first build of framework , its recommended to install remaining framework without alert manager and alert manager check box not to be checked, 
+    all the rest of the prometheus servers should point to the same alert manager which was installed with base\first build,to do this you would require to pass alert manager endpoint as target to your  prometheus servers.
         
-    - Install global prometheus when required ,its recommended for global prometheus check box not to be checked until you require data to be federate from other salve prometheus servers,to federate data from promethes slave server to global prometheus,slave prometheus server endpoints to be passed as target into global prometheus server.
+    - Install global prometheus when required ,its recommended for global prometheus check box not to be checked until you require data to be federate from other salve prometheus servers,
+    To federate data from promethes slave server to global prometheus,slave prometheus server endpoints to be passed as target into global prometheus server.
       
 ## Prerequisites
    
@@ -66,7 +68,7 @@ dcos prometheus CLI commands are not automatically installed to your workstation
 ## Installing HA-alert manager without base build
 
  To install HA-Prometheus without alert manager , alert manager check box not to be checked under alert manager config.
- and to point HA-Prometheus server to base\first build HA-Alert manger we require to pass alert manager endpoint as target for each of HA-Prometheus services we run.
+ To point HA-Prometheus server to base\first build HA-Alert manger,we require to pass alert manager endpoint as target for each of HA-Prometheus services we run.
 
 ## Installing HA-global prometheus 
 
