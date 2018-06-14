@@ -43,13 +43,17 @@ The “disk” configuration value is denominated in MB. We recommend you set th
 
 Legacy Authorized Users File is not supported.
 
-## LDAP Integration, OpenID Connect and Apache Knox
+## LDAP Integration, TLS
 
-LDAP integration, OpenID Connect and Apache Knox is not supported.
+LDAP integration, TLS is not supported.
+https://prometheus.io/docs/introduction/faq/#why-don't-the-prometheus-server-components-support-tls-or-authentication?-can-i-add-those?
 
 
 ## Installation Limitations
 
-The minimum memory requirement for Prometheus installation is 512MB. 
-Prometheus installation will take time since the Prometheus application with base build launches alert manager is heavy in size (approx 1.10GB). 
-The approximate installation time required would be around 10~15 Minutes for a 2 Node Cluster.
+The minimum memory requirement for Prometheus installation is hard to determine as it depends on the machine to machine and requirement of organization,
+
+You could refer link to get an idea on how you can get and idea on Installation requirment https://www.robustperception.io/how-much-ram-does-my-prometheus-need-for-ingestion/
+
+Prometheus installation will take time since the Prometheus application with base build launches alert manager 
+The approximate installation time required would be around 5-10 Minutes for a HA-Prometheus Server and HA- Alert Manager.
