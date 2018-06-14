@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb show
 title: dcos edgelb show
-menuWeight: 40
-excerpt:
+menuWeight: 35
+excerpt: Show the pool definition for a specific pool name
 
 enterprise: false
 ---
