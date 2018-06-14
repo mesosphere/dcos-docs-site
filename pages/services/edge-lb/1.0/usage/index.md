@@ -54,25 +54,30 @@ A change to the load balancer pool (such as adding a secret) will trigger a rela
 
 ## Replacing a failed pod
 
-When a node goes down, Edge-LB does not automatically relocate the pools to a new node. You must issue a `pod replace` command to move pools. If a machine hosting a pod is permanently lost, manual intervention is required to discard the downed pod and reconstruct it on a new machine.
+By default, Edge-LB load balancer instances are tied to a given node; when the node goes down, Edge-LB does not automatically relocate the pod containing the Edge-LB load balancer instance to a new node. You must issue a `pod replace` command to the pool scheduler to tell it to start the load balancer instance on a new node. If a machine hosting a pod is permanently lost, manual intervention is required to discard the missing pod and start it on a new node.
 
-1. Install the `edgelb pool cli`:
+This can all be done using the dcos `edgelb-pool` subcommand (note that this is distinct from the `edgelb` subcommand, and must be installed separately if it has not yet been installed).
+
+1. Install the `edgelb-pool cli`:
 
 ```
 $ dcos package install edgelb-pool --cli --yes
 ```
-2. Get the name of the pool you need to relocate:
+
+2. Get the name of the pool that owns the pod you need to relocate:
 
 ```
 dcos edgelb show
 ```
-This should show all pool configurations. The pool you are relocating will be your value for `<pool-name>` below.
+
+This should show all pool configurations. The pool that has a missing pod will be your value for `<pool-name>` below.
 
 3. Get the name of the pod you need to replace (the one that was running on the removed public agent). This will be your value for `<pod-id>`.
 
 ```
 $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod list
 ```
+
 4. Use `<pod-id>` with the `pod replace` command:
 
 ```
