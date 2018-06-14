@@ -15,6 +15,9 @@ Out-of-band configuration modifications are not supported. The service's core re
 - If a task crashes, it will be restarted with the configuration known to the scheduler, not one modified out-of-band.
 - If a configuration update is initiated, all out-of-band modifications will be overwritten during the rolling update.
 
+Prometheus also does not offer durable long-term storage, anomaly detection, automatic horizontal scaling and user management. 
+Prometheus is not a dashboarding solution, it features a simple UI for experimentation with PromQL queries but relies on Grafana for dashboarding, adding some additional setup complexity.
+
 ## Scaling in
 
 To prevent accidental data loss, the service does not support reducing the number of pods.
