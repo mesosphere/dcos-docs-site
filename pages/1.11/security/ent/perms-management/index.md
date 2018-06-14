@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle: Permissions Management
 title: Permissions Management
 menuWeight: 30
-excerpt:
+excerpt: Managing permissions
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 The DC/OS Identity and Access Management system is designed to protect resources via fine-grained authorization.

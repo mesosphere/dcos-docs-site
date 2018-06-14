@@ -3,11 +3,11 @@ layout: layout.pug
 navigationTitle:  Cluster Link API
 title: Cluster Link API
 menuWeight: 3
-excerpt:
+excerpt: Managing cluster links with the Cluster Link API
 enterprise: true
 ---
 
-You use the Cluster Link API to manage cluster links.
+You can use the Cluster Link API to manage cluster links.
 
 # Routes
 
@@ -39,7 +39,7 @@ Content-Type: application/json
 
 All Cluster Link API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.11/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/ent/iam-api/#passing-an-authentication-token).
 
 The Cluster Link API also requires authorization via the following permissions:
 

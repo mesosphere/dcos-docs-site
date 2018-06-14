@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 600
-excerpt:
+excerpt: List of all configuration parameters for DC/OS Open Source installations
 
 enterprise: false
 ---
@@ -48,7 +48,7 @@ This topic provides configuration parameters available for [DC/OS](https://dcos.
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [dcos_overlay_enable](#dcos-overlay-enable)           | Block of parameters that specifies whether to enable DC/OS virtual networks. |
 | [dns_bind_ip_blacklist](#dns-bind-ip-blacklist)       | A list of IP addresses that DC/OS DNS resolvers cannot bind to.|
-| [dns_forward_zones](#dns-forward-zones)               | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers. |
+| [dns_forward_zones](#dns-forward-zones)               | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. |
 | [dns_search](#dns-search)                             | A space-separated list of domains that are tried when an unqualified domain is entered.  |
 | [master_dns_bindall](#master-dns-bindall)             | Indicates whether the master DNS port is open.  |
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
@@ -184,25 +184,21 @@ Indicates whether to enable DC/OS virtual networks.
 A list of IP addresses that DC/OS DNS resolvers cannot bind to.
 
 ### dns_forward_zones
-A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
+A list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
 
 A sample definition is as follows:
 
-```
+```yaml
 dns_forward_zones:
-- - "a.contoso.com"
- - - - "1.1.1.1"
-     - 53
-   - - "2.2.2.2"
-     - 53
-- - "b.contoso.com"
- - - - "3.3.3.3"
-     - 53
-   - - "4.4.4.4"
-     - 53
+a.contoso.com:
+- "1.1.1.1:53"
+- "2.2.2.2:53"
+b.contoso.com:
+- "3.3.3.3:53"
+- "4.4.4.4:53"
 ```
 
-In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
+In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded to `3.3.3.3:53` or `4.4.4.4:53`.
 
 ### dns_search
 A space-separated list of domains that are tried when an unqualified domain is entered (e.g., domain searches that do not contain &#8216;.&#8217;). The Linux implementation of `/etc/resolv.conf` restricts the maximum number of domains to 6 and the maximum number of characters the setting can have to 256. For more information, see [man /etc/resolv.conf](http://man7.org/linux/man-pages/man5/resolv.conf.5.html).
@@ -390,8 +386,8 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
 The <a href="https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/" target="_blank">REX-Ray</a> configuration for enabling external persistent volumes in Marathon. REX-Ray is a storage orchestration engine. The following is an example configuration.
 
     rexray_config:
-        rexray: 
-          loglevel: info 
+        rexray:
+          loglevel: info
           service: ebs
         libstorage:
           integration:

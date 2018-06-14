@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle:  Components
 title: Components
 menuWeight: 4
-excerpt:
+excerpt: Understanding DC/OS components
+
 ---
 
 <style type="text/css">
@@ -25,10 +26,9 @@ Mesosphere DC/OS Enterprise includes most of the open source DC/OS components bu
 
 From the top, DC/OS is a batteries-included container platform that handles container orchestration, package management, and security.
 
-From the bottom, DC/OS is an operating system built on top of [Apache Mesos](http://mesos.apache.org/) that handles cluster management and software defined networking while simplifying logging and metrics collection.
+From the bottom, DC/OS is an operating system built on top of [Apache Mesos](http://mesos.apache.org/) that handles cluster management and software defined networking, while simplifying logging and metrics collection.
 
-
-# Cluster Management
+# Cluster management
 
 DC/OS provides a way to view and operate a large number of individual machine-level systems as a single cluster-level system. It hides the complexity of Mesos, the distributed systems kernel, with higher level abstractions, interfaces, and tools. Cluster management is the core of that functionality, including the kernel, its dependencies, and its user interfaces.
 
@@ -427,7 +427,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 
 # Networking
 
-In a world where machines are are given numbers instead of names, tasks are scheduled automatically, dependencies are declaratively defined, and services run in distributed sets, network administration also needs to be elevated from plugging in cables to configuring software-defined networks. To accomplish this, DC/OS includes a fleet of networking components for routing, proxying, name resolution, virtual IPs, load balancing, and distributed reconfiguration.
+In a world where machines are given numbers instead of names, tasks are scheduled automatically, dependencies are declaratively defined, and services run in distributed sets, network administration also needs to be elevated from plugging in cables to configuring software-defined networks. To accomplish this, DC/OS includes a fleet of networking components for routing, proxying, name resolution, virtual IPs, load balancing, and distributed reconfiguration.
 
 <div data-role="collapsible">
 <h2 id="admin-router">Admin Router</h2>

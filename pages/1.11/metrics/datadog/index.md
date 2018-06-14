@@ -2,9 +2,12 @@
 layout: layout.pug
 title: Sending DC/OS Metrics to Datadog
 menuWeight: 3
-excerpt:
+excerpt: Sending DC/OS metrics to Datadog
+beta: false
 enterprise: false
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 The Datadog metrics plugin supports sending metrics from the DC/OS metrics service directly to [DatadogHQ](https://www.datadoghq.com/). The plugin includes the function of the Datadog agent. You must install a plugin on each node in your cluster. This plugin works with DC/OS 1.9.4 and higher.
 
@@ -24,7 +27,7 @@ For each node in your cluster, transfer your plugin binary and then add a system
 
 1.  On every master node:
     1. Download the plugin systemd service file from downloads.mesosphere.io: [datadog-plugin.service](https://downloads.mesosphere.io/dcos-metrics/plugins/datadog.service)
-    1. Copy the service file to `/etc/systemd/system/dcos-metrics-datadog.service`. Edit it, ensure that the role flag is set to 'master', and fill in your [Datadog API key](https://app.datadoghq.com/account/settings#api) 
+    1. Copy the service file to `/etc/systemd/system/dcos-metrics-datadog.service`. Edit it, ensure that the role flag is set to 'master', and fill in your [Datadog API key](https://app.datadoghq.com/account/settings#api)
 
         ```
         [Unit]
@@ -40,14 +43,14 @@ For each node in your cluster, transfer your plugin binary and then add a system
 
 1.  On every agent node:
     1. Download the plugin systemd service file from downloads.mesosphere.io: [datadog-plugin.service](https://downloads.mesosphere.io/dcos-metrics/plugins/datadog.service)
-    1. Copy the service file to `/etc/systemd/system/dcos-metrics-datadog.service`. Edit it, ensure that the role flag is set to 'agent', and fill in your [Datadog API key](https://app.datadoghq.com/account/settings#api) 
+    1. Copy the service file to `/etc/systemd/system/dcos-metrics-datadog.service`. Edit it, ensure that the role flag is set to 'agent', and fill in your [Datadog API key](https://app.datadoghq.com/account/settings#api)
 
         ```
         [Unit]
         Description=DC/OS Metrics Datadog Plugin
 
         [Service]
-        ExecStart=/opt/mesosphere/bin/dcos-metrics-datadog -dcos-role agent -datadog-key  <Datadog_API_key> 
+        ExecStart=/opt/mesosphere/bin/dcos-metrics-datadog -dcos-role agent -datadog-key  <Datadog_API_key>
         ```
 
     2. Reload the systemd state by running `sudo systemctl daemon-reload`.

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  System Requirements
-excerpt:
+excerpt: Hardware and software requirements for DC/OS Open Source
 title: System Requirements
 menuWeight: 000
 ---
@@ -12,10 +12,7 @@ You must have a single bootstrap node, an odd number of Mesos master nodes, and 
 
 ## Bootstrap node
 
-1 node with 2 cores, 16 GB RAM, 60 GB HDD. This is the node where DC/OS installation is run. This bootstrap node must also have:
-
-*   A high-availability (HA) TCP/Layer 3 load balancer, such as HAProxy, to balance the following TCP ports to all master nodes: 80, 443, 8080, 8181, 2181, 5050.
-*  An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
+DC/OS installation is run on a Bootstrap node. 1 node with 2 cores, 16 GB RAM, 60 GB HDD. 
 
 **Important:** The bootstrap node must be separate from your cluster nodes.
 
@@ -197,7 +194,17 @@ On each of your cluster nodes, use the following command to:
     **Tip:** It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.  
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+
+- For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
+
+- On Linux:
+````
+localectl set-locale LANG=en_US.utf8
+````
+
+- For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
+
 
 # Next steps
 

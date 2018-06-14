@@ -1,10 +1,12 @@
 ---
 layout: layout.pug
 navigationTitle:  User Management
-excerpt:
+excerpt: Managing user access
 title: User Management
 menuWeight: 201
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 Users are granted access to DC/OS by another authorized user. A default user is automatically created by the first user that logs in to the DC/OS cluster.
 

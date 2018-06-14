@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Cluster Links
 title: Cluster Links
 menuWeight: 3
-excerpt:
+excerpt: Manage links between clusters.
 enterprise: true
 ---
 
@@ -11,7 +11,7 @@ A cluster link is a _**unidirectional**_ relationship between a cluster and anot
 
 You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) and [dcos cluster unlink](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) commands and the [cluster link API](/1.11/administering-clusters/multiple-clusters/cluster-link-api). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
 
-You must be a superuser or have the appropriate cluster link [permission](/1.11/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
+You must be logged in as a superuser or have the appropriate cluster link [permission](/1.11/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
 
 
 # Enable access to cluster links using SSO
@@ -56,7 +56,7 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, it status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.11/administering-clusters/multiple-clusters/cluster-connections).
 
-# Remove a link to a 
+# Remove a link to a cluster
 
 To remove a link, `dcos cluster unlink` command and supply the **name** or **ID** of a linked cluster. For example:
 
@@ -92,14 +92,13 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
     ![swi linked cluster](/1.11/img/switch-linked-cluster.png)
 
-If you are superuser you can also switch to a linked cluster in the Linked Clusters tab.
+If you are logged in as a superuser you can also switch to a linked cluster in the Linked Clusters tab.
 
 1. Select **Cluster -> Linked Clusters**.
 
 1. At the far right of the cluster to switch to, click the vertical ellipsis and select **Switch**.
 
    ![swi linked cluster2](/1.11/img/switch-linked-cluster2.png)
-
 
 
 # Linking and switching cluster examples

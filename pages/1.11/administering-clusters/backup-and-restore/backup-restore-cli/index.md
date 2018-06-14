@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Backup and Restore CLI
 title: Backup and Restore CLI
 menuWeight: 0
-excerpt:
+excerpt: Backing up and restoring your cluster using the CLI
 
 enterprise: true
 ---

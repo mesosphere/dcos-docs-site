@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Metrics API
 title: Metrics API
 menuWeight: 1
-excerpt: >
-  You can use the Metrics API to
-  periodically poll for data about your
-  cluster, hosts, containers, and
-  applications. 
+excerpt: Using the Metrics API
+beta: false
 ---
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications.
 The Metrics API is just one way to get metrics from DC/OS. It is designed for occasional targeted access to specific

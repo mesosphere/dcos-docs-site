@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Frequently Asked Questions
 navigationTitle: FAQ
-menuWeight: 203
+menuWeight: 8
 oss: true
 ---
 

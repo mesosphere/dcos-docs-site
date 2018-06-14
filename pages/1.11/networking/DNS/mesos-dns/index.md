@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
-excerpt:
+excerpt: Understanding Mesos DNS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 [Mesos-DNS][1] provides service discovery within DC/OS clusters. It is fully integrated into DC/OS and allows applications and services on the cluster to find each other through the [domain name system (DNS)][2], similar to how services discover each other throughout the Internet.

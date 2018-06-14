@@ -15,15 +15,15 @@ You can easily view and update the configuration of a deployed app by using the 
 
 **Note:** The process for updating packages from the [DC/OS Catalog](/1.11/gui/catalog/) is different. For more information, see the [documentation](/1.11/deploying-services/config-universe-service/).
 
-# Update an Environment Variable
+# Update all Environment Variables
 
-Use the `dcos marathon app update` command from the DC/OS CLI to update any aspect of your service's JSON service definition. For instance, follow the instructions below to update the environment variable (`env` field) of the service definition.
-
-A single element of the [`env` field][2] can be updated by specifying a JSON string in a command argument.
+Use the `dcos marathon app update` command from the DC/OS CLI to update any aspect of your service's JSON service definition. For instance, follow the instructions below to update the environment variable ([`env` field][1]) of the service definition.
 
 ```bash
 dcos marathon app update test-app env='{"APISERVER_PORT":"25502"}'
 ```
+
+This will replace the entire `env` field by the new value specified.
 
 Now, run the command below to see the result of your update:
 
@@ -31,9 +31,9 @@ Now, run the command below to see the result of your update:
 dcos marathon app show test-app | jq '.env'
 ```
 
-# Update all Environment Variables
+## Using a JSON File
 
-The entire [`env` field][1] can also be updated by specifying a JSON file in a command argument.
+The [`env` field][1] can also be updated by specifying a JSON file in a command argument.
 
 First, save the existing environment variables to a file:
 
@@ -66,4 +66,3 @@ dcos marathon app show test-app | jq '.env'
 ```
 
  [1]: /1.11/cli/
- [2]: https://mesosphere.github.io/marathon/docs/task-environment-vars.html

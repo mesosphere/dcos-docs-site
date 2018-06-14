@@ -3,17 +3,17 @@ layout: layout.pug
 navigationTitle:  Load Balancing and Virtual IPs (VIPs)
 title: Load Balancing and Virtual IPs (VIPs)
 menuWeight: 0
-excerpt:
+excerpt: Understanding load balancing and virtual IPs
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-DC/OS provides an east-west layer 4 load balancer (minuteman) that enables multi-tier microservices architectures. 
+DC/OS provides an east-west layer 4 load balancer (minuteman) that enables multi-tier microservices architectures.
 
-It acts as a TCP layer 4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency. 
+It acts as a TCP layer 4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency.
 
 The features include:
 - Distributed load balancing of applications.
@@ -37,14 +37,14 @@ Keep long-running persistent connections, otherwise, you can quickly fill up the
 
 #### Health checks
 Use Mesos health checks. Mesos health checks are surfaced to the load balancing layer. Marathon only converts **command** [health checks](/1.11/deploying-services/creating-services/health-checks/) to Mesos health checks. You can simulate HTTP health checks via a command similar to:
- 
+
  ```bash
  test "$(curl -4 -w '%{http_code}' -s http://localhost:${PORT0}/|cut -f1 -d" ")" == 200
  ```
- 
+
  This ensures the HTTP status code returned is 200. It also assumes your application binds to localhost. The `${PORT0}` is set as a variable by Marathon. You should not use TCP health checks because they may provide misleading information about the liveness of a service.
 
-**Important:** Docker container command health checks are run inside the Docker container. For example, if cURL is used to check NGINX, the NGINX container must have cURL installed, or the container must mount `/opt/mesosphere` in RW mode.
+**Note:** Docker container command health checks are run inside the Docker container. For example, if cURL is used to check NGINX, the NGINX container must have cURL installed, or the container must mount `/opt/mesosphere` in RW mode.
 
 ## Troubleshooting
 

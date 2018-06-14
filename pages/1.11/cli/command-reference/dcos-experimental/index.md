@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  dcos experimental
 title: dcos experimental
 menuWeight: 6
-excerpt:
+excerpt: List of commands that are under development
 
 enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
+
 # Description
-Manage commands that under development and subject to change.
+This section lists commands that are under development and subject to change.
 
 # Usage
 
@@ -27,11 +27,3 @@ dcos experimental [OPTION]
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
 | `--version, v`   |             | Print version information. |  
-
-# Child commands
-
-| Command | Description |
-|---------|-------------|
-| [dcos experimental package add](/1.11/cli/command-reference/dcos-experimental/dcos-experimental-package-add/)   |  Add a DC/OS package to DC/OS. |     
-| [dcos experimental package build](/1.11/cli/command-reference/dcos-experimental/dcos-experimental-package-build/)   |  Build a package locally to be added to DC/OS or to be shared with Universe. |     
-| [dcos experimental package start](/1.11/cli/command-reference/dcos-experimental/dcos-experimental-package-start/)   |  Start a service from a non-native DC/OS package. See `dcos experimental package add` for information on how to add a package to DC/OS. |   

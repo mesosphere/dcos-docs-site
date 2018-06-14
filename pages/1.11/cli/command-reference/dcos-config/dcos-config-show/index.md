@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos config show
 title: dcos config show
 menuWeight: 2
-excerpt:
+excerpt: How to show the cluster configuration file
 
 enterprise: false
 ---
@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Print the DC/OS configuration file contents of the currently [attached](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster.
+The dcos config show command will display the DC/OS configuration file contents of the currently [attached](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster.
 
 # Usage
 

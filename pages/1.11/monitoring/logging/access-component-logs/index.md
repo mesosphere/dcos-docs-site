@@ -3,11 +3,11 @@ layout: layout.pug
 navigationTitle:  Accessing system and component logs
 title: Accessing system and component logs
 menuWeight: 1
-excerpt:
+excerpt: Managing user access to system and component logs
 beta: true
 enterprise: true
 ---
-
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 You can restrict user access to system and component logs.
 
 Here is the [permission](/1.11/security/ent/perms-reference/) that is required to view the system and component logs:

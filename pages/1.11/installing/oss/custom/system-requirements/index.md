@@ -1,8 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle:  System Requirements
-excerpt:
+excerpt: Hardware and software requirements for DC/OS Open Source
 title: System Requirements
+render: mustache
 menuWeight: 000
 ---
 
@@ -13,11 +14,10 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 ## Bootstrap node
 
-1 node with 2 cores, 16 GB RAM, 60 GB HDD. This is the node where DC/OS installation is run. This bootstrap node must also have:
+*  DC/OS installation is run on a Bootstrap node. 1 node with 2 cores, 16 GB RAM, 60 GB HDD. 
+*  The bootstrap node is only used during the installation and upgrade process, so there are no specific recommendations for high performance storage or separated mount points.
 
-*  A high-availability (HA) TCP/Layer 3 load balancer, such as HAProxy, to balance the following TCP ports to all master nodes: 80, 443.
-*  An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
-*  Since the bootstrap node is only used during the installation and upgrade process, there are no specific recommendations for high performance storage or separated mount points.
+ **Important:** The bootstrap node must be separate from your cluster nodes.
 
 ## Cluster nodes
 
@@ -213,10 +213,19 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-    **Tip:** It may take a few minutes for your node to come back online after reboot.
+    **Note:** It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.  
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+
+- For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
+
+- On Linux:
+````
+localectl set-locale LANG=en_US.utf8
+````
+
+- For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
 
 # Next steps
 

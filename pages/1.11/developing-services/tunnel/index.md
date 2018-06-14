@@ -2,12 +2,11 @@
 layout: layout.pug
 title: Access by Proxy and VPN using DC/OS Tunnel
 menuWeight: 10
-excerpt:
+excerpt: How to access your cluster by proxy and VPN using a DC/OS tunnel
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 When developing services on DC/OS, you may find it helpful to access your cluster from your local machine via SOCKS proxy, HTTP proxy, or VPN. For instance, you can work from your own development environment and immediately test against your DC/OS cluster.
@@ -56,7 +55,7 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
         </ul>
         </td>
   </tr>
-  
+
   <tr>
       <th>HTTP (transparent)</th>
       <td>
@@ -73,7 +72,7 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
           </ul>
           </td>
     </tr>
-    
+
     <tr>
           <th>HTTP (standard)</th>
           <td>
@@ -89,7 +88,7 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
               </ul>
               </td>
      </tr>
-     
+
      <tr>
                <th>VPN</th>
                <td>
@@ -109,7 +108,7 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
                    </ul>
                    </td>
       </tr>
-    
+
 </table>
 
 # Using DC/OS Tunnel

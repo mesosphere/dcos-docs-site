@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos cluster attach
 title: dcos cluster attach
 menuWeight: 2
-excerpt:
+excerpt: How to attach the CLI to a connected or linked cluster.
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Attach the CLI to a connected or [linked](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) cluster. When you run the [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup) command, the cluster is automatically attached.
+The dcos cluster attach command will attach the CLI to a connected or [linked](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) cluster. When you run the [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup) command, the cluster is automatically attached.
 
 # Usage
 

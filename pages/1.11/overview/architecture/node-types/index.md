@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Node Types
 title: Node Types
 menuWeight: 1
-excerpt:
-
+excerpt: Understanding the three types of nodes
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 A DC/OS node is a virtual or physical machine on which DC/OS components run. DC/OS nodes are networked together to form a DC/OS cluster.
@@ -17,7 +16,7 @@ A DC/OS cluster is composed of three types of nodes: master nodes, private agent
 
 It is recommended to use different types of nodes to be set up in different networks (private, public, master) as seen in the below diagram.
 
-Protect your cluster from the outside with firewall settings specific for the node type. 
+Protect your cluster from the outside with firewall settings specific for the node type.
 
 **Note:** You must have the internal communication between the different nodes as open as possible:
 - Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.

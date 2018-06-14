@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Stuck Deployments
 title: Stuck Deployments
 menuWeight: 30
-excerpt:
+excerpt: Understanding offer matching and failed deployments
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 # How Offer Matching Works
@@ -47,4 +47,4 @@ There are several reasons why your service or pod may fail to deploy. Some possi
   ```
 
 - Your application or application group definition is otherwise badly configured.
-  The DC/OS web interface performs some validation of Marathon application and pod definitions. You can also use the [marathon-validate](https://github.com/dcos-labs/marathon-validate) script to validate your app or group definition locally, before you deploy it to DC/OS.
+  The DC/OS web interface performs some validation of Marathon application and pod definitions.
