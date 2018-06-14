@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  V2 Pool Reference
 title: V2 Pool Reference
 menuWeight: 85
-excerpt:
+excerpt: Reference for all Edge-LB pool configurations options in the V2 API
 
 enterprise: false
 ---
 
-A reference of all Edge-LB pool configurations options in the V2 API.
 
 # V2 Pool Reference
 
@@ -21,7 +20,7 @@ The tables below describe all possible configuration options. The majority of fi
 - Always set a default for arrays.
 - The purpose of "nullable" is to allow the output JSON field to be set to the golang "zero value". Without "nullable", the field will be removed altogether from the resulting JSON.
 - Actual validation is done in the code, not expressed in swagger.
-- Since an empty boolean is interpreted as "false", don't set a default.
+- Since an empty boolean is interpreted as "false", do not set a default.
 - CamelCase.
 - Swagger will only do enum validation if it is a top level definition.
 

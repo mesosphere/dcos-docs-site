@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb create
 title: dcos edgelb create
-menuWeight: 30
-excerpt:
+menuWeight: 5
+excerpt: Create a single pool given a definition file written in JSON or YAML
 
 enterprise: false
 ---

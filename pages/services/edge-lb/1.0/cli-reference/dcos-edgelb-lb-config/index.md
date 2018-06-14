@@ -2,14 +2,15 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb lb-config
 title: dcos edgelb lb-config
-menuWeight: 90
-excerpt:
+menuWeight: 20
+excerpt: Display the running load-balancer config associated with a pool
 
 enterprise: false
 ---
 
 # Description
-Shows the running load-balancer config associated with the pool.
+Shows the running load-balancer config associated with the pool. You can view the active load balancer configuration for all load balancers in a pool.
+
 
 # Usage
 

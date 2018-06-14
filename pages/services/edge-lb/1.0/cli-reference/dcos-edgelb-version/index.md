@@ -2,14 +2,14 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb version
 title: dcos edgelb version
-menuWeight: 10
-excerpt:
+menuWeight: 70
+excerpt: Display the current Edge-LB version
 
 enterprise: false
 ---
 
 # Description
-Edge-LB version.
+Displays the current Edge-LB version.
 
 # Usage
 

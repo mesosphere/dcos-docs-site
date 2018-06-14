@@ -2,11 +2,12 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb template update
 title: dcos edgelb template update
-menuWeight: 120
-excerpt:
+menuWeight: 60
+excerpt: Update a custom config template for a pool of load balancers
 
 enterprise: false
 ---
+The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
 # Description
 Updates a custom config template for a pool of load-balancers.
