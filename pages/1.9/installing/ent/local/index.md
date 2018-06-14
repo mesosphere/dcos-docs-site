@@ -2,18 +2,14 @@
 layout: layout.pug
 navigationTitle:  Local
 title: Local
-menuWeight: 3
+menuWeight: 2
 excerpt:
 
 enterprise: true
 ---
 
 
-
-
-
-
-This installation method uses Vagrant to create a cluster of virtual machines on your local machine that can be used for demos, development, and testing with DC/OS.
+The local installation method uses Vagrant to create a cluster of virtual machines on your local machine that can be used for demos, development, and testing with DC/OS.
 
 ## System requirements
 
