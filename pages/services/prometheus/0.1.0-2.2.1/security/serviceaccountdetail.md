@@ -22,7 +22,7 @@ In this step, a 2048-bit RSA public-private key pair is created uses the Enterpr
 Create a public-private key pair and save each value into a separate file within the current directory.
 
    ```shell
-   dcos security org service-accounts keypair prometheus-private-key.pem nifi-public-key.pem
+   dcos security org service-accounts keypair prometheus-private-key.pem prometheus-public-key.pem
    ```  
 **Tip:** You can use the [DC/OS Secret Store](https://docs.mesosphere.com/1.10/security/ent/secrets/) to secure the key pair.
 
@@ -31,7 +31,7 @@ Create a public-private key pair and save each value into a separate file within
 From a terminal prompt, create a new service account (<service-account-id>) containing the public key (<your-public-key>.pem).
 
    ```shell
-   dcos security org service-accounts create -p prometheus-public-key.pem -d "dcos_nifi" <service name>
+   dcos security org service-accounts create -p prometheus-public-key.pem -d "dcos_prometheus" <service name>
    ``` 
 Tip: You can verify your new service account using the following command.
 
@@ -42,7 +42,7 @@ Tip: You can verify your new service account using the following command.
 
 Create a secret (prometheus/<secret-name>) with your service account (<service-account-id>) and private key specified (<private-key>.pem).
 
-**Tip:** If you store your secret in a path that matches the service name (e.g. service name and secret path are prometheus), then only the service named nifi can access it.
+**Tip:** If you store your secret in a path that matches the service name (e.g. service name and secret path are prometheus), then only the service named prometheus can access it.
 
 ### Permissive     
 
