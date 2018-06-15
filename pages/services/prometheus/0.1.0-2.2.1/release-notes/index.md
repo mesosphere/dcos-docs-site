@@ -19,7 +19,12 @@ Released first version of Service Guide with following topics:
     - Quick Start
     - Connecting Clients
     - Managing
+    - Security
+    - Troubleshooting
     - API Reference
+    - Command-reference
+    - Connecting-clients
+    - Deploy-best-practice
     - Limitations
     - Supported Versions
     - Release Notes
