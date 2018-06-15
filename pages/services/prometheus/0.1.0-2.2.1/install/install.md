@@ -65,7 +65,7 @@ dcos prometheus CLI commands are not automatically installed to your workstation
    
    By default , prometheus will launch HA-prometheus server and to spin up with HA-Alert manager , alert manager check box need to be checked.
    
-## Installing HA-alert manager without base build
+## Installing HA-Prometheus without base build and pointo to base build HA-Alert Manager :
 
  To install HA-Prometheus without alert manager , alert manager check box not to be checked under alert manager config.
  To point HA-Prometheus server to base\first build HA-Alert manger,we require to pass alert manager endpoint as target for each of HA-Prometheus services we run.
@@ -76,6 +76,12 @@ To federate data from slave prometheus to global prometheus,HA-global prometheus
 To install global prometheus, enable global prometheus box to be checked and slave prometheus end points needs to be passed as target with in single quotes comma separated.
 
 Note: enable global prometheus box only to be checked when you require federation else its not recommended to be checked.
+
+## Install HA-Prometheus standalone with no linkage to Alert Manager\Global Prometheus:
+
+To Install HA-Prometheus server without alert manager\global prometheus , you would require to simply not to check alert manager check box , alert manager target check box and global prometheus check box.
+
+With these configuration HA-Prometheus server would be launched without pointing to HA-Alert Manager.
 
 ## Installing multiple instances
 
