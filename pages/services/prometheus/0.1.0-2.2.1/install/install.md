@@ -65,7 +65,7 @@ dcos prometheus CLI commands are not automatically installed to your workstation
    
    By default , prometheus will launch HA-prometheus server and to spin up with HA-Alert manager , alert manager check box need to be checked.
    
-## Installing HA-Prometheus without base build and pointo to base build HA-Alert Manager :
+## Installing HA-Prometheus without Alert Manager and poin to HA-Alert Manager launched with base build:
 
  To install HA-Prometheus without alert manager , alert manager check box not to be checked under alert manager config.
  To point HA-Prometheus server to base\first build HA-Alert manger,we require to pass alert manager endpoint as target for each of HA-Prometheus services we run.
