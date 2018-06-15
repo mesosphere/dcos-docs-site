@@ -11,6 +11,17 @@ enterprise: false
 Prometheus is monitoring and alerting toolkit which accepts data in the form of timeseries data base.
 Prometheus works well for recording any purely numeric time series. It fits both machine-centric monitoring as well as monitoring of highly dynamic service-oriented architectures.
 
+To monitor your services using Prometheus, your services need to expose a Prometheus endpoint. This endpoint is a HTTP interface that exposes a list of metrics and the current value of the metrics.
+
+Prometheus has a wide range of service discovery options to find your services and start retrieving metric data from them. The Prometheus server polls the metrics interface on your services and stores the data.
+
+In the Prometheus UI, you can write queries in the PromQL language to extract metric information.
+
+For example:
+
+topk(3, sum(rate(container_cpu_time[5m]) by (app, proc)))
+
+will return the top 3 most CPU consuming services.
 
 DC/OS Prometheus Service is an automated service that makes it easy to deploy and manage Prometheus on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all complexities, that are traditionally associated with managing a cluster of Prometheus nodes.
 
