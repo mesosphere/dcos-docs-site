@@ -208,7 +208,7 @@ You must include spare capacity in this list, so that if one of the whitelisted 
 
 # Integration with DC/OS access controls
 
-In DC/OS 1.10 and later versions, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, staging/nifi and production/nifi.
+In DC/OS 1.10 and later versions, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, staging/prometheus and production/prometheus.
 
 Steps:
 
