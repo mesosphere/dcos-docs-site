@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: NiFi 0.2.0-1.5.0
+navigationTitle: Prometheus 0.1.0-2.2.1
 title: NiFi 0.2.0-1.5.0
 menuWeight: 50
-excerpt: Overview of DC/OS Apache NiFi 0.2.0-1.5.0
+excerpt: Overview of DC/OS Prometheus 0.1.0-2.2.1
 featureMaturity:
 enterprise: false
 ---
