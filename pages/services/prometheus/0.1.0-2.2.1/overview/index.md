@@ -34,7 +34,7 @@ The following components work together to deploy and maintain the service.
 
 - Packaging
 
-    Prometheus is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache Nifi, this Marathon app is the scheduler for the service
+    Prometheus is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For Prometheus this Marathon app is the scheduler for the service
 
     For further discussion of DC/OS components, see the [architecture documentation](https://docs.mesosphere.com/latest/overview/architecture/components/).
 
