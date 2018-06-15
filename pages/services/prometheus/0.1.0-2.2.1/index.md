@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Prometheus 0.1.0-2.2.1
-title: NiFi 0.2.0-1.5.0
+title: Prometheus 0.1.0-2.2.1
 menuWeight: 50
 excerpt: Overview of DC/OS Prometheus 0.1.0-2.2.1
 featureMaturity:
