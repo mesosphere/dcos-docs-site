@@ -308,7 +308,7 @@ To install DC/OS:
 
 8.  Enter your administrator username and password.
 
-    ![alt text](/1.11/img/ui-installer-auth2.png)
+    ![Auth page](/1.11/img/ui-installer-auth2.png)
 
     You are done!
 
