@@ -8,7 +8,7 @@ menuWeight: 1
 
 # Overview
 
-For some stateful services, such as Jenkins/Velocity, it can be convenient to mount a shared network drive to every node. A shared network drive makes it possible to launch the task on a new node if the node in use becomes unavailable.
+For some stateful services, such as Jenkins, it can be convenient to mount a shared network drive to every node. A shared network drive makes it possible to launch the task on a new node if the node in use becomes unavailable.
 
 **Note:** This example uses CoreOS and systemd and has not been tested in other environments.
 
