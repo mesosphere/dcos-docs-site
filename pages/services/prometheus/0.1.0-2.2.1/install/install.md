@@ -79,7 +79,7 @@ Note: enable global prometheus box only to be checked when you require federatio
 
 ## Install HA-Prometheus standalone with no linkage to Alert Manager\Global Prometheus:
 
-To Install HA-Prometheus server without alert manager\global prometheus , you would require to simply not to check alert manager check box , alert manager target check box and global prometheus check box.
+To Install HA-Prometheus server without alert manager\global prometheus , you should not check on alert manager check box , alert manager target check box and global prometheus check box.
 
 With these configuration HA-Prometheus server would be launched without pointing to HA-Alert Manager.
 
