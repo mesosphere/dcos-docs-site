@@ -93,6 +93,7 @@ example/kafka-2-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 
 #### Install the Service
 
+
 Install the DC/OS {{ model.techName }} service with the following options in addition to your own:
 ```json
 {
@@ -145,7 +146,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
         "service_account_secret": "<secret path>",
         "security": {
             "transport_encryption": {
-                "enabled": true
+                "enabled": true,
             },
             "ssl_authentication": {
                 "enabled": true
