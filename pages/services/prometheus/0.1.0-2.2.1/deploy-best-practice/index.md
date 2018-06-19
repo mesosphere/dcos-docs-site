@@ -9,6 +9,8 @@ enterprise: false
 ---
 # Deployment Best Practices
 
+Note that the Node Exporter is best run on the host system, uncontainerized, so that it can cleanly expose all the host system metrics.
+
 ## Configuration Best Practices for Production
 ## Hardware Sizing Recommendations
 
