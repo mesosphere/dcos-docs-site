@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 400
-excerpt: Troubleshooting a DC/OS Enterprise installation
+
+excerpt: Troubleshooting DC/OS installation issues
 
 enterprise: false
 ---
 
-
-
 # <a name="general"></a>General troubleshooting approach
 
-1.  Verify you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
+1.  Verify that you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
+
 
     ## <a name="ip-detect-script"></a>IP detect script
 
@@ -57,7 +57,9 @@ enterprise: false
 
 1. Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
+
    Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
+
 
    ```bash
    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Installing DC/OS on cloud services
 title: DC/OS Cloud Installation Options
 navigationTitle: Cloud
 menuWeight: 0

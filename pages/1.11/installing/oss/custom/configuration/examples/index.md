@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Examples
-excerpt:
+excerpt: Common example configurations for DC/OS installation
 title: Examples
 menuWeight: 700
 ---
@@ -369,8 +369,9 @@ cosmos_config:
   package_storage_uri: file:///var/lib/dcos/cosmos/packages
 ```
 
-## <a name="custom-checks"></a>
-DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and custom health checks defined for:
+
+## <a name="custom-checks"></a>DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and custom health checks defined for:
+
 
 - A user Marathon instance (`user-marathon-on-marathon`)
 - Local mounts on masters (`master-mounts`)

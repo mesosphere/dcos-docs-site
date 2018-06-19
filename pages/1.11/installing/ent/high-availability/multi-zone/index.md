@@ -3,17 +3,14 @@ layout: layout.pug
 navigationTitle:  Multiple Zones
 title: Multiple Zones
 menuWeight: 1
-excerpt:
+excerpt: Setting up multiple-zone configurations
 beta: true
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 DC/OS supports multiple zone (multi-AZ) configurations. This topic describes the setup recommendations and caveats.
 
-**Important:** 
+**Important:**
 
 -  The following multi-AZ setups have not been explicitly tested or verified.
 - A typical DC/OS cluster has all master and agent nodes in the same zone. The cost of having masters spread across zones usually outweighs the benefits.
@@ -28,7 +25,7 @@ All DC/OS masters are present in a single zone, but the agents can span multiple
 - Any DC/OS service schedulers should be scheduled to the same zone as masters (e.g., by using constraints).
 - For ease of failover of apps between zones, ensure that apps do not depend on zone-level resources or that those resources are properly replicated and migrated on failover. Also, ensure there is enough spare capacity in each zone to handle failover workload.
 - If an agent-only zone fails, all other zones will continue to function normally. Apps from the failed zone will be rescheduled into other zones as long as there is spare capacity.
-- If an agent-only zone gets partitioned from the masters-containing zone, apps will continue to run in that zone but schedulers might “reschedule” copies of the apps into other zones. 
+- If an agent-only zone gets partitioned from the masters-containing zone, apps will continue to run in that zone but schedulers might “reschedule” copies of the apps into other zones.
 - If a masters-containing zone fails, apps in other zones continue to run. However, app updates or rescheduling of failed apps is not possible until a quorum of masters come up.
 - The total cross-sectional bandwidth between zones is limited. This means that performance can be degraded for data (I/O) intensive DC/OS services if deployed across zones.
 

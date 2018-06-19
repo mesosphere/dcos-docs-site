@@ -3,9 +3,10 @@ layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 0
-render: mustache  
-excerpt: Understanding system requirements for node settings
 
+excerpt: Hardware and software requirements for DC/OS Enterprise deployments
+
+render: mustache  
 enterprise: true
 ---
 
@@ -47,7 +48,6 @@ There are many mixed workloads on the masters. Workloads that are expected to be
 
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
-
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU

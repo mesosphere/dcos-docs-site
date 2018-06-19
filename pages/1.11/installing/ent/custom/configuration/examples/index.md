@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Examples
 title: Examples
 menuWeight: 700
-excerpt:
+excerpt: Common example configurations for DC/OS Enterprise
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 This topic provides common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
@@ -374,8 +372,8 @@ cosmos_config:
   package_storage_uri: file:///var/lib/dcos/cosmos/packages
 ```
 
-## <a name="custom-checks"></a>
-DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and custom health checks defined for:
+
+## <a name="custom-checks"></a>DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and custom health checks defined for:
 
 - A user Marathon instance (`user-marathon-on-marathon`)
 - Local mounts on masters (`master-mounts`)

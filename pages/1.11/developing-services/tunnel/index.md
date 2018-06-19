@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Access by Proxy and VPN using DC/OS Tunnel
 menuWeight: 10
-excerpt: How to access your cluster by proxy and VPN using a DC/OS tunnel
+excerpt: Accessing your cluster by proxy and VPN using a DC/OS tunnel
 
 enterprise: false
 ---

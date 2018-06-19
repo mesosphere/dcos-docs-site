@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Using the DC/OS automated CLI installer
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200

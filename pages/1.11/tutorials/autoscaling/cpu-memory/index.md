@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Autoscaling Marathon services using CPU and memory
+navigationTitle:  Autoscaling Marathon services using CPU and memory
+title: Tutorial - Autoscaling Marathon services using CPU and memory
 menuWeight: 0
-excerpt:
+excerpt: Autoscaling Marathon services using CPU and memory
 
 enterprise: false
 ---
@@ -32,13 +31,13 @@ Periodically, `marathon-autoscale.py` will monitor the aggregate CPU and memory 
 SSH to the system where you will run `marathon-autoscale.py` and install it.
 
 1.  SSH to the node where you will run `marathon-autoscale.py`, where node ID (`<mesos-id>`) is the node where you want to run the app.
-    
+
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
-    
+
     **Tip:** Run `dcos node` to get the available node IDs.
-    
+
 1.  Clone the [autoscale][13] GitHub repository to your node.
 
     ```bash
@@ -52,7 +51,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
     ```bash
     cd marathon-autoscale
     ```
-    
+
 1.  Enter this command to run the application:
 
     ```bash
@@ -60,7 +59,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
     ```
 
     You will be prompted for the following parameters:
-   
+
     ```bash
     # Fully qualified domain name or IP of the Marathon host (without http://).
     Enter the DNS hostname or IP of your Marathon Instance : ip-**-*-*-***
@@ -77,7 +76,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
     # The ceiling for the number of instances to stop scaling out EVEN if thresholds are crossed.
     Enter the Max instances that should ever exist for this application (ie. 20) : 10
     ```
-    
+
 For more information, see the [Marathon-Autoscale GitHub](https://github.com/mesosphere/marathon-autoscale) repository.
 
  [1]: /1.11/installing/

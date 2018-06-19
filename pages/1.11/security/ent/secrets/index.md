@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Secrets
 title: Secrets
 menuWeight: 60
-excerpt: Understanding the Secret store
+excerpt: Understanding the Secret Store
 
 enterprise: true
 ---

@@ -1,15 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Deploying Services Using a Custom
-  Marathon
+navigationTitle:  Deploying Services Using a Custom Marathon Instance
+title: Deploying Services Using a Custom Marathon Instance
 menuWeight: 39
-excerpt:
+excerpt: Using a basic, non-native instance of Marathon
 enterprise: true
 ---
 
-This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. 
+This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas.
 
 The basic procedure does not support [secrets](/1.11/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.11/deploying-services/marathon-on-marathon/advanced/).
 
@@ -31,7 +29,7 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
    ```bash
    dcos node ssh --master-proxy --mesos-id=<agent-id>
    ```
-   
+
 1.  Navigate to `/var/lib/dcos` and create a file named `mesos-slave-common` with these contents, where `<myrole>` is the name of your role.
 
     ```bash
@@ -42,33 +40,33 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
     ```bash
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
-    
+
 1.  Add the node back to your cluster.
 
     1.  Reload the systemd configuration.
-    
+
         ```bash
         ﻿⁠⁠sudo systemctl daemon-reload
         ```
-        
+
     1.  Remove the `latest` metadata pointer on the agent node:
-    
+
         ```bash
         ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
         ```
-        
+
     1.  Start your agents with the newly configured attributes and resource specification⁠⁠.
-    
+
         ```bash
         sudo systemctl start dcos-mesos-slave
         ```
-        
+
         **Tip:** You can check the status with this command:
-        
+
         ```bash
         sudo systemctl status dcos-mesos-slave
         ```
-        
+
 1.  Repeat these steps for each additional node.
 
 ## Dynamic Reservations
@@ -129,19 +127,19 @@ curl -i -k \
 }' \
       -X POST "`dcos config show core.dcos_url`/mesos/api/v1"
 ```
-        
-# Step 2 - Install a Non-Native Marathon Instance with Assigned Role
-In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned. 
 
-1.  Create a custom JSON config file and save as `marathon-config.json`. This file is used to install the custom non-native Marathon instance. 
-   
+# Step 2 - Install a Non-Native Marathon Instance with Assigned Role
+In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned.
+
+1.  Create a custom JSON config file and save as `marathon-config.json`. This file is used to install the custom non-native Marathon instance.
+
     ```json
     {
       "marathon": {
          "mesos_role": "<myrole>",
          "role": "<myrole>"
          }
-    } 
+    }
     ```
 
 1.  Install the Marathon package from Universe with the custom JSON configuration specified (`marathon-config.json`).
@@ -151,7 +149,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     ```
 
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required. 
+In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required.
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -165,14 +163,14 @@ In this step, a Marathon Service Account is created. Depending on your [security
     dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
     ```
 
-1.  Create a new service account called `<service-account-id>`, with the public key specified (`<public-key>.pem`). 
+1.  Create a new service account called `<service-account-id>`, with the public key specified (`<public-key>.pem`).
 
     ```bash
     dcos security org service-accounts create -p <public-key>.pem -d "Non-native Marathon service account" <service-account-id>
     ```
-    
+
 # Step 4 - Assign Permissions (Strict mode only)
-In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes. 
+In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes.
 
 All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/).
 
@@ -219,44 +217,44 @@ In this step, a user is granted access to the non-native Marathon instance.
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
     ### Disabled
-    
+
     -   Full access
-    
+
         ```bash
         dcos:adminrouter:service:<service-name> full
         dcos:service:marathon:<service-name>:services:/ full
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
         ```
-        
+
     -  Access to an individual service or group is not supported in disabled security mode.
-    
+
     ### Permissive
-    
+
     -  **Full access**
-    
+
         ```bash
         dcos:adminrouter:service:<service-name> full
         dcos:service:marathon:<service-name>:services:/ full
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
-        ``` 
-    
+        ```
+
     -  **Access to an individual service or group**
-    
-       Specify the service or group (`<service-or-group>`) and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`. 
-    
+
+       Specify the service or group (`<service-or-group>`) and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`.
+
        ```bash
        dcos:adminrouter:service:<service-name> full
        dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
        ```
-       
+
     ### Strict
-      
+
     -  **Full access**
-    
+
         ```bash
         dcos:adminrouter:service:<service-name> full
         dcos:service:marathon:<service-name>:services:/ full
@@ -270,11 +268,11 @@ In this step, a user is granted access to the non-native Marathon instance.
         dcos:mesos:master:framework:role:<myrole> read
         dcos:mesos:master:task:app_id:/ read
         ```  
-            
+
     -  **Access to an individual service or group**
-    
-       Specify the service or group (`<service-or-group>`), service name (`<service-name>`), role (`<myrole>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`. 
-    
+
+       Specify the service or group (`<service-or-group>`), service name (`<service-name>`), role (`<myrole>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`.
+
        ```bash
        dcos:adminrouter:service:<service-name> full
        dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
@@ -288,7 +286,7 @@ In this step, a user is granted access to the non-native Marathon instance.
        dcos:mesos:master:framework:role:<myrole> read
        dcos:mesos:master:task:app_id:/<service-or-group> read
        ```
-       
+
 1.  Click **ADD PERMISSIONS** and then **Close**.
 
 # Step 6 - Access the Non-Native Marathon Instance
@@ -299,7 +297,7 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 1.  Enter your username and password and click **LOG IN**.
 
     ![Log in DC/OS](/1.11/img/gui-installer-login-ee.gif)
-    
+
     You are done!
-    
+
     ![Marathon on Marathon](/1.11/img/mom-marathon-gui.png)

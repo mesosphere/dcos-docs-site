@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
-excerpt:
-title: DC/OS 101
+navigationTitle:  DC/OS 101
+excerpt: Understanding the basics of DC/OS
+title: Tutorial - DC/OS 101
 menuWeight: 0
 ---
 

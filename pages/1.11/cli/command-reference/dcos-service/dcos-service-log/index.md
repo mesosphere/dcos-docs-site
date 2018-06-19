@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos service log
 title: dcos service log
 menuWeight: 0
-excerpt:
+excerpt: Displaying the service logs
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Print the service logs.
@@ -41,4 +38,4 @@ dcos service log <file> <service> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos service](/1.11/cli/command-reference/dcos-service/)   | Manage DC/OS services. | 
+| [dcos service](/1.11/cli/command-reference/dcos-service/)   | Manage DC/OS services. |

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos config validate
 title: dcos config validate
 menuWeight: 4
-excerpt: How to validate changes to the configuration file
+excerpt: Validating changes to the configuration file
 
 enterprise: false
 ---

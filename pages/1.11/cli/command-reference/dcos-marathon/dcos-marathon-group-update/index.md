@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon group update
 title: dcos marathon group update
 menuWeight: 22
-excerpt:
+excerpt: Updating Marathon group properties
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Deploy and manage applications to DC/OS.
+Update Marathon group properties.
 
 # Usage
 

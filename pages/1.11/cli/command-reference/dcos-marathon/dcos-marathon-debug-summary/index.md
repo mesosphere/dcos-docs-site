@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos marathon debug summary
 title: dcos marathon debug summary
 menuWeight: 13
-excerpt:
+excerpt: Displaying the debugging queue of waiting Marathon app deployments
 
 enterprise: false
 ---

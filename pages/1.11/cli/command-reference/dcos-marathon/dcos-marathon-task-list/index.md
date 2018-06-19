@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon task list
 title: dcos marathon task list
 menuWeight: 29
-excerpt:
+excerpt: Displaying all tasks
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

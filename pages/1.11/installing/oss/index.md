@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Using the DC/OS Open Source version
 title: DC/OS Open Source
 menuWeight: 030
 oss: true

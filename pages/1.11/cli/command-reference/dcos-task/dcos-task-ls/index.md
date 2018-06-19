@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos task ls
 title: dcos task ls
 menuWeight: 2
-excerpt:
+excerpt: Display the list of files in the Mesos task directory
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Print the list of files in the Mesos task sandbox.

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos license audit get
 title: dcos license audit get
 menuWeight: 0
-excerpt:
+excerpt: Getting the cluster license audit records
 
 enterprise: true
 ---

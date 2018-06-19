@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Networking
 title: Networking
 menuWeight: 70
-excerpt: Learn about the DC/OS networking stack
+excerpt: Understanding the DC/OS networking stack
 
 enterprise: false
 ---

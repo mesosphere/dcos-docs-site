@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos license
 title: dcos license
+excerpt: Using the DC/OS license
 menuWeight: 9
 enterprise: true
 ---

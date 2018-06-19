@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package
 title: dcos package
 menuWeight: 12
-excerpt:
+excerpt: Installing and managing DC/OS software packages
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
@@ -28,7 +26,7 @@ dcos package
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
 | `--version, v`   |             | Print version information. |
-        
+
 # Child commands
 
 | Command | Description |
@@ -41,4 +39,4 @@ dcos package
 | [dcos package repo remove](/1.11/cli/command-reference/dcos-package/dcos-package-repo-remove/)   | Remove a package repository from DC/OS. |  
 | [dcos package search](/1.11/cli/command-reference/dcos-package/dcos-package-search/)   | Search the package repository. |  
 | [dcos package uninstall](/1.11/cli/command-reference/dcos-package/dcos-package-uninstall/)   | Uninstall a package. |  
-| [dcos package update](/1.11/cli/command-reference/dcos-package/dcos-package-update/)   | This command has been deprecated. Repositories are dynamically updated when they are added by the `dcos package repo add` command. | 
+| [dcos package update](/1.11/cli/command-reference/dcos-package/dcos-package-update/)   | This command has been deprecated. Repositories are dynamically updated when they are added by the `dcos package repo add` command. |

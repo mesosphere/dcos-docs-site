@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Cluster Links
 title: Cluster Links
 menuWeight: 0
-excerpt: How to manage cluster links
+excerpt: Managing cluster links
 enterprise: true
 ---
 

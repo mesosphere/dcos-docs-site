@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos cluster attach
 title: dcos cluster attach
 menuWeight: 2
-excerpt: How to attach the CLI to a connected or linked cluster.
+excerpt: Attaching the CLI to a connected or linked cluster
 
 enterprise: false
 ---

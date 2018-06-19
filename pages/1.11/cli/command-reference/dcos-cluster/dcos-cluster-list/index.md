@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos cluster list
 title: dcos cluster list
 menuWeight: 3
-excerpt: How to list the clusters that are connected to the DC/OS CLI.
-
+excerpt: Listing the clusters that are connected to the DC/OS CLI
 
 enterprise: false
 ---

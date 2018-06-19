@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Updating a User-Created Service
 title: Updating a User-Created Service
 menuWeight: 3
-excerpt:
+excerpt: Updating the configuration of a deployed app
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can easily view and update the configuration of a deployed app by using the `dcos marathon` command.

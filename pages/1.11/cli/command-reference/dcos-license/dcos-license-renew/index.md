@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos license renew
 title: dcos license renew
 menuWeight: 3
-excerpt:
+excerpt: Renewing a cluster license
 
 enterprise: true
 ---

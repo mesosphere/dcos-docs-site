@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos experimental
 title: dcos experimental
 menuWeight: 0
-excerpt: How to add a DC/OS package to DC/OS
+excerpt: Adding a DC/OS package to DC/OS
 
 enterprise: false
 ---

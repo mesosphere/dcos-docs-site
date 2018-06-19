@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Configuring Universe Services
 title: Configuring Universe Services
 menuWeight: 2
-excerpt: How to discover and change default parameters
+excerpt: Discovering and changing default parameters
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 Each Universe service installs with a set of default parameters. You can discover the default parameters and change them as desired.

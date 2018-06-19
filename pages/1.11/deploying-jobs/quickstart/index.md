@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Creating Jobs
 title: Creating Jobs
 menuWeight: 10
-excerpt: How to create jobs
+excerpt: Creating and administering jobs using the web interface, the CLI, or the API
 beta: true
 enterprise: false
 ---

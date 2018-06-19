@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Automating local installation of DC/OS for development and testing
 title: Install DC/OS Locally
 navigationTitle: Local
 menuWeight: 2

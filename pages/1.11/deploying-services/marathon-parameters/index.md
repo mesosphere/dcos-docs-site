@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0
-excerpt:
+excerpt: Understanding Marathon application definitions
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 This topic lists all available properties for Marathon application definitions and an example JSON application definition file with all properties shown.
 
@@ -22,7 +19,7 @@ This topic lists all available properties for Marathon application definitions a
 An array of resource roles. Marathon considers only resource offers with roles in this list for launching tasks of this app. For more information, see the [Mesos documentation](http://mesos.apache.org/documentation/latest/roles/).
 
 ### args
-An array of strings that specifies the command to run. The `args` field may be used in place of `cmd` even when using the default command executor. 
+An array of strings that specifies the command to run. The `args` field may be used in place of `cmd` even when using the default command executor.
 
 **Important:** You must specify either [`cmd`](#cmd) or `args` in all app definitions. It is invalid to supply both `cmd` and `args` in the same app.
 
@@ -37,7 +34,7 @@ The amount of time (in seconds) before Marathon retries launching a failed task.
 This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos slaves. This applies also to tasks that are killed due to failing too many health checks.
 
 ### cmd
-The command that is executed. This value is wrapped by Mesos via `/bin/sh -c ${app.cmd}`. 
+The command that is executed. This value is wrapped by Mesos via `/bin/sh -c ${app.cmd}`.
 
 **Important:** You must specify either `cmd` or [`args`](#args) in all app definitions. It is invalid to supply both `cmd` and `args` in the same app.
 
@@ -45,7 +42,7 @@ The command that is executed. This value is wrapped by Mesos via `/bin/sh -c ${a
 Constraint operators that control where apps can run that allow you to optimize for either fault tolerance or locality. For more information, see the [Constraints documentation](https://mesosphere.github.io/marathon/docs/constraints.html).
 
 ### container
-The container information. 
+The container information.
 
 - **type** The containerizer runtime type, either `MESOS` or `DOCKER`. For more information, see [Using Containerizers](/1.11/deploying-services/containerizers/).
 
@@ -54,7 +51,7 @@ The container information.
   A port mapping consists of:
 
   - **containerPort** The container port (e.g., `8080`).
-  - **hostPort** The host port (e.g., `0`). The default value is `0`. In [networking mode](#networks) `container`, the `hostPort` is not required, but if left unspecified Marathon will not randomly allocate a port. When using `container/bridge` mode, an unspecified (null) value for `hostPort` sets `hostPort: 0`. 
+  - **hostPort** The host port (e.g., `0`). The default value is `0`. In [networking mode](#networks) `container`, the `hostPort` is not required, but if left unspecified Marathon will not randomly allocate a port. When using `container/bridge` mode, an unspecified (null) value for `hostPort` sets `hostPort: 0`.
   - **servicePort** The service port (e.g., `9000`).
   - **protocol** The HTTP protocol, either `tcp` or `udp`.
 
@@ -66,27 +63,27 @@ The container information.
   - Future versions of Marathon may fail to validate apps that declare `container.portMappings` with network modes other than `container` or `container/bridge`.
 
 - **docker** The Docker container information.
-    
+
     - **forcePullImage** Whether to pull the image, regardless if it is already available on the local system.
     - **image** The path to the Docker image.
     - **privileged** Whether to give extended privileges to this container. For more information, see the [Docker run command](https://docs.docker.com/engine/reference/commandline/run/).
       - `"privileged": false` Do not give extended privileges. This is the default value.
-      - `"privileged": true` Give extended privileges. 
+      - `"privileged": true` Give extended privileges.
     - **parameters** Command-line options for the `docker run` command executed by the Mesos containerizer. Parameters passed in this manner are not guaranteed to be supported in the future, as Mesos may not always interact with Docker via the CLI.
     - **pullConfig** A secret whose value is a stringified JSON object in a Secret Store. See [Using a Private Docker Registry](/1.11/deploying-services/private-docker-registry/#secret-store-instructions).
-    
+
 - **volumes** The volumes accessible to the container.
     - **containerPath** The path where your container will read and write data.
     - **external** An external persistent volume. See [External Persistent Volumes](/1.11/storage/external-storage/).
         - **name** Name that your volume driver uses to look up the external volume.
         - **provider** The storage provider.
-        - **options** Which Docker volume driver to use for storage. The only Docker volume driver supported by DC/OS is [REX-Ray](/1.11/storage/external-storage/). 
-        - **size** The size (in GiB) of the external persistent volume. 
+        - **options** Which Docker volume driver to use for storage. The only Docker volume driver supported by DC/OS is [REX-Ray](/1.11/storage/external-storage/).
+        - **size** The size (in GiB) of the external persistent volume.
     - **hostPath** The host path.
-    - **mode** The access mode of the volume, either read-write (`RW`) or read-only (`RO`). 
+    - **mode** The access mode of the volume, either read-write (`RW`) or read-only (`RO`).
     - **persistent** A local persistent volume. See [Local Persistent Volumes](/1.11/storage/persistent-volume/).
-        - **size** The size (in MiB) of the local persistent volume. 
-    
+        - **size** The size (in MiB) of the local persistent volume.
+
 ### cpus
 The number of CPU shares per instance. A decimal fraction or integer.
 
@@ -152,7 +149,7 @@ This prevents sandboxes associated with consecutively failing tasks from filling
 The amount of memory (MB) required per instance.
 
 ### networks
-An array of network definitions. An application can specify more than one network only when using the Universal Container Runtime (`MESOS`) [containerizer runtime](#container). Although Docker supports multiple networks per container, the Docker Engine containerizer runtime does not support multiple networks. 
+An array of network definitions. An application can specify more than one network only when using the Universal Container Runtime (`MESOS`) [containerizer runtime](#container). Although Docker supports multiple networks per container, the Docker Engine containerizer runtime does not support multiple networks.
 
 A network definition consists of:
 
@@ -185,10 +182,10 @@ The special port value of 0 tells Marathon to select any host port from a Mesos 
 For more information, see [Containerizers](/1.11/deploying-services/containerizers/).
 
 ### requirePorts
-Whether the host ports of your tasks are automatically assigned. 
+Whether the host ports of your tasks are automatically assigned.
 
-- `"requirePorts": false` Ports are automatically assigned. 
-- `"requirePorts": true` Manually specify ports in advance. Marathon will only schedule the associated tasks on hosts that have the specified ports available. 
+- `"requirePorts": false` Ports are automatically assigned.
+- `"requirePorts": true` Manually specify ports in advance. Marathon will only schedule the associated tasks on hosts that have the specified ports available.
 
 ### residency
 Set up a stateful application. For more information, see [local persistent volumes](/1.11/storage/persistent-volume/). **Deprecated**.
@@ -199,7 +196,7 @@ Set up a stateful application. For more information, see [local persistent volum
   - **RELAUNCH_AFTER_TIMEOUT** Relaunch the task after receiving a `TASK_LOST` status update.
 
 ### taskKillGracePeriodSeconds
-The amount of time (in seconds) between the executor sending SIGTERM to a task and then sending SIGKILL. 
+The amount of time (in seconds) between the executor sending SIGTERM to a task and then sending SIGKILL.
 
 
 ### unreachableStrategy
@@ -209,7 +206,7 @@ Define handling for unreachable instances. The value is a string or an object. T
 - **expungeAfterSeconds** - If an instance is unreachable for longer than `expungeAfterSeconds` it will be expunged.  That means it will be killed if it ever comes back. Instances are usually marked as unreachable before they are expunged but they don't have to. This value is required to be greater than `inactiveAfterSeconds` unless both are zero. If the instance has any persistent volumes associated with it, then they will be destroyed and associated data will be deleted.
 
 ### upgradeStrategy
-The strategy that controls when Marathon stops old versions and launches new versions. During an upgrade all instances of an application are replaced by a new version. 
+The strategy that controls when Marathon stops old versions and launches new versions. During an upgrade all instances of an application are replaced by a new version.
 
 - **minimumHealthCapacity** - The minimum percentage (expressed as a decimal fraction between `0.0` and `1.0`) of nodes that remain healthy during an upgrade. During an upgrade, Marathon ensures that this number of healthy instances are up. The default is `1.0`, which means no old instance can be stopped before another healthy new version is deployed. A value of `0.5` means that during an upgrade half of the old version instances are stopped first to make space for the new version. A value of `0` means take all instances down immediately and replace with the new application.
 - **maximumOverCapacity** - The maximum percentage (expressed as a decimal fraction between `0.0` and `1.0`) of new instances that can be launched at any point during an upgrade. The default value is `1`, which means that all old and new instances can exist during the upgrade process. A value of `0.1` means that during the upgrade process 10% more capacity than usual may be used for old and new instances. A value of `0.0` means that even during the upgrade process no more capacity may be used for the new instances than usual. Only when an old version is stopped, a new instance can be deployed.

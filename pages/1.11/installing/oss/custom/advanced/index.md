@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Packaging your own DC/OS distribution
 title: Advanced DC/OS Installation Guide
 navigationTitle: Advanced
 menuWeight: 300

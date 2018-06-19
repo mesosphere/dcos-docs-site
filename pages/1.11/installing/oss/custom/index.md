@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Understanding DC/OS custom installation options
 title: DC/OS Custom Installation Options
 navigationTitle: Custom
 menuWeight: 1

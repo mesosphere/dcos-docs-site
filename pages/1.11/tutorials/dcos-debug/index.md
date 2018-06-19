@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
-title: Debugging Applications on DC/OS
-excerpt: What can you do if your app is failing to deploy as expected?
+navigationTitle:  Debugging Applications on DC/OS
+title: Tutorial -  Debugging Applications on DC/OS
+excerpt: Debugging application deployment issues in distributed systems
 menuWeight: 55
 ---
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Enterprise
 menuWeight: 30
-excerpt:
+excerpt: Using the DC/OS Enterprise version
 
 enterprise: true
 ---

@@ -3,11 +3,9 @@ layout: layout.pug
 navigationTitle:  Using GPUs
 title: Using GPUs
 menuWeight: 110
-excerpt:
+excerpt: Adding Graphics Processing Units to your long-running DC/OS services
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 DC/OS supports allocating GPUs (Graphics Processing Units) to your long-running DC/OS services. Adding GPUs to your services can dramatically accelerate big data workloads.

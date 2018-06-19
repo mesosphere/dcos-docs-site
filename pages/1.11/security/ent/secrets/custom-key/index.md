@@ -1,16 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Reinitializing the Secret Store with a
-  custom GPG keypair
+navigationTitle:  Reinitializing the Secret Store with a custom GPG keypair
+title: Reinitializing the Secret Store with a custom GPG keypair
 menuWeight: -1
-excerpt:
+excerpt: Using a custom GPG pair to reinitialize the Secret Store
 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-<!-- Note from editor: This is a 'hidden' page, so do not add a navigationTitle value other than a blank or a > character. -->
+
 In this section, you will re-initalize the secret store with a custom GPG pair.
 
 **Prerequisites:**

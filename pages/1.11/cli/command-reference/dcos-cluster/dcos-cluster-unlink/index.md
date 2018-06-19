@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos cluster unlink
 title: dcos cluster unlink
 menuWeight: 3
-excerpt: How to unlink a cluster from another cluster
+excerpt: Unlinking a cluster from another cluster
 
 enterprise: true
 ---

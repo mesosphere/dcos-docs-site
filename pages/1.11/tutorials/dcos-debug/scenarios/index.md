@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
+navigationTitle:  Practice Deployment Debugging Scenarios on DC/OS
 title: Practice Deployment Debugging Scenarios on DC/OS
-excerpt: Now apply the application debugging
+excerpt: Tutorial - Practicing some debugging scenarios
 menuWeight: 31
 ---
 

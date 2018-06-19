@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos backup
 title: dcos backup
 menuWeight: 2
-excerpt: How to create backups and restore from them.
+excerpt: Creating backups and restoring from them
 
 enterprise: true
 ---

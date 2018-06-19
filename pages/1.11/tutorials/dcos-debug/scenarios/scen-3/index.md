@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
 title: Scenario 3
-excerpt: Docker Images
+navigationTitle: Scenario 3
+excerpt: Tutorial - Docker Images
 menuWeight: 21
 ---
 

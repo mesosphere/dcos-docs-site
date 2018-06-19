@@ -3,11 +3,9 @@ layout: layout.pug
 navigationTitle:  Pods
 title: Pods
 menuWeight: 85
-excerpt:
+excerpt: Using pods to group resources
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Overview

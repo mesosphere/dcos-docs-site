@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod remove
 title: dcos marathon pod remove
 menuWeight: 26
-excerpt:
+excerpt: Removing a pod 
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

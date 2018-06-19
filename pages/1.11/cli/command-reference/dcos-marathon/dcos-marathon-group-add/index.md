@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon group add
 title: dcos marathon group add
 menuWeight: 17
-excerpt:
+excerpt: Adding a Marathon group
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

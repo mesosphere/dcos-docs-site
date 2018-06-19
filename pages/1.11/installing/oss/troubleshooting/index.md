@@ -1,7 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle:  Troubleshooting
-excerpt: Troubleshooting DC/OS Open Source installation
+
+excerpt: Troubleshooting DC/OS installation issues
+
 title: Troubleshooting
 menuWeight: 9
 oss: true

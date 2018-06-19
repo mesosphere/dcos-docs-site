@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Fault Domain Awareness and Capacity
-  Extension
+navigationTitle: Fault Domain Awareness and Capacity Extension
+title: Fault Domain Awareness and Capacity Extension
 menuWeight: 3
-excerpt:
+excerpt: Understanding fault domains
 
 enterprise: false
 ---

@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
+navigationTitle:  Strategy
 title: Strategy
-excerpt: What is a good strategy for applying application debugging tools?
+excerpt: Tutorial - Applying troubleshooting strategies
 menuWeight: 21
 ---
 <!-- III. Strategy Section -->

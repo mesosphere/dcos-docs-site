@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 600
-excerpt: List of all configuration parameters for DC/OS Open Source installations
+
+excerpt:  Configuration parameters for DC/OS Open Source installation
+
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 This topic provides configuration parameters available for [DC/OS](https://dcos.io/). For configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/) please refer to [Configuration Reference for DC/OS Enterprise](/1.11/installing/ent/custom/configuration/configuration-parameters/).

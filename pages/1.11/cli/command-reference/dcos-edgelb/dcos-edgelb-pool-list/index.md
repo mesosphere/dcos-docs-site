@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool list
 title: dcos edgelb pool list
 menuWeight: 4
-excerpt: How to list pool names
+excerpt: Listing pool names
 
 enterprise: true
 ---

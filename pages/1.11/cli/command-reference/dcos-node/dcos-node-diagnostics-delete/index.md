@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics delete
 title: dcos node diagnostics delete
 menuWeight: 2
-excerpt:
+excerpt: Displaying the details of diagnostics bundles
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
     
 # Description
@@ -34,7 +32,6 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 <!-- # Examples -->
-

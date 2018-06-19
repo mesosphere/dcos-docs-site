@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb
 title: dcos edgelb
 menuWeight: 5
-excerpt: How to manage Edge-LB
+excerpt: Managing Edge-LB
 
 enterprise: true
 ---
