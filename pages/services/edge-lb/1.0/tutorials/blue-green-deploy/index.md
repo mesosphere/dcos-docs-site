@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Blue/Green Service Update
 title: Blue/Green Service Update
 menuWeight: 30
-excerpt:
+excerpt: Using blue/green deployment 
 
 enterprise: false
 ---

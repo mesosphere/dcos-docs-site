@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Highly Available Load Balancing on AWS
 title: Highly Available Load Balancing on AWS
 menuWeight: 20
-excerpt:
+excerpt: Setting up multiple load balancer instances
 
 enterprise: false
 ---
@@ -48,7 +48,7 @@ Multiple Edge-LB instances enable you to create a highly available load balanced
      "networks": [{
        "mode": "container/bridge"
      }]
-   } 
+   }
    ```
 
 1. Deploy the sample service.

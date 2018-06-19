@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Managing
 title: Managing
 menuWeight: 60
-excerpt:
+excerpt: Managing your Cassandra configuration
 featureMaturity:
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
 # Updating Configuration
@@ -187,11 +185,7 @@ dcos cassandra pod replace node-2
 ```
 
 ## Seed nodes
-Cassandra seed nodes are those nodes with indices smaller than the seed node count.  By default, Cassandra is deployed
-with a seed node count of two.  So, node-0 and node-1 are seed nodes. When a replace operation is performed on one these
-nodes, all other nodes must be restarted to be brought up to date regarding the ip address of the new seed node. This
-operation is performed automatically.
-
+Cassandra seed nodes are those nodes with indices smaller than the seed node count.  By default, Cassandra is deployed with a seed node count of two; therefore, node-0 and node-1 are seed nodes. When a replace operation is performed on one of these nodes, all other nodes must be restarted to be brought up to date with the IP address of the new seed node. This operation is performed automatically.
 For example if `node-0` needed to be replaced we would execute:
 
 ```bash

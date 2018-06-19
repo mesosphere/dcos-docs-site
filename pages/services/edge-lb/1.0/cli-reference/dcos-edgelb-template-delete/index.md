@@ -2,11 +2,12 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb template delete
 title: dcos edgelb template delete
-menuWeight: 130
-excerpt:
+menuWeight: 50
+excerpt: Revert a custom config template to defaults
 
 enterprise: false
 ---
+The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
 # Description
 Reverts a custom config template to the default value.

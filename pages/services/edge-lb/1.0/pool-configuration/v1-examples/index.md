@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  V1 Pool Examples
 title: V1 Pool Examples
 menuWeight: 81
-excerpt:
+excerpt: Example Edge-LB pool configurations using the V1 API
 
 enterprise: false
 ---
-
-Example Edge-LB pool configurations using the V1 API.
 
 # V1 Pool Examples
 

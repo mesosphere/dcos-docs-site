@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 60
-excerpt:
+excerpt: Learning to use Edge-LB
 
 enterprise: false
 ---

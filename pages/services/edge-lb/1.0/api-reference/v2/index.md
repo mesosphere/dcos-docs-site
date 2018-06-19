@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  V2 API Reference
 title: V2 API Reference
 menuWeight: 85
-excerpt:
+excerpt: Endpoints exposed in the V2 API
 
 enterprise: false
 ---
-
-Endpoints exposed in the V2 API.
 
 The Edge-LB API enables users to create and manage pools of load balancers.
 
