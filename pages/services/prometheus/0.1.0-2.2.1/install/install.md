@@ -128,9 +128,10 @@ Each Service Discovery requires parameters to be passed for thier respective SD,
 1. Consul_sd_config : Consul SD configurations allow retrieving scrape targets from Consul's Catalog API.
 
 Parameters required for consul sd :
- consul  : 
- server  : <host> | default = "localhost:8500"
- service : A list of services for which targets are retrieved. If omitted, all services are scraped.
+           
+            consul  : 
+            server  : <host> | default = "localhost:8500"
+            service : A list of services for which targets are retrieved. If omitted, all services are scraped.
  
 2. Dns_sd_condig : 
 
