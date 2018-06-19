@@ -122,6 +122,39 @@ The above example will install the service under a path of foldered => path => t
 
 Note:  The service folder location cannot be changed after initial install.Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.
 
+## Service Discovery
+Each Service Discovery requires parameters to be passed for thier respective SD, Promethesu DC\OS mesos offers follwoing service discovery mechanism :
+
+1. Consul_sd_config : Consul SD configurations allow retrieving scrape targets from Consul's Catalog API.
+
+Parameters required for consul sd :
+ consul  : 
+ server  : <host> | default = "localhost:8500"
+ service : A list of services for which targets are retrieved. If omitted, all services are scraped.
+ 
+2. Dns_sd_condig : 
+
+A DNS-based service discovery configuration allows specifying a set of DNS domain names which are periodically queried to discover a list of targets.
+This service discovery method only supports basic DNS A, AAAA and SRV record queries, but not the advanced DNS-SD approach specified in RFC6763.
+
+Parameters required for dns sd :
+
+dnsjobname       : Job name 
+Domain name      : DNS domain names to be queried
+Query Type       : The type of DNS query to perform,default = 'SRV' 
+Dns port         : The port number used if the query type is not SRV
+Refresh interval : <duration> The time after which the provided names are refreshed
+
+3. EC2 SD :
+EC2 SD configurations allow retrieving scrape targets from AWS EC2 instances. 
+
+
+Region name  : 
+Access key   :
+Secret key   :
+Ec2 port     :
+
+
 ## Addressing named instances
 
 After you’ve installed the service under a custom name or under a folder, it may be accessed from all dcos prometheus CLI commands using the --name argument. By default, the --name value defaults to the name of the package, or prometheus.
