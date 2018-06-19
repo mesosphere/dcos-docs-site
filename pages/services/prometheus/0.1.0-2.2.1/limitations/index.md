@@ -18,6 +18,10 @@ Out-of-band configuration modifications are not supported. The service's core re
 Prometheus also does not offer durable long-term storage, anomaly detection, automatic horizontal scaling and user management. 
 Prometheus is not a dashboarding solution, it features a simple UI for experimentation with PromQL queries but relies on Grafana for dashboarding, adding some additional setup complexity.
 
+## Push Gateway
+
+The Prometheus Pushgateway allows you to push time series from short-lived service-level batch jobs to an intermediary job which Prometheus can scrape.Push Gateway is out of scope in this release.
+
 ## Scaling in
 
 To prevent accidental data loss, the service does not support reducing the number of pods.
