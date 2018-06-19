@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  GUI Installer (Retired Feature)
 title: GUI Installer (Retired Feature)
 menuWeight: 100
-excerpt:
+excerpt: Using the GUI installer (retired feature)
 ---
 ## The GUI installer is retired in version 1.11 and is not supported.
 This installer will be decomissioned in 1.12 release.

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Template Reference
 title: Template Reference
 menuWeight: 200
-excerpt:
+excerpt: Advanced template parameters
 
 enterprise: true
 ---
@@ -23,13 +23,13 @@ These advanced template parameters are specified in the individual JSON files. D
 The [Zen](#zen) templates orchestrate the individual component templates to create a DC/OS cluster.
 
 ### Agent templates
-The [agent](#private-agent) templates create [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup. 
+The [agent](#private-agent) templates create [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup.
 
 ### Master templates
 The [master](#master) templates create master nodes, on top of the infrastructure stack already created.
 
 ### Infrastructure template
-The [infrastructure](#infrastructure) template defines and creates a DC/OS specific infrastructure that works well with an existing VPC. 
+The [infrastructure](#infrastructure) template defines and creates a DC/OS specific infrastructure that works well with an existing VPC.
 
 
 ## <a name="zen"></a>Zen
@@ -94,7 +94,7 @@ The Zen templates (e.g. `ee.elzen-1.json`) orchestrate the individual component 
 
 ## <a name="private-agent"></a>Private agents
 
-The private agent template (`advanced-priv-agent.json`) creates agents which are then attached to a DC/OS cluster as a part of an AutoScalingGroup. To configure the template, specify the VPC, subnet, and master DNS address for the DC/OS cluster to join. 
+The private agent template (`advanced-priv-agent.json`) creates agents which are then attached to a DC/OS cluster as a part of an AutoScalingGroup. To configure the template, specify the VPC, subnet, and master DNS address for the DC/OS cluster to join.
 
 <table class="table">
   <tr>
@@ -131,7 +131,7 @@ The private agent template (`advanced-priv-agent.json`) creates agents which are
 
 ## <a name="public-agent"></a>Public agents
 
-The public agent template (`advanced-pub-agent.json`) creates agents which are then attached to a DC/OS cluster as a part of an AutoScalingGroup. To configure the template, specify the VPC, subnet, and master DNS address for the DC/OS cluster to join. 
+The public agent template (`advanced-pub-agent.json`) creates agents which are then attached to a DC/OS cluster as a part of an AutoScalingGroup. To configure the template, specify the VPC, subnet, and master DNS address for the DC/OS cluster to join.
 
 <table class="table">
   <tr>

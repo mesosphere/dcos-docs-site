@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Hybrid Cloud
 title: Hybrid Cloud
 menuWeight: 115
-excerpt:
+excerpt: Understanding the features of the hybrid cloud
 ---
 
 The hybrid cloud features include cluster linking, fault domain awareness with zones, capacity extension with regions and decommission nodes.

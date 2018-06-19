@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  GUI
 title: GUI
 menuWeight: 40
-excerpt:
+excerpt: Using the web interface for DC/OS management
 ---
 
 The DC/OS web interface provides a rich graphical view of your DC/OS cluster.

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Advanced Installer
 title: Advanced Installer
 menuWeight: 300
-excerpt:
+excerpt: Using the Advanced Installer to create DC/OS clusters
 
 enterprise: true
 ---

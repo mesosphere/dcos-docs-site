@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Ports
 menuWeight: 5
-excerpt:
+excerpt: Making sure ports are available for installation
 oss: true
 enterprise: false
 ---

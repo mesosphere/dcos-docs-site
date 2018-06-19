@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Deploying Jobs
 title: Deploying Jobs
 menuWeight: 120
-excerpt: How to create a job without installing a separate service
+excerpt: Creating a job without installing a separate service
 beta: true
 enterprise: false
 ---

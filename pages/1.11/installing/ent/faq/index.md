@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
 menuWeight: 203
-excerpt:
+excerpt: Frequently asked questions about installing DC/OS Enterprise
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 ## Q. Can I install DC/OS on an already running Mesos cluster?

@@ -3,11 +3,9 @@ layout: layout.pug
 navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
-excerpt:
+excerpt: Launching a pod from the CLI or web interface
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 ### Prerequisites

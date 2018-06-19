@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
-excerpt: How to use containerizers
+excerpt: Using containerizers
 
 enterprise: false
 ---

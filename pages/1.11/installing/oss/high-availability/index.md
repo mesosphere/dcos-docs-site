@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  High Availability
-excerpt:
+excerpt: Understanding the terminology and general recommendations for DC/OS Open Source high availability installations
 title: High Availability
 menuWeight: 05
 oss: true

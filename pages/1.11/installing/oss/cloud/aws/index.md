@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Creating a DC/OS cluster for Amazon Web Services
 title: Running DC/OS on AWS EC2
 navigationTitle: AWS
 menuWeight: 0

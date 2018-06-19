@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
 menuWeight: 120
-excerpt:
+excerpt: Frequently asked questions about deploying Marathon services
 
 enterprise: false
 ---

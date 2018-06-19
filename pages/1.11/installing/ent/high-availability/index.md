@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  High Availability
 title: High Availability
 menuWeight: 5
-excerpt:
+excerpt: Using the high-availability features in DC/OS
 
 enterprise: false
 ---

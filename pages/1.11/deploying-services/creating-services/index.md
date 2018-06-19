@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Creating Services
 title: Creating Services
 menuWeight: 1
-excerpt:
+excerpt: Defining a DC/OS service using Marathon
 
 enterprise: false
 ---
@@ -17,11 +17,11 @@ A Marathon application typically represents a long-running service that has many
 
 Let's start with a simple example: a service that prints `Hello Marathon` to stdout and then sleeps for 5 sec, in an endless loop.
 
-1. Use the following JSON application definition to describe the application. Create a file with the name of your choice. 
+1. Use the following JSON application definition to describe the application. Create a file with the name of your choice.
 
     ```json
     {
-        "id": "basic-0", 
+        "id": "basic-0",
         "cmd": "while [ true ] ; do echo 'Hello Marathon' ; sleep 5 ; done",
         "cpus": 0.1,
         "mem": 10.0,
@@ -47,7 +47,7 @@ Before we dive into this topic, let's have a look at an example:
 
 ```json
 {
-    "id": "basic-1", 
+    "id": "basic-1",
     "cmd": "`chmod u+x cool-script.sh && ./cool-script.sh`",
     "cpus": 0.1,
     "mem": 10.0,
@@ -74,7 +74,7 @@ The following example shows you how this looks in practice. Assume you have an a
 
 ```json
 {
-    "id": "basic-2", 
+    "id": "basic-2",
     "cmd": "app/cool-script.sh",
     "cpus": 0.1,
     "mem": 10.0,
@@ -90,7 +90,7 @@ You can specify more than one resource. For example, you could provide a Git rep
 ```json
 {
     "fetch": [
-        { "uri": "https://git.example.com/repo-app.zip", "https://cdn.example.net/my-file.jpg"}, 
+        { "uri": "https://git.example.com/repo-app.zip", "https://cdn.example.net/my-file.jpg"},
         { "uri": "https://cdn.example.net/my-other-file.css" }
     ]
 }
@@ -154,13 +154,13 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
           }
         ],
         "type": "DOCKER",
-        "docker": { 
+        "docker": {
           "image": "python:3" },
           "parameters": [
             {
               "key": "log-driver",
               "value": "none"
-            } 
+            }
           ]
       },
       "cpus": 0.5,
@@ -177,7 +177,7 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
     ```
 
 1. Go to the **Services** tab of the DC/OS GUI to view the running service.
-1. Click `basic-3-docker` and then the task ID. 
+1. Click `basic-3-docker` and then the task ID.
 1. Scroll down to the **Marathon Task Configuration** section and note the PORTS property.
    ![container port](/1.11/img/container-port.png)
 1. Determine the [IP address of the public node](/1.11/administering-clusters/locate-public-agent/).
