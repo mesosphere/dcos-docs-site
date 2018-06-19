@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod show
 title: dcos marathon pod show
 menuWeight: 27
-excerpt:
+excerpt: Displaying detailed information for a specific pod
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

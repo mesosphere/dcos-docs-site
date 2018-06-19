@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon app version list
 title: dcos marathon app version list
 menuWeight: 10
-excerpt:
+excerpt: Displaying the version history of an application
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

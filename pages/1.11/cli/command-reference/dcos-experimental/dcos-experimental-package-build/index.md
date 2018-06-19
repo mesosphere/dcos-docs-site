@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos experimental package build
 title: dcos experimental package build
 menuWeight: 1
-excerpt: How to build a local package
+excerpt: Building a local package
 
 enterprise: false
 ---

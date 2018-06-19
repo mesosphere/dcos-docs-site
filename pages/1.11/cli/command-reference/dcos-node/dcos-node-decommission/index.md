@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  dcos node decommission
-excerpt:
+excerpt: Decommissioning a DC/OS node
 title: dcos node decommission
 menuWeight: 0
 ---
@@ -20,4 +20,4 @@ dcos node decommission <mesos-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb ping
 title: dcos edgelb ping
 menuWeight: 3
-excerpt: How to test the readiness of the Edge-LB API server
+excerpt: Testing the readiness of the Edge-LB API server
 
 enterprise: true
 ---

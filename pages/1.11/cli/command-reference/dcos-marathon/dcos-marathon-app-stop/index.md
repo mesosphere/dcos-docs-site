@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon app stop
 title: dcos marathon app stop
 menuWeight: 8
-excerpt:
+excerpt: Stopping an application
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

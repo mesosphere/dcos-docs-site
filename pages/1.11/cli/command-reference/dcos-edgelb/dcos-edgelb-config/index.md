@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb config
 title: dcos edgelb config
 menuWeight: 2
-excerpt: How to view or update your Edge-LB configuration
+excerpt: Viewing and updating your Edge-LB configuration
 
 enterprise: true
 ---

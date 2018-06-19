@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos job show
 title: dcos job show
 menuWeight: 10
-excerpt:
+excerpt: Displaying job definitions
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
 Show the job definition.
 

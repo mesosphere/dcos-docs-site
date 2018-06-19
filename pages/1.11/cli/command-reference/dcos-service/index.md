@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos service
 title: dcos service
 menuWeight: 14
-excerpt:
+excerpt: Managing DC/OS services
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
@@ -29,11 +27,11 @@ dcos service [OPTION]
 | `--inactive`   |             | Show the inactive and active services. Inactive services have been disconnected from master, but haven't yet reached their failover timeout. |
 | `--info`   |             |  Print a short description of this subcommand. |
 | `--json`   |             |  JSON-formatted data. |
-| `--version, v`   |             | Print version information. | 
+| `--version, v`   |             | Print version information. |
 
 # Child commands
 
 | Command | Description |
 |---------|-------------|
-| [dcos service log](/1.11/cli/command-reference/dcos-service/dcos-service-log/)   | Print the service logs. | 
+| [dcos service log](/1.11/cli/command-reference/dcos-service/dcos-service-log/)   | Print the service logs. |
 | [dcos service shutdown](/1.11/cli/command-reference/dcos-service/dcos-service-shutdown/)   | Shutdown a service. |

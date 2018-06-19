@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos job schedule remove
 title: dcos job schedule remove
 menuWeight: 7
-excerpt:
+excerpt: Removing a job schedule
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
 Remove a job schedule.
 

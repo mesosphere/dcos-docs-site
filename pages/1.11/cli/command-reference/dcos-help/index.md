@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos help
 title: dcos help
 menuWeight: 7
-excerpt:
+excerpt: Displaying DC/OS CLI help information
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Display DC/OS CLI help information.

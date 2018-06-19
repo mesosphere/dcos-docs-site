@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos config
 title: dcos config
 menuWeight: 4
-excerpt: How to manage the DC/OS configuration file
+excerpt: Managing the DC/OS configuration file
 
 enterprise: false
 ---

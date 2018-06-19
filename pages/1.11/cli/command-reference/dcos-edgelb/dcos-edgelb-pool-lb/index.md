@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool lb
 title: dcos edgelb pool lb
 menuWeight: 7
-excerpt: How to display pool load balancer instance information
+excerpt: Displaying pool load balancer instance information
 
 enterprise: true
 ---

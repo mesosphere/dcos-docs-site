@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos node ssh
 title: dcos node ssh
 menuWeight: 6
-excerpt:
+excerpt: Establishing an SSH connection to master or agent nodes
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
 Establish an SSH connection to the master or agent nodes of your DC/OS cluster.
 
@@ -43,7 +41,7 @@ dcos node ssh <command> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 # Examples
 

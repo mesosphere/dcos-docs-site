@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package describe
 title: dcos package describe
 menuWeight: 0
-excerpt:
+excerpt: Fetching details for a package
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
@@ -37,7 +35,7 @@ dcos package describe <package-name> [OPTION]
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |
-        
+
 # Parent command
 
 | Command | Description |

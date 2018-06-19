@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
-excerpt:
+excerpt: Uninstalling a package
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Uninstall a package.
@@ -34,7 +31,7 @@ dcos package uninstall <package-name> [OPTION]
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
 | `<package-name>`   |             |  Name of the DC/OS package. |
-        
+
 # Parent command
 
 | Command | Description |

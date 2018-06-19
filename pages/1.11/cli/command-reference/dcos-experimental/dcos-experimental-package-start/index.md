@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos experimental service start
 title: dcos experimental service start
 menuWeight: 2
-excerpt: How to start a service from a non-native DC/OS package
+excerpt: Starting a service from a non-native DC/OS package
 
 enterprise: false
 ---

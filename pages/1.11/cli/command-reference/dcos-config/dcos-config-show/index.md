@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos config show
 title: dcos config show
 menuWeight: 2
-excerpt: How to show the cluster configuration file
+excerpt: Showing the cluster configuration file
 
 enterprise: false
 ---

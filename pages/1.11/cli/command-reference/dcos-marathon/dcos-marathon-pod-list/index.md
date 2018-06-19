@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod list
 title: dcos marathon pod list
 menuWeight: 25
-excerpt:
+excerpt: Viewing the deployed pods
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 List the deployed pods.

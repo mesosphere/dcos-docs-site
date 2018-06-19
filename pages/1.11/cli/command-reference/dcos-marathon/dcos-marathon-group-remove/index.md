@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos marathon group remove
 title: dcos marathon group remove
 menuWeight: 19
-excerpt:
+excerpt: Removing a Marathon application from DC/OS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Deploy and manage applications to DC/OS.
+Remove applications from DC/OS.
 
 # Usage
 
