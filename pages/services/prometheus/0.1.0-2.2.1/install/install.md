@@ -141,27 +141,27 @@ This service discovery method only supports basic DNS A, AAAA and SRV record que
 
 Parameters required for dns sd :
 
-    dnsjobname       : Job name 
-    Domain name      : DNS domain names to be queried
-    Query Type       : The type of DNS query to perform,default = 'SRV' 
-    Dns port         : The port number used if the query type is not SRV
-    Refresh interval : <duration> The time after which the provided names are refreshed
+           dnsjobname       : Job name 
+           Domain name      : DNS domain names to be queried
+           Query Type       : The type of DNS query to perform,default = 'SRV' 
+           Dns port         : The port number used if the query type is not SRV
+           Refresh interval : <duration> The time after which the provided names are refreshed
 
 3. EC2 SD :
 EC2 SD configurations allow retrieving scrape targets from AWS EC2 instances. 
 
 
-    Region name  : The AWS Region <string>
-    Access key   : The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are used.
-    Secret key   : <secret>
-    Ec2 port     :  The port to scrape metrics from
+        Region name  : The AWS Region <string>
+        Access key   : The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are used.
+        Secret key   : <secret>
+        Ec2 port     :  The port to scrape metrics from
    
 4. Marathon Sd Config :
  Marathon SD configurations allow retrieving scrape targets using the Marathon REST API. Prometheus will periodically check the REST endpoint for currently running tasks and create a target group for every app that has at least one healthy task.
 
-    Marathon job name : JOb Name
-    Polling interval  : refresh_interval <duration>
-    Servername        : List of URLs to be used to contact Marathon servers.You need to provide at least one server URL.
+        Marathon job name : JOb Name
+        Polling interval  : refresh_interval <duration>
+        Servername        : List of URLs to be used to contact Marathon servers.You need to provide at least one server URL.
 
 ## Addressing named instances
 
