@@ -72,7 +72,7 @@ Your cluster must meet the software and hardware [requirements](/1.11/installing
     **Tips:**
 
     - If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
-    - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `/genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <path-to-ip-script>`.
+    - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
 
     ```yaml
     ---
@@ -80,7 +80,7 @@ Your cluster must meet the software and hardware [requirements](/1.11/installing
     cluster_name: <cluster-name>
     exhibitor_storage_backend: static
     master_discovery: static
-    ip_detect_public_filename: <path-to-ip-script>
+    ip_detect_public_filename: genconf/ip-detect-public
     master_list:
     - <master-private-ip-1>
     - <master-private-ip-2>

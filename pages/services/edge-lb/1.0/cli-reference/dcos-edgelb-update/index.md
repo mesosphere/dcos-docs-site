@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb update
 title: dcos edgelb update
-menuWeight: 50
-excerpt:
+menuWeight: 65
+excerpt: Upload a new pool config file
 
 enterprise: false
 ---

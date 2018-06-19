@@ -2,14 +2,15 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb delete
 title: dcos edgelb delete
-menuWeight: 60
-excerpt:
+menuWeight: 10
+excerpt: Delete and uninstall an existing pool
 
 enterprise: false
 ---
 
 # Description
-Deletes and uninstalls an existing pool.
+Deletes a pool and uninstalls the deployed load balancers.
+
 
 # Usage
 

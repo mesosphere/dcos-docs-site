@@ -13,7 +13,7 @@ enterprise: false
 
 The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
 
-DC/OS 1.11.0 requires DC/OS CLI 0.6.x.
+DC/OS 1.11 requires the DC/OS CLI 0.6.x.
 
 To list available commands, run `dcos` with no parameters:
 

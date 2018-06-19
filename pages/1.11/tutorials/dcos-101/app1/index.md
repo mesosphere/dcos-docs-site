@@ -16,7 +16,8 @@ Welcome to part 3 of the DC/OS 101 Tutorial
 
 
 # Objective
-You now have a working persistence layer - [Redis](https://redislabs.com/) - running in your cluster.
+
+You now have a working persistence layer - [Redis](https://redislabs.com/) - running on your cluster.
 In this section you will deploy a simple app connecting to Redis.
 
 # Steps

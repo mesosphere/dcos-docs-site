@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  HAProxy Stats API Reference
 title: HAProxy Stats API Reference
 menuWeight: 90
-excerpt:
+excerpt: Endpoints exposed by HAProxy instances
 
 enterprise: false
 ---
 
-Endpoints exposed by HAProxy instances.
 
 By default, each load-balancer instance in an Edge-LB pool exposes a few endpoints on port `9090`. This port can be configured by changing your `pool.haproxy.stats.bindPort` as well.
 

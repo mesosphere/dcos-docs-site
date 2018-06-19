@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
-excerpt:
+excerpt: Getting started with DC/OS logging
 preview: true
 ---
 
@@ -48,9 +48,9 @@ Deploy a sample Marathon app for use in this quick start guide.
     test-log  10.0.1.105  root    R    test-log.e69c4b2f-c255-11e6-a451-aa711cbcaa78
     ```
 
-# View the Mesos and DC/OS logs
+# View the DC/OS (Mesos) task logs
 
-You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `dcos task log` command. In this example, a task is launched and the stderr and stdout logs from Mesos are accessed.
+You can access the Mesos task stderr and stdout logs natively through the DC/OS CLI `dcos task log` command. 
 
 1.  Run this command to view the stdout logs, where `<task_id>` is the task ID:
 
@@ -93,9 +93,9 @@ You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `
     Thu Dec 15 00:51:31 2016 ip-10-0-1-177.us-west-2.compute.internal Command Executor (Task: test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd) (Command: sh -c 'while true;d...') [7131] stdout
     ```
 
-# View the Mesos task and system logs
+# View the Mesos and DC/OS logs
 
-You can view logs from tasks or the host subsystem with the `dcos node log` command.
+You can view logs of DC/OS components with the `dcos node log` command.
 
 1.  Run this command to view the leading Mesos master logs:
 
@@ -181,4 +181,4 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
     Thu Dec 15 00:34:08 2016 ip-10-0-6-165.us-west-2.compute.internal java [2541] [2016-12-15 00:34:08,121] INFO  Received status update for task test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd: TASK_RUNNING (Reconciliation: Latest task state) (mesosphere.marathon.MarathonScheduler$$EnhancerByGuice$$28056dde:Thread-297)
     ...
     ```
-
+More commands can be found in the [DC/OS Node section of the Command Reference]. (https://docs.mesosphere.com/1.10/cli/command-reference/dcos-node/dcos-node-log/)

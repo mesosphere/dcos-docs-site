@@ -36,13 +36,13 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
 
 In this step, an IP detect script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
-**Important:** 
+**Important:**
 
 - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.10/installing/ent/custom/uninstall/).
-- The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master. 
+- The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
 1.  Create a directory named `genconf` on your bootstrap node and navigate to it.
-    
+
     ```bash
     mkdir -p genconf
     ```
@@ -50,9 +50,9 @@ In this step, an IP detect script is created. This script reports the IP address
 2.  Create an IP detection script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) line. You can use the examples below.
 
     -   **Use the AWS Metadata Server**
-        
+
         This method uses the AWS Metadata service to get the IP address:
-        
+
         ```bash
         #!/bin/sh
         # Example ip-detect script using an external authority
@@ -62,24 +62,24 @@ In this step, an IP detect script is created. This script reports the IP address
         ```
 
     -   **Use the GCE Metadata Server**
-        
+
         This method uses the GCE Metadata Server to get the IP address:
-        
+
         ```bash
         #!/bin/sh
         # Example ip-detect script using an external authority
         # Uses the GCE metadata server to get the node's internal
         # ipv4 address
-        
+
         curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
         ```
 
     -   **Use the IP address of an existing interface**
-        
+
         This method discovers the IP address of a particular interface of the node.
-        
+
         If you have multiple generations of hardware with different internals, the interface names can change between hosts. The IP detection script must account for the interface name changes. The example script could also be confused if you attach multiple IP addresses to a single interface, or do complex Linux networking, etc.
-        
+
         ```bash
         #!/usr/bin/env bash
         set -o nounset -o errexit
@@ -88,17 +88,17 @@ In this step, an IP detect script is created. This script reports the IP address
         ```
 
     -   **Use the network route to the Mesos master**
-        
+
         This method uses the route to a Mesos master to find the source IP address to then communicate with that node.
-        
+
         In this example, we assume that the Mesos master has an IP address of `172.28.128.3`. You can use any language for this script. Your Shebang line must be pointed at the correct environment for the language used and the output must be the correct IP address.
-        
+
         ```bash
         #!/usr/bin/env bash
         set -o nounset -o errexit
-        
+
         MASTER_IP=172.28.128.3
-        
+
         echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
         ```
 
@@ -108,13 +108,13 @@ In this step, an IP detect script is created. This script reports the IP address
 In this step you create a YAML configuration file that is customized for your environment. DC/OS uses this configuration file during installation to generate your cluster installation files. In these instructions we assume that you are using ZooKeeper for shared storage.
 
 1.  From the bootstrap node, run this command to create a hashed password for superuser authentication, where `<superuser_password>` is the superuser password. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file.
-    
+
     ```bash
     sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
     ```
-    
+
     Here is an example of a hashed password output.
-    
+
     ```
     Extracting image from this script and loading into docker daemon, this step can take a few minutes
     dcos-genconf.9eda4ae45de5488c0c-c40556fa73a00235f1.tar
@@ -125,14 +125,14 @@ In this step you create a YAML configuration file that is customized for your en
     ```
 
 2.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started.
-    
+
     The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and Google DNS resolvers. If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/).
-    
-    **Tips:** 
-    
+
+    **Tips:**
+
     - If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
-    - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `/genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <path-to-ip-script>`.        
-    
+    - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.      
+
     ```json
     bootstrap_url: http://<bootstrap_ip>:80   
     superuser_username:
@@ -140,31 +140,30 @@ In this step you create a YAML configuration file that is customized for your en
     cluster_name: '<cluster-name>'
     customer_key: <customer-key>
     exhibitor_storage_backend: static
-    master_discovery: static 
+    master_discovery: static
     ip_detect_public_filename: <relative-path-to-ip-script>
     master_list:
     - <master-private-ip-1>
     - <master-private-ip-2>
     - <master-private-ip-3>
     resolvers:
-    - 8.8.4.4
-    - 8.8.8.8
+    - 169.254.169.253
     # Choose your security mode: permissive, strict, or disabled
     security: <security-mode>
     # A custom proxy is optional. For details, see the config documentation.
     use_proxy: 'true'
     http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
     https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
-    no_proxy: 
+    no_proxy:
     - 'foo.bar.com'         
     - '.baz.com'
     ```
-        
+
 # <a name="install-bash"></a>Install DC/OS
 
 In this step you create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you package the DC/OS distribution yourself and connect to every server manually and run the commands.
 
-**Important:** 
+**Important:**
 
 - Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.10/installing/ent/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][2].
@@ -183,27 +182,27 @@ To install DC/OS:
     ```bash
     sudo bash dcos_generate_config.ee.sh
     ```
-    
+
     At this point your directory structure should resemble:
-    
+
         ├── dcos-genconf.c9722490f11019b692-cb6b6ea66f696912b0.tar
         ├── dcos_generate_config.ee.sh
         ├── genconf
         │   ├── config.yaml
         │   ├── ip-detect
-             
+
     **Tip:** For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
 
 3.  From your home directory, run this command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
-    
+
     ```bash
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
     ```
 
 4.  <A name="masterinstall"></A> Run these commands on each of your master nodes in succession to install DC/OS using your custom build file.
-    
+
     **Tip:** Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
-    
+
     1.  SSH to your master nodes:
 
         ```bash
@@ -221,23 +220,23 @@ To install DC/OS:
         ```bash
         curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
         ```
-    
+
     4.  Run this command to install DC/OS on your master nodes:
-        
+
         ```bash
             sudo bash dcos_install.sh master
         ```
 
 5.  <A name="slaveinstall"></A> Run these commands on each of your agent nodes to install DC/OS using your custom build file.
-    
+
     1.  SSH to your agent nodes:
-        
+
         ```bash
         ssh <agent-ip>
         ```
 
     2.  Make a new directory and navigate to it:
-        
+
         ```bash
         mkdir /tmp/dcos && cd /tmp/dcos
         ```
@@ -249,15 +248,15 @@ To install DC/OS:
         ```
 
     4.  Run this command to install DC/OS on your agent nodes. You must designate your agent nodes as [public][3] or [private][4].
-        
+
         *   Private agent nodes:
-            
+
             ```bash
             sudo bash dcos_install.sh slave
             ```
-        
+
         *   Public agent nodes:
-            
+
             ```bash
             sudo bash dcos_install.sh slave_public
             ```
@@ -265,23 +264,23 @@ To install DC/OS:
     __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.10/installing/ent/custom/system-requirements/#port-and-protocol).
 
 6.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
-    
+
     **Tip:** This process can take about 10 minutes. During this time you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
-    
+
     ![alt text][5]
-    
+
     When the status icons are green, you can access the DC/OS web interface.
 
 7.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`.
 
-    **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed. 
+    **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.
 
 8.  Enter your administrator username and password.
-    
+
     ![alt text](/1.10/img/ui-installer-auth2.png)
-    
+
     You are done!
-    
+
     ![UI dashboard](/1.10/img/dashboard-ee.png)
 
 ### Next Steps
