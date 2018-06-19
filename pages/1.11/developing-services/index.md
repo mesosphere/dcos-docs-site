@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Developing DC/OS Services
 menuWeight: 160
-excerpt: How to develop your own DC/OS components
+excerpt: Developing your own DC/OS components
 
 enterprise: false
 ---

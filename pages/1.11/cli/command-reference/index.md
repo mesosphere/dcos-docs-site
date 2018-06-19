@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Command Reference
 title: Command Reference
 menuWeight: 6
-excerpt:
+excerpt: Exploring the unique DC/OS commands
 
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 This section lists the unique DC/OS commands.
 

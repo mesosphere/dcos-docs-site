@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
 title: Scenario 2
-excerpt: Out of Memory
+navigationTitle: Scenario 2
+excerpt: Tutorial - Out of Memory
 menuWeight: 11
 ---
 

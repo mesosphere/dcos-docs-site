@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos cluster rename
 title: dcos cluster rename
 menuWeight: 5
-excerpt: How to rename a cluster.
+excerpt: Renaming a cluster
 
 enterprise: false
 ---

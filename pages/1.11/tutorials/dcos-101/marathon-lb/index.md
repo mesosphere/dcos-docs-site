@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-excerpt:
-title: Exposing Apps Publicly
+excerpt: Part 6 of the DC/OS 101 tutorial
+title: Tutorial -  Exposing Apps Publicly
 navigationTitle: Exposing Apps Publicly
 menuWeight: 6
 ---
@@ -19,14 +19,14 @@ Welcome to part 6 of the DC/OS 101 Tutorial
 In this section you will make app2 available from outside the cluster by running it on a public agent node with Marathon-LB.
 
 # Steps
-DC/OS has two different node types: 
+DC/OS has two different node types:
 
 1. Private agent nodes
-1. Public agent nodes 
+1. Public agent nodes
 
 Private agent nodes are usually only accessible inside the cluster, while public agent nodes allow for ingress access from outside the cluster.
 
-By default, Marathon starts applications and services on private agent nodes, which cannot be accessed from the outside the cluster. To expose an app to the outside you usually use a load balancer running on one of the public nodes. 
+By default, Marathon starts applications and services on private agent nodes, which cannot be accessed from the outside the cluster. To expose an app to the outside you usually use a load balancer running on one of the public nodes.
 
 You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](/1.11/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HA-Proxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
 
@@ -42,7 +42,7 @@ You will revisit the topic of load balancing and the different choices for load 
     1. Check the total number of keys using app1: `dcos task log app1`
     2. Check redis directly
        *  [SSH](/1.11/administering-clusters/sshcluster/) into node where redis is running:
-            
+
            ```bash
            dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
            ```

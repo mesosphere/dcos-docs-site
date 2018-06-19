@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Uninstalling DC/OS on AWS
 title: Uninstalling DC/OS on AWS EC2
 navigationTitle: Uninstalling
 menuWeight: 299

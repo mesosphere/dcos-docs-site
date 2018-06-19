@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Master Routes
 title: Master Routes
 menuWeight: 10
-excerpt: Learn to use the Admin Router running on DC/OS master nodes.
+excerpt: Understanding the Admin Router running on DC/OS master nodes.
 
 ---
 The Admin Router runs on DC/OS master nodes. It exposes the following API routes.

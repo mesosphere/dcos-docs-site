@@ -3,13 +3,12 @@ layout: layout.pug
 navigationTitle:  Deploying Services and Pods
 title: Deploying Services and Pods
 menuWeight: 130
-excerpt:
+excerpt: Using Marathon to manage your processes and services
 
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
- DC/OS uses Marathon to manage your processes and services.
+DC/OS uses Marathon to manage your processes and services.
 
 Marathon is the "init system" for DC/OS. Marathon starts and monitors your applications and services, automatically healing failures.
 

@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Configure Task Handling
 title: Configure Task Handling
 menuWeight: 0
-excerpt:
+excerpt: Configuring Marathon for unreachable tasks
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can configure Marathon's actions on unreachable tasks. The `unreachableStrategy` parameter of your app or pod definition allows you to configure this in two ways: by defining when a new task instance should be launched, and by defining when a task instance should be expunged.

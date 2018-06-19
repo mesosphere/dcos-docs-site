@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos auth logout
 title: dcos auth logout
 menuWeight: 3
-excerpt: How to log out of DC/OS authentication.
+excerpt: Logging out of DC/OS authentication
 
 enterprise: false
 ---

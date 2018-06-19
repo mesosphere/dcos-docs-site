@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos
 title: dcos
 menuWeight: 0
-excerpt: How to manage DC/OS environment variables.
+excerpt: Managing DC/OS environment variables
 
 
 enterprise: false

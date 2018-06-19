@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  API Reference
 title: API Reference
 menuWeight: 150
-excerpt: This section contains the DC/OS API reference manual.
+excerpt: DC/OS API reference manual
 
 enterprise: true
 ---

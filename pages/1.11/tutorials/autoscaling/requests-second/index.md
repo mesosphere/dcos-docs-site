@@ -1,15 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Autoscaling using requests per second
+navigationTitle:  Understanding Autoscaling
+title: Tutorial - Autoscaling using requests per second
 menuWeight: 1
 excerpt:
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can use the [marathon-lb-autoscale](https://github.com/mesosphere/marathon-lb-autoscale) application to implement request rate-based autoscaling with Marathon. The marathon-lb-autoscale application works with any application that uses TCP traffic and can be routed through HAProxy.
