@@ -10,4 +10,4 @@ You may view the system health of your DC/OS components from the Components tab.
 
 ![Components](/1.11/img/components-ee.png)
 
-*Figure 1 - Components tab *
+<p><i>Figure 1 - Components tab</i></p>

@@ -10,4 +10,4 @@ The Catalog tab shows all of the available DC/OS services. You can install packa
 
 ![Catalog](/1.11/img/catalog-ee.png)
 
-*Figure 1 - DC/OS service catalog *
+<p><i>Figure 1 - Catalog tab</i></p>

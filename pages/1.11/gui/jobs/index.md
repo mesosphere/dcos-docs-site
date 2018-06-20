@@ -10,4 +10,4 @@ The Jobs tab provides native support for creating and administering scheduled jo
 
 ![Jobs](/1.11/img/jobs-ee.png)
 
-*Figure 1 - The Jobs tab*
+<p><i>Figure 1 - Jobs tab</i></p>

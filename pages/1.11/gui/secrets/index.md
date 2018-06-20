@@ -11,4 +11,4 @@ The Secrets tab provides secret and certificates management. For more informatio
 
 ![Secrets](/1.11/img/secrets-ee.png)
 
-*Figure 1 - The Secrets tab*
+<p><i>Figure 1 - Secrets tab</i></p>

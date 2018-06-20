@@ -10,6 +10,8 @@ The Services tab provides a full-featured interface to the native DC/OS Marathon
 
 ![Services](/1.11/img/services-ee.png)
 
+<p><i>Figure 1 - Services tab</i></p>
+
 By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, CPU, memory, or disk space allocated.
 
 *   **NAME** The DC/OS service name.

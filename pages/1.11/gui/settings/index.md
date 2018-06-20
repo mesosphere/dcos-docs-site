@@ -16,4 +16,4 @@ In DC/OS Enterprise you can also manage:
 
 ![Package repositories](/1.11/img/package-repositories-ee.png)
 
-*Figure 1 - The Settings tab*
+<p><i>Figure 1 - Settings > Package Repositories tab</i></p>
