@@ -10,4 +10,4 @@ The Networking tab provides a comprehensive view of the health of your VIPs. For
 
 ![Tweeter scaled](/1.11/img/networking-ee.png)
 
-Figure 1 - The Networking tab
+<p><i>Figure 1 - Networking tab</i></p>

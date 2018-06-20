@@ -13,4 +13,4 @@ The Cluster tab has two subtabs:
 
 ![Cluster](/1.11/img/cluster-ee.png)
 
-*Figure 1 - The Cluster tab *
+<p><i>Figure 1 - Cluster > Overview tab</i></p>
