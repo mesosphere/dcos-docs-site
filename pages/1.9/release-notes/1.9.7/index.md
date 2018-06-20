@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.9.7.
+DC/OS 1.9.7 was released on Feb 1, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 

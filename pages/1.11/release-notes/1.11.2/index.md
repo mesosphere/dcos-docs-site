@@ -6,7 +6,7 @@ menuWeight: 0
 excerpt: Release notes for DC/OS 1.11.2
 ---
 
-These are the release notes for DC/OS 1.11.2.
+DC/OS 1.11.2 was released on May 18, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
