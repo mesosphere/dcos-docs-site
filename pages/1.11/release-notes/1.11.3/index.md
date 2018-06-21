@@ -21,7 +21,7 @@ DC/OS 1.11.3 includes the following:
 
 # Issues Fixed in DC/OS 1.11.3
 
-- COPS-3158 - The check-in custom installer for ftype=1 on Mesos and Docker work directories is added only when using XFS.
+- COPS-3158 - The check in custom installer for ftype=1 on Mesos and Docker work directories is added only when using XFS.
 - DCOS-11714 - DC/OS IAM: Added support for anonymous bind via LDAP. [enterprise type="inline" size="small" /]
 - DCOS-22458 - Improved stability of dcos-checks-poststart-service-unhealthy check. [enterprise type="inline" size="small" /]
 - DCOS-25602 - DC/OS IAM: Reduced excessive logging which was accidentally introduced in 1.11.1 release. [enterprise type="inline" size="small" /]
