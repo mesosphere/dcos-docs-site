@@ -25,9 +25,9 @@ DC/OS 1.11.3 includes the following:
 - DCOS-11714 - DC/OS IAM: Added support for anonymous bind via LDAP. [enterprise type="inline" size="small" /]
 - DCOS-22458 - Improved stability of dcos-checks-poststart-service-unhealthy check. [enterprise type="inline" size="small" /]
 - DCOS-25602 - DC/OS IAM: Reduced excessive logging which was accidentally introduced in 1.11.1 release. [enterprise type="inline" size="small" /]
-- DCOS-34435 - DCOS Cosmos: Increased the limit of max-payload size at /v2/apps Marathon end point.
+- DCOS-34435 - DC/OS Cosmos: Increased the limit of max-payload size at /v2/apps Marathon end point.
 - DCOS-34536 - Fixed DC/OS upgrade issue with ipv6 address configuration.
-- DCOS-38015 - TLS: Enahanced Mesos TLS cipher suites support with secure cipher suites. [enterprise type="inline" size="small" /]
+- DCOS-38015 - Enhanced Mesos TLS cipher suites support with secure cipher suites. [enterprise type="inline" size="small" /]
 
 # Notable Changes in DC/OS 1.11.3
 
