@@ -23,7 +23,7 @@ The following steps must be performed on a machine that is configured as a DC/OS
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
-**Note:** Use the following steps to convert your agent node only. You will not be able to actually uninstall DC/OS here. In order to uninstall DC/OS, you must [re-image](https://docs.mesosphere.com/1.11/installing/oss/custom/uninstall/) the operating system on your nodes. The improvement process for uninstalling DC/OS will be documented in later versions.
+**Note:** Use the following steps to convert your agent node only. You will not be able to actually uninstall DC/OS here. In order to uninstall DC/OS, currently you must [re-image](https://docs.mesosphere.com/1.11/installing/oss/custom/uninstall/) the operating system on your nodes. The uninstalling process may change in future releases of DC/OS.
 
 ### Determine the node type
 You can determine the node type by running the following commands from the DC/OS CLI. 
