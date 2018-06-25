@@ -33,7 +33,7 @@ DC/OS 1.11.3 includes the following:
 
 - DCOS-19427 - CockroachDB: Set cluster version to 1.1. [enterprise type="inline" size="small" /]
 - DCOS_OSS-2417 and DCOS_OSS-3548 - Support for CoreOS 1688.4.0 and CoreOS 1688.5.3. 
-- Updated DC/OS UI Enterprise for 1.11+1.13.0+7e0cb54f [Open source change log](https://github.com/dcos/dcos-ui/blob/1.11%2Bv1.13.0/CHANGELOG.md) and [EE Plugins](https://github.com/mesosphere/dcos-ui-plugins-private/compare/v1.11.1...1.11+1.13.0+7e0cb54f). [enterprise type="inline" size="small" /]
+- Updated DC/OS UI Enterprise for 1.11+1.13.0+7e0cb54f [Open Source change log](https://github.com/dcos/dcos-ui/blob/1.11%2Bv1.13.0/CHANGELOG.md) and [EE Plugins](https://github.com/mesosphere/dcos-ui-plugins-private/compare/v1.11.1...1.11+1.13.0+7e0cb54f). [enterprise type="inline" size="small" /]
 - Updated DC/OS UI for [1.11+v1.14.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.14.0/CHANGELOG.md).
 
 
