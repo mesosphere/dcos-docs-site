@@ -255,7 +255,7 @@ To install DC/OS:
     4.  Run this command to install DC/OS on your master nodes:
 
         ```bash
-            sudo bash dcos_install.sh master
+        sudo bash dcos_install.sh master
         ```
 
 5.  <A name="slaveinstall"></A> Run these commands on each of your agent nodes to install DC/OS using your custom build file.
@@ -298,9 +298,11 @@ To install DC/OS:
 
     **Tip:** This process can take about 10 minutes. During this time you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
-    ![alt text][5]
+![Exhibitor for ZooKeeper][5]
 
-    When the status icons are green, you can access the DC/OS web interface.
+*Figure 1 - Exhibitor for ZooKeeper*
+
+When the status icons are green, you can access the DC/OS web interface.
 
 7.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`.
 
@@ -308,13 +310,15 @@ To install DC/OS:
 
 8.  Enter your administrator username and password.
 
+![Login screen](/1.11/img/ui-installer-auth2.png)
 
-    ![Auth page](/1.11/img/ui-installer-auth2.png)
+*Figure 2 - Login screen*
 
+You are done! The UI dashboard will now be displayed.
 
-    You are done!
+![UI dashboard](/1.11/img/dashboard-ee.png)
 
-    ![UI dashboard](/1.11/img/dashboard-ee.png)
+*Figure 3 - Dashboard*
 
 ### Next Steps
 
@@ -326,5 +330,6 @@ Now you can [assign user roles][8].
  [3]: /1.11/overview/concepts/#public
  [4]: /1.11/overview/concepts/#private
  [5]: /1.11/img/chef-zk-status.png
+ [6]: /1.11/img/ui-installer-auth2.png
  [7]: /1.11/img/dashboard-ee.png
  [8]: /1.11/security/
