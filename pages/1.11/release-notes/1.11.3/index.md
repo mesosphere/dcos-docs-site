@@ -1,61 +1,48 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes for 1.11.2
-title: Release Notes for 1.11.2
-menuWeight: 5
-excerpt: Release notes for DC/OS 1.11.2
+navigationTitle: Release Notes for 1.11.3
+title: Release Notes for 1.11.3
+menuWeight: 0
+excerpt: Release notes for DC/OS 1.11.3
 ---
 
-DC/OS 1.11.2 was released on May 18, 2018.
+DC/OS 1.11.3 was released on June 26, 2018.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-DC/OS 1.11.2 includes the following:
+DC/OS 1.11.3 includes the following:
 
-- Apache Mesos 1.5.1-dev [change log](https://github.com/mesosphere/mesos/blob/27d91e1fe46f09b2c74f2dc4efe4f58ae59ae0a8/CHANGELOG).
-- Marathon 1.6.392 [change log](https://github.com/dcos/dcos/pull/2678).
+- Apache Mesos 1.5.2 [change log](https://github.com/mesosphere/mesos/blob/197c9105c2ed08f1529602f1ff72de846cde98c6/CHANGELOG).
+- Marathon 1.6.496 [change log](https://github.com/dcos/dcos/blob/1.11.3/packages/marathon/buildinfo.json).
 - Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 
 
-# Issues Fixed in DC/OS 1.11.2
+# Issues Fixed in DC/OS 1.11.3
 
-- COPS-3195 - Mesos: Fixed an issue where the authentication token refresh would not be performed. [enterprise type="inline" size="small" /]
-- DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
-- DCOS-20514 - Added licensing information to the diagnostics bundle. [enterprise type="inline" size="small" /]
-- DCOS-20568 - Fixed diagnostics bundle creation bug regarding insufficient service account permissions. [enterprise type="inline" size="small" /]
-- DCOS-21596 - If a local user account matches an LDAP username that exists within an LDAP group, the local user account is now automatically added to the LDAP group. [enterprise type="inline" size="small" /]
-- DCOS-21611 - The IP detect script and fault domain detect script can be changed with a config upgrade. 
-- DCOS-22128 - Fixed an issue in the Service view of DC/OS UI, when cluster has pods with not every container mounting a volume [enterprise type="inline" size="small" /]
-- DCOS-22041 - Admin Router: Fixed a race condition in the permission data cache. [enterprise type="inline" size="small" /]
-- DCOS-22133 - DC/OS IAM: Fixed a rare case where the database bootstrap transaction would not insert some data. [enterprise type="inline" size="small" /]
-- DCOS_OSS-2317 - Consolidated pkgpanda's package download method.
-- DCOS_OSS-2335 - Increased the Mesos executor re-registration timeout to consolidate an agent failover scenario.
-- DCOS_OSS-2360 - DC/OS Metrics: metric names are sanitized for better compatibility with Prometheus.
-- DCOS_OSS-2378 - DC/OS Net: Improved stability of distribution protocol over TLS. 
-- DC/OS UI: Incorporated [multiple](https://github.com/dcos/dcos/pull/2799) fixes and improvements. 
+- COPS-3158 - The check in custom installer for ftype=1 on Mesos and Docker work directories is added only when using XFS.
+- DCOS-11714 - DC/OS IAM: Added support for anonymous bind via LDAP. [enterprise type="inline" size="small" /]
+- DCOS-22458 - Improved stability of dcos-checks-poststart-service-unhealthy check. [enterprise type="inline" size="small" /]
+- DCOS-25602 - DC/OS IAM: Reduced excessive logging which was accidentally introduced in 1.11.1 release. [enterprise type="inline" size="small" /]
+- DCOS-34435 - DC/OS Cosmos: Increased the limit of max-payload size at /v2/apps Marathon end point.
+- DCOS-34536 - Fixed DC/OS upgrade issue with ipv6 address configuration.
+- DCOS-38015 - Enhanced Mesos TLS cipher suites support with secure cipher suites. [enterprise type="inline" size="small" /]
 
+# Notable Changes in DC/OS 1.11.3
 
-# Notable Changes in DC/OS 1.11.2
-
-- MARATHON-8090 - Reverted the Marathon configuration change for GPU resources which was introduced in 1.11.1 release.
-- QUALITY-2006 - RHEL 7.4 with Docker EE 17.06.2 is supported.
-- QUALITY-2007 - RHEL 7.4 with Docker 17.12.1-ce is supported. 
-- QUALITY-2057 - CentOS 7.4 with Docker EE 17.06.2 is supported.
-
-# Security Enhancements in DC/OS 1.11.2
-
-- DCOS-21465 - Updated python3-saml for [CVE-2017-11427](https://www.kb.cert.org/vuls/id/475445). [enterprise type="inline" size="small" /] 
-- DCOS-21958 - Admin Router on master nodes no longer supports the older TLS 1.1 protocol and 3DES encryption algorithm by default. [enterprise type="inline" size="small" /] 
+- DCOS-19427 - CockroachDB: Set cluster version to 1.1. [enterprise type="inline" size="small" /]
+- DCOS_OSS-2417 and DCOS_OSS-3548 - Support for CoreOS 1688.5.3. 
+- Updated DC/OS UI Enterprise for 1.11+1.13.0+7e0cb54f [Open Source change log](https://github.com/dcos/dcos-ui/blob/1.11%2Bv1.13.0/CHANGELOG.md) and [EE Plugins](https://github.com/mesosphere/dcos-ui-plugins-private/compare/v1.11.1...1.11+1.13.0+7e0cb54f). [enterprise type="inline" size="small" /]
+- Updated DC/OS UI for [1.11+v1.14.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.14.0/CHANGELOG.md).
 
 
-**Note:** New Docker versions are supported on RHEL 7.4. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
+**Note:** New Docker version is supported on CoreOS 1688.5.3. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
 
 
 # About DC/OS 1.11
 
-DC/OS 1.11 includes many new capabilities, with a focus on:
+DC/OS 1.11 includes many new capabilities with a focus on:
 - Managing clusters across multiple clouds [enterprise type="inline" size="small" /]
 - Production Kubernetes-as-a-service
 - Enhanced data security [enterprise type="inline" size="small" /]
