@@ -267,7 +267,9 @@ To install DC/OS:
 
     **Tip:** This process can take about 10 minutes. During this time you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
-    ![alt text][5]
+    ![Exhibitor for ZooKeeper][5]
+
+    *Figure 1 - Exhibitor for ZooKeeper*
 
     When the status icons are green, you can access the DC/OS web interface.
 
@@ -277,11 +279,15 @@ To install DC/OS:
 
 8.  Enter your administrator username and password.
 
-    ![alt text](/1.10/img/ui-installer-auth2.png)
+    ![Login screen](/1.10/img/ui-installer-auth2.png)
 
-    You are done!
+    *Figure 2 - Login screen*
+
+    You are done! The UI dashboard will now appear.
 
     ![UI dashboard](/1.10/img/dashboard-ee.png)
+
+    *Figure 3 - Dashboard*
 
 ### Next Steps
 
@@ -293,5 +299,6 @@ Now you can [assign user roles][8].
  [3]: /1.10/overview/concepts/#public
  [4]: /1.10/overview/concepts/#private
  [5]: /1.10/img/chef-zk-status.png
+ [6]: /1.10/img/ui-installer-auth2.png
  [7]: /1.10/img/dashboard-ee.png
  [8]: /1.10/security/ent/
