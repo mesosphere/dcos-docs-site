@@ -80,6 +80,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
 - [Take a snapshot of the IAM database](/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database) prior to upgrading.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
+**Note: Marathon event subscribers are disabled by default, please check if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.**
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.11/administering-clusters/backup-and-restore/).
 - Optional: You can add custom [node and cluster healthchecks](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
