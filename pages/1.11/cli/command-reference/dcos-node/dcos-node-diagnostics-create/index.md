@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics create
 title: dcos node diagnostics create
 menuWeight: 1
-excerpt:
+excerpt: Creating a diagnostics bundle
 
 enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
+
 # Description
 Create a diagnostics bundle.
 
@@ -34,7 +34,6 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 <!-- # Examples -->
-

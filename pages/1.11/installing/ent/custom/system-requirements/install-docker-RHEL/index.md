@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  RHEL 7.4 prerequisites
 title: Prepare RHEL 7.4 for DC/OS installation
 menuWeight: 3
-excerpt:
+excerpt: Requirements and recommendations for installing Docker on RHEL
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 
 # Requirements and Recommendations
@@ -40,7 +37,7 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
 
     ```bash
     subscription-manager register --username <RHEL-SUBSCRIPTION-USERNAME> --password ******** --auto-attach
-    
+
     subscription-manager repos --enable=rhel-7-server-rpms
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     subscription-manager repos --enable=rhel-7-server-optional-rpms
@@ -69,9 +66,9 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
 
     ```bash
     wget http://stedolan.github.io/jq/download/linux64/jq
-    
+
     chmod +x ./jq
-    
+
     cp jq /usr/bin
     ```
 
@@ -93,14 +90,14 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
     sysctl -w net.ipv6.conf.all.disable_ipv6=1
     sysctl -w net.ipv6.conf.default.disable_ipv6=1
     ```
-    
+
 1.  Disable SElinux
 
     ```bash
     sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/selinux/config
     set enforce 0
     ```
-    
+
 1.  Disable DNSmasq (DC/OS requires access to port 53)
 
     ```bash
@@ -116,7 +113,7 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
                   docker-selinux \
                   docker-engine
 	```
-	
+
 1.  Set up Docker CE repo
 
 	```bash
@@ -124,31 +121,31 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
 	```
-	
+
 1.  Show versions of Docker CE. The remainder of these instructions assume that you have installed the latest version.
 
 	```bash
 	yum list docker-ce --showduplicates | sort -r
 	```
-	
+
 1.  Install Docker CE
 
 	```bash
 	yum install docker-ce
 	```
-	
+
 1.  Start Docker
 
 	```bash
 	systemctl start docker
 	```
-	
+
 1.  Test Docker with hello-world app
 
 	```bash
 	docker run hello-world
 	```
-	
+
 1.  Verify that Docker is using the overlay driver
 
 	```bash

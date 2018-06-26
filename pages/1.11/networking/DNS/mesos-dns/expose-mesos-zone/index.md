@@ -3,17 +3,17 @@ layout: layout.pug
 navigationTitle:  Exposing Mesos Zones Outside
 title: Exposing Mesos Zones Outside
 menuWeight: 300
-excerpt:
+excerpt: Exposing Mesos zones outside of DC/OS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-There are cases where you may want to have services outside of DC/OS that use DNS records inside of the DC/OS cluster.  However, the `.mesos` domain name that DC/OS uses to expose records does not support this. To enable this capability, you can put a BIND server in front of your cluster. 
+There are cases where you may want to have services outside of DC/OS that use DNS records inside of the DC/OS cluster.  However, the `.mesos` domain name that DC/OS uses to expose records does not support this. To enable this capability, you can put a BIND server in front of your cluster.
 
-Each DC/OS cluster has a unique cryptographic identifier. The zbase32 encoded version of the identifier can be found in the UI under **Overview**. 
+Each DC/OS cluster has a unique cryptographic identifier. The zbase32 encoded version of the identifier can be found in the UI under **Overview**.
 
 In the example, the cryptographic cluster ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo` is used.
 
@@ -30,7 +30,7 @@ In the example, the cryptographic cluster ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra
     };
     ```
 
-1.  Replace the master IP (`<Master-IP>`) with a semicolon separated list of your own master IPs. 
+1.  Replace the master IP (`<Master-IP>`) with a semicolon separated list of your own master IPs.
 
 1.  Replace the example cryptographic cluster ID with your own.
 
@@ -70,8 +70,8 @@ Now, you can create the zone that you'd like to alias to this. You can also skip
     ```
     @       IN      DNAME   mesos.yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo.dcos.directory.
     ```
-    
-    The `@` aliases the top level of the zone, for example `contoso.com`. 
+
+    The `@` aliases the top level of the zone, for example `contoso.com`.
 
 -   To alias a high level domain, specify that value in the DNAME record. In this example, `foo` aliases `foo.contoso.com`:
 

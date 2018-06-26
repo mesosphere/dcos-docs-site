@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Template Reference
-excerpt:
+excerpt: Understanding advanced template parameters specified in JSON files
 title: Template Reference
 menuWeight: 200
 ---

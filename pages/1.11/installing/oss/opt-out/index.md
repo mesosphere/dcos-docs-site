@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:  Opt-Out
-excerpt:
+excerpt: Disabling authentication for your cluster
 title: Opt-Out
-menuWeight: 5
+menuWeight: 7
+oss: true
 ---
 
 ## Authentication
@@ -28,7 +29,7 @@ You can opt-out of providing anonymous data by disabling telemetry for your clus
 Or
 
 - Add a flag to the custom installer, `dcos_generate_config.sh --cli-telemetry-disabled`, to disable the CLI basic telemetry. For more information, see the [documentation](/1.11/installing/oss/custom/cli/).
-    
+
 
 Note that if you’ve already installed your cluster and would like to disable this in-place, you can go through an [upgrade][3] with the same parameter set.
 
@@ -36,4 +37,3 @@ Note that if you’ve already installed your cluster and would like to disable t
 [2]: /1.11/installing/oss/custom/advanced/
 [3]: /1.11/installing/oss/custom/configuration/configuration-parameters/
 [4]: /1.11/installing/oss/custom/configuration/configuration-parameters/
-

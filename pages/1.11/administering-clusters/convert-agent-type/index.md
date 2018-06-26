@@ -3,15 +3,15 @@ layout: layout.pug
 navigationTitle:  Converting Agent Node Types
 title: Converting Agent Node Types
 menuWeight: 700
-excerpt:
+excerpt: Learn to convert agent nodes to public or private agent nodes.
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-You can convert agent nodes to public or private for an existing DC/OS cluster. 
+You can convert agent nodes to public or private for an existing DC/OS cluster.
 
 Agent nodes are designated as [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
 
@@ -24,7 +24,7 @@ These steps must be performed on a machine that is configured as a DC/OS node. A
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
 ### Determine the node type
-You can determine the node type by running this command from the DC/OS CLI. 
+You can determine the node type by running this command from the DC/OS CLI.
 
 -   Run this command to determine how many private agents are there in the cluster. A result of `0` indicates that there are no private agents.
 
@@ -33,7 +33,7 @@ You can determine the node type by running this command from the DC/OS CLI.
     ```
 
 -   Run this command to determine how many public agents are there in the cluster. A result of `0` indicates that there are no public agents.
-    
+
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
     ```
@@ -91,13 +91,13 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that tha
 1.  Run this command to install DC/OS on your agent nodes. You must designate your agent nodes as public or private.
 
     Private agent nodes:
-    
+
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave
     ```
-    
+
     Public agent nodes:
-    
+
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```

@@ -3,17 +3,15 @@ layout: layout.pug
 navigationTitle:  Configuration
 title: Configuration
 menuWeight: 600
-excerpt:
+excerpt: Configuring your DC/OS parameters using a YAML file
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 The DC/OS configuration parameters are specified in YAML format in a config.yaml file. This file is stored on your [bootstrap node](/1.11/installing/ent/custom/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
 
-**Important:** If you want to modify the configuration file after installation, you must follow the [DC/OS upgrade process](/1.11/installing/ent/upgrading/). 
+**Important:** If you want to modify the configuration file after installation, you must follow the [DC/OS upgrade process](/1.11/installing/ent/upgrading/).
 
 # Format
 

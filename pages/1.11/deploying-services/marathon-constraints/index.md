@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon Placement Constrainsts
-title: Marathon Placement Constrainsts
+navigationTitle:  Marathon Placement Constraints
+title: Marathon Placement Constraints
 menuWeight: 3
-excerpt:
+excerpt: Understanding Marathon placement constraints
 
 enterprise: false
 ---
@@ -201,7 +201,7 @@ When an `IS` constraint is specified, a task is only launched on nodes that have
   "id": "sleep-cluster",
   "cmd": "sleep 60",
   "instances": 3,
-  "constraints": [["", "IS", "rack-1"]]
+  "constraints": [["rack", "IS", "rack-1"]]
 }
 ```
 

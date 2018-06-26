@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package list
 title: dcos package list
 menuWeight: 2
-excerpt:
+excerpt: Displaying a list of the installed DC/OS packages
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Service Authentication
 title: Service Authentication
 menuWeight: 80
-excerpt:
+excerpt: Understanding service account authentication
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 Service accounts are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS [services](/1.11/overview/concepts/#dcos-service) to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 

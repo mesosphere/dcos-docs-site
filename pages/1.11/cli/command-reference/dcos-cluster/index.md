@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos cluster
 title: dcos cluster
 menuWeight: 3
-excerpt:
+excerpt: Managing connections to DC/OS clusters
 
 enterprise: false
 ---

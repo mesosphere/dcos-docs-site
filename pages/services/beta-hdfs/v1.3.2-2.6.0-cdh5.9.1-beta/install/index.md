@@ -16,7 +16,7 @@ Beta-HDFS is available in the Universe and can be installed by using either the 
 ## Prerequisites
 
 - Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-and-authentication) requires a service account.  
+	- `strict` [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-and-authentication) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - A minimum of five agent nodes with eight GiB of memory and ten GiB of disk available on each agent.
@@ -226,4 +226,4 @@ HDFS supports deployment on the `dcos` overlay network, a virtual network on DC/
     }
 }
 ```
-As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on the overlay network, it cannot be updated to use the host network.
+Note that once the service is deployed on the overlay network, it cannot be updated to use the host network.

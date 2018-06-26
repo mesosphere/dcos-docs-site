@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Load Balance and Expose a Service
 title: Load Balance and Expose a Service
 menuWeight: 10
-excerpt:
+excerpt: Load balancing a DC/OS service
 
 enterprise: false
 ---
@@ -96,7 +96,7 @@ This tutorial demonstrates how to load balance a DC/OS service and set it up for
 1. Once the pool and service have been deployed, access the `host-httpd` service at `http://<public-ip>/`.
 
    You can find the private IP(s) (that DC/OS was configured with) of the node(s) that the Edge-LB load balancers are running on with the following command:
-  
+
    ```
    dcos edgelb endpoints sample-minimal
    ```

@@ -86,8 +86,8 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
      <tr>
         <td>RHEL 7.4</td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE/CE 17.06</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE/CE 17.06</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
     </tr>
     <tr>
@@ -98,8 +98,8 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
      <tr>
         <td>CentOS 7.4</td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE/CE 17.06</p><p style="text-align: center;">Docker EE 17.06.2</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE/CE 17.06</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
     </tr>
     <tr>
@@ -120,6 +120,7 @@ The below matrix provides guidance as to which platform components and operating
 </table>
 
 <sup>*</sup> CoreOS 1688.5.3 requires DC/OS 1.11.3 or later releases.
+
 
 ## Version Compatibility Matrix
 

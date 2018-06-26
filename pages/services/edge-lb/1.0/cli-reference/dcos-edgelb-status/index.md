@@ -2,14 +2,15 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb status
 title: dcos edgelb status
-menuWeight: 70
-excerpt:
+menuWeight: 40
+excerpt: List load-balancer task information for a pool
 
 enterprise: false
 ---
 
 # Description
-List of load-balancer task information associated with the pool such as agent IP address, task ID, etc.
+Returns a list of load-balancer task information associated with a pool, such as agent IP address, task ID, etc.
+Lists the names of each running load balancer instance in a pool.
 
 # Usage
 

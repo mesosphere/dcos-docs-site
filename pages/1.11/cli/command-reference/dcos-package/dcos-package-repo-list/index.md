@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package repo list
 title: dcos package repo list
 menuWeight: 4
-excerpt:
+excerpt: Displaying the package repository sources
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
@@ -25,7 +23,7 @@ dcos package repo list [OPTION]
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
 | `--json`   |             |  JSON-formatted data. |
-        
+
 # Parent command
 
 | Command | Description |

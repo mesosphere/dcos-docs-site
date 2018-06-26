@@ -22,9 +22,25 @@ supportedVersions:
   techLink: "[HDFS](http://hadoop.apache.org/releases.html)"
 
 security:
-  plaintext: ", \"allow_plaintext\": <true|false default false>"
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
 
 kerberos:
   spn: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory
   upn: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
   principal: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    ├─ journal (serial strategy) (COMPLETE)
+    │  ├─ journal-0:[node] (COMPLETE)
+    │  ├─ journal-1:[node] (COMPLETE)
+    │  └─ journal-2:[node] (COMPLETE)
+    ├─ name (serial strategy) (COMPLETE)
+    │  ├─ name-0:[node, zkfc] (COMPLETE)
+    │  └─ name-1:[node, zkfc] (COMPLETE)
+    └─ data (serial strategy) (COMPLETE)
+       ├─ data-0:[node] (COMPLETE)
+       ├─ data-1:[node] (COMPLETE)
+       └─ data-2:[node] (COMPLETE)

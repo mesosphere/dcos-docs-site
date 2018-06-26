@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.3
 title: Release Notes for 1.10.3
-menuWeight: 10
+menuWeight: 20
 excerpt:
 ---
 
-These are the release notes for DC/OS Enterprise 1.10.3.
+DC/OS Enterprise 1.10.3 was released on December 12, 2017.
 
 DC/OS Enterprise 1.10.3 is a patch release. If you are currently running DC/OS Enterprise 1.10.0, DC/OS 1.10.1, or DC/OS 1.10.2, your cluster may be susceptible to a failure mode in the DC/OS IAM (Identity and Access Manager). This mode can lead to a degraded cluster state in which DC/OS masters fail to come online for some period of time after failover or restart. Follow the procedure below to prevent cluster downtime.
 

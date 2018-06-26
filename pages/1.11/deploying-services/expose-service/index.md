@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Exposing a Service
 title: Exposing a Service
 menuWeight: 5
-excerpt:
+excerpt: Launching a service with a Marathon app definition
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 DC/OS agent nodes can be designated as [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) during [installation](/1.11/installing/oss/). Public agent nodes provide access from outside of the cluster via infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.

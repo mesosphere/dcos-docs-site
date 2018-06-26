@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Controlling Access to Task Logs
 title: Controlling Access to Task Logs
 menuWeight: 2
-excerpt:
+excerpt: Manage user access to task logs using Marathon groups
 beta: true
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can control user access to task logs by using Marathon groups for jobs and services. You can then assign permissions to access these groups, allowing you to control which logs a user can access.
 

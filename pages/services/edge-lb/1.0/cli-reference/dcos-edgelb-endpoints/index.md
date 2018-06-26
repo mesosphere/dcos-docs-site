@@ -2,14 +2,15 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb endpoints
 title: dcos edgelb endpoints
-menuWeight: 80
-excerpt:
+menuWeight: 15
+excerpt: List all endpoints for a pool
 
 enterprise: false
 ---
 
 # Description
-List of all endpoints for the pool.
+Returns a list of all endpoints for a pool. The internal ip address and ports for a pool can be found with this command.
+
 
 # Usage
 

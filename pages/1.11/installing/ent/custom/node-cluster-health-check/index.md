@@ -3,18 +3,16 @@ layout: layout.pug
 navigationTitle:  Node and Cluster Health Checks
 title: Node and Cluster Health Checks
 menuWeight: 1000
-excerpt:
+excerpt: Using health checks with your DC/OS cluster
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-
-Node and cluster health checks provide information about your cluster, including available ports, Mesos agent status, and IP detect script validation. A health check is a shell command that reports the status of a DC/OS cluster or node via its exit code. You can write your own custom health checks or use the predefined checks. 
+Node and cluster health checks provide information about your cluster, including available ports, Mesos agent status, and IP detect script validation. A health check is a shell command that reports the status of a DC/OS cluster or node via its exit code. You can write your own custom health checks or use the predefined checks.
 
 # Predefined Health Checks
-DC/OS includes a set of predefined builtin health checks for DC/OS core components. These builtin checks include:
+DC/OS includes a set of predefined built-in health checks for DC/OS core components. These built-in checks include:
 
 - All DC/OS components are healthy.
 - The XZ utility is available.
@@ -25,10 +23,10 @@ DC/OS includes a set of predefined builtin health checks for DC/OS core componen
 Custom checks are checks written by a user and specified when installing DC/OS in the `config.yaml` file. Custom checks should be written for non-core DC/OS components. Health checks for DC/OS core components are included out-of-the-box as [predefined health checks](#predefined-health-checks). For example, you can write custom health checks for:
 
 -  The DC/OS service is healthy
--  The local mounts on nodes are healthy 
+-  The local mounts on nodes are healthy
 
 ## Creating Custom Health Checks
-Custom health checks are user-defined commands that are added to the set of checks that are executed when determining whether a node or cluster is healthy. A custom health check must report its status as one of the exit codes shown in this table. 
+Custom health checks are user-defined commands that are added to the set of checks that are executed when determining whether a node or cluster is healthy. A custom health check must report its status as one of the exit codes shown in this table.
 
 | Code         | Status   | Description                                       |
 |--------------|----------|---------------------------------------------------|
@@ -42,7 +40,7 @@ Optionally you can configure the checks to output a human-readable message to st
 ## Specifying Custom Health Checks
 Before installing DC/OS, you must specify custom health checks in the `custom_checks` installation configuration parameter. If you want to modify the configuration file after installation, you must follow the [DC/OS upgrade process](/1.11/installing/ent/upgrading/).
 
-If it's an absolute path (e.g., if you have an executable in `/usr/bin/`), you can specify it directly in the `cmd`. If you reference an executable by name without an absolute path (e.g., `echo` instead of `/usr/bin/echo`), the system will look for it by using this search path, and use the first executable that it finds: `/opt/mesosphere/bin:/usr/bin:/bin:/sbin`. 
+If it's an absolute path (e.g., if you have an executable in `/usr/bin/`), you can specify it directly in the `cmd`. If you reference an executable by name without an absolute path (e.g., `echo` instead of `/usr/bin/echo`), the system will look for it by using this search path, and use the first executable that it finds: `/opt/mesosphere/bin:/usr/bin:/bin:/sbin`.
 
 For a description of this parameter and examples, see the [configuration parameter documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/#custom-checks).
 
@@ -74,15 +72,15 @@ You can run these commands from your cluster node to invoke custom or predefined
     ```bash
     dcos node --master-proxy --mesos-id=<agent-node-id>
     ```
- 
+
 1.  Run this command to view the available health checks, with your check type (`<check-type>`) specified. The check type can be either cluster (`cluster`) or node (`node-poststart`).
 
     ```bash
     /opt/mesosphere/bin/dcos-shell dcos-diagnostics check <check-type> --list
     ```
-    
+
     Your output should resemble:
-    
+
     ```bash
     {
       "clock_sync": {
@@ -113,21 +111,21 @@ You can run these commands from your cluster node to invoke custom or predefined
       },
       ...
     ```
-    
+
 1.  Run checks with the check name (`<checkname>`) specified.
 
     ```bash
     /opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart <checkname>
     ```
-    
+
     For example, to run the `component_agent` check.
-    
+
     ```bash
     /opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart component_agent
     ```   
-     
+
     The output should resemble:
-    
+
     ```bash
     {
       “status”: 2,
@@ -143,8 +141,8 @@ You can run these commands from your cluster node to invoke custom or predefined
       }
     }
     ```
-    
-    
+
+
 # Examples
 
 ## List all checks
@@ -202,9 +200,3 @@ Run specific node checks (`check1`).
 ```bash
 dcos-diagnostics check node-poststart check1 [check2 [...]]
 ```
-
-
-
-
-
-

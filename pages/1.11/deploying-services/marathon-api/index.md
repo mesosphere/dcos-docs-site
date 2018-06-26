@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Marathon API
 title: Marathon API
 menuWeight: 40
-excerpt:
+excerpt: Using the Marathon API to manage long-running containerized services
 
 enterprise: true
 ---

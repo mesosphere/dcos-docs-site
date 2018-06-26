@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon task stop
 title: dcos marathon task stop
 menuWeight: 31
-excerpt:
+excerpt: Stopping a task
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

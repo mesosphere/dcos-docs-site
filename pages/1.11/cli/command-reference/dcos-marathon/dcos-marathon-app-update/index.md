@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos marathon app update
 title: dcos marathon app update
 menuWeight: 9
-excerpt:
+excerpt: Adding an application
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Add an application.

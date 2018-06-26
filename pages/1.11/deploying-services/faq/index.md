@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
 menuWeight: 120
-excerpt:
+excerpt: Frequently asked questions about deploying Marathon services
 
 enterprise: false
 ---
@@ -40,10 +40,6 @@ A comprehensive overview of a few common service discovery implementations is av
 ## Is it possible to span my cluster over different cloud providers?
 
 This is not currently supported. For more information, see [this document](/1.11/installing/oss/high-availability/).
-
-## How to add Mesos roles for a node to dedicate this node for some apps?
-
-Please review this link on [the Mesosphere Knowledge Base][4].
 
 ## How can I upload files to Spark driver/executor?
 

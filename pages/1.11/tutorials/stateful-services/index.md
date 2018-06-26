@@ -3,7 +3,7 @@ layout: layout.pug
 title: Running Stateful Services on DC/OS
 navigationTitle: Running Stateful Services on DC/OS
 menuWeight: 2
-excerpt:
+excerpt: Tutorial - Running stateful services on DC/OS
 ---
 
 A stateful service acts on persistent data. Simple, stateless services run in an empty sandbox each time they are launched. In contrast, stateful services make use of persistent volumes that reside on agents in a cluster until explicitly destroyed.
@@ -14,7 +14,7 @@ These persistent volumes are mounted into a task's Mesos sandbox and are therefo
 
 If the service you intend to run does not replicate data on its own, you need to take care of backups or have a suitable replication strategy.
 
-Stateful services leverage 2 underlying Mesos features:
+Stateful services leverage two underlying Mesos features:
 
 - [Dynamic reservations](http://mesos.apache.org/documentation/latest/reservation/) with reservation labels
 - [Persistent volumes](http://mesos.apache.org/documentation/latest/persistent-volume/)
@@ -112,7 +112,7 @@ APP        HEALTHY          STARTED              HOST     ID
 
 ## Stop the service
 
-Now, stop the service:
+To stop the service:
 
 ```
 dcos marathon app stop postgres

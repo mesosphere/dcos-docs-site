@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Sealing the Secret Store
 title: Sealing the Secret Store
 menuWeight: 2
-excerpt:
+excerpt: Manually sealing the Secret Store
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You may want to manually seal the Secret Store to protect its contents from an intruder.
 

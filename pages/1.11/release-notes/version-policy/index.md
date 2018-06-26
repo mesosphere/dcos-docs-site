@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Versioning and Release Policy
 title: Versioning and Release Policy
 menuWeight: 110
-excerpt:
+excerpt: Understanding DC/OS versioning and releases
 ---
 The format of Mesosphere DC/OS version number is: <code>&lt;Release&gt;.&lt;Version&gt;.&lt;Minor&gt;</code>.
 

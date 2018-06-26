@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package search
 title: dcos package search
 menuWeight: 6
-excerpt:
+excerpt: Searching the package repository
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
 Search the package repository.
@@ -31,7 +28,7 @@ dcos package search <query> [OPTION]
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
 | `<query>`   |             |  Pattern to use for searching the package repository.  You can use complete or partial values. |
-        
+
 # Parent command
 
 | Command | Description |

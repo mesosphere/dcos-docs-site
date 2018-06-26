@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 600
-excerpt:
+excerpt: List of all configuration parameters for Enterprise installations
 
 enterprise: true
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 This topic provides configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/). For configuration parameters available for [DC/OS](https://dcos.io/) please refer to [Configuration Reference for DC/OS](/1.10/installing/oss/custom/configuration/configuration-parameters/).
@@ -49,7 +48,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [dcos_overlay_enable](#dcos-overlay-enable)           | Block of parameters that specifies whether to enable DC/OS virtual networks. |
 | [dns_bind_ip_blacklist](#dns-bind-ip-blacklist)       | A list of IP addresses that DC/OS DNS resolvers cannot bind to.|
-| [dns_forward_zones](#dns-forward-zones)               | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers. |
+| [dns_forward_zones](#dns-forward-zones)               | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries.  |
 | [dns_search](#dns-search)                             | A space-separated list of domains that are tried when an unqualified domain is entered.  |
 | [master_dns_bindall](#master-dns-bindall)             | Indicates whether the master DNS port is open.  |
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
@@ -72,6 +71,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 
 | Parameter                          | Description                                                                                                                                                |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [adminrouter_auth_cache_enabled](#adminrouter-auth-cache-enabled-enterprise)    | [enterprise type="inline" size="small" /] Controls whether the Admin Router authorization cache is enabled. |
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | [enterprise type="inline" size="small" /] Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | [enterprise type="inline" size="small" /] Sets the auth token time-to-live (TTL) for Identity and Access Management. |
 | [customer_key](#customer-key-enterprise)                       | [enterprise type="inline" size="small" /] (Required) The DC/OS Enterprise customer key. |
@@ -88,6 +88,17 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [zk_super_credentials](#zk-superuser)            | [enterprise type="inline" size="small" /] The ZooKeeper superuser credentials.  |
 | [zk_master_credentials](#zk-master)          | [enterprise type="inline" size="small" /] The ZooKeeper master credentials.  |
 | [zk_agent_credentials](#zk-agent)           | [enterprise type="inline" size="small" /] The ZooKeeper agent credentials.  |
+
+[enterprise]
+### adminrouter_auth_cache_enabled
+[/enterprise]
+
+_This option was added in DC/OS 1.10.6._
+
+Controls whether the Admin Router authorization cache is enabled.
+
+*   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
+*   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
 
 ### agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.10/overview/concepts/#private-agent-node) host names.
@@ -248,25 +259,21 @@ Indicates whether to enable DC/OS virtual networks.
 A list of IP addresses that DC/OS DNS resolvers cannot bind to.
 
 ### dns_forward_zones
-A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
+A list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
 
 A sample definition is as follows:
 
-```
+```yaml
 dns_forward_zones:
-- - "a.contoso.com"
- - - - "1.1.1.1"
-     - 53
-   - - "2.2.2.2"
-     - 53
-- - "b.contoso.com"
- - - - "3.3.3.3"
-     - 53
-   - - "4.4.4.4"
-     - 53
+a.contoso.com:
+- "1.1.1.1:53"
+- "2.2.2.2:53"
+b.contoso.com:
+- "3.3.3.3:53"
+- "4.4.4.4:53"
 ```
 
-In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
+In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded to `3.3.3.3:53` or `4.4.4.4:53`.
 
 ### dns_search
 A space-separated list of domains that are tried when an unqualified domain is entered (e.g., domain searches that do not contain &#8216;.&#8217;). The Linux implementation of `/etc/resolv.conf` restricts the maximum number of domains to 6 and the maximum number of characters the setting can have to 256. For more information, see [man /etc/resolv.conf](http://man7.org/linux/man-pages/man5/resolv.conf.5.html).
@@ -405,7 +412,7 @@ The default is `logrotate`. Due to performance issues, `journald` is not recomme
 
 ### mesos_dns_set_truncate_bit
 
-Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.  
+Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.
 
 *  `mesos_dns_set_truncate_bit: 'true'`  Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet and is truncated. This is the default behavior and is in compliance with RFC7766.
 *  `mesos_dns_set_truncate_bit: 'false'`  Mesos-DNS does not set the truncate bit if the response is too large to fit in a single packet. If you know your applications crash when resolving truncated DNS responses over TCP, or for performance reasons you want to avoid receiving the complete set of DNS records in response to your DNS requests, you should set this option to `false` and note that the DNS responses you receive from Mesos-DNS may be missing entries that were silently discarded. This means that truncated DNS responses will appear complete even though they aren't and therefore won't trigger a retry over TCP. This behavior does not conform to RFC7766.
@@ -445,8 +452,8 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
 The <a href="https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/" target="_blank">REX-Ray</a> configuration for enabling external persistent volumes in Marathon. REX-Ray is a storage orchestration engine. The following is an example configuration.
 
     rexray_config:
-        rexray: 
-          loglevel: info 
+        rexray:
+          loglevel: info
           service: ebs
         libstorage:
           integration:
@@ -492,13 +499,13 @@ The SSH username, for example `centos`.
 ### superuser_password_hash
 [/enterprise]
 
-(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. For more information, see the [security documentation](/1.10/security/ent/).
+(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.10/security/ent/).
 
 [enterprise]
 ### superuser_username
 [/enterprise]
 
-(Required) The user name of the superuser. For more information, see the [security documentation](/1.10/security/ent/).
+(Required) The user name of the superuser. This account uses the `superuser_password_hash`.  For more information, see the [security documentation](/1.10/security/ent/).
 
 ### telemetry_enabled
 Indicates whether to enable sharing of anonymous data for your cluster. <!-- DC/OS auth -->
@@ -530,7 +537,7 @@ For more information, see the [examples](/1.10/installing/ent/custom/configurati
 ### zk_super_credentials
 [/enterprise]
 
-On DC/OS `strict` and `permissive` mode clusters the information stored in ZooKeeper is protected using access control lists (ACLs) so that a malicious user cannot connect to the ZooKeeper Quorum and directly modify service metadata. ACLs specify sets of resource IDs (RIDs) and actions that are associated with those IDs. ZooKeeper supports pluggable authentication schemes and has a few built in schemes: `world`, `auth`, `digest`, `host`, and `ip`. 
+On DC/OS `strict` and `permissive` mode clusters the information stored in ZooKeeper is protected using access control lists (ACLs) so that a malicious user cannot connect to the ZooKeeper Quorum and directly modify service metadata. ACLs specify sets of resource IDs (RIDs) and actions that are associated with those IDs. ZooKeeper supports pluggable authentication schemes and has a few built in schemes: `world`, `auth`, `digest`, `host`, and `ip`.
 
 DC/OS ZooKeeper credentials `zk_super_credentials`, `zk_master_credentials`, and `zk_agent_credentials` use `digest` authentication, which requires a `<uid>:<password>` string which is then used as an ID while checking if a client can access a particular resource.
 

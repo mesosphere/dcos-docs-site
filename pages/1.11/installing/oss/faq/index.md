@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Frequently asked questions about DC/OS Open Source deployments
 title: Frequently Asked Questions
 navigationTitle: FAQ
-menuWeight: 203
+menuWeight: 8
+oss: true
 ---
 
 ## Q. Can I install DC/OS on an already running Mesos cluster?

@@ -1,14 +1,12 @@
 ---
 layout: layout.pug
 navigationTitle:  Creating and Running a Service
-title: Creating and Running a Service
+title: Tutorial - Creating and Running a Service
 menuWeight: 1
-excerpt:
+excerpt: Creating and deploying a service and a containerized service
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS web interface and the CLI.
@@ -20,16 +18,16 @@ This tutorial shows how to create and deploy a simple one-command service and a 
 
 1. Click the **Services** tab of the DC/OS web interface, then click **RUN A SERVICE**.
 1. Click **Single Container**.
-    
-   1. In the **SERVICE ID** field, enter a name for your service. 
+
+   1. In the **SERVICE ID** field, enter a name for your service.
    1. In the **COMMAND** field, enter `sleep 10`.
    1. Click **MORE SETTINGS** and choose your container runtime.
-      
+
       -  **DOCKER ENGINE** Use this option if you require specific features of the Docker package. If you select this option, you must specify a Docker container image in the **CONTAINER IMAGE** field.
       -  **UNIVERSAL CONTAINER RUNTIME (UCR)**  Universal Container Runtime (UCR) using native Mesos engine. Supports Docker file format, multiple containers (pods), and GPU resources. If you select this option, you can optionally specify a Docker container image in the **CONTAINER IMAGE** field.
-      
+
       For more information, see [Using Containerizers](/1.11/deploying-services/containerizers/).
-      
+
 1. Click **REVIEW & RUN** and **RUN SERVICE**.
 
     ![Create a service in the DC/OS UI](/1.11/img/deploy-svs-ui.png)
@@ -66,11 +64,11 @@ This tutorial shows how to create and deploy a simple one-command service and a 
     ```
 
 1.  Run the following command to verify that your service is running:
-    
+
     ```bash
     dcos marathon app list
     ```
-    
+
     You can also click the name of your service in the **Services** view of the DC/OS web interface to see it running and monitor health.
 
 ## Create and run a containerized service from the DC/OS web interface
@@ -91,7 +89,7 @@ This tutorial shows how to create and deploy a simple one-command service and a 
 
 1.  Go to the `hello-dcos` page of the [Mesosphere Docker Hub repository](https://hub.docker.com/r/mesosphere/hello-dcos/tags/) and note down the latest image tag.
 1.  Create a JSON file called `hello-dcos-cli.json` with the following contents. Replace `<image-tag>` in the `docker:image` field with the tag you copied in step 1.
-    
+
     ```json
     {
       "id": "/hello-dcos-cli",
@@ -116,18 +114,18 @@ This tutorial shows how to create and deploy a simple one-command service and a 
       "requirePorts": false
     }
     ```
-    
+
 1.  Run the service with the following command.
-    
+
     ```bash
     dcos marathon app add hello-dcos-cli.json
     ```
 
 1.  Run the following command to verify that your service is running:
-    
+
     ```bash
     dcos marathon app list
     ```
 
-1. In the **Services** tab of the DC/OS web interface, click the name of your service, then choose one of the task instances. 
+1. In the **Services** tab of the DC/OS web interface, click the name of your service, then choose one of the task instances.
 1. Click **Logs**, then toggle to the **OUTPUT (STDOUT)** view to see the output of the service.

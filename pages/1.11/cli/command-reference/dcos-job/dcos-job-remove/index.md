@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos job remove
 title: dcos job remove
 menuWeight: 4
-excerpt:
+excerpt: Removing jobs
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
     
 # Description

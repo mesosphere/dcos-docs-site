@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Uninstalling Services
 title: Uninstalling Services
 menuWeight: 7
-excerpt:
+excerpt: Uninstalling DC/OS services from the CLI
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 Services can be uninstalled from the CLI. If a Universe service has any reserved resources, you also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.

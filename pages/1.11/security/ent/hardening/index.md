@@ -3,17 +3,11 @@ layout: layout.pug
 navigationTitle:  Hardening
 title: Hardening
 menuWeight: 100
-excerpt: >
-  Your cluster will become more secure as
-  you move from disabled to permissive to
-  strict security modes. However, there
-  are a number of settings that you can
-  modify independent of your security mode
-  to increase the security of your
-  cluster.
+excerpt: Increasing the security of your cluster
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 Your cluster will become more secure as you move from `disabled` to `permissive` to `strict` [security modes](/1.11/security/ent/#security-modes).

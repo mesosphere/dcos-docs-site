@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos license get
 title: dcos license get
 menuWeight: 1
-excerpt:
+excerpt: Displaying the cluster licenses
 
 enterprise: true
 ---

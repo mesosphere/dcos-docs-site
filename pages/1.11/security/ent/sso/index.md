@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Identity provider-based authentication
 title: Identity provider-based authentication
 menuWeight: 70
-excerpt:
+excerpt: Configuring identity provider-based authentication
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 

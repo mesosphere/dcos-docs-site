@@ -3,10 +3,12 @@ layout: layout.pug
 navigationTitle:  Cluster Connections
 title: Cluster Connections
 menuWeight: 3
-excerpt:
+excerpt: Connecting to multiple DC/OS clusters 
 ---
 
-You connect to multiple DC/OS clusters using [dcos cluster](/1.11/cli/command-reference/dcos-cluster) commands. `dcos cluster` has subcommands to set up connections to and attach to clusters, and rename and remove clusters.
+You connect to multiple DC/OS clusters using [dcos cluster](/1.11/cli/command-reference/dcos-cluster) commands.
+
+The  `dcos cluster` command has subcommands to set up connections to and attach to clusters, and rename and remove clusters.
 
 ## Setting up a connection to a cluster
 

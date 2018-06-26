@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Node Settings
 title: Node Settings
 menuWeight: 50
-excerpt:
+excerpt: Customize your node resource settings
 featureMaturity:
 enterprise: false
 ---
@@ -83,6 +83,9 @@ To configure the disk type:
 *   **In DC/OS CLI options.json**: `disk_type`: string (default: `ROOT`)
 *   **DC/OS web interface**: `CASSANDRA_DISK_TYPE`: `string`
 
+#include /services/include/node-disk-type-warning.tmpl
+
+
 # Placement Constraints
 
 Placement constraints allow you to customize where Apache Cassandra nodes are deployed in the DC/OS cluster. Placement constraints support all [Marathon operators](http://mesosphere.github.io/marathon/docs/constraints.html) with this syntax: `field:OPERATOR[:parameter]`. For example, if the reference lists `[["hostname", "UNIQUE"]]`, use `hostname:UNIQUE`.
@@ -100,4 +103,4 @@ Cassandra supports deployment on the `dcos` overlay network, a virtual network o
     }
 }
 ```
-By default two nodes will not be placed on the same agent, however multiple Cassandra clusters can share an agent. As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on the overlay network, it cannot be updated to use the host network.
+By default two nodes will not be placed on the same agent, however multiple Cassandra clusters can share an agent. Note that once the service is deployed on the overlay network, it cannot be updated to use the host network.

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Creating a DC/OS cluster for AWS using DC/OS templates
 title: Running DC/OS on AWS EC2 Basic
 navigationTitle: AWS EC2 Basic
 menuWeight: 0

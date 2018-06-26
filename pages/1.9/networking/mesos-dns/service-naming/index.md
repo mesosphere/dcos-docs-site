@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Service Naming
 title: Service Naming
 menuWeight: 0
-excerpt:
+excerpt: Understanding Mesos-DNS service naming conventions
 
 enterprise: false
 ---
@@ -93,166 +93,114 @@ On a DC/OS cluster, ports are offered by agent nodes in the same way as other re
 The following table shows the rules that govern SRV generation:
 
 <table class="table">
-  <thead>
-    <tr>
-      <th>
-        Service
-      </th>
 
-      <th>
-        Container IP Known
-      </th>
+<thead>
 
-      <th>
-        DiscoveryInfo Provided
-      </th>
+<tr>
 
-      <th>
-        Target Host
-      </th>
+<th>Service</th>
 
-      <th>
-        Target Port
-      </th>
+<th>Container IP Known</th>
 
-      <th>
-        A Record Target IP
-      </th>
-    </tr>
-  </thead>
+<th>DiscoveryInfo Provided</th>
 
-  <tbody>
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<th>Target Host</th>
 
-      <td>
-        No
-      </td>
+<th>Target Port</th>
 
-      <td>
-        No
-      </td>
+<th>A Record Target IP</th>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+</tr>
 
-      <td>
-        Host Port
-      </td>
+</thead>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<tbody>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<tr>
 
-      <td>
-        Yes
-      </td>
+<td>_mytask._protocol.myservice.mesos</td>
 
-      <td>
-        No
-      </td>
+<td>No</td>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+<td>No</td>
 
-      <td>
-        Host Port
-      </td>
+<td>mytask.myservice.slave.mesos</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<td>Host Port</td>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        No
-      </td>
+</tr>
 
-      <td>
-        Yes
-      </td>
+<tr>
 
-      <td>
-        mytask.myservice.mesos
-      </td>
+<td>_mytask._protocol.myservice.mesos</td>
 
-      <td>
-        DiscoveryInfo Port
-      </td>
+<td>Yes</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<td>No</td>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<td>mytask.myservice.slave.mesos</td>
 
-      <td>
-        Yes
-      </td>
+<td>Host Port</td>
 
-      <td>
-        Yes
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        mytask.myservice.mesos
-      </td>
+</tr>
 
-      <td>
-        DiscoveryInfo Port
-      </td>
+<tr>
 
-      <td>
-        Container IP
-      </td>
-    </tr>
+<td>_mytask._protocol.myservice.mesos</td>
 
-    <tr>
-      <td>
-        mytask.protocol.myservice.slave.mesos
-      </td>
+<td>No</td>
 
-      <td>
-        N/A
-      </td>
+<td>Yes</td>
 
-      <td>
-        N/A
-      </td>
+<td>mytask.myservice.mesos</td>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+<td>DiscoveryInfo Port</td>
 
-      <td>
-        Host Port
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
-  </tbody>
+</tr>
+
+<tr>
+
+<td>_mytask._protocol.myservice.mesos</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>mytask.myservice.mesos</td>
+
+<td>DiscoveryInfo Port</td>
+
+<td>Container IP</td>
+
+</tr>
+
+<tr>
+
+<td>mytask.protocol.myservice.slave.mesos</td>
+
+<td>N/A</td>
+
+<td>N/A</td>
+
+<td>mytask.myservice.slave.mesos</td>
+
+<td>Host Port</td>
+
+<td>Agent IP</td>
+
+</tr>
+
+</tbody>
+
 </table>
+
+_Table 1. - SRV generation rules_
 
 # <a name="other-records"></a>Other Records
 
@@ -273,7 +221,7 @@ Mesos-DNS also generates A records for itself that list all the IP addresses tha
 
 # <a name="naming-conventions"></a>Task and Service Naming Conventions
 
-Mesos-DNS follows [RFC 952][3] for name formatting. All fields used to construct hostnames for A records and service names for SRV records must be 24 characters or shorter and can include letters of the alphabet (A-Z), numbers (0-9), and a dash (-). Names are not case sensitive. If the task name does not comply with these constraints, Mesos-DNS will shorten the name to 24 characters, remove all invalid characters, and replace periods (.) with a dash (-).
+Mesos-DNS follows [RFC 1123][3] for name formatting. All fields used to construct hostnames for A records and service names for SRV records must be 63 characters or shorter and can include letters of the alphabet (A-Z), numbers (0-9), and a dash (-). Names are not case sensitive. If the task name does not comply with these constraints, Mesos-DNS will shorten the name to 24 characters, remove all invalid characters, and replace periods (.) with a dash (-). For Mesos DNS names, enforcement of [RFC 952][4] is optional.
 
 Note that there is a difference in the rules for service names and task names. For service names, periods (.) are allowed, but all other rules apply. For example, a task named `apiserver.myservice` launched by service `marathon.prod` will have A records associated with the name `apiserver-myservice.marathon.prod.mesos` and SRV records associated with the name `_apiserver-myservice._tcp.marathon.prod.mesos`.
 
@@ -415,4 +363,5 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
 
  [1]: /1.9/overview/concepts/
  [2]: ../troubleshooting/#leader
- [3]: https://tools.ietf.org/html/rfc952
+ [3]: https://tools.ietf.org/html/rfc1123
+ [4]: https://tools.ietf.org/html/rfc952

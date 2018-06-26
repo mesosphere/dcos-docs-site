@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle: DC/OS Enterprise Security
 title: DC/OS Enterprise Security
 menuWeight: 80
-excerpt:
+excerpt: Understanding DC/OS Enterprise security features
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 DC/OS Enterprise offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster.
 

@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos job kill
 title: dcos job kill
 menuWeight: 2
-excerpt:
+excerpt: Ending DC/OS jobs
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
 Kill the job.
 
@@ -40,4 +38,3 @@ dcos job kill <job-id> [OPTION]
 | [dcos job](/1.11/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 <!-- # Examples -->
-
