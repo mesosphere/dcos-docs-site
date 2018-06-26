@@ -172,7 +172,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 ### <a name="setup-file"></a>DC/OS setup file
 
-[Download and save](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) the DC/OS setup file to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
+[Download and save](https://dcos.io/releases/)) the DC/OS setup file to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
 
 ### Docker Nginx (advanced installer)
 
