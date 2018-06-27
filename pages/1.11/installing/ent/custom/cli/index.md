@@ -124,9 +124,9 @@ In this step, you create a YAML configuration file that is customized for your e
     - <agent-private-ip-3>
     - <agent-private-ip-4>
     - <agent-private-ip-5>
-    # Use this bootstrap_url value unless you have moved the DC/OS installer assets.   
+    # bootstrap_url should define where you can get the DC/OS installer assets.
+    # This is generally the bootstrap IP and a port but it can also be a local file.
     bootstrap_url: http://<bootstrap_ip>:<your_port>
-    customer_key: <customer-key>
     cluster_name: <cluster-name>
     exhibitor_storage_backend: static
     master_discovery: static
@@ -152,7 +152,11 @@ In this step, you create a YAML configuration file that is customized for your e
     https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
     no_proxy:
     - 'foo.bar.com'         
-    - '.baz.com'    
+    - '.baz.com'
+    # Fault domain entry required for DC/OS Enterprise 1.11+.
+    fault_domain_enabled: false
+    # If IPv6 is disabled in your kernel, you must disable it in the config.yaml.
+    enable_ipv6: 'false'
     ```
 
 1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.11/security/#superuser). The hashed password is automatically appended to `config.yaml`.
