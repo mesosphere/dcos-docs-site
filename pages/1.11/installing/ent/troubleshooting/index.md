@@ -14,40 +14,40 @@ enterprise: false
 1.  Verify that you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
 
 
-    ## <a name="ip-detect-script"></a>IP detect script
+## <a name="ip-detect-script"></a>IP detect script
 
-    You must have a valid [ip-detect](/1.11/installing/ent/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+You must have a valid [ip-detect](/1.11/installing/ent/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
-    - extra lines
-    - white space
-    - special or hidden characters
+  - extra lines
+  - white space
+  - special or hidden characters
 
-    It is recommended that you use the `ip-detect` [examples](/1.11/installing/ent/custom/advanced/).
+It is recommended that you use the `ip-detect` [examples](/1.11/installing/ent/custom/advanced/).
 
-    ## DNS resolvers
+## DNS resolvers
 
-    You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
-    - `hostname -f` returns the FQDN
-    - `hostname -s` returns the short hostname
+  - `hostname -f` returns the FQDN
+  - `hostname -s` returns the short hostname
 
     You should sanity check the output of `hostnamectl` on all of your nodes as well.
 
-    When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
+When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
 
-    1. Exhibitor
-    1. Mesos master
-    1. Mesos DNS
-    1. DNS Forwarder
-    1. DC/OS Marathon
-    1. Jobs
-    1. Admin Router
+ 1. Exhibitor
+ 1. Mesos master
+ 1. Mesos DNS
+ 1. DNS Forwarder
+ 1. DC/OS Marathon
+ 1. Jobs
+ 1. Admin Router
 
-    Be sure to check that all services are up and healthy on the masters before checking the agents.
+ Be sure to check that all services are up and healthy on the masters before checking the agents.
 
-    ### NTP
+ ### NTP
 
-    Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
+ Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
 
     ```bash
     ntptime
@@ -58,7 +58,7 @@ enterprise: false
 1. Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
 
-   Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
+Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
 
 
    ```bash
@@ -67,25 +67,25 @@ enterprise: false
 
 1.  Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
 
-    -  [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
+    - [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
 
         ```bash
         journalctl -flu dcos-exhibitor
         ```
 
-    -  Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. To repair `/tmp` mounted with `noexec`:
+    - Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. To repair `/tmp` mounted with `noexec`:
 
-        1.  Enter this command:
+  1.  Enter this command:
 
             ```bash
             mount -o remount,exec /tmp
             ```
 
-        1.  Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
+  1.  Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
 
-            For example, [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command:
+  For example, [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command:
 
-            ```bash
+         ```bash
             curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
             [
                 {
@@ -109,7 +109,7 @@ enterprise: false
             ]
             ```
 
-            **Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
+**Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 
 1.  Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
@@ -119,13 +119,13 @@ enterprise: false
 
 1.  Verify that you can ping `⁠⁠⁠⁠leader.mesos` and ﻿⁠⁠⁠⁠`master.mesos`. If not:
 
-    -  Review the Mesos-DNS service logs with this command: ﻿
+    - Review the Mesos-DNS service logs with this command: ﻿
 
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
        ```
 
-    -  If you are able to ping `ready.spartan`, but not `leader.mesos`, review the Mesos master service logs by using this command:
+    - If you are able to ping `ready.spartan`, but not `leader.mesos`, review the Mesos master service logs by using this command:
 
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
@@ -151,13 +151,13 @@ The Admin Router is started on the master nodes. The Admin Router provides centr
 
 **Troubleshooting:**
 
-*   SSH to your master node and enter this command to view the logs from boot time:
+SSH to your master node and enter this command to view the logs from boot time:
 
     ```bash
     journalctl -u dcos-adminrouter -b
     ```
 
-    For example, here is a snippet of the Admin Router log as it converges to a successful state:
+For example, here is a snippet of the Admin Router log as it converges to a successful state:
 
     ```bash
     systemd[1]: Starting A high performance web server and a reverse proxy server...
@@ -174,17 +174,17 @@ Publicly accessible applications are run in the public agent node. Public agent 
 
 **Troubleshooting:**
 
-*   You might not be able to SSH to agent nodes, depending on your cluster network configuration. We have made this a little bit easier with the DC/OS CLI. For more information, see [SSHing to a DC/OS cluster][6].
+* You might not be able to SSH to agent nodes, depending on your cluster network configuration. We have made this a little bit easier with the DC/OS CLI. For more information, see [SSHing to a DC/OS cluster][6].
 
-*   You can get the IP address of registered agent nodes from the **Nodes** tab in the [DC/OS web interface][7]. Nodes that have not registered are not shown.
+* You can get the IP address of registered agent nodes from the **Nodes** tab in the [DC/OS web interface][7]. Nodes that have not registered are not shown.
 
-*   SSH to your agent node and enter this command to view the logs from boot time:
+* SSH to your agent node and enter this command to view the logs from boot time:
 
     ```bash
     journalctl -u dcos-mesos-slave -b
     ```
 
-    For example, here is a snippet of the Mesos agent log as it converges to a successful state:
+For example, here is a snippet of the Mesos agent log as it converges to a successful state:
 
     ```bash
     mesos-slave[1080]: I1118 14:00:43.687366  1080 main.cpp:272] Starting Mesos slave
@@ -204,15 +204,15 @@ DC/OS Marathon is started on the master nodes. The native Marathon instance that
 
 **Troubleshooting:**
 
-*   Go to the **Services > Services** tab on the [web interface](/1.11/gui/) and view status.
+* Go to the **Services > Services** tab on the [web interface](/1.11/gui/) and view status.
 
-*   SSH to your master node and enter this command to view the logs from boot time:
+* SSH to your master node and enter this command to view the logs from boot time:
 
     ```bash
     journalctl -u dcos-marathon -b
     ```
 
-    For example, here is a snippet of the DC/OS Marathon log as it converges to a successful state:
+For example, here is a snippet of the DC/OS Marathon log as it converges to a successful state:
 
     ```bash
     java[1288]: I1118 13:59:39.125041  1363 group.cpp:331] Group process (group(1)@10.0.7.166:48531) connected to ZooKeeper
@@ -233,15 +233,15 @@ gen_resolvconf is started. This is a service that helps the agent nodes locate t
 
 **Troubleshooting:**
 
-*   When gen_resolvconf is up and running, you can view `/etc/resolv.conf` contents. It should contain one or more IP addresses for the master nodes, and the optional external DNS server.
+* When gen_resolvconf is up and running, you can view `/etc/resolv.conf` contents. It should contain one or more IP addresses for the master nodes, and the optional external DNS server.
 
-*   SSH to your master node and enter this command to view the logs from boot time:
+* SSH to your master node and enter this command to view the logs from boot time:
 
     ```bash
     journalctl -u dcos-gen-resolvconf -b
     ```
 
-    For example, here is a snippet of the gen_resolvconf log as it converges to a successful state:
+For example, here is a snippet of the gen_resolvconf log as it converges to a successful state:
 
     ```bash
     systemd[1]: Started Update systemd-resolved for mesos-dns.
@@ -259,14 +259,14 @@ The Mesos master process starts on the master nodes. The `mesos-master` process 
 
 **Troubleshooting:**
 
-*   Go directly to the Mesos web interface and view status at `<master-hostname>/mesos`.
-*   SSH to your master node and enter this command to view the logs from boot time:
+* Go directly to the Mesos web interface and view status at `<master-hostname>/mesos`.
+* SSH to your master node and enter this command to view the logs from boot time:
 
     ```bash
     journalctl -u dcos-mesos-master -b
     ```
 
-    For example, here is a snippet of the Mesos master log as it converges to a successful state:
+For example, here is a snippet of the Mesos master log as it converges to a successful state:
 
     ```bash
     mesos-master[1250]: I1118 13:59:33.890916  1250 master.cpp:376] Master cdcb6222-65a1-4d60-83af-33dadec41e92 (10.0.7.166) started on 10.0.7.166:5050
@@ -280,13 +280,13 @@ Mesos-DNS is started on the DC/OS master nodes. Mesos-DNS provides service disco
 
 **Troubleshooting:**
 
-*   SSH to your master node and enter this command to view the logs from boot time:
+* SSH to your master node and enter this command to view the logs from boot time:
 
     ```bash
     journalctl -u dcos-mesos-dns -b
     ```
 
-    For example, here is a snippet of the Mesos-DNS log as it converges to a successful state:
+For example, here is a snippet of the Mesos-DNS log as it converges to a successful state:
 
     ```bash
     mesos-dns[1197]: I1118 13:59:34.763885 1197 detect.go:135] changing leader node from "" -> "json.info_0000000001"
@@ -306,15 +306,15 @@ ZooKeeper and Exhibitor start on the master nodes. The Exhibitor storage locatio
 
 DC/OS uses ZooKeeper, a high-performance coordination service to manage the installed DC/OS services. Exhibitor automatically configures ZooKeeper on the master nodes during your DC/OS installation. For more information, see [Configuration Parameters][5].
 
-*   Go to the Exhibitor web interface and view status at `<master-hostname>/exhibitor`.
+* Go to the Exhibitor web interface and view status at `<master-hostname>/exhibitor`.
 
-*   SSH to your master node and enter this command to view the logs from boot time:
+* SSH to your master node and enter this command to view the logs from boot time:
 
     ```bash
     journalctl -u dcos-exhibitor -b
     ```
 
-    For example, here is a snippet of the Exhibitor log as it converges to a successful state:
+For example, here is a snippet of the Exhibitor log as it converges to a successful state:
 
     ```bash
     INFO  com.netflix.exhibitor.core.activity.ActivityLog  Automatic Instance Management will change the server list:  ==> 1:10.0.7.166 [ActivityQueue-0]
