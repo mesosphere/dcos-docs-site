@@ -86,8 +86,7 @@ Your cluster must meet the software and hardware [requirements](/1.11/installing
     - <master-private-ip-2>
     - <master-private-ip-3>
     resolvers:
-    - 8.8.4.4
-    - 8.8.8.8
+    - 169.254.169.253
     use_proxy: 'true'
     http_proxy: http://<proxy_host>:<http_proxy_port>
     https_proxy: https://<proxy_host>:<https_proxy_port>
