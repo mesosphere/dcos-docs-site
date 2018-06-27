@@ -1,0 +1,13 @@
+# Common values:
+
+packageName: minio
+serviceName: minio
+techName: minio
+techShortName: minio
+
+# Values specific to certain templates:
+
+security:
+  plaintext: ", \"allow_plaintext\": <true|false default false>"
+
+
