@@ -106,11 +106,12 @@ In this step, you create a YAML configuration file that is customized for your e
 
 1.  From your `genconf` directory, create a configuration file and save as `config.yaml`.
     
-    You can use this template to get started. This template specifies three masters, five [private](/1.10/overview/concepts/#private-agent-node) agents, one [public](/1.10/overview/concepts/#public-agent-node) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. If your servers are installed with a domain name in your `/etc/resolv.conf`, you should add `dns_search` to your `config.yaml` file. For parameters, descriptions, and configuration examples, see the [documentation][3].
+    You can use this template to get started. This template specifies three masters, five [private](/1.10/overview/concepts/#private-agent-node) agents, one [public](/1.10/overview/concepts/#public-agent-node) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. For parameters, descriptions, and configuration examples, see the [documentation][3].
    
     **Tips:** 
     
     - If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
+    - If your servers are installed with a domain name in `/etc/resolv.conf`, you should specify `dns_search` with a value that includes that domain. 
     - If you set `master_discovery` to `static`, the IP addresses in `master_list` will be used for internal cluster communication. These IP addresses must be reachable from each other, as well as from the bootstrap host.
     
     ```bash
