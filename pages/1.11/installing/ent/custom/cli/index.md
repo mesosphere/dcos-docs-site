@@ -156,7 +156,7 @@ In this step, you create a YAML configuration file that is customized for your e
     # Fault domain entry required for DC/OS Enterprise 1.11+.
     fault_domain_enabled: false
     # If IPv6 is disabled in your kernel, you must disable it in the config.yaml.
-    enable_ipv6: 'false'
+    enable_ipv6: false
     ```
 
 1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.11/security/#superuser). The hashed password is automatically appended to `config.yaml`.
