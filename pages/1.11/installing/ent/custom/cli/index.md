@@ -110,7 +110,7 @@ In this step, you create a YAML configuration file that is customized for your e
 
 1.  From your `genconf` directory, create a configuration file and save as `config.yaml`.
 
-    You can use this template to get started. This template specifies three masters, five [private](/1.11/overview/concepts/#private-agent-node) agents, one [public](/1.11/overview/concepts/#public-agent-node) agent, static master discovery list, an optional custom proxy, and SSH configuration specified. You may use additional configuration parameters. For descriptions of all parameters and configuration examples, see the [documentation][6].
+    You can use this template to get started. This template specifies three masters, five [private](/1.11/overview/concepts/#private-agent-node) agents, one [public](/1.11/overview/concepts/#public-agent-node) agent, static master discovery list, and SSH configuration. You may use additional configuration parameters. For descriptions of all parameters and configuration examples, see the [documentation][6].
 
     The CLI installer uses these default configuration values, which you may override in your configuration:
 
@@ -153,13 +153,6 @@ In this step, you create a YAML configuration file that is customized for your e
     # ssh_user must have passwordless sudo
     ssh_user: <username>
     superuser_username: <username>
-    # A custom proxy is optional. For details see the config documentation.
-    use_proxy: 'true'
-    http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
-    https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
-    no_proxy:
-    - 'foo.bar.com'         
-    - '.baz.com'
     # Fault domain entry required for DC/OS Enterprise 1.11+.
     fault_domain_enabled: false
     # If IPv6 is disabled in your kernel, you must disable it in the config.yaml.

@@ -146,7 +146,7 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
 
     In this step you create a YAML configuration file that is customized for your environment. DC/OS uses this configuration file during installation to generate your cluster installation files.
 
-    You can use this template to get started. This template specifies 3 masters, 5 [private](/1.10/overview/concepts/#private-agent-node) agents, 1 [public](/1.10/overview/concepts/#public-agent-node) agent, static master discovery list, a custom proxy, and SSH configuration specified. You may use additional configuration parameters. For descriptions of all parameters and configuration examples, see the [documentation][6].
+    You can use this template to get started. This template specifies 3 masters, 5 [private](/1.10/overview/concepts/#private-agent-node) agents, 1 [public](/1.10/overview/concepts/#public-agent-node) agent, static master discovery list, and SSH configuration. You may use additional configuration parameters. For descriptions of all parameters and configuration examples, see the [documentation][6].
 
     The CLI installer uses these default configuration values, which you may override in your configuration:
 
@@ -187,12 +187,6 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
     public_agent_list:
     - <public-agent-private-ip>
     ssh_user: <username>
-    use_proxy: 'true'
-    http_proxy: http://<proxy_host>:<http_proxy_port>
-    https_proxy: https://<proxy_host>:<https_proxy_port>
-    no_proxy:
-    - 'foo.bar.com'
-    - '.baz.com'
     ```
 
 3.  Copy your private SSH key to `genconf/ssh_key`. For more information, see the [ssh_key_path][6] parameter.
