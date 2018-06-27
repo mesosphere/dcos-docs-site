@@ -29,3 +29,24 @@ Returned endpoints will include the following:
 - If your service is on a virtual network such as the `dcos` overlay network, then the IP will be from the subnet allocated to the host that the task is running on. It will not be the host IP. To resolve the host IP use Mesos DNS (`<task>.<service>.mesos`).
 
 In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster you can either use direct IPs or set up a proxy service that acts as a frontend to your minio instance. For development and testing purposes, you can use [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administering-clusters/sshcluster/) to access services from outside the cluster, but this option is not suitable for production use.
+
+## Connection Response
+
+The response, for both the CLI and the REST API is as below.
+
+```shell
+{
+  "address": [
+    "10.0.2.208:1026",
+    "10.0.1.9:1026"
+  ],
+  "dns": [
+    "minio-0-node.minio.autoip.dcos.thisdcos.directory:1026",
+    "minio-1-node.minio.autoip.dcos.thisdcos.directory:1026"
+  ]
+}
+```
+
+This JSON array contains a list of valid nodes that the client can use to connect to the minio cluster. For availability reasons, it is best to specify multiple nodes in configuration of the client. Use the VIP to address any one of the prometheus nodes in the cluster.
+
+When TLS is enabled, an endpoint named node-tls should also be listed. To verify a TLS connection from a client the DC/OS trust bundle with a CA certificate is required.
