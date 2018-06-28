@@ -156,7 +156,6 @@ Your cluster must meet the software and hardware [requirements](/1.10/installing
 
     **Tips:**
 
-    - If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
     - If your servers are installed with a domain name in `/etc/resolv.conf`, you should specify `dns_search` with a value that includes that domain. 
     - If you set `master_discovery` to `static`, the IP addresses in `master_list` will be used for internal cluster communication. These IP addresses must be reachable from each other, as well as from the bootstrap host.
 
