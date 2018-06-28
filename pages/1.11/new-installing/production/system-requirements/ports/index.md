@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: DC/OS Ports
-menuWeight: 25
+menuWeight: 20
 excerpt: List of ports available for installation
 
 ---

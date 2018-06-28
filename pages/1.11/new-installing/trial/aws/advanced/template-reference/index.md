@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Template Reference
 excerpt:
 title: Template Reference
-menuWeight: 200
+menuWeight: 5
 ---
 
 

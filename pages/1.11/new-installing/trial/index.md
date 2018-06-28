@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 excerpt:
-title: DC/OS Cloud Installation Options
-navigationTitle: Cloud
-menuWeight: 0
+title: Trial Installation 
+navigationTitle: Trial Installation
+menuWeight: 10
 oss: true
 ---
 

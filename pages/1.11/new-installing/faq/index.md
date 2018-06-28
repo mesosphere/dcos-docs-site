@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
-menuWeight: 203
+menuWeight: 35
 excerpt: Frequently asked questions about installing DC/OS Enterprise
 
 enterprise: false

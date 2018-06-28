@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
-menuWeight: 2
+menuWeight: 15
 ---
 
 You can create a DC/OS cluster on DigitalOcean using Terraform.
