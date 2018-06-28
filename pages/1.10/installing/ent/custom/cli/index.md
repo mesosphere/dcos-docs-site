@@ -143,7 +143,7 @@ In this step, you create a YAML configuration file that is customized for your e
     - <agent-private-ip-4>
     - <agent-private-ip-5>
     public_agent_list:
-    - <private-agent-private-ip>
+    - <public-agent-private-ip>
     customer_key: <customer-key>
     # Choose your security mode: permissive, strict, or disabled.
     security: <security-mode>
