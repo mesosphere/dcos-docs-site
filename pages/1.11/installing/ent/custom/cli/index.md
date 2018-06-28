@@ -110,7 +110,7 @@ In this step, you create a YAML configuration file that is customized for your e
 
 1.  From your `genconf` directory, create a configuration file and save as `config.yaml`.
 
-    You can use this template to get started. This template specifies three masters, five [private](/1.11/overview/concepts/#private-agent-node) agents, one [public](/1.11/overview/concepts/#public-agent-node) agent, static master discovery list, and SSH configuration. You may use additional configuration parameters. For descriptions of all parameters and configuration examples, see the [documentation][6].
+    You can use this template to get started. This template specifies three masters, five [private](/1.11/overview/concepts/#private-agent-node) agents, one [public](/1.11/overview/concepts/#public-agent-node) agent, static master discovery list, and SSH configuration. You may use additional configuration parameters. For descriptions of all parameters and configuration examples, see the [documentation][3].
 
     The CLI installer uses these default configuration values, which you may override in your configuration:
 
