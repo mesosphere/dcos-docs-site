@@ -33,21 +33,6 @@ To start a basic test cluster of Minio, run the following command on the DC/OS C
    
 This command creates a new instance with the default name minio.Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance.However, the application cannot be installed as foldered installation.
 
-All dcos minio CLI commands have a --name  argument allowing the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, i.e. minio. The default value for --name can be customized via the DC/OS CLI configuration:
-
-   ```shell
-   dcos minio --name=minio <cmd>
-   ```
-
-You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
-
-   ```shell
-   dcos package install minio --options=options.json
-   ```
-
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
-
-
 ## Installing from the DC/OS Web Interface
 
 Note:  Alternatively, you can install Minio from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
@@ -79,26 +64,24 @@ DC/OS Minio supports deployment on virtual networks on DC/OS, allowing each cont
 Note: Once the service is deployed on a virtual network, it cannot be updated to use the host network.
 
  
-## Minimal Installation
+## Minio Installation on Single Node
 
-For development purposes, you may wish to install Minio on a local DC/OS cluster. For this, you can use dcos-docker or dcos-vagrant.
-To start a minimal cluster with a single broker, create a JSON options file named sample-minio-minimal.json:
+For development purposes, you may wish to install Minio on a local DC/OS cluster. For this, you can use dcos-docker.
+
+1.  Installing from the DC/OS CLI:
+
+To start a basic Minio installation on single node, run the following command on the DC/OS CLI :
 
    ```shell
-   {
-       "node": {
-       "count": 1,
-       "mem": 512,
-       "cpu": 0.5
-       }
-   }
+   dcos package install minio 
    ```
-The command below creates a cluster using sample-minio-minimal.json:
+2. Installing from the DC/OS web Interface:
+
+you can install Minio from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
 
 
-   ```shell
-   dcos package install minio --options=sample-minio-minimal.json
-   ```  
+
+  
 
 ## Placement Constraints
 
@@ -121,14 +104,4 @@ In order to define placement constraints as part of an install or update of a se
        "placement": "[[\"hostname\", \"UNIQUE\"]]"
        }
    }
-   ```
-This file can be referenced to install a minio service.
-
-   ```shell
-   dcos package install hello-world --options=options.json
-   ```
-Likewise this file can be referenced to update a minio service.
-
-   ```shell
-   dcos minio update start --options=options.json
    ```
