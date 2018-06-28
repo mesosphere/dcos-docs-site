@@ -56,7 +56,7 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
     <tr>
        <td>CoreOS 1688.5.3<sup>*</sup></td>
-       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 17.12.1</p></td>
+       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
        <td>                    </td>
        <td>                    </td>
     </tr>
