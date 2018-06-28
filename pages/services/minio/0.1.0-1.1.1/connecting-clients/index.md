@@ -50,3 +50,122 @@ The response, for both the CLI and the REST API is as below.
 This JSON array contains a list of valid nodes that the client can use to connect to the minio cluster. For availability reasons, it is best to specify multiple nodes in configuration of the client. Use the VIP to address any one of the prometheus nodes in the cluster.
 
 When TLS is enabled, an endpoint named node-tls should also be listed. To verify a TLS connection from a client the DC/OS trust bundle with a CA certificate is required.
+
+## Accessing Minio UI with Edge-LB Configuration
+
+### Assumptions
+    - Minio is installed on DCOS without TLS and Kerberos
+    - Edge LB is installed (with service account and service account secret in strict mode)
+
+### Steps
+
+Following are the steps for Edge-LB Pool configuration:
+
+  1. **Install the edgelb cli**
+  ```shell
+  dcos package install --cli edgelb --yes
+  ```
+  2. **Get the DNS address using the following:**
+  ```shell
+  dcos minio endpoints node --name=<service_name>
+  ```  
+  3. **Create the configration json file with required parameters to access nifi.**
+
+  Example as follows (Without TLS and Kerberos):
+
+  ```shell
+{
+  "apiVersion": "V2",
+  "name": "minioproxy",
+  "count": 1,
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 8080,
+        "protocol": "HTTP",
+        "linkBackend": {
+          "defaultBackend": "minioservice"
+        }
+      }
+    ],
+    "backends": [
+      {
+        "name": "minioservice",
+        "protocol": "HTTP",
+        "services": [
+          {
+            "endpoint": {
+              "type": "ADDRESS",
+              "address": "<dns adress obtained from Step 2>",
+              "port": 8080
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+  ```
+with TLS and Kerberos:
+
+  ```shell
+{
+   "apiVersion": "V2",
+   "name": "minioproxy",
+   "count": 1,
+   "autoCertificate": true,
+   "haproxy": {
+      "frontends": [
+         {
+            "bindPort": 8443,
+            "protocol": "HTTPS",
+            "certificates": [
+               "$AUTOCERT"
+            ],
+            "linkBackend": {
+               "defaultBackend": "minioservice"
+            }
+         }
+      ],
+      "backends": [
+         {
+            "name": "minioservice",
+            "protocol": "HTTPS",
+            "rewriteHttp": {
+               "host": <dns adress obtained from Step 2>,
+               "path": {
+                  "fromPath": "/minio",
+                  "toPath": "/minio"
+               },
+               "request": {
+                  "forwardfor": true,
+                  "xForwardedPort": true,
+                  "xForwardedProtoHttpsIfTls": true,
+                  "setHostHeader": true,
+                  "rewritePath": true
+               }
+            },
+            "services": [
+               {
+                  "endpoint": {
+                     "type": "ADDRESS",
+                     "address": <dns adress obtained from Step 2>,
+                     "port": <port obtained from Step 2>
+                  }
+               }
+            ]
+         }
+      ]
+   }
+}
+
+  ```
+
+  4. **Create edge-pool using the above json.**
+  ```shell
+  dcos edgelb create edgelb-pool-config.json
+  ```    
+  5. **Access nifi**
+  ```shell
+  http://<Public IP of the Public Node of the cluster>>:8080/nifi
+  ```      
