@@ -77,8 +77,21 @@ To start a basic Minio installation on single node, run the following command on
    ```
 2. Installing from the DC/OS web Interface:
 
-you can install Minio from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
+You can install Minio from the DC/OS web interface by clicking on Run service after selecting the app from Catalog.
 
+Below are the steps to be followed :
+
+  [<img src="../service/Image_Shortcut.png" alt="backup" width="800"/>](../service/Image_Shortcut.png)
+  
+  [<img src="../service/Review_Run.png" alt="backup" width="800"/>](../service/Review_Run.png)
+  
+  [<img src="../service/Service_Configuration.png" alt="backup" width="800"/>](../service/Service_Configuration.png)
+  
+  [<img src="../service/Review_Configuration_1.png" alt="backup" width="800"/>](../service/Review_Configuration_1.png)
+  
+  [<img src="../service/Review_Configuration_2.png" alt="backup" width="800"/>](../service/Review_Configuration_2.png)
+  
+  [<img src="../service/Success.png" alt="backup" width="800"/>](../service/Success.png)
 
 
   
