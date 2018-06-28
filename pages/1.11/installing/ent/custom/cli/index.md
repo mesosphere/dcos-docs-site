@@ -192,6 +192,8 @@ In this step, you create a YAML configuration file that is customized for your e
 
         cp <path-to-key> genconf/ssh_key && chmod 0600 genconf/ssh_key
 
+5.  Create a [license file][16] containing the license key from the email you received from your Authorized Support Contact and save it as `genconf/license.txt`.
+
 
 # <a name="install-bash"></a>Install DC/OS
 
@@ -405,3 +407,4 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [13]: #hardware
  [14]: #software
  [15]: #two
+ [16]: /1.11/administering-clusters/licenses/
