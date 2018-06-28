@@ -119,7 +119,7 @@ In this step, you create a YAML configuration file that is customized for your e
     - If your servers are installed with a domain name in `/etc/resolv.conf`, you should specify `dns_search` with a value that includes that domain. 
     - If you set `master_discovery` to `static`, the IP addresses in `master_list` will be used for internal cluster communication. These IP addresses must be reachable from each other, as well as from the bootstrap host.
     
-    ```bash
+    ```yaml
     cluster_name: <cluster-name>
     # Only override this value if you're hosting the contents of genconf/serve/
     # at a custom location. The CLI installer will automatically distribute
