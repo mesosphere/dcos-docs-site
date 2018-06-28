@@ -59,7 +59,9 @@ Each Service Discovery requires parameters to be passed for thier respective SD,
 
 All tasks launched in DC/OS receive a DNS address. It is of the form:
 
-                 <task-name>.<framework-name>.autoip.dcos.thisdcos.directory
+```shell
+<task-name>.<framework-name>.autoip.dcos.thisdcos.directory
+   ```
  
 Important: As with resource sets, only a single process at point in time may use a given prefix. A complete service definition would have a deploy plan that ensures this.
 
