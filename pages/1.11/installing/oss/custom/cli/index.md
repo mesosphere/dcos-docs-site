@@ -160,7 +160,6 @@ Your cluster must meet the software and hardware [requirements](/1.11/installing
     - If you set `master_discovery` to `static`, the IP addresses in `master_list` will be used for internal cluster communication. These IP addresses must be reachable from each other, as well as from the bootstrap host.
 
     ```yaml
-    ---
     cluster_name: <cluster-name>
     # Only override this value if you're hosting the contents of genconf/serve/
     # at a custom location. The CLI installer will automatically distribute
