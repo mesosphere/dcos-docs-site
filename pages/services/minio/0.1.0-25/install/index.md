@@ -81,19 +81,17 @@ You can install Minio from the DC/OS web interface by clicking on Run service af
 
 Below are the steps to be followed :
 
-  [<img src="../service/Image_Shortcut.png" alt="backup" width="800"/>](../service/Image_Shortcut.png)
+  [<img src="../service/Image_Shortcut.png" alt="Image_Shortcut" width="800"/>](../service/Image_Shortcut.png)
   
-  [<img src="../service/Review_Run.png" alt="backup" width="800"/>](../service/Review_Run.png)
+  [<img src="../service/Review_Run.png" alt="Review_Run" width="800"/>](../service/Review_Run.png)
   
-  [<img src="../service/Service_Configuration.png" alt="backup" width="800"/>](../service/Service_Configuration.png)
+  [<img src="../service/Service_Configuration.png" alt="Service_Configuration" width="800"/>](../service/Service_Configuration.png)
   
-  [<img src="../service/Review_Configuration_1.png" alt="backup" width="800"/>](../service/Review_Configuration_1.png)
+  [<img src="../service/Review_Configuration_1.png" alt="Review_Configuration_1" width="800"/>](../service/Review_Configuration_1.png)
   
-  [<img src="../service/Review_Configuration_2.png" alt="backup" width="800"/>](../service/Review_Configuration_2.png)
+  [<img src="../service/Review_Configuration_2.png" alt="Review_Configuration_2" width="800"/>](../service/Review_Configuration_2.png)
   
-  [<img src="../service/Success.png" alt="backup" width="800"/>](../service/Success.png)
-
-
+  [<img src="../service/Success.png" alt="Success" width="800"/>](../service/Success.png)
   
 
 ## Placement Constraints
