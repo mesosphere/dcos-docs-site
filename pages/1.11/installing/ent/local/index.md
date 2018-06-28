@@ -2,13 +2,8 @@
 layout: layout.pug
 navigationTitle:  Local
 title: Install DC/OS Locally
-
-menuWeight: 3
-excerpt: Automating local installation of DC/OS for development and testing
-
 menuWeight: 2
-
-
+excerpt: Automating local installation of DC/OS for development and testing
 enterprise: true
 ---
 

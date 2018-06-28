@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle: Patching
 title: Patching
 menuWeight: 3
-excerpt:
+excerpt: Understanding cluster patches
+enterprise: false
 ---
 
 # Patching live clusters with no downtime

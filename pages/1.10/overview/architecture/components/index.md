@@ -865,13 +865,3 @@ dcos-spartan.service
 dcos-spartan-watchdog.service
 dcos-spartan-watchdog.timer
 ```
-
-
-# Changes Since DC/OS 1.9
-
-- [Admin Router](#admin-router) - Admin Router now performs dynamic DNS resolution. The external `dcos-adminrouter-reload` service and timer were removed.
-- [DC/OS Backup](#dcos-backup) - DC/OS Backup service and socket were added in DC/OS 1.10.0 for the [backup and restore](/1.10/administering-clusters/backup-and-restore/) feature. [enterprise type="inline" size="small" /]
-- [DC/OS Component Package Manager](#dcos-component-package-manager) - To avoid a race condition during DC/OS upgrades, the DC/OS Component Package Manager socket file is now managed by [gunicorn](http://gunicorn.org/) instead of systemd.
-- [DC/OS Identity and Access Manager](#dcos-iam) - For improved storage performance, DC/OS Identity and Access Manager now uses CockroachDB instead of ZooKeeper as the default store. To retain ZooKeeper as the store, you can use the `dcos-bouncer-legacy` service. [enterprise type="inline" size="small" /]
-- [CockroachDB](#cockroachdb) - CockroachDB was added in DC/OS 1.10.0 as the new store for DC/OS Identity and Access Manager. [enterprise type="inline" size="small" /]
-- [DC/OS Secrets](#dcos-secrets) - For improved security, DC/OS Secrets now uses a socket instead of a port. [enterprise type="inline" size="small" /]
