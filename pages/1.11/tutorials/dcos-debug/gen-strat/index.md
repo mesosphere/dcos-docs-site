@@ -36,7 +36,7 @@ If it might be applicable, check the [Mesos GUI](/1.11/tutorials/dcos-debug/tool
 
 ### Step 2: Check the Task Logs
 
-If the GUIs provide insufficient information, next check the [task logs](/1.11/tutorials/dcos-debug/tools/#task-logs) using the DC/OS GUI or the CLI. This helps a better understanding of what might have happened to the application.
+If the GUIs cannot provide sufficient information, next check the [task logs](/1.11/tutorials/dcos-debug/tools/#task-logs) using the DC/OS GUI or the CLI. This helps a better understanding of what might have happened to the application.
 
 **Tip** If the issue is related to our app not deploying (e.g. the task status continues to wait indefinitely), try looking at the ['Debug' page](/1.10/monitoring/debugging/gui-debugging/#debugging-page). It could be helpful in getting a better understanding of the resources being offered by Mesos.
 
