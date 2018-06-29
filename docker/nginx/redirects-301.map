@@ -177,13 +177,14 @@
 /1.11/cli/command-reference/dcos-cluster/dcos-config-set/ /1.11/cli/command-reference/dcos-config/dcos-config-set/;
 /1.11/img/new-user-group-prod-permission-done.png /1.11/img/new-user-group-prod-permission.png;
 /1.11/img/ui-installer-auth2.png /1.11/img/ui-installer-auth2.png;
-/1.11/installing/high-availability/ /1.11/installing/oss/high-availability/;
+~^/1.11/installing/ent/high-availability/(.*)$ /1.11/installing/high-availability/$1;
+~^/1.11/installing/oss/high-availability/(.*)$ /1.11/installing/high-availability/$1;
 /1.11/installing/ent/local/ /1.11/installing/local/;
 /1.11/installing/oss/local/ /1.11/installing/local/;
 /1.11/installing/ent/custom/advanced/ /1.11/installing/production/advanced/;
 /1.11/installing/oss/custom/advanced/ /1.11/installing/production/advanced/;
-/1.11/installing/ent/custom/configuration/configuration-parameters/ /1.11/installing/production/configuration/configuration-parameters/;
-/1.11/installing/oss/custom/configuration/configuration-parameters/ /1.11/installing/production/configuration/configuration-parameters/;
+~^//1.11/installing/ent/custom/configuration/configuration-parameters/(.*)$ /1.11/installing/production/configuration/configuration-parameters/$1;
+~^/1.11/installing/oss/custom/configuration/configuration-parameters/(.*)$ /1.11/installing/production/configuration/configuration-parameters/$1;
 /1.11/installing/ent/custom/node-cluster-health-check/ /1.11/installing/production/node-cluster-health-check/;
 /1.11/installing/oss/custom/node-cluster-health-check/ /1.11/installing/production/node-cluster-health-check/;
 /1.11/installing/ent/faq/ /1.11/installing/faq/;
