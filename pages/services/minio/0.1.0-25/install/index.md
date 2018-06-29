@@ -133,7 +133,7 @@ Below are the steps to be followed :
   
   [<img src="../service/Review_Run.png" alt="Review_Run" width="800"/>](../service/Review_Run.png)
   
-  [<img src="../service/Service_Configuration.png" alt="Service_Configuration" width="800"/>](../service/Service_Configuration.png)
+  [<img src="../service/Service_name_config.png" alt="Service_name_config" width="800"/>](../service/Service_name_config.png)
    
 2. CPU amd Memory Configuration :
 
