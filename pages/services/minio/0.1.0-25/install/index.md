@@ -121,6 +121,31 @@ Below are the steps to be followed :
    
    [<img src="../service/Success.png" alt="Success" width="800"/>](../service/Success.png)
    
+## Updating Configuration
+
+1. Service Name Configuration :
+
+You can change the service name from the DC/OS web interface by clicking on Service tag after selecting the app from Catalog.
+   
+Below are the steps to be followed :
+
+  [<img src="../service/Image_Shortcut.png" alt="Image_Shortcut" width="800"/>](../service/Image_Shortcut.png)
+  
+  [<img src="../service/Review_Run.png" alt="Review_Run" width="800"/>](../service/Review_Run.png)
+  
+  [<img src="../service/Service_Configuration.png" alt="Service_Configuration" width="800"/>](../service/Service_Configuration.png)
+   
+2. CPU amd Memory Configuration :
+
+You can increase or decrease the CPU and memory size from the DC/OS web interface by clicking on nodes tag after selecting the app from Catalog.
+
+Below are the steps to be followed :
+
+ [<img src="../service/Image_Shortcut.png" alt="Image_Shortcut" width="800"/>](../service/Image_Shortcut.png)
+  
+ [<img src="../service/Review_Run.png" alt="Review_Run" width="800"/>](../service/Review_Run.png)
+
+ [<img src="../service/CPU_Memory_config.png" alt="CPU_Memory_config" width="800"/>](../service/CPU_Memory_config.png) 
 
 ## Placement Constraints
 
