@@ -5,7 +5,7 @@ title: Upgrading
 menuWeight: 4
 excerpt: Upgrading a DC/OS cluster
 
-enterprise: true
+enterprise: false
 ---
 
 An upgrade is the process of adding new features, replacing the existing features with new features/functionality or adding a major configuration change. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster.
@@ -57,12 +57,12 @@ Here is a list of the parameters that you can modify:
     - [`https_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
     - [`no_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
 
-The security mode (`security`) can be changed but has special caveats.
+The security mode (`security`) can be changed but has special caveats. [enterprise type="inline" size="small" /]
 
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `permissive` mode and you want to downgrade to `disabled` mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from `disabled` to `strict` mode. To increase from `disabled` to `strict` mode you must first update to `permissive` mode, and then update from `permissive` to `strict` mode.
 
-See the security [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) for information on different security modes.
+See the security [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) for information on different security modes. [enterprise type="inline" size="small" /]
 
 # Instructions
 These steps must be performed for version upgrades and cluster configuration changes.
@@ -93,7 +93,9 @@ Choose your desired security mode and then follow the applicable upgrade instruc
 - [Installing DC/OS 1.11 in permissive mode](#permissive)
 - [Installing DC/OS 1.11 in strict mode](#strict)
 
+[enterprise]
 # <a name="current-security"></a>Installing DC/OS 1.11 without changing security mode
+[/enterprise]
 This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
