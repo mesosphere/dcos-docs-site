@@ -4,7 +4,7 @@ navigationTitle: Patching
 title: Patching
 menuWeight: 20
 excerpt: Understanding cluster patches
-enterprise: false
+
 ---
 
 # Patching live clusters with no downtime
