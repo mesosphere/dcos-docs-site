@@ -53,6 +53,9 @@ spec:
     matchLabels:
       app: probe
   replicas: 3
+  selector:
+    matchLabels:
+      app: probe
   template:
     metadata:
       labels:
