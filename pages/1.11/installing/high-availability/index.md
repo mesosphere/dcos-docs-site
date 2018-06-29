@@ -5,7 +5,6 @@ title: High Availability
 menuWeight: 30
 excerpt: Using the high-availability features in DC/OS
 
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
