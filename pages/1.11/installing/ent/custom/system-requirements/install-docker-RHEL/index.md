@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  RHEL 7.4 prerequisites
 title: Prepare RHEL 7.4 for DC/OS installation
-menuWeight: 3
+menuWeight: 10
 excerpt: Requirements and recommendations for installing Docker on RHEL
 
 enterprise: false

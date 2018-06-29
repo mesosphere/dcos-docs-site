@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Template Reference
 title: Template Reference
-menuWeight: 200
+menuWeight: 5
 excerpt: Advanced template parameters
 
 enterprise: true

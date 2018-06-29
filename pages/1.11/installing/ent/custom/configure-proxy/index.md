@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Configure DC/OS for Proxy
-menuWeight: 900
+menuWeight: 25
 excerpt: Using a corporate proxy to configure DC/OS
 
 enterprise: false

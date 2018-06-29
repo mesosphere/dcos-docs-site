@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Install Docker on CentOS
 title: Install Docker on CentOS
-menuWeight: 2
+menuWeight: 5
 excerpt: Requirements and recommendations for installing Docker on CentOS
 
 enterprise: false

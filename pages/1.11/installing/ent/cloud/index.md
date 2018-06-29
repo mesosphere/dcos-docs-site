@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-title: DC/OS Cloud Installation Options
-menuWeight: 1
-excerpt: Installing DC/OS on AWS using cloud templates
+title: Trial Installation
+menuWeight: 10
+excerpt: Installing DC/OS on AWS using Trial installation methods 
 
 enterprise: true
 ---

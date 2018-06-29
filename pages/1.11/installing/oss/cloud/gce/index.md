@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Running DC/OS on Google Compute Engine
 title: Running DC/OS on Google Compute Engine
 navigationTitle: GCE
-menuWeight: 3
+menuWeight: 20
 ---
 
 # Terraform

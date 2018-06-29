@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Examples
 title: Examples
-menuWeight: 700
+menuWeight: 10
 excerpt: Common example configurations for DC/OS Enterprise
 
 enterprise: false

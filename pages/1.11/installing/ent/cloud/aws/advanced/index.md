@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Running DC/OS on AWS EC2 Advanced
-menuWeight: 200
+menuWeight: 10
 excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates 
 
 enterprise: true
