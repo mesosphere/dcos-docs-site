@@ -3,9 +3,8 @@ layout: layout.pug
 navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
 menuWeight: 203
-excerpt: Frequently asked questions about installing DC/OS Enterprise
+excerpt: Frequently asked questions about installing DC/OS 
 
-enterprise: false
 ---
 
 
@@ -13,7 +12,7 @@ enterprise: false
 We recommend starting with a fresh cluster to ensure all defaults are set to expected values. This prevents unexpected conditions related to mismatched versions and configurations.
 
 ## Q. What are the OS requirements of DC/OS?
-See the [system requirements](/1.11/installing/ent/custom/system-requirements/).
+See the [system requirements](/1.11/installing/production/system-requirements/).
 
 ## Q. Does DC/OS install ZooKeeper, or can I use my own ZooKeeper quorum?
 DC/OS runs its own ZooKeeper supervised by Exhibitor and systemd, but users are able to create their own ZooKeeper quorums as well. The ZooKeeper quorum installed by default will be available at `master.mesos:[2181|2888|3888]`.
@@ -25,7 +24,7 @@ If you specify an Exhibitor storage backend type other than `exhibitor_storage_b
 
 In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dcos/mesos-slave-common` (it may need to be created) for each attribute you'd like to add. More information can be found [via the Mesos doc](http://mesos.apache.org/documentation/latest/attributes-resources/).
 
-## Q. How do I gracefully shut down an agent? [enterprise type="inline" size="small" /]
+## Q. How do I gracefully shut down an agent? 
 
 - _To gracefully kill an agent node's Mesos process and allow systemd to restart it, use the following command. _Note: If Auto Scaling Groups are in use, the node will be replaced automatically_:
 
@@ -50,7 +49,7 @@ In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dc
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave-public && sudo systemctl stop dcos-mesos-slave-public
     ```
 
-## Q. How do I backup the IAM database? 
+## Q. How do I backup the IAM database? [enterprise type="inline" size="small" /]
 
 - _To backup the IAM database to a file run the following command on one of the master nodes_:
 

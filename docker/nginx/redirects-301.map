@@ -187,6 +187,7 @@
 ~^/1.11/installing/oss/custom/configuration/configuration-parameters/(.*)$ /1.11/installing/production/configuration/configuration-parameters/$1;
 /1.11/installing/ent/custom/node-cluster-health-check/ /1.11/installing/production/node-cluster-health-check/;
 /1.11/installing/oss/custom/node-cluster-health-check/ /1.11/installing/production/node-cluster-health-check/;
+/1.11/installing/ent/custom/system-requirements/ /1.11/installing/production/system-requirements/;
 /1.11/installing/ent/faq/ /1.11/installing/faq/;
 /1.11/installing/oss/faq/ /1.11/installing/faq/;
 /1.11/installing/ent/patching/ /1.11/installing/patching/;
