@@ -16,17 +16,17 @@ excerpt: Troubleshooting DC/OS installation issues
 
 ## IP detect script
 
-You must have a valid [ip-detect](/1.11/installing/ent/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+You must have a valid [ip-detect](/1.11/installing/production/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
   - extra lines
   - white space
   - special or hidden characters
 
-It is recommended that you use the `ip-detect` [examples](/1.11/installing/ent/custom/advanced/).
+It is recommended that you use the `ip-detect` [examples](/1.11/installing/production/advanced/).
 
 ## DNS resolvers
 
-You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/production/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
   - `hostname -f` returns the FQDN
   - `hostname -s` returns the short hostname
@@ -176,7 +176,7 @@ Publicly accessible applications are run in the public agent node. Public agent 
 
 * You might not be able to SSH to agent nodes, depending on your cluster network configuration. We have made this a little bit easier with the DC/OS CLI. For more information, see [SSHing to a DC/OS cluster][6].
 
-* You can get the IP address of registered agent nodes from the **Nodes** tab in the [DC/OS web interface][7]. Nodes that have not registered are not shown.
+* You can get the IP address of registered agent nodes from the **Nodes** tab in the DC/OS Dashboard. Nodes that have not registered are not shown.
 
 * SSH to your agent node and enter this command to view the logs from boot time:
 
@@ -204,7 +204,7 @@ DC/OS Marathon is started on the master nodes. The native Marathon instance that
 
 **Troubleshooting:**
 
-* Go to the **Services > Services** tab on the [web interface](/1.11/gui/) and view status.
+* Go to the **Services > Services** tab on the DC/OS Dashboard and view status.
 
 * SSH to your master node and enter this command to view the logs from boot time:
 
@@ -331,10 +331,10 @@ For example, here is a snippet of the Exhibitor log as it converges to a success
     ```
 
 
- [1]: /1.11/installing/ent/custom/configuration/configuration-parameters/#exhibitor-storage-backend
+ [1]: /1.11/installing/production/configuration/configuration-parameters/#exhibitor-storage-backend
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /1.11/installing/ent/custom/configuration/configuration-parameters/#master-discovery
+ [3]: /1.11/installing/production/configuration/configuration-parameters/#master-discovery
  [4]: /1.11/overview/architecture/boot-sequence/
- [5]: /1.11/installing/ent/custom/configuration/configuration-parameters/
+ [5]: /1.11/installing/production/configuration/configuration-parameters/
  [6]: /1.11/administering-clusters/sshcluster/
- [7]: /1.11/gui/
+ 
