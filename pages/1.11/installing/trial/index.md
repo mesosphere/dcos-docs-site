@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Local
+navigationTitle:  Trial
 title: Install DC/OS Locally
 menuWeight: 5
 excerpt: Automating local installation of DC/OS for development and testing
