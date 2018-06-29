@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Patching
 title: Patching
-menuWeight: 3
+menuWeight: 20
 excerpt: Understanding cluster patches
 enterprise: false
 ---
