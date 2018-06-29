@@ -93,6 +93,34 @@ Below are the steps to be followed :
   
   [<img src="../service/Success.png" alt="Success" width="800"/>](../service/Success.png)
   
+## Minio Installation on Distributed Nodes
+
+1.  Installing from the DC/OS CLI:
+
+To start a basic Minio installation on single node, run the following command on the DC/OS CLI :
+
+   ```shell
+   dcos package install minio 
+   ```
+2. Installing from the DC/OS web Interface:
+
+You can install Minio from the DC/OS web interface by clicking on Run service after selecting the app from Catalog.
+
+Below are the steps to be followed :
+
+
+  [<img src="../service/Image_Shortcut.png" alt="Image_Shortcut" width="800"/>](../service/Image_Shortcut.png)
+  
+  [<img src="../service/Review_Run.png" alt="Review_Run" width="800"/>](../service/Review_Run.png)
+  
+   [<img src="../service/Edit_Configuration.png" alt="Edit_Configuration" width="800"/>](../service/Edit_Configuration.png)
+   
+   [<img src="../service/Review_Configuration_1.png" alt="Review_Configuration_1" width="800"/>](../service/Review_Configuration_1.png)
+  
+   [<img src="../service/Review_config_3.png" alt="Review_config_3" width="800"/>](../service/Review_config_3.png) 
+   
+   [<img src="../service/Success.png" alt="Success" width="800"/>](../service/Success.png)
+   
 
 ## Placement Constraints
 
