@@ -95,14 +95,7 @@ Below are the steps to be followed :
   
 ## Minio Installation on Distributed Nodes
 
-1.  Installing from the DC/OS CLI:
-
-To start a basic Minio installation on single node, run the following command on the DC/OS CLI :
-
-   ```shell
-   dcos package install minio 
-   ```
-2. Installing from the DC/OS web Interface:
+1. Installing from the DC/OS web Interface:
 
 You can install Minio from the DC/OS web interface by clicking on Run service after selecting the app from Catalog.
 
