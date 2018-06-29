@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Trial Installation
-title: Trial Installation
+navigationTitle:  Local Installation
+title: Local Installation
 menuWeight: 5
 excerpt: Automating local installation of DC/OS for development and testing
 
