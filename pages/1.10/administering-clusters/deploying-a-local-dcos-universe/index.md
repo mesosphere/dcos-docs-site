@@ -200,6 +200,9 @@ You can install and run DC/OS services on a datacenter without internet access w
     dcos package repo add local-universe http://master.mesos:8082/repo
     ```
 
+    **NOTE:** If you need help resolving `master.mesos`, refer to [Installing your own set of Universe packages](https://docs.mesosphere.com/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages).
+
+
 1.  [SSH into one of your agent nodes.](/1.10/administering-clusters/sshcluster/)
 
     ```bash

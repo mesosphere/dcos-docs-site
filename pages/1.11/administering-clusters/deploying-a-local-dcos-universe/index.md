@@ -199,6 +199,8 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
     ```bash
     dcos package repo add local-universe http://master.mesos:8082/repo
     ```
+    **NOTE:** If you need help resolving `master.mesos`, refer to [Installing your own set of Universe packages](https://docs.mesosphere.com/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages).
+
 
 1.  [SSH into one of your agent nodes.](/1.11/administering-clusters/sshcluster/)
 
