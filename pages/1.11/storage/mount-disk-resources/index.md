@@ -58,6 +58,12 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
         sudo rm -f /var/lib/mesos/slave/meta/slaves/latest
         ```
 
+    1. Remove checkpointed agent resources with this command:
+
+      ```bash
+      sudo rm -f /var/lib/mesos/slave/meta/resources
+      ```
+
 5. Create a 200 MB loopback device.
 
     ```bash
