@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle:
 excerpt: Install Spark using either the web interface or the DC/OS CLI
+
 title: Install and Customize
 menuWeight: 0
 featureMaturity:
@@ -213,7 +214,7 @@ to follow these steps to install and run Spark.
     dcos security secrets create-sa-secret --strict private-key.pem spark-principal spark/spark-secret
     ```
 
-    **Note* You can verify the secrets were created with:
+    **Note** You can verify the secrets were created with:
 
     ```bash
     $ dcos security secrets list /
@@ -297,21 +298,21 @@ Permissions can also be assigned through the UI.
 ## Add necessary configuration to your Spark jobs when submitting them
 
 *   To run a job on a strict mode cluster, you must add the `principal` to the command line. For example:
-    ```bash
-    $ dcos spark run --verbose --submit-args=" \
-    --conf spark.mesos.principal=<service-account> \
-    --conf spark.mesos.containerizer=mesos \
-    --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
-    ```
+```bash
+$ dcos spark run --verbose --submit-args=" \
+--conf spark.mesos.principal=<service-account> \
+--conf spark.mesos.containerizer=mesos \
+--class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
+```
 
 If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable:
 
-    ```bash
-    $ dcos spark run --verbose --submit-args="\
-    --conf spark.mesos.principal=<service-account> \
-    --conf spark.mesos.driverEnv.SPARK_USER=nobody \
-    --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
-    ```
+```bash
+$ dcos spark run --verbose --submit-args="\
+--conf spark.mesos.principal=<service-account> \
+--conf spark.mesos.driverEnv.SPARK_USER=nobody \
+--class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
+```
 
 
 
