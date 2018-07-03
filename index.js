@@ -43,24 +43,24 @@ const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 // Errors
 //
 
-if(!process.env.GIT_BRANCH && process.env.NODE_ENV != "development") {
+if (!process.env.GIT_BRANCH && process.env.NODE_ENV != 'development') {
   throw new Error('Env var GIT_BRANCH has not been set.');
 }
 
-if(ALGOLIA_UPDATE == "true") {
-  if(process.env.NODE_ENV == "pdf") {
+if (ALGOLIA_UPDATE === 'true') {
+  if (process.env.NODE_ENV === 'pdf') {
     throw new Error('Algolia env vars set while build env is pdf');
   }
-  if(!ALGOLIA_PROJECT_ID) {
+  if (!ALGOLIA_PROJECT_ID) {
     throw new Error('Env var ALGOLIA_PROJECT_ID has not been set.');
   }
-  if(!ALGOLIA_PUBLIC_KEY) {
+  if (!ALGOLIA_PUBLIC_KEY) {
     throw new Error('Env var ALGOLIA_PUBLIC_KEY has not been set.');
   }
-  if(!ALGOLIA_PRIVATE_KEY) {
+  if (!ALGOLIA_PRIVATE_KEY) {
     throw new Error('Env var ALGOLIA_PRIVATE_KEY has not been set.');
   }
-  if(!ALGOLIA_INDEX) {
+  if (!ALGOLIA_INDEX) {
     throw new Error('Env var ALGOLIA_INDEX has not been set.');
   }
 }
@@ -69,51 +69,49 @@ if(ALGOLIA_UPDATE == "true") {
 // Metalsmith
 //
 
-let MS = Metalsmith(__dirname);
+const MS = Metalsmith(__dirname);
 
-let currentYear = (new Date()).getFullYear();
+const currentYear = (new Date()).getFullYear();
 
 // Metadata
 MS.metadata({
-  url: "https://docs.mesosphere.com",
-  siteTitle: "Mesosphere DC/OS Documentation",
-  siteDescription: "Welcome to the DC/OS documentation. The DC/OS documentation " +
-  "can help you set up, learn about the system, and get your applications and" +
-  " workloads running on DC/OS.",
+  url: 'https://docs.mesosphere.com',
+  siteTitle: 'Mesosphere DC/OS Documentation',
+  siteDescription: 'Welcome to the DC/OS documentation. The DC/OS documentation ' +
+  'can help you set up, learn about the system, and get your applications and' +
+  ' workloads running on DC/OS.',
   copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
   gitBranch: process.env.GIT_BRANCH,
-  dcosDocsLatest: '1.11'
-})
+  dcosDocsLatest: '1.11',
+});
 
 // Source
-MS.source('./pages')
+MS.source('./pages');
 
 // Destination
-MS.destination('./build')
+MS.destination('./build');
 
 // Clean
-MS.clean(false)
+MS.clean(false);
 
 //
 // Content Branch
 //
 
-let CB = branch()
+const CB = branch();
 
 // Start timer
-CB.use(timer('CB: Init'))
+CB.use(timer('CB: Init'));
 
 // Remove the ordr prefix from structured files. Constrained to the services directory
 // @bwood is responsible for this abomination.
 CB.use(copy({
   pattern: 'services/**',
-  transform: function(file) {
-    return file.replace(/ordr_[0-9]+-/, "")
-  },
-  move: true
-}))
-CB.use(timer('CB: Copy'))
+  transform: file => file.replace(/ordr_[0-9]+-/, ''),
+  move: true,
+}));
+CB.use(timer('CB: Copy'));
 
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
@@ -126,8 +124,8 @@ CB.use(dataLoader({
   dataProperty: 'model',
   // Only enable in service pages for now.
   match: 'services/**/*.md',
-}))
-CB.use(timer('CB: Dataloader'))
+}));
+CB.use(timer('CB: Dataloader'));
 
 // Load raw content via '#include' directives before rendering any mustache or markdown.
 // For example (in your content):
@@ -137,8 +135,8 @@ CB.use(includeContent({
   pattern: '^#include ([^ \n]+)$',
   // Only enable in service pages for now.
   match: 'services/**/*.md*',
-}))
-CB.use(timer('CB: IncludeContent'))
+}));
+CB.use(timer('CB: IncludeContent'));
 
 // Process any mustache templating in files.
 // For example (in your Front Matter):
@@ -147,29 +145,29 @@ CB.use(inPlace({
   renderProperty: 'render',
   // Only enable in service pages for now.
   match: 'services/**/*.md',
-}))
-CB.use(timer('CB: Mustache'))
+}));
+CB.use(timer('CB: Mustache'));
 
 // Folder Hierarchy
 CB.use(hierarchy({
   files: ['.md'],
-  excerpt: true
-}))
-CB.use(timer('CB: Hierarchy'))
+  excerpt: true,
+}));
+CB.use(timer('CB: Hierarchy'));
 
 // RSS Feed
 CB.use(hierarchyRss({
   itemOptionsMap: {
-    'title': 'title',
-    'description': 'excerpt'
-  }
-}))
-CB.use(timer('CB: Hierarchy RSS'))
+    title: 'title',
+    description: 'excerpt',
+  },
+}));
+CB.use(timer('CB: Hierarchy RSS'));
 
 // Filter unmodified files
-if(process.env.NODE_ENV === 'development') {
-  CB.use(reduce())
-  CB.use(timer('CB: Reduce'))
+if (process.env.NODE_ENV === 'development') {
+  CB.use(reduce());
+  CB.use(timer('CB: Reduce'));
 }
 
 //
@@ -179,9 +177,9 @@ if(process.env.NODE_ENV === 'development') {
 // Shortcodes
 CB.use(shortcodes({
   files: ['.md'],
-  shortcodes: shortcodesConfig
-}))
-CB.use(timer('CB: Shortcodes'))
+  shortcodes: shortcodesConfig,
+}));
+CB.use(timer('CB: Shortcodes'));
 
 // Markdown
 CB.use(markdown(
@@ -198,144 +196,140 @@ CB.use(markdown(
           attrs: [
             ['class', opts.permalinkClass],
             ['href', opts.permalinkHref(slug, state)],
-            ['aria-hidden', 'true']
-          ]
+            ['aria-hidden', 'true'],
+          ],
         }),
         Object.assign(new state.Token('html_block', '', 0), { content: opts.permalinkSymbol }),
-        new state.Token('link_close', 'a', -1)
-      ]
-      state.tokens[idx + 1].children['unshift'](...linkTokens)
+        new state.Token('link_close', 'a', -1),
+      ];
+      state.tokens[idx + 1].children.unshift(...linkTokens);
     },
     permalinkClass: 'content__anchor',
     permalinkSymbol: '<i data-feather="bookmark"></i>',
     permalinkBefore: true,
   })
   .use(attrs),
-)
-CB.use(timer('CB: Markdown'))
+);
+CB.use(timer('CB: Markdown'));
 
 // Headings
-CB.use(headings())
-CB.use(timer('CB: Headings'))
+CB.use(headings());
+CB.use(timer('CB: Headings'));
 
 CB.use(redirect({
-  '/support': 'https://support.mesosphere.com'
-}))
-CB.use(timer('CB: Redirects'))
+  '/support': 'https://support.mesosphere.com',
+}));
+CB.use(timer('CB: Redirects'));
 
 // Permalinks
-CB.use(permalinks())
-CB.use(timer('CB: Permalinks'))
+CB.use(permalinks());
+CB.use(timer('CB: Permalinks'));
 
 // Layouts
-if(!process.env.RENDER_PATH_PATTERN) {
+if (!process.env.RENDER_PATH_PATTERN) {
   // Default: Render all pages.
   CB.use(layouts({
     engine: 'pug',
     cache: true,
-  }))
+  }));
 } else {
   // Dev optimization: Only render within a specific path (much faster turnaround)
-  // For example, "services/beta-cassandra/latest/**"
+  // For example, 'services/beta-cassandra/latest/**'
   CB.use(layouts({
     engine: 'pug',
     pattern: process.env.RENDER_PATH_PATTERN,
     cache: true,
-  }))
+  }));
 }
-CB.use(timer('CB: Layouts'))
+CB.use(timer('CB: Layouts'));
 
 //
 // Slow Plugins End
 //
 
 // Restore unmodified files
-if(process.env.NODE_ENV === 'development') {
-  CB.use(restore())
-  CB.use(timer('CB: Reduce'))
+if (process.env.NODE_ENV === 'development') {
+  CB.use(restore());
+  CB.use(timer('CB: Reduce'));
 }
 
 // Search Indexing
-if(ALGOLIA_UPDATE == "true") {
+if (ALGOLIA_UPDATE === 'true') {
   CB.use(algolia({
     projectId: ALGOLIA_PROJECT_ID,
     privateKey: ALGOLIA_PRIVATE_KEY,
     index: ALGOLIA_INDEX,
-    clearIndex: (ALGOLIA_CLEAR_INDEX != undefined) ? (ALGOLIA_CLEAR_INDEX == "true") : true,
-  }))
+    clearIndex: (ALGOLIA_CLEAR_INDEX !== undefined) ? (ALGOLIA_CLEAR_INDEX === 'true') : true,
+  }));
   CB.use(timer('CB: Algolia'));
 }
 
 // Enable watching
-if(process.env.NODE_ENV === 'development') {
-  CB.use(
-    watch({
-      paths: {
-        'pages/**/*': '**/*.md',
-        'layouts/**/*': '**/*.pug',
-      },
-    })
-  )
+if (process.env.NODE_ENV === 'development') {
+  CB.use(watch({
+    paths: {
+      'pages/**/*': '**/*.md',
+      'layouts/**/*': '**/*.pug',
+    },
+  }));
   CB.use(timer('CB: Watch'));
 }
 
 // WkhtmltopdfLinkResolver
-if(process.env.NODE_ENV == "pdf") {
+if (process.env.NODE_ENV === 'pdf') {
   CB.use(wkhtmltopdfLinkResolver({
-    prefix: '/tmp/pdf/build'
-  }))
-  CB.use(timer('CB: WkhtmltopdfLinkResolver'))
+    prefix: '/tmp/pdf/build',
+  }));
+  CB.use(timer('CB: WkhtmltopdfLinkResolver'));
 }
 
 // Serve
-if(process.env.NODE_ENV == "development") {
+if (process.env.NODE_ENV === 'development') {
   CB.use(serve({
-    port: 3000
-  }))
-  CB.use(timer('CB: Webserver'))
+    port: 3000,
+  }));
+  CB.use(timer('CB: Webserver'));
 }
 
 //
 // Assets Branch
 //
 
-let AB = branch()
+const AB = branch();
 
 // Start timer
-AB.use(timer('AB: Init'))
+AB.use(timer('AB: Init'));
 
 // Watch
-if(process.env.NODE_ENV === 'development') {
-  AB.use(
-    watch({
-      paths: {
-        'js/**/*': '**/*.js',
-        'scss/**/*': '**/*.scss',
-      },
-    })
-  )
-  AB.use(timer('AB: Watch'))
+if (process.env.NODE_ENV === 'development') {
+  AB.use(watch({
+    paths: {
+      'js/**/*': '**/*.js',
+      'scss/**/*': '**/*.scss',
+    },
+  }));
+  AB.use(timer('AB: Watch'));
 }
 
 // Assets
 AB.use(assets({
   source: 'assets',
   destination: 'assets',
-}))
-AB.use(timer('AB: Assets'))
+}));
+AB.use(timer('AB: Assets'));
 
 // Webpack
-AB.use(webpack('./webpack.config.js'))
-AB.use(timer('AB: Webpack'))
+AB.use(webpack('./webpack.config.js'));
+AB.use(timer('AB: Webpack'));
 
 //
 // Metalsmith
 //
 
-MS.use(CB)
-MS.use(AB)
+MS.use(CB);
+MS.use(AB);
 
 // Build
-MS.build(function(err, files) {
-  if (err) { throw err; }
+MS.build((err, files) => {
+  if (err) throw err;
 });
