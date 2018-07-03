@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 12
-excerpt:
+menuWeight: 1
+excerpt: Release Notes for DC/OS 1.8
 ---
 
 
@@ -17,8 +17,8 @@ The release notes provide a list of useful topics and links for DC/OS.
 - [Minor Releases](#minor)
 
 # <a name="breaking"></a>Breaking Changes
-- Removed `/marathon` endpoint on masters in favor of `/service/marathon`. Services such as [Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/mlb-auth/) now require a JSON WebToken to access the Marathon API. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/service-auth/).
-- Manual modifications of Admin Router config are no longer supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/1.8/administration/tls-ssl/ent/haproxy-adminrouter/).
+- Removed `/marathon` endpoint on masters in favor of `/service/marathon`. Services such as [Marathon-LB](/1.8/administration/id-and-access-mgt/ent/service-auth/mlb-auth/) now require a JSON WebToken to access the Marathon API. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/service-auth/). [enterprise type="inline" size="small" /]
+- Manual modifications of Admin Router config are no longer supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/1.8/administration/tls-ssl/ent/haproxy-adminrouter/). [enterprise type="inline" size="small" /]
 - Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/1.8/administration/installing/ent/custom/system-requirements/).
 - When upgrading from 1.7 to 1.8, you must upgrade all master nodes before proceeding. The master nodes will be unusable until upgrade completes. This changed behavior is because we have upgraded the ZooKeeper security. For more information, see the [documentation](/1.8/administration/upgrading/).
 
@@ -39,7 +39,7 @@ For more information, see the [documentation](/1.8/usage/webinterface/#services)
 [/preview]
 There is now built-in support of running scheduled jobs. We created a new Apache Mesos framework called [Metronome](https://github.com/dcos/metronome). Metronome is integrated natively with DC/OS and is available from the [**Jobs**](/1.8/usage/webinterface/) tab on the DC/OS UI. You can create and administer scheduled jobs directly from the Jobs tab. Similar to the Services tab for long-running applications, you can manage all of your Jobs from one centralized place. You can set up jobs with a scheduler by using the cron format.
 
-Additionally, you can specify attributes like the time zone or a starting deadline. We also have a JSON view mode which allows you to specify everything in one file to easily copy and paste it. We will constantly improve and extend the given functionality. Metronome will likely replace Chronos as our DC/OS job framework. If you still need Chronos, you can get it from the DC/OS [Universe](https://github.com/mesosphere/universe). 
+Additionally, you can specify attributes like the time zone or a starting deadline. We also have a JSON view mode which allows you to specify everything in one file to easily copy and paste it. We will constantly improve and extend the given functionality. Metronome will likely replace Chronos as our DC/OS job framework. If you still need Chronos, you can get it from the DC/OS [Universe](https://github.com/mesosphere/universe).
 
 For more information, see the [documentation](/1.8/usage/jobs/).
 
@@ -74,7 +74,7 @@ For more information, see the [documentation](/1.8/administration/virtual-networ
 [preview]
 #### DNS Based Service Addresses for Load Balanced Virtual IPs
 [/preview]
-DC/OS 1.8 introduces DNS Named Service Addresses for VIPs. With DNS Named VIPs, clients connect with a service address instead of an IP address. Due to the way DNS Named VIPs are generated in DC/OS, the risk of collision associated with IP VIPs does not exist. This means that administrators do not need to carefully manage DNS Named VIPs to avoid collision. This also means DNS Named VIPs can be automatically created at the time of service installation. 
+DC/OS 1.8 introduces DNS Named Service Addresses for VIPs. With DNS Named VIPs, clients connect with a service address instead of an IP address. Due to the way DNS Named VIPs are generated in DC/OS, the risk of collision associated with IP VIPs does not exist. This means that administrators do not need to carefully manage DNS Named VIPs to avoid collision. This also means DNS Named VIPs can be automatically created at the time of service installation.
 
 For more information, see the [documentation](/1.8/usage/service-discovery/load-balancing-vips/name-based-vips/).
 
@@ -91,7 +91,7 @@ Installing the DC/OS CLI is easier than ever. We’ve replaced the install scrip
 
 For more information, see the [documentation](/1.8/usage/cli/install/).
 
-#### Download CLI binaries from DC/OS UI 
+#### Download CLI binaries from DC/OS UI
 Download the CLI binaries directly from the DC/OS UI. For more information, see the [documentation](/1.8/usage/webinterface/).
 
 [preview]
@@ -99,7 +99,7 @@ Download the CLI binaries directly from the DC/OS UI. For more information, see 
 [/preview]
 Easy to deploy offline Universe. For more information, see the [documentation](/1.8/administration/installing/ent/deploying-a-local-dcos-universe/).
 
-## Security and Governance Services
+## [enterprise] Security and Governance Services [/enterprise]
 
 - Security Event Audit Logging [enterprise type="inline" size="small" /] <!-- Needs more information -->
 - Support for importing LDAP Groups [enterprise type="inline" size="small" /] <!-- Needs more information -->
@@ -136,11 +136,11 @@ DC/OS Enterprise supports fine-grained workload isolation to enable multiple bus
 For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/permissions/).
 
 #### Search/Bind and Client Certificate based authentication for LDAP/AD [enterprise type="inline" size="small" /]  [preview type="inline" size="small" /]
-If your organization has user records stored in a directory server supporting LDAP, you can configure DC/OS Enterprise to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS. 
+If your organization has user records stored in a directory server supporting LDAP, you can configure DC/OS Enterprise to check user credentials against it. This allows you to avoid having to recreate your user accounts within DC/OS.
 
 For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/ldap/).
 
-#### Identity and Access Management Service [enterprise type="inline" size="small" /] 
+#### Identity and Access Management Service [enterprise type="inline" size="small" /]
 DC/OS Enterprise includes a built-in Identity and Access Management (IAM) Service that allows our users to create Users and Groups and assign various Authorization permissions to each user and group. DC/OS Enterprise supports following types of Users and Groups:
 
 * Local User Accounts
@@ -155,7 +155,7 @@ DC/OS Enterprise IAM Service also includes support for authorization controls th
 
 For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/).
 
-    
+
 <!-- ## Cloud Installation
 - Advanced AWS and Azure Templates. For more information, see the [documentation](/1.8/administration/installing/cloud/)
 - Auto Scaling for AWS, including GovCloud. For more information, see the [documentation](/1.8/administration/installing/cloud/aws/). -->
@@ -164,7 +164,7 @@ For more information, see the [documentation](/1.8/administration/id-and-access-
 - Scheduler authentication for all services. [enterprise type="inline" size="small" /]<!-- [Documentation]() -->
 - TLS/SSL support for all frameworks. [enterprise type="inline" size="small" /]<!-- [Documentation]() -->
 - Non-root user config (except Cassandra). <!-- [Documentation]() -->
-- Binary CLIs for all services. 
+- Binary CLIs for all services.
 
 [preview]
 #### Kafka Service
@@ -177,33 +177,33 @@ For more information, see the [documentation](/services/kafka/).
 [preview]
 #### Confluent Kafka Service
 [/preview]
-DC/OS Universe has a DC/OS Confluent Platform Service that is based on the DC/OS Kafka Service. Confluent offers support for the DC/OS Confluent Platform Service on DC/OS Enterprise. 
+DC/OS Universe has a DC/OS Confluent Platform Service that is based on the DC/OS Kafka Service. Confluent offers support for the DC/OS Confluent Platform Service on DC/OS Enterprise.
 
 For more information, see the Universe [documentation](https://github.com/mesosphere/universe/tree/version-3.x/repo/packages/C/confluent-kafka).
 
 [preview]
 #### Cassandra Service
 [/preview]
-DC/OS Universe has an updated DC/OS Cassandra Service. The updated DC/OS Cassandra Service now supports multi-datacenter Cassandra ring topologies, and backup and restore with Azure Storage. 
+DC/OS Universe has an updated DC/OS Cassandra Service. The updated DC/OS Cassandra Service now supports multi-datacenter Cassandra ring topologies, and backup and restore with Azure Storage.
 
 For more information, see the [documentation](/services/cassandra/).
 
 [preview]
 #### Datastax Enterprise (DSE) Service
 [/preview]
-DC/OS Universe has a DC/OS DataStax Enterprise Service that is based on the DC/OS Cassandra Service. DataStax offers support for the DC/OS DataStax Enterprise Service on DC/OS Enterprise. 
+DC/OS Universe has a DC/OS DataStax Enterprise Service that is based on the DC/OS Cassandra Service. DataStax offers support for the DC/OS DataStax Enterprise Service on DC/OS Enterprise.
 
-For more information, see the Universe [documentation](https://github.com/mesosphere/universe/tree/version-3.x/repo/packages/D/dse). 
+For more information, see the Universe [documentation](https://github.com/mesosphere/universe/tree/version-3.x/repo/packages/D/dse).
 
 [experimental]
 #### HDFS Service
 [/experimental]
-DC/OS Universe now has a new DC/OS HDFS Service. This new DC/OS HDFS Service is an entirely new implementation sharing no code with the previous DC/OS HDFS Services. DC/OS HDFS Service can be deployed with a single command. Multiple instances of the DC/OS HDFS Service can be deployed to a single DC/OS cluster. Configuration of a DC/OS HDFS Service can updated at runtime without service interruption. DC/OS HDFS Service instances reserve all resources including CPU, Memory, Disk and Network Ports. 
+DC/OS Universe now has a new DC/OS HDFS Service. This new DC/OS HDFS Service is an entirely new implementation sharing no code with the previous DC/OS HDFS Services. DC/OS HDFS Service can be deployed with a single command. Multiple instances of the DC/OS HDFS Service can be deployed to a single DC/OS cluster. Configuration of a DC/OS HDFS Service can updated at runtime without service interruption. DC/OS HDFS Service instances reserve all resources including CPU, Memory, Disk and Network Ports.
 
 For more information, see the [documentation](/services/hdfs/).
 
-#### Spark Service 
-DC/OS Universe has an updated version of Apache Spark based on 1.6.2.  In addition to all the of features of Apache Spark 1.6.2, the DC/OS Spark Service supports Kerberos and SSL with secure HDFS clusters. Latest stable Spark with coarse-grained scheduler. 
+#### Spark Service
+DC/OS Universe has an updated version of Apache Spark based on 1.6.2.  In addition to all the of features of Apache Spark 1.6.2, the DC/OS Spark Service supports Kerberos and SSL with secure HDFS clusters. Latest stable Spark with coarse-grained scheduler.
 
 For more information, see the [documentation](/services/spark/).
 
@@ -259,42 +259,42 @@ For more information, see the [documentation](/services/spark/).
 
 #### DC/OS UI
 
-- DCOS-9310 - Default memory for jobs is too low. 
+- DCOS-9310 - Default memory for jobs is too low.
 - DCOS-11482 - Jobs UI wipes "artifacts" part from the JSON job descriptor.
-- DCOS-11559 - Switching from Bridge to Host Networking leaves portDefinitions that can cause conflicts with Marathon-LB. 
+- DCOS-11559 - Switching from Bridge to Host Networking leaves portDefinitions that can cause conflicts with Marathon-LB.
 - DCOS-11599 - Jobs attributes are stripped out and not available in UI.
 - DCOS-11781 - Zeppelin package is missing from Universe in UI.
-- DCOS-11887 - Cron example in the Jobs UI is wrong. 
+- DCOS-11887 - Cron example in the Jobs UI is wrong.
 - DCOS-11984 - Error destroying a service.
 - DCOS-12724 - UI filters tabs based on incorrect adminrouter permissions. <!-- EE -->
-- DCOS-13243 - Unable to revert Marathon app configuration to older version or switch between versions in the UI. 
+- DCOS-13243 - Unable to revert Marathon app configuration to older version or switch between versions in the UI.
 - DCOS-13530 - Label keys in the service create form are converted to uppercase.
 - DCOS-13692 - DC/OS UI server connection errors because of 10s timeout for the Universe, and 2s timeout everywhere else.
 
 #### Networking Services
 
-- DCOS-10809 - DNS unavailable during DC/OS upgrade. 
+- DCOS-10809 - DNS unavailable during DC/OS upgrade.
 - DCOS-11704 - Agent node does not report virtual network logging errors.
 - DCOS-12706 - LIBPROCESS_PORT must be explicitly set with Marathon (and other DC/OS services).
-- DCOS-12742 - Cosmos HTTPS listening on all interfaces regardless of permission. <!-- EE -->
-- DCOS-13192 - Virtual network agent modules have dependency on the Docker daemon at startup. 
-- DCOS-13193 - EDNS issues. 
-- DCOS-13211 - Cosmos admin and http ports are accessible from all interfaces in DC/OS. <!-- OSS -->
+- DCOS-12742 - Cosmos HTTPS listening on all interfaces regardless of permission. [enterprise type="inline" size="small" /]
+- DCOS-13192 - Virtual network agent modules have dependency on the Docker daemon at startup.
+- DCOS-13193 - EDNS issues.
+- DCOS-13211 - Cosmos admin and http ports are accessible from all interfaces in DC/OS. [enterprise type="inline" size="small" /]
 - DCOS-13430 - Virtual network service crashes after installing Marathon-LB.
 
-#### Security and Governance Services
+#### Security and Governance Services [enterprise type="inline" size="small" /]
 
 - DCOS-13589 - LDAP group import: error when we don't receive exactly one search result.
-- DCOS-12731 - Reset-superuser `AttributeError` upon invocation. 
-- DCOS-12730 - Bootstrap Tree schema out of sync with last upgrade bump. 
-- DCOS-12729 - Upgrade fails for resource ID validation errors. 
+- DCOS-12731 - Reset-superuser `AttributeError` upon invocation.
+- DCOS-12730 - Bootstrap Tree schema out of sync with last upgrade bump.
+- DCOS-12729 - Upgrade fails for resource ID validation errors.
 - DCOS-12727 - User can see "directory" and "directory2", even though permission is for "directory".
-- DCOS-12726 - Jobs authn/z is still enabled in disabled security mode. 
+- DCOS-12726 - Jobs authn/z is still enabled in disabled security mode.
 - DCOS-12725 - System doesn't stop or warn when you delete the last user in the 'Superuser' group.
-- DCOS-12328 - Lowercase environment variable that draws its value from a secret is converted to all uppercase. 
+- DCOS-12328 - Lowercase environment variable that draws its value from a secret is converted to all uppercase.
 - DCOS-13448 - Not all DC/OS services have explicit file descriptor limits.
 
-### Fixed issues Marathon 
+### Fixed issues Marathon
 
 - MARATHON-1309 - App groups are not structured properly for upgrades.
 - DCOS-11560 - ZooKeeper Connection Timeout is not configurable.
@@ -345,18 +345,18 @@ For more information, see the [documentation](/services/spark/).
 - DCOS-8154 - Enterprise Marathon is upgraded to support secure DC/OS Enterprise clusters. [enterprise type="inline" size="small" /]
 
 ### Fixed issues:
-- CORE-632 - Fixes for logrotation in Mesos. 
-- DCOS-10057 - Destroy services button in the DC/OS UI no longer hangs when users do not have correct permissions.  
+- CORE-632 - Fixes for logrotation in Mesos.
+- DCOS-10057 - Destroy services button in the DC/OS UI no longer hangs when users do not have correct permissions.  [enterprise type="inline" size="small" /]
 - DCOS-9165 - Strict security mode is now supported. For more information, see [documentation](/1.8/administration/installing/ent/custom/configuration-parameters/#security). [enterprise type="inline" size="small" /]
 - DCOS-9430 - A JWT is no longer required to access the Mesos HTTP API in `permissive` security mode. [enterprise type="inline" size="small" /]
-- DCOS-9805 - DC/OS GUI: user/group deletion may "freeze" the GUI.
+- DCOS-9805 - DC/OS GUI: user/group deletion may "freeze" the GUI. [enterprise type="inline" size="small" /]
 - DCOS-9966 - Improved error messages are printed for NTP service startup check.
-- DCOS-10203 - All `/service` endpoints become inaccessible 5 days after cluster install. 
-- HTTP Proxy is now fixed. For more information, see the [documentation](/1.8/administration/installing/ent/custom/configure-proxy/). 
+- DCOS-10203 - All `/service` endpoints become inaccessible 5 days after cluster install.
+- HTTP Proxy is now fixed. For more information, see the [documentation](/1.8/administration/installing/ent/custom/configure-proxy/).
 
 ### Known issues and limitations:
-- DCOS-9705 - Marathon authn/z is still enabled in security-disabled mode.
-- DCOS-9706 - Marathon should allow anonymous requests in permissive mode.
+- DCOS-9705 - Marathon authn/z is still enabled in security-disabled mode. [enterprise type="inline" size="small" /]
+- DCOS-9706 - Marathon should allow anonymous requests in permissive mode. [enterprise type="inline" size="small" /]
 
 ## <a name="1-8-4"></a>1.8.4 - Sept 15, 2016
 
@@ -365,7 +365,7 @@ For more information, see the [documentation](/services/spark/).
 - New simplified hashed-password procedure for custom installation. For more information, see the [documentation](/1.8/administration/installing/ent/custom/cli/). [enterprise type="inline" size="small" /]
 - DCOS-8848 - Experimental support for unified containerizer in DC/OS.
 - DOCS-1113 - `dcos jobs` command is now available in the CLI. For more information, see the [documentation](/1.8/usage/cli/command-reference/).
-- DCOS-9029 - You can now administer DC/OS Enterprise security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/service-auth/custom-service-auth/). 
+- DCOS-9029 - You can now administer DC/OS Enterprise security by using the dcos-enterprise-cli Universe package. For more information, see the [documentation](/1.8/administration/id-and-access-mgt/ent/service-auth/custom-service-auth/). [enterprise type="inline" size="small" /]
 - DCOS-9166 - You can now install DC/OS in security disabled mode. [enterprise type="inline" size="small" /]
 
 ### Fixed issues:
@@ -384,7 +384,7 @@ For more information, see the [documentation](/services/spark/).
 - DCOS-9104 - Task count and resources are correct in the UI.
 - DCOS-9617 - The UID of remote users is shown in the UI.
 - DCOS-9540 - Secrets service now listens on localhost only. [enterprise type="inline" size="small" /]
-- DCOS-9191 - Added DNS for discoverable services to the UI. 
+- DCOS-9191 - Added DNS for discoverable services to the UI.
 - DCOS-9162 - Enabled Kill and Scale for locked services.
 
 ### Known issues and limitations:
@@ -395,14 +395,14 @@ For more information, see the [documentation](/services/spark/).
 - DCOS-9277 - Disabled HTTP2 in Admin Router. [enterprise type="inline" size="small" /]
 - DCOS-4298 - Time synchronization of hosts is now required. For more information, see the [system requirements](/1.8/administration/installing/ent/custom/system-requirements/#port-and-protocol).[enterprise type="inline" size="small" /]
 - DCOS-9783 - Package service broken with `java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty`. The workaround is to restart the Package service (`dcos-cosmos.service`).
-- DCOS-9804 - The DC/OS Enterprise CLI returns a spurious error message: `Failed to execute script dcos-security`.
+- DCOS-9804 - The DC/OS Enterprise CLI returns a spurious error message: `Failed to execute script dcos-security`. [enterprise type="inline" size="small" /]
 
 
 ## <a name="1-8-3"></a>1.8.3 - Sept 6, 2016
 
 ### New and changed features
 
-- You can generate custom AWS Advanced templates from the custom installer file (`dcos_generate_config.ee.sh --aws-cloudformation`) and a configuration file (`config.yaml`). Only a subset of the configuration file options are allowed (e.g. `resolvers` and `exhibitor_backend` cannot be changed). For more information, see the [documentation](/1.8/administration/installing/ent/cloud/aws/advanced/).
+- You can generate custom AWS Advanced templates from the custom installer file (`dcos_generate_config.ee.sh --aws-cloudformation`) and a configuration file (`config.yaml`). Only a subset of the configuration file options are allowed (e.g. `resolvers` and `exhibitor_backend` cannot be changed). For more information, see the [documentation](/1.8/administration/installing/ent/cloud/aws/advanced/). [enterprise type="inline" size="small" /]
 - New version of the Jobs component ([Metronome 0.1.9](https://github.com/dcos/metronome)).
 - To clarify the location of the installed files, the DC/OS installer refers to `genconf/` instead of `/genconf/`.
 - CentOS AMIs are updated to include a fix for a Docker 1.11.2 bug, which caused Docker to not start.
@@ -413,12 +413,12 @@ For more information, see the [documentation](/services/spark/).
 - Updated DC/OS UI.
 - Marathon 1.3.0-RC6 [release notes](https://github.com/mesosphere/marathon/releases)
 - Updated the DC/OS Diagnostics component (`dcos-3dt.service`) with numerous bug fixes
-- BUILD_DIR is no longer printed when you run the custom installer (`dcos_generate_config.ee.sh`)
-- The custom DC/OS installer has been refactored and reworked. 
-- `gen_resolvconf.py` will attempt to rename`resolv.conf`, but if that fails it will fall back to writing directly. 
+- BUILD_DIR is no longer printed when you run the custom installer (`dcos_generate_config.ee.sh`) [enterprise type="inline" size="small" /]
+- The custom DC/OS installer has been refactored and reworked.
+- `gen_resolvconf.py` will attempt to rename`resolv.conf`, but if that fails it will fall back to writing directly.
 - Client certificates are not recreated every time a DC/OS internal service starts. Instead existing certificates are used when possible. [enterprise type="inline" size="small" /]
 
-### Fixed issues 
+### Fixed issues
 
 - DCOS-326 - Azure downloads URL is fixed.
 - Bug fixes to the [mesos-overlay-modules](https://github.com/dcos/mesos-overlay-modules)
@@ -462,14 +462,13 @@ For more information, see the [documentation](/services/spark/).
 - Marathon and Jobs (Metronome) run as non-root
 - Switch to `/etc/os-release` for OS Detection
 - Switch to [argparse's](https://docs.python.org/3/library/argparse.html) default help for `dcos_generate_config.ee.sh`
-- General internal code cleanup and technical debt fixes
+- General internal code cleanup and technical debt fixes [enterprise type="inline" size="small" /]
 - Tighten permissions on the ZooKeeper ZNode `/zookeeper` [enterprise type="inline" size="small" /]
 - Updated Mesos security modules to fix some bugs [enterprise type="inline" size="small" /]
 - Added dockercfg remove hook configuration (`dcos_remove_dockercfg_enable`) [enterprise type="inline" size="small" /]
 - Ability to enable or disable Mesos security audit logging [enterprise type="inline" size="small" /]
-- Remove the unused dcos_scheduler internal service account
-- Add tests for DC/OS LDAP features
-<!-- TODO: Something about DCOS_SPACE / get more details from the team building -->
+- Remove the unused dcos_scheduler internal service account [enterprise type="inline" size="small" /]
+- Add tests for DC/OS LDAP features [enterprise type="inline" size="small" /]
 
 ### Fixed issues
 
@@ -485,15 +484,15 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
 - DCOS-5701 - Unable to use LDAP due to lack of search bind. [enterprise type="inline" size="small" /]
 - DCOS-7415 - Unable to fetch /v2/tasks as plaintext for Marathon 0.15.3 in some cases.
 - DCOS-7422 - Improved reconnect logic in the case of root Marathon / Mesos master disconnections.
-- DCOS-7810 - Invalid IDs inside of nested groups leading to unexpected blocked deployments.
+- DCOS-7810 - Invalid IDs inside of nested groups leading to unexpected blocked deployments. [enterprise type="inline" size="small" /]
 - DCOS-7926 - Improved Marathon performance while deploying thousands of tasks.
 - DCOS-8128 - Improved Marathon task recovery in the case of some network events.
 - DCOS-8370 - Apps should not be able to share the same service port on a single host.
 - DCOS-8730 - Admin Router does not respect ports provided by external proxy.
-- MARATHON-888 - Improved handling of orphaned containers after master failover. 
+- MARATHON-888 - Improved handling of orphaned containers after master failover.
 - MARATHON-956 - Improved Marathon performance to prevent occurrence of "futures timed out" errors.
 
-### <a name="known-issues"></a>Known issues and limitations 
+### <a name="known-issues"></a>Known issues and limitations
 
 - DCOS-270 - Docker version 1.12.x is not supported.
 - DCOS-8975 - Port mapping for virtual networks is not displayed correctly. <!-- OSS -->

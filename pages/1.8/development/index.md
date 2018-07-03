@@ -2,13 +2,11 @@
 layout: layout.pug
 navigationTitle:  Developing Services
 title: Developing Services
-menuWeight: 4
-excerpt:
+menuWeight: 5
+excerpt: Discover developer-specific DC/OS components
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 This section describes the developer-specific DC/OS components, explaining what is necessary to package and provide your own service on DC/OS.
@@ -51,14 +49,14 @@ Service health check information is provided from the DC/OS service tab when:
 ```
 
 *   The `framework-name` property in the `marathon.json` file is valid. For example:
-    
+
           "id": "{{kafka.framework-name}}"
-        
+
 
 *   The framework property in the `package.json` file is set to true. For example:
-    
+
           "framework": true
-        
+
 
 You can provide public access to your service through the Admin Router or by deploying your own proxy or router to the public agent node. It is recommend to use the Admin Router for scheduler configuration and control, allowing integration with the DC/OS web interface. You can also provide a [CLI subcommand](/1.8/development/cli-spec/) for command-line control of a RESTful service endpoint for the scheduler.
 
