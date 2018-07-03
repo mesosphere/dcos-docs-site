@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Configuring Cassandra
 title: Configuration
 menuWeight: 20
 model: /services/cassandra/data.yml
@@ -27,7 +27,7 @@ Customize the `Node Count` setting (default 3) under the **node** configuration 
 
 ### CPU
 
-You can customize the amount of CPU allocated to each node. A value of `1.0` equates to one full CPU core on a machine. Change this value by editing the **cpus** value under the **node** configuration section. Turning this too low will result in throttled tasks.
+You can customize the amount of CPU allocated to each node. A value of 1.0 is equivalent to one full dedicated CPU core on a machine, although all cores are made available via time slicing. Change this value by editing the **cpus** value under the **node** configuration section. Setting this too low will result in throttled tasks.
 
 Please note that each Cassandra node will use an additonal 1.0 CPU for sidecar services such as backup and nodetool. When provisioning 3 CPUS for each Cassandra node, the actual usage will be 4 CPUS, and this should be taken into account when configuring Cassandra to maximize resource utilization on an agent.
 
