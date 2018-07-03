@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Install and Customize
 menuWeight: 0
@@ -43,7 +43,7 @@ You can also [install Spark via the DC/OS GUI](/1.9/usage/webinterface/#universe
 
 ## Spark CLI
 You can install the Spark CLI with this command. This is useful if you already have a Spark cluster running, but need
-the Spark CLI. 
+the Spark CLI.
 
 **Important:** If you install Spark via the DC/OS GUI, you must install the Spark CLI as a separate step from the DC/OS
 CLI.
@@ -186,14 +186,14 @@ to follow these steps to install and run Spark.
     $ dcos security org service-accounts create -p <your-public-key>.pem -d "Spark service account" <service-account>
     ```
 
-    For example: 
+    For example:
 
     ```bash
     dcos security org service-accounts create -p public-key.pem -d "Spark service account" spark-principal
-    
+
     ```
 
-    In the Mesos parlance a `service-account` is called a `principal` and so we use the terms interchangeably here. 
+    In the Mesos parlance a `service-account` is called a `principal` and so we use the terms interchangeably here.
 
     **Note** You can verify your new service account using the following command.
 
@@ -217,7 +217,7 @@ to follow these steps to install and run Spark.
     dcos security secrets create-sa-secret --strict private-key.pem spark-principal spark/spark-secret
     ```
 
-    **Note* You can verify the secrets were created with:
+    **Note** You can verify the secrets were created with:
 
     ```bash
     $ dcos security secrets list /
@@ -236,7 +236,7 @@ cluster:
     instances of Spark without modifying this default. If you want to override the default Spark role, you must modify
     these code samples accordingly. We use `spark-service-role` to designate the role used below.
 
-Permissions can also be assigned through the UI. 
+Permissions can also be assigned through the UI.
 
 1.  Run the following to create the required permissions for Spark:
     ```bash
@@ -244,16 +244,16 @@ Permissions can also be assigned through the UI.
     $ dcos security org users grant <service-account> dcos:mesos:master:framework:role:<spark-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
     $ dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
     ```
-    
+
     Note that above the `dcos:mesos:master:task:app_id:/<service_name>` will likely be `dcos:mesos:master:task:app_id:/spark`
 
     For example, continuing from above:
-    
+
     ```bash
     dcos security org users grant spark-principal dcos:mesos:master:task:user:root create --description "Allows the Linux user to execute tasks"
     dcos security org users grant spark-principal dcos:mesos:master:framework:role:* create --description "Allows a framework to register with the Mesos master using the Mesos default role"
     dcos security org users grant spark-principal dcos:mesos:master:task:app_id:/spark create --description "Allows reading of the task state"
-    
+
     ```
 
     Note that here we're using the service account `spark-principal` and the user `root`.
@@ -265,11 +265,11 @@ Permissions can also be assigned through the UI.
     dcos security org users grant dcos_marathon dcos:mesos:master:task:user:root create --description "Allow Marathon to launch containers as root"
     ```
 
-## Install Spark with necessary configuration 
+## Install Spark with necessary configuration
 
 1.  Make a configuration file with the following before installing Spark, these settings can also be set through the UI:
     ```json
-    $ cat spark-strict-options.json 
+    $ cat spark-strict-options.json
     {
     "service": {
             "service_account": "<service-account-id>",
@@ -279,10 +279,10 @@ Permissions can also be assigned through the UI.
     }
     ```
 
-    A minimal example would be: 
+    A minimal example would be:
 
     ```json
-    { 
+    {
     "service": {
             "service_account": "spark-principal",
             "user": "root",
@@ -301,21 +301,21 @@ Permissions can also be assigned through the UI.
 ## Add necessary configuration to your Spark jobs when submitting them
 
 *   To run a job on a strict mode cluster, you must add the `principal` to the command line. For example:
-    ```bash
-    $ dcos spark run --verbose --submit-args=" \
-    --conf spark.mesos.principal=<service-account> \
-    --conf spark.mesos.containerizer=mesos \
-    --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
-    ```
+```bash
+$ dcos spark run --verbose --submit-args=" \
+--conf spark.mesos.principal=<service-account> \
+--conf spark.mesos.containerizer=mesos \
+--class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
+```
 
-If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable: 
+If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable:
 
-    ```bash
-    $ dcos spark run --verbose --submit-args="\
-    --conf spark.mesos.principal=<service-account> \
-    --conf spark.mesos.driverEnv.SPARK_USER=nobody \
-    --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
-    ```
+```bash
+$ dcos spark run --verbose --submit-args="\
+--conf spark.mesos.principal=<service-account> \
+--conf spark.mesos.driverEnv.SPARK_USER=nobody \
+--class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
+```
 
 
 
