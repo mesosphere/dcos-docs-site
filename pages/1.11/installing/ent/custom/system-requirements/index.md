@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
-menuWeight: 0
+menuWeight: 5
 
 excerpt: Hardware and software requirements for DC/OS Enterprise deployments
 

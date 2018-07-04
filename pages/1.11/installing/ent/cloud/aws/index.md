@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Running DC/OS on AWS EC2
-menuWeight: 100
+menuWeight: 5
 excerpt: Creating a DC/OS cluster for Amazon Web Services using templates on AWS CloudFormation
 
 enterprise: true

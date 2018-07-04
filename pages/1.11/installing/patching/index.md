@@ -2,9 +2,9 @@
 layout: layout.pug
 navigationTitle: Patching
 title: Patching
-menuWeight: 3
+menuWeight: 20
 excerpt: Understanding cluster patches
-enterprise: false
+
 ---
 
 # Patching live clusters with no downtime
@@ -20,4 +20,4 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 
 **Note:** A patching process occurs only between minor releases.
 
-There are no specific instructions for patching since it occurs as a part of the release. Refer to [Upgrading instructions](/1.11/installing/ent/upgrading/#instructions) for upgrading DC/OS.
+There are no specific instructions for patching since it occurs as a part of the release. Refer to [Upgrading instructions](/1.11/installing/upgrading/#instructions) for upgrading DC/OS.

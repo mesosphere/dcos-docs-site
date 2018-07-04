@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Installing Using a Custom AMI
 title: Installing Using a Custom AMI
-menuWeight: 101
+menuWeight: 15
 excerpt: Using AWS machine images to launch DC/OS
 beta: true
 enterprise: true

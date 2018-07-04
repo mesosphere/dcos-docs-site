@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Troubleshooting
 title: Troubleshooting
-menuWeight: 400
+menuWeight: 40
 
 excerpt: Troubleshooting DC/OS installation issues
 
-enterprise: false
+
 ---
 
 # <a name="general"></a>General troubleshooting approach
@@ -14,24 +14,24 @@ enterprise: false
 1.  Verify that you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
 
 
-## <a name="ip-detect-script"></a>IP detect script
+## IP detect script
 
-You must have a valid [ip-detect](/1.11/installing/ent/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+You must have a valid [ip-detect](/1.11/installing/production/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
   - extra lines
   - white space
   - special or hidden characters
 
-It is recommended that you use the `ip-detect` [examples](/1.11/installing/ent/custom/advanced/).
+It is recommended that you use the `ip-detect` [examples](/1.11/installing/production/advanced/).
 
 ## DNS resolvers
 
-You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/production/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
   - `hostname -f` returns the FQDN
   - `hostname -s` returns the short hostname
 
-    You should sanity check the output of `hostnamectl` on all of your nodes as well.
+You should sanity check the output of `hostnamectl` on all of your nodes as well.
 
 When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
 
@@ -45,7 +45,7 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 
  Be sure to check that all services are up and healthy on the masters before checking the agents.
 
- ### NTP
+## NTP
 
  Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
 
@@ -61,11 +61,11 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
 
 
-   ```bash
-   sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
-   ```
+    ```bash
+    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
+    ```
 
-1.  Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
+1. Verify that Exhibitor is up and running at `http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
 
     - [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
 
@@ -111,7 +111,7 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
 
 **Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 
-1.  Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
+1.  Verify whether you can ping the DNS Forwarder (`ready.spartan`) [enterprise type="inline" size="small" /] or (`ready.dcos-net`) [open source type="inline" size="small" /]. If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
     ```bash
     journalctl -flu dcos-net﻿⁠⁠⁠⁠
@@ -125,7 +125,7 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
        ```
 
-    - If you are able to ping `ready.spartan`, but not `leader.mesos`, review the Mesos master service logs by using this command:
+    - If you are able to ping `ready.spartan` [enterprise type="inline" size="small" /] or `ready.dcos-net` [open source type="inline" size="small" /], but not `leader.mesos`, review the Mesos master service logs by using this command:
 
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
@@ -176,7 +176,7 @@ Publicly accessible applications are run in the public agent node. Public agent 
 
 * You might not be able to SSH to agent nodes, depending on your cluster network configuration. We have made this a little bit easier with the DC/OS CLI. For more information, see [SSHing to a DC/OS cluster][6].
 
-* You can get the IP address of registered agent nodes from the **Nodes** tab in the [DC/OS web interface][7]. Nodes that have not registered are not shown.
+* You can get the IP address of registered agent nodes from the **Nodes** tab in the DC/OS Dashboard. Nodes that have not registered are not shown.
 
 * SSH to your agent node and enter this command to view the logs from boot time:
 
@@ -204,7 +204,7 @@ DC/OS Marathon is started on the master nodes. The native Marathon instance that
 
 **Troubleshooting:**
 
-* Go to the **Services > Services** tab on the [web interface](/1.11/gui/) and view status.
+* Go to the **Services > Services** tab on the DC/OS Dashboard and view status.
 
 * SSH to your master node and enter this command to view the logs from boot time:
 
@@ -331,10 +331,10 @@ For example, here is a snippet of the Exhibitor log as it converges to a success
     ```
 
 
- [1]: /1.11/installing/ent/custom/configuration/configuration-parameters/#exhibitor-storage-backend
+ [1]: /1.11/installing/production/configuration/configuration-parameters/#exhibitor-storage-backend
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /1.11/installing/ent/custom/configuration/configuration-parameters/#master-discovery
+ [3]: /1.11/installing/production/configuration/configuration-parameters/#master-discovery
  [4]: /1.11/overview/architecture/boot-sequence/
- [5]: /1.11/installing/ent/custom/configuration/configuration-parameters/
+ [5]: /1.11/installing/production/configuration/configuration-parameters/
  [6]: /1.11/administering-clusters/sshcluster/
- [7]: /1.11/gui/
+ 

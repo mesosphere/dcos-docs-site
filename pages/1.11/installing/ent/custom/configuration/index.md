@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Configuration
 title: Configuration
-menuWeight: 600
+menuWeight: 20
 excerpt: Configuring your DC/OS parameters using a YAML file
 
 enterprise: false
