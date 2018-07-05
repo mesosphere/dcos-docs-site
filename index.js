@@ -269,6 +269,11 @@ if (ALGOLIA_UPDATE === 'true') {
 }
 
 // Enable watching
+// The keys represent the files to watch, the values are the files that will
+// be updated. ONLY the files that are being updated will be accessible to
+// during the rebuild. We must include everything at this point or the
+// templates will not be accessible. Need changes to fix this.
+
 if (process.env.NODE_ENV === 'development') {
   CB.use(watch({
     paths: {
