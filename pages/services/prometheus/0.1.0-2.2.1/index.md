@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Prometheus 0.1.0-2.2.1
-title: Prometheus 0.1.0-2.2.1
+navigationTitle: Prometheus 0.1.0-2.3.1
+title: Prometheus 0.1.0-2.3.1
 menuWeight: 50
-excerpt: Overview of DC/OS Prometheus 0.1.0-2.2.1
+excerpt: Overview of DC/OS Prometheus 0.1.0-2.3.1
 featureMaturity:
 enterprise: false
 ---
