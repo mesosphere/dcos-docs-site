@@ -14,8 +14,8 @@ The default DC/OS Prometheus Service installation provides reasonable defaults f
     - Install Alert Manager with base\first build of framework , its recommended to install remaining framework without alert manager and alert manager check box not to be checked, 
     all the rest of the prometheus servers should point to the same alert manager which was installed with base\first build,to do this you would require to pass alert manager endpoint as target to your  prometheus servers.
         
-    - Install global prometheus when required ,its recommended for global prometheus check box not to be checked until you require data to be federate from other salve prometheus servers,
-    To federate data from promethes slave server to global prometheus,slave prometheus server endpoints to be passed as target into global prometheus server.
+    - Install global prometheus when required ,its recommended for global prometheus not to be configure until you require data to be federate from other salve prometheus servers,
+    To federate data from promethes slave server to global prometheus,slave prometheus server endpoints to be passed as target into global prometheus server under prometheus configuration yml.
       
 ## Prerequisites
    
@@ -68,18 +68,18 @@ dcos prometheus CLI commands are not automatically installed to your workstation
 ## Installing HA-Prometheus without Alert Manager and point to HA-Alert Manager launched with base build:
 
  To install HA-Prometheus without alert manager , alert manager check box not to be checked under alert manager config.
- To point HA-Prometheus server to base\first build HA-Alert manger,we require to pass alert manager endpoint as target for each of HA-Prometheus services we run.
+ To point HA-Prometheus server to base\first build HA-Alert manger,we require to pass alert manager endpoint as target for each of HA-Prometheus services we run under prometheus configuration yml.
 
 ## Installing HA-global prometheus 
 
 To federate data from slave prometheus to global prometheus,HA-global prometheus is requird to be installed.
-To install global prometheus, enable global prometheus box to be checked and slave prometheus end points needs to be passed as target with in single quotes comma separated.
+To install global prometheus, you would require to mention global prometheus specific configuration changes to prometheus yml and slave prometheus end points needs to be passed as target with in single quotes comma separated.
 
-Note: enable global prometheus box only to be checked when you require federation else its not recommended to be checked.
+Note: mention global prometheus configuration only when you require federation else its not recommended to be checked.
 
 ## Install HA-Prometheus standalone with no linkage to Alert Manager\Global Prometheus:
 
-To Install HA-Prometheus server without alert manager\global prometheus , you should not check on alert manager check box , alert manager target check box and global prometheus check box.
+To Install HA-Prometheus server without alert manager\global prometheus , you should not check on alert manager check box , alert manager target check box and should not put global prometheus configuration.
 
 With these configuration HA-Prometheus server would be launched without pointing to HA-Alert Manager.
 
@@ -289,26 +289,6 @@ Likewise this file can be referenced to update a prometheus service.
    ```shell
    dcos prometheus update start --options=options.json
    ```
-
-## Regions and Zones
-
-Placement constraints can be applied to zones by referring to the @zone key. For example, one could spread pods across a minimum of 3 different zones by specifying the constraint:
-
-When the region awareness feature is enabled (currently in beta), the @region key can also be referenced for defining placement constraints. Any placement constraints that do not reference the @region key are constrained to the local region.
-**Example**
-
-   ```shell
-   [["@zone", "GROUP_BY", "3"]]
-   ```
-Suppose we have a Mesos cluster with three zones. For balanced placement across those three zones, we would have a configuration like this:
-
-   ```shell
-   {
-   "count": 6,
-   "placement": "[[\"@zone\", \"GROUP_BY\", \"3\"]]"
-   }
-   ```
-Instances will all be evenly divided between those three zones.
 
 ## Secured Installation
 For secure installation its recommended to do folder installation and folder access should be limited.
