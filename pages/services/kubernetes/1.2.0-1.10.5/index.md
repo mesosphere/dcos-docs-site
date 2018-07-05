@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kubernetes 1.1.1-1.10.4
-title: Kubernetes 1.1.1-1.10.4
-menuWeight: 20
+navigationTitle: Kubernetes 1.2.0-1.10.5
+title: Kubernetes 1.2.0-1.10.5
+menuWeight: 10
 excerpt:
 ---
 
