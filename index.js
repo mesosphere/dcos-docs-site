@@ -97,7 +97,7 @@ MS.destination('./build');
 
 // Don't Clean
 // Cleaning removes the destination directory before writing to it
-// I imagine cleaning doesn't work well when watching
+// I imagine cleaning makes watching take a long time, but untested for now
 MS.clean(false);
 
 //
