@@ -272,7 +272,7 @@ if (ALGOLIA_UPDATE === 'true') {
 if (process.env.NODE_ENV === 'development') {
   CB.use(watch({
     paths: {
-      'pages/**/*': '**/*.md',
+      'pages/**/*': '**/*.{md,tmpl}',
       'layouts/**/*': '**/*.pug',
     },
   }));
