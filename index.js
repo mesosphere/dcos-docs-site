@@ -74,6 +74,7 @@ const MS = Metalsmith(__dirname);
 const currentYear = (new Date()).getFullYear();
 
 // Metadata
+// These are available in the layouts as js variables
 MS.metadata({
   url: 'https://docs.mesosphere.com',
   siteTitle: 'Mesosphere DC/OS Documentation',
@@ -87,16 +88,20 @@ MS.metadata({
 });
 
 // Source
+// Where metalsmith looks for all files
 MS.source('./pages');
 
 // Destination
+// Where metalsmith will put the output code
 MS.destination('./build');
 
-// Clean
+// Don't Clean
+// Cleaning removes the destination directory before writing to it
+// I imagine cleaning doesn't work well when watching
 MS.clean(false);
 
 //
-// Content Branch
+// Content Branch Pipeline
 //
 
 const CB = branch();
@@ -105,7 +110,6 @@ const CB = branch();
 CB.use(timer('CB: Init'));
 
 // Remove the ordr prefix from structured files. Constrained to the services directory
-// @bwood is responsible for this abomination.
 CB.use(copy({
   pattern: 'services/**',
   transform: file => file.replace(/ordr_[0-9]+-/, ''),
