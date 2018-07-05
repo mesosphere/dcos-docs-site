@@ -38,7 +38,6 @@ DC/OS Prometheus's main features are:
 2. Flexible query language to leverage this dimensionality
 3. No reliance on distributed storage; single server nodes are autonomous
 4. Time series collection happens via a pull model over HTTP
-5. Pushing time series is supported via an intermediary gateway
 5. Targets are discovered via service discovery or static configuration
 6. Multiple modes of graphing and dashboarding support
 
