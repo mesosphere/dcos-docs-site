@@ -20,12 +20,8 @@ As of this writing, the best and fastest way to view and download logs is via th
 
 The Sandbox link for one of these tasks shows a list of files from within the task itself. For example, here’s a sandbox view of a prometheus-0-node task from the above list:
 
-If the task is based on a Docker image, this list will only show the contents of `/mnt/sandbox`, and not the rest of the filesystem. If you need to view filesystem contents outside of this directory, you will need to use `dcos task exec` or `nsenter` as described below under Running commands within containers.
+If the task is based on a Docker image, this list will only show the contents of `/mnt/sandbox`, and not the rest of the filesystem. If you need to view filesystem contents outside of this directory, you will need to use `dcos task exec` or `nsenter` 
 
-In the above task list there are multiple services installed, resulting in a pretty large list. The list can be filtered using the text box at the upper right, but there may be duplicate names across services. For example there are two instances of prometheus and they’re each running a node-0. As the cluster grows, this confusion gets proportionally worse. We want to limit the task list to only the tasks that are relevant to the service being diagnosed. To do this, click “Frameworks” on the upper left to see a list of all the installed frameworks (mapping to our services):
-
-
-We then need to decide which framework to select from this list. This depends on what task we want to view.
 
 ## Scheduler Logs
 
@@ -41,13 +37,10 @@ Scheduler logs can be found either via the main Mesos frontpage in small cluster
 
 When the issue being diagnosed has to do with the service tasks, e.g. a given task is crash looping, the task logs will likely provide more information. The tasks being run as a part of a service are registered against a framework matching the service name. Therefore, we should pick `<service-name>` from this list to view a list of tasks specific to that service.
 
-
-In the list above, we see separate lists of Active and Completed tasks:
-
 - Active tasks are still running. These give a picture of the current activity of the service.
 - Completed tasks have exited for some reason, whether successfully or due to a failure. These give a picture of recent activity of the service.
 
-**Note:** Older completed tasks will be automatically deleted and their data may no longer be available here.
+**Note:** Older completed tasks will be automatically deleted and their data may no longer be available.
 
 Either or both of these lists may be useful depending on the context. Use the Sandbox link for one of these tasks and then start looking at Sandbox content. Files named `stderr` and `stdout` hold logs produced both by the SDK Executor process (a small wrapper around the service task) as well as any logs produced by the task itself. These files are automatically paginated at 2MB increments, so older logs may also be examined until they are automatically pruned.
 
@@ -63,26 +56,21 @@ In the Agent view, you will see a list of frameworks with a presence on that Age
 ## Logs via the CLI
 
 You can also access logs via the DC/OS CLI using the `dcos task log` command. For example, assume the following list of tasks in a cluster:
+
 ## Running commands within containers
 
 An extremely useful tool for diagnosing task state is the ability to run arbitrary commands within the task. The available tools for doing this is as follows:
 
-DC/OS 1.9 introduced the task exec command, which can be used to run.
-
-### Prerequisites
-
-- SSH keys for accessing your cluster configured, for example, via `ssh-add`. SSH is used behind the scenes to get into the cluster.
-- A recent version of the [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/) with support for the `task exec` command.
-
 ### Using dcos task exec    
 
-Once you are set up, running commands is very straightforward. For example, let’s assume the list of tasks from the CLI logs section above, where there’s two broker-0 tasks, one named broker-0__81f56cc1-7b3d-4003-8c21-a9cd45ea6a21 and another named broker-0__75bcf7fd-7831-4f70-9cb8-9cb6693f4237. Unlike with task logs, we can only run task exec on one command at a time, so if two tasks match the task filter then we see the following error:
+Once you are set up, running commands is very straightforward. For example, let’s assume the list of tasks from the CLI logs section above, where there’s two broker-0 tasks, one named broker-0__81f56cc1-7b3d-4003-8c21-a9cd45ea6a21 and another named broker-0__75bcf7fd-7831-4f70-9cb8-9cb6693f4237. Unlike with task logs, we can only run task exec on one command at a time, so 
+
+if two tasks match the task filter then we see the following error:
 
 
 Therefore we need to be more specific:
 
 We can also run interactive commands using the -it flags (short for --interactive --tty):
-
 
 While you could technically change the container filesystem using dcos task exec, any changes will be destroyed if the container restarts.
 
@@ -93,7 +81,4 @@ The Scheduler exposes several HTTP endpoints that provide information on any cur
 - Plan: Describes any work that the Scheduler is currently doing, and what work it’s about to do. These endpoints also allow manually triggering Plan operations, or restarting them if they’re stuck.
 - Pods: Describes the tasks that the Scheduler has currently deployed. The full task info describing the task environment can be retrieved, as well as the last task status received from Mesos.
  - State: Access to other miscellaneous state information such as service-specific properties data.
-
-For full documentation of each command, see the API Reference. Here is an example of invoking one of these commands against a service named hello-world via curl:
-
 
