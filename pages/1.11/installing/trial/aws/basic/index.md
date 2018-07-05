@@ -1,16 +1,17 @@
 ---
 layout: layout.pug
-excerpt: Creating a DC/OS cluster for AWS using DC/OS templates
 title: Running DC/OS on AWS EC2 Basic
-navigationTitle: AWS EC2 Basic
-menuWeight: 0
+menuWeight: 100
+excerpt: Creating a DC/OS cluster for AWS using DC/OS templates
+
+enterprise: true
 ---
 
-You can create a DC/OS cluster for Amazon Web Services (AWS) using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">DC/OS templates for AWS CloudFormation</a>.
+You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing/oss/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing/ent/cloud/aws/advanced/).
 
 **Important:** Upgrades are not supported with this installation method.
 
@@ -21,77 +22,78 @@ For a complete set of DC/OS configuration options, see the [Advanced AWS Install
 An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance.  Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to not work properly.
 
 *   You have the option of 1 or 3 Mesos master nodes.
-*   5 [private](/1.11/overview/concepts/#private-agent-node) Mesos agent nodes is the template default.
-*   1 [public](/1.11/overview/concepts/#public-agent-node) Mesos agent node is the template default. By default, ports are closed and health checks are configured for [Marathon-LB](/1.11/networking/marathon-lb/). Ports 80 and 443 are configured for the AWS Elastic Load Balancer.
+*   5 [private](/1.11/overview/concepts/#private-agent-node) Mesos agent nodes is the default.
+*   1 [public](/1.11/overview/concepts/#public-agent-node) Mesos agent node is the default.
 
 ## Software
 
+- DC/OS Enterprise AWS templates. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to obtain these files.
 - An AWS account.
+- An AWS EC2 key pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 key pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
-# Install DC/OS
+# Create DC/OS cluster stack
 
-Depending on the DC/OS services that you install, you might have to modify the DC/OS templates to suit your needs. For more information, see [Scaling the DC/OS cluster in AWS][1].
+1.  Launch <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation</a>.
 
-**Prerequisite:**
-You must have an AWS EC2 key pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 key pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
+1.  Click **Create Stack**.
 
-1.  Launch the <a href="https://downloads.dcos.io/dcos/EarlyAccess/aws.html" target="_blank">DC/OS template</a> on CloudFormation and select the region and number of masters (1 or 3). You must have a key pair for your selected region.
+1.  On the **Select Template** page, in the Choose a template field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from sales.
 
-2.  On the **Select Template** page, accept the defaults and click **Next**.
+  **Important:** Do not click the **View/Edit template in Designer** link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
 
     ![Launch stack](/1.11/img/dcos-aws-step2b.png)
 
-3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), whether to enable OAuth authentication (`OAuthEnabled`), number of public agent nodes (`PublicSlaveInstanceCount`), number of private agent nodes (`SlaveInstanceCount`), and click **Next**.
+2.  Click **Next**.
 
-    **Important:** The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
+3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), public agent (`PublicSlaveInstanceCount`), private agent (`SlaveInstanceCount`), and click **Next**. Depending on the DC/OS services that you install, you might need to change the number of agent nodes after cluster creation. For more information, see [Scaling the DC/OS cluster in AWS][1].
 
-    ![Create stack](/1.11/img/dcos-aws-step2c.png)
+    ![Create stack](/1.11/img/dcos-aws-step2c-ee.png)
 
 4.  On the **Options** page, accept the defaults and click **Next**.
 
-    **Tip:** You can choose whether to rollback on failure. By default this option is set to **Yes**.
+    **Tip:** In the Advanced section you can choose whether to rollback on failure. By default this option is set to **Yes**.
 
 5.  On the **Review** page, check the acknowledgement box and then click **Create**.
 
     **Tip:** If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
 
 
-# Monitor the DC/OS cluster convergence process
+# Monitor cluster stack launch
 
-In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">CloudFormation</a> you should see:
+In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation</a> you should see:
 
 *   The cluster stack spins up over a period of 10 to 15 minutes.
-
 *   The status changes from CREATE_IN_PROGRESS to CREATE_COMPLETE.
 
 **Troubleshooting:** A ROLLBACK_COMPLETE status means the deployment has failed. See the **Events** tab for useful information about failures.
 
-# <a name="launchdcos"></a>Launch DC/OS
+# <a name="launchdcos"></a>Open and log into the DC/OS GUI
 
-Launch the DC/OS web interface by entering the Mesos Master hostname:
+1.  In AWS CloudFormation, check the box next to your stack.
 
-1.  From the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page, click to check the box next to your stack.
+1.  Click the **Outputs** tab and copy the Mesos Master hostname.
 
-2.  Click on the **Outputs** tab and copy/paste the Mesos Master hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.
+    ![Monitor stack creation](/1.11/img/dcos-stack.png)
 
-    **Tip:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page.
+1.  Paste the hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.  Your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed to the login screen.
 
-    ![Monitor stack creation](/1.11/img/dcos-aws-step3a.png)
+    ![DC/OS GUI auth](/1.11/img/dc-os-gui-login-ee.png)
 
-    ![DC/OS dashboard](/1.11/img/dcos-gui.png)
+1.  Enter the username and password of the superuser account. The default username is `bootstrapuser` and default password is `deleteme`. Click **LOG IN**.
 
-1.  Click the dropdown menu on the upper-left side to install the DC/OS [Command-Line Interface (CLI)][2]. You must install the CLI to administer your DC/OS cluster.
+# Install the DC/OS CLI
 
-    ![install CLI](/1.11/img/install-cli-terminal.png)
+You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your DCOS cluster.
 
+1.  Click the dropdown menu on the upper-left of the DC/OS GUI and select **Install CLI**.
+
+1.  Copy the code snippet and run in a terminal. Provide the sudo password, accept the fingerprint of the cluster certificate, and provide the superuser name and password to authenticate the CLI.
 
 # Next steps
 
 - [Add users to your cluster][10]
-- [Scaling considerations][4]
 
  [1]: /1.11/administering-clusters/managing-aws/
  [2]: /1.11/cli/install/
- [4]: https://aws.amazon.com/autoscaling/
- [10]: /1.11/security/ent/users-groups/
+ [10]: /1.11/security/
