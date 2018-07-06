@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-title: Running DC/OS on AWS EC2 Basic
+title: Basic CloudFormation template
+navigationTitle: Basic
 menuWeight: 100
 excerpt: Creating a DC/OS cluster for AWS using DC/OS templates
-
-enterprise: true
 ---
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.
@@ -23,38 +22,66 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 *   You have the option of 1 or 3 Mesos master nodes.
 *   5 [private](/1.11/overview/concepts/#private-agent-node) Mesos agent nodes is the default.
-*   1 [public](/1.11/overview/concepts/#public-agent-node) Mesos agent node is the default.
+*   1 [public](/1.11/overview/concepts/#public-agent-node) Mesos agent node is the default. By default, ports are closed and health checks are configured for Marathon-LB. Ports 80 and 443 are configured for the AWS Elastic Load Balancer.
 
 ## Software
 
-- DC/OS Enterprise AWS templates. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to obtain these files.
+- DC/OS Enterprise AWS templates. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to obtain these files. [enterprise type="inline" size="small" /]
 - An AWS account.
 - An AWS EC2 key pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 key pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
-# Create DC/OS cluster stack
+
+# Create DC/OS cluster stack 
+
+[enterprise]
+## Enterprise users 
+[/enterprise]
 
 1.  Launch <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation</a>.
 
-1.  Click **Create Stack**.
+2.  Click **Create Stack**.
 
-1.  On the **Select Template** page, in the Choose a template field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from sales.
+3.  On the **Select Template** page, in the Choose a template field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from sales.
 
-  **Important:** Do not click the **View/Edit template in Designer** link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
+  	**Important:** Do not click the **View/Edit template in Designer** link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
 
-    ![Launch stack](/1.11/img/dcos-aws-step2b.png)
+   ![Launch stack](/1.11/img/dcos-aws-step2b.png)
 
-2.  Click **Next**.
+4.  Click **Next**.
 
-3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), public agent (`PublicSlaveInstanceCount`), private agent (`SlaveInstanceCount`), and click **Next**. Depending on the DC/OS services that you install, you might need to change the number of agent nodes after cluster creation. For more information, see [Scaling the DC/OS cluster in AWS][1].
+5.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), public agent (`PublicSlaveInstanceCount`), private agent (`SlaveInstanceCount`), and click **Next**. Depending on the DC/OS services that you install, you might need to change the number of agent nodes after cluster creation. For more information, see [Scaling the DC/OS cluster in AWS][1]. 
 
-    ![Create stack](/1.11/img/dcos-aws-step2c-ee.png)
+Skip Open Source users section and go to Step 6. 
 
-4.  On the **Options** page, accept the defaults and click **Next**.
+![Create stack](/1.11/img/dcos-aws-step2c-ee.png)
+
+[oss]
+## Open Source users 
+[/oss]
+
+1.  Launch the <a href="https://downloads.dcos.io/dcos/EarlyAccess/aws.html" target="_blank">DC/OS template</a> on CloudFormation and select the region and number of masters (1 or 3). You must have a key pair for your selected region.
+
+2.  On the **Select Template** page, accept the defaults and click **Next**.
+
+   ![Launch stack](/1.11/img/dcos-aws-step2b.png)
+
+3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), whether to enable OAuth authentication (`OAuthEnabled`), number of public agent nodes (`PublicSlaveInstanceCount`), number of private agent nodes (`SlaveInstanceCount`), and click **Next**. 
+
+
+    **Important:** The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
+
+Go to Step 6 in the "All users" section.
+
+![Create stack](/1.11/img/dcos-aws-step2c.png)
+
+
+## All users
+6.  On the **Options** page, accept the defaults and click **Next**.
 
     **Tip:** In the Advanced section you can choose whether to rollback on failure. By default this option is set to **Yes**.
 
-5.  On the **Review** page, check the acknowledgement box and then click **Create**.
+7.  On the **Review** page, check the acknowledgement box and then click **Create**.
 
     **Tip:** If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
 
@@ -72,15 +99,17 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
 1.  In AWS CloudFormation, check the box next to your stack.
 
-1.  Click the **Outputs** tab and copy the Mesos Master hostname.
+2.  Click the **Outputs** tab and copy the Mesos Master hostname.
 
-    ![Monitor stack creation](/1.11/img/dcos-stack.png)
+   ![Monitor stack creation](/1.11/img/dcos-stack.png)
 
-1.  Paste the hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.  Your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed to the login screen.
+3.  Paste the hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.  Your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed to the login screen.
 
-    ![DC/OS GUI auth](/1.11/img/dc-os-gui-login-ee.png)
+   ![DC/OS GUI auth](/1.11/img/dc-os-gui-login-ee.png)
 
-1.  Enter the username and password of the superuser account. The default username is `bootstrapuser` and default password is `deleteme`. Click **LOG IN**.
+   **Tip:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the [AWS CloudFormation Management](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fcloudformation%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0) page.
+
+4.  Enter the username and password of the superuser account. The default username is `bootstrapuser` and default password is `deleteme`. Click **LOG IN**. [enterprise type="inline" size="small" /]
 
 # Install the DC/OS CLI
 
@@ -88,12 +117,14 @@ You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your 
 
 1.  Click the dropdown menu on the upper-left of the DC/OS GUI and select **Install CLI**.
 
-1.  Copy the code snippet and run in a terminal. Provide the sudo password, accept the fingerprint of the cluster certificate, and provide the superuser name and password to authenticate the CLI.
+2.  Copy the code snippet and run in a terminal. Provide the sudo password, accept the fingerprint of the cluster certificate, and provide the superuser name and password to authenticate the CLI.
 
 # Next steps
 
 - [Add users to your cluster][10]
+- [Scaling considerations][4]
 
  [1]: /1.11/administering-clusters/managing-aws/
  [2]: /1.11/cli/install/
  [10]: /1.11/security/
+ [4]: https://aws.amazon.com/autoscaling/
