@@ -175,7 +175,7 @@ In this step you create a YAML configuration file that is customized for your en
     # A custom proxy is optional. For details, see the config documentation.
     use_proxy: 'true'
     http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
-    https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
+    https_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
     no_proxy:
     - 'foo.bar.com'
     - '.baz.com'
