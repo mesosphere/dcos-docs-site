@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
 title: Uninstalling DC/OS on AWS EC2
-menuWeight: 299
+navigationTitle: Uninstalling 
+menuWeight: 15
 excerpt: Uninstalling DC/OS running on AWS EC2
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
