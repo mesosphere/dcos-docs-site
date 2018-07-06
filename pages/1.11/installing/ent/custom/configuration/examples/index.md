@@ -137,7 +137,7 @@ superuser_username: <username>
 telemetry_enabled: `<true|false>`
 use_proxy: `<true|false>`
 http_proxy: http://<proxy_host>:<http_proxy_port>
-https_proxy: https://<proxy_host>:<https_proxy_port>
+https_proxy: http://<proxy_host>:<http_proxy_port>
 no_proxy:
 - '<blocked.address1.com>'
 - '<blocked.address2.com>'
