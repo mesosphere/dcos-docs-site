@@ -134,7 +134,7 @@ superuser_username: <username>
 telemetry_enabled: `<true|false>`
 use_proxy: `<true|false>`
 http_proxy: http://<proxy_host>:<http_proxy_port>
-https_proxy: https://<proxy_host>:<https_proxy_port>
+https_proxy: http://<proxy_host>:<http_proxy_port>
 no_proxy:
 - '<blocked.address1.com>'
 - '<blocked.address2.com>'
@@ -305,7 +305,7 @@ ssh_port: 22
 ssh_user: centos
 use_proxy: 'true'
 http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
-https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
+https_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
 no_proxy:
 - 'foo.bar.com'    
 - '.baz.com'
