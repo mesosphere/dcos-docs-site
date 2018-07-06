@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
 title: AWS
-menuWeight: 100
+navigationTitle: AWS
+menuWeight: 5
 excerpt: Creating a DC/OS cluster for Amazon Web Services using templates on AWS CloudFormation
 ---
 
