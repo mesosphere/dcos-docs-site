@@ -153,12 +153,11 @@ function plugin(opts) {
 
     const findParent = function findParent(path, key, value) {
       if (path[0] !== '/') {
-        path = '/' + path;
+        path = `/${path}`;
       }
       const pathSplit = path.split('/');
       pathSplit.splice(0, 1);
       pathSplit.reverse();
-      let self = this;
       let parent;
       pathSplit.forEach((id) => {
         const i = path.split('/').indexOf(id);
