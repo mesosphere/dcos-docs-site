@@ -14,9 +14,9 @@ DC/OS 1.9.9 was released on July 10, 2018.
 
 DC/OS 1.9.9 includes the following:
 
-- Updated to Mesos 1.2.x ([changelog](https://github.com/dcos/dcos/blob/1.9.9/packages/mesos/buildinfo.json).
-- Updated to Marathon 1.4.11 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.4.11)).
-- Updated to Metronome 0.3.2 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.2)).
+- Updated to Mesos 1.2.x ([change log](https://github.com/dcos/dcos/blob/1.9.9/packages/mesos/buildinfo.json)).
+- Updated to Marathon 1.4.11 ([change log](https://github.com/mesosphere/marathon/releases/tag/v1.4.11)).
+- Updated to Metronome 0.3.2 ([change log](https://github.com/dcos/metronome/releases/tag/v0.3.2)).
 
 # Issues Fixed in DC/OS 1.9.9
 
@@ -28,8 +28,7 @@ DC/OS 1.9.9 includes the following:
 
 # Notable Changes in DC/OS 1.9.9
 
-- DCOS-21645/DCOS-21666 - Bumped Mesos to the latest mesosphere/1.2.x.
-- DCOS-22171/DCOS-22184 - Adminrouter DNS entry TTL override of 5 seconds.
+- DCOS-22171/DCOS-22184 - Admin Router DNS entry TTL is overwritten with 5 seconds.
 - DCOS_OSS-847 - Customized `ip_detect_public_filename` in config.yaml.
 
 
@@ -42,27 +41,27 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements. [enterprise type="inline" size="small" /]
 - New data and developer services.
 
-# Breaking Changes
+## Breaking Changes
 
 The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs.
 
-# New Features and Capabilities
+## New Features and Capabilities
 
-## Apache Mesos 1.2.2 and Marathon 1.4.8 integrated
+### Apache Mesos 1.2.2 and Marathon 1.4.8 integrated
 
 - Marathon 1.4.8 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.4.8).
 - Apache Mesos 1.2.2 [CHANGELOG](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.2.x-d95a031/CHANGELOG). Patches from the forthcoming Apache Mesos 1.2.3 are included. 
 
-## Container Orchestration
+### Container Orchestration
 Added support for pods, GPUs, and made significant scalability improvements.
 
 [preview]
-## Pods
+### Pods
 [/preview]
 Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
 
 [preview]
-## GPU
+### GPU
 [/preview]
 - Leverage GPUs to run novel algorithms.
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.
@@ -70,10 +69,10 @@ Multiple co-located containers per instance, scheduled on the same host. For mor
 
 For more information, see the [documentation](/1.9/deploying-services/gpu/).
 
-## DC/OS Monitoring and Operations
+### DC/OS Monitoring and Operations
 
 [preview]
-### Remote Process Injection for Debugging
+#### Remote Process Injection for Debugging
 [/preview]
 
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task by providing the following features:
@@ -85,7 +84,7 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 For more information, see the debugging [documentation](/1.9/monitoring/debugging/).
 
 [preview]
-### Logging
+#### Logging
 [/preview]
 
 Stream task and system logs to `journald` by setting the `mesos_container_log_sink` install-time parameter to `journald` or `journald+logrotate`. This allows you to do the following tasks:
@@ -97,7 +96,7 @@ Stream task and system logs to `journald` by setting the `mesos_container_log_si
 For more information, see the [documentation](/1.9/monitoring/logging/).
 
 [preview]
-### Metrics
+#### Metrics
 [/preview]
 
 - Node-level HTTP API that returns metrics from tasks, cgroup allocations per container, and host level metrics such as load and memory allocation.
@@ -106,13 +105,13 @@ For more information, see the [documentation](/1.9/monitoring/logging/).
 
 For more information, see the [documentation](/1.9/metrics/).
 
-### Tool for Troubleshooting Service Deployment Failures
+#### Tool for Troubleshooting Service Deployment Failures
 
 - The new service deployment troubleshooting tool allows you to find out why your applications are not starting from the GUI and CLI.
 
   ![Service deploy GUI](/1.9/img/dcos-offers.png)
 
-### Improved GUI
+#### Improved GUI
 
 - Improved navigation.
 
@@ -122,12 +121,12 @@ For more information, see the [documentation](/1.9/metrics/).
 
   ![Improved GUI](/1.9/img/dcos-create.png)
 
-## Networking Services
+### Networking Services
 
 - CNI support for 3rd party CNI plugins.
 - Performance improvements across all networking features.
 
-## Security and Governance [enterprise type="inline" size="small" /]
+### Security and Governance [enterprise type="inline" size="small" /]
 
 - DC/OS Identity and Access Management (IAM) highlights: [enterprise type="inline" size="small" /]
 
@@ -143,16 +142,16 @@ For more information, see the [documentation](/1.9/metrics/).
 - Introduce various secrets improvements. For more information, see the [secrets documentation](/1.9/security/ent/secrets/). [enterprise type="inline" size="small" /]
 - Security hardening across the platform, including Mesos, Marathon, and Admin Router. [enterprise type="inline" size="small" /]
 
-## Developer Services
+### Developer Services
 
 - Jenkins
 
     - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
     - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
 
-## Other Improvements
+### Other Improvements
 
-### DC/OS Internals
+#### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html). 
 - Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
@@ -160,16 +159,16 @@ For more information, see the [documentation](/1.9/metrics/).
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools. [enterprise type="inline" size="small" /]
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. [enterprise type="inline" size="small" /]
 
-### Expanded OS Support [enterprise type="inline" size="small" /]
+#### Expanded OS Support [enterprise type="inline" size="small" /]
 
 - If you install DC/OS 1.9 using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
 - CoreOS [1235.12.0](https://coreos.com/releases/#1235.12.0).
 
-### Expanded Docker Engine Support [enterprise type="inline" size="small" /]
+#### Expanded Docker Engine Support [enterprise type="inline" size="small" /]
 
 - Docker 1.12 and 1.13 are now [supported](/1.9/installing/ent/custom/system-requirements/). Docker 1.13 is the default version.
 
-### Upgrades [enterprise type="inline" size="small" /]
+#### Upgrades [enterprise type="inline" size="small" /]
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 
