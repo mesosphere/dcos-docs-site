@@ -11,7 +11,7 @@ const semverRegex = require('semver-regex');
 const decoder = new StringDecoder('utf8');
 
 function spaceship(val1, val2) {
-  if ((val1 === null || val2 === null) || (typeof val1 != typeof val2)) {
+  if ((val1 === null || val2 === null) || (typeof val1 !== typeof val2)) {
     return null;
   }
   if (typeof val1 === 'string') {
@@ -101,9 +101,10 @@ function walk(opts, file, files, array, children = [], level = 0) {
 function plugin(opts) {
   return function hierarchyMiddleware(files, metalsmith, done) {
     setImmediate(done);
-    const findByPath = function findByPath(path) {
-      if (path[0] !== '/') {
-        path = `/${path}`;
+    const findByPath = function findByPath(pathArg) {
+      let pathToFind = pathArg;
+      if (pathToFind[0] !== '/') {
+        pathToFind = `/${pathToFind}`;
       }
       // Check if exists
       const listOfPaths = Object.keys(files).map((f) => {
@@ -111,14 +112,14 @@ function plugin(opts) {
         array.pop();
         return `/${array.join('/')}`;
       });
-      if (listOfPaths.indexOf(path) === -1) {
+      if (listOfPaths.indexOf(pathToFind) === -1) {
         return;
       }
       // Find
       const f = function find(array, key, value) {
         return array.find(item => item[key] === value);
       };
-      const pathSplit = path.split('/');
+      const pathSplit = pathToFind.split('/');
       pathSplit.splice(0, 1);
       const start = f(this.children, 'id', pathSplit[0]);
       pathSplit.splice(0, 1);
@@ -151,17 +152,17 @@ function plugin(opts) {
       return found;
     };
 
-    const findParent = function findParent(path, key, value) {
-      if (path[0] !== '/') {
-        path = `/${path}`;
+    const findParent = function findParent(pathArg, key, value) {
+      if (pathArg[0] !== '/') {
+        pathArg = `/${pathArg}`;
       }
-      const pathSplit = path.split('/');
+      const pathSplit = pathArg.split('/');
       pathSplit.splice(0, 1);
       pathSplit.reverse();
       let parent;
       pathSplit.forEach((id) => {
-        const i = path.split('/').indexOf(id);
-        const s = path.split('/').slice(0, i + 1).join('/');
+        const i = pathArg.split('/').indexOf(id);
+        const s = pathArg.split('/').slice(0, i + 1).join('/');
         const page = this.findByPath(s);
         if (page && page[key] && page[key] === value) {
           parent = page;
