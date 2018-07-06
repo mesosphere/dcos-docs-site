@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
 title: Running DC/OS on AWS EC2 Advanced
-menuWeight: 200
+navigationTitle: Advanced
+menuWeight: 10
 excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates 
-
-enterprise: true
 ---
 
 The advanced AWS CloudFormation templates bring power and flexibility to creating and extending DC/OS clusters. With these templates you can choose from the complete set of DC/OS configuration options.
