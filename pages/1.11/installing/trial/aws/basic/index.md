@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Basic CloudFormation template
 navigationTitle: Basic
-menuWeight: 100
+menuWeight: 5
 excerpt: Creating a DC/OS cluster for AWS using DC/OS templates
 ---
 
@@ -121,10 +121,10 @@ You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your 
 
 # Next steps
 
-- [Add users to your cluster][10]
+- [Add users to your cluster][3]
 - [Scaling considerations][4]
 
  [1]: /1.11/administering-clusters/managing-aws/
  [2]: /1.11/cli/install/
- [10]: /1.11/security/
+ [3]: /1.11/security/ent/users-groups/
  [4]: https://aws.amazon.com/autoscaling/

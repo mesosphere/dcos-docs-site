@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Trial Installation for demos and proofs of concepts
 title: DC/OS Trial Installation Options
 navigationTitle: Trial
-menuWeight: 0
+menuWeight: 5
 ---
 
 The Trial installation method is used to test or demo DC/OS on Azure, AWS, GCE, Digital Ocean, or Packet. These clusters cannot be upgraded and functionality may be limited. The Trial installation method was previously called as Cloud Installation. 
