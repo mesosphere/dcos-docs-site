@@ -19,12 +19,12 @@ The templates are used together in conjunction to create a DC/OS cluster. The te
 
 ### Hardware
 
-An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance. Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to not work properly.
+An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance. Selecting smaller-sized VMs is not recommended and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores to not work properly.
 
 ### Software
-
-- The [DC/OS setup file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
-- An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the advanced templates. Contact your AWS admin for more information.
+- Enterprise users: The [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
+- Open Source users: The [dcos_generate_config file](https://dcos.io/releases/). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [oss type="inline" size="small" /] 
+- An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the advanced templates. Contact your AWS admin for more information. 
 - An AWS EC2 Key Pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 Key Pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
 - The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
@@ -50,13 +50,28 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 # Create your templates
 
-1.  Download the [DC/OS setup file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node.
+[enterprise]
+## Enterprise users 
+[/enterprise]
+
+1.  Download the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) and go to Step 1 in the "All users" section.
+
+[oss]
+## Open Source users 
+[/oss]
+
+1.  Download the [dcos_generate_config file](https://dcos.io/releases/) and go to Step 1 in the "All users" section.
+
+## All users
+
 1.  Create a directory named `genconf` in the home directory of your node and navigate to it.
 
     ```bash
     mkdir -p genconf
     ```
-1.  Create a configuration file in the `genconf` directory and save as `config.yaml`. This configuration file specifies your AWS credentials and the S3 location to store the generated artifacts. These are the required parameters:
+2.  Create a configuration file in the `genconf` directory and save as `config.yaml`. This configuration file specifies your AWS credentials and the S3 location to store the generated artifacts. 
+
+The required parameters for Enterprise users are: [enterprise type="inline" size="small" /] 
 
     ```json
     aws_template_storage_bucket: <your-bucket>
@@ -73,12 +88,30 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
     zk_agent_credentials: <userid>:<password>
     ```
 
-    For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+The required parameters for Open Source are: [oss type="inline" size="small" /] 
 
-1.  Run the DC/OS installer script with the AWS argument specified. This command creates and uploads a custom build of the DC/OS artifacts and templates to the specified S3 bucket.
+    ```json
+    aws_template_storage_bucket: <your-bucket>
+    aws_template_storage_bucket_path: <path-to-directory>
+    aws_template_upload: true
+    aws_template_storage_access_key_id: <your-access-key-id>
+    aws_template_storage_secret_access_key: <your-secret-access_key>
+
+
+For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+
+3.  Run the DC/OS installer script with the AWS argument specified. This command creates and uploads a custom build of the DC/OS artifacts and templates to the specified S3 bucket.
+
+Enterprise users: [enterprise type="inline" size="small" /]
 
     ```bash
     sudo bash dcos_generate_config.ee.sh --aws-cloudformation
+    ```
+
+Open Source users: [oss type="inline" size="small" /] 
+
+    ```bash
+    sudo bash dcos_generate_config.sh --aws-cloudformation
     ```
 
      The root URL for this bucket location is printed at the end of this step. You should see a message like this:
@@ -86,12 +119,12 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
     ```bash
     AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<path-to-directory>
     ```
-1.  Go to [S3](https://console.aws.amazon.com/s3/home) and navigate to your S3 bucket shown above in `<path-to-directory>`.
+4.  Go to [S3](https://console.aws.amazon.com/s3/home) and navigate to your S3 bucket shown above in `<path-to-directory>`.
 
     1.  Select **cloudformation** and then select the zen template for the number of desired masters. For example, select **el7-zen-1.json** for a single master configuration.
     1.  Right-click and select **Properties**, and then copy the AWS S3 template URL.
-1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
-1.  On the **Select Template** page, specify the AWS S3 template URL path to your Zen template. For example:
+5.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
+6.  On the **Select Template** page, specify the AWS S3 template URL path to your Zen template. For example:
 
     ```
     https://s3-us-west-2.amazonaws.com/user-aws/templates/config_id/14222z9104081387447be59e178438749d154w3g/cloudformation/ee.el7-zen-1.json
@@ -99,7 +132,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 # Create your template dependencies
 
-Use this script to create the template dependencies. These dependencies will be used as input to create your stack in CloudFormation.
+Use the `zen.sh` script to create the template dependencies. These dependencies will be used as input to create your stack in CloudFormation.
 
 1.  Save this script as `zen.sh`                                                                     
 
@@ -163,7 +196,19 @@ Use this script to create the template dependencies. These dependencies will be 
 # <a name="launch"></a>Launch the templates on CloudFormation
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
-1.  On the **Select Template** page, upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json`) from your workstation and click **Next**.
+
+[enterprise]
+## Enterprise users 
+[/enterprise]
+On the **Select Template** page upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json`) from your workstation and click **Next**. Go to Step 1 in the "All users" section.
+
+[oss]
+## Open Source users 
+[/oss]
+
+On the **Select Template** page, upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json`) from your workstation and click **Next**. Go to Step 1 in the "All users" section. 
+
+## All users
 1.  On the **Specify Details** page, specify these values and and click **Next**.
 
     ![AWS UI](/1.11/img/aws-advanced-1.png)
@@ -181,11 +226,11 @@ Use this script to create the template dependencies. These dependencies will be 
     *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents.
     *  **Vpc** Specify the `VpcId` output value from the `zen.sh` script. All nodes will be launched by using subnets and Internet Gateway under this VPC.
 
-1.  On the **Options** page, accept the defaults and click **Next**.
+2.  On the **Options** page, accept the defaults and click **Next**.
 
     **Tip:** You can choose whether to rollback on failure. By default this option is set to **Yes**.
 
-1.  On the **Review** page, check the acknowledgement box and then click **Create**.
+3.  On the **Review** page, check the acknowledgement box and then click **Create**.
 
     **Tip:** If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
 
@@ -266,7 +311,7 @@ Public agents:
 For all of the advanced configuration options, see the template reference [documentation](/1.11/installing/ent/cloud/aws/advanced/template-reference/).
 
 
-# Limitations
+# Limitations [enterprise type="inline" size="small" /]
 
 - Modified templates are not supported for upgrades.
 - Adding agents and task isolation is not supported.
