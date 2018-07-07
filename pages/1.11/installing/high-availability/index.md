@@ -4,14 +4,12 @@ navigationTitle:  High Availability
 title: High Availability
 menuWeight: 30
 excerpt: Using the high-availability features in DC/OS
-
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This document discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
+This page discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
 
 # Terminology
 
@@ -44,7 +42,7 @@ In DC/OS, a number of components follow the leader/follower pattern. We'll discu
 
 #### Mesos
 
-Mesos can be run in HA mode, which requires running 3 or 5 masters. When run in HA mode, one master is elected as the leader, while the other masters are followers. Each master has a replicated log which contains some state about the cluster. The leading master is elected by using ZooKeeper to perform leader election. For more detail on this, see the [Mesos HA documentation](https://mesos.apache.org/documentation/latest/high-availability/).
+Mesos can be run in HA mode, which requires running 3 or 5 masters. When run in HA mode, one master is elected as the leader, while the other masters are followers. Each master has a replicated log which contains some state about the cluster. The leading master is elected by using ZooKeeper to perform leader election. See the [Mesos HA documentation](https://mesos.apache.org/documentation/latest/high-availability/) for more information.
 
 #### Marathon
 
@@ -52,10 +50,10 @@ Marathon can be run in HA mode, which allows running multiple Marathon instances
 
 #### ZooKeeper
 
-ZooKeeper is used by numerous services in DC/OS to provide consistency. ZooKeeper can be used as a distributed locking service, a state store, and a messaging system. ZooKeeper uses [Paxos-like](https://en.wikipedia.org/wiki/Paxos_%28computer_science%29) log replication and a leader/follower architecture to maintain consistency across multiple ZooKeeper instances. For a more detailed explanation of how ZooKeeper works, check out the [ZooKeeper internals document](https://zookeeper.apache.org/doc/r3.4.8/zookeeperInternals.html).
+ZooKeeper is used by numerous services in DC/OS to provide consistency. ZooKeeper can be used as a distributed locking service, a state store, and a messaging system. ZooKeeper uses [Paxos-like](https://en.wikipedia.org/wiki/Paxos_%28computer_science%29) log replication and a leader/follower architecture to maintain consistency across multiple ZooKeeper instances. See the [ZooKeeper internals document](https://zookeeper.apache.org/doc/r3.4.8/zookeeperInternals.html) for more information on how Zookeeper works.
 
 ## Fault Domain Isolation
-Fault domain isolation is an important part of building HA systems. To correctly handle failure scenarios, systems must be distributed across fault domains to survive outages. There are different types of fault domains, a few examples of which are:
+Fault domain isolation is an important part of building HA systems. To correctly handle failure scenarios, systems must be distributed across fault domains to survive outages. The different types of fault domains are as follows:
 
  * Physical domains: this includes machine, rack, datacenter, region, and availability zone.
  * Network domains: machines within the same network may be subject to network partitions. For example, a shared network switch may fail or have invalid configuration.
@@ -80,13 +78,17 @@ Other common single points of failure include:
 
 ## Fast Failure Detection
 
-Fast failure detection comes in many forms. Services like ZooKeeper can be used to provide failure detection, such as detecting network partitions or host failures. Service health checks can also be used to detect certain types of failures. As a matter of best practice, services *should* expose health check endpoints, which can be used by services like Marathon.
+Fast failure detection comes in many forms. Services like ZooKeeper can be used to provide failure detection, such as detecting network partitions or host failures. Service health checks can also be used to detect certain types of failures. 
+
+**Note:** It is recommended that services *should* expose health check endpoints, which can be used by services like Marathon.
 
 ## Fast Failover
 
-When failures do occur, failover [should be as fast as possible](https://en.wikipedia.org/wiki/Fail-fast). Fast failover can be achieved by:
+When failures do occur, failover [should be as fast as possible](https://en.wikipedia.org/wiki/Fail-fast). 
 
- * Using an HA load balancer like [Marathon-LB](/1.11/networking/marathon-lb/), or the internal [Layer 4 load balancer](/1.11/networking/load-balancing-vips/).
+A Fast failover can be achieved by:
+
+ * Using a HA load balancer like [Marathon-LB](/1.11/networking/marathon-lb/), or the internal [Layer 4 load balancer](/1.11/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best-practices when building services: in particular, avoiding storing client state on the server between requests.
 
