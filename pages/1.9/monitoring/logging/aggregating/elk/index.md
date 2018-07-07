@@ -81,7 +81,7 @@ For all nodes in your DC/OS cluster:
     [Service]
     Restart=always
     RestartSec=5
-    ExecStart=/bin/sh -c '/usr/bin/journalctl --since="5 minutes ago" --no-tail --follow --unit="dcos*.service" >> /var/log/dcos/dcos.log 2>&1'
+    ExecStart=/bin/sh -c '/bin/journalctl  --since="5 minutes ago" --no-tail --follow --unit="dcos*.service" >> /var/log/dcos/dcos.log 2>&1'
 
     [Install]
     WantedBy=multi-user.target
