@@ -3,7 +3,8 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on Azure
 navigationTitle: Azure
-menuWeight: 1
+menuWeight: 10
+OSS: true
 ---
 
 This page explains how to install DC/OS 1.11 using the Azure Resource Manager templates.
@@ -128,30 +129,32 @@ Also, to access nodes in the DC/OS cluster you will need `ssh` installed and con
 
 # Install DC/OS
 
-## Step 1: Deploying the template
+## 1: Deploying the template
 
 To install DC/OS 1.11 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
 
-Some notes of the template configuration is below,
+Some notes of the template configuration is listed below:
 
 - Choose `East US` as the Location, because some resources of the template may not available in other location.
 - Set `Oauth Enabled` to true if you want to sign in the DC/OS Dashboard through OAuth.
 - Fill up the `Agent Endpoint DNS Name Prefix` and `Master Endpoint DNS Name Prefix`.
 - Enter your `Ssh RSA Public Key`.
 
-## Step 2: Accessing DC/OS
+## 2: Accessing DC/OS
 
 First, look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
 
 ![Deployment history](/1.11/img/dcos-azure-marketplace-step2a.png)
 
-Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section:
+Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section.
 
 ![Deployment output](/1.11/img/dcos-azure-marketplace-step2b.png)
 
-Use the value of `MASTERFQDN` you found in the `Outputs` section in the previous step, and we will use it in the following step.
+Use the value of `MASTERFQDN` you found in the `Outputs` section in the previous step, and use it in the following step.
 
-Because of security considerations, you can not visit the DC/OS Dashboard in Azure directly by default. Here, we provide two ways to work around. Please find your case below,
+Because of security considerations, you cannot visit the DC/OS Dashboard in Azure directly by default. 
+
+Choose one of the following work around solution to visit the DC/OS Dashboard in Azure:
 
 ### Case 1:
 
@@ -161,7 +164,7 @@ Find the network security group resource of the master node,
 
 ![Resource - Master Node Network Security Group](/1.11/img/dcos-azure-step2case1a.png)
 
-Click on the "Inbound security rules" tab on the left side,
+Click on the **Inbound security rules** tab on the left side.
 
 ![Inbound Security Rules](/1.11/img/dcos-azure-step2case1b.png)
 
@@ -169,11 +172,11 @@ Add an inbound security rule.
 
 ![Add Inbound Security Rules](/1.11/img/dcos-azure-step2case1c.png)
 
-Find the load balancer resource of the master node,
+Find the load balancer resource of the master node.
 
 ![Resource - Master Node Load balancer](/1.11/img/dcos-azure-step2case1d.png)
 
-Click on the "Inbound NAT rules" tab on the left side,
+Click on the **Inbound NAT rules** tab on the left side,
 
 ![Inbound NAT Rules](/1.11/img/dcos-azure-step2case1e.png)
 
@@ -181,7 +184,7 @@ Add an inbound NAT rule.
 
 ![Add Inbound NAT Rules](/1.11/img/dcos-azure-step2case1f.png)
 
-Now you can visit `http://$MASTERFQDN` and view the DC/OS Dashboard.
+ Now you can visit `http://$MASTERFQDN` and view the DC/OS Dashboard.
 
 ### Case 2: Using ssh tunnel
 
@@ -193,7 +196,7 @@ Use the value of `MASTERFQDN` you found in the previous step and paste it in the
 ssh azureuser@$MASTERFQDN -L 8000:localhost:80
 ```
 
-For example, in my case:
+For example:
 
 ```bash
 ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
@@ -203,7 +206,7 @@ Now you can visit `http://localhost:8000` on your local machine and view the DC/
 
 ![DC/OS dashboard](/1.11/img/dcos-gui.png)
 
-#### Caveats
+### Caveats
 
 Some caveats around SSH access:
 
@@ -216,7 +219,7 @@ The DC/OS UI will not show the correct IP address or CLI install commands when c
 
 ## Run DC/OS CLI
 
-The following commands can be used to run the DC/OS CLI directly on the master node:
+The following commands can be used to run the DC/OS CLI directly on the master node.
 
 ```bash
 # Connect to master node with ssh
