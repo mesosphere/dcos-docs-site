@@ -2,13 +2,11 @@
 layout: layout.pug
 navigationTitle:  Multiple Regions
 title: Multiple Regions
-menuWeight: 2
+menuWeight: 10
 excerpt: Experimenting with multiple region configurations
-
-enterprise: false
 ---
 
-**Important:** DC/OS does not currently support multiple region configurations. If you would like to experiment with multi-region configurations, this topic provides the setup recommendations and caveats.
+**Important:** DC/OS does not currently support multiple region configurations. If you would like to experiment with multi-region configurations, this page provides the setup recommendations and caveats.
 
 - The following multi-region setups have not been tested or verified.
 - A typical DC/OS cluster has all master and agent nodes in the same zone. The cost of having masters spread across zones usually outweighs the benefits.
@@ -32,4 +30,4 @@ DC/OS masters and agents span multiple regions. This setup is similar to masters
 
 - This setup is typically not recommended because of how difficult it is to guarantee the latency and addressing requirements.
 - This setup should only be considered if dedicated private connections between regions is available. For example, AWS Direct Connect or Azure Express Route.
-- Because networking partitions are more likely across zones, masters could end up in split-brain scenario. For example, two different masters think they are the leader at the same time. This is typically harmless because only one leader is allowed to make modifiable actions, for example register or shutdown agents.
+- Because networking partitions are more likely across zones, masters could end up in split-brain scenario. For example: Two different masters think they are the leader at the same time. This is typically harmless because only one leader is allowed to make modifiable actions like register or shutdown agents.
