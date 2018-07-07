@@ -3,7 +3,8 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on Packet
 navigationTitle: Packet
-menuWeight: 3
+menuWeight: 25
+oss: true
 ---
 
 You can create a DC/OS cluster on Packet bare metal using Terraform.
@@ -24,7 +25,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Packe
 
 # Create a DC/OS cluster
 
-## Prerequisites:
+## Prerequisites
 
 - [Packet API Key](https://help.packet.net/quick-start/api-integrations)
 
@@ -34,9 +35,9 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Packe
 
 ## Installing DC/OS
 
-#### With this method, the network is open by default. Because of this, network security is a concern and should be addressed as soon as possible by the administrator.
+**Note:** With this method, the network is open by default. Because of this, network security is a concern and should be addressed as soon as possible by the administrator.
 
-1.  Download and install Terraform using the instructions on the link provided above
+1.  Download and install Terraform using the instructions on the link provided in the Prerequisites section.
 
 2.  [Download the DC/OS Terraform manifests from GitHub](https://github.com/dcos/packet-terraform) into a local  directory.
 
@@ -87,7 +88,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Packe
 
     ![terraform apply output](/1.11/img/packet_terraform_output.png)
 
-You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, you'll want to check out the [troubleshooting](/1.11/installing/oss/troubleshooting/) documentation.
+You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, see the [troubleshooting](/1.11/installing/oss/troubleshooting/) documentation.
 
 # Launch DC/OS
 Launch the DC/OS web interface by entering the Mesos master IP address:
