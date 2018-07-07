@@ -3,18 +3,19 @@ layout: layout.pug
 excerpt:
 title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
-menuWeight: 2
+menuWeight: 15
+oss: true
 ---
 
 You can create a DC/OS cluster on DigitalOcean using Terraform.
 
-The included Terraform templates are configured to run Mesosphere DC/OS on DigitalOcean. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support with droplet creation or other related issues, please email support@digitalocean.com, visit the unofficial DigitalOcean IRC channel (#digitalocean on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
+The included Terraform templates are configured to run Mesosphere DC/OS on DigitalOcean. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support with droplet creation or other related issues, email support@digitalocean.com, visit the unofficial DigitalOcean IRC channel (#digitalocean on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
 
 **Important:** Upgrades are not supported with this installation method.
 
 ## Security
 
-- Keep in mind that all nodes are Internet-facing by default after deploying via Terraform and are not secured out-of-the-box. Additional configuration will be required to put master and agent nodes into a security group.
+**Note:** All nodes are Internet-facing by default after deploying via Terraform and are not secured out-of-the-box. Additional configuration will be required to put master and agent nodes into a security group.
 
 ## Environment
 
@@ -28,7 +29,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
 # Create a DC/OS cluster
 
-## Prerequisites:
+## Prerequisites
 
 - [DigitalOcean API Key](https://www.digitalocean.com/help/api/)
 
@@ -36,7 +37,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
 ## Installing DC/OS
 
-1.  Download and install Terraform using the instructions on the link provided above
+1.  Download and install Terraform using the instructions on the link provided above.
 
 2.  [Download the DC/OS Terraform manifests from GitHub](https://github.com/jmarhee/digitalocean-dcos-terraform) into a local  directory.
 
@@ -44,21 +45,21 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
     git clone https://github.com/jmarhee/digitalocean-dcos-terraform
     ```
 
-3.  From that directory, generate an ssh keypair:
+3.  From that directory, generate an ssh keypair.
 
     ```bash
     ssh-keygen -t rsa -f ./do-key
     ```
 
-4.  Get yourself a token to use against the API. You can [follow the documentation](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2).
+4.  Get a token to use against the API. You can [follow the documentation](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2).
 
-5.  Add the key to DigitalOcean:
+5.  Add the key to DigitalOcean.
 
     ```bash
     curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" -d '{"name":"dcos-key","public_key":"<public-key>"}' "https://api.digitalocean.com/v2/account/keys"
     ```
 
-6. Get the key ID:
+6. Get the key ID.
 
     ```bash
     curl -X GET -H 'Content-Type: application/json' -H 'Authorization: Bearer $TOKEN' "https://api.digitalocean.com/v2/account/keys"
@@ -73,33 +74,33 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
     - dcos_installer_url - Where to get DC/OS
       https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
 
-    The following have default values and may be changed depending on your requirements:
+The following have default values and may be changed depending on your requirements:
 
-    - region - DigitalOcean facility: [NYC1|NYC2|NYC3|SGP1|LON1|AMS2|AMS3|SFO1|TOR1|FRA1]
-      Choose the DigitalOcean datacenter for your cluster - default NYC2
+   - region - DigitalOcean facility: [NYC1|NYC2|NYC3|SGP1|LON1|AMS2|AMS3|SFO1|TOR1|FRA1]
+    Choose the DigitalOcean datacenter for your cluster - default NYC2
 
-    - agent_size - Size of DigitalOcean Droplet to use for the DC/OS Agents: [4GB|8GB|16GB|32GB|48GB|64GB]
-      Choose the DigitalOcean droplet size to use for the DC/OS Private Agents - default 4GB
+   - agent_size - Size of DigitalOcean Droplet to use for the DC/OS Agents: [4GB|8GB|16GB|32GB|48GB|64GB]
+    Choose the DigitalOcean droplet size to use for the DC/OS Private Agents - default 4GB
 
-    - master_size - Size of DigitalOcean Droplet to use for the DC/OS Master: [4GB|8GB|16GB|32GB|48GB|64GB]
-      Choose the DigitalOcean droplet size to use for the DC/OS Master Nodes - default 4GB
+   - master_size - Size of DigitalOcean Droplet to use for the DC/OS Master: [4GB|8GB|16GB|32GB|48GB|64GB]
+    Choose the DigitalOcean droplet size to use for the DC/OS Master Nodes - default 4GB
 
-    - boot_size - Size of DigitalOcean Droplet to use for the DC/OS Boot Node: [4GB|8GB|16GB|32GB|48GB|64GB]
-      Choose the DigitalOcean droplet size to use for the DC/OS Boot Server - default 4GB
+   - boot_size - Size of DigitalOcean Droplet to use for the DC/OS Boot Node: [4GB|8GB|16GB|32GB|48GB|64GB]
+    Choose the DigitalOcean droplet size to use for the DC/OS Boot Server - default 4GB
 
-    - dcos_cluster_name - the name of your DC/OS cluster - defaults to digitalocean-dcos
+   - dcos_cluster_name - the name of your DC/OS cluster - defaults to digitalocean-dcos
 
-    - dcos_agent_count - Number of private agents to deploy - defaults to  4
+   - dcos_agent_count - Number of private agents to deploy - defaults to  4
 
-    - dcos_public_agent_count - Number of public agents to deploy - defaults to 1
+   - dcos_public_agent_count - Number of public agents to deploy - defaults to 1
 
-    - dcos_init_pubkey - The path to your ssh public key created in step 4 - defaults to ./do-key.pub
+   - dcos_init_pubkey - The path to your ssh public key created in step 4 - defaults to ./do-key.pub
 
-    - key_file_path - The path to your ssh private key created in step 4 - defaults to ./do-key
+   - key_file_path - The path to your ssh private key created in step 4 - defaults to ./do-key
 
 8.  Also from that same directory, run `terraform init` and then `terraform apply` which will deploy the servers into your project at DigitalOcean, and run the DC/OS installation routine. When it completes, you will see output similar to the following, but with the IP addresses assigned to your servers:
 
-    ![terraform apply output](/1.11/img/digitalocean_terraform_output.png)
+  ![terraform apply output](/1.11/img/digitalocean_terraform_output.png)
 
 You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, you'll want to check out the [troubleshooting](/1.11/installing/oss/troubleshooting/) documentation.
 
@@ -110,7 +111,7 @@ Launch the DC/OS web interface by entering the Mesos master IP address:
 
 2.  Install the DC/OS Command-Line Interface (CLI). You can install the CLI to administer your DC/OS cluster. You can access the documentation at any time by clicking the cluster name in the upper-left side.
 
-    ![install CLI](/1.11/img/install-cli-terminal.png)
+  ![install CLI](/1.11/img/install-cli-terminal.png)
 
 ## Next steps
 
