@@ -177,6 +177,8 @@
 /1.11/img/ui-installer-auth2.png /1.11/img/ui-installer-auth2.png;
 /1.11/installing/ent/cloud/(.*)$ /1.11/installing/trial/$1;
 /1.11/installing/oss/cloud/(.*)$ /1.11/installing/trial/$1;
+/1.11/installing/ent/local/ /1.11/installing/local;
+/1.11/installing/oss/local/ /1.11/installing/local/;
 /1.11/installing/high-availability/ /1.11/installing/oss/high-availability/;
 /1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
