@@ -3,7 +3,8 @@ layout: layout.pug
 excerpt: Running DC/OS on Google Compute Engine
 title: Running DC/OS on Google Compute Engine
 navigationTitle: GCE
-menuWeight: 3
+menuWeight: 20
+oss: true
 ---
 
 # Terraform
@@ -50,14 +51,16 @@ gcp_project = "massive-bliss-781"
 ...
 ```
 
-## Example Terraform Deployments
+## Example of Terraform Deployments
 
 ### Quick Start
 
-We have provided all the typical defaults that you would want available to play around with DC/OS. Run the following commands to deploy a multi-master setup in the cloud.
+The typical defaults to play around with DC/OS are listed as follows:
 
-- Three agents will be deployed for you: two private agents and one public agent.
-- There is no git clone of this repo required. Terraform does this for you under the hood.
+- Three agents will be deployed for you: 2 private agents and 1 public agent.
+- It is not required to git clone this repo. Terraform does this for you under the hood.
+
+ Run the following commands to deploy a multi-master setup in the cloud.
 
 ```bash
 terraform init -from-module github.com/dcos/terraform-dcos//gcp
@@ -152,7 +155,7 @@ terraform apply -var-file desired_cluster_profile.tfvars -var state=upgrade
 
 ## Maintenance
 
-If you would like to add or remove private or public agents from your cluster, you can do so by telling Terraform your desired state and it will make the required changes. For example, if you have two private agents and one public agent in your `-var-file`,  you can override that flag by specifying the `-var` flag. The `var` flag has higher priority than the `-var-file`.
+If you would like to add or remove private or public agents from your cluster, you can do so by telling Terraform your desired state and it will make the required changes. For example, if you have 2 private agents and 1 public agent in your `-var-file`,  you can override that flag by specifying the `-var` flag. The `var` flag has higher priority than the `-var-file`.
 
 ### Adding agents
 
@@ -235,7 +238,7 @@ Coming soon!
 
 ### Destroying a cluster
 
-You can shut down and/or destroy all resources from your environment by running this command:
+You can shut down and/or destroy all resources from your environment by running the following command:
 
 ```bash
 terraform destroy -var-file desired_cluster_profile.tfvars
