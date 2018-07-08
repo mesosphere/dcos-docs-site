@@ -177,6 +177,8 @@
 /1.11/img/ui-installer-auth2.png /1.11/img/ui-installer-auth2.png;
 /1.11/installing/ent/cloud/(.*)$ /1.11/installing/trial/$1;
 /1.11/installing/oss/cloud/(.*)$ /1.11/installing/trial/$1;
+/1.11/installing/ent/custom/(.*)$ /1.11/installing/production/$1;
+/1.11/installing/oss/custom/(.*)$ /1.11/installing/production/$1;
 /1.11/installing/ent/faq/ /1.11/installing/faq/;
 /1.11/installing/oss/faq/ /1.11/installing/faq/;
 /1.11/installing/ent/high-availability/(.*)$ /1.11/installing/high-availability/$1;
