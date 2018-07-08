@@ -66,9 +66,9 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
 
     - [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
 
-
+    ```bash
     journalctl -flu dcos-exhibitor
-
+    ```
 
     - Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. 
 
@@ -115,17 +115,19 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
     journalctl -flu dcos-net﻿⁠⁠⁠⁠
 
 1.  Verify that you can ping `⁠⁠⁠⁠leader.mesos` and ﻿⁠⁠⁠⁠`master.mesos`. If not:
-
     - Review the Mesos-DNS service logs with this command: ﻿
 
-       ⁠⁠⁠⁠journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
+    ```bash
+    journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
+    ```
 
+    - If you are able to ping `ready.spartan` [enterprise type="inline" size="small" /] or `ready.dcos-net` [oss type="inline" size="small" /], but not `leader.mesos` then review the Mesos master service logs by using this command: 
 
-    - If you are able to ping `ready.spartan` [enterprise type="inline" size="small" /] or `ready.dcos-net` [oss type="inline" size="small" /], but not `leader.mesos`, review the Mesos master service logs by using this command:
-
+       ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
-
-The Mesos masters must be up and running with a leader elected before Mesos-DNS can generate its DNS records from ﻿`⁠⁠⁠⁠/state`.﻿⁠⁠⁠⁠
+       ```
+       ﻿
+       The Mesos masters must be up and running with a leader elected before Mesos-DNS can generate its DNS records from ﻿`⁠⁠⁠⁠/state`.﻿⁠⁠⁠⁠
 
 # <a name="component-logs"></a>Component logs
 
@@ -172,7 +174,9 @@ Publicly accessible applications are run in the public agent node. Public agent 
 
 * SSH to your agent node and enter this command to view the logs from boot time:
 
+    ```bash
     journalctl -u dcos-marathon -b
+    ```
     
 
 For example, here is a snippet of the Mesos agent log as it converges to a successful state:
@@ -199,7 +203,9 @@ DC/OS Marathon is started on the master nodes. The native Marathon instance that
 
 * SSH to your master node and enter this command to view the logs from boot time:
 
+    ```bash
     journalctl -u dcos-marathon -b
+    ```
 
 
 For example, here is a snippet of the DC/OS Marathon log as it converges to a successful state:
@@ -227,7 +233,9 @@ gen_resolvconf is started. This is a service that helps the agent nodes locate t
 
 * SSH to your master node and enter this command to view the logs from boot time:
 
+    ```bash
     journalctl -u dcos-gen-resolvconf -b
+    ```
 
 For example, here is a snippet of the gen_resolvconf log as it converges to a successful state:
 
@@ -250,15 +258,15 @@ The Mesos master process starts on the master nodes. The `mesos-master` process 
 * Go directly to the Mesos web interface and view status at `<master-hostname>/mesos`.
 * SSH to your master node and enter this command to view the logs from boot time:
 
+    ```bash 
     journalctl -u dcos-mesos-master -b
+    ```
 
 
 For example, here is a snippet of the Mesos master log as it converges to a successful state:
 
     mesos-master[1250]: I1118 13:59:33.890916  1250 master.cpp:376] Master cdcb6222-65a1-4d60-83af-33dadec41e92 (10.0.7.166) started on 10.0.7.166:5050
     mesos-master[1250]: I1118 13:59:33.890945  1250 master.cpp:378] Flags at startup: --allocation_interval="1secs" --allocator="HierarchicalDRF" --authenticate="false" --authenticate_slaves="false" --authenticators="crammd5" --authorizers="local" --cluster="pool-880dfdbf0f2845bf8191" --framework_sorter="drf" --help="false" --hostname_lookup="false" --initialize *driver_logging="true" --ip_discovery_command="/opt/mesosphere/bin/detect_ip" --log_auto_initialize="true" --log_dir="/var/log/mesos" --logbufsecs="0" --logging_level="INFO" --max* slave_ping_timeouts="5" --port="5050" --quiet="false" --quorum="1" --recovery_slave_removal_limit="100%" --registry="replicated_log" --registry_fetch_timeout="1mins" --registry_sto re_timeout="5secs" --registry_strict="false" --roles="slave_public" --root_submissions="true" --slave_ping_timeout="15secs" --slave_reregister_timeout="10mins" --user_sorter="drf" --version="false" --webui_dir="/opt/mesosphere/packages/mesos--30d3fbeb6747bb086d71385e3e2e0eb74ccdcb8b/share/mesos/webui" --weights="slave_public=1" --work_dir="/var/lib/mesos/mas ter" --zk="zk://127.0.0.1:2181/mesos" --zk_session_timeout="10secs" mesos-master[1250]: 2015-11-18 13:59:33,891:1250(0x7f14427fc700):ZOO_INFO@check_events@1750: session establishment complete on server [127.0.0.1:2181], sessionId=0x1511ae440bc0001, negotiated timeout=10000
-
-
 
 
 ## <a name="mesos-dns"></a>Mesos-DNS
@@ -269,7 +277,9 @@ Mesos-DNS is started on the DC/OS master nodes. Mesos-DNS provides service disco
 
 * SSH to your master node and enter this command to view the logs from boot time:
 
+    ```bash
     journalctl -u dcos-mesos-dns -b
+    ```
 
 
 For example, here is a snippet of the Mesos-DNS log as it converges to a successful state:
@@ -296,7 +306,9 @@ DC/OS uses ZooKeeper, a high-performance coordination service to manage the inst
 
 * SSH to your master node and enter this command to view the logs from boot time:
 
+    ```bash
     journalctl -u dcos-exhibitor -b
+    ```
 
 
 For example, here is a snippet of the Exhibitor log as it converges to a successful state:
