@@ -185,6 +185,8 @@
 /1.11/installing/oss/local/ /1.11/installing/local/;
 /1.11/installing/ent/patching/ /1.11/installing/patching/;
 /1.11/installing/oss/patching/ /1.11/installing/patching/;
+/1.11/installing/ent/upgrading/ /1.11/installing/upgrading/;
+/1.11/installing/oss/upgrading/ /1.11/installing/upgrading/;
 /1.11/installing/high-availability/ /1.11/installing/oss/high-availability/;
 /1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
