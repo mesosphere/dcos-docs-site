@@ -11,7 +11,7 @@ excerpt: Troubleshooting DC/OS installation issues
 1.  Verify that you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
 
 
-## <a name="ip-detect-script"></a>IP detect script
+## IP detect script
 
 You must have a valid [ip-detect](/1.11/installing/ent/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
