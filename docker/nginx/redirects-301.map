@@ -185,6 +185,8 @@
 /1.11/installing/oss/local/ /1.11/installing/local/;
 /1.11/installing/ent/patching/ /1.11/installing/patching/;
 /1.11/installing/oss/patching/ /1.11/installing/patching/;
+/1.11/installing/ent/troubleshooting/ /1.11/installing/troubleshooting/;
+/1.11/installing/oss/troubleshooting/ /1.11/installing/troubleshooting/;
 /1.11/installing/ent/upgrading/ /1.11/installing/upgrading/;
 /1.11/installing/oss/upgrading/ /1.11/installing/upgrading/;
 /1.11/installing/high-availability/ /1.11/installing/oss/high-availability/;

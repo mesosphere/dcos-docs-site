@@ -2,11 +2,8 @@
 layout: layout.pug
 navigationTitle:  Troubleshooting
 title: Troubleshooting
-menuWeight: 400
-
+menuWeight: 40
 excerpt: Troubleshooting DC/OS installation issues
-
-enterprise: false
 ---
 
 # <a name="general"></a>General troubleshooting approach
