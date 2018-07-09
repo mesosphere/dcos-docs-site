@@ -149,9 +149,9 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 * If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.10/installing/oss/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
-### DC/OS setup file
+### DC/OS configuration file
 
-Download and save the [DC/OS setup file][3] to your bootstrap node. This file is used to create your customized DC/OS build file.
+Download and save the [dcos_generate_config file][3] to your bootstrap node. This file is used to create your customized DC/OS build file.
 
 ### Docker NGINX (advanced installer)
 
