@@ -494,7 +494,7 @@
 /1.10/usage/tutorials/registry/ https://github.com/dcos/examples/tree/master/registry/1.8;
 /1.10/usage/tutorials/stateful-services/ /1.10/tutorials/stateful-services/;
 /1.10/usage/tutorials/task-labels/ /1.10/tutorials/task-labels/;
-/1.(.*)$/usage/webinterface/ /1.$1/gui/;
+/1.(/d+)/usage/webinterface/ /1.$1/gui/;
 /1.7/administration/dcosarchitecture/security/ /1.7/overview/;
 /1.7/administration/installing/custom/automated-installer/system-requirements/ /1.7/administration/installing/custom/system-requirements/;
 /1.7/administration/installing/img/digitalocean_help_link.png/ /1.7/administration/img/digitalocean_help_link.png/;
