@@ -29,7 +29,9 @@ DC/OS 1.9.9 includes the following:
 # Notable Changes in DC/OS 1.9.9
 
 - DCOS-22171/DCOS-22184 - Admin Router DNS entry TTL is overwritten with 5 seconds.
+  This change guarantees that the Adminrouter `leader.mesos` Mesos state cache entry is up-to-date after at most 30 seconds. 
 - DCOS_OSS-847 - Customized `ip_detect_public_filename` in config.yaml.
+  This fixes a bug where supplying a custom `ip-detect-public` script is not respected during DC/OS installation.
 
 
 # About DC/OS 1.9
