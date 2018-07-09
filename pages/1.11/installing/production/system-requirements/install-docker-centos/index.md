@@ -2,10 +2,8 @@
 layout: layout.pug
 navigationTitle:  Install Docker on CentOS
 title: Install Docker on CentOS
-menuWeight: 2
+menuWeight: 5
 excerpt: Requirements and recommendations for installing Docker on CentOS
-
-enterprise: false
 ---
 
 # Requirements and Recommendations
@@ -14,7 +12,7 @@ Before installing Docker on CentOS, review the general [requirements and recomme
 
 * Use the Docker yum repository to install Docker on CentOS. The yum repository makes it easy to upgrade and automatically manages dependency installation.
 
-* Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if they want.
+* Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if required.
 
 * Use CentOS 7.2 or greater. OverlayFS support was improved in 7.2 to fix <a href="https://github.com/docker/docker/issues/10294" target="_blank">a bug with XFS</a>.
 
@@ -29,25 +27,25 @@ Before installing Docker on CentOS, review the general [requirements and recomme
 Follow the Docker <a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank">CentOS-specific installation instructions</a>.
 
 
-# Example: Installing Docker with OverlayFS
+## Example: Installing Docker with OverlayFS
 
 The following instructions demonstrate how to use Docker with OverlayFS on CentOS 7.
 
-1.  Upgrade CentOS to 7.4:
+1.  Upgrade CentOS to 7.4.
 
     ```bash
     sudo yum upgrade --assumeyes --tolerant
     sudo yum update --assumeyes
     ```
 
-1.  Verify that the kernel is at least 3.10:
+1.  Verify that the kernel is at least 3.10.
 
     ```
     uname -r
     3.10.0-327.10.1.el7.x86_64
     ```
 
-1.  Enable OverlayFS:
+1.  Enable OverlayFS.
 
     ```bash
     sudo tee /etc/modules-load.d/overlay.conf <<-'EOF'
@@ -55,20 +53,20 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
     EOF
     ```
 
-1.  Reboot to reload kernel modules:
+1.  Reboot to reload kernel modules.
 
     ```bash
     reboot
     ```
 
-1.  Verify that OverlayFS is enabled:
+1.  Verify that OverlayFS is enabled.
 
     ```bash
     lsmod | grep overlay
     overlay
     ```
 
-1.  Configure yum to use the Docker yum repo:
+1.  Configure yum to use the Docker yum repo.
 
     ```bash
     sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
@@ -81,7 +79,7 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
     EOF
     ```
 
-1.  Configure systemd to run the Docker Daemon with OverlayFS:
+1.  Configure systemd to run the Docker Daemon with OverlayFS.
 
     ```bash
     sudo mkdir -p /etc/systemd/system/docker.service.d && sudo tee /etc/systemd/system/docker.service.d/override.conf <<- EOF
@@ -99,19 +97,19 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
     sudo systemctl enable docker
     ```
 
-    When the process completes, you should see:
+    When the process completes, you should see the following:
 
     ```
     Complete!
     Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
     ```
 
-1. Test that Docker is properly installed:
+1. Test that Docker is properly installed.
 
     ```bash
     sudo docker ps
     ```
 
-For more generic Docker requirements, see [System Requirements: Docker][1].
+See [System Requirements: Docker][1] for more generic Docker requirements.
 
 [1]: /1.11/installing/ent/custom/system-requirements/#docker
