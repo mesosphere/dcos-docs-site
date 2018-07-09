@@ -42,7 +42,7 @@ function walk(opts, file, files, array, children = [], level = 0) {
   }
   // Build object
   if (!child && shouldParse) {
-    const child = {
+    const newChild = {
       id,
       path: urlPath,
       children: [],
@@ -56,18 +56,18 @@ function walk(opts, file, files, array, children = [], level = 0) {
     // Add front-matter
     Object.keys(fileObj).forEach((key) => {
       if (blacklist.indexOf(key) === -1) {
-        child[key] = fileObj[key];
+        newChild[key] = fileObj[key];
       }
     });
     // Add excerpt
-    if (opts.excerpt && !child.excerpt) {
+    if (opts.excerpt && !newChild.excerpt) {
       const contents = decoder.write(fileObj.contents);
       const html = (ext === '.md') ? md.render(contents) : contents;
       const $ = cheerio.load(html);
       const elem = $('p').first();
-      child.excerpt = elem.text();
+      newChild.excerpt = elem.text();
     }
-    children.push(child);
+    children.push(newChild);
   }
   // Walk children
   if (child && array.length > 1) {
@@ -124,7 +124,7 @@ function plugin(opts) {
       const start = f(this.children, 'id', pathSplit[0]);
       pathSplit.splice(0, 1);
       let index = 0;
-      const currentPage = pathSplit.reduce((value, next) => {
+      const currentPage = pathSplit.reduce((value, _next) => {
         if (value.children && value.children.length) {
           var found = f(value.children, 'id', pathSplit[index]);
           index += 1;
