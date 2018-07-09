@@ -2,14 +2,12 @@
 layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
-menuWeight: 0
+menuWeight: 5
 
 excerpt: Hardware and software requirements for DC/OS Enterprise deployments
 
 render: mustache  
-enterprise: true
 ---
-
 
 # Hardware Prerequisites
 
@@ -64,7 +62,7 @@ Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeep
   | _/var/lib/dcos/mesos/master_ | logging directories |
   | _/var/lib/dcos/cockroach_ | CockroachDB |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
-  | _/var/lib/dcos/secrets_ | secrets vault |
+  | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
   | _/var/lib/dcos/exhibitor_ | Zookeeper database |
 
 ### Agent nodes
@@ -114,11 +112,11 @@ The agent nodes must also have:
 
 *   Secure shell (SSH) must be enabled on all nodes.
 *   Internet Control Message Protocol (ICMP) must be enabled on all nodes.
-*   All hostnames (FQDN and short hostnames) must be resolvable in DNS; both forward and reverse lookups must succeed.
+*   All hostnames (FQDN and short hostnames) must be resolvable in DNS; both forward and reverse lookups must succeed. [enterprise type="inline" size="small" /]
 *   Each node is network accessible from the bootstrap node.
 *   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
-*   All ports should be open for communication from the master nodes to the agent nodes and vice versa.
-*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`.
+*   All ports should be open for communication from the master nodes to the agent nodes and vice versa. [enterprise type="inline" size="small" /]
+*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
 
 ### High Speed Internet Access
 
@@ -126,7 +124,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 # Software Prerequisites
 
-Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
+Refer to [install_prereqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) script for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.[enterprise type="inline" size="small" /]
 
 ## All Nodes
 
@@ -148,7 +146,7 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 Each Linux distribution requires Docker to be installed in a specific way:
 
-*   **CentOS** - [Install Docker from Docker's yum repository][2].
+*   **CentOS** - [Install Docker from Docker's yum repository][1].
 *   **RHEL** - Install Docker by using a subscription channel. For more information, see <a href="https://access.redhat.com/articles/881893" target="_blank">Docker Formatted Container Images on Red Hat Systems</a>. <!-- curl -sSL https://get.docker.com | sudo sh -->
 *   **CoreOS** - Comes with Docker pre-installed and pre-configured.
 
@@ -156,15 +154,13 @@ For more more information, see Docker's <a href="http://docs.docker.com/engine/i
 
 ### Disable sudo password prompts
 
-To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo.
-
-Add the following line to your `/etc/sudoers` file. This disables the sudo password prompt.
+To disable the sudo passowrd prompt you must add the following line to your `/etc/sudoers` file.
 
 ```bash
 %wheel ALL=(ALL) NOPASSWD: ALL
 ```
 
-Alternatively, you can SSH as the root user.
+Alternatively, you can SSH as the `root user`.
 
 ### Enable NTP
 
@@ -185,11 +181,19 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 * If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
-### <a name="setup-file"></a>DC/OS setup file
+### <a name="setup-file"></a>DC/OS Configuration file
+[enterprise]
+#### Enterprise users
+[/enterprise]
+Download and save the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
 
-[Download and save](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) the DC/OS setup file to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
+[oss]
+#### Open Source users
+[/oss]
+Download and save the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) to your bootstrap node. This file is used to create your customized DC/OS build file.
 
-### Docker NGINX (advanced installer)
+
+### All users: Docker NGINX (advanced installer)
 
 For advanced install only, install the Docker NGINX image with this command:
 
@@ -242,12 +246,10 @@ localectl set-locale LANG=en_US.utf8
 - For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
 
 # Next steps
+- [Install Docker from Docker’s yum repository][1]
+- [Advanced DC/OS Installation Guide][2]
 
-- [GUI DC/OS Installation Guide][4]
-- [CLI DC/OS Installation Guide][1]
-- [Advanced DC/OS Installation Guide][5]
 
-[1]: /1.11/installing/ent/custom/cli/
-[2]: /1.11/installing/ent/custom/system-requirements/install-docker-centos/
-[4]: /1.11/installing/ent/custom/gui/
-[5]: /1.11/installing/ent/custom/advanced/
+[1]: /1.11/installing/ent/custom/system-requirements/install-docker-centos/
+
+[2]: /1.11/installing/ent/custom/advanced/
