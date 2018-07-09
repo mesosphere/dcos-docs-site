@@ -175,6 +175,8 @@
 /1.11/cli/command-reference/dcos-cluster/dcos-config-set/ /1.11/cli/command-reference/dcos-config/dcos-config-set/;
 /1.11/img/new-user-group-prod-permission-done.png /1.11/img/new-user-group-prod-permission.png;
 /1.11/img/ui-installer-auth2.png /1.11/img/ui-installer-auth2.png;
+/1.11/installing/ent/ports/ /1.11/installing/production/system-requirements/ports/;
+/1.11/installing/oss/ports/ /1.11/installing/production/system-requirements/ports/;
 /1.11/installing/ent/cloud/(.*)$ /1.11/installing/trial/$1;
 /1.11/installing/oss/cloud/(.*)$ /1.11/installing/trial/$1;
 /1.11/installing/ent/cloud/aws/advanced/aws-ami/ /1.11/installing/production/aws-ami/;
