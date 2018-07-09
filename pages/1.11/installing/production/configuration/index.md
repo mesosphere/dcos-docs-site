@@ -2,10 +2,8 @@
 layout: layout.pug
 navigationTitle:  Configuration
 title: Configuration
-menuWeight: 600
+menuWeight: 20
 excerpt: Configuring your DC/OS parameters using a YAML file
-
-enterprise: false
 ---
 
 
@@ -16,14 +14,18 @@ The DC/OS configuration parameters are specified in YAML format in a config.yaml
 # Format
 
 ## Key-value pairs
-The config.yaml file is formatted as a list of key-value pairs. For example:
+The config.yaml file is formatted as a list of key-value pairs. 
+
+For example:
 
 ```yaml
 bootstrap_url: file:///opt/dcos_install_tmp
 ```
 
 ## Config blocks and lists
-A config block is a group of settings. It consists of:
+A config block is a group of settings. 
+
+It consists of the following:
 
 - A key followed by a colon (e.g. `agent_list:`). The key of the config block must be on its own line, with no leading space.
 - A list of values formatted by using single dash (`-`) followed by a space; or an indented set of one or more key-value pairs. The indentation for each key-value pair must be exactly two spaces. Do not use tabs.
@@ -41,7 +43,9 @@ master_list:
 ## Comments
 Comment lines start with a hash symbol (`#`). They can be indented with any amount of leading space.
 
-Partial-line comments (e.g. `agent_list # this is my agent list`) are not allowed. They will be treated as part of the value of the setting. To be treated as a comment, the hash sign must be the first non-space character on the line. For example:
+Partial-line comments (e.g. `agent_list # this is my agent list`) are not allowed. They will be treated as part of the value of the setting. To be treated as a comment, the hash sign must be the first non-space character on the line.
+
+For example:
 
 ```yaml
 master_list:
