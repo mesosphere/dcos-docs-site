@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Basic CloudFormation template
+title: Basic 
 navigationTitle: Basic
 menuWeight: 5
 excerpt: Creating a DC/OS cluster for AWS using DC/OS templates
