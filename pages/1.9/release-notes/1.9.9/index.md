@@ -23,12 +23,9 @@ DC/OS 1.9.9 includes the following:
 - COPS-2041/DCOS-21467 - DC/OS UI: Fixed labels reducer to accept empty strings.
 - COPS-3180 - Fixed odd exit behavior for tasks that use a volume mount (via rexray). [enterprise type="inline" size="small" /]
 - DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file. [enterprise type="inline" size="small" /]
+- DCOS-22171/DCOS-22184 - Admin Router DNS entry TTL is overwritten with 5 seconds. This fixes the issue of the `leader.mesos` Adminrouter Mesos state cache entry not being updated strictly within the expected 30 seconds. The faulty behavior led to delayed recognition of Mesos leader change by Adminrouter.
 - DCOS-22399/DCOS-22346 - DC/OS UI: Added privacy policy link to the login modal.
-
-# Notable Changes in DC/OS 1.9.9
-
-- DCOS-22171/DCOS-22184 - Admin Router DNS entry TTL is overwritten with 5 seconds.
-- DCOS_OSS-847 - Customized `ip_detect_public_filename` in config.yaml.
+- DCOS_OSS-847 - Customized `ip_detect_public_filename` in config.yaml. This fixes an issue where supplying a custom `ip-detect-public` script is not respected during the DC/OS installation.
 
 # Security Enhancements in DC/OS 1.9.9
 
