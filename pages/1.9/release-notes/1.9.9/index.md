@@ -14,9 +14,9 @@ DC/OS 1.9.9 was released on July 10, 2018.
 
 DC/OS 1.9.9 includes the following:
 
-- Updated to Mesos 1.2.x ([change log](https://github.com/dcos/dcos/blob/1.9.9/packages/mesos/buildinfo.json)).
+- Updated to Mesos 1.2.3 ([change log](https://github.com/mesosphere/mesos/blob/dcos-mesos-mesosphere/1.2.x-nightly-cb79076/CHANGELOG)).
 - Updated to Marathon 1.4.11 ([change log](https://github.com/mesosphere/marathon/releases/tag/v1.4.11)).
-- Updated to Metronome 0.3.2 ([change log](https://github.com/dcos/metronome/releases/tag/v0.3.2)).
+- Updated to Metronome 0.3.5 ([change log](https://github.com/dcos/metronome/releases/tag/v0.3.5)).
 
 # Issues Fixed in DC/OS 1.9.9
 
