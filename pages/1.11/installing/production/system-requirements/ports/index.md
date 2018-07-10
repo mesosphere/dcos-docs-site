@@ -70,7 +70,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 15101 | Marathon libprocess | `dcos-marathon.service` | master | agent/master |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`| master | agent/master |
 | 61053 | Mesos DNS | `dcos-net.service` | agent/master | master [oss type="inline" size="small" /] | 
-| 61430 | DC/OS Net | `dcos-net.service` | agent/master | master [enterprise type="inline" size="small" /] |
+| 61430 | DC/OS Net | `dcos-net.service` | agent/master | master |
 | 62500 | DC/OS Network Metrics | `dcos-networking_api.service` | master | master [enterprise type="inline" size="small" /] |
 | Ephemeral | DC/OS Component Package Manager (Pkgpanda) | `dcos-pkgpanda-api.service` | None | None |
 
