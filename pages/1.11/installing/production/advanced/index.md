@@ -11,13 +11,13 @@ Using advanced installation method, you can package the DC/OS distribution yours
 
 # Advanced Installation Workflow
 
- The following steps are required to install DC/OS clusters using advance installers.
+ The following steps are required to install DC/OS clusters using advanced installers.
 
 *   Configure Bootstrap node
 *   Install DC/OS on Master node
 *   Install DC/OS on Agent node
 
-![Advanced Installation Process](/1.11/img/advanced-installer.jpg)
+![Advanced Installation Process](/1.11/img/advanced-installer.png)
 
 **Note:** An user can install DC/OS on each node using the DC/OS installation script hosted on the bootstrap node.
 
