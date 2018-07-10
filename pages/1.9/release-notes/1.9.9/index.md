@@ -23,14 +23,16 @@ DC/OS 1.9.9 includes the following:
 - COPS-2041/DCOS-21467 - DC/OS UI: Fixed labels reducer to accept empty strings.
 - COPS-3180 - Fixed odd exit behavior for tasks that use a volume mount (via rexray). [enterprise type="inline" size="small" /]
 - DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file. [enterprise type="inline" size="small" /]
-- DCOS-21557/DCOS_OSS-2367 - Updated cURL to version 7.59.
-- DCOS-22399/DCOS-22346 - Added privacy policy link to the login modal.
+- DCOS-22399/DCOS-22346 - DC/OS UI: Added privacy policy link to the login modal.
 
 # Notable Changes in DC/OS 1.9.9
 
 - DCOS-22171/DCOS-22184 - Admin Router DNS entry TTL is overwritten with 5 seconds.
 - DCOS_OSS-847 - Customized `ip_detect_public_filename` in config.yaml.
 
+# Security Enhancements in DC/OS 1.9.9
+
+- DCOS-21557/DCOS_OSS-2367 - Updated cURL to version 7.59.
 
 # About DC/OS 1.9
 
