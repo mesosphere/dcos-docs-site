@@ -20,6 +20,7 @@ If you are on the same network as your cluster or connected by using VPN, you ca
 *   An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
 
 ### <a name="unix"></a>SSH to your DC/OS cluster on Unix/Linux (macOS, Ubuntu, etc)
+**Note:** Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.
 
 1.  Change the permissions on the `.pem` file to owner read/write by using the `chmod` command.
 

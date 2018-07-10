@@ -259,3 +259,5 @@ ping slave.mesos
 For example:
 * Ubuntu: `apt-get update && apt-get install openvpn`
 * ArchLinux: `pacman -S openvpn`
+
+**Note:** Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.
