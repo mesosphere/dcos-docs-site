@@ -4,48 +4,48 @@ const path = require('path');
 const RSS = require('rss');
 
 function createFeed(opts, metalsmith, page) {
-
-  let metadata = metalsmith.metadata();
+  const metadata = metalsmith.metadata();
 
   //
   // Feed
   //
 
-  let feedOptions = {};
+  const feedOptions = {};
 
-  if(page.title) {
+  if (page.title) {
     feedOptions.title = page.title;
   }
-  if(metadata.description) {
+  if (metadata.description) {
     feedOptions.description = metadata.description;
   }
-  if(metadata.url && page.path) {
+  if (metadata.url && page.path) {
     feedOptions.feed_url = path.join(metadata.url, page.path, 'rss.xml');
     feedOptions.site_url = path.join(metadata.url, page.path);
   }
-  if(metadata.copyright) {
+  if (metadata.copyright) {
     feedOptions.copyright = metadata.copyright;
   }
-  if(metadata.language) {
+  if (metadata.language) {
     feedOptions.language = metadata.language;
   }
 
-  let feed = new RSS(feedOptions);
+  const feed = new RSS(feedOptions);
 
   //
   // Pages
   //
 
-  let walk = (p) => {
+  const walk = (p) => {
     p.children.forEach((c) => {
-      let itemOptions = {};
-      for(let key in opts.itemOptionsMap) {
-        let value = c[opts.itemOptionsMap[key]];
-        if(value) {
+      const itemOptions = {};
+      Object.keys(opts.itemOptionsMap).forEach((key) => {
+        const value = c[opts.itemOptionsMap[key]];
+        if (value) {
           itemOptions[key] = value;
         }
-      }
-      if(c.path) {
+      });
+
+      if (c.path) {
         itemOptions.url = path.join(metadata.url, c.path);
       }
       feed.item(itemOptions);
@@ -58,33 +58,31 @@ function createFeed(opts, metalsmith, page) {
   // Export
   //
 
-  let destinationFolder = path.join(metalsmith.destination(), page.path);
-  let destination = path.join(destinationFolder, '/rss.xml');
-  if (!fs.existsSync(destinationFolder)){
+  const destinationFolder = path.join(metalsmith.destination(), page.path);
+  const destination = path.join(destinationFolder, '/rss.xml');
+  if (!fs.existsSync(destinationFolder)) {
     mkdirp.sync(destinationFolder);
   }
   fs.writeFileSync(destination, feed.xml());
-
 }
 
 function rss(opts) {
-  return function(files, metalsmith, done) {
+  return function rssMiddleware(files, metalsmith, done) {
     setImmediate(done);
 
-    let metadata = metalsmith.metadata();
-    if(!metadata) {
+    const metadata = metalsmith.metadata();
+    if (!metadata) {
       done(new Error('metadata must be configured'));
     }
 
-    let hierarchy = metadata.hierarchy;
-    if(!hierarchy) {
+    const hierarchy = metadata.hierarchy;
+    if (!hierarchy) {
       done(new Error('hierarchy must be configured'));
     }
 
-    let pages = hierarchy.find('rss', true);
-    pages.forEach((page) => createFeed(opts, metalsmith, page));
-
-  }
+    const pages = hierarchy.find('rss', true);
+    pages.forEach(page => createFeed(opts, metalsmith, page));
+  };
 }
 
 module.exports = rss;

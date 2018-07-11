@@ -109,14 +109,6 @@ const CB = branch();
 // Start timer
 CB.use(timer('CB: Init'));
 
-// Remove the ordr prefix from structured files. Constrained to the services directory
-CB.use(copy({
-  pattern: 'services/**',
-  transform: file => file.replace(/ordr_[0-9]+-/, ''),
-  move: true,
-}));
-CB.use(timer('CB: Copy'));
-
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
 //   model: path/to/my.yml (access content in my.yml as model.foo.bar)
