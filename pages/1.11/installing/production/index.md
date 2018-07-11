@@ -11,12 +11,7 @@ DC/OS is installed in your environment by using a dynamically generated configur
 The DC/OS installation process requires a cluster of nodes to install DC/OS onto and a single node to run the DC/OS installation from. For fully functional clusters on any infrastructure including on premise, public or private clouds, follow the Production installation instructions. The Production installation method was previously called as Custom Installation. 
 
 # Access DC/OS Configuration File
-[enterprise]
-## Enterprise users 
-[/enterprise]
-Contact your sales representative or <sales@mesosphere.io> for access to the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
 
-[oss]
-## Open Source users 
-[/oss]
-Contact your sales representative or <sales@mesosphere.io> for access to the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh).
+- Contact your sales representative or <sales@mesosphere.io> for access to the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
+
+- Contact your sales representative or <sales@mesosphere.io> for access to the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh). [oss type="inline" size="small" /]
