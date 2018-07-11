@@ -4,8 +4,7 @@ navigationTitle:  Edge-LB
 title: Edge-LB
 menuWeight: 30
 excerpt:
-model: /services/edge-lb/data.yml
-render: mustache
+
 
 enterprise: false
 ---
