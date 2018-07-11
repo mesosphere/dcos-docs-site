@@ -4,7 +4,8 @@ navigationTitle:  Installing Edge-LB
 title: Installing Edge-LB
 menuWeight: 10
 excerpt:
-
+model: /services/edge-lb/data.yml
+render: mustache
 enterprise: false
 ---
 
@@ -12,9 +13,10 @@ Configure a service account and install the Edge-LB package using the instructio
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/latest/cli/install/) and be logged in as a superuser.
-- The [DC/OS Enterprise CLI installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/).
-- Access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
+- [DC/OS CLI is installed](/latest/cli/install/)
+- You are logged in as a superuser
+- The [DC/OS Enterprise CLI is installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/).
+- You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 **Limitations**
 - Currently, Edge-LB works only with DC/OS Enterprise in permissive mode on DC/OS 1.10, and permissive or strict mode on DC/OS 1.11 [security mode](/latest/security/ent/#security-modes). It does not work with disabled mode.
@@ -32,6 +34,12 @@ dcos package repo add --index=0 edgelb-aws \
 dcos package repo add --index=0 edgelb-pool-aws \
   https://<AWS S3 bucket>/stub-universe-edgelb-pool.json
 ```
+
+[enterprise]
+# Build your own local Universe
+[/enterprise]
+
+#include /services/include/build-local-universe-ee-only.tmpl
 
 # Create a service account
 The Edge-LB API server needs to be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
