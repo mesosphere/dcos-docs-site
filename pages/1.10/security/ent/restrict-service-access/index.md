@@ -94,7 +94,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 1.  Select **Organization > Users** and select **Nick**.
 
-1.  Select **Group Membership** and then type `prod-bgroup` in the search box, then click to select.
+1.  Select **Group Membership** and then type `prod-b-group` in the search box, then click to select.
 
 
 ## Log in to the DC/OS GUI as user
