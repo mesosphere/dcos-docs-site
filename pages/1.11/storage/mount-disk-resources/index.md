@@ -11,7 +11,7 @@ enterprise: false
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-With DC/OS you can configure Mesos [`Mount` disk resources][1] across your cluster simply by mounting storage resources on agents using a well-known path.
+With DC/OS you can configure Mesos [`Mount` disk resources][1] across your cluster by mounting storage resources on agents using a well-known path.
 
 When a DC/OS agent starts, it scans for volumes that match the pattern `/dcos/volume<N>`, where `<N>` is an integer. The agent is then automatically configured to offer these disk resources to other services.
 
@@ -19,7 +19,7 @@ When a DC/OS agent starts, it scans for volumes that match the pattern `/dcos/vo
 
 In this example, a disk resource is added to a DC/OS agent post-install on a running cluster. These same steps can be used pre-install without having to stop services or clear the agent state.
 
-***Warning:*** This will terminate any running tasks or services on the node.
+**Warning:** This will terminate any running tasks or services on the node.
 
 1.  Connect to an agent in the cluster with SSH.
 2.  Examine the current agent resource state.
@@ -30,7 +30,7 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
 
     MESOS_RESOURCES='[{"ranges": {"range": [{"end": 21, "begin": 1}, {"end": 5050, "begin": 23}, {"end": 32000, "begin": 5052}]}, "type":  "RANGES", "name": "ports"}, {"role": "*", "type": "SCALAR", "name": "disk", "scalar": {"value": 47540}}]'
     ```
-    Note there are no references yet for `/dcos/volume0`.
+    There are no references yet for `/dcos/volume0`.
 
 3.  Stop the agent.
     - On a [private](/1.11/overview/concepts/#private-agent-node) agent:
@@ -69,7 +69,7 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
     ```
     This is suitable for testing purposes only. Mount volumes must have at least 200 MB of free space available. 100 MB on each volume is reserved by DC/OS and is not available for other services.
 
-6.  Create fstab entry and mount.
+6.  Create `fstab` entry and mount.
 
     Ensure the volume is mounted automatically at boot time. Something similar could also be done with a systemd mount unit.
 
@@ -173,9 +173,12 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
 }
 ```
 
-After running this service, navigate to the service Volumes tab:
+After running this service, navigate to the **Services > Volumes** tab:
 
 ![Mount disk](/1.11/img/mount-disk.png)
+
+_Figure 1 - Services > Volumes tab_
+
 
 # Cloud provider resources
 
