@@ -22,8 +22,8 @@ The templates are used together in conjunction to create a DC/OS cluster. The te
 An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance. Selecting smaller-sized VMs is not recommended and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores to not work properly.
 
 ### Software
-- Enterprise users: The [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
-- Open Source users: The [dcos_generate_config file](https://dcos.io/releases/). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [oss type="inline" size="small" /] 
+- The [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
+- The [dcos_generate_config file](https://dcos.io/releases/). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [oss type="inline" size="small" /] 
 - An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the advanced templates. Contact your AWS admin for more information. 
 - An AWS EC2 Key Pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 Key Pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
@@ -50,17 +50,9 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 # Create your templates
 
-[enterprise]
-## Enterprise users 
-[/enterprise]
+- Download the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) and go to step 1 in the "All users" section. [enterprise type="inline" size="small" /] 
 
-1.  Download the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) and go to Step 1 in the "All users" section.
-
-[oss]
-## Open Source users 
-[/oss]
-
-1.  Download the [dcos_generate_config file](https://dcos.io/releases/) and go to Step 1 in the "All users" section.
+- Download the [dcos_generate_config file](https://dcos.io/releases/) and go to step 1 in the "All users" section. [oss type="inline" size="small" /] 
 
 ## All users
 
@@ -71,7 +63,9 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
     ```
 2.  Create a configuration file in the `genconf` directory and save as `config.yaml`. This configuration file specifies your AWS credentials and the S3 location to store the generated artifacts. 
 
-The required parameters for Enterprise users are: [enterprise type="inline" size="small" /] 
+The required parameters for Enterprise and Open Source users are:
+
+[enterprise type="inline" size="small" /] 
 
     ```json
     aws_template_storage_bucket: <your-bucket>
@@ -88,7 +82,7 @@ The required parameters for Enterprise users are: [enterprise type="inline" size
     zk_agent_credentials: <userid>:<password>
     ```
 
-The required parameters for Open Source are: [oss type="inline" size="small" /] 
+[oss type="inline" size="small" /] 
 
     ```json
     aws_template_storage_bucket: <your-bucket>
@@ -102,13 +96,13 @@ For parameters descriptions and configuration examples, see the [documentation](
 
 3.  Run the DC/OS installer script with the AWS argument specified. This command creates and uploads a custom build of the DC/OS artifacts and templates to the specified S3 bucket.
 
-Enterprise users: [enterprise type="inline" size="small" /]
+[enterprise type="inline" size="small" /]
 
     ```bash
     sudo bash dcos_generate_config.ee.sh --aws-cloudformation
     ```
 
-Open Source users: [oss type="inline" size="small" /] 
+[oss type="inline" size="small" /] 
 
     ```bash
     sudo bash dcos_generate_config.sh --aws-cloudformation
@@ -197,16 +191,9 @@ Use the `zen.sh` script to create the template dependencies. These dependencies 
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
 
-[enterprise]
-## Enterprise users 
-[/enterprise]
-On the **Select Template** page upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json`) from your workstation and click **Next**. Go to Step 1 in the "All users" section.
+- On the **Select Template** page upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json`) from your workstation and click **Next**. Go to step 1 in the "All users" section. [enterprise type="inline" size="small" /]
 
-[oss]
-## Open Source users 
-[/oss]
-
-On the **Select Template** page, upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json`) from your workstation and click **Next**. Go to Step 1 in the "All users" section. 
+- On the **Select Template** page, upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json`) from your workstation and click **Next**. Go to step 1 in the "All users" section. [oss type="inline" size="small" /]
 
 ## All users
 1.  On the **Specify Details** page, specify these values and and click **Next**.
