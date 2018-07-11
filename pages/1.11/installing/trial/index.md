@@ -2,7 +2,7 @@
 layout: layout.pug
 excerpt: Trial Installation for demos and proofs of concepts
 title: DC/OS Trial Installation Options
-navigationTitle: Trial
+navigationTitle: Trial Installation
 menuWeight: 5
 ---
 
