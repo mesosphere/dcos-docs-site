@@ -323,7 +323,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
    Alternatively, if you have [jq 1.5 or later](https://stedolan.github.io/jq/download) installed, you can use this command:
 
    ```bash
-   dcos security secrets get /momee-serv-group/momee-serv-group-service/<secret-name> --json | jq -r .value | jq
+   dcos security secrets get <path-to-secret> --json | jq -r .value | jq
    ```
 
 -  Delete the private key file from your file system to prevent bad actors from using the private key to authenticate to DC/OS.
