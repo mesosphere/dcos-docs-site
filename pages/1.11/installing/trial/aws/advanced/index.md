@@ -9,7 +9,7 @@ excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates
 Choose the advanced templates, if you want to customize the AMI, VPC, or Instance Type. 
 
 The advanced templates are:
--* Highly customizable
+* Highly customizable
 * Composable, for example you can deploy multiple agent pools to a single cluster
 * More setup work is required
 
@@ -99,21 +99,22 @@ For parameters descriptions and configuration examples, see the [documentation](
 
 [enterprise type="inline" size="small" /]
 
-    ```bash
-    sudo bash dcos_generate_config.ee.sh --aws-cloudformation
-    ```
+```bash
+sudo bash dcos_generate_config.ee.sh --aws-cloudformation
+```
 
 [oss type="inline" size="small" /] 
 
-    ```bash
-    sudo bash dcos_generate_config.sh --aws-cloudformation
-    ```
+```bash
+sudo bash dcos_generate_config.sh --aws-cloudformation
+```
 
-     The root URL for this bucket location is printed at the end of this step. You should see a message like this:
+The root URL for this bucket location is printed at the end of this step. You should see a message like this:
 
-    ```bash
-    AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<path-to-directory>
-    ```
+```bash
+AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<path-to-directory>
+```
+
 4.  Go to [S3](https://console.aws.amazon.com/s3/home) and navigate to your S3 bucket shown above in `<path-to-directory>`.
 
     1.  Select **cloudformation** and then select the zen template for the number of desired masters. For example, select **el7-zen-1.json** for a single master configuration.
