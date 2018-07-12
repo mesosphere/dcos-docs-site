@@ -17,7 +17,9 @@ When a DC/OS agent starts, it scans for volumes that match the pattern `/dcos/vo
 
 # Example using loopback device
 
-In this example, a disk resource is added to a DC/OS agent post-install on a running cluster. These same steps can be used pre-install without having to stop services or clear the agent state.
+In this example, a disk resource is added to a DC/OS agent post-install on a running cluster. These same steps can be used pre-install without having to stop services or clear the agent state. 
+
+Please note that this example handles **adding** resources exclusively and can not get applied the same way when removing resources.
 
 ***Warning:*** This will terminate any running tasks or services on the node.
 
@@ -57,12 +59,6 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
         ```bash
         sudo rm -f /var/lib/mesos/slave/meta/slaves/latest
         ```
-
-    1. Remove checkpointed agent resources with this command:
-
-      ```bash
-      sudo rm -f /var/lib/mesos/slave/meta/resources
-      ```
 
 5. Create a 200 MB loopback device.
 
