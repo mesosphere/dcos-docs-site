@@ -86,4 +86,4 @@ enterprise: false
 # See Also
 
 - [Connecting clients][1].
- [1]: [https://docs.mesosphere.com/service-docs/<Template>/connecting-clients/](https://docs.mesosphere.com/service-docs/<Template>/connecting-clients/)
+ [1]: [https://docs.mesosphere.com/services/percona-mongo/0.2.0-3.4.13/connecting-clients/](https://docs.mesosphere.com/services/percona-mongo/0.2.0-3.4.13/connecting-clients/)
