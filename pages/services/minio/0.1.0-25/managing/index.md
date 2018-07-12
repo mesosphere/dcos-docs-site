@@ -219,3 +219,12 @@ To restart a specific step within a specific phase:
 ```shell
 dcos minio update force-restart service-phase service-0:[node]
 ```
+
+### Disk Caching in Minio
+
+You can enable disk caching in Minio by enabling minio cache enable checkbox while installing the Minio service from DC/OS web interface.
+
+Below are the steps to be followed :
+  
+  [<img src="../service/Disk_Caching.png" alt="Disk_Caching" width="800"/>](../service/Disk_Caching.png)
+
