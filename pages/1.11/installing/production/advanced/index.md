@@ -119,29 +119,29 @@ In this step, an IP detection script is created. This script reports the IP addr
 
 [oss type="inline" size="small" /]
 
-    ```
-    #!/usr/bin/env bash
-    set -o nounset -o errexit -o pipefail
-    export PATH=/sbin:/usr/sbin:/bin:/usr/bin:$PATH
-    MASTER_IP=$(dig +short master.mesos || true)
-    MASTER_IP=${MASTER_IP:-172.28.128.3}
-    INTERFACE_IP=$(ip r g ${MASTER_IP} | \
-    awk -v master_ip=${MASTER_IP} '
-    BEGIN { ec = 1 }
-     {
-      if($1 == master_ip) {
-            print $7
-            ec = 0
-     } else if($1 == "local") {
-            print $6
-            ec = 0
-     }
-          if (ec == 0) exit;
-        }
-          END { exit ec }
-        ')
-        echo $INTERFACE_IP
-    ```
+```bash
+#!/usr/bin/env bash
+set -o nounset -o errexit -o pipefail
+export PATH=/sbin:/usr/sbin:/bin:/usr/bin:$PATH
+MASTER_IP=$(dig +short master.mesos || true)
+MASTER_IP=${MASTER_IP:-172.28.128.3}
+INTERFACE_IP=$(ip r g ${MASTER_IP} | \
+awk -v master_ip=${MASTER_IP} '
+BEGIN { ec = 1 }
+ {
+  if($1 == master_ip) {
+        print $7
+        ec = 0
+ } else if($1 == "local") {
+        print $6
+        ec = 0
+ }
+      if (ec == 0) exit;
+    }
+      END { exit ec }
+    ')
+    echo $INTERFACE_IP
+```
 
 [enterprise]
 # Create a fault domain detection script
@@ -201,36 +201,36 @@ If your servers are installed with a domain name in your `/etc/resolv.conf`, add
 ## Enterprise template
 [/enterprise]
 
-    ```
-    bootstrap_url: http://<bootstrap_ip>:80
-    cluster_name: <cluster-name>
-    superuser_username:
-    superuser_password_hash:
-    #customer_key in yaml file has been replaced by genconf/license.txt in DC/OS 1.11
-    #customer_key: <customer-key>
-    exhibitor_storage_backend: static
-    master_discovery: static
-    ip_detect_public_filename: <relative-path-to-ip-script>
-    master_list:
-    - <master-private-ip-1>
-    - <master-private-ip-2>
-    - <master-private-ip-3>
-    resolvers:
-    - 169.254.169.253
-    # Choose your security mode: permissive, strict, or disabled 
-    security: <security-mode>
-    # A custom proxy is optional. For details, see the configuration documentation.
-    use_proxy: 'true'
-    http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
-    https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
-    no_proxy:
-    - 'foo.bar.com'
-    - '.baz.com'
-    # Fault domain entry required for DC/OS Enterprise 1.11+
-    fault_domain_enabled: false
-    #If IPv6 is disabled in your kernel, you must disable it in the config.yaml
-    enable_ipv6: 'false'
-    ```
+```bash
+bootstrap_url: http://<bootstrap_ip>:80
+cluster_name: <cluster-name>
+superuser_username:
+superuser_password_hash:
+#customer_key in yaml file has been replaced by genconf/license.txt in DC/OS 1.11
+#customer_key: <customer-key>
+exhibitor_storage_backend: static
+master_discovery: static
+ip_detect_public_filename: <relative-path-to-ip-script>
+master_list:
+- <master-private-ip-1>
+- <master-private-ip-2>
+- <master-private-ip-3>
+resolvers:
+- 169.254.169.253
+# Choose your security mode: permissive, strict, or disabled 
+security: <security-mode>
+# A custom proxy is optional. For details, see the configuration documentation.
+use_proxy: 'true'
+http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
+https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
+no_proxy:
+- 'foo.bar.com'
+- '.baz.com'
+# Fault domain entry required for DC/OS Enterprise 1.11+
+fault_domain_enabled: false
+#If IPv6 is disabled in your kernel, you must disable it in the config.yaml
+enable_ipv6: 'false'
+```
 
 [oss]
 ## Open Source template
@@ -312,8 +312,8 @@ At this point your directory structure should resemble:
         │   ├── config.yaml
         │   ├── ip-detect
     
-      **Tip:** 
-       - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
+   **Tip:** 
+   - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
 
 2.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
 
