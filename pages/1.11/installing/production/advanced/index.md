@@ -9,7 +9,7 @@ excerpt: Using the Advanced Installer to create DC/OS clusters
 A DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view [nodes](/1.11/overview/concepts/#node) documenation for more information.
 Using advanced installation method, you can package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
 
-# Advanced Installation Workflow
+# Advanced installation process
 
  The following steps are required to install DC/OS clusters using advanced installers.
 
@@ -19,7 +19,6 @@ Using advanced installation method, you can package the DC/OS distribution yours
 
 ![Advanced Installation Process](/1.11/img/advanced-installer.png)
 
-**Note:** An user can install DC/OS on each node using the DC/OS installation script hosted on the bootstrap node.
 
 The advanced installer requires:
 
@@ -165,15 +164,18 @@ By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-service
 
 In this step, you can create a YAML configuration file that is customized for your environment. DC/OS uses this configuration file during installation to generate your cluster installation files. 
 
-In the following instructions, we assume that you are using ZooKeeper for shared storage. [enterprise type="inline" size="small" /]
+[Enterprise]
+## Set up a super user password
+[/enterprise]
+In the following instructions, we assume that you are using ZooKeeper for shared storage.
 
-1.  From the bootstrap node, run this command to create a hashed password for superuser authentication, where `<superuser_password>` is the superuser password. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file. [enterprise type="inline" size="small" /]
+1.  From the bootstrap node, run this command to create a hashed password for superuser authentication, where `<superuser_password>` is the superuser password. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file.
 
       ```bash
       sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
       ```
 
-    Here is an example of a hashed password output. [enterprise type="inline" size="small" /]
+    Here is an example of a hashed password output.
 
     ```
     Extracting image from this script and loading into docker daemon, this step can take a few minutes
@@ -184,11 +186,9 @@ In the following instructions, we assume that you are using ZooKeeper for shared
     $6$rounds=656000$v55tdnlMGNoSEgYH$1JAznj58MR.Bft2wd05KviSUUfZe45nsYsjlEl84w34pp48A9U2GoKzlycm3g6MBmg4cQW9k7iY4tpZdkWy9t1
     ```
 
-1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started.
-
-- The configuration template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and Google DNS resolvers. [enterprise type="inline" size="small" /]
-
-- The configuration template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and Google DNS resolvers. [oss type="inline" size="small" /]
+## Create the configuration file
+1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and Google DNS resolvers. [enterprise type="inline" size="small" /]
+This template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and Google DNS resolvers. [oss type="inline" size="small" /]
 
 If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
 
@@ -197,7 +197,9 @@ If your servers are installed with a domain name in your `/etc/resolv.conf`, add
 - If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
 
-[enterprise type="inline" size="small" /]
+[enterprise]
+## Enterprise template
+[/enterprise]
 
     ```
     bootstrap_url: http://<bootstrap_ip>:80
@@ -230,7 +232,9 @@ If your servers are installed with a domain name in your `/etc/resolv.conf`, add
     enable_ipv6: 'false'
     ```
 
-[oss type="inline" size="small" /]
+[oss]
+## Open Source template
+[/oss]
     
     bootstrap_url: http://<bootstrap_ip>:80
     cluster_name: <cluster-name>
@@ -259,7 +263,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 - Due to a cluster configuration issue with overlay networks, we currently recommend setting `enable_ipv6` to `false` in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
 - Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. See [troubleshooting](/1.11/installing/ent/troubleshooting/) for more information.
-- If something goes wrong and you want to rerun your setup, use the cluster [uninstall][12] instructions.
+- If something goes wrong and you want to rerun your setup, use the cluster [uninstall][11] instructions.
 
 **Prerequisites**
 
@@ -267,24 +271,26 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 *   A `genconf/license.txt` file containing your DC/OS Enterprise license. [enterprise type="inline" size="small" /]
 *   A `genconf/ip-detect` script.
 
-## Procedure to install DC/OS
 
-1.  Download the [DC/OS installer](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh). [oss type="inline" size="small" /]
+- Download and save the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
+
+- Download and save the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) to your bootstrap node. This file is used to create your customized DC/OS build file. [oss type="inline" size="small" /]
 
     ```bash
     curl -O https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
     ```
 
-2.  From the bootstrap node, run the DC/OS installer shell script to generate a customized DC/OS build file. The setup script extracts a Docker container that uses the generic DC/OS install files to create customized DC/OS build files for your cluster. The build files are output to `./genconf/serve/`.
+
+1.  From the bootstrap node, run the DC/OS installer shell script to generate a customized DC/OS build file. The setup script extracts a Docker container that uses the generic DC/OS install files to create customized DC/OS build files for your cluster. The build files are output to `./genconf/serve/`.
 
   **Tip:**  
-  
-     - You can view all of the automated command line installer options with the `dcos_generate_config.ee.sh --help` flag. [enterprise type="inline" size="small" /]
+     - You can view all of the automated command line installer options with the `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /] or `dcos_generate_config.sh --help` flag. [oss type="inline" size="small" /]
+
+[enterprise type="inline" size="small" /]
 
     sudo bash dcos_generate_config.ee.sh
 
-
-At this point your directory structure should resemble: [enterprise type="inline" size="small" /]
+At this point your directory structure should resemble:
 
     ├── dcos-genconf.c9722490f11019b692-cb6b6ea66f696912b0.tar
     ├── dcos_generate_config.ee.sh
@@ -294,11 +300,11 @@ At this point your directory structure should resemble: [enterprise type="inline
     │   ├── license.txt
 
 
-     - You can view all of the automated command line installer options with the `dcos_generate_config.sh --help` flag. [oss type="inline" size="small" /]
+[oss type="inline" size="small" /]
 
     sudo bash dcos_generate_config.sh    
 
-At this point your directory structure should resemble: [oss type="inline" size="small" /]
+At this point your directory structure should resemble:
 
         ├── dcos-genconf.<HASH>.tar
         ├── dcos_generate_config.sh
@@ -306,19 +312,19 @@ At this point your directory structure should resemble: [oss type="inline" size=
         │   ├── config.yaml
         │   ├── ip-detect
     
-  **Tip:** 
-  - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
+      **Tip:** 
+       - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
 
-3.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
+2.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
 
     ```bash
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
     ```
 
-4.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file.
+3.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file.
 
-   **Tip:**
-   - Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
+     **Tip:**
+      - Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
 
    1.  SSH to your master nodes.
 
@@ -344,27 +350,27 @@ At this point your directory structure should resemble: [oss type="inline" size=
         sudo bash dcos_install.sh master
         ```
 
-5.  <A name="slaveinstall"></A> Run the following commands on each of your agent nodes to install DC/OS using your custom build file.
+4.  <A name="slaveinstall"></A> Run the following commands on each of your agent nodes to install DC/OS using your custom build file.
 
-    1.  SSH to your agent nodes.
+     * SSH to your agent nodes.
 
         ```bash
         ssh <agent-ip>
         ```
 
-    2.  Make a new directory and navigate to it.
+     * Make a new directory and navigate to it.
 
         ```bash
         mkdir /tmp/dcos && cd /tmp/dcos
         ```
 
-    3.  Download the DC/OS installer from the NGINX Docker container, where `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`.
+     * Download the DC/OS installer from the NGINX Docker container, where `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`.
 
         ```bash
         curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
         ```
 
-    4.  Run this command to install DC/OS on your agent nodes. You must designate your agent nodes as [Public agent nodes][2] or [Private agent nodes][3].
+     *  Run this command to install DC/OS on your agent nodes. You must designate your agent nodes as [Public agent nodes][2] or [Private agent nodes][3].
 
         *   Private agent nodes:
 
@@ -380,7 +386,7 @@ At this point your directory structure should resemble: [oss type="inline" size=
 
     __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.11/installing/ent/custom/system-requirements/#port-and-protocol) documentation.
 
-6.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
+5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
     **Tip:** This process can take about 10 minutes. During this time you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
@@ -389,11 +395,11 @@ At this point your directory structure should resemble: [oss type="inline" size=
 
 When the status icons are green, you can access the DC/OS web interface.
 
-7.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting][11] documentation.
+6.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting][11] documentation.
 
     **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.
 
-8.  Enter your administrator username and password.
+7.  Enter your administrator username and password.
 
 ![Login screen](/1.11/img/ui-installer-auth2.png)
 
@@ -405,16 +411,16 @@ You are done! The UI dashboard will now be displayed.
 
 
 
-### Next Steps
+### Next Steps: Enterprise and Open Source users
 
 You can find information on the next steps listed below:
-- [Assign user roles][7]
+- [Assign user roles][7].
 - [System Requirements][1]
 - [Public agent nodes][2]
 - [Private agent nodes][3]
-- [Install the DC/OS Command-Line Interface (CLI)][9]  [oss type="inline" size="small" /]
-- [Troubleshooting DC/OS installation][10]  [oss type="inline" size="small" /]
-- [Uninstalling DC/OS][11]  [oss type="inline" size="small" /]
+- [Install the DC/OS Command-Line Interface (CLI)][9]
+- [Troubleshooting DC/OS installation][10]
+- [Uninstalling DC/OS][11]
 
 
 [1]: /1.11/installing/ent/custom/system-requirements/
