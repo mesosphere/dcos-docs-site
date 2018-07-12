@@ -60,7 +60,7 @@ Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeep
   | Directory Path | Description |
   |:-------------- | :---------- |
   | _/var/lib/dcos/mesos/master_ | logging directories |
-  | _/var/lib/dcos/cockroach_ | CockroachDB |
+  | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
   | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
   | _/var/lib/dcos/exhibitor_ | Zookeeper database |
