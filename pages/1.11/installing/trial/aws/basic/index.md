@@ -52,7 +52,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 3.  On the **Select Template** page, in the Choose a template field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from sales.
 
-  	**Important:** Do not click the **View/Edit template in Designer** link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
+**Important:** Do not click the **View/Edit template in Designer** link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
 
    ![Launch stack](/1.11/img/dcos-aws-step2b.png)
 
