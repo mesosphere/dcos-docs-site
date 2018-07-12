@@ -30,7 +30,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 ### Software
 - The [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
-- The [dcos_generate_config file](https://dcos.io/releases/). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [oss type="inline" size="small" /] 
+- The [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh). [oss type="inline" size="small" /] 
 - An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the advanced templates. Contact your AWS admin for more information. 
 - An AWS EC2 Key Pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 Key Pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
@@ -57,11 +57,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 # Create your templates
 
-- Download the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) and go to step 1 in the "All users" section. [enterprise type="inline" size="small" /] 
-
-- Download the [dcos_generate_config file](https://dcos.io/releases/) and go to step 1 in the "All users" section. [oss type="inline" size="small" /] 
-
-## All users
+- Download the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. [enterprise type="inline" size="small" /] 
 
 1.  Create a directory named `genconf` in the home directory of your node and navigate to it.
 
@@ -74,7 +70,6 @@ The required parameters for Enterprise and Open Source users are:
 
 [enterprise type="inline" size="small" /] 
 
-    ```json
     aws_template_storage_bucket: <your-bucket>
     aws_template_storage_bucket_path: <path-to-directory>
     aws_template_upload: true
@@ -87,11 +82,10 @@ The required parameters for Enterprise and Open Source users are:
     zk_super_credentials: <userid>:<password>
     zk_master_credentials: <userid>:<password>
     zk_agent_credentials: <userid>:<password>
-    ```
+    
 
 [oss type="inline" size="small" /] 
 
-    ```json
     aws_template_storage_bucket: <your-bucket>
     aws_template_storage_bucket_path: <path-to-directory>
     aws_template_upload: true
@@ -198,12 +192,15 @@ Use the `zen.sh` script to create the template dependencies. These dependencies 
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
 
-- On the **Select Template** page upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json`) from your workstation and click **Next**. Go to step 1 in the "All users" section. [enterprise type="inline" size="small" /]
+- On the **Select Template** page upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template from your workstation and click **Next**. 
 
-- On the **Select Template** page, upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template (e.g. `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json`) from your workstation and click **Next**. Go to step 1 in the "All users" section. [oss type="inline" size="small" /]
+Template examples:
 
-## All users
-1.  On the **Specify Details** page, specify these values and and click **Next**.
+ - `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json` [enterprise type="inline" size="small" /]
+
+ - `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json` [oss type="inline" size="small" /]
+
+2.  On the **Specify Details** page, specify these values and and click **Next**.
 
     ![AWS UI](/1.11/img/aws-advanced-1.png)
 
@@ -220,11 +217,11 @@ Use the `zen.sh` script to create the template dependencies. These dependencies 
     *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents.
     *  **Vpc** Specify the `VpcId` output value from the `zen.sh` script. All nodes will be launched by using subnets and Internet Gateway under this VPC.
 
-2.  On the **Options** page, accept the defaults and click **Next**.
+3.  On the **Options** page, accept the defaults and click **Next**.
 
     **Tip:** You can choose whether to rollback on failure. By default this option is set to **Yes**.
 
-3.  On the **Review** page, check the acknowledgement box and then click **Create**.
+4.  On the **Review** page, check the acknowledgement box and then click **Create**.
 
     **Tip:** If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
 
@@ -305,7 +302,7 @@ Public agents:
 For all of the advanced configuration options, see the template reference [documentation](/1.11/installing/ent/cloud/aws/advanced/template-reference/).
 
 
-# Limitations [enterprise type="inline" size="small" /]
+# Limitations 
 
 - Modified templates are not supported for upgrades.
 - Adding agents and task isolation is not supported.
