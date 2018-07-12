@@ -17,7 +17,7 @@ To get started, build a custom AMI and then install DC/OS by using the advanced 
 # Build a custom AMI
 This is the recommended method to building your own AMI. 
 
-## Instructions to build the DC/OS cloud_images AMI 
+## Instructions to test that you can build the DC/OS cloud_images AMI
 
 1.  Use the DC/OS [cloud_images](https://github.com/dcos/dcos/tree/master/cloud_images) scripts as a template. These scripts build a CentOS7 AMI with all of the DC/OS prerequisites installed.
 
