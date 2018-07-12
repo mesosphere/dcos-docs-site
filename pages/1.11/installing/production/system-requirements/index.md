@@ -182,18 +182,13 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 * The bootstrap node must be separate from your cluster nodes.
 
 ### <a name="setup-file"></a>DC/OS Configuration file
-[enterprise]
-#### Enterprise users
-[/enterprise]
-Download and save the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
 
-[oss]
-#### Open Source users
-[/oss]
-Download and save the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) to your bootstrap node. This file is used to create your customized DC/OS build file.
+- Download and save the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
+
+- Download and save the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) to your bootstrap node. This file is used to create your customized DC/OS build file. [oss type="inline" size="small" /]
 
 
-### All users: Docker NGINX (advanced installer)
+### Docker NGINX (advanced installer)
 
 For advanced install only, install the Docker NGINX image with this command:
 
