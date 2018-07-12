@@ -8,7 +8,7 @@ excerpt: Troubleshooting DC/OS installation issues
 
 # <a name="general"></a>General troubleshooting approach
 
-Verify that you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
+* Verify that you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
 
 
 ## IP detect script
@@ -52,7 +52,7 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
     timedatectl
     
 
-1. Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
+* Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
 
 Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
@@ -62,7 +62,7 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
    ```
 
-1.  Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
+* Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
 
     - [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
 
@@ -70,15 +70,15 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
     journalctl -flu dcos-exhibitor
     ```
 
-    - Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. 
+* Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. 
 
-  1.  To repair `/tmp` mounted with `noexec` run the following command:
+* To repair `/tmp` mounted with `noexec` run the following command:
 
 
         mount -o remount,exec /tmp
 
 	    
-  1.  Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
+* Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
 
   For example, [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command:
 
@@ -109,12 +109,12 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
 
 **Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 
-1.  Verify whether you can ping the DNS Forwarder (`ready.spartan`) [enterprise type="inline" size="small" /] or (`ready.dcos-net`) [oss type="inline" size="small" /]. If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
+* Verify whether you can ping the DNS Forwarder (`ready.spartan`) [enterprise type="inline" size="small" /] or (`ready.dcos-net`) [oss type="inline" size="small" /]. If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
 
     journalctl -flu dcos-net﻿⁠⁠⁠⁠
 
-1.  Verify that you can ping `⁠⁠⁠⁠leader.mesos` and ﻿⁠⁠⁠⁠`master.mesos`. If not:
+* Verify that you can ping `⁠⁠⁠⁠leader.mesos` and ﻿⁠⁠⁠⁠`master.mesos`. If not:
     - Review the Mesos-DNS service logs with this command: ﻿
 
     ```bash
