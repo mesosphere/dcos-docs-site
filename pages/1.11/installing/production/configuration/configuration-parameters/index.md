@@ -8,9 +8,10 @@ excerpt: Configuration parameters available for DC/OS
 
 # Configuration Parameters
 
-This section provides the configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/). For configuration parameters available for [DC/OS Open Source](https://dcos.io/) refer to [Configuration Reference for DC/OS Open Source](/1.11/installing/oss/custom/configuration/configuration-parameters/). [enterprise type="inline" size="small" /]
+The configuration parameters for [DC/OS Enterprise](https://mesosphere.com/product/) is [here](/1.11/installing/ent/custom/configuration/configuration-parameters/). [enterprise type="inline" size="small" /]
 
-This section provides the configuration parameters available for [DC/OS Open Source](https://dcos.io/). For configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/) refer to [Configuration Reference for DC/OS Enterprise](/1.11/installing/ent/custom/configuration/configuration-parameters/). [oss type="inline" size="small" /]
+The configuration parameters for [DC/OS Open Source](https://dcos.io/) is [here](/1.11/installing/oss/custom/configuration/configuration-parameters/). [oss type="inline" size="small" /]
+
 
 # Cluster Setup
 
