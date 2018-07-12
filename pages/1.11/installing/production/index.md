@@ -14,4 +14,4 @@ The DC/OS installation process requires a cluster of nodes to install DC/OS onto
 
 - Contact your sales representative or <sales@mesosphere.io> for access to the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
-- Contact your sales representative or <sales@mesosphere.io> for access to the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh). [oss type="inline" size="small" /]
+- You can download the most recent, stable, open source DC/OS generation configuration file [here](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) or find older versions of the file on the [open source project website](https://dcos.io/releases/). [oss type="inline" size="small" /]
