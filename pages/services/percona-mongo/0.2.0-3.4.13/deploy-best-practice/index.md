@@ -78,11 +78,9 @@ NUMA *(Non-Uniform Memory Access)* Architecture should be disabled on the DC/OS 
 
 We recommend NUMA is disabled on the DC/OS Agent node. Please consult your operating system or system manual to do this.
 
-### Transparent HugePages *(Red Hat/CentOS only)*
+### Transparent HugePages
 
-*Note: this section does not apply to Debian/Ubuntu or CentOS/Red Hat 5 and lower.*
-
-Recent versions of CentOS and Red Hat enable a memory optimisation named Transparent HugePages. We recommend this is disabled as it does not perform optimally under MongoDB *(or most other)* workloads.
+Recent versions of Linux operating systems enable a memory optimisation named Transparent HugePages. We recommend this is disabled as it does not perform optimally under MongoDB *(or most other)* workloads.
 
 MongoDB will log the following warning if Transparent HugePages are enabled:
 

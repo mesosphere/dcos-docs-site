@@ -205,7 +205,7 @@ dcos task exec --tty --interactive <task-id> /bin/bash
 
 The Percona-Mongo service contains several custom plans for modifying MongoDB Users via the Percona-Mongo CLI tool.
 
-All actions require the username ands password of the MongoDB clusterAdmin *(defined in service configuration)*.
+All actions require the username and password of the MongoDB clusterAdmin *(defined in service configuration)*.
 
 ### DC/OS Percona-Mongo System Users
 <a name="system-users"></a>
