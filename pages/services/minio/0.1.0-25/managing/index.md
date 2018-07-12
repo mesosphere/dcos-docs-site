@@ -47,7 +47,7 @@ dcos minio describe > options.json
 ```
 Make any configuration changes to the `options.json` file.
 
-If you installed DC/OS Minio Service with an earlier version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://github.com/mesosphere/dcos-minio/blob/ServiceGuide/docs/install.md).
+If you installed DC/OS Minio Service with an earlier version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://github.com/Mohini6649/dcos-docs-site/blob/minio-service-guide/pages/services/minio/0.1.0-25/install/index.md).
 
 **Caution:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values revert to the default values specified by the DC/OS Minio Service. See the "Recreating `options.json`" section below for information on recovering these values.
 
