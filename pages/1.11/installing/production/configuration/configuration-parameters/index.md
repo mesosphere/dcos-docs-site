@@ -116,6 +116,7 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) is [here]
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
 | [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
 
+# Parameter Descriptions
 
 ## adminrouter_auth_cache_enabled [enterprise type="inline" size="small" /]
 _This option was added in DC/OS 1.11.1._
