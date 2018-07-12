@@ -111,3 +111,111 @@ The CPU and Memory requirements of each node can be increased or decreased as fo
 - Memory (in MB): `"node": {"mem": 4096}`
 
 **Caution:** Volume requirements (type and/or size) cannot be changed after initial deployment.
+
+<a name="updating-placement-constraints"></a>
+### Updating placement constraints
+
+Placement constraints may be updated after initial deployment using the following procedure. See [Service Settings](#service-settings) above for more information on placement constraints.
+
+Assume the following deployment of our nodes:
+
+- Placement constraint of: `hostname:LIKE:10.0.10.3|10.0.10.8|10.0.10.26|10.0.10.28|10.0.10.84`
+- Tasks:
+
+```shell
+10.0.10.3: minio-0
+10.0.10.8: minio-1
+10.0.10.26: minio-2
+10.0.10.28: empty
+10.0.10.84: empty
+```
+
+
+`10.0.10.8` is being decommissioned and we should move away from it.
+
+**Steps:**
+
+1. Remove the decommissioned IP and add a new IP to the placement rule whitelist by editing `placement_constraint`:
+
+```shell
+	hostname:LIKE:10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123
+```
+
+2. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist: `dcos minio pod replace _NODEPOD_-1`
+
+3. Wait for `_NODEPOD_-1` to be up and healthy before continuing with any other replacement operations.
+
+The placement constraints can be modified by configuring the "placement constraint" section of the Config.json file:
+
+
+```shell
+	"placement_constraint": {
+          "type": "string",
+          "title": "Placement Constraint",
+          "description": "Marathon-style placement constraint for nodes. Example: [[\"hostname\", \"UNIQUE\"]]",
+          "default": "[[\"hostname\", \"UNIQUE\"]]",
+          "media": {
+            "type": "application/x-zone-constraints+json"
+        }
+```	
+	
+## Advanced update actions
+
+The following sections describe advanced commands that can be used to interact with an update in progress.
+
+### Monitoring the update
+
+Once the Scheduler has been restarted, it will begin a new deployment plan as individual pods are restarted with the new configuration. You can query the status of the update as follows:
+
+```shell
+dcos minio update status
+```
+
+If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS GUI to check the status of the restart.
+
+### Pause
+
+To pause an ongoing update, issue a pause command:
+
+```shell
+dcos minio update pause
+```
+
+You will receive an error message if the plan has already completed or has been paused. Once completed, the plan will enter the `WAITING` state.
+
+### Resume
+
+If a plan is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the plan:
+
+```shell
+dcos minio update resume
+```
+
+You will receive an error message if you attempt to `resume` a plan that is already in progress or has already completed.
+
+### Force-complete
+
+In order to manually complete a step (such that the Scheduler stops attempting to launch a task), you can issue a `force-complete` command. This will instruct to Scheduler to mark a specific step within a phase as complete. You need to specify both the phase and the step, for example:
+
+```shell
+dcos minio update force-complete service-phase service-0:[node]
+```
+
+### Force-restart
+
+Similar to force-complete, you can also force a restart. This can be done for an entire plan, a phase, or just for a specific step.
+
+To restart the entire plan:
+```shell
+dcos minio update force-restart
+```
+
+To restart all steps in a single phase:
+```shell
+dcos minio update force-restart service-phase
+```
+
+To restart a specific step within a specific phase:
+```shell
+dcos minio update force-restart service-phase service-0:[node]
+```
