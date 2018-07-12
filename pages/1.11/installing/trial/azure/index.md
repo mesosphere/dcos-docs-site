@@ -129,7 +129,7 @@ Also, to access nodes in the DC/OS cluster you will need `ssh` installed and con
 
 # Install DC/OS
 
-## 1: Deploying the template
+## Deploying the template
 
 To install DC/OS 1.11 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
 
@@ -140,7 +140,7 @@ Some notes of the template configuration is listed below:
 - Fill up the `Agent Endpoint DNS Name Prefix` and `Master Endpoint DNS Name Prefix`.
 - Enter your `Ssh RSA Public Key`.
 
-## 2: Accessing DC/OS
+## Accessing DC/OS
 
 First, look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
 
