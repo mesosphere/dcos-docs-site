@@ -35,11 +35,7 @@ For example: An upgraded DC/OS Marathon leader cannot connect to the leading Mes
 - From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
 - From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
 
-## Modifying DC/OS configuration
-
-[enterprise]
-## Enterprise users 
-[/enterprise]
+## Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
 You _cannot_ change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then upgrade to 1.10.y. Or you can upgrade to 1.10.y and then add more public agents by updating 1.10.y after the upgrade.
 
@@ -295,9 +291,10 @@ If your upgrade fails because of a [custom node or cluster check](/1.11/installi
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster
 ```
-[enterprise]
-### Enterprise users: On DC/OS Masters 
-[/enterprise]
+
+### On DC/OS Masters 
+
+[enterprise type="inline" size="small" /]
 ```bash
 sudo journalctl -u dcos-exhibitor
 less /opt/mesosphere/active/exhibitor/usr/zookeeper/zookeeper.out
@@ -305,9 +302,7 @@ sudo journalctl -u dcos-mesos-dns
 sudo journalctl -u dcos-mesos-master
 ```
 
-[oss]
-### Open Source users: On DC/OS Masters 
-[/oss]
+[oss type="inline" size="small" /]
 ```bash
 sudo journalctl -u dcos-exhibitor
 less /var/lib/dcos/exhibitor/zookeeper/zookeeper.out
