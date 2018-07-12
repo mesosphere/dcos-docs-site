@@ -6,6 +6,13 @@ menuWeight: 10
 excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates 
 ---
 
+Choose the advanced templates, if you want to customize the AMI, VPC, or Instance Type. 
+
+The advanced templates are:
+-* Highly customizable
+* Composable, for example you can deploy multiple agent pools to a single cluster
+* More setup work is required
+
 The advanced AWS CloudFormation templates bring power and flexibility to creating and extending DC/OS clusters. With these templates you can choose from the complete set of DC/OS configuration options.
 
  - Instantiate a complete DC/OS cluster on an existing VPC/Subnet combination.
