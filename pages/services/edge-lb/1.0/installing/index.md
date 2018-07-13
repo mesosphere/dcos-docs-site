@@ -62,9 +62,7 @@ If you need to deploy a local Universe containing your own set of packages, you 
 - `stub-universe-edgelb.json`
 - `stub-universe-edgelb-pool.json`
 
-To add the json definitions to the universe, use the `add-stub-universe.sh` script.  Each run of the `add-stub-universe.sh` script will process the json file, generate the necessary json and mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.  
-
-4. Once all of your stub universe packages have been added into `stub-repo`, you can merge them into the primary `universe/repo/packages` and specify them in any of the standard local universe scripts.
+4. To add the json definitions to the universe, use the `add-stub-universe.sh` script.  Each run of the `add-stub-universe.sh` script will process the json file, generate the necessary json and mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.  
 
 ```bash
 bash add-stub-universe.sh -j stub-universe-edgelb.json
