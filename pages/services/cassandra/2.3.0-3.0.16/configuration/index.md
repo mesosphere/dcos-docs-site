@@ -36,7 +36,7 @@ Please note that each Cassandra node will use an additonal 1.0 CPU for sidecar s
 
 ### Memory
 
-You can customize the amount of RAM allocated to each node. Change this value by editing the **mem** value (in MB) under the **node** configuration section. Turning this too low will result in out of memory errors. The `heap.size` setting must also be less than this value to prevent out of memory errors resulting from the Java Virtual Machine attempting to allocate more memory than is available to the Cassandra process.
+You can customize the amount of RAM allocated to each node. Change this value by editing the **mem** value (in MB) under the **node** configuration section. Setting this too low will result in out of memory errors. The `heap.size` setting must also be less than this value to prevent out of memory errors, which can result when the Java Virtual Machine attempts to allocate more memory than is available to the Cassandra process.
 
 *   **In DC/OS CLI options.json**: `mem`: integer (default: `10240`)
 *   **DC/OS web interface**: `CASSANDRA_MEMORY_MB`: `integer`
@@ -81,10 +81,10 @@ You can customize the port that Apache Cassandra listens on for Thrift RPC reque
 #### Volume Type
 
 The service supports two volume types:
- - `ROOT` volumes are effectively an isolated directory on the root volume, sharing IO/spindles with the rest of the host system.
+ - `ROOT` volumes are an isolated directory on the root volume, sharing IO/spindles with the rest of the host system.
  - `MOUNT` volumes are a dedicated device or partition on a separate volume, with dedicated IO/spindles.
 
-Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/1.11/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster and then configure the following as `MOUNT` volumes:
+Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/1.11/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster, and then configure the following as `MOUNT` volumes:
 
 To configure the disk type:
 *   **In DC/OS CLI options.json**: `disk_type`: string (default: `ROOT`)
@@ -96,7 +96,7 @@ It is [recommended](http://docs.datastax.com/en/landing_page/doc/landing_page/re
 
 ## Rack-Aware Placement
 
-Cassandra's "rack"-based fault domain support is automatically enabled when specifying a placement constraint that uses the `@zone` key. For example, one could spread Cassandra nodes across a minimum of three different zones/racks by specifying the constraint `[["@zone", "GROUP_BY", "3"]]`. When a placement constraint specifying `@zone` is used, Cassandra nodes will be automatically configured with `rack`s that match the names of the zones. If no placement constraint referencing `@zone` is configured, all nodes will be configured with a default rack of `rack1`.
+Cassandra's "rack"-based fault domain support is automatically enabled when specifying a placement constraint that uses the `@zone` key. For example, you could spread Cassandra nodes across a minimum of three different zones/racks by specifying the constraint `[["@zone", "GROUP_BY", "3"]]`. When a placement constraint specifying `@zone` is used, Cassandra nodes will be automatically configured with `rack`s that match the names of the zones. If no placement constraint referencing `@zone` is configured, all nodes will be configured with a default rack of `rack1`.
 
 ## Apache Cassandra Configuration
 
@@ -104,17 +104,17 @@ Apache Cassandra's configuration is configurable via the `cassandra` section of 
 
 ## Multi-datacenter deployment
 
-To replicate data across data centers, {{ model.techName }} requires that you configure each cluster with the addresses of the seed nodes from every remote cluster. Here's what starting a multi-data-center {{ model.techName }} deployment would look like, running inside of a single DC/OS cluster.
+To replicate data across data centers, {{ model.techName }} requires that you configure each cluster with the addresses of the seed nodes from every remote cluster. Here's what starting a multi-data-center {{ model.techName }} deployment would look like, running inside of a single DC/OS cluster:
 
 ### Launch two Cassandra clusters
 
-Launch the first cluster with the default configuration:
+1. Launch the first cluster with the default configuration:
 
 ```shell
 dcos package install {{ model.packageName }}
 ```
 
-Create an `options.json` file for the second cluster that specifies a different service name and data center name:
+2. Create an `options.json` file for the second cluster that specifies a different service name and data center name:
 
 ```json
 {
@@ -125,7 +125,7 @@ Create an `options.json` file for the second cluster that specifies a different 
 }
 ```
 
-Launch the second cluster with these custom options:
+3. Launch the second cluster with these custom options:
 ```
 dcos package install {{ model.packageName }} --options=<options.json>
 ```
@@ -134,7 +134,7 @@ dcos package install {{ model.packageName }} --options=<options.json>
 
 **Note:** If your Cassandra clusters are not on the same network, you must set up a proxying layer to route traffic.
 
-Get the list of seed node addresses for the first cluster:
+1. Get the list of seed node addresses for the first cluster:
 
 ```shell
 dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints node
@@ -166,7 +166,7 @@ Your output will resemble:
 
 Note the IPs in the `address` field.
 
-Run the same command for your second Cassandra cluster and note the IPs in the `address` field:
+2. Run the same command for your second Cassandra cluster and note the IPs in the `address` field:
 
 ```
 dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints node
@@ -174,7 +174,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints node
 
 ### Update configuration for both clusters
 
-Create an `options2.json` file with the IP addresses of the first cluster (`{{ model.serviceName }}`):
+1. Create an `options2.json` file with the IP addresses of the first cluster (`{{ model.serviceName }}`):
 
 ```json
 {
@@ -184,7 +184,7 @@ Create an `options2.json` file with the IP addresses of the first cluster (`{{ m
 }
 ```
 
-Update the configuration of the second cluster:
+2. Update the configuration of the second cluster:
 
 ```
 dcos {{ model.packageName }} --name={{ model.serviceName}}2 update start --options=options2.json
