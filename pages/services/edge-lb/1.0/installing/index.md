@@ -39,7 +39,7 @@ dcos package repo add --index=0 edgelb-pool \ https://<insert download link>/stu
 ```
 
 [enterprise]
-## <a name="build"></a>Deploying a local Universe containing EdgeLB
+## <a name="build"></a>Deploying a local Universe containing Edge-LB
 [/enterprise]
 
 If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified).
@@ -80,14 +80,14 @@ cp -rpv stub-repo/packages/* ../../repo/packages
 6. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
 
     ```bash
-    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“"edgelb:v1.0.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
+    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.0.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
     ```
 
 7.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
 
 
 # Create a service account
-The Edge-LB API server needs to be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
+The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
 
 [Service accounts](/latest/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 
