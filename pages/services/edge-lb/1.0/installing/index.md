@@ -31,106 +31,62 @@ The Edge-LB package is composed of two components: the Edge-LB API server and th
 2. Once you have the links to the artifacts for the Edge-LB API server and Edge-LB pool repos, use the following command to add them to the universe package repository:
 
 ```bash
-dcos package repo add --index=0 edgelb-aws \
-  https://<insert download link>/stub-universe-edgelb.json
+dcos package repo add --index=0 edgelb \ https://<insert download link>/stub-universe-edgelb.json
 ```
 
 ```bash
-dcos package repo add --index=0 edgelb-pool-aws \
-  https://<insert download link>/{{stub-universe-edgelb-pool.json}}
+dcos package repo add --index=0 edgelb-pool \ https://<insert download link>/stub-universe-edgelb-pool.json
 ```
 
 [enterprise]
-# Build your own local Universe
+## <a name="build"></a>Deploying a local Universe containing EdgeLB
 [/enterprise]
 
-## Adding Stub Universes (Custom Universe Packages)
-If you've been provided stub universe json files (such as for Edge-LB), you can add them to the local universe with the `add-stub-universe.sh` script.
+If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified).
 
-You can specify a local stub universe json definition with `-j <path-to-json-file>` or a URL for stub universe json definition with `-u <url-for-json-file>`
+**Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">installation instructions</a>.
+1.  Clone the Universe repository:
 
-Each run of the add-stub-universe.sh will process the json file and generate the necessary json and mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.  Once all of your stub universe packages have been added into `stub-repo`, you can merge them into the primary `universe/repo/packages` and specify them in any of the standard local universe scripts.
+    ```bash
+    git clone https://github.com/mesosphere/universe.git --branch version-3.x
+    ```
 
-For example:
+2.  Build the `universe-base` image:
+
+    ```bash
+    cd universe/docker/local-universe/
+    sudo make base
+    ```
+
+3. Obtain the Edge-LB stub universe json files from the support downloads site. Note that there are two files required:
+- `stub-universe-edgelb.json`
+- `stub-universe-edgelb-pool.json`
+
+To add the json definitions to the universe, use the `add-stub-universe.sh` script.  Each run of the `add-stub-universe.sh` script will process the json file, generate the necessary json and mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.  
+
+4. Once all of your stub universe packages have been added into `stub-repo`, you can merge them into the primary `universe/repo/packages` and specify them in any of the standard local universe scripts.
+
 ```bash
-bash add-stub-universe.sh -j stub-universe-custom.json
-bash add-stub-universe.sh -u https://<url-path>/online-stub-universe.json
+bash add-stub-universe.sh -j stub-universe-edgelb.json
+```
+```bash
+bash add-stub-universe.sh -j stub-universe-edgelb-pool.json
 ```
 
-From there, they can be merged into the primary `universe/repo/packages` directory:
+5. From there, they can be merged into the primary `universe/repo/packages` directory:
 
 ```bash
 cp -rpv stub-repo/packages/* ../../repo/packages
 ```
 
-Then, you could potentially build the rest of your universe with the regular workflow:
+6. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
 
-```bash
-sudo make DCOS_VERSION=<your DC/OS version> DCOS_PACKAGE_INCLUDE="<custom-package>:0.1,<other-custom-package>:0.5" local-universe
-```
+    ```bash
+    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“"edgelb:v1.0.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
+    ```
 
-Here's a full example:
-```bash
-# bash add-stub-universe.sh -j stub-universe-custom.json
-Building repo structure for custom...
+7.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
 
-Full stub-repo contents:
-total 40
-drwxr-xr-x  7 justin  staff   238B Jan 18 23:31 .
-drwxr-xr-x  3 justin  staff   102B Jan 18 23:31 ..
--rw-r--r--  1 justin  staff   144B Jan 18 23:31 command.json
--rw-r--r--  1 justin  staff   1.7K Jan 18 23:31 config.json
--rw-r--r--  1 justin  staff   1.5K Jan 18 23:31 marathon.json.mustache
--rw-r--r--  1 justin  staff   384B Jan 18 23:31 package.json
--rw-r--r--  1 justin  staff   1.7K Jan 18 23:31 resource.json
-
-# bash add-stub-universe.sh -u https://<url-path>/online-stub-universe.json
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 13449  100 13449    0     0  22012      0 --:--:-- --:--:-- --:--:-- 22011
-Building repo structure for custom-online...
-
-Full stub-repo contents:
-stub-repo/packages/C/custom-online/0:
-total 48
-drwxr-xr-x  7 justin  staff   238B Jan 18 23:31 .
-drwxr-xr-x  3 justin  staff   102B Jan 18 23:31 ..
--rw-r--r--  1 justin  staff   149B Jan 18 23:31 command.json
--rw-r--r--  1 justin  staff   4.5K Jan 18 23:31 config.json
--rw-r--r--  1 justin  staff   3.4K Jan 18 23:31 marathon.json.mustache
--rw-r--r--  1 justin  staff   411B Jan 18 23:31 package.json
--rw-r--r--  1 justin  staff   2.2K Jan 18 23:31 resource.json
-
-stub-repo/packages/C/custom/0:
-total 40
-drwxr-xr-x@ 7 justin  staff   238B Jan 18 23:31 .
-drwxr-xr-x@ 3 justin  staff   102B Jan 18 23:31 ..
--rw-r--r--@ 1 justin  staff   144B Jan 18 23:31 command.json
--rw-r--r--@ 1 justin  staff   1.7K Jan 18 23:31 config.json
--rw-r--r--@ 1 justin  staff   1.5K Jan 18 23:31 marathon.json.mustache
--rw-r--r--@ 1 justin  staff   384B Jan 18 23:31 package.json
--rw-r--r--@ 1 justin  staff   1.7K Jan 18 23:31 resource.json
-
-# cp -rpv stub-repo/packages/* ../../repo/packages
-stub-repo/packages/C -> ../../repo/packages/E
-stub-repo/packages/C/custom -> ../../repo/packages/C/custom
-stub-repo/packages/C/custom/0 -> ../../repo/packages/C/custom/0
-stub-repo/packages/C/custom/0/command.json -> ../../repo/packages/C/custom/0/command.json
-stub-repo/packages/C/custom/0/config.json -> ../../repo/packages/C/custom/0/config.json
-stub-repo/packages/C/custom/0/marathon.json.mustache -> ../../repo/packages/C/custom/0/marathon.json.mustache
-stub-repo/packages/C/custom/0/package.json -> ../../repo/packages/C/custom/0/package.json
-stub-repo/packages/C/custom/0/resource.json -> ../../repo/packages/C/custom/0/resource.json
-stub-repo/packages/C/custom-online -> ../../repo/packages/C/custom-online
-stub-repo/packages/C/custom-online/0 -> ../../repo/packages/C/custom-online/0
-stub-repo/packages/C/custom-online/0/command.json -> ../../repo/packages/C/custom-online/0/command.json
-stub-repo/packages/C/custom-online/0/config.json -> ../../repo/packages/C/custom-online/0/config.json
-stub-repo/packages/C/custom-online/0/marathon.json.mustache -> ../../repo/packages/C/custom-online/0/marathon.json.mustache
-stub-repo/packages/C/custom-online/0/package.json -> ../../repo/packages/C/custom-online/0/package.json
-stub-repo/packages/C/custom-online/0/resource.json -> ../../repo/packages/C/custom-online/0/resource.json
-
-# sudo make DCOS_VERSION=1.10.4 DCOS_PACKAGE_INCLUDE="custom:0.1,custom-online:0.5" local-universe
-... Local universe build output here ...
-```
 
 # Create a service account
 The Edge-LB API server needs to be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
