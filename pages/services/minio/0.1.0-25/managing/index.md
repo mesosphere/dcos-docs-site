@@ -228,7 +228,7 @@ Below are the steps to be followed :
   
   [<img src="../service/Disk_Caching.png" alt="Disk_Caching" width="800"/>](../service/Disk_Caching.png)
 
-## Backing up
+### Backing up
 
 The DC/OS Minio Service allows you to back up the Minio application to Amazon S3. For backup of data to Amazon S3 bucket ‘mc mirror’ command will be used. Minio provides a ‘rsync’ like command line utility. It mirrors data from one bucket to another.The following information and values are required to back up your service.
 
@@ -286,11 +286,58 @@ it will create new buckets to S3 according to the current snapshot or state of M
    
 Users can execute Backup task by launching the backup-s3 plan. This plan would execute all the three aforementioned tasks serially. 
 
+### Restore
 
-   
+The DC/OS Minio Service allows you to restore the backed up data back to the Minio application from Amazon S3 in case of drives failure.
+The following information and values are required to restore your data.
 
-   
-   
+    1. AWS_ACCESS_KEY_ID
+    2. AWS_SECRET_ACCESS_KEY  
+    3. S3_BUCKET_NAME
+    
+ To enable restore, trigger the restore Plan with the following plan parameters:
+```shell
+{
+ 'AWS_ACCESS_KEY_ID': key_id,
+ 'AWS_SECRET_ACCESS_KEY': aws_secret_access_key,
+ 'S3_BUCKET_NAME': bucket_name
+}
+``` 
 
+This plan can be executed with the following command:
+```shell
+{
+ dcos minio --name=<service_name> plan start <plan_name> -p <plan_parameters>
+}
+```
+or with a command which includes plan parameters:
+
+```shell
+{
+ dcos minio --name=<SERVICE_NAME> plan start backup-s3 \
+  -p AWS_ACCESS_KEY_ID=<ACCESS_KEY> \
+  -p AWS_SECRET_ACCESS_KEY=<SECRET_ACCESS_KEY> \
+  -p S3_BUCKET_NAME=<BUCKET_NAME>
+}
+````
+However, the restore can also be started with the following command:
+
+Once this plan is executed, it will restore the data.
+
+The Minio restore will be performed using two sidecar tasks:
+
+1. `Init Task` - A docker image of Minio client will be downloaded. A separate Pod will be started at any Private Agent. An init task will be responsible to register both Minio as well as S3 client.
+
+[<img src="../service/Init_task.png" alt="Init_task" width="800"/>](../service/Init_task.png)
+
+   _Figure 1. - Register Minio and S3 client
+
+2. `Restore Task` -  Restore task is responsible to restore the data in case of drives failure. Restore plan will have to be launched against each backed up S3 bucket.A Restore task will run the ‘mc mirror’ command by taking AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY and S3_BUCKET_NAME as parameters. Restore task will dynamically create the same bucket in Minio storage system.
+
+[<img src="../service/Restore.png" alt="Restore" width="800"/>](../service/Restore.png)
+
+   _Figure 1. - Restoring the data
+   
+Users can execute Restore task by launching the restore plan. This plan would execute all the two aforementioned tasks serially. 
 
 
