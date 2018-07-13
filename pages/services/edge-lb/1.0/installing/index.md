@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle:  Installing Edge-LB
 title: Installing Edge-LB
 menuWeight: 10
-excerpt:
-
+excerpt: Configuring a service account and installing Edge-LB
 enterprise: false
 ---
 
@@ -12,9 +11,10 @@ Configure a service account and install the Edge-LB package using the instructio
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/latest/cli/install/) and be logged in as a superuser.
-- The [DC/OS Enterprise CLI installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/).
-- Access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
+- [DC/OS CLI is installed](/latest/cli/install/)
+- You are logged in as a superuser
+- The [DC/OS Enterprise CLI is installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/).
+- You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 **Limitations**
 - Currently, Edge-LB works only with DC/OS Enterprise in permissive mode on DC/OS 1.10, and permissive or strict mode on DC/OS 1.11 [security mode](/latest/security/ent/#security-modes). It does not work with disabled mode.
@@ -22,16 +22,69 @@ Configure a service account and install the Edge-LB package using the instructio
 # Add Edge-LB package repositories
 The Edge-LB package is composed of two components: the Edge-LB API server and the Edge-LB pools. You must install universe repos for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB. The Edge-LB API server is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers. An Edge-LB pool can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
 
-Download the artifacts for each of the repos from the [Mesosphere support page](https://support.mesosphere.com/hc/en-us/articles/213198586).
+**Note** If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.
 
-Once you have the links to the artifacts for the Edge-LB API server and Edge-LB pool repos, use the following command to add them to the universe package repository:
+1. Download the artifacts for each of the repos from the [Mesosphere support page](https://support.mesosphere.com/hc/en-us/articles/213198586).
+
+**Note:** You must have a service account to do this.
+
+2. Once you have the links to the artifacts for the Edge-LB API server and Edge-LB pool repos, use the following command to add them to the universe package repository:
 
 ```bash
-dcos package repo add --index=0 edgelb-aws \
-  https://<AWS S3 bucket>/stub-universe-edgelb.json
-dcos package repo add --index=0 edgelb-pool-aws \
-  https://<AWS S3 bucket>/stub-universe-edgelb-pool.json
+dcos package repo add --index=0 edgelb \ https://<insert download link>/stub-universe-edgelb.json
 ```
+
+```bash
+dcos package repo add --index=0 edgelb-pool \ https://<insert download link>/stub-universe-edgelb-pool.json
+```
+
+[enterprise]
+## <a name="build"></a>Deploying a local Universe containing EdgeLB
+[/enterprise]
+
+If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified).
+
+**Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">installation instructions</a>.
+1.  Clone the Universe repository:
+
+    ```bash
+    git clone https://github.com/mesosphere/universe.git --branch version-3.x
+    ```
+
+2.  Build the `universe-base` image:
+
+    ```bash
+    cd universe/docker/local-universe/
+    sudo make base
+    ```
+
+3. Obtain the Edge-LB stub universe json files from the support downloads site. Note that there are two files required:
+- `stub-universe-edgelb.json`
+- `stub-universe-edgelb-pool.json`
+
+4. To add the json definitions to the universe, use the `add-stub-universe.sh` script.  Each run of the `add-stub-universe.sh` script will process the json file, generate the necessary json and mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.  
+
+```bash
+bash add-stub-universe.sh -j stub-universe-edgelb.json
+```
+```bash
+bash add-stub-universe.sh -j stub-universe-edgelb-pool.json
+```
+
+5. From there, they can be merged into the primary `universe/repo/packages` directory:
+
+```bash
+cp -rpv stub-repo/packages/* ../../repo/packages
+```
+
+6. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
+
+    ```bash
+    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“"edgelb:v1.0.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
+    ```
+
+7.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
+
 
 # Create a service account
 The Edge-LB API server needs to be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
