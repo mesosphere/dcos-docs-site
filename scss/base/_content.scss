@@ -8,8 +8,6 @@ $sections-size: 20%;
     position: relative;
     display: flex;
     flex-direction: column;
-    flex: 1;
-    width: 100%;
   }
   &__header {
     z-index: 10;
@@ -122,8 +120,8 @@ $sections-size: 20%;
     }
     &__sections {
       position: relative;
-      display: block;
-      flex-basis: 20%;
+      display: flex;
+      align-items: flex-start;
       min-width: 150px;
       margin-left: 2rem;
       padding-left: 1.5rem;
