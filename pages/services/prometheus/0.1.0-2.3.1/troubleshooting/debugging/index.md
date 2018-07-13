@@ -40,26 +40,6 @@ You can also access the logs via the Mesos UI:
   4. You should now see two lists of tasks. Active Tasks are tasks currently running, and Completed Tasks are tasks that have exited. Click the Sandbox link for the task you wish to examine.
   5. The Sandbox view will list files named stdout and stderr. Click the file names to view the files in the browser, or click Download to download them to your system for local examination. Note that very old tasks will have their Sandbox automatically deleted to limit disk space usage.
 
-# Replacing a Permanently Failed Node
-
-The DC/OS Elastic Service is resilient to temporary pod failures, automatically relaunching them in-place if they stop running. However, if a machine hosting a pod is permanently lost, manual intervention is required to discard the downed pod and reconstruct it on a new machine.
-
-The following command should be used to get a list of available pods. In this example we are querying a service named prometheus-dev.
-
-  ```shell
-   dcos prometheus --name=prometheus-dev pod list
-  ```
-The following command should then be used to replace the pod residing on the failed machine, using the appropriate pod_name provided in the above list.
-
-  ```shell
-  dcos prometheus --name=prometheus-dev pod replace <pod_name>
-  ```
-The pod recovery may then be monitored via the recovery plan.
-
-  ```shell
-  dcos prometheus --name=prometheus-dev plan show recovery
-  ```
-
 # Restarting a Node
 
 If you must forcibly restart a pod’s processes but do not wish to clear that pod’s data, use the following command to restart the pod on the same agent machine where it currently resides. This will not result in an outage or loss of data.

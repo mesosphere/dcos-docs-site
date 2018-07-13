@@ -1,6 +1,6 @@
 ---
 post_title: Install and Customize
-menu_order: 20
+menu_order: 20 
 enterprise: 'no'
 ---
 
@@ -10,9 +10,15 @@ The default DC/OS Prometheus Service installation provides reasonable defaults f
 
 
 ## Configuration Best Practices for Production
-  
-    - Install Alert Manager with base\first build of framework , its recommended to install remaining framework without alert manager and alert manager check box not to be checked, 
-    all the rest of the prometheus servers should point to the same alert manager which was installed with base\first build,to do this you would require to pass alert manager endpoint as target to your  prometheus servers.
+By default every prometheus sample consumes 1-2 Bytes of storage, 
+      To plan production configuration of server following formula is recommended to be used:
+
+    - Needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample
+
+For Instllation below combination is recommended for prometheus server and alert manager
+ 
+    - Install Alert Manager with base\first build of framework , its recommended to install remaining framework without alert manager and alert manager node count should be made zero, 
+    all the rest of the prometheus servers should point to the same alert manager which was installed with base\first build,to do this you would require to pass alert manager endpoint as target to your  prometheus servers under your prometheus yml configuration : 
         
     - Install global prometheus when required ,its recommended for global prometheus not to be configure until you require data to be federate from other salve prometheus servers,
     To federate data from promethes slave server to global prometheus,slave prometheus server endpoints to be passed as target into global prometheus server under prometheus configuration yml.
@@ -23,35 +29,10 @@ The default DC/OS Prometheus Service installation provides reasonable defaults f
   - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
-- Your cluster must have at least 3 private nodes.
-
-# Installing from the DC/OS CLI
-
-To start a basic test cluster of Prometheus, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
-
-   ```shell
-   dcos package install prometheus 
-   ```
-
-This command creates a new instance with the default name prometheus. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, weherein we can install the same application in different folders.
-
-All dcos prometheus CLI commands have a --name  argument allowing the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, i.e. prometheus. The default value for --name can be customized via the DC/OS CLI configuration:
-
-   ```shell
-   dcos prometheus --name=prometheus <cmd>
-   ```
-
-You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
-
-   ```shell
-   dcos package install prometheus --options=options.json
-   ```
-
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
 
 ## Installing from the DC/OS Web Interface
 
-Note:  Alternatively, you can install Prometheus from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
+Note:  You can install Prometheus from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
    
 If you install Prometheus from the DC/OS web interface, the 
 dcos prometheus CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
@@ -61,25 +42,56 @@ dcos prometheus CLI commands are not automatically installed to your workstation
    dcos package install prometheus --cli
    ```
 
+Below is the default prometheus configuration and should not be changed, by default below configuration does auto discovery of agent nodes of your cluster and monitors via file sd.
+
+Apart from monitoring agent nodes , default configuration also provides feature to monitor master node via DNS SD configurations.
+
+global:
+ scrape_interval:     15s "Set the scrape interval to every 15 seconds. Default is every 1 minute"
+ evaluation_interval: 15s "Evaluate rules every 15 seconds. The default is every 1 minute"
+
+  scrape_timeout is set to the global default (10s). "A scrape configuration containing exactly one endpoint to scrape:
+ Here it's Prometheus itself"
+
+scrape_configs:
+ - job_name: 'dcos-metrics'    " All master nodes are available at master.mesos via their A record"
+
+   dns_sd_configs:
+     - names: ['master.mesos']
+       type: 'A'
+       port: 61091    " All agent nodes are written regularly to discovery/agents.json"
+
+   file_sd_configs:
+     - files: ['discovery/agents.json']
+
+rule_files:
+   " set of rule files to read alerting rules from"
+   -  'rules.yml'      
+   
+"Alert manager target sample , target field should have alert manager endpoint where you want to fire alerts from your prometheus server"
+alerting:
+ alertmanagers:
+   - static_configs:
+     - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093'] 
+
 ## Installing HA-alert manager with base build :
    
-   By default , prometheus will launch HA-prometheus server and to spin up with HA-Alert manager , alert manager check box need to be checked.
+   By default , prometheus will launch HA-prometheus server and to spin up with HA-Alert manager ,you would require to ensure you have node count of alert manager configuration set to 2 and you would need to pass alert manager target as endpoints to your prometheus server as explained in above section as default configuration 
    
 ## Installing HA-Prometheus without Alert Manager and point to HA-Alert Manager launched with base build:
 
- To install HA-Prometheus without alert manager , alert manager check box not to be checked under alert manager config.
+ To install HA-Prometheus without alert manager , alert manager node count would require to be made zero under. 
  To point HA-Prometheus server to base\first build HA-Alert manger,we require to pass alert manager endpoint as target for each of HA-Prometheus services we run under prometheus configuration yml.
 
-## Installing HA-global prometheus 
-
-To federate data from slave prometheus to global prometheus,HA-global prometheus is requird to be installed.
-To install global prometheus, you would require to mention global prometheus specific configuration changes to prometheus yml and slave prometheus end points needs to be passed as target with in single quotes comma separated.
-
-Note: mention global prometheus configuration only when you require federation else its not recommended to be checked.
+Example : 
+alerting:
+ alertmanagers:
+   - static_configs:
+     - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093']
 
 ## Install HA-Prometheus standalone with no linkage to Alert Manager\Global Prometheus:
 
-To Install HA-Prometheus server without alert manager\global prometheus , you should not check on alert manager check box , alert manager target check box and should not put global prometheus configuration.
+To Install HA-Prometheus server without alert manager\global prometheus , you should not be configuring alert manager targets under prometheus yml and should not pass any federation configuration to prometheus yml.
 
 With these configuration HA-Prometheus server would be launched without pointing to HA-Alert Manager.
 
@@ -122,39 +134,72 @@ The above example will install the service under a path of foldered => path => t
 
 Note:  The service folder location cannot be changed after initial install.Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.
 
-## Service Discovery
-Each Service Discovery requires parameters to be passed for thier respective SD, Promethesu DC\OS mesos offers follwoing service discovery mechanism :
+## Service Discovery configuration templates :
+Promethesu DC\OS mesos offers follwoing service discovery mechanism, service discovery can be configured along with default prometheus configuration available , below are the templates you would require to pass along with default prometheus configuration under prometheus yml   
 
 1. Consul_sd_config :
 Consul SD configurations allow retrieving scrape targets from Consul's Catalog API.
 
 Parameters required for consul sd :
            
-            consul  : 
-            server  : <host> | default = "localhost:8500"
-            service : A list of services for which targets are retrieved. If omitted, all services are scraped.
+" The information to access the Consul API. It is to be defined
+ as the Consul documentation requires."
+[ server: <host> | default = "localhost:8500" ]
+[ token: <secret> ]
+[ datacenter: <string> ]
+[ scheme: <string> | default = "http" ]
+[ username: <string> ]
+[ password: <secret> ]
+
+" A list of services for which targets are retrieved. If omitted, all services
+ are scraped"
+services:
+  [ - <string> ]
+
+"The time after which the provided names are refreshed.
+ On large setup it might be a good idea to increase this value because the catalog will change all the time."
+[ refresh_interval: <duration> | default = 30s ]
  
 2. Dns_sd_condig : 
 
 A DNS-based service discovery configuration allows specifying a set of DNS domain names which are periodically queried to discover a list of targets.
 This service discovery method only supports basic DNS A, AAAA and SRV record queries, but not the advanced DNS-SD approach specified in RFC6763.
 
-Parameters required for dns sd :
+" A list of DNS domain names to be queried"
+names: [ - <domain_name> ]
 
-           dnsjobname       : Job name 
-           Domain name      : DNS domain names to be queried
-           Query Type       : The type of DNS query to perform,default = 'SRV' 
-           Dns port         : The port number used if the query type is not SRV
-           Refresh interval : <duration> The time after which the provided names are refreshed
+" The type of DNS query to perform"
+[ type: <query_type> | default = 'SRV' ]
+
+" The port number used if the query type is not SRV."
+[ port: <number>]
+
+" The time after which the provided names are refreshed"
+[ refresh_interval: <duration> | default = 30s ]
 
 3. EC2 SD :
+
 EC2 SD configurations allow retrieving scrape targets from AWS EC2 instances. 
 
+" The information to access the EC2 API"
 
-        Region name  : The AWS Region <string>
-        Access key   : The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are used.
-        Secret key   : <secret>
-        Ec2 port     :  The port to scrape metrics from
+" The AWS Region."
+region: <string>
+
+" The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID`
+ and `AWS_SECRET_ACCESS_KEY` are used."
+[ access_key: <string> ]
+[ secret_key: <secret> ]
+" Named AWS profile used to connect to the API."
+[ profile: <string> ]
+
+
+" Refresh interval to re-read the instance list."
+[ refresh_interval: <duration> | default = 60s ]
+
+" The port to scrape metrics from. If using the public IP address, this must
+ instead be specified in the relabeling rule."
+[ port: <int> | default = 80 ]
    
 4. Marathon Sd Config :
  Marathon SD configurations allow retrieving scrape targets using the Marathon REST API. Prometheus will periodically check the REST endpoint for currently running tasks and create a target group for every app that has at least one healthy task.
@@ -162,33 +207,6 @@ EC2 SD configurations allow retrieving scrape targets from AWS EC2 instances.
         Marathon job name : JOb Name
         Polling interval  : refresh_interval <duration>
         Servername        : List of URLs to be used to contact Marathon servers.You need to provide at least one server URL.
-
-## Addressing named instances
-
-After you’ve installed the service under a custom name or under a folder, it may be accessed from all dcos prometheus CLI commands using the --name argument. By default, the --name value defaults to the name of the package, or prometheus.
-
-For example, if you had an instance named prometheus-dev, the following command would invoke a pod list command against it:
-
-   ```shell
-   dcos prometheus --name=prometheus-dev pod list
-   ```
-The same query would be over HTTP as follows:
-
-   ```shell
-   curl -H "Authorization:token=$auth_token" <dcos_url>/service/prometheus-dev/v1/pod
-   ```
-Likewise, if you had an instance in a folder like /foldered/path/to/prometheus, the following command would invoke a pod list command against it:
-
-   ```shell
-   dcos prometheus --name=/foldered/path/to/prometheus pod list
-   ```
-   
-Similarly, it could be queried directly over HTTP as follows:
-
-   ```shell
-   curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/prometheus-dev/v1/pod
-   ```
-Note: You may add a -v (verbose) argument to any dcos prometheus command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, dcos prometheus commands are a thin wrapper around an HTTP interface provided by the DC/OS Prometheus Service itself.
 
 ## Virtual Networks
 
@@ -203,27 +221,6 @@ DC/OS Prometheus supports deployment on virtual networks on DC/OS, allowing each
    ```
 Note: Once the service is deployed on a virtual network, it cannot be updated to use the host network.
 
-
-## Minimal Installation
-
-For development purposes, you may wish to install Prometheus on a local DC/OS cluster. For this, you can use dcos-docker or dcos-vagrant.
-To start a minimal cluster with a single broker, create a JSON options file named sample-prometheus-minimal.json:
-
-   ```shell
-   {
-       "node": {
-       "count": 1,
-       "mem": 512,
-       "cpu": 0.5
-       }
-   }
-   ```
-The command below creates a cluster using sample-prometheus-minimal.json:
-
-
-   ```shell
-   dcos package install prometheus --options=sample-prometheus-minimal.json
-   ```
 ## Integration with DC/OS access controls
 
 In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, staging/prometheus and production/prometheus.

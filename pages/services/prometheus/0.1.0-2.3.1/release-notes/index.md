@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: false
 ---
 
-### Documentation
+This is the first release of Prometheus to Universe. Based on the latest stable release version of Prometheus, version 2.3.1, this installation would be supported on DCOS cluster 1.10 and above.
 
 Released first version of Service Guide with following topics:
 
@@ -16,11 +16,10 @@ Released first version of Service Guide with following topics:
     - Install and Customize
     - Security
     - Uninstall
-    - Quick Start
     - Connecting Clients
     - Managing
-    - Security
     - Troubleshooting
+    - Prometheus-federation
     - API Reference
     - Command-reference
     - Connecting-clients

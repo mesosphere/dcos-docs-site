@@ -15,9 +15,6 @@ Note that the Node Exporter is best run on the host system, uncontainerized, so 
 ## Hardware Sizing Recommendations
 
 In practice this can only really be determined empirically, as it varies organisation by organisation and machine by machine.
-Below link will help deciding on how much ram does your prometheus would need :
-    
-    https://www.robustperception.io/how-much-ram-does-my-prometheus-need-for-ingestion/
 
 ## Block Device / Storage
 
@@ -33,8 +30,3 @@ On average, Prometheus uses only around 1-2 bytes per sample. Thus, to plan the 
 
 needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample
 
-
-We recommend the following:
-
-1. Always prefer locally-attached storage. Remote storage adds points of failure, add latency/overhead to block requests and are more complicated to troubleshoot.  
-2. For better performance, use Solid-State Disks vs. Spinning disks or allocate more memory to cache more data, reducing the use of disks.

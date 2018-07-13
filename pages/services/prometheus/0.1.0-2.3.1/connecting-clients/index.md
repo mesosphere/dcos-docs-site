@@ -33,7 +33,7 @@ In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from 
 
 ## Connection Response
 
-The response, for both the CLI and the REST API is as below.
+The response, for both the CLI and the prometheus expression browser is as below.
 
 ```shell
 {
@@ -47,10 +47,6 @@ The response, for both the CLI and the REST API is as below.
   ]
 }
 ```
-
-This JSON array contains a list of valid nodes that the client can use to connect to the prometheus cluster. For availability reasons, it is best to specify multiple nodes in configuration of the client. Use the VIP to address any one of the prometheus nodes in the cluster.
-
-When TLS is enabled, an endpoint named node-tls should also be listed. To verify a TLS connection from a client the DC/OS trust bundle with a CA certificate is required.
 
 ## Accessing Prometheus UI with Edge-LB Configuration
 
@@ -74,38 +70,106 @@ Following are the steps for Edge-LB Pool configuration:
 
 
   ```shell
+  
 {
   "apiVersion": "V2",
-  "name": "prometheusproxy",
+  "name": "prometheus",
   "count": 1,
   "haproxy": {
     "frontends": [
       {
-        "bindPort": 8080,
+        "bindPort": 9092,
         "protocol": "HTTP",
         "linkBackend": {
-          "defaultBackend": "prometheusservice"
+          "defaultBackend": "prometheus"
         }
-      }
+      },
+      {
+        "bindPort": 9000,
+        "protocol": "HTTP",
+        "linkBackend": {
+          "defaultBackend": "minio"
+        }
+      },
+      {
+        "bindPort": 9093,
+        "protocol": "HTTP",
+        "linkBackend": {
+          "defaultBackend": "alertmanager"
+        }
+      },
+      {
+        "bindPort": 9094,
+        "protocol": "HTTP",
+        "linkBackend": {
+          "defaultBackend": "grafana"
+        }
+      },
     ],
     "backends": [
-      {
-        "name": "prometheusservice",
-        "protocol": "HTTP",
-        "services": [
-          {
-            "endpoint": {
-              "type": "ADDRESS",
-              "address": "<dns adress obtained from Step 2>",
-              "port": 8080
-            }
-          }
-        ]
+     {
+      "name": "prometheus",
+      "protocol": "HTTP",
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "prometheus.prometheus.l4lb.thisdcos.directory",
+          "port": 9090
+        }
+      }]
+    },
+    {
+      "name": "minio",
+      "protocol": "HTTP",
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "minio.marathon.l4lb.thisdcos.directory",
+          "port": 9000
+        }
+      }]
+    },
+    {
+     "name": "alertmanager",
+     "protocol": "HTTP",
+     "services": [{
+       "endpoint": {
+         "type": "ADDRESS",
+         "address": "alertmanager.prometheus.l4lb.thisdcos.directory",
+         "port": 9093
+       }
+     }]
+   },
+   {
+    "name": "grafana",
+    "protocol": "HTTP",
+    "services": [{
+      "endpoint": {
+        "type": "ADDRESS",
+        "address": "grafana.grafana.l4lb.thisdcos.directory",
+        "port": 3000
       }
-    ]
+    }]
+   },
+   {
+    "name": "pushgateway",
+    "protocol": "HTTP",
+    "services": [{
+      "endpoint": {
+        "type": "ADDRESS",
+        "address": "pushgateway.prometheus.l4lb.thisdcos.directory",
+        "port": 9091
+      }
+    }]
+   }
+   ]
   }
 }
-  ```
+
+
+
+
+ ```
 
 
   ```

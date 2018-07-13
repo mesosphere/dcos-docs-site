@@ -42,25 +42,7 @@ When the service is deployed on a virtual network, the service may not be switch
 
 Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is possible to use these environment variables in adhoc scripts (e.g. via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
 
-## Configurations
-
-The “disk” configuration value is denominated in MB. We recommend you set the configuration value log_retention_bytes to a value smaller than the indicated “disk” configuration. See the Configuring section for instructions for customizing these values.
-
 ## Legacy User Support
 
 Legacy Authorized Users File is not supported.
 
-## LDAP Integration, TLS
-
-LDAP integration, TLS is not supported.
-https://prometheus.io/docs/introduction/faq/#why-don't-the-prometheus-server-components-support-tls-or-authentication?-can-i-add-those?
-
-
-## Installation Limitations
-
-The minimum memory requirement for Prometheus installation is hard to determine as it depends on the machine to machine and requirement of organization,
-
-You could refer link to get an idea on how you can get and idea on Installation requirment https://www.robustperception.io/how-much-ram-does-my-prometheus-need-for-ingestion/
-
-Prometheus installation will take time since the Prometheus application with base build launches alert manager 
-The approximate installation time required would be around 5-10 Minutes for a HA-Prometheus Server and HA- Alert Manager.
