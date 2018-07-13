@@ -34,14 +34,14 @@ render: mustache
 
 ## New features
 
-- Support for the automated provisioning of TLS artifacts to secure Elastic communication (requires X-Pack).
-- Support for `Zone` placement constraints in DC/OS 1.11.
-- Ability to pause a service pod for debugging and recovery purposes.
+- Support for the automated provisioning of TLS artifacts to secure Elastic communication (requires X-Pack)
+- Support for `Zone` placement constraints in DC/OS 1.11
+- Ability to pause a service pod for debugging and recovery purposes
 
 ## Updates
 
-- Major improvements to the stability and performance of service orchestration.
-- Upgrade JRE to 1.8u162
+- Major improvements to the stability and performance of service orchestration
+- JRE upgraded to 1.8u162
 - The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
 
 # Version 2.1.1-5.6.5
@@ -59,19 +59,19 @@ render: mustache
 
 ## Bug Fixes
 
-* Uninstall now handles failed tasks correctly.
+* Uninstall now handles failed tasks correctly
 
 # Version 2.0.0-5.5.1
 
 ## Improvements
 
-- Default to 0 ingest nodes.
-- Automatic management of gateway settings.
-- Upgrade to [dcos-commons 0.30.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.30.0).
+- Default to 0 ingest nodes
+- Automatic management of gateway settings
+- Upgrade to [dcos-commons 0.30.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.30.0)
 
 ## Bug Fixes
 
-- Numerous fixes and enhancements to service reliability.
+- Numerous fixes and enhancements to service reliability
 
 # Version 1.0.15-5.5.1-beta
 
@@ -107,8 +107,8 @@ render: mustache
 
 ## Upgrades
 
-- Upgraded to Elasticsearch and Kibana 5.4.1.
-- Upgraded to dcos-commons-0.18.0.
+- Upgraded to Elasticsearch and Kibana 5.4.1
+- Upgraded to dcos-commons-0.18.0
 
 # Version 1.0.11-5.4.0-beta
 
@@ -118,12 +118,12 @@ render: mustache
 
 ## Improvements/Features
 
-- Added an option to toggle installation of commercial X-Pack plugin (disabled by default).
-- Increased ingest node default RAM to 2GB [(issue: #908)](https://github.com/mesosphere/dcos-commons/issues/908).
-- Added a configurable health check user/password to use as Elastic credentials during readiness/health checks.
+- Added an option to toggle installation of commercial X-Pack plugin (disabled by default)
+- Increased ingest node default RAM to 2GB [(issue: #908)](https://github.com/mesosphere/dcos-commons/issues/908)
+- Added a configurable health check user/password to use as Elastic credentials during readiness/health checks
 
 ## Upgrades
 
-- Upgraded to Elastic 5.4.0.
-- Upgraded to Support Diagnostics Version 5.12.
-- Upgraded to dcos-commons-0.16.0.
+- Upgraded to Elastic 5.4.0
+- Upgraded to Support Diagnostics Version 5.12
+- Upgraded to dcos-commons-0.16.0
