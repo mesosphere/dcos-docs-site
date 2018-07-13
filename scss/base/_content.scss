@@ -8,6 +8,7 @@ $sections-size: 20%;
     position: relative;
     display: flex;
     flex-direction: column;
+    min-width: 0;
   }
   &__header {
     z-index: 10;
