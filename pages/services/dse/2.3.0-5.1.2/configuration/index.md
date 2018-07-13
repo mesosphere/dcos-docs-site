@@ -12,7 +12,7 @@ render: mustache
 #include /services/include/configuration-install-with-options.tmpl
 
 ## Datastax Opscenter
-The DC/OS Datastax Opscenter can be installed from the `datastax-ops` package. It is managed identically to datastax-dse. This guide primarily covers `datastax-dse` for conciseness. See the later sections of the guide for any configuration specifics of Opscenter.
+The DC/OS Datastax Opscenter can be installed from the `datastax-ops` package. It is managed identically to `datastax-dse`. This guide primarily covers `datastax-dse` for conciseness. See the later sections of the guide for any configuration specifics of Opscenter.
 
 #include /services/include/configuration-service-settings.tmpl
 
@@ -21,9 +21,6 @@ The DC/OS Datastax Opscenter can be installed from the `datastax-ops` package. I
 - Use Mesosphere Enterprise DC/OS's placement rules to map your DSE cluster nodes or DC to different availability zones to achieve high resiliency.
 - Set up a routine backup service using OpsCenter to back up your business critical data on a regular basis. The data can be stored on the DSE nodes themselves, or on AWS S3 buckets, depending on your IT policy or business needs.
 - Set up a routine repair service using OpsCenter to ensure that all data on a replica is consistent within your DSE clusters.
-
-
-
 
 
 ## Node Settings
@@ -43,13 +40,13 @@ The amount of RAM allocated to each DSE Node may be customized. This value may b
 If the allocated memory is customized, you must also update the **heap** value under that section as well. As a rule of thumb we recommend that **heap** be set to half of **mem**. For example, for a **mem** value of `32000`, **heap** should be `16000`. If you do not do this, you may see restarted `dse-#-node` tasks due to memory errors.
 
 ### Ports
-Each port exposed by DSE components may be customized via the service configuratiton. If you wish to install multiple instances of DSE and have them colocate on the same machines, you must ensure that **no** ports are common between those instances. Customizing ports is only needed if you require multiple instances sharing a single machine. This customization is optional otherwise.
+Each port exposed by DSE components may be customized via the service configuration. If you wish to install multiple instances of DSE and have them colocate on the same machines, you must ensure that **no** ports are common between those instances. Customizing ports is only needed if you require multiple instances sharing a single machine. This customization is optional otherwise.
 
 Each component's ports may be customized in the following configuration sections:
 - DSE Nodes (as a group): `Node placement constraint` under **dsenode**.
 - OpsCenter (if built-in instance is enabled): `OpsCenter placement constraint` under **opscenter**.
 
-Note that in a multi-DC environment, all DSE DCs within a DSE Cluster **must** share the same port configuration. As such, co-location of DSE nodes within the same DSE Cluster is not supported.
+**Note:** In a multi-DC environment, all DSE DCs within a DSE Cluster **must** share the same port configuration. Co-location of DSE nodes within the same DSE Cluster is not supported.
 
 ### Storage Volumes
 The DSE DC/OS service supports two volume types:
@@ -62,7 +59,7 @@ The DSE DC/OS service supports two volume types:
 Using `ROOT` volumes for these is not supported in production.
 
 ### Separate volume for commit log data
-If you are using non-magnetic disks, then a good approach is to keep your commit log data files on the same volume as your dse data. This is the default configuration.  If for whatever reason you need to keep commit log data on a separate volume, you can do so.  The service install provides options for enabling that feature and provisioning a separate mount point for commit log data.  Just be warned that if you choose to use a separate volume, you will not be able to change it back later.
+If you are using non-magnetic disks, then a good approach is to keep your commit log data files on the same volume as your dse data. This is the default configuration.  If you need to keep commit log data on a separate volume, you can do so.  The service install provides options for enabling that feature and provisioning a separate mount point for commit log data.  Just be warned that if you choose to use a separate volume, you will not be able to change it back later.
 
 ### Placement Constraints
 Placement constraints allow you to customize where a DSE instance is deployed in the DC/OS cluster. Placement constraints may be configured separately for each of the node types in the following locations:
@@ -81,7 +78,7 @@ You must include spare capacity in this list so that if one of the whitelisted s
 
 ## Rack-Aware Placement
 
-DSE's "rack"-based fault domain support may be enabled by specifying a placement constraint that uses the `@zone` key. For example, one could spread DSE nodes across a minimum of three different zones/racks by specifying the constraint `@zone:GROUP_BY:3`. When a placement constraint specifying `@zone` is used, DSE nodes will be automatically configured with `rack`s that match the names of the zones. If no placement constraint referencing `@zone` is configured, all nodes will be configured with a default rack of `rack1`.
+DSE's "rack"-based fault domain support may be enabled by specifying a placement constraint that uses the `@zone` key. For example, you  could spread DSE nodes across a minimum of three different zones/racks by specifying the constraint `@zone:GROUP_BY:3`. When a placement constraint specifying `@zone` is used, DSE nodes will be automatically configured with `rack`s that match the names of the zones. If no placement constraint referencing `@zone` is configured, all nodes will be configured with a default rack of `rack1`.
 
 
 ### dse.yaml and cassandra.yaml settings
