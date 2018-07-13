@@ -20,19 +20,19 @@ render: mustache
 - Health check credentials: If you have X-Pack enabled, the health check will use these credentials for authorization. We recommend you create a specific Elastic user/password for this with minimal capabilities rather than using the default superuser `elastic`.
 - Plugins: You can specify other plugins via a comma-separated list of plugin names (e.g., “analysis-icu”) or plugin URIs.
 - CPU/RAM/Disk/Heap: These will be specific to your DC/OS cluster and your Elasticsearch use cases. Please refer to Elastic’s guidelines for configuration.
-- Node counts: At least 1 data node is required for the cluster to operate at all. You do not need to use a coordinator node. Learn about Elasticsearch node types [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html). There is no maximum for node counts.
-- Master transport port: You can pick whichever port works for your DC/OS cluster. The default is 9300. If you want multiple master nodes from different clusters on the same host, specify different master HTTP and transport ports for each cluster. If you want to ensure a particular distribution of nodes of one task type (e.g., master nodes spread across 3 racks, data nodes on one class of machines), specify this via the Marathon placement constraint.
+- Node counts: At least one data node is required for the cluster to operate at all. You do not need to use a coordinator node. Learn about Elasticsearch node types [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html). There is no maximum for node counts.
+- Master transport port: You can pick whichever port works for your DC/OS cluster. The default is 9300. If you want multiple master nodes from different clusters on the same host, specify different master HTTP and transport ports for each cluster. If you want to ensure a particular distribution of nodes of one task type (e.g., master nodes spread across multiple racks, data nodes on one class of machines), specify this via the Marathon placement constraint.
 - Serial vs Parallel deployment. By default, the DC/OS Elastic Service tells DC/OS to install everything in parallel. You can change this to serial in order to have each node installed one at a time.
 - Serial vs Parallel update. By default, the DC/OS Elastic Service tells DC/OS to update everything serially. You can change this to parallel in order to have each node updated at the same time. This is required, for instance, when you turn X-Pack on or off.
 - Custom YAML can be appended to `elasticsearch.yml` on each node
 
 ### Immutable settings (at cluster creation time via Elastic package UI or JSON options file via CLI)
 
-These setting cannot be changed after installation.
+These setting cannot be changed after installation:
 
-- Service name (aka cluster name). Can be hyphenated, but not underscored.
-- Master transport port.
-- Disk sizes/types.
+- Service name (aka cluster name). Can be hyphenated, but not underscored
+- Master transport port
+- Disk sizes/types
 
 ### Modifiable settings
 
@@ -46,16 +46,15 @@ These setting cannot be changed after installation.
 - Deployment/Upgrade strategy (serial/parallel). Note that serial deployment does not yet wait for the cluster to reach green before proceeding to the next node. This is a known limitation.
 - Custom `elasticsearch.yml`
 
-Any other modifiable settings are covered by the various Elasticsearch APIs (cluster settings, index settings, templates, aliases, scripts). It’s possible that some of the more common cluster settings will get exposed in future versions of the Elastic DC/OS Service.
+Any other modifiable settings are covered by the various Elasticsearch APIs (cluster settings, index settings, templates, aliases, scripts). It is possible that some of the more common cluster settings will get exposed in future versions of the Elastic DC/OS Service.
 
 ## X-Pack
 
-[X-Pack](https://www.elastic.co/guide/en/x-pack/current/xpack-introduction.html) is an Elastic Stack extension that bundles security, alerting, monitoring, reporting, and graph capabilities into one easy-to-install package. X-Pack is a commercial product of Elastic that requires a license. By default, X-Pack is not installed as part of the DC/OS Elastic service. However, it's easy to enable X-Pack as part of the service configuration:
+[X-Pack](https://www.elastic.co/guide/en/x-pack/current/xpack-introduction.html) is an Elastic Stack extension that bundles security, alerting, monitoring, reporting, and graph capabilities into one easy-to-install package. X-Pack is a commercial product from Elastic which requires a license. By default, X-Pack is not installed as part of the DC/OS Elastic service. However, it is easy to enable X-Pack as part of the service configuration:
 
 ![x-pack](/services/elastic/2.2.0-5.6.5/img/x-pack.png)
 
-You must set the update strategy to `parallel` when you toggle X-Pack in order to force a full cluster restart.
-Afterwards, you should set the update strategy back to `serial` for future updates.
+You must set the update strategy to `parallel` when you toggle X-Pack in order to force a full cluster restart. Afterwards, you should set the update strategy back to `serial` for future updates.
 
 You can toggle this setting at any time. This gives you the option of launching an Elastic cluster without X-Pack and then later enabling it. Or, you can run a cluster with X-Pack enabled to try out the commercial features and, if at the end of the 30-day trial period you don't wish to purchase a license, you can disable it without losing access to your data.
 
