@@ -1,7 +1,11 @@
 ---
-post_title: Install and Customize
-menu_order: 20 
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Installing and Customizing
+title: Installing and Customizing
+menuWeight: 20
+excerpt:
+featureMaturity:
+enterprise: false
 ---
 
  DCOS Prometheus is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
