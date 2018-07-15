@@ -41,8 +41,11 @@ enterprise: false
 ### Creating a Prometheus graph
 
    1.Click on Home -> Dashboard-> New Dashboard -> Panel Title -> Edit , Change the Panel Title , description.
+
    2.Under the "Metrics" tab, select your Prometheus data source (bottom right).
+
    3.Enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
+
    4.To format the legend names of time series, use the "Legend format" input. 
 
     

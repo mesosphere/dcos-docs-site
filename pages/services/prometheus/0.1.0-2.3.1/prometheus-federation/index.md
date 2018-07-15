@@ -18,6 +18,7 @@ metrics path : default metrics path is /metrics , for federation it has to be ch
 **match** : match[] here requests all job-level time series.
 
 **slave prometheus** : The prometheus sever from where data would get federated to global. It can be more than one.
+
 **global prometheus** : The prometheus server which will recieve data from slave prometheus server.
 
 **Template for global prometheus server configuration :**

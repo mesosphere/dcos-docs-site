@@ -33,11 +33,11 @@ Template :
 ```
 # Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).
 remote_write:
- - url: "http://<Public ip of influx server>:<influx service port>/api/v1/prom/write?db=<dbname>"
+ - url: "http://<Public ip of influx server>:<influx service port>/api/v1/prom/write?u=<user>&p=<password>&db=<dbname>"
 
 # Remote read configuration (for InfluxDB only at the moment).
 remote_read:
- - url: "http://<Public ip of influx server>:<influx service port>/api/v1/prom/read?db=<dbname>"Sample :# Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).
+ - url: "http://<Public ip of influx server>:<influx service port>/api/v1/prom/read?u=<user>&p=<password>&db=<dbname>"Sample :# Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).
 ```
 
 Example : 
@@ -45,11 +45,11 @@ Example :
 ```
 # Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).
 remote_write:
- - url: "http://52.79.251.5:8086/api/v1/prom/write?db=prometheus_demo"
+ - url: "http://52.79.251.5:8086/api/v1/prom/write?u=<user>&p=<password>&db=prometheus_demo"
 
 # Remote read configuration (for InfluxDB only at the moment).
 remote_read:
- - url: "http://52.79.251.5:8086/api/v1/prom/read?db=prometheus_demo"
+ - url: "http://52.79.251.5:8086/api/v1/prom/read?u=<user>&p=<password>&db=prometheus_demo"
 ```
 
 Influx db listens at port number 8086, by default.

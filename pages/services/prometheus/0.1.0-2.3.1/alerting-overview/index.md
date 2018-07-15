@@ -13,8 +13,11 @@ enterprise: false
  Alerting with Prometheus is divided into below parts :
 
   1.Setup and configure the Alertmanager
+
   2.Configure Prometheus to talk to the Alertmanager
+
   3.Create alerting rules in Prometheus
+
   4.Send notification to slack , pager duty email.
 
 ## Setup and configure the Alertmanager
@@ -152,11 +155,15 @@ group_interval: 1mreceivers:
 ```
 
 ### Pager Duty 
-  Configuring pager duty with alert manager :
-  1.First we need to create a service in PagerDuty, and obtain an integration key
-  2.Go to the “Services” page in PagerDuty:
-  3.Click “+ Add New Service”:
-  4.Note down the Integration Key:
+Configuring pager duty with alert manager :
+
+1.First we need to create a service in PagerDuty, and obtain an integration key
+
+2.Go to the “Services” page in PagerDuty:
+
+3.Click “+ Add New Service”:
+
+4.Note down the Integration Key:
 
   Sample configuration for Pager duty setup to be added in alert manager configuration yml.
 
