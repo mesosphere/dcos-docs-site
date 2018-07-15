@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: false
 ---
 
- DCOS Prometheus is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
+DCOS Prometheus is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
 
 The default DC/OS Prometheus Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
@@ -50,6 +50,7 @@ Below is the default prometheus configuration and should not be changed, by defa
 
 Apart from monitoring agent nodes , default configuration also provides feature to monitor master node via DNS SD configurations.
 
+```
 global:
  scrape_interval:     15s "Set the scrape interval to every 15 seconds. Default is every 1 minute"
  evaluation_interval: 15s "Evaluate rules every 15 seconds. The default is every 1 minute"
@@ -58,25 +59,26 @@ global:
  Here it's Prometheus itself"
 
 scrape_configs:
- - job_name: 'dcos-metrics'    " All master nodes are available at master.mesos via their A record"
+ - job_name: 'dcos-metrics'    #All master nodes are available at master.mesos via their A record
 
    dns_sd_configs:
      - names: ['master.mesos']
        type: 'A'
-       port: 61091    " All agent nodes are written regularly to discovery/agents.json"
+       port: 61091    #All agent nodes are written regularly to discovery/agents.json
 
    file_sd_configs:
      - files: ['discovery/agents.json']
 
 rule_files:
-   " set of rule files to read alerting rules from"
+# set of rule files to read alerting rules from
    -  'rules.yml'      
    
-"Alert manager target sample , target field should have alert manager endpoint where you want to fire alerts from your prometheus server"
+#Alert manager target sample , target field should have alert manager endpoint where you want to fire alerts from your prometheus server
 alerting:
  alertmanagers:
    - static_configs:
      - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093'] 
+```
 
 ## Installing HA-alert manager with base build :
    
@@ -87,11 +89,13 @@ alerting:
  To install HA-Prometheus without alert manager , alert manager node count would require to be made zero under. 
  To point HA-Prometheus server to base\first build HA-Alert manger,we require to pass alert manager endpoint as target for each of HA-Prometheus services we run under prometheus configuration yml.
 
+```
 Example : 
 alerting:
  alertmanagers:
    - static_configs:
      - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093']
+```
 
 ## Install HA-Prometheus standalone with no linkage to Alert Manager\Global Prometheus:
 
@@ -146,8 +150,10 @@ Consul SD configurations allow retrieving scrape targets from Consul's Catalog A
 
 Parameters required for consul sd :
            
-" The information to access the Consul API. It is to be defined
- as the Consul documentation requires."
+```
+#The information to access the Consul API. It is to be defined
+# as the Consul documentation requires.
+
 [ server: <host> | default = "localhost:8500" ]
 [ token: <secret> ]
 [ datacenter: <string> ]
@@ -155,63 +161,69 @@ Parameters required for consul sd :
 [ username: <string> ]
 [ password: <secret> ]
 
-" A list of services for which targets are retrieved. If omitted, all services
- are scraped"
+#A list of services for which targets are retrieved. If omitted, all services
+ are scraped
 services:
   [ - <string> ]
 
-"The time after which the provided names are refreshed.
- On large setup it might be a good idea to increase this value because the catalog will change all the time."
+#The time after which the provided names are refreshed.
+# On large setup it might be a good idea to increase this value because the catalog will change all the time.
 [ refresh_interval: <duration> | default = 30s ]
+```
  
 2. Dns_sd_condig : 
 
 A DNS-based service discovery configuration allows specifying a set of DNS domain names which are periodically queried to discover a list of targets.
 This service discovery method only supports basic DNS A, AAAA and SRV record queries, but not the advanced DNS-SD approach specified in RFC6763.
 
-" A list of DNS domain names to be queried"
+```
+#A list of DNS domain names to be queried"
 names: [ - <domain_name> ]
 
-" The type of DNS query to perform"
+#The type of DNS query to perform
 [ type: <query_type> | default = 'SRV' ]
 
-" The port number used if the query type is not SRV."
+
+#The port number used if the query type is not SRV.
 [ port: <number>]
 
-" The time after which the provided names are refreshed"
+#The time after which the provided names are refreshed
 [ refresh_interval: <duration> | default = 30s ]
+```
 
 3. EC2 SD :
 
 EC2 SD configurations allow retrieving scrape targets from AWS EC2 instances. 
 
-" The information to access the EC2 API"
+```
+#The information to access the EC2 API"
 
-" The AWS Region."
+#The AWS Region.
 region: <string>
 
-" The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID`
+#The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID`
  and `AWS_SECRET_ACCESS_KEY` are used."
 [ access_key: <string> ]
 [ secret_key: <secret> ]
-" Named AWS profile used to connect to the API."
+#Named AWS profile used to connect to the API.
 [ profile: <string> ]
 
 
-" Refresh interval to re-read the instance list."
+#Refresh interval to re-read the instance list.
 [ refresh_interval: <duration> | default = 60s ]
 
-" The port to scrape metrics from. If using the public IP address, this must
- instead be specified in the relabeling rule."
+#The port to scrape metrics from. If using the public IP address, this must
+# instead be specified in the relabeling rule.
 [ port: <int> | default = 80 ]
+```
    
 4. Marathon Sd Config :
  Marathon SD configurations allow retrieving scrape targets using the Marathon REST API. Prometheus will periodically check the REST endpoint for currently running tasks and create a target group for every app that has at least one healthy task.
-
+```
         Marathon job name : JOb Name
         Polling interval  : refresh_interval <duration>
         Servername        : List of URLs to be used to contact Marathon servers.You need to provide at least one server URL.
-
+```
 ## Virtual Networks
 
 DC/OS Prometheus supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:

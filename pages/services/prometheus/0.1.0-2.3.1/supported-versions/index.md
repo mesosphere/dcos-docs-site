@@ -12,8 +12,8 @@ enterprise: false
 
 ## Package Versioning Scheme
 
-    Prometheus: 2.3.1
-    DC/OS: 1.10 and 1.11
+  Prometheus: 2.3.1
+  DC/OS: 1.10 and 1.11
 
 Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Prometheus.
 For example, 0.1.0-2.3.1 indicates version 1.1.0 of the DC/OS integration and version 2.3.1 of Prometheus.

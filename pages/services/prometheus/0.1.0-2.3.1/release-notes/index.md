@@ -12,19 +12,18 @@ This is the first release of Prometheus to Universe. Based on the latest stable 
 
 Released first version of Service Guide with following topics:
 
-    - Overview
-    - Install and Customize
-    - Security
-    - Uninstall
-    - Connecting Clients
-    - Managing
-    - Troubleshooting
-    - Prometheus-federation
-    - API Reference
-    - Command-reference
-    - Connecting-clients
-    - Deploy-best-practice
-    - Limitations
-    - Supported Versions
-    - Release Notes
-   
+  - overview
+  - Installing and Customizing
+  - prometheus-federation
+  - prometheus-remote-storage
+  - deployment-best-practice
+  - uninstalling
+  - command-reference
+  - connecting-clients
+  - managing
+  - prometheuus-alerting-overview
+  - visualization
+  - troubleshooting
+  - limitations
+  - supported-versions
+  - release-notes
