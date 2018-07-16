@@ -3,7 +3,7 @@ layout: layout.pug
 title: Basic 
 navigationTitle: Basic
 menuWeight: 5
-excerpt: Creating a DC/OS cluster for AWS using DC/OS templates
+excerpt: Choose the basic installation method, if you want to create a DC/OS cluster using DC/OS templates
 ---
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.
