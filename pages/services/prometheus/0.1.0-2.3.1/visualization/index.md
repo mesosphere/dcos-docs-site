@@ -26,17 +26,25 @@ enterprise: false
 
 ### Accessing Grafana and Creating Prometheus Data Source :
 
-  **To create a Prometheus data source:**
+### Create a Prometheus data source:
 
-    1. Navigate to grafana site with http://<public ip of your cluster >:13000
-    2. login with default login with "admin" / "admin".
-    3. Click on the Grafana logo to open the sidebar menu.
-    4. Click on "Data Sources" in the sidebar.
-    5. Click on "Add New".
-    6. Select "Prometheus" as the type.
-    7. Set the appropriate Prometheus server end point (for example, http://prometheus.prometheus.14lb.thisdcos.directory:9090)
-    8. Adjust other data source settings as desired (for example, turning the proxy access off).
-    9. Click "Add" to save the new data source.
+1. Navigate to grafana site with http://<public ip of your cluster >:13000
+
+2. login with default login with "admin" / "admin".
+
+3. Click on the Grafana logo to open the sidebar menu.
+
+4. Click on "Data Sources" in the sidebar.
+
+5. Click on "Add New".
+
+6. Select "Prometheus" as the type.
+
+7. Set the appropriate Prometheus server end point (for example, http://prometheus.prometheus.14lb.thisdcos.directory:9090)
+
+8. Adjust other data source settings as desired (for example, turning the proxy access off).
+
+9. Click "Add" to save the new data source.
 
 ### Creating a Prometheus graph
 

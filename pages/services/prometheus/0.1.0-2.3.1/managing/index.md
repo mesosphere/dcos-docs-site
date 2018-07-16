@@ -36,137 +36,19 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
     dcos package install --cli prometheus
     ```
 
-#### Preparing configuration
+#### Updating configuration  
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+To Update configuration for a running dcos service , 
 
-```shell
-dcos prometheus describe > options.json
-```
+1.Go to docs UI -> on right corner -> click on edit
 
-Make any configuration changes to the `options.json` file.
+2. Once you click on edit , you will have all the options like node count , cpu , memory options available for editing.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://github.com/rathohit311356/dcos-docs-site/blob/Prometheus-Service-Guide/pages/services/prometheus/0.1.0-2.2.1/install/install.md).
-
-<strong>Note:</strong> You need to specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
-
-##### Recreating `options.json` (optional)
-
-If the `options.json` from when the service was last installed or updated is not available, you will need to manually recreate it using the following steps.
-
-First, we'll fetch the default application's environment, current application's environment, and the actual prometheus that maps config values to the environment:
-
-1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
-2. Set the service name that you're using, for example:
-	```shell
-	SERVICE_NAME=prometheus
-	```
-3. Get the version of the package that is currently installed:
-	```shell
-	PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
-	```
-4. Then fetch and save the environment variables that have been set for the service:
-	```shell
-	dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
-	```
-5. To identify those values that are custom, we'll get the default environment variables for this version of the service:
-	```shell
-	dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
-	```
-6. We'll also get the entire application prometheus:
-	```shell
-	dcos package describe $SERVICE_NAME --app > marathon.json.mustache
-	```
-
-Now that you have these files, we'll attempt to recreate the `options.json`.
-
-1. Use JQ and `diff` to compare the two:
-	```shell
-	diff <(jq -S . default_env.json) <(jq -S . current_env.json)
-	```
-2. Now compare these values to the values contained in the `env` section in application prometheus:
-	```shell
-	less marathon.json.mustache
-	```
-3. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
-
-#### Starting the update
-
-Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
-
-```shell
-dcos prometheus update start --options=options.json
-```
-
-You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
-
-See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
-
-To see a full listing of available options, run `dcos package describe --config prometheus` in the CLI, or browse the DC/OS prometheus Service install dialog in the DC/OS Dashboard.
-
-<a name="adding-a-node"></a>
-### Adding a Node
-
-The service deploys 2 nodes by default. You can customize this value at initial deployment or after the cluster is already running. Shrinking the cluster is not supported.
-
-Modify the COUNT `"node":{"count":3}` environment variable to update the node count. If you decrease this value, the scheduler will prevent the configuration change until it is reverted back to its original value or larger.
-
-<a name="resizing-a-node"></a>
-### Resizing a Node
-
-The CPU and Memory requirements of each node can be increased or decreased as follows:
-- CPU: ` "node": {"cpus": <CPU Value>}`
-- Memory (in MB): `"node": {"mem": 4096}`
+3. Once you are done with editing re-run the service , it will restart all the nodes and will fetch the updated configuration.
 
 **Note:** Volume requirements (type and/or size) cannot be changed after initial deployment.
 
-<a name="updating-placement-constraints"></a>
-### Updating Placement Constraints
-
-Placement constraints may be updated after initial deployment using the following procedure. See [Service Settings](#service-settings) above for more information on placement constraints.
-
-Let's say we have the following deployment of our nodes
-
-- Placement constraint of: `hostname:LIKE:10.0.10.3|10.0.10.8|10.0.10.26|10.0.10.28|10.0.10.84`
-- Tasks:
-
-```shell
-10.0.10.3: prometheus-0
-10.0.10.8: prometheus-1
-10.0.10.26: prometheus-2
-10.0.10.28: empty
-10.0.10.84: empty
-```
-
-
-`10.0.10.8` is being decommissioned and we should move away from it. Steps:
-
-    1. Remove the decommissioned IP and add a new IP to the placement rule whitelist by editing `placement_constraint`:1.69 KB
-
-
-```shell
-	hostname:LIKE:10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123
-```
-    2. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist: `dcos prometheus pod replace _NODEPOD_-1`
-    3. Wait for `_NODEPOD_-1` to be up and healthy before continuing with any other replacement operations.
-
-The placement constraints can be modified by configuring the "placement constraint" section of the Config.json file:
-
-
-```shell
-	"placement_constraint": {
-          "type": "string",
-          "title": "Placement Constraint",
-          "description": "Marathon-style placement constraint for nodes. Example: [[\"hostname\", \"UNIQUE\"]]",
-          "default": "[[\"hostname\", \"UNIQUE\"]]",
-          "media": {
-            "type": "application/x-zone-constraints+json"
-        }
-```
-
-<a name="restarting-a-node"></a>
-
-## Replacing a Node
+## Replacing a node :
 
 This operation will move a node to a new agent and will discard the persistent volumes at the prior system to be rebuilt at the new system. Perform this operation if a given system is about to be offlined or has already been offlined.
 

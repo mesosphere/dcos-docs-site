@@ -22,6 +22,7 @@ enterprise: false
 
   1. Install Influx DB 
   2. Start Influx DB service
+  3. Create user and password
   3. Create db (where you would want prometheus metrics to be stored).
 
 ### Integration with Influx db 

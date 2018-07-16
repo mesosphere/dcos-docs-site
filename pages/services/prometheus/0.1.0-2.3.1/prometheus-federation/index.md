@@ -49,8 +49,18 @@ rule_files:
     - targets: ['Slave Prometheus endpoint1','Slave Prometheus endpoint2']
 ```
 
+**Use Case:   Simple cluster service implementation (Global Prometheus servers)**
+
+Global prometheus Service : To federate data from two or more prometheus servers,we would need to launch  prometheus service as global prometheus service and pass Global prometheus server endpoints as target to slave prometheus service.
 
 
+To launch global prometheus server check  above template given in above section.
+
+Note : global prometheus service will only help with federated data from other prometheus servers and would not be monitoring anything unlike other -prometheus server.
+ 
+Prometheus Service1, Prometheus Service2 : Cluster of two prometheus servers monitoring different targets and federating data to global prometheus servers.
+
+In case of standalone Prometheus server scrape path is default to /metrics,whereas in case of global Prometheus server scrape path is default to /federate, targets for global prometheus server are other prometheus services.  
 
 
 

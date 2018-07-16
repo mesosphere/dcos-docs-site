@@ -28,5 +28,7 @@ Prometheus has several flags that allow configuring the local storage. The most 
 
 On an average, Prometheus uses around 1-2 bytes per sample. Thus, to plan the capacity of a Prometheus server, one can use the rough formula:
 
+```
 needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample
 
+```

@@ -19,12 +19,12 @@ By default every prometheus sample consumes 1-2 Bytes of storage,
 
     - Needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample
 
-For Instllation below combination is recommended for prometheus server and alert manager
+For Installation below combination is recommended for prometheus server and alert manager
  
     - Install Alert Manager with base\first build of framework , its recommended to install remaining framework without alert manager and alert manager node count should be made zero, 
     all the rest of the prometheus servers should point to the same alert manager which was installed with base\first build,to do this you would require to pass alert manager endpoint as target to your  prometheus servers under your prometheus yml configuration : 
         
-    - Install global prometheus when required ,its recommended for global prometheus not to be configure until you require data to be federate from other salve prometheus servers,
+    - Install global prometheus when required ,its recommended for global prometheus not to be configure until you require data to be federate from other slave prometheus servers,
     To federate data from promethes slave server to global prometheus,slave prometheus server endpoints to be passed as target into global prometheus server under prometheus configuration yml.
       
 ## Prerequisites
@@ -52,13 +52,15 @@ Apart from monitoring agent nodes , default configuration also provides feature 
 
 ```
 global:
- scrape_interval:     15s "Set the scrape interval to every 15 seconds. Default is every 1 minute"
- evaluation_interval: 15s "Evaluate rules every 15 seconds. The default is every 1 minute"
+ scrape_interval:     15s #Set the scrape interval to every 15 seconds. Default is every 1 minute
 
-  scrape_timeout is set to the global default (10s). "A scrape configuration containing exactly one endpoint to scrape:
+ evaluation_interval: 15s #Evaluate rules every 15 seconds. The default is every 1 minute
+
+#scrape_timeout is set to the global default (10s). "A scrape configuration containing exactly one endpoint to scrape:
  Here it's Prometheus itself"
 
 scrape_configs:
+
  - job_name: 'dcos-metrics'    #All master nodes are available at master.mesos via their A record
 
    dns_sd_configs:
@@ -80,14 +82,14 @@ alerting:
      - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093'] 
 ```
 
-## Installing HA-alert manager with base build :
+## Installing alert manager with base build :
    
-   By default , prometheus will launch HA-prometheus server and to spin up with HA-Alert manager ,you would require to ensure you have node count of alert manager configuration set to 2 and you would need to pass alert manager target as endpoints to your prometheus server as explained in above section as default configuration 
+   By default , prometheus will launch prometheus server and to spin up with alert manager ,you would require to ensure you have node count of alert manager configuration set to 1 and you would need to pass alert manager target as endpoints to your prometheus server as explained in above section as default configuration 
    
-## Installing HA-Prometheus without Alert Manager and point to HA-Alert Manager launched with base build:
+## Installing Prometheus without Alert Manager and point to Alert Manager launched with base build:
 
- To install HA-Prometheus without alert manager , alert manager node count would require to be made zero under. 
- To point HA-Prometheus server to base\first build HA-Alert manger,we require to pass alert manager endpoint as target for each of HA-Prometheus services we run under prometheus configuration yml.
+ To install Prometheus without alert manager , alert manager node count would require to be made zero under. 
+ To point Prometheus server to base\first build Alert manger,we require to pass alert manager endpoint as target for each of Prometheus services we run under prometheus configuration yml.
 
 ```
 Example : 
@@ -97,11 +99,11 @@ alerting:
      - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093']
 ```
 
-## Install HA-Prometheus standalone with no linkage to Alert Manager\Global Prometheus:
+## Install Prometheus standalone with no linkage to Alert Manager\Global Prometheus:
 
-To Install HA-Prometheus server without alert manager\global prometheus , you should not be configuring alert manager targets under prometheus yml and should not pass any federation configuration to prometheus yml.
+To Install Prometheus server without alert manager\global prometheus , you should not be configuring alert manager targets under prometheus yml and should not pass any federation configuration to prometheus yml.
 
-With these configuration HA-Prometheus server would be launched without pointing to HA-Alert Manager.
+With these configuration Prometheus server would be launched without pointing to Alert Manager.
 
 ## Installing multiple instances
 
@@ -143,87 +145,75 @@ The above example will install the service under a path of foldered => path => t
 Note:  The service folder location cannot be changed after initial install.Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.
 
 ## Service Discovery configuration templates :
-Promethesu DC\OS mesos offers follwoing service discovery mechanism, service discovery can be configured along with default prometheus configuration available , below are the templates you would require to pass along with default prometheus configuration under prometheus yml   
+Prometheus DC\OS mesos offers follwoing service discovery mechanism, service discovery can be configured along with default prometheus configuration available , below are the templates you would require to pass along with default prometheus configuration under prometheus yml   
 
-1. Consul_sd_config :
+**1. Consul_sd_config :**
 Consul SD configurations allow retrieving scrape targets from Consul's Catalog API.
 
-Parameters required for consul sd :
-           
-```
-#The information to access the Consul API. It is to be defined
-# as the Consul documentation requires.
-
-[ server: <host> | default = "localhost:8500" ]
-[ token: <secret> ]
-[ datacenter: <string> ]
-[ scheme: <string> | default = "http" ]
-[ username: <string> ]
-[ password: <secret> ]
-
-#A list of services for which targets are retrieved. If omitted, all services
- are scraped
-services:
-  [ - <string> ]
-
-#The time after which the provided names are refreshed.
-# On large setup it might be a good idea to increase this value because the catalog will change all the time.
-[ refresh_interval: <duration> | default = 30s ]
-```
+Prometheus support consul , lets see how to use it.
  
-2. Dns_sd_condig : 
+Finding targets happens in two stages. First a service discovery method such as Consul returns potential targets with metadata. 
+
+Secondly relabelling allows you to choose which of those targets you want to scrape, and how to convert the metadata into target labels
+
+Lets say you wanted to monitor all services with a prod tag and use the Consul service name as the job label. Your scrape configuration would look like:
+
+Template for consul sd config :
+
+```
+# The information to access the Consul API. It is to be defined
+# as the Consul documentation requires
+scrape_configs:
+  - job_name: dummy
+    consul_sd_configs:
+      - server: 'localhost:8500'
+    relabel_configs:
+      - source_labels: [__meta_consul_tags]
+        regex: .*,prod,.*
+        action: keep
+      - source_labels: [__meta_consul_service]
+        target_label: job
+
+```
+The first relabel action says to keep processing only those targets who have a prod tag. Prometheus exposes the Consul tags as a comma separated list in the label called __meta_consul_tags, with leading and trailing commas added for convenience.
+
+The second relabel action says to copy the service name from the __meta_consul_service label to the job label. This is take advantage of the default values for relabel actions, as a straight copy from one label to another is common.
+
+**2. Dns_sd_condig :** 
 
 A DNS-based service discovery configuration allows specifying a set of DNS domain names which are periodically queried to discover a list of targets.
-This service discovery method only supports basic DNS A, AAAA and SRV record queries, but not the advanced DNS-SD approach specified in RFC6763.
+This service discovery method only supports basic DNS A, AAAA and SRV record queries,
+
+Default dns sd configuration in dcos prometheus:
 
 ```
-#A list of DNS domain names to be queried"
-names: [ - <domain_name> ]
-
-#The type of DNS query to perform
-[ type: <query_type> | default = 'SRV' ]
-
-
-#The port number used if the query type is not SRV.
-[ port: <number>]
-
-#The time after which the provided names are refreshed
-[ refresh_interval: <duration> | default = 30s ]
+scrape_configs:
+- job_name: master-metrics #job name 
+  # All master nodes are available at master.mesos via their A record
+  dns_sd_configs:
+    - names: ['master.mesos'] # A list of DNS domain names to be queried. 
+      type: 'A' # The type of DNS query to perform.
+      port: 61091 # The port number used if the query type is not SRV. 
 ```
 
-3. EC2 SD :
+**3. EC2_sd_config  :**
 
 EC2 SD configurations allow retrieving scrape targets from AWS EC2 instances. 
 
+Template for EC2_sd_config: 
+
 ```
-#The information to access the EC2 API"
+# The information to access the EC2 API.
+scrape_configs:
+  - job_name: 'node' # mention job name as desired
+    ec2_sd_configs:
+      - region: eu-west-1 # The AWS Region.
+        access_key: PUT_THE_ACCESS_KEY_HERE
+        secret_key: PUT_THE_SECRET_KEY_HERE
+        port: 9100
 
-#The AWS Region.
-region: <string>
-
-#The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID`
- and `AWS_SECRET_ACCESS_KEY` are used."
-[ access_key: <string> ]
-[ secret_key: <secret> ]
-#Named AWS profile used to connect to the API.
-[ profile: <string> ]
-
-
-#Refresh interval to re-read the instance list.
-[ refresh_interval: <duration> | default = 60s ]
-
-#The port to scrape metrics from. If using the public IP address, this must
-# instead be specified in the relabeling rule.
-[ port: <int> | default = 80 ]
 ```
-   
-4. Marathon Sd Config :
- Marathon SD configurations allow retrieving scrape targets using the Marathon REST API. Prometheus will periodically check the REST endpoint for currently running tasks and create a target group for every app that has at least one healthy task.
-```
-        Marathon job name : JOb Name
-        Polling interval  : refresh_interval <duration>
-        Servername        : List of URLs to be used to contact Marathon servers.You need to provide at least one server URL.
-```
+
 ## Virtual Networks
 
 DC/OS Prometheus supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:

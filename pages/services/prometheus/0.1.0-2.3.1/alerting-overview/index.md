@@ -26,8 +26,8 @@ enterprise: false
 
 Below is the template for alert manager configuration :
 
-global:
 ```
+global:
   # ResolveTimeout is the time after which an alert is declared resolved
   # if it has not been updated.
   [ resolve_timeout: <duration> | default = 5m ]
@@ -118,8 +118,8 @@ groups:
  - alert: highcpu
    expr: cpu_total > 2
    annotations:
-     DESCRIPTION: 'it happened yeah'
-     SUMMARY: 'it happened'
+     DESCRIPTION: 'High CPU Utilization'
+     SUMMARY: 'This is to notify for high cpu utilization'
 ```
 Below is the another sample of rules , which check which instance is down :
 
