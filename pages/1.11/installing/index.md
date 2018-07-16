@@ -22,7 +22,10 @@ DC/OS can be installed on any cluster of a physical or virtual machine.
 Use the following installation methods based on your requirement.
 
 ## Local Installation
-The Local installation method is for first-time users or developers looking to build services or modify DC/OS. The [Vagrant installer](https://github.com/dcos/dcos-vagrant/) provides a quick, free way to deploy a virtual cluster on a single machine.
+The Local installation method is for first-time users or developers looking to build services or modify DC/OS. 
+Use the following local installation options.
+- The [Vagrant installer](https://github.com/dcos/dcos-vagrant/). 
+- The [Docker installer](https://github.com/dcos/dcos-docker/).
  
 ## Trial  Installation 
 The trial installation method is used for fast demos and POCs. This method was previously called as cloud installation.
@@ -34,15 +37,14 @@ DC/OS CloudFormation templates are intended for reference only and are not recom
 - Updates of DC/OS on AWS CloudFormation have not been automated, validated, or documented.
 - Modified CloudFormation templates are not supported by Mesosphere, Inc.
 
-The recommended way to install production ready DC/OS that can be upgraded in-place is to use the Advanced Installer.
- 
 The following methods are used to install DC/OS:
 - Provision DC/OS on Amazon Web Services (AWS): Install DC/OS cluster on Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation. 
 - Provision DC/OS on Azure: Install DC/OS cluster on Azure by using the Azure Resource Manager templates.
 - Provision DC/OS on Google Cloud Platform (GCE): Install DC/OS cluster on Google Compute Engine (GCE) by using installation scripts. Upgrades are not supported with this installation method.
  
+ ** Note:** The recommended way to install production ready DC/OS that can be upgraded in-place is to use the Advanced Installer.
 
 ## Production Installation
-The production installation method is a flexible way to configure and install DC/OS on a cluster. This method was previously called as Custom installation.
+The production installation method is a flexible way to configure and install DC/OS on a cluster. This method was previously called as custom installation.
  
-- Advanced Installer: This method is used to install production ready DC/OS that can be upgraded. Using this method you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
+- Advanced Installer: This method is used to install production ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
