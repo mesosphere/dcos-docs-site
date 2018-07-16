@@ -10,21 +10,21 @@ enterprise: false
 
 # Alerting with Prometheus :
 
- Alerting with Prometheus is divided into below parts :
+ Alerting with Prometheus is divided into the following parts:
 
-  1.Setup and configure the Alertmanager
+  1. Set up and configure the Alertmanager
 
-  2.Configure Prometheus to talk to the Alertmanager
+  2. Configure Prometheus to talk to the Alertmanager
 
-  3.Create alerting rules in Prometheus
+  3. Create alerting rules in Prometheus
 
-  4.Send notification to slack , pager duty email.
+  4. Send notification to Slack, PagerDuty, or email
 
-## Setup and configure the Alertmanager
+## Set up and configure the Alertmanager
 
-  Prometheus fires alert to Alert Manager, Alert Manager then manages those alerts and sends out notifications via methods such as slack,email and PagerDuty.
+  Prometheus fires an alert to the Alertmanager, the Alertmanager then manages those alerts, then sends out notifications via methods such as Slack, email and PagerDuty.
 
-Below is the template for alert manager configuration :
+The template for Alertmanager configuration is below:
 
 ```
 global:
@@ -60,7 +60,7 @@ global:
   [ http_config: <http_config> ]
 
 # Files from which custom notification template definitions are read.
-# The last component may use a wildcard matcher, e.g. 'templates/*.tmpl'.
+# The last component may use a wildcard matcher, such as 'templates/*.tmpl'.
 templates:
   [ - <filepath> ... ]
 
@@ -78,7 +78,7 @@ inhibit_rules:
 
 ### Configure Prometheus to talk to the Alertmanager:
 
- To intiate communcation between prometheus and alert manager , alert manager end points are added as target to prometheus yml under alerting at the end of below default configuration :
+ To initiate communication between Prometheus and Alertmanager, Alertmanager end points are added as targets to the Prometheus yml under `alerting` at the end of the following default configuration :
 
 ```
 global:
@@ -106,12 +106,12 @@ alerting:
 ```
 
 ### Create alerting rules in Prometheus
-  Alerting rules allow you to define alert conditions based on Prometheus expression language expressions and to send notifications about firing alerts to an external service like slack , pager duty , email.
+  Alerting rules allow you to define alert conditions based on Prometheus language expressions and to send notifications about firing alerts to an external service like Slack, PagerDuty, and email.
 
-Below is the default alert rules , rules files are accessed in prometheus configuration yml.
+The default alert rules are below. Rules files are accessed in the Prometheus configuration .yml.
 
 ```
-rules :
+rules:
 groups:
 - name: cpurule
  rules:
@@ -121,7 +121,7 @@ groups:
      DESCRIPTION: 'High CPU Utilization'
      SUMMARY: 'This is to notify for high cpu utilization'
 ```
-Below is the another sample of rules , which check which instance is down :
+The following example checks which instance is down :
 
 ```
 alert: InstanceDown
@@ -134,15 +134,15 @@ annotations:
   description: "{{$labels.instance}} of job {{$labels.job}} has been down for more than 5 minutes."
 
 ```
-### Send notification to slack , pager duty email.
+### Send notification to Slack, PagerDuty, and email
 
- Alert Manager manages sending alerts to slack , pager duty and email.
+ Alertmanager manages sending alerts to Slack, PagerDuty, and email.
 
 ### Slack
 
-  The Alertmanager uses the Incoming Webhooks feature of Slack.
+  To configure Slack with Alertmanager, the Alertmanager uses the Incoming Webhooks feature of Slack. 
 
-  Below is the default configuration for sending alerts to slack to be configured under alert manager configuration yml.
+  The default configuration below sends alerts to Slack to be configured under the Alertmanager configuration yml.
 
 ```
 route:
@@ -154,18 +154,18 @@ group_interval: 1mreceivers:
  - url: http://webhook.marathon.l4lb.thisdcos.directory:1234
 ```
 
-### Pager Duty 
-Configuring pager duty with alert manager :
+### PagerDuty 
+To configure PagerDuty with Alertmanager :
 
-1.First we need to create a service in PagerDuty, and obtain an integration key
+1. Create a service in PagerDuty, and obtain an integration key.
 
-2.Go to the “Services” page in PagerDuty:
+2. Go to the “Services” page in PagerDuty:
 
-3.Click “+ Add New Service”:
+3. Click “+ Add New Service”:
 
-4.Note down the Integration Key:
+4. Note down the Integration Key:
 
-  Sample configuration for Pager duty setup to be added in alert manager configuration yml.
+Here is a sample configuration for adding a PagerDuty setup to the Alertmanager configuration yml.
 
 ```
 receivers:
@@ -175,13 +175,11 @@ receivers:
 ```
 
 ### Email
-  Configurating Prometheus with SMTP which is more commonly known as email.
-
-  Below is the sample configuration required in alert manager configuration yml for sending alerts to email.
+  Here is a sample configuration for adding an email alert setup to the Alertmanager configuration yml.
  
 ```
-GMAIL_ACCOUNT=me@example.com # Substitute in your full gmail address here.
-GMAIL_AUTH_TOKEN=XXXX        # Substitute in your app password
+GMAIL_ACCOUNT=me@example.com # Substitute your full gmail address here.
+GMAIL_AUTH_TOKEN=XXXX        # Substitute your app password
 
 receivers:
 - name: email-me
