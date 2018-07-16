@@ -8,14 +8,14 @@ featureMaturity:
 enterprise: false
 ---
 
-DC/OS Prometheus Service is an automated service that makes it easy to deploy and manage Prometheus on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on Prometheus, see Prometheus documentation https://docs.mesosphere.com/services/prometheus/0.1.0-2.3.1/
+DC/OS Prometheus Service is an automated service that makes it easy to deploy and manage Prometheus on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on Prometheus, see the Prometheus documentation https://docs.mesosphere.com/services/prometheus/0.1.0-2.3.1/
 
 ## Benefits
 DC/OS Prometheus offers the following benefits :
 1. Designed for reliability
-2. Easily configurable to support all Prometheus design pattern
+2. Easily configurable to support all Prometheus design patterns
 3. Auto self health monitoring with provision for corrective action
-4. Flexible design to suit design requirement (with/without Alert Manager)
+4. Flexible design to suit design requirement (with/without Alertmanager)
 5. Supports wide range of integration for data collection,persistence, notification and dashboarding
  
 DC/OS Prometheus's main features are:
