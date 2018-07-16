@@ -3,10 +3,10 @@ layout: layout.pug
 title: Running DC/OS on AWS EC2 Advanced
 navigationTitle: Advanced
 menuWeight: 10
-excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates 
+excerpt: Choose the advanced templates, if you want to customize the AMI, VPC, or Instance Type.
 ---
 
-Choose the advanced templates, if you want to customize the AMI, VPC, or Instance Type. 
+Creating and extending DC/OS clusters with AWS CloudFormation templates 
 
 The advanced templates are:
 * Highly customizable
@@ -29,8 +29,9 @@ The templates are used together in conjunction to create a DC/OS cluster. The te
 An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance. Selecting smaller-sized VMs is not recommended and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores to not work properly.
 
 ### Software
-- The [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
-- The [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh). [oss type="inline" size="small" /] 
+- The DC/OS generate_config file: 
+  * Enterprise users should use the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to access the config file. [enterprise type="inline" size="small" /]
+  * Open Source users should use the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh). [oss type="inline" size="small" /] 
 - An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the advanced templates. Contact your AWS admin for more information. 
 - An AWS EC2 Key Pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 Key Pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
@@ -56,8 +57,6 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
       For more information about s3 bucket polices, see the [AWS Documentation](http://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html).
 
 # Create your templates
-
-- Download the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. [enterprise type="inline" size="small" /] 
 
 1.  Create a directory named `genconf` in the home directory of your node and navigate to it.
 
