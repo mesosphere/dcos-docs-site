@@ -16,40 +16,39 @@ One of the benefits of running containerized services is that they can be placed
 
 Once the service is running, you may view information about its endpoints via either of the following methods:
 - CLI:
-  1. List endpoint types: `dcos prometheus endpoints`
-  2. View endpoints for an endpoint type: `dcos prometheus endpoints <endpoint>`
+  - List endpoint types: `dcos prometheus endpoints`
+  - View endpoints for an endpoint type: `dcos prometheus endpoints <endpoint>`
 - API:
-  1. List endpoint types: `<dcos-url>/service/prometheus/v1/endpoints`
-  2. View endpoints for an endpoint type: `<dcos-url>/service/prometheus/v1/endpoints/<endpoint>`
+  - List endpoint types: `<dcos-url>/service/prometheus/v1/endpoints`
+  - View endpoints for an endpoint type: `<dcos-url>/service/prometheus/v1/endpoints/<endpoint>`
 
 Returned endpoints will include the following:
-- `.autoip.dcos.thisdcos.directory` hostnames for each instance that will follow them if they're moved within the DC/OS cluster.
+- `.autoip.dcos.thisdcos.directory` hostnames for each instance that will follow them if they are moved within the DC/OS cluster.
 - A direct IP address for accessing the service if `.autoip.dcos.thisdcos.directory` hostnames are not resolvable.
 - If your service is on a virtual network such as the `dcos` overlay network, then the IP will be from the subnet allocated to the host that the task is running on. It will not be the host IP. To resolve the host IP use Mesos DNS (`<task>.<service>.mesos`).
 
-In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster you can either use direct IPs or set up a proxy service that acts as a frontend to your prometheus instance. For development and testing purposes, you can use [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administering-clusters/sshcluster/) to access services from outside the cluster, but this option is not suitable for production use.
+In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use direct IPs or set up a proxy service that acts as a front end to your Prometheus instance. For development and testing purposes, you can use [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administering-clusters/sshcluster/) to access services from outside the cluster, but this option is not suitable for production use.
 
 ## Accessing Prometheus UI with Edge-LB Configuration
 
 ### Assumptions
 
-Prometheus is installed on DCOS without TLS and Kerberos
-Edge LB is installed (with service account and service account secret in strict mode)
+- Prometheus is installed on DCOS without TLS and Kerberos
+- Edge LB is installed with service account and service account secret in strict mode
 
 ### Steps
 
-Following are the steps for Edge-LB Pool configuration:
+Here are the steps for Edge-LB Pool configuration:
 
-  1. **Install the edgelb cli**
+  1. Install the edgelb cli:
   ```shell
   dcos package install --cli edgelb --yes
   ```
-  2. **Get the DNS address using the following:**
+  2. Get the DNS address using the following:
   ```shell
   dcos prometheus endpoints web --name=<service_name>
   ```  
-  3. **Create the configration json file with required parameters to access prometheus web.**
-
+  3. Create the configuration json file with required parameters to access Prometheus web.
 
   ```shell
   
@@ -150,12 +149,12 @@ Following are the steps for Edge-LB Pool configuration:
 
  ```
 
-  4. **Create edge-pool using the above json.**
+  4. Create the `edgelb-pool` using the json file above:
 
   ```shell
   dcos edgelb create edgelb-pool-config.json
   ```    
-  5. **Access prometheus**
+  5. Access Prometheus:
   ```shell
   http://<Public IP of the Public Node of the cluster>>:8080/prometheus
   ```      
