@@ -6,11 +6,11 @@ menuWeight: 25
 excerpt: Upgrading a DC/OS cluster
 ---
 
-An upgrade is the process of adding new features, replacing the existing features with new features/functionality or adding a major configuration change. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster.
-
-Example: 1.X to 1.Y (1.11 --> 1.12)
+An upgrade is the process of moving between major releases to add new features, replace existing features with new features/functionality or performing a major configuration change. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster. 
 
 **Note:** An upgrade occurs only between major releases.
+
+Example: 1.X to 1.Y (1.11 --> 1.12)
 
 If an upgrade is performed on a supported OS with all prerequisites fulfilled, then upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
