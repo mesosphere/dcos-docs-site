@@ -14,7 +14,7 @@ menuWeight: 15
 
 ## Install
 
-Prometheus can be installed via either the DC/OS Catalog UI or by using the CLI. The following command will launch the install via the DC/OS CLI:
+Prometheus can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
 
 ```bash
 dcos package install prometheus
@@ -28,13 +28,13 @@ dcos package install --yes grafana
 [<img src="/services/prometheus/0.1.0-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/services/prometheus/0.1.0-2.3.2/img/prom_install.png)
 
 
-The framework provides options to enter the Prometheus, AlertManager and Rules config. The default prometheus config scrapes DC/OS master and agents in the clusters. Append any new config to the end.
+The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. Append any new config to the end.
 
 ## Accessing the Prometheus UI
 
 Once the framework is up and running:
-Install edge-lb.
-Create a file named prometheus-edgelb.json containing the following edge-lb configuration.
+1. Install Edge-LB.
+2. Create a file named `prometheus-edgelb.json` containing the following `edge-lb` configuration:
 
 ```
 {
@@ -123,7 +123,7 @@ Create a file named prometheus-edgelb.json containing the following edge-lb conf
 ```
 
 
-In your browser enter the following address.
+3. In your browser enter the following address.
 
 Promtheus UI:
 ```
@@ -173,7 +173,7 @@ You can add Prometheus as a data source:
 [<img src="/services/prometheus/0.1.0-2.3.2/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/prometheus/0.1.0-2.3.2/img/grafana_datasource.png)
 
 
-Save and Test. Now youre ready to use Prometheus as a data source in Grafana.
+Save and Test. Now you are ready to use Prometheus as a data source in Grafana.
 
 To create a graph, select your `Prometheus` datasource, and enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
 
@@ -181,11 +181,11 @@ The following shows an example Prometheus graph configuration:
 
 [<img src="/services/prometheus/0.1.0-2.3.2/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/prometheus/0.1.0-2.3.2/img/grafana_prom.png)
 
-## AlertManager
+## Alertmanager
 
 The Alertmanager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.
 
-AlertManager UI:
+Alertmanager UI:
 ```
 http://<public-agent-ip>:9093
 ```
@@ -193,8 +193,8 @@ http://<public-agent-ip>:9093
 [<img src="/services/prometheus/0.1.0-2.3.2/img/am_dashboard.png" alt="AlertManager Dashboard"/>](/services/prometheus/0.1.0-2.3.2/img/am_dashboard.png)
 
 
-### AlertManager with Webhook
-The default configuration for AlertManager (these configs can be changed) in the framework is configured with a webhook receiver:
+### Alertmanager with Webhook
+The default configuration for Alertmanager (these configurations can be changed) in the framework is configured with a Webhook receiver:
 
 ```
 route:
@@ -221,7 +221,7 @@ groups:
       SUMMARY: 'it happened'
 ```
 
-Next, run the following config as a marathon app:
+Next, run the following config as a Marathon app:
 
 ```
 {
@@ -254,7 +254,7 @@ Next, run the following config as a marathon app:
 ```
 
 
-Check the logs for this app. The Alertmanager will send HTTP POST requests in the following JSON format:
+Check the logs for this app. The Alertmanager will send HTTP POST requests in the following json format:
 
 ```
 {
@@ -285,9 +285,9 @@ Check the logs for this app. The Alertmanager will send HTTP POST requests in th
 }
 ```
 
-### AlertManager with Slack
+### Alertmanager with Slack
 
-Slack notifications are sent via Slack webhooks. Update the AlertManager config to :
+Slack notifications are sent via Slack webhooks. Update the Alertmanager config to :
 
 ```
 route:
