@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle: Prometheus 0.1.0-2.3.1
-title: Prometheus 0.1.0-2.3.1
+navigationTitle: Prometheus 0.1.0-2.3.2
+title: Prometheus 0.1.0-2.3.2
 menuWeight: 50
-excerpt: Overview of DC/OS Prometheus 0.1.0-2.3.1
+excerpt: Overview of DC/OS Prometheus 0.1.0-2.3.2
 featureMaturity:
 enterprise: false
 ---
 
-DC/OS Prometheus Service is an automated service that makes it easy to deploy and manage Prometheus on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on Prometheus, see the Prometheus documentation https://docs.mesosphere.com/services/prometheus/0.1.0-2.3.1/
+DC/OS Prometheus Service is an automated service that makes it easy to deploy and manage Prometheus on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on Prometheus, see the Prometheus documentation https://docs.mesosphere.com/services/prometheus/0.1.0-2.3.2/
 
 ## Benefits
 DC/OS Prometheus offers the following benefits :
@@ -17,7 +17,7 @@ DC/OS Prometheus offers the following benefits :
 3. Auto self health monitoring with provision for corrective action
 4. Flexible design to suit design requirement (with/without Alertmanager)
 5. Supports wide range of integration for data collection,persistence, notification and dashboarding
- 
+
 DC/OS Prometheus's main features are:
 1. Multi-dimensional data model with time series data identified by metric name and key/value pairs
 2. Flexible query language to leverage this dimensionality
@@ -25,6 +25,3 @@ DC/OS Prometheus's main features are:
 4. Time series collection happens via a pull model over HTTP
 5. Targets are discovered via service discovery or static configuration
 6. Multiple modes of graphing and dashboarding support
-
-
-
