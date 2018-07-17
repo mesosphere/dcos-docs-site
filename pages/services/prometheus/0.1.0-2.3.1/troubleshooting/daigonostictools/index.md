@@ -16,9 +16,7 @@ DC/OS clusters provide several tools for diagnosing problems with services runni
 
 The first step to diagnosing a problem is typically to take a look at the logs. Knowledge of the problem being diagnosed will help you to determine which task logs are relevant.
 
-As of this writing, the best and fastest way to view and download logs is via the Mesos UI at `<dcos-url>/mesos`. On the Mesos front page you will see two lists: A list of currently running tasks, followed by a list of completed tasks (whether successful or failed).
-
-The Sandbox link for one of these tasks shows a list of files from within the task itself. For example, here’s a sandbox view of a `prometheus-0-node` task from the above list:
+As of this writing, the best and fastest way to view and download logs is via the Mesos UI . On the Mesos front page you will see two lists: A list of currently running tasks, followed by a list of completed tasks (whether successful or failed).
 
 If the task is based on a Docker image, this list will only show the contents of `/mnt/sandbox`, and not the rest of the filesystem. If you need to view filesystem contents outside of this directory, you will need to use `dcos task exec` or `nsenter`.
 
