@@ -15,12 +15,8 @@ Out-of-band configuration modifications are not supported. The service's core re
 - If a task crashes, it will be restarted with the configuration known to the scheduler, not one modified out-of-band.
 - If a configuration update is initiated, all out-of-band modifications will be overwritten during the rolling update.
 
-Prometheus also does not offer durable long-term storage, anomaly detection, automatic horizontal scaling and user management. 
+Prometheus also does not offer durable long-term storage, anomaly detection, automatic horizontal scaling and user management.
 Prometheus is not a dashboarding solution; it features a simple UI for experimentation with PromQL queries but relies on Grafana for dashboarding.
-
-## Pushgateway
-
-The Prometheus Pushgateway allows you to push time series from short-lived service-level batch jobs to an intermediary job which Prometheus can scrape. Pushgateway is out of scope in this release.
 
 ## Scaling in
 
@@ -41,8 +37,3 @@ When the service is deployed on a virtual network, the service may not be switch
 ## Task Environment Variables
 
 Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is possible to use these environment variables in ad hoc scripts (e.g., via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
-
-## Legacy User Support
-
-Legacy Authorized Users File is not supported.
-

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Uninstalling
-title: Uninstalling
+navigationTitle:  Uninstall
+title: Uninstall
 menuWeight: 40
 excerpt: Uninstalling DC/OS Prometheus Services
 featureMaturity:
@@ -58,5 +58,3 @@ dcos service --inactive | grep prometheus
 prometheus     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 ```
-
-

@@ -2,11 +2,10 @@
 
 packageName: prometheus
 serviceName: prometheus
-techName: Apache Prometheus
-techShortName: prometheus
+techName:  Prometheus
+techShortName: Prometheus
 
 # Values specific to certain templates:
 
 security:
   plaintext: ", \"allow_plaintext\": <true|false default false>"
-
