@@ -109,7 +109,7 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
 
 **Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 
-* Verify whether you can ping the DNS Forwarder (`ready.spartan`) [enterprise type="inline" size="small" /] or (`ready.dcos-net`) [oss type="inline" size="small" /]. If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
+* Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
 
     journalctl -flu dcos-net﻿⁠⁠⁠⁠
@@ -121,7 +121,7 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
     journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
     ```
 
-    - If you are able to ping `ready.spartan` [enterprise type="inline" size="small" /] or `ready.dcos-net` [oss type="inline" size="small" /], but not `leader.mesos` then review the Mesos master service logs by using this command: 
+    - If you are able to ping `ready.spartan`, but not `leader.mesos` then review the Mesos master service logs by using this command: 
 
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
