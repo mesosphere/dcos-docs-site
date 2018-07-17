@@ -1,35 +1,34 @@
 ---
 layout: layout.pug
 navigationTitle: Prometheus Remote Storage
-title: Prometheus Remote Storage to Influx db
+title: Prometheus Remote Storage to InfluxDB
 menuWeight: 25
-excerpt: Integrating prometheus with remote storage influx db
+excerpt: Integrating Prometheus with remote storage InfluxDB
 featureMaturity:
 enterprise: false
 ---
 
 # Remote Storage 
 
- DC/OS Prometheus local storage is not supposed to be a long term data storage, rather an ephemeral cache.
- The remote write and remote read features of Prometheus allow transparent sending and receiving of samples.
+DC/OS Prometheus local storage is not supposed to be long term data storage; rather, it is an ephemeral cache. The remote write and remote read features of Prometheus allow transparent sending and receiving of samples.
 
 ## Prometheus remote storage on Influx DB
 
-  Prometheus has support for a remote read and write API, which stores scraped data to other data storages. Writes get forwarded onto the remote store.
+Prometheus supports a remote read and write API, which stores scraped data to other data storages. Writes get forwarded onto the remote store.
 
 
-### prerequisite
+### Prerequisites
 
-  1. Install Influx DB 
-  2. Start Influx DB service
+  1. Install InfluxDB 
+  2. Start InfluxDB service
   3. Create user and password
-  3. Create db (where you would want prometheus metrics to be stored).
+  3. Create db (where you would want Prometheus metrics to be stored).
 
-### Integration with Influx db 
+### Integration with InfluxDB 
 
-  Once the Influx db servie up and running, following is the configuration required at the Prometheus end :
+  Once the InfluxDB service is up and running, the following configuration is required at the Prometheus end:
 
-Template :
+**Template:**
 
 ```
 # Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).
@@ -41,7 +40,7 @@ remote_read:
  - url: "http://<Public ip of influx server>:<influx service port>/api/v1/prom/read?u=<user>&p=<password>&db=<dbname>"Sample :# Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).
 ```
 
-Example : 
+**Example:**
 
 ```
 # Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).
@@ -53,4 +52,4 @@ remote_read:
  - url: "http://52.79.251.5:8086/api/v1/prom/read?u=<user>&p=<password>&db=prometheus_demo"
 ```
 
-Influx db listens at port number 8086, by default.
+InfluxDB listens at port number 8086, by default.
