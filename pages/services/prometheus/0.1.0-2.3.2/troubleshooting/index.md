@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Troubleshooting
+navigationTitle:
+excerpt:
 title: Troubleshooting
-menuWeight: 100
-excerpt: Troubleshooting DC/OS Prometheus issues
-featureMaturity:
-enterprise: false
+menuWeight: 70
+model: /services/prometheus/data.yml
+render: mustache
 ---
 
-The following topics address some common errors you may encounter while configuring or managing your DC/OS Prometheus Service.
+#include /services/include/troubleshooting.tmpl
