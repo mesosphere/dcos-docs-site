@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Install Spark using either the web interface or the DC/OS CLI
+
 title: Install and Customize
 menuWeight: 0
 featureMaturity:
@@ -36,7 +37,9 @@ You can also [install Spark via the DC/OS GUI](https://docs.mesosphere.com/1.9/u
 
 
 ## Spark CLI
+
 You can install the Spark CLI with this command. This is useful if you already have a Spark cluster running, but need the Spark CLI.
+
 
 **Important:** If you install Spark via the DC/OS GUI, you must install the Spark CLI as a separate step from the DC/OS CLI.
 
@@ -88,9 +91,7 @@ To use one of these distributions, select your Spark distribution from [here](ht
 
 For development purposes, you can install Spark on a local DC/OS cluster. For this, you can use [dcos-vagrant][16].
 
-1. Install DC/OS Vagrant:
-
-	Install a minimal DC/OS Vagrant according to the instructions [here][16].
+1. Install a minimal DC/OS Vagrant according to the instructions [here][16].
 
 1. Install Spark:
 
@@ -101,12 +102,14 @@ For development purposes, you can install Spark on a local DC/OS cluster. For th
 1. Run a simple Job:
 
    ```bash
-   dcos spark run --submit-args="--class org.apache.spark.examples.SparkPi https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 30"
+   dcos spark run --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com.s3.amazonaws.com/assets/spark/spark-examples_2.10-1.5.0.jar"
    ```
 
-**Note**: A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS Apache Spark.  For example, unless you have enough resources to start up a 5-agent cluster, you will not be able to install DC/OS HDFS, and you thus won't be able to enable the history server.
+
+**Note:** A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS Apache Spark.  For example, unless you have enough resources to start up a 5-agent cluster, you will not be able to install DC/OS HDFS, and you thus won't be able to enable the history server.
 
 Also, a limited resource environment can restrict how you size your executors, for example with `spark.executor.memory`.
+
 
 # Multiple Installations
 
@@ -173,7 +176,9 @@ If your cluster is setup for [strict](https://docs.mesosphere.com/1.10/security/
 
     ```
 
-    In Mesos parlance, a `service-account` is called a `principal` and so we use the terms interchangeably here.
+
+    In the Mesos parlance a `service-account` is called a `principal` and so we use the terms interchangeably here.
+
 
     **Note** You can verify your new service account using the following command.
 
@@ -275,6 +280,8 @@ Permissions can also be assigned through the UI.
 
 *   To run a job on a strict mode cluster, you must add the `principal` to the command line. For example:
 
+If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable:
+=======
 ```bash
 $ dcos spark run --verbose --submit-args=" \
 --conf spark.mesos.principal=<service-account> \
@@ -282,14 +289,6 @@ $ dcos spark run --verbose --submit-args=" \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
 ```
 
-If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable:
-
-```bash
-$ dcos spark run --verbose --submit-args="\
---conf spark.mesos.principal=<service-account> \
---conf spark.mesos.driverEnv.SPARK_USER=nobody \
---class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
-```
 
 
 
