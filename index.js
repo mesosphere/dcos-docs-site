@@ -13,7 +13,6 @@ const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const timer            = require('metalsmith-timer');
-const copy             = require('metalsmith-copy');
 
 // Local Plugins
 const reduce                  = require('./plugins/metalsmith-revision').reduce;
