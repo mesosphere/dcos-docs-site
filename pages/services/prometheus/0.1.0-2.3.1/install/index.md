@@ -51,8 +51,10 @@ global:
 
  evaluation_interval: 15s #Evaluate rules every 15 seconds. The default is every 1 minute
 
-#scrape_timeout is set to the global default (10s). "A scrape configuration containing exactly one endpoint to scrape:
- Here it's Prometheus itself"
+#scrape_timeout is set to the global default (10s). 
+
+#A scrape configuration containing exactly one endpoint to scrape:
+#Here it's Prometheus itself"
 
 scrape_configs:
 
@@ -78,9 +80,18 @@ alerting:
 ```
 
 ## Installing alert manager with base build :
-   
-By default, Prometheus will launch Prometheus server and to spin up with Alertmanager, you must ensure that you have the Alertmanager node count configuration set to 1. You must pass Alertmanager targets as endpoints to your Prometheus server as explained in [default configuration ]().
-   
+  
+   By default , prometheus will launch prometheus server and alert manager ,ensure node count of alert manager configuration set to 1 and alert manager endpoint target is present in prometheus configuration yml.                                                                            
+
+Default configuration includes alert manager as target in your prometheus yml configuration,as mentioned below :
+
+```
+#alert manager target sample , target field should have alert manager endpoint where you want to fire alerts from your prometheus server
+alerting:
+ alertmanagers:
+   - static_configs:
+     - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093']
+```
 ## Installing Prometheus without Alertmanager and pointing to Alertmanager launched with base build:
 
  To install Prometheus without Alertmanager, you must set the Alertmanager node count to 0. 
