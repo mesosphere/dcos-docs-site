@@ -43,7 +43,7 @@ const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 // Errors
 //
 
-if (!process.env.GIT_BRANCH && process.env.NODE_ENV != 'development') {
+if (!process.env.GIT_BRANCH && process.env.NODE_ENV !== 'development') {
   throw new Error('Env var GIT_BRANCH has not been set.');
 }
 
