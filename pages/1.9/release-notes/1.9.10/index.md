@@ -19,7 +19,7 @@ DC/OS 1.9.10 includes the following:
 
 # Issues Fixed in DC/OS 1.9.10
 
-- COPS-3445/MESOS-8830 - Fixed an issue where the Cassandra persistent volume data got wiped out under certain conditions.
+- COPS-3445/MESOS-8830 - Avoid Mesos agent from garbage-collecting persistent volumes.
 - DCOS_OSS-3602 - Fixed unstability issue: L4LB is unstable during deployment of new VIPS.
 
 # About DC/OS 1.9
