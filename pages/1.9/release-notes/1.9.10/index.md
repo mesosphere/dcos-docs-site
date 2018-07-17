@@ -1,35 +1,26 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes for 1.9.9
-title: Release Notes for 1.9.9
-menuWeight: 5
-excerpt: Release notes for DC/OS 1.9.9
+navigationTitle: Release Notes for 1.9.10
+title: Release Notes for 1.9.10
+menuWeight: 0
+excerpt: Release notes for DC/OS 1.9.10
 ---
 
-DC/OS 1.9.9 was released on July 10, 2018.
+DC/OS 1.9.10 was released on July 17, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.9/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-DC/OS 1.9.9 includes the following:
-
-- Updated to Mesos 1.2.3 ([change log](https://github.com/mesosphere/mesos/blob/dcos-mesos-mesosphere/1.2.x-nightly-cb79076/CHANGELOG)).
-- Updated to Marathon 1.4.11 ([change log](https://github.com/mesosphere/marathon/releases/tag/v1.4.11)).
+DC/OS 1.9.10 includes the following:
+- Updated to Mesos 1.2.3 ([change log](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.2.x-6e1adf7/CHANGELOG)).
+- Updated to Marathon 1.4.12 ([change log](https://github.com/mesosphere/marathon/releases/tag/v1.4.12)).
 - Updated to Metronome 0.3.5 ([change log](https://github.com/dcos/metronome/releases/tag/v0.3.5)).
 
-# Issues Fixed in DC/OS 1.9.9
+# Issues Fixed in DC/OS 1.9.10
 
-- COPS-2041/DCOS-21467 - DC/OS UI: Fixed labels reducer to accept empty strings.
-- COPS-3180 - Fixed odd exit behavior for tasks that use a volume mount (via rexray). [enterprise type="inline" size="small" /]
-- DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file. [enterprise type="inline" size="small" /]
-- DCOS-22171/DCOS-22184 - Admin Router DNS entry TTL is overwritten with 5 seconds. This fixes the issue of the `leader.mesos` Adminrouter Mesos state cache entry not being updated strictly within the expected 30 seconds. The faulty behavior led to delayed recognition of Mesos leader change by Adminrouter.
-- DCOS-22399/DCOS-22346 - DC/OS UI: Added privacy policy link to the login modal.
-- DCOS_OSS-847 - Customized `ip_detect_public_filename` in config.yaml. This fixes an issue where supplying a custom `ip-detect-public` script is not respected during the DC/OS installation.
-
-# Security Enhancements in DC/OS 1.9.9
-
-- DCOS-21557/DCOS_OSS-2367 - Updated cURL to version 7.59.
+- COPS-3445/MESOS-8830 - Fixed an issue where the Cassandra persistent volume data got wiped out under certain conditions.
+- DCOS_OSS-3602 - Fixed unstability issue: L4LB is unstable during deployment of new VIPS.
 
 # About DC/OS 1.9
 
