@@ -3,25 +3,20 @@ layout: layout.pug
 navigationTitle: Prometheus Federation
 title: Federation 
 menuWeight: 25
-excerpt: Configurating federation for prometheus
+excerpt: Configurating Federation for Prometheus
 featureMaturity:
 enterprise: false
 ---
 
 ## DC/OS Prometheus Federation:
-Federation allows for pulling aggregates up the hierarchy to a global Prometheus server. 
-External labels, metrics path and match fields are required in the default Prometheus configuration yml, to setup federation configuration.
+Federation allows you to pull aggregates up the hierarchy to a global Prometheus server. External labels, metrics path and match fields are required in the default Prometheus configuration yml, to set up federation configuration.
 
-**External labels** : Attach these labels when communicating with external systems.
-metrics path : default metrics path is /metrics , for federation it has to be changed to /federate.
-
-**match** : match[] here requests all job-level time series.
-
-**slave prometheus** : The prometheus sever from where data would get federated to global. It can be more than one.
-
-**global prometheus** : The prometheus server which will recieve data from slave prometheus server.
-
-**Template for global prometheus server configuration :**
+**External labels:** Attach these labels when communicating with external systems.
+**metrics path:** The default metrics path is /metrics. For federation, it should be changed to /federate.
+**match:** match[] here requests all job-level time series.
+**slave prometheus:** The Prometheus sever from which data would get federated to global. There can be more than one.
+**global prometheus:** The Prometheus server which will recieve data from slave Prometheus server.
+**Template for global prometheus server configuration:**
 
 ```
 # my global config
@@ -49,41 +44,15 @@ rule_files:
     - targets: ['Slave Prometheus endpoint1','Slave Prometheus endpoint2']
 ```
 
-**Use Case:   Simple cluster service implementation (Global Prometheus servers)**
+## Use Case: Simple cluster service implementation (Global Prometheus servers)
 
-Global prometheus Service : To federate data from two or more prometheus servers,we would need to launch  prometheus service as global prometheus service and pass Global prometheus server endpoints as target to slave prometheus service.
+Global prometheus Service: To federate data from two or more Prometheus servers, we must to launch the  Prometheus service as a Global Prometheus service and pass Global Prometheus server endpoints as targets to the `slave prometheus` service.
 
+To launch a Global Prometheus server, check the template given in the previous section.
 
-To launch global prometheus server check  above template given in above section.
-
-Note : global prometheus service will only help with federated data from other prometheus servers and would not be monitoring anything unlike other -prometheus server.
+**Note:** A Global Prometheus service will only help with federated data from other Prometheus servers and would not be monitoring anything, unlike another `-prometheus` server.
  
-Prometheus Service1, Prometheus Service2 : Cluster of two prometheus servers monitoring different targets and federating data to global prometheus servers.
+Prometheus Service1, Prometheus Service2: Cluster of two prometheus servers monitoring different targets and federating data to global prometheus servers.
 
-In case of standalone Prometheus server scrape path is default to /metrics,whereas in case of global Prometheus server scrape path is default to /federate, targets for global prometheus server are other prometheus services.  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+In case of a standalone Prometheus server, the default scrape path is `/metrics`, whereas in case of a Global Prometheus server the default scrape path is `/federate`; targets for a Global Prometheus server are other Prometheus services.  
 
