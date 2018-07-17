@@ -11,7 +11,7 @@ enterprise: false
 # Service Discovery configuration templates :
 Prometheus DC/OS offers the following service discovery mechanism: service discovery can be configured along with the default Prometheus configuration. You would use the following templates to pass along a default Prometheus configuration using the Prometheus yml.   
 
-1. Consul_sd_config
+## Consul_sd_config
 
 Consul SD configurations allow you to retrieve scrape targets from Consul's Catalog API. Finding targets happens in two stages.
 
@@ -41,7 +41,7 @@ The first relabel action says to keep processing only those targets which have a
 
 The second relabel action says to copy the service name from the `__meta_consul_service` label to the job label. This is done to take advantage of the default values for relabel actions, as a straight copy from one label to another is common.
 
-2. Dns_sd_condig
+## Dns_sd_condig
 
 A DNS-based service discovery configuration allows you to specify a set of DNS domain names which are periodically queried to discover a list of targets. This service discovery method only supports basic DNS A, AAAA and SRV record queries,
 
@@ -57,7 +57,7 @@ scrape_configs:
       port: 61091 # The port number used if the query type is not SRV.
 ```
 
-3. EC2_sd_config
+## EC2_sd_config
 
 EC2 SD configurations allow you to retrieve scrape targets from AWS EC2 instances.
 

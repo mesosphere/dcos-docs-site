@@ -321,5 +321,4 @@ Push a single sample into the group identified by {job="some_job"}:
 echo "some_metric 3.14" | curl --data-binary @- http://pushgateway.example.org:9091/metrics/job/some_job
 ```
 
-![PushGateway](img/pushg.png)
 [<img src="/services/prometheus/0.1.0-2.3.2/img/pushg.png" alt="PushGateway"/>](/services/prometheus/0.1.0-2.3.2/img/pushg.png)
