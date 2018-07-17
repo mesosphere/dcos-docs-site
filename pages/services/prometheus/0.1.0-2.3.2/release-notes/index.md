@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: false
 ---
 
-Release notes for Edge-LB.
+Release notes for Prometheus.
 
 # 0.1.0-2.3.2
 
