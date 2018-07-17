@@ -3,27 +3,17 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
-excerpt: Release Notes for version 0.1.0-2.3.1
+excerpt: Release Notes for version 0.1.0-2.3.2
 featureMaturity:
 enterprise: false
 ---
 
-This is the first release of Prometheus to Universe. Based on the latest stable release version of Prometheus, version 2.3.1, this installation is supported on DC/OS clusters running 1.10 and later.
+Release notes for Edge-LB.
 
-Released first version of Service Guide with following topics:
+# 0.1.0-2.3.2
 
-  - Overview
-  - Installing and Customizing
-  - Prometheus-federation
-  - Prometheus-remote-storage
-  - Deployment-best-practice
-  - Uninstalling
-  - Command-reference
-  - Connecting-clients
-  - Managing
-  - Prometheus-alerting-overview
-  - Visualization
-  - Troubleshooting
-  - Limitations
-  - Supported-versions
-  - Release-notes
+This is the first release of DC/OS Prometheus framework.
+
+* Prometheus v2.3.2, AlertManager v0.15.1, PushGateway v0.5.2
+* The framework provides options to provide the Prometheus, AlertManager and Rules configuration.
+* The default prometheus config scrapes DC/OS master, agents in the cluster and does Prometheus Self Monitoring.
