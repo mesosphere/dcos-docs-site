@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Prometheus Alerting Overview 
-title: Prometheus Alerting Overview
-menuWeight: 90
-excerpt: DC/OS Prometheus Alerting Overview 
+navigationTitle: Alerting Overview
+title:  Alerting Overview
+menuWeight: 25
+excerpt: DC/OS Prometheus Alerting Overview
 featureMaturity:
 enterprise: false
 ---
@@ -35,7 +35,7 @@ global:
   # The default SMTP From header field.
   [ smtp_from: <tmpl_string> ]
   # The default SMTP smarthost used for sending emails, including port number.
-  # Port number usually is 25, 
+  # Port number usually is 25,
   # Example: smtp.example.org:587
   [ smtp_smarthost: <string> ]
   # The default hostname to identify to the SMTP server.
@@ -45,7 +45,7 @@ global:
   [ smtp_auth_password: <secret> ]
   # SMTP Auth using PLAIN.
   [ smtp_auth_identity: <string> ]
-  # SMTP Auth using CRAM-MD5. 
+  # SMTP Auth using CRAM-MD5.
   [ smtp_auth_secret: <secret> ]
   # The default SMTP TLS requirement.
   [ smtp_require_tls: <bool> | default = true ]
@@ -94,11 +94,11 @@ scrape_configs:
        port: 61091    # All agent nodes are written regularly to discovery/agents.json
    file_sd_configs:
      - files: ['discovery/agents.json']
-     
+
 rule_files:
    # set of rule files to read alerting rules from
    -  'rules.yml'      
-   
+
 alerting:
  alertmanagers:
    - static_configs:
@@ -140,7 +140,7 @@ annotations:
 
 ### Slack
 
-  To configure Slack with Alertmanager, the Alertmanager uses the Incoming Webhooks feature of Slack. 
+  To configure Slack with Alertmanager, the Alertmanager uses the Incoming Webhooks feature of Slack.
 
   The default configuration below sends alerts to Slack to be configured under the Alertmanager configuration yml.
 
@@ -154,7 +154,7 @@ group_interval: 1mreceivers:
  - url: http://webhook.marathon.l4lb.thisdcos.directory:1234
 ```
 
-### PagerDuty 
+### PagerDuty
 To configure PagerDuty with Alertmanager :
 
 1. Create a service in PagerDuty, and obtain an integration key.
@@ -176,7 +176,7 @@ receivers:
 
 ### Email
   Here is a sample configuration for adding an email alert setup to the Alertmanager configuration yml.
- 
+
 ```
 GMAIL_ACCOUNT=me@example.com # Substitute your full gmail address here.
 GMAIL_AUTH_TOKEN=XXXX        # Substitute your app password
@@ -191,4 +191,3 @@ receivers:
     auth_identity: "$GMAIL_ACCOUNT"
     auth_password: "$GMAIL_AUTH_TOKEN"
 ```
-

@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 navigationTitle: Prometheus Federation
-title: Federation 
-menuWeight: 25
+title: Federation
+menuWeight: 35
 excerpt: Configurating Federation for Prometheus
 featureMaturity:
 enterprise: false
@@ -51,8 +51,7 @@ Global prometheus Service: To federate data from two or more Prometheus servers,
 To launch a Global Prometheus server, check the template given in the previous section.
 
 **Note:** A Global Prometheus service will only help with federated data from other Prometheus servers and would not be monitoring anything, unlike another `-prometheus` server.
- 
+
 Prometheus Service1, Prometheus Service2: Cluster of two prometheus servers monitoring different targets and federating data to global prometheus servers.
 
 In case of a standalone Prometheus server, the default scrape path is `/metrics`, whereas in case of a Global Prometheus server the default scrape path is `/federate`; targets for a Global Prometheus server are other Prometheus services.  
-

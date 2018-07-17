@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Visualization 
-title: Grafana and Prometheus Expression Browser 
-menuWeight: 90
+navigationTitle: Visualization
+title: Grafana and Prometheus Expression Browser
+menuWeight: 45
 excerpt: DC/OS Prometheus Service Expression Browser
 featureMaturity:
 enterprise: false
@@ -51,8 +51,8 @@ enterprise: false
 1. Click on **Home -> Dashboard-> New Dashboard -> Panel Title -> Edit**. Change the Panel Title and description.
 1. Under the "Metrics" tab, select your Prometheus data source (bottom right).
 1. Enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
-1. To format the legend names of time series, use the "Legend format" input. 
-    
+1. To format the legend names of time series, use the "Legend format" input.
+
 ### Prometheus Expression Browser
 
   The DC/OS Prometheus Service has an expression browser that may be accessed from outside the cluster. The expression browser is available at `/graph` on the Prometheus server, allowing you to enter any expression and see its result, either in a table or graphed over time.

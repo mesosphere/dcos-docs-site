@@ -19,14 +19,14 @@ By default, every Prometheus sample consumes 1-2 Bytes of storage. To plan a pro
 - Needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample
 
 For installation, the following combination is recommended for the Prometheus server and Alertmanager:
- 
-- Install Alertmanager with base\first build of framework. We recommend that you install the remaining framework without Alertmanager and the Alertmanager node count should be 0. 
+
+- Install Alertmanager with base\first build of framework. We recommend that you install the remaining framework without Alertmanager and the Alertmanager node count should be 0.
 - All the rest of the Prometheus servers should point to the same Alertmanager which was installed with your base\first build. To do this you must pass an Alertmanager endpoint as a target to your Prometheus servers. You can do this using your prometheus yml configuration.
 - Install global Prometheus when required. We recommend that you do not configure global Prometheus until you require data to be federated from other slave Prometheus servers.
 - To federate data from a Prometheus slave server to global Prometheus, slave Prometheus server endpoints must be passed as targets into the global Prometheus server using the Prometheus configuration yml.
-      
+
 ## Prerequisites
-   
+
 - If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS Prometheus Service. Only someone with `superuser` permission can create the service account.
   - To use `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/), you must have a service account.
   - In `permissive` security mode, a service account is optional.
@@ -51,7 +51,7 @@ global:
 
  evaluation_interval: 15s #Evaluate rules every 15 seconds. The default is every 1 minute
 
-#scrape_timeout is set to the global default (10s). 
+#scrape_timeout is set to the global default (10s).
 
 #A scrape configuration containing exactly one endpoint to scrape:
 #Here it's Prometheus itself"
@@ -71,16 +71,16 @@ scrape_configs:
 rule_files:
 # set of rule files to read alerting rules from
    -  'rules.yml'      
-   
+
 #Alert manager target sample , target field should have alert manager endpoint where you want to fire alerts from your prometheus server
 alerting:
  alertmanagers:
    - static_configs:
-     - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093'] 
+     - targets: ['alertmanager.prometheus.l4lb.thisdcos.directory:9093']
 ```
 
 ## Installing alert manager with base build :
-  
+
    By default , prometheus will launch prometheus server and alert manager ,ensure node count of alert manager configuration set to 1 and alert manager endpoint target is present in prometheus configuration yml.                                                                            
 
 Default configuration includes alert manager as target in your prometheus yml configuration,as mentioned below :
@@ -94,7 +94,7 @@ alerting:
 ```
 ## Installing Prometheus without Alertmanager and pointing to Alertmanager launched with base build:
 
- To install Prometheus without Alertmanager, you must set the Alertmanager node count to 0. 
+ To install Prometheus without Alertmanager, you must set the Alertmanager node count to 0.
  To point the Prometheus server to base\first build Alertmanger, you must pass alert manager endpoint as target for each of Prometheus services we run using the Prometheus configuration yml.
 
 Example:
@@ -128,7 +128,7 @@ When the above json configuration is passed to the `package install prometheus` 
    ```shell
    dcos package install prometheus --options=prometheus-other.json
    ```
-   
+
 You can install multiple instances of Prometheus on your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Prometheus named `prometheus-staging` and another named `prometheus-prod`, each with its own custom configuration.  After you have specified a custom name for your instance, it can be reached using `dcos prometheus` CLI commands or directly over HTTP as described below.
 
 **Note:** The service name cannot be changed after initial installation. Changing the service name would require installing a new instance of the service with the new name, then copying over any data as necessary to the new instance.
@@ -153,9 +153,9 @@ Prometheus DC\OS Mesos offers the following service discovery mechanism: service
 
 1. Consul_sd_config
 
-Consul SD configurations allow you to retrieve scrape targets from Consul's Catalog API. Finding targets happens in two stages. 
+Consul SD configurations allow you to retrieve scrape targets from Consul's Catalog API. Finding targets happens in two stages.
 
-- First, a service discovery method such as Consul returns potential targets with metadata. 
+- First, a service discovery method such as Consul returns potential targets with metadata.
 - Second, relabelling allows you to choose which of those targets you want to scrape, and how to convert the metadata into target labels.
 
 Let's say you wanted to monitor all services with a `prod` tag and use the Consul service name as the job label. Your scrape configuration would look like:
@@ -189,19 +189,19 @@ Default `dns sd` configuration in `dcos prometheus`:
 
 ```
 scrape_configs:
-- job_name: master-metrics #job name 
+- job_name: master-metrics #job name
   # All master nodes are available at master.mesos via their A record
   dns_sd_configs:
-    - names: ['master.mesos'] # A list of DNS domain names to be queried. 
+    - names: ['master.mesos'] # A list of DNS domain names to be queried.
       type: 'A' # The type of DNS query to perform.
-      port: 61091 # The port number used if the query type is not SRV. 
+      port: 61091 # The port number used if the query type is not SRV.
 ```
 
 3. EC2_sd_config
 
-EC2 SD configurations allow you to retrieve scrape targets from AWS EC2 instances. 
+EC2 SD configurations allow you to retrieve scrape targets from AWS EC2 instances.
 
-Template for EC2_sd_config: 
+Template for EC2_sd_config:
 
 ```
 # The information to access the EC2 API.

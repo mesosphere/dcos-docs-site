@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle: Prometheus Remote Storage
+navigationTitle: Remote Storage
 title: Prometheus Remote Storage to InfluxDB
-menuWeight: 25
+menuWeight: 40
 excerpt: Integrating Prometheus with remote storage InfluxDB
 featureMaturity:
 enterprise: false
 ---
 
-# Remote Storage 
+# Remote Storage
 
 DC/OS Prometheus local storage is not supposed to be long term data storage; rather, it is an ephemeral cache. The remote write and remote read features of Prometheus allow transparent sending and receiving of samples.
 
@@ -19,12 +19,12 @@ Prometheus supports a remote read and write API, which stores scraped data to ot
 
 ### Prerequisites
 
-  1. Install InfluxDB 
+  1. Install InfluxDB
   2. Start InfluxDB service
   3. Create user and password
   3. Create db (where you would want Prometheus metrics to be stored).
 
-### Integration with InfluxDB 
+### Integration with InfluxDB
 
   Once the InfluxDB service is up and running, the following configuration is required at the Prometheus end:
 
