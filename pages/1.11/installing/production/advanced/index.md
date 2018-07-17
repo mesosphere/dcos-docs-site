@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Using the Advanced Installer to create DC/OS clusters
 ---
 
-A DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view [nodes](/1.11/overview/concepts/#node) documenation for more information.
+A DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view [nodes](/1.11/overview/concepts/#node) documentation for more information.
 Using advanced installation method, you can package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
 
 # Advanced installation process
@@ -147,7 +147,7 @@ BEGIN { ec = 1 }
 # Create a fault domain detection script
 [/enterprise]
 
-By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, thereby requiring no changes to your `config.yaml` to enable this functionality. However, you must include a fault domain detection script named `fault-domain-detect` in your `/genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
+By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, thereby requiring no changes to your `config.yaml` to enable this functionality. However, you must include a fault domain detection script named `fault-domain-detect` in your `./genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
 
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
@@ -186,16 +186,23 @@ In the following instructions, we assume that you are using ZooKeeper for shared
     $6$rounds=656000$v55tdnlMGNoSEgYH$1JAznj58MR.Bft2wd05KviSUUfZe45nsYsjlEl84w34pp48A9U2GoKzlycm3g6MBmg4cQW9k7iY4tpZdkWy9t1
     ```
 
-## Create the configuration file
-1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and Google DNS resolvers. [enterprise type="inline" size="small" /]
-This template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and Google DNS resolvers. [oss type="inline" size="small" /]
+## Create the configuration 
+1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and cloud specific DNS resolvers. [enterprise type="inline" size="small" /]
+This template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and cloud specific DNS resolvers. [oss type="inline" size="small" /]
 
 If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
 
+List of private cloud DNS resolvers are:
+* AWS Private DNS Resolver: 169.254.169.253
+* GCP Private DNS Resolver: 169.254.169.254
+* Azure Private DNS Resolver: 168.63.129.16
+
+
 **Tips:**
 
-- If Google DNS is not available in your country, you can replace the Google DNS servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
+- If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
+- In AWS, or any other environment where you can not control a node's IP address, master_discovery needs to be set to use master_http_load_balancer, and a load balancer needs to be setup.
 
 [enterprise]
 ## Enterprise template
@@ -261,8 +268,8 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 **Important:**
 
-- Due to a cluster configuration issue with overlay networks, we currently recommend setting `enable_ipv6` to `false` in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. See [troubleshooting](/1.11/installing/ent/troubleshooting/) for more information.
+- Due to a cluster configuration issue with overlay networks, we currently recommend setting `enable_ipv6` to `false` in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP on all DC/OS nodes, with time synchronized. See [troubleshooting](/1.11/installing/ent/troubleshooting/) for more information.
 - If something goes wrong and you want to rerun your setup, use the cluster [uninstall][11] instructions.
 
 **Prerequisites**
@@ -273,7 +280,9 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 
 - Download and save the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
-
+ 
+ OR
+ 
 - Download and save the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) to your bootstrap node. This file is used to create your customized DC/OS build file. [oss type="inline" size="small" /]
 
     ```bash
