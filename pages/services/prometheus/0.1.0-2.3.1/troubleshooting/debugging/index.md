@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Debugging
 title: Debugging
 menuWeight: 101
-excerpt: Some common errors you might find
+excerpt: Commonly found configuration errors
 featureMaturity:
 enterprise: false
 ---
@@ -16,73 +16,66 @@ After a configuration change, the service may enter an unhealthy state. This com
 dcos prometheus --name=prometheus-dev plan show deploy
 ```
 
-DC/OS Prometheus logs can be seen at stderr and stdout logs , prometheus stderr and stout logs would be the first step to start debugging for any issues.
+DC/OS Prometheus logs can be seen at `stderr` and `stdout` logs. The Prometheus `stderr` and `stdout` logs would be the first step to start debugging for any issues.
 
-To access prometheus stderr and stdout logs refer Accessing logs section. 
+To access the Prometheus `stderr` and `stdout` logs, refer to the Accessing logs section below. 
 
-# Prometheus Connection issues
+# Prometheus connection issues
 
-If you see your target is down or you are not able to see the targets on prometheus expresssion browser:
+If you see that your target is down, or you are not able to see the targets on the Prometheus expresssion browser:
 
-1. First start looking at your prometheus yml config file , whether you had given the correct traget details with proper indentation.
+1. Look at your Prometheus yml config file, to see whether you have given the correct target details, with proper indentation.
+1. Verify that your targets are reachable
+1. Check the standard formatting with respect to syntax under target field.
 
-2. Verify your targets are reeachable
-
-3. Check the standard formatting with respect to syntax under target field.
-
-# Accessing Logs
+# Accessing logs
 
 Logs for the scheduler and all service nodes can be viewed from the DC/OS web interface.
 
-1.Scheduler logs are useful for determining why a node isn’t being launched (this is under the purview of the Scheduler).
+- Scheduler logs are useful for determining why a node isn’t being launched (this is under the purview of the Scheduler).
 
-2.Node logs are useful for examining problems in the service itself.
+- Node logs are useful for examining problems in the service itself.
 
-In all cases, logs are generally piped to files named stdout and/or stderr.
+In all cases, logs are piped to files named `stdout` and/or `stderr`.
 
 To view logs for a given node, perform the following steps:
 
-  1. Visit to access the DC/OS web interface.
-
-  2. Navigate to Services and click on the service to be examined (default prometheus).
-
-  3. In the list of tasks for the service, click on the task to be examined (scheduler is named after the service, nodes are each named e.g. node-<#>-server depending on their type).
-
-  4. In the task details, click on the Logs tab to go into the log viewer. By default, you will see stdout, but stderr is also useful. Use the pull-down in the upper right to select the file to be examined.
+  1. Access the DC/OS web interface.
+  1. Navigate to Services and click on the service to be examined (default Prometheus).
+  1. In the list of tasks for the service, click on the task to be examined. The scheduler is named after the service, so nodes are  named something like `node-<#>-server`, depending on their type.
+  1. In the task details, click on the **Logs** tab to go into the log viewer. By default, you will see `stdout`, but `stderr` is also useful. Use the pull-down in the upper right to select the file to be examined.
 
 You can also access the logs via the Mesos UI:
 
-  1. Visit <dcos-url>/mesos to view the Mesos UI.
-  2. Click the Frameworks tab in the upper left to get a list of services running in the cluster.
-  3. Navigate into the correct framework for your needs. The scheduler runs under marathon with a task name matching the service name (default prometheus). Service nodes run under a framework whose name matches the service name (default prometheus).
-  4. You should now see two lists of tasks. Active Tasks are tasks currently running, and Completed Tasks are tasks that have exited. Click the Sandbox link for the task you wish to examine.
-  5. The Sandbox view will list files named stdout and stderr. Click the file names to view the files in the browser, or click Download to download them to your system for local examination. Note that very old tasks will have their Sandbox automatically deleted to limit disk space usage.
+  1. Visit `<dcos-url>/mesos` to view the Mesos UI.
+  1. Click the **Frameworks** tab in the upper left to get a list of services running in the cluster.
+  1. Navigate into the correct framework for your needs. The scheduler runs under Marathon, with a task name matching the service name (default Prometheus). Service nodes run under a framework whose name matches the service name (default Prometheus).
+  1. You should now see two lists of tasks. Active Tasks are tasks that are currently running, and Completed Tasks are tasks that have exited. Click the Sandbox link for the task you wish to examine.
+  1. The Sandbox view will list files named `stdout` and `stderr`. Click the file names to view the files in the browser, or click **Download** to download them to your system for local examination. Note that very old tasks will have their Sandbox automatically deleted to limit disk space usage.
 
-# Accidentially deleted Marathon task but not service
+# Accidentally deleted Marathon task but not service
 
 A common user mistake is to remove the scheduler task from Marathon, which doesn’t do anything to uninstall the service tasks themselves. If you do this, you have two options:
 
 ## Uninstall the rest of the service
 
-If you really wanted to uninstall the service, you just need to complete the normal package uninstall steps described under  Uninstall.
+If you really wanted to uninstall the service, you just need to complete the normal package uninstall steps described under Uninstall.
 
 ## Recover the Scheduler
 
-If you want to bring the scheduler back, you can do a dcos package install using the options that you had configured before. This will re-install a new scheduler that should match the previous one (assuming you got your options right), and it will resume where it left off. To ensure that you don’t forget the options your services are configured with, we recommend keeping a copy of your service’s options.json in source control so that you can easily recover it later.
+If you want to bring the scheduler back, you can do a `dcos package install` using the options that you had configured before. This will re-install a new scheduler that should match the previous one, and it will resume where it left off. To ensure that you don’t forget the options your services are configured with, we recommend keeping a copy of your service’s `options.json` in source control so that you can easily recover it later.
 
 # ‘Framework has been removed’
 
 Long story short, you forgot to run janitor.py the last time you ran the service. See Uninstall for steps on doing that. In case you’re curious, here’s what happened:
 
-1. You ran dcos package prometheus --app-id prometheus. This destroyed the scheduler and its associated tasks, but didn’t clean up its reserved resources.
-
-2. Later on, you tried to reinstall the service. The scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by janitor.py. The scheduler tried to re-register using that framework ID.
-
-3. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
+1. You ran `dcos package prometheus --app-id prometheus`. This destroyed the scheduler and its associated tasks, but didn’t clean up its reserved resources.
+1. Later on, you tried to reinstall the service. The scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by `janitor.py`. The scheduler tried to re-register using that framework ID.
+1. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
 
 # Stuck deployments
 
-You can sometimes get into valid situations where a deployment is being blocked by a repair operation or vice versa. For example, say you were rolling out an update to a 500 node prometheus cluster. The deployment gets paused at node #394 because it’s failing to come back, and, for whatever reason, we don’t have the time or the inclination to pod replace it and wait for it to come back.
+You can sometimes get into valid situations where a deployment is being blocked by a repair operation or vice versa. For example, say you were rolling out an update to a 500 node Prometheus cluster. The deployment gets paused at node #394 because it’s failing to come back, and, for whatever reason, we don’t have the time or the inclination to pod replace it and wait for it to come back.
 
 In this case, we can use plan commands to force the Scheduler to skip node #394 and proceed with the rest of the deployment:   
 
@@ -112,7 +105,7 @@ In this case, we can use plan commands to force the Scheduler to skip node #394 
   "message": "Received cmd: forceComplete"
   }
   ```
-After forcing the node-394:[node] step, we can then see that the Plan shows it in a COMPLETE state, and that the Plan is proceeding with node-395:
+After forcing the node-394:[node] step, we can then see that the plan shows it in a COMPLETE state, and that the plan is proceeding with node-395:
 
   ```shell
   dcos prometheus plan status deploy
@@ -173,5 +166,5 @@ Now, we see that the step is again marked as PENDING as the Scheduler again atte
   ```
 This example shows how steps in the deployment Plan (or any other Plan) can be manually retriggered or forced to a completed state by querying the Scheduler. This doesn’t come up often, but it can be a useful tool in certain situations.
 
-Note: The dcos plan commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that isn’t the same one we were expecting (but which had the same name).
+**Note:** The `dcos plan` commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that isn’t the same one we were expecting (but which had the same name).
 
