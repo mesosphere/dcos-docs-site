@@ -32,16 +32,16 @@ The [Marathon `env` variable][1] can also be updated by specifying a JSON file i
 First, save the existing environment variables to a file:
 
 ```bash
-dcos marathon app show test-app | jq .env >env_vars.json
+dcos marathon app show test-app | jq '{env}' > env_vars.json
 ```
 
 The file will look like this:
 
 ```json
-{ "SCHEDULER_DRIVER_PORT": "25501", }
+{ "env" : { "SCHEDULER_DRIVER_PORT" : "25501" } }
 ```
 
-Now edit the `env_vars.json` file. Make the JSON a valid object by enclosing the file contents with `{ "env" :}` and add your update:
+Now edit the `env_vars.json` file and add your updated env variables:
 
 ```json
 { "env" : { "APISERVER_PORT" : "25502", "SCHEDULER_DRIVER_PORT" : "25501" } }
