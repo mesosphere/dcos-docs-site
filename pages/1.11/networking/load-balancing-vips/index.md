@@ -29,7 +29,7 @@ When you launch a set of tasks, DC/OS distributes them to a set of nodes in the 
 ### Requirements
 
 -  Do not firewall traffic between the nodes (allow all TCP/UDP).
--  Do not change `ip_local_port_range`.
+-  Do not change the default value of `net.ipv4.ip_local_port_range` sysctl parameter. It should be in the range of 32768 to 60999.
 -  You must use a supported [operating system](/1.11/installing/oss/custom/system-requirements/).
 
 #### Persistent Connections
