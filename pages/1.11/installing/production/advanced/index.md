@@ -13,9 +13,9 @@ Using advanced installation method, you can package the DC/OS distribution yours
 
  The following steps are required to install DC/OS clusters using advanced installers.
 
-*   Configure Bootstrap node
-*   Install DC/OS on Master node
-*   Install DC/OS on Agent node
+1. Configure Bootstrap node
+2. Install DC/OS on Master node
+3. Install DC/OS on Agent node
 
 ![Advanced Installation Process](/1.11/img/advanced-installer.png)
 
@@ -301,7 +301,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 At this point your directory structure should resemble:
 
-    ├── dcos-genconf.c9722490f11019b692-cb6b6ea66f696912b0.tar
+    ├── dcos-genconf.<HASH>.tar
     ├── dcos_generate_config.ee.sh
     ├── genconf
     │   ├── config.yaml
