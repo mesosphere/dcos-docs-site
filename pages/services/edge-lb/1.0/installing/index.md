@@ -31,11 +31,11 @@ The Edge-LB package is composed of two components: the Edge-LB API server and th
 2. Once you have the links to the artifacts for the Edge-LB API server and Edge-LB pool repos, use the following command to add them to the universe package repository:
 
 ```bash
-dcos package repo add --index=0 edgelb \ https://<insert download link>/stub-universe-edgelb.json
+dcos package repo add --index=0 edgelb  https://<insert download link>/stub-universe-edgelb.json
 ```
 
 ```bash
-dcos package repo add --index=0 edgelb-pool \ https://<insert download link>/stub-universe-edgelb-pool.json
+dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-universe-edgelb-pool.json
 ```
 
 [enterprise]
