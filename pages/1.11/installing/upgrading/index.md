@@ -104,7 +104,7 @@ Choose your desired security mode and then follow the applicable upgrade instruc
 - [Installing DC/OS 1.11 in permissive mode](#permissive)
 - [Installing DC/OS 1.11 in strict mode](#strict)
 
-#### Installing DC/OS 1.11 without changing security mode 
+#### <a name="current-security"></a>Installing DC/OS 1.11 without changing security mode 
 This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
@@ -128,7 +128,7 @@ This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11 without changing the 
 
 6.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
-#### Installing DC/OS 1.11 in permissive mode 
+#### <a name="permissive"></a>Installing DC/OS 1.11 in permissive mode 
 This procedure upgrades to DC/OS 1.11 in [permissive security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 **Prerequisite:**
@@ -153,7 +153,7 @@ To update a cluster from disabled security to permissive security, complete the 
 
 4.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
-#### Installing DC/OS 1.11 in strict mode 
+#### <a name="strict"></a>Installing DC/OS 1.11 in strict mode 
 This procedure upgrades to DC/OS 1.11 in security strict [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
