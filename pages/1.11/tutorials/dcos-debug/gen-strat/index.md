@@ -11,7 +11,7 @@ menuWeight: 21
 
 # General Strategy: Debugging Application Deployment on DC/OS
 
-Now that we have a [toolset defined for debugging applications on DC/OS](#tools), let us consider a step-by-step general troubleshooting strategy for actually implementing these tools in a application debugging scenario. Once we have gone over this general strategy, we will consider a few concrete scenarios of how to apply this strategy in the [practice section](/1.11/tutorials/dcos-debug/scenarios/).
+Now that we have defined a [toolset for debugging applications on DC/OS](#tools), let us consider a step-by-step general troubleshooting strategy for actually implementing these tools in a application debugging scenario. Once we have gone over this general strategy, we will consider a few concrete scenarios of how to apply this strategy in the [practice section](/1.11/tutorials/dcos-debug/scenarios/).
 
 Beyond considering any information special to your scenario, a reasonable approach to debugging an application deployment issue is to apply [our debugging tools](#tools) in the following order:
 
