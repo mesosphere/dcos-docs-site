@@ -19,7 +19,7 @@ DC/OS 1.10.8 includes the following:
 
 # Issues Fixed in DC/OS 1.10.8
 
-- COPS-1840/DCOS_OSS-3793 - Change Admin Router (nginx) log access logs with the daemon facility.
+- COPS-1840/DCOS_OSS-3793 - Change Admin Router(nginx) log to access logs with the daemon facility.
 - COPS-3180/DCOS-24373 - Fix odd exit behavior for tasks that use a volume mount (via rexray). [enterprise type="inline" size="small" /]
 - COPS-3445/MESOS-8830 - Prevent Mesos agents from garbage-collecting persistent volumes.
 - DCOS-18597/DCOS_OSS-3556 - Improve root Marathon support for post-installation configuration of flags and JVM settings. [enterprise type="inline" size="small" /]
@@ -32,7 +32,6 @@ DC/OS 1.10.8 includes the following:
 # Notable Changes in DC/OS 1.10.8
 
 - DCOS_OSS-3597 - Update REX-Ray version to [0.11.2](https://github.com/rexray/rexray/releases/tag/v0.11.2)
-
 
 # About DC/OS 1.10
 
