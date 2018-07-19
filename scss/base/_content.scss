@@ -11,6 +11,9 @@ $sections-size: 20%;
     flex: 1;
     width: 100%;
   }
+  &__404 {
+    margin-bottom: -160px;
+  }
   &__header {
     z-index: 10;
     &__row {
