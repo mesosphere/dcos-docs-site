@@ -88,7 +88,8 @@ mixin renderSidebarFooter()
       a(href='https://mesosphere.com/privacy/') Privacy Policy
     a(class='sidebar__footer-copyright', href='https://mesosphere.com/')!= copyright
 
-section(class='sidebar')
-  +renderSidebarHeader()
-  +renderSidebarNav()
-  +renderSidebarFooter()
+div(class='layout__sidebar layout__drawer')
+  section(class='sidebar')
+    +renderSidebarHeader()
+    +renderSidebarNav()
+    +renderSidebarFooter()
