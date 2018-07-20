@@ -30,7 +30,7 @@ Beyond considering any information special to your scenario, a reasonable approa
 
 Start by examining the [DC/OS GUI](#dcos-ui) (or use the CLI) to [check the status](/latest/deploying-services/task-handling/) of the task. If the task has an associated [health check](/latest/deploying-services/creating-services/health-checks/), it is also a good idea to check the task’s health status.
 
-If it might be applicable, check the [Mesos GUI](/1.11/tutorials/dcos-debug/tools/#mesos-ui) or [Exhibitor/ZooKeeper GUI](/1.11/tutorials/dcos-debug/tools/#zoo-ui) for potentially relevant debugging information there.
+If it could be relevant, check the [Mesos GUI](/1.11/tutorials/dcos-debug/tools/#mesos-ui) or [Exhibitor/ZooKeeper GUI](/1.11/tutorials/dcos-debug/tools/#zoo-ui) for potentially relevant debugging information there.
 
 <a name="task-strat"></a>
 
