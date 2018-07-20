@@ -6,16 +6,16 @@ menuWeight: 10
 excerpt: Using the Advanced Installer to create DC/OS clusters
 ---
 
-A DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view [nodes](/1.11/overview/concepts/#node) documentation for more information.
+A DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view [nodes](/1.11/overview/concepts/#node) documenation for more information.
 Using advanced installation method, you can package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
 
 # Advanced installation process
 
  The following steps are required to install DC/OS clusters using advanced installers.
 
-1. Configure Bootstrap node
-2. Install DC/OS on Master node
-3. Install DC/OS on Agent node
+*   Configure Bootstrap node
+*   Install DC/OS on Master node
+*   Install DC/OS on Agent node
 
 ![Advanced Installation Process](/1.11/img/advanced-installer.png)
 
@@ -110,14 +110,16 @@ In this step, an IP detection script is created. This script reports the IP addr
 
         In this example, we assume that the Mesos master has an IP address of `172.28.128.3`. You can use any language for this script. Your Shebang line must be pointed at the correct environment for the language used and the output must be the correct IP address.
 
-[enterprise type="inline" size="small" /]
+        [enterprise type="inline" size="small" /]
 
-    #!/usr/bin/env bash
-    set -o nounset -o errexit
-    MASTER_IP=172.28.128.3
-    echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
+```bash
+#!/usr/bin/env bash
+set -o nounset -o errexit
+MASTER_IP=172.28.128.3
+echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
+```
 
-[oss type="inline" size="small" /]
+        [oss type="inline" size="small" /]
 
 ```bash
 #!/usr/bin/env bash
@@ -187,16 +189,13 @@ In the following instructions, we assume that you are using ZooKeeper for shared
     ```
 
 ## Create the configuration 
-1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and cloud specific DNS resolvers. [enterprise type="inline" size="small" /]
+1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. 
+
+The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and cloud specific DNS resolvers. [enterprise type="inline" size="small" /]
+
 This template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and cloud specific DNS resolvers. [oss type="inline" size="small" /]
 
 If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
-
-List of private cloud DNS resolvers are:
-* AWS Private DNS Resolver: 169.254.169.253
-* GCP Private DNS Resolver: 169.254.169.254
-* Azure Private DNS Resolver: 168.63.129.16
-
 
 **Tips:**
 
@@ -269,7 +268,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 **Important:**
 
 - Due to a cluster configuration issue with overlay networks, we currently recommend setting `enable_ipv6` to `false` in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP on all DC/OS nodes, with time synchronized. See [troubleshooting](/1.11/installing/ent/troubleshooting/) for more information.
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP on all DC/OS nodes with time synchronized. See [troubleshooting](/1.11/installing/ent/troubleshooting/) for more information.
 - If something goes wrong and you want to rerun your setup, use the cluster [uninstall][11] instructions.
 
 **Prerequisites**
@@ -278,11 +277,12 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 *   A `genconf/license.txt` file containing your DC/OS Enterprise license. [enterprise type="inline" size="small" /]
 *   A `genconf/ip-detect` script.
 
+**Note:** The term `dcos_generate_config file` refers to either `dcos_generate_config.ee.sh` or `dcos_generate_config.sh` based on your requirement to configure Enterprise or Open Source version. 
 
 - Download and save the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
- 
- OR
- 
+
+   OR
+
 - Download and save the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) to your bootstrap node. This file is used to create your customized DC/OS build file. [oss type="inline" size="small" /]
 
     ```bash
@@ -292,8 +292,10 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 1.  From the bootstrap node, run the DC/OS installer shell script to generate a customized DC/OS build file. The setup script extracts a Docker container that uses the generic DC/OS install files to create customized DC/OS build files for your cluster. The build files are output to `./genconf/serve/`.
 
-  **Tip:**  
-     - You can view all of the automated command line installer options with the `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /] or `dcos_generate_config.sh --help` flag. [oss type="inline" size="small" /]
+    **Tip:** You can view all of the automated command line installer options with:
+    * `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /]  OR 
+    * `dcos_generate_config.sh --help` flag. [oss type="inline" size="small" /]
+
 
 [enterprise type="inline" size="small" /]
 
@@ -301,7 +303,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 At this point your directory structure should resemble:
 
-    ├── dcos-genconf.<HASH>.tar
+    ├── dcos-genconf.c9722490f11019b692-cb6b6ea66f696912b0.tar
     ├── dcos_generate_config.ee.sh
     ├── genconf
     │   ├── config.yaml
@@ -321,7 +323,7 @@ At this point your directory structure should resemble:
         │   ├── config.yaml
         │   ├── ip-detect
     
-   **Tip:** 
+   
    - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
 
 2.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
@@ -330,36 +332,34 @@ At this point your directory structure should resemble:
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
     ```
 
-3.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file.
+3.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file:
 
-     **Tip:**
-      - Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
-
-   1.  SSH to your master nodes.
+    * SSH to your master nodes.
 
         ```bash
         ssh <master-ip>
         ```
-
-   2.  Make a new directory and navigate to it.
+    * Make a new directory and navigate to it.
 
         ```bash
         mkdir /tmp/dcos && cd /tmp/dcos
         ```
 
-   3.  Download the DC/OS installer from the NGINX Docker container, where `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`.
+    * Download the DC/OS installer from the NGINX Docker container, where `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`.
 
         ```bash
         curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
         ```
 
-   4.  Run the following command to install DC/OS on your master nodes.
+    * Run the following command to install DC/OS on your master nodes.
 
         ```bash
         sudo bash dcos_install.sh master
         ```
 
-4.  <A name="slaveinstall"></A> Run the following commands on each of your agent nodes to install DC/OS using your custom build file.
+    **Tip:** Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
+
+4.  <A name="slaveinstall"></A> Run the following commands on each of your agent nodes to install DC/OS using your custom build file:
 
      * SSH to your agent nodes.
 
@@ -397,12 +397,12 @@ At this point your directory structure should resemble:
 
 5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
-    **Tip:** This process can take about 10 minutes. During this time you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
+    **Tip:** This process can take about 10 minutes. During this time, you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
 ![Exhibitor for ZooKeeper][4]
 
 
-When the status icons are green, you can access the DC/OS web interface.
+   When the status icons are green, you can access the DC/OS web interface.
 
 6.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting][11] documentation.
 
