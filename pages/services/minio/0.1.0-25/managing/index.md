@@ -336,8 +336,29 @@ The Minio restore will be performed using two sidecar tasks:
 
 [<img src="../service/Restore.png" alt="Restore" width="800"/>](../service/Restore.png)
 
-   _Figure 1. - Restoring the data
+   _Figure 2. - Restoring the data
    
 Users can execute Restore task by launching the restore plan. This plan would execute all the two aforementioned tasks serially. 
+
+### Recover
+
+The DC/OS Minio Service allows you to heal disks, buckets and objects on minio server.
+
+This plan can be executed with the following command:
+```shell
+{
+ dcos minio --name=<service_name> plan start <plan_name>
+}
+```
+The Minio recover plan will be performed using below mentioned task:
+
+1. `Recover Task` -  Recover task is responsible to heal the whole disk in case of node killed or node failure. A Recover task will run the ‘mc heal’ command.
+
+[<img src="../service/Recover.png" alt="Recover" width="800"/>](../service/Recover.png)
+
+   _Figure 2. - Recovering the disk
+   
+Users can execute Recover task by launching the recover plan. This plan would execute all the aforementioned tasks serially. 
+
 
 
