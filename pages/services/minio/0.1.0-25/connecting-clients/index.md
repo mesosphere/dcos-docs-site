@@ -51,3 +51,45 @@ The response, for both the CLI and the REST API, is as follows.
 This JSON array contains a list of valid nodes that you can use to connect to the minio cluster. To ensure availability, it is best to specify multiple nodes in your configuration. Use the VIP to address any one of the Minio nodes in the cluster.
 
 When Transport Layer Security (TLS) is enabled, an endpoint named `node-tls` should also be listed. To verify a TLS connection from a client, the DC/OS trust bundle with a CA certificate is required.
+
+## Accessing the Minio UI with Edge-LB configuration
+
+### Assumptions
+    - Minio is installed on DCOS without TLS and Kerberos
+    - Edge-LB is installed with service account and service account secret in strict mode
+
+### Steps
+
+For Edge-LB pool configuration:
+  1. Add repo of Edge-LB-aws:
+  ```shell
+  dcos package repo add --index=0 edgelb-aws \ 
+https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb/stub-universe-edgelb.json 
+  ```
+  2. Add repo of Edge-LB-Pool-aws:
+  ```shell
+  dcos package repo add --index=0 edgelb-pool-aws \ 
+https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-pool/stub-universe-edgelb-pool.json
+  ```  
+  3. Install the Edge-LB:
+  ```shell
+  dcos package install edgelb --yes
+  ``` 
+  4. Create the configuration JSON file with required parameters to access Minio:
+
+  Example without TLS and Kerberos:
+
+  ```shell
+  ```
+  Example with TLS and Kerberos:
+
+  ```shell
+  ```
+  5. Create `edge-pool` using the JSON file created in the preceding:
+  ```shell
+  dcos edgelb create edgelb-pool-config.json
+  ```    
+  6. Access Minio:
+  ```shell
+  http://<Public IP of the Public Node of the cluster>>:9001/minio
+  ```      
