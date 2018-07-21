@@ -356,7 +356,7 @@ The Minio recover plan will be performed using below mentioned task:
 
 [<img src="../service/Recover.png" alt="Recover" width="800"/>](../service/Recover.png)
 
-   _Figure 2. - Recovering the disk
+   _Figure 1. - Recovering the disk
    
 Users can execute Recover task by launching the recover plan. This plan would execute all the aforementioned tasks serially. 
 
