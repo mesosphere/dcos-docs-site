@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Production Installation Options
 navigationTitle: Production Installation
-menuWeight: 15
+menuWeight: 10
 excerpt: Production Installation for fully functional clusters
 ---
 
