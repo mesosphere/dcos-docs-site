@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Troubleshooting
 title: Troubleshooting
-menuWeight: 35
+menuWeight: 30
 excerpt: Troubleshooting DC/OS installation issues
 ---
 

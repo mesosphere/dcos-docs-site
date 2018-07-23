@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Node and Cluster Health Checks
 title: Node and Cluster Health Checks
-menuWeight: 30
+menuWeight: 20
 excerpt: Using health checks with your DC/OS cluster
 ---
 

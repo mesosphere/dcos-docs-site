@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  High Availability
 title: High Availability
-menuWeight: 30
+menuWeight: 15
 excerpt: Using the high-availability features in DC/OS
 ---
 

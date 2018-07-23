@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
-menuWeight: 30
+menuWeight: 25
 excerpt: Frequently asked questions about installing DC/OS
 ---
 

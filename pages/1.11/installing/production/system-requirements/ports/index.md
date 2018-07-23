@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Ports
 navigationTitle: Ports
-menuWeight: 20
+menuWeight: 10
 excerpt: Making sure ports are available for installation
 ---
 

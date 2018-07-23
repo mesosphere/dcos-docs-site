@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Upgrading
 title: Upgrading
-menuWeight: 25
+menuWeight: 20
 excerpt: Upgrading a DC/OS cluster
 ---
 
