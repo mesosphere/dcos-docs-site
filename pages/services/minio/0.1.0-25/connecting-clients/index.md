@@ -80,6 +80,53 @@ https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-p
   Example without TLS and Kerberos:
 
   ```shell
+  {
+  "apiVersion": "V2",
+  "name": "minio",
+  "count": 1,
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 9001,
+        "protocol": "HTTP",
+        "linkBackend": {
+          "defaultBackend": "miniodemo"
+        }
+      },
+      {
+        "bindPort": 9000,
+        "protocol": "HTTP",
+        "linkBackend": {
+          "defaultBackend": "minio"
+        }
+      }
+    ],
+    "backends": [
+     {
+      "name": "miniodemo",
+      "protocol": "HTTP",
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "miniod.miniodemo.l4lb.thisdcos.directory",
+          "port": 9001
+        }
+      }]
+    },
+    {
+      "name": "minio",
+      "protocol": "HTTP",
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "minio.marathon.l4lb.thisdcos.directory",
+          "port": 9000
+        }
+      }]
+   }
+   ]
+  }
+}
   ```
   Example with TLS and Kerberos:
 
