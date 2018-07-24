@@ -27,8 +27,8 @@ Use the following local installation options.
 - The [Vagrant installer](https://github.com/dcos/dcos-vagrant/). 
 - The [Docker installer](https://github.com/dcos/dcos-docker/).
  
-## Trial  Installation 
-The trial installation method is used for fast demos and POCs. This method was previously called as cloud installation.
+## Cloud  Installation 
+The cloud installation method is used for fast demos and POCs. 
 
 DC/OS CloudFormation templates are intended for reference only and are not recommended for production use, due to the following limitations:
 - CloudFormation does not allow for coordinated zero-downtime in-place updates within Auto Scaling groups.
@@ -42,7 +42,13 @@ The following methods are used to install DC/OS:
 - Provision DC/OS on Azure: Install DC/OS cluster on Azure by using the Azure Resource Manager templates.
 - Provision DC/OS on Google Cloud Platform (GCE): Install DC/OS cluster on Google Compute Engine (GCE) by using installation scripts. Upgrades are not supported with this installation method.
  
- ** Note:** The recommended way to install production ready DC/OS that can be upgraded in-place is to use the Advanced Installer.
+ ** Note:** The recommended way to install production ready DC/OS that can be upgraded in-place is to use the [Advanced Installer](/1.11/installing/production/deploying-dcos/installation/).
+
+## On-Premise Installation
+The on-premise installation method is based on dcos labs. The different types of on-premise installation method are:
+- Using Ansible
+- Using Chef
+- Using Puppet
 
 ## Production Installation
 The production installation method is a flexible way to configure and install DC/OS on a cluster. This method was previously called as custom installation.

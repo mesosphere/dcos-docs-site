@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Ports
 navigationTitle: Ports
-menuWeight: 10
+menuWeight: 20
 excerpt: Making sure ports are available for installation
 ---
 
@@ -25,10 +25,10 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
 | 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master [enterprise type="inline" size="small" /] | 
 | 61091 | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
-| 61420 | Erlang Port Mapping Daemon (EPMD) | `dcos-epmd.service` | agent/master | agent/master |
+| 61420 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 | 62053 | DNS Forwarder (Spartan) | `dcos-spartan.service` | agent/master | agent/master [enterprise type="inline" size="small" /] | 
-| 62080 | Navstar | `dcos-navstar.service` | agent/master | agent/master |
-| 62501 | DNS Forwarder (Spartan) | `dcos-spartan.service` | agent/master | agent/master |
+| 62080 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
+| 62501 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 | 62502 | Navstar | `dcos-navstar.service` | agent/master | agent/master [enterprise type="inline" size="small" /] | 
 
 ### UDP
@@ -58,7 +58,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 7070  | DC/OS Package Manager (Cosmos) | `dcos-cosmos.service` | localhost| localhost(master) |
 | 8080  | Marathon | `dcos-marathon.service` | agent/master | master |
 | 8101  | DC/OS Identity and Access Manager | `dcos-bouncer.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
-| 8123  | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master |
+| 8123  | Mesos DNS | `dcos-mesos-dns.service` | localhost | localhost |
 | 8181  | Exhibitor and ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
 | 8200  | Vault | `dcos-vault.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
 | 8443  | Marathon SSL | `dcos-marathon.service` | agent/master | master |
@@ -70,7 +70,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 15101 | Marathon libprocess | `dcos-marathon.service` | master | agent/master |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`| master | agent/master |
 | 61053 | Mesos DNS | `dcos-net.service` | agent/master | master [oss type="inline" size="small" /] | 
-| 61430 | DC/OS Net | `dcos-net.service` | agent/master | master |
+| 61430 | DC/OS Net | `dcos-net.service` | agent/master | master [oss type="inline" size="small" /]|
 | 62500 | DC/OS Network Metrics | `dcos-networking_api.service` | master | master [enterprise type="inline" size="small" /] |
 | Ephemeral | DC/OS Component Package Manager (Pkgpanda) | `dcos-pkgpanda-api.service` | None | None |
 
