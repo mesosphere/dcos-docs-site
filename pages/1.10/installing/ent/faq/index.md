@@ -76,13 +76,17 @@ Next, we load the data into the new database.
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) --database=iam_new < ~/iam-backup.sql
 ```
 
-With the backup data loaded into the `iam_new` database, we now need to rename the `iam` database to `iam_old`. *After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.*
+With the backup data loaded into the `iam_new` database, we now need to rename the `iam` database to `iam_old`.
+
+*NOTE:* After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.
 
 ```bash
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam RENAME TO iam_old"
 ```
 
-Finally we rename the `iam_new` database to `iam`. *After this command is issued, the IAM is available again. Requests to the IAM will once again succeed.*
+Finally, we rename the `iam_new` database to `iam`.
+
+*NOTE:* After this command is issued, the IAM is available again. Requests to the IAM will once again succeed.
 
 ```bash
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam_new RENAME TO iam"
