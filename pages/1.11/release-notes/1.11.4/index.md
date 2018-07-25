@@ -26,7 +26,7 @@ DC/OS 1.11.4 includes the following:
 - COPS-3132 - DC/OS UI: Increase disk space for Cassandra service.
 - COPS-3445/DCOS-39092/DCOS_OSS-2418 - Prevent Mesos agents from garbage-collecting persistent volumes.
 - DCOS-20053 - Fix Admin Router time-out issue.
-- DCOS_22048 - Improve resilience tests on master nodes.
+- DCOS-22458 - Tune health check time-outs.
 - DCOS-22804 - Use system integration test for workload bursting issue. 
 - DCOS-27982/DCOS-38599 - Fix mixed workload scaling issue.
 - DCOS-34596 - DC/OS IAM: Fix a regression, where a SAML identity provider metadata document containing multiple certificates stopped working after an upgrade. [enterprise type="inline" size="small" /]
