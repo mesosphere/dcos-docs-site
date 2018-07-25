@@ -59,7 +59,7 @@ Passwords and Internal Authentication keyFile can be manually defined at service
 
 #### Storage
 
-Currently storage engine cache sizes cannot be defined when using WiredTiger, InMemory or RocksDB as a storage engine.
+Currently storage engine cache sizes cannot be defined when using WiredTiger or InMemory storage engines.
 
 These storage engines will use their default logic to determine a cache size value, which is typically 50% of the container available memory.
 

@@ -19,7 +19,7 @@ The table below shows all limitations of the MongoDB service that are the result
 | Pod never scales-down after reducing 'count' | Scale-down support is blocked by this issue. | |
 | Configurable Service Account and Secret for Enterprise DC/OS Strict Security Mode | Add support for configurable Service Account and Service Account Secret for Enterprise DC/OS Strict Security Mode | |
 | Support Region/Zone awareness for Replica Sets | Currently regions/zones are unsupported. | |
-| Cannot set WiredTiger/InMemory or RocksDB cache size | Currently storage engine cache sizes use default sizing, in most cases this is 50% of memory | |
+| Cannot set WiredTiger/InMemory cache size | Currently storage engine cache sizes use default sizing, in most cases this is 50% of memory | |
 | Config: Memory swapiness | Currently the framework is unable to set Virtual Memory swapiness to a recommended value for MongoDB. | |
 | Config: XFS Formatting | Currently the framework is unable to enforce an XFS-based filesystem for storing MongoDB data. **We strongly recommend WiredTiger-based installations *(the default)* run on DC/OS agent nodes using the XFS filesystem only! We also suggest the EXT3 filesystem is avoided due to poor performance.** | |
 | Config: Transparent HugePages | Currently the framework is unable to set Transparent HugePages *(RedHat/Fedora/CentOS-only)* to a recommended value for MongoDB. **We recommend THP is disabled entirely on DC/OS agent nodes running this framework!** | |
