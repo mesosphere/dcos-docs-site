@@ -19,8 +19,12 @@ DC/OS 1.9.10 includes the following:
 
 # Issues Fixed in DC/OS 1.9.10
 
+- COPS-1840/DCOS_OSS-3793 - Change Admin Router(nginx) log to access logs with the daemon facility.
 - COPS-3445/MESOS-8830 - Prevent Mesos agents from garbage-collecting persistent volumes.
-- DCOS_OSS-3602 - Fixed instability issue: L4LB is unstable during deployment of new VIPS.
+- COPS-3368/MARATHON-8285 - Fix an issue where Marathon accepts an offer without deploying a service or logging a failure.
+- DCOS_OSS-2564 - Add runtime capabilities to a docker container.
+- DCOS_OSS-3602 - Fix instability issue: L4LB is unstable during deployment of new VIPS.
+
 
 # About DC/OS 1.9
 
