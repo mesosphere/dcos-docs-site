@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle:  Opt-Out
 excerpt: Disabling authentication for your cluster
 title: Opt-Out
-menuWeight: 7
-oss: true
+menuWeight: 20
 ---
 
 ## Authentication

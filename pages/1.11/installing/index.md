@@ -13,44 +13,15 @@ Some installation methods will configure your infrastructure for you, which resu
 
 For fully functional clusters on any infrastructure including on premise, public or private clouds follow the Production installation instructions.
 
-To test or demo DC/OS on Azure, AWS, GCE, Digital Ocean, or Packet follow the trial installation instructions. These clusters can not be upgraded and functionality may be limited. 
+To test or demo DC/OS on Azure, AWS, GCE, Digital Ocean, or Packet follow the cloud installation instructions. These clusters can not be upgraded and functionality may be limited. 
 
 DC/OS can be installed on any cluster of a physical or virtual machine. 
 
-# Types of installation methods
+# DC/OS Patching
 
-Use the following installation methods based on your requirement.
+A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a patch.
 
-## Local Installation
-The Local installation method is for first-time users or developers looking to build services or modify DC/OS. 
-Use the following local installation options.
-- The [Vagrant installer](https://github.com/dcos/dcos-vagrant/). 
-- The [Docker installer](https://github.com/dcos/dcos-docker/).
- 
-## Cloud  Installation 
-The cloud installation method is used for fast demos and POCs. 
 
-DC/OS CloudFormation templates are intended for reference only and are not recommended for production use, due to the following limitations:
-- CloudFormation does not allow for coordinated zero-downtime in-place updates within Auto Scaling groups.
-- CloudFormation does not allow for automated zero-downtime replacement of Auto Scaling groups.
-- Replacing DC/OS agent nodes requires manual data migration of local storage volumes for stateful services.
-- Updates of DC/OS on AWS CloudFormation have not been automated, validated, or documented.
-- Modified CloudFormation templates are not supported by Mesosphere, Inc.
+# DC/OS Upgrading
 
-The following methods are used to install DC/OS:
-- Provision DC/OS on Amazon Web Services (AWS): Install DC/OS cluster on Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation. 
-- Provision DC/OS on Azure: Install DC/OS cluster on Azure by using the Azure Resource Manager templates.
-- Provision DC/OS on Google Cloud Platform (GCE): Install DC/OS cluster on Google Compute Engine (GCE) by using installation scripts. Upgrades are not supported with this installation method.
- 
- ** Note:** The recommended way to install production ready DC/OS that can be upgraded in-place is to use the [Advanced Installer](/1.11/installing/production/deploying-dcos/installation/).
-
-## On-Premise Installation
-The on-premise installation method is based on dcos labs. The different types of on-premise installation method are:
-- Using Ansible
-- Using Chef
-- Using Puppet
-
-## Production Installation
-The production installation method is a flexible way to configure and install DC/OS on a cluster. This method was previously called as custom installation.
- 
-- Advanced Installer: This method is used to install production ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
+An upgrade is the process of moving between major releases to add new features, replace existing features with new features/functionality or performing a major configuration change. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster. 

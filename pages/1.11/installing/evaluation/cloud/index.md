@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Trial Installation for demos and proofs of concepts
+excerpt: Cloud Installation for demos and proofs of concepts
 title: DC/OS Cloud Installation Options
 navigationTitle: Cloud Installation
 menuWeight: 10

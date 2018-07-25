@@ -36,15 +36,15 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
 1. Run the `zen.sh` script to create the Zen template dependencies. These dependencies will be used as input to create your stack in CloudFormation.
 
-   ```
-   bash ./zen.sh <stack-name>
-   ```
+```
+bash ./zen.sh <stack-name>
+```
 
    **Important:** You must run the `zen.sh` script before performing the next steps.
 
-1. Follow the instructions [here](/1.11/installing/oss/cloud/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
+2. Follow the instructions [here](/1.11/installing/oss/cloud/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 
-1. On the **Create Stack** > **Specify Details** page, specify your stack information and click **Next**. Here are the GPU-specific settings.
+3. On the **Create Stack** > **Specify Details** page, specify your stack information and click **Next**. Here are the GPU-specific settings.
 
    - **CustomAMI** - Specify the custom AMI for your region:
 
@@ -56,10 +56,10 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
    - **PrivateAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (e.g., `g2.2xlarge`).
    - **PublicAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (e.g., `g2.2xlarge`).
 
-1. On the **Options** page, accept the defaults and click **Next**.
+4. On the **Options** page, accept the defaults and click **Next**.
 
    **Tip**: You can choose whether to rollback on failure. By default this option is set to **Yes**.
 
-1. On the **Review** page, check the acknowledgement box, then click **Create**.
+5. On the **Review** page, check the acknowledgement box, then click **Create**.
 
    **Tip**: If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.

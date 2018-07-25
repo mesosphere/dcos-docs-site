@@ -3,24 +3,25 @@ layout: layout.pug
 navigationTitle:  Installation
 title: Installation
 menuWeight: 15
-excerpt: Using the Advanced Installer to create DC/OS clusters
+excerpt: Installation process to create DC/OS clusters
 ---
 
 A DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view [nodes](/1.11/overview/concepts/#node) documenation for more information.
-Using advanced installation method, you can package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
 
-# Advanced installation process
+This method is used to install production ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
 
- The following steps are required to install DC/OS clusters using advanced installers.
+# Installation process
+
+ The following steps are required to install DC/OS clusters:
 
 *   Configure Bootstrap node
 *   Install DC/OS on Master node
 *   Install DC/OS on Agent node
 
-![Advanced Installation Process](/1.11/img/advanced-installer.png)
+![Installation Process](/1.11/img/advanced-installer.png)
 
 
-The advanced installer requires:
+The installation method requires:
 
 *   The bootstrap node must be network accessible from the cluster nodes.
 *   The bootstrap node must have the HTTP(S) ports open from the cluster nodes.

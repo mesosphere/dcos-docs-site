@@ -12,7 +12,7 @@ An upgrade is the process of moving between major releases to add new features, 
 
 Example: 1.X to 1.Y (1.11 --> 1.12)
 
-If an upgrade is performed on a supported OS with all prerequisites fulfilled, then upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
+If an upgrade is performed on a supported OS with all prerequisites fulfilled, then upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [DC/OS Installation Guide][install].
 
 **Important:**
 
@@ -77,7 +77,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - All hosts (masters and agents) must be able to communicate with all other hosts on all ports, for both TCP and UDP.
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
-- You must be familiar with the [Advanced DC/OS Installation Guide][advanced-install].
+- You must be familiar with the [DC/OS Installation Guide][install].
 - Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
 - [Take a snapshot of the IAM database](/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database) prior to upgrading. [enterprise type="inline" size="small" /]
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
@@ -320,4 +320,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.11 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.11/installing/ent/custom/advanced/
+[install]: /1.11/installing/ent/custom/advanced/

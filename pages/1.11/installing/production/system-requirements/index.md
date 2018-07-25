@@ -242,7 +242,7 @@ localectl set-locale LANG=en_US.utf8
 
 # Next steps
 - [Install Docker from Docker’s yum repository][1]
-- [Advanced DC/OS Installation Guide][2]
+- [DC/OS Installation Guide][2]
 
 
 [1]: /1.11/installing/ent/custom/system-requirements/install-docker-centos/

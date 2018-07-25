@@ -70,13 +70,12 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 
     ```bash
     sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
-    [dockerrepo]
-    name=Docker Repository
-    baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/
+    [docker-ce-stable]
+    name=Docker CE Stable - $basearch
+    baseurl=https://download.docker.com/linux/centos/7/$basearch/stable
     enabled=1
     gpgcheck=1
-    gpgkey=https://yum.dockerproject.org/gpg
-    EOF
+    gpgkey=https://download.docker.com/linux/centos/gpg
     ```
 
 1.  Configure systemd to run the Docker Daemon with OverlayFS.
