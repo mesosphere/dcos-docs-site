@@ -25,6 +25,7 @@ DC/OS Percona-Mongo service features:
 *   Auto-configuration of [MongoDB Replica Set Configuration](https://docs.mongodb.com/manual/reference/replica-configuration/)
 *   Auto-configuration of system-level users for backups, monitoring and user management
     *   CLI actions for Add/Update/Remove of [MongoDB Users](https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/)
+    *   CLI actions for Backup and Restore
     *   Logical backup support with [Amazon Web Services S3](https://aws.amazon.com/s3) remote upload
         *   Support for auto-deploy of [Hidden Replica Set Member](https://docs.mongodb.com/manual/core/replica-set-hidden-member/) for zero-impact backups
 *   Percona Server for MongoDB [Auditing support](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html)
