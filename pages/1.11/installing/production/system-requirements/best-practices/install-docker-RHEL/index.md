@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  RHEL 7.4 prerequisites
-title: Prepare RHEL 7.4 for DC/OS installation
+navigationTitle:  Install Docker on RHEL 7.4 
+title: Install Docker on RHEL 7.4 
 menuWeight: 10
 excerpt: Requirements and recommendations for installing Docker on RHEL
 ---

@@ -188,7 +188,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 - Download and save the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) to your bootstrap node. This file is used to create your customized DC/OS build file. [oss type="inline" size="small" /]
 
 
-### Docker NGINX (advanced installer)
+### Docker NGINX (production installation)
 
 For advanced install only, install the Docker NGINX image with this command:
 
@@ -200,7 +200,7 @@ sudo docker pull nginx
 
 For advanced install only, your cluster nodes must have the following prerequisites. The cluster nodes are designated as Mesos masters and agents during installation.
 
-### Data compression (advanced installer)
+### Data compression (production installation)
 
 You must have the <a href="http://www.info-zip.org/UnZip.html" target="_blank">UnZip</a>, <a href="https://www.gnu.org/software/tar/" target="_blank">GNU tar</a>, and <a href="http://tukaani.org/xz/" target="_blank">XZ Utils</a> data compression utilities installed on your cluster nodes.
 
@@ -211,7 +211,7 @@ sudo yum install -y tar xz unzip curl ipset
 ```
 
 
-### Cluster permissions (advanced installer)
+### Cluster permissions (production installation)
 
 On each of your cluster nodes, use the following command to:
 
