@@ -21,7 +21,7 @@ DC/OS 1.11.4 includes the following:
 
 # Issues Fixed in DC/OS 1.11.4
 
-- COPS-1840/DCOS_OSS-3793 - Change Admin Router(nginx) log to access logs with the daemon facility.
+- COPS-1840/DCOS_OSS-3793 - Change Admin Router (nginx) log to access logs with the daemon facility.
 - COPS-3073 - Improve DC/OS Mesos authorization for logging and performance.
 - COPS-3132 - DC/OS UI: Increase disk space for Cassandra service.
 - COPS-3445/DCOS-39092/DCOS_OSS-2418 - Prevent Mesos agents from garbage-collecting persistent volumes.
@@ -33,10 +33,10 @@ DC/OS 1.11.4 includes the following:
 - DCOS-37451 - Filter task labels used for book-keeping from appearing in metrics.
 - DCOS-37452 - Increase the Mesos agent response time-out for dcos-metrics.
 - DCOS-37588 - Fix Vault/ZK lock release issue that occurred due to temporary connection loss.
-- DCOS-38083 - Improve the behaviour of statsd timers on dcos-metrics.
-- DCOS-38248 - Fix Admin Router behaviour on scale testing cluster. The Admin Router failed to update state cache due to worker_connections exhaustion.
+- DCOS-38083 - Improve the behavior of statsd timers on dcos-metrics.
+- DCOS-38248 - Fix Admin Router behavior on scale testing cluster. The Admin Router failed to update state cache due to worker_connections exhaustion.
 - DCOS-38258/DCOS_OSS-3307 - Increase the time-out for package download in Admin Router server.
-- DCOS-38323 - Increase the time-out for Lua HTTP client from 10 to 60sec to accomodate longer response time from upstream DC/OS components (e.g. Mesos and Marathon).
+- DCOS-38323 - Increase the time-out for Lua HTTP client from 10 to 60 sec to accomodate longer response time from upstream DC/OS components (e.g., Mesos and Marathon).
 - DCOS_OSS-2360 - DC/OS Metrics: Sanitize metric names for better compatibility with Prometheus.
 - DCOS_OSS-3304 - Add task labels as tags on container metrics.
 - DCOS_OSS-3602 - Fix instability issue: L4LB is unstable during deployment of new VIPS.
@@ -47,7 +47,7 @@ DC/OS 1.11.4 includes the following:
 
 # Notable Changes in DC/OS 1.11.4
 
-- DCOS-37833 - Increase the limit on the number of connections (worker_connections) to 10K for Admin Router.
+- DCOS-37833 - Increase the limit on the number of connections (worker_connections) for Admin Router to 10K.
 - DCOS_OSS-3597- Update REX-Ray version to [0.11.2](https://github.com/rexray/rexray/releases/tag/v0.11.2).
 - Update DC/OS UI for [1.11+v1.15.0+3231764b](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.14.0+7e0cb54f...1.11+v1.15.0+3231764b). [enterprise type="inline" size="small" /]
 - Update DC/OS UI for [1.11+v1.15.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.15.0/CHANGELOG.md). [oss type="inline" size="small" /]
