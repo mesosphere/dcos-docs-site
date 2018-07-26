@@ -16,7 +16,7 @@ Please see the ["Disaster Recovery"](https://docs.mesosphere.com/services/percon
 
 Monitoring of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the [DC/OS Metrics component](https://docs.mesosphere.com/1.11/metrics/). Please see the [Metrics API](https://docs.mesosphere.com/1.11/metrics/metrics-api/) documentation for more information on using these metrics.
 
-To enable DC/OS Metrics, ensure the *'Enabled'* flag in the *'Metrics'* section of the service configuration. 
+To enable DC/OS Metrics, ensure the *'Enabled'* flag in the *'Dcos Metrics'* section of the service configuration. 
 
 ## Auditing
 
@@ -109,7 +109,7 @@ To add a user:
 1. Add the user to the Percona-Mongo service using the service CLI tool, providing the filename of the user definition.
 
 ```shell
-dcos percona-mongo user add <database> <user-json-file> <useradmin-username> <useradmin-password>
+dcos percona-mongo user add <database> <user-json-file>
 ```
 
 ### Update User
@@ -130,7 +130,7 @@ dcos percona-mongo user add <database> <user-json-file> <useradmin-username> <us
 1. Update the user using the Percona-Mongo CLI tool by providing the filename of the user definition:
 
 ```shell
-dcos percona-mongo user update <database> <user-json-file> <useradmin-username> <useradmin-password>
+dcos percona-mongo user update <database> <user-json-file>
 ```
 
 ### Remove User
@@ -138,7 +138,7 @@ dcos percona-mongo user update <database> <user-json-file> <useradmin-username> 
 To remove a user, provide the database and username to the percona-mongo CLI tool like the following example:
 
 ```shell
-dcos percona-mongo user remove <database> <username> <useradmin-username> <useradmin-password>
+dcos percona-mongo user remove <database> <username>
 ```
 
 ### Reload Percona-Mongo Service/System Users
@@ -146,7 +146,7 @@ dcos percona-mongo user remove <database> <username> <useradmin-username> <usera
 To reload the Percona-Mongo [System Users](#system-users), run the following command using the Percona-Mongo CLI tool:
 
 ```shell
-dcos percona-mongo user reload-system <useradmin-username> <useradmin-password>
+dcos percona-mongo user reload-system
 ```
 
 ### Stop a User Change
