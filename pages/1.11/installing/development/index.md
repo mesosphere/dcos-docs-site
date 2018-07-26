@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Local Installation
+navigationTitle:  Development
 title: DC/OS Local Installation Options
 menuWeight: 5
 excerpt: Automating local installation of DC/OS for development and testing
