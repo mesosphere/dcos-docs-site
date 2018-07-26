@@ -14,7 +14,7 @@ DC/OS 1.11.4 was released on July 26, 2018.
 
 DC/OS 1.11.4 includes the following:
 
-- Apache Mesos 1.5.2-dev [change log](https://github.com/mesosphere/mesos/blob/197c9105c2ed08f1529602f1ff72de846cde98c6/CHANGELOG).
+- Apache Mesos 1.5.2-dev [change log](https://github.com/apache/mesos/blob/2440c7310627c835fe828aef6b28b8d072e7371c/CHANGELOG).
 - Marathon 1.6.535 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.6.535).
 - Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 
@@ -28,7 +28,6 @@ DC/OS 1.11.4 includes the following:
 - COPS-3445/DCOS-39092/DCOS_OSS-2418 - Prevent Mesos agents from garbage-collecting persistent volumes.
 - DCOS-20053 - Fix Admin Router time-out issue.
 - DCOS-22458 - Tune health check time-outs. [enterprise type="inline" size="small" /]
-- DCOS-22804 - Use system integration test for workload bursting issue. 
 - DCOS-27982/DCOS-38599 - Fix mixed workload scaling issue.
 - DCOS-34596 - DC/OS IAM: Fix a regression, where a SAML identity provider metadata document containing multiple certificates stopped working after an upgrade. [enterprise type="inline" size="small" /]
 - DCOS-37451 - Filter task labels used for book-keeping from appearing in metrics.
