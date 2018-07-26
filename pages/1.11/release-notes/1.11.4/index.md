@@ -15,18 +15,19 @@ DC/OS 1.11.4 was released on July 26, 2018.
 DC/OS 1.11.4 includes the following:
 
 - Apache Mesos 1.5.2-dev [change log](https://github.com/mesosphere/mesos/blob/197c9105c2ed08f1529602f1ff72de846cde98c6/CHANGELOG).
-- Marathon 1.6.496 [change log](https://github.com/dcos/dcos/blob/1.11.4/packages/marathon/buildinfo.json).
+- Marathon 1.6.535 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.6.535).
 - Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 
 
 # Issues Fixed in DC/OS 1.11.4
 
 - COPS-1840/DCOS_OSS-3793 - Change Admin Router (nginx) log to access logs with the daemon facility.
-- COPS-3073 - Improve DC/OS Mesos authorization for logging and performance.
-- COPS-3132 - DC/OS UI: Increase disk space for Cassandra service.
+- COPS-3073/DCOS-21993 - Improve DC/OS Mesos authorization for logging and performance.
+- COPS-3132/DCOS-21723 - DC/OS UI: Increase disk space for Cassandra service.
+- COPS-3402/DCOS_OSS-3750 - Move data directories to a tmpfs location and recycle allocated IP addresses upon agent reboot.  
 - COPS-3445/DCOS-39092/DCOS_OSS-2418 - Prevent Mesos agents from garbage-collecting persistent volumes.
 - DCOS-20053 - Fix Admin Router time-out issue.
-- DCOS-22458 - Tune health check time-outs.
+- DCOS-22458 - Tune health check time-outs. [enterprise type="inline" size="small" /]
 - DCOS-22804 - Use system integration test for workload bursting issue. 
 - DCOS-27982/DCOS-38599 - Fix mixed workload scaling issue.
 - DCOS-34596 - DC/OS IAM: Fix a regression, where a SAML identity provider metadata document containing multiple certificates stopped working after an upgrade. [enterprise type="inline" size="small" /]
@@ -37,11 +38,11 @@ DC/OS 1.11.4 includes the following:
 - DCOS-38248 - Fix Admin Router behavior on scale testing cluster. The Admin Router failed to update state cache due to worker_connections exhaustion.
 - DCOS-38258/DCOS_OSS-3307 - Increase the time-out for package download in Admin Router server.
 - DCOS-38323 - Increase the time-out for Lua HTTP client from 10 to 60 sec to accomodate longer response time from upstream DC/OS components (e.g., Mesos and Marathon).
+- DCOS-38603 - Improve Mesos allocator performance.
 - DCOS_OSS-2360 - DC/OS Metrics: Sanitize metric names for better compatibility with Prometheus.
 - DCOS_OSS-3304 - Add task labels as tags on container metrics.
 - DCOS_OSS-3602 - Fix instability issue: L4LB is unstable during deployment of new VIPS.
-- DCOS_OSS-3613 - Improve diagnostics bundle to include debugging information for network issues.
-- DCOS_OSS-3750 - Move data directories to a tmpfs location and recycle allocated IP addresses upon agent reboot. 
+- DCOS_OSS-3613 - Improve diagnostics bundle to include debugging information for network issues. 
 - DCOS_OSS-3804 - Fix logging of dcos-checks-poststart results to the journal. 
 
 
