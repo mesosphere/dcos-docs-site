@@ -184,13 +184,13 @@ This operation will move a node to a new system and will discard the persistent 
 1. For data safety, ensure there is at least one healthy node in the replica set and a recent successful backup of MongoDB data! Ensure there is a ["majority" in the MongoDB Replica Set](https://docs.mongodb.com/manual/reference/write-concern/#writeconcern._dq_majority_dq_) if you do not want the replica set to become read-only during the node replacement!
 1. Connect to the node and check if the node is the [Replica Set Primary](https://docs.mongodb.com/manual/core/replica-set-primary/). If the *'rs.isMaster().ismaster'* command returns *'true'*, the node is the PRIMARY member.
     ```shell
-    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    $ mongo mongodb://useradmin:useradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     > rs.isMaster().ismaster
     true
     ```
 1. If the node is the PRIMARY member, run a [Replica Set Step Down](https://docs.mongodb.com/manual/reference/method/rs.stepDown/). Skip this step if you received *'false'* from the last step.
     ```shell
-    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    $ mongo mongodb://useradmin:useradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     > rs.stepDown()
     2018-04-03T13:58:29.166+0200 E QUERY    [thread1] Error: error doing query: failed: network error while attempting to run command 'replSetStepDown' on host '10.2.3.1:27017'  :
     DB.prototype.runCommand@src/mongo/shell/db.js:132:1
@@ -207,14 +207,14 @@ For example, let's say `mongo-rs-2`'s host system has died and `mongo-rs-2` need
 
 1. Connect to the node and check if the node is the [Replica Set Primary](https://docs.mongodb.com/manual/core/replica-set-primary/). If the *'rs.isMaster().ismaster'* command returns *'true'*, the node is the PRIMARY member.
     ```shell
-    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    $ mongo mongodb://useradmin:useradminpassword@mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     > rs.isMaster().ismaster
     true
     ```
 1. If the node is the PRIMARY member, run a [Replica Set Step Down](https://docs.mongodb.com/manual/reference/method/rs.stepDown/). Skip this step if you received *
 'false'* from the last step.
     ```shell
-    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    $ mongo mongodb://useradmin:useradminpassword@mongo-rs-<NUM>-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     > rs.stepDown()
     2018-04-03T13:58:29.166+0200 E QUERY    [thread1] Error: error doing query: failed: network error while attempting to run command 'replSetStepDown' on host '10.2.3.1:27017'  :
     DB.prototype.runCommand@src/mongo/shell/db.js:132:1
