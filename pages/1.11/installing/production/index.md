@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Production 
 navigationTitle: Production 
-menuWeight: 10
+menuWeight: 15
 excerpt: Dc/OS Production installation for fully functional clusters
 ---
 

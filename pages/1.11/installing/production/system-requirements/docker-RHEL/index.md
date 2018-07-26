@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Install Docker on RHEL 7.4 
-title: Install Docker on RHEL 7.4 
+navigationTitle:  Docker on RHEL 7.4 
+title: Docker on RHEL 7.4 
 menuWeight: 10
 excerpt: Requirements and recommendations for installing Docker on RHEL
 ---

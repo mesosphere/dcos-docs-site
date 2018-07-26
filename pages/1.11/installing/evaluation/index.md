@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 navigationTitle:  Evaluation
-title: DC/OS Evaluation
-menuWeight: 5
+title: Evaluation
+menuWeight: 10
 excerpt: DC/OS evaluation uses local, cloud or on-premise installation methods
 ---
 

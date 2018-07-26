@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Install Docker on CentOS
+navigationTitle:  Docker on CentOS
 title: Install Docker on CentOS
 menuWeight: 5
 excerpt: Requirements and recommendations for installing Docker on CentOS
