@@ -32,8 +32,8 @@ excerpt: Making sure ports are available for installation
 
 | Port | DC/OS Component | systemd Unit | Source | Destination |
 |---|---|---|---|---|
-| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master [oss type="inline" size="small" /] | 
-| 64000 |  DC/OS Net | `dcos-net.service` | agent/master | agent/master [enterprise type="inline" size="small" /] | 
+| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
+| 64000 | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 
 **Note:** UDP port 123 is open for communication with NTP.
 
@@ -63,7 +63,7 @@ excerpt: Making sure ports are available for installation
 | 15055 | DC/OS History | `dcos-history-service.service` | localhost| localhost(master) |
 | 15101 | Marathon libprocess | `dcos-marathon.service` | master | agent/master |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`| master | agent/master |
-| 61053 | Mesos DNS | `dcos-net.service` | agent/master | master | 
+| 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master | 
 | 61430 | DC/OS Net | `dcos-net.service` | agent/master | master [enterprise type="inline" size="small" /]|
 | Ephemeral | DC/OS Component Package Manager (Pkgpanda) | `dcos-pkgpanda-api.service` | None | None |
 
