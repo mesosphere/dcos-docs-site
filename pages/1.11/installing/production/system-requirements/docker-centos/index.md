@@ -10,7 +10,7 @@ excerpt: Requirements and recommendations for installing Docker on CentOS
 
 Before installing Docker on CentOS, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS-specific recommendations:
 
-* Use the Docker yum repository to install Docker on CentOS. The yum repository makes it easy to upgrade and automatically manages dependency installation.
+* Use the Docker `yum` repository to install Docker on CentOS. The yum repository makes it easy to upgrade and automatically manages dependency installation.
 
 * Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if required.
 
@@ -96,7 +96,7 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
     sudo systemctl enable docker
     ```
 
-    When the process completes, you should see the following:
+When the process completes, you should see the following:
 
     ```
     Complete!

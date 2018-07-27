@@ -11,15 +11,15 @@ You can create a DC/OS cluster on Packet bare metal using Terraform.
 
 The included Terraform templates are configured to run Mesosphere DC/OS on Packet. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support, please email help@packet.net, visit the Packet IRC channel (#packethost on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
 
-**Important:** Upgrades are not supported with this installation method.
+**Note:** Upgrades are not supported with this installation method.
 
 ## Hardware
 
-- 1, 3 or 5 Mesos master nodes in the admin zone
+- One, three or five Mesos master nodes in the admin zone
 
-- 4 Mesos private agent nodes
+- Four Mesos private agent nodes
 
-- 1 Mesos public agent node
+- One Mesos public agent node
 
 - Packet “Type 0” Server instances
 
@@ -53,36 +53,36 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Packe
 
 4.  Copy `sample.terraform.tfvars` to a new file named `terraform.tfvars`, and edit the new file, filling in the values as desired. The following are blank and if not filled in, you will be prompted by terraform when necessary:
 
-    - packet_api_key - Your Packet API key
+    - `packet_api_key` - Your Packet API key
 
-    - packet_project_id - Packet Project ID
+    - `packet_project_id` - Packet Project ID
 
-    - dcos_installer_url - Where to get DC/OS
+    - `dcos_installer_url` - Where to get DC/OS
       https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
 
     The following have default values and may be changed depending on your requirements:
 
-    - packet_facility - Packet facility: [ewr1|sjc1|ams1]
+    - `packet_facility` - Packet facility: [ewr1|sjc1|ams1]
       ewr1 is New Jersey, ams1 is Amsterdam, sjc1 is San Jose - default sjc1
 
-    - packet_agent_type - Type of Packet Server to use for the DC/OS Agents: [baremetal_0|baremetal_1|baremetal_3]
+    - `packet_agent_type` - Type of Packet Server to use for the DC/OS Agents: [baremetal_0|baremetal_1|baremetal_3]
       Choose the Packet Server type to use for the DC/OS Private Agents - default baremetal_0
 
-    - packet_master_type - Type of Packet Server to use for the DC/OS Master: [baremetal_0|baremetal_1|baremetal_3]
+    - `packet_master_type` - Type of Packet Server to use for the DC/OS Master: [baremetal_0|baremetal_1|baremetal_3]
       Choose the Packet Server type to use for the DC/OS Master Nodes - default baremetal_0
 
-    - packet_boot_type - Type of Packet Server to use for the DC/OS Boot Node: [baremetal_0|baremetal_1|baremetal_3]
+    - `packet_boot_type` - Type of Packet Server to use for the DC/OS Boot Node: [baremetal_0|baremetal_1|baremetal_3]
       Choose the Packet Server type to use for the DC/OS Boot Server - default baremetal_0
 
-    - dcos_cluster_name - the name of your DC/OS cluster - defaults to packet-dcos
+    - `dcos_cluster_name` - the name of your DC/OS cluster - defaults to packet-dcos
 
-    - dcos_agent_count - Number of private agents to deploy - defaults to  4
+    - `dcos_agent_count` - Number of private agents to deploy - defaults to  4
 
-    - dcos_public_agent_count - Number of public agents to deploy - defaults to 1
+    - `dcos_public_agent_count` - Number of public agents to deploy - defaults to 1
 
-    - dcos_init_pubkey - The path to your ssh public key created in step 4 - defaults to ./packet-key.pub
+    - `dcos_init_pubkey` - The path to your ssh public key created in step 4 - defaults to ./packet-key.pub
 
-    - key_file_path - The path to your ssh private key created in step 4 - defaults to ./packet-key
+    - `key_file_path` - The path to your ssh private key created in step 4 - defaults to ./packet-key
 
 5.  Also from that same directory, run `terraform apply` which will deploy the servers into your project at Packet, and run the DC/OS installation routine. When it completes, you will see output similar to the following, but with the IP addresses assigned to your servers:
 
@@ -103,8 +103,8 @@ Launch the DC/OS web interface by entering the Mesos master IP address:
 
 - Adding and removing nodes:
 
-  - Run `terraform apply -var ‘dcos_agent_count=N’` to change the private agent count to the number specified. (`‘dcos_public_agent_count’` is also available)
+  - Run `terraform apply -var ‘dcos_agent_count=N’` to change the private agent count to the number specified. (`‘dcos_public_agent_count’` is also available).
 
-  - Increasing node count is fast, safe, and fun!
+  - Increasing node count is fast and safe.
 
   - We recommend against reducing the node count in production. Stateful DC/OS apps and services may suffer outages and failures if nodes are not put into maintenance mode, and their tasks rescheduled through their respective schedulers.

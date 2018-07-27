@@ -6,7 +6,7 @@ navigationTitle: On-Premise Installation
 menuWeight: 10
 ---
 
-You can install a DC/OS cluster on premises using the following ways:
+You can install a DC/OS cluster on premises using the following methods:
 
 1. [DC/OS installation with Ansible On-Premises](https://github.com/dcos-labs/ansible-dcos/blob/master/docs/INSTALL_ONPREM.md).
 2. [DC/OS installation with Chef On-Premises](https://github.com/dcos-labs/dcos-chef).

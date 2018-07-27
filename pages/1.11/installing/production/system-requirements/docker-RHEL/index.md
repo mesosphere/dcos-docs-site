@@ -9,9 +9,9 @@ excerpt: Requirements and recommendations for installing Docker on RHEL
 
 # Requirements and Recommendations
 
-Before installing Docker on RHEL, review the general [requirements and recommendations for running Docker on DC/OS][1] and utilize the following instructions:
+Before installing Docker on RHEL, review the general [requirements and recommendations for running Docker on DC/OS][1] and use the following instructions:
 
-* Use the instructions listed in Installation procedure section to install the DC/OS bootstrap node on RHEL 7.4.
+* Use the instructions listed in the [Installation](/1.11/installing/production/deploying-dcos/installation/) procedure section to install the DC/OS bootstrap node on RHEL 7.4.
 
 * The Installation procedure section covers the installation of Docker CE 17.05+ on RHEL.
 

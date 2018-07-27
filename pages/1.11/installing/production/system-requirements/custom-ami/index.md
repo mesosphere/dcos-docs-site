@@ -12,12 +12,12 @@ You can use customized [AWS Machine Images (AMI)](http://docs.aws.amazon.com/AWS
 - A custom AMI can be used to integrate DC/OS installation with your own in-house configuration management tools.
 - A custom AMI can be used if you want kernel or driver customization.
 
-To get started, build a custom AMI and then install DC/OS by using the advanced templates.
+To get started, build a custom AMI and then install DC/OS using the advanced templates.
 
 # Build a custom AMI
-This is the recommended method to building your own AMI. 
+This is the recommended method for building your own AMI. 
 
-## Instructions to test that you can build the DC/OS cloud_images AMI
+## Instructions to build the DC/OS cloud_images AMI
 
 1.  Use the DC/OS [cloud_images](https://github.com/dcos/dcos/tree/master/cloud_images) scripts as a template. These scripts build a CentOS7 AMI with all of the DC/OS prerequisites installed.
 
@@ -28,13 +28,13 @@ This is the recommended method to building your own AMI.
 
 1.  Launch the DC/OS advanced template using the AWS CloudFormation web console and specify the DC/OS cloud_images AMI. Verify that the cluster launched successfully. For more information, see the [documentation](/1.11/installing/ent/cloud/aws/advanced/#launch).
 
-## Instructions to modify the DC/OS cloud_images AMI for your environment
+## Instructions to modify the DC/OS cloud_images AMI 
 
 After you have successfully built and deployed the unmodified DC/OS cloud_images AMI using the AWS CloudFormation web console:
 
 1.  Modify the DC/OS [cloud_images](https://github.com/dcos/dcos/tree/master/cloud_images) AMI scripts with your own AMI customizations.
 
-    **Important:** Your AMI must satisfy all of the DC/OS AMI prerequisites as shown in the template.
+    **Note:** Your AMI must satisfy all of the DC/OS AMI prerequisites as shown in the template.
 
 1.  Launch the DC/OS advanced templates using the AWS CloudFormation web console and specify your customized AMI. Verify that DC/OS starts as expected and that services can be launched on the DC/OS cluster.
 

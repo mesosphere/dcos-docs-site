@@ -6,13 +6,13 @@ menuWeight: 5
 excerpt: Common example configurations for DC/OS Enterprise
 ---
 
-This page provides common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS Open Source](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
+This page provides several common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS Open Source](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
 
 - `# DC/OS Open Source only` - Applies to DC/OS only. [oss type="inline" size="small" /]
 - `# DC/OS Enterprise only` - Applies to DC/OS Enterprise only. [enterprise type="inline" size="small" /]
 
 # All parameters
-This sample config.yaml file includes all of the available configuration parameters for DC/OS.
+This sample `config.yaml` file includes all of the available configuration parameters for DC/OS.
 
 ```yaml
 agent_list:
@@ -146,7 +146,7 @@ zk_agent_credentials: 'dcos-agent:<long, random string>'
 
 
 # <a name="examples1"></a>Example Configurations
-DC/OS cluster with three masters, five private agents, and Exhibitor/ZooKeeper managed internally
+DC/OS cluster with three masters, five private agents, and Exhibitor/ZooKeeper managed internally:
 
 ```yaml
 ---
@@ -176,7 +176,7 @@ ssh_user: <username>
 ```
 
 ## <a name="aws"></a>AWS
-DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by an AWS S3 bucket, five private agents, and one public agent node
+DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by an AWS S3 bucket, five private agents, and one public agent node:
 
 ```yaml
 ---
@@ -211,7 +211,7 @@ ssh_user: <username>
 ```
 
 ## <a name="zk"></a>ZooKeeper
-DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by ZooKeeper, masters that have an HTTP load balancer in front of them, one public agent node, five private agents, and Google DNS
+DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by ZooKeeper, masters that have an HTTP load balancer in front of them, one public agent node, five private agents, and Google DNS:
 
 ```yaml
 ---
@@ -244,7 +244,7 @@ ssh_user: <username>
 ```
 
 ## <a name="overlay"></a>Overlay
-DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, two DC/OS virtual networks, two private agents, and Google DNS
+DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, two DC/OS virtual networks, two private agents, and Google DNS:
 
 ```yaml
 agent_list:
@@ -281,7 +281,7 @@ dcos_overlay_network:
 ```
 
 ## <a name="http-proxy"></a>HTTP Proxy
-DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, a custom HTTP proxy, two private agents, and Google DNS
+DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, a custom HTTP proxy, two private agents, and Google DNS:
 
 ```yaml
 agent_list:
@@ -311,7 +311,7 @@ no_proxy:
 ```
 
 ## <a name="docker-credentials"></a>Docker Credentials
-DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, custom Docker credentials, two private agents, and Google DNS
+DC/OS cluster with three masters, an Exhibitor/ZooKeeper managed internally, custom Docker credentials, two private agents, and Google DNS:
 
 ```yaml
 agent_list:
@@ -343,7 +343,7 @@ ssh_user: centos
 ```
 
 ## <a name="cosmos-config"></a>Cosmos Configuration
-DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and DC/OS Package Manager (Cosmos) configured with persistent storage
+DC/OS cluster with one master, an Exhibitor/ZooKeeper managed internally, three private agents, Google DNS, and DC/OS Package Manager (Cosmos) configured with persistent storage:
 
 ```yaml
 agent_list:

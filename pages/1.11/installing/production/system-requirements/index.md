@@ -15,18 +15,16 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 ## Bootstrap node
 
-*  DC/OS installation is run on a Bootstrap node. 1 node with 2 cores, 16 GB RAM, 60 GB HDD. 
+*  DC/OS installation is run on a Bootstrap node comprising of one node with two cores, 16 GB RAM and 60 GB HDD. 
 *  The bootstrap node is only used during the installation and upgrade process, so there are no specific recommendations for high performance storage or separated mount points.
 
- **Important:** The bootstrap node must be separate from your cluster nodes.
+ **Note:** The bootstrap node must be separate from your cluster nodes.
 
 ## Cluster nodes
 
-The cluster nodes are designated Mesos masters and agents during installation.
+The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
 
-The supported operating systems and environments are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
-
-DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` may be created prior to installing DC/OS, but it must be either an empty directory or a symlink to an empty directory. DC/OS may be installed to a separate volume mount by creating an empty directory on the mounted volume, creating a symlink at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
+DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` directory may be created prior to installing DC/OS, but it must be either an empty directory or a link to an empty directory. DC/OS may be installed on a separate volume mount by creating an empty directory on the mounted volume, creating a link at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
 
 ### Master nodes
 
@@ -40,7 +38,7 @@ The table below shows the master node hardware requirements:
 | Hard disk   | 120 GB    | 120 GB      |
 &ast; For business critical deployments, three master nodes are required rather than one master node.
 
-There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least 3 masters. For more information about high availability requirements see the [High Availability documentation][0].
+There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
 [0]: https://docs.mesosphere.com/1.10/overview/high-availability/
 
@@ -89,7 +87,7 @@ The agent nodes must also have:
 
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
-    **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
+    **Note:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
 
 *   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.
 
@@ -103,7 +101,7 @@ The agent nodes must also have:
 
    | Directory path | Description |
    |:-------------- |:----------- |
-   | _/var/lib/mesos/slave/slaves_ | sandbox directories for tasks |
+   | _/var/lib/mesos/slave/slaves_ | Sandbox directories for tasks |
    | _/var/lib/mesos/slave/volumes_ | Used by frameworks that consume ROOT persistent volumes |
    | _/var/lib/mesos/docker/store_ | Stores Docker image layers that are used to provision URC containers |
    | _/var/lib/docker_ | Stores Docker image layers that are used to provision Docker containers |
@@ -138,7 +136,7 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 * Prefer `OverlayFS` or `devicemapper` in `direct-lvm` mode when choosing a production storage driver. For more information, see Docker's <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">Select a Storage Driver</a>.
 
-* Manage Docker on CentOS with systemd. systemd handles starting Docker on boot and restarting it when it crashes.
+* Manage Docker on CentOS with `systemd`. The `systemd` handles will start Docker and helps to restart Dcoker, when it crashes.
 
 * Run Docker commands as the root user (with `sudo`) or as a user in the <a href="https://docs.docker.com/engine/installation/linux/centos/#create-a-docker-group" target="_blank">docker user group</a>.
 
@@ -178,7 +176,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:**
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### <a name="setup-file"></a>DC/OS Configuration file
@@ -190,7 +188,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 ### Docker NGINX (production installation)
 
-For advanced install only, install the Docker NGINX image with this command:
+For production installations only, install the Docker NGINX image with this command:
 
 ```bash
 sudo docker pull nginx
@@ -198,7 +196,7 @@ sudo docker pull nginx
 
 ## Cluster nodes
 
-For advanced install only, your cluster nodes must have the following prerequisites. The cluster nodes are designated as Mesos masters and agents during installation.
+For production installations only, your cluster nodes must have the following prerequisites. The cluster nodes are designated as Mesos masters and agents during installation.
 
 ### Data compression (production installation)
 
@@ -226,19 +224,19 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-    **Tip:** It may take a few minutes for your node to come back online after reboot.
+    **Note:** It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
 You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
 
-- For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
+- For information on how to set these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
 
 - On Linux:
 ````
 localectl set-locale LANG=en_US.utf8
 ````
 
-- For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
+- For information on how to set on these variables in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
 
 # Next steps
 - [Install Docker from Docker’s yum repository][1]
