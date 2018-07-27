@@ -202,7 +202,7 @@ This Open Source template specifies three Mesos masters, three ZooKeeper instanc
 
 If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
 
-**Tips:**
+**Note:**
 
 - If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.

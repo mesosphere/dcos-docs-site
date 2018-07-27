@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Azure Recommendations
 navigationTitle:  Azure Recommendations
-menuWeight: 20
+menuWeight: 25
 excerpt: Recommendations for Azure
 ---
 

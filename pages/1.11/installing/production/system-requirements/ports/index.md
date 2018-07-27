@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Ports
 navigationTitle: Ports
-menuWeight: 5
+menuWeight: 15
 excerpt: Making sure ports are available for installation
 ---
 
@@ -33,7 +33,6 @@ excerpt: Making sure ports are available for installation
 | Port | DC/OS Component | systemd Unit | Source | Destination |
 |---|---|---|---|---|
 | 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master [oss type="inline" size="small" /] | 
-| 61053 | Mesos DNS | `dcos-mesos-dns.service`| agent/master | master [enterprise type="inline" size="small" /] | 
 | 64000 |  DC/OS Net | `dcos-net.service` | agent/master | agent/master [enterprise type="inline" size="small" /] | 
 
 **Note:** UDP port 123 is open for communication with NTP.
