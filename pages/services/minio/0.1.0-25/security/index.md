@@ -8,6 +8,10 @@ featureMaturity:
 enterprise: false
 ---
 
+## Prerequisites
+- [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
+- DC/OS Superuser permissions for modifying the permissions of the service account.
+
 ## Configure Transport Encryption
 
 See the [Guide to Configuring DC/OS Access for Minio](serviceaccountdetail.md).
