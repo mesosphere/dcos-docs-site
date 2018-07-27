@@ -128,11 +128,8 @@ https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-p
   }
 }
   ```
-  Example with TLS and Kerberos:
-
-  ```shell
-  ```
-  5. Create `edge-pool` using the JSON file created in the preceding:
+ 
+ 5. Create `edge-pool` using the JSON file created in the preceding:
   ```shell
   dcos edgelb create edgelb-pool-config.json
   ```    
