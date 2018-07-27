@@ -306,7 +306,7 @@ the `NO_PROXY` value to the Kubernetes pod overlay subnet, `NO_PROXY=9.0.0.0/8`.
 ## When 10.100.0.0/16 is in use
 
 By default, the Kubernetes cluster will use `10.100.0.0/16` as the service CIDR.
-If this is the case, a change to the Kubernetes cluster service CIDR is required.
+If this CIDR is already in use on your network, a change to the Kubernetes cluster service CIDR is required.
 
 Create an options JSON file, or edit an existing one:
 
