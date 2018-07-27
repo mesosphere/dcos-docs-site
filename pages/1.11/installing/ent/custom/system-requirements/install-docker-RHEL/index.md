@@ -95,7 +95,7 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
 
     ```bash
     sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/selinux/config
-    set enforce 0
+    setenforce 0
     ```
 
 1.  Disable DNSmasq (DC/OS requires access to port 53)
