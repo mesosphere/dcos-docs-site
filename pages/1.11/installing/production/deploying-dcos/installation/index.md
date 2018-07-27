@@ -408,7 +408,7 @@ At this point your directory structure should resemble:
 
     **Note:** This process can take about 10 minutes. During this time, you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
-![Exhibitor for ZooKeeper][4]
+![Exhibitor for ZooKeeper](/1.11/img/chef-zk-status.png)
 Figure 2 - Exhibitor for ZooKeeper
 
    When the status icons are green, you can access the DC/OS web interface.
@@ -444,7 +444,6 @@ You can find information on the next steps listed below:
 [1]: /1.11/installing/ent/custom/system-requirements/
 [2]: /1.11/overview/concepts/#public
 [3]: /1.11/overview/concepts/#private
-[4]: /1.11/img/chef-zk-status.png
 [5]: /1.11/img/ui-installer-auth2.png
 [6]: /1.11/img/dashboard-ee.png
 [7]: /1.11/security/ent/users-groups/
