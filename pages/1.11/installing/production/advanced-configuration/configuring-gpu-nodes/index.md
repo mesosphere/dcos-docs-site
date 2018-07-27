@@ -21,8 +21,8 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 1.  Install the [NVIDIA Management Library (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml) on each node of your cluster that has GPUs. The minimum required NVIDIA driver version is 340.29. For detailed installation instructions, see the [Mesos GPU support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 1.  Install DC/OS using the [custom advanced installation instructions](/1.11/installing/oss/custom/advanced/). Here are the GPU-specific configuration parameters:
 
-    -  **enable_gpu_isolation**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`.
-    -  **gpus_are_scarce**: Indicates whether to treat GPUs as a scarce resource in the cluster. By default, this is set to `gpus_are_scarce: 'true'`, which means DC/OS reserves GPU nodes exclusively for services that are configured to consume GPU resources. It's important to note that this setting will influence which agent nodes a GPU-aware framework will be deployed on DC/OS. This setting does not influence the individual tasks which the frameworks might launch while the framework is running. It is possible for a framework to schedule a non-GPU task on an agent node where GPU's are present.
+    -  **`enable_gpu_isolation`**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`.
+    -  **`gpus_are_scarce`**: Indicates whether to treat GPUs as a scarce resource in the cluster. By default, this is set to `gpus_are_scarce: 'true'`, which means DC/OS reserves GPU nodes exclusively for services that are configured to consume GPU resources. It's important to note that this setting will influence which agent nodes a GPU-aware framework will be deployed on DC/OS. This setting does not influence the individual tasks which the frameworks might launch while the framework is running. It is possible for a framework to schedule a non-GPU task on an agent node where GPU's are present.
 
     For more information, see the [configuration parameter documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#enable-gpu-isolation) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 
@@ -40,7 +40,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 bash ./zen.sh <stack-name>
 ```
 
-   **Important:** You must run the `zen.sh` script before performing the next steps.
+   **Note:** You must run the `zen.sh` script before performing the next steps.
 
 2. Follow the instructions [here](/1.11/installing/oss/cloud/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 
@@ -52,14 +52,14 @@ bash ./zen.sh <stack-name>
       - us-east-1: `ami-5f5d1449`
       - ap-southeast-2: `ami-0d50476e`
 
-   - **MasterInstanceType** - Accept the default master instance type (e.g. `m3.xlarge`).
-   - **PrivateAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (e.g., `g2.2xlarge`).
-   - **PublicAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (e.g., `g2.2xlarge`).
+   - **MasterInstanceType** - Accept the default master instance type (For example, `m3.xlarge`).
+   - **PrivateAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (For example, `g2.2xlarge`).
+   - **PublicAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (For example, `g2.2xlarge`).
 
 4. On the **Options** page, accept the defaults and click **Next**.
 
-   **Tip**: You can choose whether to rollback on failure. By default this option is set to **Yes**.
+   **Note:** You can choose whether to rollback on failure. By default this option is set to **Yes**.
 
 5. On the **Review** page, check the acknowledgement box, then click **Create**.
 
-   **Tip**: If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
+   **Note:** If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.

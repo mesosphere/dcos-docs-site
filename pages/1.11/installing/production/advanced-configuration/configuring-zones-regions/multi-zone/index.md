@@ -20,8 +20,8 @@ All DC/OS masters are present in a single zone, but the agents can span multiple
 ## Recommendations and Caveats
 
 - If you are using a rack, distribute masters across the racks.
-- All agents within a zone should be tagged with an attribute (e.g., `zone:us-east-1a`) to easily constrain apps and services to specific zones.
-- Any DC/OS service schedulers should be scheduled to the same zone as masters (e.g., by using constraints).
+- All agents within a zone should be tagged with an attribute ((For example, `zone:us-east-1a`) to easily constrain apps and services to specific zones.
+- Any DC/OS service schedulers should be scheduled to the same zone as masters ((For example, by using constraints).
 - For ease of failover of apps between zones, ensure that apps do not depend on zone-level resources or that those resources are properly replicated and migrated on failover. Also, ensure there is enough spare capacity in each zone to handle failover workload.
 - If an agent-only zone fails, all other zones will continue to function normally. Apps from the failed zone will be rescheduled into other zones as long as there is spare capacity.
 - If an agent-only zone gets partitioned from the masters-containing zone, apps will continue to run in that zone but schedulers might “reschedule” copies of the apps into other zones.

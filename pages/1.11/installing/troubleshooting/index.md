@@ -19,11 +19,11 @@ You must have a valid [ip-detect](/1.11/installing/production/advanced/#create-a
   - white space
   - special or hidden characters
 
-It is recommended that you use the `ip-detect` [examples](/1.11/installing/ent/custom/advanced/).
+We recommended that you use the `ip-detect` [examples](/1.11/installing/ent/custom/advanced/).
 
 ## DNS resolvers
 
-You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
   - `hostname -f` returns the FQDN
   - `hostname -s` returns the short hostname
@@ -40,11 +40,11 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
  1. Jobs
  1. Admin Router
 
- Be sure to check that all services are up and healthy on the masters before checking the agents.
+ Be sure to verify that all services are up and healthy on the masters before verifying the agents.
 
  ### NTP
 
- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
+ Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can verify that NTP is enabled by running one of these commands, depending on your OS and configuration:
 
     
     ntptime
@@ -55,7 +55,7 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 * Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
 
-Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
+* Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
 
 
    ```bash
@@ -107,7 +107,7 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
 
 
 
-**Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
+**Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it does not complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 
 * Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
@@ -162,9 +162,9 @@ For example, here is a snippet of the Admin Router log as it converges to a succ
 
 ## <a name="dcos-agent-nodes"></a>DC/OS agent nodes
 
-DC/OS private and public agent nodes are started. Deployed apps and services are run on the private agent nodes. You must have at least 1 private agent node.
+DC/OS private and public agent nodes are started. Deployed apps and services are run on the private agent nodes. You must have at least one private agent node.
 
-Publicly accessible applications are run in the public agent node. Public agent nodes can be configured to allow outside traffic to access your cluster. Public agents are optional and there is no minimum. This is where you'd run a load balancer, providing a service from inside the cluster to the external public.
+Publicly accessible applications are run in the public agent node. Public agent nodes can be configured to allow outside traffic to access your cluster. Public agents are optional and there is no minimum. This is where you would run a load balancer, providing a service from inside the cluster to the external public.
 
 **Troubleshooting:**
 
@@ -195,7 +195,7 @@ For example, here is a snippet of the Mesos agent log as it converges to a succe
 
 ## <a name="dcos-marathon"></a>DC/OS Marathon
 
-DC/OS Marathon is started on the master nodes. The native Marathon instance that is the “init system” for DC/OS. It starts and monitors applications and services.
+DC/OS Marathon is started on the master nodes. The native Marathon instance is the “init system” for DC/OS. It starts and monitors applications and services.
 
 **Troubleshooting:**
 
@@ -255,7 +255,7 @@ The Mesos master process starts on the master nodes. The `mesos-master` process 
 
 **Troubleshooting:**
 
-* Go directly to the Mesos web interface and view status at `<master-hostname>/mesos`.
+* Go directly to the Mesos web interface and view its status at `<master-hostname>/mesos`.
 * SSH to your master node and enter this command to view the logs from boot time:
 
     ```bash 

@@ -19,7 +19,7 @@ DC/OS runs its own ZooKeeper supervised by Exhibitor and `systemd`.
 ## Q. Is it necessary to maintain a bootstrap node after the cluster is created?
 If you specify an Exhibitor storage backend type other than `exhibitor_storage_backend: static` in your cluster configuration [file](/1.11/installing/ent/custom/configuration/configuration-parameters/), you must maintain the external storage for the lifetime of your cluster to facilitate leader elections. If your cluster is mission critical, you should harden your external storage by using S3 or running the bootstrap ZooKeeper as a quorum. Interruptions of service from the external storage can be tolerated, but permanent loss of state can lead to unexpected conditions.
 
-## Q. How to add Mesos attributes to nodes to use Marathon constraints?
+## Q. How can I add Mesos attributes to nodes to use Marathon constraints?
 
 In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dcos/mesos-slave-common` (it may need to be created) for each attribute you'd like to add. See the [Mesos documentation](http://mesos.apache.org/documentation/latest/attributes-resources/) for more information.
 
@@ -51,9 +51,9 @@ In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dc
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave-public && sudo systemctl stop dcos-mesos-slave-public
     ```
 
-## Q. How do I backup the IAM database? [enterprise type="inline" size="small" /]
+## Q. How do I back up the IAM database? [enterprise type="inline" size="small" /]
 
-- To backup the IAM database to a file, run the following command on one of the master nodes:
+- To back up the IAM database to a file, run the following command on one of the master nodes:
 
     ```bash
     sudo /opt/mesosphere/bin/cockroach dump --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) iam > ~/iam-backup.sql
@@ -63,7 +63,7 @@ In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dc
 
 - To restore the IAM database from a file `~/iam-backup.sql` run the following commands on one of the master nodes:
 
-First, create a new database called `iam_new` into which the backup should be loaded.
+First, create a new database called `iam_new` into which the back up should be loaded.
 
 ```bash
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "CREATE DATABASE iam_new"
@@ -75,7 +75,7 @@ Next, load the data into the new database.
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) --database=iam_new < ~/iam-backup.sql
 ```
 
-With the backup data loaded into the `iam_new` database, rename the `iam` database to `iam_old`.
+With the back up data loaded into the `iam_new` database, rename the `iam` database to `iam_old`.
 
 **Note:** After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.
 
@@ -91,4 +91,4 @@ Finally, rename the `iam_new` database to `iam`.
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam_new RENAME TO iam"
 ```
 
-The IAM database is restored from the backup file and the cluster is operational.
+The IAM database is restored from the back up file and the cluster is operational.
