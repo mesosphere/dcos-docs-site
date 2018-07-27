@@ -55,7 +55,15 @@ For security, this framework requires [MongoDB Authentication](https://docs.mong
 
 **Your application and MongoDB database driver must use [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) to connect to MongoDB!**
 
-Passwords and Internal Authentication keyFile can be manually defined at service creation time, otherwise a default is used. We **strongly recommend** you change the default key and passwords to something unique and secure!
+Passwords and Internal Authentication keyFile must be manually defined at service creation time.
+
+For safety, the service enforces the following:
+1. System user *(monitoring, backup, admin users)* passwords must 10-characters or longer.
+2. The MongoDB Key must be 756 to 1024 bytes long. The following OpenSSL command is recommended to generate this:
+
+    ```bash
+    openssl rand -base64 756
+    ``` 
 
 #### Storage
 

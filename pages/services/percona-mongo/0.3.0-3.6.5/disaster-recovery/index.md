@@ -14,7 +14,7 @@ The service supports a custom plan for creating a consistent backup of the Mongo
 
 Currently only AWS S3 is supported as an upload destination for backups via the plan named 'backup-s3'. More upload methods coming in the future!
 
-There are two ways to configure backups, via the DC/OS Percona-Mongo service configuration section 'backup' in the DC/OS GUI and/or the DC/OS CLI.
+There are two ways to configure backups, via the DC/OS Percona-Mongo service configuration section 'Backup restore' in the DC/OS GUI and/or the DC/OS CLI.
 
 ### Hidden Secondary Member
 The service supports the ability to launch a dedicated MongoDB [hidden secondary](https://docs.mongodb.com/manual/core/replica-set-hidden-member/) replica set member for purpose of performing backups.
@@ -62,23 +62,19 @@ dcos percona-mongo backup stop s3
 
 To troubleshoot problems with backups, add the flag *'--backup-verbose'* to the backup command. Please report any issues with mongodb_consistent_backup to [https://github.com/Percona-Lab/mongodb_consistent_backup/issues/new](https://github.com/Percona-Lab/mongodb_consistent_backup/issues/new).
 
-Backups created by mongodb_consistent_backup can be restored manually using the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore) command with the *'--oplogReplay'* flag included and the *'--host'* flag set to the host list provided by the 'mongo-port' endpoint. Include the *'--gzip'* flag if your backup used compression *(look for .bson.gz files)*.
-
 ## Restore
 
-Restores using the DC/OS CLI or GUI are not yet supported. This must be done manually using a system that has a recent version of the 'mongodump' tool.
+Running a restore of a mongodump-based backup stored on Amazon S3 is possible via the DC/OS GUI and CLI tool, including backups created by the service.
 
-We recommend [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore/) is used to restore backups manually against the service endpoint until restores are supported. Use the *'--oplogReplay'* flag with mongorestore to restore with point-in-time consistency. We recommend the *'--drop'** flag is used on restore to delete a collection before restoring it, preventing duplicate key errors, although use this with caution!
+### Restore After Replica Set Initiation
 
-Example Restore *(mongorestore will prompt for password due to password equal to "")*:
-```
-mongorestore \
-    --gzip \
-    --drop \
-    --oplogReplay \
-    --host=<hostname> \
-    --username=<username> \
-    --password="" \
-    --dir=/path/to/mongodump/dir
-```
-*Note: replace the flags '--host', '--username' and '--dir' above for your situation. 'hostname' should be equal to the 'mongo-port' endpoint DNS list*
+The service supports running a restore after the initiation of the MongoDB Replica Set. This is useful for migrations to the percona-mongo service, cloning environments, etc.
+
+Steps:
+1. In the DC/OS GUI, add a 'percona-mongo' service in the 'Services' tab.
+1. Edit the service configuration. 
+
+### Restore using the DC/OS GUI
+
+### Restore using the DC/OS CLI
+
