@@ -11,7 +11,7 @@ You can create a DC/OS cluster on DigitalOcean using Terraform.
 
 The included Terraform templates are configured to run Mesosphere DC/OS on DigitalOcean. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support with droplet creation or other related issues, email support@digitalocean.com, visit the unofficial DigitalOcean IRC channel (#digitalocean on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
 
-**Important:** Upgrades are not supported with this installation method.
+**Note:** Upgrades are not supported with this installation method.
 
 ## Security
 
@@ -19,11 +19,11 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
 ## Environment
 
-- 1, 3 or 5 Mesos master nodes in the admin zone
+- One, three or five Mesos master nodes in the admin zone
 
-- 4 Mesos private agent nodes
+- Four Mesos private agent nodes
 
-- 1 Mesos public agent node
+- One Mesos public agent node
 
 - DigitalOcean 4GB (or more) Droplets
 
@@ -65,7 +65,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
     curl -X GET -H 'Content-Type: application/json' -H 'Authorization: Bearer $TOKEN' "https://api.digitalocean.com/v2/account/keys"
     ```
 
-7.  Copy `sample.terraform.tfvars` to a new file named `terraform.tfvars`, and edit the new file, filling in the values as desired. The following are blank and if not filled in, you will be prompted by terraform when necessary:
+7.  Copy `sample.terraform.tfvars` to a new file named `terraform.tfvars`, and edit the new file, filling in the values as desired. The following are blank; if not filled in, you will be prompted by Terraform when necessary:
 
     - digitalocean_token - Your DigitalOcean API key
 
@@ -76,7 +76,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
 The following have default values and may be changed depending on your requirements:
 
-   - region - DigitalOcean facility: [NYC1|NYC2|NYC3|SGP1|LON1|AMS2|AMS3|SFO1|TOR1|FRA1]
+   - `region` - DigitalOcean facility: [NYC1|NYC2|NYC3|SGP1|LON1|AMS2|AMS3|SFO1|TOR1|FRA1]
     Choose the DigitalOcean datacenter for your cluster - default NYC2
 
    - agent_size - Size of DigitalOcean Droplet to use for the DC/OS Agents: [4GB|8GB|16GB|32GB|48GB|64GB]
@@ -102,7 +102,7 @@ The following have default values and may be changed depending on your requireme
 
   ![terraform apply output](/1.11/img/digitalocean_terraform_output.png)
 
-You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, you'll want to check out the [troubleshooting](/1.11/installing/oss/troubleshooting/) documentation.
+You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel to become available on the master node. After 15 or 20 minutes, check out the [troubleshooting](/1.11/installing/oss/troubleshooting/) documentation.
 
 # Launch DC/OS
 Launch the DC/OS web interface by entering the Mesos master IP address:

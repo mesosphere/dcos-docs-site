@@ -48,7 +48,7 @@ The Zen templates (e.g. `ee.elzen-1.json`) orchestrate the individual component 
   </tr>
   <tr>
     <td>MasterInstanceType</td>
-    <td>Region-specific instance type. E.g. m3.xlarge</td>
+    <td>Region-specific instance type. Example: m3.xlarge</td>
   </tr>
   <tr>
     <td>PrivateAgentInstanceCount</td>
@@ -56,7 +56,7 @@ The Zen templates (e.g. `ee.elzen-1.json`) orchestrate the individual component 
   </tr>
   <tr>
     <td>PrivateAgentInstanceType</td>
-    <td>Region-specific instance type. E.g. m3.xlarge</td>
+    <td>Region-specific instance type. Example: m3.xlarge</td>
   </tr>
   <tr>
     <td>PrivateSubnet</td>
@@ -68,7 +68,7 @@ The Zen templates (e.g. `ee.elzen-1.json`) orchestrate the individual component 
   </tr>
   <tr>
     <td>PublicAgentInstanceType</td>
-    <td>Region-specific instance type. E.g. m3.xlarge</td>
+    <td>Region-specific instance type. Example: m3.xlarge</td>
   </tr>
   <tr>
     <td>PublicSubnet</td>
@@ -104,7 +104,7 @@ The private agent template (`advanced-priv-agent.json`) creates agents which are
   </tr>
   <tr>
     <td>PrivateAgentInstanceType</td>
-    <td>Region-specific instance type. E.g. m3.xlarge</td>
+    <td>Region-specific instance type. Example: m3.xlarge</td>
   </tr>
   <tr>
     <td>PrivateAgentSecurityGroup</td>
@@ -168,7 +168,7 @@ The master templates (`advanced-master-1.json`, `advanced-master-3.json`, `advan
   </tr>
   <tr>
     <td>ExhibitorS3Bucket</td>
-    <td>S3 Bucket resource name. Used by Exhibitor for Zookeeper discovery and coordination. See Exhibitor documentation on 'shared configuration': https://github.com/Netflix/exhibitor/wiki/Shared-Configuration for more information</td>
+    <td>S3 Bucket resource name. Used by Exhibitor for Zookeeper discovery and coordination. See Exhibitor documentation on '"shared configuration"': https://github.com/Netflix/exhibitor/wiki/Shared-Configuration for more information</td>
   </tr>
   <tr>
     <td>KeyName</td>
@@ -180,7 +180,7 @@ The master templates (`advanced-master-1.json`, `advanced-master-3.json`, `advan
   </tr>
   <tr>
     <td>MasterInstanceType</td>
-    <td>Region-specific instance type. E.g. m3.xlarge</td>
+    <td>Region-specific instance type.  Example: m3.xlarge</td>
   </tr>
   <tr>
     <td>MasterSecurityGroup</td>

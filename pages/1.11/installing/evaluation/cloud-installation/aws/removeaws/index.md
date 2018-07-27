@@ -10,7 +10,7 @@ excerpt: Uninstalling DC/OS running on AWS EC2
 
 You can uninstall DC/OS running on AWS EC2 with these instructions.
 
-**You will continue to be charged AWS fees if:**
+**Caution: You will continue to be charged AWS fees if:**
 
 *   You delete only the individual EC2 instances, not the entire stack. If you delete only the individual instances, AWS will restart your DC/OS cluster.
 *   Your stack fails to delete. You must monitor the stack deletion process to ensure it completes successfully.

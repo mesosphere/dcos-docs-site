@@ -9,17 +9,16 @@ oss: true
 
 This page explains how to install DC/OS 1.11 using the Azure Resource Manager templates.
 
-**Tip:** To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
+**Note:** 
+- To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
 
-**Important:** Upgrades are not supported with this installation method.
+- Upgrades are not supported with this installation method.
 
 # System requirements
 
 ## Hardware
 
-To use all of the services offered in DC/OS, you should choose at least five Mesos Agents using `Standard_D2` [Virtual Machines](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/), which is the default size in the DC/OS Azure Marketplace offering.
-
-Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services such as distributed datastores not to work properly (from installation issues to operational limitations).
+To use all of the services offered in DC/OS, you should choose at least five Mesos Agents using `Standard_D2` [Virtual Machines](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/), which is the default size in the DC/OS Azure Marketplace offering. Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services such as distributed datastores to work improperly (from installation issues to operational limitations).
 
 ### Production-Ready Cluster Configurations ###
 
@@ -27,14 +26,14 @@ These recommendations are based on operation of a multiple DC/OS clusters over
 multiple years scaling
 a mix of stateful and stateless services under a live production load.
 Your service mix may perform differently, but the principles and
-lessons learned discussed herein still apply.
+lessons discussed herein still apply.
 
 #### General Machine Configurations ####
 We recommend *disabling* swap on your VMs, which is typically the default for
 the Azure Linux images. We have found that using the
 ephemeral SSDs for swap (via WAAgent configuration)
 can conflict with the disk caching configuration of
-the `D` series of VMs. For other series of VMs, (e.g. `L` series),
+the `D` series of VMs. For other series of VMs, such as `L` series,
 it may be possible to use the SSDs for swap and other purposes.
 
 See the following section for particulars on disk configuration.
@@ -44,7 +43,7 @@ identify and alert as to when workloads are nearing Azure defined limits.
 
 #### Networking ####
 On Azure, raw network performance is roughly determined by VM size.
-VMs with 8 or more cores (e.g. `Standard_D8_v3`) are eligible for
+VMs with 8 or more cores such as `Standard_D8_v3`, are eligible for
 [Azure Accelerated Networking (SR-IOV)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).
 We have seen much lower latency and more available and stable bandwidth using SR-IOV
 as opposed to relying on the Azure hypervisor vswitches.
@@ -52,29 +51,29 @@ For example, in our testing, a `Standard_D16s_v3` without SR-IOV
 can push approximately 450MB/s of data between two VMs, while the same size
 machines can push closer to 1000MB/s of data using SR-IOV.
 Thus, SR-IOV should be employed when possible and you should benchmark your
-instance sizes (e.g. using [iperf3](https://github.com/esnet/iperf)) to make sure your network requirements
+instance sizes ((for example, using [iperf3](https://github.com/esnet/iperf)) to make sure your network requirements
 are met.
 
-Additionally, while multiple NICs are supported per virtual machine, the
+Additionally, while multiple NICs per virtual machine are supported, the
 amount of bandwidth is per-VM, not per NIC. Thus, while segmenting
 your network into control and data planes (or other networks) may be
-useful for organizational or security purposes, linux level traffic shaping
+useful for organizational or security purposes, Linux level traffic shaping
 is required in order to achieve bandwidth control.
 
 #### Disk Configurations ####
 In order to achieve performant, reliable cluster operation on Azure,
 Premium SSDs are recommended in particular disk configurations.
 Managed Disks (MDs) are preferred over Unmanaged Disks (UMDs)
-to avoid Storage Account limitations:
+to avoid Storage Account limitations.
 The Azure fabric will place the managed disks appropriately to meet the
 guaranteed SLAs.
 Storage account limitations for UMDs are documented
 [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-performance-checklist).
 
-On Azure, Premium SSDs have a limited number of synchronous IOPs possible
+On Azure, Premium SSDs have a limited number of possible synchronous IOPs, 
 limited by the latency of the underlying disk fabric.
-Services such as etcd, Zookeeper and databases which utilize a
-write-ahead-log (WAL) are particular sensitive to this I/O configuration.
+Services such as etcd, Zookeeper and databases which use a
+write-ahead-log (WAL) are particularly sensitive to this I/O configuration.
 Thus, much of the system engineering described herein is focused on
 minimizing and/or eliminating I/O contention on the Azure Disks.
 
@@ -103,22 +102,20 @@ recommended:
     - /var/lib/mesos/slave - P20
 
 It is certainly possible to run clusters with smaller and/or fewer disks,
-but for production use, the above has proven to have substantial advantages
-for any non-trivial cluster sizes.
-
-Additionally, we recommend attaching appropriate
+but for production use, the configurations above have proven to have substantial advantages
+for any non-trivial cluster sizes. Additionally, we recommend attaching appropriate
 Premium SSDs to `/dcos/volume0 ... /dcos/volumeN`
 using Mesos MOUNT disk resources, which can then be dedicated to data
 intensive services without I/O contention.
 
-For data intensive services (e.g. postgres, mysql) you should consider
+For data intensive services such as Postgres or  mysql, you should consider
 attaching LVM RAID stripes to those MOUNT resources to increase the
 possible transactions per second of the databases.
 
 With respect to configuring the disk caches, the following general rules apply:
-- OS disks should be set to `ReadWrite`
+- OS disks should be set to `ReadWrite`.
 - Data disks with a mixed or read heavy load (database bulk storage, etc) should
-be set to `ReadOnly`
+be set to `ReadOnly`.
 - Data disks with high sequential write loads (WAL disks) should be set to `None`.
 
 ## Software
@@ -133,12 +130,12 @@ Also, to access nodes in the DC/OS cluster you will need `ssh` installed and con
 
 To install DC/OS 1.11 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
 
-Some notes of the template configuration is listed below:
+Some notes on the template configuration:
 
-- Choose `East US` as the Location, because some resources of the template may not available in other location.
+- Choose `East US` as the Location, because some resources of the template may not be available in other locations.
 - Set `Oauth Enabled` to true if you want to sign in the DC/OS Dashboard through OAuth.
 - Fill up the `Agent Endpoint DNS Name Prefix` and `Master Endpoint DNS Name Prefix`.
-- Enter your `Ssh RSA Public Key`.
+- Enter your `SSH RSA Public Key`.
 
 ## Accessing DC/OS
 
@@ -150,11 +147,9 @@ Click on the latest deployment and copy the value of `MASTERFQDN` in the `Output
 
 ![Deployment output](/1.11/img/dcos-azure-marketplace-step2b.png)
 
-Use the value of `MASTERFQDN` you found in the `Outputs` section in the previous step, and use it in the following step.
+Note the value of `MASTERFQDN` you found in the `Outputs` section in the previous step, and use it in the following step. Because of security considerations, you cannot visit the DC/OS Dashboard in Azure directly by default. 
 
-Because of security considerations, you cannot visit the DC/OS Dashboard in Azure directly by default. 
-
-Choose one of the following work around solution to visit the DC/OS Dashboard in Azure:
+Choose one of the following workaround solutions to visit the DC/OS Dashboard in Azure:
 
 ### Case 1:
 
@@ -188,9 +183,9 @@ Add an inbound NAT rule.
 
 ### Case 2: Using ssh tunnel
 
-In this case, we need to setup a ssh tunnel, to forward TCP port 80 of the master node on the azure to the 8000 port of your local machine.
+In this case, we need to setup an SSH tunnel, to forward TCP port 80 of the master node on the Azure cluster to the 8000 port of your local machine.
 
-Use the value of `MASTERFQDN` you found in the previous step and paste it in the following command:
+Copy the value of `MASTERFQDN` you found in the previous step and paste it in the following command:
 
 ```bash
 ssh azureuser@$MASTERFQDN -L 8000:localhost:80
@@ -208,14 +203,14 @@ Now you can visit `http://localhost:8000` on your local machine and view the DC/
 
 ### Caveats
 
-Some caveats around SSH access:
+Some caveats about SSH access:
 
 - For connections to `http://localhost:8000` to work, the SSH command must be run on your local machine, and not inside a Virtual Machine.
 - In the example above, port `8000` is assumed to be available on your local machine.
-- The SSH commands shown only work on Mac or Linux. For Windows use [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) with a similar port-forwarding configuration, see also [How to Use SSH with Windows on Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- The SSH commands shown only work on Mac or Linux. For Windows, use [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) with a similar port-forwarding configuration, see also [How to Use SSH with Windows on Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 - If you want to learn more about SSH key generation check out this [GitHub tutorial](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
 
-The DC/OS UI will not show the correct IP address or CLI install commands when connected by using an SSH tunnel.
+The DC/OS UI will not show the correct IP address or CLI install commands when connected by an SSH tunnel.
 
 ## Run DC/OS CLI
 
@@ -238,7 +233,7 @@ dcos package search
 
 ## Tear down the DC/OS cluster
 
-If you've created a new resource group in the deployment step, it is as easy as this to tear down the cluster and release all of the resources: just delete the resource group. If you have deployed the cluster into an existing resource group, you'll need to identify all resources that belong to the DC/OS cluster and manually delete them.
+If you have created a new resource group in the deployment step, it is easy to tear down the cluster and release all of the resources: just delete the resource group. If you have deployed the cluster into an existing resource group, you'll need to identify all resources that belong to the DC/OS cluster and manually delete them.
 
 ## Next steps
 
