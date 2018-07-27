@@ -40,15 +40,9 @@ Below are the steps to be followed to configure Mount Volume:
   sudo mount /dcos/volume0
   sudo reboot
   ```
-  wait till the node getting up
+wait till the node getting up.now repeat same steps on same node if u want to mount more than one volume. Again wait till the     node getting up. now repeat from step 6 to mount the volume to the other nodes.
    
-  now repeat same steps on same node if u want to mount more than one volume.
-   
-  wait till the node getting up
-   
-  now repeat from step 6 to mount the volume to the other nodes.
-   
-  **Note:** Dont mount the volume to the public slave.
+**Note:** Dont mount the volume to the public slave.
   
   
   
