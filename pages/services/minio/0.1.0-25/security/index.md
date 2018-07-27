@@ -25,6 +25,8 @@ In DC/OS 1.10, the required permission is `dcos:superuser full`:
    dcos security org service-accounts create -p minio-public-key.pem -d "dcos_minio" <service name>
    dcos security secrets create-sa-secret --strict minio-private-key.pem <service name> <service name secret>
    dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser"
+   dcos security org users grant dcos_minio dcos:adminrouter:ops:ca:rw full --description "grant permission to adminrouter"
+   dcos security org users grant dcos_minio dcos:secrets:default:miniodemo full --description "grant permission to miniodemo"
    ```
 where `<service name>` is the name of the service to be installed.
 
