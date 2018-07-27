@@ -6,9 +6,9 @@ menuWeight: 15
 excerpt: Installation process to create DC/OS clusters
 ---
 
-A DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view [nodes](/1.11/overview/concepts/#node) documenation for more information.
+The DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view the [nodes](/1.11/overview/concepts/#node) documentation for more information.
 
-This method is used to install production ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
+This method is used to install production ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
 
 # Installation process
 
@@ -19,9 +19,10 @@ This method is used to install production ready DC/OS that can be upgraded. Usin
 *   Install DC/OS on Agent node
 
 ![Installation Process](/1.11/img/advanced-installer.png)
+Figure 1 - The installation process
 
 
-The installation method requires:
+This installation method requires:
 
 *   The bootstrap node must be network accessible from the cluster nodes.
 *   The bootstrap node must have the HTTP(S) ports open from the cluster nodes.
@@ -31,17 +32,17 @@ The DC/OS installation creates the following folders:
 | Folder                                  | Description                                                                                                                                    |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
-| `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
+| `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must be located outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
 | `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.11/overview/concepts/#exhibitor-zookeeper) data.                                                                   |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
 
-**Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
+**Note:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
 ## Prerequisites
-Before installing DC/OS, your cluster must have the software and hardware [requirements][1].
+Before installing DC/OS, your cluster must meet the software and hardware [requirements][1].
 
 
 # <a name="configure-cluster"></a>Configure your cluster
@@ -60,7 +61,7 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
 
 In this step, an IP detection script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detection script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
-**Important:**
+**Note:**
 
 - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing/ent/custom/uninstall/).
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
@@ -96,7 +97,7 @@ In this step, an IP detection script is created. This script reports the IP addr
 
         This method discovers the IP address of a particular interface of the node.
 
-        If you have multiple generations of hardware with different internals, the interface names can change between hosts. The IP detect script must account for the interface name changes. The example script could also be confused if you attach multiple IP addresses to a single interface, or do complex Linux networking, etc.
+        If you have multiple generations of hardware with different internal IP address, the interface names can change between hosts. The IP detect script must account for the interface name changes. The example script could also be confused if you attach multiple IP addresses to a single interface, or do complex Linux networking, etc.
 
         ```bash
         #!/usr/bin/env bash
@@ -150,14 +151,14 @@ BEGIN { ec = 1 }
 # Create a fault domain detection script
 [/enterprise]
 
-By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, thereby requiring no changes to your `config.yaml` to enable this functionality. However, you must include a fault domain detection script named `fault-domain-detect` in your `./genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
+By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, so no changes to your `config.yaml` are required to use this feature. However, you must include a fault domain detection script named `fault-domain-detect` in your `./genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
 
 
-1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
+1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
 
-   We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>` We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+   We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>`. We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
-   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work, if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
+   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Caution:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
 
 
 2. Add your newly created `fault-domain-detect` script to the `/genconf` directory of your bootstrap node.
@@ -172,16 +173,19 @@ In this step, you can create a YAML configuration file that is customized for yo
 [/enterprise]
 In the following instructions, we assume that you are using ZooKeeper for shared storage.
 
-1.  From the bootstrap node, run this command to create a hashed password for superuser authentication, where `<superuser_password>` is the superuser password. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file.
+1.  From the bootstrap node, run this command to create a hashed password for superuser authentication, where `<superuser_password>` is the superuser password. 
+
+2. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file.
+
 
       ```bash
       sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
       ```
 
-    Here is an example of a hashed password output.
+Here is an example of a hashed password output.
 
     ```
-    Extracting image from this script and loading into docker daemon, this step can take a few minutes
+    Extracting an image from this script and loading it into a docker daemon, can take a few minutes.
     dcos-genconf.9eda4ae45de5488c0c-c40556fa73a00235f1.tar
     Running mesosphere/dcos-genconf docker with BUILD_DIR set to /home/centos/genconf
     00:42:10 dcos_installer.action_lib.prettyprint:: ====> HASHING PASSWORD TO SHA512
@@ -192,17 +196,17 @@ In the following instructions, we assume that you are using ZooKeeper for shared
 ## Create the configuration 
 1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. 
 
-The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and cloud specific DNS resolvers. [enterprise type="inline" size="small" /]
+The Enterprise template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and cloud specific DNS resolvers. [enterprise type="inline" size="small" /]
 
-This template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and cloud specific DNS resolvers. [oss type="inline" size="small" /]
+This Open Source template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and cloud specific DNS resolvers. [oss type="inline" size="small" /]
 
-If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
 
 **Tips:**
 
 - If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
-- If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (e.g., `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
-- In AWS, or any other environment where you can not control a node's IP address, master_discovery needs to be set to use master_http_load_balancer, and a load balancer needs to be setup.
+- If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
+- In AWS, or any other environment where you can not control a node's IP address, master_discovery needs to be set to use master_http_load_balancer, and a load balancer needs to be set up.
 
 [enterprise]
 ## Enterprise template
@@ -264,11 +268,14 @@ enable_ipv6: 'false'
 
 # <a name="install-bash"></a>Install DC/OS
 
-In this step you create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you package the DC/OS distribution yourself and connect to every server manually and run the commands.
+In this step, you will create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you
+1. Package the DC/OS distribution yourself
+2. Connect to every server manually
+3. Run the commands
 
-**Important:**
+**Note:**
 
-- Due to a cluster configuration issue with overlay networks, we currently recommend setting `enable_ipv6` to `false` in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
+- Due to a cluster configuration issue with overlay networks, we recommend setting `enable_ipv6` to `false` in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes. You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
 - Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP on all DC/OS nodes with time synchronized. See [troubleshooting](/1.11/installing/ent/troubleshooting/) for more information.
 - If something goes wrong and you want to rerun your setup, use the cluster [uninstall][11] instructions.
 
@@ -278,7 +285,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 *   A `genconf/license.txt` file containing your DC/OS Enterprise license. [enterprise type="inline" size="small" /]
 *   A `genconf/ip-detect` script.
 
-**Note:** The term `dcos_generate_config file` refers to either `dcos_generate_config.ee.sh` or `dcos_generate_config.sh` based on your requirement to configure Enterprise or Open Source version. 
+**Note:** The term `dcos_generate_config file` refers to either a `dcos_generate_config.ee.sh` file or `dcos_generate_config.sh` file, based on whether you are using the Enterprise or Open Source version of DC/OS.
 
 - Download and save the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
 
@@ -293,8 +300,9 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 1.  From the bootstrap node, run the DC/OS installer shell script to generate a customized DC/OS build file. The setup script extracts a Docker container that uses the generic DC/OS install files to create customized DC/OS build files for your cluster. The build files are output to `./genconf/serve/`.
 
-    **Tip:** You can view all of the automated command line installer options with:
-    * `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /]  OR 
+    **Note:** You can view all of the automated command line installer options with:
+    * `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /]  
+      OR 
     * `dcos_generate_config.sh --help` flag. [oss type="inline" size="small" /]
 
 
@@ -358,7 +366,7 @@ At this point your directory structure should resemble:
         sudo bash dcos_install.sh master
         ```
 
-    **Tip:** Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
+    **Note:** Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.
 
 4.  <A name="slaveinstall"></A> Run the following commands on each of your agent nodes to install DC/OS using your custom build file:
 
@@ -394,31 +402,31 @@ At this point your directory structure should resemble:
             sudo bash dcos_install.sh slave_public
             ```
 
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.11/installing/ent/custom/system-requirements/#port-and-protocol) documentation.
+    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.11/installing/ent/custom/system-requirements/#port-and-protocol) documentation.
 
 5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
-    **Tip:** This process can take about 10 minutes. During this time, you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
+    **Note:** This process can take about 10 minutes. During this time, you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.
 
 ![Exhibitor for ZooKeeper][4]
-
+Figure 2 - Exhibitor for ZooKeeper
 
    When the status icons are green, you can access the DC/OS web interface.
 
 6.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting][11] documentation.
 
-    **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.
+    **Note:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.
 
 7.  Enter your administrator username and password.
 
 ![Login screen](/1.11/img/ui-installer-auth2.png)
-
+Figure 3 - Sign in dialogue
 
 
 You are done! The UI dashboard will now be displayed.
 
 ![UI dashboard](/1.11/img/dashboard-ee.png)
-
+Figure 4 - DC/OS UI dashboard
 
 
 ### Next Steps: Enterprise and Open Source users

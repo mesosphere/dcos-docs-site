@@ -25,13 +25,15 @@ Before installing Docker on RHEL, review the general [requirements and recommend
 
 The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/OS. All of the commands should be run as root or by prefixing each command with 'sudo'
 
+## Preparing RHEL 7.4 system
+
 1.  Disable the firewall.
 
     ```bash
     systemctl stop firewalld && systemctl disable firewalld
     ```
 
-1.  Subscribe the RHEL system in subscription-manager and add the repos.
+2.  Subscribe the RHEL system in subscription-manager and add the repos.
 
     ```bash
     subscription-manager register --username <RHEL-SUBSCRIPTION-USERNAME> --password ******** --auto-attach
@@ -41,26 +43,26 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
     subscription-manager repos --enable=rhel-7-server-optional-rpms
     ```
 
-1.  Configure OS for overlay storage.
+3.  Configure OS for overlay storage.
 
     ```bash
     echo 'overlay' >> /etc/modules-load.d/overlay.conf
     modprobe overlay
     ```
 
-1.  Run yum update.
+4.  Run `yum` update.
 
     ```bash
     yum update --exclude=docker-engine,docker-engine-selinux,centos-release* --assumeyes --tolerant
     ```
 
-1.  Install other necessary tools.
+5.  Install other necessary tools.
 
     ```bash
     yum install -y wget curl zip unzip ipset ntp screen bind-utils
     ```
 
-1.  Install `jq` for better parsing of `.json` files.
+6.  Install `jq` for better parsing of `.json` files.
 
     ```bash
     wget http://stedolan.github.io/jq/download/linux64/jq
@@ -70,38 +72,40 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
     cp jq /usr/bin
     ```
 
-1.  Add a group called nogroup.
+7.  Add a group called nogroup.
 
     ```bash
     groupadd nogroup
     ```
 
-1.  Enable non-TTY sudo.
+8.  Enable non-TTY sudo.
 
     ```bash
     sed -i -e 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers
     ```
 
-1.  Disable IPv6 (optional).
+9.  Disable IPv6 (optional).
 
     ```bash
     sysctl -w net.ipv6.conf.all.disable_ipv6=1
     sysctl -w net.ipv6.conf.default.disable_ipv6=1
     ```
 
-1.  Disable SElinux.
+10.  Disable SElinux.
 
     ```bash
     sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/selinux/config
     setenforce 0
     ```
 
-1.  Disable DNSmasq (DC/OS requires access to port 53).
+11.  Disable DNSmasq (DC/OS requires access to port 53).
 
     ```bash
     systemctl stop dnsmasq
     systemctl disable dnsmasq.service
     ```
+
+## Installing Docker
 
 1.  Uninstall old versions of Docker (if present).
 
@@ -112,7 +116,7 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
                   docker-engine
 	```
 
-1.  Set up Docker CE repo.
+2.  Set up Docker CE repo.
 
 	```bash
 	yum-config-manager \
@@ -120,37 +124,37 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
     https://download.docker.com/linux/centos/docker-ce.repo
 	```
 
-1.  Show versions of Docker CE. The remainder of these instructions assume that you have installed the latest version.
+3.  Show versions of Docker CE. The remainder of these instructions assume that you have installed the latest version.
 
 	```bash
 	yum list docker-ce --showduplicates | sort -r
 	```
 
-1.  Install Docker CE.
+4.  Install Docker CE.
 
 	```bash
 	yum install docker-ce
 	```
 
-1.  Start Docker.
+5.  Start Docker.
 
 	```bash
 	systemctl start docker
 	```
 
-1.  Test Docker with hello-world app.
+6.  Test Docker with hello-world app.
 
 	```bash
 	docker run hello-world
 	```
 
-1.  Verify that Docker is using the overlay driver.
+7.  Verify that Docker is using the overlay driver.
 
 	```bash
 	docker info | grep Storage
 	```
 
-To continue setting up DC/OS, see [Advanced Installer][2] dcoumentation.
+To continue setting up DC/OS, see [Installation][2] dcoumentation.
 
 
  See [System Requirements: Docker][1] for more generic Docker requirements.

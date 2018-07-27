@@ -8,9 +8,9 @@ excerpt: Configuration parameters available for DC/OS
 
 # Configuration Parameters
 
-The configuration parameters for [DC/OS Enterprise](https://mesosphere.com/product/) is [here](/1.11/installing/ent/custom/configuration/configuration-parameters/). [enterprise type="inline" size="small" /]
+The configuration parameters for [DC/OS Enterprise](https://mesosphere.com/product/) are [here](/1.11/installing/ent/custom/configuration/configuration-parameters/). [enterprise type="inline" size="small" /]
 
-The configuration parameters for [DC/OS Open Source](https://dcos.io/) is [here](/1.11/installing/oss/custom/configuration/configuration-parameters/). [oss type="inline" size="small" /]
+The configuration parameters for [DC/OS Open Source](https://dcos.io/) are [here](/1.11/installing/oss/custom/configuration/configuration-parameters/). [oss type="inline" size="small" /]
 
 
 # Cluster Setup
@@ -55,8 +55,8 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) is [here]
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
 | [resolvers](#resolvers)                               | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.|
 | [use_proxy](#use-proxy)                               | Indicates whether to enable the DC/OS proxy. |
-|[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. |
-| [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
+|[enable_ipv6](#enable-ipv6)                            | A boolean that indicates whether IPv6 networking support is available in DC/OS. Default value is `true`. |
+| [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes effect only if `enable_ipv6` is set to `true`. Default value is `false`.|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
 
 [enterprise]
@@ -96,7 +96,7 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) is [here]
 | ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | [security](#security-enterprise)                               | The security mode: disabled, permissive, or strict. [enterprise type="inline" size="small" /] |
-| [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
+| [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
 | [superuser_password_hash](#superuser-password-hash-enterprise) | Required - The hashed superuser password. [enterprise type="inline" size="small" /] |
@@ -111,7 +111,7 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) is [here]
 | Parameter                          | Description                                                                                                                                                |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [oauth_enabled](#oauth-enabled-open-source)                                | Indicates whether to enable authentication for your cluster. [oss type="inline" size="small" /] |
-| [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
+| [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
 | [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
@@ -135,16 +135,16 @@ Indicates whether to enable TLS 1.0 in Admin Router. Changing this setting has n
 
 You are advised not to enable TLS 1.0 as the protocol is considered insecure.
 
-If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_0_enabled` parameter set to the desired value.
+If you have already installed your cluster and would like to change this in place, you can go through an [upgrade](/1.11/installing/production/upgrading/) with the `adminrouter_tls_1_0_enabled` parameter set to the desired value.
 
 
 ## adminrouter_tls_1_1_enabled [enterprise type="inline" size="small" /]
-Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
+Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
 
 - `adminrouter_tls_1_1_enabled: 'true'` Enable the TLS 1.1 protocol in Admin Router. This is the default value.
 - `adminrouter_tls_1_1_enabled: 'false'` Disable the TLS 1.1 protocol in Admin Router.
 
-If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_1_enabled` parameter set to the desired value.
+If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade](/1.11/installing/production/upgrading/) with the `adminrouter_tls_1_1_enabled` parameter set to the desired value.
 
 
 ## adminrouter_tls_1_2_enabled [enterprise type="inline" size="small" /]
@@ -155,16 +155,16 @@ Indicates whether to enable TLS 1.2 in Admin Router. Changing this setting has n
 
 It is advised to keep this protocol version enabled as its most secure widely supported TLS version.
 
-If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_2_enabled` parameter set to the desired value.
+If you have already installed your cluster and would like to change this in place, you can go through an [upgrade](/1.11/installing/production/upgrading/) with the `adminrouter_tls_1_2_enabled` parameter set to the desired value.
 
 ## adminrouter_tls_cipher_suite [enterprise type="inline" size="small" /]
 Provide a custom list of TLS cipher suites. The value will be passed directly into Admin Router's [`ssl_ciphers`](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers) configuration directive. There is no validation of this string. Setting it incorrectly will cause DC/OS installation to fail. This configuration settings affects only Admin Routers running on DC/OS master nodes.
 
 If not provided the default value `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;` is used.
 
-To validate correctness of provided value use the `openssl ciphers` utility and provide your own value: `openssl ciphers <cipher-suites>`. For a list of all available ciphers see the [OpenSSL documentation](https://www.openssl.org/docs/man1.0.2/apps/ciphers.html).
+To validate the accuracy of the provided value, use the `openssl ciphers` utility and provide your own value: `openssl ciphers <cipher-suites>`. For a list of all available ciphers see the [OpenSSL documentation](https://www.openssl.org/docs/man1.0.2/apps/ciphers.html).
 
-*Note:* Due to Java jurisdiction limitations it is not possible to install DC/OS with only AES256 cipher suites.
+**Note:** Due to Java jurisdiction limitations, it is not possible to install DC/OS with only AES256 cipher suites.
 
 ## agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.11/overview/concepts/#private-agent-node) host names.
@@ -175,15 +175,15 @@ Indicates whether to allow web browsers to send the DC/OS authentication cookie 
 *   `auth_cookie_secure_flag: false` (default) Browsers will send the DC/OS authentication cookie through either an unencrypted HTTP connection or an encrypted HTTPS connection.
 *   `auth_cookie_secure_flag: true` The authentication cookie set by DC/OS will contain the [`Secure` flag](https://www.owasp.org/index.php/SecureFlag), which instructs the browser to not send the cookie over unencrypted HTTP connections. This could cause authentication to fail under the following circumstances.
 
-    - If the security mode is `disabled`.
-    - If the security mode is `permissive`, the URL specifies HTTP, and the URL includes a target different from the root path (e.g., `http://<cluster-url>/<path>/`).
-    - There are proxies in between the browser and DC/OS that terminate TLS.
+    - If the security mode is `disabled`
+    - If the security mode is `permissive`, the URL specifies HTTP, and the URL includes a target different from the root path (for example, `http://<cluster-url>/<path>/`)
+    - There are proxies in between the browser and DC/OS that terminate TLS
 
-## bootstrap_url
-(Required) The URI path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: file:///opt/dcos_install_tmp` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
+## bootstrap_url (Required)
+ The URL path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: file:///opt/dcos_install_tmp` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
 
 ## bouncer_expiration_auth_token_days [enterprise type="inline" size="small" /]
-This parameter sets the auth token time-to-live (TTL) for Identity and Access Management. You must specify the value in Python float syntax wrapped in a YAML string. By default the token expires after 5 days. For example, to set the token lifetime to half a day:
+This parameter sets the auth token time-to-live (TTL) for Identity and Access Management. You must specify the value in Python float syntax wrapped in a YAML string. By default, the token expires after five days. For example, to set the token lifetime to half a day:
 
 ```json
 bouncer_expiration_auth_token_days: '0.5'
@@ -195,7 +195,7 @@ For more information, see the [security](/1.11/security/ent/) documentation.
 The dictionary of Docker credentials to pass.
 
 - If unset, a default empty credentials file is created at `/etc/mesosphere/docker_credentials` during DC/OS install. A sysadmin can change credentials as needed. A `systemctl restart dcos-mesos-slave` or `systemctl restart dcos-mesos-slave-public` is required for changes to take effect.
-- You can also specify by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you. This stores the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS internal configuration.
+- You can also specify by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write it as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you. This stores the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS internal configuration.
 
 **Note:**
 - `cluster_docker_credentials` takes effect only when [`cluster_docker_credentials_enabled`](#cluster-docker-credentials-enabled) is set to `'true'`
@@ -206,7 +206,7 @@ You can use the following options to further configure the Docker credentials:
 *  `cluster_docker_credentials_dcos_owned` Indicates whether to store the credentials file in `/opt/mesosphere` or `/etc/mesosphere/docker_credentials`. A sysadmin cannot edit `/opt/mesosphere` directly.
     *  `cluster_docker_credentials_dcos_owned: 'true'` The credentials file is stored in `/opt/mesosphere`.
         *  `cluster_docker_credentials_write_to_etc` Whether to write a cluster credentials file.
-            *  `cluster_docker_credentials_write_to_etc: 'true'` Write a credentials file. This can be useful if overwriting your credentials file will cause problems (e.g., if it is part of a machine image or AMI). This is the default value.
+            *  `cluster_docker_credentials_write_to_etc: 'true'` Write a credentials file. This can be useful if overwriting your credentials file will cause problems (for example, if it is part of a machine image or AMI). This is the default value.
             *  `cluster_docker_credentials_write_to_etc: 'false'` Do not write a credentials file.
     *  `cluster_docker_credentials_dcos_owned: 'false'` The credentials file is stored in `/etc/mesosphere/docker_credentials`.
 
@@ -233,8 +233,8 @@ The dictionary of packaging configuration to pass to the [DC/OS package manager]
 * `staged_package_storage_uri`
    Where to temporarily store DC/OS packages while they are being added. The value must be a file URL, for example, `file:///var/lib/dcos/cosmos/staged-packages`.
 
-## customer_key [enterprise type="inline" size="small" /]
-(Required) The DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact.
+## customer_key (Required) [enterprise type="inline" size="small" /] 
+The DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact.
 
 This key is a 128-bit hyphen-delimited hexadecimal identifier used to distinguish an individual cluster. The customer key serves as the Universally Unique Identifier (UUID) for a given installation.
 
@@ -247,21 +247,21 @@ ab1c23de-45f6-7g8h-9012-i345j6k7lm8n
 For more information, see the [security documentation](/1.11/security/ent/).
 
 ## custom_checks
-Custom installation checks that are added to the default check configuration process. The configuration is used by the [DC/OS Diagnostics component](/1.11/overview/architecture/components/#dcos-diagnostics) to perform installation and upgrade checks. These custom checks are run alongside the default pre and post-flight checks during installation and upgrade.
+Custom installation checks that are added to the default check configuration process. The configuration is used by the [DC/OS Diagnostics component](/1.11/overview/architecture/components/#dcos-diagnostics) to perform installation and upgrade checks. These custom checks are run alongside the default pre- and post-flight checks during installation and upgrade.
 
 - `cluster_checks` - This group of parameters specifies the health checks across the DC/OS cluster.
 
-    - `<check-name>` - The custom name of your health check.
-    - `description` - Specify a description of the check.
-    - `cmd` - Specify an array of health check command strings.
-    - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`.
+    - `<check-name>` - The custom name of your health check
+    - `description` - Specify a description of the check
+    - `cmd` - Specify an array of health check command strings
+    - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
 - `node_checks` - This group of parameters specifies node health checks.
 
-    - `<check-name>` - The custom name of your health check.
-    - `description` - Specify a description of the check.
-    - `cmd` - Specify an array of health check command strings.
-    - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`.
+    - `<check-name>` - The custom name of your health check
+    - `description` - Specify a description of the check
+    - `cmd` - Specify an array of health check command strings
+    - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
 For more information on how these custom checks are used, see the [examples](/1.11/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.11/installing/ent/custom/node-cluster-health-check/) documentation.
 
@@ -277,14 +277,14 @@ For more information, see the [security documentation](/1.11/security/ent/).
 ## dcos_overlay_enable
 Indicates whether to enable DC/OS virtual networks.
 
-**Important:** Virtual networks require Docker version 1.11 or later. If you are using Docker 1.11 or earlier, you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.11/installing/ent/custom/system-requirements/).
+**Note:** Virtual networks require Docker version 1.11 or later but, if you are using Docker 1.11 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.11/installing/ent/custom/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
 
     *  `dcos_overlay_config_attempts` Specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure a virtual network.
 
-        **Tip:** The failures might be related to a malfunctioning Docker daemon.
+        **Note:** The failures might be related to a malfunctioning Docker daemon.
 
     *  `dcos_overlay_mtu` The maximum transmission unit (MTU) of the Virtual Ethernet (vEth) on the containers that are launched on the overlay.
 
@@ -300,8 +300,10 @@ Indicates whether to enable DC/OS virtual networks.
                 prefix: 26
         ```
 
-        *  `vtep_subnet` A dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be routeable from outside the agents or master.
-        *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node. **Important:** The last 3 bytes must be `00`.
+        *  `vtep_subnet` A dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be accessible from outside the agents or master.
+        *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node. 
+        **Note:** The last three bytes must be `00`.
+
         *  `overlays`
             *  `name` The canonical name (see [limitations](/1.11/networking/virtual-networks/) for constraints on naming virtual networks).
             *  `subnet` The subnet that is allocated to the virtual network.
@@ -331,18 +333,18 @@ b.contoso.com:
 In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded to `3.3.3.3:53` or `4.4.4.4:53`.
 
 ## dns_search
-A space-separated list of domains that are tried when an unqualified domain is entered (e.g., domain searches that do not contain &#8216;.&#8217;). The Linux implementation of `/etc/resolv.conf` restricts the maximum number of domains to 6 and the maximum number of characters the setting can have to 256. For more information, see [man /etc/resolv.conf](http://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+A space-separated list of domains that are tried when an unqualified domain is entered (for example, domain searches that do not contain &#8216;.&#8217;). The Linux implementation of `/etc/resolv.conf` restricts the maximum number of domains to 6 and the maximum number of characters the setting can have to 256. For more information, see [man /etc/resolv.conf](http://man7.org/linux/man-pages/man5/resolv.conf.5.html).
 
 A `search` line with the specified contents is added to the `/etc/resolv.conf` file of every cluster host. `search` can do the same things as `domain` and is more extensible because multiple domains can be specified.
 
-In this example, `example.com` has public website `www.example.com` and all of the hosts in the datacenter have fully qualified domain names that end with `dc1.example.com`. One of the hosts in your datacenter has the hostname `foo.dc1.example.com`. If `dns_search` is set to &#8216;dc1.example.com example.com&#8217;, then every DC/OS host which does a name lookup of `foo` will get the A record for `foo.dc1.example.com`. If a machine looks up `www`, first `www.dc1.example.com` would be checked, but it does not exist, so the search would try the next domain, lookup `www.example.com`, find an A record, and then return it.
+In this example, `example.com` has the public website `www.example.com` and all of the hosts in the datacenter have fully qualified domain names that end with `dc1.example.com`. One of the hosts in your datacenter has the hostname `foo.dc1.example.com`. If `dns_search` is set to &#8216;dc1.example.com example.com&#8217;, then every DC/OS host which does a name lookup of `foo` will get the A record for `foo.dc1.example.com`. If a machine looks up `www`, first `www.dc1.example.com` would be checked, but it does not exist, so the search would try the next domain, lookup `www.example.com`, find an A record, and then return it.
 
 ```yaml
 dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.example.com example.com
 ```
 
 ## docker_remove_delay
-The amount of time to wait before removing stale Docker images stored on the agent nodes and the Docker image generated by the installer. It is recommended that you accept the default value 1 hour.
+The amount of time to wait before removing stale Docker images stored on the agent nodes and the Docker image generated by the installer. It is recommended that you accept the default value one hour.
 
 ## enable_docker_gc
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
@@ -351,19 +353,19 @@ Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#ex
 *  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.11/installing/ent/custom/) installations.
 
 ## exhibitor_storage_backend
-The type of storage backend to use for Exhibitor. You can use internal DC/OS storage (`static`) or specify an external storage system (`zookeeper`, `aws_s3`, and `azure`) for configuring and orchestrating ZooKeeper with Exhibitor on the master nodes. Exhibitor automatically configures your ZooKeeper installation on the master nodes during your DC/OS installation.
+The type of storage backend to use for Exhibitor. You can use internal DC/OS storage (`static`) or specify an external storage system (`ZooKeeper`, `aws_s3`, and `Azure`) for configuring and orchestrating ZooKeeper with Exhibitor on the master nodes. Exhibitor automatically configures your ZooKeeper installation on the master nodes during your DC/OS installation.
 
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
 
-    **Important:** If [master_discovery](#master-discovery) is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.
+    **Note:** If [master_discovery](#master-discovery) is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.
 
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
     *   `exhibitor_zk_hosts`
-        A comma-separated list (`<ZK_IP>:<ZK_PORT>, <ZK_IP>:<ZK_PORT>, <ZK_IP:ZK_PORT>`) of one or more ZooKeeper node IP and port addresses to use for configuring the internal Exhibitor instances. Exhibitor uses this ZooKeeper cluster to orchestrate it's configuration. Multiple ZooKeeper instances are recommended for failover in production environments.
+        A comma-separated list (`<ZK_IP>:<ZK_PORT>, <ZK_IP>:<ZK_PORT>, <ZK_IP:ZK_PORT>`) of one or more ZooKeeper node IP and port addresses to use for configuring the internal Exhibitor instances. Exhibitor uses this ZooKeeper cluster to orchestrate its configuration. Multiple ZooKeeper instances are recommended for failover in production environments.
     *   `exhibitor_zk_path`
-        The filepath that Exhibitor uses to store data.
+        The file path that Exhibitor uses to store data.
 *   `exhibitor_storage_backend: aws_s3`
     The Amazon Simple Storage Service (S3) bucket for shared storage. If you specify `aws_s3`, you must also specify these parameters:
     *  `aws_access_key_id`
@@ -383,7 +385,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
     *  `s3_prefix`
        The S3 prefix to be used within your S3 bucket to be used by Exhibitor.
 
-       **Tip:** AWS EC2 Classic is not supported.
+       **Note:** AWS EC2 Classic is not supported.
 *   `exhibitor_storage_backend: azure`
     An Azure Storage Account for shared storage. The data will be stored under the container named `dcos-exhibitor`. If you specify `azure`, you must also specify these parameters:
     *  `exhibitor_azure_account_name`
@@ -402,7 +404,7 @@ Indicates whether to enable GPU support in DC/OS.
 For more information, see the [GPU documentation](/1.11/deploying-services/gpu/).
 
 ## gc_delay
-The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of 2 days.
+The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.
 
 ## gpus_are_scarce
 Indicates whether to treat [GPUs](/1.11/deploying-services/gpu/) as a scarce resource in the cluster.
@@ -421,10 +423,10 @@ curl -fsSL https://ipinfo.io/ip
 ```
 
 ## log_directory
-The path to the installer host logs from the SSH processes. By default this is set to `/genconf/logs`. In most cases this should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
+The path to the installer host logs from the SSH processes. By default, this is set to `/genconf/logs`. In most cases this should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
 
-## master_discovery
-(Required) The Mesos master discovery method. The available options are `static` or `master_http_loadbalancer`.
+## master_discovery (Required)
+The Mesos master discovery method. The available options are `static` or `master_http_loadbalancer`.
 
 *  `master_discovery: static`
    Specifies that Mesos agents are used to discover the masters by giving each agent a static list of master IPs. The masters must not change IP addresses, and if a master is replaced, the new master must take the old master's IP address. If you specify `static`, you must also specify this parameter:
@@ -434,14 +436,14 @@ The path to the installer host logs from the SSH processes. By default this is s
 
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
-    *  `exhibitor_address`
-       (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/security/ent/tls-ssl/).
+    *  `exhibitor_address` (Required) 
+       The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/security/ent/tls-ssl/).
 
        The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
-    *  `num_masters`
-       (Required) The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
+    *  `num_masters` (Required) 
+       The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 
-**Important:**
+**Note:**
 
 * If master_discovery is set to `master_http_loadbalancer`, then [exhibitor_storage_backend](#exhibitor-storage-backend) cannot be set to `static`.
 * On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability. It is recommended to use aws_s3 for the exhibitor storage backend since we can rely on s3 to manage quorum size when the master nodes are unavailable.
@@ -463,9 +465,9 @@ The location of the Mesos work directory on agent and public agent nodes. This d
 ## mesos_container_log_sink
 The log manager for containers (tasks). The options are:
 
-* `'journald'` - send task logs only to journald.
-* `'logrotate'` - send task logs only to the file system (i.e. a stdout/err file).
-* `'journald+logrotate'` - Send logs to both journald and the file system.
+* `'journald'` - send task logs only to journald
+* `'logrotate'` - send task logs only to the file system (i.e. a stdout/err file)
+* `'journald+logrotate'` - send logs to both journald and the file system
 
 The default is `logrotate`. Due to performance issues, `journald` is not recommended. For details, see [Logging API](/1.11/monitoring/logging/logging-api/#compatibility).
 
@@ -473,7 +475,7 @@ The default is `logrotate`. Due to performance issues, `journald` is not recomme
 Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.
 
 *  `mesos_dns_set_truncate_bit: 'true'`  Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet and is truncated. This is the default behavior and is in compliance with RFC7766.
-*  `mesos_dns_set_truncate_bit: 'false'`  Mesos-DNS does not set the truncate bit if the response is too large to fit in a single packet. If you know your applications crash when resolving truncated DNS responses over TCP, or for performance reasons you want to avoid receiving the complete set of DNS records in response to your DNS requests, you should set this option to `false` and note that the DNS responses you receive from Mesos-DNS may be missing entries that were silently discarded. This means that truncated DNS responses will appear complete even though they aren't and therefore won't trigger a retry over TCP. This behavior does not conform to RFC7766.
+*  `mesos_dns_set_truncate_bit: 'false'`  Mesos-DNS does not set the truncate bit if the response is too large to fit in a single packet. If you know your applications crash when resolving truncated DNS responses over TCP, or for performance reasons you want to avoid receiving the complete set of DNS records in response to your DNS requests, you should set this option to `false` and note that the DNS responses you receive from Mesos-DNS may be missing entries that were silently discarded. This means that truncated DNS responses will appear complete even though they are not and therefore will not trigger a retry over TCP. This behavior does not conform to RFC7766.
 
 For more information regarding truncated DNS responses and retrying over TCP see [RFC7766 - DNS Transport over TCP - Implementation Requirements](https://tools.ietf.org/html/rfc7766).
 
@@ -490,7 +492,7 @@ Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
 - `oauth_enabled: true` Enable authentication for your cluster. This is the default value.
 - `oauth_enabled: false` Disable authentication for your cluster.
 
-If you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.
+If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same parameter set.
 
 ## platform
 The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: `aws`, `azure`, `oneview`, `openstack`, `vsphere`, `vagrant-virtualbox`, `onprem` (default).
@@ -498,7 +500,7 @@ The infrastructure platform. The value is optional, free-form with no content va
 ## process_timeout
 The allowable amount of time, in seconds, for an action to begin after the process forks. This parameter is not the complete process time. The default value is 120 seconds.
 
-**Tip:** For a slower network, consider changing to `process_timeout: 600`.
+**Note:** For a slower network, consider changing to `process_timeout: 600`.
 
 ## public_agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.
@@ -561,11 +563,11 @@ The port to SSH to, for example `22`.
 ## ssh_user
 The SSH username, for example `centos`.
 
-## superuser_password_hash [enterprise type="inline" size="small" /]
-(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.11/security/ent/).
+## superuser_password_hash (Required) [enterprise type="inline" size="small" /]
+The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.11/security/ent/).
 
-## superuser_username [enterprise type="inline" size="small" /]
-(Required) The user name of the superuser. This account uses the `superuser_password_hash`. For more information, see the [security documentation](/1.11/security/ent/).
+## superuser_username (Required) [enterprise type="inline" size="small" /]
+The user name of the superuser. This account uses the `superuser_password_hash`. For more information, see the [security documentation](/1.11/security/ent/).
 
 ## telemetry_enabled
 Indicates whether to enable sharing of anonymous data for your cluster. <!-- DC/OS auth -->
@@ -573,44 +575,46 @@ Indicates whether to enable sharing of anonymous data for your cluster. <!-- DC/
 - `telemetry_enabled: 'true'` Enable anonymous data sharing. This is the default value.
 - `telemetry_enabled: 'false'` Disable anonymous data sharing.
 
-If you’ve already installed your cluster and would like to disable this in-place, you can go through an [upgrade][3] with the same parameter set.
+If you have already installed your cluster and would like to disable this in place, you can go through an [upgrade](/1.11/installing/production/upgrading/) with the same parameter set.
 
 ## use_proxy
 Indicates whether to enable the DC/OS proxy.
 
 *  `use_proxy: 'false'` Do not configure DC/OS [components](/1.11/overview/architecture/components/) to use a custom proxy. This is the default value.
 *  `use_proxy: 'true'` Configure DC/OS [components](/1.11/overview/architecture/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
-    **Important:** The specified proxies must be resolvable from the provided list of [resolvers](#resolvers).
+
+    **Note:** The specified proxies must be resolvable from the provided list of [resolvers](#resolvers).
+
     *  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` The HTTP proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.
     *  `no_proxy`: A YAML nested list (`-`) of subdomains to exclude from forwarding to the `https_proxy`. If the address matches one of these strings, or the host is within the domain of one of these strings, http(s) requests to that node are not proxied. For example, the `no_proxy` list can be a list of internal IP addresses.
 
-        **Important:** Wildcard characters (`*`) are not supported.
+        **Note:** Wildcard characters (`*`) are not supported.
 
 For more information, see the [examples](/1.11/installing/ent/custom/configuration/examples/#http-proxy).
 
-**Important:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
+**Note:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
 
 ## enable_ipv6
-* `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is default value.
+* `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is the default value.
 * `enable_ipv6: 'false'`: Disables IPv6 networking in DC/OS.
 
-Currently IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
-* Users can create IPv6 DC/OS overlay networks (`NOTE:` This will work only for Docker containers).
+Currently, IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
+* Users can create IPv6 DC/OS overlay networks. **Note:** This will work only for Docker containers.
 * Service discovery for IPv6 containers will be available.
 * Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
 
 ## dcos_l4lb_enable_ipv6
 Indicates whether layer-4 load-balancing is available for IPv6 containers.
 *  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.11/networking/load-balancing-vips) for IPv6 containers. This is the default value.
-*  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. `NOTE: Layer-4 load balancing for IPv6 containers should be turned on with caution.`[DCOS_OSS-2010](https://jira.mesosphere.com/browse/DCOS_OSS-2010)
+*  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. **Note:** Layer-4 load balancing for IPv6 containers should be turned on with caution. `[DCOS_OSS-2010](https://jira.mesosphere.com/browse/DCOS_OSS-2010)
 
 ## dcos_ucr_default_bridge_subnet
 Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by the `mesos-bridge` CNI network. The `mesos-bridge` CNI network represents the network that is used to launch UCR containers when bridge-mode networking is selected for UCR containers.
 
 The bridge-mode networking for UCR is identical to bridge mode networking for Docker and hence `ucr-br0` plays the same role as `docker0` bridge for Docker bridge-mode networking.
 
-The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_subnet` is that the subnet should not be used on the network to which the agents are connected. In other words, this subnet should be routeable from only within an agent.
+The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_subnet` is that the subnet should not be used on the network to which the agents are connected. In other words, this subnet should be accessible from only within an agent.
 
 ## feature_dcos_storage_enabled [enterprise type="inline" size="small" /]
 Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins.
@@ -620,7 +624,7 @@ Enables advanced storage features in DC/OS including [CSI](https://github.com/co
 <a id="zk-superuser"></a>
 
 ## zk_super_credentials [enterprise type="inline" size="small" /]
-On DC/OS `strict` and `permissive` mode clusters the information stored in ZooKeeper is protected using access control lists (ACLs) so that a malicious user cannot connect to the ZooKeeper Quorum and directly modify service metadata. ACLs specify sets of resource IDs (RIDs) and actions that are associated with those IDs. ZooKeeper supports pluggable authentication schemes and has a few built in schemes: `world`, `auth`, `digest`, `host`, and `ip`.
+On DC/OS `strict` and `permissive` mode clusters the information stored in ZooKeeper is protected using access control lists (ACLs), so that a malicious user cannot connect to the ZooKeeper Quorum and directly modify service metadata. ACLs specify sets of resource IDs (RIDs) and actions that are associated with those IDs. ZooKeeper supports pluggable authentication schemes and has a few built in schemes: `world`, `auth`, `digest`, `host`, and `ip`.
 
 DC/OS ZooKeeper credentials `zk_super_credentials`, `zk_master_credentials`, and `zk_agent_credentials` use `digest` authentication, which requires a `<uid>:<password>` string which is then used as an ID while checking if a client can access a particular resource.
 

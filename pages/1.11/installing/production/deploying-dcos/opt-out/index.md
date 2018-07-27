@@ -14,7 +14,7 @@ You can opt-out of the provided authentication by disabling it for your cluster.
 oauth_enabled: 'false'
 ```
 
-**Note:** If you have already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same [configuration parameter][2] set.
+**Note:** If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same [configuration parameter][2] set.
 
 ## Telemetry
 
@@ -27,7 +27,7 @@ You can opt-out of providing anonymous data by disabling telemetry for your clus
     ```
 
 
-**Note:** If you have already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same [configuration parameter][2] set.
+**Note:** If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same [configuration parameter][2] set.
 
 [1]: /1.11/installing/oss/custom/advanced/
 [2]: /1.11/installing/oss/custom/configuration/configuration-parameters/
