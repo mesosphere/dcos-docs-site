@@ -64,6 +64,8 @@ Create a secret `minio/<secret-name>` with your service account `<service-accoun
 
    ```shell
    dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser" 
+   dcos security org users grant dcos_minio dcos:adminrouter:ops:ca:rw full --description "grant permission to adminrouter"
+   dcos security org users grant dcos_minio dcos:secrets:default:miniodemo full --description "grant permission to miniodemo"
    ```    
 
 
