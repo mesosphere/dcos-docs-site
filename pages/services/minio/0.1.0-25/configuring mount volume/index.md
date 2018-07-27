@@ -24,30 +24,31 @@ Below are the steps to be followed to configure Mount Volume:
    ```shell
    ssh-add <cluster key or pem file>
    ```
-  5. ```shell
-     dcos node ssh --master-proxy --mesos-id=<task ID against the ip address above>cat /var/lib/dcos/mesos-resources
-     sudo systemctl stop dcos-mesos-slave.service
-     sudo rm -f /var/lib/dcos/mesos-resources
-     lsblk
-     sudo mkdir -p /dcos/volume0
-     sudo mkfs -t ext4 /dev/xvdf
-     sudo dd if=/dev/zero of=/dev/xvdf bs=1M count=4000
-     sudo losetup /dev/loop0 /dev/xvdf
-     sudo mkfs -t ext4 /dev/loop0
-     sudo losetup -d /dev/loop0
-     echo "/dev/xvdf /dcos/volume0 auto loop 0 2" | sudo tee -a /etc/fstab
-     sudo mount /dcos/volume0
-     sudo reboot
-     ```
-   wait till the node getting up
+  5. 
+  ```shell
+  dcos node ssh --master-proxy --mesos-id=<task ID against the ip address above>cat /var/lib/dcos/mesos-resources
+  sudo systemctl stop dcos-mesos-slave.service
+  sudo rm -f /var/lib/dcos/mesos-resources
+  lsblk
+  sudo mkdir -p /dcos/volume0
+  sudo mkfs -t ext4 /dev/xvdf
+  sudo dd if=/dev/zero of=/dev/xvdf bs=1M count=4000
+  sudo losetup /dev/loop0 /dev/xvdf
+  sudo mkfs -t ext4 /dev/loop0
+  sudo losetup -d /dev/loop0
+  echo "/dev/xvdf /dcos/volume0 auto loop 0 2" | sudo tee -a /etc/fstab
+  sudo mount /dcos/volume0
+  sudo reboot
+  ```
+  wait till the node getting up
    
-   now repeat same steps on same node if u want to mount more than one volume.
+  now repeat same steps on same node if u want to mount more than one volume.
    
-   wait till the node getting up
+  wait till the node getting up
    
-   now repeat from step 6 to mount the volume to the other nodes.
+  now repeat from step 6 to mount the volume to the other nodes.
    
-   **Note:** Dont mount the volume to the public slave.
+  **Note:** Dont mount the volume to the public slave.
   
   
   
