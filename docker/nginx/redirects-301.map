@@ -181,7 +181,7 @@
 /1.11/installing/ent/custom/configuration/ /1.11/production/deploying-dcos/configuration/;          
 /1.11/installing/ent/custom/configuration/configuration-parameters/ /1.11/installing/production/advanced-configuration/configuration-reference/;
 /1.11/installing/ent/custom/configuration/examples/ /1.11/installing/production/deploying-dcos/configuration/examples/;
-/1.11/installing/ent/custom/configure-proxy/ /1.11/installing/production/deploying-dcos /configure-proxy/;
+/1.11/installing/ent/custom/configure-proxy/ /1.11/installing/production/deploying-dcos/configure-proxy/;
 /1.11/installing/ent/custom/gui/ /1.11/installing/evaluation/cloud-installation/;
 /1.11/installing/ent/custom/node-cluster-health-check/ /1.11/installing/production/deploying-dcos /node-cluster-health-check/;
 ~/1.11/installing/ent/custom/system-requirements/(.*)$ /1.11/installing/production/system-requirements/$1;
