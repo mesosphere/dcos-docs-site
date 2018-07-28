@@ -11,12 +11,6 @@ This page supports both DC/OS OSS (default) and DC/OS Enterprise installation me
 # Types of installation methods
 
 Use the following installation methods based on your requirement.
-
-## Local Installation
-The local installation method is for first-time users or developers looking to build services or modify DC/OS. 
-Use the following local installation options.
-- The [Vagrant installer](https://github.com/dcos/dcos-vagrant/). 
-- The [Docker installer](https://github.com/dcos/dcos-docker/).
  
 ## Cloud Installation 
 The cloud installation method is used for fast demos and POCs. 
