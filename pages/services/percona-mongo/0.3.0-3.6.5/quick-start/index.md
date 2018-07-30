@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: false
 ---
 
-# Prerequisite
+# Prerequisites
 
 - [DC/OS installed on your cluster](https://docs.mesosphere.com/latest/administration/installing/).
 
