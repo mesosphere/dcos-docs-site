@@ -28,35 +28,35 @@ The use of a dedicated backup secondary gurrantees backups *(a very resource-int
 Backups are started using the Percona-Mongo CLI module's `backup` command.
 
 If the AWS Access Key, Secret Key, S3 Bucket Name and S3 Bucket Prefix are already defined in your service options the following will start a backup:
-```bash
-dcos percona-mongo backup run s3
-```
+    ```bash
+    $ dcos percona-mongo backup run s3
+    ```
 
 If the AWS configuration/credentials are NOT defined in the service options or you would like to override them, define the options on the command line with the following:
-```bash
-dcos percona-mongo backup run s3 \
-    --access-key=XXXXXXXXXXXXXXXXXXX \
-    --secret-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
-    --bucket-name=my-s3-bucket-name \
-    --bucket-prefix=/mongobackups \
-    --region=eu-central-1
-```
+    ```bash
+    $ dcos percona-mongo backup run s3 \
+        --access-key=XXXXXXXXXXXXXXXXXXX \
+        --secret-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
+        --bucket-name=my-s3-bucket-name \
+        --bucket-prefix=/mongobackups \
+        --region=eu-central-1
+    ```
 
 A successful start of the backup will return the following:
-```bash
-{
-  "message": "Received cmd: start"
-}
-```
+    ```javascript
+    {
+      "message": "Received cmd: start"
+    }
+    ```
 
 A task named *'mongodb-consistent-backup-0-backup'* will exist for the duration of the backup and upload.
 
 ### Stopping a Backup
 
 To stop a running backup process:
-```bash
-dcos percona-mongo backup stop s3
-```
+    ```bash
+    $ dcos percona-mongo backup stop s3
+    ```
 
 ### Troubleshooting a Backup
 
@@ -84,17 +84,17 @@ Steps:
 A manual restore is started by using the Percona-Mongo CLI module's `restore` command.
 
 If the AWS Access Key and Secret Keyare already defined in your service options, the following will start a restore:
-```bash
-dcos percona-mongo restore run s3 s3://my-s3-bucket-name-here/backup/dump
-```
+    ```bash
+    $ dcos percona-mongo restore run s3 s3://my-s3-bucket-name-here/backup/dump
+    ```
 
 If the AWS configuration/credentials are NOT defined in the service options or you would like to override them, define the options on the command line with the following:
-```bash
-dcos percona-mongo restore run s3 \
-    --access-key=XXXXXXXXXXXXXXXXXXX \
-    --secret-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
-    s3://my-s3-bucket-name-here/backup/dump
-```
+    ```bash
+    $ dcos percona-mongo restore run s3 \
+        --access-key=XXXXXXXXXXXXXXXXXXX \
+        --secret-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
+        s3://my-s3-bucket-name-here/backup/dump
+    ```
 
 ### Troubleshooting a Restore 
 

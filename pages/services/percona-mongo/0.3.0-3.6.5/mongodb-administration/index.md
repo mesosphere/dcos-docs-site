@@ -167,65 +167,65 @@ To add a user:
 
 1. Create a JSON-formatted file containing a [MongoDB User definition](https://docs.mongodb.com/manual/reference/method/db.createUser/#definition), example:
 
-```javascript
-{
-  "user": "prodapp",
-  "pwd": "123456",
-  "roles": [
-    { "db": "app", "role": "readWrite" }
-  ]
-}
-```
+    ```javascript
+    {
+      "user": "prodapp",
+      "pwd": "123456",
+      "roles": [
+        { "db": "app", "role": "readWrite" }
+      ]
+    }
+    ```
 
 1. Add the user to the Percona-Mongo service using the service CLI tool, providing the filename of the user definition.
 
-```shell
-dcos percona-mongo user add <database> <user-json-file>
-```
+    ```shell
+    $ dcos percona-mongo user add <database> <user-json-file>
+    ```
 
 ### Update User
 
 1. Create a JSON-formatted file containing a [MongoDB User definition](https://docs.mongodb.com/manual/reference/method/db.createUser/#definition), example:
 
-```javascript
-{
-  "user": "prodapp",
-  "pwd": "123456",
-  "roles": [
-    { "db": "app", "role": "readWrite" },
-    { "db": "anotherApp", "role": "read" },
-  ]
-}
-```
+    ```javascript
+    {
+      "user": "prodapp",
+      "pwd": "123456",
+      "roles": [
+        { "db": "app", "role": "readWrite" },
+        { "db": "anotherApp", "role": "read" },
+      ]
+    }
+    ```
 
 1. Update the user using the Percona-Mongo CLI tool by providing the filename of the user definition:
 
-```shell
-dcos percona-mongo user update <database> <user-json-file>
-```
+    ```shell
+    $ dcos percona-mongo user update <database> <user-json-file>
+    ```
 
 ### Remove User
 
 To remove a user, provide the database and username to the percona-mongo CLI tool like the following example:
 
-```shell
-dcos percona-mongo user remove <database> <username>
-```
+    ```shell
+    $ dcos percona-mongo user remove <database> <username>
+    ```
 
 ### Reload Percona-Mongo Service/System Users
 
 To reload the Percona-Mongo [System Users](#system-users), run the following command using the Percona-Mongo CLI tool:
 
-```shell
-dcos percona-mongo user reload-system
-```
+    ```shell
+    $ dcos percona-mongo user reload-system
+    ```
 
 ### Stop a User Change
 
 To stop an add, update, remove or reload-system operation, run the following command with the action name you would like to stop:
 
-```shell
-dcos percona-mongo user stop <action-name>
-```
+    ```shell
+    $ dcos percona-mongo user stop <action-name>
+    ```
 
 *See 'dcos percona-mongo user stop --help' for more information*

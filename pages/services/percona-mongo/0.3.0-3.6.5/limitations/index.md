@@ -13,19 +13,19 @@ enterprise: false
 The DC/OS Mongo Service uses a Docker image to manage its dependencies for Percona Server for MongoDB. Since the Docker image contains a full Linux userspace with its own `/etc/users` file, it is possible for the default service user `nobody` to have a different UID inside the container than on the host system. Although user `nobody` has UID `65534` by convention on many systems, this is not always the case. As Mesos does not perform UID mapping between Linux user namespaces, specifying a service user of `nobody` in this case will cause access failures when the container user attempts to open or execute a filesystem resource owned by a user with a different UID, preventing the service from launching. If the hosts in your cluster have a UID for `nobody` other than 65534, you will need to specify a service user of `root` to run DC/OS Mongo Service.
 
 To determine the UID of `nobody`, run the command `id nobody` on a host in your cluster:
-```
-$ id nobody
-uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)
-```
+    ```shell
+    $ id nobody
+    uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)
+    ```
 
 If the returned UID is not `65534`, then the DC/OS Mongo Service can be installed as root by setting the service user at install time:
-```
-"service": {
-        "user": "root",
-        ...
-}
-...
-```
+    ```javascript
+    "service": {
+            "user": "root",
+            ...
+    }
+    ...
+    ```
 
 ## MongoDB
 
@@ -62,7 +62,7 @@ For safety, the service enforces the following:
 2. The MongoDB Key must be 1023 to 1024 characters long. The following OpenSSL command is recommended to generate this:
 
     ```bash
-    openssl rand -base64 756
+    $ openssl rand -base64 756
     ``` 
 
 #### Storage
