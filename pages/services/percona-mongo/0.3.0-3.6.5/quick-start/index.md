@@ -51,12 +51,9 @@ enterprise: false
           ]
         }
     ```
-1. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool and the *clusterAdmin* user *(replace username/password for your situation)*.
+1. Connect to MongoDB and add a non-admin user using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool and the *userAdmin* user *(replace username/password for your situation)*.
     ```shell
     $ mongo mongodb://useradmin:useradminpassword@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
-    ```
-1. Create a non-admin user for your application and exit the shell.
-    ```shell
     > use admin;
     > db.createUser({
           user: "myApp",
@@ -67,6 +64,21 @@ enterprise: false
       });
     > quit()
     ```
+
+    Adding a MongoDB user is also possible using the DC/OS CLI and a .json file describing the MongoDB user:
+    ```shell
+    $ cat <<EOF >myApp.json
+    {
+          user: "myApp",
+          pwd: "myAppPasswd123456",
+          roles: [
+              { db: "myApp", role: "readWrite" }
+          ]
+    }
+    EOF
+    dcos percona-mongo user add admin myApp.json
+    ```
+
 1. Reconnect using your new application-level user *"myApp"*.
     ```shell
     $ mongo mongodb://myApp:myAppPasswd123456@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
