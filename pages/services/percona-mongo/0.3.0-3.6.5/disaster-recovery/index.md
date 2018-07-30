@@ -100,6 +100,14 @@ If the AWS configuration/credentials are NOT defined in the service options or y
         s3://my-s3-bucket-name-here/backup/dump
     ```
 
+### Stopping a Restore
+
+To stop a running backup restore process:
+
+    ```shell
+    $ dcos percona-mongo restore stop s3
+    ```
+
 ### Troubleshooting a Restore 
 
 See the *'Logs'* page of the *'restore-0-restore'* task to troubleshoot the restore process.
