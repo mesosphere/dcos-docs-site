@@ -66,17 +66,20 @@ To troubleshoot problems with backups, add the flag *'--backup-verbose'* to the 
 
 Running a restore of a mongodump-based backup stored on Amazon S3 is possible via the DC/OS GUI and CLI tool, including backups created by the service.
 
-### Restore After Replica Set Initiation
+### Restore at Replica Set Initiation
 
 The service supports running a restore after the initiation of the MongoDB Replica Set. This is useful for migrations to the percona-mongo service, cloning environments, etc.
 
 Steps:
-1. In the DC/OS GUI, go to 'Catalog'.
-1. Find the 'percona-mongo'service.
-1. Press 'Review & Run'.
-1. Go to the 'Backup Restore' tab in the service configuration. 
-1. Set your AWS Access Key *(accessKey)* and Secret Key *(secretKey)* in the 'Aws s3 configuration' section. This user must have access to the read the backup.
-1. Set
+1. In the DC/OS GUI, go to *'Catalog'*.
+1. Find the *'percona-mongo'* service.
+1. Press *'Review & Run'*.
+1. Go to the *'Backup Restore'* tab in the service configuration. 
+1. Set your AWS Access Key *(accessKey)* and Secret Key *(secretKey)* in the *'Aws s3 configuration'* section. This user must have access to the read the backup.
+1. Check the *'restoreAfterInit'* field, to enable the restore once the replica set has been initiated.
+1. Wait for the task *'restore-0-restore'* to reach the *'FINISHED'* state.
+
+See the *'Logs'* page of the *'restore-0-restore'* task to troubleshoot the restore process.
 
 ### Restore using the DC/OS GUI
 
