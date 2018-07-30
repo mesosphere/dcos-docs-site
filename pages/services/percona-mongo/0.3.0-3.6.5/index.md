@@ -21,7 +21,7 @@ DC/OS Percona-Mongo service features:
 *   Multiple MongoDB Replica Sets within a single DC/OS cluster
 *   Storage volumes for enhanced data durability, known as Mesos Dynamic Reservations and Persistent Volumes
 *   Simple installation of MongoDB via UI or CLI
-*   Support for all Percona Server for MongoDB storage engines, including the [WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/), [InMemory](https://www.percona.com/software/mongo-database/percona-memory-engine-for-mongodb) and MMAPv1 storage engines
+*   Support for all Percona Server for MongoDB storage engines, including the [WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/), [InMemory](https://www.percona.com/software/mongo-database/percona-memory-engine-for-mongodb) and [MMAPv1](https://docs.mongodb.com/manual/core/mmapv1/)
 *   Scaling of MongoDB Replica Set Members via UI or CLI
 *   Auto-configuration of [MongoDB Replica Set Configuration](https://docs.mongodb.com/manual/reference/replica-configuration/)
 *   Auto-configuration of system-level users for backups, monitoring and user management
