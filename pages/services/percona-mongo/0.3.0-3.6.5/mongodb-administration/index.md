@@ -42,6 +42,53 @@ Monitoring of [Percona Server for MongoDB](https://www.percona.com/software/mong
 
 To enable DC/OS Metrics, ensure the *'Enabled'* flag in the *'Dcos Metrics'* section of the service configuration. 
 
+## SSL/TLS Connections
+
+Enabling SSL/TLS transport security capabilities of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the Percona-Mongo service combined with the DC/OS Secret Store feature *(DC/OS Enterprise Edition only)*.
+
+3 x SSL [security modes](https://docs.mongodb.com/manual/reference/configuration-options/#net.ssl.mode) are possible with this feature:
+1. **allowSSL** - Both insecure and ssl-secured connections are allowed.
+1. **preferSSL** - Both insecure and ssl-secured connections are allowed. Replication and sharding will use ssl-secured connections.
+1. **requireSSL** - Insecure connections are not allowed.
+
+*Note: by default 'preferSSL' is used when SSL/TLS support is enabled*
+
+To start the service with MongoDB SSL/TLS support:
+
+1. Install the *'dcos-enterprise-cli'*:
+    ```shell
+    $ dcos package install dcos-enterprise-cli --cli
+    ```
+
+1. Create a public-privae keypair:
+    ```shell
+    $ dcos security org service-accounts keypair priv.pem pub.pem
+    ```
+
+1. Create a Service Account for Percona-Mongo:
+    ```shell
+    $ dcos security org service-accounts create -p pub.pem -d "Percona-Mongo" percona-mongo-service-acct
+    ```
+
+1. Create a Service Acccount Secret:
+    ```shell
+    $ dcos security secrets create-sa-secret priv.pem percona-mongo-service-acct percona-mongo-service-acct-secret
+    ```
+
+1. Grant the Service Account *'superuser'* privileges:
+    ```shell
+    $ dcos security org users grant percona-mongo-service-acct dcos:superuser full
+    ```
+
+1. In *'Services'* page of the DC/OS GUI, create a new Percona-Mongo service.
+1. Switch to the *'Service'* section of the service configuration.
+1. Enter the Service Account name *(eg: "percona-mongo-service-acct")* in the field *'principal'*.
+1. Enter the Service Account secret name *(eg: "percona-mongo-service-acct-secret")* in the field *'secret_name'*.
+1. Switch to the *'Mongodb Ssl'* section of the service configuration.
+1. Check the *'Enabled'* box to enable SSL support.
+
+From this point on, deploy the service as usual.
+
 ## Auditing
 
 The [Percona Server for MongoDB Auditing](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html) feature allows detailed logging of actions in MongoDB. The configuration of Auditing is automated by the DC/OS Percona-Mongo service.
