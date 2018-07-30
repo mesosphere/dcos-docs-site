@@ -52,11 +52,11 @@ $ dcos percona-mongo endpoints mongo-port
 2. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool, using the *"dns"* hostname+port list from Step #1. Note that a username and password is provided in the connect string, as well as the replica set name:
 
 ```
-$ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+$ mongo mongodb://useradmin:useradminpassword@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
 > db.serverStatus();
 ```
 
 Or for applications, most MongoDB drivers will accept *'mongodb://'* connection-string used in the example above to connect to MongoDB.
 ```
-mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+mongodb://useradmin:useradminpassword@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
 ```
