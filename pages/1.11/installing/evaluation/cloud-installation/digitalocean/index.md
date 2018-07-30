@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Running DC/OS on DigitalOcean
 title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
 menuWeight: 15
