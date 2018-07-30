@@ -11,19 +11,27 @@ enterprise: false
 ## Version 0.3.0-3.6.5
 
 ### Breaking Changes
-- Pod task name changes.
-  - The *'mongo'* pod was renamed to *'mongo-REPLSET'*, where *'REPLSET'* is the name of the MongoDB Replica Set.
-  - The *'mongo-0-watchdog'* task was moved to a new pod named *'watchdog'*, its new task name is *'watchdog-0-watchdog'*.
+- MongoDB system-level users and key required on service configuration
+  - 10-character minimum for system-level passwords
+  - 1023-1024 character limit for key
+- Percona Server for MongoDB
+  - RocksDB/MongoRocks storage engine deprecated, more about this [here](https://www.percona.com/blog/2018/05/10/why-weve-deprecated-mongorocks-in-percona-server-for-mongodb-3-6/)
+  - *"replication.enableMajorityReadConcern"* option deprecation, due to MongoDB 3.6
+- DC/OS Percona-mongo CLI
+  - UserAdmin username and password is no longer required on user add/remove/delete
+- Experimental Percona Monitoring and Management *(PMM)* support deprecated until a later time
 
 ### Improvements
-- Official documentation created.
-- Backups using [Percona-Lab/mongodb_consistent_backup](https://github.com/Percona-Lab/mongodb_consistent_backup) added. See the *'Backup'* tab of the service configuration.
-  - Currently only [AWS S3](https://aws.amazon.com/s3/) is supported as an upload destination for the backup.
-  - Support for adding a [Hidden MongoDB Replica Set member](https://docs.mongodb.com/manual/core/replica-set-hidden-member/) *(for backups)* added.
-- Support for auto-installation of [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) *'pmm-client'*. See the *'Percona Pmm'* tab of the service configuration.
-- 'MOUNT'-type disk support added.
+- Percona Server for MongoDB 3.6
+- MongoDB TLS/SSL transport encryption support for DC/OS Enterprise Edition *(due to the need for Secret Store feature)*
+- Scaling down the MongoDB replica set is now supported, both in the GUI and CLI
+- Backup Restore feature
+  - Compatible with backups created by the service
+  - Restores possible at service initiation *(check "restoreAfterInit"* in the 'Backup Restore' section of the GUI)*
+  - 'dcos percona-mongo restore' CLI commands
 
 ### Bug Fixes
+- Fix for adding users with roles outside of the MongoDB 'admin' database
 
 ### Documentation
 - Service documentation was added in this release.
