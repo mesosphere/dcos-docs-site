@@ -32,6 +32,3 @@ enterprise: false
 
 ### Bug Fixes
 - Fix for adding users with roles outside of the MongoDB 'admin' database
-
-### Documentation
-- Service documentation was added in this release.
