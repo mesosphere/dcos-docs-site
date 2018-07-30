@@ -12,6 +12,30 @@ enterprise: false
 
 Please see the ["Disaster Recovery"](https://docs.mesosphere.com/services/percona-mongo/0.3.0-3.6.5/disaster-recovery/) section of the documentation.
 
+## Scaling
+
+Scaling of the number of MongoDB Replica Set nodes is possible using the service in both the GUI and CLI. Currently scaling up/down to 1, 3, 5 or 7 replica set member is possible, odd numbers are required for high-availability. A Replica Set with 1 node is not recommended as it has no redundancy or high availability.
+
+To scale the Replica Set in the GUI:
+1. View the service in the *'Services'* section.
+1. Press *'Edit Configuration'*.
+1. Go to the *'Mongodb'* section of the service configuration.
+1. Change the *'count'* field to 1, 3, 5 of 7.
+1. Wait for the service scheduler process *('percona-mongo')* to restart and apply the changes.
+
+To scale the Replica Set using the CLI:
+
+   ```shell
+   $ dcos percona-mongo scale [up|down] [1|3|5|7]
+   ```
+
+To list the current count/scale using the CLI:
+
+   ```shell
+   $ dcos percona-mongo scale list
+   3
+   ```
+
 ## Monitoring
 
 Monitoring of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the [DC/OS Metrics component](https://docs.mesosphere.com/1.11/metrics/). Please see the [Metrics API](https://docs.mesosphere.com/1.11/metrics/metrics-api/) documentation for more information on using these metrics.
