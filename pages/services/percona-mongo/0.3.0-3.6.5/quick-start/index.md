@@ -14,7 +14,7 @@ enterprise: false
 
 # Steps
 
-1. Generate 4 x passwords for the system-level MongoDB users *(backup, userAdmin, clusterAdmin and clusterMonitor)*, using the openssl tool:
+1. Generate and save 4 x random passwords for the system-level MongoDB users *(backup, userAdmin, clusterAdmin and clusterMonitor)*, using the openssl tool:
     ```shell
     $ openssl rand -base64 8
     sLWGYC0yAIU=
@@ -26,12 +26,12 @@ enterprise: false
     rtJx/fcJSIk=
     ```
 
-1. Generate a 1023-length key for MongoDB using the openssl tool:
+1. Generate and save a 1023-length key for MongoDB using the openssl tool:
     ```shell
     $ openssl rand -base64 756
     ```
 
-1. Install Percona-Mongo from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/) using the 4 x generated passwords and key in the required fields of the *'Mongodb Credentials'* section of the service config.
+1. Install and configure Percona-Mongo from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/) by adding the 4 x generated passwords and key to the required fields of the *'Mongodb Credentials'* section of the service config.
 
 1. The service will now deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface.
 
