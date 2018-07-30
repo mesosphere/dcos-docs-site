@@ -19,7 +19,7 @@ enterprise: false
   - *"replication.enableMajorityReadConcern"* option deprecation, due to MongoDB 3.6
 - DC/OS Percona-mongo CLI
   - UserAdmin username and password is no longer required on user add/remove/delete
-- Experimental Percona Monitoring and Management *(PMM)* support deprecated until a later time
+- Experimental Percona Monitoring and Management *(PMM)* support deprecated until further improvements are made to the feature
 
 ### Improvements
 - Percona Server for MongoDB 3.6

@@ -79,9 +79,23 @@ Steps:
 1. Check the *'restoreAfterInit'* field, to enable the restore once the replica set has been initiated.
 1. Wait for the task *'restore-0-restore'* to reach the *'FINISHED'* state.
 
-See the *'Logs'* page of the *'restore-0-restore'* task to troubleshoot the restore process.
-
-### Restore using the DC/OS GUI
-
 ### Restore using the DC/OS CLI
 
+A manual restore is started by using the Percona-Mongo CLI module's `restore` command.
+
+If the AWS Access Key and Secret Keyare already defined in your service options, the following will start a restore:
+```bash
+dcos percona-mongo restore run s3 s3://my-s3-bucket-name-here/backup/dump
+```
+
+If the AWS configuration/credentials are NOT defined in the service options or you would like to override them, define the options on the command line with the following:
+```bash
+dcos percona-mongo restore run s3 \
+    --access-key=XXXXXXXXXXXXXXXXXXX \
+    --secret-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
+    s3://my-s3-bucket-name-here/backup/dump
+```
+
+### Troubleshooting a Restore 
+
+See the *'Logs'* page of the *'restore-0-restore'* task to troubleshoot the restore process.
