@@ -59,7 +59,7 @@ Passwords and Internal Authentication keyFile must be manually defined at servic
 
 For safety, the service enforces the following:
 1. System user *(monitoring, backup, admin users)* passwords must 10-characters or longer.
-2. The MongoDB Key must be 756 to 1024 bytes long. The following OpenSSL command is recommended to generate this:
+2. The MongoDB Key must be 1023 to 1024 characters long. The following OpenSSL command is recommended to generate this:
 
     ```bash
     openssl rand -base64 756
