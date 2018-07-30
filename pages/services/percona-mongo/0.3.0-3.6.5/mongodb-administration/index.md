@@ -108,13 +108,13 @@ In the *'Mongodb Auditlog'* tab there are fields to:
 
 ### Get Auditlog from CLI
 1. Get the task ID of the MongoDB task using the *'dcos task'* CLI command:
-```shell
-dcos task
-```
+    ```shell
+    dcos task
+    ```
 2. Get an interactive shell on the MongoDB container using the *'dcos task exec'* command:
-```shell
-dcos task exec --tty --interactive <task-id> /bin/bash
-```
+    ```shell
+    dcos task exec --tty --interactive <task-id> /bin/bash
+    ```
 3. View the Auditlog by reading the *'auditLog.bson'* file in the *'mongo-data'* sub-directory. You can use the *'bsondump'* command to parse the BSON format.
 
 ## Troubleshooting
@@ -131,13 +131,13 @@ The log can be downloaded from the DC/OS UI by downloading the file *'stdout'*, 
 ### Get MongoDB Log from CLI
 
 1. Get the task ID of the MongoDB task using the *'dcos task'* CLI command:
-```shell
-dcos task
-```
+    ```shell
+    dcos task
+    ```
 2. Get an interactive shell on the MongoDB container using the *'dcos task exec'* command:
-```shell
-dcos task exec --tty --interactive <task-id> /bin/bash
-```
+    ```shell
+    dcos task exec --tty --interactive <task-id> /bin/bash
+    ```
 3. View the MongoDB log by reading the *'stdout'* file in the current directory.
 
 ## Users
@@ -166,7 +166,6 @@ The Percona-Mongo service deploys 4 x default MongoDB users for various purposes
 To add a user:
 
 1. Create a JSON-formatted file containing a [MongoDB User definition](https://docs.mongodb.com/manual/reference/method/db.createUser/#definition), example:
-
     ```javascript
     {
       "user": "prodapp",
@@ -178,7 +177,6 @@ To add a user:
     ```
 
 1. Add the user to the Percona-Mongo service using the service CLI tool, providing the filename of the user definition.
-
     ```shell
     $ dcos percona-mongo user add <database> <user-json-file>
     ```
@@ -186,7 +184,6 @@ To add a user:
 ### Update User
 
 1. Create a JSON-formatted file containing a [MongoDB User definition](https://docs.mongodb.com/manual/reference/method/db.createUser/#definition), example:
-
     ```javascript
     {
       "user": "prodapp",
@@ -199,7 +196,6 @@ To add a user:
     ```
 
 1. Update the user using the Percona-Mongo CLI tool by providing the filename of the user definition:
-
     ```shell
     $ dcos percona-mongo user update <database> <user-json-file>
     ```
@@ -207,7 +203,6 @@ To add a user:
 ### Remove User
 
 To remove a user, provide the database and username to the percona-mongo CLI tool like the following example:
-
     ```shell
     $ dcos percona-mongo user remove <database> <username>
     ```
@@ -215,7 +210,6 @@ To remove a user, provide the database and username to the percona-mongo CLI too
 ### Reload Percona-Mongo Service/System Users
 
 To reload the Percona-Mongo [System Users](#system-users), run the following command using the Percona-Mongo CLI tool:
-
     ```shell
     $ dcos percona-mongo user reload-system
     ```
@@ -223,7 +217,6 @@ To reload the Percona-Mongo [System Users](#system-users), run the following com
 ### Stop a User Change
 
 To stop an add, update, remove or reload-system operation, run the following command with the action name you would like to stop:
-
     ```shell
     $ dcos percona-mongo user stop <action-name>
     ```
