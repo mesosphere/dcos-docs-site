@@ -76,7 +76,7 @@ enterprise: false
           ]
     }
     EOF
-    dcos percona-mongo user add admin myApp.json
+    $ dcos percona-mongo user add admin myApp.json
     ```
 
 1. Reconnect using your new application-level user *"myApp"*.
