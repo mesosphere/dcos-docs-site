@@ -73,7 +73,7 @@ These storage engines will use their default logic to determine a cache size val
 
 ## Removing a Node
 
-Removing a node is not supported at this time.
+Removing a node is not supported at this time, however scaling down the number of members is possible.
 
 ## Rack-aware Replication
 
@@ -87,10 +87,6 @@ When a pod from your service uses the overlay network, it does not use the port 
 Out-of-band configuration modifications are not supported. The service's core responsibility is to deploy and maintain the service with a specified configuration. In order to do this, the service assumes that it has ownership of task configuration. If an end-user makes modifications to individual tasks through out-of-band configuration operations, the service will override those modifications at a later time. For example:
 - If a task crashes, it will be restarted with the configuration known to the scheduler, not one modified out-of-band.
 - If a configuration update is initiated, all out-of-band modifications will be overwritten during the rolling update.
-
-## Scaling in
-
-To prevent accidental data loss, the service does not support reducing the number of pods.
 
 ## Disk changes
 
