@@ -21,7 +21,6 @@ excerpt: Making sure ports are available for installation
 |---|---|---|---|---|
 | 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
-| 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master | 
 | 61091 | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
 | 61420 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 | 62080 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
@@ -71,7 +70,7 @@ excerpt: Making sure ports are available for installation
 
 | Port | DC/OS Component | systemd Unit | Source | Destination |
 |---|---|---|---|---| 
-| 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master  | 
+| 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master  | 
 
 ## Agent
 
