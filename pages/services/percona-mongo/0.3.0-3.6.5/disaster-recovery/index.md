@@ -71,8 +71,12 @@ Running a restore of a mongodump-based backup stored on Amazon S3 is possible vi
 The service supports running a restore after the initiation of the MongoDB Replica Set. This is useful for migrations to the percona-mongo service, cloning environments, etc.
 
 Steps:
-1. In the DC/OS GUI, add a 'percona-mongo' service in the 'Services' tab.
-1. Edit the service configuration. 
+1. In the DC/OS GUI, go to 'Catalog'.
+1. Find the 'percona-mongo'service.
+1. Press 'Review & Run'.
+1. Go to the 'Backup Restore' tab in the service configuration. 
+1. Set your AWS Access Key *(accessKey)* and Secret Key *(secretKey)* in the 'Aws s3 configuration' section. This user must have access to the read the backup.
+1. Set
 
 ### Restore using the DC/OS GUI
 
