@@ -49,7 +49,7 @@ A successful start of the backup will return the following:
     }
     ```
 
-A task named *'mongodb-consistent-backup-0-backup'* will exist for the duration of the backup and upload.
+A task named *'mongodb-consistent-backup-0-backup'* will exist for the duration of the backup and upload. In this example, a backup will be uploaded to *'s3://my-s3-bucket-name/mongobackups/<DATE>'* containing several subdirectories.
 
 ### Stopping a Backup
 
