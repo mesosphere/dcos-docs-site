@@ -4,13 +4,14 @@ navigationTitle:  Architecture
 title: Architecture
 menuWeight: 2
 excerpt: Understanding DC/OS architecture
-
 enterprise: false
 ---
 
 DC/OS is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic with respect to the infrastructure layer. This means that the infrastructure may consist of virtual or physical hardware, as long as it provides computing resources, storage, and networking.
 
 ![DC/OS Architecture Layers](/1.11/img/dcos-architecture-layers.png)
+
+*Figure 1 - DC/OS architecture layers*
 
 ## Software layer
 
@@ -37,9 +38,10 @@ These components are divided across multiple node types:
 - Private Agent Nodes
 - Public Agent Nodes
 
-To install DC/OS, you must first provision each node with one of the supported host operating systems.
-
-For more information, see [Components](/1.11/overview/architecture/components/), [Node Types](/1.11/overview/architecture/node-types/), and [Host Operating System](/1.11/overview/concepts/#host-operating-system).
+To install DC/OS, you must first provision each node with one of the supported host operating systems. For more information, see
+- [Components](/1.11/overview/architecture/components/)
+- [Node Types](/1.11/overview/architecture/node-types/)
+- [Host Operating System](/1.11/overview/concepts/#host-operating-system).
 
 ## Infrastructure layer
 
@@ -49,4 +51,9 @@ For more information, see [Installing](/1.11/installing/).
 
 ## External components
 
-In addition to the software that runs in the datacenter, DC/OS includes and integrates with several external components: the [GUI](/1.11/gui/), [CLI](/1.11/cli/), [package repository](/1.11/administering-clusters/repo/), and [container registry](/1.11/overview/concepts/#container-registry).
+In addition to the software that runs in the datacenter, DC/OS includes and integrates with several external components:
+
+- [GUI](/1.11/gui/)
+- [CLI](/1.11/cli/)
+- [package repository](/1.11/administering-clusters/repo/)
+- [container registry](/1.11/overview/concepts/#container-registry)
