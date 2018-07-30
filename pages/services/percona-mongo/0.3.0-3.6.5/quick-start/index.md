@@ -14,13 +14,24 @@ enterprise: false
 
 # Steps
 
-1. If you are using open source DC/OS, install Percona-Mongo cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
-
+1. Generate 4 x passwords for the system-level MongoDB users *(backup, userAdmin, clusterAdmin and clusterMonitor)*, using the openssl tool:
     ```shell
-    dcos package install percona-mongo
+    $ openssl rand -base64 8
+    sLWGYC0yAIU=
+    $ openssl rand -base64 8
+    7Spl1m2bgo0=
+    $ openssl rand -base64 8
+    DH1UXPVrKyA=
+    $ openssl rand -base64 8
+    rtJx/fcJSIk=
     ```
 
-    Alternatively, you can install Percona-Mongo from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/).
+1. Generate a 1023-length key for MongoDB using the openssl tool:
+    ```shell
+    $ openssl rand -base64 756
+    ```
+
+1. Install Percona-Mongo from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/) using the 4 x generated passwords and key in the required fields of the *'Mongodb Credentials'* section of the service config.
 
 1. The service will now deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface.
 
