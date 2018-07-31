@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Troubleshooting
+navigationTitle: Troubleshooting
+excerpt:
 title: Troubleshooting
 menuWeight: 90
-excerpt:
-featureMaturity:
-enterprise: false
+model: /services/percona-mongo/data.yml
+render: mustache
 ---
 
 #include /services/include/troubleshooting.tmpl

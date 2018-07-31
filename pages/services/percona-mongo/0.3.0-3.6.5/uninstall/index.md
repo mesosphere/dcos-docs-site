@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Uninstall
+navigationTitle: Uninstall
+excerpt:
 title: Uninstall
 menuWeight: 30
-excerpt:
-featureMaturity:
-enterprise: false
+model: /services/percona-mongo/data.yml
+render: mustache
 ---
 
 #include /services/include/uninstall.tmpl
