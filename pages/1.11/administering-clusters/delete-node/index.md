@@ -18,7 +18,7 @@ When Mesos detects that a node has stopped, it puts the node in the `UNREACHABLE
 
 Once a node is decommissioned, the corresponding agent ID is marked as `GONE` internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to `TASK_GONE_BY_OPERATOR` state.
 
-You should deommission nodes in the following situations.
+You should decommission nodes in the following situations.
 
 - You are deleting a node, especially if you are deleting multiple nodes. DC/OS is configured to only allow one node to be marked `UNREACHABLE` every 20 minutes, so if you do not explicity decommission nodes, it can take a long time for Mesos to mark your nodes as `UNREACHABLE` and allow services to reschedule tasks on another node.
 
