@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Uninstall
 excerpt:
 title: Uninstall
-menuWeight: 30
+menuWeight: 95
 model: /services/percona-mongo/data.yml
 render: mustache
 ---
