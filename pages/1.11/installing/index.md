@@ -7,7 +7,7 @@ excerpt: Installing the Enterprise and Open Source versions of DC/OS
 
 # DC/OS Installation
 
-The installation of DC/OS involves configuring your infrastructure and installing DC/OS on top. DC/OS can be installed on any cluster of a physical or virtual machine. 
+The installation of DC/OS involves configuring your infrastructure and installing DC/OS on top. 
 
 The cloud installation and on-premise installation methods are used for trials and proofs of concept (PoC) only. To test or demo DC/OS on Azure, AWS, GCE, Digital Ocean, or Packet, follow the cloud installation instructions. 
 
@@ -17,10 +17,16 @@ The production installation method is used for fully functional clusters on any 
 # Types of Installation Methods
 DC/OS can be installed on any cluster of a physical or virtual machine. Use the following installation methods based on your requirements.
 
-## Development - Local Installation
+## Development 
+You can run a cluster on your laptop using the local installation method. This is the basic installation method.
+
+### Local Installation
 The Local installation method is for first-time users or developers intending to build services or modify DC/OS. The Vagrant installer provides a quick, free way to deploy a virtual cluster on a single machine.
  
-## Evaluation - Cloud Installation 
+## Evaluation 
+You can evaluate the installation process using the following installation methods:
+
+### Cloud Installation 
 This installation method is used for fast demos and POCs. 
 DC/OS CloudFormation templates are intended for reference only and are not recommended for production use due to the following limitations:
 - CloudFormation does not allow for coordinated zero-downtime in-place updates within Auto Scaling groups.
@@ -38,12 +44,15 @@ The following methods are used to install DC/OS:
  
  **Note:** The recommended way to install production-ready DC/OS that can be upgraded in-place is to use the [production installation](/1.11/installing/production/installation/) method.
 
-## Evaluation - On-Premise Installation
+### On-Premise Installation
 The on-premise installation method is based on `dcos labs`. The different types of on-premise installation methods are:
 - Using Ansible
 - Using Chef
 - Using Puppet
 
  
-## Production - Installation
-The production installation method is a flexible way to configure and install DC/OS on a cluster. This method was previously called Custom Installation. This production installation method is used to install production ready DC/OS that can be upgraded. You can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+## Production
+The production installation method is a flexible way to configure and install DC/OS on a cluster. This method was previously called Custom Installation.
+
+### Installation
+ This installation method is used to install production ready DC/OS that can be upgraded. You can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
