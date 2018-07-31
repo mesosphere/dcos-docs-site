@@ -19,7 +19,7 @@ To prevent accidental data loss from reallocation, the service does not support 
 
 ## Best-effort installation
 
-If your cluster does not have enough resources to deploy the service as requested, the initial deployment will not complete until either those resources are available or you reinstall the service with corrected resource requirements. Similarly, scale-outs following initial deployment will not complete if the cluster does not have the needed available resources to complete the scale-out.
+If your cluster does not have enough resources to deploy the service as requested, the initial deployment will not be completed until either those resources are available or you reinstall the service with corrected resource requirements. Similarly, scale-outs following initial deployment will not be completed if the cluster does not have the available resources to complete the scale-out.
 
 ## Virtual networks
 
@@ -31,4 +31,4 @@ Each service task has some number of environment variables, which are used to co
 
 ## Configurations
 
-The “disk” configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated “disk” configuration. See the Configuring section for instructions for customizing these values.
+The “disk” configuration value is denominated in MB. We recommend you to set the configuration value `log_retention_bytes` to a value smaller than the indicated “disk” configuration. See the configuration section for customizing these values.
