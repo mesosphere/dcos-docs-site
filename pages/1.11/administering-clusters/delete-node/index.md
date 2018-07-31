@@ -38,8 +38,11 @@ Enter the following command from the DC/OS CLI to tell Mesos to mark a node as `
 dcos node decommission <mesos-agent-id>
 ```
 
-**Note:** You should decommission a node *only* if the node will never be coming back (e.g., EC2 VM destroyed). Once a node is decommissioned, the corresponding agent ID is marked as `GONE` internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to `TASK_GONE_BY_OPERATOR` state.
+Once the node has been decommissioned (this is equivalent to using the `MARK_AGENT_GONE` Mesos API), the node will be told to perform the following tasks:
+-Shut down (kill) all executors (tasks) running on the agent node
+-Stop the Mesos slave process (but it will get automatically re-started by systemd)
 
+**Note:** You should decommission a node *only* if the node will never be coming back (e.g., EC2 VM destroyed). Once a node is decommissioned, the corresponding agent ID is marked as `GONE` internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to `TASK_GONE_BY_OPERATOR` state.
 
 
 # Shut down the node
