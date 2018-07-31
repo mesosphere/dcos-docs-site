@@ -67,9 +67,13 @@ For safety, the service enforces the following:
 
 #### Storage
 
-Currently storage engine cache sizes cannot be defined when using WiredTiger or InMemory storage engines.
+Currently the storage engine cache size cannot be defined when using the WiredTiger storage engine.
 
-These storage engines will use their default logic to determine a cache size value, which is typically 50% of the container available memory.
+By default WiredTiger will use a cache size that is either:
+1. 50% of (RAM - 1 GB)
+1. Or 256 MB, if it is larger
+
+More on WiredTiger cache sizing can be found [here](https://docs.mongodb.com/manual/faq/storage/#to-what-size-should-i-set-the-wiredtiger-internal-cache).
 
 ## Removing a Node
 
