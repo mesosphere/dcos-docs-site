@@ -23,7 +23,7 @@ enterprise: false
 
 ### Improvements
 - Percona Server for MongoDB 3.6
-- MongoDB TLS/SSL transport encryption support for DC/OS Enterprise Edition *(due to the need for Secret Store feature)*
+- MongoDB TLS/SSL transport encryption support for DC/OS Enterprise Edition 
 - Scaling down the MongoDB replica set is now supported, both in the GUI and CLI
 - Backup Restore feature
   - Compatible with backups created by the service

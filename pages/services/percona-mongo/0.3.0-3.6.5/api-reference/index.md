@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  API Reference
+navigationTitle: API Reference
+excerpt:
 title: API Reference
 menuWeight: 70
-excerpt:
-featureMaturity:
-enterprise: false
+model: /services/percona-mongo/data.yml
+render: mustache
 ---
 
 #include /services/include/api-reference.tmpl

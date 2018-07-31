@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Quick Start
 title: Quick Start
-menuWeight: 40
+menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
@@ -108,5 +108,4 @@ enterprise: false
 
 # See Also
 
-- [Connecting clients][1].
- [1]: [https://docs.mesosphere.com/services/percona-mongo/0.3.0-3.6.5/connecting-clients/](https://docs.mesosphere.com/services/percona-mongo/0.3.0-3.6.5/connecting-clients/)
+- [Connecting clients](https://docs.mesosphere.com/services/percona-mongo/0.3.0-3.6.5/connecting-clients/)

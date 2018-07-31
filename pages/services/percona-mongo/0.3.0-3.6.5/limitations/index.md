@@ -63,7 +63,7 @@ For safety, the service enforces the following:
 
     ```bash
     $ openssl rand -base64 756
-    ``` 
+    ```
 
 #### Storage
 
