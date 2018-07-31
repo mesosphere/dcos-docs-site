@@ -1,22 +1,22 @@
 ---
 layout: layout.pug
-navigationTitle:  Installation
-title: Installation
+navigationTitle: Production Installation
+title: Production Installation
 menuWeight: 15
 excerpt: Installation process to create DC/OS clusters
 ---
 
-The DC/OS installation process requires a Bootstrap node, Master node, Public Agent node, and a Private Agent node. You can view the [nodes](/1.11/overview/concepts/#node) documentation for more information.
+The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.11/overview/concepts/#node) documentation for more information.
 
 This method is used to install production ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
 
-# Installation process
+# Installation Process
 
  The following steps are required to install DC/OS clusters:
 
-*   Configure Bootstrap node
-*   Install DC/OS on Master node
-*   Install DC/OS on Agent node
+*   Configure bootstrap node
+*   Install DC/OS on master node
+*   Install DC/OS on agent node
 
 ![Installation Process](/1.11/img/advanced-installer.png)
 Figure 1 - The installation process

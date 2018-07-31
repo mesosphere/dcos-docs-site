@@ -7,22 +7,26 @@ excerpt: Installing the Enterprise and Open Source versions of DC/OS
 
 # DC/OS Installation
 
-The installation of DC/OS involves configuring your infrastructure and installing DC/OS on top. 
+The installation of DC/OS involves configuring your infrastructure and installing DC/OS on top. DC/OS can be installed on any cluster of physical or virtual machines.
 
-The cloud installation and on-premise installation methods are used for trials and proofs of concept (PoC) only. To test or demo DC/OS on Azure, AWS, GCE, Digital Ocean, or Packet, follow the cloud installation instructions. 
+The DC/OS installation methods are as follows:
 
-The production installation method is used for fully functional clusters on any infrastructure.
+- Local installation: This method is used by first-time users or developers intending to build services or modify DC/OS. The Vagrant installer provides a quick, free way to deploy a virtual cluster on a single machine.
 
+- Cloud and On-Premise installation: These methods are used for trials and proofs of concept (PoC) only. To test or demo DC/OS on Azure, AWS, GCE, Digital Ocean, or Packet, follow the cloud installation instructions. 
 
-# Types of Installation Methods
-DC/OS can be installed on any cluster of a physical or virtual machine. Use the following installation methods based on your requirements.
+- Production installation: This method is used for fully functional clusters on any infrastructure.
+
+# Overview of Installation Methods
+This section describes an overview of the installation methods. Use the following installation methods based on your requirements.
 
 ## Development 
-You can run a cluster on your laptop using the local installation method. This is the basic installation method.
+You can run a cluster on your laptop using the local installation method. 
 
 ### Local Installation
-The Local installation method is for first-time users or developers intending to build services or modify DC/OS. The Vagrant installer provides a quick, free way to deploy a virtual cluster on a single machine.
+The local installation method is for first-time users or developers intending to build services or modify DC/OS. The Vagrant installer provides a quick, free way to deploy a virtual cluster on a single machine.
  
+
 ## Evaluation 
 You can evaluate the installation process using the following installation methods:
 
@@ -50,9 +54,9 @@ The on-premise installation method is based on `dcos labs`. The different types 
 - Using Chef
 - Using Puppet
 
- 
-## Production
-The production installation method is a flexible way to configure and install DC/OS on a cluster. This method was previously called Custom Installation.
 
-### Installation
+## Production
+You can configure and install DC/OS on your cluster using the following installation method. This method was previously called Custom Installation.
+
+### Production Installation
  This installation method is used to install production ready DC/OS that can be upgraded. You can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
