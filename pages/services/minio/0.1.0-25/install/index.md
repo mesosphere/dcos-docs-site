@@ -38,7 +38,7 @@ This command creates a new instance with the default name minio.Two instances ca
 Note:  Alternatively, you can install Minio from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
 
 ## Service Discovery
-Each Service Discovery requires parameters to be passed for thier respective SD, Minio DC\OS mesos offers following service discovery mechanism : 
+Each Service Discovery requires parameters to be passed for their respective SD, Minio DC\OS mesos offers following service discovery mechanism : 
 
 1. Mesos-DNS:
 
@@ -48,7 +48,7 @@ All tasks launched in DC/OS receive a DNS address. It is of the form:
 <task-name>.<framework-name>.autoip.dcos.thisdcos.directory
    ```
  
-Important: As with resource sets, only a single process at point in time may use a given prefix. A complete service definition would have a deploy plan that ensures this.
+Important: As with resource sets, only a single process at a point in time may use a given prefix. A complete service definition would have a deploy plan that ensures this.
 
 ## Virtual Networks
 
