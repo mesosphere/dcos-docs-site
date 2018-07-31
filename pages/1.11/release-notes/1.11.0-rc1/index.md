@@ -93,3 +93,5 @@ Please try out the new features and updated data services. Provide any feedback 
 - DCOS_OSS-1658 - Add `--verbose` flag to upgrade script that prints all status and error messages to the console to enable upgrade debugging.
 - DCOS_OSS-1733 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists.
 - DCOS_OSS-2130 - `systemd-networkd` must be enabled for DC/OS networking to work with CoreOS.
+
+**Note:** The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).
