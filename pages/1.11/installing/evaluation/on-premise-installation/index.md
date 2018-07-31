@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: On-Premise installation using methods from dcos-labs
+excerpt: On-Premise installation methods from dcos-labs
 title: On-Premise Installation Options
 navigationTitle: On-Premise Installation 
 menuWeight: 10

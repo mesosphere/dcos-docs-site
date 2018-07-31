@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Cloud Installation for demos and proofs of concepts
+excerpt: Cloud installation for demos and proofs of concepts
 title: Cloud Installation Options
 navigationTitle: Cloud Installation
 menuWeight: 5

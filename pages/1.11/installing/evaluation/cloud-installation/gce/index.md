@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Running DC/OS on Google Compute Engine
+excerpt: Install DC/OS cluster on Google Compute Engine using Terraform
 title: Running DC/OS on Google Compute Engine
 navigationTitle: GCE
 menuWeight: 20

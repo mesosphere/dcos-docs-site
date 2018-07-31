@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Running DC/OS on DigitalOcean
+excerpt: Install DC/OS cluster on DigitalOcean using Terraform
 title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
 menuWeight: 15
