@@ -49,7 +49,7 @@ A user with the necessary permissions can configure a service to use a secret us
 
 1. You can add the secret using the `"env"` and `"secrets"` objects in the JSON as shown below. The following simple application defines a new service inside of the developer group and references a secret stored inside a developer path. It stores the secret under the environment variable `"MY_SECRET"`.
 
-   ```json
+```json
 {
    "id":"/developer/service",
    "cmd":"env && sleep 100",
@@ -64,9 +64,9 @@ A user with the necessary permissions can configure a service to use a secret us
       }
    }
 }
-   ```
+```
 
-   Because the service and the secret paths match, the service will be able to access the secret. See [About controlling access with secret paths](/1.8/administration/secrets/create-secrets/#secret-paths) for more details about the paths.
+Because the service and the secret paths match, the service will be able to access the secret. See [About controlling access with secret paths](/1.8/administration/secrets/create-secrets/#secret-paths) for more details about the paths.
 
 1. Click **Deploy**.
 
@@ -87,7 +87,7 @@ A user with the necessary permissions can configure a service to use a secret us
 
 1. Within a text editor, create an application definition for your Marathon service. You can add the secret using the `"env"` and `"secrets"` objects as shown below. The following simple application defines a new service inside of the developer group and references a secret stored inside a developer path. It stores the secret under the environment variable `"MY_SECRET"`.
 
-   ```json
+```json
 {
    "id":"/developer/service",
    "cmd":"env && sleep 100",
@@ -102,16 +102,16 @@ A user with the necessary permissions can configure a service to use a secret us
       }
    }
 }
-   ```
+```
 
-   Because the service group and the secret paths match, the service will be able to access the secret. See [About controlling access with secret paths](/1.8/administration/secrets/create-secrets/#secret-paths) for more details about the paths.
+Because the service group and the secret paths match, the service will be able to access the secret. See [About controlling access with secret paths](/1.8/administration/secrets/create-secrets/#secret-paths) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `myservice.json`.
 
 1. Use the Marathon API to deploy the app as shown below.
 
-  ```bash
-  curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
-  ```
+```bash
+curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
+```
 
 1. Check the web interface to observe the new app deploying.
