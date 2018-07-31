@@ -52,6 +52,8 @@ DC/OS 1.11.4 includes the following:
 - Update DC/OS UI for [1.11+v1.15.0+3231764b](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.14.0+7e0cb54f...1.11+v1.15.0+3231764b). [enterprise type="inline" size="small" /]
 - Update DC/OS UI for [1.11+v1.15.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.15.0/CHANGELOG.md). [oss type="inline" size="small" /]
 
+**Note:** The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).
+
 
 # About DC/OS 1.11
 
