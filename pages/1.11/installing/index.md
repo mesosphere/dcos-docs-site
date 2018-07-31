@@ -7,9 +7,9 @@ excerpt: Installing the Enterprise and Open Source versions of DC/OS
 
 # DC/OS Installation
 
-The installation of DC/OS involves configuring your infrastructure and installing DC/OS on top. DC/OS can be installed on any cluster of physical or virtual machines.
+The installation of DC/OS involves configuring your infrastructure, and installing the software on a cluster of physical or virtual machines.
 
-The DC/OS installation methods are as follows:
+The following are the various installation methods:
 
 - Local installation: This method is used by first-time users or developers intending to build services or modify DC/OS. The Vagrant installer provides a quick, free way to deploy a virtual cluster on a single machine.
 
@@ -21,10 +21,7 @@ The DC/OS installation methods are as follows:
 This section describes an overview of the installation methods. Use the following installation methods based on your requirements.
 
 ## Development 
-You can run a cluster on your laptop using the local installation method. 
-
-### Local Installation
-The local installation method is for first-time users or developers intending to build services or modify DC/OS. The Vagrant installer provides a quick, free way to deploy a virtual cluster on a single machine.
+You can run a cluster on your laptop using the local installation method. This method is for first-time users or developers intending to build services or modify DC/OS. The Vagrant installer provides a quick, free way to deploy a virtual cluster on a single machine.
  
 
 ## Evaluation 
@@ -56,7 +53,4 @@ The on-premise installation method is based on `dcos labs`. The different types 
 
 
 ## Production
-You can configure and install DC/OS on your cluster using the following installation method. This method was previously called Custom Installation.
-
-### Production Installation
- This installation method is used to install production ready DC/OS that can be upgraded. You can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+You can configure and install DC/OS on your cluster using the following installation method. This method was previously called Custom Installation. The production installation method is used to install production-ready DC/OS that can be upgraded. You can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
