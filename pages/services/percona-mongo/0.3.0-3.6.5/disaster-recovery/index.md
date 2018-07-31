@@ -79,7 +79,7 @@ Steps:
 1. Go to the *'Backup Restore'* tab in the service configuration. 
 1. Set your AWS Access Key *(accessKey)* and Secret Key *(secretKey)* in the *'Aws s3 configuration'* section. This user must have access to the read the backup.
 1. Check the *'restoreAfterInit'* field, to enable the restore once the replica set has been initiated.
-1. Wait for the task *'restore-0-restore'* to reach the *'FINISHED'* state.
+1. Wait for the task *'restore-0-restore-s3'* to reach the *'FINISHED'* state.
 
 ### Restore using the DC/OS CLI
 
@@ -110,4 +110,4 @@ To stop a running backup restore process:
 
 ### Troubleshooting a Restore 
 
-See the *'Logs'* page of the *'restore-0-restore'* task to troubleshoot the restore process.
+See the *'Logs'* page of the *'restore-0-restore-s3'* task to troubleshoot the restore process.
