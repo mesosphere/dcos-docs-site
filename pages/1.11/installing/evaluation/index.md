@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Evaluation
 title: Evaluation
 menuWeight: 10
-excerpt: DC/OS evaluation uses local, cloud or on-premise installation methods
+excerpt: DC/OS evaluation uses cloud or on-premise installation methods
 ---
 
 This page supports both DC/OS OSS (default) and DC/OS Enterprise installation methods. You can evaluate the installation of DC/OS cluster based on your requirements.
