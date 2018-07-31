@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Concepts
 title: Concepts
 menuWeight: 5
-excerpt: Understanding DC/OS terminology
+excerpt: Understanding DC/OS concepts and terms
 
 enterprise: false
 ---
@@ -73,7 +73,7 @@ For more information, see [Network Security](/1.11/administering-clusters/) and 
 
 # <a name="private-agent-node"></a>Private Agent Node
 
-A private agent node is an agent node that is on a network that *does not allow** access from outside of the cluster via the cluster’s infrastructure networking.
+A private agent node is an agent node that is on a network that **does not allow** access from outside of the cluster via the cluster’s infrastructure networking.
 
 - The Mesos agent on each private agent node is, by default, configured with none of its resources allocated to any specific Mesos roles (`*`).
 - Most service packages install by default on private agent nodes.

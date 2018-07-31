@@ -90,6 +90,6 @@ The following is the boot sequence of a DC/OS scheduler service:
 1. Scheduler service registers with leading Mesos Master
 1. Leading Mesos Master starts offering agent node resources to the new scheduler service
 
-### More information
+## More information
 
 For more information about tasks and services, see [Distributed Process Management](/1.11/overview/architecture/distributed-process-management/).
