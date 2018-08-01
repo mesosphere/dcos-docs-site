@@ -8,9 +8,6 @@ excerpt: How to uninstall the command line interface
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 You can uninstall the CLI with these commands for your operating system.
 
 - [Unix, Linux, and macOS](#unixlinuxosx)

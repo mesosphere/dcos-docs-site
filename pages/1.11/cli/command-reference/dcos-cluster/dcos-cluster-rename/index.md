@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-The dcos-cluster-rename command will rename a cluster.
+The `dcos cluster rename` command will rename a cluster.
 
 # Usage
 
@@ -22,10 +22,10 @@ dcos cluster rename <name> <new-name>
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
+| Name, shorthand |  Description |
 |---------|-------------|-------------|
-| `<name>`   |             | Name of connected cluster. |
-| `<new-name>`   |             | New name of connected cluster. |
+| `<name>`   |  Name of connected cluster. |
+| `<new-name>`   |  New name of connected cluster. |
 
 # Parent command
 

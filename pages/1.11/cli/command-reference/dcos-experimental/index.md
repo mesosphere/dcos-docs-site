@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos experimental
 title: dcos experimental
 menuWeight: 6
-excerpt: List of commands that are under development
+excerpt: Commands that are under development
 
 enterprise: false
 ---

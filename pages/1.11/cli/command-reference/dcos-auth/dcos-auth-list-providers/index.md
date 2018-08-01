@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-This command lists configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.11/security/ent/service-auth/).
+This command lists configured authentication providers for your DC/OS cluster. For more information, see [Service Accounts](/1.11/security/ent/service-auth/).
 
 # Usage
 
@@ -19,9 +19,9 @@ dcos auth list-providers [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             | Specify a JSON-formatted list of authentication providers. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `--json`   | Specify a JSON-formatted list of authentication providers. |
 
 # Parent command
 

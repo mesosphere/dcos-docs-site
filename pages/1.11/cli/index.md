@@ -3,17 +3,12 @@ layout: layout.pug
 navigationTitle:  CLI
 title: CLI
 menuWeight: 50
-excerpt: Understanding the command line interface utility in DC/OS
+excerpt: Understanding the DC/OS command line interface
 
 enterprise: false
 ---
 
-<!-- Thesource repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
-The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
-
-DC/OS 1.11 requires the DC/OS CLI 0.6.x.
+The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks from a terminal. DC/OS 1.11 requires the DC/OS CLI 0.6.x.
 
 To list available commands, run `dcos` with no parameters:
 
@@ -28,14 +23,18 @@ for easy management of a DC/OS installation.
 Available DC/OS commands:
 
 	auth           	Authenticate to DC/OS cluster
+	backup          Back up and restore
 	cluster        	Manage connections to DC/OS clusters
 	config         	Manage the DC/OS configuration file
-	experimental   	Experimental commands. These commands are under development and are subject to change
+	edgelb          Manage load balancing with Edge-LB
+	experimental   	Commands under development, subject to change
 	help           	Display help information about DC/OS
 	job            	Deploy and manage jobs in DC/OS
+	license					Use the DC/OS license
 	marathon       	Deploy and manage applications to DC/OS
 	node           	Administer and manage DC/OS cluster nodes
 	package        	Install and manage DC/OS software packages
+	security        Manage the DC/OS certificate authority
 	service        	Manage DC/OS services
 	task           	Manage DC/OS tasks
 
@@ -50,7 +49,6 @@ To display the DC/OS CLI version, run:
 dcos --version
 ```
 
-
 <a name="configuration-files"></a>
 # DC/OS CLI versions and configuration files
 
@@ -58,11 +56,11 @@ DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configur
 
 DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. In DC/OS CLI 0.4.x you can optionally change the location of the configuration file using the [`DCOS_CONFIG`](#dcos-config) environment variable.
 
-DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) environment variable.
+DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default is stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) environment variable.
 
 **Note:**
-- Updating to the DC/OS CLI 0.5.x and running any CLI command triggers conversion from the old to the new configuration structure.
-- After you call `dcos cluster setup`, (or after conversion has occurred), if you attempt to update the cluster configuration using a `dcos config set` command, the command prints a warning message saying the command is deprecated and cluster configuration state may now be corrupted.
+- If you update to the DC/OS CLI 0.5.x and run any CLI command, it will trigger conversion from the old to the new configuration structure.
+- After you call `dcos cluster setup`, (or after conversion has occurred), if you attempt to update the cluster configuration using a `dcos config set` command, the command displays a warning message saying the command is deprecated and the cluster configuration state may now be corrupted.
 
 # Environment variables
 
@@ -93,7 +91,7 @@ If you have the `DCOS_CONFIG` environment variable configured:
 
 
 <a name="dcos-dir"></a>
-#### `DCOS_DIR` (DC/OS CLI 0.5.x and higher only)
+#### `DCOS_DIR` (DC/OS CLI 0.5.x and later only)
 
 The path to a DC/OS configuration directory. If you want the DC/OS configuration directory to be `/home/jdoe/config`, set the variable with the command:
 
@@ -121,13 +119,13 @@ export DCOS_SSL_VERIFY=false
 
 <a name="dcos-log-level"></a>
 #### `DCOS_LOG_LEVEL`
-Prints log messages to stderr at or above the level indicated. This is equivalent to the `--log-level` command-line option. The severity levels are:
+Prints log messages to `stderr` at or above the level indicated. This is equivalent to the `--log-level` command-line option. The severity levels are:
 
-*   **debug** Prints all messages to stderr, including informational, warning, error, and critical.
-*   **info** Prints informational, warning, error, and critical messages to stderr.
-*   **warning** Prints warning, error, and critical messages to stderr.
-*   **error** Prints error and critical messages to stderr.
-*   **critical** Prints only critical messages to stderr.
+*   **debug** Prints all messages to `stderr`, including informational, warning, error, and critical.
+*   **info** Prints informational, warning, error, and critical messages to `stderr`.
+*   **warning** Prints warning, error, and critical messages to `stderr`.
+*   **error** Prints error and critical messages to `stderr`.
+*   **critical** Prints only critical messages to `stderr`.
 
 For example, to set the log level to warning:
 
