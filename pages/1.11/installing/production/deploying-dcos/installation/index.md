@@ -8,9 +8,9 @@ excerpt: Installation process to create DC/OS clusters
 
 The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.11/overview/concepts/#node) documentation for more information.
 
-This method is used to install production ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+This method is used to install production-ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
 
-# Installation Process
+# Production Installation Process
 
  The following steps are required to install DC/OS clusters:
 
@@ -18,8 +18,8 @@ This method is used to install production ready DC/OS that can be upgraded. Usin
 *   Install DC/OS on master node
 *   Install DC/OS on agent node
 
-![Installation Process](/1.11/img/advanced-installer.png)
-Figure 1 - The installation process
+![Production Installation Process](/1.11/img/advanced-installer.png)
+Figure 1 - The production installation process
 
 
 This installation method requires:
@@ -440,6 +440,7 @@ You can find information on the next steps listed below:
 - [Public agent nodes][2]
 - [Private agent nodes][3]
 - [Install the DC/OS Command-Line Interface (CLI)][9]
+- [Using node and cluster health checks][12]
 - [Troubleshooting DC/OS installation][10]
 - [Uninstalling DC/OS][11]
 
@@ -452,6 +453,7 @@ You can find information on the next steps listed below:
 [7]: /1.11/security/ent/users-groups/
 [8]: /1.11/security/ent/users-groups/
 [9]: /1.11/cli/install/
+[12]: /1.11/installing/production/deploying-dcos/node-cluster-health-check/
 [10]: /1.11/installing/oss/troubleshooting/
 [11]: /1.11/installing/oss/custom/uninstall/
 
