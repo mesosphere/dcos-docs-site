@@ -137,3 +137,11 @@ https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-p
   ```shell
   http://<Public IP of the Public Node of the cluster>>:9001/minio
   ```      
+Now you can connect with the Minio server using Minio Client on the public IP of the public agent running EdgeLB and the port number at which Minio server is binded at EdgeLB. 
+
+For more details on Minio Client, refer to the link below :
+  https://docs.minio.io/docs/minio-client-complete-guide.html
+
+
+
+
