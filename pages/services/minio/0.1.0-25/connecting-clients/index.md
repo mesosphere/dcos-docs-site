@@ -139,8 +139,8 @@ https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-p
   ```      
 Now you can connect with the Minio server using Minio Client on the public IP of the public agent running EdgeLB and the port number at which Minio server is binded at EdgeLB. 
 
-For more details on Minio Client, refer to the link below :
-  https://docs.minio.io/docs/minio-client-complete-guide.html
+For more details on Minio Client, refer to the link:
+   https://docs.minio.io/docs/minio-client-complete-guide.html
 
 
 
