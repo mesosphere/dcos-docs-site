@@ -178,8 +178,7 @@ In this step, you create a YAML configuration file that is customized for your e
                   unmount:
                     ignoreusedcount: true
             
-    
-    For more information, see the external volumes [documentation][7].
+For more information, see the external volumes [documentation][7].
 
 4.  Copy your private SSH key to `genconf/ssh_key`. For more information, see the [ssh_key_path][3] parameter.
     

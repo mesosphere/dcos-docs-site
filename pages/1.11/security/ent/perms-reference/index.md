@@ -156,7 +156,7 @@ Marathon applications using secrets see [Configuring services and pods to use se
 
 |                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:secrets:default:[<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.11/security/ent/secrets/).                                                                                                                                                           | x    | x | x | x | x |
+| `dcos:secrets:default:[/<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.11/security/ent/secrets/).                                                                                                                                                           | x    | x | x | x | x |
 | `dcos:secrets:list:default:/[<path>]`<br> Controls view access to the names of [secrets](/1.11/security/ent/secrets/).                                                                                                                                                                 |      |   | x |   |   |
 
 ## <a name="cluster-linker"></a> Cluster Linker Permissions

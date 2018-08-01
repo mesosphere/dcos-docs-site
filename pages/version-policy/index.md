@@ -11,7 +11,7 @@ The purpose of this document is to provide guidance and education for Mesosphere
 
 ## DC/OS Version Lifecycle
 
-Mesosphere tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#compatibility-matrix). This testing is provided in the DC/OS Platform Interoperability Matrix. Support services for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>.
+Mesosphere tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#version-compatibility-matrix). This testing is provided in the [DC/OS Platform Interoperability Matrix](#dcos-platform-version-compatibility-matrix). Support services for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>.
 
 ### Versioning Definitions
 

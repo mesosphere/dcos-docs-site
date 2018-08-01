@@ -54,7 +54,7 @@ Here are the agent node hardware requirements.
 
 The agent nodes must also have:
 
-- A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both the [Universal Container Runtime and Docker Engine](/1.10/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both the [Universal Container Runtime and Docker Engine](/1.10/deploying-services/containerizers/).
 
 - The agent's work directory, `/var/lib/mesos/slave`, should be on a separate device. This protects all the other services from a task overflowing the disk.
 

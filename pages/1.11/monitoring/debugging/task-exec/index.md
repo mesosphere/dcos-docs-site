@@ -19,11 +19,11 @@ You can execute this command in the following modes.
 
 - `dcos task exec <task-id> <command>` (no flags): streams STDOUT and STDERR from the remote terminal to your local terminal as raw bytes.
 
-- `dcos task exec --tty <task-id> <command>`: streams STDOUT and STDERR from the remote terminal to your local terminal, but not as raw bytes. Instead, this option puts your local terminal into raw mode, allocates a remote pseudo terminal (PYT), and streams the STDOUT and STDERR through the remote PTY.
+- `dcos task exec --tty <task-id> <command>`: streams STDOUT and STDERR from the remote terminal to your local terminal, but not as raw bytes. Instead, this option puts your local terminal into raw mode, allocates a remote pseudo terminal (PTY), and streams the STDOUT and STDERR through the remote PTY.
 
 - `dcos task exec --interactive <task-id> <command>` streams STDOUT and STDERR from the remote terminal to your local terminal and streams STDIN from your local terminal to the remote command.
 
-- `dcos task exec --interactive --tty <task-id> <command>`: streams STDOUT and STDERR from the remote terminal to your local terminal and streams STDIN from your local terminal to the remote terminal. Also puts your local terminal into raw mode; allocates a remote pseudo terminal (PYT); and streams STDOUT, STDERR, and STDIN through the remote PTY. This mode offers the maximum functionality.
+- `dcos task exec --interactive --tty <task-id> <command>`: streams STDOUT and STDERR from the remote terminal to your local terminal and streams STDIN from your local terminal to the remote terminal. Also puts your local terminal into raw mode; allocates a remote pseudo terminal (PTY); and streams STDOUT, STDERR, and STDIN through the remote PTY. This mode offers the maximum functionality.
 
 **Tips:**
 - We have included the text of the full flags above for readability, but each one can be shortened. Instead of typing `--interactive`, you can just type `-i`. Likewise, instead of typing `--tty`, you can just type `-t`.

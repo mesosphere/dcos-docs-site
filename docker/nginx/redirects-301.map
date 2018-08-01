@@ -1,5 +1,4 @@
-~^([^.]*[^/])$ $1/;
-~^(/[^/]*)$ $1/;
+~(^.*/[^.]*[^/])$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
 /administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;
 /administration/id-and-access-mgt/ /latest/security/ent/iam-api/;
@@ -534,6 +533,8 @@
 /1.10/usage/tutorials/registry/ https://github.com/dcos/examples/tree/master/registry/1.8;
 /1.10/usage/tutorials/stateful-services/ /1.10/tutorials/stateful-services/;
 /1.10/usage/tutorials/task-labels/ /1.10/tutorials/task-labels/;
+
+/1.11/usage/webinterface/ /1.11/gui/;
 /1.10/usage/webinterface/ /1.10/gui/;
 /1.7/administration/dcosarchitecture/security/ /1.7/overview/;
 /1.7/administration/installing/custom/automated-installer/system-requirements/ /1.7/administration/installing/custom/system-requirements/;
