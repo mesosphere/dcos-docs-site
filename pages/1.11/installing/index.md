@@ -47,4 +47,4 @@ The on-premise installation method is based on `dcos labs`. The different types 
 
 
 ## Production
-You can configure and install DC/OS on your cluster using the following installation method. This method was previously called Custom Installation. The production installation method is used to install production-ready DC/OS that can be upgraded. You can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+The production installation method is used to install production-ready DC/OS that can be upgraded. This method was previously called custom installation. It involves packaging the DC/OS distribution and connecting to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
