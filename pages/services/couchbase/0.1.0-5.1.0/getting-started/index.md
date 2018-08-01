@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Getting Started
 menuWeight: 10
-model: /services/prometheus/data.yml
+model: /services/couchbase/data.yml
 render: mustache
 ---
 

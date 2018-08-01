@@ -13,7 +13,13 @@ operations:
     ├─  data (serial strategy) (COMPLETE)
     │  └─ data-0:[node] (COMPLETE)
     ├─  index (serial strategy) (COMPLETE)
-    │  ├─ index-0:[server] (COMPLETE)
-    │  └─ prometheus-0:[agent-discovery] (COMPLETE)
-    └─  query (serial strategy) (COMPLETE)
-       └─ pushgateway-0:[server] (COMPLETE)
+    │  └─ index-0:[node] (COMPLETE)
+    ├─  query (serial strategy) (COMPLETE)
+    │  └─ query-0:[node] (COMPLETE)
+    ├─  fts (serial strategy) (COMPLETE)
+    │  └─ fts-0:[node] (COMPLETE)
+    ├─  sync-gateway (serial strategy) (COMPLETE)
+    │  ├─ sync-gateway-0:[node] (COMPLETE)
+      
+
+    
