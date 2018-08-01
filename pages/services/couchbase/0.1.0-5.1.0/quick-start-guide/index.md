@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start
-excerpt: Configuring Prometheus - Quick Start
+excerpt: Configuring Couchbase - Quick Start
 title: Quick Start
 menuWeight: 15
 ---
 
-# How to use Prometheus with DC/OS
+# How to use Couchbase with DC/OS
 
 ## Prerequisites
 
@@ -14,15 +14,10 @@ menuWeight: 15
 
 ## Install
 
-Prometheus can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
+Couchbase can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
 
 ```bash
-dcos package install prometheus
-```
-
-Install Grafana from the service catalog as well. It can be used as a graphing tool.
-```bash
-dcos package install --yes grafana
+dcos package install Couchbase 
 ```
 
 [<img src="/services/prometheus/0.1.0-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/services/prometheus/0.1.0-2.3.2/img/prom_install.png)
