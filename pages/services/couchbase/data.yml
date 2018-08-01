@@ -1,0 +1,19 @@
+# Common values:
+
+packageName: couchbase 
+serviceName: couchbase 
+techName:  Couchbase 
+techShortName: Couchbase 
+
+# Values specific to certain templates:
+
+operations:
+  complete-deploy: |
+    deploy (parallel strategy) (COMPLETE)
+    ├─  data (serial strategy) (COMPLETE)
+    │  └─ data-0:[node] (COMPLETE)
+    ├─  index (serial strategy) (COMPLETE)
+    │  ├─ index-0:[server] (COMPLETE)
+    │  └─ prometheus-0:[agent-discovery] (COMPLETE)
+    └─  query (serial strategy) (COMPLETE)
+       └─ pushgateway-0:[server] (COMPLETE)
