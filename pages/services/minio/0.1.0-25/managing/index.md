@@ -88,7 +88,7 @@ Now that you have these files, you can recreate the `options.json`.
 	```shell
 	less marathon.json.mustache
 	```
-3. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
+3. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file.
 
 #### Starting the update
 
