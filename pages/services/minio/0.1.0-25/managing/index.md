@@ -115,7 +115,7 @@ The CPU and Memory requirements of each node can be increased or decreased as fo
 <a name="updating-placement-constraints"></a>
 ### Updating placement constraints
 
-Placement constraints may be updated after initial deployment using the following procedure. See [Service Settings](#service-settings) above for more information on placement constraints.
+Placement constraints may be updated after initial deployment using the following procedure. 
 
 Assume the following deployment of our nodes:
 
