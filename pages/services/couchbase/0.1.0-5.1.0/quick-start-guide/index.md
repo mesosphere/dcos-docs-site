@@ -20,8 +20,7 @@ Couchbase can be installed via either the DC/OS Catalog web interface or by usin
 dcos package install Couchbase 
 ```
 
-[<img src="/services/prometheus/0.1.0-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/services/prometheus/0.1.0-2.3.2/img/prom_install.png)
-
+[<img src="/services/couchbase/0.1.0-5.1.0/img/couchbase_install.png" alt="Couchbase Install"/>](/services/couchbase/0.1.0-5.1.0/img/couchbase_install.png)
 
 The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. Append any new config to the end.
 
