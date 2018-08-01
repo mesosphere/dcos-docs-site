@@ -19,7 +19,6 @@ dcos config unset <name>
 ```
 
 
-
 # Positional arguments
 
 | Name, shorthand |  Description |

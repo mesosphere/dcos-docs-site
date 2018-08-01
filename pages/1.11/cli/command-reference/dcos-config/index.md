@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-This command manages the DC/OS configuration file created when you run [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:
+The `dcos config` command manages the DC/OS configuration file created when you run [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:
 
     cluster.name <cluster_name>
     core.dcos_acs_token ********
@@ -33,3 +33,10 @@ dcos config
 | `--help, h`   |   Display usage. |
 | `--info`   |  Display a short description of this subcommand. |
 | `--version, v`   |  Display version information. |
+
+
+## Display help for dcos config command
+
+The `dcos help config` command is the same as `dcos config --help`.
+
+For more information, see the [`dcos help`](/1.11/cli/command-reference/dcos-help/) command.

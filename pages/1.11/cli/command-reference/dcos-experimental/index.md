@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-This section lists commands that are under development and subject to change.
+The `dcos experimental` command lists commands that are under development and subject to change.
 
 # Usage
 
@@ -20,8 +20,8 @@ dcos experimental [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--help, h`   |             |  Print usage. |
-| `--info`   |             |  Print a short description of this subcommand. |
-| `--version, v`   |             | Print version information. |  
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   |     Display usage. |
+| `--info`   |     Display a short description of this subcommand. |
+| `--version, v`   |   Display version information. |  

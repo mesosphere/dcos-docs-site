@@ -20,10 +20,10 @@ dcos cluster remove [<cluster-name> | <cluster-id> | --all]
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<cluster-name>`   |             | Name of connected cluster. |
-| `<cluster-id>`   |   | ID of connected cluster.  |
+| Name, shorthand | Description |
+|---------|-------------|
+| `<cluster-name>`   | Name of connected cluster. |
+| `<cluster-id>`   |  ID of connected cluster.  |
 # Parent command
 
 | Command | Description |

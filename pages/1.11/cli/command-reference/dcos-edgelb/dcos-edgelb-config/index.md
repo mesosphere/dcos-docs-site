@@ -8,7 +8,6 @@ excerpt: Viewing and updating your Edge-LB configuration
 enterprise: true
 ---
 
-
 # Description
 The `dcos edgelb config` command lets you view or update your Edge-LB configuration.
 
@@ -32,7 +31,7 @@ dcos edgelb config <file> [OPTIONS]
 | `--help, h`   |   Display usage. |
 | `--verbose`   |  Enable additional logging of requests and responses. |
 | `--force-insecure`   |  Allow unverified TLS certificates when querying service. |
-| `--custom-auth-token=DCOS_AUTH_TOKEN`   | Custom auth token to use when querying a service. |
+| `--custom-auth-token=DCOS_AUTH_TOKEN`   | Custom `auth` token to use when querying a service. |
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   |Custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   |  Name of the service instance to query. |

@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-This command lists configured authentication providers for your DC/OS cluster. For more information, see [Service Accounts](/1.11/security/ent/service-auth/).
+The `dcos auth list-providers `command lists configured authentication providers for your DC/OS cluster. For more information, see [Service Accounts](/1.11/security/ent/service-auth/).
 
 # Usage
 
@@ -29,9 +29,7 @@ dcos auth list-providers [OPTION]
 |---------|-------------|
 | [dcos auth](/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
-# Examples
-
-## List available providers
+# Example
 
 In this example, the available DC/OS authentication providers are listed.
 

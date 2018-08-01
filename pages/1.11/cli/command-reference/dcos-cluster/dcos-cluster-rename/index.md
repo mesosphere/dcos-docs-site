@@ -8,11 +8,8 @@ excerpt: Renaming a cluster
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-The `dcos cluster rename` command will rename a cluster.
+The `dcos cluster rename` command allows you to rename a cluster.
 
 # Usage
 
@@ -23,7 +20,7 @@ dcos cluster rename <name> <new-name>
 # Positional arguments
 
 | Name, shorthand |  Description |
-|---------|-------------|-------------|
+|---------|-------------|
 | `<name>`   |  Name of connected cluster. |
 | `<new-name>`   |  New name of connected cluster. |
 

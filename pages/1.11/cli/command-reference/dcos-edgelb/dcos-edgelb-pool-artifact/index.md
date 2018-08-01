@@ -9,13 +9,13 @@ enterprise: true
 ---
 
 # Description
-  The dcos edgelb pool artifact command lists artifacts available for an Edge-LB pool.
+  The `dcos edgelb pool artifact` command lists artifacts available for an Edge-LB pool.
 
 # Usage
 
 ```bash
 dcos edgelb [<flags>] pool artifact [<flags>] <name> [<artifact> [<artifactFile>]]
-```
+````
 
 Positional arguments
 

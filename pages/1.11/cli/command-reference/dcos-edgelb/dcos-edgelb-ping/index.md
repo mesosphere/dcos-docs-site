@@ -10,7 +10,7 @@ enterprise: true
 
 
 # Description
-The `dcos edgelb test` command will test the readiness of the Edge-LB API server.
+The `dcos edgelb ping` command will test the readiness of the Edge-LB API server.
 
 # Usage
 

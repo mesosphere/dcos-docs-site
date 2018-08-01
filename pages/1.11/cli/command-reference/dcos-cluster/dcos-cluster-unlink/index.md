@@ -19,7 +19,7 @@ dcos cluster unlink [<linked-cluster-name> | <linked-cluster-id> ]
 # Positional arguments
 
 | Name, shorthand |  Description |
-|---------|-------------|-------------|
+|---------|-------------|
 | `<linked-cluster-name>`   | ID of linked cluster.  |
 | `<linked-cluster-id>`   |  ID of linked cluster.  |
 

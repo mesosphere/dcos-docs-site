@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 # Description
-This command manages DC/OS identity and access.
+The `dcos auth` command manages DC/OS identity and access.
 
 # Usage
 
@@ -21,7 +21,7 @@ dcos auth
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|-------------|
+|---------|-------------|
 | `--help, h`   | Display usage. |
 | `--info`   |  Display a short description of this subcommand. |
 | `--version, v`   | Display version information. |

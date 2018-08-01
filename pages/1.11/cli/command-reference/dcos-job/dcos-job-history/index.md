@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Show job run history.
+The `dcos job history` command allows you to view your job run history.
 
 # Usage
 
@@ -20,16 +20,16 @@ dcos job history <job-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted list. |
-| `--show-failures`   |             |  Show the failure table and statistics for history. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |   Display JSON-formatted list. |
+| `--show-failures`   |  Show the failure table and statistics for history. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-id>`   |             |  Specify the job ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<job-id>`   |   Specify the job ID. |
 
 # Parent command
 
@@ -39,7 +39,7 @@ dcos job history <job-id> [OPTION]
 
 # Examples
 
-## View the history of job
+## View the history of a job
 
 In this example, a job history is shown.
 
