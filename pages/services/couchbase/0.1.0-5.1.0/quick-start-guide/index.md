@@ -48,16 +48,16 @@ When prompted for credentials enter Administrator/password.
 
 Which gets you to the console.
 
-[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_dashboard.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/ 	couch_dashboard.png)
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_dashboard.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/couch_dashboard.png)
 
 ## Adding Nodes
 Let’s say we have two data nodes, and we want to go to three.
 
-[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_dnodes.png" alt="Couchbase Data Nodes"/>](/services/couchbase/0.1.1-5.1.0/img/ 	couch_dnodes.png)
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_dnodes.png" alt="Couchbase Data Nodes"/>](/services/couchbase/0.1.1-5.1.0/img/couch_dnodes.png)
 
 You need to go and edit the configuration of your couchbase service, and increase the data node count to 3.
 
-[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_edit.png" alt="Couchbase Edit configuration"/>](/services/couchbase/0.1.1-5.1.0/img/ couch_edit.png)
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_edit.png" alt="Couchbase Edit configuration"/>](/services/couchbase/0.1.1-5.1.0/img/couch_edit.png)
 
 A 3rd node gets added with a pending rebalance.
 
@@ -230,10 +230,3 @@ Get the public ip of your dc/os public agent, and enter the following in your br
 [<img src="/services/couchbase/0.1.1-5.1.0/img/todos.png" alt="todos"/>](/services/couchbase/0.1.1-5.1.0/img/todos.png)
 
 As you enter todo’s you will also be able to see them in the couchbase console in the ‘todo’ bucket. If you open another browser, you will also see the db there synced.
-
-
-
-
-
-
-
