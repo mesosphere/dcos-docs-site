@@ -14,7 +14,7 @@ enterprise: false
 
 - DC/OS: 1.11
 
-Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Prometheus. For example, 0.1.1-5.1.0 indicates version 0.1.1 of the DC/OS integration and version 5.1.0 of Couchbase.
+Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Couchbase. For example, 0.1.1-5.1.0 indicates version 0.1.1 of the DC/OS integration and version 5.1.0 of Couchbase.
 
 ## Version Policy
 

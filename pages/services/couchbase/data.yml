@@ -9,17 +9,7 @@ techShortName: Couchbase
 
 operations:
   complete-deploy: |
-    deploy (parallel strategy) (COMPLETE)
+    deploy (serial strategy) (COMPLETE)
     ├─  data (serial strategy) (COMPLETE)
-    │  └─ data-0:[node] (COMPLETE)
-    ├─  index (serial strategy) (COMPLETE)
-    │  └─ index-0:[node] (COMPLETE)
-    ├─  query (serial strategy) (COMPLETE)
-    │  └─ query-0:[node] (COMPLETE)
-    ├─  fts (serial strategy) (COMPLETE)
-    │  └─ fts-0:[node] (COMPLETE)
-    ├─  sync-gateway (serial strategy) (COMPLETE)
-    │  ├─ sync-gateway-0:[node] (COMPLETE)
-      
-
-    
+      └─ data-0:[node] (COMPLETE)
+      └─ data-1:[node] (COMPLETE) 

@@ -19,9 +19,11 @@ DC/OS Couchbase offers the following benefits :
 5. Easily configurable to support Container and Cloud Deployments.
 6. High Availability.
 
+## Features
 DC/OS Couchbase's main features are:
-1.Unified Programming Interface
-2.Powerful application development APIs across multiple programming languages
-3.Couchbase Analytics provides powerful parallel query processing. Designed to efficiently execute complex, long-running queries that contain complex joins, set, aggregation, and grouping operations.
-4.Scale out architecture
-5.Replication and sharding are fundamental features of Couchbase Server
+
+1. Unified Programming Interface
+2. Powerful application development APIs across multiple programming languages
+3. Couchbase Analytics provides powerful parallel query processing. Designed to efficiently execute complex, long-running queries that contain complex joins, set, aggregation, and grouping operations.
+4. Scale out architecture
+5. Replication and sharding are fundamental features of Couchbase Server

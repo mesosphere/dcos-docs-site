@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Configuration
 menuWeight: 20
-model: /services/prometheus/data.yml
+model: /services/couchbase/data.yml
 render: mustache
 ---
 
