@@ -42,7 +42,33 @@ Couchbase UI:
 ```
 http://<public-agent-ip>:8091
 ```
-When prompted for credentials enter Administrator / password.
+When prompted for credentials enter Administrator/password.
 
-[<img src="/services/couchbase/0.1.1-5.1.0/img/prom_dashboard.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/couchbase_cred.png)
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couchbase_cred.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/ 	couchbase_cred.png)
+
+Which gets you to the console.
+
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_dashboard.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/ 	couch_dashboard.png)
+
+## Adding Nodes
+Let’s say we have two data nodes, and we want to go to three.
+
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_dnodes.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/ 	couch_dnodes.png)
+
+You need to go and edit the configuration of your couchbase service, and increase the data node count to 3.
+
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_edit.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/ couch_edit.png)
+
+A 3rd node gets added with a pending rebalance.
+
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_3.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/couch_3.png)
+
+You can rebalance by clicking the button in the couchbase console, or you can use the following dc/os cli command
+
+```bash
+$ dcos couchbase plan start rebalance
+```
+we have a three data node cluster.
+
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couch_cluster.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/couch_cluster.png)
 
