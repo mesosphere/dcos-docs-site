@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos config validate` command will validate changes to the configuration file.
+The `dcos config validate` command allows you to validate changes to the configuration file.
 
 # Usage
 

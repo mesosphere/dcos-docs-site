@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-The `dcos experimental` command lists commands that are under development and subject to change.
+The `dcos experimental` command allows you to list commands that are under development and subject to change.
 
 # Usage
 

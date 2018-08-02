@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-The `dcos experimental package add` command lets you add a DC/OS package to DC/OS.
+The `dcos experimental package add` command allows you to add a DC/OS package to DC/OS.
 
 # Usage
 

@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos help` command will display DC/OS CLI help information.
+The `dcos help` command allows you to display DC/OS CLI help information.
 
 # Usage
 

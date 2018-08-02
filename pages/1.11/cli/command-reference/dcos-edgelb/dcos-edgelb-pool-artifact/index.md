@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-  The `dcos edgelb pool artifact` command lists artifacts available for an Edge-LB pool.
+  The `dcos edgelb pool artifact` command allows you to list artifacts available for an Edge-LB pool.
 
 # Usage
 

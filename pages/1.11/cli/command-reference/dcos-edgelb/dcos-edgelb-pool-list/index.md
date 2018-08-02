@@ -10,7 +10,7 @@ enterprise: true
 
 
 # Description
-The `dcos edgelb pool list` command lists the names of all pools.
+The `dcos edgelb pool list` command allows you to list the names of all pools.
 
 # Usage
 

@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-The `dcos edgelb config` command lets you view or update your Edge-LB configuration.
+The `dcos edgelb config` command allows you to view or update your Edge-LB configuration.
 
 # Usage
 

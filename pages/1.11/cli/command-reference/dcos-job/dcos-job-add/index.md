@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos job add` command lets you add a job by creating a JSON format configuration file.
+The `dcos job add` command allows you to add a job by creating a JSON format configuration file.
 
 # Usage
 
@@ -32,4 +32,4 @@ dcos job add <job-file> [OPTION]
 
 For job examples, see the [Create a Job](/1.11/deploying-jobs/examples/#create-job).
 
-For information on how to create a job using this command, see [Add a job](/1.11/deploying-jobs/quickstart/#add-a-job-2). 
+For information on how to create a job using this command, see [Add a job](/1.11/deploying-jobs/quickstart/#add-a-job-2).

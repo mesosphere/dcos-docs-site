@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos cluster` command manages connections to DC/OS clusters.
+The `dcos cluster` command allows you to manage connections to DC/OS clusters.
 
 # Usage
 

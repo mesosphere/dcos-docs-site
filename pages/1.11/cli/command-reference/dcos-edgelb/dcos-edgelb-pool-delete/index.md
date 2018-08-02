@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-The `dcos edgelb pool delete` command will delete and uninstall an Edge-LB pool.
+The `dcos edgelb pool delete` command allows you to delete and uninstall an Edge-LB pool.
 
 # Usage
 

@@ -4,12 +4,11 @@ navigationTitle:  dcos auth list-providers
 title: dcos auth list-providers
 menuWeight: 1
 excerpt: Discovering configured authentication providers for your cluster
-
 enterprise: true
 ---
 
 # Description
-The `dcos auth list-providers `command lists configured authentication providers for your DC/OS cluster. For more information, see [Service Accounts](/1.11/security/ent/service-auth/).
+The `dcos auth list-providers `command lists configured authentication providers for your DC/OS cluster.
 
 # Usage
 
@@ -44,3 +43,4 @@ PROVIDER ID    AUTHENTICATION TYPE
 dcos-services  Authenticate using a DC/OS service user account (using username and private key)  
 dcos-users     Authenticate using a standard DC/OS user account (using username and password)   
 ```
+For more information, see [Service Accounts](/1.11/security/ent/service-auth/).

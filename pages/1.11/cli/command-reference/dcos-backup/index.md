@@ -10,7 +10,7 @@ enterprise: true
 
 
 ## dcos backup
-The `dcos backup` command will let you create backups and restore from them.
+The `dcos backup` command allows you to create backups and restore from them.
 
 ```
 dcos backup

@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos cluster setup` command will configure the connection to a DC/OS cluster, authenticate to DC/OS, and attach to the cluster.
+The `dcos cluster setup` command allows you to configure the connection to a DC/OS cluster, authenticate to DC/OS, and attach to the cluster.
 
 # Usage
 

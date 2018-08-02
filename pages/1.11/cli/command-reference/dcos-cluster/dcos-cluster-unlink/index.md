@@ -8,7 +8,7 @@ enterprise: true
 ---
 
 # Description
-The `dcos cluster unlink` command will unlink a cluster from another cluster.
+The `dcos cluster unlink` command allows you to unlink a cluster from another cluster.
 
 # Usage
 

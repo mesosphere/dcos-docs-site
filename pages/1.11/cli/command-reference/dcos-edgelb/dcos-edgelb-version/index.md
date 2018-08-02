@@ -10,7 +10,7 @@ enterprise: true
 
 
 # Description
-The `dcos edgelb version` command will display the Edge-LB version.
+The `dcos edgelb version` command allows you to display the Edge-LB version.
 
 # Usage
 

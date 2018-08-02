@@ -9,7 +9,7 @@ enterprise: false
 
 
 # Description
-The `dcos experimental package build` command lets you build a package locally to be added to DC/OS or to be shared with the DC/OS Universe.
+The `dcos experimental package build` command allows you to build a package locally to be added to DC/OS or to be shared with the DC/OS Universe.
 
 # Usage
 

@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos-cluster remove` command will remove a connected cluster from the DC/OS CLI.
+The `dcos-cluster remove` command allows you to remove a connected cluster from the DC/OS CLI.
 
 # Usage
 

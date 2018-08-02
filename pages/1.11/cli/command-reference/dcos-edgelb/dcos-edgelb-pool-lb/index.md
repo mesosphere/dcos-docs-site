@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-The `dcos edgelb pool lb` command will list pool load balancer (LB) instance information.
+The `dcos edgelb pool lb` command allows you to list pool load balancer (LB) instance information.
 
 # Usage
 

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-The `dcos config set` command will add or set DC/OS configuration properties. Table 1 show the available properties.
+The `dcos config set` command allows you to add or set DC/OS configuration properties. Table 1 show the available properties.
 
 *Table 1 - `dcos config set` properties*
 

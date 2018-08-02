@@ -10,7 +10,7 @@ enterprise: true
 
 
 # Description
-The `dcos edgelb pool status` command will display Edge-LB pool status information.
+The `dcos edgelb pool status` command allows you to display Edge-LB pool status information.
 
 # Usage
 

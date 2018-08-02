@@ -10,12 +10,12 @@ enterprise: false
 
 
 # Description
-The `dcos config show` command will display the DC/OS configuration file contents of the currently [attached cluster](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/).
+The `dcos config show` command allows you to display the DC/OS configuration file contents of the currently [attached cluster](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/).
 
 # Usage
 
 ```bash
-dcos config show <name> 
+dcos config show <name>
 ```
 
 

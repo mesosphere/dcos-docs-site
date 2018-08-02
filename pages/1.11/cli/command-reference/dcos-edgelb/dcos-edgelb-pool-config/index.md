@@ -10,7 +10,7 @@ enterprise: true
 
 
 # Description
-The `dcos edgelb pool config` command will let you view or update the config for an Edge-LB pool.
+The `dcos edgelb pool config` command allows you to view or update the config for an Edge-LB pool.
 
 # Usage
 

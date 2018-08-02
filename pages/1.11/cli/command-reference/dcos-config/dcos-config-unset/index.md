@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-The `dcos config unset` command will remove a property from the configuration file.
+The `dcos config unset` command allows you to remove a property from the configuration file.
 
 # Usage
 

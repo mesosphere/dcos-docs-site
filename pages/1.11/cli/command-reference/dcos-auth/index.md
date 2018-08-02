@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos auth` command manages DC/OS identity and access.
+The `dcos auth` command allows you to manage DC/OS identity and access.
 
 # Usage
 
