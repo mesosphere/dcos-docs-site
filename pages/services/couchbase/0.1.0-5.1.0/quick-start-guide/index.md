@@ -20,7 +20,7 @@ Couchbase can be installed via either the DC/OS Catalog web interface or by usin
 dcos package install Couchbase 
 ```
 
-[<img src="/services/couchbase/0.1.0-5.1.0/img/couchbase_install.png" alt="Couchbase Install"/>](/services/couchbase/0.1.0-5.1.0/img/couchbase_install.png)
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couchbase_install.png" alt="Couchbase Install"/>](/services/couchbase/0.1.1-5.1.0/img/couchbase_install.png)
 
 In either case a default cluster will only come up with two data nodes. You need to change the configuration to also bring up index, query and full text search nodes.
 
@@ -44,5 +44,5 @@ http://<public-agent-ip>:8091
 ```
 When prompted for credentials enter Administrator / password.
 
-[<img src="/services/couchbase/0.1.0-5.1.0/img/prom_dashboard.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.0-5.1.0/img/couchbase_cred.png)
+[<img src="/services/couchbase/0.1.1-5.1.0/img/prom_dashboard.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.1-5.1.0/img/couchbase_cred.png)
 
