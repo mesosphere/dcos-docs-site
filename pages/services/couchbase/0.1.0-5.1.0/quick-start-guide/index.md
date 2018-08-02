@@ -27,10 +27,22 @@ In either case a default cluster will only come up with two data nodes. You need
 For a couchbase cluster with 2 data node, 1 index node, 1 query node, and 1 full text search node you need a dc/os cluster with 5 private agents.
 
 ## Accessing the Console
-Once the cluster is up and running use the following command to get the mesos-id of the host running one of the data nodes.
 
-$ dcos node
-Using the mesos-id create a ssh localhost tunnel.
+Once the framework is up and running:
+1. Install Edge-LB.
+2. Create a file named `couchbase-edgelb.json` containing the following `edge-lb` configuration:
 
-$ dcos node ssh --master-proxy --mesos-id=... --option LocalForward=8091=localhost:8091
-Now go to your browser and enter localhost:8091. When prompted for credentials enter Administrator / password.
+```
+<TBD>
+```
+
+3. In your browser enter the following address.
+
+Couchbase UI:
+```
+http://<public-agent-ip>:8091
+```
+When prompted for credentials enter Administrator / password.
+
+[<img src="/services/couchbase/0.1.0-5.1.0/img/prom_dashboard.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.1.0-5.1.0/img/couchbase_cred.png)
+
