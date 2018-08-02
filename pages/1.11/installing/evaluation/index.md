@@ -8,6 +8,8 @@ excerpt: Installing DC/OS for evaluation on cloud or on-premise infrastructure
 
 This page supports both DC/OS OSS (default) and DC/OS Enterprise installation methods. You can evaluate the installation of DC/OS cluster based on your requirements.
 
+**Note:** The following installation methods are supported by DC/OS community but not officially supported by Mesosphere.
+
 # Types of installation methods
 
 Use the following installation methods based on your requirement.
@@ -27,7 +29,7 @@ The following methods are used to install DC/OS:
 - Provision DC/OS on Azure: Install DC/OS cluster on Azure by using the Azure Resource Manager templates.
 - Provision DC/OS on Google Cloud Platform (GCE): Install DC/OS cluster on Google Compute Engine (GCE) by using installation scripts. Upgrades are not supported with this installation method.
 
-**Note:** The recommended way to install production ready DC/OS that can be upgraded in-place is to use the production installation method.
+**Note:** The recommended way to install production ready DC/OS that can be upgraded in-place is to use the [production installation](/1.11/installing/production/deploying-dcos/installation/) method.
 
 ## On-premise Installation 
 The on-premise installation uses various methods to install DC/OS. 
