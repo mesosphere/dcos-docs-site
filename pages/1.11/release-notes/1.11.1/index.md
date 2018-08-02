@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.1
 title: Release Notes for 1.11.1
-menuWeight: 10
+menuWeight: 15
 excerpt: Release notes for DC/OS 1.11.1
 ---
 
@@ -60,6 +60,7 @@ DC/OS 1.11.1 was released on April 18, 2018.
 
 - DCOS-22128 - When using pods with volumes, if a container in the pod is not configured to mount the volume, the cluster cannot access any service via the UI. As a workaround, when using pods with volumes, use the CLI instead.
 
+**Note:** The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).
 
 # About DC/OS 1.11
 

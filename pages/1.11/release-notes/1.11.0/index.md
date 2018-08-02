@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0
 title: Release Notes for 1.11.0
-menuWeight: 15
+menuWeight: 20
 excerpt: Release notes for DC/OS 1.11.0
 ---
 
@@ -95,3 +95,5 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - DCOS_OSS-1449 - Remove support for `--appId` from CLI.
 - DCOS_OSS-1489 - Add support for cgroup blkio statistics in `dcos-metrics`.
 - DCOS_OSS-2003 - Modify DC/OS overlay networking to work with systemd networkd.
+
+**Note:** The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).

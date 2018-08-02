@@ -36,13 +36,12 @@ DC/OS Percona-Mongo provides the following features:
 *   Multiple MongoDB Replica Sets within a single DC/OS cluster
 *   Storage volumes for enhanced data durability, known as Mesos Dynamic Reservations and Persistent Volumes
 *   Simple installation of MongoDB via UI or CLI
-*   Support for all Percona Server for MongoDB storage engines, including the [WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/), [RocksDB/MongoRocks](https://www.percona.com/doc/percona-server-for-mongodb/LATEST/mongorocks.html), [InMemory](https://www.percona.com/software/mongo-database/percona-memory-engine-for-mongodb) and MMAPv1 storage engines
+*   Support for all Percona Server for MongoDB storage engines, including the [WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/), [InMemory](https://www.percona.com/software/mongo-database/percona-memory-engine-for-mongodb) and [MMAPv1](/services/include/uninstall.tmpl)
 *   Auto-configuration of [MongoDB Replica Set Configuration](https://docs.mongodb.com/manual/reference/replica-configuration/)
 *   Auto-configuration of system-level users for backups, monitoring and user management
     *   CLI actions for Add/Update/Remove of [MongoDB Users](https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/)
     *   Logical backup support with [Amazon Web Services S3](https://aws.amazon.com/s3) remote upload
         *   Support for auto-deploy of [Hidden Replica Set Member](https://docs.mongodb.com/manual/core/replica-set-hidden-member/) for zero-impact backups
-    *   Optional installation of [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) MongoDB and Linux/container-level monitoring client, including PMM MongoDB Query Analytics
 *   Percona Server for MongoDB [Auditing support](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html)
 
 Choose a version at the left to get started!

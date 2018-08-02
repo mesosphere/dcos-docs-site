@@ -42,7 +42,7 @@ enterprise: false
     ```
 1. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool and the *clusterAdmin* user *(replace username/password for your situation)*.
     ```shell
-    $ mongo mongodb://clusteruseradmin:clusteruseradminpassword@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
+    $ mongo mongodb://useradmin:useradminpassword@mongo-rs-0-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-mongo.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-mongo.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
     ```
 1. Create a non-admin user for your application and exit the shell.
     ```shell
@@ -86,5 +86,4 @@ enterprise: false
 # See Also
 
 - [Connecting clients][1].
-
- [1]: https://docs.mesosphere.com/service-docs/<Template>/connecting-clients/
+ [1]: [https://docs.mesosphere.com/services/percona-mongo/0.2.0-3.4.13/connecting-clients/](https://docs.mesosphere.com/services/percona-mongo/0.2.0-3.4.13/connecting-clients/)

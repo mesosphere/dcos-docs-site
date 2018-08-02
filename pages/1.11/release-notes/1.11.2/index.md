@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.11.2
 title: Release Notes for 1.11.2
-menuWeight: 5
+menuWeight: 10
 excerpt: Release notes for DC/OS 1.11.2
 ---
 
@@ -50,7 +50,9 @@ DC/OS 1.11.2 includes the following:
 - DCOS-21958 - Admin Router on master nodes no longer supports the older TLS 1.1 protocol and 3DES encryption algorithm by default. [enterprise type="inline" size="small" /] 
 
 
-**Note:** New Docker versions are supported on RHEL 7.4. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
+**Note:** 
+- New Docker versions are supported on RHEL 7.4. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
+- The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).
 
 
 # About DC/OS 1.11
