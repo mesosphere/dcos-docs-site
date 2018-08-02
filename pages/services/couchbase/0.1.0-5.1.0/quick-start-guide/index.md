@@ -44,7 +44,7 @@ http://<public-agent-ip>:8091
 ```
 When prompted for credentials enter Administrator/password.
 
-[<img src="/services/couchbase/0.1.1-5.1.0/img/couchbase_cred.png" alt="Couchbase Creds"/>](/services/couchbase/0.1.1-5.1.0/img/ 	couchbase_cred.png)
+[<img src="/services/couchbase/0.1.1-5.1.0/img/couchbase_cred.png" alt="Couchbase Creds"/>](/services/couchbase/0.1.1-5.1.0/img/couchbase_cred.png)
 
 Which gets you to the console.
 
