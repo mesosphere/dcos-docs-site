@@ -8,7 +8,7 @@ excerpt: Installing DC/OS for evaluation on cloud or on-premise infrastructure
 
 This page supports both DC/OS OSS (default) and DC/OS Enterprise installation methods. You can evaluate the installation of DC/OS cluster based on your requirements.
 
-**Note:** The following installation methods are supported by DC/OS community but not officially supported by Mesosphere.
+**Note:** The following installation methods are not officially supported by Mesosphere, but are supported by the DC/OS community. Contact the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/users) or [Slack channel](http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201) for community support.
 
 # Types of installation methods
 
