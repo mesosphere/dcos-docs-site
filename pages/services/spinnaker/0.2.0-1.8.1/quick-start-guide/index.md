@@ -20,302 +20,152 @@ Spinnaker can be installed via either the DC/OS Catalog web interface or by usin
 dcos package install spinnaker
 ```
 
+## NOTE
 
+The DC/OS Spinnaker service currently only works with DC/OS Enterprise. See also the [release notes](https://github.com/mesosphere/dcos-spinnaker/blob/master/docs/RELEASE_NOTES.md).
 
-[<img src="/services/prometheus/0.1.0-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/services/prometheus/0.1.0-2.3.2/img/prom_install.png)
+[<img src="/services/spinnaker/0.2.0-1.8.1/img/inst01.png" alt="Spinnaker Install"/>](/services/spinnaker/0.2.0-1.8.1/img/inst01.png)
 
+## Quick Start
 
-The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. Append any new config to the end.
+Out of the box the DC/OS Spinnaker service uses minio a S3 compatible backing store for the Spinnaker service. use the following [minio.json](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/minio.json) file, and run the following two commands.
 
-## Accessing the Prometheus UI
-
-Once the framework is up and running:
-1. Install Edge-LB.
-2. Create a file named `prometheus-edgelb.json` containing the following `edge-lb` configuration:
-
-```
-{
-  "apiVersion": "V2",
-  "name": "prometheus",
-  "count": 1,
-  "haproxy": {
-    "frontends": [
-      {
-        "bindPort": 9092,
-        "protocol": "HTTP",
-        "linkBackend": {
-          "defaultBackend": "prometheus"
-        }
-      },
-      {
-        "bindPort": 9093,
-        "protocol": "HTTP",
-        "linkBackend": {
-          "defaultBackend": "alertmanager"
-        }
-      },
-      {
-        "bindPort": 9094,
-        "protocol": "HTTP",
-        "linkBackend": {
-          "defaultBackend": "grafana"
-        }
-      },
-      {
-        "bindPort": 9091,
-        "protocol": "HTTP",
-        "linkBackend": {
-          "defaultBackend": "pushgateway"
-        }
-      }
-    ],
-    "backends": [
-     {
-      "name": "prometheus",
-      "protocol": "HTTP",
-      "services": [{
-        "endpoint": {
-          "type": "ADDRESS",
-          "address": "prometheus.prometheus.l4lb.thisdcos.directory",
-          "port": 9090
-        }
-      }]
-    },
-    {
-     "name": "alertmanager",
-     "protocol": "HTTP",
-     "services": [{
-       "endpoint": {
-         "type": "ADDRESS",
-         "address": "alertmanager.prometheus.l4lb.thisdcos.directory",
-         "port": 9093
-       }
-     }]
-   },
-   {
-    "name": "grafana",
-    "protocol": "HTTP",
-    "services": [{
-      "endpoint": {
-        "type": "ADDRESS",
-        "address": "grafana.grafana.l4lb.thisdcos.directory",
-        "port": 3000
-      }
-    }]
-   },
-   {
-    "name": "pushgateway",
-    "protocol": "HTTP",
-    "services": [{
-      "endpoint": {
-        "type": "ADDRESS",
-        "address": "pushgateway.prometheus.l4lb.thisdcos.directory",
-        "port": 9091
-      }
-    }]
-   }
-   ]
-  }
-}
+```bash
+dcos package install marathon-lb --yes
+dcos marathon app add misc/minio.json
 ```
 
+marathon-lb will make the minio console accessible viia the DC/OS public agent. In your browser enter the following address. The minio credentials are minio / minio123.
 
-3. In your browser enter the following address.
-
-Promtheus UI:
-```
-http://<public-agent-ip>:9092
+```bash
+http://<public-agent-ip>:9000
 ```
 
-[<img src="/services/prometheus/0.1.0-2.3.2/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/services/prometheus/0.1.0-2.3.2/img/prom_dashboard.png)
+Out of the box the DC/OS Spinnaker service allows you to deliver to theDC/OS cluster the service runs itself in. The Spinnaker deck and gate services will be made available via a proxy or edge-lb running on the DC/OS clusters public agent. Note down the hostname/ip of the public agent in your DC/OS cluster
 
+With that we are ready to install Spinnaker. In the DC/OS catalog/universe select Spinnaker which will show you the following. Hit Review&Run.
 
-This is the console view within the `Graph` tab.
+[<img src="/services/spinnaker/0.2.0-1.8.1/img/inst02.png" alt="Spinnaker Install"/>](/services/spinnaker/0.2.0-1.8.1/img/inst02.png)
 
-You can also verify that Prometheus is serving metrics about itself by navigating to its metrics endpoint:
+In the service section fill in the proxy hostname with the hostname of the public agent noted down earlier.
 
-```
-http://<public-agent-ip>:9092/metrics
-```
+[<img src="/services/spinnaker/0.2.0-1.8.1/img/inst03.png" alt="Spinnaker Install"/>](/services/spinnaker/0.2.0-1.8.1/img/inst03.png)
 
-### Using the Expression browser
+If for minio and DC/OS the default credentials are use then you are ready to go hit Review&Run. Otherwise the next two steps show how to configure your specific credentials.
 
-Go back to the console view, and enter this into the expression console:
+[<img src="/services/spinnaker/0.2.0-1.8.1/img/inst04.png" alt="Spinnaker Install"/>](/services/spinnaker/0.2.0-1.8.1/img/inst04.png)
 
-`prometheus_target_interval_length_seconds`
+The following dialog shows you how to configure the DC/OS credentials.
 
-This should return a number of different time series (along with the latest value recorded for each), all with the metric name prometheus_target_interval_length_seconds.
+[<img src="/services/spinnaker/0.2.0-1.8.1/img/inst05.png" alt="Spinnaker Install"/>](/services/spinnaker/0.2.0-1.8.1/img/inst05.png)
 
-As another example, enter the following expression to graph the per-second rate of chunks being created in the self-scraped Prometheus:
+Once the service is running we launch a simple proxy to get to the Spinaker deck and gate service. use the following [proxy.json](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/proxy.json).
 
-`rate(prometheus_tsdb_head_chunks_created_total[1m])`
-
-[<img src="/services/prometheus/0.1.0-2.3.2/img/prom_graphing.png" alt="Prometheus Graphing"/>](/services/prometheus/0.1.0-2.3.2/img/prom_graphing.png)
-
-## Using Grafana with Prometheus
-
-```
-http://<public-agent-ip>:9094
+```bash
+dcos marathon app add proxy.json
 ```
 
-Credentials: admin / admin
+Go to the Using Spinnaker section to learn how to access the Spinnaker UI, and to get an overview of the Spinnaker concepts with samples.
 
-[<img src="/services/prometheus/0.1.0-2.3.2/img/grafana_login.png" alt="Grafana Logging"/>](/services/prometheus/0.1.0-2.3.2/img/grafana_login.png)
+## Custom Install
 
-which takes you to the Grafana console.
+Spinnaker configuration
 
+Use the following command to download Spinnaker configuration templates to get started.
 
-You can add Prometheus as a data source:
-
-[<img src="/services/prometheus/0.1.0-2.3.2/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/prometheus/0.1.0-2.3.2/img/grafana_datasource.png)
-
-
-Save and Test. Now you are ready to use Prometheus as a data source in Grafana.
-
-To create a graph, select your `Prometheus` datasource, and enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
-
-The following shows an example Prometheus graph configuration:
-
-[<img src="/services/prometheus/0.1.0-2.3.2/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/prometheus/0.1.0-2.3.2/img/grafana_prom.png)
-
-## Alertmanager
-
-The Alertmanager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.
-
-Alertmanager UI:
-```
-http://<public-agent-ip>:9093
+```bash
+curl -O https://ecosystem-repo.s3.amazonaws.com/spinnaker/artifacts/0.2.0-1.4.2/config.tgz && tar -xzf config.tgz && cd config && chmod +x gen-optionsjson
 ```
 
-[<img src="/services/prometheus/0.1.0-2.3.2/img/am_dashboard.png" alt="AlertManager Dashboard"/>](/services/prometheus/0.1.0-2.3.2/img/am_dashboard.png)
+The created config folder has the following yml templates.
 
-
-### Alertmanager with Webhook
-The default configuration for Alertmanager (these configurations can be changed) in the framework is configured with a Webhook receiver:
-
-```
-route:
- group_by: [cluster]
- receiver: webh
- group_interval: 1m
-
-receivers:
-- name: webh
-  webhook_configs:
-  - url: http://webhook.marathon.l4lb.thisdcos.directory:1234
+```bash
+front50-local.yml
+clouddriver-local.yml
+echo-local.yml
+igor-local.yml
 ```
 
-Default rule defined in the framework:
+Tailor these Spinnaker yml configuration files for your specific needs. The yml can be entered via the Spinnaker configuration dialogs in the DC/OS console or passed in an options.json file on dcos package install.
 
-```
-groups:
-- name: cpurule
-  rules:
-  - alert: highcpu
-    expr: cpu_total > 2
-    annotations:
-      DESCRIPTION: 'it happened yeah'
-      SUMMARY: 'it happened'
-```
+##Note: If you follow the links to the detailed Spinnaker configuration options you will also see the configuration of Spinnaker service dependencies. Don't worry about those configurations they are all taken care of by the DC/OS Spinnaker service.
 
-Next, run the following config as a Marathon app:
+[front50-local.yml](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/config/front50-local.yml)
+Front50 is the Spinnaker persistence service. The file shows how to configure the AWS S3 (enabled=true) and GCS (enabled=false) persistence plugin.
 
-```
-{
-    "container": {
-        "docker": {
-            "image": "python:latest"
-        },
-        "type": "MESOS"
-    },
-    "mem": 1024,
-    "portDefinitions": [
-        {
-            "labels": {
-                "VIP_0": "webhook:1234"
-            },
-            "protocol": "tcp",
-            "name": "web",
-            "port": 1234
-        }
-    ],
-    "cmd": "env | sort\n\ncat > function.py << EOF\n\nimport sys\nimport cgi\nimport json\nimport pipes\nfrom BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer\n\n\nclass MyHandler(BaseHTTPRequestHandler):\n   def do_POST(self):\n       self.send_response(200)\n       self.end_headers()\n       #data = json.loads(self.rfile.read(int(self.headers['Content-Length'])))\n       data = self.rfile.read(int(self.headers['Content-Length']))\n       self.log_message('%s', data)\n\n\nhttpd = HTTPServer(('0.0.0.0', $PORT_WEB), MyHandler)\nhttpd.serve_forever()\nEOF\n\npython2 function.py\n",
-    "networks": [
-        {
-            "mode": "host"
-        }
-    ],
-    "cpus": 0.1,
-    "id": "webhook"
-}
+The DC/OS Spinnaker front50 service can be configured to use secrets for AWS S3 and GCS credentials. You have to create all of them using the following commands. The ones you are not using with empty content.
+
+```bash
+dcos security secrets create -v <your-aws-access-key-id> spinnaker/aws_access_key_id
+
+dcos security secrets create -v <your-aws-secret-access-key> spinnaker/aws_secret_access_key
+
+dcos security secrets create -v <your-gcp-key> spinnaker/gcp_key
 ```
 
+For more configuration options see [spinnaker/front50](https://github.com/spinnaker/front50/blob/master/front50-web/config/front50.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/front50.yml).
 
-Check the logs for this app. The Alertmanager will send HTTP POST requests in the following json format:
+[clouddriver-local.yml](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/config/clouddriver-local.yml)
 
-```
-{
-  "receiver": "webh",
-  "status": "firing",
-  "alerts": [
-    {
-      "status": "firing",
-      "labels": {
-        "alertname": "highcpu",
-        "cluster_id": "4c7ab85b-ce28-4bdd-8a2d-87c71d02759e",
-        "hostname": "10.0.1.16",
-        "instance": "10.0.1.16:61091",
-        "job": "dcos-metrics",
-        "mesos_id": "29bac9b2-cbdb-4093-a907-6c4904a1360a-S5"
-      },
-      "annotations": {
-        "DESCRIPTION": "it happened yeah",
-        "SUMMARY": "it happened"
-      },
-      "startsAt": "2018-07-12T17:32:56.030479955Z",
-      "endsAt": "0001-01-01T00:00:00Z",
-      "generatorURL": "http://ip-10-0-1-16.us-west-2.compute.internal:1025/graph?g0.expr=cpu_total+%3E+2&g0.tab=1"
-    },
-...
-...
-...
-}
-```
+Clouddriver is the Spinnaker cloud provider service. The file shows how to configure the DC/OS provider plugin.
 
-### Alertmanager with Slack
+Note: The configured DC/OS user needs to have superuser priveledges.
 
-Slack notifications are sent via Slack webhooks. Update the Alertmanager config to :
+For more configuration options see [spinnaker/clouddriver](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-web/config/clouddriver.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/clouddriver.yml).
 
-```
-route:
- group_by: [cluster]
- # If an alert isn't caught by a route, send it slack.
- receiver: slack_general
- routes:
-  # Send severity=slack alerts to slack.
-  - match:
-      severity: slack
-    receiver: slack_general
+[echo-local.yml](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/config/echo-local.yml) (optional)
 
-receivers:
-- name: slack_general
-  slack_configs:
-  - api_url: <Slack webhook URL>
-    channel: '#alerts_test'
+Echo is the Spinnaker notification service. The file shows how to configure the email notification plugin.
+
+For more configuration options see [spinnaker/echo](https://github.com/spinnaker/echo/blob/master/echo-web/config/echo.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/clouddriver.yml).
+
+[igor-local.yml](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/config/igor-local.yml) (optional)
+
+Igor is the Spinnaker trigger service. The file shows how to configure the dockerRegsitry trigger plugin.
+
+For more configuration options see [spinnaker/igor](https://github.com/spinnaker/igor/blob/master/igor-web/config/igor.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/clouddriver.yml).
+
+## DC/OS console install
+
+When installing the Spinnaker service via the DC/OS console you have sections for each of the Spinnaker services where you can enter the respective yml configuration.
+
+Here the sample for the clouddriver service.
+
+[<img src="/services/spinnaker/0.2.0-1.8.1/img/inst05.png" alt="Spinnaker Install"/>](/services/spinnaker/0.2.0-1.8.1/img/inst05.png)
+
+## DC/OS cli install
+
+The config folder that got created when we dowloade the zip earlier also provides a tool that allows us to generate an options.json file. Onceyou edited the yml templates to your needs run the tool in the config folder. The proxy hostname is typically the public agent hostname.
+
+```bash
+./gen-optionsjson <proxy-hostname>
 ```
 
-[<img src="/services/prometheus/0.1.0-2.3.2/img/slack_alert.png" alt="Slack Alerts"/>](/services/prometheus/0.1.0-2.3.2/img/slack_alert.png)
+Once you have the options json you can install the Spinnaker service using the DC/OS cli.
 
-
-## PushGateway
-
-The Prometheus Pushgateway exists to allow ephemeral and batch jobs to expose their metrics to Prometheus.
-
-Pushing some metrics:
-Push a single sample into the group identified by {job="some_job"}:
-
-```
-echo "some_metric 3.14" | curl --data-binary @- http://pushgateway.example.org:9091/metrics/job/some_job
+```bash
+dcos package install --yes spinnaker --options=options.json
 ```
 
-[<img src="/services/prometheus/0.1.0-2.3.2/img/pushg.png" alt="PushGateway"/>](/services/prometheus/0.1.0-2.3.2/img/pushg.png)
+## edge-lb
+
+Instead of the simple proxy we used in the quick start you can also use edge-lb. After installing edge-lb you can create the edgelb pool configuration for Spinnaker (minio is also included) using the [spinnaker-edgelb.yml](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/spinnaker-edgelb.yml) file.
+
+```bash
+dcos edgelb create spinnaker-edgelb.yml
+```
+
+## Using Spinnaker
+
+Go to your browser and enter the following url to get to the Spinnaker unser interface.
+
+```bash
+http://localhost:9001
+```
+
+Follow these links to learn more.
+
+   * [Spinnaker Apllications, Clusters, and Server Groups](https://github.com/mesosphere/dcos-spinnaker/blob/master/docs/APPLICATIONS_CLUSTERS_SERVERGROUPS.md)
+   * [Spinnaker Pipelines](https://github.com/mesosphere/dcos-spinnaker/blob/master/docs/PIPELINES.md)
+   * [DC/OS Enterprise Edge-LB](https://github.com/mesosphere/dcos-spinnaker/blob/master/docs/EDGE_LB.md)
+
