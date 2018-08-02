@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 40
-excerpt: Uninstalling DC/OS Prometheus Services
+excerpt: Uninstalling DC/OS Couchbase Services
 featureMaturity:
 enterprise: false
 ---
@@ -13,11 +13,11 @@ enterprise: false
 If you are using DC/OS 1.10:
 
 Uninstall the service from the DC/OS CLI, by entering `dcos package uninstall <package_name>`.
-For example, to uninstall the Prometheus instance named `prometheus-dev`, run:
+For example, to uninstall the Couchbase instance named `couchbase-dev`, run:
 
 ```
 
-dcos package uninstall prometheus-dev
+dcos package uninstall couchbase-dev
 
 ```
 
@@ -43,8 +43,8 @@ In the vast majority of cases, this uninstall process goes off without a hitch. 
 
 This situation is indicated by looking at the deploy plan while the uninstall is proceeding. The deploy plan may be viewed using either of the following methods:
 
-- CLI: dcos prometheus --name=prometheus plan show deploy (after running dcos package install --cli prometheus if needed)
-- HTTP: https://yourcluster.com/service/prometheus/v1/plans/deploy
+- CLI: dcos couchbase --name=couchbase plan show deploy (after running dcos package install --cli couchbase if needed)
+- HTTP: https://yourcluster.com/service/couchbase/v1/plans/deploy
 
 ### Manual uninstall    
 
@@ -54,7 +54,7 @@ If all else fails, you can manually perform the uninstall yourself. To do this, 
 1. Unregister the service from Mesos using its UUID as follows:
 
 ```shell
-dcos service --inactive | grep prometheus
-prometheus     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
+dcos service --inactive | grep couchbase 
+couchbase     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 ```
