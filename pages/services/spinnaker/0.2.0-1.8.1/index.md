@@ -66,6 +66,6 @@ The Spinnaker components are:-
 
 * Echo
 
-● Fiat
+* Fiat
 
-● Kayenta
+* Kayenta
