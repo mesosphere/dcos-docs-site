@@ -14,6 +14,8 @@ This page explains how to install DC/OS 1.11 using the Azure Resource Manager te
 
 - Upgrades are not supported with this installation method.
 
+- The following installation methods are not officially supported by Mesosphere, but are supported by the DC/OS community. Contact the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/users) or [Slack channel](http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201) for community support.
+
 # System requirements
 
 ## Hardware
