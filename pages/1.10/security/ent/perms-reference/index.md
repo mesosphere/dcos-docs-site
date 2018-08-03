@@ -159,7 +159,7 @@ Marathon applications using secrets see [Configuring services and pods to use se
 
 Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has the
 concept of the `superuser`. A user with at least one permission out of `create`, `read`, `update`, `delete` or `full` on the `dcos:superuser` resource has complete, unrestricted access to any operation
-throughout DC/OS. This is counter-intuitive and extremely powerful. Therefore this permission should be
+throughout DC/OS. This is extremely powerful and this permission should be
 granted sparingly.
 
 |                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
