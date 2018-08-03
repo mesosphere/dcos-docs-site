@@ -37,6 +37,11 @@ const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
+const ALGOLIA_SKIP_SECTIONS = process.env.ALGOLIA_SKIP_SECTIONS ? (
+  process.env.ALGOLIA_SKIP_SECTIONS.split(',')
+) : (
+  ''
+);
 
 //
 // Errors
@@ -255,6 +260,7 @@ if (ALGOLIA_UPDATE === 'true') {
     privateKey: ALGOLIA_PRIVATE_KEY,
     index: ALGOLIA_INDEX,
     clearIndex: (ALGOLIA_CLEAR_INDEX !== undefined) ? (ALGOLIA_CLEAR_INDEX === 'true') : true,
+    skipSections: ALGOLIA_SKIP_SECTIONS,
   }));
   CB.use(timer('CB: Algolia'));
 }
