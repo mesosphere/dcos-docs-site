@@ -17,6 +17,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
    * @param {string} options.privateKey
    * @param {string} options.index
    * @param {boolean} options.clearIndex
+   * @param {array} options.skipSections
    */
 
   const parameters = ['projectId', 'privateKey', 'index'];
@@ -88,6 +89,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
       // Loop through metalsmith object
       Object.keys(files).forEach((file) => {
+        if (inExcludedSection(file, options.skipSections)) return;
         if (extname(file) !== '.html') return;
         const fileData = files[file];
         const postContent = sanitize(fileData.contents);
@@ -126,6 +128,21 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         });
     });
   };
+};
+
+// File paths caught here will not be indexed for search.
+// This is determined by the ALGOLIA_SKIP_SECTIONS environment variable.
+const inExcludedSection = (filePath, skipSections) => {
+  for (let i = 0; i < skipSections; i += 1) {
+    const skipSection = skipSections[i];
+    const regex = RegExp(skipSection);
+
+    if (regex.test(filePath)) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
 // Build a sorted map that ranks semver
