@@ -16,4 +16,4 @@ DC/OS CloudFormation templates are intended for reference only and are not recom
 
 You can use the [Production Installation](/1.11/installing/production/) methods to install a fully functional cluster.
 
-
+**Note:** The cloud installation methods are not officially supported by Mesosphere, but are supported by the DC/OS community. Contact the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/users) or [Slack channel](http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201) for community support.
