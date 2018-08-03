@@ -12,7 +12,7 @@ enterprise: false
 
 With DC/OS you can configure Mesos mount disk resources across your cluster by simply mounting storage resources on agents using a well-known path. When a DC/OS agent initially starts, it scans for volumes that match the pattern /dcos/volumeN, where N is an integer. The agent is then automatically configured to offer these disk resources to other services.
 
-A disk resource is added to a DC/OS agent post-install on a running cluster. These same steps can be used pre-install without having to stop services or clear the agent state.
+A disk resource is added to a DC/OS agent after mounting external volumes to it.
 
 **Note:** Dont mount the volume to the public slave.
 
@@ -25,10 +25,10 @@ Below are the steps to be followed to configure Mount Volume:
   2. Connect to an agent in the cluster with SSH.
    ```shell
    ssh-add <cluster key or pem file>
-   dcos node ssh --master-proxy --mesos-id=<task ID against the ip address above>
+   dcos node ssh --master-proxy --mesos-id=<Mesos ID of the node>
    ```
   3. Examine the current agent resource state.  
-     Note there are no references yet for /dcos/volume0.     
+     Note that there are no references yet for /dcos/volume0.     
   ```shell
   cat /var/lib/dcos/mesos-resources
   ```
@@ -65,7 +65,7 @@ Below are the steps to be followed to configure Mount Volume:
   sudo losetup -d /dev/loop0
   ```
   10. Create fstab entry and mount.
-      Ensure the volume is mounted automatically at boot time. Something similar could also be done with a Systemd Mount unit.
+      Ensure the volume is mounted automatically at boot time. Something similar can also be done with a Systemd Mount unit.
   ```shell
   echo "/dev/xvdf /dcos/volume0 auto loop 0 2" | sudo tee -a /etc/fstab
   sudo mount /dcos/volume0
