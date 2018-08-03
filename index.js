@@ -42,7 +42,7 @@ const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 // Errors
 //
 
-if (!process.env.GIT_BRANCH && process.env.NODE_ENV !== 'development') {
+if (!GIT_BRANCH && process.env.NODE_ENV !== 'development') {
   throw new Error('Env var GIT_BRANCH has not been set.');
 }
 
@@ -82,7 +82,7 @@ MS.metadata({
   ' workloads running on DC/OS.',
   copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
-  gitBranch: process.env.GIT_BRANCH,
+  gitBranch: GIT_BRANCH,
   dcosDocsLatest: '1.11',
 });
 
