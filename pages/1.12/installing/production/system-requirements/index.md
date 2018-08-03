@@ -40,7 +40,7 @@ The table below shows the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: https://docs.mesosphere.com/1.10/overview/high-availability/
+[0]: /1.12/overview/high-availability/
 
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
@@ -76,13 +76,19 @@ The table below shows the agent node hardware requirements.
 
 The agent nodes must also have:
 
-- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.11/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.12/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
 
 *   On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
+    ```
+
+* Disable DNSmasq (DC/OS requires access to port 53)
+
+    ```bash
+    sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
     ```
 
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
@@ -144,11 +150,10 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 Each Linux distribution requires Docker to be installed in a specific way:
 
-*   **CentOS** - [Install Docker from Docker's yum repository][1].
-*   **RHEL** - Install Docker by using a subscription channel. For more information, see <a href="https://access.redhat.com/articles/881893" target="_blank">Docker Formatted Container Images on Red Hat Systems</a>. <!-- curl -sSL https://get.docker.com | sudo sh -->
+*   **CentOS/RHEL** - [Install Docker from Docker's yum repository][1].
 *   **CoreOS** - Comes with Docker pre-installed and pre-configured.
 
-For more more information, see Docker's <a href="http://docs.docker.com/engine/installation/" target="_blank">distribution-specific installation instructions</a>.
+For more more information, see Docker's <a href="https://docs.docker.com/install/" target="_blank">distribution-specific installation instructions</a>.
 
 ### Disable sudo password prompts
 
@@ -176,7 +181,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:**
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.12/installing/ent/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### <a name="setup-file"></a>DC/OS Configuration file
@@ -242,7 +247,6 @@ localectl set-locale LANG=en_US.utf8
 - [Install Docker from Docker’s yum repository][1]
 - [DC/OS Installation Guide][2]
 
+[1]: /1.12/installing/production/system-requirements/docker-centos/
 
-[1]: /1.11/installing/ent/custom/system-requirements/install-docker-centos/
-
-[2]: /1.11/installing/ent/custom/advanced/
+[2]: /1.12/installing/production/deploying-dcos/installation/
