@@ -38,12 +38,16 @@ The response, for both the CLI and the REST API, is as follows.
 ```shell
 {
   "address": [
-    "10.0.2.208:1025",
-    "10.0.1.9:1025"
+    "10.0.2.208:9000",
+    "10.0.1.9:9000",
+    "10.0.2.10:9000",
+    "10.0.1.155:9000"
   ],
   "dns": [
-    "miniod-0-node.miniodemo.autoip.dcos.thisdcos.directory:1025",
-    "miniod-1-node.miniodemo.autoip.dcos.thisdcos.directory:1025"
+    "miniod-0-node.miniodemo.autoip.dcos.thisdcos.directory:9000",
+    "miniod-1-node.miniodemo.autoip.dcos.thisdcos.directory:9000",
+    "miniod-2-node.miniodemo.autoip.dcos.thisdcos.directory:9000",
+    "miniod-3-node.miniodemo.autoip.dcos.thisdcos.directory:9000"
   ]
 }
 ```
@@ -53,10 +57,6 @@ This JSON array contains a list of valid nodes that you can use to connect to th
 When Transport Layer Security (TLS) is enabled, an endpoint named `node-tls` should also be listed. To verify a TLS connection from a client, the DC/OS trust bundle with a CA certificate is required.
 
 ## Accessing the Minio UI with Edge-LB configuration
-
-### Assumptions
-    - Minio is installed on DCOS without TLS and Kerberos
-    - Edge-LB is installed with service account and service account secret in strict mode
 
 ### Steps
 
@@ -77,7 +77,7 @@ https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-p
   ``` 
   4. Create the configuration JSON file with required parameters to access Minio:
 
-  Example without TLS and Kerberos:
+  Example without TLS:
 
   ```shell
   {
@@ -139,6 +139,73 @@ https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-p
   ```      
 Now you can connect with the Minio server using Minio Client on the public IP of the public agent running EdgeLB and the port number at which Minio server is binded at EdgeLB. 
 
+Example with TLS:
+
+```shell
+{
+  "apiVersion": "V2",
+  "name": "minio",
+  "count": 1,
+  "autoCertificate": true,
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 9001,
+        "protocol": "HTTPS",
+        "certificates": [
+           "$AUTOCERT"
+        ],
+        "linkBackend": {
+          "defaultBackend": "miniodemo"
+        }
+      },
+      {
+        "bindPort": 9000,
+        "protocol": "HTTP",
+        "linkBackend": {
+          "defaultBackend": "minio"
+        }
+      }
+    ],
+    "backends": [
+     {
+      "name": "miniodemo",
+      "protocol": "HTTPS",
+      "rewriteHttp": {
+         "host": "miniod.miniodemo.l4lb.thisdcos.directory"
+         },
+         "request": {
+            "forwardfor": true,
+            "xForwardedPort": true,
+            "xForwardedProtoHttpsIfTls": true,
+            "setHostHeader": true,
+            "rewritePath": true
+      },
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "miniod.miniodemo.l4lb.thisdcos.directory",
+          "port": 9001
+        }
+      }]
+    },
+
+    {
+      "name": "minio",
+      "protocol": "HTTP",
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "minio.marathon.l4lb.thisdcos.directory",
+          "port": 9000
+        }
+      }]
+   }
+   ]
+  }
+}
+
+```
 For more details on Minio Client, refer to the link:
    https://docs.minio.io/docs/minio-client-complete-guide.html
 
