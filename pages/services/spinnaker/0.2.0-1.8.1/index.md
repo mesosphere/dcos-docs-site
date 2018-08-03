@@ -22,39 +22,49 @@ DC/OS Spinnaker offers the following benefits :
 7. Traffic Guards
 8. Automated Cleanup
 
+## Features
+
 DC/OS Spinnaker's main features are:
 Spinnaker ships with two core sets of features:
 1. Cluster Management: The cluster management feature is used to view and manage the resources in the cloud. Cluster management deals with cloud resources like:
+
    a. Clusters
+
    b. Server Group
+
    c. Security Group
+
    d. Load Balancer
+
 2. Deployment Management: The deployment management features is used to construct and manage continuous delivery workflows. The deployment depends upon two things:
+
    a. Stages
+
    b. Pipeline
 
 ## Components/Services
+
 Spinnaker framework is a collection of sub-services that work together to form the Continuous Deployment platform. Each service follows the single-responsibility principle which allows for faster iteration on each individual component and a more pluggable architecture for custom components.
 
 For Spinnaker [Architecture](https://www.spinnaker.io/reference/architecture/)
 
 The Spinnaker components are:-
 
-● Deck
+* Deck
 
-● Gate
+* Gate
 
-● Orca
+* Orca
 
-● Clouddriver
+* Clouddriver
 
-● Front50
+* Front50
 
-● Rosco
+* Rosco
 
-● Igor
+* Igor
 
-● Echo
+* Echo
 
 ● Fiat
 
