@@ -16,6 +16,8 @@ Please see the ["Disaster Recovery"](https://docs.mesosphere.com/services/percon
 
 Scaling of the number of MongoDB Replica Set nodes is possible using the service in both the GUI and CLI. Currently scaling up/down to 1, 3, 5 or 7 replica set member is possible, odd numbers are required for high-availability. A Replica Set with 1 node is not recommended as it has no redundancy or high availability.
 
+Note that scaling "up" will cause the MongoDB Replica Set Primary to copy ALL of the replica set data to any new members. This may temporarily degrade database performance. In some cases it is possible your application will temporarily receive errors during a scale "down" if it was reading from a node that was killed in the process of the scale-down. *Most* MongoDB drivers expect this type of failure to occur.
+
 To scale the Replica Set in the GUI:
 1. View the service in the *'Services'* section.
 1. Press *'Edit Configuration'*.
