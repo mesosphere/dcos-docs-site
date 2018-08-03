@@ -64,7 +64,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     }
 
     // Build semver map
-    const semverMap = buildSemverMap(files);
+    const semverMap = buildSemverMap(files, options.skipSections);
 
     // Start promise chain
     let start;
@@ -146,7 +146,7 @@ const inExcludedSection = (filePath, skipSections) => {
 };
 
 // Build a sorted map that ranks semver
-const buildSemverMap = (files) => {
+const buildSemverMap = (files, skipSections) => {
   const versions = [];
   const map = {};
 
@@ -165,7 +165,9 @@ const buildSemverMap = (files) => {
   for (let i = 0; i < files.length; i += 1) {
     const file = files[i];
     const pathParts = file.split('/');
-    if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) === -1) {
+    if (inExcludedSection(file, skipSections)) {
+      continue;
+    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) === -1) {
       versions.push(pathParts[2]);
     } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.indexOf(pathParts[0]) === -1) {
       versions.push(pathParts[0]);
