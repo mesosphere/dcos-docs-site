@@ -18,6 +18,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
    * @param {string} options.index
    * @param {boolean} options.clearIndex
    * @param {array} options.skipSections
+   * @param {string} options.renderPathPattern
    */
 
   const parameters = ['projectId', 'privateKey', 'index'];
@@ -64,18 +65,22 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     }
 
     // Build semver map
-    const semverMap = buildSemverMap(files, options.skipSections);
+    const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
 
     // Start promise chain
     let start;
 
     // Clear index
     if (options.clearIndex === true) {
-      start = new Promise((resolve, _reject) => {
+      start = new Promise((resolve, reject) => {
         index.clearIndex((err) => {
-          if (err) console.error('Algolia: Error while cleaning index:', err);
-          console.log('Algolia: Cleared index');
-          resolve();
+          if (err) {
+            console.error('Algolia: Error while cleaning index:', err);
+            reject();
+          } else {
+            console.log('Algolia: Cleared index');
+            resolve();
+          }
         });
       });
     } else {
@@ -89,16 +94,17 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
       // Loop through metalsmith object
       Object.keys(files).forEach((file) => {
-        if (inExcludedSection(file, options.skipSections)) return;
+        if (inExcludedSection(file, options.skipSections, options.renderPathPattern)) {
+          return;
+        }
         if (extname(file) !== '.html') return;
         const fileData = files[file];
         const postContent = sanitize(fileData.contents);
         const postParts = convertStringToArray(postContent, 9000);
         postParts.forEach((value, _index) => {
           const record = getSharedAttributes(fileData, hierarchy, semverMap);
-          record.objectID = `${file}-${index}`;
+          record.objectID = `${file}-${index.indexName}`;
           record.content = value;
-          record.record_index = index;
           objects.push(record);
         });
       });
@@ -109,10 +115,10 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
           new Promise((resolve, reject) => {
             index.addObject(object, (err, _content) => {
               if (err) {
-                debug(`Algolia: Skipped "${object.objectID}": ${err.message}`);
+                console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
                 reject(err);
               } else {
-                debug(`Algolia: Updating "${object.objectID}"`);
+                console.log(`Algolia: Updating "${object.objectID}"`);
               }
               resolve();
             });
@@ -122,18 +128,21 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
       promises.reduce((promise, item) => {
         return promise.then(() => item.then());
-      }, Promise.resolve())
-        .then(() => {
-          done();
-        });
+      }, Promise.resolve()).then(() => {
+        done();
+      });
     });
   };
 };
 
 // File paths caught here will not be indexed for search.
 // This is determined by the ALGOLIA_SKIP_SECTIONS environment variable.
-const inExcludedSection = (filePath, skipSections) => {
-  for (let i = 0; i < skipSections; i += 1) {
+const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
+  const pathPatternRegex = RegExp(renderPathPattern);
+  if (!pathPatternRegex.test(filePath)) {
+    return true;
+  }
+  for (let i = 0; i < skipSections.length; i += 1) {
     const skipSection = skipSections[i];
     const regex = RegExp(skipSection);
 
@@ -146,9 +155,8 @@ const inExcludedSection = (filePath, skipSections) => {
 };
 
 // Build a sorted map that ranks semver
-const buildSemverMap = (files, skipSections) => {
+const buildSemverMap = (files, skipSections, renderPathPattern) => {
   const versions = [];
-  const map = {};
 
   const cleanVersion = (version) => {
     if (semverRegex().test(version)) {
@@ -162,10 +170,11 @@ const buildSemverMap = (files, skipSections) => {
   };
 
   // Filter
-  for (let i = 0; i < files.length; i += 1) {
-    const file = files[i];
+  const filePaths = Object.keys(files);
+  for (let i = 0; i < filePaths.length; i += 1) {
+    const file = filePaths[i];
     const pathParts = file.split('/');
-    if (inExcludedSection(file, skipSections)) {
+    if (inExcludedSection(file, skipSections, renderPathPattern)) {
       continue;
     } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) === -1) {
       versions.push(pathParts[2]);
@@ -179,6 +188,8 @@ const buildSemverMap = (files, skipSections) => {
   versionsSorted = semverSort.desc(versionsSorted);
 
   // Map
+  const map = {};
+
   versions.forEach((version) => {
     const cv = cleanVersion(version);
     const weight = versionsSorted.indexOf(cv);
