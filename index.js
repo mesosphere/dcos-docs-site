@@ -256,6 +256,7 @@ if (process.env.NODE_ENV === 'development') {
   CB.use(timer('CB: Reduce'));
 }
 
+// The expected pattern format doesn't work with regex
 const pathPatternRegex = process.env.RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
 
 // Search Indexing
