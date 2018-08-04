@@ -138,10 +138,13 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 // File paths caught here will not be indexed for search.
 // This is determined by the ALGOLIA_SKIP_SECTIONS environment variable.
 const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
-  const pathPatternRegex = RegExp(renderPathPattern);
-  if (!pathPatternRegex.test(filePath)) {
-    return true;
+  if (renderPathPattern) {
+    const pathPatternRegex = RegExp(renderPathPattern);
+    if (!pathPatternRegex.test(filePath)) {
+      return true;
+    }
   }
+
   for (let i = 0; i < skipSections.length; i += 1) {
     const skipSection = skipSections[i];
     const regex = RegExp(skipSection);

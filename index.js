@@ -257,7 +257,11 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // The expected pattern format doesn't work with regex
-const pathPatternRegex = process.env.RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
+let pathPatternRegex;
+
+if (process.env.NODE_ENV === 'development') {
+  pathPatternRegex = process.env.RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
+}
 
 // Search Indexing
 if (ALGOLIA_UPDATE === 'true') {
