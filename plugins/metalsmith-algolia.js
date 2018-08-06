@@ -286,7 +286,7 @@ const sanitize = (buffer) => {
     allowedTags: [],
     allowedAttributes: [],
     selfClosing: [],
-    nonTextTags: ['style', 'script', 'textarea', 'noscript'],
+    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'nav'],
   });
   parsedString = trim(parsedString);
   return parsedString;
