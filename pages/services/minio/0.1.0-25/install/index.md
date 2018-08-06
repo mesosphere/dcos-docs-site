@@ -14,14 +14,16 @@ The default DC/OS Minio Service installation provides reasonable defaults for tr
 
 ## Prerequisites
    
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS Prometheus Service. Only someone with `superuser` permission can create the service account.
+- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS Minio Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
-- For Standalone Minio:
-    Your cluster must have 1 private nodes.
 - For Distributed Minio:
     Your Cluster must have at least 4 private nodes.    
+- Secrets store should contain two secrets:
+  1) Minio Access Key
+  2) Minio Secret Key
+  Minio service requires these two secrets to be specified during installation. Default values for these secrets are expected as: __dcos_minio_access_key and __dcos_minio_secret_key.
     
 # Installing from the DC/OS CLI
 
@@ -31,11 +33,11 @@ To start a basic test cluster of Minio, run the following command on the DC/OS C
    dcos package install minio 
    ```
    
-This command creates a new instance with the default name minio.Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance.However, the application cannot be installed as foldered installation.
+This command creates a new instance with the default name minio. Two instances cannot share the same name, so installing additional instances of the same service requires customizing the service name at installation time for each additional instance.
 
 ## Installing from the DC/OS Web Interface
 
-Note:  Alternatively, you can install Minio from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
+Note:  Alternatively, you can install Minio from the DC/OS web interface by clicking on 'Run Service' after selecting the app from Catalog.
 
 ## Service Discovery
 Each Service Discovery requires parameters to be passed for their respective SD, Minio DC\OS mesos offers following service discovery mechanism : 
