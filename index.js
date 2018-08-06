@@ -37,6 +37,7 @@ const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
+const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN;
 const ALGOLIA_SKIP_SECTIONS = (
   process.env.ALGOLIA_SKIP_SECTIONS &&
   process.env.ALGOLIA_SKIP_SECTIONS.length > 0
@@ -229,7 +230,7 @@ CB.use(permalinks());
 CB.use(timer('CB: Permalinks'));
 
 // Layouts
-if (!process.env.RENDER_PATH_PATTERN) {
+if (!RENDER_PATH_PATTERN) {
   // Default: Render all pages.
   CB.use(layouts({
     engine: 'pug',
@@ -240,7 +241,7 @@ if (!process.env.RENDER_PATH_PATTERN) {
   // For example, 'services/beta-cassandra/latest/**'
   CB.use(layouts({
     engine: 'pug',
-    pattern: process.env.RENDER_PATH_PATTERN,
+    pattern: RENDER_PATH_PATTERN,
     cache: true,
   }));
 }
@@ -258,8 +259,8 @@ if (process.env.NODE_ENV === 'development') {
 
 // The expected pattern format doesn't work with regex
 let pathPatternRegex;
-if (process.env.RENDER_PATH_PATTERN) {
-  pathPatternRegex = process.env.RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
+if (RENDER_PATH_PATTERN) {
+  pathPatternRegex = RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
 }
 
 // Search Indexing
@@ -281,10 +282,12 @@ if (ALGOLIA_UPDATE === 'true') {
 // during the rebuild. We must include everything at this point or the
 // templates will not be accessible. Need changes to fix this.
 
-if (process.env.NODE_ENV === 'development') {
+// Can only watch with a RENDER_PATH_PATTERN because there are too many
+// files without it.
+if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
   CB.use(watch({
     paths: {
-      'pages/**/*': '**/*.{md,tmpl}',
+      [`pages/${RENDER_PATH_PATTERN}/*`]: '**/*.{md,tmpl}',
       'layouts/**/*': '**/*.pug',
     },
   }));
@@ -317,7 +320,9 @@ const AB = branch();
 AB.use(timer('AB: Init'));
 
 // Watch
-if (process.env.NODE_ENV === 'development') {
+// Can only watch with a RENDER_PATH_PATTERN because there are too many
+// files without it.
+if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
   AB.use(watch({
     paths: {
       'js/**/*': '**/*.js',
