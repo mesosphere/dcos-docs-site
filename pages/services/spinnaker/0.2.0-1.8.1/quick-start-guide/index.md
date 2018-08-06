@@ -196,12 +196,11 @@ haproxy:
         type: ADDRESS
         address: minio.marathon.l4lb.thisdcos.directory
         port: 9000
-
 ```
 
-3. Go to your browser and enter the following url to get to the Spinnaker unser interface.
 
-## Using Spinnaker
+
+3. Go to your browser and enter the following url to get to the Spinnaker unser interface.
 
 ```bash
 http://<public-agent-ip>:<port>
