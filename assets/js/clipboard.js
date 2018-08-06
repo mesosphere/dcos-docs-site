@@ -714,7 +714,7 @@ module.exports = E;
                 this.clipboardAction = new _clipboardAction2.default({
                     action: this.action(trigger),
                     target: this.target(trigger),
-                    text: this.text(trigger),
+                    text: this.text(trigger).trim(),
                     container: this.container,
                     trigger: trigger,
                     emitter: this
