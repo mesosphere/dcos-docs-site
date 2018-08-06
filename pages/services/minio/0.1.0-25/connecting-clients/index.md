@@ -133,7 +133,7 @@ https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-p
   ```shell
   dcos edgelb create edgelb-pool-config.json
   ```    
-  6. Access Minio:
+ 6. Access Minio:
   ```shell
   http://<Public IP of the Public Node of the cluster>>:9001/minio
   ```      
@@ -206,6 +206,14 @@ Example with TLS:
 }
 
 ```
+### Pre-requisites for EdgeLB with TLS configuration
+
+1) DC/OS cluster with Service account and Service account secret configured.
+
+2) Minio service installed with TLS enabled.
+
+Follow the same steps as mentioned above to configure EdgeLB with TLS configuration.
+
 For more details on Minio Client, refer to the link:
    https://docs.minio.io/docs/minio-client-complete-guide.html
 
