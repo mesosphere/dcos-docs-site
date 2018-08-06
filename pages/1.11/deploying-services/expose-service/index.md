@@ -81,7 +81,7 @@ To launch a service on a public node, you must create a Marathon app definition 
     - AWS users: If you installed DC/OS by using the [AWS CloudFormation templates](/1.11/installing/oss/cloud/aws/), an ELB is included. However, you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
     - All other users: You can use [Marathon-LB](/1.11/networking/marathon-lb/), a rapid proxy and load balancer that is based on HAProxy.
 
-1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/1.11/administering-clusters/locate-public-agent/).
+1.  Go to your public agent to see the site running and to find your public agent IP. Type it into your browser.
 
     You should see the following message in your browser:
 
