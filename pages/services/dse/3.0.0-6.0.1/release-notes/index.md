@@ -8,6 +8,17 @@ model: /services/dse/data.yml
 render: mustache
 ---
 
+# Version 3.0.0-6.0.1
+
+## New Features
+- Added AlwaysOn SQL service, a HA (highly available) Spark SQL Thrift server.
+- Improved NodeSync usability with secure environments.
+- New Thread per core (TPC) and asynchronous architecture provides up to 2x more throughput for read and write operations.
+- Enhanced Spark SQL support allows you to execute Spark queries using a variation of the SQL language
+
+## Bug Fixes
+- Cassandra 4.0 removed support for the deprecated Thrift interface (rpc_port, start_rpc, etc).
+
 # Version 2.2.0-5.1.2
 
 ## New Features
