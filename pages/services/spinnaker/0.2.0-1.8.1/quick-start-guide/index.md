@@ -91,7 +91,7 @@ igor-local.yml
 
 Tailor these Spinnaker yml configuration files for your specific needs. The yml can be entered via the Spinnaker configuration dialogs in the DC/OS console or passed in an options.json file on dcos package install.
 
-# Note: If you follow the links to the detailed Spinnaker configuration options you will also see the configuration of Spinnaker service dependencies. Don't worry about those configurations they are all taken care of by the DC/OS Spinnaker service.
+#Note: If you follow the links to the detailed Spinnaker configuration options you will also see the configuration of Spinnaker service dependencies. Don't worry about those configurations they are all taken care of by the DC/OS Spinnaker service.
 
 [front50-local.yml](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/config/front50-local.yml)
 
