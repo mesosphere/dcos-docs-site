@@ -15,6 +15,7 @@ services:
         algolia_private_key: ${ALGOLIA_PRIVATE_KEY}
         algolia_index: ${ALGOLIA_INDEX}
         algolia_clear_index: ${ALGOLIA_CLEAR_INDEX}
+        algolia_skip_sections: ${ALGOLIA_SKIP_SECTIONS}
     ports:
       - "80:80"
       - "443:443"

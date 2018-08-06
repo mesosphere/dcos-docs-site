@@ -37,12 +37,20 @@ const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
+const ALGOLIA_SKIP_SECTIONS = (
+  process.env.ALGOLIA_SKIP_SECTIONS &&
+  process.env.ALGOLIA_SKIP_SECTIONS.length > 0
+) ? (
+    process.env.ALGOLIA_SKIP_SECTIONS.split(',')
+  ) : (
+    []
+  );
 
 //
 // Errors
 //
 
-if (!process.env.GIT_BRANCH && process.env.NODE_ENV !== 'development') {
+if (!GIT_BRANCH && process.env.NODE_ENV !== 'development') {
   throw new Error('Env var GIT_BRANCH has not been set.');
 }
 
@@ -82,7 +90,7 @@ MS.metadata({
   ' workloads running on DC/OS.',
   copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
-  gitBranch: process.env.GIT_BRANCH,
+  gitBranch: GIT_BRANCH,
   dcosDocsLatest: '1.11',
 });
 
@@ -248,6 +256,12 @@ if (process.env.NODE_ENV === 'development') {
   CB.use(timer('CB: Reduce'));
 }
 
+// The expected pattern format doesn't work with regex
+let pathPatternRegex;
+if (process.env.RENDER_PATH_PATTERN) {
+  pathPatternRegex = process.env.RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
+}
+
 // Search Indexing
 if (ALGOLIA_UPDATE === 'true') {
   CB.use(algolia({
@@ -255,6 +269,8 @@ if (ALGOLIA_UPDATE === 'true') {
     privateKey: ALGOLIA_PRIVATE_KEY,
     index: ALGOLIA_INDEX,
     clearIndex: (ALGOLIA_CLEAR_INDEX !== undefined) ? (ALGOLIA_CLEAR_INDEX === 'true') : true,
+    skipSections: ALGOLIA_SKIP_SECTIONS,
+    renderPathPattern: pathPatternRegex,
   }));
   CB.use(timer('CB: Algolia'));
 }
