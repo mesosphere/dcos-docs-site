@@ -23,7 +23,7 @@ The default DC/OS Minio Service installation provides reasonable defaults for tr
 - Secrets store should contain two secrets:
   1) Minio Access Key
   2) Minio Secret Key
-  Minio service requires these two secrets to be specified during installation. Default values for these secrets are expected as: __dcos_minio_access_key and __dcos_minio_secret_key.
+  Minio service requires these two secrets to be specified during installation. By default, IDs for these secrets are expected as: __dcos_minio_access_key and __dcos_minio_secret_key.
     
 # Installing from the DC/OS CLI
 
@@ -33,11 +33,31 @@ To start a basic test cluster of Minio, run the following command on the DC/OS C
    dcos package install minio 
    ```
    
-This command creates a new instance with the default name minio. Two instances cannot share the same name, so installing additional instances of the same service requires customizing the service name at installation time for each additional instance.
+This command creates a new instance with the default name minio. Two instances cannot share the same name, so installing additional instances of the same service requires customizing the service name at installation time for each additional instance. However, the application can be installed using the same name in case of foldered installation, wherein we can install the same application in different folders.
+
+All DC/OS Minio CLI commands have a --name argument which allow the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, i.e. minio. The default value for --name can be customized via the DC/OS CLI configuration:
+
+```shell
+   dcos minio --name=minio <cmd> 
+```
+You can specify a custom configuration in an options.json file and pass it to dcos package install using the --options parameter.
+
+```shell
+   dcos package install minio --options=options.json 
+```
+For more information on building the `options.json` file, refer the DC/OS official documentation for service configuration access.
 
 ## Installing from the DC/OS Web Interface
 
 Note:  Alternatively, you can install Minio from the DC/OS web interface by clicking on 'Run Service' after selecting the app from Catalog.
+
+If you install Prometheus from the DC/OS web interface, the 
+dcos minio CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
+
+
+   ```shell
+   dcos package install minio --cli
+   ```
 
 ## Service Discovery
 Each Service Discovery requires parameters to be passed for their respective SD, Minio DC\OS mesos offers following service discovery mechanism : 
