@@ -150,23 +150,62 @@ Once you have the options json you can install the Spinnaker service using the D
 ```bash
 dcos package install --yes spinnaker --options=options.json
 ```
+## Accessing the Spinnaker UI
 
-## edge-lb
+Once the framework is up and running:
+1. Install Edge-LB.
+2. Create a file named `spinnaker-edgelb.json` containing the following `edge-lb` configuration:
 
-Instead of the simple proxy we used in the quick start you can also use edge-lb. After installing edge-lb you can create the edgelb pool configuration for Spinnaker (minio is also included) using the [spinnaker-edgelb.yml](https://github.com/mesosphere/dcos-spinnaker/blob/master/misc/spinnaker-edgelb.yml) file.
-
-```bash
-dcos edgelb create spinnaker-edgelb.yml
 ```
+apiVersion: V2
+name: spinnaker
+count: 1
+haproxy:
+  frontends:
+  - bindPort: 9001
+    protocol: HTTP
+    linkBackend:
+      defaultBackend: deck
+  - bindPort: 8084
+    protocol: HTTP
+    linkBackend:
+      defaultBackend: gate
+  - bindPort: 9000
+    protocol: HTTP
+    linkBackend:
+      defaultBackend: minio
+  backends:
+  - name: deck
+    protocol: HTTP
+    services:
+    - endpoint:
+        type: ADDRESS
+        address: deck.spinnaker.l4lb.thisdcos.directory
+        port: 9001
+  - name: gate
+    protocol: HTTP
+    services:
+    - endpoint:
+        type: ADDRESS
+        address: gate.spinnaker.l4lb.thisdcos.directory
+        port: 8084
+  - name: minio
+    protocol: HTTP
+    services:
+    - endpoint:
+        type: ADDRESS
+        address: minio.marathon.l4lb.thisdcos.directory
+        port: 9000
+
+```
+
+3. Go to your browser and enter the following url to get to the Spinnaker unser interface.
 
 ## Using Spinnaker
 
-Go to your browser and enter the following url to get to the Spinnaker unser interface.
-
 ```bash
-http://localhost:9001
+http://<public-agent-ip>:<port>
 ```
-
 Follow these links to learn more.
 
    * [Spinnaker Apllications, Clusters, and Server Groups](https://github.com/mesosphere/dcos-spinnaker/blob/master/docs/APPLICATIONS_CLUSTERS_SERVERGROUPS.md)
