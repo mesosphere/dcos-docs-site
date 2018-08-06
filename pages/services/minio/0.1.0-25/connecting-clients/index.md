@@ -214,6 +214,7 @@ Example with TLS:
 
 Follow the same steps as mentioned above to configure EdgeLB with TLS configuration.
 
+Minio server can be accessed using Minio client by registering it to the Minio Server. To register Minio client, specify the public IP of the Public Agent running EdgeLB.
 For more details on Minio Client, refer to the link:
    https://docs.minio.io/docs/minio-client-complete-guide.html
 
