@@ -51,7 +51,7 @@ For more information on building the `options.json` file, refer the DC/OS offici
 
 Note:  Alternatively, you can install Minio from the DC/OS web interface by clicking on 'Run Service' after selecting the app from Catalog.
 
-If you install Prometheus from the DC/OS web interface, the 
+If you install Minio from the DC/OS web interface, the 
 dcos minio CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 
