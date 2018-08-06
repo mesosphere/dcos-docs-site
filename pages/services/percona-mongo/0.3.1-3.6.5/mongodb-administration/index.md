@@ -10,7 +10,7 @@ enterprise: false
 
 ## Backup and Restore
 
-Please see the ["Disaster Recovery"](https://docs.mesosphere.com/services/percona-mongo/0.3.0-3.6.5/disaster-recovery/) section of the documentation.
+Please see the ["Disaster Recovery"](https://docs.mesosphere.com/services/percona-mongo/0.3.1-3.6.5/disaster-recovery/) section of the documentation.
 
 ## Scaling
 
