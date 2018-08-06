@@ -258,8 +258,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // The expected pattern format doesn't work with regex
 let pathPatternRegex;
-
-if (process.env.NODE_ENV === 'development') {
+if (process.env.RENDER_PATH_PATTERN) {
   pathPatternRegex = process.env.RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
 }
 
