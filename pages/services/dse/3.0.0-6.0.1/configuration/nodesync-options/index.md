@@ -40,7 +40,7 @@ NodeSync is an easy to use continuous background repair that has low overhead an
 ### Disable the NodeSync service:
 
 ```
-nodetool nodesyncservice disable
+    nodetool nodesyncservice disable
 ```
 
  On the next restart of DataStax Enterprise service (DSE), the NodeSync service will start up.
@@ -49,11 +49,11 @@ nodetool nodesyncservice disable
 Verify the status of the NodeSync service:
 
 ```
-nodetool nodesyncservice status
+    nodetool nodesyncservice status
 ```
 
 The output should indicate not running.
 
 ```
-The NodeSync service is not running
+    The NodeSync service is not running
 ```
