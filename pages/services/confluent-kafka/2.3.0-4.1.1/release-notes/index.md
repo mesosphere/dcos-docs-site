@@ -11,6 +11,11 @@ render: mustache
 
 # Version 2.3.0-4.1.1
 
+*IMP NOTE*: Version 2.3.0-4.1.1 is a `beta` pending soak testing. Beta packages are not within the scope of our technical support organization.
+Beta packages iterate quickly and are not eligible for bug fixes.
+
+Please see the [official support policy](https://docs.mesosphere.com/version-policy/) for beta packages.
+
 ## Updates
 
 - Upgrade Confluent Kafka base tech to version 4.1.1. See [Confluent Kafka](https://docs.confluent.io/4.1.1/release-notes.html) release notes for details.
