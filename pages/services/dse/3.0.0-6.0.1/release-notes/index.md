@@ -16,8 +16,7 @@ render: mustache
 - New Thread per core (TPC) and asynchronous architecture provides up to 2x more throughput for read and write operations.
 - Enhanced Spark SQL support allows you to execute Spark queries using a variation of the SQL language
 
-## Bug Fixes
-- Cassandra 4.0 removed support for the deprecated Thrift interface (rpc_port, start_rpc, etc).
+
 
 # Version 2.2.0-5.1.2
 
