@@ -119,7 +119,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
                 console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
                 reject(err);
               } else {
-                console.log(`Algolia: Updating "${object.objectID}"`);
+                // console.log(`Algolia: Updating "${object.objectID}"`);
               }
               resolve();
             });
