@@ -229,7 +229,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`. [enterprise type="inline" size="small" /]
 
         **Note:** If you are upgrading from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
-    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running Mesos 1.4.0. [enterprise type="inline" size="small" /]
+    1.  Verify that `/opt/mesosphere/mesos 1.4.2` indicates that the upgraded master is running Mesos 1.4.2. [enterprise type="inline" size="small" /]
 	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros. [enterprise type="inline" size="small" /]
 	    ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
