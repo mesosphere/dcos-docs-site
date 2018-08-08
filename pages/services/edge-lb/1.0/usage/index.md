@@ -50,7 +50,7 @@ A change to the load balancer pool (such as adding a secret) will trigger a rela
 - Traffic is dropped. To minimize the impact, we suggest running more than one load balancer within the pool.
 - The load balancer will be relaunched on the same node (unless the node itself has failed).
 
-**Note:** The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.
+**Warning:** The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.
 
 ## Replacing a failed pod
 

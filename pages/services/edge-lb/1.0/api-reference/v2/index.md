@@ -8,11 +8,11 @@ excerpt: Endpoints exposed in the V2 API
 enterprise: false
 ---
 
-The Edge-LB API enables users to create and manage pools of load balancers.
+The Edge-LB API enables you to create and manage pools of load balancers.
 
 # Compatibility
 
-The Edge-LB API was initially released alongside DC/OS 1.10.0 and requires DC/OS Enterprise 1.10.0 or newer.
+The Edge-LB API was initially released alongside DC/OS 1.10.0 and requires DC/OS Enterprise 1.10.0 or later.
 
 # Routes
 
@@ -35,7 +35,7 @@ The API request header can be any the following:
 
 All Edge-LB API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.10/security/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.10/security/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.10/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](1.10/security/ent/iam-api/#passing-an-authentication-token).
 
 The Edge-LB API also requires authorization via the following permissions:
 
@@ -45,7 +45,7 @@ The Edge-LB API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.10/security/perms-reference/).
+To assign permissions to your account, see [Assigning permissions](/1.10/security/ent/perms-reference/).
 
 # Common Resources
 

@@ -218,7 +218,7 @@ It should also be noted that this is not always a good idea. Exposing secured in
 
 # Mesos Frameworks and DC/OS Services
 
-For Mesos frameworks and DC/OS services that run tasks which are not managed by Marathon such as Kafka brokers, etc, use the `pool.haproxy.backend.service.mesos` object to filter and select mesos tasks appropriately.
+For Mesos frameworks and DC/OS services that run tasks which are not managed by Marathon such as Kafka brokers, etc., use the `pool.haproxy.backend.service.mesos` object to filter and select mesos tasks appropriately.
 
 ```json
 {
@@ -370,7 +370,7 @@ This approach can be used to implement some canary or A/B testing use cases.
 
 # SSL/TLS certificates
 
-There are 3 different ways to get and use a certificate:
+There are three different ways to get and use a certificate:
 
 ## Automatically generated self-signed certificate
 

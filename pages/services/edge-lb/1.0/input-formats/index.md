@@ -9,17 +9,17 @@ enterprise: false
 ---
 
 
-Edge-LB accepts configuration in either YAML or JSON format.
+Edge-LB accepts configuration files in either YAML or JSON format.
 
 # Convert YAML to JSON
 
-Convert a YAML configuration file to JSON and output the results to stdout with the command below.
+Convert a YAML configuration file to JSON and output the results to `stdout` with the following command.
 
 `dcos edgelb show --convert-to-json=/path/to/yaml`
 
 # Convert JSON to YAML
 
-There currently is no automated way to do this. We suggest that you hand convert it, and then use the YAML-to-JSON conversion on your YAML. Then do a diff between your YAML and the JSON.
+There currently is no automated way to do this. We suggest that you hand convert it, and then use the YAML-to-JSON conversion on your YAML. Then find the differences between your YAML and the JSON using the `diff` command.
 
 1. Hand convert JSON to YAML.
 2. Compare to original json with the `diff` shell command.

@@ -8,7 +8,7 @@ excerpt:
 enterprise: false
 ---
 
-Release notes for Edge-LB.
+These are the release notes for Edge-LB.
 
 # v1.0.3
 
@@ -34,7 +34,7 @@ Shortlist:
 ## Known Issues
 
 * The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.0/uninstalling/).
-* Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
+* Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
 
 # v1.0.2
@@ -60,7 +60,7 @@ Shortlist:
 ## Known Issues
 
 * The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.0/uninstalling/).
-* Edge-LB running on a CentOS/RHEL 7.2 node where /var/lib/mesos is formatted with ext4 may have connection issues.
+* Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
 
 # v1.0.1
@@ -96,18 +96,18 @@ Shortlist:
 
 ## Noteworthy changes:
 
-- Introducing V2 API with new more intuitive model for service / app backend selection model
+- Introducing V2 API with new more intuitive model for service/app backend selection model
 - New CLI command layout, ability to create, modify, and delete individual pools
 - Dockerized build and other CI improvements
 - Strict Mode Support for DC/OS Enterprise version 1.11 or higher
 - Security fix in logging
 - Curl with -k within same container
 - Update healthchecks to MESOS_HTTP
-- Load-balancer manager now connects to apiserver via https adminrouter with service account
+- Load-balancer manager now connects to `apiserver` via https adminrouter with service account
 - Pool scheduler now uses mesos V1 API and requires additional service account permissions
-- Improve security in CLI -> apiserver communication
-- Added logging to mesos-listener and requests created by apiserver
-- Added Edge-LB package install option: logLevel to make apiserver logLevel configurable
+- Improve security in CLI -> `apiserver` communication
+- Added logging to mesos-listener and requests created by `apiserver`
+- Added Edge-LB package install option: logLevel to make `apiserver` logLevel configurable
 
 Shortlist:
 

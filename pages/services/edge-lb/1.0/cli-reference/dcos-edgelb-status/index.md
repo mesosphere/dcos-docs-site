@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Returns a list of load-balancer task information associated with a pool, such as agent IP address, task ID, etc.
+The `dcos edgelb status` command returns a list of load-balancer task information associated with a pool, such as agent IP address, task ID, etc.
 Lists the names of each running load balancer instance in a pool.
 
 # Usage
@@ -22,14 +22,14 @@ dcos edgelb status [<flags>] <pool-name>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   | Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   | Name of the service instance to query. |
-| `--task-ids` | Only print the task ids. |
+| `--task-ids` | Only Display the task ids. |
 | `--json` | Show unparsed JSON response. |
 
 # Parent command

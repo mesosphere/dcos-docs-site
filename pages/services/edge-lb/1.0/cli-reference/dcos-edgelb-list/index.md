@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Returns a list of the names and a summary of all configured pools.
+The `dcos edgelb list` command returns a list of the names and a summary of all configured pools.
 
 # Usage
 

@@ -18,6 +18,8 @@ The configuration reference containing all possible options and descriptions of 
 dcos edgelb show --reference
 ```
 
+For more information, see the [CLI Reference Guide entry for `dcos edgelb show`](/1.0/cli-reference/dcos-edgelb-show/).
+
 # API Versions
 
 A new top level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical with one important difference: `pool.haproxy.backends.servers` (apiVersion `V1`) has been replaced with `pool.haproxy.backends.services` with a more intuitive way to select services/backends for HAProxy.
