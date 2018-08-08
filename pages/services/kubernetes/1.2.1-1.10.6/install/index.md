@@ -115,11 +115,11 @@ where you will install your service.
 
 **Recommendation:** Store your custom configuration in source control.
 
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/1.11/deploying-services/config-universe-service/).
+For more information on building the `options.json` file, see [DC/OS documentation](/1.11/deploying-services/config-universe-service/).
 
 # Installing from the DC/OS Web Interface
 
-You can [install Kubernetes from the DC/OS web interface](https://docs.mesosphere.com/1.11/deploying-services/install/). If you install Kubernetes from the web interface, you must install the DC/OS Kubernetes CLI subcommands separately.
+You can [install Kubernetes from the DC/OS web interface](/1.11/deploying-services/install/). If you install Kubernetes from the web interface, you must install the DC/OS Kubernetes CLI subcommands separately.
 From the DC/OS CLI, enter:
 
 ```shell
