@@ -10,7 +10,7 @@ enterprise: true
 
 This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/services/edge-lb/1.0/cli-reference/).
 
-# Prerequsites
+# Prerequisites
 
 - Edge-LB [installed and running](/services/edge-lb/1.0/installing/).
 
