@@ -10,7 +10,7 @@ render: mustache
 
 # Working with AlwaysOn SQL :
 
- Alerting with Prometheus is divided into the following parts:
+ Configuration of AlwaysOn SQL is divided into the following parts:
 
   1. Set up and configure the AlwaysOn SQL
 
@@ -38,6 +38,7 @@ The template for AlwaysOn SQL Configuration is below:
 #     auth_user: alwayson_sql
 #     runner_max_errors: 10
 ```
+For more information about these options, refer to the detailed documentation [here](https://docs.datastax.com/en/dse/6.0/dse-dev/datastax_enterprise/config/configDseYaml.html#configDseYaml__alwaysonSqlOptions).
 
 ## Enabling AlwaysOn SQL
 
