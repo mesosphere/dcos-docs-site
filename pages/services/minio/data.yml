@@ -30,3 +30,4 @@ operations:
     deploy (serial strategy) (COMPLETE)
     ├─ minioc (serial strategy) (COMPLETE)
     │  └─ recover:[server] (COMPLETE)   
+

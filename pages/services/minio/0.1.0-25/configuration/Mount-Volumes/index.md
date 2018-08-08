@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring Mount Volume
-title: Configuring Mount volume
-menuWeight: 30
-excerpt: Configuring Mount Volume in Minio
+navigationTitle: Mount Volumes
+title: Configuring Mount Volumes for Minio
+menuWeight: 40
+excerpt: Mount Volumes for Minio
 featureMaturity:
 enterprise: false
 ---
@@ -87,6 +87,3 @@ May 05 19:18:58 dcos-agent-public-01234567000001 mesos-slave[1891]: " --oversubs
 Wait until the node gets up and then repeat the steps to mount more than one volume on the same node. Follow the same procedure from step 5 to mount volume on the other nodes.
    
 
-  
-  
-  

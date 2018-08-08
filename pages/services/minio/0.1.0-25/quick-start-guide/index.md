@@ -1,60 +1,42 @@
 ---
 layout: layout.pug
-navigationTitle:  Connecting Clients
-title: Connecting Clients
-menuWeight: 70
-excerpt: Connecting clients through service discovery
-featureMaturity:
-enterprise: false
+navigationTitle: Quick Start
+excerpt: Configuring Minio - Quick Start
+title: Quick Start
+menuWeight: 15
 ---
 
-# Connecting Clients
-One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Since they can be deployed anywhere on it, clients need a way to find the service. This is where service discovery comes in.
+# How to use Minio with DC/OS
 
+## Prerequisites
 
-## Discovering endpoints
+* A running DC/OS 1.11 cluster
 
-Once the service is running, you may view information about its endpoints via either of the following methods:
-- CLI:
-  1. List endpoint types: `dcos minio endpoints`
-  2. View endpoints for an endpoint type: `dcos minio endpoints <endpoint>`
-- API:
-  1. List endpoint types: `<dcos-url>/service/minio/v1/endpoints`
-  2. View endpoints for an endpoint type: `<dcos-url>/service/minio/v1/endpoints/<endpoint>`
+* Secrets store should contain two secrets:
+  1) Minio Access Key
+  2) Minio Secret Key
+  Minio service requires these two secrets to be specified during installation. By default, IDs for these secrets are expected as: __dcos_minio_access_key and __dcos_minio_secret_key.
 
-Returned endpoints will include the following:
-- An `.autoip.dcos.thisdcos.directory` hostname for each instance. This hostname will follow the instance if it is moved within the DC/OS cluster.
-- An HA-enabled VIP hostname for accessing any of the instances (optional).
-- A direct IP address to access the service if `.autoip.dcos.thisdcos.directory` hostnames are not resolvable.
-- If your service is on a virtual network such as the `dcos` overlay network, then the IP will be from the subnet allocated to the host that the task is running on. It will not be the host IP. To resolve the host IP, use Mesos DNS (`<task>.<service>.mesos`).
+## Install
 
-In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use direct IPs or set up a proxy service that acts as a front end to your Minio instance. For development and testing purposes, you can use [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administering-clusters/sshcluster/) to access services from outside the cluster, but this option is not suitable for production use.
+Minio can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
 
-
-## Connection response
-
-The response, for both the CLI and the REST API, is as follows.
-
-```shell
-{
-  "address": [
-    "10.0.2.208:9000",
-    "10.0.1.9:9000",
-    "10.0.2.10:9000",
-    "10.0.1.155:9000"
-  ],
-  "dns": [
-    "miniod-0-node.miniodemo.autoip.dcos.thisdcos.directory:9000",
-    "miniod-1-node.miniodemo.autoip.dcos.thisdcos.directory:9000",
-    "miniod-2-node.miniodemo.autoip.dcos.thisdcos.directory:9000",
-    "miniod-3-node.miniodemo.autoip.dcos.thisdcos.directory:9000"
-  ]
-}
+```bash
+dcos package install minio
 ```
 
-This JSON array contains a list of valid nodes that you can use to connect to the minio cluster. To ensure availability, it is best to specify multiple nodes in your configuration. Use the VIP to address any one of the Minio nodes in the cluster.
+[<img src="../img/Catalog_Service_View.png" alt="Catalog Service View"/>](../img/Catalog_Service_View.png)
 
-When Transport Layer Security (TLS) is enabled, an endpoint named `node-tls` should also be listed. To verify a TLS connection from a client, the DC/OS trust bundle with a CA certificate is required.
+[<img src="../img/Node_Count.png" alt="Node Count"/>](../img/Node_Count.png)
+
+[<img src="../img/Port_Change.png" alt="Port Configure"/>](../img/Port_Change.png)
+
+[<img src="../img/Running_Stage.png" alt="Running Stage"/>](../img/Running_Stage.png)
+
+[<img src="../img/Successful_Execution.png" alt="Successful Execution"/>](../img/Successful_Execution.png)
+
+
+
 
 ## Accessing the Minio UI with Edge-LB configuration
 
@@ -218,7 +200,3 @@ Minio server can be accessed using Minio client by registering it to the Minio S
 
 For more details on Minio Client, refer to the link:
    https://docs.minio.io/docs/minio-client-complete-guide.html
-
-
-
-
