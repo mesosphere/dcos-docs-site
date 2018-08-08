@@ -18,6 +18,7 @@ render: mustache
 - Storage engine optimizations that provide up to half the latency of open source Cassandra and include optimized compaction.
 - Add getConcurrentCompactors to JMX in order to avoid loading DatabaseDescriptor to check its value in nodetool.
 - Improved security for Spark JobServer.
+- Updated DataStax OpsCenter to 6.5.0, which has new Lifecycle Manager improvements for DataStax Enterprise 6.0 clusters, such as Monitoring AlwaysOn SQL nodes in OpsCenter Monitoring.
 
 ## Updates
 - Some graph and gremlin_server properties in earlier versions of DSE are no longer required for DSE 6.0. For more information about these properties refer [here](https://docs.datastax.com/en/dse/6.0/dse-admin/datastax_enterprise/releaseNotes/RNdse.html#RNdse601)
