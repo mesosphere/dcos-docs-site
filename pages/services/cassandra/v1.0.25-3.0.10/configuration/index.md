@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuring
 title: Configuring
 menuWeight: 50
-excerpt:
+excerpt: Configuring DC/OS Apache Cassandra
 featureMaturity:
 enterprise: false
 ---
@@ -166,7 +166,7 @@ If you query the plan again, the response will look like this (notice `status: "
 }
 ```
 
-**Note:** The interrupt command can’t stop a step that is `InProgress`, but it will stop the change on the subsequent steps.
+**Note:** The interrupt command cannot stop a step that is `InProgress`, but it will stop the change on the subsequent steps.
 
 Enter the `continue` command to resume the update process.
 
@@ -453,40 +453,41 @@ Example executor configuration:
 ```
 
 <table class="table">
-    <tr>
-    <th>Property</th>
-    <th>Type</th>
-    <th>Description</th>
+  <tr>
+   <th>Property</th>
+   <th>Type</th>
+   <th>Description</th>
   </tr>
-   <tr>
-      <td>cpus</td>
-      <td>number</td>
-      <td>The number of CPU shares allocated to the DC/OS Apache Cassandra Service executor. </td>
-    </tr>
 
-    <tr>
-      <td>mem</td>
-      <td>integer</td>
-      <td>The amount of memory, in MB, allocated for the DC/OS Apache Cassandra Service scheduler. This MUST be larger than the allocated heap.</td>
-    </tr>
+  <tr>
+    <td>cpus</td>
+    <td>number</td>
+    <td>The number of CPU shares allocated to the DC/OS Apache Cassandra Service executor. </td>
+  </tr>
 
-    <tr>
-      <td>heap</td>
-      <td>integer</td>
-      <td>The amount of heap, in MB, allocated for the DC/OS Apache Cassandra Service executor.</td>
-    </tr>
+  <tr>
+    <td>mem</td>
+    <td>integer</td>
+    <td>The amount of memory, in MB, allocated for the DC/OS Apache Cassandra Service scheduler. This MUST be larger than the allocated heap.</td>
+  </tr>
 
-    <tr>
-      <td>disk</td>
-      <td>integer</td>
-      <td>The amount of disk, in MB, allocated for the DC/OS Apache Cassandra Service executor.</td>
-    </tr>
+  <tr>
+    <td>heap</td>
+    <td>integer</td>
+    <td>The amount of heap, in MB, allocated for the DC/OS Apache Cassandra Service executor.</td>
+  </tr>
 
-    <tr>
-      <td>api_port</td>
-      <td>integer</td>
-      <td>The port that the executor will accept API requests on.</td>
-    </tr>
+  <tr>
+    <td>disk</td>
+    <td>integer</td>
+    <td>The amount of disk, in MB, allocated for the DC/OS Apache Cassandra Service executor.</td>
+  </tr>
+
+  <tr>
+    <td>api_port</td>
+    <td>integer</td>
+    <td>The port that the executor will accept API requests on.</td>
+  </tr>
 
 </table>
 
