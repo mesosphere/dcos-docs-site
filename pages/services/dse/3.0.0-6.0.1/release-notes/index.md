@@ -15,7 +15,16 @@ render: mustache
 - Improved NodeSync usability with secure environments.
 - New Thread per core (TPC) and asynchronous architecture provides up to 2x more throughput for read and write operations.
 - Enhanced Spark SQL support allows you to execute Spark queries using a variation of the SQL language
+- Storage engine optimizations that provide up to half the latency of open source Cassandra and include optimized compaction.
+- Add getConcurrentCompactors to JMX in order to avoid loading DatabaseDescriptor to check its value in nodetool.
+- Improved security for Spark JobServer.
 
+## Updates
+- Some graph and gremlin_server properties in earlier versions of DSE are no longer required for DSE 6.0. For more information about these properties refer [here](https://docs.datastax.com/en/dse/6.0/dse-admin/datastax_enterprise/releaseNotes/RNdse.html#RNdse601)
+- Updated Cassandra version to 3.11 which removed support for the deprecated Thrift interface (rpc_port, start_rpc, etc).
+- Updated TinkerPop version 3.2.9 with additional production-certified changes.
+- Updated Apache Solr™ to version 6.0.1.1.2295 which includes Solr security upgrades bundle.
+- Updated Apache Spark™ to version 2.2.1.2 for bug fixes such as to improve Spark Master discovery and reliability.
 
 
 # Version 2.2.0-5.1.2
