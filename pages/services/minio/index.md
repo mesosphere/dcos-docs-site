@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
-title: Minio
-menuWeight: 20
+navigationTitle: Minio 
+title: Minio 
+menuWeight: 87
 excerpt:
 featureMaturity:
 enterprise: false
