@@ -48,7 +48,7 @@ Or, if you prefer to grant only the individual permissions necessary, grant the 
 - `dcos:mesos:master:task:user:root`
 - `dcos:mesos:master:task:app_id`
 
-Additionally, this permission needs to be granted **for each Edge-LB pool created**:
+Additionally, this permission must be granted **for each Edge-LB pool created**:
 
 - `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
 

@@ -7,10 +7,12 @@ excerpt: Update a custom config template for a pool of load balancers
 
 enterprise: false
 ---
-The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
+
 
 # Description
-Updates a custom config template for a pool of load-balancers.
+The `dcos edgelb template update` command updates a custom config template for a pool of load-balancers.
+
+The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
 # Usage
 
@@ -22,7 +24,7 @@ dcos edgelb template update <pool-name> <template-file>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |

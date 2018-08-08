@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Shows the running load-balancer config associated with the pool. You can view the active load balancer configuration for all load balancers in a pool.
+The `dcos edgelb lb-config` command shows the running load-balancer config associated with the pool. You can view the active load balancer configuration for all load balancers in a pool.
 
 
 # Usage
@@ -22,7 +22,7 @@ dcos edgelb lb-config [<flags>] <pool-name>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |

@@ -30,7 +30,7 @@ For example, in the following snippet of a Marathon app definition, the `task` n
 }
 ```
 
-If you are not sure about the Mesos task name for your application, check the Mesos web ui at `https://<cluster-url>/mesos`
+If you are not sure about the Mesos task name for your application, check the Mesos web interface at `https://<cluster-url>/mesos`
 
 Below is a simple example of a pool configuration for load-balancing a Marathon application like the one above:
 
@@ -69,7 +69,7 @@ Below is a simple example of a pool configuration for load-balancing a Marathon 
 
 ## SSL/TLS certificates
 
-There are 3 different ways to get and use a certificate:
+There are three different ways to get and use a certificate:
 
 ### Automatically generated self-signed certificate
 
@@ -223,7 +223,7 @@ There are 3 different ways to get and use a certificate:
 
 ## Virtual Networks
 
-In this example we create a pool that will be launched on the virtual network provided by DC/OS overlay called "dcos". In general you can launch a pool on any CNI network, by setting `pool.virtualNetworks[].name` to the CNI network name.
+In this example we create a pool that will be launched on the virtual network provided by a DC/OS overlay called "dcos". In general, you can launch a pool on any CNI network, by setting `pool.virtualNetworks[].name` to the CNI network name.
 
 ```json
 {

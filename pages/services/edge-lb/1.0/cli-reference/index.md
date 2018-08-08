@@ -28,5 +28,3 @@ dcos edgelb [<flags>] [OPTIONS] [<args> ...]
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   | Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   | Name of the service instance to query. |
-
-# Child commands

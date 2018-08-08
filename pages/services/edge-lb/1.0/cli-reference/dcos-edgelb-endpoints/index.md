@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Returns a list of all endpoints for a pool. The internal ip address and ports for a pool can be found with this command.
+The `dcos edgelb endpoints` command returns a list of all endpoints for a pool. The internal ip address and ports for a pool can be found with this command.
 
 
 # Usage
@@ -22,7 +22,7 @@ dcos edgelb endpoints [<flags>] <pool-name>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |

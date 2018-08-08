@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Uninstalling Edge-LB
 title: Uninstalling Edge-LB
 menuWeight: 20
-excerpt: Uninstalling the Edge-LB package 
+excerpt: Uninstalling the Edge-LB package
 
 enterprise: false
 ---

@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Shows the pool definition for a given pool name. If pool-name is omitted, all pool configurations are shown.
+The `dcos edgelb show` command shows the pool definition for a given pool name. If pool-name is omitted, all pool configurations are shown.
 
 # Usage
 
@@ -21,14 +21,14 @@ dcos edgelb show [<flags>] [<pool-name>]
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |
 | `--custom-dcos-url=DCOS_URI/DCOS_URL`   | Specify a custom cluster URL to use when querying a service. |
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   | Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   | Name of the service instance to query. |
-| `--reference` | Print the configuration reference. |
+| `--reference` | Display the configuration reference. |
 | `--convert-to-json=<pool-file>` | Converts local YAML file to JSON. |
 | `--json` | Show unparsed JSON response. |
 

@@ -17,7 +17,7 @@ The tables below describe all possible configuration options. The majority of fi
 - If a default is not set, it will be left empty, even for objects.
 - Set defaults in the object that is furthest from the root object.
 - Always set a default for arrays.
-- The purpose of "nullable" is to allow the output JSON field to be set to the golang "zero value". Without "nullable", the field will be removed altogether from the resulting JSON.
+- The purpose of "nullable" is to allow the output JSON field to be set to the `golang` "zero value". Without "nullable", the field will be removed altogether from the resulting JSON.
 - Actual validation is done in the code, not expressed in swagger.
 - Since an empty boolean is interpreted as "false", do not set a default.
 - Use CamelCase.
@@ -28,7 +28,7 @@ The tables below describe all possible configuration options. The majority of fi
 The pool contains information on resources that the pool needs. Changes made to this section will relaunch the tasks.
 | Key                         | Type     |  Nullable   |  Properties     | Description    |
 | --------------------------- | -------- | ----------- | --------------  | -------------- |
-| apiVersion                  | string   |             |                 | The api / schema version of this pool object. Should be V2 for new pools. |
+| apiVersion                  | string   |             |                 | The api/schema version of this pool object. Should be V2 for new pools. |
 | name                        | string   |             |                 | The pool name. |
 | namespace                   | string   |  true       |                 | The DC/OS space (sometimes also referred to as a "group"). |
 | packageName                 | string   |             |                 |                |
