@@ -1,0 +1,46 @@
+# Common values:
+
+packageName: beta-confluent-kafka
+serviceName: beta-confluent-kafka
+techName: Beta Confluent Kafka
+techShortName: Kafka
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: three
+  nodeDescription: with three brokers
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/beta-confluent-kafka/kafka-auth/
+
+managing:
+  podType: kafka
+  taskType: broker
+
+supportedVersions:
+  techExampleVersion: 0.11.0.2
+  techLink: "[Confluent Kafka](https://www.confluent.io/)"
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
+
+kerberos:
+  spn: example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory
+  upn: example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+  principal: example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+
+# Values specific to Kafka's own docs content:
+
+kafka:
+  zookeeperPackageName: confluent-zookeeper
+  zookeeperServiceName: confluent-zookeeper
+  zookeeperTechName: Confluent Zookeeper
+
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    └─ broker (serial strategy) (COMPLETE)
+       ├─ kafka-0:[broker] (COMPLETE)
+       ├─ kafka-1:[broker] (COMPLETE)
+       └─ kafka-2:[broker] (COMPLETE)
