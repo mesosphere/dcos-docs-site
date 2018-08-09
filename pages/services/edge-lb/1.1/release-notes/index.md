@@ -51,7 +51,7 @@ $ git shortlog v1.0.3..HEAD
 ## Known Limitations
 
 * Edge-LB does not currently support `Disabled` security mode.
-* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but does work in DC/OS 1.11 strict mode.
+* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but supports Strict security mode in DC/OS 1.11.
 * Edge-LB does not currently support self-service configuration; all configuration must be handled centrally.
 
 ## Known Issues
