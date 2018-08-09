@@ -27,13 +27,13 @@ dcos package install minio
 
 [<img src="../img/Catalog_Service_View.png" alt="Catalog Service View"/>](../img/Catalog_Service_View.png)
 
-[<img src="../img/Node_Count.png" alt="Node Count"/>](../img/Node_Count.png)
+[<img src="../img/Node_Count1.png" alt="Node Count"/>](../img/Node_Count1.png)
 
-[<img src="../img/Port_Change.png" alt="Port Configure"/>](../img/Port_Change.png)
+[<img src="../img/Port_Change1.png" alt="Port Configure"/>](../img/Port_Change1.png)
 
-[<img src="../img/Running_Stage.png" alt="Running Stage"/>](../img/Running_Stage.png)
+[<img src="../img/Running_Stage1.png" alt="Running Stage"/>](../img/Running_Stage1.png)
 
-[<img src="../img/Successful_Execution.png" alt="Successful Execution"/>](../img/Successful_Execution.png)
+[<img src="../img/Successful_Execution1.png" alt="Successful Execution"/>](../img/Successful_Execution1.png)
 
 
 
@@ -199,4 +199,4 @@ Follow the same steps as mentioned above to configure EdgeLB with TLS configurat
 Minio server can be accessed using Minio client by registering it to the Minio Server. To register Minio client, specify the public IP of the Public Agent running EdgeLB.
 
 For more details on Minio Client, refer to the link:
-   https://docs.minio.io/docs/minio-client-complete-guide.html
+   [minio-client-complete-guide](https://docs.minio.io/docs/minio-client-complete-guide.html)
