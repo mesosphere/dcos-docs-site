@@ -22,12 +22,14 @@ Release notes for Edge-LB.
   - template must not specify the daemon option
   - template must specify the `expose-fd listeners` parameter in the `stats socket` option
 - Edge-Lb now uses the default CLI packages from the DC/OS SDK `edgelb-pool` cli subcommand. Compared to edge-lb native packages, they do not support the `version` subcommand.
+- provide `mesosAuthNZ` package install option, which when set to `false` enables EdgeLB to run on DC/OS 1.10 clusters in `disabled` security mode.
 
+Released on 9th of August 2018.
 
 Shortlist:
 
 ```
-$ git shortlog v1.0.3..HEAD | cat
+$ git shortlog v1.0.3..HEAD
       sdk: Update SDK buildchain to 0.42.1
       sdk: replace stub cli for edgelb-pool with a default one
       sdk: Use SDK version in build.gradle from the env, localize it to `framework/` dir
@@ -41,6 +43,9 @@ $ git shortlog v1.0.3..HEAD | cat
       Update haproxy to 1.8.12
       Be more verbose with logging in order to boost debugging
       Use instance with more IOPS when running integration tests
+      Do not wait for haproxy to finish reloading/for long-running connections
+      Disable gosec linter
+      Permit for disabling of Mesos Authorization via package-install option
 ```
 
 ## Known Limitations
