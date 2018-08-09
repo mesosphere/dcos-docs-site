@@ -91,7 +91,6 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) are [here
 | [adminrouter_tls_cipher_suite](#adminrouter-tls-cipher-suite)    | Override the default TLS cipher suite in Admin Router. |
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. [enterprise type="inline" size="small" /] |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | Sets the auth token time-to-live (TTL) for Identity and Access Management. [enterprise type="inline" size="small" /]|
-| [customer_key](#customer-key-enterprise)                       | Required - The DC/OS Enterprise customer key. [enterprise type="inline" size="small" /] |
 | ca_certificate_path                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
@@ -232,19 +231,6 @@ The dictionary of packaging configuration to pass to the [DC/OS package manager]
   Where to permanently store DC/OS packages. The value must be a file URL, for example, `file:///var/lib/dcos/cosmos/packages`.
 * `staged_package_storage_uri`
    Where to temporarily store DC/OS packages while they are being added. The value must be a file URL, for example, `file:///var/lib/dcos/cosmos/staged-packages`.
-
-## customer_key (Required) [enterprise type="inline" size="small" /] 
-The DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact.
-
-This key is a 128-bit hyphen-delimited hexadecimal identifier used to distinguish an individual cluster. The customer key serves as the Universally Unique Identifier (UUID) for a given installation.
-
-Customer keys look like this:
-
-```
-ab1c23de-45f6-7g8h-9012-i345j6k7lm8n
-```
-
-For more information, see the [security documentation](/1.11/security/ent/).
 
 ## custom_checks
 Custom installation checks that are added to the default check configuration process. The configuration is used by the [DC/OS Diagnostics component](/1.11/overview/architecture/components/#dcos-diagnostics) to perform installation and upgrade checks. These custom checks are run alongside the default pre- and post-flight checks during installation and upgrade.
