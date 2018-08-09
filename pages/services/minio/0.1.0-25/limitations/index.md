@@ -23,7 +23,7 @@ To prevent accidental data loss, the service does not support reducing the numbe
 
 ## Scaling Out
 
-Minio does not support horizontal scaling i.e., if minio cluster has started with eight minio servers then ninth minio server cannot be added to the minio cluster.
+Minio does not support horizontal scaling i.e., if Minio cluster has started with eight Minio servers then ninth Minio server cannot be added to the Minio cluster.
 
 ## Disk Changes
 

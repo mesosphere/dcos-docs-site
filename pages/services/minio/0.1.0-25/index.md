@@ -12,16 +12,16 @@ DC/OS Minio Service is an automated service that makes it easy to deploy and man
 
 ## Benefits
 DC/OS Minio offers the following benefits :
-1. Designed for reliability
-2. Easily configurable to support all Minio design patterns
-3. Auto self health monitoring with provision for corrective action
-4. Flexible design to suit design requirement (with/without Alertmanager)
-5. Supports wide range of integration for data collection,persistence, notification and dashboarding
+1. Minio is a lightweight object storage server.
+2. Minio deploys Amazon S3 compatible object storage server in seconds.
+3. Provides Consistent deployment across multi-cloud environments.
+4. Provides object storage API access to Docker volumes.
 
-DC/OS Minio's main features are:
-1. Multi-dimensional data model with time series data identified by metric name and key/value pairs
-2. Flexible query language to leverage this dimensionality
-3. No reliance on distributed storage; single server nodes are autonomous
-4. Time series collection happens via a pull model over HTTP
-5. Targets are discovered via service discovery or static configuration
-6. Multiple modes of graphing and dashboarding support
+## DC/OS Minio's main features are:
+1. Erasure Code: Minio protects data against hardware failures and silent data corruption using erasure code and checksums.
+2. Bit rot protection: Bit Rot, also known as data rot or silent data corruption is a data loss issue faced by disk drives today.
+3. Bucket Notification Service: Minio provides a bucket notification service. Events occurring on objects in a bucket can be monitored using bucket event notifications.
+4. Gateway: Minio adds Amazon S3 compatibility to Azure Blob Storage, GCP and NAS.
+5. Large Bucket Support: It allows a single Minio bucket to expand over multiple erasure code deployment sets. 
+6. Disk Cache: Disk caching feature refers to the use of caching disks to store content closer to the tenants. 
+7. Monitoring: Minio server exposes monitoring data over un-authenticated endpoints so monitoring tools can pick the data without you having to share Minio server credentials.
