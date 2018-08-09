@@ -32,7 +32,7 @@ Perform an Edge-LB upgrade by following this procedure.
       https://<AWS S3 bucket>/stub-universe-edgelb-pool.json
     ```
 
-1. Install the new `apiserver`. Use the service account created when installing the previous version; see [Edge-LB Installation Guide](/services/edge-lb/1.0/installing) for more information.
+1. Install the new `apiserver`. Use the service account created when installing the previous version; see [Edge-LB Installation Guide](/services/edge-lb/1.1/installing) for more information.
 
     ```bash
     tee edgelb-options.json <<EOF
@@ -46,6 +46,11 @@ Perform an Edge-LB upgrade by following this procedure.
     EOF
     dcos package install --options=edgelb-options.json edgelb
     ```
+
+EdgeLB also needs the following options to be specified. Their values depend on the security mode of the cluster it is running on:
+
+* `service.mesosProtocol`: `"https"` for Permissive and Strict security modes, `"http"` (default) for Disabled security mode
+* `service.mesosAuthNZ`: `true` (default) for Permissive and Strict security modes, `false` for Disabled security mode. Parameter is available begining version v1.1.
 
 
 Upgrade each pool.
