@@ -28,9 +28,13 @@ Here we discuss Marathon-LB as an edge load balancer and as an internal and exte
 
 ![lb1](/1.10/img/lb1.png)
 
+Figure 1. Marathon-LB as load balancer
+
 ## Marathon-LB as an internal and external load balancer
 
 ![lb7](/1.10/img/lb7.jpg)
+
+Figure 2. Marathon-LB as internal and external load balancer
 
 ## Learn More
 More information for Marathon-LB can be found on the GitHub page.
