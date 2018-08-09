@@ -20,6 +20,7 @@ The following is the boot sequence of DC/OS component services on each master no
 1. Exhibitor starts
     1. Creates ZooKeeper configuration and launches ZooKeeper
 1. CockroachDB [enterprise type="inline" size="small" /]
+    1. Stores all identity and access management policies
 1. Networking components start
     1. Handles internal DNS translation
     1. Forwards .mesos DNS lookups to Mesos-DNS
