@@ -21,7 +21,8 @@ The following is the boot sequence of DC/OS component services on each master no
     1. Creates ZooKeeper configuration and launches ZooKeeper
 1. CockroachDB [enterprise type="inline" size="small" /]
 1. Networking components start
-    1. Forwards DNS lookups to Mesos-DNS
+    1. Handles internal DNS translation
+    1. Forwards .mesos DNS lookups to Mesos-DNS
     1. Initializes VIP translation
     1. Initializes overlay network
 1. Mesos Master starts
@@ -55,7 +56,8 @@ The following is the boot sequence of DC/OS component services on each master no
 The following is the boot sequence of DC/OS components on each agent node.
 
 1. Networking components start
-    1. Forwards DNS lookups to Mesos-DNS
+    1. Handles internal DNS translation
+    1. Forwards .mesos DNS lookups to Mesos-DNS
     1. Initializes VIP translation
     1. Initializes overlay network
 1. Mesos Agent starts
