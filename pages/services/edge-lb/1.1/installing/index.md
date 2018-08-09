@@ -13,7 +13,7 @@ To configure a service account and install the Edge-LB package, use the instruct
 
 - [DC/OS CLI is installed](/latest/cli/install/)
 - You are logged in as a superuser.
-- The [DC/OS Enterprise CLI is installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/).
+- The [DC/OS Enterprise CLI is installed](/latest/cli/enterprise-cli/).
 - You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 **Limitations**
@@ -85,10 +85,10 @@ cp -rpv stub-repo/packages/* ../../repo/packages
 6. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
 
     ```bash
-    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.0.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
+    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.1.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
     ```
 
-7.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
+7.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
 
 
 # Create a service account
@@ -183,7 +183,7 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id fu
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
 ```
 
-For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.0/permissions)
+For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.1/permissions)
 
 # <a name="create-json"></a>Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file will be passed to DC/OS when you install Edge-LB.
@@ -199,14 +199,17 @@ In the file, specify the service account secret (`dcos-edgelb/edge-lb-secret`) t
   }
 }
 ```
+EdgeLB also needs the following options to be specified. Their values depend on the security mode of the cluster it is running on:
+
+* `service.mesosProtocol`: `"https"` for Permissive and Strict security modes, `"http"` (default) for Disabled security mode
+* `service.mesosAuthNZ`: `true` (default) for Permissive and Strict security modes, `false` for Disabled security mode. Parameter is available begining version v1.1.
 
 Other useful configurable service parameters include:
 
-* `service.name`: `"dcos-edgelb/api"`. The service path for the `apiserver`. `dcos-edgelb` corresponds to `pool.namespace` when [configuring pools](/services/edge-lb/1.0/pool-configuration/).
+* `service.name`: `"dcos-edgelb/api"`. The service path for the `apiserver`. `dcos-edgelb` corresponds to `pool.namespace` when [configuring pools](/services/edge-lb/1.1/pool-configuration/).
 * `service.logLevel`: `"info"`. Can be one of `debug`, `info`, `warn`, or `error`
-* `service.cpus`: `1.0`
+* `service.cpus`: `1.1`
 * `service.mem`: `1024`
-* `service.mesosProtocol`: `"https"` (default) for Permissive and Strict security modes, `"http"` for Disabled security mode
 
 Save the file with a meaningful name, such as `edge-lb-options.json`. Keep this file in source control so that you can quickly update your configuration at a later time.
 
@@ -229,5 +232,5 @@ You should receive this message when ready:
 pong
 ```
 
-- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.0/pool-configuration) section.
-- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.0/cli-reference).
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.1/pool-configuration) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.1/cli-reference).
