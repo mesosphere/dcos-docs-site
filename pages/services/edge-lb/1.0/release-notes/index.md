@@ -24,7 +24,7 @@ Release notes for Edge-LB.
 - Edge-Lb now uses the default CLI packages from the DC/OS SDK `edgelb-pool` cli subcommand. Compared to edge-lb native packages, they do not support the `version` subcommand.
 - provide `mesosAuthNZ` package install option, which when set to `false` enables EdgeLB to run on DC/OS 1.10 clusters in `disabled` security mode.
 
-Released on 9th of August 2018.
+Released on 9 August 2018.
 
 Shortlist:
 
