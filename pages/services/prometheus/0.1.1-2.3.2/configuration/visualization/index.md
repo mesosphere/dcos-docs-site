@@ -11,26 +11,26 @@ enterprise: false
 
 # Visualization
   1. DC/OS Grafana
-  2. DC/OS Prometheus Expression Browser
+  1. DC/OS Prometheus Expression Browser
 
 ### DC/OS Grafana :
 
   DC/OS Grafana supports Prometheus for dashboarding and querying.
 
-### Prerequisite
+### Prerequisites
 
-  1. Install Grafana from either the DC/OS catalogue or the CLI.
-  1. Install Prometheus service either from the DC/OS catalogue or the CLI.
-  1. Ensure that your Prometheus service and Grafana service are up and running before you proceed further.
+- Install Grafana either from the DC/OS catalogue or the CLI.
+- Install Prometheus service either from the DC/OS catalogue or the CLI.
+- Ensure that your Prometheus service and Grafana service are up and running before you proceed further.
 
 
-### Accessing Grafana and Creating Prometheus Data Source:
+### Accessing Grafana and creating Prometheus data source:
 
 ### Create a Prometheus data source:
 
 1. Navigate to Grafana site with `http://<public ip of your cluster >:13000`
 
-1. Log in with default login "admin" / "admin".
+1. Log in with default login "admin"/"admin".
 
 1. Click on the Grafana logo to open the sidebar menu.
 
@@ -48,13 +48,13 @@ enterprise: false
 
 ### Creating a Prometheus graph
 
-1. Click on **Home -> Dashboard-> New Dashboard -> Panel Title -> Edit**. Change the Panel Title and description.
+1. Click on **Home -> Dashboard -> New Dashboard -> Panel Title -> Edit**. Change the Panel Title and description.
 1. Under the "Metrics" tab, select your Prometheus data source (bottom right).
-1. Enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
+1. Enter any Prometheus expression into the "Query" field, while using the "Metric" field to look up metrics via autocompletion.
 1. To format the legend names of time series, use the "Legend format" input.
 
-### Prometheus Expression Browser
+### Prometheus expression browser
 
   The DC/OS Prometheus Service has an expression browser that may be accessed from outside the cluster. The expression browser is available at `/graph` on the Prometheus server, allowing you to enter any expression and see its result, either in a table or graphed over time.
 
-This is primarily useful for ad-hoc queries and debugging. The Prometheus expression browser should be accessed via Edge-LB.
+This is primarily useful for ad-hoc queries and debugging. The Prometheus expression browser should be accessed via [Edge-LB](/services/edge-lb/).
