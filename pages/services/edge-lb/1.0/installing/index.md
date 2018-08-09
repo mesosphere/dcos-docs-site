@@ -199,6 +199,10 @@ In the file, specify the service account secret (`dcos-edgelb/edge-lb-secret`) t
   }
 }
 ```
+EdgeLB also needs the following options to be specified. Their values depend on the security mode of the cluster it is running on:
+
+* `service.mesosProtocol`: `"https"` for Permissive and Strict security modes, `"http"` (default) for Disabled security mode
+* `service.mesosAuthNZ`: `true` (default) for Permissive and Strict security modes, `false` for Disabled security mode. Parameter is available begining version v1.1.
 
 Other useful configurable service parameters include:
 
@@ -206,7 +210,6 @@ Other useful configurable service parameters include:
 * `service.logLevel`: `"info"`. Can be one of `debug`, `info`, `warn`, or `error`
 * `service.cpus`: `1.0`
 * `service.mem`: `1024`
-* `service.mesosProtocol`: `"https"` (default) for Permissive and Strict security modes, `"http"` for Disabled security mode
 
 Save the file with a meaningful name, such as `edge-lb-options.json`. Keep this file in source control so that you can quickly update your configuration at a later time.
 
