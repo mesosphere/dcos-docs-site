@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Limitations
 title: Limitations
 menuWeight: 100
 model: /services/kafka-zookeeper/data.yml
