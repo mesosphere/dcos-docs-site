@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Security
 title: Security
 menuWeight: 50
 model: /services/kafka-zookeeper/data.yml
