@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Installation and deployment 
 title: Getting Started
 menuWeight: 10
 model: /services/kafka-zookeeper/data.yml
