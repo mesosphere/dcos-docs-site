@@ -2,10 +2,14 @@
 layout: layout.pug
 title: Configuring DC/OS Access for Cassandra
 menuWeight: 270
-excerpt:
+excerpt: Configuring DC/OS Access for versions before 2.3.0-3.0.16
 featureMaturity:
 enterprise: true
 ---
+# Versions
+In Cassandra 2.3.0-3.0.16 and later, these topics have been divided up among the [Getting Started](/services/cassandra/2.3.0-3.0.16/getting-started/) and [Security](/services/cassandra/2.3.0-3.0.16/security/) sections. Previous versions will still need the information below.
+
+# Configuring DC/OS Access
 
 This topic describes how to configure DC/OS access for Cassandra. Depending on your [security mode](/1.9/security/ent/#security-modes/), Cassandra requires [service authentication](/1.10/security/ent/service-auth/) for access to DC/OS.
 
