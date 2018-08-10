@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: REST API reference
 title: API Reference
 menuWeight: 90
 model: /services/kafka-zookeeper/data.yml
