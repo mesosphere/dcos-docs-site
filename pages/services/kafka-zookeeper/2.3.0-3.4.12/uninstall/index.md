@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Uninstalling your service
 title: Uninstall
 menuWeight: 60
 model: /services/kafka-zookeeper/data.yml
