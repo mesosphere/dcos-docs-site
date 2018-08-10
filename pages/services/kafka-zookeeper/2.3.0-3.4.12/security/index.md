@@ -14,7 +14,7 @@ The DC/OS {{ model.techName }} service supports ZooKeeper's native Kerberos auth
 
 An overview of the Apache ZooKeeper Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
 
-**Note:** These security features are only available on DC/OS Enterprise 1.10 and above.
+**Note:** These security features are only available on DC/OS Enterprise 1.10 and later.
 
 ## Authentication
 
