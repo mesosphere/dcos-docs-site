@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Release notes for 2.3.0-3.4.12
 title: Release Notes
 menuWeight: 120
 model: /services/kafka-zookeeper/data.yml
