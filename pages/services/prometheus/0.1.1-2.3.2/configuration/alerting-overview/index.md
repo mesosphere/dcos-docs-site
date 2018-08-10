@@ -85,7 +85,7 @@ global:
  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
  # scrape_timeout is set to the global default (10s).# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
+# Here it is Prometheus itself.
 scrape_configs:
  - job_name: 'dcos-metrics'    # All master nodes are available at master.mesos via their A record
    dns_sd_configs:
@@ -163,7 +163,7 @@ To configure PagerDuty with Alertmanager :
 
 3. Click “+ Add New Service”:
 
-4. Note down the Integration Key:
+4. Note down the Integration Key.
 
 Here is a sample configuration for adding a PagerDuty setup to the Alertmanager configuration yml.
 

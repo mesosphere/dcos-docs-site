@@ -8,17 +8,17 @@ featureMaturity:
 enterprise: false
 ---
 
-# Service Discovery configuration templates :
-Prometheus DC/OS offers the following service discovery mechanism: service discovery can be configured along with the default Prometheus configuration. You would use the following templates to pass along a default Prometheus configuration using the Prometheus yml.   
+# Service Discovery configuration templates
+Prometheus DC/OS service discovery can be configured along with the default Prometheus configuration. You can use the following templates to pass along a default Prometheus configuration using the Prometheus yml.   
 
 ## Consul_sd_config
 
-Consul SD configurations allow you to retrieve scrape targets from Consul's Catalog API. Finding targets happens in two stages.
+Consul SD configurations allow you to retrieve scrape targets from Consul's Catalog API. Finding targets requires two stages.
 
-- First, a service discovery method such as Consul returns potential targets with metadata.
-- Second, relabelling allows you to choose which of those targets you want to scrape, and how to convert the metadata into target labels.
+1. A service discovery method such as Consul returns potential targets with metadata.
+1. Relabelling allows you to choose which of those targets you want to scrape, and how to convert the metadata into target labels.
 
-Let's say you wanted to monitor all services with a `prod` tag and use the Consul service name as the job label. Your scrape configuration would look like:
+If you want to monitor all services with a `prod` tag and use the Consul service name as the job label, your scrape configuration would look like this:
 
 Template for consul sd config :
 
@@ -37,13 +37,13 @@ scrape_configs:
         target_label: job
 
 ```
-The first relabel action says to keep processing only those targets which have a `prod` tag. Prometheus exposes the Consul tags as a comma separated list in the label called `__meta_consul_tags`, with leading and trailing commas added for convenience.
+The first relabel action reserves processing only to those targets which have a `prod` tag. Prometheus exposes the Consul tags as a comma separated list in the label called `__meta_consul_tags`, with leading and trailing commas added for convenience.
 
-The second relabel action says to copy the service name from the `__meta_consul_service` label to the job label. This is done to take advantage of the default values for relabel actions, as a straight copy from one label to another is common.
+The second relabel action copies the service name from the `__meta_consul_service` label to the job label. This action takes advantage of the default values for relabel actions, as a straight copy from one label to another is common.
 
 ## Dns_sd_condig
 
-A DNS-based service discovery configuration allows you to specify a set of DNS domain names which are periodically queried to discover a list of targets. This service discovery method only supports basic DNS A, AAAA and SRV record queries,
+A DNS-based service discovery configuration allows you to specify a set of DNS domain names which are periodically queried to discover a list of targets. This service discovery method only supports basic DNS A, AAAA and SRV record queries.
 
 Default `dns sd` configuration in `dcos prometheus`:
 
