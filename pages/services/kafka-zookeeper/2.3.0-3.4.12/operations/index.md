@@ -24,6 +24,6 @@ This command puts you in your Mesos sandbox in an interactive bash environment. 
 
 ## Restore
 
-To restore a cluster to a particular state, pause all zookeeper pods, restore the latest (or desired) log file to the `zookeeper-log-path`, and resume all zookeeper pods.
+To restore a cluster to a particular state, pause all ZooKeeper pods, restore the latest (or desired) log file to the `zookeeper-log-path`, and resume all ZooKeeper pods.
 
-It is best practice to keep 3-5 of the latest, desired log files in case the restored log file restores the ensemble to an invalid state with ephemeral nodes. You can update ZooKeeper-specific configurations like `autopurge.Interval` to manage the purging of superfluous files.
+It is best practice to keep three to five of the latest, desired log files in case the restored log file restores the ensemble to an invalid state with ephemeral nodes. You can update ZooKeeper-specific configurations like `autopurge.Interval` to manage the purging of superfluous files.
