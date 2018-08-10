@@ -24,7 +24,7 @@ The DC/OS Minio Service is engineered and tested to work with a specific release
 
 ### Support Email of DCOS Minio Package
 
-[Email:  hello@minio.io](mailto: hello@minio.io)
+mailto: hello@minio.io
 
 ### Mesosphere DC/OS
 

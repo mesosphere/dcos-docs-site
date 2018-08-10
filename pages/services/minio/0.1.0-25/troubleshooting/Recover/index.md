@@ -10,21 +10,18 @@ enterprise: false
 
 # Recover
 
-The DC/OS Minio Service allows you to heal disks, buckets and objects on minio server.
+The DC/OS Minio Service let's you heal buckets and objects on the Minio server as in case of disk/node failure, the Minio cluster is required to be healed if fresh disks are added to the Minio cluster. 
 
-This plan can be executed with the following command:
+'recover' plan can be executed with the following command:
 ```shell
 {
  dcos minio --name=<service_name> plan start recover
 }
 ```
-The Minio recover plan will be performed using below mentioned task:
+The Minio recover plan will be launching below mentioned task:
 
-1. `Recover Task` -  Recover task is responsible to heal the whole disk in case of node killed or node failure. A Recover task will run the ‘mc heal’ command.
+1. `Recover Task` -  Recover task is responsible to heal buckets and objects in case of disk/node failure. 'recover' task will run the ‘mc heal’ command.
 
 [<img src="../../img/Recover.png" alt="Recover" width="800"/>](../../img/Recover.png)
 
-   _Figure 1. - Recovering the disk
-   
-Users can execute Recover task by launching the recover plan. This plan would execute all the aforementioned tasks serially. 
-
+   _Figure 1. - Recovering the disk 

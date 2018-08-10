@@ -18,7 +18,7 @@ enterprise: false
 
 # Configure Transport Encryption
 
-See the [Guide to Configuring DC/OS Access for Minio](../../security/index.md).
+See the [Security Section](../../security), to configure Service Account and Service Account Secret. Configuring TLS in DC/OS requires a Service Account and Service Account Secret.
 
 Grant the service account the correct permissions.
 
