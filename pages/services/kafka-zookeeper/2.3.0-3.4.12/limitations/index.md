@@ -10,7 +10,7 @@ render: mustache
 
 ## Node Count
 
-Only 3 or 5 ZooKeeper nodes are allowed. The value may not be changed after deployment.
+Only three or five ZooKeeper nodes are allowed. The value may not be changed after deployment.
 
 ## Updating ZooKeeper settings
 Reconfiguration of certain ZooKeeper settings is not allowed after deployment:
