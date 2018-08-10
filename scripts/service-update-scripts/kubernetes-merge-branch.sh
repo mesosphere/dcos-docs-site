@@ -2,7 +2,7 @@
 
 # sed needs different args to -i depending on the flavor of the tool that is installed
 sedi () {
-    sed --version >/dev/null 2>&1 && sed -i -- "$@" || sed -i "" "$@"
+    sed --version >/dev/null 2>&1 && sed -i "$@" || sed -i "" "$@"
 }
 
 echo "------------------------------"
