@@ -21,10 +21,10 @@ Released on 9 August 2018.
 - Stability, debuggability and reliability improvements in the pool server code.
 - The size of the pool container was reduced to 100MB from ~250MB
 - Transition to Master/Worker mode in HAProxy running on the pool server. If custom configuration templates are used, then they must be updated. Namely:
-  - template must not specify the daemon option
+  - template must not specify the `daemon` option
   - template must specify the `expose-fd listeners` parameter in the `stats socket` option
-- Edge-Lb now uses the default CLI packages from the DC/OS SDK `edgelb-pool` cli subcommand. Compared to edge-lb native packages, they do not support the `version` subcommand.
-- provide `mesosAuthNZ` package install option, which when set to `false` enables EdgeLB to run on DC/OS 1.10 clusters in `disabled` security mode.
+- Edge-LB now uses the default CLI packages from the DC/OS SDK `edgelb-pool` CLI subcommand. Compared to `edge-lb` native packages, they do not support the `version` subcommand.
+- Provided `mesosAuthNZ` package install option, which when set to `false` enables Edge-LB to run on DC/OS 1.10 clusters in `disabled` security mode.
 
 Shortlist:
 
@@ -50,12 +50,11 @@ $ git shortlog v1.0.3..HEAD
 
 ## Known Limitations
 
-* Edge-LB does not currently support `Disabled` security mode.
-* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but supports Strict security mode in DC/OS 1.11.
+* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
 * Edge-LB does not currently support self-service configuration; all configuration must be handled centrally.
 
 ## Known Issues
 
-* The steps presented in the UI to uninstall Edge-LB are currently incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.1/uninstalling/).
+* The steps presented in the UI to uninstall Edge-LB are incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.1/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
