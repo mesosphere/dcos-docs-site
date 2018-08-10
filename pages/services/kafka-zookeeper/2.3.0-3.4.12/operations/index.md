@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Managing, repairing, and monitoring the service
 title: Operations
 menuWeight: 30
 model: /services/kafka-zookeeper/data.yml
