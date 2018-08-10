@@ -17,12 +17,15 @@ The DC/OS Diagnostics service monitors component service and node health. A node
 
 The following is the boot sequence of DC/OS component services on each master node.
 
-1. DC/OS Diagnostics starts
-    1. Polls systemd for component status
-    1. Reports node unhealthy until all components (systemd services) are healthy
-    1. Reports cluster unhealthy until all master nodes are healthy
 1. Exhibitor starts
     1. Creates ZooKeeper configuration and launches ZooKeeper
+1. CockroachDB [enterprise type="inline" size="small" /]
+    1. Stores all identity and access management policies
+1. Networking components start
+    1. Handles internal DNS translation
+    1. Forwards .mesos DNS lookups to Mesos-DNS
+    1. Initializes VIP translation
+    1. Initializes overlay network
 1. Mesos Master starts
     1. Registers with local ZooKeeper
     1. Discovers other Mesos Masters from ZooKeeper
@@ -30,17 +33,6 @@ The following is the boot sequence of DC/OS component services on each master no
 1. Mesos-DNS starts
     1. Discovers leading Mesos Master (from zk or local mesos-master?)
     1. Polls leading Mesos Master for cluster state
-1. Networking components start
-    1. Forwards DNS lookups to Mesos-DNS
-    1. Initializes VIP translation
-    1. Initializes overlay network
-1. Container orchestration components start
-    1. Registers with local ZooKeeper
-    1. Elects a leading master
-    1. Discovers leading Mesos Master from Mesos-DNS
-    1. Leader registers with leading Mesos Master
-1. Logging and Metrics components start
-1. Security components start
 1. Admin Router starts
     1. Discovers leading Mesos Master from Mesos-DNS
     1. Discovers leading Marathon from Mesos-DNS
@@ -48,28 +40,40 @@ The following is the boot sequence of DC/OS component services on each master no
     1. Proxies API and GUI traffic to discovered components
     1. Proxies admin service traffic to DC/OS services
     1. Serves DC/OS GUI
+1. Container orchestration components start
+    1. Registers with local ZooKeeper
+    1. Elects a leading master
+    1. Discovers leading Mesos Master from Mesos-DNS
+    1. Leader registers with leading Mesos Master
+1. DC/OS Diagnostics starts
+    1. Polls systemd for component status
+    1. Reports node unhealthy until all components (systemd services) are healthy
+    1. Reports cluster unhealthy until all master nodes are healthy
+1. Logging and Metrics components start
+1. Security components start
 
 ## Agent nodes
 
 The following is the boot sequence of DC/OS components on each agent node.
 
-1. DC/OS Diagnostics starts
-    1. Polls systemd for component status
-    1. Reports node unhealthy until all components (systemd services) are healthy
+1. Networking components start
+    1. Handles internal DNS translation
+    1. Forwards .mesos DNS lookups to Mesos-DNS
+    1. Initializes VIP translation
+    1. Initializes overlay network
 1. Mesos Agent starts
     1. Discovers leading Mesos Master from ZooKeeper
     1. Registers with leading Mesos Master
     1. Leading Mesos Master connects to the new agent using registered agent IP
     1. Leading Mesos Master starts offering the new agent's resources to schedulers for new tasks
     1. New DC/OS node become visible in the DC/OS API, GUI, and CLI
-1. Networking components start
-    1. Forwards DNS lookups to Mesos-DNS
-    1. Initializes VIP translation
-    1. Initializes overlay network
-1. Logging and Metrics components start
 1. Admin Router Agent starts
     1. Discovers leading Mesos Master from Mesos-DNS
-    1. Proxies internal API traffic to discovered components
+    1. Proxies internal API traffic to discovered components   
+1. DC/OS Diagnostics starts
+    1. Polls systemd for component status
+    1. Reports node unhealthy until all components (systemd services) are healthy
+1. Logging and Metrics components start
 
 ## Services
 
