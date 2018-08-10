@@ -10,11 +10,10 @@ enterprise: false
 
 ## Mount Volume Configuration
 
-With DC/OS you can configure Mesos mount disk resources across your cluster by simply mounting storage resources on agents using a well-known path. When a DC/OS agent initially starts, it scans for volumes that match the pattern /dcos/volumeN, where N is an integer. The agent is then automatically configured to offer these disk resources to other services.
+With DC/OS you can configure Mesos mount disk resources across your cluster by simply mounting storage resources on Agents using a well-known path. When a DC/OS Agent initially starts, it scans for volumes that match the pattern /dcos/volumeN, where N is an integer. The Agent is then automatically configured to offer these disk resources to other services.
 
-A disk resource is added to a DC/OS agent after mounting external volumes to it.
+A disk resource is added to a DC/OS Agent after mounting external volumes to it.
 
-**Note:** Dont mount the volume to the public slave.
 
 Below are the steps to be followed to configure Mount Volume:
   
@@ -43,7 +42,7 @@ Below are the steps to be followed to configure Mount Volume:
   ``` 
   6. Create an external volume.
   
-  7. Attach these volume to the nodes of the cluster.
+  7. Attach these volumes to the nodes of the cluster.
   
   8. Check the name of the device mounted on the respective node of the cluster.
   ```shell
@@ -74,8 +73,8 @@ Below are the steps to be followed to configure Mount Volume:
   ```shell
   sudo reboot
   ```
-  12. SSH to the agent and verify a new resource state.
-      Review the journald logs for references to the new volume /dcos/volume0. In particular, there should be an entry for the   agent starting up and the new volume0 Disk Mount resource.
+  12. SSH to the Agent and verify a new resource state.
+      Review the journald logs for reference to the new volume /dcos/volume0. In particular, there should be an entry for the   agent starting up and the new volume0 Mounted Disk Resource.
   ```shell
   journalctl -b | grep '/dcos/volume0'
 May 05 19:18:40 dcos-agent-public-01234567000001 systemd[1]: Mounting /dcos/volume0...
