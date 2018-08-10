@@ -16,7 +16,8 @@ render: mustache
 
 ## Updates
 - The service now uses Apache ZooKeeper 3.4.12
-  *Note*: Due to a bug in Apache ZooKeeper 3.4.11 used in previous DC/OS Kafka ZooKeeper packages, there is no automated method for downgrading from version `2.3.0-3.4.12` to `2.3.0-3.4.12`.
+
+**Note:** Due to a bug in Apache ZooKeeper 3.4.11 used in previous DC/OS Kafka ZooKeeper packages, there is no automated method for downgrading from version `2.3.0-3.4.12` to `2.3.0-3.4.12`.
 
 ## Bug Fixes
 - The `zookeeper.autopurge_purge_interval` in the configuration options is now used when configuring the system. Previously, the  `zookeeper.autopurge_snap_retain_count` value with a default of 3 was used (#98)
