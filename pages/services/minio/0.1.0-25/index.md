@@ -19,9 +19,9 @@ DC/OS Minio offers the following benefits :
 
 ## DC/OS Minio's main features are:
 1. Erasure Code: Minio protects data against hardware failures and silent data corruption using erasure code and checksums.
-2. Bit rot protection: Bit Rot, also known as data rot or silent data corruption is a data loss issue faced by disk drives today.
+2. Bit rot protection: Minio provides Bit rot protection using HighwayHash algorithm.
 3. Bucket Notification Service: Minio provides a bucket notification service. Events occurring on objects in a bucket can be monitored using bucket event notifications.
 4. Gateway: Minio adds Amazon S3 compatibility to Azure Blob Storage, GCP and NAS.
 5. Large Bucket Support: It allows a single Minio bucket to expand over multiple erasure code deployment sets. 
 6. Disk Cache: Disk caching feature refers to the use of caching disks to store content closer to the tenants. 
-7. Monitoring: Minio server exposes monitoring data over un-authenticated endpoints so monitoring tools can pick the data without you having to share Minio server credentials.
+7. Monitoring: Minio server exposes monitoring data over an unauthenticated endpoints so monitoring tools can pick the data without you having to share Minio server credentials.
