@@ -9,8 +9,10 @@ render: mustache
 ---
 
 #include /services/include/configuration-install-with-options.tmpl
+#include /services/include/configuration-create-json-file.tmpl
 #include /services/include/configuration-service-settings.tmpl
 #include /services/include/configuration-regions.tmpl
+
 
 ## Cassandra Node Settings
 

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Updates and patches
 title: Updates
 menuWeight: 40
 model: /services/cassandra/data.yml

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Limitations on backups, node counts, security.
 title: Limitations
 menuWeight: 100
 model: /services/cassandra/data.yml
@@ -18,7 +18,7 @@ The service does not support performing backup and restore with authentication/a
 
 ## Node Count
 
-The DC/OS {{ model.techName }} Service must be deployed with at least three nodes.
+The DC/OS {{ model.techName }} Service must be deployed with at least {{ model.minNodeCount }} nodes.
 
 ## Security
 

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Uninstalling Cassandra
 title: Uninstall
 menuWeight: 60
 model: /services/cassandra/data.yml

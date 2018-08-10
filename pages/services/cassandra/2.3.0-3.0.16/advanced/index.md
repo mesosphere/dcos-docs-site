@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Advanced features of Cassandra
 title: Advanced
 menuWeight: 80
 model: /services/cassandra/data.yml
