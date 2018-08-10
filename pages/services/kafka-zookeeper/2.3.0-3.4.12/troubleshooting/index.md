@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Troubleshooting
 title: Troubleshooting
 menuWeight: 70
 model: /services/kafka-zookeeper/data.yml
