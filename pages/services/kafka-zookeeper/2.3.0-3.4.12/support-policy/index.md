@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 title: Support Policy
 menuWeight: 110
-excerpt:
+excerpt: Support policies
 model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
