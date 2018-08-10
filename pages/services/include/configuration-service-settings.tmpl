@@ -19,14 +19,14 @@ Clusters change, and as such so will your placement constraints. However, alread
 
 ### Zones
 
-**Requires:** DC/OS 1.11 Enterprise or above.
+**Requires:** DC/OS 1.11 Enterprise or later.
 
 Placement constraints can be applied to DC/OS zones by referring to the `@zone` key. For example, one could spread pods across a minimum of 3 different zones by including this constraint:
 ```
 [["@zone", "GROUP_BY", "3"]]
 ```
 
-**Note:** A service installed _without_ a zone constraint cannot be updated to have one, and a service installed with a zone constraint may not have it removed.
+**Caution:** A service installed without a zone constraint cannot be updated to have one, and a service installed with a zone constraint may not have it removed.
 
 ### Virtual networks
 

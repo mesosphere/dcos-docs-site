@@ -1,6 +1,6 @@
 # Advanced
 
-Advanced concerns of the DC/OS {{ model.techName }} service.
+Advanced features of the DC/OS {{ model.techName }} service.
 
 ## Components
 
@@ -20,7 +20,7 @@ The following components work together to deploy and maintain the DC/OS {{ model
 
 - Marathon
 
-  Marathon is the "init system" of a DC/OS cluster. Marathon launches tasks in the cluster and keeps them running. From the perspective of Mesos, Marathon is itself another Scheduler running its own tasks. Marathon is more general than the DC/OS {{ model.techName }} scheduler and mainly focuses on tasks that do not require managing a local persistent state. The DC/OS {{ model.techName}} service relies on Marathon to run the Scheduler and to provide it with a configuration via environment variables. The Scheduler, however, maintains the service tasks without any direct involvement by Marathon.
+  Marathon is the "init system" of a DC/OS cluster. Marathon launches tasks in the cluster and keeps them running. From the perspective of Mesos, Marathon is itself another Scheduler running its own tasks. Marathon is less specialized than the DC/OS {{ model.techName }} scheduler and mainly focuses on tasks that do not require managing a local persistent state. The DC/OS {{ model.techName}} service relies on Marathon to run the Scheduler and to provide it with a configuration via environment variables. The Scheduler, however, maintains the service tasks without any direct involvement by Marathon.
 
 - Packaging
 
