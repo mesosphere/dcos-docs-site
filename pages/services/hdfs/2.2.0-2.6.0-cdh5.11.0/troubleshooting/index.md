@@ -1,12 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Diagnosing issues with HDFS
 title: Troubleshooting
 menuWeight: 70
 model: /services/hdfs/data.yml
 render: mustache
 ---
+
+
 
 #include /services/include/troubleshooting.tmpl
 

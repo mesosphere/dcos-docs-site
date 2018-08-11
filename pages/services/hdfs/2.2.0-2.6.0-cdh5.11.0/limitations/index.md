@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Limitations of the HFDS service
 title: Limitations
 menuWeight: 100
 model: /services/hdfs/data.yml
