@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Configuring HDFS
 title: Configuration
 menuWeight: 20
 model: /services/hdfs/data.yml
@@ -9,6 +9,7 @@ render: mustache
 ---
 
 #include /services/include/configuration-install-with-options.tmpl
+#include /services/include/configuration-create-json-file.tmpl
 #include /services/include/configuration-service-settings.tmpl
 #include /services/include/configuration-regions.tmpl
 

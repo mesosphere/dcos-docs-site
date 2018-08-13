@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Updating HDFS
 title: Updates
 menuWeight: 40
 model: /services/hdfs/data.yml
