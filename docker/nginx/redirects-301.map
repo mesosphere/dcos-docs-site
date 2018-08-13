@@ -687,6 +687,7 @@
 /1.9/administration/overlay-networks/isolation/ /1.9/administration/virtual-networks/isolation/;
 /1.9/administration/release-notes/ /1.9/release-notes/;
 /1.9/administration/remove-agent/ /1.9/remove-agent/;
+/1.9/administration/secrets/ /1.9/security/ent/secrets/create-secrets/;
 /1.9/administration/securing-your-cluster/ /1.9/administering-clusters/securing-your-cluster/;
 /1.9/administration/storage/ /1.9/storage/;
 /1.9/administration/storage/mount-disk-resources/ /1.9/storage/mount-disk-resources/;
