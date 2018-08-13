@@ -179,7 +179,7 @@ Proceed with patching every master node one-at-a-time in any order using the fol
 1.  Download and run the node patch script:
     ```bash
     curl -O <Node patch script URL>
-    sudo bash dcos_node_patch.sh
+    sudo bash dcos_node_upgrade.sh
     ```
 
 1.  Verify that the patch script succeeded and exited with the status code `0`:
@@ -226,7 +226,7 @@ On all DC/OS agents:
 1.  Download and run the node patch script:
     ```bash
     curl -O <Node patch script URL>
-    sudo bash dcos_node_patch.sh
+    sudo bash dcos_node_upgrade.sh
     ```
 
 1.  Verify that the patch script succeeded and exited with the status code `0`:
