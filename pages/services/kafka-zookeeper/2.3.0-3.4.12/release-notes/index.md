@@ -10,7 +10,7 @@ render: mustache
 
 # Version 2.3.0-3.4.12
 
-## New Features
+## Features
 - Support for launching the service in a remote region.
 - All frameworks ({{ model.techName }} included) now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
 
@@ -23,11 +23,11 @@ render: mustache
 - The `zookeeper.autopurge_purge_interval` in the configuration options is now used when configuring the system. Previously, the  `zookeeper.autopurge_snap_retain_count` value with a default of 3 was used (#98)
 - Metrics have been fixed on DC/OS 1.9 clusters (#99)
 
-# Version 2.3.0-3.4.12
+# Version 2.2.0-3.4.11
 
 ## Features
 
-- Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/services/kafka-zookeeper/2.3.0-3.4.12/security/#securely-exposing-dcos-kafka-zookeeper-outside-the-cluster).
+- Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/services/kafka-zookeeper/2.2.0-3.4.11/security/#securely-exposing-dcos-kafka-zookeeper-outside-the-cluster).
 - Support for launching the service in a remote region.
 
 
