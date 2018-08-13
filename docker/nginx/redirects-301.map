@@ -29,6 +29,7 @@
 /getting-started/ /latest/overview/;
 /getting-started/release-notes/cm3/ /latest/release-notes/;
 /getting-started/dcosarchitecture/ /latest/overview/architecture/;
+/getting-started/datacenter/install/ /latest/installing/;
 /img/hdfs-service-gui.gif /services/beta-hdfs/2.1.1-2.6.0-cdh5.11.0-beta/img/hdfs-service-gui.gif;
 /img/hdfs-service-gui.png /services/hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui.png;
 /img/hdfs-service-gui2.gif /services/beta-hdfs/2.1.1-2.6.0-cdh5.11.0-beta/img/hdfs-service-gui2.gif;
