@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Deletes a pool and uninstalls the deployed load balancers.
+The `dcos edgelb delete` command deletes a pool and uninstalls the deployed load balancers.
 
 
 # Usage
@@ -22,7 +22,7 @@ dcos edgelb delete <pool-name>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |

@@ -13,7 +13,7 @@ DC/OS 1.10.6 was released on April  24, 2018.
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 DC/OS 1.10.6 includes the following:
-- Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)
+- Apache Mesos 1.4.2-24d3886[change log](https://github.com/apache/mesos/blob/24d3886/CHANGELOG)
 - Marathon 1.5.7 [change log](https://github.com/mesosphere/marathon/blob/v1.5.7/changelog.md)
 - Metronome 0.4.2 [change log](https://github.com/dcos/metronome/blob/v0.4.2/changelog.md)
 
@@ -30,7 +30,7 @@ DC/OS 1.10.6 includes the following:
 
 # Notable Changes in DC/OS 1.10.6
 
-- COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.x version. ([changelog](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.4.x-24d3886/CHANGELOG)).
+- COPS-1879/COPS-2166/DCOS_OSS-2315 - Bumped Mesos SHA to the latest 1.4.2-dev version. ([changelog](https://github.com/apache/mesos/blob/24d3886/CHANGELOG)).
 - CORE-1447/CORE-1448/CORE-1449 - Bumped version of dcos-ee-mesos-modules which included an update to the retry logic of the Mesos authorizer to better handle failed login attempts with the DC/OS IAM service. [enterprise type="inline" size="small" /]
 - DCOS-21683 - Bumped CockroachDB to version 1.1.7. [enterprise type="inline" size="small" /]
 - DCOS-21709 - Marathon supports preferential GPU scheduling on DC/OS.

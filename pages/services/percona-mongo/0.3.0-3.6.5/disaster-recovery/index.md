@@ -68,6 +68,13 @@ To troubleshoot problems with backups, add the flag *'--backup-verbose'* to the 
 
 Running a restore of a mongodump-based backup stored on Amazon S3 is possible via the DC/OS GUI and CLI tool, including backups created by the service.
 
+### Using Backups Created by Percona-Mongo
+
+To restore an AWS S3-based backup that was created by the Percona-Mongo backup feature, note that the AWS S3 URL must point to the *'dump'* directory for the desired repli
+ca set.
+
+As an example, to restore the replica set *'rs'* to a backup located at AWS S3 URL *'s3://my-s3-bucket-name-here/backup/20170618_1600'* the following URL should be provided to the Percona-Mongo Restore features: *'s3://my-s3-bucket-name-here/backup/20170618_1600/rs/dump'*.
+
 ### Restore at Replica Set Initiation
 
 The service supports running a restore after the initiation of the MongoDB Replica Set. This is useful for migrations to the percona-mongo service, cloning environments, etc.

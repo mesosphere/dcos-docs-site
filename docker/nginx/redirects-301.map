@@ -189,6 +189,7 @@
 /1.11/installing/ent/custom/uninstall/ /1.11/installing/production/uninstall/;
 /1.11/installing/ent/faq/ /1.11/installing/installation-faq/;
 ~/1.11/installing/ent/high-availability/(.*)$ /1.11/installing/production/advanced-configuration/configuring-zones-and-regions/$1;
+~/1.11/installing/high-availability/(.*)$ /1.11/installing/production/advanced-configuration/configuring-zones-and-regions/$1;
 /1.11/installing/ent/local/ /1.11/installing/development/;
 /1.11/installing/ent/opt-out/ /1.11/installing/production/deploying-dcos/opt-out/;
 /1.11/installing/ent/patching/ /1.11/installing/production/patching/;
