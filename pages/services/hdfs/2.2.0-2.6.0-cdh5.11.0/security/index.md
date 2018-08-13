@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Securing your HDFS service
 title: Security
 menuWeight: 50
 model: /services/hdfs/data.yml
