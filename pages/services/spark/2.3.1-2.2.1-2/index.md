@@ -2,7 +2,9 @@
 layout: layout.pug
 title: Spark 2.3.1-2.2.1-2
 navigationTitle: Spark 2.3.1-2.2.1-2
-menuWeight: 10
+
+menuWeight: 1
+
 excerpt:
 featureMaturity:
 
