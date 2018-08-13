@@ -4,7 +4,7 @@ navigationTitle:  Administering Clusters
 title: Administering Clusters
 menuWeight: 60
 excerpt: Learn how to administer clusters, manage agent nodes, and secure your installation.
-enterprise: false
+enterprise: true
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->

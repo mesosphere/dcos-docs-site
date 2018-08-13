@@ -3,7 +3,9 @@ layout: layout.pug
 navigationTitle:  Cluster Connections
 title: Cluster Connections
 menuWeight: 3
-excerpt: Connecting to multiple DC/OS clusters 
+excerpt: Connecting to multiple DC/OS clusters
+enterprise: false
+
 ---
 
 You connect to multiple DC/OS clusters using [dcos cluster](/1.11/cli/command-reference/dcos-cluster) commands.
