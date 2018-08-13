@@ -218,6 +218,11 @@ If your servers are installed with a domain name in your `/etc/resolv.conf`, add
 - If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
 - In AWS, or any other environment where you can not control a node's IP address, master_discovery needs to be set to use master_http_load_balancer, and a load balancer needs to be set up.
+- Use the following DNS IPs for internal purpose:
+   * AWS Private DNS Resolver: 169.254.169.253
+   * GCP Private DNS Resolver: 169.254.169.254
+   * Azure Private DNS Resolver: 168.63.129.16
+
 
 [enterprise]
 ## Enterprise template
