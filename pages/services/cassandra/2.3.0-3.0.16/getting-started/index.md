@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Installing a basic cluster
+excerpt: Getting started with Cassandra
 title: Getting Started
 menuWeight: 10
 model: /services/cassandra/data.yml
@@ -18,6 +18,5 @@ Getting started with a test instance of the DC/OS {{ model.techName }} service i
 	- `disabled` security mode does not require a service account.
 - Your cluster must have at least {{ model.install.minNodeCount }} private nodes.
 {{ model.install.customRequirements }}
-
 
 #include /services/include/getting-started.tmpl
