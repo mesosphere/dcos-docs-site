@@ -20,14 +20,14 @@ To configure an alternate Zookeeper instance:
 
 1. Create a file named `options.json` with the following contents.
 
-**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/kafka-zookeeper), use the DNS addresses provided by the `dcos kafka-zookeeper endpoints clientport` command as the value of `kafka-zookeeper_uri`.
+**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/{{ model.kafka.zookeeperPackageName }}), use the DNS addresses provided by the `dcos {{ model.kafka.zookeeperPackageName }} endpoints clientport` command as the value of `kafka_zookeeper_uri`.
 
-Here is an example `options.json` which points to a `kafka-zookeeper` instance named `kafka-zookeeper`:
+Here is an example `options.json` which points to a `{{ model.kafka.zookeeperPackageName }}` instance named `{{ model.kafka.zookeeperServiceName }}`:
 
 ```json
 {
   "kafka": {
-    "kafka_zookeeper_uri": "zookeeper-0-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.kafka-zookeeper.autoip.dcos.thisdcos.directory:1140"
+    "kafka_zookeeper_uri": "zookeeper-0-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140"
   }
 }
 ```
