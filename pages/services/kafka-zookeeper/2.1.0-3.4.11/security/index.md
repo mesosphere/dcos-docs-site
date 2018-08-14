@@ -74,7 +74,7 @@ example/zookeeper-2-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 
 #### Install the Service
 
-Install the DC/OS {{ model.techName }} service withe the following options in addition to your own:
+Install the DC/OS {{ model.techName }} service with the following options in addition to your own:
 ```json
 {
     "service": {
