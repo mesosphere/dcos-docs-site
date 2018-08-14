@@ -43,7 +43,7 @@ In the vast majority of cases, this uninstall process goes off without a hitch. 
 
 This situation is indicated by looking at the deploy plan while the uninstall is proceeding. The deploy plan may be viewed using either of the following methods:
 
-- CLI: dcos prometheus --name=prometheus plan show deploy (after running dcos package install --cli prometheus if needed)
+- CLI: `dcos prometheus --name=prometheus plan show deploy` (after running `dcos package install --cli prometheus` if needed)
 - HTTP: https://yourcluster.com/service/prometheus/v1/plans/deploy
 
 ### Manual uninstall    

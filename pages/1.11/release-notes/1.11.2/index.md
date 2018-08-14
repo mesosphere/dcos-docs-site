@@ -14,7 +14,7 @@ DC/OS 1.11.2 was released on May 18, 2018.
 
 DC/OS 1.11.2 includes the following:
 
-- Apache Mesos 1.5.1-dev [change log](https://github.com/apache/mesos/blob/aedbcfd/CHANGELOG).
+- Apache Mesos 1.5.1-aedbcfd [change log](https://github.com/apache/mesos/blob/aedbcfd/CHANGELOG).
 - Marathon 1.6.392 [change log](https://github.com/dcos/dcos/pull/2678).
 - Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 

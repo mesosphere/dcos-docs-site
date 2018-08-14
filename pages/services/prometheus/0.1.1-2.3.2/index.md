@@ -15,7 +15,7 @@ DC/OS Prometheus offers the following benefits :
 1. Designed for reliability
 2. Easily configurable to support all Prometheus design patterns
 3. Auto self health monitoring with provision for corrective action
-4. Flexible design to suit design requirement (with/without Alertmanager)
+4. Flexible design to suit design requirement (with/without AlertManager)
 5. Supports wide range of integration for data collection,persistence, notification and dashboarding
 
 DC/OS Prometheus's main features are:

@@ -29,6 +29,7 @@
 /getting-started/ /latest/overview/;
 /getting-started/release-notes/cm3/ /latest/release-notes/;
 /getting-started/dcosarchitecture/ /latest/overview/architecture/;
+/getting-started/datacenter/install/ /latest/installing/;
 /img/hdfs-service-gui.gif /services/beta-hdfs/2.1.1-2.6.0-cdh5.11.0-beta/img/hdfs-service-gui.gif;
 /img/hdfs-service-gui.png /services/hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui.png;
 /img/hdfs-service-gui2.gif /services/beta-hdfs/2.1.1-2.6.0-cdh5.11.0-beta/img/hdfs-service-gui2.gif;
@@ -687,6 +688,7 @@
 /1.9/administration/overlay-networks/isolation/ /1.9/administration/virtual-networks/isolation/;
 /1.9/administration/release-notes/ /1.9/release-notes/;
 /1.9/administration/remove-agent/ /1.9/remove-agent/;
+/1.9/administration/secrets/ /1.9/security/ent/secrets/create-secrets/;
 /1.9/administration/securing-your-cluster/ /1.9/administering-clusters/securing-your-cluster/;
 /1.9/administration/storage/ /1.9/storage/;
 /1.9/administration/storage/mount-disk-resources/ /1.9/storage/mount-disk-resources/;

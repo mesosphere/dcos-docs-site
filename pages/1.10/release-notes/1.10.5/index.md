@@ -30,7 +30,7 @@ DC/OS 1.10.5 was released on February 22, 2018.
 # Notable Changes in DC/OS 1.10.5
 
 - Updated to Marathon 1.5.6 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.6)).
-- Updated to Mesos 1.4.2-dev ([changelog](https://github.com/apache/mesos/blob/92d988ce0192ef8cc8bc75575c3a7d18c30ab7ea/CHANGELOG)).
+- Updated to Mesos 1.4.2-92d988c ([changelog](https://github.com/apache/mesos/blob/92d988c/CHANGELOG)).
 - DCOS_OSS-2128 - Bumped Mesos package to 1.4.x version.
 
 # Issues Fixed in DC/OS 1.10.4

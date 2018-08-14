@@ -6,6 +6,7 @@ title: Security
 menuWeight: 50
 model: /services/cassandra/data.yml
 render: mustache
+enterprise: true
 ---
 
 # DC/OS {{ model.techName }} Security
@@ -21,7 +22,7 @@ render: mustache
 
 #include /services/include/security-create-permissions.tmpl
 
-## Transport Encryption
+# <a name="transport_encryption"></a> Transport Encryption
 
 #include /services/include/security-transport-encryption-lead-in.tmpl
 

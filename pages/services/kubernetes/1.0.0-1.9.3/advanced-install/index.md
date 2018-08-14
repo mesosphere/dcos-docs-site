@@ -43,6 +43,22 @@ following:
 | kube-proxy        | 1                     | 0.1              | 128                   | -                           |
 | kubelet           | 1                     | 3                | 3072                  | 10240                       |
 
+To enable high-availablity, create a JSON options file, or edit an existing one:
+
+```json
+{
+  "kubernetes": {
+    "high_availability": true,
+  }
+}
+```
+
+Assuming you save the file as `options.json`, install the package as follows:
+
+```shell
+dcos package install kubernetes --options=options.json
+```
+
 ## Change the Kubernetes worker nodes resource specification
 
 The default, as shown in the table above, is 3 CPUs, 3GB of RAM, and 1GB of disk. However, the kubelet and the container runtime will have reserved 1 CPU and 1GB of RAM. This means that each Kubernetes node will have 2 CPUs, 2 GB of RAM, and 1GB of disk allocatable to Kubernetes pods.
@@ -222,7 +238,7 @@ the `NO_PROXY` value to the Kubernetes pod overlay subnet, `NO_PROXY=9.0.0.0/8`.
 ## When 10.100.0.0/16 is in use
 
 By default, the Kubernetes cluster will use `10.100.0.0/16` as the service CIDR.
-If this is the case, a change to the Kubernetes cluster service CIDR is required.
+If this CIDR is already in use on your network, a change to the Kubernetes cluster service CIDR is required.
 
 Create an options JSON file, or edit an existing one:
 
