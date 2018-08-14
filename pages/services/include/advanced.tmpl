@@ -32,8 +32,8 @@ For further discussion of DC/OS components, see the [architecture documentation]
 
 Internally, the DC/OS {{ model.techName }} service treats "Deployment" as moving from one state to another state. By this definition, "Deployment" applies to many scenarios:
 
-- When the {{ model.packageName }} package is first installed, deployment is moving from a null configuration to a deployed configuration.
-- When the deployed configuration is changed by updating the service, deployment is moving from an initial running configuration to a new proposed configuration.
+- When the {{ model.techShortName }} package is first installed, deployment moves from a null configuration to a deployed configuration.
+- When the deployed configuration is changed by updating the service, deployment moves from an initial running configuration to a new proposed configuration.
 
 In this section, we will describe how these scenarios are handled by the Scheduler.
 
@@ -51,11 +51,11 @@ This is the process for deploying a new instance of the service:
 
 1. Marathon launches the {{ model.packageName }} package's scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
 
-1. {{ model.packageName }} packages's scheduler is launched. From this point onwards, the Scheduler handles deployment.
+1. The {{ model.packageName }} packages's scheduler is launched. From this point onwards, the Scheduler handles deployment.
 
 #### Steps handled by the Scheduler
 
-{{ model.packageName }}'s `main()` function is run like any other Java application. The Scheduler starts with the following state:
+{{ model.techName }}'s `main()` function is run like any other Java application. The Scheduler starts with the following state:
 
 - A `svc.yml` template that represents the service configuration.
 - Environment variables provided by Marathon, to be applied onto the `svc.yml` template.
