@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
 navigationTitle: 
-excerpt:
+excerpt: Diagnosing Spark 
 title: Troubleshooting
 menuWeight: 125
-
+model: /services/spark/data.yml
+render: mustache
 ---
 
 # Dispatcher
@@ -14,8 +15,7 @@ menuWeight: 125
     failing. To debug this class of issue, visit the Mesos UI at `http://<dcos-url>/mesos/` and navigate to the sandbox
     for the dispatcher.
 
-*   Spark has an internal mechanism for detecting the IP of the host. We use this method by default, but sometimes it
-    fails, returning errors like these:
+*   {{ model.techShortName }} has an internal mechanism for detecting the IP of the host. We use this method by default, but sometimes it fails, returning errors like these:
 
     ```
     ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[main,5,main]
@@ -46,25 +46,23 @@ menuWeight: 125
 
 # Jobs
 
-*   DC/OS Apache Spark jobs are submitted through the dispatcher, which displays Spark properties and job state. Start
-    here to verify that the job is configured as you expect.
+*   DC/OS {{ model.Name }} jobs are submitted through the dispatcher, which displays {{ model.techShortName }} properties and job state. Start here to verify that the job is configured as you expect.
 
-*   The dispatcher further provides a link to the job's entry in the history server, which displays the Spark Job UI.
-    This UI shows the for the job. Go here to debug issues with scheduling and performance.
+*   The dispatcher further provides a link to the job's entry in the history server, which displays the {{ model.techShortName }} Job UI.
+    This UI shows the link for the job. Navigate to it to debug issues with scheduling and performance.
 
-*   Jobs themselves log output to their sandbox, which you can access through the Mesos UI. The Spark logs will be sent
-    to `stderr`, while any output you write in your job will be sent to `stdout`.
+*   Jobs themselves log output to their sandbox, which you can access through the Mesos UI. The {{ model.techShortName }} logs will be sent to `stderr`, while any output you write in your job will be sent to `stdout`.
 
 *   To disable using the Mesosphere `bootstrap` utility for host IP detection in jobs add
     `spark.mesos.driverEnv.SKIP_BOOTSTRAP_IP_DETECT=true` to your job configuration.
 
 # CLI
 
-The Spark CLI is integrated with the dispatcher so that they always use the same version of Spark, and so that certain
+The {{ model.techShortName }} CLI is integrated with the dispatcher so that they always use the same version of {{ model.techShortName }}, and so that certain
 defaults are honored. To debug issues with their communication, run your jobs with the `--verbose` flag.
 
 # HDFS Kerberos
 
-To debug authentication in a Spark job, enable Java security debug output:
+To debug authentication in a {{ model.techShortName }} job, enable Java security debug output:
 
     dcos spark run --submit-args="--conf sun.security.krb5.debug=true..."
