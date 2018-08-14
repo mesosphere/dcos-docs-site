@@ -14,7 +14,7 @@ The DC/OS {{ model.techName }} service supports ZooKeeper's native Kerberos auth
 
 An overview of the Apache ZooKeeper Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
 
-*Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
+**Note:** These security features are only available on DC/OS Enterprise 1.10 and above.
 
 ## Authentication
 
@@ -95,7 +95,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-*Note*: It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your ZooKeeper clients will need to be reconfigured. For more information see the [Enabling Kerberos after deployement](#enabling-kerberos-after-deployment) section.
+**Note:** It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your ZooKeeper clients will need to be reconfigured. For more information see the [Enabling Kerberos after deployement](#enabling-kerberos-after-deployment) section.
 
 #### Enabling Kerberos After Deployment
 
@@ -232,11 +232,11 @@ deploy (serial strategy) (COMPLETE)
 
 Unauthenticated clients will now only be allowed to ping, create a session, close a session, or authenticate when communicating with the {{ model.techName }} instance.
 
-*Note*: The default settings for `service.security.kerberos.advanced.required_for_quorum_learner`, `service.security.kerberos.advanced.required_for_quorum_server`, `service.security.kerberos.advanced.required_for_client` are all `true`.
+**Note:** The default settings for `service.security.kerberos.advanced.required_for_quorum_learner`, `service.security.kerberos.advanced.required_for_quorum_server`, `service.security.kerberos.advanced.required_for_client` are all `true`.
 
 #### Disabling Kerberos After Deployment
 
-*Note*: Disabling Kerberos after deployment is **not** supported.
+**Note:** Disabling Kerberos after deployment is **not** supported.
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
 

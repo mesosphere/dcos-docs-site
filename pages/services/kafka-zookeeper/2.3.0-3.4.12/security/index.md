@@ -10,11 +10,17 @@ render: mustache
 
 # DC/OS {{ model.techName }} Security
 
-The DC/OS {{ model.techName }} service supports ZooKeeper's native Kerberos authentication mechanism. The service provides automation and orchestration to simplify the usage of these important features, with both [Client-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication) and [Server-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication) mutual authentication supported.
+- The DC/OS {{ model.techName }} service allows you to create a service account to configure access for {{ model.techName }}. The service allows you to create and assign permissions as required for access.
 
-An overview of the Apache ZooKeeper Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
+- The DC/OS {{ model.techName }} service supports {{ model.techShortName}}'s native Kerberos authentication mechanism. The service provides automation and orchestration to simplify the usage of these important features, with both [Client-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication) and [Server-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication) mutual authentication supported.
 
-**Note:** These security features are only available on DC/OS Enterprise 1.10 and later.
+An overview of the {{ model.techShortName }} Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
+
+**Note:** These security features are only available on DC/OS Enterprise 1.10 and above.
+
+#include /services/include/service-account.tmpl
+
+#include /services/include/security-create-permissions.tmpl
 
 ## Authentication
 
@@ -22,7 +28,7 @@ DC/OS {{ model.techName }} supports the Kerberos authentication mechanism.
 
 ### Kerberos Authentication
 
-Kerberos authentication relies on a central authority to verify that ZooKeeper clients are who they say they are. DC/OS {{ model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
+Kerberos authentication relies on a central authority to verify that {{ model.techShortName }} clients are who they say they are. DC/OS {{ model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 #### Prerequisites
 - The hostname and port of a KDC reachable from your DC/OS cluster
@@ -95,7 +101,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-**Note:** It is possible to enable Kerberos after initial installation, but the service may be unavailable during the transition. Additionally, your ZooKeeper clients will need to be reconfigured. For more information see the [Enabling Kerberos after deployment](#enabling-kerberos-after-deployment) section.
+**Note:** It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your ZooKeeper clients will need to be reconfigured. For more information see the [Enabling Kerberos after deployement](#enabling-kerberos-after-deployment) section.
 
 #### Enabling Kerberos After Deployment
 
@@ -103,7 +109,7 @@ It is possible to enable Kerberos authentication after the deployment of DC/OS {
 
 Assuming that DC/OS {{ model.techName }} was initially deployed with `service.security.kerberos.enabled` set to `false`, the following steps can be used to enable Kerberos for the service.
 
-Assuming the same Kerberos settings as discussed in [Configure Kerberos Authentication](#configure-kerberos-authentication) -- create the keytab for the Kerberos principals and add this keytab to the DC/OS Secret Store as described in the [Create principals](#create-principals) and [Place Service Keytab in DC/OS Secret Store](#place-service-keytab-in-dc-os-secret-store) sections. Then create a `kerberos-toggle-step-1.json` file with the following contents:
+Firstly -- assuming the same Kerberos settings as discussed in [Configure Kerberos Authentication](#configure-kerberos-authentication) -- create the keytab for the Kerberos principals and add this keytab to the DC/OS Secret Store as described in the [Create principals](#create-principals) and [Place Service Keytab in DC/OS Secret Store](#place-service-keytab-in-dc-os-secret-store) sections. Then create a `kerberos-toggle-step-1.json` file with the following contents:
 
 ```json
 {
@@ -173,7 +179,7 @@ deploy (serial strategy) (COMPLETE)
    ├─ zookeeper-1:[server, metrics] (COMPLETE)
    └─ zookeeper-2:[server, metrics] (COMPLETE)
 ```
-deploying a {{ model.techName }} instance that **requires** Kerberos authentication between learners in the leader election.
+deploying a {{ model.techName }} instance that *requires* Kerberos authentication between learners in the leader election.
 
 As the next step in the rolling update process, create a `kerberos-toggle-step-3.json` file with the following contents:
 ```json
@@ -203,7 +209,7 @@ deploy (serial strategy) (COMPLETE)
 ```
 {{ model.techName }} will now require Kerberos authentication for the entire leader election process.
 
-The final step is to require Kerberos authentication for clients connecting to the DC/OS {{ model.techName }} instance with an options file (such as `kerberos-toggle-step-4.json`) as follows:
+The final step is to require Kerberos authentication for clients connecting to the DC/OS {{ model.techName }} instance with an options file (say `kerberos-toggle-step-4.json`) as follows:
 ```json
 {
     "service": {
@@ -240,15 +246,15 @@ Unauthenticated clients will now only be allowed to ping, create a session, clos
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
 
-Kerberos security is tightly coupled to the DNS hosts of the ZooKeeper tasks. Exposing a secure {{ model.techName }} service outside of the cluster requires additional setup.
+Kerberos security is tightly coupled to the DNS hosts of the zookeeper tasks. As such, exposing a secure {{ model.techName }} service outside of the cluster requires additional setup.
 
 ### Server to Client Connection
 
-To expose a secure {{ model.techName }} service outside of the cluster, any client connecting to it must be able to access all tasks of the service via the IP address assigned to the task. This IP address will be either an IP address on a virtual network or the IP address of the agent the task is running on.
+To expose a secure {{ model.techName }} service outside of the cluster, any client connecting to it must be able to access all tasks of the service via the IP address assigned to the task. This IP address will be one of: an IP address on a virtual network or the IP address of the agent the task is running on.
 
 ### Forwarding DNS and Custom Domain
 
-Every DC/OS cluster has a unique cryptographic ID which can be used to forward DNS queries to that cluster. To securely expose the service outside the cluster, external clients must have an upstream resolver configured to forward DNS queries to the DC/OS cluster of the service as described [here](https://docs.mesosphere.com/latest/networking/DNS/mesos-dns/expose-mesos-zone/).
+Every DC/OS cluster has a unique cryptographic ID which can be used to forward DNS queries to that Cluster. To securely expose the service outside the cluster, external clients must have an upstream resolver configured to forward DNS queries to the DC/OS cluster of the service as described [here](https://docs.mesosphere.com/latest/networking/DNS/mesos-dns/expose-mesos-zone/).
 
 With only forwarding configured, DNS entries within the DC/OS cluster will be resolvable at `<task-domain>.autoip.dcos.<cryptographic-id>.dcos.directory`. However, if you configure a DNS alias, you can use a custom domain. For example, `<task-domain>.cluster-1.acmeco.net`. In either case, the DC/OS {{ model.techName }} service will need to be installed with an additional security option:
 ```json
@@ -260,7 +266,7 @@ With only forwarding configured, DNS entries within the DC/OS cluster will be re
     }
 }
 ```
-where `<custom-domain>` is one of `autoip.dcos.<cryptographic-id>.dcos.directory` or your organization specific domain (for example, `cluster-1.acmeco.net`).
+where `<custom-domain>` is one of `autoip.dcos.<cryptographic-id>.dcos.directory` or your organization specific domain (e.g., `cluster-1.acmeco.net`).
 
 As a concrete example, using the custom domain of `cluster-1.acmeco.net` the server 0 task would have a host of `zookeeper-0-server.<service-name>.cluster-1.acmeco.net`.
 
