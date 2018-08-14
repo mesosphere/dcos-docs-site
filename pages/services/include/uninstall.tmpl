@@ -21,7 +21,7 @@ Uninstalling the service consists of the following steps:
 
 There are certain situations under which the automated uninstall process cannot complete without manual intervention.
 
-#### Zombie service scheduler
+#### <a name="zombie-service-scheduler"></a>Zombie service scheduler
 
 If the service scheduler reports in its `stdout` that the uninstall is complete, but the scheduler is not removed from the system, you can safely delete it via Marathon.
 
@@ -93,7 +93,7 @@ deploy (IN_PROGRESS)
 ```
 
 **Note:** As it may take the operator some time to complete these actions, the service scheduler may be left in a zombie state after the uninstall is complete.
-See "Zombie service scheduler" above for instructions on how to correct this.
+See [Zombie service scheduler](#zombie-service-scheduler) above for instructions on how to correct this.
 
 #### Manual uninstall
 
