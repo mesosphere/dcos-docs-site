@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Diagnosing service problems
 title: Troubleshooting
 menuWeight: 70
 model: /services/cassandra/data.yml

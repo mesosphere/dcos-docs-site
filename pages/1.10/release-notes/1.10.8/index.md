@@ -12,7 +12,7 @@ DC/OS 1.10.8 was released on July 19, 2018.
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 DC/OS 1.10.8 includes the following:
-- Apache Mesos 1.4.x [change log](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG).
+- Apache Mesos 1.4.2-5f6d4cd [change log](https://github.com/apache/mesos/blob/5f6d4cd/CHANGELOG).
 - Marathon 1.5.11 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.5.11).
 - Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
 

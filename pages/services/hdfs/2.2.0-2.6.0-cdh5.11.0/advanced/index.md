@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Advanced features of HFDS
 title: Advanced
 menuWeight: 80
 model: /services/hdfs/data.yml

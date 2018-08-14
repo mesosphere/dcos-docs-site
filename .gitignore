@@ -11,6 +11,7 @@ package-lock.json
 ./**/*.tmp
 .tmp
 .revision
+.byebug_history
 
 # files used by CI
 .site-image

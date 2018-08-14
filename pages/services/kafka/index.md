@@ -6,6 +6,8 @@ menuWeight: 70
 excerpt:
 featureMaturity:
 enterprise: false
+model: /services/kafka/data.yml
+render: mustache
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kafka-service -->

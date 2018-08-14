@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Securing your HDFS service
 title: Security
 menuWeight: 50
 model: /services/hdfs/data.yml
@@ -10,11 +10,15 @@ render: mustache
 
 # DC/OS {{ model.techName }} Security
 
-The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
+- The DC/OS {{ model.techName }} service allows you to create a service account to configure access for {{ model.techName }}. The service allows you to create and assign permissions as required for access.  
 
-A good overview of these features can be found [here](https://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SecureMode.html).
+- The DC/OS {{ model.techName }} service supports {{ model.techName }}'s native transport encryption mechanisms. The service provides automation and orchestration to simplify the usage of these important features. At this time, {{ model.techName }}'s authentication and authorization features are not supported.
 
-*Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
+**Note:** These security features are only available on DC/OS Enterprise 1.10 and later.
+
+#include /services/include/service-account.tmpl
+
+#include /services/include/security-create-permissions.tmpl
 
 ## Transport Encryption
 

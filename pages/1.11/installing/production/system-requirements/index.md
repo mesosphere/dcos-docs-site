@@ -40,7 +40,7 @@ The table below shows the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: https://docs.mesosphere.com/1.10/overview/high-availability/
+[0]: https://docs.mesosphere.com/1.11/overview/high-availability/
 
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:

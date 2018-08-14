@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Uploads a new pool configuration file to the Edge-LB apiserver, updating the running pool of load balancers.
+The `dcos edgelb update` command uploads a new pool configuration file to the Edge-LB `apiserver`, updating the running pool of load balancers.
 
 # Usage
 
@@ -21,7 +21,7 @@ dcos edgelb update [<flags>] <pool-file>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |
