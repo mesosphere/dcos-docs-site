@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Getting started with Spark
 title: Spark Quickstart
 menuWeight: 10
 featureMaturity:
