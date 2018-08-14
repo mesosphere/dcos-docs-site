@@ -27,7 +27,7 @@ dcos auth list-providers [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/1.12/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
 # Examples
 
@@ -42,7 +42,7 @@ dcos auth list-providers
 The output should resemble:
 
 ```bash
-PROVIDER ID    AUTHENTICATION TYPE                                                               
-dcos-services  Authenticate using a DC/OS service user account (using username and private key)  
-dcos-users     Authenticate using a standard DC/OS user account (using username and password)   
+PROVIDER ID    AUTHENTICATION TYPE
+dcos-services  Authenticate using a DC/OS service user account (using username and private key)
+dcos-users     Authenticate using a standard DC/OS user account (using username and password)
 ```

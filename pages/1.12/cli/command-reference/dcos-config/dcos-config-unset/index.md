@@ -34,7 +34,7 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/1.11/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
+| [dcos config](/1.12/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 
 # Examples
 

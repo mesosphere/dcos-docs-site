@@ -8,11 +8,11 @@ enterprise: true
 ---
 
 # Description
-You can configure uni-directional links from cluster to one or more clusters. When accessing a cluster you can view the clusters it is linked to. You can [attach](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
+You can configure uni-directional links from cluster to one or more clusters. When accessing a cluster you can view the clusters it is linked to. You can [attach](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
 
 **Prerequisites**
 
-- The [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command used to set up the clusters to be linked must specify the same authentication provider. For example:
+- The [`dcos cluster setup`](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command used to set up the clusters to be linked must specify the same authentication provider. For example:
 
   ```
   dcos cluster setup <dcos-url-a> --provider=dcos-users
@@ -39,7 +39,7 @@ dcos cluster link <dcos-url-a>
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
+| [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
 
 # Examples
 For examples, see [Cluster Links](/1.11/administering-clusters/multiple-clusters/cluster-links/).

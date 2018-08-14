@@ -38,4 +38,4 @@ dcos service log <file> <service> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos service](/1.11/cli/command-reference/dcos-service/)   | Manage DC/OS services. |
+| [dcos service](/1.12/cli/command-reference/dcos-service/)   | Manage DC/OS services. |

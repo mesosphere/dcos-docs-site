@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod remove
 title: dcos marathon pod remove
 menuWeight: 26
-excerpt: Removing a pod 
+excerpt: Removing a pod
 
 enterprise: false
 ---
@@ -34,7 +34,7 @@ dcos marathon pod remove <pod-id> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 

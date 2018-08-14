@@ -8,7 +8,7 @@ excerpt: Displayng the available DC/OS components on a specified node
 enterprise: false
 ---
 
-  
+
 # Description
 Print a list of available DC/OS components on specified node.
 
@@ -30,6 +30,6 @@ dcos node list-components [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 <!-- # Examples -->
