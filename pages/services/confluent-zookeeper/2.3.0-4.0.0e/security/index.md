@@ -10,11 +10,17 @@ render: mustache
 
 # DC/OS {{ model.techName }} Security
 
-The DC/OS {{ model.techName }} service supports ZooKeeper's native Kerberos authentication mechanism. The service provides automation and orchestration to simplify the usage of these important features, with both [Client-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication) and [Server-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication) mutal authentication supported.
+- The DC/OS {{ model.techName }} service allows you to create a service account to configure access for {{ model.techName }}. The service allows you to create and assign permissions as required for access.
 
-An overview of the Apache ZooKeeper Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
+- The DC/OS {{ model.techName }} service supports {{ model.techShortName}}'s native Kerberos authentication mechanism. The service provides automation and orchestration to simplify the usage of these important features, with both [Client-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication) and [Server-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication) mutal authentication supported.
+
+An overview of the {{ model.techShortName }} Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
 
 *Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
+
+#include /services/include/service-account.tmpl
+
+#include /services/include/security-create-permissions.tmpl
 
 ## Authentication
 
@@ -22,7 +28,7 @@ DC/OS {{ model.techName }} supports the Kerberos authentication mechanism.
 
 ### Kerberos Authentication
 
-Kerberos authentication relies on a central authority to verify that ZooKeeper clients are who they say they are. DC/OS {{ model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
+Kerberos authentication relies on a central authority to verify that {{ model.techShortName }} clients are who they say they are. DC/OS {{ model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 #### Prerequisites
 - The hostname and port of a KDC reachable from your DC/OS cluster
