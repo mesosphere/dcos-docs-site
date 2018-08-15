@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle: Spark Quickstart
 excerpt: Getting started with Spark
 title: Quickstart
 menuWeight: 1
@@ -31,19 +31,18 @@ For more installation about minimal installation, multiple installations, and ot
     ```bash
     dcos package install spark
     ```
-    
+
     Your output should resemble:
-    
+
     ```bash
     Installing Marathon app for package [spark] version [1.1.0-2.1.1]
     Installing CLI subcommand for package [spark] version [1.1.0-2.1.1]
     New command available: dcos spark
     DC/OS Spark is being installed!
-    
+
     	Documentation: https://docs.mesosphere.com/services/spark/
     	Issues: https://docs.mesosphere.com/support/
     ```
-   
     **Note:** You can view the status of your {{ model.techShortName }} installation from the DC/OS GUI **Services** tab.
        
        ![Verify spark installation](/services/img/spark-dashboard.png)
@@ -57,45 +56,53 @@ For more installation about minimal installation, multiple installations, and ot
        dcos package install spark --cli
        ```
 
+
 1.  Run the sample SparkPi jar for DC/OS. This runs a {{ model.techShortName }} job which calculates the value of Pi. You can view the example source [here](https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar). 
 
-    1.  Run this command: 
+    1.  Run this command:
 
         ```bash
         dcos spark run --submit-args="--class org.apache.spark.examples.SparkPi https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 30"
         ```
-        
+
         Your output should resemble:
-        
+
         ```bash
         2017/08/24 15:42:07 Using docker image mesosphere/spark:2.0.0-2.2.0-1-hadoop-2.6 for drivers
         2017/08/24 15:42:07 Pulling image mesosphere/spark:2.0.0-2.2.0-1-hadoop-2.6 for executors, by default. To bypass set spark.mesos.executor.docker.forcePullImage=false
         2017/08/24 15:42:07 Setting DCOS_SPACE to /spark
         Run job succeeded. Submission id: driver-20170824224209-0001
         ```
-        
-    1.  View the standard output from your job:
-    
+        If you're using Spark History Server, configure the Spark job with the following parameters:
+
+     ```bash
+          dcos spark run -submit-args="-conf spark.eventLog.enabled=true --conf spark.eventLog.dir=hdfs://hdfs/history --class org.apache.spark.examples.SparkPi https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 30"
+     ```
+
+
+
+1.  View the standard output from your job:
+
         ```bash
         dcos spark log driver-20170824224209-0001
         ```
-        
+
         Your output should resemble:
-        
+
         ```bash
         Pi is roughly 3.141853333333333
         ```
 
-1.  Run a Python SparkPi jar. This runs a Python Spark job which calculates the value of Pi. You can view the example source [here](https://downloads.mesosphere.com/spark/examples/pi.py). 
+1.  Run a Python SparkPi jar. This runs a Python Spark job which calculates the value of Pi. You can view the example source [here](https://downloads.mesosphere.com/spark/examples/pi.py).
 
     1.  Run this command:
-    
+
         ```bash
         dcos spark run --submit-args="https://downloads.mesosphere.com/spark/examples/pi.py 30"
-        ``` 
-        
+        ```
+
         Your output should resemble:
-        
+
         ```bash
         2017/08/24 15:44:20 Parsing application as Python job
         2017/08/24 15:44:23 Using docker image mesosphere/spark:2.0.0-2.2.0-1-hadoop-2.6 for drivers
@@ -103,29 +110,29 @@ For more installation about minimal installation, multiple installations, and ot
         2017/08/24 15:44:23 Setting DCOS_SPACE to /spark
         Run job succeeded. Submission id: driver-20170824224423-0002
         ```
-        
+
     1.  View the standard output from your job:
-    
+
         ```bash
         dcos task log --completed driver-20170616213917-0002
         ```
-        
+
         Your output should resemble:
-        
+
         ```bash
         Pi is roughly 3.142715
         ```
 
-1.  Run an R job. You can view the example source [here](https://downloads.mesosphere.com/spark/examples/dataframe.R). 
+1.  Run an R job. You can view the example source [here](https://downloads.mesosphere.com/spark/examples/dataframe.R).
 
     1.  Run this command:
-    
+
         ```bash
         dcos spark run --submit-args="https://downloads.mesosphere.com/spark/examples/dataframe.R"
         ```
-        
+
         Your output should resemble:
-        
+
         ```bash
         2017/08/24 15:45:21 Parsing application as R job
         2017/08/24 15:45:23 Using docker image mesosphere/spark:2.0.0-2.2.0-1-hadoop-2.6 for drivers
@@ -133,15 +140,15 @@ For more installation about minimal installation, multiple installations, and ot
         2017/08/24 15:45:23 Setting DCOS_SPACE to /spark
         Run job succeeded. Submission id: driver-20170824224524-0003
         ```
-        
+
     1.  View the standard output from your job:
-    
+
         ```bash
         dcos spark log --lines_count=10 driver-20170824224524-0003
         ```
-        
+
         Your output should resemble:
-        
+
         ```bash
         In Filter(nzchar, unlist(strsplit(input, ",|\\s"))) :
           bytecode version mismatch; using eval
