@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Install and Customize
 title: Install and Customize
-menuWeight: 0
+menuWeight: 5
 excerpt: Installing Spark with web interface or DC/OS CLI
 featureMaturity:
 enterprise: false
