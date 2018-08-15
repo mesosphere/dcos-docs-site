@@ -95,6 +95,7 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) are [here
 | ca_certificate_path                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [permissions_cache_ttl_seconds](#permissions-cache-ttl-seconds)   | [enterprise type="inline" size="small" /] The maximum number of seconds for permission changes to propagate through the entire system. |
 | [security](#security-enterprise)                               | The security mode: disabled, permissive, or strict. [enterprise type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
@@ -488,6 +489,9 @@ The location of the Mesos work directory on master nodes. This defines the `work
 ## mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
 
+## permissions_cache_ttl_seconds
+The maximum number of seconds for permission changes to propagate through the entire system.
+Increasing this value may reduce load on the IAM by increasing the use of caches by various authorizers.
 
 ## oauth_enabled [oss type="inline" size="small" /]
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
