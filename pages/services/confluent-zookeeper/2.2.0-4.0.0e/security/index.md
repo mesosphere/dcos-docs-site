@@ -10,7 +10,7 @@ render: mustache
 
 # DC/OS {{ model.techName }} Security
 
-The DC/OS {{ model.techName }} service supports ZooKeeper's native Kerberos authentication mechanism. The service provides automation and orchestration to simplify the usage of these important features, with both [Client-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication) and [Server-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication) mutal authentication supported.
+The DC/OS {{ model.techName }} service supports ZooKeeper's native Kerberos authentication mechanism. The service provides automation and orchestration to simplify the usage of these important features, with both [Client-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication) and [Server-Server](https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication) mutual authentication supported.
 
 An overview of the Apache ZooKeeper Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
 
@@ -74,7 +74,7 @@ example/zookeeper-2-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 
 #### Install the Service
 
-Install the DC/OS {{ model.techName }} service withe the following options in addition to your own:
+Install the DC/OS {{ model.techName }} service with the following options in addition to your own:
 ```json
 {
     "service": {
