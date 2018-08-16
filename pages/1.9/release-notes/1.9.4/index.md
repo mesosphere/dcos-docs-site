@@ -10,23 +10,21 @@ DC/OS 1.9.4 was released on September 7, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-
-<a name="fixed-issues"></a>
-# Issues Fixed in 1.9.4
-
-- MESOS-7926 - Abnormal termination of default executor can cause MesosContainerizer::destroy to fail.
-- MESOS-7934 - OOM due to LibeventSSLSocket send incorrectly returning 0 after shutdown.
-
-# About DC/OS 1.9
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services.
 
+### Contents
+- [Breaking Changes](#breaking)
+- [What's New](#whats-new)
+- [Known Issues and Limitations](#known-issues)
+- [Issues Fixed since 1.9.2](#fixed-issues)
+
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
+The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs.
 
 # <a name="whats-new"></a>What's New
 
@@ -131,16 +129,15 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
-
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
+- Update DC/OS internal Python from 3.4 to 3.5.
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->
@@ -180,3 +177,9 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
   ```yaml
   mesos_max_completed_tasks_per_framework: 20
   ```
+
+<a name="fixed-issues"></a>
+# Issues Fixed since 1.9.3
+
+- MESOS-7926 - Abnormal termination of default executor can cause MesosContainerizer::destroy to fail.
+- MESOS-7934 - OOM due to LibeventSSLSocket send incorrectly returning 0 after shutdown.

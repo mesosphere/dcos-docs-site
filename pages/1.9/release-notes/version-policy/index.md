@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Mesosphere Versioning and Release Policy
 title: Mesosphere Versioning and Release Policy
 menuWeight: 120
-excerpt: Definitions, versioning and lifecycle policy
+excerpt:
 ---
 
 

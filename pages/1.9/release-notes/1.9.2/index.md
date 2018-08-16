@@ -10,37 +10,21 @@ DC/OS 1.9.2 was released on July 25, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-# <a name="fixed-issues"></a>Issues Fixed in 1.9.2
-
-- Critical fix: Enables editing Marathon app in the UI. Encompasses the following:
-  - DCOS_OSS-1350 - Nodes Page error on checkbox.
-  - DCOS-17262 - Bug in DC/OS 1.9.1 - cannot edit marathon app from UI form.
-  - DCOS-17242 - UI Bug - No warning when trying to create a service without specifying an ID.
-  - DCOS-17241 - UI Bug in DC/OS 1.9.1 - Unable to select a task.
-- Fix for dcos-metrics dropping data. Encompasses the following:
-  - DCOS-16350 - dcos-metrics drops nearly all app data.
-  - DCOS-15939 - Long labels can cause errors in datadog plugin for dcos-metrics.
-  - DCOS-16424 - Metrics plugins don't collect app-level metrics.
-- Ability to override storage region in AWS templates/ Encompasses the following:
-  - DCOS-16737 - Unable to build and publish AWS templates to govcloud regions.
-- Fix for bug in persistent volume handling in the Mesos containerizer. Encompasses:
-  - MESOS-7770 - Persistent volume might not be mounted if there is a sandbox volume whose source is the same as the target of the persistent volume.
--  Fix for agent failure with Docker 1.12 and Docker 1.13. Encompasses:
-  - MESOS-7777 - Agent failed to recover due to mount namespace leakage in Docker 1.12/1.13.
-- DCOS-14880 - GUI bug: container type must be defined.
-
-# About DC/OS 1.9
-
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services.
 
+### Contents
+- [Breaking Changes](#breaking)
+- [What's New](#whats-new)
+- [Known Issues and Limitations](#known-issues)
+- [Issues Fixed since 1.9.1](#fixed-issues)
 
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
+The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
 
 # <a name="whats-new"></a>What's New
 
@@ -144,16 +128,15 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
-
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
+- Update DC/OS internal Python from 3.4 to 3.5.
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->
@@ -195,3 +178,22 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
   ```yaml
   mesos_max_completed_tasks_per_framework: 20
   ```
+
+# <a name="fixed-issues"></a>Issues Fixed since 1.9.1
+
+- Critical fix: Enables editing Marathon app in the UI. Encompasses the following:
+  - DCOS_OSS-1350 - Nodes Page error on checkbox.
+  - DCOS-17262 - Bug in DC/OS 1.9.1 - cannot edit marathon app from UI form.
+  - DCOS-17242 - UI Bug - No warning when trying to create a service without specifying an ID.
+  - DCOS-17241 - UI Bug in DC/OS 1.9.1 - Unable to select a task.
+- Fix for dcos-metrics dropping data. Encompasses the following:
+  - DCOS-16350 - dcos-metrics drops nearly all app data.
+  - DCOS-15939 - Long labels can cause errors in datadog plugin for dcos-metrics.
+  - DCOS-16424 - Metrics plugins don't collect app-level metrics.
+- Ability to override storage region in AWS templates/ Encompasses the following:
+  - DCOS-16737 - Unable to build and publish AWS templates to govcloud regions.
+- Fix for bug in persistent volume handling in the Mesos containerizer. Encompasses:
+  - MESOS-7770 - Persistent volume might not be mounted if there is a sandbox volume whose source is the same as the target of the persistent volume.
+-  Fix for agent failure with Docker 1.12 and Docker 1.13. Encompasses:
+  - MESOS-7777 - Agent failed to recover due to mount namespace leakage in Docker 1.12/1.13.
+- DCOS-14880 - GUI bug: container type must be defined.
