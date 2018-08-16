@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle: Overview
 title: Overview
 menuWeight: 10
-excerpt: Getting started with DC/OS NiFi Service fundamentals
+excerpt: Getting started with DC/OS Apache NiFi Service fundamentals
 featureMaturity:
 enterprise: false
 ---
 
 # Components
 
-The following components work together to deploy and maintain the DC/OS NiFi Service.
+The following components work together to deploy and maintain the DC/OS Apache NiFi Service.
 
 - Mesos
 
@@ -34,13 +34,13 @@ The following components work together to deploy and maintain the DC/OS NiFi Ser
 
 - Packaging
 
-    Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache NiFi, this Marathon app is the scheduler for the service
+    DC/OS Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache NiFi, this Marathon app is the scheduler for the service
 
     For further discussion of DC/OS components, see the [architecture documentation](https://docs.mesosphere.com/latest/overview/architecture/components/).
 
 # Deployment
 
-Internally, DC/OS NiFi Service treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
+Internally, DC/OS Apache NiFi Service treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
 
  - When NiFi is first installed, deployment moves from a null configuration to a deployed configuration.
  - When the deployed configuration is changed by editing an environment variable in the scheduler, deployment moves from an initial running configuration to a new proposed configuration.
@@ -94,7 +94,7 @@ The scheduler starts with the following state:
 
 ## Reconfiguration
 
-This is the flow for reconfiguring a DC/OS NiFi Service either in order to update specific configuration values, or to upgrade it to a new package version.
+This is the flow for reconfiguring a DC/OS Apache NiFi service either in order to update specific configuration values, or to upgrade it to a new package version.
 
 ### Steps handled by the Scheduler
 

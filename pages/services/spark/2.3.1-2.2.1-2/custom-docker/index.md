@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
 navigationTitle: 
-excerpt:
+excerpt: Customizing the Spark image Mesosphere provides
 title: Custom Docker Images
 menuWeight: 95
 featureMaturity:
-
+model: /services/spark/data.yml
+render: mustache
 ---
 
 **Note:** Customizing the Spark image Mesosphere provides is supported. However, customizations have the potential to adversely affect the integration between Spark and DC/OS. In situations where Mesosphere support suspects a customization may be adversely impacting Spark with DC/OS, Mesosphere support may request that the customer reproduce the issue with an unmodified

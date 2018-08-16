@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Managing
 title: Managing
-menuWeight: 60
+menuWeight: 80
 excerpt: Managing your DC/OS NiFi Service configuration
 featureMaturity:
 enterprise: false
@@ -32,7 +32,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 + The service's subcommand available and installed on your local machine.
   + You can install just the subcommand CLI by running `dcos package install --cli --yes nifi`.
   + If you are running an earlier version of the subcommand CLI that does not have the `update` command, uninstall it and reinstall your CLI, using these commands:
-  
+
     ```shell
     dcos package uninstall --cli nifi
     dcos package install --cli nifi
@@ -115,7 +115,7 @@ Modify the COUNT `"node":{"count":3}` environment variable to update the node co
 
 The CPU and Memory requirements of each node can be increased or decreased as follows:
 - CPU: ` "node": {"cpus": <CPU Value>}`
-- Memory (in MB): `"node": {"mem": 4096}` 
+- Memory (in MB): `"node": {"mem": 4096}`
 
 **Caution:** Volume requirements (type and/or size) cannot be changed after initial deployment.
 
@@ -138,23 +138,23 @@ Assume the following deployment of our nodes:
 ```
 
 
-`10.0.10.8` is being decommissioned and we should move away from it. 
+`10.0.10.8` is being decommissioned and we should move away from it.
 
 **Steps:**
 
 1. Remove the decommissioned IP and add a new IP to the placement rule whitelist by editing `placement_constraint`:
-	
+
 ```shell
 	hostname:LIKE:10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123
-```	
+```
 
 2. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist: `dcos nifi pod replace _NODEPOD_-1`
 
 3. Wait for `_NODEPOD_-1` to be up and healthy before continuing with any other replacement operations.
-    
+
 The placement constraints can be modified by configuring the "placement constraint" section of the Config.json file:
 
-	
+
 ```shell
 	"placement_constraint": {
           "type": "string",
@@ -258,7 +258,7 @@ The DC/OS NiFi Service allows you to back up the NiFi application to Amazon S3. 
     3. AWS_REGION
     4. S3_BUCKET_NAME
 
-To enable backup, trigger the backup-S3 Plan with the following plan parameters: 
+To enable backup, trigger the backup-S3 Plan with the following plan parameters:
 ```shell
 {
  'AWS_ACCESS_KEY_ID': key_id,
@@ -287,33 +287,33 @@ or with a command which includes plan parameters:
 
 However, the backup can also be started with the following command:
 
-Once this plan is executed, the backup will be uploaded to S3. 
+Once this plan is executed, the backup will be uploaded to S3.
 
 The NiFi backup is performed using the NiFi toolkit. The NiFi backup will be performed using three sidecar tasks:
 
 1. `Backup` - Back up to local node (ROOT/MOUNT)
-       
+
    The Backup task is responsible for making a backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volume.
 
    [<img src="../service/Backup.png" alt="backup" width="800"/>](../service/Backup.png)
-   
+
    _Figure 1. - Backing up to the local node_
 
-       
+
 2. `Upload_to_S3` - Upload the backup from the local node to S3
-    
+
    This task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
-       
+
    [<img src="../service/S3Upload.png" alt="S3Upload.png" width="800"/>](../service/S3Upload.png)     
-   
+
    _Figure 2. - Uploading the backup file_
-       
+
  3. `Cleanup` - Remove the backup from local node.
-    
+
     After Step 2 is complete and the backup has been uploaded to Amazon S3, a sidecar task known as `cleanup` is triggered. This task cleans up and removes the backup folder from the local Root/Mount volumes.
-    
+
    [<img src="../service/Cleanup.png" alt="cleanup" width="800"/>](../service/Cleanup.png)
-   
+
    _Figure 3. - Cleaning up_
 
 
@@ -326,7 +326,7 @@ The admin toolkit contains command line utilities for administrators to support 
 - Node Manager — The node manager tool allows administrators to perform a status check on a node as well as to connect, disconnect, or remove nodes that are part of a cluster.
 - File Manager — The file manager tool allows administrators to backup, install or restore a NiFi installation from backup.
 
-The admin toolkit is bundled with the `nifi-toolkit` and can be executed with scripts found in the bin folder. Further documentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit). 
+The admin toolkit is bundled with the `nifi-toolkit` and can be executed with scripts found in the bin folder. Further documentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit).
 
 To execute the Nifi Administration Toolkit commands, we need to do a `dcos task exec` to a NiFi node, and set the JAVA_HOME using the command:
 
@@ -408,4 +408,3 @@ This would return the Java home Path:
 ```shell
  sh $MESOS_SANDBOX/nifi-toolkit-${NIFI_VERSION}/bin/file-manager.sh -o backup -b nifi-backup -c $MESOS_SANDBOX/../../tasks/nifi-$POD_INSTANCE_INDEX-node*/nifi-{{NIFI_VERSION}} -v;
 ````
-

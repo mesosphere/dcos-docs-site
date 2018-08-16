@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Supported Versions
 title: Supported Versions
-menuWeight: 110
+menuWeight: 120
 excerpt: Understanding DC/OS NiFi Services package versioning
 featureMaturity:
 enterprise: false

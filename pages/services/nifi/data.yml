@@ -8,5 +8,5 @@ techShortName: nifi
 # Values specific to certain templates:
 
 security:
-  plaintext: ", \"allow_plaintext\": <true|false default false>"
-
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>

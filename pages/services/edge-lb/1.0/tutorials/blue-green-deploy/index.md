@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Blue/Green Service Update
 title: Blue/Green Service Update
 menuWeight: 30
-excerpt:
+excerpt: Using blue/green deployment
 
 enterprise: false
 ---
@@ -26,7 +26,7 @@ Blue/green deployment allows you to have two fully scaled versions of the servic
   dcos package install edgelb --cli
   ```
 
-* Enough capacity on the DC/OS cluster for 2 fully deployed services.
+* Enough capacity on the DC/OS cluster for two fully deployed services.
 
 # Example Deployment
 

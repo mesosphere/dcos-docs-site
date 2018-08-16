@@ -11,7 +11,7 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-DC/OS provides an east-west layer 4 load balancer (minuteman) that enables multi-tier microservices architectures.
+DC/OS provides an east-west layer 4 load balancer (Minuteman) that enables multi-tier microservices architectures.
 
 It acts as a TCP layer 4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency.
 
@@ -29,7 +29,7 @@ When you launch a set of tasks, DC/OS distributes them to a set of nodes in the 
 ### Requirements
 
 -  Do not firewall traffic between the nodes (allow all TCP/UDP).
--  Do not change `ip_local_port_range`.
+-  Do not change the default value of `net.ipv4.ip_local_port_range` sysctl parameter. It should be in the range of 32768 to 60999.
 -  You must use a supported [operating system](/1.11/installing/oss/custom/system-requirements/).
 
 #### Persistent Connections
@@ -42,7 +42,7 @@ Use Mesos health checks. Mesos health checks are surfaced to the load balancing 
  test "$(curl -4 -w '%{http_code}' -s http://localhost:${PORT0}/|cut -f1 -d" ")" == 200
  ```
 
- This ensures the HTTP status code returned is 200. It also assumes your application binds to localhost. The `${PORT0}` is set as a variable by Marathon. You should not use TCP health checks because they may provide misleading information about the liveness of a service.
+This ensures the HTTP status code returned is 200. It also assumes your application binds to localhost. The `${PORT0}` is set as a variable by Marathon. You should not use TCP health checks because they may provide misleading information about the liveness of a service.
 
 **Note:** Docker container command health checks are run inside the Docker container. For example, if cURL is used to check NGINX, the NGINX container must have cURL installed, or the container must mount `/opt/mesosphere` in RW mode.
 

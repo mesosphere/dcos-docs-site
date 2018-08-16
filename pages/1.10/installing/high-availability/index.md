@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This document discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
+This page discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
 
 DC/OS multiple zone (multi-AZ) configuration support is [preview](/1.10/overview/feature-maturity/#preview) and multiple region configuration support is [experimental](/1.10/overview/feature-maturity/#experimental).
 

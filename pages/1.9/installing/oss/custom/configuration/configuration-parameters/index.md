@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Configuration Reference
-excerpt:
+excerpt: List of all configuration parameters for DC/OS Open Source installations
 title: Configuration Reference
 menuWeight: 600
 ---
@@ -39,7 +39,7 @@ This topic provides all available configuration parameters. Except where explici
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [dcos_overlay_enable](#dcos-overlay-enable)          | This block of parameters specifies whether to enable DC/OS virtual networks.                                                              |
-| [dns_forward_zones](#dns-forward-zones)              | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers. |
+| [dns_forward_zones](#dns-forward-zones)              | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries.  |
 | [dns_search](#dns-search)                   | A space-separated list of domains that are tried when an unqualified domain is entered.                                                  |
 | [resolvers](#resolvers)                    | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.                                                |
 | [master_dns_bindall](#master-dns-bindall)                    | Indicates whether the master DNS port is open.                                               |
@@ -221,7 +221,7 @@ For more information, see the [example](/1.9/installing/oss/custom/configuration
 
 ### dns_forward_zones
 
-**Important:** Available for DC/OS 1.9.1 and higher.
+**Important:** Available for DC/OS 1.9.1 and later.
 
 A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
 
@@ -237,7 +237,7 @@ b.contoso.com:
 - "4.4.4.4:53"
 ```
 
-In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
+In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded to `3.3.3.3:53` or `4.4.4.4:53`.
 
 
 ### dns_search
@@ -348,6 +348,9 @@ The path to the installer host logs from the SSH processes. By default this is s
        (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.9/networking/tls-ssl/).
 
        The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
+
+       **Note:** The internal load balancer must work in TCP mode, without any TLS termination.
+       
     *  **num_masters**
        (Required) The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 

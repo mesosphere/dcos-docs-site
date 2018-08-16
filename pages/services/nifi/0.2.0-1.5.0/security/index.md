@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Security
 title: Security
-menuWeight: 33
+menuWeight: 50
 excerpt: DC/OS NiFi Service encryption, authentication, and authorization
 featureMaturity:
 enterprise: false

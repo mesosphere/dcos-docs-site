@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Uninstalling
 title: Uninstalling
-menuWeight: 30
+menuWeight: 40
 excerpt: Uninstalling DC/OS Apache NiFi Services
 featureMaturity:
 enterprise: false

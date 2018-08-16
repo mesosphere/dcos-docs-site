@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 120
+menuWeight: 130
 excerpt: Release Notes for version 0.2.0-1.5.0
 featureMaturity:
 enterprise: false
@@ -18,7 +18,7 @@ enterprise: false
 
 ### Updates
 - Removing configurable settings for Nifi like container path and some default configurations.
-
+- Renamed web endpoint to node endpoint.
 
 ## Version 0.1.0-1.5.0
 

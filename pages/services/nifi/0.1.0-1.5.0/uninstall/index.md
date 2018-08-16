@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Uninstalling
 title: Uninstalling
-menuWeight: 30
+menuWeight: 40
 excerpt: Uninstalling DC/OS Apache NiFi Service
 featureMaturity:
 enterprise: false
@@ -20,14 +20,14 @@ For example, to uninstall the Apache NiFi instance named `nifi-dev`, run:
 dcos package uninstall --app-id=nifi-dev nifi
 ```
 
-### Uninstall flow
+### Uninstall workflow
 
 Uninstalling the service consists of the following steps:
 
 The scheduler is relaunched in Marathon with the environment variable `SDK_UNINSTALL` set to “true”. This puts the Scheduler in an uninstall mode.
-  
+
 The scheduler performs the uninstall with the following actions:
-    
+
   1. All running tasks for the service are terminated so that Mesos will re-offer their resources.
   2. As the task resources are offered by Mesos, they are unreserved by the scheduler.
 **Warning:** Any data stored in reserved disk resources will be irretrievably lost.
@@ -41,9 +41,9 @@ The cluster automatically removes the scheduler task once it advertises the comp
 
 In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling scheduler. In that case, the uninstalling scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
 
-This situation is indicated by looking at `deploy plan` while the uninstall is proceeding. The Deploy Plan may be viewed using either of the following methods:
+This situation is indicated by looking at the Deploy Plan while the uninstall is proceeding. The Deploy Plan may be viewed using either of the following methods:
 
-1. CLI: dcos nifi --name=nifi plan show deploy (after running dcos package install --cli nifi if needed)
+1. CLI: `dcos nifi --name=nifi plan show deploy` (after running `dcos package install --cli nifi` if needed)
 2. HTTP: https://yourcluster.com/service/nifi/v1/plans/deploy
 
 **Deploy Plan in progress**
@@ -73,7 +73,7 @@ As you can see above, some of the resources to unreserve are stuck in a PENDING 
 
 1. CLI: dcos nifi --name=nifi plan show deploy
 2. HTTP: https://yourcluster.com/service/nifi/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>
-    
+
 At this point the scheduler should show a COMPLETE state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
 
 ```shell
@@ -129,14 +129,14 @@ deploy (serial strategy) (COMPLETE)
 └─ deregister-service (serial strategy) (COMPLETE)
    └─ deregister (COMPLETE)
 ```    
-    
+
 ### Manual uninstall    
 
 If all else fails, you can manually perform the uninstall yourself. To do this, perform the following steps:
 
 1. Delete the uninstalling scheduler from Marathon.
 2. Unregister the service from Mesos using its UUID as follows:
-    
+
 ```shell
 dcos service --inactive | grep nifi
 nifi     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096

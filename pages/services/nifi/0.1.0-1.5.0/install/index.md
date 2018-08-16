@@ -3,20 +3,20 @@ layout: layout.pug
 navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
-excerpt: Installing DC/OS NiFi from the web interface or the CLI
+excerpt: Installing DC/OS Apache NiFi from the web interface or the CLI
 featureMaturity:
 enterprise: false
 ---
 
- DC/OS NiFi Service is available in the Universe and can be installed using either the web interface or the DC/OS CLI.
+ DC/OS Apache NiFi service is available in the Universe and can be installed using either the web interface or the DC/OS CLI.
 
-The default DC/OS NiFi Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
+The default DC/OS Apache NiFi Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 ## Prerequisites
-   
+
 - If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
-    
+
  - In `permissive` security mode a service account is optional.
  - The `disabled` security mode does not require a service account.
  - Your cluster must have at least three private nodes.
@@ -25,15 +25,15 @@ The default DC/OS NiFi Service installation provides reasonable defaults for try
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of DC/OS NiFi Service, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. 
+To start a basic test cluster of DC/OS Apache NiFi Service, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
 
    ```shell
-   dcos package install nifi 
+   dcos package install nifi
    ```
 
 This command creates a new instance with the default name `nifi`. Two instances cannot share the same name, so if you install additional instances beyond the default instance you must customize the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, wherein we can install the same application in different folders.
 
-All DC/OS NiFi Service CLI commands have a `--name`  argument, allowing you to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, such as `nifi`. The default value for `--name` can be customized via the DC/OS CLI configuration:
+All DC/OS Apache NiFi Service CLI commands have a `--name`  argument, allowing you to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, such as `nifi`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
    ```shell
    dcos nifi --name=nifi <cmd>
@@ -50,7 +50,7 @@ For more information on building the `options.json` file, see [DC/OS documentati
 ## Installing from the DC/OS web interface
 
 Note:  Alternatively, you can install DC/OS NiFi Service from the DC/OS web interface. Select the app from the Catalog and choose Deploy.
-   
+
 If you install Apache NiFi from the DC/OS web interface, the `dcos nifi` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
    ```shell
@@ -74,7 +74,7 @@ When the above JSON configuration is passed to the `package install nifi`  comma
    ```shell
    dcos package install nifi --options=nifi-other.json
    ```
-   
+
 Multiple instances of Apache NiFi may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Apache NiFi named `nifi-staging` and another named `nifi-prod`, each with its own custom  configuration.
 
 After specifying a custom name for your instance, it can be reached using `dcos nifi` CLI commands or directly over HTTP as described below.
@@ -83,7 +83,7 @@ After specifying a custom name for your instance, it can be reached using `dcos 
 
 ## Installing into folders
 
-In DC/OS 1.10 and above, services may be installed into folders by specifying a slash-delimited service name. The example below will install the service under a path of `foldered => path => to => nifi`. 
+In DC/OS 1.10 and above, services may be installed into folders by specifying a slash-delimited service name. The example below will install the service under a path of `foldered => path => to => nifi`.
 
    ```shell
    {
@@ -115,7 +115,7 @@ Likewise, if you had an instance in a folder like `/foldered/path/to/nifi`, the 
    ```shell
    dcos nifi --name=/foldered/path/to/nifi pod list
    ```
-   
+
 You can make the same query over HTTP:
 
    ```shell
@@ -221,7 +221,7 @@ In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service wit
 ## Interacting with your foldered service
 
 1. Interact with your foldered service via the DC/OS CLI with this flag: `--name=/path/to/myservice`.
-2. To interact with your foldered service over the web directly, use `http://<dcos-url>/service/path/to/myservice. E.g., http://<dcos-url>/service/testing/nifi/v1/endpoints`.
+2. To interact with your foldered service over the web directly, use `http://<dcos-url>/service/path/to/myservice.` For example:  `http://<dcos-url>/service/testing/nifi/v1/endpoints`.
 
 ## Placement constraints
 
@@ -246,12 +246,12 @@ In order to define placement constraints as part of an install or update of a se
        }
    }
    ```
-This file can be referenced to install a `nifi` service.
+You can refer to this file to install a `nifi` service.
 
    ```shell
    dcos package install hello-world --options=options.json
    ```
-Likewise, this file can be referenced to update a `nifi` service.
+Likewise, you can refer to this file in order to update a `nifi` service.
 
    ```shell
    dcos nifi update start --options=options.json

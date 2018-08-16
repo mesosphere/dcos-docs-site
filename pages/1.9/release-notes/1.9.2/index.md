@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.2
 title: Release Notes for 1.9.2
-menuWeight: 45
+menuWeight: 40
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.9.2.
+DC/OS 1.9.2 was released on July 25, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 

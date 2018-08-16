@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.1
 title: Release Notes for 1.11.1
-menuWeight: 5
+menuWeight: 15
 excerpt: Release notes for DC/OS 1.11.1
 ---
 
-These are the release notes for DC/OS 1.11.1.
+DC/OS 1.11.1 was released on April 18, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -49,7 +49,7 @@ These are the release notes for DC/OS 1.11.1.
 
 # <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1
 
-- Updated to [Mesos 1.5.1-dev](https://github.com/mesosphere/mesos/blob/b2eeb11ede805a7830cd6fb796d0b21a647aba04/CHANGELOG).
+- Updated to [Mesos 1.5.1-b0a33cb](https://github.com/apache/mesos/blob/b0a33cb/CHANGELOG).
 - Updated to [Marathon 1.6.352](https://github.com/mesosphere/marathon/releases).
 - Updated to [Metronome 0.4.1](https://github.com/dcos/metronome/releases/tag/v0.4.1).
 - DCOS-16431 - Introduced a new DC/OS configuration variable `adminrouter_auth_cache_enabled` for controlling Admin Router's permission cache. [enterprise type="inline" size="small" /]
@@ -60,6 +60,7 @@ These are the release notes for DC/OS 1.11.1.
 
 - DCOS-22128 - When using pods with volumes, if a container in the pod is not configured to mount the volume, the cluster cannot access any service via the UI. As a workaround, when using pods with volumes, use the CLI instead.
 
+**Note:** The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).
 
 # About DC/OS 1.11
 
