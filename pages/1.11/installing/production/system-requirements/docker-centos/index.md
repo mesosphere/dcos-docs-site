@@ -18,9 +18,11 @@ Before installing Docker on CentOS/RHEL, review the general [requirements and re
 
 * Format node storage as XFS with the `ftype=1` option. As of CentOS/RHEL 7.2, [only XFS is currently supported for use as a lower layer file system][2].
 
-    ```bash
-    mkfs -t xfs -n ftype=1 /dev/sdc1
-    ```
+**Note:** In modern versions of Centos and RHEL, `ftype=1` is the default. The `xfs_info` utility can be used to verify that `ftype=1`.
+
+  ```bash
+  mkfs -t xfs -n ftype=1 /dev/sdc1
+  ```
 
 # Installation Procedure
 

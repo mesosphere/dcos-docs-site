@@ -68,7 +68,7 @@ $ dcos kubernetes backup --aws-region=us-east1-d --aws-bucket=my_bucket --aws-ac
 Backup has been successfully created!
 ```
 
-**IMPORTANT:** this package doesn not manage S3 buckets so its usage should be monitored by the user.
+**IMPORTANT:** this package doesn't manage S3 buckets so its usage should be monitored by the user.
 
 ## Restore the cluster
 

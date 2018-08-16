@@ -1,13 +1,11 @@
 ---
 layout: layout.pug
 title: Install and Customize on DC/OS Enterprise
-menuWeight: 10
-excerpt:
+menuWeight: 2
+excerpt: Installing and customizing Marathon-LB on DC/OS Enterprise
 
 enterprise: true
 ---
-
-# Installing Marathon-LB
 
 ## About installing Marathon-LB
 
@@ -20,15 +18,17 @@ The installation procedure varies according to your [security mode](/1.10/instal
 
 ### Using the DC/OS CLI
 
-**Prerequisite:** [DC/OS CLI installed](/1.10/cli/install/) and logged in via `dcos auth login` as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
+**Prerequisites:**
+- [DC/OS CLI installed](/1.10/cli/install/)
+- Logged in via `dcos auth login` as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
 
-If you don't want to change any of the default settings, you can install Marathon-LB with the following command.
+If you do not want to change any of the default settings, you can install Marathon-LB with the following command:
 
 ```bash
 dcos package install marathon-lb
 ```
 
-To customize Marathon-LB, you can use the following command to determine its options.
+To customize Marathon-LB, use the following command to determine its options.
 
 ```bash
 dcos package describe --config marathon-lb
@@ -44,9 +44,9 @@ dcos package install --options=config.json marathon-lb
 
 To install Marathon-LB from the Catalog in `disabled` and `permissive` modes, log into the DC/OS web interface as a user with the [necessary permissions](/1.10/security/ent/perms-reference/).
 
-1. Click the **Catalog** tab. 
-2. Locate the **marathon-lb** package. 
-3. Click **REVIEW & RUN**. 
+1. Click the **Catalog** tab.
+2. Locate the **marathon-lb** package.
+3. Click **REVIEW & RUN**.
 4. To optionally customize Marathon-LB, click **EDIT**, customize parameters, then click **REVIEW AND RUN**.
 5. Click **RUN SERVICE**.
 

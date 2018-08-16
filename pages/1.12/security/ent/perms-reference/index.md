@@ -172,7 +172,7 @@ A DC/OS user requires permission to link clusters.
 ## <a name="superuser"></a>Superuser Permissions
 
 Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has the
-concept of the `superuser`. A user with permission to perform any action on the `dcos:superuser` resource has complete, unrestricted access to any operation
+concept of the `superuser`. A user with at least one permission out of `create`, `read`, `update`, `delete` or `full` on the `dcos:superuser` resource has complete, unrestricted access to any operation
 throughout DC/OS. This is extremely powerful and this permission should be
 granted sparingly.
 

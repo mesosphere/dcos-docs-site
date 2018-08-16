@@ -9,7 +9,7 @@ const debug = require('debug')('metalsmith-algolia');
  * Search indexing for algolia
  */
 
-module.exports = function(options) {
+module.exports = function algoliaMiddlewareCreator(options = {}) {
   /**
    * Algolia Configuration
    * @param {Object} options
@@ -17,13 +17,17 @@ module.exports = function(options) {
    * @param {string} options.privateKey
    * @param {string} options.index
    * @param {boolean} options.clearIndex
+   * @param {array} options.skipSections
+   * @param {string} options.renderPathPattern
    */
-  options = options || {};
 
-  for (let parameter of ['projectId', 'privateKey', 'index']) {
-    if (!options.hasOwnProperty(parameter)) {
+  const parameters = ['projectId', 'privateKey', 'index'];
+
+  for (let i = 0; i < parameters.length; i += 1) {
+    const parameter = parameters[i];
+    if (!options[parameter]) {
       console.error(`Algolia: "${parameter}" option must be set, skipping indexation`);
-      return;
+      return null;
     }
   }
 
@@ -39,30 +43,29 @@ module.exports = function(options) {
     searchableAttributes: ['title', 'excerpt', 'content'],
     attributesToSnippet: [
       'excerpt:40',
-      'content:40'
+      'content:40',
     ],
     attributesForFaceting: ['section', 'product', 'version', 'type'],
     customRanking: ['asc(section)', 'desc(product)', 'asc(versionWeight)'],
   });
 
-  return function(files, metalsmith, done) {
-
-    // Getr metadata
-    let metadata = metalsmith.metadata();
+  return function metalsmithAlgoliaMiddleware(files, metalsmith, done) {
+    // Get metadata
+    const metadata = metalsmith.metadata();
     if (!metadata) {
       console.error('Metadata must be configured');
       return;
     }
 
     // Get hierarchy
-    let hierarchy = metadata.hierarchy;
+    const hierarchy = metadata.hierarchy;
     if (!hierarchy) {
       console.error('Hierarchy must be configured');
       return;
     }
 
     // Build semver map
-    let semverMap = buildSemverMap(files);
+    const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
 
     // Start promise chain
     let start;
@@ -70,10 +73,14 @@ module.exports = function(options) {
     // Clear index
     if (options.clearIndex === true) {
       start = new Promise((resolve, reject) => {
-        index.clearIndex(err => {
-          if (err) console.error('Algolia: Error while cleaning index:', err);
-          console.log('Algolia: Cleared index');
-          resolve();
+        index.clearIndex((err) => {
+          if (err) {
+            console.error('Algolia: Error while cleaning index:', err);
+            reject();
+          } else {
+            console.log('Algolia: Cleared index');
+            resolve();
+          }
         });
       });
     } else {
@@ -82,36 +89,36 @@ module.exports = function(options) {
 
     // Initialize indexing
     start.then(() => {
-      let promises = [];
-      let objects = [];
-      let indexed = 0;
+      const promises = [];
+      const objects = [];
 
       // Loop through metalsmith object
-      Object.keys(files).forEach(file => {
-        if ('.html' != extname(file)) return;
+      Object.keys(files).forEach((file) => {
+        if (inExcludedSection(file, options.skipSections, options.renderPathPattern)) {
+          return;
+        }
+        if (extname(file) !== '.html') return;
         const fileData = files[file];
         const postContent = sanitize(fileData.contents);
         const postParts = convertStringToArray(postContent, 9000);
-        postParts.forEach((value, index) => {
-          let record = getSharedAttributes(fileData, hierarchy, semverMap);
-          record.objectID = file + '-' + index;
+        postParts.forEach((value, _index) => {
+          const record = getSharedAttributes(fileData, hierarchy, semverMap);
+          record.objectID = `${file}-${index.indexName}`;
           record.content = value;
-          record.record_index = index;
           objects.push(record);
         });
       });
 
-      for (let object of objects) {
+      for (let i = 0; i < objects.length; i += 1) {
+        const object = objects[i];
         promises.push(
           new Promise((resolve, reject) => {
-            index.addObject(object, (err, content) => {
+            index.addObject(object, (err, _content) => {
               if (err) {
-                debug(`Algolia: Skipped "${object.objectID}": ${err.message}`);
+                console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
                 reject(err);
-              }
-              else {
-                debug(`Algolia: Updating "${object.objectID}"`);
-                indexed++;
+              } else {
+                console.log(`Algolia: Updating "${object.objectID}"`);
               }
               resolve();
             });
@@ -120,43 +127,61 @@ module.exports = function(options) {
       }
 
       promises.reduce((promise, item) => {
-        return promise.then(() => {
-          return item.then();
-        });
-      }, Promise.resolve())
-      .then(() => {
+        return promise.then(() => item.then());
+      }, Promise.resolve()).then(() => {
         done();
       });
-
     });
-
   };
 };
 
-// Build a sorted map that ranks semver
-const buildSemverMap = (files) => {
+// File paths caught here will not be indexed for search.
+// This is determined by the ALGOLIA_SKIP_SECTIONS environment variable.
+const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
+  if (renderPathPattern) {
+    const pathPatternRegex = RegExp(renderPathPattern);
+    if (!pathPatternRegex.test(filePath)) {
+      return true;
+    }
+  }
 
-  let versions = [];
-  let map = {};
+  for (let i = 0; i < skipSections.length; i += 1) {
+    const skipSection = skipSections[i];
+    const regex = RegExp(skipSection);
+
+    if (regex.test(filePath)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+// Build a sorted map that ranks semver
+const buildSemverMap = (files, skipSections, renderPathPattern) => {
+  const versions = [];
 
   const cleanVersion = (version) => {
-    if(semverRegex().test(version)) {
+    if (semverRegex().test(version)) {
       return version;
     }
-    let v = version.split('.');
-    if(v.length < 3) {
+    const v = version.split('.');
+    if (v.length < 3) {
       v.push('0');
     }
     return v.slice(0, 3).join('.');
-  }
+  };
 
   // Filter
-  for(let file in files) {
+  const filePaths = Object.keys(files);
+  for (let i = 0; i < filePaths.length; i += 1) {
+    const file = filePaths[i];
     const pathParts = file.split('/');
-    if(pathParts[0] == 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) == -1) {
+    if (inExcludedSection(file, skipSections, renderPathPattern)) {
+      continue;
+    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) === -1) {
       versions.push(pathParts[2]);
-    }
-    else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.indexOf(pathParts[0]) == -1) {
+    } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.indexOf(pathParts[0]) === -1) {
       versions.push(pathParts[0]);
     }
   }
@@ -166,39 +191,35 @@ const buildSemverMap = (files) => {
   versionsSorted = semverSort.desc(versionsSorted);
 
   // Map
+  const map = {};
+
   versions.forEach((version) => {
-    let cv = cleanVersion(version);
-    let weight = versionsSorted.indexOf(cv);
+    const cv = cleanVersion(version);
+    const weight = versionsSorted.indexOf(cv);
     map[version] = {
       version: cv,
-      weight: weight,
+      weight,
     };
   });
 
   return map;
-}
+};
 
 // Get shared attributes for a record.
 const getSharedAttributes = (fileData, hierarchy, semverMap) => {
-
-  const pathParts = fileData.path.split('/')
-  let record = {};
+  const pathParts = fileData.path.split('/');
+  const record = {};
 
   if (pathParts[0] === 'test') {
     return record;
-  }
-
-  else if (pathParts[0] === '404') {
+  } else if (pathParts[0] === '404') {
     return record;
-  }
-
-  // Services
-  else if (pathParts[0] === 'services') {
+  } else if (pathParts[0] === 'services') {
     let product;
     record.section = 'Service Docs';
     // If in /services/product/**
     if (pathParts[1]) {
-      let productPath = pathParts.slice(0, 2).join('/');
+      const productPath = pathParts.slice(0, 2).join('/');
       product = hierarchy.findByPath(productPath).title || '';
       if (product) {
         record.product = product;
@@ -206,24 +227,22 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
     }
     // If in /services/product/version/**
     if (pathParts[2]) {
-      let regex = /^(v|)[0-9].[0-9](.*)/g;
-      let isVersion = regex.test(pathParts[2]);
+      const regex = /^(v|)[0-9].[0-9](.*)/g;
+      const isVersion = regex.test(pathParts[2]);
       if (isVersion) {
-        record.version = product + ' ' + pathParts[2].substr(1);
+        record.version = `${product} ${pathParts[2].substr(1)}`;
         record.versionNumber = pathParts[2].substr(1);
         record.versionWeight = semverMap[pathParts[2]].weight;
       }
     }
-  }
-
-  // Docs version
-  else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0])) {
-    product = 'DC/OS';
+  } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0])) {
+    // Docs version
+    const product = 'DC/OS';
     record.section = 'DC/OS Docs';
     record.product = product;
     // If in /1.*/*
     if (pathParts[0]) {
-      record.version = product + ' ' + pathParts[0];
+      record.version = `${product} ${pathParts[0]}`;
       record.versionNumber = pathParts[0];
       record.versionWeight = semverMap[pathParts[0]].weight;
     }
@@ -240,11 +259,10 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
   // Excerpt
   if (fileData.excerpt) {
     record.excerpt = fileData.excerpt;
-  }
-  else {
-    let excerptPath = pathParts.join('/');
-    let objectHierarchy = hierarchy.findByPath(excerptPath) || '';
-    let excerpt = objectHierarchy.excerpt || '';
+  } else {
+    const excerptPath = pathParts.join('/');
+    const objectHierarchy = hierarchy.findByPath(excerptPath) || '';
+    const excerpt = objectHierarchy.excerpt || '';
     if (objectHierarchy && excerpt) {
       record.excerpt = excerpt;
     }
@@ -254,9 +272,7 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
 };
 
 // Trim whitespace from of string.
-const trim = string => {
-  return string.replace(/^\s+|\s+$/g, '');
-};
+const trim = string => string.replace(/^\s+|\s+$/g, '');
 
 /**
  * Parses buffer to string and sanitizes html.
@@ -264,13 +280,13 @@ const trim = string => {
  * Removes all tags and replaces with whitespace.
  * @param {Buffer} buffer
  */
-const sanitize = buffer => {
-  let string = buffer.toString();
+const sanitize = (buffer) => {
+  const string = buffer.toString();
   let parsedString = sanitizeHtml(string, {
     allowedTags: [],
     allowedAttributes: [],
     selfClosing: [],
-    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'pre'],
+    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'nav'],
   });
   parsedString = trim(parsedString);
   return parsedString;

@@ -14,22 +14,14 @@ Renew a cluster license.
 # Usage
 
 ```bash
-dcos license renew  --filename <file_path>
+dcos license renew [OPTIONS] PATH
 ```
-
-# Options
-
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-|   |   |   |
-| `--filename`   |             |  Specify the name of a license file. |
-
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<file_path>`    |   |  The path to a file containing the license. |
+| `PATH`  |   |  The path to a file containing the license. |
 
 # Parent command
 

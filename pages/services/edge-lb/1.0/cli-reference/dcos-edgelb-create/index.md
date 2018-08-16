@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Creates a single pool given a definition file written in JSON or YAML.
+The `dcos edgelb create` command creates a single pool from a definition file written in JSON or YAML.
 
 # Usage
 
@@ -21,7 +21,7 @@ dcos edgelb create [<flags>] <pool-file>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |

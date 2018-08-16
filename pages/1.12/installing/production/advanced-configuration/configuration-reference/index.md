@@ -95,6 +95,7 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) are [here
 | ca_certificate_path                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [permissions_cache_ttl_seconds](#permissions-cache-ttl-seconds)   | [enterprise type="inline" size="small" /] The maximum number of seconds for permission changes to propagate through the entire system. |
 | [security](#security-enterprise)                               | The security mode: disabled, permissive, or strict. [enterprise type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
@@ -123,8 +124,8 @@ _This option was added in DC/OS 1.11.1._
 
 Controls whether the Admin Router authorization cache is enabled.
 
-*   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
-*   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
+*   `adminrouter_auth_cache_enabled: false` Every authorization check Admin Router performs will load the user's permissions from the IAM.
+*   `adminrouter_auth_cache_enabled: true` (default) Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
 
 
 ## adminrouter_tls_1_0_enabled [enterprise type="inline" size="small" /]
@@ -233,7 +234,7 @@ The dictionary of packaging configuration to pass to the [DC/OS package manager]
 * `staged_package_storage_uri`
    Where to temporarily store DC/OS packages while they are being added. The value must be a file URL, for example, `file:///var/lib/dcos/cosmos/staged-packages`.
 
-## customer_key (Required) [enterprise type="inline" size="small" /] 
+## customer_key (Required) [enterprise type="inline" size="small" /]
 The DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact.
 
 This key is a 128-bit hyphen-delimited hexadecimal identifier used to distinguish an individual cluster. The customer key serves as the Universally Unique Identifier (UUID) for a given installation.
@@ -301,7 +302,7 @@ Indicates whether to enable DC/OS virtual networks.
         ```
 
         *  `vtep_subnet` A dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be accessible from outside the agents or master.
-        *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node. 
+        *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node.
         **Note:** The last three bytes must be `00`.
 
         *  `overlays`
@@ -436,14 +437,14 @@ The Mesos master discovery method. The available options are `static` or `master
 
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
-    *  `exhibitor_address` (Required) 
+    *  `exhibitor_address` (Required)
        The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/security/ent/tls-ssl/).
 
        The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
 
        **Note:** The internal load balancer must work in TCP mode, without any TLS termination.
-       
-    *  `num_masters` (Required) 
+
+    *  `num_masters` (Required)
        The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 
 **Note:**
@@ -488,6 +489,9 @@ The location of the Mesos work directory on master nodes. This defines the `work
 ## mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
 
+## permissions_cache_ttl_seconds
+The maximum number of seconds for permission changes to propagate through the entire system.
+Increasing this value may reduce load on the IAM by increasing the use of caches by various authorizers.
 
 ## oauth_enabled [oss type="inline" size="small" /]
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->

@@ -8,6 +8,8 @@ excerpt: Install DC/OS cluster for Amazon Web Services using templates on AWS Cl
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.
 
+**Note:** These installation methods are not officially supported by Mesosphere, but are supported by the DC/OS community. Contact the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/users) or [Slack channel](http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201) for community support.
+
 [message type="warning"] DC/OS CloudFormation templates are intended for reference only and are not recommended for production use due to the following limitations:
 
 - CloudFormation does not allow for coordinated zero-downtime in-place updates within Auto Scaling groups.

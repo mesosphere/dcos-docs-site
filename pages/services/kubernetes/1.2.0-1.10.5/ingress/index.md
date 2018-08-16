@@ -16,7 +16,7 @@ the DC/OS cluster - you should create a
 [Kubernetes `Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress)
 resource. However, in order for the Ingress resource to work, the Kubernetes
 cluster must have a _custom ingress controller_ running. This package does not
-install such controller by default, but gives you the freedom of choice to
+install such a controller by default, but gives you the freedom of choice to
 install an ingress controller by default.
 
 You need at least one DC/OS public agent where the custom ingress controller can

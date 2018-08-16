@@ -1,39 +1,41 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start
-excerpt: Configuring Prometheus - Quick Start
+excerpt: How to use Prometheus with DC/OS
 title: Quick Start
 menuWeight: 15
 ---
 
-# How to use Prometheus with DC/OS
+This section will explain how to configure Prometheus for use with DC/OS.
 
 ## Prerequisites
 
-* A running DC/OS 1.11 cluster
+- A running DC/OS 1.11 cluster
 
 ## Install
 
 Prometheus can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
 
 ```bash
-dcos package install prometheus
-```
-
-Install Grafana from the service catalog as well. It can be used as a graphing tool.
-```bash
-dcos package install --yes grafana
+dcos package install prometheus --yes
 ```
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/services/prometheus/0.1.1-2.3.2/img/prom_install.png)
 
+Figure 1. Installing Prometheus
 
-The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. Append any new config to the end.
 
-## Accessing the Prometheus UI
+Install Grafana from the service catalog as well. It can be used as a graphing tool.
+```bash
+dcos package install grafana --yes
+```
+
+The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. The framework allows users to append any new config to the end for full extensibility.
+
+## Accessing the Prometheus UI with EdgeLB (Enterprise Feature)
 
 Once the framework is up and running:
-1. Install Edge-LB.
+1. [Install EdgeLB](https://docs.mesosphere.com/services/edge-lb/1.1/installing/).
 2. Create a file named `prometheus-edgelb.json` containing the following `edge-lb` configuration:
 
 ```
@@ -122,18 +124,87 @@ Once the framework is up and running:
 }
 ```
 
+Description of the EdgeLB configuration above:
+- Exposes Prometheus Pushgateway UI at `http://<public-agent-ip>:9091`
+- Exposes Prometheus UI at `http://<public-agent-ip>:9092`
+- Exposes Prometheus Alertmanager UI at `http://<public-agent-ip>:9093`
+- Exposes Grafana UI at `http://<public-agent-ip>:9094`
 
-3. In your browser enter the following address.
+3. Deploy the `edge-lb` service configuration above using:
+```
+dcos edgelb create prometheus-edgelb.json
+```
 
-Promtheus UI:
+## Accessing the Prometheus UI using MarathonLB (OSS)
+
+1. Install Marathon-LB
+```
+dcos package install marathon-lb --yes
+```
+
+2. Create a file named `prometheus-marathonlb.json` containing the following `marathon-lb` proxy configuration:
+```
+{
+  "id": "/prometheus-proxy",
+  "instances": 1,
+  "cpus": 0.001,
+  "mem": 16,
+  "cmd": "tail -F /dev/null",
+  "container": {
+    "type": "MESOS"
+  },
+  "portDefinitions": [
+    {
+      "protocol": "tcp",
+      "port": 0
+    },
+    {
+      "protocol": "tcp",
+      "port": 0
+    },
+    {
+      "protocol": "tcp",
+      "port": 0
+     },
+  {
+      "protocol": "tcp",
+      "port": 0
+     }
+  ],
+  "labels": {
+    "HAPROXY_GROUP": "external",
+    "HAPROXY_0_MODE": "http",
+    "HAPROXY_0_PORT": "9092",
+    "HAPROXY_0_BACKEND_SERVER_OPTIONS": "server prometheus prometheus.prometheus.l4lb.thisdcos.directory:9090",
+    "HAPROXY_1_MODE": "http",
+    "HAPROXY_1_PORT": "9093",
+    "HAPROXY_1_BACKEND_SERVER_OPTIONS": "server alertmanager alertmanager.prometheus.l4lb.thisdcos.directory:9093",
+    "HAPROXY_2_MODE": "http",
+    "HAPROXY_2_PORT": "9091",
+    "HAPROXY_2_BACKEND_SERVER_OPTIONS": "server pushgateway pushgateway.prometheus.l4lb.thisdcos.directory:9091",
+    "HAPROXY_3_MODE": "http",
+    "HAPROXY_3_PORT": "9094",
+    "HAPROXY_3_BACKEND_SERVER_OPTIONS": "server grafana grafana.grafana.l4lb.thisdcos.directory:3000"
+  }
+}
+```
+
+Description of the Marathon-LB configuration above:
+- Exposes Prometheus Pushgateway UI at `http://<public-agent-ip>:9091`
+- Exposes Prometheus UI at `http://<public-agent-ip>:9092`
+- Exposes Prometheus Alertmanager UI at `http://<public-agent-ip>:9093`
+- Exposes Grafana UI at `http://<public-agent-ip>:9094`
+
+### Navigate to the Service UI
+Enter the following address in your browser:
 ```
 http://<public-agent-ip>:9092
 ```
 
+You should see the Prometheus UI:
 [<img src="/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png)
+Figure 2. Prometheus dashboard
 
-
-This is the console view within the `Graph` tab.
 
 You can also verify that Prometheus is serving metrics about itself by navigating to its metrics endpoint:
 
@@ -147,7 +218,7 @@ Go back to the console view, and enter this into the expression console:
 
 `prometheus_target_interval_length_seconds`
 
-This should return a number of different time series (along with the latest value recorded for each), all with the metric name prometheus_target_interval_length_seconds.
+This should return a number of different time series (along with the latest value recorded for each), all with the metric name `prometheus_target_interval_length_seconds`.
 
 As another example, enter the following expression to graph the per-second rate of chunks being created in the self-scraped Prometheus:
 
@@ -155,46 +226,60 @@ As another example, enter the following expression to graph the per-second rate 
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png" alt="Prometheus Graphing"/>](/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png)
 
+Figure 3. Prometheus graphing
+
 ## Using Grafana with Prometheus
+
+Navigate to the following URL using the credentials `admin/admin`.
 
 ```
 http://<public-agent-ip>:9094
 ```
 
-Credentials: admin / admin
+This takes you to the Grafana console.
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_login.png" alt="Grafana Logging"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_login.png)
 
-which takes you to the Grafana console.
+Figure 4. Grafana console.
 
 
 You can add Prometheus as a data source:
 
+The default installation URL is `http://prometheus-0-server.prometheus.autoip.dcos.thisdcos.directory:1025`
+
+**Note:** your data source will not register without `http://` in front of the URL
+
 [<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png)
 
+Figure 5. Grafana data source
 
 Save and Test. Now you are ready to use Prometheus as a data source in Grafana.
 
-To create a graph, select your `Prometheus` datasource, and enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
+### Create a Dashboard
+To create a graph, select your `Prometheus` data source, and enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
 
-The following shows an example Prometheus graph configuration:
+The following shows an example Prometheus graph configuration using the variable `rate(prometheus_http_request_duration_seconds_count[5m])`
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png)
 
-## Alertmanager
+Figure 6. Grafana Prometheus graph configuration
 
-The Alertmanager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.
+## AlertManager
 
-Alertmanager UI:
+The AlertManager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.
+
+AlertManager UI:
 ```
 http://<public-agent-ip>:9093
 ```
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png" alt="AlertManager Dashboard"/>](/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png)
 
+Figure 7. AlertManager dashboard
 
-### Alertmanager with Webhook
-The default configuration for Alertmanager (these configurations can be changed) in the framework is configured with a Webhook receiver:
+
+### AlertManager with Webhook
+The default configuration for AlertManager (these configurations can be changed) in the framework is configured with a Webhook receiver:
 
 ```
 route:
@@ -254,7 +339,7 @@ Next, run the following config as a Marathon app:
 ```
 
 
-Check the logs for this app. The Alertmanager will send HTTP POST requests in the following json format:
+Check the logs for this app. The AlertManager will send HTTP POST requests in the following JSON format:
 
 ```
 {
@@ -285,9 +370,9 @@ Check the logs for this app. The Alertmanager will send HTTP POST requests in th
 }
 ```
 
-### Alertmanager with Slack
+### AlertManager with Slack
 
-Slack notifications are sent via Slack webhooks. Update the Alertmanager config to :
+Slack notifications are sent via Slack webhooks. Update the AlertManager config to:
 
 ```
 route:
@@ -309,10 +394,11 @@ receivers:
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/slack_alert.png" alt="Slack Alerts"/>](/services/prometheus/0.1.1-2.3.2/img/slack_alert.png)
 
+Figure 8. Slack alerts
 
 ## PushGateway
 
-The Prometheus Pushgateway exists to allow ephemeral and batch jobs to expose their metrics to Prometheus.
+The Prometheus PushGateway exists to allow ephemeral and batch jobs to expose their metrics to Prometheus.
 
 Pushing some metrics:
 Push a single sample into the group identified by {job="some_job"}:
@@ -322,3 +408,5 @@ echo "some_metric 3.14" | curl --data-binary @- http://pushgateway.example.org:9
 ```
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/pushg.png" alt="PushGateway"/>](/services/prometheus/0.1.1-2.3.2/img/pushg.png)
+
+Figure 9. PushGateway

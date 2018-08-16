@@ -11,7 +11,7 @@ oss: true
 
 The recommended way to deploy a OSS DC/OS cluster on GCE is by using [Terraform](#terraform).
 
- **Disclaimer: Please note this is a [community driven project](https://github.com/dcos/terraform-dcos/tree/master/gcp) and not officially supported by Mesosphere.**
+**Disclaimer: Please note this is a [community driven project](https://github.com/dcos/terraform-dcos/tree/master/gcp) and not officially supported by Mesosphere.**
 
 ## Prerequisites
 - [Terraform 0.11.x](https://www.terraform.io/downloads.html)
