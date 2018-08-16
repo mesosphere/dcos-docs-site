@@ -10,32 +10,21 @@ DC/OS 1.9.0 was released on March 28, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/commit/0ce03387884523f02624d3fb56c7fbe2e06e181b/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-# <a name="fixed-issues"></a>Issues Fixed in 1.9
-
-- CORE-735 - Large node count leads to failed overlay config and failed replog recovery.
-- DCOS-9149 - Missing Timeout for Spartan fetching DNS Exhibitor data.
-- DCOS-9754 - beam.smp consumes inordinate amount of CPU.
-- DCOS-9776 - Race in DeploymentPlan.
-- DCOS-10089 - Network tab in UI doesn't show the assigned IP.
-- DCOS-13228 - Layer 4 load balancer is not working with Docker bridge mode.
-- DCOS-13359 - Backends are not removed from VIP table when killed.
-- DCOS-13367 - ZooKeeper logs grow unbounded and will cause master node disks to fill up.
-- DCOS-13400 - Layer 4 load balancer cannot handle multiple protocols with the same VIP.
-- DCOS-13448 - Missing explicit file descriptor limits for DC/OS services.
-- DCOS-13672 - Mesos reports over allocated CPU during DC/OS upgrade.
-- DCOS-14228 - Disabled schedules keep firing in jobs.
-- DCOS-14233 - Cannot delete service account. <!-- Enterprise -->
-
-# About DC/OS 1.9
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services. <!-- NEED A LINK -->
 
+### Contents
+- [Breaking Changes](#breaking)
+- [What's New](#whats-new)
+- [Known Issues and Limitations](#known-issues)
+- [Issues Fixed since 1.9.0-rc3](#fixed-issues)
+
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
+The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
 
 # <a name="whats-new"></a>What's New
 
@@ -139,16 +128,15 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
-
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
+- Update DC/OS internal Python from 3.4 to 3.5.
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->
@@ -175,3 +163,19 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 - DCOS-14021 - [Task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
 - DCOS-14433 - The [Universal container runtime](/1.9/deploying-services/containerizers/) does not support Azure cloud with Ubuntu.
 - Marathon-7133 - Marathon application history is lost after Marathon restart.
+
+# <a name="fixed-issues"></a>Issues Fixed since 1.8
+
+- CORE-735 - Large node count leads to failed overlay config and failed replog recovery.
+- DCOS-9149 - Missing Timeout for Spartan fetching DNS Exhibitor data.
+- DCOS-9754 - beam.smp consumes inordinate amount of CPU.
+- DCOS-9776 - Race in DeploymentPlan.
+- DCOS-10089 - Network tab in UI doesn't show the assigned IP.
+- DCOS-13228 - Layer 4 load balancer is not working with Docker bridge mode.
+- DCOS-13359 - Backends are not removed from VIP table when killed.
+- DCOS-13367 - ZooKeeper logs grow unbounded and will cause master node disks to fill up.
+- DCOS-13400 - Layer 4 load balancer cannot handle multiple protocols with the same VIP.
+- DCOS-13448 - Missing explicit file descriptor limits for DC/OS services.
+- DCOS-13672 - Mesos reports over allocated CPU during DC/OS upgrade.
+- DCOS-14228 - Disabled schedules keep firing in jobs.
+- DCOS-14233 - Cannot delete service account. <!-- Enterprise -->

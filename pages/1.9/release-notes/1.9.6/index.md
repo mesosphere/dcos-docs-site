@@ -27,6 +27,15 @@ DC/OS 1.9.6 was released on December 20, 2017.
 - [Open SSL 1.0.2m](https://www.openssl.org/news/cl102.txt) integrated.
 - [Latest JDK 8](http://www.oracle.com/technetwork/java/javase/8all-relnotes-2226344.html) integrated.
 
+# Issues Fixed in 1.9.5
+
+- CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
+- DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
+- DCOS-18830 - Dashboard CPU allocation not rounding correctly.
+- DCOS-18350 - DC/OS IAM (Bouncer): set TMPDIR to `/var/lib/dcos/bouncer/tmp`. This allows `/tmp`, and other directories, to be mounted as `noexec`.
+- DCOS_OSS-1574 - Navstar updated due to crashes on Core OS 1465+.
+- MARATHON-7576 - Change default `UnreachableStrategy` to `0,0`.
+
 # About DC/OS 1.9
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
@@ -36,10 +45,14 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services.
 
+### Contents
+- [Breaking Changes](#breaking)
+- [What's New](#whats-new)
+- [Known Issues and Limitations](#known-issues)
 
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
+The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs.
 
 # <a name="whats-new"></a>What's New
 
@@ -142,15 +155,15 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
+- Update DC/OS internal Python from 3.4 to 3.5.
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->
