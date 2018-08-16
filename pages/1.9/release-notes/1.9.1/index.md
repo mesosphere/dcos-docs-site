@@ -10,21 +10,41 @@ DC/OS 1.9.1 was released on July 11, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+# <a name="fixed-issues"></a>Issues Fixed in 1.9.1
+
+- CORE-1062 - Chronos launching a Docker container causes Mesos agent to crash.
+- DCOS_OSS-720 - Cryptographic Cluster ID is longer than ~50 characters.
+- DCOS_OSS-743 - The prerequisite install script breaks Docker 1.13 on CentOS 7.3.
+- DCOS_OSS-790 - The pid isolator is disabled for containers launched via the UCR.
+- DCOS_OSS-796 - Navstar unhealthy in 1000 node cluster.
+- DCOS_OSS-804 - Log messages do not contain the originating module or function name.
+- DCOS_OSS-812 - Minuteman crashes for non-TCP protocol.
+- DCOS_OSS-876 - Unable to designate whether GPUs (or any other type of resource) should be considered a "scarce" resource in their cluster or not. For more information, see the [`gpus_are_scarce` parameter for config.yaml](/1.9/installing/ent/custom/configuration/configuration-parameters/#gpus-are-scarce).
+- DCOS_OSS-947 - When upgrading from 1.8 to 1.9, `/etc/profile.d/dcos.sh` symlink is not updated.
+- DCOS_OSS-1064 - Unable to configure Exhibitor to use HTTP basic auth.
+- DCOS_OSS-1102 - `dcos-signal` sends the packaging version of installed package rather than packaging version.
+- DCOS-13590 - Mesos DNS compresses various fields in records that should not be compressed (e.g., SRV's Target field).
+- DCOS-14302 - Chronos requires the hostname inside `/etc/hosts`.
+- DCOS-14750 - Cannot see or download the logs when using the GUI installer.
+- DCOS-14900 - Unable to specify custom CA cert location for private Docker registry access.  (Enterprise Only)
+- DCOS-15295 - DC/OS 1.9 not working in GovCloud.  (Enterprise Only)
+- DCOS-15317 - `myid` is missing from the ZooKeeper logs.
+- DCOS-15471 Bouncer ZK datastore: polling thread may error out as of failed distributed lock acquisition.  (Enterprise Only)
+- DCOS-15495 - DC/OS upgrade script does not support Exhibitor HTTP auth.  (Enterprise Only)
+- DCOS-15653 - Log rotation happens 256 times more often than intended.
+- OPS-578 - DC/OS CentOS 7 AMI has broken hostname config.
+
+# About DC/OS 1.9
+
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
-- New data and developer services. <!-- NEED A LINK -->
-
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.9.0](#fixed-issues)
+- New data and developer services.
 
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
+The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
 
 # <a name="whats-new"></a>What's New
 
@@ -129,15 +149,16 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
+
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5.
+- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->
@@ -175,29 +196,3 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
   ```
 
 - Marathon-7133 - Marathon application history is lost after Marathon restart.
-
-# <a name="fixed-issues"></a>Issues Fixed since 1.9.0
-
-### Fixed issues DC/OS
-
-- CORE-1062 - Chronos launching a Docker container causes Mesos agent to crash.
-- DCOS_OSS-720 - Cryptographic Cluster ID is longer than ~50 characters.
-- DCOS_OSS-743 - The prerequisite install script breaks Docker 1.13 on CentOS 7.3.
-- DCOS_OSS-790 - The pid isolator is disabled for containers launched via the UCR.
-- DCOS_OSS-796 - Navstar unhealthy in 1000 node cluster.
-- DCOS_OSS-804 - Log messages do not contain the originating module or function name.
-- DCOS_OSS-812 - Minuteman crashes for non-TCP protocol.
-- DCOS_OSS-876 - Unable to designate whether GPUs (or any other type of resource) should be considered a "scarce" resource in their cluster or not. For more information, see the [`gpus_are_scarce` parameter for config.yaml](/1.9/installing/ent/custom/configuration/configuration-parameters/#gpus-are-scarce).
-- DCOS_OSS-947 - When upgrading from 1.8 to 1.9, `/etc/profile.d/dcos.sh` symlink is not updated.
-- DCOS_OSS-1064 - Unable to configure Exhibitor to use HTTP basic auth.
-- DCOS_OSS-1102 - `dcos-signal` sends the packaging version of installed package rather than packaging version.
-- DCOS-13590 - Mesos DNS compresses various fields in records that should not be compressed (e.g., SRV's Target field).
-- DCOS-14302 - Chronos requires the hostname inside `/etc/hosts`.
-- DCOS-14750 - Cannot see or download the logs when using the GUI installer.
-- DCOS-14900 - Unable to specify custom CA cert location for private Docker registry access.  (Enterprise Only)
-- DCOS-15295 - DC/OS 1.9 not working in GovCloud.  (Enterprise Only)
-- DCOS-15317 - `myid` is missing from the ZooKeeper logs.
-- DCOS-15471 Bouncer ZK datastore: polling thread may error out as of failed distributed lock acquisition.  (Enterprise Only)
-- DCOS-15495 - DC/OS upgrade script does not support Exhibitor HTTP auth.  (Enterprise Only)
-- DCOS-15653 - Log rotation happens 256 times more often than intended.
-- OPS-578 - DC/OS CentOS 7 AMI has broken hostname config.

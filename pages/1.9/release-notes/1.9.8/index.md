@@ -2,8 +2,9 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.8
 title: Release Notes for 1.9.8
-menuWeight: 10
-excerpt:
+menuWeight: 0
+excerpt: Release Notes for DC/OS 1.9.8
+
 ---
 
 DC/OS 1.9.8 was released on March 28, 2018.
@@ -21,47 +22,6 @@ DC/OS 1.9.8 was released on March 28, 2018.
 
 - Updated to Metronome 0.3.5 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.5)).
 
-
-# Issues Fixed in DC/OS 1.9.7
-
-- CORE-1375 - Docker executor no longer hangs due to lost messages.
-- DCOS-19893 - Reduced number of threads to 18 and set dump_log_write_threshold to 10, reducing startup time for dcos-net.
-- DCOS-20158 - Updated marked npm package to address two security vulnerabilities: [CVE-2017-17461](https://nvd.nist.gov/vuln/detail/CVE-2017-17461) and [CVE-2017-1000427](https://nvd.nist.gov/vuln/detail/CVE-2017-1000427).
-- DCOS_OSS-1943 - Changed the LIBPROCESS_NUM_WORKER_THREADS environment variable from 8 to 16, to increase the minimum number of librocess worker threads.
-- DCOS_OSS-2003 - Modified DC/OS overlay networking to work with systemd networkd.
-
-# Notable Changes in DC/OS 1.9.7
-
-- Updated to Mesos 1.2.3 ([changelog](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12341267)).
-- Updated to Marathon 1.4.11 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.4.11)).
-- Updated to Metronome 0.3.2 ([changelog](https://github.com/dcos/metronome/releases/tag/v0.3.2)).
-
-# Issues Fixed in DC/OS 1.9.6
-
-- COPS-980 - Marathon's default task unreachable behavior reinstated.
-- DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
-- DCOS-19217 - Metronome adheres to crontab standard.
-- DCOS-19453 - TLS compression disabled because TLS is vulnerable to the CRIME attack. [enterprise type="inline" size="small" /]
-- DCOS-19508 - Non-superusers can now edit an app that uses secrets. [enterprise type="inline" size="small" /]
-- DOCS-2130 - [Security hardening guide](/1.9/security/ent/hardening/) improvements. [enterprise type="inline" size="small" /]
-- DOCS-2153 - [Metrics documentation](/1.9/metrics/) improvements.
-
-# Notable Changes in DC/OS 1.9.6
-
-- Latest [Mesos 1.2.x](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.2.x-f8706e5/CHANGELOG) integrated (f8706e5).
-- [Marathon 1.4.9](https://github.com/mesosphere/marathon/releases/tag/v1.4.9) integrated.
-- [Open SSL 1.0.2m](https://www.openssl.org/news/cl102.txt) integrated.
-- [Latest JDK 8](http://www.oracle.com/technetwork/java/javase/8all-relnotes-2226344.html) integrated.
-
-# Issues Fixed in DC/OS 1.9.5
-
-- CORE-1292 - Remove the systemd prereq requirement of `leader.mesos` for Mesos agent.
-- DOCS-2077 - DC/OS 1.9 Custom Installation documentation: clarified where the `opt/mesosphere` directory must be.
-- DCOS-18830 - Dashboard CPU allocation not rounding correctly.
-- DCOS-18350 - DC/OS IAM (Bouncer): set TMPDIR to `/var/lib/dcos/bouncer/tmp`. This allows `/tmp`, and other directories, to be mounted as `noexec`.
-- DCOS_OSS-1574 - Navstar updated due to crashes on Core OS 1465+.
-- MARATHON-7576 - Change default `UnreachableStrategy` to `0,0`.
-
 # About DC/OS 1.9
 
 DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
@@ -71,14 +31,10 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements. [enterprise type="inline" size="small" /]
 - New data and developer services.
 
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
 
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs.
+The DC/OS Identity and Access Management (IAM) SAML service provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
 
 # <a name="whats-new"></a>What's New
 
@@ -172,7 +128,7 @@ For more information, see the [documentation](/1.9/metrics/).
 - DC/OS CLI highlights: [enterprise type="inline" size="small" /]
 
   - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM. [enterprise type="inline" size="small" /]
-  - Support authentication with service account credentials. [enterprise type="inline" size="small" /] 
+  - Support authentication with service account credentials. [enterprise type="inline" size="small" /]
 
 - Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)). [enterprise type="inline" size="small" /]
 - Security hardening across the platform, including Mesos, Marathon, and Admin Router. [enterprise type="inline" size="small" /]
@@ -188,7 +144,7 @@ For more information, see the [documentation](/1.9/metrics/).
 
 ### DC/OS Internals
 
-- Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html). 
+- Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
 - Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
 - The `dcos_generate_config.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools. [enterprise type="inline" size="small" /]
@@ -203,7 +159,7 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Docker 1.12 and 1.13 are now [supported](/1.9/installing/ent/custom/system-requirements/). Docker 1.13 is the default version.
 
-### Upgrades [enterprise type="inline" size="small" /]
+### Upgrades
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 

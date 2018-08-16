@@ -10,21 +10,37 @@ DC/OS 1.9.3 was released on September 1, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+# <a name="fixed-issues"></a>Issues Fixed in 1.9.3
+
+- DCOS-15771 - mesos-dns doesn't return all SRV records of running tasks.
+- DCOS-16151 - Marathon Endpoints are not responding.
+- DCOS-16171 - Service `dcos-bouncer` hanged for hours, causing `dcos-mesos-master` bootstrap timeout.
+- DCOS-16310 - Bouncer: all handling threads are blocked in `recv()` as part of gunicorn's HTTP msg parser.
+- DCOS-16358 - Make the Mesos master authenticator and authorizer contact the IAM through Admin Router.
+- DCOS-16743 - libprocess in infinity schedulers performs a hostname reverse lookup instead of using /opt/mesosphere/bin/detect_ip.
+- DCOS-17271 - dcos-epmd failing after host reboot.
+- DCOS-17286 - Backport DCOS-16358 to 1.9.3.
+- DCOS-17294 - Unable to curl (resolve) applications using Mesos DNS names.
+- DCOS-18162 - `dcos task exec` does not pass on the last exit code.
+- DCOS_OSS-1234 - VIP docs mention no longer existing endpoint.
+- DCOS_OSS-1301 - Exhibitor doesn't log multiline messages to journald.
+- DCOS_OSS-1433 - Bug in /etc/systemd/system/dcos-docker-gc.service script (1.9).
+- DCOS_OSS-1451 - Stale datapoints can occur in container metrics.
+- DCOS_OSS-1466 - Marathon returns persistent 503's.
+- DCOS_OSS-1470 - Exhibitor: use PatternLayoutEscaped logger layout for structured journal logger.
+- DCOS_OSS-1486 - Metrics agent crashes when the mesos containers endpoint is missing fields.
+- DCOS_OSS-1561 - Revert DCOS_OSS-1472 from 1.9.3.
+
+# About DC/OS 1.9
 DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services.
 
-### Contents
-- [Breaking Changes](#breaking)
-- [What's New](#whats-new)
-- [Known Issues and Limitations](#known-issues)
-- [Issues Fixed since 1.9.2](#fixed-issues)
-
 # <a name="breaking"></a>Breaking Changes
 
-The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
+The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs. [enterprise type="inline" size="small" /]
 
 # <a name="whats-new"></a>What's New
 
@@ -129,15 +145,16 @@ For more information, see the [documentation](/1.9/metrics/).
 
 - Jenkins
 
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. <!-- (Enterprise Only) -->
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. <!-- (Enterprise Only) -->
+    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. [enterprise type="inline" size="small" /]
+    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. [enterprise type="inline" size="small" /]
+
 
 ## Other Improvements
 
 ### DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
-- Update DC/OS internal Python from 3.4 to 3.5.
+- Update DC/OS internal Python from 3.4 to 3.5. [enterprise type="inline" size="small" /]
 - The `dcos_generate_config.ee.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
 - Added the `reset-superuser` script which attempts to create or restore superuser privileges for a given DC/OS user. <!-- Enterprise -->
@@ -178,24 +195,3 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
   ```yaml
   mesos_max_completed_tasks_per_framework: 20
   ```
-
-# <a name="fixed-issues"></a>Issues Fixed since 1.9.2
-
-- DCOS-15771 - mesos-dns doesn't return all SRV records of running tasks.
-- DCOS-16151 - Marathon Endpoints are not responding.
-- DCOS-16171 - Service `dcos-bouncer` hanged for hours, causing `dcos-mesos-master` bootstrap timeout.
-- DCOS-16310 - Bouncer: all handling threads are blocked in `recv()` as part of gunicorn's HTTP msg parser.
-- DCOS-16358 - Make the Mesos master authenticator and authorizer contact the IAM through Admin Router.
-- DCOS-16743 - libprocess in infinity schedulers performs a hostname reverse lookup instead of using /opt/mesosphere/bin/detect_ip.
-- DCOS-17271 - dcos-epmd failing after host reboot.
-- DCOS-17286 - Backport DCOS-16358 to 1.9.3.
-- DCOS-17294 - Unable to curl (resolve) applications using Mesos DNS names.
-- DCOS-18162 - `dcos task exec` does not pass on the last exit code.
-- DCOS_OSS-1234 - VIP docs mention no longer existing endpoint.
-- DCOS_OSS-1301 - Exhibitor doesn't log multiline messages to journald.
-- DCOS_OSS-1433 - Bug in /etc/systemd/system/dcos-docker-gc.service script (1.9).
-- DCOS_OSS-1451 - Stale datapoints can occur in container metrics.
-- DCOS_OSS-1466 - Marathon returns persistent 503's.
-- DCOS_OSS-1470 - Exhibitor: use PatternLayoutEscaped logger layout for structured journal logger.
-- DCOS_OSS-1486 - Metrics agent crashes when the mesos containers endpoint is missing fields.
-- DCOS_OSS-1561 - Revert DCOS_OSS-1472 from 1.9.3.
