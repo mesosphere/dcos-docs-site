@@ -48,7 +48,7 @@ The License API also requires authorization via the following permissions:
 
 | Resource ID | Action |
 |-------------|--------|
-| `dcos:adminrouter:ops:license` | `full` |
+| `dcos:adminrouter:licensing` | `full` |
 
 All routes can also be reached by users with the `dcos:superuser` permission.
 
