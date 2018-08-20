@@ -20,7 +20,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - build:/src
+      - build:/src/build
       - build-pdf:/src/build-pdf
   pdf:
     image: mesosphere/dcos-docs-pdf
@@ -40,4 +40,8 @@ services:
     command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
 volumes:
   build:
+    driver_opts:
+      type: none
+      device: ${PWD}/build
+      o: bind
   build-pdf:

@@ -10,6 +10,9 @@ $sections-size: 20%;
     flex-direction: column;
     min-width: 0;
   }
+  &__404 {
+    margin-bottom: -160px;
+  }
   &__header {
     z-index: 10;
     &__row {
