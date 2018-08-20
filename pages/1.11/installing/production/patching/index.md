@@ -35,7 +35,7 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported patch paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this patch would be supported.
+- From the latest GA version of previous to the latest GA version of current. For example: if 1.8.7 is the latest GA version of previous and 1.8.8 is the latest GA version of current then this patch would be supported.
 - From any current release to the next. For example, a patch from 1.9.1 to 1.9.2 would be supported.
 - From any current release to an identical release. For example, a patch from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
 
@@ -114,7 +114,7 @@ This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the c
     1.  Download the `dcos_generate_config.ee.sh` file.
     1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
         ```bash
-        dcos_generate_config.ee.sh --generate-node-patch-script <installed_cluster_version>
+        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
     1.  Run the [nginx][install] container to serve the installation files.
@@ -139,7 +139,7 @@ To update a cluster from disabled security to permissive security, complete the 
     1.  Download the `dcos_generate_config.ee.sh` file.
     1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
         ```bash
-        dcos_generate_config.ee.sh --generate-node-patch-script <installed_cluster_version>
+        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
     1.  Run the [nginx][install] container to serve the installation files.
@@ -165,7 +165,7 @@ To update a cluster from permissive security to strict security, complete the fo
     1.  Download the `dcos_generate_config.ee.sh` file.
     1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
         ```bash
-        dcos_generate_config.ee.sh --generate-node-patch-script <installed_cluster_version>
+        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
     1.  Run the [nginx][install] container to serve the installation files.
@@ -179,7 +179,7 @@ Proceed with patching every master node one-at-a-time in any order using the fol
 1.  Download and run the node patch script:
     ```bash
     curl -O <Node patch script URL>
-    sudo bash dcos_node_patch.sh
+    sudo bash dcos_node_upgrade.sh
     ```
 
 1.  Verify that the patch script succeeded and exited with the status code `0`:
@@ -226,7 +226,7 @@ On all DC/OS agents:
 1.  Download and run the node patch script:
     ```bash
     curl -O <Node patch script URL>
-    sudo bash dcos_node_patch.sh
+    sudo bash dcos_node_upgrade.sh
     ```
 
 1.  Verify that the patch script succeeded and exited with the status code `0`:
