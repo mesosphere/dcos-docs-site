@@ -73,5 +73,7 @@
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "metalsmith-ignore": "^0.1.2"
+  }
 }

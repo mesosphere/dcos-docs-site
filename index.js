@@ -13,6 +13,7 @@ const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const timer            = require('metalsmith-timer');
+const ignore           = require('metalsmith-ignore');
 
 // Local Plugins
 const reduce                  = require('./plugins/metalsmith-revision').reduce;
@@ -116,6 +117,11 @@ const CB = branch();
 
 // Start timer
 CB.use(timer('CB: Init'));
+
+CB.use(ignore([
+  '1.12/**',
+]));
+CB.use(timer('CB: Ignore'));
 
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
