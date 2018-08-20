@@ -145,6 +145,7 @@ spec:
           name: http
           protocol: TCP
         - containerPort: 8080
+          hostPort: 8080
           name: admin
           protocol: TCP
       affinity:
