@@ -110,9 +110,9 @@ If it is not possible to recover in other ways, then the service can be manually
 
 ## DC/OS 1.9 and earlier, or packages earlier than 2.0.0-x
 
-If you are running DC/OS 1.9 or earlier, or a version of the {{model.techName }} service that is earlier than 2.0.0-x, follow these steps:
+If you are running DC/OS 1.9 or earlier, or a version of the {{ model.techName }} service that is earlier than 2.0.0-x, follow these steps:
 
-1. Stop the service. From the DC/OS CLI, enter `dcos package uninstall --app-id=<service-name> {{model.packageName }}`.
+1. Stop the service. From the DC/OS CLI, enter `dcos package uninstall --app-id=<service-name> {{ model.packageName }}`.
 1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`.
 
 ```bash
@@ -123,5 +123,9 @@ $ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.
     -p $MY_SERVICE_NAME-principal \
     -z dcos-service-$MY_SERVICE_NAME"
 ```
+
+Users of Strict Mode clusters should also include either of the following credentials as `janitor.py` arguments:
+- `-a <token>`: Token to be used for authentication, such as the one printed by running `dcos config show core.dcos_acs_token` in the DC/OS CLI
+- `-u <username> -p <password>`: Username/password for a user which may be used to clean up the resources in question.
 
  See [DC/OS documentation](/latest/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
