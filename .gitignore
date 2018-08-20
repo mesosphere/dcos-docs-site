@@ -11,7 +11,7 @@ package-lock.json
 ./**/*.tmp
 .tmp
 .revision
-docker/nginx/total.conf
+.byebug_history
 
 # files used by CI
 .site-image

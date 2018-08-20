@@ -27,6 +27,8 @@ if semver.test(paths[0])
   - items = hierarchy.findByPath('/' + paths[0])
   - versionTitle = paths[0]
 
+- dropdown = dropdown.filter(item => item.menuWeight != -1)
+
 mixin renderSidebarHeader()
   - var showDropdown = true
   if !dropdown.length || (dropdown.length == 1 && semverService.test(dropdown[0].id))
