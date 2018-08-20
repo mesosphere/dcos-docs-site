@@ -40,8 +40,4 @@ services:
     command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
 volumes:
   build:
-    driver_opts:
-      type: none
-      device: ${PWD}/build
-      o: bind
   build-pdf:
