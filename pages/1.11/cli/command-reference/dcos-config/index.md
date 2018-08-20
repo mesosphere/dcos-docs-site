@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-This command manages the DC/OS configuration file created when you run [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:
+The `dcos config` command allows you to manage the DC/OS configuration file created when you run [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:
 
     cluster.name <cluster_name>
     core.dcos_acs_token ********
@@ -18,9 +18,7 @@ This command manages the DC/OS configuration file created when you run [dcos clu
 
 
 ## Environment variables
-Configuration properties have corresponding environment variables. If a property is in the `core` section (ex. `core.foo`), it corresponds to the environment variable `DCOS_FOO`. All other properties (ex. `foo.bar`) correspond to the environment variable `DCOS_FOO_BAR`.
-
-Environment variables take precedence over corresponding configuration property.
+Configuration properties have corresponding environment variables. If a property is in the `core` section (for example, `core.foo`), it corresponds to the environment variable `DCOS_FOO`. All other properties (for example,  `foo.bar`) correspond to the environment variable `DCOS_FOO_BAR`. Environment variables take precedence over corresponding configuration property.
 
 # Usage
 
@@ -30,17 +28,15 @@ dcos config
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--help, h`   |             |  Print usage. |
-| `--info`   |             |  Print a short description of this subcommand. |
-| `--version, v`   |             | Print version information. |
-
-# Child commands
-
-| Command | Description |
+| Name, shorthand |  Description |
 |---------|-------------|
-| [dcos config set](/1.11/cli/command-reference/dcos-config/dcos-config-set/)   | Add or set a DC/OS configuration property. |
-| [dcos config show](/1.11/cli/command-reference/dcos-config/dcos-config-show/)    | Print the DC/OS configuration file contents. |
-| [dcos config unset](/1.11/cli/command-reference/dcos-config/dcos-config-unset/)    | Remove a property from the configuration file. |
-| [dcos config validate](/1.11/cli/command-reference/dcos-config/dcos-config-validate/)    | Validate changes to the configuration file. |
+| `--help, h`   |   Display usage. |
+| `--info`   |  Display a short description of this subcommand. |
+| `--version, v`   |  Display version information. |
+
+
+## Display help for dcos config command
+
+The `dcos help config` command is the same as `dcos config --help`.
+
+For more information, see the [`dcos help`](/1.11/cli/command-reference/dcos-help/) command.

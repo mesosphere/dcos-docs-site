@@ -1,6 +1,6 @@
 ---
 layout: dcos-docs-landing.pug
-title: Test
-navigationTitle: Test
+title: Docs landing page test
+navigationTitle: Docs landing page 
 menuWeight: 0
 ---

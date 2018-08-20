@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos experimental
 title: dcos experimental
 menuWeight: 6
-excerpt: List of commands that are under development
+excerpt: Commands that are under development
 
 enterprise: false
 ---
 
 
 # Description
-This section lists commands that are under development and subject to change.
+The `dcos experimental` command allows you to list commands that are under development and subject to change.
 
 # Usage
 
@@ -20,8 +20,8 @@ dcos experimental [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--help, h`   |             |  Print usage. |
-| `--info`   |             |  Print a short description of this subcommand. |
-| `--version, v`   |             | Print version information. |  
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   |     Display usage. |
+| `--info`   |     Display a short description of this subcommand. |
+| `--version, v`   |   Display version information. |  
