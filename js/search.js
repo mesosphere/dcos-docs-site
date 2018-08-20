@@ -31,21 +31,19 @@ if (landingContainer) {
       displayKey: 'title',
       templates: {
         header: '<div class="landing__results-header">Pages</div>',
-        suggestion: function(data) {
-
+        suggestion: function suggestion(data) {
           let title = data.title;
           let description = data.excerpt;
 
-          if(data._highlightResult.title) {
+          if (data._highlightResult.title) {
             title = data._highlightResult.title.value;
           }
-          if(data._highlightResult.excerpt) {
+          if (data._highlightResult.excerpt) {
             description = data._highlightResult.excerpt.value;
           }
-          if(data._snippetResult.excerpt && data._snippetResult.excerpt.matchLevel == 'full') {
+          if (data._snippetResult.excerpt && data._snippetResult.excerpt.matchLevel === 'full') {
             description = data._snippetResult.excerpt.value;
-          }
-          else if(data._snippetResult.content && data._snippetResult.content.matchLevel == 'full') {
+          } else if (data._snippetResult.content && data._snippetResult.content.matchLevel === 'full') {
             description = data._snippetResult.content.value;
           }
 
@@ -57,7 +55,7 @@ if (landingContainer) {
           `;
         },
       },
-    }
+    },
   );
 
   document.addEventListener('scroll', () => {
@@ -81,7 +79,7 @@ if (searchForm) {
     urlSync: true,
     searchParameters: {
       hitsPerPage: 10,
-    }
+    },
   });
 
   /**
@@ -97,10 +95,10 @@ if (searchForm) {
       magnifier: false,
       reset: false,
       wrapInput: false,
-      queryHook: debounce(function(inputValue, search) {
-        search(inputValue);
-      }, 500)
-    })
+      queryHook: debounce((inputValue, searchFunc) => {
+        searchFunc(inputValue);
+      }, 500),
+    }),
   );
 
   // Render search results
@@ -110,20 +108,18 @@ if (searchForm) {
       templates: {
         empty: '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>',
         item: (data) => {
-
           let title = data.title;
           let description = data.excerpt;
 
-          if(data._highlightResult.title) {
+          if (data._highlightResult.title) {
             title = data._highlightResult.title.value;
           }
-          if(data._highlightResult.excerpt) {
+          if (data._highlightResult.excerpt) {
             description = data._highlightResult.excerpt.value;
           }
-          if(data._snippetResult.excerpt && data._snippetResult.excerpt.matchLevel == 'full') {
+          if (data._snippetResult.excerpt && data._snippetResult.excerpt.matchLevel === 'full') {
             description = data._snippetResult.excerpt.value;
-          }
-          else if(data._snippetResult.content && data._snippetResult.content.matchLevel == 'full') {
+          } else if(data._snippetResult.content && data._snippetResult.content.matchLevel === 'full') {
             description = data._snippetResult.content.value;
           }
 
@@ -141,10 +137,10 @@ if (searchForm) {
                 <a href="/${data.path}" class="search__meta-source">http://docs.mesosphere.com/${data.path}</a>
               </div>
             </li>
-          `
-        }
-      }
-    })
+          `;
+        },
+      },
+    }),
   );
 
   // Select widgets
@@ -160,8 +156,8 @@ if (searchForm) {
       sort: ['name:asc'],
       cssClasses: {
         select: 'search__filter__list',
-      }
-    })
+      },
+    }),
   );
 
   search.addWidget(
@@ -172,11 +168,11 @@ if (searchForm) {
         seeAllOption: 'Version',
       },
       autoHideContainer: false,
-      sortBy: sortBy,
+      sortBy,
       cssClasses: {
         select: 'search__filter__list',
-      }
-    })
+      },
+    }),
   );
 
   search.addWidget(
@@ -189,8 +185,8 @@ if (searchForm) {
       autoHideContainer: false,
       cssClasses: {
         select: 'search__filter__list',
-      }
-    })
+      },
+    }),
   );
 
   // Render pagination
@@ -203,8 +199,8 @@ if (searchForm) {
         link: 'search__pagination__link',
         active: 'search__pagination__item--active',
       },
-      showFirstLast: false
-    })
+      showFirstLast: false,
+    }),
   );
 
   search.on('render', handleFilterWidth);
@@ -215,14 +211,13 @@ if (searchForm) {
 // Debounce search form
 function debounce(func, wait, immediate) {
   let timeout;
-  return function() {
-    let context = this,
-      args = arguments;
-    let later = function() {
+  return function _debounce(...args) {
+    const context = this;
+    const later = function later() {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
-    let callNow = immediate && !timeout;
+    const callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
@@ -233,12 +228,12 @@ function debounce(func, wait, immediate) {
 function sortBy(a, b) {
   a = a.name;
   b = b.name;
-  let aParts = a.trim().split(' ');
-  let bParts = b.trim().split(' ');
-  let aProduct = aParts.slice(0, -1).join(' ');
-  let bProduct = bParts.slice(0, -1).join(' ');
-  let aVersion = aParts[aParts.length - 1];
-  let bVersion = bParts[bParts.length - 1];
+  const aParts = a.trim().split(' ');
+  const bParts = b.trim().split(' ');
+  const aProduct = aParts.slice(0, -1).join(' ');
+  const bProduct = bParts.slice(0, -1).join(' ');
+  const aVersion = aParts[aParts.length - 1];
+  const bVersion = bParts[bParts.length - 1];
   if (aProduct < bProduct) return -1;
   if (aProduct > bProduct) return 1;
   return -1 * sortVersion(aVersion, bVersion);
@@ -246,11 +241,11 @@ function sortBy(a, b) {
 
 // Sort semantic versioning
 function sortVersion(a, b) {
-  let pa = a.split('.');
-  let pb = b.split('.');
-  for (let i = 0; i < 3; i++) {
-    let na = Number(pa[i]);
-    let nb = Number(pb[i]);
+  const pa = a.split('.');
+  const pb = b.split('.');
+  for (let i = 0; i < 3; i += 1) {
+    const na = Number(pa[i]);
+    const nb = Number(pb[i]);
     if (na > nb) return 1;
     if (nb > na) return -1;
     if (!isNaN(na) && isNaN(nb)) return 1;
