@@ -232,9 +232,16 @@ On each of your cluster nodes, follow the following instructions:
 
     * Current mode: `disabled`
     * Current mode: `permissive`
-    * Current mode: `enforcing`, given that `Loaded policy name` is `targeted`
+    * Current mode: `enforcing`, given that `Loaded policy name` is `targeted`.
+      This mode is not supported on CoreOS.
 
-    If `sestatus` shows a "Current mode" which is `enforcing` with a `Loaded policy name` which is not `targeted`, run the following command:
+    To change the mode from `enforcing` to `permissive` run the following command:
+
+    ```bash
+    sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
+    ```
+
+    Or, if `sestatus` shows a "Current mode" which is `enforcing` with a `Loaded policy name` which is not `targeted`, run the following command to change the `Loaded policy name` to `targeted`:
 
     ```bash
     sudo sed -i 's/SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config
