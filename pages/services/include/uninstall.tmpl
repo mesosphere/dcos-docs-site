@@ -27,7 +27,7 @@ If the service scheduler reports in its `stdout` that the uninstall is complete,
 
 #### Missing DC/OS agent
 
-The service will not complete the uninstall if it is not able to unreserve all the resources it has previously reserved. The common cause of this is a DC/OS agent that the service had reserved resources for, which is no longer part of the DC/OS cluster.
+The service will not complete the uninstall if it is not able to unreserve all the resources it has previously reserved. A common cause of this is a DC/OS agent that the service had reserved resources for, which is no longer part of the DC/OS cluster.
 
 - If the agent is only temporarily gone due to maintenance, the service will unreserve the resources when the agent returns to the cluster.
 
@@ -124,7 +124,7 @@ $ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.
     -z dcos-service-$MY_SERVICE_NAME"
 ```
 
-Users of Strict Mode clusters should also include either of the following credentials as `janitor.py` arguments:
+If you use a strict-mode clusters should also include either of the following credentials as `janitor.py` arguments:
 - `-a <token>`: Token to be used for authentication, such as the one printed by running `dcos config show core.dcos_acs_token` in the DC/OS CLI
 - `-u <username> -p <password>`: Username/password for a user which may be used to clean up the resources in question.
 
