@@ -268,12 +268,12 @@ In order to define placement constraints as part of an install or update of a se
        }
    }
    ```
-This file can be referenced to install a pxc service.
+This file can be referenced to install a percona-pxc-mysql service.
 
    ```shell
    dcos package install hello-world --options=options.json
    ```
-Likewise this file can be referenced to update a pxc service.
+Likewise this file can be referenced to update a percona-pxc-mysql service.
 
    ```shell
    dcos percona-pxc-mysql update start --options=options.json
