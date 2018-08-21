@@ -238,7 +238,7 @@ Steps:
     dcos:adminrouter:ops:mesos full
     dcos:adminrouter:ops:slave full
    ```     
-    Install a service (in this example, percona-pxc-mysql) into a folder called test. Go to Catalog, then search for beta-pxc.
+    Install a service (in this example, percona-pxc-mysql) into a folder called test. Go to Catalog, then search for beta-percona-pxc-mysql.
 
     Click CONFIGURE and change the service name to /testing/percona-pxc-mysql, then deploy.
 
