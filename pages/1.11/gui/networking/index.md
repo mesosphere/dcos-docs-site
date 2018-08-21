@@ -10,7 +10,7 @@ The Networking menu provides a comprehensive view of the health of your virtual 
 
 ![Tweeter scaled](/1.11/img/networking-ee.png)
 
-*Figure 1 - Networking > Networks*
+Figure 1 - Networking > Networks
 
 The Networking menu has two subtabs:
 - Networks

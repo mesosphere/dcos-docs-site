@@ -10,6 +10,6 @@ The Catalog menu shows all of the available DC/OS services. You can install pack
 
 ![Catalog](/1.11/img/catalog-ee.png)
 
-*Figure 1 - Catalog*
+Figure 1 - Catalog
 
 For more information on how to install packages from the DC/OS catalog, see [Installing a service using the GUI](/1.11/deploying-services/install/#catalog-tab).
