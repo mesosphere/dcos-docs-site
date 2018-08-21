@@ -17,18 +17,18 @@ The default DC/OS percona-pxc-mysql Service installation provides reasonable def
         
            sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
        
-    - Tell Linux you never want Pxc to swap
+    - Tell Linux you never want percona-pxc-mysql to swap
        Swapping is fantastic for some applications. It isn’t good for something like percona-pxc-mysql that always wants to be running. 
        To tell Linux you’d like swapping off you can edit '/etc/sysctl.conf' to add the following line
            
            vm.swappiness = 0
            
-        For the partitions handling the various Pxc repos turn off things like 'atime'. Doing so can cause a surprising bump in 
+        For the partitions handling the various percona-pxc-mysql repos turn off things like 'atime'. Doing so can cause a surprising bump in 
         throughput. Edit the '/etc/fstab' file and for the partition(s) of interest add the 'noatime' option.
 
 ## Prerequisites
    
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) before installing DC/OS Pxc Service. Only someone with `superuser` permission can create the service account.
+- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) before installing DC/OS percona-pxc-mysql Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](https://docs.mesosphere.com/latest/administration/installing/custom/configuration-parameters/#security) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
@@ -42,9 +42,9 @@ To start a basic test cluster of percona-pxc-mysql, run the following command on
    dcos package install percona-pxc-mysql 
    ```
 
-This command creates a new instance with the default name pxc. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, weherein we can install the same application in different folders.
+This command creates a new instance with the default name percona-pxc-mysql. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, weherein we can install the same application in different folders.
 
-All dcos Pxc CLI commands have a --name  argument allowing the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, i.e. percona-pxc-mysql. The default value for --name can be customized via the DC/OS CLI configuration:
+All dcos percona-pxc-mysql CLI commands have a --name  argument allowing the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, i.e. percona-pxc-mysql. The default value for --name can be customized via the DC/OS CLI configuration:
 
    ```shell
    dcos percona-pxc-mysql --name=percona-pxc-mysql <cmd>
