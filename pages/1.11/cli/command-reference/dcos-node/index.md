@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-View DC/OS node information.
+The `dcos node` commands allow you to view DC/OS node information.
 
 # Usage
 
@@ -20,12 +20,12 @@ dcos node [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--help, h`   |             |  Print usage. |
-| `--info`   |             |  Print a short description of this subcommand. |
-| `--json`   |             |  Print JSON-formatted data. |
-| `--version, v`   |             | Print version information. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--help, h`   |   Displays usage. |
+| `--info`   |  Displays a short description of this subcommand. |
+| `--json`   |    Displays JSON-formatted data. |
+| `--version, v`   |  Displays version information. |
 
 # Child commands
 
@@ -36,5 +36,5 @@ dcos node [OPTION]
 | [dcos node diagnostics delete](/1.11/cli/command-reference/dcos-node/dcos-node-diagnostics-delete/)   | Delete a diagnostics bundle.|  
 | [dcos node diagnostics download](/1.11/cli/command-reference/dcos-node/dcos-node-diagnostics-download/)   | Download a diagnostics bundle.|  
 | [dcos node list components](/1.11/cli/command-reference/dcos-node/dcos-node-list-components/)   |             |  
-| [dcos node log](/1.11/cli/command-reference/dcos-node/dcos-node-log/)   | Print the Mesos logs for the leading master node, agent nodes, or both. |  
+| [dcos node log](/1.11/cli/command-reference/dcos-node/dcos-node-log/)   | Displays the Mesos logs for the leading master node, agent nodes, or both. |  
 | [dcos node ssh](/1.11/cli/command-reference/dcos-node/dcos-node-ssh/)   | Establish an SSH connection to the master or agent nodes of your DC/OS cluster. |  

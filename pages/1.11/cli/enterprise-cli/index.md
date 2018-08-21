@@ -2,7 +2,7 @@
 layout: layout.pug
 title: DC/OS Enterprise CLI
 menuWeight: 5
-excerpt: How to configure the DC/OS Enterprise command line interface
+excerpt: Configuring the DC/OS Enterprise command line interface
 
 enterprise: true
 ---
@@ -15,9 +15,11 @@ The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features:
 
 # <a name="ent-cli-install"></a>Installing the DC/OS Enterprise CLI
 
-**Prerequisite:** The DC/OS CLI must already be [installed](/1.11/cli/install/).
+## Prerequisite
 
-**Tip:** The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install from the Catalog in the GUI.
+The DC/OS CLI must already be [installed](/1.11/cli/install/).
+
+**Note:** The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install from the Catalog in the GUI.
 
 To install the DC/OS Enterprise CLI, issue the following command from a terminal prompt.
 
