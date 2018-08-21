@@ -11,7 +11,7 @@ enterprise: 'no'
 
 # Steps
 
-If you are using open source DC/OS, install pxc on the cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
+If you are using open source DC/OS, install percona-pxc-mysql on the cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
 ```shell
 dcos package install --yes percona-pxc-mysql
