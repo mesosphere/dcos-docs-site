@@ -121,9 +121,9 @@ For example, if you had an instance named percona-pxc-mysql-dev, the following c
 The same query would be over HTTP as follows:
 
    ```shell
-   curl -H "Authorization:token=$auth_token" <dcos_url>/service/pxc-dev/v1/pod
+   curl -H "Authorization:token=$auth_token" <dcos_url>/service/percona-pxc-mysql-dev/v1/pod
    ```
-Likewise, if you had an instance in a folder like /foldered/path/to/pxc, the following command would invoke a pod list command against it:
+Likewise, if you had an instance in a folder like /foldered/path/to/percona-pxc-mysql, the following command would invoke a pod list command against it:
 
    ```shell
    dcos percona-pxc-mysql --name=/foldered/path/to/percona-pxc-mysql pod list
@@ -132,9 +132,9 @@ Likewise, if you had an instance in a folder like /foldered/path/to/pxc, the fol
 Similarly, it could be queried directly over HTTP as follows:
 
    ```shell
-   curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/pxc-dev/v1/pod
+   curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/percona-pxc-mysql-dev/v1/pod
    ```
-Note: You may add a -v (verbose) argument to any dcos percona-pxc-mysql command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, dcos pxc commands are a thin wrapper around an HTTP interface provided by the DC/OS Percona XtraDB Cluster Service itself.
+Note: You may add a -v (verbose) argument to any dcos percona-pxc-mysql command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, dcos percona-pxc-mysql commands are a thin wrapper around an HTTP interface provided by the DC/OS Percona XtraDB Cluster Service itself.
 
 ## Virtual Networks
 
@@ -231,9 +231,9 @@ Steps:
    dcos:adminrouter:ops:mesos full
    dcos:adminrouter:ops:slave full
    ```
-  4. Install your service into a folder called test. Go to Catalog, then search for pxc.
+  4. Install your service into a folder called test. Go to Catalog, then search for percona-pxc-mysql.
 
-  5. Click CONFIGURE and change the service name to /testing/pxc, then deploy.
+  5. Click CONFIGURE and change the service name to /testing/percona-pxc-mysql, then deploy.
      The slashes in your service name are interpreted as folders. You are deploying pxc in the /testing folder. Any user with access to the /testing folder will have access to the service.
 
 Important:
