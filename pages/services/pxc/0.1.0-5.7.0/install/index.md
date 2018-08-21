@@ -4,9 +4,9 @@ menu_order: 20
 enterprise: 'no'
 ---
 
- DCOS Pxc is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
+ DCOS percona-pxc-mysql is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
 
-The default DC/OS Pxc Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
+The default DC/OS percona-pxc-mysql Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 
 ## Configuration Best Practices for Production (TBD)
@@ -18,7 +18,7 @@ The default DC/OS Pxc Service installation provides reasonable defaults for tryi
            sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
        
     - Tell Linux you never want Pxc to swap
-       Swapping is fantastic for some applications. It isn’t good for something like Pxc that always wants to be running. 
+       Swapping is fantastic for some applications. It isn’t good for something like percona-pxc-mysql that always wants to be running. 
        To tell Linux you’d like swapping off you can edit '/etc/sysctl.conf' to add the following line
            
            vm.swappiness = 0
@@ -36,43 +36,43 @@ The default DC/OS Pxc Service installation provides reasonable defaults for tryi
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of Pxc, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing _SERVICENAME_ on Enterprise DC/OS](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/).
+To start a basic test cluster of percona-pxc-mysql, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing _SERVICENAME_ on Enterprise DC/OS](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/).
 
    ```shell
-   dcos package install pxc 
+   dcos package install percona-pxc-mysql 
    ```
 
 This command creates a new instance with the default name pxc. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, weherein we can install the same application in different folders.
 
-All dcos Pxc CLI commands have a --name  argument allowing the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, i.e. pxc. The default value for --name can be customized via the DC/OS CLI configuration:
+All dcos Pxc CLI commands have a --name  argument allowing the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, i.e. percona-pxc-mysql. The default value for --name can be customized via the DC/OS CLI configuration:
 
    ```shell
-   dcos pxc --name=pxc <cmd>
+   dcos percona-pxc-mysql --name=percona-pxc-mysql <cmd>
    ```
 
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
 
    ```shell
-   dcos package install pxc --options=options.json
+   dcos package install percona-pxc-mysql --options=options.json
    ```
 
 For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
 
 ## Installing from the DC/OS Web Interface
 
-Note:  Alternatively, you can install Pxc from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
+Note:  Alternatively, you can install percona-pxc-mysql from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
    
 If you install Percona XtraDB Cluster from the DC/OS web interface, the 
-dcos pxc CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
+dcos percona-pxc-mysql CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 
    ```shell
-   dcos package install pxc --cli
+   dcos package install percona-pxc-mysql --cli
    ```
 
 ## Installing multiple instances
 
-By default, the Percona XtraDB Cluster service is installed with a service name of pxc. You may specify a different name using a custom service configuration as follows:
+By default, the Percona XtraDB Cluster service is installed with a service name of percona-pxc-mysql. You may specify a different name using a custom service configuration as follows:
 
    ```shell
    {
@@ -82,15 +82,15 @@ By default, the Percona XtraDB Cluster service is installed with a service name 
    }
    ```
 
-When the above JSON configuration is passed to the package install pxc  command via the --options argument, the new service will use the name specified in that JSON configuration:
+When the above JSON configuration is passed to the package install percona-pxc-mysql  command via the --options argument, the new service will use the name specified in that JSON configuration:
 
    ```shell
-   dcos package install pxc --options=pxc-other.json
+   dcos package install percona-pxc-mysql --options=percona-pxc-mysql-other.json
    ```
    
-Multiple instances of Percona XtraDB Cluster may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Percona XtraDB Cluster named pxc-staging and another named pxc-prod, each with its own custom  configuration.
+Multiple instances of Percona XtraDB Cluster may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Percona XtraDB Cluster named percona-pxc-mysql-staging and another named percona-pxc-mysql-prod, each with its own custom  configuration.
 
-After specifying a custom name for your instance, it can be reached using dcos pxc CLI commands or directly over HTTP as described below.
+After specifying a custom name for your instance, it can be reached using dcos percona-pxc-mysql CLI commands or directly over HTTP as described below.
 
 Note: The service name cannot be changed after initial install. Changing the service name would require installing a new instance of the service against the new name, then copying over any data as necessary to the new instance.
 
@@ -101,22 +101,22 @@ In DC/OS 1.10 and above, services may be installed into folders by specifying a 
    ```shell
    {
        "service": {
-           "name": "/foldered/path/to/pxc"
+           "name": "/foldered/path/to/percona-pxc-mysql"
        }
    }
    ```
-The above example will install the service under a path of foldered => path => to => pxc. It can then be reached using dcos pxc  CLI commands or directly over HTTP as described below.
+The above example will install the service under a path of foldered => path => to => percona-pxc-mysql. It can then be reached using dcos pxc  CLI commands or directly over HTTP as described below.
 
 Note:  The service folder location cannot be changed after initial install.Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.
 
 ## Addressing named instances
 
-After you’ve installed the service under a custom name or under a folder, it may be accessed from all dcos pxc CLI commands using the --name argument. By default, the --name value defaults to the name of the package, or pxc.
+After you’ve installed the service under a custom name or under a folder, it may be accessed from all dcos pxc CLI commands using the --name argument. By default, the --name value defaults to the name of the package, or percona-pxc-mysql.
 
-For example, if you had an instance named pxc-dev, the following command would invoke a pod list command against it:
+For example, if you had an instance named percona-pxc-mysql-dev, the following command would invoke a pod list command against it:
 
    ```shell
-   dcos pxc --name=pxc-dev pod list
+   dcos percona-pxc-mysql --name=percona-pxc-mysql-dev pod list
    ```
 The same query would be over HTTP as follows:
 
@@ -126,7 +126,7 @@ The same query would be over HTTP as follows:
 Likewise, if you had an instance in a folder like /foldered/path/to/pxc, the following command would invoke a pod list command against it:
 
    ```shell
-   dcos pxc --name=/foldered/path/to/pxc pod list
+   dcos percona-pxc-mysql --name=/foldered/path/to/percona-pxc-mysql pod list
    ```
    
 Similarly, it could be queried directly over HTTP as follows:
@@ -164,11 +164,11 @@ To start a minimal cluster with a single broker, create a JSON options file name
        }
    }
    ```
-The command below creates a cluster using sample-pxc-minimal.json:
+The command below creates a cluster using sample-percona-pxc-mysql-minimal.json:
 
 
    ```shell
-   dcos package install pxc --options=sample-pxc-minimal.json
+   dcos package install percona-pxc-mysql --options=sample-percona-pxc-mysql-minimal.json
    ```
 ## Example custom installation (TBD)
 
@@ -207,7 +207,7 @@ Sample JSON options file named sample-pxc-custom.json:
    ```
 The command below creates a cluster using sample-pxc.json:
    ```shell
-   dcos package install pxc --options=sample-pxc-custom.json
+   dcos package install percona-pxc-mysql --options=sample-percona-pxc-mysql-custom.json
    ```
 **Recommendation:** Store your custom configuration in source control.
 
@@ -244,7 +244,7 @@ Important:
 ## Interacting with your foldered service
 
 1. Interact with your foldered service via the DC/OS CLI with this flag: --name=/path/to/myservice.
-2. To interact with your foldered service over the web directly, use http://<dcos-url>/service/path/to/myservice. E.g., http://<dcos-url>/service/testing/pxc/v1/endpoints.
+2. To interact with your foldered service over the web directly, use http://<dcos-url>/service/path/to/myservice. E.g., http://<dcos-url>/service/testing/percona-pxc-mysql/v1/endpoints.
 
 ## Placement Constraints
 
@@ -276,7 +276,7 @@ This file can be referenced to install a pxc service.
 Likewise this file can be referenced to update a pxc service.
 
    ```shell
-   dcos pxc update start --options=options.json
+   dcos percona-pxc-mysql update start --options=options.json
    ```
 
 ## Regions and Zones (TBD)
@@ -300,4 +300,4 @@ Suppose we have a Mesos cluster with three zones. For balanced placement across 
 Instances will all be evenly divided between those three zones.
 
 ## Secured Installation
-  Please refer Security Guide for secured installation of [Pxc](./security.md)
+  Please refer Security Guide for secured installation of [pxc](./security.md)
