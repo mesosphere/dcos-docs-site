@@ -37,7 +37,7 @@ You can uninstall services from the DC/OS web interface from the **Services** ta
 
     ![Destroy app](/1.10/img/service-delete.png)
     
-    Figure 1. Delete service
+    Figure 1. Delete Services
 
 1.  Copy and run the displayed command.
 
