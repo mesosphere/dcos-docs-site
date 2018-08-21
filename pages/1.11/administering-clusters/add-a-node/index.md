@@ -62,7 +62,7 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```
 
-    **Tip:** You can verify the node type by running this command from the DC/OS CLI.
+    **Note:** You can verify the node type by running this command from the DC/OS CLI.
 
     -   Run this command to count the private agents.
 
