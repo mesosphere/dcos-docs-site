@@ -18,7 +18,7 @@ The `dcos config` command allows you to manage the DC/OS configuration file crea
 
 
 ## Environment variables
-Configuration properties have corresponding environment variables. If a property is in the `core` section (for example, `core.foo`), it corresponds to the environment variable `DCOS_FOO`. All other properties (for example,  `foo.bar`) correspond to the environment variable `DCOS_FOO_BAR`. Environment variables take precedence over corresponding configuration property.
+Configuration properties have corresponding environment variables. If a property is in the `core` section (for example, `core.foo`), it corresponds to the environment variable `DCOS_FOO`. All other properties (for example, `foo.bar`) correspond to the environment variable `DCOS_FOO_BAR`. Environment variables take precedence over corresponding configuration property.
 
 # Usage
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos cluster setup
 title: dcos cluster setup
-menuWeight: 6
+menuWeight: 7
 excerpt: Configuring a connection to a DC/OS cluster
 
 enterprise: false
@@ -19,7 +19,7 @@ dcos cluster setup <dcos-url> [OPTIONS]
 
 # Options
 
-| Name, shorthand | DeDescription |
+| Name, shorthand | Description |
 |---------|-------------|
 |  `--ca-certs=<ca-certs>` |  [enterprise type="inline" size="small" /] The path to a list of trusted CAs to verify requests against.  |
 |  `--insecure` |  Allow requests to bypass SSL certificate verification. Analogous to `dcos config set core.ssl_verify=False`|
@@ -37,9 +37,9 @@ If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--c
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<dcos-url>`   |             | A URL or IP address to an accessible master node. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `<dcos-url>`   | A URL or IP address to an accessible master node. |
 
 
 # Parent command

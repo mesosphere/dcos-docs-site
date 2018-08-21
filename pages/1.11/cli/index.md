@@ -15,10 +15,7 @@ To list available commands, run `dcos` with no parameters:
 ```bash
 dcos
 
-Command line utility for the Mesosphere Datacenter Operating
-System (DC/OS). The Mesosphere DC/OS is a distributed operating
-system built around Apache Mesos. This utility provides tools
-for easy management of a DC/OS installation.
+Command line utility for the Mesosphere Datacenter Operating System (DC/OS). The Mesosphere DC/OS is a distributed operating system built around Apache Mesos. This utility provides tools for easy management of a DC/OS installation.
 
 Available DC/OS commands:
 
@@ -87,7 +84,7 @@ export DCOS_CONFIG=/home/jdoe/config/dcos.toml
 If you have the `DCOS_CONFIG` environment variable configured:
 
 - After conversion to the [new configuration structure](#configuration-files), `DCOS_CONFIG` is no longer honored.
-- Before you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
+- Before you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command displays a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
 
 
 <a name="dcos-dir"></a>
@@ -119,13 +116,13 @@ export DCOS_SSL_VERIFY=false
 
 <a name="dcos-log-level"></a>
 #### `DCOS_LOG_LEVEL`
-Prints log messages to `stderr` at or above the level indicated. This is equivalent to the `--log-level` command-line option. The severity levels are:
+Displays log messages to `stderr` at or above the level indicated. This is equivalent to the `--log-level` command-line option. The severity levels are:
 
-*   **debug** Prints all messages to `stderr`, including informational, warning, error, and critical.
-*   **info** Prints informational, warning, error, and critical messages to `stderr`.
-*   **warning** Prints warning, error, and critical messages to `stderr`.
-*   **error** Prints error and critical messages to `stderr`.
-*   **critical** Prints only critical messages to `stderr`.
+*   **debug** Displays all messages to `stderr`, including informational, warning, error, and critical.
+*   **info** Displays informational, warning, error, and critical messages to `stderr`.
+*   **warning** Displays warning, error, and critical messages to `stderr`.
+*   **error** Displays error and critical messages to `stderr`.
+*   **critical** Displays only critical messages to `stderr`.
 
 For example, to set the log level to warning:
 

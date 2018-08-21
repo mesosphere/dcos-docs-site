@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos cluster remove
 title: dcos cluster remove
-menuWeight: 4
+menuWeight: 5
 excerpt: Removing a connected cluster from the DC/OS CLI
 
 

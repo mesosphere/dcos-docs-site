@@ -18,7 +18,7 @@ dcos [options] [<command>] [<args>...]
 
 # Options
 
-Table 1 - Options
+Table 1. Options
 
 | Name | Description |
 |---------|-------------|-------------|
@@ -28,12 +28,12 @@ Table 1 - Options
 |  `--version, v`  |  Display version information.  |
 | `<log-level>` | The severity levels are shown in Table 2. |
 
-Table 2 - `log-level` severity levels
+Table 2. `log-level` severity levels
 
 | Name |  Description |
 |---------|-------------|
 | debug | Display all messages.|
-|info | Display informational, warning, error, and critical messages.|
+| info | Display informational, warning, error, and critical messages.|
 | warning | Display warning, error, and critical messages. |
 | error | Display error and critical messages. |
 | critical | Display only critical messages to `stderr`. |

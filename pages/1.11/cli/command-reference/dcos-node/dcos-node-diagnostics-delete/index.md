@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos node diagnostics delete
 title: dcos node diagnostics delete
-menuWeight: 2
+menuWeight: 4
 excerpt: Displaying the details of diagnostics bundles
 
 enterprise: false
@@ -10,7 +10,7 @@ enterprise: false
 
     
 # Description
-View the details of diagnostics bundles.
+The dcos node diagnostics delete command allows you to view the details of diagnostics bundles.
 
 # Usage
 
@@ -24,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<bundle>`   |             |  The bundle filename. For example, `bundle-2017-02-01T00:33:48-110930856.zip`. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<bundle>`   |   The bundle filename. For example, `bundle-2017-02-01T00:33:48-110930856.zip`. |
 
 # Parent command
 
@@ -34,4 +34,3 @@ None.
 |---------|-------------|
 | [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
-<!-- # Examples -->

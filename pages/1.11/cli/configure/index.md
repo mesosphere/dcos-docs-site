@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2
-excerpt: How to configure the command line interface
+excerpt: Configuring the command line interface
 
 enterprise: false
 ---
@@ -18,7 +18,7 @@ If you use a proxy server to connect to the internet, you can configure the CLI 
 
 **Prerequisites**
 
-*   pip version 7.1.0 or greater.
+*   `pip` version 7.1.0 or greater.
 *   The `http_proxy` and `https_proxy` environment variables are defined to use `pip`.
 
 To configure a proxy for the CLI:

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb pool status
 title: dcos edgelb pool status
-menuWeight: 2
+menuWeight: 9
 excerpt: Displaying Edge-LB pool status information
 
 enterprise: true

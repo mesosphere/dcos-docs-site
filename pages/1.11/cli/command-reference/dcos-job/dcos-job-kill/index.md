@@ -28,7 +28,7 @@ dcos job kill <job-id> [OPTION]
 
 | Name, shorthand | DDescription |
 |---------|-------------|
-| `<job-id>`   |  Specify the job ID. |
+| `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
 
 # Parent command
 

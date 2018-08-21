@@ -10,7 +10,7 @@ enterprise: false
 
   
 # Description
-Print a list of available DC/OS components on specified node.
+The `dcos node list-components` command displays a list of available DC/OS components on specified node.
 
 # Usage
 
@@ -20,11 +20,11 @@ dcos node list-components [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted data. |
-| `--leader`   |             |  The leading master. |
-| `--mesos-id=<mesos-id>`   |             | The agent ID of a node. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   | Displays JSON-formatted data. |
+| `--leader`   |  The leading master. |
+| `--mesos-id=<mesos-id>`   |  The agent ID of a node. |
 
 # Parent command
 
@@ -32,4 +32,4 @@ dcos node list-components [OPTION]
 |---------|-------------|
 | [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
-<!-- # Examples -->
+

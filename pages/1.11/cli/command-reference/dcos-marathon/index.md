@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Deploy and manage applications to DC/OS.
+The `dcos marathon` commands allow you to deploy and manage applications to DC/OS.
 
 # Usage
 
@@ -20,18 +20,18 @@ dcos marathon
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--config-schema`   |             |  Show the configuration schema for the Marathon subcommand. |
-| `--help, h`   |             |  Print usage. |
-| `--info`   |             |  Print a short description of this subcommand. |
-| `--version, v`   |             | Print version information. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--config-schema`   |   Show the configuration schema for the Marathon subcommand. |
+| `--help, h`   | Displays usage. |
+| `--info`   |   Displays a short description of this subcommand. |
+| `--version, v`   |  Displays version information. |
 
 # Child commands
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon about](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-about/)   | Print `info.json` for DC/OS Marathon. |
+| [dcos marathon about](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-about/)   | Displays `info.json` for DC/OS Marathon. |
 | [dcos marathon app add](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-app-add/)   |  Add an application. |
 | [dcos marathon app kill](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-app-kill/)   | Kill a running application instance.  |
 | [dcos marathon app list](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-app-list/)   | List the installed applications.  |
@@ -45,14 +45,14 @@ dcos marathon
 | [dcos marathon debug details](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/) | View debugging information for Marathon application deployments that are waiting.  |
 | [dcos marathon debug list](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-list/)   | List the current queue of Marathon application deployments that are waiting.  |
 | [dcos marathon debug summary](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/)   | List the current queue and debugging information of Marathon application deployments that are waiting.  |
-| [dcos marathon deployment list](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-deployment-list/) | Print a list of currently deployed applications. |
+| [dcos marathon deployment list](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-deployment-list/) | Displays a list of currently deployed applications. |
 | [dcos marathon deployment rollback](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-deployment-rollback/) | Remove a deployed application. |
 | [dcos marathon deployment stop](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-deployment-stop/) | Cancel the in-progress deployment of an application. |
 | [dcos marathon deployment watch](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-deployment-stop/) | Monitor deployments. |
 | [dcos marathon group add](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-group-add/) | Add a group. |
-| [dcos marathon group list](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-group-list/) | Print the list of groups. |
+| [dcos marathon group list](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-group-list/) | Displays the list of groups. |
 | [dcos marathon group scale](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-group-scale/) | Scale a group. |
-| [dcos marathon group show](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-group-scale/) | Print a detailed list of groups. |
+| [dcos marathon group show](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-group-scale/) | Displays a detailed list of groups. |
 | [dcos marathon group remove](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-group-remove/) | Remove a group. |
 | [dcos marathon group update](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-group-update/) | Update a group. |
 | [dcos marathon pod add](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-pod-add/) | Add a pod. |

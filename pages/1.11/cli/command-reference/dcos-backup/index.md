@@ -25,7 +25,7 @@ Usage:
     dcos backup delete <id>
 ```
 
-*Table 1 - Options*
+Table 1. Options
 
 | Name | Description |
 |---------|-------------|

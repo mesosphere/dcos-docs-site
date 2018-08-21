@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-Renew a cluster license.
+The `dcos license renew` command allows you to manage a cluster license.
 
 # Usage
 
@@ -19,9 +19,9 @@ dcos license renew [OPTIONS] PATH
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `PATH`  |   |  The path to a file containing the license. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `PATH`  |   The path to a file containing the license. |
 
 # Parent command
 

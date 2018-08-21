@@ -3,32 +3,32 @@ layout: layout.pug
 navigationTitle:  Installing the CLI
 title: Installing the CLI
 menuWeight: 1
-excerpt: How to install the command line interface
+excerpt: Installing the DC/OS command line interface
 
 enterprise: false
 ---
 
-The recommended method to install the DC/OS CLI is from the DC/OS web interface. Or, you can manually install the CLI by using the instructions [below](#manual).
+The recommended method to install the DC/OS CLI is from the DC/OS web interface. Or, you can manually install the CLI by using the following instructions.
 
 # Installing CLI from the web interface
 
 1.  At the top-left corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/1.11/img/open-cluster-popup.png)
+![open cluster popup](/1.11/img/open-cluster-popup.png)
 
-*Figure 1 - Open cluster popup menu*
+Figure 1. Open cluster popup menu
 
 1.  Select **Install CLI**.
 
-    ![CLI install UI](/1.11/img/install-cli.png)
+![CLI install UI](/1.11/img/install-cli.png)
 
-*Figure 2 - Select Install CLI*
+Figure 2. Select Install CLI
 
 1.  Copy and paste the code snippets appropriate to your OS into your terminal.
 
-    ![CLI copy/paste](/1.11/img/install-cli-terminal.png)
+![CLI copy/paste](/1.11/img/install-cli-terminal.png)
 
-*Figure 3 - Code snippet window*
+Figure 3. Code snippet window
 
 # <a name="manual"></a>Manually installing the CLI
 
@@ -94,7 +94,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.11/dcos
     ```
 
-    **Note:** The CLI must be installed on a system that is external to your DC/OS cluster.
+    **Important:** The CLI must be installed on a system that is external to your DC/OS cluster.
 
 1.  Make the CLI binary executable.
 

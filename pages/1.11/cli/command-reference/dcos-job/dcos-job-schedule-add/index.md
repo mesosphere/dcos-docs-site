@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos job schedule add
 title: dcos job schedule add
 menuWeight: 6
-excerpt: Ading a schedule to a job
+excerpt: Adding a schedule to a job
 
 enterprise: false
 ---
 
 
 # Description
-Add a schedule to a job.
+The `dcos job schedule add` command allows you to add a schedule to a job.
 
 # Usage
 
@@ -24,10 +24,10 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-id>`   |             |  Specify the job ID. |
-| `<schedule-file>`   |             |  A JSON formatted job schedule file. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command. |
+| `<schedule-file>`   |  A JSON formatted job schedule file. |
 
 # Parent command
 
