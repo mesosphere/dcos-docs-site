@@ -910,7 +910,7 @@ paths:
         - name: type
           in: query
           description: >
-            If set to `services`, list only service accounts. If unset,
+            If set to `service`, list only service accounts. If unset or set to `services`,
             default to only listing user accounts members of a group.
           type: string
       responses:
@@ -1138,15 +1138,15 @@ paths:
     get:
       summary: List all user or service accounts.
       description: >
-        By default, returns all `User` objects. Passing the `services` parameter 
-        returns all service accounts. 
+        By default, returns all `User` objects. Passing the `service` parameter 
+        returns all service accounts. Passing the `services` parameter returns all user accounts.
       tags:
         - users
       parameters:
         - name: type
           in: query
           description: >
-            If set to `services`, list only service accounts. If unset,
+            If set to `service`, list only service accounts. If unset or set to `services`,
             default to only listing user accounts.
           type: string
       produces:
