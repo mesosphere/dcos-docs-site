@@ -39,9 +39,9 @@ Abbreviation: pxc = Percona XtraDB Cluster
 
 # Deployment
 
-Internally,pxc treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
+Internally,  treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
 
-    - When pxc is first installed, deployment is moving from a null configuration to a deployed configuration.
+    - When  percona-pxc-mysql is first installed, deployment is moving from a null configuration to a deployed configuration.
     - When the deployed configuration is changed by editing an environment variable in the scheduler, deployment is moving from an initial running configuration to a new proposed configuration.
 
 In this section, we’ll describe how these scenarios are handled by the scheduler.
@@ -52,15 +52,15 @@ This is the flow for deploying a new service:
 
 ### Steps handled by the DC/OS cluster
 
-    1. The user runs dcos package install pxc in the DC/OS CLI or clicks Install for a given package on the DC/OS Dashboard.
+    1. The user runs dcos package install percona-pxc-mysql in the DC/OS CLI or clicks Install for a given package on the DC/OS Dashboard.
 
     2. A request is sent to the Cosmos packaging service to deploy the requested package along with a set of configuration options.
 
-    3. Cosmos creates a Marathon app definition by rendering pxc’s marathon.json.mustache with the configuration options provided in the request, which represents pxc’s Scheduler. Cosmos queries Marathon to create the app.
+    3. Cosmos creates a Marathon app definition by rendering percona-pxc-mysql’s marathon.json.mustache with the configuration options provided in the request, which represents percona-pxc-mysql’s Scheduler. Cosmos queries Marathon to create the app.
 
-    4. Marathon launches the pxc’s scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
+    4. Marathon launches the percona-pxc-mysql’s scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
 
-    5. pxc’s scheduler is launched. From this point onwards, the SDK handles deployment.
+    5. percona-pxc-mysql’s scheduler is launched. From this point onwards, the SDK handles deployment.
 
 ### Steps handled by the Scheduler
 
@@ -128,7 +128,7 @@ Scheduler reconfiguration is slightly different from initial deployment because 
 
 ## Uninstallation
 
-This is the flow for uninstalling pxc.
+This is the flow for uninstalling percona-pxc-mysql.
 
 ### Steps handled by the Cluster
 
