@@ -218,23 +218,45 @@ sudo yum install -y tar xz unzip curl ipset
 
 ### Cluster permissions (production installation)
 
-On each of your cluster nodes, use the following command to:
+On each of your cluster nodes, follow the following instructions:
 
-*   Disable SELinux or set it to permissive mode.
-*   Add `nogroup` and `docker` to each of your Mesos masters and agents.
+*   Make sure that SELinux is in one of the supported modes.
+
+    To review the current SELinux status and configuration run the following command:
+
+    ```bash
+    sudo sestatus
+    ```
+
+    DC/OS supports the following SELinux configurations:
+
+    * Current mode: `disabled`
+    * Current mode: `permissive`
+    * Current mode: `enforcing`, given that `Loaded policy name` is `targeted`
+
+    If `sestatus` shows a "Current mode" which is `enforcing` with a `Loaded policy name` which is not `targeted`, run the following command:
+
+    ```bash
+    sudo sed -i 's/SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config
+    ```
+
+*   Add `nogroup` and `docker` groups:
+
+    ```bash
+    sudo groupadd nogroup &&
+    sudo groupadd docker
+    ```
+
 *   Reboot your cluster for the changes to take effect.
 
     ```bash
-    sudo sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/selinux/config &&
-    sudo groupadd nogroup &&
-    sudo groupadd docker &&
     sudo reboot
     ```
 
     **Note:** It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 
 - For information on how to set these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
 
