@@ -111,7 +111,7 @@ Note:  The service folder location cannot be changed after initial install.Chang
 
 ## Addressing named instances
 
-After you’ve installed the service under a custom name or under a folder, it may be accessed from all dcos pxc CLI commands using the --name argument. By default, the --name value defaults to the name of the package, or percona-pxc-mysql.
+After you’ve installed the service under a custom name or under a folder, it may be accessed from all dcos percona-pxc-mysql CLI commands using the --name argument. By default, the --name value defaults to the name of the package, or percona-pxc-mysql.
 
 For example, if you had an instance named percona-pxc-mysql-dev, the following command would invoke a pod list command against it:
 
@@ -180,8 +180,8 @@ Sample JSON options file named sample-pxc-custom.json:
    {
        "service": {
            "type": "object",
-           "title": "DC/OS Apache Pxc Service Scheduler Configuration",
-           "description": "DC/OS Apache Pxc Service Scheduler Configuration",
+           "title": "DC/OS Apache percona-pxc-mysql Service Scheduler Configuration",
+           "description": "DC/OS Apache percona-pxc-mysql Service Scheduler Configuration",
        },
        "node": {
            "count": 10
@@ -215,7 +215,7 @@ Alternatively, you can perform a custom installation from the DC/OS web interfac
 
 ## Integration with DC/OS access controls (TBD)
 
-In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, staging/pxc and production/pxc.
+In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, staging/percona-pxc-mysql and production/percona-pxc-mysql.
 
 Steps:
 
