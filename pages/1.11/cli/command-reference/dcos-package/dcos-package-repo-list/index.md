@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Print the package repository sources. Possible sources include a local file, HTTPS, and Git.
+The `dcos package repo list` command displays the package repository sources. Possible sources include a local file, HTTPS, and Git.
 
 # Usage
 
@@ -20,9 +20,9 @@ dcos package repo list [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  JSON-formatted data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |   JSON-formatted data. |
 
 # Parent command
 
