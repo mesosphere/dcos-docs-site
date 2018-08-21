@@ -224,7 +224,7 @@ When the region awareness feature is enabled (currently in beta), the @region ke
 
 # Integration with DC/OS access controls
 
-In DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, staging/pxc and production/pxc.
+In DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, staging/percona-pxc-mysql and production/percona-pxc-mysql.
 
 Steps:
 
@@ -238,9 +238,9 @@ Steps:
     dcos:adminrouter:ops:mesos full
     dcos:adminrouter:ops:slave full
    ```     
-    Install a service (in this example, pxc) into a folder called test. Go to Catalog, then search for beta-pxc.
+    Install a service (in this example, percona-pxc-mysql) into a folder called test. Go to Catalog, then search for beta-pxc.
 
-    Click CONFIGURE and change the service name to /testing/pxc, then deploy.
+    Click CONFIGURE and change the service name to /testing/percona-pxc-mysql, then deploy.
 
     The slashes in your service name are interpreted as folders. You are deploying pxc in the /testing folder. Any user with access to the /testing folder will have access to the service.
 
@@ -252,5 +252,5 @@ Steps:
 ### Interacting with your foldered service
 
     Interact with your foldered service via the DC/OS CLI with this flag: --name=/path/to/myservice.
-    To interact with your foldered service over the web directly, use http://<dcos-url>/service/path/to/myservice. E.g., http://<dcos-url>/service/testing/pxc/v1/endpoints.
+    To interact with your foldered service over the web directly, use http://<dcos-url>/service/path/to/myservice. E.g., http://<dcos-url>/service/testing/percona-pxc-mysql/v1/endpoints.
 
