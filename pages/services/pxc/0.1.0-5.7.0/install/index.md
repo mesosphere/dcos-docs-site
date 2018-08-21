@@ -105,7 +105,7 @@ In DC/OS 1.10 and above, services may be installed into folders by specifying a 
        }
    }
    ```
-The above example will install the service under a path of foldered => path => to => percona-pxc-mysql. It can then be reached using dcos pxc  CLI commands or directly over HTTP as described below.
+The above example will install the service under a path of foldered => path => to => percona-pxc-mysql. It can then be reached using dcos percona-pxc-mysql CLI commands or directly over HTTP as described below.
 
 Note:  The service folder location cannot be changed after initial install.Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.
 
@@ -134,7 +134,7 @@ Similarly, it could be queried directly over HTTP as follows:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/pxc-dev/v1/pod
    ```
-Note: You may add a -v (verbose) argument to any dcos pxc command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, dcos pxc commands are a thin wrapper around an HTTP interface provided by the DC/OS Percona XtraDB Cluster Service itself.
+Note: You may add a -v (verbose) argument to any dcos percona-pxc-mysql command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, dcos pxc commands are a thin wrapper around an HTTP interface provided by the DC/OS Percona XtraDB Cluster Service itself.
 
 ## Virtual Networks
 
