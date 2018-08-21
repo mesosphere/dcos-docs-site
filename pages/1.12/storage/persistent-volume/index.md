@@ -38,7 +38,7 @@ Configure a persistent volume with the following options:
 ```
 
 - `containerPath`: The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`).
-- `mode`: The access mode of the volume. Currently, `"RW"` is the only possible value and will let your application read from and write to the volume.
+- `mode`: The access mode of the volume. Currently, `"RW"` and `"RO"` are the only possible values and will let your application read from and write to the volume.
 - `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
 - `persistent.size`: The size of the persistent volume in MiBs.
 - `persistent.profileName`: (not seen above) The storage [volume profile](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
@@ -53,7 +53,6 @@ To set up a stateful application, set `unreachableStrategy` to "disabled".
 "unreachableStrategy": "disabled",
 ```
 
--
 <a name="abs-paths"></a>
 ## Specify an unsupported container path
 
@@ -95,16 +94,17 @@ When you scale your app down, the volumes associated with the terminated instanc
 
 Since all the resources your application needs are still reserved when a volume is detached, you may wish to destroy detached volumes to allow other applications and frameworks to use the resources. You may wish to leave them in the detached state, however, if you think you will be scaling your app up again; the data on the volume will still be there.
 
-**Notes:**
+**Note:**
 
--  If your app is destroyed, any associated volumes and reserved resources will also be deleted.
--  Mesos will currently not remove the data but might do so in the future.
+-  If your app is destroyed, all associated volumes and reserved resources will also be deleted.
+-  Currently, Mesos will not remove the data but this action may occur in the upcoming releases. 
 
 # Upgrade or restart stateful applications
 
-The default `UpgradeStrategy` for a stateful application is a `minimumHealthCapacity` of `0.5` and a `maximumOverCapacity` of `0`. If you override this default, your definition must stay below these values to pass validation. The `UpgradeStrategy` must stay below these values because Marathon needs to be able to kill old tasks before starting new ones so that the new versions can take over reservations and volumes and Marathon cannot create additional tasks (as a `maximumOverCapacity > 0` would induce) to prevent additional volume creation.
+The default `UpgradeStrategy` for a stateful application is a `minimumHealthCapacity` of `0.5` and a `maximumOverCapacity` of `0`. If you override this default, your definition must stay below these values to pass validation. The `UpgradeStrategy` must stay below these values because Marathon will kill old tasks before starting new ones, so that the new versions can take over reservations and volumes. Marathon cannot create additional tasks (as a `maximumOverCapacity > 0` would induce) to prevent additional volume creation.
 
-**Note:** For a stateful application, Marathon will never start more instances than specified in the `UpgradeStrategy`, and will kill old instances rather than create new ones during an upgrade or restart.
+**Note:** 
+For a stateful application, Marathon will never start more instances than specified in the `UpgradeStrategy`, and will kill old instances rather than create new ones during an upgrade or restart.
 
 [beta]
 # Create a pod with a local persistent volume
@@ -127,7 +127,7 @@ Configure a persistent volume with the following options:
 ]
 ```
 
-where
+where,
 
 - `name`: Name of the pod level volume
 - `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
@@ -156,7 +156,7 @@ To set up a stateful pod, set `unreachableStrategy` to "disabled".
 ]
 ```
 
-where
+where,
 
 - `name`: The name of the volume to reference.
 - `mountPath`: The path inside the container at which the volume is mounted.
@@ -173,7 +173,7 @@ Mesos creates persistent volumes to hold your application's stateful data. Becau
 
 When a task that used persistent volumes has terminated, its metadata will be kept. This metadata will be used to launch a replacement task when needed.
 
-For example, if you scale down from 5 to 3 instances, you will see 2 tasks in the `Waiting` state along with the information about the persistent volumes the tasks were using as well as about the agents on which they are placed. Marathon will not unreserve those resources and will not destroy the volumes. When you scale up again, Marathon will attempt to launch tasks that use those existing reservations and volumes as soon as it gets a Mesos offer containing the labeled resources. Marathon will only schedule unreserve/destroy operations when:
+For example, if you scale down from five to three instances, you will see two tasks in the `Waiting` state along with the information about the persistent volumes the tasks were using as well as about the agents on which they are placed. Marathon will not unreserve those resources and will not destroy the volumes. When you scale up again, Marathon will attempt to launch tasks that use those existing reservations and volumes as soon as it gets a Mesos offer containing the labeled resources. Marathon will only schedule unreserve/destroy operations when:
 
 - The application is deleted (in which case volumes of all its tasks are destroyed, and all reservations are deleted).
 - You explicitly delete one or more suspended tasks with a `wipe=true` flag.
@@ -182,11 +182,11 @@ If reserving resources or creating persistent volumes fails, the created task wi
 
 # Potential pitfalls
 
-Be aware of the following issues and limitations when using stateful applications in Marathon that make use of dynamic reservations and persistent volumes.
+The following issues and limitations may occur when using stateful applications in Marathon that make use of dynamic reservations and persistent volumes.
 
 ## Resource requirements
 
-Currently, the resource requirements&mdash;volume size, cpu usage, memory requirements, etc.&mdash;of a stateful application **cannot** be changed once you've deployed the app definition.
+Currently, the resource requirements&mdash;volume size, cpu usage, memory requirements, etc.&mdash;of a stateful application **cannot** be changed once you have deployed the app definition.
 
 ## Replication and backups
 
@@ -451,7 +451,7 @@ The following example will create a pod with 2 containers and one shared persist
 
 ## Inspect and delete suspended stateful tasks
 
-To destroy and clean up persistent volumes and free the reserved resources associated with a task, perform 2 steps:
+Perform the following steps to free the reserved resources associated with a task, destroy and clean up persistent volumes. 
 
 1. Locate the agent containing the persistent volume and remove the data inside it.
 1. Send an HTTP DELETE request to Marathon that includes the `wipe=true` flag.
@@ -479,9 +479,8 @@ response:
 }
 ```
 
-**Note:** A running task will show `stagedAt`, `startedAt`, and `version` in addition to the information provided above.
-
-You can then
+**Note:** 
+A running task will show `stagedAt`, `startedAt`, and `version` in addition to the information provided above. You can do the following actions:
 
 1. Remove the data on disk by `ssh'ing` into the agent and running the `rm -rf <volume-path>/*` command.
 1. Delete the task with `wipe=true`, which will expunge the task information from the Marathon internal repository and eventually destroy the volume and unreserve the resources previously associated with the task:
@@ -494,6 +493,6 @@ http DELETE http://dcos/service/marathon/v2/apps/postgres/tasks/postgres.53ab873
 
 After you have created your application, click the **Volumes** tab of the application detail view to get detailed information about your app instances and associated volumes.
 
-The Status column tells you if your app instance is attached to the volume or not. The app instance will read as "detached" if you have scaled down your application. Currently the only Operation Type available is read/write (RW).
+The `Status` column tells you if your app instance is attached to the volume or not. The app instance will read as "detached" if you have scaled down your application. Currently, the only operation type available are read/write (RW) and read only (RO).
 
-Click a volume to view the Volume Detail Page, where you can see information about the individual volume.
+Click a volume to view the `Volume Detail` page, where you can see information about the individual volume.
