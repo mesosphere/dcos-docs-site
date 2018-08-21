@@ -19,7 +19,7 @@ The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features:
 
 The DC/OS CLI must already be [installed](/1.11/cli/install/).
 
-**Note:** The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install from the Catalog in the GUI.
+**Note:** The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install the DC/OS Enterprise CLI from the Catalog in the web interface.
 
 To install the DC/OS Enterprise CLI, issue the following command from a terminal prompt.
 

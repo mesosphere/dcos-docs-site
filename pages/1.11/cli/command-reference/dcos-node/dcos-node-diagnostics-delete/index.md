@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics delete
 title: dcos node diagnostics delete
 menuWeight: 4
-excerpt: Displaying the details of diagnostics bundles
+excerpt: Deleting a diagnostics bundle
 
 enterprise: false
 ---
 
     
 # Description
-The dcos node diagnostics delete command allows you to view the details of diagnostics bundles.
+The `dcos node diagnostics delete` command allows you to delete a diagnostics bundle.
 
 # Usage
 

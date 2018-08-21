@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Uninstall a package.
+The `dcos package uninstall` command allows you to uninstall a package.
 
 # Usage
 
@@ -19,18 +19,18 @@ dcos package uninstall <package-name> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--all`   |             |  All packages. |
-| `--app`   |             |  Application only. |
-| `--app-id=<app-id>`   |             |  The application ID. |
-| `--cli`   |             |  Command line only. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `--all`   |   All packages. |
+| `--app`   |  Application only. |
+| `--app-id=<app-id>`   |   The application ID. |
+| `--cli`   |   Command line only. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<package-name>`   |             |  Name of the DC/OS package. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<package-name>`   |   Name of the DC/OS package. |
 
 # Parent command
 
