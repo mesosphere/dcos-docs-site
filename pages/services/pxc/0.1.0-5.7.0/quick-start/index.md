@@ -7,7 +7,7 @@ enterprise: 'no'
 
 # Prerequisite
 
-- DC/OS should be installed on your cluster. To know about installing DC/OS visit (Link will be here).
+- DC/OS should be installed on your cluster.
 
 # Steps
 
