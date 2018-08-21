@@ -13,6 +13,8 @@ When developing services on DC/OS, you may find it helpful to access your cluste
 
 **Warning:** DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production.
 
+**Note:** Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.
+
 # SOCKS
 DC/OS Tunnel can run a SOCKS proxy over SSH to the cluster. SOCKS proxies work for any protocol, but your client must be configured to use the proxy, which runs on port 1080 by default.
 
@@ -260,4 +262,4 @@ For example:
 * Ubuntu: `apt-get update && apt-get install openvpn`
 * ArchLinux: `pacman -S openvpn`
 
-**Note:** Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.
+
