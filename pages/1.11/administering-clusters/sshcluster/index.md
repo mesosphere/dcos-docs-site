@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  SSHing into Nodes
 title: SSHing into Nodes
 menuWeight: 0
-excerpt: Learn to set up an SSH connection to your DC/OS cluster from an outside network.
+excerpt: Setting up an SSH connection to your DC/OS cluster from an outside network.
 
 enterprise: false
 ---
@@ -96,13 +96,19 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             ![Putty Configuration](/1.11/img/windowsputtybasic.png)
 
+            Figure 2. PuTTY configuration
+
         3.  In the **Category** pane on the left side of the PuTTY window, choose **Connection > SSH > Auth**, click **Browse**, locate and select your `.ppk` file, then click **Open**.
 
             ![Putty SSH Options](/1.11/img/windowsputtysshopt.png)
 
-        4.  Login as user "core" if you're running CoreOS. The default user on CentOS is "centos".
+            Figure 3. PutTY SSH options
+
+        4.  Login as user "core" if you are running CoreOS. The default user on CentOS is "centos".
 
             ![Windows Login](/1.11/img/windowscore.png)
+
+            Figure 4. Windows login
 
     *   **To SSH to an agent node**
 
@@ -118,6 +124,8 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
                 ![Windows Forwarding](/1.11/img/windowsforwarding.png)
 
+                Figure 5. Windows forwarding
+
         2.  Add the `.ppk` file to Pageant.
 
             1.  Open Pageant. If the Pageant window does not appear, look for the Pageant icon in the notification area in the lower right area of the screen next to the clock and double-click it to open Pageant's main window.
@@ -127,6 +135,9 @@ To install these programs, download the Windows installer <a href="http://www.ch
             3.  Locate the `.ppk` file that you created using PuTTYgen and click **Open** to add your key to Pageant.
 
                 ![Windows Pageant](/1.11/img/windowspageant.png)
+
+                Figure 6. Windows Pageant
+
 
             4.  Click the **Close** button to close the Pageant window.
 
@@ -140,6 +151,8 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
                 ![Windows Login](/1.11/img/windowscore.png)
 
+                Figure 7. Windows login
+
         4.  From the master node, SSH into the agent node.
 
             1.  From the Mesos web interface, copy the agent node hostname. You can find hostnames on the **Frameworks** (`<master-node-IPaddress>/mesos/#/frameworks`) or **Slaves** page (`<master-node-IPaddress>/mesos/#/slaves`).
@@ -151,4 +164,3 @@ To install these programs, download the Windows installer <a href="http://www.ch
  [1]: /1.11/cli/command-reference/
  [2]: #unix
  [3]: #windows
- [4]: /1.11/installing/oss/cloud/aws/

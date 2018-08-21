@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Managing AWS
 title: Managing AWS
 menuWeight: 9
-excerpt: Learn to scale your AWS cluster or change the number of agent nodes
+excerpt: Scaling your AWS cluster 
 enterprise: false
 ---
 
@@ -14,7 +14,7 @@ You can scale your AWS cluster or change the number of agent nodes.
 
 The DC/OS AWS CloudFormation template is optimized to run DC/OS, but you might want to change the number of agent nodes based on your needs.
 
-**Important:** Scaling down your AWS cluster could result in data loss. It is recommended that you scale down by 1 node at a time, letting the DC/OS service recover. For example, if you are running a DC/OS service and you scale down from 10 to 5 nodes, this could result in losing all the instances of your service.
+**Note:** Scaling down your AWS cluster could result in data loss. It is recommended that you scale down one node at a time, letting the DC/OS service recover. For example, if you are running a DC/OS service and you scale down from 10 to 5 nodes, this could result in losing all the instances of your service.
 
 To change the number of agent nodes with AWS:
 
