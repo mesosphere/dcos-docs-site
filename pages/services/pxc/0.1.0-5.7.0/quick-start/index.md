@@ -242,9 +242,3 @@ Once the install command is triggered, the service will deploy with a default co
     dcos percona-pxc-mysql update status [<flags>]
     --json  Show raw JSON response instead of user-friendly tree
     ```               
-
-# See Also
-
-- [Connecting clients][1]. TBD
-
- [1]: https://docs.mesosphere.com/service-docs/<Template>/connecting-clients/
