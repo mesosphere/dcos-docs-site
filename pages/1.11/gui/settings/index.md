@@ -12,7 +12,7 @@ In the Settings menu you can manage package repositories.
 
 ![Package repositories](/1.11/img/package-repositories-ee.png)
 
-*Figure 1 - Settings > Package Repositories*
+Figure 1 - Settings > Package Repositories
 
 In DC/OS Enterprise you can also manage:
 

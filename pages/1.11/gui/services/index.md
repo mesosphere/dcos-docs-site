@@ -10,7 +10,7 @@ The Services menu provides a full-featured interface to the native DC/OS Maratho
 
 ![Services](/1.11/img/services-ee.png)
 
-*Figure 1 - Services menu*
+Figure 1 - Services menu
 
 By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, CPU, memory, or disk space allocated.
 
@@ -20,7 +20,7 @@ By default, all of your services are displayed, sorted by service name. You can 
 - Mem - The amount of memory used
 - Disk - The amount of disk space used
 
-Click the service name to open the Instances tab, which provides CPU, memory, and disk usage graphs, and lists all tasks using the service. Click a task listed on the Instances tab to see detailed information about the task’s CPU, memory, and disk usage, and the task’s files and directory tree.
+Click the service name to open the Instances menu, which provides CPU, memory, and disk usage graphs, and lists all tasks using the service. Click a task listed on the Instances menu to see detailed information about the task’s CPU, memory, and disk usage, and the task’s files and directory tree.
 
 For services with a web interface, hover over the service name and click ![open service](/1.11/img/open-service.png) to view it.
 
