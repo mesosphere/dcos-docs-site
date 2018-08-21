@@ -20,6 +20,7 @@ From the top, DC/OS is an inclusive container platform that handles container or
 
 DC/OS provides a way to view and operate a large number of individual machine-level systems as a single cluster-level system. It hides the complexity of Mesos, the distributed systems kernel, with higher level abstractions, interfaces, and tools. Cluster management is the core of that functionality, including the kernel, its dependencies, and its user interfaces.
 
+
 <a name="apache-mesos"></a>
 ## Apache Mesos
 
@@ -79,6 +80,7 @@ The DC/OS Installer (`dcos_generate_config.ee.sh`) generates install artifacts a
 - `dcos-setup.service`
 
 **See Also:**
+
 
 - [Documentation](/1.11/installing/oss/)
 - [Source](https://github.com/dcos/dcos)
@@ -214,6 +216,7 @@ Docker GC periodically collects Docker "garbage" containers and images.
 
 # Logging and Metrics
 
+
 No software runs perfectly, especially not the first time. Distributing tasks across a cluster, as well as the normal patterns of analyzing and debugging these services, become tedious. DC/OS includes several components to help ease the pain of debugging distributed systems by aggregating, caching, and streaming logs, metrics, and cluster state metadata.
 
 <a name="dcos-network-metrics"></a>
@@ -272,6 +275,7 @@ Logrotate manages rotation, compression, and deletion of historical log files.
 - `dcos-logrotate-master.timer`
 - `dcos-logrotate-agent.service`
 - `dcos-logrotate-agent.timer`
+
 
 **See Also:**
 

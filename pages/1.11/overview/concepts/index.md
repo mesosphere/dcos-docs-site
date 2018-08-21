@@ -107,10 +107,10 @@ A bootstrap machine is the machine on which the DC/OS installer artifacts are co
 
 - The bootstrap machine is not technically considered part of the cluster since it does not have DC/OS installed on it. For most installation methods, the bootstrap node must be accessible to and from the machines in the cluster via infrastructure networking.
 - The bootstrap machine is sometimes used as a jumpbox to control SSH access into other nodes in the cluster for added security and logging.
-- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see [configuring the exhibitor storage backend](/1.11/installing/oss/custom/configuration/configuration-parameters/#exhibitor-storage-backend).
+- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see [configuring the exhibitor storage backend](/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend).
 - If a bootstrap machine is not required for managing master node IP changes or as an SSH jumpbox, it can be shut down after bootstrapping and spun up on demand to [add new nodes](/1.11/administering-clusters/add-a-node/) to the cluster.
 
-For more information, see the [system requirements](/1.11/installing/oss/custom/system-requirements/#bootstrap-node).
+For more information, see the [system requirements](/1.11/installing/production/system-requirements/#bootstrap-node).
 
 # <a name="dcos-service"></a>Service
 
@@ -226,7 +226,7 @@ A container registry is a repository of pre-built container images. The [Univers
 
 A cloud template is an infrastructure-specific method of declaratively describing a DC/OS cluster.
 
-For more information, see [Cloud Installation Options](/1.11/installing/oss/cloud/).
+For more information, see [Cloud Installation Options](/1.11/installing/evaluation/cloud-installation/).
 
 
 # <a name="mesos-concepts"></a>Mesos Concepts
