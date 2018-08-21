@@ -10,7 +10,7 @@ enterprise: false
 
 
 
-Services can be uninstalled from the CLI. If a Universe service has any reserved resources that were unable to be cleaned up by the normal uninstall process, you may also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.
+Services can be uninstalled from the CLI. If a Universe service has any reserved resources that could not be cleaned up by the normal uninstall process, you may also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.
 
 # Uninstalling Universe services
 
@@ -36,11 +36,14 @@ From the DC/OS web interface you can uninstall services from the **Services** ta
 1.  Select your service, click the vertical ellipsis at the far right, and select **Delete**.
 
     ![Destroy app](/1.12/img/service-delete.png)
+    
+    Figure 1. Delete Services
+    
 1.  Copy and run the displayed command.
 
 ## Troubleshooting
 
-It's possible for an uninstall to fail with the following error message:
+It is possible for an uninstall to fail with the following error message:
 
 ```
 Incomplete uninstall of package [chronos] due to Mesos unavailability
@@ -74,7 +77,7 @@ For more information, see the [command reference](/1.12/cli/command-reference/#d
 
 ### Web interface
 
-From the DC/OS web interface you can uninstall services from the **Services**. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
+You can uninstall services from the DC/OS web interface, from the **Services** tab. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
 
 ### Services tab
 
@@ -86,7 +89,7 @@ From the DC/OS web interface you can uninstall services from the **Services**. T
 
 ### About the cleanup
 
-If your service has reserved resources and it did not completely clean itself up automatically, you can use the framework cleaner docker image, `mesosphere/janitor`, to simplify the process of removing your service instance from ZooKeeper and destroying all the data associated with it. **On DC/OS 1.10+ clusters, this should only be necessary in rare circumstances such as a failed unintall.** The package's documentation may have its own additional information in an "Uninstall" section.
+If your service has reserved resources and it did not completely clean itself up automatically, you can use the framework cleaner docker image, `mesosphere/janitor`, to simplify the process of removing your service instance from ZooKeeper and destroying all the data associated with it. **On DC/OS 1.10+ clusters, this should only be necessary in rare circumstances such as a failed uninstall.** The package's documentation may have its own additional information in an "Uninstall" section.
 
 There are two ways to run the framework cleaner script. The preferred method is via the DC/OS CLI. If the CLI is unavailable, you can also run the image as a self-deleting Marathon task.
 
@@ -103,7 +106,7 @@ The command would be run as follows:
 docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service-<service_name>
 ```
 
-Users of strict-mode clusters will need to provide additional arguments providing credentials to perform the cleanup:
+If you are using a strict-mode cluster, you must provide additional arguments providing credentials to perform the cleanup:
 * `-a <token>`: Token to be used for authentication
 * `--username <username>` and `--password <password>`: Username and password to be used for authentication
 
@@ -163,7 +166,7 @@ To view the script's outcome, go to Mesos (`http://your-cluster.com/mesos`) and 
 
 ### Sample result
 
-Here's an example of the output for a successful run for a sample installation:
+Here is an example of the output for a successful run for a sample installation:
 
     your-machine$ dcos node ssh --master-proxy --leader
 
