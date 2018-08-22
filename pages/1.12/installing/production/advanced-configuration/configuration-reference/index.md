@@ -38,6 +38,7 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) are [here
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
 | [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
+| [log_offers](#log-offers)                                             | Indicates whether the leading Mesos master should log the offers sent to schedulers. |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.  |
 | [rexray_config](#rexray-config)                                       | The [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) configuration method for enabling external persistent volumes in Marathon. You cannot specify both `rexray_config` and `rexray_config_preset`.|
@@ -425,6 +426,12 @@ curl -fsSL https://ipinfo.io/ip
 
 ## log_directory
 The path to the installer host logs from the SSH processes. By default, this is set to `/genconf/logs`. In most cases this should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
+
+## log_offers
+Indicates whether the leading Mesos master should log the offers sent to schedulers.
+
+- `log_offers: true` Enable Mesos offer logging for your cluster. This is the default value.
+- `log_offers: false` Disable Mesos offer logging for your cluster.
 
 ## master_discovery (Required)
 The Mesos master discovery method. The available options are `static` or `master_http_loadbalancer`.
