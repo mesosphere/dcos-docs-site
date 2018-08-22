@@ -91,7 +91,7 @@ The default ACS architecture looks like this:
 
 ![Azure Container Service architecture using DC/OS.](/1.11/img/dcos-acs.png)
 
-*Figure 1 - Azure Container Service architecture using DC/OS*
+Figure 1. Azure Container Service architecture using DC/OS
 
 ## DC/OS component list
 

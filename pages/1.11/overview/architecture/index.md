@@ -11,7 +11,7 @@ DC/OS is a platform for running distributed containerized software, like apps, j
 
 ![DC/OS Architecture Layers](/1.11/img/dcos-architecture-layers.png)
 
-*Figure 1 - DC/OS architecture layers*
+Figure 1. DC/OS architecture layers
 
 ## Software layer
 

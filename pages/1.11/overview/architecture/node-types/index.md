@@ -13,7 +13,7 @@ We recommend that you use different types of nodes set up in different networks 
 
 ![DC/OS Node Types](/1.11/img/dcos-node-types.png)
 
-*Figure 1 - DC/OS node types*
+Figure 1. DC/OS node types
 
 Protect your cluster from the outside with firewall settings specific for the node type.
 

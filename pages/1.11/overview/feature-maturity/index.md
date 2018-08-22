@@ -18,7 +18,7 @@ A feature can encompass Apps, Services, Frameworks, Components or Packages that 
 
 ![Five Maturity States](/1.11/img/five_maturity_states.png)
 
-*Figure 1 -Feature maturity lifecycle*
+Figure 1. Feature maturity lifecycle
 
 <a name="beta"></a>
 ## Beta

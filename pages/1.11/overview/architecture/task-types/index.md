@@ -31,8 +31,8 @@ Because the task system is so generic, users generally do not create or interact
 
 DC/OS has two built-in schedulers:
 
-- The Marathon scheduler provides services (Apps and Pods), which run continuously and in parallel. For more on Marathon services, see the [Services docs](/1.11/deploying-services/) or the [Marathon docs](https://mesosphere.github.io/marathon/docs/).
-- The Metronome scheduler provides jobs, which run immediately or on a defined schedule. For more on Metronome jobs, see the [Jobs docs](/1.11/deploying-jobs/).
+- The Marathon scheduler provides services (Apps and Pods), which run continuously and in parallel. For more on Marathon services, see the [Deploying Services docs](/1.11/deploying-services/) or the [Marathon docs](https://mesosphere.github.io/marathon/docs/).
+- The Metronome scheduler provides jobs, which run immediately or on a defined schedule. For more on Metronome jobs, see the [Deploying Jobs docs](/1.11/deploying-jobs/).
 
 ### User space schedulers
 
