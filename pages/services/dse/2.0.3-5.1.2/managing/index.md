@@ -19,7 +19,7 @@ After making a change, the scheduler will be restarted, and it will automaticall
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/dse/2.0.3-5.1.2/limitations/).
 
 The instructions below describe how to update the configuration for a running DC/OS service.
 
@@ -31,7 +31,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 + Enterprise DC/OS 1.10 or newer
 + Service with a version greater than 2.0.0-x
-+ [The DC/OS CLI](/1.10/cli/install/) installed and available 
++ [The DC/OS CLI](/1.10/cli/install/) installed and available
 + The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli datastax-dse`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.

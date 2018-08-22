@@ -13,24 +13,24 @@ A common task is to specify a list of whitelisted systems to deploy to. To achie
 
 #### Updating Placement Constraints
 
-Clusters change, and as such so will your placement constraints. However, already running service pods will _not_ by affected by changes in placement constraints. This is because altering a placement constraint might invalidate the current placement of a running pod, and the pod will not be relocated automatically as doing so is a destructive action. We recommend using the following procedure to update the placement constraints of a pod:
+Clusters change, and as such so will your placement constraints. However, already running service pods will **not** be affected by changes in placement constraints. This is because altering a placement constraint might invalidate the current placement of a running pod, and the pod will not be relocated automatically as doing so is a destructive action. We recommend using the following procedure to update the placement constraints of a pod:
 - Update the placement constraint definition in the service.
-- For each affected pod, _one at a time_, perform a `pod replace`. This will (destructively) move the pod to be in accordance with the new placement constraints.
+- For each affected pod, one at a time, perform a `pod replace`. This will (destructively) move the pod to be in accordance with the new placement constraints.
 
 ### Zones
 
-**Requires:** DC/OS 1.11 Enterprise or above.
+**Requires:** DC/OS 1.11 Enterprise or later.
 
-Placement constraints can be applied to DC/OS zones by referring to the `@zone` key. For example, one could spread pods across a minimum of 3 different zones by including this constraint:
+Placement constraints can be applied to DC/OS zones by referring to the `@zone` key. For example, one could spread pods across a minimum of three different zones by including this constraint:
 ```
 [["@zone", "GROUP_BY", "3"]]
 ```
 
-**Note:** A service installed _without_ a zone constraint cannot be updated to have one, and a service installed with a zone constraint may not have it removed.
+**Caution:** A service installed without a zone constraint cannot be updated to have one, and a service installed with a zone constraint may not have it removed.
 
 ### Virtual networks
 
-DC/OS {{ model.techName }} supports deployment on [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
+DC/OS {{ model.techName }} supports deployment on [virtual networks](/latest/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
 
 ```json
 {

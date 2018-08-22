@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Updating your Kafka service
 title: Updates
 menuWeight: 40
 model: /services/kafka/data.yml

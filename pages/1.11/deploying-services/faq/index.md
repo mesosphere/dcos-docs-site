@@ -39,7 +39,7 @@ A comprehensive overview of a few common service discovery implementations is av
 
 ## Is it possible to span my cluster over different cloud providers?
 
-This is not currently supported. For more information, see [this document](/1.11/installing/oss/high-availability/).
+This is not currently supported. For more information, see [this document](/1.11/installing/production/advanced-configuration/configuring-zones-regions/).
 
 ## How can I upload files to Spark driver/executor?
 

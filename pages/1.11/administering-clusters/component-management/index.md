@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Component Management
 title: Component Management
 menuWeight: 5
-excerpt: Installation and management of DC/OS component services
+excerpt: Installing and managing DC/OS component services
 
 enterprise: false
 ---

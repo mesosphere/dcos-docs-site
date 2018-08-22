@@ -12,11 +12,11 @@ These examples provide common usage scenarios for jobs.
 
 **Prerequisite:**
 
-- [DC/OS](/1.11/installing/oss/) and the [DC/OS CLI installed](/1.11/cli/install/).
+- [DC/OS](/1.11/installing/) and the [DC/OS CLI](/1.11/cli/install/) installed.
 
 # <a name="create-job"></a>Creating a Simple Job
 
-This JSON creates a simple job with no schedule.
+This JSON file creates a simple job with no schedule.
 
 1. Create a JSON file with the following contents.
     ```json
@@ -43,7 +43,7 @@ This JSON creates a simple job with no schedule.
     ```
 
 # <a name="create-job-schedule"></a>Creating a Job with a Schedule
-**Note:** This example JSON only works when you add the job from the DC/OS CLI or the GUI. Use the [example below](#schedule-with-api) to create a scheduled job via the API.
+**Note:** This example JSON only works when you add the job from the DC/OS CLI or the web interface. Use the [example below](#schedule-with-api) to create a scheduled job via the API.
 
 1. Create a JSON file with the following contents.
     ```
@@ -105,7 +105,7 @@ This JSON creates a simple job with no schedule.
 
 # Creating a Partitioned Jobs Environment
 
-In this example, a partitioned jobs environment is created with the DC/OS GUI. This allows you to restrict user access per job, or per job group. The jobs are created in a jobs group named `batch`, which is a child of a jobs group named `dev`.
+In this example, a partitioned jobs environment is created with the DC/OS web interface. This allows you to restrict user access per job, or per job group. The jobs are created in a jobs group named `batch`, which is a child of a jobs group named `dev`.
 
 ```
 ├── dev
@@ -121,9 +121,11 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 - DC/OS is installed with [security mode](/1.11/security/ent/#security-modes) `permissive` or `strict`.
 - You must be logged in as a `superuser`.
 
-1. Log into the DC/OS GUI as a user with the `superuser` permission.
+1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
+
+   Figure 1. DC/OS Enterprise login
 
 1.  Create the partitioned jobs.
 
@@ -133,22 +135,30 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         ![Create job](/1.11/img/job-ex1.png)
 
+        Figure 2. New job screen
+
         This creates a job in this directory structure in DC/OS: **Jobs > dev > batch > job1**.
 
     1.  Click the **+** icon in the top right corner to create another job.
 
         ![Create another job](/1.11/img/job-ex2.png)
 
+        Figure 3. Create another job
+
     1.  In the **ID** field, type `dev.batch.job2`.
     1.  In the **Command** field, type `sleep 1000` (or another valid shell command) and click **CREATE A JOB**. You should have two jobs:
 
         ![create job](/1.11/img/job-ex3.png)
+
+        Figure 4. Jobs > dev > batch screen
 
 1.  Run the jobs.
 
     1.  Click **Jobs > dev > batch > job1** and click **Run Now**.
 
         ![Run job](/1.11/img/job-ex4.png)
+
+        Figure 5. "Run now" menu
 
     1.  Click **Jobs > dev > batch > job2** and click **Run Now**.
 
@@ -158,10 +168,14 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         ![Create user Cory](/1.11/img/service-group3.png)
 
+         Figure 6. Create a new user
+
     1.  Select the user **Cory** grant access to `job1`.
     1.  From the **Permissions** tab, click **ADD PERMISSION** and toggle the **INSERT PERMISSION STRING** button to manually enter the permissions.
 
         ![Add permissions cory](/1.11/img/job-ex5.png)
+
+        Figure 7. Add permissions for user 'Cory'
 
     1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev/batch/job1 read,update`.
 
@@ -186,3 +200,5 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 1. Log out and log back in as your new user to verify the permissions. The user should now have the designated level of access to `dev/batch/job1` and `dev/batch/job2` inside the **Jobs** tab. For example, if you log in as **Alice**, you should only see **jobs2**:
 
     ![Alice job view](/1.11/img/job-ex6.png)
+
+    Figure 8. Restricted view for 'Alice'

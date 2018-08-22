@@ -40,8 +40,7 @@ The table below shows the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: https://docs.mesosphere.com/1.11/overview/high-availability/
-
+[0]: /1.11/overview/high-availability/
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
@@ -83,6 +82,12 @@ The agent nodes must also have:
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
+    ```
+
+* Disable DNSmasq (DC/OS requires access to port 53)
+
+    ```bash
+    sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
     ```
 
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
@@ -144,11 +149,10 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 Each Linux distribution requires Docker to be installed in a specific way:
 
-*   **CentOS** - [Install Docker from Docker's yum repository][1].
-*   **RHEL** - Install Docker by using a subscription channel. For more information, see <a href="https://access.redhat.com/articles/881893" target="_blank">Docker Formatted Container Images on Red Hat Systems</a>. <!-- curl -sSL https://get.docker.com | sudo sh -->
+*   **CentOS/RHEL** - [Install Docker from Docker's yum repository][1].
 *   **CoreOS** - Comes with Docker pre-installed and pre-configured.
 
-For more more information, see Docker's <a href="http://docs.docker.com/engine/installation/" target="_blank">distribution-specific installation instructions</a>.
+For more more information, see Docker's <a href="https://docs.docker.com/install/" target="_blank">distribution-specific installation instructions</a>.
 
 ### Disable sudo password prompts
 
@@ -242,7 +246,6 @@ localectl set-locale LANG=en_US.utf8
 - [Install Docker from Docker’s yum repository][1]
 - [DC/OS Installation Guide][2]
 
+[1]: /1.11/installing/production/system-requirements/docker-centos/
 
-[1]: /1.11/installing/ent/custom/system-requirements/install-docker-centos/
-
-[2]: /1.11/installing/ent/custom/advanced/
+[2]: /1.11/installing/production/deploying-dcos/installation/

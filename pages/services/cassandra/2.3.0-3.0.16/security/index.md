@@ -11,9 +11,9 @@ enterprise: true
 
 # DC/OS {{ model.techName }} Security
 
-The DC/OS {{ model.techName }} service allows Enterprise DC/OS users to configure secure service accounts, with permissions that allow access to DC/OS functions. At this time, {{ model.techName }}'s authentication and authorization features are not supported.
+- The DC/OS {{ model.techName }} service allows you to create a service account to configure access for {{ model.techName }}. The service allows you to create and assign permissions as required for access.  
 
-The DC/OS {{ model.techName }} service supports {{ model.techName }}'s native transport encryption mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
+- The DC/OS {{ model.techName }} service supports {{ model.techName }}'s native transport encryption mechanisms. The service provides automation and orchestration to simplify the usage of these important features. At this time, {{ model.techName }}'s authentication and authorization features are not supported.
 
 **Note:** These security features are only available on DC/OS Enterprise 1.10 and later.
 

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Monitor deployments.
+The `dcos marathon deployment watch` command allows you to monitor deployments.
 
 # Usage
 
@@ -20,17 +20,17 @@ dcos marathon deployment watch <deployment-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--interval=<interval>`   |             | Number of seconds to wait between actions. |
-| `--max-count=<max-count>`   |             | Maximum number of entries to fetch and return. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `--interval=<interval>`   |  Number of seconds to wait between actions. |
+| `--max-count=<max-count>`   |   Maximum number of entries to fetch and return. |
 
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<deployment-id>`   |             |  The deployment ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<deployment-id>`   | The deployment ID. You can view a list of the deployment IDs with the `dcos marathon deployment list` command.|
 
 # Parent command
 
@@ -38,4 +38,3 @@ dcos marathon deployment watch <deployment-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

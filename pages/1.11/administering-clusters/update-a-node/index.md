@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  Updating Nodes
 title: Updating Nodes
 menuWeight: 801
-excerpt: Learn to update agent nodes in an active DC/OS cluster.
+excerpt: Updating agent nodes in an active DC/OS cluster
 
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-You can update agent nodes in an active DC/OS cluster by using maintenance windows or by manually killing agents.
-
- Maintenance windows are the preferred method since this is generally more stable and less error prone.
+You can update agent nodes in an active DC/OS cluster by using maintenance windows or by manually killing agents. Maintenance windows are the preferred method since this is generally more stable and less error prone.
 
 These steps are useful if you are downsizing a cluster, reconfiguring agent nodes, or moving a node to a new IP. When you change Mesos attributes (`⁠⁠⁠⁠/var/lib/dcos/mesos-slave-common`⁠⁠⁠⁠) or resources (⁠⁠⁠⁠`/var/lib/dcos/mesos-resources`⁠⁠⁠⁠), you must remove the agent node and re-register it with the master node under a new UUID. The master will then recognize the new attributes and resources specification.
 

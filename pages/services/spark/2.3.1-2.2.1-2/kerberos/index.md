@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
-excerpt:
+excerpt: Using Kerberos with Spark
 title: Kerberos
 navigationTitle: Kerberos
 menuWeight: 120
-
+model: /services/spark/data.yml
+render: mustache
 ---
 
 
@@ -12,9 +13,9 @@ menuWeight: 120
 
 Kerberos is an authentication system to allow Spark to retrieve and write data securely to a Kerberos-enabled HDFS
 cluster. As of Mesosphere Spark `2.2.0-2`, long-running jobs will renew their delegation tokens (authentication
-credentials). This section assumes you have previously set up a Kerberos-enabled HDFS cluster. **Note** Depending on
-your OS, Spark may need to be run as `root` in order to authenticate with your Kerberos-enabled service. This can be
-done by setting `--conf spark.mesos.driverEnv.SPARK_USER=root` when submitting your job.
+credentials). This section assumes you have previously set up a Kerberos-enabled HDFS cluster. 
+
+**Note** Depending on your OS, Spark may need to be run as `root` in order to authenticate with your Kerberos-enabled service. This can be done by setting `--conf spark.mesos.driverEnv.SPARK_USER=root` when submitting your job.
 
 ## Spark Installation
 
@@ -85,7 +86,7 @@ single `krb5.conf` file for all of the its drivers.
     for details.
 
 
-1. If you are using the history server, you must also configure the `krb5.conf`, principal, and keytab
+5. If you are using the history server, you must also configure the `krb5.conf`, principal, and keytab
    for the history server.
 
    Add the Kerberos configurations to your spark-history JSON configuration file:
@@ -138,7 +139,7 @@ jobs.
 ### Controlling the `krb5.conf` with environment variables
 
 If you did not specify `service.security.kerberos.kdc.hostname`, `service.security.kerberos.kdc.port`, and
-`services.security.realm` at install time, but wish to use a templated krb5.conf on a job submission you can do this
+`services.security.realm` at install time, but wish to use a templated krb5.conf on a job submission, you can do this
 with the following environment variables:
     ```
     --conf spark.mesos.driverEnv.SPARK_SECURITY_KERBEROS_KDC_HOSTNAME=<kdc_hostname> \
@@ -151,17 +152,12 @@ You can also set the base64 encoded krb5.conf after install time:
     --conf spark.mesos.driverEnv.SPARK_MESOS_KRB5_CONF_BASE64=<krb5.conf_base64_encoding> \
     ```
 
-**Note** This setting `SPARK_MESOS_KRB5_CONF_BASE64` will overwrite/override any settings set with
-`SPARK_SECURITY_KERBEROS_KDC_HOSTNAME`, `SPARK_SECURITY_KERBEROS_KDC_PORT`, and `SPARK_SECURITY_KERBEROS_REALM`
+**Note** The setting for `SPARK_MESOS_KRB5_CONF_BASE64` will overwrite/override any settings set with
+`SPARK_SECURITY_KERBEROS_KDC_HOSTNAME`, `SPARK_SECURITY_KERBEROS_KDC_PORT`, and `SPARK_SECURITY_KERBEROS_REALM`.
 
 ### Setting the Spark User
 
-By default, when Kerberos is enabled, Spark runs as the OS user
-corresponding to the primary of the specified Kerberos principal.
-For example, the principal "alice@LOCAL" would map to the username "alice".
-If it is known that "alice" is not available as an OS user, either in
-the docker image or in the host,
-the Spark user should be specified as "root" or "nobody" instead:
+By default, when Kerberos is enabled, Spark runs as the OS user corresponding to the primary of the specified Kerberos principal. For example, the principal "alice@LOCAL" would map to the username "alice". If it is known that "alice" is not available as an OS user, either in the docker image or in the host, the Spark user should be specified as "root" or "nobody" instead:
 
     ```
     --conf spark.mesos.driverEnv.SPARK_USER=<Spark user>
@@ -187,31 +183,26 @@ Submit the job with the ticket:
     --conf spark.mesos.driverEnv.SPARK_USER=<spark user> \
     --conf ... --class MySparkJob <url> <args>"
 
-**Note:** The examples on this page assume that you are using the default
-service name for Spark, "spark". If using a different service name, update
-the secret paths accordingly.
+**Note:** The examples on this page assume that you are using the default service name for Spark, "spark". If using a different service name, update the secret paths accordingly.
 
 **Note:** You can access external (i.e. non-DC/OS) Kerberos-secured HDFS clusters from Spark on Mesos.
 
-**DC/OS 1.10 or lower:** These credentials are security-critical. The DC/OS Secret Store requires you to base64 encode binary secrets
-(such as the Kerberos keytab) before adding them. If they are uploaded with the `__dcos_base64__` prefix, they are
-automatically decoded when the secret is made available to your Spark job. If the secret name **doesn't** have this
-prefix, the keytab will be decoded and written to a file in the sandbox. This leaves the secret exposed and is not
-recommended. 
+**DC/OS 1.10 or earlier:** These credentials are security-critical. The DC/OS Secret Store requires you to encode binary secrets (such as the Kerberos keytab) with base64 before adding them. If they are uploaded with the `__dcos_base64__` prefix, they are automatically decoded when the secret is made available to your Spark job. If the secret name does **not** have this prefix, the keytab will be decoded and written to a file in the sandbox. This leaves the secret exposed and is not recommended. 
 
 
 # Using Kerberos-secured Kafka
 
 Spark can consume data from a Kerberos-enabled Kafka cluster. Connecting Spark to secure Kafka does not require special
-installation parameters, however does require the Spark Driver _and_ the Spark Executors can access the following files:
+installation parameters. However, it does require the Spark Driver, and the Spark Executors can access the following files:
 
 *   Client JAAS (Java Authentication and Authorization Service) file. This is provided using Mesos URIS with `--conf
-    spark.mesos.uris=<location_of_jaas>`.
+    spark.mesos.uris=<location_of_jaas>`. An example of a JAAS file is [here](/services/spark/2.3.1-2.2.1-2/usage-examples/#advanced)
 *   `krb5.conf` for your Kerberos setup. Similarly to HDFS, this is provided using a base64 encoding of the file.
  
         cat krb5.conf | base64 -w 0
         
-    Then assign the environment variable, `KRB5_CONFIG_BASE64`, this value for the Driver and the Executors:
+*   The environment variable, `KRB5_CONFIG_BASE64`, with these values for the Driver and the Executors:
+
         --conf spark.mesos.driverEnv.KRB5_CONFIG_BASE64=<base64_encoded_string>
         --conf spark.executorEnv.KRB5_CONFIG_BASE64=<base64_encoded_string>
         
@@ -224,12 +215,13 @@ installation parameters, however does require the Spark Driver _and_ the Spark E
         --conf spark.mesos.executor.secret.filenames=<keytab_file_name>   # e.g. kafka.keytab
         
 
-Finally, you'll likely need to tell Spark to use the JAAS file:
+Finally, you must tell Spark to use the JAAS file:
         
         --conf spark.driver.extraJavaOptions=-Djava.security.auth.login.config=/mnt/mesos/sandbox/<jaas_file>
         --conf spark.executor.extraJavaOptions=-Djava.security.auth.login.config=/mnt/mesos/sandbox/<jaas_file>
 
 
 It is important that the filename is the same for the driver and executor keytab file (`<keytab_file_name>` above) and
-that this file is properly addressed in your JAAS file. For a worked example of a Spark consumer from secure Kafka see
-the [advanced examples][https://docs.mesosphere.com/services/spark/2.1.1-2.2.0-2/usage-examples/]
+that this file is properly addressed in your JAAS file. 
+
+For a worked example of a Spark consumer from secure Kafka see the [usage examples](/services/spark/2.3.1-2.2.1-2/usage-examples/).

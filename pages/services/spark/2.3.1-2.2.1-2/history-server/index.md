@@ -1,19 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
-title: History Server
+navigationTitle: History Server
+excerpt: Enabling HDFS for the Spark History Server
+title: Spark History Server
 menuWeight: 30
-
+model: /services/spark/data.yml
+render: mustache
 ---
 
-DC/OS Apache Spark includes The [Spark History Server][3]. Because the history server requires HDFS, you must explicitly enable it.
+DC/OS {{ model.techName }} includes the [Spark History Server][3]. Because the history server requires HDFS, you must explicitly enable it.
 
 1.  Install HDFS:
 
         dcos package install hdfs
 
-    **Note:** HDFS requires 5 private nodes.
+    **Note:** HDFS requires five private nodes.
 
 1.  Create a history HDFS directory (default is `/history`). [SSH into your cluster][10] and run:
 
@@ -28,7 +29,7 @@ DC/OS Apache Spark includes The [Spark History Server][3]. Because the history s
           }
         }
 
-1. Install The Spark History Server:
+1. Install the Spark History Server:
 
         dcos package install spark-history --options=spark-history-options.json
 
@@ -54,4 +55,4 @@ DC/OS Apache Spark includes The [Spark History Server][3]. Because the history s
 1.  Visit your job in the dispatcher at `http://<dcos_url>/service/spark/`. It will include a link to the history server entry for that job.
 
  [3]: http://spark.apache.org/docs/latest/monitoring.html#viewing-after-the-fact
- [10]: https://dcos.io/docs/1.9/administering-clusters/sshcluster/
+ [10]: /latest/administering-clusters/sshcluster/

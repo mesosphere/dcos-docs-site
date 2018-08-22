@@ -7,7 +7,8 @@ featureMaturity:
 enterprise: true
 ---
 # Versions
-In Cassandra 2.3.0-3.0.16 and later, these topics have been divided up among the [Getting Started](/services/cassandra/2.3.0-3.0.16/getting-started/) and [Security](/services/cassandra/2.3.0-3.0.16/security/) sections. Previous versions will still need the information below.
+
+In Cassandra 2.3.0-3.0.16 and later, these topics have been divided up among the Getting Started and Security sections. Previous versions will still need the information below.
 
 # Configuring DC/OS Access
 

@@ -17,7 +17,7 @@ This section will explain how to configure Prometheus for use with DC/OS.
 Prometheus can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
 
 ```bash
-dcos package install prometheus
+dcos package install prometheus --yes
 ```
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/services/prometheus/0.1.1-2.3.2/img/prom_install.png)
@@ -27,15 +27,15 @@ Figure 1. Installing Prometheus
 
 Install Grafana from the service catalog as well. It can be used as a graphing tool.
 ```bash
-dcos package install --yes grafana
+dcos package install grafana --yes
 ```
 
-The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. Append any new config to the end.
+The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. The framework allows users to append any new config to the end for full extensibility.
 
-## Accessing the Prometheus UI
+## Accessing the Prometheus UI with EdgeLB (Enterprise Feature)
 
 Once the framework is up and running:
-1. Install [Edge-LB(/services/edge-lb/)].
+1. [Install EdgeLB](https://docs.mesosphere.com/services/edge-lb/1.1/installing/).
 2. Create a file named `prometheus-edgelb.json` containing the following `edge-lb` configuration:
 
 ```
@@ -124,16 +124,85 @@ Once the framework is up and running:
 }
 ```
 
+Description of the EdgeLB configuration above:
+- Exposes Prometheus Pushgateway UI at `http://<public-agent-ip>:9091`
+- Exposes Prometheus UI at `http://<public-agent-ip>:9092`
+- Exposes Prometheus Alertmanager UI at `http://<public-agent-ip>:9093`
+- Exposes Grafana UI at `http://<public-agent-ip>:9094`
 
-3. Enter the following address in your browser:
+3. Deploy the `edge-lb` service configuration above using:
+```
+dcos edgelb create prometheus-edgelb.json
+```
 
+## Accessing the Prometheus UI using MarathonLB (OSS)
 
+1. Install Marathon-LB
+```
+dcos package install marathon-lb --yes
+```
+
+2. Create a file named `prometheus-marathonlb.json` containing the following `marathon-lb` proxy configuration:
+```
+{
+  "id": "/prometheus-proxy",
+  "instances": 1,
+  "cpus": 0.001,
+  "mem": 16,
+  "cmd": "tail -F /dev/null",
+  "container": {
+    "type": "MESOS"
+  },
+  "portDefinitions": [
+    {
+      "protocol": "tcp",
+      "port": 0
+    },
+    {
+      "protocol": "tcp",
+      "port": 0
+    },
+    {
+      "protocol": "tcp",
+      "port": 0
+     },
+  {
+      "protocol": "tcp",
+      "port": 0
+     }
+  ],
+  "labels": {
+    "HAPROXY_GROUP": "external",
+    "HAPROXY_0_MODE": "http",
+    "HAPROXY_0_PORT": "9092",
+    "HAPROXY_0_BACKEND_SERVER_OPTIONS": "server prometheus prometheus.prometheus.l4lb.thisdcos.directory:9090",
+    "HAPROXY_1_MODE": "http",
+    "HAPROXY_1_PORT": "9093",
+    "HAPROXY_1_BACKEND_SERVER_OPTIONS": "server alertmanager alertmanager.prometheus.l4lb.thisdcos.directory:9093",
+    "HAPROXY_2_MODE": "http",
+    "HAPROXY_2_PORT": "9091",
+    "HAPROXY_2_BACKEND_SERVER_OPTIONS": "server pushgateway pushgateway.prometheus.l4lb.thisdcos.directory:9091",
+    "HAPROXY_3_MODE": "http",
+    "HAPROXY_3_PORT": "9094",
+    "HAPROXY_3_BACKEND_SERVER_OPTIONS": "server grafana grafana.grafana.l4lb.thisdcos.directory:3000"
+  }
+}
+```
+
+Description of the Marathon-LB configuration above:
+- Exposes Prometheus Pushgateway UI at `http://<public-agent-ip>:9091`
+- Exposes Prometheus UI at `http://<public-agent-ip>:9092`
+- Exposes Prometheus Alertmanager UI at `http://<public-agent-ip>:9093`
+- Exposes Grafana UI at `http://<public-agent-ip>:9094`
+
+### Navigate to the Service UI
+Enter the following address in your browser:
 ```
 http://<public-agent-ip>:9092
 ```
 
+You should see the Prometheus UI:
 [<img src="/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png)
-
 Figure 2. Prometheus dashboard
 
 
@@ -176,15 +245,20 @@ Figure 4. Grafana console.
 
 You can add Prometheus as a data source:
 
+The default installation URL is `http://prometheus-0-server.prometheus.autoip.dcos.thisdcos.directory:1025`
+
+**Note:** your data source will not register without `http://` in front of the URL
+
 [<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png)
 
 Figure 5. Grafana data source
 
 Save and Test. Now you are ready to use Prometheus as a data source in Grafana.
 
+### Create a Dashboard
 To create a graph, select your `Prometheus` data source, and enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
 
-The following shows an example Prometheus graph configuration:
+The following shows an example Prometheus graph configuration using the variable `rate(prometheus_http_request_duration_seconds_count[5m])`
 
 [<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png)
 

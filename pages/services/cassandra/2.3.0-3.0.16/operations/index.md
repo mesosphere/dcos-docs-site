@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Managing Cassandra
 title: Operations
 menuWeight: 30
 model: /services/cassandra/data.yml
@@ -98,15 +98,15 @@ recovery (IN_PROGRESS)
 
 ### Backing Up to S3
 
-You can backup an entire cluster's data and schema to Amazon S3 using the `backup-s3` plan. This plan requires the following parameters to run:
+You can back up an entire cluster's data and schema to Amazon S3 using the `backup-s3` plan. This plan requires the following parameters to run:
 - `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as S3 folders inside of a top level `snapshot` folder.
-- `CASSANDRA_KEYSPACES`: the Cassandra keyspaces to backup. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
-- `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this backup.
-- `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup.
-- `AWS_REGION`: the region of the S3 bucket being used to store this backup.
-- `S3_BUCKET_NAME`: the name of the S3 bucket to store this backup in.
+- `CASSANDRA_KEYSPACES`: the Cassandra keyspaces to back up. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
+- `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this backup
+- `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup
+- `AWS_REGION`: the region of the S3 bucket being used to store this backup
+- `S3_BUCKET_NAME`: the name of the S3 bucket in which to store this backup
 
-Make sure that you provision your nodes with enough disk space to perform a backup. Apache Cassandra backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you'll need half of your total available space to be free to backup every keyspace at once.
+Make sure that you provision your nodes with enough disk space to perform a backup. Apache Cassandra backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to backup every keyspace at once.
 
 As noted in the documentation for the backup/restore strategy configuration option, it is possible to run transfers to S3 either in serial or in parallel, but care must be taken not to exceed any throughput limits you may have in your cluster. Throughput depends on a variety of factors, including uplink speed, proximity to region where the backups are being uploaded and downloaded, and the performance of the underlying storage infrastructure. You should perform periodic tests in your local environment to understand what you can expect from S3.
 
@@ -131,7 +131,7 @@ dcos {{ model.packageName }} --name=<service-name> plan start backup-s3 \
 
 If you're backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
 
-**IMPORTANT**: To ensure that sensitive information, such as your AWS secret access key, remains secure, make sure that you've set the `core.dcos_url` configuration property in the DC/OS CLI to an HTTPS URL.
+**Warning**: To ensure that sensitive information, such as your AWS secret access key, remains secure, make sure that you've set the `core.dcos_url` configuration property in the DC/OS CLI to an HTTPS URL.
 
 To view the status of this plan from the command line:
 ```
@@ -163,12 +163,12 @@ You can also back up to Microsoft Azure using the `backup-azure` plan. This plan
 
 - `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as gzipped tarballs with the name `node-<POD_INDEX>.tar.gz`.
 - `CASSANDRA_KEYSPACES`: the Cassandra keyspaces to backup. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
-- `CLIENT_ID`: the client ID for the Azure service principal running this backup.
-- `TENANT_ID`: the tenant ID for the tenant that the service principal belongs to.
-- `CLIENT_SECRET`: the service principal's secret key.
-- `AZURE_STORAGE_ACCOUNT`: the name of the storage account that this backup will be sent to.
-- `AZURE_STORAGE_KEY`: the secret key associated with the storage account.
-- `CONTAINER_NAME`: the name of the container to store this backup in.
+- `CLIENT_ID`: the client ID for the Azure service principal running this backup
+- `TENANT_ID`: the tenant ID for the tenant that the service principal belongs to
+- `CLIENT_SECRET`: the service principal's secret key
+- `AZURE_STORAGE_ACCOUNT`: the name of the storage account that this backup will be sent to
+- `AZURE_STORAGE_KEY`: the secret key associated with the storage account
+- `CONTAINER_NAME`: the name of the container in which to store this backup.
 
 You can initiate this plan from the command line in the same way as the Amazon S3 backup plan:
 ```
@@ -214,11 +214,11 @@ All restore plans will restore the schema from every keyspace backed up with the
 ### Restoring From S3
 
 Restoring cluster data is similar to backing it up. The `restore-s3` plan assumes that your data is stored in an S3 bucket in the format that `backup-s3` uses. The restore plan has the following parameters:
-- `SNAPSHOT_NAME`: the snapshot name from the `backup-s3` plan.
-- `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this restore.
-- `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this restore.
-- `AWS_REGION`: the region of the S3 bucket being used to store the backup being restored.
-- `S3_BUCKET_NAME`: the name of the S3 bucket where the backup is stored.
+- `SNAPSHOT_NAME`: the snapshot name from the `backup-s3` plan
+- `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this restore
+- `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this restore
+- `AWS_REGION`: the region of the S3 bucket being used to store the backup being restored
+- `S3_BUCKET_NAME`: the name of the S3 bucket where the backup is stored
 
 To initiate this plan from the command line:
 ```
@@ -262,12 +262,12 @@ The above `plan start` and `plan status` commands may also be made directly to t
 You can restore from Microsoft Azure using the `restore-azure` plan. This plan requires the following parameters to run:
 
 - `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as gzipped tarballs with the name `node-<POD_INDEX>.tar.gz`.
-- `CLIENT_ID`: the client ID for the Azure service principal running this backup.
-- `TENANT_ID`: the tenant ID for the tenant that the service principal belongs to.
-- `CLIENT_SECRET`: the service principal's secret key.
-- `AZURE_STORAGE_ACCOUNT`: the name of the storage account that this backup will be sent to.
-- `AZURE_STORAGE_KEY`: the secret key associated with the storage account.
-- `CONTAINER_NAME`: the name of the container to store this backup in.
+- `CLIENT_ID`: the client ID for the Azure service principal running this backup
+- `TENANT_ID`: the tenant ID for the tenant that the service principal belongs to
+- `CLIENT_SECRET`: the service principal's secret key
+- `AZURE_STORAGE_ACCOUNT`: the name of the storage account that this backup will be sent to
+- `AZURE_STORAGE_KEY`: the secret key associated with the storage account
+- `CONTAINER_NAME`: the name of the container in whcih to store this backup
 
 You can initiate this plan from the command line in the same way as the Amazon S3 restore plan:
 ```

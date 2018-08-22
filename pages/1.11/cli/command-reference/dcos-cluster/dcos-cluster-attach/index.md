@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The dcos cluster attach command will attach the CLI to a connected or [linked](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) cluster. When you run the [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup) command, the cluster is automatically attached.
+The `dcos cluster attach` command allows you to attach the CLI to a connected or [linked](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) cluster. When you run the [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup) command, the cluster is automatically attached.
 
 # Usage
 
@@ -19,12 +19,12 @@ dcos cluster attach [<connected-cluster-name> | <linked-cluster-name> | <connect
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<connected-cluster-name>`   |             | Name of connected cluster. |
-| `<linked-cluster-name>`   |             | Name of linked cluster. |
-| `<connected-cluster-id>`   |             | ID of connected cluster. |
-| `<linked-cluster-id>`   |             | ID of linked cluster. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `<connected-cluster-name>`   | Name of connected cluster. |
+| `<linked-cluster-name>`   |  Name of linked cluster. |
+| `<connected-cluster-id>`   |  ID of connected cluster. |
+| `<linked-cluster-id>`   |  ID of linked cluster. |
 
 # Parent command
 
