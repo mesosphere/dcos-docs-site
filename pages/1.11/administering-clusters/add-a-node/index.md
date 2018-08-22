@@ -13,6 +13,9 @@ enterprise: false
 
 Agent nodes are designated as [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during the GUI or CLI [installation](/1.11/installing/evaluation/cloud-installation/) method.
 
+**Note:**
+- DC/OS supports adding/replacing agent nodes but does not support adding master nodes.
+
 ### Prerequisites:
 
 *   DC/OS is installed using the [custom](/1.11/installing/production/deploying-dcos/installation/) installation method.
