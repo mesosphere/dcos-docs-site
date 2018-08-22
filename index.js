@@ -13,6 +13,7 @@ const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const timer            = require('metalsmith-timer');
+const ignore           = require('metalsmith-ignore');
 
 // Local Plugins
 const reduce                  = require('./plugins/metalsmith-revision').reduce;
@@ -29,6 +30,10 @@ const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-r
 // Configs
 const shortcodesConfig = require('./shortcodes');
 
+function splitCommasOrEmptyArray(val) {
+  return (val && val.length > 0) ? val.split(',') : [];
+}
+
 // Environment Variables
 const GIT_BRANCH = process.env.GIT_BRANCH;
 const ALGOLIA_UPDATE = process.env.ALGOLIA_UPDATE;
@@ -38,14 +43,8 @@ const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN;
-const ALGOLIA_SKIP_SECTIONS = (
-  process.env.ALGOLIA_SKIP_SECTIONS &&
-  process.env.ALGOLIA_SKIP_SECTIONS.length > 0
-) ? (
-    process.env.ALGOLIA_SKIP_SECTIONS.split(',')
-  ) : (
-    []
-  );
+const ALGOLIA_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.ALGOLIA_SKIP_SECTIONS);
+const METALSMITH_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.METALSMITH_SKIP_SECTIONS);
 
 //
 // Errors
@@ -116,6 +115,9 @@ const CB = branch();
 
 // Start timer
 CB.use(timer('CB: Init'));
+
+CB.use(ignore(METALSMITH_SKIP_SECTIONS));
+CB.use(timer('CB: Ignore'));
 
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
