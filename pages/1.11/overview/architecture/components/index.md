@@ -11,7 +11,7 @@ DC/OS is composed of many open source microservice components meticulously tuned
 
 ![Mesosphere DC/OS Enterprise Components](/1.11/img/dcos-components-1.11-portrait.png)
 
-*Figure 1 - DC/OS components*
+Figure 1 - DC/OS Enterprise components
 
 From the top, DC/OS is an inclusive container platform that handles container orchestration, package management, and security. From the bottom, DC/OS is an operating system built on top of [Apache Mesos](http://mesos.apache.org/) that handles cluster management and software defined networking, while simplifying logging and metrics collection.
 
@@ -82,7 +82,7 @@ The DC/OS Installer (`dcos_generate_config.ee.sh`) generates install artifacts a
 **See Also:**
 
 
-- [Documentation](/1.11/installing/oss/)
+- [Documentation](/1.11/installing/)
 - [Source](https://github.com/dcos/dcos)
 
 [enterprise]
@@ -304,7 +304,7 @@ The DC/OS Metrics service exposes node, container, and application metrics.
 
 ## DC/OS Signal
 
-The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/1.11/installing/oss/opt-out/#telemetry) at installation time.
+The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](1.11/installing/production/deploying-dcos/opt-out/#telemetry) at installation time.
 
 ### System Service
 

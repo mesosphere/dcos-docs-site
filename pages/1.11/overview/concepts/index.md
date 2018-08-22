@@ -139,7 +139,7 @@ A Marathon service consists of zero or more containerized service instances. Eac
 
 A `systemd` service is a service that consists of a single, optionally containerized, machine operating system process, running on the master or agent nodes, managed by `systemd`, owned by DC/OS itself.
 
-- All `systemd` services are currently either host OS service, DC/OS dependencies, DC/OS components, or services manually managed by the system administrator.
+- All `systemd` services are currently either host OS services, DC/OS dependencies, DC/OS components, or services manually managed by the system administrator.
 
 **Examples:** Most DC/OS components, (system) Marathon.
 
@@ -176,9 +176,9 @@ A DC/OS job is a set of similar short-lived job instances, running as Mesos task
 A DC/OS scheduler is a Mesos scheduler that runs as a `systemd` service on master nodes or Mesos task on agent nodes.
 
 The key differences between a DC/OS scheduler and Mesos scheduler are where it runs and how it is installed.
-- Some schedulers come pre-installed as DC/OS components (e.g. Marathon, DC/OS Jobs (Metronome)).
+- Some schedulers come pre-installed as DC/OS components (for example, Marathon, DC/OS Jobs (Metronome)).
 - Some schedulers can be installed by users as user services (e.g Kafka, Cassandra).
-- Some schedulers run as multiple service instances to provide high availability (e.g. Marathon).
+- Some schedulers run as multiple service instances to provide high availability (for example, Marathon).
 
 In certain security modes within DC/OS Enterprise, a DC/OS scheduler must authenticate and be authorized using a service account to register with Mesos as a framework.
 
@@ -349,7 +349,7 @@ A Marathon application is a long-running service that may have one or more insta
 
 A Marathon pod is a long-running service that may have one or more instances that map one to many with colocated Mesos tasks. You create a pod by providing Marathon with a pod definition in a JSON file format. Marathon then schedules one or more pod instances as Mesos tasks, depending on how many the definition specified.
 
-- Pod instances may include one or more tasks that share certain resources (e.g. IPs, ports, volumes).
+- Pod instances may include one or more tasks that share certain resources (for example, IPs, ports, volumes).
 - Pods require the use of the [Mesos Universal Container Runtime](#mesos-containerizer-universal-container-runtime).
 
 ## <a name="marathon-group"></a>Group
