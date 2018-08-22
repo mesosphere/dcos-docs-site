@@ -38,7 +38,7 @@ Configure a persistent volume with the following options:
 ```
 
 - `containerPath`: The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`).
-- `mode`: The access mode of the volume. Currently, `"RW"` and `"RO"` are the only possible values and will let your application read from and write to the volume.
+- `mode`: The access mode of the volume. Currently, `"RW"` and `"RO"` are the only possible values. "RW" will let your application read from and write to the volume, and "RO" will only let your application read from the volume.
 - `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
 - `persistent.size`: The size of the persistent volume in MiBs.
 - `persistent.profileName`: (not seen above) The storage [volume profile](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
@@ -493,6 +493,6 @@ http DELETE http://dcos/service/marathon/v2/apps/postgres/tasks/postgres.53ab873
 
 After you have created your application, click the **Volumes** tab of the application detail view to get detailed information about your app instances and associated volumes.
 
-The `Status` column tells you if your app instance is attached to the volume or not. The app instance will read as "detached" if you have scaled down your application. Currently, the only operation type available are read/write (RW) and read only (RO).
+The `Status` column tells you if your app instance is attached to the volume or not. The app instance will read as "detached" if you have scaled down your application. Currently, the only operation type available are read/write (RW) and read only (RO). "RW" will let your application read from and write to the volume, and "RO" will only let your application read from the volume.
 
 Click a volume to view the `Volume Detail` page, where you can see information about the individual volume.
