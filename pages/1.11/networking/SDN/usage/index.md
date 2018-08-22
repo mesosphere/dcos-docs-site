@@ -29,30 +29,30 @@ The following Marathon application definition specifies a network named `dcos-1`
 
 ```json
 {
-   "id":"my-networking",
-   "cmd":"env; ip -o addr; sleep 30",
-   "cpus":0.10,
-   "mem":64,
-   "instances":1,
-   "backoffFactor":1.14472988585,
-   "backoffSeconds":5,
-   "ipAddress":{
-      "networkName":"dcos-1"
-   },
-   "container":{
-      "type":"DOCKER",
-      "docker":{
-         "network":"USER",
-         "image":"busybox",
-         "portMappings":[
-            {
-               "containerPort":123,
-               "servicePort":80,
-               "name":"foo"
-            }
-         ]
+  "id": "/my-networking",
+  "cmd": "env; ip -o addr; sleep 30",
+  "container": {
+    "portMappings": [
+      {
+        "containerPort": 123,
+        "servicePort": 80,
+        "name": "foo"
       }
-   }
+    ],
+    "type": "DOCKER",
+    "docker": {
+      "image": "busybox"
+    }
+  },
+  "cpus": 0.1,
+  "instances": 1,
+  "mem": 64,
+  "networks": [
+    {
+      "name": "dcos",
+      "mode": "container"
+    }
+  ]
 }
 ```
 
