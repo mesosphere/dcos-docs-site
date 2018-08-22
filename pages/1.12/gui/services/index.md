@@ -8,21 +8,29 @@ excerpt: Using the Services tab
 
 The Services tab provides a full-featured interface to the native DC/OS Marathon instance. This Services tab provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
-![Services](/1.11/img/services-ee.png)
+![Services](/1.12/img/services-ee.png)
 
 <p><i>Figure 1 - Services tab</i></p>
 
-By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, CPU, memory, or disk space allocated.
+By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, version, region, instances, CPU, memory, disk space or GPU usage.
 
 *   **NAME** The DC/OS service name.
 *   **STATUS** The [`status`](#service-status) for the service.
+*   **VERSION** The version for the service.
+*   **REGION** The region for the service.
+*   **INSTANCES** The number of instances for the service.
 *   **CPU** The number of CPUs in use.
 *   **MEM** The amount of memory used.
 *   **DISK** The amount of disk space used.
+*   **GPU** The amount of GPU usage.
 
-Click the service name to open the Instances panel, which provides CPU, memory, and disk usage graphs and lists all tasks using the service. Click a task listed on the Instances panel to see detailed information about the task’s CPU, memory, and disk usage and the task’s files and directory tree.
+Click the service name to open the Service Instance page, which lists all tasks using the service and their CPU, memory and GPU usage. For each task, there is also information about its zone, region, status, health and when it was last updated. Click a task to see its complete configuration, working directory and logs.
 
-For services with a web interface, hover over the service name and click ![open service](/1.11/img/open-service.png) to view it.
+![Instances](/1.12/img/services-instances-panel.png)
+
+<p><i>Figure 2 - Instances panel</i></p>
+
+For services with a web interface, hover over the service name and click ![open service](/1.12/img/open-service.png) to view it.
 
 **Tip:** You can access the Mesos web interface at `<hostname>/mesos`.
 
