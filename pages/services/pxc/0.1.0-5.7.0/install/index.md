@@ -28,8 +28,8 @@ The default DC/OS percona-pxc-mysql Service installation provides reasonable def
 
 ## Prerequisites
    
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/) before installing DC/OS percona-pxc-mysql Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](https://docs.mesosphere.com/latest/administration/installing/custom/configuration-parameters/#security) requires a service account.
+- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS percona-pxc-mysql Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes.
