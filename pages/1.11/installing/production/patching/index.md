@@ -35,7 +35,6 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported patch paths
-- From the latest GA version of previous to the latest GA version of current. For example: if 1.8.7 is the latest GA version of previous and 1.8.8 is the latest GA version of current then this patch would be supported.
 - From any current release to the next. For example, a patch from 1.9.1 to 1.9.2 would be supported.
 - From any current release to an identical release. For example, a patch from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
 
