@@ -36,7 +36,7 @@ The default DC/OS percona-pxc-mysql Service installation provides reasonable def
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of percona-pxc-mysql, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing _SERVICENAME_ on Enterprise DC/OS](https://docs.mesosphere.com/latest/security/service-auth/custom-service-auth/).
+To start a basic test cluster of percona-pxc-mysql, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
 
    ```shell
    dcos package install percona-pxc-mysql 
