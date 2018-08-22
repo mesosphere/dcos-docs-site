@@ -157,7 +157,7 @@ Options example:
 }
 ```
 
-**Note**: Task anti-affinity at the agent level is enforced, meaning no task of same type, e.g. `kube-node-kube-proxy` will run on an agent where another `kube-node-kube-proxy` is running.
+**Note**: Task anti-affinity at the agent level is enforced, meaning no task of same type, e.g. `kube-node-kube-proxy` will run on an agent where another `kube-node-kube-proxy` is running. Kubernetes scheduler will install on the nodes with node_placement constraint
 
 ### Updating Placement Constraints
 
