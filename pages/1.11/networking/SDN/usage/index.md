@@ -25,7 +25,7 @@ To use a virtual network in a Marathon app definition, specify the `"network": "
 
 # Example
 
-The following Marathon application definition specifies a network named `dcos-1`, which refers to the target DC/OS virtual network of the same name.
+The following Marathon application definition specifies a network named `dcos`, which refers to the target DC/OS virtual network of the same name.
 
 ```json
 {
