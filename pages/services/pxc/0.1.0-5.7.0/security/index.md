@@ -28,7 +28,7 @@ The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/
 
 ## Configure Transport Encryption
 
-See the [Guide to Configuring DC/OS Access for NiFi](serviceaccountdetail.md).
+See the [Guide to Configuring DC/OS Access for percona-pxc-mysql](serviceaccountdetail.md).
 
 ## Set up the service account
 
@@ -50,7 +50,7 @@ where `<service name>` is the name of the service to be installed.
 
 ## Install the service
 
-Install the DC/OS NiFi Service, including the following options in addition to your own:
+Install the DC/OS percona-pxc-mysql Service, including the following options in addition to your own:
 
    ```shell
    {
