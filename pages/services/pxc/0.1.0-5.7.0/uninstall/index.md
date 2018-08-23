@@ -75,6 +75,7 @@ If all else fails, you can manually perform the uninstall yourself. To do this, 
 ```shell
 dcos service --inactive | grep percona-pxc-mysql
 percona-pxc-mysql  True     5    1.0  1420.0  1405.0  6accf43f-6449-4e95-808a-3c5144789074-0004
+
 dcos service shutdown 6accf43f-6449-4e95-808a-3c5144789074-0004
 ```
 
