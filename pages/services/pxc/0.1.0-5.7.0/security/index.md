@@ -41,10 +41,10 @@ In DC/OS 1.10, the required permission is `dcos:superuser full`:
    export LC_ALL=C.UTF-8
    export LANG=C.UTF-8
    dcos package install dcos-enterprise-cli
-   dcos security org service-accounts keypair nifi-private-key.pem nifi-public-key.pem
-   dcos security org service-accounts create -p nifi-public-key.pem -d "dcos_nifi" <service name>
-   dcos security secrets create-sa-secret --strict nifi-private-key.pem <service name> <service name secret>
-   dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser"
+   dcos security org service-accounts keypair pxc-private-key.pem pxc-public-key.pem
+   dcos security org service-accounts create -p pxc-public-key.pem -d "dcos_pxc" <service name>
+   dcos security secrets create-sa-secret --strict pxc-private-key.pem <service name> <service name secret>
+   dcos security org users grant dcos_pxc dcos:superuser full --description "grant permission to superuser"
    ```
 where `<service name>` is the name of the service to be installed.
 
@@ -74,19 +74,10 @@ With Transport Encryption enabled, service clients will need to be configured to
 
 ## Authentication
 
-DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and PAM. 
+DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and PAM. PAM can not work alone without SSL. By default PAM is disabled.
 
 **Note:** <PAM> authentication can be combined with transport encryption.
 
 ## CA based authentication between nodes
 
 DC/OS percona-pxc-mysql Service requires certificated based authentication between nodes.
-
-
-### Place service keytab in DC/OS Secret Store
-
-The DC/OS percona-pxc-mysql Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name `__dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets)
-
-Documentation for adding a file to the secret store can be found [here.](https://docs.mesosphere.com/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
-
-**Note:** Secrets access is controlled by [DC/OS Spaces](https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets), which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.
