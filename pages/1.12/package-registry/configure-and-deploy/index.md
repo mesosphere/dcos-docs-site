@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Configure and Deploy
 title: Configure and Deploy
-menuWeight: 5
-excerpt: Configuration Options
+menuWeight: 30
+excerpt: Configuration Options for DC/OS Package Registry
 beta: true
 enterprise: true
 ---
