@@ -451,7 +451,7 @@ The following example will create a pod with 2 containers and one shared persist
 
 ## Inspect and delete suspended stateful tasks
 
-Perform the following steps to free the reserved resources associated with a task, destroy and clean up persistent volumes. 
+To destroy and clean up persistent volumes and free the reserved resources associated with a task, perform the following two steps:
 
 1. Locate the agent containing the persistent volume and remove the data inside it.
 1. Send an HTTP DELETE request to Marathon that includes the `wipe=true` flag.
@@ -479,8 +479,9 @@ response:
 }
 ```
 
-**Note:** 
-A running task will show `stagedAt`, `startedAt`, and `version` in addition to the information provided above. You can do the following actions:
+**Note:** A running task will show `stagedAt`, `startedAt`, and `version` in addition to the information provided above.
+
+You can then
 
 1. Remove the data on disk by `ssh'ing` into the agent and running the `rm -rf <volume-path>/*` command.
 1. Delete the task with `wipe=true`, which will expunge the task information from the Marathon internal repository and eventually destroy the volume and unreserve the resources previously associated with the task:
@@ -493,6 +494,6 @@ http DELETE http://dcos/service/marathon/v2/apps/postgres/tasks/postgres.53ab873
 
 After you have created your application, click the **Volumes** tab of the application detail view to get detailed information about your app instances and associated volumes.
 
-The `Status` column tells you if your app instance is attached to the volume or not. The app instance will read as "detached" if you have scaled down your application. Currently, the only operation type available are read/write (RW) and read only (RO). "RW" will let your application read from and write to the volume, and "RO" will only let your application read from the volume.
+The `Status` column tells you if your app instance is attached to the volume or not. The app instance will read as "detached" if you have scaled down your application. Currently, the only operation types available are read/write (RW) and read only (RO). "RW" will let your application read from and write to the volume, and "RO" will only let your application read from the volume.
 
 Click a volume to view the `Volume Detail` page, where you can see information about the individual volume.
