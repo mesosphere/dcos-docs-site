@@ -43,7 +43,7 @@ In the vast majority of cases, this uninstall process goes off without a hitch. 
 
 This situation is indicated by looking at the Deploy Plan while the uninstall is proceeding. The Deploy Plan may be viewed using either of the following methods:
 
-1. CLI: `dcos nifi --name=nifi plan show deploy` (after running `dcos package install --cli nifi` if needed)
+1. CLI: `dcos percona-pxc-mysql --name=percona-pxc-mysql plan show deploy` (after running `dcos package install --cli percona-pxc-mysql` if needed)
 2. HTTP: https://yourcluster.com/service/nifi/v1/plans/deploy
 
 **Deploy Plan in completion status**
