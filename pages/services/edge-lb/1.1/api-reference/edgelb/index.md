@@ -1,18 +1,24 @@
 ---
 layout: layout.pug
-navigationTitle:  V2 API Reference
-title: V2 API Reference
-menuWeight: 85
-excerpt: Endpoints exposed in the V2 API
+navigationTitle:  Edge-LB API Reference
+title: Edge-LB API Reference
+menuWeight: 90
+excerpt: Reference for all API endpoints exposed by the Edge-LB package
 
 enterprise: false
 ---
 
-The Edge-LB API enables you to create and manage pools of load balancers.
+The Edge-LB API enables users to create and manage pools of load balancers.
 
 # Compatibility
 
 The Edge-LB API was initially released alongside DC/OS 1.10.0 and requires DC/OS Enterprise 1.10.0 or later.
+
+# API Versions
+
+A new top level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (apiVersion `V1`) has been replaced with `pool.haproxy.backends.services`, with a more intuitive way to select services/backends for HAProxy.
+
+**Note:** Edge-LB 1.0 and later supports both the `V1` and `V2` API for backwards compatibility. Therefore clients that were written against Edge-LB versions prior to Edge-LB 1.0 should work without any modifications with Edge-LB 1.0 and later. New setups should use api `V2` as at some point `V1` is going to be deprecated and removed.
 
 # Routes
 
@@ -23,13 +29,6 @@ Access to the Edge-LB API is proxied through the Admin Router on the master node
 ```
 
 To determine the address of your cluster, see [Cluster Access](/1.11/api/access/).
-
-# Format
-
-The API request header can be any the following:
-
-- `application/json` request logs in JSON format.
-- `application/x-yaml` request logs in YAML format.
 
 # Auth
 
@@ -47,14 +46,8 @@ All routes may also be reached by users with the `dcos:superuser` permission.
 
 To assign permissions to your account, see [Assigning permissions](/1.11/security/ent/perms-reference/).
 
-# Common Resources
+# API specification
 
-These base level routes were added along with V2 and can be used to read data from V1 or V2 pool configurations.
+The following resources are available:
 
-[swagger api='/services/api/edge-lb-common.yaml']
-
-# V2 Resources
-
-The following resources are available under both of the above routes:
-
-[swagger api='/services/api/edge-lb-v2.yaml']
+[swagger api='/services/api/edge-lb.swagger.json']
