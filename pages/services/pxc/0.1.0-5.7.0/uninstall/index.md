@@ -49,14 +49,20 @@ This situation is indicated by looking at the Deploy Plan while the uninstall is
 **Deploy Plan in progress**
 
 ```shell
-dcos nifi --name=nifi plan show deploy
-deploy (serial strategy) (IN_PROGRESS)
-└─ node (serial strategy) (IN_PROGRESS)
-   ├─ nifi-0:[init] (COMPLETE)
-   ├─ nifi-0:[node] (COMPLETE)
-   ├─ nifi-0:[metrics] (STARTING)
-   ├─ nifi-1:[node] (PENDING)
-   └─ nifi-1:[metrics] (PENDING)   
+dcos percona-pxc-mysql --name=percona-pxc-mysql plan show deploy
+
+├─ proxysql (serial strategy) (COMPLETE)
+│  └─ proxysql-0:[psql] (COMPLETE)
+├─ node (serial strategy) (COMPLETE)
+│  ├─ pxc-0:[init] (COMPLETE)
+│  ├─ pxc-0:[node] (COMPLETE)
+│  ├─ pxc-1:[node] (COMPLETE)
+│  └─ pxc-2:[node] (COMPLETE)
+├─ mysqldexporter (serial strategy) (COMPLETE)
+│  └─ mysqldexporter-0:[exporterstart] (COMPLETE)
+└─ psqlconf (serial strategy) (COMPLETE)
+   └─ psqlconf-0:[mysqlcli] (COMPLETE)
+ 
 ```    
 **Deploy Plan after completion**
 
