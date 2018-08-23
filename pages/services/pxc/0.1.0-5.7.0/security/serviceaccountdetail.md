@@ -1,6 +1,6 @@
 
 # Service Account Configuration
-This topic describes how to configure DC/OS access for NiFi. Depending on your security mode, NiFi requires service authentication for access to DC/OS.
+This topic describes how to configure DC/OS access for percona-pxc-mysql. Depending on your security mode, percona-pxc-mysql requires service authentication for access to DC/OS.
 
     Security Mode     Service Account
     =============     ===============
@@ -22,7 +22,7 @@ In this step, a 2048-bit RSA public-private key pair is created using the Enterp
 Create a public-private key pair and save each value into a separate file within the current directory.
 
    ```shell
-   dcos security org service-accounts keypair nifi-private-key.pem nifi-public-key.pem
+   dcos security org service-accounts keypair pxc-private-key.pem pxc-public-key.pem
    ```  
 **Tip:** You can use the [DC/OS Secret Store](https://docs.mesosphere.com/1.10/security/ent/secrets/) to secure the key pair.
 
@@ -31,7 +31,7 @@ Create a public-private key pair and save each value into a separate file within
 From a terminal prompt, create a new service account `<service-account-id>` containing the public key `<your-public-key>.pem`.
 
    ```shell
-   dcos security org service-accounts create -p nifi-public-key.pem -d "dcos_nifi" <service name>
+   dcos security org service-accounts create -p pxc-public-key.pem -d "dcos_pxc" <service name>
    ``` 
 **Tip:** You can verify your new service account using the following command.
 
@@ -40,20 +40,20 @@ From a terminal prompt, create a new service account `<service-account-id>` cont
    ``` 
 ## Create a Secret
 
-Create a secret `nifi/<secret-name>` with your service account `<service-account-id>` and private key specified `<private-key>.pem`.
+Create a secret `pxc/<secret-name>` with your service account `<service-account-id>` and private key specified `<private-key>.pem`.
 
 **Tip:** If you store your secret in a path that matches the service name, for example, service name and secret path are nifi, then only the service named NiFi can access it.
 
 ### Permissive     
 
    ```shell
-   dcos security secrets create-sa-secret nifi-private-key.pem <service name> <service name secret>
+   dcos security secrets create-sa-secret pxc-private-key.pem <service name> <service name secret>
    ``` 
    
 ### Strict     
 
    ```shell
-   dcos security secrets create-sa-secret --strict nifi-private-key.pem <service name> <service name secret>
+   dcos security secrets create-sa-secret --strict pxc-private-key.pem <service name> <service name secret>
    ```    
 **Tip:** You can list the secrets with this command:   
    ```shell
@@ -63,6 +63,6 @@ Create a secret `nifi/<secret-name>` with your service account `<service-account
 ### Assign Permissions
 
    ```shell
-   dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser" 
+   dcos security org users grant dcos_pxc dcos:superuser full --description "grant permission to superuser" 
    ```    
 
