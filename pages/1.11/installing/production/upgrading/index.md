@@ -33,9 +33,7 @@ For example: An upgraded DC/OS Marathon leader cannot connect to the leading Mes
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
-- From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
-- From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
+- From the latest GA version of previous to the latest GA version of current. For example, if 1.10.8 is the latest GA version of previous and 1.11.4 is the latest GA version of current, this upgrade would be supported.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
