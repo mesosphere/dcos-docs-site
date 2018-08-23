@@ -42,7 +42,7 @@ From a terminal prompt, create a new service account `<service-account-id>` cont
 
 Create a secret `pxc/<secret-name>` with your service account `<service-account-id>` and private key specified `<private-key>.pem`.
 
-**Tip:** If you store your secret in a path that matches the service name, for example, service name and secret path are nifi, then only the service named NiFi can access it.
+**Tip:** If you store your secret in a path that matches the service name, for example, service name and secret path are percona-pxc-mysql, then only the service named percona-pxc-mysql can access it.
 
 ### Permissive     
 
