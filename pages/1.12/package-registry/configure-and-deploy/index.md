@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: DC/OS Package Registry
-title: Overview
-menuWeight: 1
-excerpt: Overview of DC/OS Package Registry
+navigationTitle: Configure and Deploy
+title: Configure and Deploy
+menuWeight: 5
+excerpt: Configuration Options
 beta: true
 enterprise: true
 ---
