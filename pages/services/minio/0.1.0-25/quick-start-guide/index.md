@@ -12,7 +12,9 @@ menuWeight: 15
 
 * A running DC/OS 1.11 cluster
 
-* Minio requires atleast four nodes to start in distributed mode. DC/OS cluster must contain atleast four Private slaves.
+* Minio requires atleast four nodes to start in distributed mode. DC/OS cluster must contain atleast four Private slaves. 
+
+* Minio requires even number of nodes to start in distributed mode.
 
 * If DC/OS Secrets are enabled to specify credentials of Minio then following Secrets must be created:  service.name/access_key and service.name/secret_key. Where service.name is the name with which Minio service is installed on DC/OS.
 
