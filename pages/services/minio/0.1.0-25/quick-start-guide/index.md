@@ -12,11 +12,9 @@ menuWeight: 15
 
 * A running DC/OS 1.11 cluster
 
-* Secrets store should contain two secrets:
-  1) Minio Access Key
-  2) Minio Secret Key
+* Minio requires atleast four nodes to start in distributed mode. DC/OS cluster must contain atleast four Private slaves.
 
-Minio service requires these two secrets to be specified during installation. By default, IDs for these secrets are expected as: __dcos_minio_access_key and __dcos_minio_secret_key.
+* If DC/OS Secrets are enabled to specify credentials of Minio then following Secrets must be created:  service.name/access_key and service.name/secret_key. Where service.name is the name with which Minio service is installed on DC/OS.
 
 ## Install
 
