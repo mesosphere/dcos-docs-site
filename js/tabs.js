@@ -1,3 +1,5 @@
+const $ = global.$;
+
 /**
  * Returns a click handler that activates the respective tab button and tab
  * body. The `tabButtons` and `tabBodies` reference should point to an array
@@ -12,7 +14,7 @@ function createTabClickController(tabButtons, tabBodies) {
    * @param {index} - The index of the button to activate
    * @param {event} - The click event argument
    */
-  return function(index, event) {
+  return (index, event) => {
     // If we have an ID, append it on hash, without jumping on that
     // hash, using the history service
     if (event) {
@@ -21,23 +23,23 @@ function createTabClickController(tabButtons, tabBodies) {
 
       try {
         const buttonElm = $(event.target);
-        window.history.pushState(null, null, buttonElm.attr("href"));
+        window.history.pushState(null, null, buttonElm.attr('href'));
       } catch (e) {
         // Some browsers might not support history
       }
     }
 
     // Activate the selected tab
-    tabButtons.forEach(function(button, idx) {
+    tabButtons.forEach((button, idx) => {
       if (idx === index) {
-        button.addClass("tabs__button__selected");
+        button.addClass('tabs__button__selected');
       } else {
-        button.removeClass("tabs__button__selected");
+        button.removeClass('tabs__button__selected');
       }
     });
 
     // Activate the selected body
-    tabBodies.forEach(function(body, idx) {
+    tabBodies.forEach((body, idx) => {
       if (idx === index) {
         body.show();
       } else {
@@ -52,11 +54,10 @@ function createTabClickController(tabButtons, tabBodies) {
  */
 function convertHeadingToTab(heading) {
   const isHeadingElement = /^h[0-9]$/i;
-  const tabs = {};
   const headingLevel = parseInt(heading[0].tagName.substr(-1), 10);
 
   const tabButtonContainer = $('<ul class="tabs__buttons"></ul>');
-  const tabBodyContainer = $('<div class="tabs__body"></div>')
+  const tabBodyContainer = $('<div class="tabs__body"></div>');
   let activeTabBody = null;
 
   const tabButtons = [];
@@ -64,10 +65,12 @@ function convertHeadingToTab(heading) {
   const clickController = createTabClickController(tabButtons, tabBodies);
 
   // If the heading is empty, hide it
-  if (heading.text().trim() === "") heading.hide();
+  if (heading.text().trim() === '') heading.hide();
 
   // Walk down the heading siblings and construct the tab interface
   let elm = $(heading);
+
+  // eslint-disable-next-line
   while ((elm = elm.next()).length) {
     const tagName = elm[0].tagName;
 
@@ -91,15 +94,11 @@ function convertHeadingToTab(heading) {
         }
 
         // Create a tab button and link it on the click controller
-        const tabId = elm.attr("id");
+        const tabId = elm.attr('id');
         const tabTitle = elm.text();
         const tabIndex = tabButtons.length;
         const tabButton = $(
-          '<li class="tabs__button"><a href="#' +
-            tabId +
-            '">' +
-            tabTitle +
-            "</a></li>"
+          `<li class="tabs__button"><a href="#${tabId}">${tabTitle}</a></li>`,
         );
         tabButton.click(clickController.bind(tabButton, tabIndex));
         tabButton.appendTo(tabButtonContainer);
@@ -113,6 +112,8 @@ function convertHeadingToTab(heading) {
         // Hide the heading (we keep the element in the DOM just in case
         // this header acts as an anchor)
         elm.hide();
+
+        // eslint-disable-next-line
         continue;
       }
 
@@ -130,16 +131,17 @@ function convertHeadingToTab(heading) {
 
   // If we followed a permalink to the specific tab, then the hash should contain
   // the ID of the tab. Use this information to activate the correct tab.
-  let defaultActiveTab = Math.max(
-    0,
-    tabButtons.findIndex(function(elm) {
-      return elm.attr("href") === window.location.hash;
-    })
+  clickController(
+    Math.max(
+      0,
+      tabButtons.findIndex(
+        tabElm => tabElm.attr('href') === window.location.hash,
+      ),
+    ),
   );
-  clickController(defaultActiveTab);
 }
 
 // Convert all headings with tabs at load time
-$("h1.tabs, h2.tabs, h3.tabs, h4.tabs").each(function(idx, elm) {
+$('h1.tabs, h2.tabs, h3.tabs, h4.tabs').each((idx, elm) => {
   convertHeadingToTab($(elm));
 });
