@@ -22,6 +22,9 @@
   "devDependencies": {
     "algoliasearch": "^3.24.3",
     "autoprefixer": "^7.1.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "bootprint": "^1.0.0",
     "bootprint-openapi": "^1.1.0",
     "browser-sync": "^2.18.12",
