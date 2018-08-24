@@ -46,7 +46,7 @@ account users and are individually granted necessary permissions when the
 cluster is first installed.
 
 There are several components of DC/OS that perform authorization of requests,
-e.g. Admin Router, Mesos, Marathon, etc. They are called _authorizers_ in this
+e.g. Admin Router, Mesos, Marathon, etc. They are called "authorizers" in this
 context. All the authorizers follow the DC/OS authorization procedure. A
 high-level description of the DC/OS authorization procedure follows.
 
@@ -63,7 +63,7 @@ package API through Admin Router.
 ## <a name="admin-router"></a>Admin Router Permissions
 
 Most HTTP requests made to a DC/OS cluster pass through Admin Router. For many
-HTTP endpoints Admin Router performs authorization itself. For example, the DC/OS
+HTTP endpoints the Admin Router performs authorization itself. For example, the DC/OS
 user identified by `uid` must have `full` access to the protected resource
 `dcos:adminrouter:package` in order to be able to access the DC/OS package API
 through Admin Router.
