@@ -25,6 +25,10 @@ To prevent accidental data loss, the service does not support reducing the numbe
 
 Minio does not support horizontal scaling i.e., if Minio cluster has started with eight Minio servers then ninth Minio server cannot be added to the Minio cluster.
 
+## Auto Assignment of Ports
+
+Auto assignment of ports is not supported by the Minio framework. Minio is required to be binded at the same port on each node to start in distributed mode. Enabling auto assignment of ports may result in binding Minio server at different ports on each Pod.
+
 ## Disk Changes
 
 To prevent accidental data loss from reallocation, the service does not support changing volume requirements after initial deployment.
