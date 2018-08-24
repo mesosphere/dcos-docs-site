@@ -9,8 +9,7 @@ oss: true
 
 This page explains how to install DC/OS 1.11 using the Azure Resource Manager templates.
 
-**Note:** 
-- To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
+**Note:** To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
 
 - Upgrades are not supported with this installation method.
 
@@ -24,21 +23,11 @@ To use all of the services offered in DC/OS, you should choose at least five Mes
 
 ### Production-Ready Cluster Configurations ###
 
-These recommendations are based on operation of a multiple DC/OS clusters over
-multiple years scaling
-a mix of stateful and stateless services under a live production load.
-Your service mix may perform differently, but the principles and
-lessons discussed herein still apply.
+These recommendations are based on operation of multiple DC/OS clusters over many years, scaling a mix of stateful and stateless services under a live production load. Your service mix may perform differently, but the principles and lessons discussed herein still apply.
 
 #### General Machine Configurations ####
-We recommend *disabling* swap on your VMs, which is typically the default for
-the Azure Linux images. We have found that using the
-ephemeral SSDs for swap (via WAAgent configuration)
-can conflict with the disk caching configuration of
-the `D` series of VMs. For other series of VMs, such as `L` series,
-it may be possible to use the SSDs for swap and other purposes.
-
-See the following section for particulars on disk configuration.
+We recommend disabling swap on your VMs, which is typically enabled by default for Azure Linux images. We have found that using the ephemeral SSDs for swap (via WAAgent configuration)
+can conflict with the disk caching configuration of the `D` series of VMs. For other VM series, such as the `L` series, it may be possible to use the SSDs for swap and other purposes. See the following section for particulars on disk configuration.
 
 Monitoring (such as Node Exporter with Prometheus) should be used to
 identify and alert as to when workloads are nearing Azure defined limits.
@@ -141,45 +130,61 @@ Some notes on the template configuration:
 
 ## Accessing DC/OS
 
-First, look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
+1. Look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
 
 ![Deployment history](/1.11/img/dcos-azure-marketplace-step2a.png)
 
-Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section.
+Figure 1. Deployment history
+
+2. Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section.
 
 ![Deployment output](/1.11/img/dcos-azure-marketplace-step2b.png)
 
-Note the value of `MASTERFQDN` you found in the `Outputs` section in the previous step, and use it in the following step. Because of security considerations, you cannot visit the DC/OS Dashboard in Azure directly by default. 
+Figure 2. Outputs section
 
-Choose one of the following workaround solutions to visit the DC/OS Dashboard in Azure:
+3. Note the value of `MASTERFQDN` you found in the `Outputs` section in Figure 2, and use it in the following step. Because of security considerations, you cannot visit the DC/OS Dashboard in Azure directly by default. 
+
+4. Choose one of the following workaround solutions to visit the DC/OS Dashboard in Azure:
 
 ### Case 1:
 
-In order to visit the the DC/OS Dashboard, we will need to access the TCP port 80 or 443 of the master node. You can add an inbound security rule and an inbound NAT rule.
+In order to visit the the DC/OS Dashboard, you will need to access TCP port 80 or 443 of the master node. You can add an inbound security rule and an inbound NAT rule.
 
-Find the network security group resource of the master node,
+1. Find the network security group resource of the master node,
 
 ![Resource - Master Node Network Security Group](/1.11/img/dcos-azure-step2case1a.png)
 
-Click on the **Inbound security rules** tab on the left side.
+Figure 1. Master node network security group
+
+2. Click on the **Inbound security rules** tab on the left side.
 
 ![Inbound Security Rules](/1.11/img/dcos-azure-step2case1b.png)
 
-Add an inbound security rule.
+Figure 2. Inbound security rules
+
+3. Add an inbound security rule.
 
 ![Add Inbound Security Rules](/1.11/img/dcos-azure-step2case1c.png)
 
-Find the load balancer resource of the master node.
+Figure 3. Adding an inbound security rule 
+
+4. Find the load balancer resource of the master node.
 
 ![Resource - Master Node Load balancer](/1.11/img/dcos-azure-step2case1d.png)
 
-Click on the **Inbound NAT rules** tab on the left side,
+Figure 4. Master node load balancer
+
+5. Click on the **Inbound NAT rules** tab on the left side,
 
 ![Inbound NAT Rules](/1.11/img/dcos-azure-step2case1e.png)
 
-Add an inbound NAT rule.
+Figure 5. Inbound NAT rules
+
+6. Add an inbound NAT rule.
 
 ![Add Inbound NAT Rules](/1.11/img/dcos-azure-step2case1f.png)
+
+Figure 6. Adding an inbound NAT rule
 
  Now you can visit `http://$MASTERFQDN` and view the DC/OS Dashboard.
 
@@ -203,14 +208,16 @@ Now you can visit `http://localhost:8000` on your local machine and view the DC/
 
 ![DC/OS dashboard](/1.11/img/dcos-gui.png)
 
+Figure 1. DC/OS dashboard
+
 ### Caveats
 
 Some caveats about SSH access:
 
 - For connections to `http://localhost:8000` to work, the SSH command must be run on your local machine, and not inside a Virtual Machine.
 - In the example above, port `8000` is assumed to be available on your local machine.
-- The SSH commands shown only work on Mac or Linux. For Windows, use [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) with a similar port-forwarding configuration, see also [How to Use SSH with Windows on Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/).
-- If you want to learn more about SSH key generation check out this [GitHub tutorial](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+- The SSH commands shown only work on Mac or Linux. For Windows, use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) with a similar port-forwarding configuration, see also [How to Use SSH with Windows on Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- If you want to learn more about SSH key generation, see this [GitHub tutorial](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
 
 The DC/OS UI will not show the correct IP address or CLI install commands when connected by an SSH tunnel.
 
@@ -235,7 +242,7 @@ dcos package search
 
 ## Tear down the DC/OS cluster
 
-If you have created a new resource group in the deployment step, it is easy to tear down the cluster and release all of the resources: just delete the resource group. If you have deployed the cluster into an existing resource group, you'll need to identify all resources that belong to the DC/OS cluster and manually delete them.
+If you have created a new resource group in the deployment step, it is easy to tear down the cluster and release all of the resources: just delete the resource group. If you have deployed the cluster into an existing resource group, you will need to identify all resources that belong to the DC/OS cluster and manually delete them.
 
 ## Next steps
 
