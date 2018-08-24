@@ -10,7 +10,7 @@ excerpt: Requirements, recommendations and procedures for installing Docker CE o
 
 These directions cover the installation of Docker CE on CentOS/RHEL. Before installing Docker on CentOS/RHEL, review the general [requirements and recommendations for running Docker on DC/OS](/1.11/installing/production/system-requirements/#docker). 
 
-* OverlayFS is now the default in Docker CE. There is no longer a need to specify or configure the overlay driver. Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if they want.
+* OverlayFS is now the default in Docker CE. There is no longer a need to specify or configure the overlay driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if they want.
 
 * These instructions are specific to CentOS/RHEL 7.4. Other versions of CentOS/RHEL 7 should work but might require minor modifications to the commands.
 
