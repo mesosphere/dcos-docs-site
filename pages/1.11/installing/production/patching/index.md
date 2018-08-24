@@ -22,7 +22,7 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 ## Important guidelines
 
 - Review the [release notes](/1.11/release-notes/) before patching DC/OS.
-- Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. If you have already patched to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
+- Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. If you have already patched to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true`, then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
 - There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file).
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the patch to succeed.
 - DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the patch will fail. [enterprise type="inline" size="small" /]
@@ -42,7 +42,7 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 
 ## Modifying DC/OS configuration
 
-You _cannot_ change your cluster configuration at the same time that you are patching to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously patch a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then patch to 1.10.y Or you can patch to 1.10.y and then add more public agents by updating 1.10.y after the patch.
+You **cannot** change your cluster configuration at the same time that you are patching to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously patch a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then patch to 1.10.y Or you can patch to 1.10.y and then add more public agents by updating 1.10.y after the patch.
 
 To modify your DC/OS configuration, you must run the installer with the modified `config.yaml` and update your cluster using the new installation files. Changes to the DC/OS configuration have the same risk as patching a host. Incorrect configurations could potentially crash your hosts, or an entire cluster.
 

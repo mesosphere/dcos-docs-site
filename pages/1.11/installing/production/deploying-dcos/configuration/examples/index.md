@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Common example configurations for DC/OS Enterprise
 ---
 
-This page provides several common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS Open Source](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
+This page provides several common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS Open Source](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample `config.yaml` to indicate DC/OS product type.
 
 - `# DC/OS Open Source only` - Applies to DC/OS only. [oss type="inline" size="small" /]
 - `# DC/OS Enterprise only` - Applies to DC/OS Enterprise only. [enterprise type="inline" size="small" /]
