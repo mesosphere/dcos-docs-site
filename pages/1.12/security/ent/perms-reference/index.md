@@ -93,13 +93,7 @@ through Admin Router.
 ## <a name="mesos"></a>Mesos Permissions
 
 Many Mesos operations require authorization.
-The necessary privileges must be assigned to the DC/OS user that issues the HTTP request to Mesos.
-This is not always the same DC/OS user that is logged into the UI or CLI.
-For example, when Alice uses the UI to create a Marathon application, Marathon performs
-authorization of the HTTP request and checks that the `alice` DC/OS user has
-`create` access to the `dcos:service:marathon:marathon:services:/` resource.
-If so, it uses *its own* DC/OS user, a DC/OS service account with a `uid` of `dcos_marathon`, to authenticate an HTTP request to Mesos with instruction to launch the new Mesos tasks.
-At that point, Mesos will perform the DC/OS authorization procedure and check that the `dcos_marathon` DC/OS user has been granted the `create` action on the `dcos:mesos:master:task:app_id` resource.
+The necessary privileges must be assigned to the DC/OS user who issues the HTTP request to Mesos. This is not always the same DC/OS user who is logged into the UI or CLI. For example, when Alice uses the UI to create a Marathon application, Marathon performs authorization of the HTTP request and checks that the `alice` DC/OS user has `create` access to the `dcos:service:marathon:marathon:services:/` resource. If so, it uses its own DC/OS user, a DC/OS service account with a `uid` of `dcos_marathon`, to authenticate an HTTP request to Mesos with instruction to launch the new Mesos tasks. At that point, Mesos will perform the DC/OS authorization procedure and check that the `dcos_marathon` DC/OS user has been granted the `create` action on the `dcos:mesos:master:task:app_id` resource.
 
 Applications launched with Root Marathon can only receive offers for resources reserved for the `slave_public` or `*` [Mesos roles](/1.11/overview/concepts/#mesos-role).
 
