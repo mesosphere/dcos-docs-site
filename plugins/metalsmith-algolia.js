@@ -103,6 +103,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         const postParts = convertStringToArray(postContent, 9000);
         postParts.forEach((value, _index) => {
           const record = getSharedAttributes(fileData, hierarchy, semverMap);
+          if (!record) return;
           record.objectID = `${file}-${index.indexName}`;
           record.content = value;
           objects.push(record);
@@ -118,7 +119,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
                 console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
                 reject(err);
               } else {
-                console.log(`Algolia: Updating "${object.objectID}"`);
+                // console.log(`Algolia: Updating "${object.objectID}"`);
               }
               resolve();
             });
@@ -211,9 +212,9 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
   const record = {};
 
   if (pathParts[0] === 'test') {
-    return record;
+    return null;
   } else if (pathParts[0] === '404') {
-    return record;
+    return null;
   } else if (pathParts[0] === 'services') {
     let product;
     record.section = 'Service Docs';
@@ -246,6 +247,8 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
       record.versionNumber = pathParts[0];
       record.versionWeight = semverMap[pathParts[0]].weight;
     }
+  } else {
+    return null;
   }
 
   let type = '';
@@ -255,6 +258,15 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
   record.title = fileData.title;
   record.path = fileData.path;
   record.type = type;
+
+  if (!record.title) {
+    console.error(`Warning: ${record.path} has no title and will not be indexed.`);
+    return null;
+  }
+  if (!record.product) {
+    console.error(`Warning: ${record.path} has no product and will not be indexed.`);
+    return null;
+  }
 
   // Excerpt
   if (fileData.excerpt) {
