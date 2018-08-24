@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 Install a plugin.
 
 # Usage

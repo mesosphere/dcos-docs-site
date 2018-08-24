@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 Print a list of the installed DC/OS plugins.
 
 # Usage

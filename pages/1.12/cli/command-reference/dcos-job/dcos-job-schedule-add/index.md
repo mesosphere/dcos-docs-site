@@ -37,4 +37,4 @@ None.
 
 # Examples
 
-For examples using `job add`, see the [documentation](/1.11/deploying-jobs/examples/#create-job-schedule).
+For examples using `job add`, see the [documentation](/1.12/deploying-jobs/examples/#create-job-schedule).

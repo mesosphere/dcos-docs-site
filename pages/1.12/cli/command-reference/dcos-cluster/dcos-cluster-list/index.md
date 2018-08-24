@@ -32,4 +32,4 @@ dcos cluster list [--attached --json]
 | [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
 
 # Examples
-For examples, see [Cluster Connections](/1.11/administering-clusters/multiple-clusters/cluster-connections/).
+For examples, see [Cluster Connections](/1.12/administering-clusters/multiple-clusters/cluster-connections/).

@@ -9,9 +9,11 @@ enterprise: false
 ---
 
 # Description
-Install and manage DC/OS CLI plugins. Unlike `dcos package`, this is only used to manage CLI plugins locally on your computer and will have no effect on the cluster.
+
+Install and manage DC/OS CLI plugins. Unlike `dcos package`, `dcos plugin` is only used to manage CLI plugins locally on your computer and will have no effect on the cluster.
 
 # Usage
+
 ```bash
 dcos plugin
 ```

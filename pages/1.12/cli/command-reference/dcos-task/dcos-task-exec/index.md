@@ -40,4 +40,4 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 
 # Examples
 
-For examples, see the debugging [documentation](/1.11/monitoring/debugging/).
+For examples, see the debugging [documentation](/1.12/monitoring/debugging/).

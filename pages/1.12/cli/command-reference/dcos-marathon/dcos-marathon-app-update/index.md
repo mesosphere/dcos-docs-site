@@ -39,4 +39,4 @@ dcos marathon app update <app-id> [OPTION]
 
 # Examples
 
-For examples, see the [documentation](/1.11/deploying-services/update-user-service/).
+For examples, see the [documentation](/1.12/deploying-services/update-user-service/).

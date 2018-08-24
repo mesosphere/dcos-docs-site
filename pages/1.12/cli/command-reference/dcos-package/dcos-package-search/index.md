@@ -37,4 +37,4 @@ dcos package search <query> [OPTION]
 
 # Examples
 
-For an example, see the [documentation](/1.11/administering-clusters/repo/).
+For an example, see the [documentation](/1.12/administering-clusters/repo/).

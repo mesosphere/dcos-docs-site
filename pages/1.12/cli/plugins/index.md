@@ -12,7 +12,7 @@ enterprise: false
 
 Plugins extend the functionality of the CLI for cluster specific actions.
 
-When setting up a cluster, the CLI will by default install the core plugin and, if applicable, the enterprise plugin.
+When setting up a cluster, the CLI will install the core plugin by default and, if applicable, the enterprise plugin.
 
 Plugins are cluster-specific, when switching between different clusters the CLI will automatically use the proper set of plugins installed for that cluster.
 
@@ -41,7 +41,8 @@ Commands that are specific to a DC/OS EE version are packaged into a plugin call
 
 # Updating Core and Enterprise plugins
 
-To update the Core and Enterprise plugins when new versions are released run
+When the new versions are released, you must run the following command to update the Core and Enterprise plugins:
+
 ```bash
 dcos package install <dcos-core-cli|dcos-enterprise-cli>
 ```

@@ -42,4 +42,4 @@ dcos cluster link <dcos-url-a>
 | [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
 
 # Examples
-For examples, see [Cluster Links](/1.11/administering-clusters/multiple-clusters/cluster-links/).
+For examples, see [Cluster Links](/1.12/administering-clusters/multiple-clusters/cluster-links/).

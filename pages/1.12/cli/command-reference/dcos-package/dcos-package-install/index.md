@@ -43,4 +43,4 @@ dcos package install <package-name> [OPTION]
 
 # Examples
 
-For an example, see the [documentation](/1.11/deploying-services/config-universe-service/).
+For an example, see the [documentation](/1.12/deploying-services/config-universe-service/).

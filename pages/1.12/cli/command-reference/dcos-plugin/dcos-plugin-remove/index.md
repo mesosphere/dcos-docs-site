@@ -9,6 +9,7 @@ enterprise: false
 ---
 
 # Description
+
 Uninstall a plugin.
 
 # Usage

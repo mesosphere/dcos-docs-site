@@ -38,4 +38,4 @@ dcos license list --output <file_path>
 | [dcos license](/1.12/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
 
 # Examples
-For examples, see [Licenses](/1.11/administering-clusters/licenses/).
+For examples, see [Licenses](/1.12/administering-clusters/licenses/).

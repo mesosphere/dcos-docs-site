@@ -11,7 +11,7 @@ enterprise: false
 # Description
 Print the service logs.
 
-**Important:** To view the native DC/OS Marathon logs by using the `dcos service log marathon` command, you must be on the same network or connected by VPN to your cluster. For more information, see [Accessing native DC/OS Marathon logs](/1.11/monitoring/logging/quickstart/).
+**Important:** To view the native DC/OS Marathon logs by using the `dcos service log marathon` command, you must be on the same network or connected by VPN to your cluster. For more information, see [Accessing native DC/OS Marathon logs](/1.12/monitoring/logging/quickstart/).
 
 # Usage
 

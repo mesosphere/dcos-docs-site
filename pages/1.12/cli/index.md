@@ -46,7 +46,7 @@ Options:
 Use "dcos [command] --help" for more information about a command.
 ```
 
-# Setting up a cluster
+# <a name="setupcluster"></a> Setting up a cluster
 
 In order to interact with your cluster, you first need to set up the CLI.
 
@@ -54,11 +54,11 @@ In order to interact with your cluster, you first need to set up the CLI.
 $ dcos cluster setup <cluster-url>
 ```
 
-After following the login flow, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.12/cli/plugin), dcos-core-cli and, if applicable, dcos-enterprise-cli, which get automatically installed as part of the setup command.
+After following the login flow, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.12/cli/plugin), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
 
 # Listing your clusters
 
-The DC/OS CLI can work with multiple clusters, the one you just configured should now appear with the following command:
+The DC/OS CLI can work with multiple clusters, the latest configured cluster should now appear with the following command:
 
 ```bash
 $ dcos cluster list
@@ -66,5 +66,4 @@ $ dcos cluster list
   *   cluster 26f72c2f-8d03-47d7-b95f-972b1fd3dea2  AVAILABLE    1.12  <cluster-url>
 ```
 
-The star next to the cluster name indicates that the CLI is currently attached to it. If you run the setup command again with another cluster, you will see a new item in the list.
-
+*Note*: The * indicates that the CLI is currently attached to the cluster name. If you run the setup command again with another cluster, you will see a new item in the list.

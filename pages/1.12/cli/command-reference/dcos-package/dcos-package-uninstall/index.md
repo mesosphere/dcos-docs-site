@@ -40,4 +40,4 @@ dcos package uninstall <package-name> [OPTION]
 
 # Examples
 
-For an example, see the [documentation](/1.11/deploying-services/uninstall/).
+For an example, see the [documentation](/1.12/deploying-services/uninstall/).

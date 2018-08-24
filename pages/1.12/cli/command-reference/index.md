@@ -32,7 +32,7 @@ This section lists the unique DC/OS commands.
 | [dcos service](/1.12/cli/command-reference/dcos-service/)  |  Manage DC/OS services.  |
 | [dcos task](/1.12/cli/command-reference/dcos-task/)  |  Manage DC/OS tasks.  |
 
-# Enterprise plugin commands
+# Enterprise plugin commands [enterprise type="inline" size="small" /]
 
 | Command | Description |
 |---------|-------------|

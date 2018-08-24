@@ -26,7 +26,7 @@ None.
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<group-resource>`   |             |  Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from stdin. For a detailed description see the [documentation](/1.11/deploying-services/marathon-api/). |
+| `<group-resource>`   |             |  Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from stdin. For a detailed description see the [documentation](/1.12/deploying-services/marathon-api/). |
 
 # Parent command
 

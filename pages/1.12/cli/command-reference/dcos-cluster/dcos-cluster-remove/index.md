@@ -31,4 +31,4 @@ dcos cluster remove [<cluster-name> | <cluster-id> | --all]
 | [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters. |
 
 # Examples
-For examples, see [Cluster Connections](/1.11/administering-clusters/multiple-clusters/cluster-connections/).
+For examples, see [Cluster Connections](/1.12/administering-clusters/multiple-clusters/cluster-connections/).

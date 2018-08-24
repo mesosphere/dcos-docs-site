@@ -45,4 +45,4 @@ dcos node ssh <command> [OPTION]
 
 # Examples
 
-For an example, see the [documentation](/1.11/administering-clusters/sshcluster/).
+For an example, see the [documentation](/1.12/administering-clusters/sshcluster/).

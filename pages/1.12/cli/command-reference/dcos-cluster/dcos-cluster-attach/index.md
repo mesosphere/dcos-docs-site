@@ -33,4 +33,4 @@ dcos cluster attach [<connected-cluster-name> | <linked-cluster-name> | <connect
 | [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage connections to DC/OS clusters. |
 
 # Examples
-For examples, see [Cluster Connections](/1.11/administering-clusters/multiple-clusters/cluster-connections/) and [Cluster Links](/1.11/administering-clusters/multiple-clusters/cluster-links/).
+For examples, see [Cluster Connections](/1.12/administering-clusters/multiple-clusters/cluster-connections/) and [Cluster Links](/1.12/administering-clusters/multiple-clusters/cluster-links/).

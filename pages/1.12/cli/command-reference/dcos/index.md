@@ -33,12 +33,3 @@ dcos [options] [<command>] [<args>...]
 | `--version`   |             |  Print version information. |
 | `--help, h`   |             |  Print usage. |
 |  `-v, -vv`  |             |  Output verbosity (verbose or very verbose).  |
-
-`<log-level>`
-The severity levels are:
-
-* debug    Prints all messages.
-* info     Prints informational, warning, error, and critical messages.
-* warning  Prints warning, error, and critical messages.
-* error    Prints error and critical messages.
-* critical Prints only critical messages to stderr.

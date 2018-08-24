@@ -41,4 +41,4 @@ dcos task log <task> <file> [OPTION]
 
 # Examples
 
-For an example, see the [documentation](/1.11/monitoring/logging/).
+For an example, see the [documentation](/1.12/monitoring/logging/).
