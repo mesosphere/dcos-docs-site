@@ -16,6 +16,7 @@ services:
         algolia_index: ${ALGOLIA_INDEX}
         algolia_clear_index: ${ALGOLIA_CLEAR_INDEX}
         algolia_skip_sections: ${ALGOLIA_SKIP_SECTIONS}
+        metalsmith_skip_sections: ${METALSMITH_SKIP_SECTIONS}
     ports:
       - "80:80"
       - "443:443"

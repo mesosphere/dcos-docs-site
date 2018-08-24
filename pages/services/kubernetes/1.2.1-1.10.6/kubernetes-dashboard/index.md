@@ -11,7 +11,7 @@ excerpt:
 
 # Kubernetes Dashboard
 
-Once the use has [exposed the Kubernetes API and setup `kubectl` accordingly](../connecting-clients), the user will be able to access the Kubernetes
+Once the user has [exposed the Kubernetes API and setup `kubectl` accordingly](../connecting-clients), the user will be able to access the Kubernetes
 Dashboard by running:
 
 ```

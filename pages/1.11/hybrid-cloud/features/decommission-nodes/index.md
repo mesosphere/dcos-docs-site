@@ -4,7 +4,7 @@ navigationTitle:  Decommission Nodes
 title: Decommission Nodes
 menuWeight: 15
 excerpt: Decommissioning nodes
-enterprise: false
+enterprise: true
 ---
 
 In order to support cloud bursting by adding nodes, you need also support decomissioning nodes. Deleting a node involves two steps: telling DC/OS to mark the node as `GONE`, and stopping the corresponding Mesos slave `systemd` unit.
@@ -45,7 +45,7 @@ You should decommission nodes in the following situations.
 Enter the following command from the DC/OS CLI to identify the node that is to be decomissioned.
 
 ```
-dcos node 
+dcos node
 ```
 
 Enter the following command from the DC/OS CLI to tell Mesos to mark a node as `GONE`.
