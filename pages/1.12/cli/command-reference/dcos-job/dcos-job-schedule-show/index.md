@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos job schedule show
 title: dcos job schedule show
 menuWeight: 8
-excerpt: 
+excerpt:
 
 enterprise: false
 ---
@@ -36,7 +36,7 @@ dcos job schedule show <job-id> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.11/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
@@ -51,6 +51,6 @@ dcos job schedule show my-scheduled-job
 Here is the output:
 
 ```bash
-ID             CRON        ENABLED            NEXT RUN            CONCURRENCY POLICY  
+ID             CRON        ENABLED            NEXT RUN            CONCURRENCY POLICY
 sleep-nightly  20 0 * * *    True   2017-02-19T00:20:00.000+0000        ALLOW
 ```

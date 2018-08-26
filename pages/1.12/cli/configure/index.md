@@ -9,26 +9,47 @@ enterprise: false
 ---
 
 
-You can access DC/OS CLI configuration with the [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) and [dcos config](/1.11/cli/command-reference/dcos-config/) command groups.
+You can access DC/OS CLI configuration with the [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) and [dcos config](/1.12/cli/command-reference/dcos-config/) command groups.
 
+# Environment variables
 
-# Configuring HTTP proxy
+The DC/OS CLI supports the following environment variables, which can be set dynamically.
 
-If you use a proxy server to connect to the internet, you can configure the CLI to use your proxy server.
+<a name="dcos-cluster"></a>
+#### `DCOS_CLUSTER`
 
-**Prerequisites**
+To set the [attached cluster](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/), set the variable with the command:
 
-*   pip version 7.1.0 or greater.
-*   The `http_proxy` and `https_proxy` environment variables are defined to use pip.
+```bash
+export DCOS_CLUSTER=<cluster_name>
+```
 
-To configure a proxy for the CLI:
+<a name="dcos-dir"></a>
+#### `DCOS_DIR`
 
-*   From the CLI terminal, define the environment variables `http_proxy` and `https_proxy`:
+The path to a DC/OS configuration directory. If you want the DC/OS configuration directory to be `/home/jdoe/config`, set the variable with the command:
 
-        export http_proxy=’http://<user>:<pass>@<proxy_host>:<http_proxy_port>’
-        export https_proxy=’https://<user>:<pass>@<proxy_host>:<https_proxy_port>’
+```bash
+export DCOS_DIR=/home/jdoe/config
+```
 
+1. Optionally set `DCOS_DIR` and run `dcos cluster setup` command.
 
-*   Define `no_proxy` for domains that you don’t want to use the proxy for:
+    ```
+    export DCOS_DIR=<path/to/config_dir> (optional, default when not set is ~/.dcos)
+    dcos cluster setup <url>
+    ```
 
-        export no_proxy=".mesos,.thisdcos.directory,.dcos.directory,.zk,127.0.0.1,localhost,foo.bar.com,.baz.com”
+   This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. Generates a newly setup cluster [as seen here](/1.12/cli/index#setupcluster).
+
+<a name="dcos-ssl-verify"></a>
+#### `DCOS_SSL_VERIFY`
+Indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
+
+```bash
+export DCOS_SSL_VERIFY=false
+```
+
+<a name="dcos-verbosity"></a>
+#### `DCOS_VERBOSITY`
+Prints log messages to stderr at or above the level indicated. `DCOS_VERBOSITY=1` is equivalent to the `-v` command-line option. `DCOS_VERBOSITY=2` is equivalent to the `-vv` command-line option.

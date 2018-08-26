@@ -38,7 +38,7 @@ dcos license get [<id>|active] [--output <file_path>] [--decryption-key]
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.11/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/1.12/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
 
 # Examples
-For examples, see [Licenses](/1.11/administering-clusters/licenses/).
+For examples, see [Licenses](/1.12/administering-clusters/licenses/).

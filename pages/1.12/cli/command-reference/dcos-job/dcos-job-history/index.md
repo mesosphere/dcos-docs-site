@@ -35,7 +35,7 @@ dcos job history <job-id> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.11/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
@@ -52,8 +52,8 @@ In this example, a job history is shown.
     Here is the output:
 
     ```bash
-    ID                DESCRIPTION                      STATUS       LAST SUCCESFUL RUN  
-    my-job            A job that sleeps                Unscheduled         N/A          
+    ID                DESCRIPTION                      STATUS       LAST SUCCESFUL RUN
+    my-job            A job that sleeps                Unscheduled         N/A
     my-scheduled-job  A job that sleeps on a schedule  Unscheduled         N/A
     ```
 
@@ -67,7 +67,7 @@ In this example, a job history is shown.
 
     ```bash
     'my-scheduled-job'  Successful runs: 1 Last Success: 2017-02-17T23:18:33.842+0000
-    ID                             STARTED                       FINISHED            
+    ID                             STARTED                       FINISHED
     20170217231831HkXNK  2017-02-17T23:18:31.651+0000  2017-02-17T23:18:33.843+0000
     ```
 

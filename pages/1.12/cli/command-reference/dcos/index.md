@@ -22,18 +22,14 @@ dcos [options] [<command>] [<args>...]
 
 # Options
 
+ --version
+      Print version information
+  -v, -vv
+      Output verbosity (verbose or very verbose)
+
+
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `--debug`   |             |  Enable debug mode. |
+| `--version`   |             |  Print version information. |
 | `--help, h`   |             |  Print usage. |
-| `--log-level=<log-level>`  |             | Set the logging level. This setting does not affect the output sent to stdout.  |
-|  `--version, v`  |             |  Print version information.  |
-
-`<log-level>`
-The severity levels are:
-
-* debug    Prints all messages.
-* info     Prints informational, warning, error, and critical messages.
-* warning  Prints warning, error, and critical messages.
-* error    Prints error and critical messages.
-* critical Prints only critical messages to stderr.
+|  `-v, -vv`  |             |  Output verbosity (verbose or very verbose).  |

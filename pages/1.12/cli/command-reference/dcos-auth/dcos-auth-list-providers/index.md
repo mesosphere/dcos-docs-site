@@ -9,12 +9,12 @@ enterprise: true
 ---
 
 # Description
-This command lists configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.11/security/ent/service-auth/).
+This command lists configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.12/security/ent/service-auth/).
 
 # Usage
 
 ```bash
-dcos auth list-providers [OPTION]
+dcos auth list-providers <dcos-url> [OPTION]
 ```
 
 # Options
@@ -23,11 +23,17 @@ dcos auth list-providers [OPTION]
 |---------|-------------|-------------|
 | `--json`   |             | Specify a JSON-formatted list of authentication providers. |
 
+# Positional arguments
+
+| Name, shorthand | Default | Description |
+|---------|-------------|-------------|
+| `<dcos-url>`   |             | A URL or IP address to an accessible master node. |
+
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/1.12/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
 # Examples
 
@@ -42,7 +48,7 @@ dcos auth list-providers
 The output should resemble:
 
 ```bash
-PROVIDER ID    AUTHENTICATION TYPE                                                               
-dcos-services  Authenticate using a DC/OS service user account (using username and private key)  
-dcos-users     Authenticate using a standard DC/OS user account (using username and password)   
+PROVIDER ID    AUTHENTICATION TYPE
+dcos-services  Authenticate using a DC/OS service user account (using username and private key)
+dcos-users     Authenticate using a standard DC/OS user account (using username and password)
 ```

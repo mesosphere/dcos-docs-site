@@ -8,7 +8,7 @@ excerpt: Displaying the details of diagnostics bundles
 enterprise: false
 ---
 
-    
+
 # Description
 View the details of diagnostics bundles.
 
@@ -32,6 +32,6 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 <!-- # Examples -->
