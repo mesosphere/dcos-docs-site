@@ -74,7 +74,7 @@ The agent nodes must also have:
 
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
 
-*   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.
+*   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.  
 
 ### <a name="port-and-protocol"></a>Port and Protocol Configuration
 
