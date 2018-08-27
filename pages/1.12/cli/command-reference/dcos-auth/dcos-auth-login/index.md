@@ -34,6 +34,16 @@ dcos auth login [OPTION]
 
 If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--ca-certs`, the CA certificate is downloaded from the cluster and a sha256 fingerprint of the certificate is presented to you for verification.
 
+# Environment variables
+
+## <a name="dcos-username"></a> `DCOS_USERNAME`
+
+Specify the username for login. When set, the `--username` flag takes precedence over this environment variable.
+
+## <a name="dcos-username"></a> `DCOS_PASSWORD`
+
+Specify the password for login. When set, the password flags take precedence over this environment variable.
+
 # Parent command
 
 | Command | Description |
