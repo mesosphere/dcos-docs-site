@@ -14,7 +14,7 @@ The Mesosphere Datacenter Operating System (DC/OS) provides the optimal user exp
 
 # <a name="universe"></a>Package Repositories
 
-The DC/OS Universe contains all of the services that are installable on DC/OS. For more information on DC/OS Universe, see the [GitHub Universe repository](https://github.com/mesosphere/universe).
+The DC/OS Universe contains all of the services that are installable on DC/OS. For more information on DC/OS Universe, see the [GitHub Universe repository](https://github.com/mesosphere/universe). Our general recommendation is to use the DC/OS CLI rather than the DC/OS web interface throughout the process of creating a package for the Universe.
 
 All packaged services are required to meet a certain standard as defined by Mesosphere. For details on submitting a DC/OS service, see [Getting Started with Universe](https://github.com/mesosphere/universe/blob/version-3.x/docs/tutorial/GetStarted.md).
 
