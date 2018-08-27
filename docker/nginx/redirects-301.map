@@ -1,6 +1,5 @@
 ~(^.*/[^.]*[^/])$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
-~^/1.12(.*)$ /1.11$1;
 /administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;
 /administration/id-and-access-mgt/ /latest/security/ent/iam-api/;
 /administration/installing/cloud/aws/ /latest/installing/oss/cloud/aws/;
