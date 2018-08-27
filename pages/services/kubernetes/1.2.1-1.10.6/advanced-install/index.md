@@ -361,7 +361,9 @@ integrated with a cloud-provider.
 </div>
 
 IAM policies for each node need to be correctly in place for Kubernetes to take
-advantage of integrating with AWS.
+advantage of integrating with AWS. In addtion to IAM policy, IAM "Role" needs to be created and 
+to attached to each EC2 Instance. 
+- [Attach Role](https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/)
 
 Here is an example IAM policy that will allow you to integrate successfully:
 
@@ -412,7 +414,7 @@ Here is an example IAM policy that will allow you to integrate successfully:
     "Effect": "Allow"
 }
 ```
-
+ 
 Also, a tag needs to be specified as well with the key `KubernetesCluster`.
 Make sure the value of this tag is a unique value across all tags in your AWS account
 and applied to the auto-scaling and security group associated with the nodes:
