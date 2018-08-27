@@ -48,11 +48,12 @@ Please note that this example handles **adding** resources exclusively and can n
       ```
 
 4.  Clear agent state.
-    1. Remove volume mount discovery resource state with this command:
+    1. Cache volume mount discovery resource state with this command:
 
         ```bash
-        sudo rm -f /var/lib/dcos/mesos-resources
+        sudo mv -f /var/lib/dcos/mesos-resources /var/lib/dcos/mesos-resources.cache
         ```
+       DC/OS will check this file later on to generate a new resource state for the agent.
 
     1. Remove agent checkpoint state with this command:
 
