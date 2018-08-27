@@ -185,8 +185,6 @@ Proceed with upgrading every master node one-at-a-time in any order using the fo
 1.  Validate the upgrade:
 
     1.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`. Confirm that the master rejoins the ZooKeeper quorum successfully (the status indicator will turn green).
-
-        **Tip:** If you are upgrading from permissive to strict mode, this URL will be `https://...`.
     1.  Wait until the `dcos-mesos-master` unit is up and running.
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
         **Tip:** If you are upgrading from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access.
