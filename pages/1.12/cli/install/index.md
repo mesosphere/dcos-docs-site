@@ -15,7 +15,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 # Installing CLI from the web interface
 
-1.  At the top-left corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
+1.  At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/1.12/img/open-cluster-popup.png)
 
