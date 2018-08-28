@@ -29,10 +29,10 @@ The use of other [Percona Server for MongoDB](https://www.percona.com/software/m
 ## Contacting Technical Support
 
 ### Percona-Mongo package
-[Submit a ticket](https://jira.percona.com/secure/CreateIssue!default.jspa?pid=12402)
+[Submit a ticket](https://jira.percona.com/secure/CreateIssue!default.jspa?pid=12402).
 
 ### Percona Server for MongoDB
-[Submit a ticket](https://jira.percona.com/secure/CreateIssue!default.jspa?pid=11601)
+[Submit a ticket](https://jira.percona.com/secure/CreateIssue!default.jspa?pid=11601).
 
 ### Mesosphere DC/OS
 [Submit a request](https://support.mesosphere.com/hc/en-us/requests/new).
