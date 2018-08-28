@@ -1,24 +1,26 @@
 ---
 layout: layout.pug
 excerpt: Configuring HAProxy in front of an Admin Router
-title: Configuring HAProxy in Front of Admin Router
-navigationTitle: HAProxy in Front of Admin Router
-menuWeight: 6
+title: HAProxy and Admin Router
+navigationTitle: HAProxy and Admin Router
+menuWeight: 30
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can use HAProxy to set up an HTTP proxy in front of the DC/OS [Admin Router](/1.11/overview/architecture/components/#admin-router). For example, this can be useful if you want to present a custom server certificate to user agents connecting to the cluster via HTTPS. DC/OS does not currently support adding your own certificates directly into Admin Router.
+You can set up secure HTTPS communication using a custom server certificate with your DC/OS cluster by [setting up a proxy](#HAProxy) between the Admin Router and user agent requests coming in from outside of the cluster. The HTTP Proxy must perform on-the-fly HTTP request and response header modification, because DC/OS is not aware of the custom hostname and port that is being used by user agents to address the HTTP proxy.
 
-The HTTP Proxy must perform on-the-fly HTTP request and response header modification because DC/OS is not aware of the custom hostname and port that is being used by user agents to address the HTTP proxy.
+# <a name="HAProxy"></a>Configuring HAProxy in front of Admin Router
 
-These instructions provide a tested [HAProxy](http://www.haproxy.org/) configuration example that handles the named request/response rewriting. This example ensures that the communication between HAProxy and DC/OS Admin Router is TLS-encrypted.
+Use HAProxy to set up an HTTP proxy in front of the DC/OS [Admin Router](/1.11/overview/architecture/components/#admin-router). This can be useful if you want to present a custom server certificate to user agents connecting to the cluster via HTTPS. DC/OS does not currently support adding your own certificates directly into Admin Router.
+
+The following instructions provide a tested [HAProxy](http://www.haproxy.org/) configuration example that handles the named request/response rewriting. This example ensures that the communication between HAProxy and DC/OS Admin Router is TLS-encrypted.
 
 1.  Install HAProxy [1.6.9](http://www.haproxy.org/#down).
 
 1.  Create an HAProxy configuration for DC/OS. This example is for a DC/OS cluster on AWS. For more information on HAProxy configuration parameters, see the [documentation](https://cbonte.github.io/haproxy-dconv/configuration-1.6.html#3).
 
-    **Tip:** You can find your task IP by using the agent IP address DNS entry.
+    **Note:** You can find your task IP by using the agent IP address DNS entry.
 
     ```
     <taskname>.<framework_name>.agentip.dcos.thisdcos.directory
@@ -27,7 +29,7 @@ These instructions provide a tested [HAProxy](http://www.haproxy.org/) configura
     Where:
 
     * `taskname`: The name of the task.
-    * `framework_name`: The name of the framework, if you are unsure, it is likely `marathon`.
+    * `framework_name`: The name of the framework; if you are unsure, it is probably `marathon`.
 
     ```
     global
