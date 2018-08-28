@@ -37,6 +37,12 @@ ALGOLIA_SKIP_SECTIONS=$algolia_skip_sections \
 METALSMITH_SKIP_SECTIONS=$metalsmith_skip_sections \
 npm run build
 
+# Add google site verifications
+# Google expects a very specific file format and metalsmith defaultly alters
+# it. This is temporary until a more permenant solution is made.
+
+RUN echo "google-site-verification: google48ddb4a5390a503f.html" > /src/build/google48ddb4a5390a503f.html
+
 #
 # Nginx
 #
