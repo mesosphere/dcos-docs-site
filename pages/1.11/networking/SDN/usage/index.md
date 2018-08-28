@@ -39,7 +39,7 @@ The following Marathon application definition specifies a network named `dcos-1`
          "image":"busybox",
          "portMappings":[
             {
-               "containerPort":123,
+               "containerPort":8080,
                "servicePort":80,
                "name":"foo"
             }
