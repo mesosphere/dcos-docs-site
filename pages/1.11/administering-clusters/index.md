@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Administering Clusters
 title: Administering Clusters
 menuWeight: 60
-enterprise: true
 excerpt: Administering your DC/OS clusters
 enterprise: false
 
