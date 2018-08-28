@@ -35,9 +35,7 @@ For DNS requests for hostnames or services outside the DC/OS cluster, Mesos-DNS 
 
 # <a name="leader"></a>What is the difference between leader.mesos and master.mesos?
 
-To query the leading master node, always query `leader.mesos`.
-
-If you try to connect to `master.mesos` using HTTP, you will be automatically redirected to the leading master node.
+To query the leading master node, always query `leader.mesos`. If you try to connect to `master.mesos` using HTTP, you will be automatically redirected to the leading master node.
 
 However, if you try to query or connect to `master.mesos` using any method other than HTTP, the results will be unpredictable because the name will resolve to a random master node. For example, a service that attempts to register with `master.mesos` may communicate with a non-leading master node and will be unable to register as a service on the cluster.
 

@@ -10,7 +10,7 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-As of version 1.8, DC/OS works with any type of CNI network. Use CNI to allow your containers to communicate with one another when they are isolated from the hosts they are running on.
+As of version 1.8, DC/OS works with any type of container network interface (CNI) network. Use a CNI to allow your containers to communicate with one another when they are isolated from the hosts they are running on.
 
 # Configuring your Cluster for CNI
 
