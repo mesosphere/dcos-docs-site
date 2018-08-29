@@ -15,10 +15,10 @@ DC/OS 1.11.5 was released on September 4, 2018.
 # Issues Fixed in DC/OS 1.11.5
 
 ## Front-End
-- DCOS-21049 - Add `dcos:secrets:list:default:/` secret permission to access DC/OS UI.
-- DCOS-38595 - Fix display error messages in framework configuration form.
 - COPS-3051/DCOS-39662 - Fix deployment state in Marathon-LB debug page.
 - COPS-3573/DCOS-39720 - Enable service endpoints on UCR.
+- DCOS-21049 - Add `dcos:secrets:list:default:/` secret permission to access DC/OS UI.
+- DCOS-38595 - Fix display error messages in framework configuration form.
 - DCOS-39877 - Remove flickering filter issue in tasks view.
 - DCOS-40523 - Enable empty environment variables reducer to support empty values. 
 - DCOS-40577 - Fix dashboard permissions and node tab with correct ACLs for users (non-super users and remote users).
