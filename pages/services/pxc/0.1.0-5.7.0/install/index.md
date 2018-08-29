@@ -33,7 +33,7 @@ The default DC/OS percona-pxc-mysql Service installation provides reasonable def
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes.
-- kafka-zookeeper is installed in the cluster.
+- kafka-zookeeper is installed in the cluster from category.
 
 # Installing from the DC/OS CLI
 
