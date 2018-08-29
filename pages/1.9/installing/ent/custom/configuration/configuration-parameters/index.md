@@ -106,6 +106,10 @@ This parameter sets the auth token time-to-live (TTL) for Identity and Access Ma
 bouncer_expiration_auth_token_days: '0.5'
 ```
 
+Small expiration periods may be harmful to DC/OS components.
+We recommend that the this value is set to no less than 0.25.
+If you wish to use a lower value, contact a Mesosphere support representative for guidance.
+
 For more information, see the [security documentation](/1.9/security/).
 
 ### cluster_docker_credentials
