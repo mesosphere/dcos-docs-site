@@ -14,7 +14,7 @@ DC/OS 1.11.5 was released on September 4, 2018.
 
 # Issues Fixed in DC/OS 1.11.5
 
-## Front-End
+## Front End
 - COPS-3051/DCOS-39662 - Fix deployment state in Marathon-LB debug page.
 - COPS-3573/DCOS-39720 - Enable service endpoints on UCR.
 - DCOS-21049 - Add `dcos:secrets:list:default:/` secret permission to access DC/OS UI.
@@ -27,7 +27,7 @@ DC/OS 1.11.5 was released on September 4, 2018.
 ## Marathon
 - COPS-3505/MARATHON-8326 - Add `wipe=true` support for pod's instances endpoint to automatically drain and decomission agent nodes.
 - MARATHON-7568 - Prevent ZK credentials leak in /v2/info.
-- MARATHON-8084 - Fix behavior for posting  `/v2/apps/:app_id/restart` restart endpoint to the non-leader master node. 
+- MARATHON-8084 - Clean up Marathon API POST header. 
 - MARATHON-8368 - Fix offer rejection statistics error when maintenance mode is enabled. 
 
 ## Mesos
@@ -56,8 +56,8 @@ DC/OS 1.11.5 was released on September 4, 2018.
 - COPS-2988 - Provide access permissions with full capabilities to the user. 
 - COPS-3195 - Fix cluster authentication issues running in strict mode and issues arising from transient errors in the 'ip-detect' script.
 - COPS-3485/DCOS_OSS-3937 - Prevent loss of ZK myid configuration file by recreating the deleted myid configuration file and restarting exhibitor 
-- DCOS-38655 - Assign IAM `login_endpoint` to Admin Router.
-- DCOS-39259 - Fix error handling issues for StartTLS.
+- DCOS-38655 - Force all login requests through Admin Router. 
+- DCOS-39259 - Add error handling for `StartTLS` in case of socket failure.
 - DCOS-39260 - Fix LDAP login failure after upgrade from 1.11.1 to 1.11.3.
 - DCOS_OSS-3932 - Update Java version from 8u151 to 8u181.
 
