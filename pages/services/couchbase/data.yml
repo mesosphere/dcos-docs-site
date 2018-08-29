@@ -1,0 +1,10 @@
+# Common values:
+
+packageName: couchbase
+serviceName: couchbase
+techName:  Couchbase
+techShortName: Couchbase
+
+# Values specific to certain templates:
+
+# Values specific to Couchbases's own docs content:
