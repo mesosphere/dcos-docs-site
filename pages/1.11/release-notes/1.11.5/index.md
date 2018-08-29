@@ -1,45 +1,80 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes for 1.11.3
-title: Release Notes for 1.11.3
-menuWeight: 15
-excerpt: Release notes for DC/OS 1.11.3
+navigationTitle: Release Notes for 1.11.5
+title: Release Notes for 1.11.5
+menuWeight: 5
+excerpt: Release notes for DC/OS 1.11.5
 ---
 
-DC/OS 1.11.3 was released on June 26, 2018.
+DC/OS 1.11.5 was released on September 4, 2018.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-DC/OS 1.11.3 includes the following:
+# Issues Fixed in DC/OS 1.11.5
 
-- Apache Mesos 1.5.2-197c910 [change log](https://github.com/apache/mesos/blob/197c910/CHANGELOG).
-- Marathon 1.6.496 [change log](https://github.com/dcos/dcos/blob/1.11.3/packages/marathon/buildinfo.json).
-- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
+## Front-End
+- DCOS-21049 - Add `dcos:secrets:list:default:/` secret permission to access DC/OS UI.
+- DCOS-38595 - Fix display error messages in framework configuration form.
+- COPS-3051/DCOS-39662 - Fix deployment state in Marathon-LB debug page.
+- COPS-3573/DCOS-39720 - Enable service endpoints on UCR.
+- DCOS-39877 - Remove flickering filter issue in tasks view.
+- DCOS-40523 - Enable empty environment variables reducer to support empty values. 
+- DCOS-40577 - Fix dashboard permissions and node tab with correct ACLs for users (non-super users and remote users).
+- DCOS_OSS-3801 - Add support for Docker parameters in Metronome jobs.
+
+## Marathon
+- COPS-3505/MARATHON-8326 - Add `wipe=true` support for pod's instances endpoint to automatically drain and decomission agent nodes.
+- MARATHON-7568 - Prevent ZK credentials leak in /v2/info.
+- MARATHON-8084 - Fix behavior for posting  `/v2/apps/:app_id/restart` restart endpoint to the non-leader master node. 
+- MARATHON-8368 - Fix offer rejection statistics error when maintenance mode is enabled. 
+
+## Mesos
+- COPS-3616/DCOS-39973/DCOS-40162 - Fix container launch failures that occurred due to Mesos-bridge running out of IPs.
+- DCOS-38225 - Prevent task loss by fixing error handling failures of Mesos-IAM interaction.
+- DCOS-40410 - Bump Mesos to nightly [1.5.x eacabd7](https://github.com/mesosphere/mesos/blob/eacabd7/CHANGELOG).
+
+## Networking
+- COPS-3279/COPS-3576/DCOS-37703/DCOS-39721 - Fix erroneous values in service addresses stats. Bump dcos-net.
+- COPS-3472/DCOS-38932 - Enable access to Marathon app via overlap network. 
+- COPS-3520/DCOS-39999 - Fix DC/OS OSS build failure that occurred due to segmentation violation.
+- DCOS-38600 - Remove deadlock when SSL sockets are simultaneously sending/receiving data.
+- DCOS-39707 - Fix clustering issues with `etcd`.
+- DCOS_OSS-3697 - Fix connectivity issue between bridged and overlay networks.
+- DCOS_OSS-3841 - Update CNI plugin versions to v0.7.1.
+
+## Platform
+- COPS-3568/DCOS-39883 - Add permissions to `dcos_diagnostics_master` to read marathon state.
+- COPS-3658/DCOS-21258 - Remove `dcos-history-service`from UI. 
+- DCOS-22194 - Fix `dcos-metrics` pkgpanda build to utilize Docker. 
+- DCOS-37454 - Fix prometheus inconsistent output with stored metrics.
+
+[enterprise]
+## Security
+[/enterprise]
+- COPS-2988 - Provide access permissions with full capabilities to the user. 
+- COPS-3195 - Fix cluster authentication issues running in strict mode and issues arising from transient errors in the 'ip-detect' script.
+- COPS-3485/DCOS_OSS-3937 - Prevent loss of ZK myid configuration file by recreating the deleted myid configuration file and restarting exhibitor 
+- DCOS-38655 - Assign IAM `login_endpoint` to Admin Router.
+- DCOS-39259 - Fix error handling issues for StartTLS.
+- DCOS-39260 - Fix LDAP login failure after upgrade from 1.11.1 to 1.11.3.
+- DCOS_OSS-3932 - Update Java version from 8u151 to 8u181.
+
+## Storage
+ - DCOS-39891 - Add a new permission to `dcos_diagnostics_master` service account user during bootstrap.
 
 
-# Issues Fixed in DC/OS 1.11.3
+# Notable Changes in DC/OS 1.11.5
 
-- COPS-3158 - The check in custom installer for ftype=1 on Mesos and Docker work directories is added only when using XFS.
-- DCOS-11714 - DC/OS IAM: Added support for anonymous bind via LDAP. [enterprise type="inline" size="small" /]
-- DCOS-22458 - Improved stability of dcos-checks-poststart-service-unhealthy check. [enterprise type="inline" size="small" /]
-- DCOS-25602 - DC/OS IAM: Reduced excessive logging which was accidentally introduced in 1.11.1 release. [enterprise type="inline" size="small" /]
-- DCOS-34435 - DC/OS Cosmos: Increased the limit of max-payload size at /v2/apps Marathon end point.
-- DCOS-34536 - Fixed DC/OS upgrade issue with ipv6 address configuration.
-- DCOS-38015 - Enhanced Mesos TLS cipher suites support with secure cipher suites. [enterprise type="inline" size="small" /]
+- Update DC/OS UI for [1.11+v1.19.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.19.0/CHANGELOG.md). [oss type="inline" size="small" /]
+- Update DC/OS UI for [1.11+v1.19.0+1c67f4b5](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.15.0+3231764b...1.11+v1.19.0+1c67f4b5). [enterprise type="inline" size="small" /]
 
-# Notable Changes in DC/OS 1.11.3
+DC/OS 1.11.5 includes the following components:
+- Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/eacabd7/CHANGELOG).
+- Marathon 1.6.544 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.6.544).
+- Metronome 0.4.3 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.3).
 
-- DCOS-19427 - CockroachDB: Set cluster version to 1.1. [enterprise type="inline" size="small" /]
-- DCOS_OSS-2417 and DCOS_OSS-3548 - Support for CoreOS 1688.5.3. 
-- Updated DC/OS UI Enterprise for 1.11+1.13.0+7e0cb54f [Open Source change log](https://github.com/dcos/dcos-ui/blob/1.11%2Bv1.13.0/CHANGELOG.md) and [EE Plugins](https://github.com/mesosphere/dcos-ui-plugins-private/compare/v1.11.1...1.11+1.13.0+7e0cb54f). [enterprise type="inline" size="small" /]
-- Updated DC/OS UI for [1.11+v1.14.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.14.0/CHANGELOG.md).
-
-
-**Note:** 
-- New Docker version is supported on CoreOS 1688.5.3. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
-- The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).
 
 
 # About DC/OS 1.11
