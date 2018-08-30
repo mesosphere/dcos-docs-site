@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Package Registry
 title: Package Registry
-menuWeight: 1
+menuWeight: 1001
 excerpt: DC/OS Package Registry packages, distributes, stores, and delivers DC/OS Packages on DC/OS
 beta: true
 enterprise: true

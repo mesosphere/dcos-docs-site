@@ -1,16 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle: Getting Started
-title: Getting Started
+navigationTitle: Getting Started with Package Registry
+title: Getting Started with Package Registry
 menuWeight: 1
 excerpt: Start using DC/OS Package Registry now
 beta: true
 enterprise: true
 ---
 
-# I. Preparing to Install
+# Preparing to Install
 
-### i. Install or Upgrade to DC/OS Enterprise 1.12
+### Install or Upgrade to DC/OS Enterprise 1.12
 
 The DC/OS Package Registry is included with DC/OS Enterprise 1.12.
 
@@ -18,7 +18,7 @@ The DC/OS Package Registry is included with DC/OS Enterprise 1.12.
 
 Please follow the [instructions for upgrading to DC/OS 1.12](http://docs.mesosphere.com/1.12/installing/production/upgrading/) first before continuing.
 
-### ii. Remove the Universe Repository (optional)
+### Remove the Universe Repository (optional)
 
 If the DC/OS cluster does not have network access to the Universe Repository, or if you are not interested in all of the DC/OS Packages in that repository, use the following command to remove it.
 
@@ -26,9 +26,9 @@ If the DC/OS cluster does not have network access to the Universe Repository, or
 dcos package repo remove Universe
 ```
 
-# II. Installing DC/OS Package Registry
+# Installing DC/OS Package Registry
 
-### i. Enable the Read-Only Bootstrap Package Registry
+### Enable the Read-Only Bootstrap Package Registry
 
 DC/OS Enterprise is pre-configured to run a read-only Package Registry which contains two DC/OS Packages. The DC/OS Enterprise CLI and the DC/OS Package Registry. To enable this repository with the DC/OS Package Manager, we must add it to the list to repository.
 
@@ -36,7 +36,7 @@ DC/OS Enterprise is pre-configured to run a read-only Package Registry which con
 dcos package repo add "Bootstrap Registry" https://registry.component.thisdcos.directory/repo
 ```
 
-### ii. Create a service account for the package registry
+### Create a service account for the package registry
 
 DC/OS Package registry needs a service account to be able to run in DC/OS Enterprise. Use the following procedure to create a service account with  minimum permissions.
 
@@ -61,7 +61,9 @@ dcos security org service-accounts create -p public-key.pem -d "dcos_registry se
 
 #### 4. Store private key in the secret store
 
+```bash
 dcos security secrets create-sa-secret --strict private-key.pem registry-account registry-private-key
+```
 
 #### 5. Give full permission to the service account
 
@@ -73,7 +75,7 @@ NOTE: The secret information associated with the service account is stored in a 
 
 These instructions create two sensitive files on the local file system: "private-key.pem" and "public-key.pem". Please make sure to save these files in a secure place or delete them. They are not needed after being stored in the DC/OS Secret Store.
 
-### iii. Configure and Install DC/OS Package Registry
+### Configure and Install DC/OS Package Registry
 
 #### 1. Provide location in the secret store for the service account secrets
 
@@ -91,7 +93,7 @@ Note: The default configuration for the DC/OS Package Registry stores DC/OS Pack
 
 Note: The default configuration assumes that the secrets for the service account for the DC/OS Package Registry are stored in "registry-private-key" in the DC/OS Secret Store. If that is not the case please replace "registry-private-key" path with the correct path.
 
-### iv. Enable the DC/OS Package Registry with the DC/OS Package Manager
+### Enable the DC/OS Package Registry with the DC/OS Package Manager
 
 To add Package Registry to DC/OS Package Manager use the following command:
 
