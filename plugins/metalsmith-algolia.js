@@ -197,7 +197,6 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
   }
 
   const map = {};
-  console.log(services);
   Object.keys(services).forEach((service) => {
     const serviceVersions = services[service];
     const versionsCleaned = serviceVersions.map(cleanVersion);
