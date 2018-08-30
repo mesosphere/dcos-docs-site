@@ -8,16 +8,15 @@ featureMaturity:
 enterprise: false
 ---
 
-## DC/OS 1.10
+## DC/OS 1.11
 
-If you are using DC/OS 1.10:
+If you are using DC/OS 1.11:
 
 Uninstall the service from the DC/OS CLI, by entering `dcos package uninstall <package_name>`.
-For example, to uninstall the Minio instance named `minio-dev`, run:
 
 ```
 
-dcos package uninstall minio-dev
+dcos package uninstall miniod
 
 ```
 
@@ -54,7 +53,7 @@ If all else fails, you can manually perform the uninstall yourself. To do this, 
 1. Unregister the service from Mesos using its UUID as follows:
 
 ```shell
-dcos service --inactive | grep minio
-minio     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
+dcos service --inactive | grep miniod
+miniod     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 ```
