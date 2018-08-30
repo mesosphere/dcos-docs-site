@@ -1,10 +1,10 @@
 # Common values:
 
-packageName: minio
+packageName: miniod 
 serviceName: minio
 techName: minio
 techShortName: minio
-
+minNodeCount: four
 # Values specific to certain templates:
 
 operations:

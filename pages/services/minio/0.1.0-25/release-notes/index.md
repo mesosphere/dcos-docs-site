@@ -10,10 +10,10 @@ enterprise: false
 
 Release notes for Minio.
 
-# Version 0.1.0-25
+# Version 0.1.0-RELEASE.2018-07-31T02-11-47Z
 
 This is the first release of DC/OS Minio framework.
 
-* Minio v25
+* Minio RELEASE.2018-07-31T02-11-47Z
 * The framework provides options to provide the Minio Configurations.
-* The default Minio Configuration starts Minio in standalone mode with one Minio Server listening on port 9000. 
+* The default Minio Configuration starts Minio in distributed mode with four Minio Server listening on port 9000. 

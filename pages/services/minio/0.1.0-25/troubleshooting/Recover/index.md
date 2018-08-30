@@ -15,7 +15,7 @@ The DC/OS Minio Service let's you heal buckets and objects on the Minio server a
 'recover' plan can be executed with the following command:
 ```shell
 {
- dcos minio --name=<service_name> plan start recover
+ dcos miniod --name=<service_name> plan start recover
 }
 ```
 The Minio recover plan will be launching below mentioned task:
