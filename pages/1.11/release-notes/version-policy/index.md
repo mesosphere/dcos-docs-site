@@ -19,9 +19,7 @@ Modifications or enhancements to the same software product as designated by a ch
 
 ## Minor
 
-Bug fixes and new enhancements to the same software product as designated by a change in the patch release number.
-
-For example, version 5.6.3, means <code>R</code> is 5, <code>V</code> is 6, and <code>M</code> is 3.
+Bug fixes and new enhancements to the same software product as designated by a change in the patch release number. For example, version 5.6.3, means <code>R</code> is 5, <code>V</code> is 6, and <code>M</code> is 3.
 
 # Mesosphere Software End of Life Policy
 
@@ -37,15 +35,17 @@ Here is a hypothetical example to help you understand which version is the suppo
 
 # DC/OS Versions and Mesos Interoperability Matrix
 
-All versions of DC/OS come bundled with a compatible Mesos version and its release number will be noted in the appropriate DC/OS Release Version release notes.
+All versions of DC/OS come bundled with a compatible Mesos version, and its release number will be noted in the appropriate DC/OS Release Version release notes.
 
 # DC/OS Versions and Service Scheduler Interoperability Matrix
 
 All Mesosphere-driven Service Frameworks and their attached baseline technology will be tested to interoperate with the current DC/OS and the previous DC/OS release. Similarly, every release of DC/OS will support the current available (GA) software that the service scheduler leverages and its previous release.  If a DC/OS release supports an older version of the service scheduler, the older service scheduler may not support all of the features provided by the newer version of DC/OS.
 
-For example, if we have 3 pieces of technology: DC/OS, Framework, and Apache Kafka.
+For example, if we have three pieces of technology: DC/OS, Framework, and Apache Kafka.
 
 ![version policy framework](/1.10/img/version-policy-1.png)
+
+Figure 1. Version policy framework
 
 Our interoperability guarantees in the scenario above will be as follows:
 
