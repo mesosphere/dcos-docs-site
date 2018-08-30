@@ -160,7 +160,11 @@ const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
 
 // Build a sorted map that ranks semver
 const buildSemverMap = (files, skipSections, renderPathPattern) => {
-  const versions = [];
+
+  const versions = {
+    services: [],
+    dcos: [],
+  };
 
   const cleanVersion = (version) => {
     if (semverRegex().test(version)) {
@@ -180,29 +184,45 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
     const pathParts = file.split('/');
     if (inExcludedSection(file, skipSections, renderPathPattern)) {
       continue;
-    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) === -1) {
-      versions.push(pathParts[2]);
-    } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.indexOf(pathParts[0]) === -1) {
-      versions.push(pathParts[0]);
+    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.services.indexOf(pathParts[2]) === -1) {
+      versions.services.push(pathParts[2]);
+    } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.dcos.indexOf(pathParts[0]) === -1) {
+      versions.dcos.push(pathParts[0]);
     }
   }
 
-  // Sort
-  let versionsSorted = versions.map(cleanVersion);
-  versionsSorted = semverSort.desc(versionsSorted);
+  // Clean versions
+  const versionsCleaned = {
+    services: versions.services.map(cleanVersion),
+    dcos: versions.dcos.map(cleanVersion),
+  };
+
+  // Sort versions
+  const versionsSorted = {
+    services: semverSort.desc(versionsCleaned.services),
+    dcos: semverSort.desc(versionsCleaned.dcos),
+  };
 
   // Map
   const map = {};
 
-  versions.forEach((version) => {
+  versions.services.forEach((version) => {
     const cv = cleanVersion(version);
-    const weight = versionsSorted.indexOf(cv);
+    const weight = versionsSorted.services.indexOf(cv);
     map[version] = {
       version: cv,
       weight,
     };
   });
 
+  versions.dcos.forEach((version) => {
+    const cv = cleanVersion(version);
+    const weight = versionsSorted.dcos.indexOf(cv);
+    map[version] = {
+      version: cv,
+      weight,
+    };
+  });
   return map;
 };
 
