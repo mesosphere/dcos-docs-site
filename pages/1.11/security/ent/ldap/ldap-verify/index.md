@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Verifying the LDAP connection
-title: Verifying the LDAP connection
+navigationTitle:  Verification 
+title: Verification 
 menuWeight: 3
 excerpt: Verifying your connection to the LDAP server
 enterprise: true
@@ -13,9 +13,9 @@ In this section, you will verify that the parameters you provided allow DC/OS to
 
 1. Click **Test Connection** to validate your connection.
 
-1. Enter the user ID of a user in the external LDAP directory in the **LDAP Username** field. The `%(username)s` string will be replaced with the user ID that you supply.
+1. Enter the user ID of a user in the external LDAP directory in the **LDAP Username** field. The `%(username)s` string will be replaced with the user ID that you supply. 
 
-**Tip**: To simulate an actual login as closely as possible, we recommend using the credentials of a user other than the lookup user.
+    To simulate an actual login as closely as possible, we recommend using the credentials of a user other than the lookup user.
 
 1. Type the user's password in the **LDAP Password** field.
 

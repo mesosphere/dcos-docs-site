@@ -10,15 +10,15 @@ enterprise: true
 
 To ensure that you are communicating with your DC/OS cluster and not another potentially malicious party, you must obtain the appropriate trust anchor. This trust anchor is part of the DC/OS CA bundle which is a collection of root CA certificates. In the simplest case, it just contains one item: the root CA certificate corresponding to the DC/OS certificate authority. You can obtain the DC/OS CA bundle, using one of these methods:
 
-- [Out of band, recommended](#oob): the only secure way to retrieve the CA bundle is out of band.
+- [Out-of-band, recommended](#oob): the only secure way to retrieve the CA bundle is out-of-band.
 
-- [Via HTTP(S) from Admin Router, insecure](#curl): using curl to retrieve the certificate through insecure HTTP or insecure HTTPS.
+- [Via HTTP(S) from Admin Router, insecure](#curl): using `curl` to retrieve the certificate through insecure HTTP or insecure HTTPS.
+
+# Adding an OpenID Connect identity provider
 
 # <a name="oob"></a>Retrieving the DC/OS CA bundle out of band
 
-The DC/OS CA bundle is located on any master node at the file system path `/run/dcos/pki/CA/ca-bundle.crt`. For maximum security, you should manually retrieve this file. Alternatively, a reasonably secure method is to SSH into one of the master nodes to obtain the file, if the master nodes cannot be accessed physically.
-
-**Tip:** For simplification and to more easily use the curl commands provided elsewhere in the documentation, you can rename the file from `ca-bundle.crt` to e.g., `dcos-ca.crt`.
+The DC/OS CA bundle is located on any master node at the file system path `/run/dcos/pki/CA/ca-bundle.crt`. For maximum security, you should manually retrieve this file. Alternatively, a reasonably secure method is to SSH into one of the master nodes to obtain the file, if the master nodes cannot be accessed physically. For simplification and to more easily use the `curl` commands provided elsewhere in the documentation, you can rename the file from `ca-bundle.crt` to e.g., `dcos-ca.crt`.
 
 # <a name="curl"></a>Using curl to retrieve the DC/OS CA bundle
 

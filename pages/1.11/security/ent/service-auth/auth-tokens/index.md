@@ -16,13 +16,13 @@ You may need to provision a service with a service account depending on your [se
 
 An API consumer should be able to handle when its current authentication token expires.
 
--  **Post Expiration Renewal** With this method, you obtain a new auth token after an invalid token is response is received. An invalid authentication token is responded to with a 401 HTTP status code and the service re-invokes the service account login procedure. It attempts to get a fresh authentication token (with retry and back-off). During the period where the service has no valid authentication token, the service might need to hold back operations, resulting in latency spikes.
-- **Pre Expiration Renewal** With this method, the token is refreshed before it expires. The service can schedule asynchronous token renewal ahead of the expiration. It can fetch a new authentication token while the old one is still valid. This prevents the latency spikes caused by an expired authentication token.
+-  **Post-Expiration Renewal** With this method, you obtain a new auth token after an "invalid token" response is received. An invalid authentication token is responded to with a 401 HTTP status code and the service re-invokes the service account login procedure. It attempts to get a fresh authentication token (with retry and back-off). During the period where the service has no valid authentication token, the service might need to hold back operations, resulting in latency spikes.
+- **Pre-Expiration Renewal** With this method, the token is refreshed before it expires. The service can schedule asynchronous token renewal ahead of the expiration. It can fetch a new authentication token while the old one is still valid. This prevents the latency spikes caused by an expired authentication token.
 
 # Out-of-band Verification of an RS256 Authentication JWT
 DC/OS services can authenticate incoming requests on behalf of the [DC/OS Identity and Access Manager (Bouncer)](/1.11/overview/architecture/components/#dcos-iam) component, using public key cryptography. This works if the authentication token presented by the client has been signed by Bouncer using Bouncer's private key with the RS256 algorithm.
 
-## Bouncer JSON Web Key Set (JWKS) Endpoint
+## Bouncer JSON Web Key Set (JWKS) endpoint
 The Bouncer's JWKS endpoint (`/auth/jwks`) provides the public key details required for verifying the signature of type RS256 JWTs issued by Bouncer. The JSON document data structure emitted by that endpoint is compliant with [RFC 7517](https://tools.ietf.org/html/rfc7517). Within that data structure, the public key is parameterized according to [RFC 7518](https://tools.ietf.org/html/rfc7518).
 
 Here is an example response:
@@ -43,21 +43,16 @@ curl localhost:8101/acs/api/v1/auth/jwks
 }
 ```
 
-## Constructing the Public Key from the JWKS Data
+## Constructing the public key from the JWKS data
 The two parameters that fully define an RSA public key are the modulus (`n`) and the exponent (`e`). Both are integers. In the previous example, the exponent parameter is encoded in the values of the `e`, and the modulus is encoded with the value of `n`.
 
 The integers are "Base64urlUInt"-encoded. This encoding is specified by [RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3):
 
-*The representation of a positive or zero integer value as the
- base64url encoding of the value's unsigned big-endian
- representation as an octet sequence.  The octet sequence MUST
- utilize the minimum number of octets needed to represent the
- value.  Zero is represented as BASE64URL(single zero-valued
- octet), which is "AA".*
+<blockquote>The representation of a positive or zero integer value as the base64url encoding of the value's unsigned big-endian representation as an octet sequence.  The octet sequence **must** utilize the minimum number of octets needed to represent the value.  Zero is represented as BASE64URL(single zero-valued octet), which is "AA".</blockquote>
 
 For example, the value `AQAB` represents 65537.
 
-Use the tool of your choice to generate the public key representation that you'll need to validate the authentication token. Here is an example that uses Python that is based on the cryptography module (which uses OpenSSL as its back-end). This example generates a public key object from a given exponent and modulus directly.
+Use the tool of your choice to generate the public key representation that you will need to validate the authentication token. Here is a Python example based on the cryptography module (which uses OpenSSL as its back-end). This example generates a public key object from a given exponent and modulus directly.
 
 ```python
 from cryptography.hazmat.backends import default_backend
@@ -69,7 +64,7 @@ public_numbers = rsa.RSAPublicNumbers(n=modulus_int, e=exponent_int)
 public_key = public_numbers.public_key(backend=default_backend())
 ```
 
-## Verifying the Authentication Token Using the Public Key
+## Verifying the authentication token using the public key
 This example uses the Python [PyJWT module](https://pyjwt.readthedocs.io/en/latest/), auth token verification, and extraction of the user ID:
 
 ```python
