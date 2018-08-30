@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using the Certificate Authority API
 title: Using the Certificate Authority API
 menuWeight: 500
-excerpt: View the TLS certificates used by DC/OS Enterprise, create Certificate Signing Requests (CSRs), and have the DC/OS CA sign CSRs
+excerpt: Viewing, creating and signing certificates 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -13,15 +13,14 @@ enterprise: true
 
 The DC/OS Certificate Authority API allows you to view the TLS certificates used by DC/OS Enterprise, create Certificate Signing Requests (CSRs), and have the DC/OS CA sign CSRs.
 
-
-# Request and response format
+## Request and response format
 
 The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
 
     Content-Type: application/json
 
 
-# Host name and base path
+## Host name and base path
 
 The host name will vary depending on where your app is running.
 
@@ -35,8 +34,6 @@ Append `/ca/api/v2/` to the host name, as shown below.
 
 
 # Authentication and authorization
-
-## About authentication and authorization
 
 If the endpoint you wish to access requires authentication, you will need an authentication token with one of the following permissions:
 
@@ -76,17 +73,17 @@ Copy the token value and pass it in the `Authorization` field of the HTTP header
 Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg
 ```
 
-### Via curl as a string value
+### Via `curl` as a string value
 
-Using curl, for example, you would pass this value as follows.
+Using `curl`, for example, you would pass this value as follows.
 
 ```bash
 curl -H "Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg"
 ```
 
-### Via curl as a DC/OS CLI variable
+### Via `curl` as a DC/OS CLI variable
 
-You can then reference this value in your curl commands, as shown below.
+You can then reference this value in your `curl` commands, as shown below.
 
 ```bash
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"

@@ -23,9 +23,13 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
     ![Services Create Group](/1.11/img/service-group1.png)
 
+    Figure 1. Create Group page
+
     In this example a group called `prod-a` and a group called `prod-b` are created. After the groups are created you should see two folders. This is where you will deploy services for the user groups and set the permissions for each unit.
 
     ![Group folders](/1.11/img/service-group2.png)
+
+    Figure 2. New groups folders
 
 1.  Create your users and groups and define the required permissions for each group.
 
@@ -33,9 +37,13 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
         ![Create user Cory](/1.11/img/service-group3.png)
 
-        When you're done you should see the two users.
+        Figure 3. Creating a new user
+
+        When you are finished, you should see the two users.
 
         ![All users](/1.11/img/service-group4.png)
+
+        Figure 4. New users in Users page
 
         Next we will create the groups and assign permissions to the DC/OS services.
 
@@ -47,6 +55,8 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
         - `prod-b-group` for managing the DC/OS services for user Nick.
 
         ![prod-a group](/1.11/img/service-group5.png)
+
+        Figure 5. Creating a new group
 
 ## Define the permissions
 
@@ -71,9 +81,13 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
     ![prod-a-group](/1.11/img/service-group7.png)
 
-    Here's what the permissions view should look like after adding:
+    Figure 6. Adding permissions for 'prod-a-group'
+
+    Here is what the permissions view should look like after adding:
 
     ![prod-a-group](/1.11/img/service-group8.png)
+
+    Figure 7. Group permissions added
 
 1.  Add each of these permissions for the prod-b-group and click **Close**.
 
@@ -94,20 +108,25 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
     ![prod-a-group](/1.11/img/service-group9.png)
 
+    Figure 8. Add user to group
+
 1.  Select **Organization > Users** and select **Nick**.
 
 1.  Select **Group Membership** and then type `prod-bgroup` in the search box, then click to select.
 
 
-## Log in to the DC/OS GUI as user
+## Log in to the DC/OS web interface as user
 
-1.  Log in as Cory to the DC/OS GUI. You can see that user Cory only has access to the **Services** and **Universe** tabs. Also, Cory can only see the **prod-a** services.
+1.  Log in as Cory to the DC/OS web interface. You can see that user Cory only has access to the **Services** and **Universe** tabs. Also, Cory can only see the **prod-a** services.
 
-    **Tip:** To log out of the current user, click on the cluster name in the top-left and select **Sign Out**.
 
     ![prod-a-group](/1.11/img/service-group10.png)
 
-    Let’s deploy an NGINX service to prod-a-group.
+    Figure 9. Restricted view
+
+    **Note:** To log out of the current user, click on the cluster name in the top-left and select **Sign Out**.
+
+    We will deploy an NGINX service to `prod-a-group`.
 
 1.  Select **Services > Services** and the click the plus sign (**+**) to deploy a service.
 
@@ -198,6 +217,9 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
         ![JSON view](/1.11/img/service-group15.png)
 
+        Figure 10. View of JSON file
+
+
     1.  Click **REVIEW & RUN** and then **RUN SERVICE**.
 
 1.  Repeat the previous steps for Nick. Be sure to specify `"id": "/prod-b/nginx",` for example:
@@ -216,15 +238,19 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
     }
     ```
 
-1.  While logged in as Cory or Nick, click on the NGINX launch icon to view the success message.
+1.  While logged in as Cory or Nick, click on the NGINX launch icon to view the confirmation message.
 
     ![NGINX](/1.11/img/service-group-nginx.png)
 
-Now let’s look at the **Services** tab from the superuser view.
+    Figure 11. Confirmation screen
+
+Now we will look at the **Services** tab from the superuser view.
 
 
-## Monitor user accounts in the DC/OS GUI as superuser
+## Monitor user accounts in the DC/OS web interface as superuser
 
 1.  Log out of the current user and then back in as a user with [superuser](/1.11/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the prod-a and prod-b-groups.
 
     ![prod-a-group](/1.11/img/service-group14.png)
+
+    Figure 12. Superuser view

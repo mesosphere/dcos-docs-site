@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Specifying Authentication and Parameters
-title: Specifying Authentication and Parameters
+navigationTitle:  Authentication
+title: Authentication
 menuWeight: 2
 excerpt: Specifying authentication method and parameters for your LDAP directory
 enterprise: true
@@ -21,7 +21,7 @@ In this section you will set up the authentication method and parameters for you
         uid=read-only-user,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org
         uid=read-only-user,ou=users,dc=example,dc=com
 
-  **Tip:** We recommend a read-only user account.
+  **Note:** We recommend a read-only user account.
 
 1. Provide the password of the account in the **Lookup Password** field.
 
