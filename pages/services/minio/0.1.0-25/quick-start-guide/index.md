@@ -23,15 +23,13 @@ menuWeight: 15
 Minio can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
 
 ```bash
-dcos package install minio
+dcos package install miniod 
 ```
 Below are the steps to install Minio using the DC/OS Catalog Web Interface:
 
 [<img src="../img/Catalog_Service_View.png" alt="Catalog Service View"/>](../img/Catalog_Service_View.png)
 
 [<img src="../img/Node_Count1.png" alt="Node Count"/>](../img/Node_Count1.png)
-
-[<img src="../img/Port_Change1.png" alt="Port Configure"/>](../img/Port_Change1.png)
 
 [<img src="../img/Running_Stage1.png" alt="Running Stage"/>](../img/Running_Stage1.png)
 
@@ -93,7 +91,7 @@ https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-p
         "endpoint": {
           "type": "ADDRESS",
           "address": "miniod.miniodemo.l4lb.thisdcos.directory",
-          "port": 9001
+          "port": 9000
         }
       }]
     },
@@ -173,7 +171,7 @@ Example with TLS:
         "endpoint": {
           "type": "ADDRESS",
           "address": "miniod.miniodemo.l4lb.thisdcos.directory",
-          "port": 9001
+          "port": 9000
         }
       }]
     },
