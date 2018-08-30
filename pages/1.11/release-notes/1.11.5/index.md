@@ -32,7 +32,7 @@ DC/OS 1.11.5 was released on September 4, 2018.
 
 ## Mesos
 - COPS-3616/DCOS-39973/DCOS-40162 - Fix container launch failures that occurred due to Mesos-bridge running out of IPs.
-- DCOS-38225 - Prevent task loss by fixing error handling failures of Mesos-IAM interaction.
+- DCOS-38225 - Prevent task loss by fixing error handling failures of Mesos-IAM interaction. [enterprise type="inline" size="small" /]
 - DCOS-40410 - Bump Mesos to nightly [1.5.x eacabd7](https://github.com/mesosphere/mesos/blob/eacabd7/CHANGELOG).
 
 ## Networking
@@ -48,7 +48,7 @@ DC/OS 1.11.5 was released on September 4, 2018.
 - COPS-3568/DCOS-39883 - Add permissions to `dcos_diagnostics_master` to read marathon state.
 - COPS-3658/DCOS-21258 - Remove `dcos-history-service`from UI. 
 - DCOS-22194 - Fix `dcos-metrics` pkgpanda build to utilize Docker. 
-- DCOS-37454 - Fix prometheus inconsistent output with stored metrics.
+- DCOS-37454 - Fix Prometheus inconsistent output with stored metrics.
 
 [enterprise]
 ## Security
