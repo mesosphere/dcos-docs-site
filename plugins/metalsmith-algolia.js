@@ -161,8 +161,7 @@ const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
 // Build a sorted map that ranks semver
 const buildSemverMap = (files, skipSections, renderPathPattern) => {
 
-  const versions = {
-    services: [],
+  const services = {
     dcos: [],
   };
 
@@ -184,45 +183,37 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
     const pathParts = file.split('/');
     if (inExcludedSection(file, skipSections, renderPathPattern)) {
       continue;
-    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.services.indexOf(pathParts[2]) === -1) {
-      versions.services.push(pathParts[2]);
-    } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.dcos.indexOf(pathParts[0]) === -1) {
-      versions.dcos.push(pathParts[0]);
+    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2])) {
+      if (!services[pathParts[1]]) {
+        services[pathParts[1]] = [];
+      }
+      const serviceVersions = services[pathParts[1]];
+      if (serviceVersions.indexOf(pathParts[2]) === -1) {
+        serviceVersions.push(pathParts[2]);
+      }
+    } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && services.dcos.indexOf(pathParts[0]) === -1) {
+      services.dcos.push(pathParts[0]);
     }
   }
 
-  // Clean versions
-  const versionsCleaned = {
-    services: versions.services.map(cleanVersion),
-    dcos: versions.dcos.map(cleanVersion),
-  };
-
-  // Sort versions
-  const versionsSorted = {
-    services: semverSort.desc(versionsCleaned.services),
-    dcos: semverSort.desc(versionsCleaned.dcos),
-  };
-
-  // Map
   const map = {};
+  console.log(services);
+  Object.keys(services).forEach((service) => {
+    const serviceVersions = services[service];
+    const versionsCleaned = serviceVersions.map(cleanVersion);
+    const versionsSorted = semverSort.desc(versionsCleaned);
 
-  versions.services.forEach((version) => {
-    const cv = cleanVersion(version);
-    const weight = versionsSorted.services.indexOf(cv);
-    map[version] = {
-      version: cv,
-      weight,
-    };
+    serviceVersions.forEach((version) => {
+      const cv = cleanVersion(version);
+      const weight = versionsSorted.indexOf(cv);
+
+      map[version] = {
+        version: cv,
+        weight,
+      };
+    });
   });
 
-  versions.dcos.forEach((version) => {
-    const cv = cleanVersion(version);
-    const weight = versionsSorted.dcos.indexOf(cv);
-    map[version] = {
-      version: cv,
-      weight,
-    };
-  });
   return map;
 };
 
