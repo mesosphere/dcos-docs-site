@@ -8,11 +8,16 @@ beta: true
 enterprise: true
 ---
 
-Installing DC/OS Package Registry CLI
+# Installing DC/OS Package Registry CLI
+
 Installing the DC/OS Package Registry also installs the CLI for it (dcos registry). The CLI can be installed again with:
 
+```bash
 dcos package install package-registry --cli
+```
+
 Downloading Packages
+
 For a list of DC/OS Packages supported by the DC/OS Package Registry see here. To download a version of Jenkins:
 
 wget https://downloads.mesosphere.com/universe/packages/jenkins/3.4.0-2.89.2/jenkins-3.4.0-2.89.2.dcos
