@@ -1,15 +1,18 @@
 ---
-post_title: Quick Start
-menu_order: 40
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: Quick Start
+excerpt: Configuring percona-pxc-mysql - Quick Start
+title: Quick Start
+menuWeight: 15
 ---
 
-# Prerequisite
+# How to use percona-pxc-mysql with DC/OS
+
+## Prerequisite
 
 - DC/OS should be installed on your cluster.
 
-# Steps
+## Install
 
 If you are using open source DC/OS, install percona-pxc-mysql on the cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
