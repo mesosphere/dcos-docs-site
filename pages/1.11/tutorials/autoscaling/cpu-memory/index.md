@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Autoscaling Marathon services using CPU and memory
-title: Tutorial - Autoscaling Marathon services using CPU and memory
+navigationTitle:  CPU and memory
+title: Tutorial - Autoscaling services using CPU and memory
 menuWeight: 0
 excerpt: Autoscaling Marathon services using CPU and memory
 
@@ -9,24 +9,22 @@ enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
-A Python service, `marathon-autoscale.py`, autoscales your Marathon application based on the utilization metrics which Mesos reports. You can run this service from within your DC/OS cluster. `marathon-autoscale.py` is intended to demonstrate what is possible when you run your services on DC/OS.
-
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+
+You can use a Python service, `marathon-autoscale.py`, to autoscale your Marathon application based on the utilization metrics which Mesos reports. You can run this service from within your DC/OS cluster. `marathon-autoscale.py` is intended to demonstrate what is possible when you run your services on DC/OS.
 
 Periodically, `marathon-autoscale.py` will monitor the aggregate CPU and memory utilization for all tasks that make up the specified Marathon service. When your threshold is hit, `marathon-autoscale.py` will increase the number of tasks for your Marathon service.
 
 **Prerequisites**
 
 *   A [running DC/OS cluster][1].
-*   A service running on Marathon that you'd like to autoscale.
+*   A service running on Marathon that you want to autoscale.
 *   Python 3
 *   Git:
     *   **macOS:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
     *   **Unix/Linux:** See these [installation instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-# Install the Autoscale App on a Node
+# Install the Marathon Autoscale app on a node
 
 SSH to the system where you will run `marathon-autoscale.py` and install it.
 
@@ -36,7 +34,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
 
-    **Tip:** Run `dcos node` to get the available node IDs.
+    **Note:** Run `dcos node` to get the available node IDs.
 
 1.  Clone the [autoscale][13] GitHub repository to your node.
 
@@ -44,7 +42,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
     git clone https://github.com/mesosphere/marathon-autoscale.git
     ```
 
-# Run the Autoscale App
+# Run the Autoscale app
 
 1.  Navigate to the `marathon-autoscale` repository:
 

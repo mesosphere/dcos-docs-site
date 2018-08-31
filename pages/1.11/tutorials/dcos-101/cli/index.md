@@ -1,24 +1,22 @@
 ---
 layout: layout.pug
-excerpt: Part 1 of the DC/OS 101 tutorial
+excerpt: Part 1 - First Steps
 title: Tutorial - First Steps
 navigationTitle: First Steps
 menuWeight: 1
 ---
 
-Welcome to part 1 of the DC/OS 101 Tutorial
-
 <table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
+
+
+Welcome to part 1 of the DC/OS 101 Tutorial.
 
 # Prerequisites
 To get started with this tutorial, you should have access to a running DC/OS cluster with at least a single master node and 3 agent nodes (of which one is a public agent node). If you don't have these requirements set up, please follow the [setup instructions](/1.11/installing/) for various cloud providers, on-premise, or vagrant setups.
-If you are unsure which option to choose, then we recommend using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">AWS templates</a>.
-
-**Note**: For this tutorial a setup with a single master node is sufficient, but for running production workloads you should have multiple master nodes.
+If you are unsure which option to choose, then we recommend using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">AWS templates</a>. For this tutorial a setup with a single master node is sufficient, but for running production workloads you should have multiple master nodes.
 
 # Objective
-You have access to your cluster and have already taken a first look at the GUI. You can also access the cluster from your local machine via the DC/OS CLI.
-By the end of this section you will have installed the DC/OS CLI and used it to explore your cluster.
+You have access to your cluster and have already taken a first look at the GUI. You can also access the cluster from your local machine via the DC/OS CLI. By the end of this section you will have installed the DC/OS CLI and used it to explore your cluster.
 
 # Steps
   * Install the DC/OS CLI
