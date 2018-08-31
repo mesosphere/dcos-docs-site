@@ -109,7 +109,6 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
       const transform = (content) => {
         let replacedContent = content;
-        console.log(content);
         Object.keys(transformations).forEach((htmlEntity) => {
           const replacement = transformations[htmlEntity];
           const htmlEntRegex = new RegExp(htmlEntity, 'g');
