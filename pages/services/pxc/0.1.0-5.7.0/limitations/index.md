@@ -36,14 +36,3 @@ When the service is deployed on a virtual network, the service may not be switch
 
 Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is possible to use these environment variables in ad hoc scripts (e.g. via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
 
-## Configurations
-
-The “disk” configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated “disk” configuration. See the Configuring section for instructions for customizing these values.
-
-## Legacy user support
-
-Legacy authorized users files are not supported.
-
-## LDAP integration, OpenID Connect and Apache Knox
-
-LDAP integration, OpenID Connect and Apache Knox are not supported.
