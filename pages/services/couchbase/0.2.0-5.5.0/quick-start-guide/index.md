@@ -6,30 +6,35 @@ title: Quick Start
 menuWeight: 15
 ---
 
-This section gives a quick end 2 end tour on how to configure and use Couchbase with DC/OS.
-
+This section gives a quick end 2 end tour on how to configure and use Couchbase Server and Couchbase Sync Gateway with DC/OS.
 
 
 # How to use Couchbase with DC/OS
 
 ## Prerequisites
 
-* A running DC/OS 1.11 cluster
+* A running DC/OS 1.10 or 1.11 cluster
 
 ## Install
 
-Couchbase can be installed via either the DC/OS Catalog UI or by using the CLI. The following command will launch the install via the DC/OS CLI:
+Couchbase can be installed via either the DC/OS Catalog UI or by using the CLI.
+
+
+The following command will launch the install via the DC/OS CLI:
 
 ```bash
 dcos package install couchbase
 ```
 
+If you do it via the DC/OS Catalog UI hit `Review & Run`.
+
 [<img src="/services/couchbase/0.2.0-5.5.0/img/couch_install.png" alt="Couchbase Install"/>](/services/couchbase/0.2.0-5.5.0/img/couch_install.png)
 
-In either case a default cluster will only come up with two data nodes. You need to change the configuration to also bring up index, query and full text search nodes.
+In either case a default cluster will come up with two data nodes.
 
-For a couchbase cluster with 2 data node, 1 index node, 1 query node, and 1 full text search node you need a dc/os cluster with 5 private agents.
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_install_finished.png" alt="Couchbase Install Finished"/>](/services/couchbase/0.2.0-5.5.0/img/couch_install_finished.png)
 
+You need to change the configuration to also bring up index, query, full text search, eventing, and analytics nodes.
 
 ## Accessing the Console
 
@@ -45,7 +50,7 @@ Using the mesos-id create a ssh localhost tunnel.
 $ dcos node ssh --master-proxy --mesos-id=... --option LocalForward=8091=localhost:8091
 ```
 
-Now go to your browser and enter localhost:8091. When prompted for credentials enter Administrator / password.
+Now go to your browser and enter localhost:8091. When prompted for credentials enter the default ones Administrator / password.
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/couch_creds.png" alt="Couchbase Creds"/>](/services/couchbase/0.2.0-5.5.0/img/couch_creds.png)
 
@@ -63,20 +68,9 @@ You need to go and edit the configuration of your couchbase service, and increas
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/couch_edit.png" alt="Couchbase Edit configuration"/>](/services/couchbase/0.2.0-5.5.0/img/couch_edit.png)
 
-A 3rd node gets added with a pending rebalance.
+A 3rd node gets added and an automatic rebalance takes place.
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/couch_3.png" alt="Couchbase 3rd"/>](/services/couchbase/0.2.0-5.5.0/img/couch_3.png)
-
-You can rebalance by clicking the button in the couchbase console, or you can use the following dc/os cli command
-
-```bash
-$ dcos couchbase plan start rebalance
-```
-
-Voila we have a three data node cluster.
-
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_cluster.png" alt="Couchbase cluster"/>](/services/couchbase/0.2.0-5.5.0/img/couch_cluster.png)
-
 
 ## Adding a Sync Gateway Node
 
@@ -86,59 +80,44 @@ First some prep before we create the sync gateway node. Create a bucket named �
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/data_bucket.png" alt="Data Bucket"/>](/services/couchbase/0.2.0-5.5.0/img/data_bucket.png)
 
-Next create a user ‘todo’ with password ‘todo188’.
+Next create a user ‘todo’ with password ‘todo188’, and give that user access to the ‘todo’ bucket.
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/add_user.png" alt="Add User"/>](/services/couchbase/0.2.0-5.5.0/img/add_user.png)
 
-Followed by giving the ‘todo’ user access to the ‘todo’ bucket.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/new_user.png" alt="New User"/>](/services/couchbase/0.2.0-5.5.0/img/new_user.png)
+We will use the following sync gateway configuration.
 
-Next use the dc/os console to create a secret with the id *couchbase/sync-gateway*, and the following json as value. This is the config json used by the sync gateway.
-
-```json
-{
-  "interface": "0.0.0.0:4984",
-  "adminInterface": "0.0.0.0:4985",
-  "log": [
-    "*"
-  ],
-  "databases": {
-    "todo": {
-      "server": "http://data.couchbase.l4lb.thisdcos.directory:8091",
-      "bucket": "todo",
-      "username": "todo",
-      "password": "todo188",
-      "users": {
-        "GUEST": {
-          "disabled": false,
-          "admin_channels": [
-            "*"
-          ]
-        }
-      }
-    }
-  },
-  "CORS": {
-    "Origin": [
-      "*"
-    ],
-    "LoginOrigin": [
-      "*"
-    ],
-    "Headers": [
-      "Content-Type"
-    ],
-    "MaxAge": 1728000
-  }
-}
+```yml
+CORS:
+    Headers:
+    - Content-Type
+    LoginOrigin:
+    - '*'
+    MaxAge: 1728000
+    Origin:
+    - '*'
+adminInterface: 0.0.0.0:4985
+databases:
+    todo:
+        bucket: todo
+        password: todo188
+        server: http://data.couchbase.l4lb.thisdcos.directory:8091
+        username: todo
+        users:
+            GUEST:
+                admin_channels:
+                - '*'
+                disabled: false
+interface: 0.0.0.0:4984
+log:
+- '*'
 ```
 
-Now we are ready to add a sync gateway node to our couchbase service.
+Now we are ready to add a sync gateway node to our couchbase service. Note that the former yml is already set as the default.
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/edit_conf.png" alt="Edit Configuration"/>](/services/couchbase/0.2.0-5.5.0/img/edit_conf.png)
 
-Create a file named todo.json, with the following content. This is the pouchdb getting started app that accesses the sync gateway.
+Next create a file named todo.json, with the following content. This is the pouchdb getting started app that accesses the sync gateway.
 
 
 ```json
@@ -234,7 +213,7 @@ Now everything is in place.
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/running.png" alt="running"/>](/services/couchbase/0.2.0-5.5.0/img/running.png)
 
-Get the public ip of your dc/os public agent, and enter the following in your browser http://<public-ip>:8000 .
+Get the public ip of your dc/os public agent, and enter the following in your browser http://public-ip:8000 .
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/todos.png" alt="todos"/>](/services/couchbase/0.2.0-5.5.0/img/todos.png)
 
