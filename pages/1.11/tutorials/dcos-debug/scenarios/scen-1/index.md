@@ -18,11 +18,13 @@ For this first scenario, deploy [this app definition](https://raw.githubusercont
 $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json
 ```
 
-Check the application status using the DC/OS GUI, you should see something like the following:
+Check the application status using the DC/OS web interface, you should see something like the following:
 
-![Pic of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-14.png)
+![Pic of web interface](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-14.png)
 
-With the status of the application most likely to be “Waiting” followed by some number of thousanths “x/1000”. "Waiting" refers to the overall application status and the number; "x" here represents how many instances have successfully deployed (6 in this example).
+Figure 1. DC/OS web interface showing app status
+
+with the status of the application most likely to be “Waiting” followed by some number of thousandths “x/1000”. "Waiting" refers to the overall application status and the number; "x" here represents how many instances have successfully deployed (6 in this example).
 
 You can also check this status from the CLI:
 
@@ -62,15 +64,21 @@ If we look at the DC/OS dashboard, we should see a pretty high CPU allocation si
 
 ![Pic of CPU Allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-20.png)
 
-Since we are not yet at 100% allocation, but we are still waiting to deploy, something interesting is going on. So let’s look at the recent resource offers in the debug view of the DC/OS GUI.
+Figure 2. DC/OS resource allocation display
 
-![Pic of relevant instance of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+Since we are not yet at 100% allocation, but we are still waiting to deploy, something interesting is going on. So let’s look at the recent resource offers in the debug view of the DC/OS web interface.
+
+![Pic of relevant instance of web interface](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+
+Figure 3. Recent resource offers
 
 We can see that there are no matching CPU resources. But again, the overall CPU allocation is only at 75%. Further puzzling, when we take a look at the 'Details' section further below, we see that the latest offers from a different host match the resource requirements of our application. So, for example, the first offer coming from host `10.0.0.96` matched the role, constraint (not present in this `app-definition`) memory, disk, port resource requirements --- but failed the CPU resource requirements. The offer before this also seemed like it should have met the resource requirements. **So despite it looking like we have enough CPU resources available, the application seems to be failing for just this reason**.
 
 Let's look at the 'Details' more closely.
 
 ![Pic of details](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-22.png)
+
+Figure 4. Rsource allocation details
 
 Interesting. According to this, some of the remaining CPU resources are allocated to a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application (it runs in role '*', the default role).
 

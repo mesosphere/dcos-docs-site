@@ -1,14 +1,15 @@
 ---
 layout: layout.pug
-excerpt: Part 4 of the DC/OS 101 tutorial
+excerpt: Part 4  - Connecting Apps/Service Discovery
 title: Tutorial - Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
 menuWeight: 4
 ---
 
+<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
+
 Welcome to part 4 of the DC/OS 101 Tutorial
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
 
 # Prerequisites
 * A [running DC/OS cluster](/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.11/tutorials/dcos-101/cli/).
@@ -39,7 +40,7 @@ SSH into the Mesos master node in your cluster to see how these different servic
 
   The default scheduler for jobs is [Marathon](/1.11/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
 
-  Let's use the [dig](https://linux.die.net/man/1/dig) command to retrieve the address record (also called the A record). Dig is a command line utility to query DNS servers. When used without argument, it will use the system-wide configured DNS servers to query against, which in a DC/OS cluster is configured to point at Mesos-DNS:
+  We will use the [dig](https://linux.die.net/man/1/dig) command to retrieve the address record (also called the A record). Dig is a command line utility to query DNS servers. When used without argument, it will use the system-wide configured DNS servers to query against, which in a DC/OS cluster is configured to point at Mesos-DNS:
 
   `dig redis.marathon.mesos`
 
@@ -72,15 +73,14 @@ SSH into the Mesos master node in your cluster to see how these different servic
 
 # Named Virtual IPs
 
-  * [Named VIPs](/1.11/networking/load-balancing-vips/) allow you to assign name/port pairs to your apps, which means you can give your apps meaningful names with a predictable port. They also provide built-in load balancing when using multiple instances of an application.
-  For example, you can assign a named VIP to your Redis service by adding the following to the package definition:
+  * [Named VIPs](/1.11/networking/load-balancing-vips/) allow you to assign name/port pairs to your apps, which means you can give your apps meaningful names with a predictable port. They also provide built-in load balancing when using multiple instances of an application. For example, you can assign a named VIP to your Redis service by adding the following to the package definition:
 
   ```
   "VIP_0": "/redis:6379"
   ```
 
   The full name is then generated using the following schema:
-  *vip-name.scheduler.l4lb.thisdcos.directory:vip-port*.
+  vip-name.scheduler.l4lb.thisdcos.directory:vip-port
 
   As we can see from the example [application](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py), this is the mechanism used by the redis package, and so you can access the Redis service from within the cluster at `redis.marathon.l4lb.thisdcos.directory:6379`.
 

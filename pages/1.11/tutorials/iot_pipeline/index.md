@@ -6,13 +6,14 @@ menuWeight: 3
 excerpt: Tutorial - Building a complete load-balanced data pipeline on DC/OS
 
 ---
-This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes!
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
+This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes!
+
 # Overview
 
-In this tutorial you install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.
+In this tutorial you will install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.
 
 You will learn:
 
@@ -25,7 +26,7 @@ You will learn:
 This tutorial uses DC/OS to launch and deploy these microservices to your cluster:
 
 ### Cassandra
-The [Cassandra][1] database is used on the backend to store the Tweeter app data.
+The [Cassandra][1] database is used on the back-end to store the Tweeter app data.
 
 ### Kafka
 The [Kafka][2] publish-subscribe message service receives tweets from Cassandra and routes them to Zeppelin for real-time analytics.
@@ -34,24 +35,20 @@ The [Kafka][2] publish-subscribe message service receives tweets from Cassandra 
 [Marathon-LB][12] is an HAProxy based load balancer for Marathon only. It is useful when you require external routing or layer 7 load balancing features.
 
 ### Zeppelin
-[Zeppelin][4] is an interactive analytics notebook that works with DC/OS Spark on the backend to enable interactive analytics and visualization. Because it's possible for Spark and Zeppelin to consume all of your cluster resources, you must specify a maximum number of cores for the Zeppelin service.
+[Zeppelin][4] is an interactive analytics notebook that works with DC/OS Spark on the back-end to enable interactive analytics and visualization. Because it is possible for Spark and Zeppelin to consume all of your cluster resources, you must specify a maximum number of cores for the Zeppelin service.
 
 ### Tweeter
 Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/OS Kafka service in real-time, and performs real-time analytics with the DC/OS [Spark][3] and Zeppelin services.
-
-The following graphic illustrates the data flow:
-
-![data flow](/1.10/img/lb-data-pipeline.png)
 
 # Prepare and deploy Tweeter on DC/OS Cluster
 
 ## Prerequisites
 
-*  [DC/OS](/1.10/installing/oss/) or [DC/OS Enterprise](/1.10/installing/ent/) installed with at least 5 [private agents][6] and 1 [public agent][6].
+*  [DC/OS](/1.11/installing/) or [DC/OS Enterprise](/1.11/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
 
-    **Tip** If you are running this tutorial using a DC/OS Enterprise cluster, you will want to make sure [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is set to permissive or strict. DC/OS installs in permissive security mode by default.
+   If you are running this tutorial using a DC/OS Enterprise cluster, you will want to make sure [security mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is set to permissive or strict. DC/OS installs in permissive security mode by default.
 
-*  [DC/OS CLI](/1.10/cli/install/) installed.
+*  [DC/OS CLI](/1.11/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:
     *   **macOS:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
@@ -59,9 +56,7 @@ The following graphic illustrates the data flow:
 
 ## Install DC/OS services
 
-In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**Catalog**](/1.10/gui/catalog/) tab.
-
-**Tip:** You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
+In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**Catalog**](/1.11/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
 1.  Find and click the **cassandra** package, click **REVIEW & RUN**, and accept the default installation, by clicking **REVIEW & RUN** again, then **RUN SERVICE**. Cassandra spins up to 3 nodes. When prompted by the modal alert, click **OPEN SERVICE**.
 
@@ -69,7 +64,7 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
-**Tip** If you are having trouble with getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/mlb-auth/). Depending on your [security mode](/1.10/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
+If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/mlb-auth/). Depending on your [security mode](/1.11/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
 4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
@@ -77,7 +72,9 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 5.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
-    ![Services tab with all services shown.](/1.10/img/tweeter-services6.png)
+    ![Services tab with all services shown.](/1.11/img/tweeter-services6-ee.png)
+
+    Figure 1. Services tab showing Tweeter services 
 
 ## Deploy the containerized app
 
@@ -117,7 +114,7 @@ In this step you deploy the containerized Tweeter app to a public node.
     dcos marathon app add tweeter.json
     ```
 
-    **Tip:** The `instances` parameter in `tweeter.json` specifies the number of app instances. Use the following command to scale your app up or down:
+    The `instances` parameter in `tweeter.json` specifies the number of app instances. Use the following command to scale your app up or down:
 
     ```bash
     dcos marathon app update tweeter instances=<number_of_desired_instances>
@@ -127,11 +124,15 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 4.  Go to the **Services** tab to verify your app is up and healthy.
 
-    ![Tweeter deployed](/1.10/img/tweeter-services7.png)
+    ![Tweeter deployed](/1.11/img/tweeter-services7.png)
 
-5.  Navigate to the [public agent][9] node endpoint to see the Tweeter UI and post a tweet. In this example, you would point the browswer at `52.34.136.22`.
+    Figure 2. Tweeter deployed
+
+5.  Navigate to the [public agent][9] node endpoint to see the Tweeter UI and post a tweet. In this example, you would point the browser at `52.34.136.22`.
 
     ![Tweeter][14]
+
+    Figure 3. "Hello world" tweet
 
 ## Post 100K tweets
 
@@ -145,13 +146,13 @@ In this step you deploy an app that automatically posts a large number of tweets
     dcos marathon app add post-tweets.json
     ```
 
-3.  After the `post-tweets.json` is running:
+3.  After the `post-tweets.json` is running, refresh your browser to see the incoming Shakespeare tweets.
 
-    *  Refresh your browser to see the incoming Shakespeare tweets.
+    ![Shakespeare tweets](/1.11/img/tweeter-shakespeare.png)
 
-        ![Shakespeare tweets](/1.10/img/tweeter-shakespeare.png)
+    Figure 4. Shakespeare tweets
 
-The post-tweets app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition.
+The `post-tweets` app works by streaming to the VIP `1.1.1.1:30000`. This address is declared in the `cmd` parameter of the `post-tweets.json` app definition.
 
 ```json
 {
@@ -176,19 +177,19 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 ...
 ```
 
-**Tip** If you are using a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
+If you are using a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
 
 ![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
 
+Figure 5. Scaled tweets
+
 ## Add streaming analytics
 
-In this last step, you'll perform real-time analytics on the stream of tweets coming in from Kafka.
+In this last step, youv will perform real-time analytics on the stream of tweets coming in from Kafka.
 
 1. Navigate to the [Tweeter](https://github.com/mesosphere/tweeter/) GitHub repository and save the `tweeter/post-tweets.json` Marathon app definition file.
 
-2. Navigate to Zeppelin at `https://<master_ip>/service/zeppelin/`.
-
-   **Tip:** Your master IP address is the URL of the DC/OS web interface.
+2. Navigate to Zeppelin at `https://<master_ip>/service/zeppelin/`.  Your master IP address is the URL of the DC/OS web interface.
 
 3. Click **Import Note** and import `tweeter-analytics.json`. Zeppelin is preconfigured to execute Spark jobs on the DC/OS cluster, so there is no further configuration or setup required. Be sure to use `https://`, not `http://`.
 
@@ -202,19 +203,19 @@ In this last step, you'll perform real-time analytics on the stream of tweets co
 
 ![Top Tweeters][16]
 
+Figure 6. Top Tweeters
+
+
+
  [1]: /services/cassandra/
  [2]: /services/kafka/
  [3]: /services/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: /1.10/overview/concepts/
- [7]: /1.10/installing/cloud/
- [8]: /1.10/installing/ent/custom/
- [9]: /1.10/administering-clusters/locate-public-agent/
- [10]: /1.10/img/webui-universe-install.png
- [11]: /1.10/cli/command-reference/
+ [6]: /1.11/overview/concepts/
+ [9]: /1.11/administering-clusters/locate-public-agent/
+ [11]: /1.11/cli/command-reference/
  [12]: /services/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
- [14]: /1.10/img/tweeter.png
- [15]: /1.10/img/network-tab.png
- [16]: /1.10/img/top-tweeters.png
+ [14]: /1.11/img/tweeter.png
+ [16]: /1.11/img/top-tweeters.png

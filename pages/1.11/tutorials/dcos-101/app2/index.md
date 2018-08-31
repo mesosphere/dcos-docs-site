@@ -1,14 +1,16 @@
 ---
 layout: layout.pug
-excerpt: Part 5 of the DC/OS 101 tutorial
+excerpt: Part 5  - Deploying native applications
 title: Tutorial -  Deploying native applications
 navigationTitle: Native Applications
 menuWeight: 5
 ---
 
+<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
+
+
 Welcome to part 5 of the DC/OS 101 Tutorial
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
 
 # Prerequisites
 * A [running DC/OS cluster](/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.11/tutorials/dcos-101/cli/).
