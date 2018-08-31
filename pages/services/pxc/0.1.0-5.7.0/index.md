@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: percona-pxc-mysql 0.1.0-5.7.2.1
-title: Prometheus 0.1.1-2.3.2
+navigationTitle: percona-pxc-mysql 0.1.0-5.7.21
+title: percona-pxc-mysql 0.1.0-5.7.21
 menuWeight: 50
-excerpt: Overview of DC/OS percona-pxc-mysql 0.1.0-5.7.2.1
+excerpt: Overview of DC/OS percona-pxc-mysql 0.1.0-5.7.21
 featureMaturity:
 enterprise: false
 ---
@@ -13,10 +13,10 @@ DC/OS Prometheus Service is an automated service that makes it easy to deploy an
 ## Benefits
 DC/OS percona-pxc-mysql offers the following benefits :
 1. Designed for reliability
-2. Easily configurable to support all Prometheus design patterns
-3. Auto self health monitoring with provision for corrective action
-4. Flexible design to suit design requirement (with/without Alertmanager)
-5. Supports wide range of integration for data collection,persistence, notification and dashboarding
+2. Easily configurable to support all percona-pxc-mysql design patterns
+3. Provides self health monitoring
+4. Flexible design to suit design requirement (with/without SSL or PAM authentication)
+5. Supports wide range of integration for data collection and persistence
 
 DC/OS Prometheus's main features are:
 1. Multi-dimensional data model with time series data identified by metric name and key/value pairs
