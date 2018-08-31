@@ -10,6 +10,23 @@ render: mustache
 
 #include /services/include/operations.tmpl
 
+## More on POD Replace
+
+If a couchbase server node becomes unresponsive you need to `failover` to the remaining healthy nodes. Failover can be initiated via the couchbase console or cli. You can also configure auto failover. More information on couchbase failover you can find [here](https://developer.couchbase.com/documentation/server/current/clustersetup/failover.html)
+
+After `failover` a `rebalance` needs to be initiated. Rebalance can be initiated via the couchbase console or cli. The rebalance will remove the unresponsive node from the cluster and distribute the data even across the remaining nodes.
+
+Next you use the couchbase service `replace` command to permanently replace the unresponsive node with a new one using the following command. More on replace you can find [here]() and [here]().
+
+```
+dcos couchbase pod replace <pod-name>
+```
+
+Replace will create the new node and add it to the couchbase cluster, except node `data-0` which will be created but has to be added via the couchbase console or cli to the couchbase cluster. If multiple nodes have to be replaced and data-0 is amongst them always start with data-0.
+
+After a node is replaced again a `rebalance` is necessary.
+
+
 ## Backup & Restore
 
 For backup and restore we leverage the `cbbackupmgr` tool that comes with couchbase enterprise.
