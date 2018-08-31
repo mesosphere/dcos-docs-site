@@ -14,6 +14,9 @@ DC/OS 1.11.5 was released on September 4, 2018.
 
 # Issues Fixed in DC/OS 1.11.5
 
+## Customer Advisory
+
+
 ## Front End
 - COPS-3051/DCOS-39662 - Fix deployment state in Marathon-LB debug page.
 - COPS-3573/DCOS-39720 - Enable service endpoints on UCR.
