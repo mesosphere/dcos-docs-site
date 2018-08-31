@@ -1,0 +1,19 @@
+# Common values:
+
+packageName: percona-pxc-mysql
+serviceName: percona-pxc-mysql
+techName:  percona-pxc-mysql
+techShortName: percona-pxc-mysql
+
+# Values specific to certain templates:
+
+operations:
+  complete-deploy: |
+    deploy (parallel strategy) (COMPLETE)
+    ├─ alertmanager (serial strategy) (COMPLETE)
+    │  └─ alertmanager-0:[server] (COMPLETE)
+    ├─ prometheus (serial strategy) (COMPLETE)
+    │  ├─ prometheus-0:[server] (COMPLETE)
+    │  └─ prometheus-0:[agent-discovery] (COMPLETE)
+    └─ pushgateway (serial strategy) (COMPLETE)
+       └─ pushgateway-0:[server] (COMPLETE)
