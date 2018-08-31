@@ -18,10 +18,11 @@ DC/OS percona-pxc-mysql offers the following benefits :
 4. Flexible design to suit design requirement (with/without SSL or PAM authentication)
 5. Supports wide range of integration for data collection and persistence
 
-DC/OS Prometheus's main features are:
-1. Multi-dimensional data model with time series data identified by metric name and key/value pairs
-2. Flexible query language to leverage this dimensionality
-3. No reliance on distributed storage; single server nodes are autonomous
-4. Time series collection happens via a pull model over HTTP
-5. Targets are discovered via service discovery or static configuration
-6. Multiple modes of graphing and dashboarding support
+DC/OS percona-pxc-mysql's main features are:
+1. Synchronous replication model
+2. Multi-master replication
+3. True parallel replication
+4. Automatic node provisioning
+5. Data consistency
+6. Configuration script for ProxySQL
+7. Configuration of SSL encryption
