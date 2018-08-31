@@ -1,0 +1,15 @@
+# Common values:
+
+packageName: couchbase 
+serviceName: couchbase 
+techName:  Couchbase 
+techShortName: Couchbase 
+
+# Values specific to certain templates:
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    ├─  data (serial strategy) (COMPLETE)
+      └─ data-0:[node] (COMPLETE)
+      └─ data-1:[node] (COMPLETE) 
