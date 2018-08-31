@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  CLI Specification
-title: CLI Specification
+title: CLI Specification 
 menuWeight: 3
 excerpt: Using the command line interface
 
