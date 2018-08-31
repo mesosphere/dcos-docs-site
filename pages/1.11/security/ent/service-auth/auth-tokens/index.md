@@ -12,7 +12,7 @@ enterprise: true
 # Refreshing Tokens
 Services can use a variety of means to refresh their tokens. Ideally, a service should calculate the length of time until the token expires, which is embedded within the token itself, and request a new one before it expires. However, a service can also wait until it receives a `401` to request a new token.
 
-You may need to provision a service with a service account depending on your [security mode](/1.11/security/ent/#security-modes) and the origin of the service's requests. The following table details the circumstances under which a service requires an account.
+You may need to provision a service with a service account depending on your [security mode](/1.11/security/ent/#security-modes) and the origin of the service's requests. 
 
 An API consumer should be able to handle when its current authentication token expires.
 
