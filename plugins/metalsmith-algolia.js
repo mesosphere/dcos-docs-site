@@ -92,6 +92,33 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       const promises = [];
       const objects = [];
 
+      const transformations = {
+        '&nbsp;': ' ',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&amp;': '&',
+        '&quot;': '"',
+        '&apos;': '\'',
+        '&cent;': '¢',
+        '&pound;': '£',
+        '&yen;': '¥',
+        '&euro;': '€',
+        '&copy;': '©',
+        '&reg;': '®',
+      };
+
+      const transform = (content) => {
+        let replacedContent = content;
+        console.log(content);
+        Object.keys(transformations).forEach((htmlEntity) => {
+          const replacement = transformations[htmlEntity];
+          const htmlEntRegex = new RegExp(htmlEntity, 'g');
+          replacedContent = replacedContent.replace(htmlEntRegex, replacement);
+        });
+
+        return replacedContent;
+      };
+
       // Loop through metalsmith object
       Object.keys(files).forEach((file) => {
         if (inExcludedSection(file, options.skipSections, options.renderPathPattern)) {
@@ -105,7 +132,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
           const record = getSharedAttributes(fileData, hierarchy, semverMap);
           if (!record) return;
           record.objectID = `${file}-${index.indexName}`;
-          record.content = value;
+          record.content = transform(value);
           objects.push(record);
         });
       });
