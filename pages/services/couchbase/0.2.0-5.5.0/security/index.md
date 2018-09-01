@@ -28,24 +28,49 @@ The service uses the [DC/OS CA](/latest/security/ent/tls-ssl/) to generate the S
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
+Service account and service account secret plus enabling TLS can also be configured when launching the couchbase service via the DC/OS console.
 
 #### Secure ports
 
-**Note**: http port are left open ...
+Couchbase uses the following ports, see `(SSL)`
+```
+8091: Couchbase Web console, REST/HTTP interface
+8092: Views, queries, XDCR
+8093: Query services (4.0+)
+8094: Full-text Search (4.5+)
+8095: Analytics (5.5+)
+8096: Eventing (5.5+)
+11207: Smart client library data node access (SSL)
+11210: Smart client library/moxi data node access
+11211: Legacy non-smart client library data node access
+18091: Couchbase Web console, REST/HTTP interface (SSL)
+18092: Views, query, XDCR (SSL)
+18093: Query services (SSL) (4.0+)
+18094: Full-text Search (SSL) (4.5+)
+18095: Analytics (SSL) (5.5+)
+18096: Eventing (SSL) (5.5+)
+```
 
-The secure ports are ...
+**Note**: Even if TLS is enabled the none TLS couchbase ports stay open.
 
-#### Verify Transport Encryption Enabled
+The important ports for clients to interact with couchbase are 8091 (none-SSL) and 18091 (SSL).
 
+#### TLS and Couchbase Sync Gateway
+
+The Couchbase Sync Gateway also supports TLS on its inbound side. The following two lines have to be added to your gateway configuration.
+
+```
+SSLCert: node.crt
+SSLKey: node.key
+...
+```
 
 ## Authentication
 
-DC/OS {{ model.techName }} supports ...
+DC/OS couchbase service supports the couchbase native authentication mechanism. More details can be found [here](https://developer.couchbase.com/documentation/server/current/security/security-authentication.html).
 
-[authentication](https://developer.couchbase.com/documentation/server/current/security/security-authentication.html)
+**Note**: None native methods like LDAP and PAM are not supported at this point.
 
 ## Authorization
 
-The DC/OS {{ model.techName }} service supports ...
-
-[authorization](https://developer.couchbase.com/documentation/server/current/security/security-authorization.html)
+DC/OS couchbase service supports the couchbase native authorization mechanism. More details can be found [here](https://developer.couchbase.com/documentation/server/current/security/security-authorization.html).
