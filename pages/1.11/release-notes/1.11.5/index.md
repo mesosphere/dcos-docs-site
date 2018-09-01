@@ -15,7 +15,7 @@ DC/OS 1.11.5 was released on September 4, 2018.
 # Issues Fixed in DC/OS 1.11.5
 
 ## Customer Advisory
-The service cloud announcement featuring the customer advisory is documented [here](https://support.mesosphere.com/s/article/Critical-Issue-DC-OS-Networking-MSPH-2018-0003).
+The customer advisory information is available [here](https://support.mesosphere.com/s/article/Critical-Issue-DC-OS-Networking-MSPH-2018-0003).
 
 ## Front End
 - COPS-3051/DCOS-39662 - Fix deployment state in Marathon-LB debug page.
