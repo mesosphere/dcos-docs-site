@@ -16,7 +16,7 @@ If a couchbase server node becomes unresponsive you need to `failover` to the re
 
 After `failover` a `rebalance` needs to be initiated. Rebalance can be initiated via the couchbase console or cli. The rebalance will remove the unresponsive node from the cluster and distribute the data even across the remaining nodes.
 
-Next you use the couchbase service `replace` command to permanently replace the unresponsive node with a new one using the following command. More on replace you can find [here]() and [here]().
+Next you use the couchbase service `replace` command to permanently replace the unresponsive node with a new one using the following command. More on replace you can find in [Pod Operations](#replace) and in [Troubleshooting](../troubleshooting/#replacing-a-permanently-failed-node).
 
 ```
 dcos couchbase pod replace <pod-name>
