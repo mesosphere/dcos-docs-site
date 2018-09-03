@@ -69,10 +69,10 @@ enterprise: false
     ```shell
     $ cat <<EOF >myApp.json
     {
-          user: "myApp",
-          pwd: "myAppPasswd123456",
-          roles: [
-              { db: "myApp", role: "readWrite" }
+          "user": "myApp",
+          "pwd": "myAppPasswd123456",
+          "roles": [
+              { "db": "myApp", "role": "readWrite" }
           ]
     }
     EOF
