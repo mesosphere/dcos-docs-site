@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: NodeSync Options
 title: NodeSync
 menuWeight: 20
-excerpt: Configurating NodeSync for DSE 6.0.1
+excerpt: Configurating NodeSync for DSE 6.0.2
 featureMaturity:
 enterprise: true
 model: /services/dse/data.yml
