@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle: Security
 title: Security
 menuWeight: 50
-excerpt: DC/OS Percona XtraDB Cluster Service encryption, authentication and authorization
+excerpt: DC/OS percona-pxc-mysql. Service encryption, authentication and authorization
 featureMaturity:
 enterprise: false
 ---
 
 # Components
 
-# DC/OS Percona XtraDB Cluster Security
+# DC/OS percona-pxc-mysql Security
 
-The DC/OS Percona XtraDB Cluster service supports Percona XtraDB Cluster’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
+The DC/OS percona-pxc-mysql service supports Percona XtraDB Cluster’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
 
 
 ## Transport Encryption and SSL Authentication
