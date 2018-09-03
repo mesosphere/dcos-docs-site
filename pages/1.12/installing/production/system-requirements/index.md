@@ -240,6 +240,8 @@ On each of your cluster nodes, follow the following instructions:
     sudo sed -i 's/SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config
     ```
 
+    **Note:** Ensure that all services running on every node can be run in the chosen SELinux configuration.
+
 *   Add `nogroup` and `docker` groups:
 
     ```bash
