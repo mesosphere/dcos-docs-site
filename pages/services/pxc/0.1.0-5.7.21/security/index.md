@@ -8,8 +8,6 @@ featureMaturity:
 enterprise: false
 ---
 
-# Components
-
 # DC/OS percona-pxc-mysql Security
 
 The DC/OS percona-pxc-mysql service supports Percona XtraDB Cluster’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
