@@ -8,7 +8,7 @@ model: /services/dse/data.yml
 render: mustache
 ---
 
-# Version 3.0.0-6.0.1
+# Version 3.0.0-6.0.2
 
 ## New Features
 - Added AlwaysOn SQL service, a HA (highly available) Spark SQL Thrift server.
@@ -17,13 +17,13 @@ render: mustache
 - Enhanced Spark SQL support allows you to execute Spark queries using a variation of the SQL language
 - Storage engine optimizations that provide up to half the latency of open source Cassandra and include optimized compaction.
 - Improved security for Spark JobServer.
-- Updated DataStax OpsCenter to 6.5.0.
+- Updated DataStax OpsCenter to 6.5.2.
 
 ## Updates
-- Some graph and gremlin_server properties in earlier versions of DSE are no longer required for DSE 6.0. For more information about these properties refer [here](https://docs.datastax.com/en/dse/6.0/dse-admin/datastax_enterprise/releaseNotes/RNdse.html#RNdse601)
+- Some graph and gremlin_server properties in earlier versions of DSE are no longer required for DSE 6.0. For more information about these properties refer [here](https://docs.datastax.com/en/dse/6.0/dse-admin/datastax_enterprise/releaseNotes/RNdse.html#changesTxt602)
 - Updated Cassandra version to 3.11 which removed support for the deprecated Thrift interface (rpc_port, start_rpc, etc).
-- Updated TinkerPop version 3.2.9 with additional production-certified changes.
-- Updated Apache Solr™ to version 6.0.1.1.2295 which includes Solr security upgrades bundle.
+- Updated TinkerPop version 3.3.3 with additional production-certified changes.
+- Updated Apache Solr™ to version 6.0.1.1.2321 which includes Solr security upgrades bundle.
 - Updated Apache Spark™ to version 2.2.1.2 for bug fixes such as to improve Spark Master discovery and reliability.
 
 
