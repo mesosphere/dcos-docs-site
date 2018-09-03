@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Continuous Paging Options
 title: Continuous Paging
 menuWeight: 20
-excerpt: Configuring Continuous Paging for DSE 6.0.1
+excerpt: Configuring Continuous Paging for DSE 6.0.2
 featureMaturity:
 enterprise: true
 model: /services/dse/data.yml
@@ -65,7 +65,7 @@ continuous_paging:
 
    Default value is 5000.
 
-### Below are the options that are added new as per the DataStax Enterprise version 6.0.1
+### Below are the options that are added new as per the DataStax Enterprise version 6.0.2
 
 ### client_timeout_sec
 
