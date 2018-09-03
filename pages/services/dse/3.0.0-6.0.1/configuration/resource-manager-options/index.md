@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Spark Resource Options
 title: Spark Resources
 menuWeight: 20
-excerpt: Configurating Spark Resources for DSE 6.0.1
+excerpt: Configurating Spark Resources for DSE 6.0.2
 featureMaturity:
 enterprise: true
 model: /services/dse/data.yml
