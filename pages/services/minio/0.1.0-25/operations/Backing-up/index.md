@@ -15,7 +15,7 @@ The DC/OS Minio Service allows you to back up your data to AWS S3 compatible sto
     1. ACCESS_KEY_ID
     2. SECRET_ACCESS_KEY
     
-To enable backup, trigger the backup-S3 Plan with the following plan parameters:
+To enable backup, trigger the backup Plan with the following plan parameters:
 ```shell
 {
  'ACCESS_KEY_ID': access_key_id,
@@ -29,11 +29,11 @@ Plans are executed in DC/OS with the following command:
  dcos miniod --name=<service_name> plan start <plan_name> -p <plan_parameters>
 }
 ```
-For launching backup-s3 plan, issue the below command with the requisite parameters:
+For launching backup plan, issue the below command with the requisite parameters:
 
 ```shell
 {
- dcos miniod --name=<SERVICE_NAME> plan start backup-s3 \
+ dcos miniod --name=<SERVICE_NAME> plan start backup \
   -p ACCESS_KEY_ID=<ACCESS_KEY> \
   -p SECRET_ACCESS_KEY=<SECRET_ACCESS_KEY>
 }
@@ -49,11 +49,11 @@ Backup will be performed using three sidecar tasks:
 
    _Figure 1. - Register Minio and S3 client
 
-2. `Delete-Previous-Snapshot` - This task is responsible to delete the buckets in the AWS S3 compatible storage which were deleted in the DC/OS Minio since the last backup.
+2. `synchronize-buckets` - This task is responsible to delete the buckets in the AWS S3 compatible storage which were deleted in the DC/OS Minio since the last backup.
 
 [<img src="../../img/Delete_Previous_Snapshot.png" alt="Delete_Previous_Snapshot" width="800"/>](../img/Delete_Previous_Snapshot.png)
 
-   _Figure 2. - Delete previous backup
+   _Figure 2. - Synchronize buckets between S3 compatible storage and Minio
    
 3. `Backup Task` - The Backup task is responsible for making a backup of the data in the DC/OS Minio storage to the AWS S3 compatible storage. A backup task will run the ‘mc mirror’ command by taking ACCESS_KEY_ID and SECRET_ACCESS_KEY as parameters.
 It will create new buckets in AWS S3 compatible storage according to the current snapshot or state of Minio storage system.
@@ -62,6 +62,6 @@ It will create new buckets in AWS S3 compatible storage according to the current
 
    _Figure 3. - Backing Up to S3 compatible storage
    
-'backup-s3' plan would execute all the three aforementioned tasks serially. 
+'backup' plan would execute all the three aforementioned tasks serially. 
 
 
