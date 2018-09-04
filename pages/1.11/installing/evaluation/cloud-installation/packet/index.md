@@ -111,4 +111,4 @@ Launch the DC/OS web interface by entering the Mesos master IP address:
 
   - Increasing node count is fast and safe.
 
-  - We recommend against reducing the node count in production. Stateful DC/OS apps and services may suffer outages and failures if nodes are not put into maintenance mode, and their tasks rescheduled through their respective schedulers.
+  - - We recommend against reducing the node count in production, if you have stateful DC/OS apps and services. If nodes containing stateful services are removed from the cluster, stateful apps and services may suffer outages and failures depending on the behavior of the scheduler. Check the [stateful services documentation](/1.11/tutorials/stateful-services/) to understand how they behave in case of node removal or failure.
