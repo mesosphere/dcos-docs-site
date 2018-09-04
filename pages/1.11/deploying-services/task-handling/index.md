@@ -8,13 +8,13 @@ excerpt: Understanding Marathon task categories
 enterprise: false
 ---
 
-Marathon sorts tasks into these categories: initial, non-terminal, and terminal. Tasks within these categories may have one of several statuses, as summarized in the diagram below.
-
-To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html) (/v2/events).
+Marathon sorts tasks into three categories: initial, non-terminal, and terminal. Tasks within these categories may be in one of several states, as summarized in the diagram below. To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html) (/v2/events).
 
 You can also  [configure Marathon's behavior when a task is unreachable](/1.11/deploying-services/task-handling/configure-task-handling/).
 
-![Task Handling Flow](/1.11/img/task-handling.png)
+![Task Handling Flow](/1.11/img/task-handling-corrected.png)
+
+Figure 1. Task handling diagram
 
 # Terminal states
 
@@ -84,4 +84,5 @@ The task is being killed by the executor.
 ```
 case TASK_UNREACHABLE => Unreachable
 ```
-The task was running on an agent that has lost contact with the master, typically due to a network failure or partition. The task may or may not still be running. When Marathon receives a task unreachable message, it starts a replacement task. If the time unreachable exceeds 15 minutes, Marathon marks the task as Unknown and then expunges the task.
+The task was running on an agent that has lost contact with the master, typically due to a network failure or partition. The task may or may not still be running. When Marathon receives a "task unreachable" message, it starts a replacement task. If the time unreachable exceeds 15 minutes, Marathon marks the task as Unknown and then expunges the task.
+

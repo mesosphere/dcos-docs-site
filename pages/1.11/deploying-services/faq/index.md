@@ -8,16 +8,14 @@ excerpt: Frequently asked questions about deploying Marathon services
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-
-We've collected some questions we often encounter concerning the usage of DC/OS. Have got a new question you'd like to see? Use the `Submit feedback` button at the bottom of this page to suggest it or check out how you can [contribute](https://dcos.io/contribute/) also the answer to it.
+We have collected some questions we often encounter concerning the usage of DC/OS. Have got a new question you'd like to see? Use the `Contribute` button at the top of this page to suggest it or check out how you can [contribute](https://dcos.io/contribute/) also the answer to it.
 
 ## Why is my Marathon app stuck in Waiting?
 
 This most commonly occurs when an application being launched has higher system requirements than any of the available offers coming to Marathon via Mesos. The deployment will eventually fail; check system requirements and increase the resources to the application if you want the deployment to succeed.
 
-## Why is my Marathon app launching on private agent instead of public?
+## Why is my Marathon app launching on a private agent instead of a public agent?
 
 By default apps are launched on private nodes. For more information, see the [documentation][5].
 
@@ -31,7 +29,7 @@ The most common causes for this are requesting ports or resource roles that are 
 
 ## How can I add automatically more agents to the cluster?
 
-DC/OS cannot automatically spin up new nodes in response to load on hardware unless the cloud provider autoscaling groups have been configured with standby hosts and `dcos_install.sh` placed on the standby node. This is an involved process that requires setting up Autoscaling groups with your Cloud Provider (AWS, GCE, Azure) and placing an install file on each node. Please reach out to Mesosphere Support for more guidance if you need to set this up.
+DC/OS cannot automatically spin up new nodes in response to load on hardware unless the cloud provider autoscaling groups have been configured with standby hosts and `dcos_install.sh` placed on the standby node. This is an involved process that requires setting up Autoscaling groups with your Cloud Provider (AWS, GCE, Azure) and placing an install file on each node. An overview is available [here](/1.11/deploying-services/scale-service/). Please reach out to Mesosphere Support for more guidance if you need to set this up.
 
 ## What is your best practice for service discovery?
 

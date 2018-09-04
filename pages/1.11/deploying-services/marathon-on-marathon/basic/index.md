@@ -7,9 +7,7 @@ excerpt: Using a basic, non-native instance of Marathon
 enterprise: true
 ---
 
-This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas.
-
-The basic procedure does not support [secrets](/1.11/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.11/deploying-services/marathon-on-marathon/advanced/).
+This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. This  procedure does not support [secrets](/1.11/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.11/deploying-services/marathon-on-marathon/advanced/).
 
 **Prerequisites:**
 
@@ -43,7 +41,7 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
 
 1.  Add the node back to your cluster.
 
-    1.  Reload the systemd configuration.
+    1.  Reload the `systemd` configuration.
 
         ```bash
         ﻿⁠⁠sudo systemctl daemon-reload
@@ -61,7 +59,7 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
         sudo systemctl start dcos-mesos-slave
         ```
 
-        **Tip:** You can check the status with this command:
+        You can check the status with this command:
 
         ```bash
         sudo systemctl status dcos-mesos-slave
@@ -198,9 +196,11 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 # Step 5 - Grant User Access to Non-Native Marathon
 In this step, a user is granted access to the non-native Marathon instance.
 
-1. Log into the DC/OS GUI as a user with the `superuser` permission.
+1. Log in to the DC/OS web interface as a user with the `superuser` permission.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
+
+   Figure 1. DC/OS web interface login screen.
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -208,11 +208,15 @@ In this step, a user is granted access to the non-native Marathon instance.
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
 
+    Figure 2. Select user or group permission
+
 1.  From the **Permissions** tab click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
+
+    Figure 3. Add permissions.
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
@@ -298,6 +302,10 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
     ![Log in DC/OS](/1.11/img/gui-installer-login-ee.gif)
 
+    Figure 4. DC/OS log in screen
+
     You are done!
 
     ![Marathon on Marathon](/1.11/img/mom-marathon-gui.png)
+
+    Figure 5. Success screen.

@@ -57,9 +57,7 @@ To launch a service on a public node, you must create a Marathon app definition 
     dcos marathon app add myApp.json
     ```
 
-    If this is added successfully, there is no output.
-
-     **Note:** You can also add your app by using the **Services** tab of DC/OS [GUI](/1.11/gui/services/).
+    If this is added successfully, there is no output. You can also add your app by using the **Services** tab of the DC/OS [web interface](/1.11/gui/services/).
 
 1.  Verify that the app is added with this command:
 
@@ -74,7 +72,7 @@ To launch a service on a public node, you must create a Marathon app definition 
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 
-    **Note:** You can also view deployed apps by using the **Services** tab of DC/OS [GUI](/1.11/gui/services/).
+    You can also view deployed apps by using the **Services** tab of the DC/OS [web interface](/1.11/gui/services/).
 
 1.  Configure an edge load balancer and service discovery mechanism.
 
@@ -86,6 +84,8 @@ To launch a service on a public node, you must create a Marathon app definition 
     You should see the following message in your browser:
 
     ![Hello Brave World](/1.11/img/helloworld.png)
+
+    Figure 1. Confirmation page
 
 ## Next steps
 

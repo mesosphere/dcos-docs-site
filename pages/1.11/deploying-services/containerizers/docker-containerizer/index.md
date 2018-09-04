@@ -8,8 +8,6 @@ excerpt: Launching Docker containers from Docker images
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 [Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need [features](/1.11/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. Otherwise, consider using the [Universal Container Runtime](/1.11/deploying-services/containerizers/ucr).
 
@@ -22,10 +20,12 @@ enterprise: false
 
      ![json editor](/1.11/img/json-editor-toggle.png)
 
+     Figure 1. JSON Editor toggle button
+
   1. Enter the `parameters` field in the JSON configuration.
 
 
-## Provision a container with the Docker Engine from the DC/OS web interface
+## DC/OS web interface
 
 1. Click the **Services** tab of the DC/OS web interface, then click **RUN A SERVICE**.
 
@@ -39,7 +39,7 @@ enterprise: false
 
 1. Click **REVIEW & RUN** and **RUN SERVICE**.
 
-## Provision a container with the Docker Engine from the DC/OS CLI
+## DC/OS CLI
 
 In your [Marathon application definition](/1.11/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `DOCKER`.
 
