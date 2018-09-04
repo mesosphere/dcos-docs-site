@@ -148,6 +148,12 @@ BEGIN { ec = 1 }
     echo $INTERFACE_IP
 ```
 
+    
+   *   #### Test the scripts
+       
+       Test the scripts on the nodes to be installed before continuing. If the ethernet interface differs between nodes (eth0 vs eth1) it is recommended to test the script on nodes with different interfaces.
+
+
 [enterprise]
 # Create a fault domain detection script
 [/enterprise]
@@ -162,7 +168,7 @@ By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-service
    <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Caution:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
 
 
-2. Add your newly created `fault-domain-detect` script to the `/genconf` directory of your bootstrap node.
+2. Add your newly created `fault-domain-detect` script to the `./genconf` directory of your bootstrap node.
 
 
 # Create a configuration file
@@ -194,6 +200,11 @@ Here is an example of a hashed password output.
     $6$rounds=656000$v55tdnlMGNoSEgYH$1JAznj58MR.Bft2wd05KviSUUfZe45nsYsjlEl84w34pp48A9U2GoKzlycm3g6MBmg4cQW9k7iY4tpZdkWy9t1
     ```
 
+ *  #### Test the scripts
+    
+    Test the scripts on one node in each environment. For example, if doing a hybrid Enterprise DC/OS deployment, test the script at least on a node in each region/data center.
+
+
 ## Create the configuration 
 1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. 
 
@@ -208,6 +219,11 @@ If your servers are installed with a domain name in your `/etc/resolv.conf`, add
 - If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
 - In AWS, or any other environment where you can not control a node's IP address, master_discovery needs to be set to use master_http_load_balancer, and a load balancer needs to be set up.
+- Use the following DNS IPs for internal purpose:
+   * AWS Private DNS Resolver: 169.254.169.253
+   * GCP Private DNS Resolver: 169.254.169.254
+   * Azure Private DNS Resolver: 168.63.129.16
+
 
 [enterprise]
 ## Enterprise template
