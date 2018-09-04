@@ -19,10 +19,11 @@ DC/OS Couchbase offers the following benefits :
 6. Automated failure recovery
 7. Automated configuration changes
 8. Automated Scaling
-9. Rack/Zone Awareness
-10. Centralized Monitoring
-11. Cross Datacenter replication, hybrid cloud and edge
-12. Backup & Retsore using S3 as backing store
+9. Persistent Volumes
+10. Rack/Zone Awareness
+11. Centralized Monitoring
+12. Cross Datacenter replication, hybrid cloud and edge
+13. Backup & Retsore using S3 as backing store
 
 DC/OS Couchbase's main features are:
 1. NoSQL document-oriented engagement database
