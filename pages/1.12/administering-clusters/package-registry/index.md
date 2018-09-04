@@ -17,3 +17,4 @@ This service allows users to run DC/OS Services by storing DC/OS Packages local 
 - Deploying DC/OS Services using intranet latency and bandwidth
 
 - Managing DC/OS Packages individually with the ability to add new packages and upgrade individual services incrementally
+git
