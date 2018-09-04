@@ -10,9 +10,7 @@ enterprise: false
 
 A pod is a special kind of Mesos task group, and the tasks or containers in the pod are the group members. A pod instance’s containers are launched together, atomically, via the [Mesos LAUNCH_GROUP](https://github.com/apache/mesos/blob/cfeabec58fb2a87076f0a2cf4d46cdd02510bce4/docs/executor-http-api.md#launch-group) call.
 
-DC/OS handles and represents pods as single services. Containers in pods share networking namespace and ephemeral volumes.
-
-You configure a pod via a pod definition, which is similar to a Marathon application definition. There are nonetheless some differences between pod and application definitions. For instance:
+DC/OS handles and represents pods as single services. Containers in pods share networking namespace and ephemeral volumes. You configure a pod via a pod definition, which is similar to a Marathon application definition. There are nonetheless some differences between pod and application definitions. For instance:
 
 - You must specify an endpoint (not a port number) in order for other applications to communicate with your pod.
 - Pods have a separate REST API.

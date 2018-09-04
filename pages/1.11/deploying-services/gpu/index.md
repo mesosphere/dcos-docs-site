@@ -8,11 +8,7 @@ enterprise: false
 ---
 
 
-DC/OS supports allocating GPUs (Graphics Processing Units) to your long-running DC/OS services. Adding GPUs to your services can dramatically accelerate big data workloads.
-
-With GPU-based scheduling, you can share cluster resources for traditional and machine learning workloads, as well as dynamically allocate GPU resources inside those clusters and free them when needed. You can reserve GPU resources for the workloads that need them, or pool these GPU-enabled resources with the rest of the infrastructure for higher overall utilization.
-
-After installing DC/OS with GPUs enabled, you can specify GPUs in your application definitions with the `gpus` parameter.
+DC/OS supports allocating GPUs (Graphics Processing Units) to your long-running DC/OS services. Adding GPUs to your services can dramatically accelerate big data workloads. With GPU-based scheduling, you can share cluster resources for traditional and machine learning workloads, as well as dynamically allocate GPU resources inside those clusters and free them when needed. You can reserve GPU resources for the workloads that need them, or pool these GPU-enabled resources with the rest of the infrastructure for higher overall utilization. After installing DC/OS with GPUs enabled, you can specify GPUs in your application definitions with the `gpus` parameter.
 
 # Installing DC/OS with GPUs Enabled
 GPUs must be enabled during DC/OS installation. Follow the instructions below to enable GPUs based on your specific DC/OS deployment method.
@@ -57,13 +53,9 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
    - **PrivateAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (e.g., `g2.2xlarge`).
    - **PublicAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (e.g., `g2.2xlarge`).
 
-1. On the **Options** page, accept the defaults and click **Next**.
+1. On the **Options** page, accept the defaults and click **Next**. You can choose whether to rollback on failure. By default this option is set to **Yes**.
 
-   **Tip**: You can choose whether to rollback on failure. By default this option is set to **Yes**.
-
-1. On the **Review** page, check the acknowledgement box, then click **Create**.
-
-   **Tip**: If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
+1. On the **Review** page, check the acknowledgement box, then click **Create**. If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
 
 # Using GPUs in Your Apps
 

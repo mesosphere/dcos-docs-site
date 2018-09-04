@@ -96,7 +96,7 @@ This pod, named `simple-pod` has a single container, `simpletask1`. The containe
 
 The example below shows a pod, `test-pod`, with three containers, `healthtask1`, `healthtask2`, and `clienttask`. The pod makes uses shared volumes and the native DC/OS virtual networking solution.
 
-```
+```json
 {
    "id":"/test-pod",
    "labels":{

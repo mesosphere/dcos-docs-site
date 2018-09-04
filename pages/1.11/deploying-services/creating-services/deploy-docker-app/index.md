@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-In this tutorial, you create a custom Docker image and deploy it to DC/OS.
+In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
 ## Prerequisites
 
@@ -150,6 +150,8 @@ In this tutorial, you create a custom Docker image and deploy it to DC/OS.
     You should see the following message in your browser:
 
     ![Hello Brave World](/1.11/img/helloworld.png)
+
+    Figure1. Hello World message 
 
 # Next steps
 

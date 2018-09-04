@@ -19,10 +19,10 @@ To supply credentials to pull from a private Docker registry, create an archive 
 1. Log in to the private registry manually. Login creates a `.docker` folder and a `.docker/config.json` file in your home directory.
 
     ```bash
-      docker login some.docker.host.com
-      Username: foo
-      Password:
-      Email: foo@bar.com
+    docker login some.docker.host.com
+    Username: foo
+    Password:
+    Email: foo@bar.com
     ```
 
 1. Compress the `.docker` folder and its contents.
@@ -144,7 +144,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
 1. Add a location for the secret in the `secrets` parameter and a reference to the secret in the `docker.pullConfig` parameter.
 
-   **Note:** This functionality is _only_ supported with the Universal Container Runtime: `container.type` must be `MESOS`.
+   **Note:** This functionality is **only** supported with the Universal Container Runtime: `container.type` must be `MESOS`.
 
    ```json
    {
