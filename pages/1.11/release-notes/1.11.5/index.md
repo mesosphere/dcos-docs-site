@@ -37,6 +37,7 @@ The customer advisory information is available [here](https://support.mesosphere
 
 ## Mesos
 - COPS-3616/DCOS-39973/DCOS-40162 - Fix container launch failures that occurred due to Mesos-bridge running out of IPs.
+- COPS-3750/DCOS-41224 - Fix for UCR container cleanup `EBUSY` issue, which restarts EdgeLB tasks.
 - DCOS-38225 - Prevent task loss by fixing error handling failures of Mesos-IAM interaction. [enterprise type="inline" size="small" /]
 - DCOS-40410 - Bump Mesos to nightly [1.5.x eacabd7](https://github.com/mesosphere/mesos/blob/eacabd7/CHANGELOG).
 
