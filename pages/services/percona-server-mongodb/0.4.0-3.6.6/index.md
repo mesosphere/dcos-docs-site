@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle:  Percona-Server-Mongodb 0.4.0-3.6.6
-title: Percona-Server-Mongodb 0.4.0-3.6.6
+navigationTitle:  Percona-Server-MongoDB 0.4.0-3.6.6
+title: Percona-Server-MongoDB 0.4.0-3.6.6
 menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false
 ---
 
-DC/OS Percona-Server-Mongodb is an automated service that makes it easy to deploy and manage [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all of the complexity traditionally associated with managing a cluster of Percona-Server-Mongodb nodes.
+DC/OS Percona-Server-MongoDB is an automated service that makes it easy to deploy and manage [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all of the complexity traditionally associated with managing a cluster of Percona-Server-MongoDB nodes.
 
 ## Features
 
@@ -16,7 +16,7 @@ DC/OS Percona-Server-Mongodb is an automated service that makes it easy to deplo
 
 This DC/OS service installs and configures a [MongoDB Replica Set](https://docs.mongodb.com/manual/replication/) and provides additional features for administration, monitoring and backups.
 
-DC/OS Percona-Server-Mongodb service features:
+DC/OS Percona-Server-MongoDB service features:
 *   Single-command installation for rapid provisioning
 *   Multiple MongoDB Replica Sets within a single DC/OS cluster
 *   Storage volumes for enhanced data durability, known as Mesos Dynamic Reservations and Persistent Volumes

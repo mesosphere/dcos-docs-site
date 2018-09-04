@@ -10,7 +10,7 @@ enterprise: false
 
 # Updating Configuration
 
-You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying Percona-Server-Mongodb itself.
+You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying Percona-Server-MongoDB itself.
 
 After making a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `mongo-rs-0`, then `mongo-rs-1`, and so on.
 

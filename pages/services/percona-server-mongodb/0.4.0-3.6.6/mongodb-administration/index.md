@@ -46,7 +46,7 @@ To enable DC/OS Metrics, ensure the *'Enabled'* flag in the *'Dcos Metrics'* sec
 
 ## SSL/TLS Connections
 
-Enabling SSL/TLS transport security capabilities of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the Percona-Server-Mongodb service combined with the DC/OS Secret Store feature *(DC/OS Enterprise Edition only)*.
+Enabling SSL/TLS transport security capabilities of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the Percona-Server-MongoDB service combined with the DC/OS Secret Store feature *(DC/OS Enterprise Edition only)*.
 
 3 x SSL [security modes](https://docs.mongodb.com/manual/reference/configuration-options/#net.ssl.mode) are possible with this feature:
 1. **allowSSL** - Both insecure and ssl-secured connections are allowed.
@@ -67,9 +67,9 @@ To start the service with MongoDB SSL/TLS support:
     $ dcos security org service-accounts keypair priv.pem pub.pem
     ```
 
-1. Create a Service Account for Percona-Server-Mongodb:
+1. Create a Service Account for Percona-Server-MongoDB:
     ```shell
-    $ dcos security org service-accounts create -p pub.pem -d "Percona-Server-Mongodb" percona-server-mongodb-service-acct
+    $ dcos security org service-accounts create -p pub.pem -d "Percona-Server-MongoDB" percona-server-mongodb-service-acct
     ```
 
 1. Create a Service Acccount Secret:
@@ -82,7 +82,7 @@ To start the service with MongoDB SSL/TLS support:
     $ dcos security org users grant percona-server-mongodb-service-acct dcos:superuser full
     ```
 
-1. In *'Services'* page of the DC/OS GUI, create a new Percona-Server-Mongodb service.
+1. In *'Services'* page of the DC/OS GUI, create a new Percona-Server-MongoDB service.
 1. Switch to the *'Service'* section of the service configuration.
 1. Enter the Service Account name *(eg: "percona-server-mongodb-service-acct")* in the field *'principal'*.
 1. Enter the Service Account secret name *(eg: "percona-server-mongodb-service-acct-secret")* in the field *'secret_name'*.
@@ -93,7 +93,7 @@ From this point on, deploy the service as usual.
 
 ## Auditing
 
-The [Percona Server for MongoDB Auditing](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html) feature allows detailed logging of actions in MongoDB. The configuration of Auditing is automated by the DC/OS Percona-Server-Mongodb service.
+The [Percona Server for MongoDB Auditing](https://www.percona.com/doc/percona-server-for-mongodb/auditing.html) feature allows detailed logging of actions in MongoDB. The configuration of Auditing is automated by the DC/OS Percona-Server-MongoDB service.
 
 To enable Auditing via the UI:
 1. Edit a new or existing service configuration.
@@ -145,14 +145,14 @@ The log can be downloaded from the DC/OS UI by downloading the file *'stdout'*, 
 ## Users
 <a name="mongodb-users"></a>
 
-The Percona-Server-Mongodb service contains several custom plans for modifying MongoDB Users via the Percona-Server-Mongodb CLI tool.
+The Percona-Server-MongoDB service contains several custom plans for modifying MongoDB Users via the Percona-Server-MongoDB CLI tool.
 
 All actions require the username and password of the MongoDB clusterAdmin *(defined in service configuration)*.
 
-### DC/OS Percona-Server-Mongodb System Users
+### DC/OS Percona-Server-MongoDB System Users
 <a name="system-users"></a>
 
-The Percona-Server-Mongodb service deploys 4 x default MongoDB users for various purposes.
+The Percona-Server-MongoDB service deploys 4 x default MongoDB users for various purposes.
 
 **Note: These users cannot be modified or removed! Tasks that modify the users below will receive an error**
 
@@ -179,7 +179,7 @@ To add a user:
     }
     ```
 
-1. Add the user to the Percona-Server-Mongodb service using the service CLI tool, providing the filename of the user definition.
+1. Add the user to the Percona-Server-MongoDB service using the service CLI tool, providing the filename of the user definition.
 
     ```shell
     $ dcos percona-server-mongodb user add <database> <user-json-file>
@@ -200,7 +200,7 @@ To add a user:
     }
     ```
 
-1. Update the user using the Percona-Server-Mongodb CLI tool by providing the filename of the user definition:
+1. Update the user using the Percona-Server-MongoDB CLI tool by providing the filename of the user definition:
 
     ```shell
     $ dcos percona-server-mongodb user update <database> <user-json-file>
@@ -214,9 +214,9 @@ To remove a user, provide the database and username to the percona-server-mongod
     $ dcos percona-server-mongodb user remove <database> <username>
     ```
 
-### Reload Percona-Server-Mongodb Service/System Users
+### Reload Percona-Server-MongoDB Service/System Users
 
-To reload the Percona-Server-Mongodb [System Users](#system-users), run the following command using the Percona-Server-Mongodb CLI tool:
+To reload the Percona-Server-MongoDB [System Users](#system-users), run the following command using the Percona-Server-MongoDB CLI tool:
 
     ```shell
     $ dcos percona-server-mongodb user reload-system

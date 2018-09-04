@@ -29,7 +29,7 @@ The following resources are recommended for a production deployment:
 
 # Production DC/OS Agent Node
 
-The recommendations in this section apply to the DC/OS Agent nodes running the Percona-Server-Mongodb service.
+The recommendations in this section apply to the DC/OS Agent nodes running the Percona-Server-MongoDB service.
 
 ## Block Device / Storage
 

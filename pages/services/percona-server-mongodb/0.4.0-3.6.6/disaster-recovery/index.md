@@ -14,7 +14,7 @@ The service supports a custom plan for creating a consistent backup of the Mongo
 
 Currently only AWS S3 is supported as an upload destination for backups via the plan named 'backup-s3'. More upload methods coming in the future!
 
-There are two ways to configure backups, via the DC/OS Percona-Server-Mongodb service configuration section 'Backup restore' in the DC/OS GUI and/or the DC/OS CLI.
+There are two ways to configure backups, via the DC/OS Percona-Server-MongoDB service configuration section 'Backup restore' in the DC/OS GUI and/or the DC/OS CLI.
 
 ### Hidden Secondary Member
 The service supports the ability to launch a dedicated MongoDB [hidden secondary](https://docs.mongodb.com/manual/core/replica-set-hidden-member/) replica set member for purpose of performing backups.
@@ -25,7 +25,7 @@ The use of a dedicated backup secondary gurrantees backups *(a very resource-int
 
 ### Starting a Backup
 
-Backups are started using the Percona-Server-Mongodb CLI module's `backup` command.
+Backups are started using the Percona-Server-MongoDB CLI module's `backup` command.
 
 If the AWS Access Key, Secret Key, S3 Bucket Name and S3 Bucket Prefix are already defined in your service options the following will start a backup:
     ```shell
@@ -68,11 +68,11 @@ To troubleshoot problems with backups, add the flag *'--backup-verbose'* to the 
 
 Running a restore of a mongodump-based backup stored on Amazon S3 is possible via the DC/OS GUI and CLI tool, including backups created by the service.
 
-### Using Backups Created by Percona-Server-Mongodb
+### Using Backups Created by Percona-Server-MongoDB
 
-To restore an AWS S3-based backup that was created by the Percona-Server-Mongodb backup feature, note that the AWS S3 URL must point to the *'dump'* directory for the desired replica set.
+To restore an AWS S3-based backup that was created by the Percona-Server-MongoDB backup feature, note that the AWS S3 URL must point to the *'dump'* directory for the desired replica set.
 
-As an example, to restore the replica set *'rs'* to a backup located at AWS S3 URL *'s3://my-s3-bucket-name-here/backup/20170618_1600'* the following URL should be provided to the Percona-Server-Mongodb Restore features: *'s3://my-s3-bucket-name-here/backup/20170618_1600/rs/dump'*.
+As an example, to restore the replica set *'rs'* to a backup located at AWS S3 URL *'s3://my-s3-bucket-name-here/backup/20170618_1600'* the following URL should be provided to the Percona-Server-MongoDB Restore features: *'s3://my-s3-bucket-name-here/backup/20170618_1600/rs/dump'*.
 
 ### Restore at Replica Set Initiation
 
@@ -90,7 +90,7 @@ Steps:
 
 ### Restore using the DC/OS CLI
 
-A manual restore is started by using the Percona-Server-Mongodb CLI module's `restore` command.
+A manual restore is started by using the Percona-Server-MongoDB CLI module's `restore` command.
 
 If the AWS Access Key and Secret Keyare already defined in your service options, the following will start a restore:
 

@@ -13,7 +13,7 @@ enterprise: false
 <a name="package-versioning-scheme"></a>
 ## Package Versioning Scheme
 
-- Percona-Server-Mongodb: 0.4.0-3.6.6
+- Percona-Server-MongoDB: 0.4.0-3.6.6
 - DC/OS: 1.10 and 1.11
 
 Packages are versioned with an `a.b.c-x.y.z` format, where `a.b.c` is the version of the DC/OS integration and `x.y.z` indicates the version of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb). For example, `0.4.0-3.6.6` indicates version `0.4.0` of the DC/OS integration and version `3.6.6` of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb).
@@ -28,7 +28,7 @@ The use of other [Percona Server for MongoDB](https://www.percona.com/software/m
 <a name="contacting-technical-support"></a>
 ## Contacting Technical Support
 
-### Percona-Server-Mongodb package
+### Percona-Server-MongoDB package
 [Email mesosphere@percona.com](mailto:mesosphere@percona.com).
 
 ### Percona Server for MongoDB
