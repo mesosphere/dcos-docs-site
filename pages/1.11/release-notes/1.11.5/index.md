@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Release notes for DC/OS 1.11.5
 ---
 
-DC/OS 1.11.5 was released on September 4, 2018.
+DC/OS 1.11.5 was released on September 12, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
