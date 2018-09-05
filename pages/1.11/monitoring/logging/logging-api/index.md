@@ -8,16 +8,10 @@ beta: false
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 The Logging API exposes node, component, and container (task) logs.
 
-- The Logging API is backed by the [DC/OS Log component](/1.11/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster.
-
-- For more information about using the Logging API, see [Logging](/1.11/monitoring/logging/index.md).
-
-- For usage examples, see [Logging API Examples](/1.11/monitoring/logging/logging-api-examples/index.md).
+The Logging API is backed by the [DC/OS Log component](/1.11/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster. For more information about using the Logging API, see [Logging](/1.11/monitoring/logging/index.md). For usage examples, see [Logging API Examples](/1.11/monitoring/logging/logging-api-examples/index.md).
 
 # Compatibility
 
@@ -30,7 +24,7 @@ In versions of DC/OS prior to 1.11, task logs were available via [files API](htt
 
 ## Notes on Previous Versions
 
-In versions of DC/OS prior to 1.11, node and component logs were managed by journald. However, the [Mesos task journald log sink was disabled](https://github.com/dcos/dcos/pull/1269) due to [journald performance issues](https://github.com/systemd/systemd/issues/5102). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
+In versions of DC/OS prior to 1.11, node and component logs were managed by `journald`. However, the [Mesos task journald log sink was disabled](https://github.com/dcos/dcos/pull/1269) due to [journald performance issues](https://github.com/systemd/systemd/issues/5102). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 
 The following code may be useful:
 
@@ -59,7 +53,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 <a name="routes"></a>
 # Routes
 
-Access to the Logging API is proxied through the Admin Router on each node using the following route:
+Access to the Logging API is proxied through Admin Router on each node using the following route:
 
 ```
 /system/v1/logs/
@@ -78,14 +72,12 @@ To determine the address of your cluster, see [Cluster Access](/1.11/api/access/
 
 Master routes which are serving task logs are also called *'discovery endpoints'*. When the user makes a GET request to a discovery endpoint, the user is redirected to the agent node with the desired endpoint.
 
-The parameters used in the request are coming from mesos `state.json` and are called *'task metadata'*.
+The parameters used in the request come from mesos `state.json` and are called "task metadata".
 
 
 # Auth
 
-All Logging API routes require authentication to use.
-
-To authenticate API requests, see [Obtaining an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/obtaining-an-authentication-token) and [Passing an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/passing-an-authentication-token).
+All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/obtaining-an-authentication-token) and [Passing an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/passing-an-authentication-token).
 
 The Logging API also requires authorization via the following permissions:
 | Path |  Permission |
@@ -93,19 +85,17 @@ The Logging API also requires authorization via the following permissions:
 | /system/v1/logs/v2/ | dcos:adminrouter:ops:system-logs |
 | /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
 
-All routes may also be reached by users with the _dcos:superuser_ permission.
-
-To assign permissions to your account, see [Permissions Reference](/1.10/security/ent/perms-reference/).
+All routes may also be reached by users with the _dcos:superuser_ permission. To assign permissions to your account, see [Permissions Reference](/1.10/security/ent/perms-reference/).
 
 # Format
 
-The API request header can be any the following:
+The API request header can be any of the following:
 
 - `text/plain`, `text/html`, `*/*` request logs in text format, ending with `\n`.
 - `application/json` request logs in JSON format.
 - `text/event-stream` request logs in Server-Sent-Events format.
 
-DC/OS Logging follows the [Server-Sent-Event specifications](https://www.w3.org/TR/2009/WD-eventsource-20090421/). It supports reading the log entry from a specific cursor position, if client specifies a request header Last-Event-ID as defined in SSE specifications. Every log entry in SSE format, contains an id with a token id: <token>. This allows client to know the current log entry and gives ability to resume logs consumption if it was interrupted.
+DC/OS Logging follows the [Server-Sent-Event specifications](https://www.w3.org/TR/2009/WD-eventsource-20090421/). It supports reading the log entry from a specific cursor position, if the client specifies a request header Last-Event-ID as defined in SSE specifications. Every log entry in SSE format contains an ID with a token ID: <token>. This allows the client to know the current log entry and gives you the ability to resume logs consumption if it was interrupted.
 
 # Resources
 

@@ -8,22 +8,23 @@ excerpt: Managing system and application logs from cluster nodes
 enterprise: false
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document does not explain how to setup and configure an Elasticsearch server.
 
-These instructions are based on CentOS 7 and might differ substantially from other Linux distributions.
+You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. These instructions are based on CentOS 7 and might differ substantially from other Linux distributions.
 
-**Important:**
-- This document describes how to directly stream from Filebeat into Elasticsearch. Logstash is not used in this architecture. If you're interested in filtering, parsing and grok'ing the logs with an intermediate Logstash stage, see the Logstash [documentation][8] and the example in [Filtering logs with ELK][3].
-- This document does not describe how to set up secure TLS communication between the Filebeat instances and Elasticsearch. For details on how to achieve this, see the [Filebeat][2] and [Elasticsearch][5] documentation.
+
+# What this document does and does not cover
+
+This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document describes how to directly stream from Filebeat into Elasticsearch. Logstash is not used in this architecture. If you are interested in filtering, parsing and understanding the logs with an intermediate Logstash stage, see the Logstash [documentation][8] and the example in [Filtering logs with ELK][3].
+
+This document does not explain how to set up and configure an Elasticsearch server. This document does not describe how to set up secure TLS communication between the Filebeat instances and Elasticsearch. For details on how to achieve this, see the [Filebeat][2] and [Elasticsearch][5] documentation.
 
 **Prerequisites**
 
-*   An existing Elasticsearch installation that can ingest data for indexing.
-*   All DC/OS nodes must be able to connect to your Elasticsearch server on the port used for communication between Elasticsearch and Filebeat (9200 by default).
+*   An existing Elasticsearch installation that can ingest data for indexing
+*   All DC/OS nodes must be able to connect to your Elasticsearch server on the port used for communication between Elasticsearch and Filebeat (9200 by default)
 
-# <a name="all"></a>Step 1: Install filebeat
+## <a name="all"></a>Step 1: Install Filebeat
 
 For all nodes in your DC/OS cluster:
 
@@ -61,15 +62,19 @@ For all nodes in your DC/OS cluster:
       hosts: ["$ELK_HOSTNAME:$ELK_PORT"]
     ```
 
-**Important:** The agent node Filebeat configuration expects tasks to write logs to `stdout` and `stderr`. Some DC/OS services, including Cassandra and Kafka, do not write logs to `stdout` and `stderr`. If you want to log these services, you must customize your agent node Filebeat configuration.
+<table class=“table” bgcolor=#7d58ff>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> The agent node Filebeat configuration expects tasks to write logs to `stdout` and `stderr`. Some DC/OS services, including Cassandra and Kafka, do not write logs to `stdout` and `stderr`. If you want to log these services, you must customize your agent node Filebeat configuration.</td> 
+</tr> 
+</table>
 
-# <a name="all-2"></a>Step 2: Setup service for parsing the journal
+## <a name="all-2"></a>Step 2: Set up service for parsing the journal
 
 For all nodes in your DC/OS cluster:
 
 1.  Create a script `/etc/systemd/system/dcos-journalctl-filebeat.service` that parses the output of the DC/OS master `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
 
-    **Tip:** This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
+    This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
 
     ```bash
     sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF
@@ -88,9 +93,9 @@ For all nodes in your DC/OS cluster:
     EOF
     ```
 
-# <a name="all-3"></a>Step 3: Start and enable filebeat
+## <a name="all-3"></a>Step 3: Start and enable Filebeat
 
-1.  For all nodes, start and enable the filebeat log parsing services created above:
+1.  For all nodes, start and enable the Filebeat log parsing services created above:
 
     ```bash
     sudo chmod 0755 /etc/systemd/system/dcos-journalctl-filebeat.service
@@ -102,11 +107,11 @@ For all nodes in your DC/OS cluster:
     ```
 
 
-# <a name="all"></a>Step 3: ELK Node Notes
+### <a name="all"></a>ELK node notes
 
 The ELK stack will receive, store, search and display information about the logs parsed by the Filebeat instances configured above for all nodes in the cluster.
 
-**Important:** This document describes how to directly stream from Filebeat into ElasticSearch. Logstash is not used in this architecture. If you're interested in filtering, parsing and grok'ing the logs with an intermediate Logstash stage, please check the Logstash [documentation][8].
+This document describes how to directly stream from Filebeat into ElasticSearch. Logstash is not used in this architecture. If you are interested in filtering, parsing and understanding the logs with an intermediate Logstash stage, please check the Logstash [documentation][8].
 
 You must modify the default parameter values to prepare ElasticSearch to receive information. For example, edit the ElasticSearch configuration file (typically `/etc/elasticsearch/elasticsearch.yml`):
 
@@ -117,13 +122,13 @@ network.host = [IP address from the interface in your ElasticSearch node connect
 Other parameters in the file are beyond the scope of this document. For details, please check the ElasticSearch [documentation][5].
 
 
-# <a name="all-4"></a>Step 4: Configure Log Rotation
+## <a name="all-4"></a>Step 4: Configure log rotation
 
-You should configure logrotate on all of your nodes to prevent the file /var/log/dcos/dcos.log growing without limit and filling up your disk.
-Your logrotate config should contain 'copytruncate' because otherwise the 'journalctl' pipe remains open and pointing to the same file even after it's been rotated.
-Note: With using 'copytruncate' there is a very small time slice between copying the file and truncating it, so some logging data might be lost - you should balance pros and cons between filling up the disk and losing some lines of logs.
+You should configure logrotate on all of your nodes to prevent the file `/var/log/dcos/dcos.log` from growing without limit and filling up your disk.
+Your `logrotate` config should contain `copytruncate` because otherwise the `journalctl` pipe remains open and pointing to the same file even after it has been rotated.
+When using `copytruncate`, there is a very small window between copying the file and truncating it, so some logging data might be lost - you should balance pros and cons between filling up the disk and losing some lines of logs.
 
-For example your logrotate configuration should look like this:
+For example, your `logrotate` configuration should look like this:
 
 ```
 /var/log/dcos/dcos.log {    
@@ -134,10 +139,6 @@ For example your logrotate configuration should look like this:
   compresscmd /bin/xz
 }
 ```
-
-### Known Issue
-
-The agent node Filebeat configuration expects tasks to write logs to `stdout` and `stderr`. Some DC/OS services, including Cassandra and Kafka, do not write logs to `stdout` and `stderr`. If you want to log these services, you must customize your agent node Filebeat configuration.
 
 # What's Next
 
