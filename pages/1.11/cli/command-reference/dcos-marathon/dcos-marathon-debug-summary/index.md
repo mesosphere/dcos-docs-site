@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-The dcos marathong debug summary command allows you to view the current queue and debugging information of Marathon application deployments that are waiting.
+The `dcos marathon debug summary` command allows you to view the current queue and debugging information of Marathon application deployments that are waiting.
 
 # Usage
 
@@ -36,3 +36,4 @@ dcos marathon debug summary <app-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
+More information about this command is available in the [Monitoring section](https://docs.mesosphere.com/1.11/monitoring/debugging/cli-debugging/#dcos-marathon-debug-summary).

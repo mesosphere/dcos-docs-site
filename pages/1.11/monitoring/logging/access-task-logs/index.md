@@ -3,15 +3,20 @@ layout: layout.pug
 navigationTitle:  Controlling Access to Task Logs
 title: Controlling Access to Task Logs
 menuWeight: 2
-excerpt: Manage user access to task logs using Marathon groups
+excerpt: Managing user access to task logs using Marathon groups
 beta: true
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 You can control user access to task logs by using Marathon groups for jobs and services. You can then assign permissions to access these groups, allowing you to control which logs a user can access.
 
-**Important:** The functionality described in this document is only available in [strict security mode](/1.11/security/ent/#security-modes).
+<table class=“table” bgcolor=#7d58ff>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> The functionality described in this document is only available in strict security mode.</td> 
+</tr> 
+</table>
+
 
 In this procedure, you will deploy services in separate Marathon groups, and grant user permissions to view the tasks for these Marathon groups.
 
@@ -34,69 +39,81 @@ Here is an overview of the [permissions](/1.11/security/ent/perms-reference/) th
 
 - DC/OS and DC/OS CLI are [installed](/1.11/installing/) and you are logged in as a superuser.
 
-# Via the DC/OS GUI
+# Via the DC/OS web interface
 
-### Create the Groups and Grant Permission
+### Create the groups and grant permission
 
 1.  Select **Organization** and choose **Groups**.
 
     ![New group](/1.11/img/new-user-group.png)
 
+    Figure 1. New user group
+
 1.  Create a new group.
 
     ![Prod group](/1.11/img/new-user-group-prod.png)
 
-    1.  Select the group name and from the **Permissions** tab, click **ADD PERMISSION**.
+    Figure 2. Create new group screen
 
-        ![Add permission to prod-group](/1.11/img/new-user-group-prod-permission.png)
+1.  Select the group name and from the **Permissions** tab, click **ADD PERMISSION**.
 
-    1.  Click **INSERT PERMISSION STRING** to toggle the dialog, and then paste in the following permissions and click **ADD PERMISSIONS**.
+    ![Add permission to prod-group](/1.11/img/new-user-group-prod-permission.png)
 
-        ```bash
-        dcos:adminrouter:ops:mesos full
-        dcos:adminrouter:ops:slave full
-        dcos:mesos:agent:executor:app_id:/prod-group/ read
-        dcos:mesos:agent:framework:role:slave_public/ read
-        dcos:mesos:agent:sandbox:app_id:/prod-group/ read
-        dcos:mesos:agent:task:app_id:/prod-group/ read
-        dcos:mesos:master:executor:app_id:/prod-group/ read
-        dcos:mesos:master:framework:role:slave_public/ read
-        dcos:mesos:master:task:app_id:/prod-group/ read
-        ```
+    Figure 3. Add Permission button
 
-        ![Add permission](/1.11/img/new-user-group-prod-permission-string.png)
+1.  Click **INSERT PERMISSION STRING** to toggle the dialog, and then paste in the following permissions and click **ADD PERMISSIONS**.
 
-        The permissions tab should now look like this:
+    ```bash
+    dcos:adminrouter:ops:mesos full
+    dcos:adminrouter:ops:slave full
+    dcos:mesos:agent:executor:app_id:/prod-group/ read
+    dcos:mesos:agent:framework:role:slave_public/ read
+    dcos:mesos:agent:sandbox:app_id:/prod-group/ read
+    dcos:mesos:agent:task:app_id:/prod-group/ read
+    dcos:mesos:master:executor:app_id:/prod-group/ read
+    dcos:mesos:master:framework:role:slave_public/ read
+    dcos:mesos:master:task:app_id:/prod-group/ read
+    ```
 
-        ![prod-group permissions complete](/1.11/img/new-user-group-prod-permission-done.png)
+    ![Add permission](/1.11/img/new-user-group-prod-permission-string.png)
 
-### Create the Users and Grant Permission
+    Figure 4. Permissions string added
+
+### Create the users and grant permission
 
 1.  Select **Organization** and choose **Users**. Select an existing or create a new user.
 
     ![New user](/1.11/img/new-user-generic.png)
 
+    Figure 5. Users screen
+
 1.  From the **Group Membership** tab, type in the search box and choose the group name. This will grant the group permissions to an individual user.
 
     ![Add alice to security group](/1.11/img/new-user-alice-add-group.png)
 
-### Launch Apps in the User Groups
+    Figure 6. Adding user to security group
 
-1.  Deploy a simple application in your group.
+### Launch apps in the user groups
 
-    1.  Select **Services** > **RUN A SERVICE**.
+This section shows you how to deploy a simple application in your group.
 
-    1.  Select **Single Container** and define your service as:
+1.  Select **Services** > **RUN A SERVICE**.
 
-        -  **SERVICE ID** Specify `/<gid>/<service-name>`. This creates a service within a service group.
-        -  **COMMAND** Specify `sleep 1000000000`.
-        -  **Container Runtime** Select **UNIVERSAL CONTAINER RUNTIME (UCR)**.
+1.  Select **Single Container** and define your service as:
 
-        ![Define nested service](/1.11/img/new-user-alice-service-group.png)
+    -  **SERVICE ID** Specify `/<gid>/<service-name>`. This creates a service within a service group.
+    -  **COMMAND** Specify `sleep 1000000000`.
+    -  **Container Runtime** Select **UNIVERSAL CONTAINER RUNTIME (UCR)**.
 
-    1.  Click **REVIEW & RUN** and **RUN SERVICE** to complete your installation. You should now see a service that is running in a group.
+    ![Define nested service](/1.11/img/new-user-alice-service-group.png)
 
-        ![Service running within group](/1.11/img/new-user-alice-service-done.png)
+    Figure 7. Define a nested service
+
+1.  Click **REVIEW & RUN** and **RUN SERVICE** to complete your installation. You should now see a service that is running in a group.
+
+    ![Service running within group](/1.11/img/new-user-alice-service-done.png)
+
+    Figure 8. Service running in a group
 
 Now you can [verify access](#verifying-access).
 
@@ -105,9 +122,9 @@ Now you can [verify access](#verifying-access).
 **Prerequisite:**
 You must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
-**Tips:**
+### Tips
 
-- Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
+- Service resources often include `/` characters that must be replaced with `%252F` in `curl` requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
 
 ### <a name="create-services"></a>Create the User Groups and Launch App
@@ -132,7 +149,7 @@ You must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuin
    -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
    ```
 
-### <a name="grant-perms"></a>Create and Grant the Permissions
+### <a name="grant-perms"></a>Create and grant the permissions
 
 1. Use the following commands to create the permissions for your group (`<gid>`).
 
