@@ -29,10 +29,10 @@ The use of other [Percona Server for MongoDB](https://www.percona.com/software/m
 ## Contacting Technical Support
 
 ### Percona-Mongo package
-[Email mesosphere@percona.com](mailto:mesosphere@percona.com).
+[Submit a ticket](https://jira.percona.com/secure/CreateIssue!default.jspa?pid=12402).
 
 ### Percona Server for MongoDB
-[Submit a ticket](https://jira.mongodb.org/secure/CreateIssue.jspa).
+[Submit a ticket](https://jira.percona.com/secure/CreateIssue!default.jspa?pid=11601).
 
 ### Mesosphere DC/OS
 [Submit a request](https://support.mesosphere.com/hc/en-us/requests/new).
