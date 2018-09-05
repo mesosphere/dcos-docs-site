@@ -13,10 +13,7 @@ render: mustache
 
 ## Service Limits
 - Multiple DSE Instances on a host is not supported in production.
-- Stopping or restarting a DSE node from OpsCenter is not supported. Use `dcos pod restart` to restart DSE nodes from the DC/OS CLI.
 - A single OpsCenter cannot manage multiple DSE clusters, but can manage multiple DCs in the same cluster.
-- A DSE node will restart if its associated DSE Agent process crashes.
-- Point-in-time restore functionality through the OpsCenter UI is not supported.
 
 ## Automatic failed node recovery
 
