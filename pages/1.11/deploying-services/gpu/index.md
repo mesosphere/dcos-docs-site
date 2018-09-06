@@ -37,7 +37,11 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
    bash ./zen.sh <stack-name>
    ```
 
-   **Important:** You must run the `zen.sh` script before performing the next steps.
+    <table class=“table” bgcolor=#858585>
+    <tr> 
+    <td align=justify style=color:white><strong>Important:</strong> You must run the "zen.sh" script before performing the next steps.</td> 
+    </tr> 
+    </table>
 
 1. Follow the instructions [here](1.11/installing/evaluation/cloud-installation/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 

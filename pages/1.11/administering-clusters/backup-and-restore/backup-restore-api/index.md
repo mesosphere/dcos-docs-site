@@ -10,7 +10,11 @@ enterprise: true
 
 You can use the Backup and Restore API to create and restore backups of your cluster.
 
-**Important:** See the [Limitations](/1.11/administering-clusters/backup-and-restore/#limitations) of backup and restore.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> See the <a href="/1.11/administering-clusters/backup-and-restore/#limitations">Limitations</a> of backup and restore.</td> 
+</tr> 
+</table>
 
 # Routes
 

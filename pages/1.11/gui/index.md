@@ -10,7 +10,7 @@ The DC/OS web interface provides a rich graphical view of your DC/OS cluster. Wi
 
 ![Dashboard](/1.11/img/dashboard-ee.png)
 
-*Figure 1 - Dashboard*
+Figure 1. Dashboard
 
 # Web interface navigation menu
 On the left hand side, you will see the web interface navigation menu:
@@ -32,10 +32,10 @@ Additionally, there is a User Menu on the upper-left side of the web interface t
 
 ![DC/OS UI User Menu](/1.11/img/ui-user-menu.png)
 
-*Figure 1 - Web interface User Menu*
+Figure 2. Web interface User Menu
 
 The User Menu for DC/OS Enterprise also includes a link for administering linked clusters.
 
 ![DC/OS UI User Menu with linked cluster ](/1.11/img/switch-cluster.png)
 
-*Figure 2 - Web interface User Menu with cluster option*
+Figure 3. Web interface User Menu with cluster option

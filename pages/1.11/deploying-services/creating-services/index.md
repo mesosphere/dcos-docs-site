@@ -177,6 +177,10 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
 1. Go to the **Services** tab of the DC/OS GUI to view the running service.
 1. Click `basic-3-docker` and then the task ID.
 1. Scroll down to the **Marathon Task Configuration** section and note the PORTS property.
+
    ![container port](/1.11/img/container-port.png)
+
+   Figure 1. Container port
+   
 1. Determine the [IP address of the public node](/1.11/administering-clusters/locate-public-agent/).
 1. Navigate to `<public-node-IP>:<port>` to see the contents of the Docker container's root directory.

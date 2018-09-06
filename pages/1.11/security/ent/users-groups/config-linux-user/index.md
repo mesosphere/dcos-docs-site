@@ -48,7 +48,11 @@ Once you have met these prerequisites, complete the following steps to override 
     ]
   }
   ```
-  **Important:** Don't forget to replace `<your-test-user-account>` with the name of a Linux user that exists on the agent and differs from the default.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> Do not forget to replace "your-test-user-account" with the name of a Linux user who exists on the agent and differs from the default.</td> 
+</tr> 
+</table>
 
 1. Deploy the service using the [Marathon API](/1.11/deploying-services/marathon-api/).
 
@@ -108,7 +112,11 @@ Once you have met these prerequisites, complete the following steps to override 
   }
 }
   ```
-    **Important:** Do not forget to replace `<your-test-user-account>` with the name of a Linux user that exists on the agent and differs from the default. The Linux user `nobody` will exist if you have not already provisioned a user.
+  <table class=“table” bgcolor=#858585>
+    <tr> 
+    <td align=justify style=color:white><strong>Important:</strong> Do not forget to replace "your-test-user-account" with the name of a Linux user who exists on the agent and differs from the default.</td> 
+    </tr> 
+  </table>
 
 2. Deploy the job using the [Metronome REST API](https://dcos.github.io/metronome/docs/generated/api.html).
 

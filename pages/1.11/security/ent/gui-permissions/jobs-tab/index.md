@@ -24,7 +24,7 @@ You can grant users access to the [**Jobs** screen](/1.11/gui/jobs/). By default
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
 
-    Figure 1. Log in to web interface
+    Figure 1. DC/OS web interface login
 
 2.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -41,7 +41,7 @@ You can grant users access to the [**Jobs** screen](/1.11/gui/jobs/). By default
 
     ![Add permission](/1.11/img/services-tab-user3.png)
 
-    Figure 3. Add permission
+    Figure 3. Insert Permission String
 
 6.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 

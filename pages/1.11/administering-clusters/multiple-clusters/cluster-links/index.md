@@ -211,9 +211,13 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
    ![google login](/1.11/img/google-login.png)
 
+   Figure 5. Google login
+
 1. From the top left corner, click the down arrow next to the cluster name.
 
    ![swi cluster](/1.11/img/switch-cluster.png)
+
+   Figure 6. Switch cluster
 
 1. Click **Switch Cluster**. In the Linked Clusters pane, select cluster `cluster-b`. Cluster `cluster-b`’s UI displays.
 

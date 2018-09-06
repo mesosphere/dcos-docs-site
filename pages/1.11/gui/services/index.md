@@ -10,7 +10,7 @@ The Services menu provides a full-featured interface to the native DC/OS Maratho
 
 ![Services](/1.11/img/services-ee.png)
 
-Figure 1 - Services menu
+Figure 1. Services menu
 
 By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, CPU, memory, or disk space allocated.
 

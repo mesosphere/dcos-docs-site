@@ -652,7 +652,7 @@ In this step, a user is granted access to the non-native Marathon instance.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
 
-   Figure 1. Login screen
+   FFigure 1. DC/OS web interface login
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 

@@ -42,13 +42,13 @@ The DC/OS CLI stores the token in a configuration file in the `.dcos` directory 
 
     ![id provider list](/1.11/img/auth-login.png)
 
-    Figure 3. Choose an identity provider
+    Figure 1. Choose an identity provider
 
 1.  Provide your credentials to the identity provider if prompted. If you have already authenticated to the identity provider during your current browser session, you won't need to do so again.  
 
     ![auth login token](/1.11/img/auth-login-token.png)
 
-    Figure 4. Auth login token
+    Figure 2. Auth login token
 
 1.  Click **Copy to Clipboard**.
 

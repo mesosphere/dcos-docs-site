@@ -78,7 +78,7 @@ Let's look at the 'Details' more closely.
 
 ![Pic of details](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-22.png)
 
-Figure 4. Rsource allocation details
+Figure 4. Resource allocation details
 
 Interesting. According to this, some of the remaining CPU resources are allocated to a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application (it runs in role '*', the default role).
 
@@ -103,6 +103,8 @@ jq '.'
 When looking at the agent information we can see two different kinds of agent.
 
 ![Pic of cluster information](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-19.png)
+
+Figure 5. Cluster information
 
 The first kind has no free CPU resources and also no reserved resources. Of course, this might be different if you had other workloads running on your cluster prior to these exercises. Note that these unreserved resources correspond to the default role '*' --- the role by which we are trying to deploy our tasks.
 

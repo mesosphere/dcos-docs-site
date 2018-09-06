@@ -307,7 +307,7 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
     ![Log in DC/OS](/1.11/img/gui-installer-login-ee.gif)
 
-    Figure 4. DC/OS log in screen
+    Figure 4. DC/OS web interface login
 
     You are done!
 
