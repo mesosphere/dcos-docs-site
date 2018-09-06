@@ -132,14 +132,14 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 1.  Create a custom JSON config file and save as `marathon-config.json`. This file is used to install the custom non-native Marathon instance.
 
     ```json
-    {
-      "marathon": {
-         "mesos_role": "<myrole>",
-         "role": "<myrole>"
-         }
+    {"marathon": {
+     "mesos-role": "<myrole>",
+     "role": "<myrole>",
+     "default-accepted-resource-roles": "*,<myrole>"
+     }
     }
-    ```
-
+     ```      
+    
 1.  Install the Marathon package from Universe with the custom JSON configuration specified (`marathon-config.json`).
 
     ```bash
