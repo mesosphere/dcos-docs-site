@@ -38,13 +38,37 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
  The following matrix table lists the patching paths for DC/OS 1.11.
 
 **DC/OS minor versions for 1.11**
-| Patch From    | Patch To      |
-| ------------- |:-------------:| 
-| 1.11.0        | <ul><li>1.11.1</li><li>1.11.2</li><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul> |
-| 1.11.1        | <ul><li>1.11.2</li><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul> |  
-| 1.11.2        | <ul><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul> |   
-| 1.11.3        | <ul><li>1.11.4</li><li>1.11.5</li></ul> |   
-| 1.11.4        | <ul><li>1.11.5</li></ul> |   
+<table style="width: 300px;" class="table">
+    <table>
+    <table align="center">
+    <tr>
+    <th><p style="width: 300px;"><strong>Patch From </strong></p></th>
+    <th><strong>Patch To</strong></th>
+    </tr>
+    <tr>
+       <td>1.11.0</td>
+       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.1</li><li>1.11.2</li><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul></p></p></td>
+    </tr>
+    <tr>
+       <td>1.11.1</td>
+       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.2</li><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul></p></p></td>
+    </tr>
+    <tr>
+       <td>1.11.2</td>
+       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul></p></p></td>
+    </tr>
+    <tr>
+       <td>1.11.3</td>
+       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.4</li><li>1.11.5</li></ul></p></p></td>
+    </tr>
+    <tr>
+       <td>1.11.4</td>
+       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.5</li></ul></p></p></td>
+    </tr>
+    </table>
+</table>
+</table>
+
 
 
 ## Modifying DC/OS configuration
