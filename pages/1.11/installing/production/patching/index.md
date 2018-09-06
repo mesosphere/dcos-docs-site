@@ -34,11 +34,17 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 - Task history in the Mesos UI will not persist through the patch.
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
-## Supported patch paths
+## Supported patching paths matrix
+ The following matrix table lists the patching paths for DC/OS 1.11.
 
-- From any current release to the next. For example, a patch from 1.9.1 to 1.9.2 would be supported.
-- From any current release to an identical release. For example, a patch from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
-
+**DC/OS minor versions for 1.11**
+| Patch From    | Patch To      |
+| ------------- |:-------------:| 
+| 1.11.0        | <ul><li>1.11.1</li><li>1.11.2</li><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul> |
+| 1.11.1        | <ul><li>1.11.2</li><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul> |  
+| 1.11.2        | <ul><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul> |   
+| 1.11.3        | <ul><li>1.11.4</li><li>1.11.5</li></ul> |   
+| 1.11.4        | <ul><li>1.11.5</li></ul> |   
 
 
 ## Modifying DC/OS configuration
