@@ -43,6 +43,15 @@ If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--c
 |---------|-------------|-------------|
 | `<dcos-url>`   |             | A URL or IP address to an accessible master node. |
 
+# Environment variables
+
+## <a name="dcos-username"></a> `DCOS_USERNAME`
+
+Specify the username for login. When set, the `--username` flag takes precedence over this environment variable.
+
+## <a name="dcos-username"></a> `DCOS_PASSWORD`
+
+Specify the password for login. When set, the password flags take precedence over this environment variable.
 
 # Parent command
 
