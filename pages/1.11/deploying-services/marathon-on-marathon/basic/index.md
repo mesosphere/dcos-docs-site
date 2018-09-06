@@ -20,7 +20,12 @@ This topic describes how to deploy a non-native instance of Marathon with isolat
 In this step, Mesos resources are reserved. Choose the procedure for either [static](#static-reservations) or [dynamic](#dynamic-reservations) reservations.
 
 ## Static Reservations
-**Warning:** This procedure kills all running tasks on your node.
+
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong> This procedure kills all running tasks on your node.</td> 
+</tr> 
+</table>
 
 1.  [SSH](/1.11/administering-clusters/sshcluster/) to your private agent node.
 

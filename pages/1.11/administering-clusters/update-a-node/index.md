@@ -13,7 +13,11 @@ You can update agent nodes in an active DC/OS cluster by using maintenance windo
 
 These steps are useful if you are downsizing a cluster, reconfiguring agent nodes, or moving a node to a new IP. When you change Mesos attributes (`⁠⁠⁠⁠/var/lib/dcos/mesos-slave-common`⁠⁠⁠⁠) or resources (⁠⁠⁠⁠`/var/lib/dcos/mesos-resources`⁠⁠⁠⁠), you must remove the agent node and re-register it with the master node under a new UUID. The master will then recognize the new attributes and resources specification.
 
-**Warning:** ⁠⁠⁠All tasks that are running on the agent will be killed because you are changing agent attributes or resources. Mesos treats a re-registered agent as a new agent.
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong>  ⁠⁠⁠All tasks that are running on the agent will be killed because you are changing agent attributes or resources. Mesos treats a re-registered agent as a new agent.</td> 
+</tr> 
+</table>
 
 ### Prerequisites:
 
