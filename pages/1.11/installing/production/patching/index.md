@@ -34,40 +34,80 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 - Task history in the Mesos UI will not persist through the patch.
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
-## Supported patching paths matrix
+## Supported patching path matrix
  The following matrix table lists the patching paths for DC/OS 1.11.
 
 **DC/OS minor versions for 1.11**
-<table style="width: 300px;" class="table">
-    <table>
-    <table align="center">
+
+
+|**Display Icon** | **Service** |
+|---------- | ------- |
+| ⚫| Supported |
+| ◯| Not Supported |
+
+<table class="table">
     <tr>
-    <th><p style="width: 300px;"><strong>Patch From </strong></p></th>
-    <th><strong>Patch To</strong></th>
+    <th><p style="text-align: center;"><strong>Patch From</strong></p></th>
+    <th></th>
+    <th></th>
+    <th><p style="text-align: center;"><strong>Patch To</strong></p></th>
+    <th></th>
+    <th></th>
     </tr>
     <tr>
-       <td>1.11.0</td>
-       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.1</li><li>1.11.2</li><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul></p></p></td>
+    <th></th>
+    <th><p style="text-align: center;">1.11.1</p></th>
+    <th><p style="text-align: center;">1.11.2</p></th>
+    <th><p style="text-align: center;">1.11.3</p></th>
+    <th><p style="text-align: center;">1.11.4</p></th>
+    <th><p style="text-align: center;">1.11.5</p></th>
     </tr>
     <tr>
-       <td>1.11.1</td>
-       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.2</li><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul></p></p></td>
+       <td><p style="text-align: center;">1.11.0</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-       <td>1.11.2</td>
-       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.3</li><li>1.11.4</li><li>1.11.5</li></ul></p></p></td>
+       <td><p style="text-align: center;">1.11.1</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-       <td>1.11.3</td>
-       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.4</li><li>1.11.5</li></ul></p></p></td>
+       <td><p style="text-align: center;">1.11.2</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
     </tr>
-    <tr>
-       <td>1.11.4</td>
-       <td><p style="text-align: center;"><p style="width: 300px;"><ul><li>1.11.5</li></ul></p></p></td>
+      <td><p style="text-align: center;">1.11.3</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
     </tr>
-    </table>
-</table>
-</table>
+    </tr>
+      <td><p style="text-align: center;">1.11.4</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+ </table>   
+
+**Note:** The supported patching path matrix for DC/OS 1.10 and DC/OS 1.9 are as follows:
+- [1.10 Enterprise: Supported patching path matrix](/1.10/installing/ent/patching/) [enterprise type="inline" size="small" /]
+- [1.10 Open Source: Supported patching path matrix](/1.10/installing/oss/patching/)
+- [1.9 Enterprise: Supported patching path matrix](/1.9/installing/ent/patching/) [enterprise type="inline" size="small" /]
+- [1.9 Open Source: Supported patching path matrix](/1.9/installing/oss/patching/)
 
 
 
