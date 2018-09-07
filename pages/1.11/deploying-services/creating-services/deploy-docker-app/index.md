@@ -151,7 +151,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
     ![Hello Brave World](/1.11/img/helloworld.png)
 
-    Figure1. Hello World message 
+    Figure 1. Hello World message 
 
 # Next steps
 

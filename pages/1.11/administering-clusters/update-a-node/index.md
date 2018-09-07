@@ -13,7 +13,11 @@ You can update agent nodes in an active DC/OS cluster by using maintenance windo
 
 These steps are useful if you are downsizing a cluster, reconfiguring agent nodes, or moving a node to a new IP. When you change Mesos attributes (`⁠⁠⁠⁠/var/lib/dcos/mesos-slave-common`⁠⁠⁠⁠) or resources (⁠⁠⁠⁠`/var/lib/dcos/mesos-resources`⁠⁠⁠⁠), you must remove the agent node and re-register it with the master node under a new UUID. The master will then recognize the new attributes and resources specification.
 
-**Warning:** ⁠⁠⁠All tasks that are running on the agent will be killed because you are changing agent attributes or resources. Mesos treats a re-registered agent as a new agent.
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong>  ⁠⁠⁠All tasks that are running on the agent will be killed because you are changing agent attributes or resources. Mesos treats a re-registered agent as a new agent.</td> 
+</tr> 
+</table>
 
 ### Prerequisites:
 
@@ -48,8 +52,12 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
 
 1.  Invoke the `⁠⁠⁠⁠machine/down` endpoint with the machine JSON definition specified. For example, [here](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) is a script that calls `/machine/down/`.
 
-    **Important:** Invoking `machine/down` sends a `⁠⁠⁠⁠TASK_LOST`⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS [service guides](/services/) and the Mesos maintenance primitives [documentation](https://mesos.apache.org/documentation/latest/maintenance/).
-
+    <table class=“table” bgcolor=#858585>
+    <tr> 
+     <td align=justify style=color:white><strong>Important:</strong> Invoking "machine/down" sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives <a href="https://mesos.apache.org/documentation/latest/maintenance/">documentation</a>.</td> 
+    </tr> 
+    </table>
+    
 1.  Perform your maintenance.
 1.  Add the nodes back to your cluster by invoking the `⁠⁠⁠⁠machine/up` endpoint with the add agents JSON definition specified. For example:
 

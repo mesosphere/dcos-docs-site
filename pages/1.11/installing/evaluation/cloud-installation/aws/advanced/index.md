@@ -19,7 +19,11 @@ The advanced AWS CloudFormation templates bring power and flexibility to creatin
 
 The templates are used together to create a DC/OS cluster. The templates are driven by parameters that AWS CloudFormation uses to create each stack.  
 
-**Important:** Upgrades are not supported with this installation method.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> Upgrades are not supported with this installation method.</td> 
+</tr> 
+</table>
 
 ## Prerequisites
 
@@ -245,11 +249,15 @@ In CloudFormation you should see that:
 
 * The status changes from `CREATE_IN_PROGRESS` to `CREATE_COMPLETE`.
 
-**Caution:** A `ROLLBACK_COMPLETE` status means the deployment has failed. See the **Events** tab for useful information about failures.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the Events tab for useful information about failures.</td> 
+</tr> 
+</table>
 
 # Launch DC/OS
 
-Launch the DC/OS web interface by entering the master hostname:
+You can launch the DC/OS web interface by entering the master hostname. Follow these instructions to find our Mesos Master hostname.
 
 1.  From the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page, click to check the box next to your stack.
 
@@ -263,7 +271,11 @@ Launch the DC/OS web interface by entering the master hostname:
 
 1.  Click **Log In To DC/OS**.
 
-    **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.
+    <table class=“table” bgcolor=#858585>
+    <tr> 
+    <td align=justify style=color:white><strong>Important:</strong> After clicking "Log In To DC/OS", your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.</td> 
+    </tr> 
+    </table>
 
     ![UI installer success](/1.11/img/gui-installer-success-ee.gif)
 

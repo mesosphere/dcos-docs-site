@@ -9,7 +9,7 @@ The dashboard is the home page of the DC/OS web interface. It provides an overvi
 
 ![Dashboard](/1.11/img/dashboard-ee.png)
 
-Figure 1 - Dashboard
+Figure 1. Dashboard
 
 # Monitoring cluster health
 

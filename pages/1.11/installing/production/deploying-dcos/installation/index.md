@@ -428,7 +428,7 @@ At this point your directory structure should resemble:
 
 ![Exhibitor for ZooKeeper](/1.11/img/chef-zk-status.png)
 
-Figure 2 - Exhibitor for ZooKeeper
+Figure 2. Exhibitor for ZooKeeper
 
    When the status icons are green, you can access the DC/OS web interface.
 
@@ -440,14 +440,14 @@ Figure 2 - Exhibitor for ZooKeeper
 
 ![Login screen](/1.11/img/ui-installer-auth2.png)
 
-Figure 3 - Sign in dialogue
+Figure 3. Sign in dialogue
 
 
 You are done! The UI dashboard will now be displayed.
 
 ![UI dashboard](/1.11/img/dashboard-ee.png)
 
-Figure 4 - DC/OS UI dashboard
+Figure 4. DC/OS UI dashboard
 
 
 ### Next Steps: Enterprise and Open Source users

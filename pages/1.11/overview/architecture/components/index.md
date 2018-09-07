@@ -11,7 +11,7 @@ DC/OS is composed of many open source microservice components meticulously tuned
 
 ![Mesosphere DC/OS Enterprise Components](/1.11/img/dcos-components-1.11-portrait.png)
 
-Figure 1 - DC/OS Enterprise components
+Figure 1. DC/OS Enterprise components
 
 From the top, DC/OS is an inclusive container platform that handles container orchestration, package management, and security. From the bottom, DC/OS is an operating system built on top of [Apache Mesos](http://mesos.apache.org/) that handles cluster management and software defined networking, while simplifying logging and metrics collection.
 

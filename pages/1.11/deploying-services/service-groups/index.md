@@ -157,7 +157,7 @@ This mode does not offer fine-grained control.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
 
-   Figure 3. DC/OS web interface login screen
+   Figure 3. DC/OS web interface login
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -172,6 +172,8 @@ This mode does not offer fine-grained control.
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
+
+    Figure 5. Add permission
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
@@ -291,7 +293,7 @@ This mode does not offer fine-grained control.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
 
-   Figure 5. DC/OS web interface login screen
+   Figure 6. DC/OS web interface login screen
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -299,7 +301,7 @@ This mode does not offer fine-grained control.
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
 
-    Figure 6. Select user to grant permissions
+    Figure 7. Select user to grant permissions
 
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
@@ -307,7 +309,7 @@ This mode does not offer fine-grained control.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
 
-    Figure 7. Add permissions
+    Figure 8. Add permissions
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 

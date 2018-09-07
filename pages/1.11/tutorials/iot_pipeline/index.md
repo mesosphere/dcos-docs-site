@@ -84,7 +84,12 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 2.  Add the `HAPROXY_0_VHOST` definition with the public IP address of your [public agent][9] node to your `tweeter.json` file.
 
-    **Important:** You must remove the leading `http://` and the trailing `/`.
+    <table class=“table” bgcolor=#858585>
+    <tr> 
+    <td align=justify style=color:white><strong>Important:</strong> You must remove the leading "http://" and the trailing "/".
+    </td> 
+    </tr> 
+    </table>
 
     ```json
     ...

@@ -154,37 +154,37 @@ In order to visit the the DC/OS Dashboard, you will need to access TCP port 80 o
 
 ![Resource - Master Node Network Security Group](/1.11/img/dcos-azure-step2case1a.png)
 
-Figure 1. Master node network security group
+Figure 3. Master node network security group
 
 2. Click on the **Inbound security rules** tab on the left side.
 
 ![Inbound Security Rules](/1.11/img/dcos-azure-step2case1b.png)
 
-Figure 2. Inbound security rules
+Figure 4. Inbound security rules
 
 3. Add an inbound security rule.
 
 ![Add Inbound Security Rules](/1.11/img/dcos-azure-step2case1c.png)
 
-Figure 3. Adding an inbound security rule 
+Figure 5. Adding an inbound security rule 
 
 4. Find the load balancer resource of the master node.
 
 ![Resource - Master Node Load balancer](/1.11/img/dcos-azure-step2case1d.png)
 
-Figure 4. Master node load balancer
+Figure 6. Master node load balancer
 
 5. Click on the **Inbound NAT rules** tab on the left side,
 
 ![Inbound NAT Rules](/1.11/img/dcos-azure-step2case1e.png)
 
-Figure 5. Inbound NAT rules
+Figure 7. Inbound NAT rules
 
 6. Add an inbound NAT rule.
 
 ![Add Inbound NAT Rules](/1.11/img/dcos-azure-step2case1f.png)
 
-Figure 6. Adding an inbound NAT rule
+Figure 8. Adding an inbound NAT rule
 
  Now you can visit `http://$MASTERFQDN` and view the DC/OS Dashboard.
 
@@ -208,7 +208,7 @@ Now you can visit `http://localhost:8000` on your local machine and view the DC/
 
 ![DC/OS dashboard](/1.11/img/dcos-gui.png)
 
-Figure 1. DC/OS dashboard
+Figure 9. DC/OS dashboard
 
 ### Caveats
 

@@ -10,6 +10,6 @@ The Jobs menu provides native support for creating and managing scheduled jobs. 
 
 ![Jobs](/1.11/img/job-ex3.png)
 
-Figure 1 - Jobs menu
+Figure 1. Jobs menu
 
 For more information, see [Deploying Jobs](/1.11/deploying-jobs/).

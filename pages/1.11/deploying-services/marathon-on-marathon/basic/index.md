@@ -20,7 +20,12 @@ This topic describes how to deploy a non-native instance of Marathon with isolat
 In this step, Mesos resources are reserved. Choose the procedure for either [static](#static-reservations) or [dynamic](#dynamic-reservations) reservations.
 
 ## Static Reservations
-**Warning:** This procedure kills all running tasks on your node.
+
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong> This procedure kills all running tasks on your node.</td> 
+</tr> 
+</table>
 
 1.  [SSH](/1.11/administering-clusters/sshcluster/) to your private agent node.
 
@@ -132,14 +137,14 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 1.  Create a custom JSON config file and save as `marathon-config.json`. This file is used to install the custom non-native Marathon instance.
 
     ```json
-    {
-      "marathon": {
-         "mesos_role": "<myrole>",
-         "role": "<myrole>"
-         }
+    {"marathon": {
+     "mesos-role": "<myrole>",
+     "role": "<myrole>",
+     "default-accepted-resource-roles": "*,<myrole>"
+     }
     }
-    ```
-
+     ```      
+    
 1.  Install the Marathon package from Universe with the custom JSON configuration specified (`marathon-config.json`).
 
     ```bash
@@ -302,7 +307,7 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
     ![Log in DC/OS](/1.11/img/gui-installer-login-ee.gif)
 
-    Figure 4. DC/OS log in screen
+    Figure 4. DC/OS web interface login
 
     You are done!
 

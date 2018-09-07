@@ -80,7 +80,11 @@ Use this procedure to provision a container with the UCR from the DC/OS command 
 }
 ```
 
-**Important:** If you leave the `args` field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the `args` field. If you do not, your service will fail to deploy.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> If you leave the "args" field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the "args" field. If you do not, your service will fail to deploy.</td> 
+</tr> 
+</table>
 
 # Container Image Garbage Collection
 
