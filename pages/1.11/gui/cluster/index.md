@@ -10,7 +10,7 @@ The Cluster menu provides an overview of your cluster health.
 
 ![Cluster](/1.11/img/cluster-ee.png)
 
-Figure 1 - Cluster > Overview menu
+Figure 1. Cluster > Overview menu
 
 The Cluster menu has two tabs:
 
