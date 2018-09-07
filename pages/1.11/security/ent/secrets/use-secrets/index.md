@@ -218,6 +218,55 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
 
+# <a name="deploying-the-job-via-metronome-job-definition"></a>Configuring a job to use an environment variable-based secret via Metronome job definition
+
+1. Log into the CLI as an user with the necessary permissions via `dcos auth login`. 
+
+1. Within a text editor, create a job definition for your Metronome job. The following job definition creates a new job and references a stored secret.
+
+Environment variable-based secret:
+ ```json
+   {
+  "id": "test-metronome-secret",
+  "run": {
+    "cpus": 0.01,
+    "mem": 128,
+    "cmd": "echo ${TEST}; sleep 30;",
+    "env": {
+      "TEST": {
+        "secret": "secret0"
+      }
+    },
+    "secrets": {
+      "secret0": {
+        "source": "/path/to/secret"
+      }
+    }
+  },
+  "schedules": []
+  }
+```
+
+In the example above, DC/OS stores the secret under the environment variable `"TEST"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
+
+1. Save the file with a descriptive name, such as `mytest.json`.
+
+1. Add the job to DC/OS via the DC/OS CLI.
+
+   ```bash
+   dcos job add mytest.json
+   ```
+
+1. Open the DC/OS web interface.
+
+1. Click the job id i.e., **test-metronome-secret**.
+
+1. Click the name of your job.
+
+1. Click the name of its task.
+
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+
 # <a name="pod"></a>Configuring a pod to use a secret
 
 1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services and pods to use secrets](#service) for more information about the permissions.
