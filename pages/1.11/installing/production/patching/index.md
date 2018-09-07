@@ -103,14 +103,6 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
     </tr>
  </table>   
 
-**Note:** The supported patching path matrix for DC/OS 1.10 and DC/OS 1.9 are as follows:
-- [1.10 Enterprise: Supported patching path matrix](/1.10/installing/ent/patching/) [enterprise type="inline" size="small" /]
-- [1.10 Open Source: Supported patching path matrix](/1.10/installing/oss/patching/)
-- [1.9 Enterprise: Supported patching path matrix](/1.9/installing/ent/patching/) [enterprise type="inline" size="small" /]
-- [1.9 Open Source: Supported patching path matrix](/1.9/installing/oss/patching/)
-
-
-
 ## Modifying DC/OS configuration
 
 You **cannot** change your cluster configuration at the same time that you are patching to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously patch a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then patch to 1.10.y Or you can patch to 1.10.y and then add more public agents by updating 1.10.y after the patch.
