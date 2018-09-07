@@ -159,3 +159,9 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 By default, authentication tokens expire after five days. Your service will need to renew its token either before or after it expires. The token itself contains the expiration, so your service can use this information to proactively refresh the token. Alternatively, you can wait to get a `401` from DC/OS and then refresh it.
 
 To refresh your authentication token, just repeat the process discussed in [Request an authentication token](#req-auth-tok).
+
+# <a name="dcos-native-service-accounts"></a>DC/OS-native service accounts
+
+The credentials of DC/OS-native service accounts are private to DC/OS and must not be consumed by third-party software (such as ad-hoc scripts).
+
+**Background**: the privileges granted to DC/OS-native service accounts can change during a DC/OS upgrade procedure. That is, consumers other than DC/OS-native services can break during a DC/OS upgrade. Notably, third party software must not mutate the privileges associated with DC/OS-native service accounts (the mutations can be reverted at any point in time).
