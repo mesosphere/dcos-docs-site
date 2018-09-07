@@ -7,7 +7,7 @@ excerpt: Exploring the hybrid cloud features
 ---
 
 The hybrid cloud has the following features in Mesosphere DC/OS:
-- Cluster Linking
-- Fault Domain Awareness with Zones
-- Capacity Extension with Regions
-- Decommission Nodes
+- Cluster linking
+- Fault domain awareness with zones
+- Capacity wxtension with regions
+- Node decommissioning

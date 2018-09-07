@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Print the task log.
+The `dcos task log` command displays the task log.
 
 # Usage
 
@@ -22,16 +22,16 @@ dcos task log <task> <file> [OPTION]
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `--completed`   |             | Print completed and in-progress tasks. |
+| `--completed`   |             | Displays completed and in-progress tasks. |
 | `--follow`   |             |  Dynamically update the log. |
-| `--lines=N`   |     10      |  Print the last N lines. |
+| `--lines=N`   |     10      |  Displays the last N lines. |
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
 | `<task>`   |             |  A full task ID, a partial task ID, or a regular expression. |
-| `<file>`   |  stdout  |  Specify the sandbox file to print. |
+| `<file>`   |  `stdout`  |  Specify the sandbox file to Displays. |
 
 # Parent command
 

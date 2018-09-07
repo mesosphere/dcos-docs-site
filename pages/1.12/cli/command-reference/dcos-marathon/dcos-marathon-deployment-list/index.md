@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon deployment list
 title: dcos marathon deployment list
 menuWeight: 14
-excerpt: Printing a list of currently deployed applications
+excerpt: Displaying a list of currently deployed applications
 
 enterprise: false
 ---
 
 
 # Description
-Print a list of currently deployed applications.
+The `dcos marathon deployment list` command allows you to view a list of currently deployed applications.
 
 # Usage
 
@@ -20,15 +20,15 @@ dcos marathon deployment list <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |  Displays JSON-formatted data. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<app-id>`   |             |  The application ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<app-id>`   |   The application ID.  |
 
 # Parent command
 
@@ -36,4 +36,4 @@ dcos marathon deployment list <app-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->
+

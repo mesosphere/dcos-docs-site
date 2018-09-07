@@ -6,15 +6,12 @@ menuWeight: 15
 excerpt: Using the high-availability features in DC/OS
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 This topic discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
 
 # Terminology
 
 ## Zone
-A zone is a failure domain that has isolated power, networking, and connectivity. Typically, a zone is a single data center or independent fault domain on-premise, or managed by a cloud provider. For example, AWS availability zones or GCP zones. Servers within a zone are connected via high bandwidth (For example, 1-10+ Gbps), low latency (up to 1 ms), and low cost links.
+A zone is a failure domain that has isolated power, networking, and connectivity. Typically, a zone is a single data center or independent fault domain on-premise, or managed by a cloud provider. For example, AWS availability zones or GCP zones. Servers within a zone are connected via high bandwidth (for example, 1-10+ Gbps), low latency (up to 1 ms), and low cost links.
 
 ## Region
 A region is a geographical region, such as a metro area, that consists of one or more zones. Zones within a region are connected via high bandwidth (For example, [1-4 Gbps](https://blog.serverdensity.com/network-performance-aws-google-rackspace-softlayer/)), low latency (up to 10 ms), low cost links. Regions are typically connected through public internet via variable bandwidth (e.g. [10-100 Mbps](https://cloudharmony.com/speedtest-for-aws)) and latency ([100-500 ms](https://www.concurrencylabs.com/blog/choose-your-aws-region-wisely/)) links.
@@ -27,7 +24,7 @@ A rack is typically composed of a set of servers (nodes). A rack has its own pow
 ## Latency
 DC/OS master nodes should be connected to each other via highly available and low latency network links. This is required because some of the coordinating components running on these nodes use quorum writes for high availability. For example, Mesos masters, Marathon schedulers, and ZooKeeper use quorum writes.
 
-Similarly, most DC/OS services use ZooKeeper (or etcd, consul, etc.) for scheduler leader election and state storage. For this to be effective, service schedulers must be connected to the ZooKeeper ensemble via a highly available, low latency network link.
+Similarly, most DC/OS services use ZooKeeper (or `etcd`, `consul`, and so forth) for scheduler leader election and state storage. For this to be effective, service schedulers must be connected to the ZooKeeper ensemble via a highly available, low latency network link.
 
 ## Routing
 DC/OS networking requires a unique address space. Cluster entities cannot share the same IP address. For example, apps and DC/OS agents must have unique IP addresses. All IP addresses should be routable within the cluster.
@@ -44,7 +41,7 @@ Mesos can be run in HA mode, which requires running three or five masters. When 
 
 #### Marathon
 
-Marathon can be run in HA mode, which allows running multiple Marathon instances (at least two for HA), with one elected leader. Marathon uses ZooKeeper for leader election. The followers do not accept writes or API requests, instead the followers proxy all API requests to the leading Marathon instance.
+Marathon can be run in HA mode, which allows running multiple Marathon instances (at least two for HA), with one elected leader. Marathon uses ZooKeeper for leader election. The followers do not accept writes or API requests; instead, the followers proxy all API requests to the leading Marathon instance.
 
 #### ZooKeeper
 
@@ -78,7 +75,7 @@ Other common single points of failure include:
 
 Fast failure detection comes in many forms. Services like ZooKeeper can be used to provide failure detection, such as detecting network partitions or host failures. Service health checks can also be used to detect certain types of failures. 
 
-**Note:** It is recommended that services *should* expose health check endpoints, which can be used by services like Marathon.
+**Note:** It is recommended that services should expose health check endpoints, which can be used by services like Marathon.
 
 ## Fast Failover
 

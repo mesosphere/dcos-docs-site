@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-Get the cluster license status.
+The `dcos license status` command displays the cluster license status.
 
 # Usage
 
@@ -19,10 +19,10 @@ dcos license status  [--terms] [--breaches]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--terms`   |             |  Displays the terms of contract. |
-| `--breaches`   |             |  Displays the number of breaches. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--terms`   |   Displays the terms of contract. |
+| `--breaches`   |   Displays the number of breaches. |
 
 # Parent command
 

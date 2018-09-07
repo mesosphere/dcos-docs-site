@@ -13,27 +13,27 @@ You can use [virtual addresses (VIPs)](/1.11/networking/load-balancing-vips/virt
 
 # Definitions
 
-*containerPort*: A _container port_ specifies a port within a container. This is only necessary as part of a _port mapping_ when using `BRIDGE` or `USER` mode networking with a Docker container.
+**containerPort**: A container port specifies a port within a container. This is only necessary as part of a port mapping when using `BRIDGE` or `USER` mode networking with a Docker container.
 
-*hostPort*: A _host port_ specifies a port on the host to bind to. When used with `BRIDGE` or `USER` mode networking, you specify a _port mapping_ from a _host port_ to a _container port_. In `HOST` networking, requested ports are _host ports_ by default. Note that only _host ports_ are made available to a task through environment variables.
+**hostPort**: A host port specifies a port on the host to bind to. When used with `BRIDGE` or `USER` mode networking, you specify a port mapping from a host port to a container port. In `HOST` networking, requested ports are host ports by default. Note that only host ports are made available to a task through environment variables.
 
-*BRIDGE networking*: used by Docker applications that specify `BRIDGE` mode networking. In this mode, container ports are mapped to host ports. In this mode, applications bind to the specified ports within the container and Docker networking binds to the specified ports on the host.
+**BRIDGE networking**: used by Docker applications that specify `BRIDGE` mode networking. In this mode, container ports are mapped to host ports. In this mode, applications bind to the specified ports within the container and Docker networking binds to the specified ports on the host.
 
-*USER networking*: used by Docker applications that specify `USER` mode networking. In this mode, container ports are mapped to host ports. In this mode, applications bind to the specified ports within the container and Docker networking binds to the specified ports on the host. `USER` network mode is expected to be useful when integrating with "user-defined" Docker networks. In the Mesos world such networks are often made accessible via CNI plugins used in concert with a Mesos CNI network isolator.
+**USER networking**: used by Docker applications that specify `USER` mode networking. In this mode, container ports are mapped to host ports. In this mode, applications bind to the specified ports within the container and Docker networking binds to the specified ports on the host. `USER` network mode is expected to be useful when integrating with "user-defined" Docker networks. In the Mesos world such networks are often made accessible via CNI plugins used in concert with a Mesos CNI network isolator.
 
-*HOST networking*: used by non-Docker Marathon applications and Docker applications that use `HOST` mode networking. In this mode, applications bind directly to one or more ports on the host machine.
+**HOST networking**: used by non-Docker Marathon applications and Docker applications that use `HOST` mode networking. In this mode, applications bind directly to one or more ports on the host machine.
 
-*portMapping*: In Docker `BRIDGE` mode, a port mapping is necessary for every port that should be reachable from outside of your container. A port mapping is a tuple containing a host port, container port, service port and protocol. Multiple _port mappings_ may be specified for a Marathon application; an unspecified `hostPort` defaults to `0` (meaning that Marathon will assign one at random). In Docker `USER` mode the semantic for `hostPort` slightly changes: `hostPort` is not required for `USER` mode and if left unspecified Marathon WILL NOT automatically allocate one at random. This allows containers to be deployed on `USER` networks that include `containerPort` and discovery information, but do NOT expose those ports on the host network (and by implication would not consume host port resources).
+**portMapping**: In Docker `BRIDGE` mode, a port mapping is necessary for every port that should be reachable from outside of your container. A port mapping is a tuple containing a host port, container port, service port and protocol. Multiple port mappings may be specified for a Marathon application; an unspecified `hostPort` defaults to `0` (meaning that Marathon will assign one at random). In Docker `USER` mode the semantic for `hostPort` slightly changes: `hostPort` is not required for `USER` mode and if left unspecified Marathon WILL NOT automatically allocate one at random. This allows containers to be deployed on `USER` networks that include `containerPort` and discovery information, but do NOT expose those ports on the host network (and by implication would not consume host port resources).
 
-*ports*: The _ports_ array is used to define ports that should be considered as part of a resource offer in `HOST` mode. It is necessary only if no port mappings are specified. Only one of _ports_ and _portDefinitions_ should be defined for an application.
+**ports**: The ports array is used to define ports that should be considered as part of a resource offer in `HOST` mode. It is necessary only if no port mappings are specified. Only one of ports and portDefinitions should be defined for an application.
 
-*portDefinitions*: The _portDefinitions_ array is used to define ports that should be considered as part of a resource offer. It is necessary only to define this array if you are using `HOST` networking and no port mappings are specified. This array is meant to replace the _ports_ array, and makes it possible to specify a port name, protocol and labels. Only one of _ports_ and _portDefinitions_ should be defined for an application.
+**portDefinitions**: The portDefinitions array is used to define ports that should be considered as part of a resource offer. It is necessary only to define this array if you are using `HOST` networking and no port mappings are specified. This array is meant to replace the ports array, and makes it possible to specify a port name, protocol and labels. Only one of ports and portDefinitions should be defined for an application.
 
-*protocol*: _Protocol_ specifies the internet protocol to use for a port (e.g. `tcp`, `udp` or `udp,tcp` for both). This is only necessary as part of a _port mapping_ when using `BRIDGE` or `USER` mode networking with a Docker container.
+**protocol**: Protocol specifies the internet protocol to use for a port (e.g. `tcp`, `udp` or `udp,tcp` for both). This is only necessary as part of a port mapping when using `BRIDGE` or `USER` mode networking with a Docker container.
 
-*requirePorts*: _requirePorts_ is a property that specifies whether Marathon should specifically look for specified ports in the resource offers it receives. This ensures that these ports are free and available to be bound to on the Mesos agent. This does not apply to `BRIDGE` or `USER` mode networking.
+**requirePorts**: requirePorts is a property that specifies whether Marathon should specifically look for specified ports in the resource offers it receives. This ensures that these ports are free and available to be bound to on the Mesos agent. This does not apply to `BRIDGE` or `USER` mode networking.
 
-*servicePort*: When you create a new application in Marathon (either through the REST API or the front end), you may assign one or more service ports to it. You can specify all valid port numbers as service ports or you can use 0 to indicate that Marathon should allocate free service ports to the app automatically. If you do choose your own service port, you have to ensure yourself that it is unique across all of your applications.
+**servicePort**: When you create a new application in Marathon (either through the REST API or the front end), you may assign one or more service ports to it. You can specify all valid port numbers as service ports or you can use 0 to indicate that Marathon should allocate free service ports to the app automatically. If you do choose your own service port, you have to ensure yourself that it is unique across all of your applications.
 
 # Random Port Assignment
 
@@ -41,7 +41,7 @@ Using the value `0` for any port settings indicates to Marathon that you would l
 
 # Environment Variables
 
-Each *host port* value is exposed to the running application instance via environment variables `$PORT0`, `$PORT1`, etc. Each Marathon application is given a single port by default, so `$PORT0` is always available. These variables are available inside a Docker container being run by Marathon too. Additionally, if the port is named `NAME`, it will also be accessible via the environment variable, `$PORT_NAME`.
+Each **host port** value is exposed to the running application instance via environment variables `$PORT0`, `$PORT1`, etc. Each Marathon application is given a single port by default, so `$PORT0` is always available. These variables are available inside a Docker container being run by Marathon too. Additionally, if the port is named `NAME`, it will also be accessible via the environment variable, `$PORT_NAME`.
 
 When using `BRIDGE` or `USER` mode networking, be sure to bind your application to the `containerPort`s you have specified in your `portMapping`s. However, if you have set `containerPort` to 0 then this will be the same as `hostPort` and you can use the `$PORT` environment variables.
 
@@ -104,11 +104,7 @@ Or:
     ],
 ```
 
-In this case, host ports `$PORT0`, `$PORT1` and `$PORT3` remain randomly assigned. However, the three service ports for this application are now `2001`, `2002` and `3000`.
-
-In this example, as with the previous one, it is necessary to use a service discovery solution such as HAProxy to proxy requests from service ports to host ports.
-
-If you want the applications service ports to be equal to its host ports, you can set `requirePorts` to `true` (`requirePorts` is `false` by default). This will tell Marathon to only schedule this application on agents which have these ports available:
+In this case, host ports `$PORT0`, `$PORT1` and `$PORT3` remain randomly assigned. However, the three service ports for this application are now `2001`, `2002` and `3000`. As with the previous example, it is necessary to use a service discovery solution such as HAProxy to proxy requests from service ports to host ports. If you want the applications service ports to be equal to its host ports, you can set `requirePorts` to `true` (`requirePorts` is `false` by default). This will tell Marathon to only schedule this application on agents which have these ports available:
 
 ```json
     "ports": [
@@ -117,10 +113,7 @@ If you want the applications service ports to be equal to its host ports, you ca
     "requirePorts" : true
 ```
 
-The service and host ports (including the environment variables `$PORT0`, `$PORT1`, and `$PORT2`), are both now `2001`, `2002` and `3000`.
-
-This property is useful if you don't use a service discovery solution to proxy requests from service ports to host ports.
-
+The service and host ports (including the environment variables `$PORT0`, `$PORT1`, and `$PORT2`), are both now `2001`, `2002` and `3000`. This property is useful if you do not use a service discovery solution to proxy requests from service ports to host ports.
 
 Defining the `portDefinitions` array allows you to specify a protocol, a name and labels for each port. When starting
 new tasks, Marathon will pass this metadata to Mesos. Mesos will expose this information in the `discovery` field of the
@@ -263,7 +256,7 @@ You can also specify the protocol for these port mappings. The default is `tcp`:
 
 #### Specifying Service Ports
 
-By default, Marathon will be creating service ports for each of these ports and assigning them random values. Service ports are used by service discovery solutions and it is often desirable to set these to well known values. You can do this by setting a `servicePort` for each mapping:
+By default, Marathon will create service ports for each of these ports and assign them random values. Service ports are used by service discovery solutions and it is often desirable to set these to well-known values. You can do this by setting a `servicePort` for each mapping:
 
 ```json
 "networks": [

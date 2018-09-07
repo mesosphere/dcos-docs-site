@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Add an application.
+The `dcos marathon app add` command allows you to add an application.
 
 # Usage
 
@@ -24,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<app-resource>`   |             |  Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from stdin. For a detailed description, see the [documentation](/1.12/deploying-services/marathon-api/). |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description, see the [documentation](/1.12/deploying-services/marathon-api/). |
 
 # Parent command
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Adding Agent Nodes
 title: Adding Agent Nodes
 menuWeight: 800
-excerpt: This section shows you how to add agent nodes to an existing DC/OS cluster.
+excerpt: Adding agent nodes to an existing DC/OS cluster
 
 
 enterprise: false
@@ -15,9 +15,9 @@ Agent nodes are designated as [public](/1.11/overview/concepts/#public-agent-nod
 
 ### Prerequisites:
 
-*   DC/OS is installed using the [custom](/1.11/installing/oss/custom/) installation method.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.11/installing/oss/custom/gui/#backup).
-*   Available agent nodes that satisfy the [system requirements](/1.11/installing/oss/custom/system-requirements/).
+*   DC/OS is installed using the [custom](/1.11/installing/production/deploying-dcos/installation/) installation method.
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.11/installing/evaluation/cloud-installation/).
+*   Available agent nodes that satisfy the [system requirements](/1.11/installing/production/system-requirements/).
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 

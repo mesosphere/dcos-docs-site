@@ -20,15 +20,19 @@ We see the app fail almost immediately:
 
 ![Pic of failure](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-17.png)
 
+Figure 1. Task log showing failures
+
 ## Resolution
 
 As we learned [earlier](/1.11/tutorials/dcos-debug/gen-strat/), with application failures the [first step](/1.11/tutorials/dcos-debug/gen-strat/#task-strat) is to check the [task logs](/1.11/tutorials/dcos-debug/tools/#task-logs).
 
 ![Pic of empty log output](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
+Figure 2. Empty task log
+
 Unfortunately, it is completely empty. **Normally we would at least see some output from the setup of the task**. This is especially peculiar behavior.
 
-So [Step 2] is to check the scheduler logs --- in this case Marathon:
+So Step 2 is to check the scheduler logs --- in this case Marathon:
 
 ```bash
 $ dcos service log marathon
