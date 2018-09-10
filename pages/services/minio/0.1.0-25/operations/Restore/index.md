@@ -30,15 +30,9 @@ The following information and values are required to restore your data.
 
 Once this plan is executed, it will restore the data in the specified bucket in AWS S3 compatible storage to DC/OS Minio.
 
-The Restore plan will execute two sidecar tasks:
+The Restore plan will execute the below tasks:
 
-1. `Init Task` - A separate Pod will be started at any Private Agent. An init task will be responsible to register both Minio as well as S3 compatible client.
-
-[<img src="../../img/Init_task.png" alt="Init_task" width="800"/>](../img/Init_task.png)
-
-   _Figure 1. - Register Minio and S3 compatible client
-
-2. `Restore Task` -  Restore task is responsible to restoring the data. Restore plan will have to be launched against each backed up S3 bucket. The restore task will run the ‘mc mirror’ command by taking ACCESS_KEY_ID and SECRET_ACCESS_KEY and S3_BUCKET as parameters. Restore task will create a bucket with same name in the Minio storage system.
+1. `Restore Task` -  Restore task is responsible to restoring the data. Restore plan will have to be launched against each backed up S3 bucket. The restore task will run the ‘mc mirror’ command by taking ACCESS_KEY_ID and SECRET_ACCESS_KEY and S3_BUCKET as parameters. Restore task will create a bucket with same name which was in the Minio storage system previously (i.e. it will drop the prefix service name from the bucket which was attached in S3 compatibale storage while backup plan.
 
 [<img src="../../img/Restore.png" alt="Restore" width="800"/>](../img/Restore.png)
 
