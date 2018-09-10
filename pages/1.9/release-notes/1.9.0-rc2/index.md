@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.0 RC2
 title: Release Notes for 1.9.0 RC2
-menuWeight: 90
+menuWeight: 65
 excerpt:
 ---
 These are the release notes for DC/OS 1.9.0 Release Candidate 2.

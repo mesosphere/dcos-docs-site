@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: Specifying LDAP Authentication and Parameters
+navigationTitle:  Authentication
+title: Authentication
 menuWeight: 2
-excerpt: Specifying authentication method and
-parameters
+excerpt: Specifying authentication method and parameters for your LDAP directory
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -22,7 +21,7 @@ In this section you will set up the authentication method and parameters for you
         uid=read-only-user,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org
         uid=read-only-user,ou=users,dc=example,dc=com
 
-    **Tip:** We recommend a read-only user account.
+  **Note:** We recommend a read-only user account.
 
 1. Provide the password of the account in the **Lookup Password** field.
 
@@ -48,7 +47,9 @@ In this section you will set up the authentication method and parameters for you
 
 1.  When you have completed your entries, the dialog should look something like the following.
 
-   ![Simple bind parameters](/1.11/img/ldap-add-dir-auth-simple-bind.png)  
+   ![Simple bind parameters](/1.11/img/ldap-add-dir-auth-simple-bind.png) 
+
+   Figure 1. Simple bind parameters 
 
 1.  Click **Add Directory**.
 
@@ -69,6 +70,8 @@ While the simple bind connection takes place in a single step, the search/bind o
 1.  When you have completed your entries, the dialog should look something like the following.
 
    ![Search/bind parameters](/1.11/img/ldap-add-dir-auth-search-bind.png)
+
+   Figure 2. Search bind parameters
 
 1.  Click **Add Directory**.
 

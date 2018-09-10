@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod update
 title: dcos marathon pod update
 menuWeight: 28
-excerpt:
+excerpt: Updating a Marathon pod
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Update a pod.
+The `dcos marathon pod update` command allows you to update a pod.
 
 # Usage
 
@@ -22,15 +20,15 @@ dcos marathon pod update <pod-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--force`   |             | Disable checks in Marathon during updates. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--force`   |   Disable checks in Marathon during updates. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<pod-id>`   |             | The pod ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<pod-id>`   |  The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` command.|
 
 # Parent command
 
@@ -40,8 +38,8 @@ dcos marathon pod update <pod-id> [OPTION]
 
 # Examples
 
-# Update Pod
-To update a pod, first modify the JSON definition for the pod, then run the following command: 
+## Update Pod
+To update a pod, first modify the JSON definition for the pod, then run the following command:
 
 ```
 dcos marathon pod update <pod-id> < <new-pod-definition>

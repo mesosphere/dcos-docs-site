@@ -2,17 +2,12 @@
 layout: layout.pug
 title: Debugging from the DC/OS CLI
 menuWeight: 10
-excerpt: Debugging from the command line interface
+excerpt: Debugging DC/OS from the command line interface
 beta: true
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
-
-The DC/OS CLI provides commands to debug services that are not deploying or behaving as expected.
-
-To see full logs, append `--log-level=debug` to any DC/OS CLI command. For example, to troubleshoot HDFS package installation, use this command:
+The DC/OS CLI provides commands to debug services that are not deploying or behaving as expected. To see full logs, append `--log-level=debug` to any DC/OS CLI command. For example, to troubleshoot HDFS package installation, use this command:
 
 ```bash
 dcos -—log-level="debug" package install hdfs
@@ -23,12 +18,10 @@ For more information about log levels, consult the [CLI command reference](/1.11
 
 The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS web interface](/1.11/monitoring/debugging/gui-debugging/).
 
-# Using the debugging commands
-
 ## Prerequisites
-- A DC/OS cluster.
-- The DC/OS CLI installed.
-- A service or pod that is stuck in deployment.
+- A DC/OS cluster
+- The [DC/OS CLI installed](/1.11/cli/install/)
+- A service or pod that is stuck in deployment
 
 ## Sample application definitions
 If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/1.11/deploying-services/creating-services/) to test the instructions in this section.
@@ -75,7 +68,7 @@ If you do not currently have a service or pod that is stuck in deployment, you c
 
 ## dcos marathon debug list
 
-The `dcos marathon debug list` command shows you all services that are in a waiting state. This enables you to see only the services that are not running.
+The [`dcos marathon debug list`](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-list/) command shows you all the services that are in a waiting state. This enables you to see only the services that are not running.
 
 ```bash
 dcos marathon debug list
@@ -96,7 +89,7 @@ This output can quickly show you which services or pods are stuck in deployment 
 
 ## dcos marathon debug summary
 
-Once you know which services or pods are stuck in deployment, use the `dcos marathon debug summary /<app-id>|/<pod-id>` command to learn more about a particular stuck service or pod.
+Once you know which services or pods are stuck in deployment, use the [`dcos marathon debug summary /<app-id>|/<pod-id>` command](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/) to learn more about a particular stuck service or pod.
 
 ```bash
 dcos marathon debug summary /mem-app
@@ -112,9 +105,10 @@ PORTS        ---                       0 / 0    ---
 
 The output of the command shows the resources, what the service or pod requested, how many offers were matched, and the percentage of offers that were matched. This command can quickly show you which resource requests are not being met.
 
+
 ## dcos marathon debug details
 
-The `dcos marathon debug details /<app-id>|/<pod-id>` command lets you learn exactly how your service or pod definition should be changed.
+The [`dcos marathon debug details /<app-id>|/<pod-id>` command](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/) lets you learn exactly how your service or pod definition should be changed.
 
 ```bash
 dcos marathon debug details /mem-app
@@ -126,8 +120,10 @@ HOSTNAME    ROLE  CONSTRAINTS  CPUS  MEM  DISK  PORTS  RECEIVED
 
 The output of the command shows:
 
-- Which hosts are running the service or pod.
-- The status of the role, constraints, CPUs, memory, disk, and ports the service or pod has requested.
-- When the last resource offer was received.
+- Which hosts are running the service or pod
+- The status of the role, constraints, CPUs, memory, disk, and ports the service or pod has requested
+- When the last resource offer was received
 
 In the example above, you can see that one instance of `/mem-app` has a status of `ok` in all categories except memory. The other instance had fewer successful resource matches, with role, CPUs, memory, and ports having no match.
+
+More information about this command can be found in the [CLI Command Reference section](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/).

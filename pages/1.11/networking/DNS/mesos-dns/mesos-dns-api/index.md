@@ -42,7 +42,7 @@ Responses will include the content type header:
 Content-Type: application/json
 ```
 
-# Authorization (Enterprise Only)
+# Authorization [enterprise type=small]
 
 All Mesos DNS API routes require authentication to use.
 

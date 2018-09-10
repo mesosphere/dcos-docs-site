@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Troubleshooting
 menuWeight: 90
@@ -9,7 +9,7 @@ enterprise: false
 
 The Kafka service will be listed as "Unhealthy" when it detects any underreplicated partitions. This error condition usually indicates a malfunctioning broker. Use the `dcos kafka topic under_replicated_partitions` and `dcos kafka topic describe <topic-name>` commands to find the problem broker and determine what actions are required.
 
-Possible repair actions include `dcos kafka broker restart <broker-id>` and `dcos kafka broker replace <broker-id>`. The replace operation is destructive and will irrevocably lose all data associated with the broker. The restart operation is not destructive and indicates an attempt to restart a broker process.
+Possible repair actions include `dcos kafka broker restart <broker-id>` and `dcos kafka pod replace <name>`. The replace operation is destructive and will irrevocably lose all data associated with the broker. The restart operation is not destructive and indicates an attempt to restart a broker process.
 
 # Configuration Update Errors
 

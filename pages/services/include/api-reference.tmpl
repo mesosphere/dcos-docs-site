@@ -1,4 +1,4 @@
-The DC/OS {{ model.techName }} Service implements a REST API that may be accessed from outside the cluster. The <dcos_url> parameter referenced below indicates the base URL of the DC/OS cluster on which the {{ model.techName }} Service is deployed.
+The DC/OS {{ model.techName }} Service implements a REST API that may be accessed from outside the cluster. The `<dcos_url>` parameter referenced below indicates the base URL of the DC/OS cluster on which the {{ model.techName }} Service is deployed.
 
 # REST API Authentication
 
@@ -114,7 +114,7 @@ $ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.service
 
 ## Replace a Node
 
-The replace endpoint can be used to replace a node with an instance running on another agent node.
+The `replace endpoint` command can be used to replace a node with an instance running on another agent node.
 
 CLI Example
 ```bash
@@ -130,7 +130,7 @@ If the operation succeeds, a `200 OK` is returned.
 
 ## Restart a Node
 
-The restart endpoint can be used to restart a node in place on the same agent node.
+The `restart endpoint` command can be used to restart a node in place on the same agent node.
 
 CLI Example
 ```bash
@@ -146,7 +146,7 @@ If the operation succeeds a `200 OK` is returned.
 
 ## Pause a Node
 
-The pause endpoint can be used to relaunch a node in an idle command state for debugging purposes.
+The `pause endpoint` command can be used to relaunch a node in an idle command state for debugging purposes.
 
 CLI example
 ```bash

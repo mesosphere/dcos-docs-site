@@ -8,18 +8,21 @@ excerpt: Using Mesos to mount storage resources
 enterprise: false
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-
-
 With DC/OS you can configure Mesos [`Mount` disk resources][1] across your cluster simply by mounting storage resources on agents using a well-known path.
 
 When a DC/OS agent starts, it scans for volumes that match the pattern `/dcos/volume<N>`, where `<N>` is an integer. The agent is then automatically configured to offer these disk resources to other services.
 
 # Example using loopback device
 
-In this example, a disk resource is added to a DC/OS agent post-install on a running cluster. These same steps can be used pre-install without having to stop services or clear the agent state.
+In this example, a disk resource is added to a DC/OS agent post-install on a running cluster. These same steps can be used pre-install without having to stop services or clear the agent state. 
 
-***Warning:*** This will terminate any running tasks or services on the node.
+Please note that this example handles **adding** resources exclusively and can not get applied the same way when removing resources.
+
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong> This will terminate any running tasks or services on the node.</td> 
+</tr> 
+</table>
 
 1.  Connect to an agent in the cluster with SSH.
 2.  Examine the current agent resource state.
@@ -69,9 +72,9 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
     ```
     This is suitable for testing purposes only. Mount volumes must have at least 200 MB of free space available. 100 MB on each volume is reserved by DC/OS and is not available for other services.
 
-6.  Create fstab entry and mount.
+6.  Create `fstab` entry and mount.
 
-    Ensure the volume is mounted automatically at boot time. Something similar could also be done with a systemd mount unit.
+    Ensure the volume is mounted automatically at boot time. Something similar could also be done with a `systemd` mount unit.
 
     ```bash
     echo "/root/volume0.img /dcos/volume0 auto loop 0 2" | sudo tee -a /etc/fstab
@@ -84,7 +87,7 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
     sudo reboot
     ```
 
-8.  SSH to the agent and review the journald logs for references to the new volume `/dcos/volume0`.
+8.  SSH to the agent and review the `journald` logs for references to the new volume `/dcos/volume0`.
 
     ```bash
     journalctl -b | grep '/dcos/volume0'
@@ -173,9 +176,11 @@ In this example, a disk resource is added to a DC/OS agent post-install on a run
 }
 ```
 
-After running this service, navigate to the service Volumes tab:
+After running this service, navigate to the **Services > Volumes** tab in the web interface:
 
 ![Mount disk](/1.11/img/mount-disk.png)
+
+Figure 1. Services > Volumes tab
 
 # Cloud provider resources
 

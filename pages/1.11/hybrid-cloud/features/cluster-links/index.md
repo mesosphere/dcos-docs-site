@@ -3,11 +3,11 @@ layout: layout.pug
 navigationTitle:  Cluster Links
 title: Cluster Links
 menuWeight: 0
-excerpt: How to manage cluster links
+excerpt: Managing cluster links
 enterprise: true
 ---
 
-A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster.
+A cluster link is a **unidirectional** relationship between a cluster and another cluster.
 
 You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) and [dcos cluster unlink](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) commands and the [cluster link API](/1.11/administering-clusters/multiple-clusters/cluster-link-api). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
 
@@ -84,13 +84,19 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
     ![open cluster popup](/1.11/img/open-cluster-popup.png)
 
+    Figure 1. Cluster dropdown
+
 1.  Select **Switch Cluster**.
 
     ![swi cluster](/1.11/img/switch-cluster.png)
 
+    Figure 2. Cluster switch
+
 1. Click the name of the cluster to switch to.
 
     ![swi linked cluster](/1.11/img/switch-linked-cluster.png)
+
+    Figure 3. Switch to linked cluster
 
 If you are superuse, you can also switch to a linked cluster in the Linked Clusters tab.
 
@@ -99,6 +105,8 @@ If you are superuse, you can also switch to a linked cluster in the Linked Clust
 1. At the far right of the cluster to switch to, click the vertical ellipsis and select **Switch**.
 
    ![swi linked cluster2](/1.11/img/switch-linked-cluster2.png)
+
+   Figure 4. Switch to linked clusters
 
 
 
@@ -195,7 +203,7 @@ If you are superuse, you can also switch to a linked cluster in the Linked Clust
 
 Once an operator has set up links, you can switch between clusters using the UI or CLI.
 
-### Switch clusters using the UI with Google SSO
+### Switch clusters using the web interface with Google SSO
 
 You can easily switch to a linked cluster that has been set up with the Google OpenID provider.
 
@@ -204,9 +212,13 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
    ![google login](/1.11/img/google-login.png)
 
+   Figure 5. Google login
+
 1. From the top left corner, click the down arrow next to the cluster name.
 
    ![swi cluster](/1.11/img/switch-cluster.png)
+
+   Figure 6. Switch cluster
 
 1. Click **Switch Cluster**. In the Linked Clusters pane, select cluster `cluster-b`. Cluster `cluster-b`’s UI displays.
 

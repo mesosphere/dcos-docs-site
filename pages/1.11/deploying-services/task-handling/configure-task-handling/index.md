@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Configure Task Handling
 title: Configure Task Handling
 menuWeight: 0
-excerpt:
+excerpt: Configuring Marathon for unreachable tasks
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can configure Marathon's actions on unreachable tasks. The `unreachableStrategy` parameter of your app or pod definition allows you to configure this in two ways: by defining when a new task instance should be launched, and by defining when a task instance should be expunged.
@@ -43,4 +42,9 @@ Add the `killSelection` parameter to your app definition, or to the `PodScheduli
 
 The default `unreachableStrategy` for apps with persistent volumes will create new instances with new volumes and delete existing volumes (if possible) after an instance has been unreachable for longer than 7 days and has been expunged by Marathon.
 
-**Warning:** Data may be deleted when the existing volumes of an unreachable instance are deleted.
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=“color:black><strong>Warning:</strong> Data may be deleted when the existing volumes of an unreachable instance are deleted.</td> 
+</tr> 
+</table>
+

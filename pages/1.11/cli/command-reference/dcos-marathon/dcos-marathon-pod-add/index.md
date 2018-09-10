@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod add
 title: dcos marathon pod add
 menuWeight: 23
-excerpt:
+excerpt: Adding a pod
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Add a pod.
+The `dcos marathon pod add` command allows you to add a pod.
 
 # Usage
 
@@ -26,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<pod-resource>`   |             |  Path to a file or HTTP(S) URL that contains the pod's JSON definition. If omitted, the definition is read from stdin. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<pod-resource>`   |  Path to a file or HTTP(S) URL that contains the pod's JSON definition. If omitted, the definition is read from stdin. |
 
 # Parent command
 
@@ -38,7 +36,7 @@ None.
 
 # Examples
 
-# Add a Pod
+## Add a Pod
 
 To add a pod, first create a JSON pod definition. Then, run the following command:
 ```

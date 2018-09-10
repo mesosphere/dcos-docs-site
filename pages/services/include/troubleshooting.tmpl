@@ -10,15 +10,15 @@ $ dcos {{ model.packageName }} --name=<service-name> plan show deploy
 
 Logs for the scheduler and all service nodes can be viewed from the DC/OS web interface.
 
-- Scheduler logs are useful for determining why a node isn't being launched (this is under the purview of the Scheduler).
+- Scheduler logs are useful for determining why a node is not being launched (this is under the purview of the Scheduler).
 - Node logs are useful for examining problems in the service itself.
 
 In all cases, logs are generally piped to files named `stdout` and/or `stderr`.
 
 To view logs for a given node, perform the following steps:
-1. Visit <dcos-url> to access the DC/OS web interface.
+1. Visit `<dcos-url>` to access the DC/OS web interface.
 1. Navigate to `Services` and click on the service to be examined.
-1. In the list of tasks for the service, click on the task to be examined (scheduler is named after the service, nodes are each named e.g. `node-<#>-server` depending on their type).
+1. In the list of tasks for the service, click on the task to be examined (scheduler is named after the service, nodes are each named `node-<#>-server` according to their type).
 1. In the task details, click on the `Logs` tab to go into the log viewer. By default, you will see `stdout`, but `stderr` is also useful. Use the pull-down in the upper right to select the file to be examined.
 
 You can also access the logs via the Mesos UI:
@@ -74,13 +74,11 @@ $ dcos {{ model.packageName }} --name=<service-name> plan show recovery
 
 ## Tasks not deploying / Resource starvation
 
-When the scheduler is trying to launch tasks, it will log its decisions about offers it has received. This can be useful in the common case of determining why a task is failing to deploy at all.
+When the scheduler is trying to launch tasks, it will log its decisions about offers it has received. This can be useful when you are determining why a task is failing to deploy at all.
 
-In recent versions of the service, a scheduler endpoint at `http://yourcluster.com/service/<service-name>/v1/debug/offers` will display an HTML table containing a summary of recently-evaluated offers. This table's contents are currently very similar to what can be found in logs, but in a slightly more accessible format. Alternately, we can look at the scheduler's logs in `stdout`.
+In recent versions of the service, a scheduler endpoint at `http://yourcluster.com/service/<service-name>/v1/debug/offers` will display an HTML table containing a summary of recently-evaluated offers. This table's contents are currently very similar to what can be found in logs, but in a slightly more accessible format. Alternatively, we can look at the scheduler's logs in `stdout`.
 
-An offer is a set of resources all from one individual DC/OS agent. When deploying
-
-The following example assumes a hypothetical task requiring a pre-determined amount of resources. From scrolling through the scheduler logs, we see a couple of patterns. First, there are failures like this, where the only thing missing is CPUs. The remaining task requires 2 CPUs but this offer apparently didn't have enough:
+The following example assumes a hypothetical task requiring a pre-determined amount of resources. From scrolling through the scheduler logs, we see a couple of patterns. First, there are failures like this, where the only thing missing is CPUs. The remaining task requires two CPUs but this offer apparently did not have enough:
 
 ```
 INFO  2017-04-25 19:17:13,846 [pool-8-thread-1] com.mesosphere.sdk.offer.evaluate.OfferEvaluator:evaluate(69): Offer 1: failed 1 of 14 evaluation stages:
@@ -151,15 +149,15 @@ INFO  2017-04-25 19:17:14,849 [pool-8-thread-1] com.mesosphere.sdk.offer.evaluat
   PASS(ReservationEvaluationStage): Added reservation information to offer requirement
 ```
 
-In this case, we see that none of the ports our task needs are available on this system (not to mention the lack of sufficient CPU and RAM). This will typically happen when we're looking at an agent that we've already deployed to. The agent in question here is likely running an existing node for this service, where we had already reserved those ports ourselves.
+In this case, we see that none of the ports our task needs are available on this system (not to mention the lack of sufficient CPU and RAM). This will typically happen when we are looking at an agent that we have already deployed to. The agent in question here is likely running an existing node for this service, where we had already reserved those ports ourselves.
 
-We're seeing that none of the remaining agents in the cluster have room to fit our third node. To resolve this, we need to either add more agents to the DC/OS cluster or we need to reduce the requirements of our service to make it fit. In the latter case, be aware of any performance issues that may result if resource usage is reduced too far. Insufficient CPU quota will result in throttled tasks, and insufficient RAM quota will result in OOMed tasks.
+We are seeing that none of the remaining agents in the cluster have room to fit our third node. To resolve this, we need to either add more agents to the DC/OS cluster or we need to reduce the requirements of our service to make it fit. In the latter case, be aware of any performance issues that may result if resource usage is reduced too far. Insufficient CPU quota will result in throttled tasks, and insufficient RAM quota will result in OOMed tasks.
 
 This is a good example of the kind of diagnosis you can perform by skimming the scheduler logs.
 
-## Accidentially deleted Marathon task but not service
+## Accidentally deleted Marathon task but not service
 
-A common user mistake is to remove the scheduler task from Marathon, which doesn't do anything to uninstall the service tasks themselves. If you do this, you have two options:
+A common user mistake is to remove the scheduler task from Marathon, which does not do anything to uninstall the service tasks themselves. If you do this, you have two options:
 
 ### Uninstall the rest of the service
 
@@ -167,7 +165,7 @@ If you really wanted to uninstall the service, you just need to complete the nor
 
 ### Recover the Scheduler
 
-If you want to bring the scheduler back, you can do a `dcos package install` using the options that you had configured before. This will re-install a new scheduler that should match the previous one (assuming you got your options right), and it will resume where it left off. To ensure that you don't forget the options your services are configured with, we recommend keeping a copy of your service's `options.json` in source control so that you can easily recover it later.
+If you want to bring the scheduler back, you can run the `dcos package install` process, using the options that you had configured before. This will re-install a new scheduler that should match the previous one (assuming you got your options right), and it will resume where it left off. To ensure that you don't forget the options your services are configured with, we recommend keeping a copy of your service's `options.json` in source control so that you can easily recover it later.
 
 ## 'Framework has been removed'
 
@@ -175,8 +173,8 @@ An instance of the service was previously installed with the same name and not p
 
 ## OOMed task
 
-Your tasks can be killed from an OOM if you didn't give them sufficient resources. This will manifest as sudden `Killed` messages in Task logs, sometimes consistently but often not. To verify that the cause is an OOM, the following places can be checked:
+Your tasks can be killed from an OOM (out of memory error) if you did not give them sufficient resources. This will manifest as sudden `Killed` messages in Task logs, sometimes consistently but often not. To verify that the cause is an OOM error, the following places can be checked:
 - Check Scheduler logs (or `dcos <svcname> pod status <podname>)` to see TaskStatus updates from mesos for a given failed pod.
 - Check Agent logs directly for mention of the Mesos Agent killing a task due to excess memory usage.
 
-After you've been able to confirm that the problem is indeed an OOM, you can solve it by either updating the service configuration to reserve more memory.
+After you have been able to confirm that the problem is indeed an OOM error, you can solve it by either updating the service configuration to reserve more memory.

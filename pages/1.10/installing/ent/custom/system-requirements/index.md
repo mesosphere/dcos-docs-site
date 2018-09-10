@@ -46,7 +46,7 @@ There are many mixed workloads on the masters. Workloads that are expected to be
 
 [0]: https://docs.mesosphere.com/1.10/overview/high-availability/
 
-Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O.
+Examples of mixed workloads on the masters are: Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O.
 
 Thus, the following hardware is recommended:
 
@@ -67,7 +67,7 @@ The table below shows the agent node hardware requirements.
 
 The agent nodes must also have:
 
-- A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.10/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.10/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
 
 *   On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
@@ -100,7 +100,9 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ## Software Prerequisites
 
-Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
+* Refer to [install_prereqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) script for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.[enterprise type="inline" size="small" /]
+
+* When using OverlayFS over XFS, the XFS volume should be created with the -n ftype=1 flag. Please see the [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.2_release_notes/technology-preview-file_systems) and [Mesos](http://mesos.apache.org/documentation/latest/container-image/#provisioner-backends) documentation for more details.
 
 ### All Nodes
 
@@ -201,7 +203,10 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-    **Tip:** It may take a few minutes for your node to come back online after reboot.
+
+    **Note:** It may take a few minutes for your node to come back online after reboot.
+
+   
 
 ### Locale requirements
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Creating Jobs
 title: Creating Jobs
 menuWeight: 10
-excerpt: How to create jobs
+excerpt: Creating and administering jobs using the web interface, the CLI, or the API
 beta: true
 enterprise: false
 ---
@@ -21,18 +21,20 @@ From the DC/OS web interface, click the **Jobs** tab, then the **Create a Job** 
 
 ![Create JOB UI](/1.11/img/create-job.png)
 
+Figure 1. New job menu
+
 ### **General** Tab
 * **ID** - The ID of your job.
 * **Description** - A description of your job.
 * **CPUs** - The amount of CPU your job requires.
-* **Mem** - The amount of memory, in MiB, your job requires.
-* **Disk space** - The amount of disk space, in MiB, your job requires.
+* **Mem** - The amount of memory, in MB, your job requires.
+* **Disk space** - The amount of disk space, in MB, your job requires.
 * **Command** - The command your job will execute. Leave this blank if you will use a Docker image.
 
 ### **Schedule** Tab
 Check the **Run on a Schedule** to reveal the following fields.
 * **Cron Schedule** - Specify the schedule in cron format. Use [this crontab generator](http://crontab.guru) for help.
-* **Time Zone** - Enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), e.g. America/New_York.
+* **Time Zone** - Enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), for example, America/New_York.
 * **Starting Deadline** - This is the time, in seconds, to start the job if it misses scheduled time for any reason. Missed jobs executions will be counted as failed ones.
 
 ### **Docker Container** Tab

@@ -8,7 +8,6 @@ excerpt: Filtering system paths of logs with Splunk
 enterprise: false
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 The file system paths of DC/OS task logs contain information such as the agent ID, framework ID, and executor ID. You can use this information to filter the log output for specific tasks, applications, or agents.
 
@@ -18,9 +17,9 @@ The file system paths of DC/OS task logs contain information such as the agent I
 
 # <a name="configuration"></a>Configuration
 
-You can configure Splunk either by using the Splunk [Web UI][2] or by editing the [props.conf file][3].
+You can configure Splunk either by using the Splunk [Web interface][2] or by editing the [props.conf file][3].
 
-## <a name="splunkui"></a>Splunk Web UI
+## <a name="splunkui"></a>Splunk web interface
 
 1.  Navigate to **Settings** -> **Fields** -> **Field Extractions** -> **New**.
 2.  Fill out the form with the following:
@@ -35,9 +34,7 @@ You can configure Splunk either by using the Splunk [Web UI][2] or by editing th
 
 3.  Click **Save**.
 
-4.  In the Field Extractions view, find the extraction you just created and set the permissions appropriately.
-
-The `agent`, `framework`, `executor`, and `run` fields should now be available to use in search queries and appear in the fields associated with Mesos task log events.
+4.  In the **Field Extractions** view, find the extraction you just created and set the permissions appropriately. The `agent`, `framework`, `executor`, and `run` fields should now be available to use in search queries and appear in the fields associated with Mesos task log events.
 
 ## <a name="propsconf"></a>props.conf
 
@@ -46,7 +43,7 @@ The `agent`, `framework`, `executor`, and `run` fields should now be available t
     [source::/var/lib/mesos/slave/...]
     EXTRACT = /var/lib/mesos/slave/slaves/(?<agent>[^/]+)/frameworks/(?<framework>[^/]+)/executors/(?<executor>[^/]+)/runs/(?<run>[^/]+)/.* in source
 
-2.  Run the following search in the Splunk Web UI to ensure the changes take effect:
+2.  Run the following search in the Splunk Web interface to ensure the changes take effect:
 
     extract reload=true
 
@@ -54,23 +51,33 @@ The `agent`, `framework`, `executor`, and `run` fields should now be available t
 
 # <a name="usage"></a>Usage example
 
-1. In the Splunk web UI, type `framework=*` into the Search field. This will show all of the events where the `framework` field is defined:
+1. In the Splunk web interface, type `framework=*` into the Search field. This will show all of the events where the `framework` field is defined:
 
    ![Splunk Framework Exists](/1.11/img/splunk-framework-exists.png)
+
+   Figure 1. Splunk events screen
 
 1. Click the disclosure triangle next to one of these events to view the details. This will show all of the fields extracted from the task log file path:
 
    ![Splunk Fields](/1.11/img/splunk-fields.png)
 
+   Figure 2. Fields in the task log file path
+
 1. Search for all of the events that reference the framework ID of the event shown in the screenshot above, but that do not contain the chosen `framework` field. This will show us only non-task results:
 
    ![Splunk Framework Search](/1.11/img/splunk-framework-search.png)
+
+   Figure 3. Search results
 
 # <a name="templates"></a>Template examples
 
 Here are example query templates for aggregating the DC/OS logs with Splunk. Replace the template parameters `$executor1`, `$framework2`, and any others with actual values from your cluster.
 
-**Important:** Do not change the quotation marks in these examples or the queries will not work. If you create custom queries, be careful with the placement of quotation marks.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Caution:</strong> Do not change the quotation marks in these examples or the queries will not work. If you create custom queries, be careful with the placement of quotation marks. </td> 
+</tr> 
+</table>
 
 *   Logs related to a specific executor `$executor1`, including logs for tasks run from that executor:
 

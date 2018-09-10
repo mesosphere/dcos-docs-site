@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  System Requirements
-excerpt:
+excerpt: Hardware and software requirements for DC/OS Open Source
 title: System Requirements
 menuWeight: 000
 ---
@@ -54,7 +54,7 @@ Here are the agent node hardware requirements.
 
 The agent nodes must also have:
 
-- A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both the [Universal Container Runtime and Docker Engine](/1.10/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both the [Universal Container Runtime and Docker Engine](/1.10/deploying-services/containerizers/).
 
 - The agent's work directory, `/var/lib/mesos/slave`, should be on a separate device. This protects all the other services from a task overflowing the disk.
 
@@ -76,7 +76,7 @@ The agent nodes must also have:
 
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
 
-*   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.    
+*   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.   
 
 ### Port and Protocol Configuration
 
@@ -194,7 +194,17 @@ On each of your cluster nodes, use the following command to:
     **Tip:** It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.  
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+
+- For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
+
+- On Linux:
+````
+localectl set-locale LANG=en_US.utf8
+````
+
+- For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
+
 
 # Next steps
 

@@ -3,11 +3,10 @@ layout: layout.pug
 navigationTitle:  Using Pods
 title: Using Pods
 menuWeight: 20
-excerpt:
+excerpt: Creating and managing pods via the CLI or the Marathon API endpoint
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 You can create and manage your pods via the DC/OS CLI or via the `/v2/pods/` endpoint of the [Marathon API](/1.11/deploying-services/marathon-api/).
@@ -151,3 +150,4 @@ curl -X GET http://<ip>:<port>/v2/pods/<pod-id>::status
 ```bash
 curl -X DELETE http://<ip>:<port>/v2/pods/<pod-id>
 ```
+ 

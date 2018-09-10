@@ -1,12 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Deploying Services using a Custom
-  Marathon with Security Features
+navigationTitle:  Deploying Services using a Custom Marathon with Security Features
+title: Deploying Services using a Custom Marathon with Security Features
 menuWeight: 40
-excerpt:
+excerpt: Using an advanced, non-native instance of Marathon
 enterprise: true
+
 ---
 
 This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.11/security/ent/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/1.11/deploying-services/marathon-on-marathon/basic/).
@@ -15,44 +14,44 @@ To use this procedure, you must obtain the custom non-native Marathon tarball fr
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.11/installing/oss/).
+-  DC/OS and DC/OS CLI [installed](/1.11/installing/).
 -  [DC/OS Enterprise CLI 0.4.14 or later](/1.11/cli/enterprise-cli/#ent-cli-install).
 -  Custom non-native Marathon tarball. Contact your sales representative or <sales@mesosphere.io> for access to this file.
--  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.11/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)). 
+-  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.11/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 
 # Step 1 - Load and Push the Custom Non-Native Marathon Image
 In this step, the custom non-native Marathon instance is pushed to the private Docker registry.
 
-1. Load the tarball into Docker with the custom non-native Marathon file (`marathon-dcos-ee.<version>.tar`) specified. 
+1. Load the tarball into Docker with the custom non-native Marathon file (`marathon-dcos-ee.<version>.tar`) specified.
 
    ```bash
    docker load -i marathon-dcos-ee.<version>.tar
    ```
-     
+
     **Tip:** You can view the Marathon image with this command.
 
     ```
     docker images
     ```
-    
+
     You should see output similar to this:
-    
+
     ```bash
     REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
     mesosphere/marathon-dcos-ee   1.4.0-RC4_1.9.4     d1ffa68a50c0        3 months ago        926.4 MB
     ```
-     
+
 1. Rename the file to match the repository that you are using in your private Docker registry, where:
-   - `<mesosphere-tag>` is the tag of the image from Mesosphere. Typically, this will match the version number in the filename. 
+   - `<mesosphere-tag>` is the tag of the image from Mesosphere. Typically, this will match the version number in the filename.
    - `<your-repo>` is the name of the private repository that you want to store the image in.
    - `<your-tag>` is the tag for the image. It is recommended that you use the same tag as the Mesosphere image.
 
    ```bash
    docker tag mesosphere/marathon-dcos-ee:<mesosphere-tag> <your-repo>/marathon-dcos-ee:<your-tag>
    ```
-     
+
 1. Push the Marathon image up to your private Docker registry.
 
    ```bash
@@ -63,14 +62,19 @@ In this step, the custom non-native Marathon instance is pushed to the private D
 In this step, Mesos resources are reserved. Choose the procedure for either [static](#static-reservations) or [dynamic](#dynamic-reservations) reservations.
 
 ## Static Reservations
-**Warning:** This procedure kills all running tasks on your node.
+
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong> This procedure kills all running tasks on your node.</td> 
+</tr> 
+</table>
 
 1.  [SSH](/1.11/administering-clusters/sshcluster/) to your private agent node.
 
    ```bash
    dcos node ssh --master-proxy --mesos-id=<agent-id>
    ```
-   
+
 1.  Navigate to `/var/lib/dcos` and create a file named `mesos-slave-common` with these contents, where `<myrole>` is the name of your role.
 
     ```bash
@@ -81,33 +85,33 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
     ```bash
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
-    
+
 1.  Add the node back to your cluster.
 
     1.  Reload the systemd configuration.
-    
+
         ```bash
         ﻿⁠⁠sudo systemctl daemon-reload
         ```
-        
+
     1.  Remove the `latest` metadata pointer on the agent node:
-    
+
         ```bash
         ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
         ```
-        
+
     1.  Start your agents with the newly configured attributes and resource specification⁠⁠.
-    
+
         ```bash
         sudo systemctl start dcos-mesos-slave
         ```
-        
-        **Tip:** You can check the status with this command:
-        
+
+        You can check the status with this command:
+
         ```bash
         sudo systemctl status dcos-mesos-slave
         ```
-        
+
 1.  Repeat these steps for each additional node.
 
 ## Dynamic Reservations
@@ -166,7 +170,7 @@ curl -i -k \
 ```
 
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required. 
+Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required.
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -180,20 +184,18 @@ In this step, a Marathon Service Account is created. Depending on your [security
     dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
     ```
 
-1.  Create a new service account called `<service-account-id>`, with the public key specified (`<public-key>.pem`). 
+1.  Create a new service account called `<service-account-id>`, with the public key specified (`<public-key>.pem`).
 
     ```bash
     dcos security org service-accounts create -p <public-key>.pem -d "Non-native Marathon service account" <service-account-id>
     ```
-    
+
 # Step 4 - Create Private Docker Registry Credentials for Private Agents
-In this step, the credential tarball is transferred to the local file system of each private agent using [secure copy](https://linux.die.net/man/1/scp). 
+In this step, the credential tarball is transferred to the local file system of each private agent using [secure copy](https://linux.die.net/man/1/scp). The following instructions are optimized for CoreOS masters and agents. If you are running CentOS, replace `core` with `centos` throughout the following commands.
 
-**Tip:** The following instructions are optimized for CoreOS masters and agents. If you are running CentOS, just replace `core` with `centos` throughout the following commands.
-
-1. From a terminal prompt, log into your private Docker registry. 
+1. From a terminal prompt, log into your private Docker registry.
    -  If your private repository is on Docker Hub, use this command:
-      
+
       ```bash
       docker login
       ```
@@ -202,7 +204,7 @@ In this step, the credential tarball is transferred to the local file system of 
       ```bash
       docker login <domain-name>
       ```
-      
+
 1. Navigate into your home directory and verify the contents of the `.docker` directory look similar to this.
 
    ```bash
@@ -212,18 +214,18 @@ In this step, the credential tarball is transferred to the local file system of 
    -rw-------    1 user  group   217 Jan 25 13:52 config.json
    ```
 
-1. Compress the Docker credentials. 
+1. Compress the Docker credentials.
 
    ```bash
    sudo tar cvzf docker.tar.gz .docker
    ```
-     
-    **Tip:** You can confirm that the operation succeeded with this command.
+
+    You can confirm that the operation succeeded with this command.
 
    ```bash
    tar -tvf docker.tar.gz
    ```
-     
+
    You should see output similar to this.
 
    ```bash
@@ -231,9 +233,9 @@ In this step, the credential tarball is transferred to the local file system of 
    -rw-------  0 user group     217 Jan 23 15:48 .docker/config.json
    ```
 
-1. Copy the Docker credentials file to one of your masters with the public master IP address (`<public-master-ip>`) specified. 
+1. Copy the Docker credentials file to one of your masters with the public master IP address (`<public-master-ip>`) specified.
 
-   **Tip:** You can find the public master IP address by clicking on the cluster name in the top-left corner of the DC/OS GUI.
+   You can find the public master IP address by clicking on the cluster name in the top-left corner of the DC/OS web interface.
 
    ```bash
    scp docker.tar.gz core@<public-master-ip>:~
@@ -248,49 +250,47 @@ In this step, the credential tarball is transferred to the local file system of 
 1. Store the IP address of each private agent in an environment variable. <!-- What is this step for -->The steps required depend on your [security mode](/1.11/security/ent/#security-modes).
 
    ### Disabled
-   
+
    ```bash
    PRIVATE_AGENT_IPS=$(curl -sS leader.mesos:5050/slaves | jq '.slaves[] | select(.reserved_resources.slave_public == null) | .hostname' | tr -d '"');
    ```   
-   
+
    ### Permissive
 
    ```bash
    PRIVATE_AGENT_IPS=$(curl -sS leader.mesos:5050/slaves | jq '.slaves[] | select(.reserved_resources.slave_public == null) | .hostname' | tr -d '"');
    ```
-     
+
    ### Strict
-   
-   1.  Authenticate and save your authentication token to the `AUTH_TOKEN` environment variable, with your DC/OS username (`<username>`) and password (`<password>` specified. 
-       
+
+   1.  Authenticate and save your authentication token to the `AUTH_TOKEN` environment variable, with your DC/OS username (`<username>`) and password (`<password>` specified.
+
        ```bash
        AUTH_TOKEN=$(curl -X POST localhost:8101/acs/api/v1/auth/login \
        -d '{"uid":"<username>","password":"<password>"}' \
        -H 'Content-Type: application/json' | jq -r '.token')
        ```
-       
-   1.  Download the certificate bundle, with your cluster URL (`<cluster-url>`) specified. 
-   
+
+   1.  Download the certificate bundle, with your cluster URL (`<cluster-url>`) specified.
+
        ```bash
        sudo curl -k -v https://<cluster-url>/ca/dcos-ca.crt -o /etc/ssl/certs/dcos-ca.crt
        ```
-      
-   1.  Save the private IP address of each of your private agents to the `PRIVATE_AGENT_IPS` environment variable. 
-   
+
+   1.  Save the private IP address of each of your private agents to the `PRIVATE_AGENT_IPS` environment variable.
+
        ```bash
        PRIVATE_AGENT_IPS=$(curl -sS --cacert /etc/ssl/certs/dcos-ca.crt \
        -H "Authorization: token=$AUTH_TOKEN" https://leader.mesos:5050/slaves | jq '.slaves[] | select(.reserved_resources.slave_public == null) | .hostname' | tr -d '"');
        ```
-     
+
 1. Copy the `docker.tar.gz` file to the `/home/core` directory of each of your private agents.
 
    ```bash
    for i in $PRIVATE_AGENT_IPS; do scp -o StrictHostKeyChecking=no docker.tar.gz core@$i:~/docker.tar.gz ; done
    ```
 # Step 5 - Create a Service Account Secret
-In this step, a secret is created for the Marathon service account and stored in the Secret Store.
-
-Create a secret (`<path-to-secret-name>`) for your service account. The secret will contain the private key (`<private-key>.pem`) and the name of the service account (`<service-account-id>`).
+In this step, a secret is created for the Marathon service account and stored in the Secret Store. Create a secret (`<path-to-secret-name>`) for your service account. The secret will contain the private key (`<private-key>.pem`) and the name of the service account (`<service-account-id>`).
 
 ### Disabled
 
@@ -299,13 +299,13 @@ dcos security secrets create-sa-secret <private-key>.pem <service-account-id> <p
 ```
 
 ### Permissive
-    
+
 ```bash
 dcos security secrets create-sa-secret <private-key>.pem <service-account-id> <path-to-secret-name>
 ```
 
 ### Strict
-    
+
 ```bash
 dcos security secrets create-sa-secret --strict <private-key>.pem <service-account-id> <path-to-secret-name>
 ```  
@@ -313,11 +313,11 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 #### Recommendations
 
 -  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `disabled` or `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it. You can use this commands to view the contents:
-   
+
    ```bash
    dcos security secrets list /
    ```
-   
+
    Alternatively, if you have [jq 1.5 or later](https://stedolan.github.io/jq/download) installed, you can use this command:
 
    ```bash
@@ -327,7 +327,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 -  Delete the private key file from your file system to prevent bad actors from using the private key to authenticate to DC/OS.
 
 # Step 6 - Assign Permissions (Strict mode only)
-In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes. 
+In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes.
 
 | Security Mode | Permissions |
 |---------------|----------------------|
@@ -342,17 +342,17 @@ To allow executing tasks as a different Linux user, replace `nobody` with that u
 Note that the `nobody` and `root` users exist on all agents by default, but if a custom `bob` user is specified it must have been manually created (using the `adduser` or similar utility) on every agent that tasks can be executed on.
 
 ```bash
-dcos security org users grant <service-account-id> dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody" 
-dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:<myrole> create --description "Controls the ability of <myrole> to register as a framework with the Mesos master" 
-dcos security org users grant <service-account-id> dcos:mesos:master:reservation:role:<myrole> create --description "Controls the ability of <myrole> to reserve resources" 
-dcos security org users grant <service-account-id> dcos:mesos:master:volume:role:<myrole> create --description "Controls the ability of <myrole> to access volumes" 
-dcos security org users grant <service-account-id> dcos:mesos:master:reservation:principal:<service-account-id> delete --description "Controls the ability of <service-account-id> to reserve resources" 
-dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:/ create --description "Controls the ability to launch tasks" 
-dcos security org users grant <service-account-id> dcos:mesos:master:volume:principal:<service-account-id> delete --description "Controls the ability of <service-account-id> to access volumes" 
+dcos security org users grant <service-account-id> dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody"
+dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:<myrole> create --description "Controls the ability of <myrole> to register as a framework with the Mesos master"
+dcos security org users grant <service-account-id> dcos:mesos:master:reservation:role:<myrole> create --description "Controls the ability of <myrole> to reserve resources"
+dcos security org users grant <service-account-id> dcos:mesos:master:volume:role:<myrole> create --description "Controls the ability of <myrole> to access volumes"
+dcos security org users grant <service-account-id> dcos:mesos:master:reservation:principal:<service-account-id> delete --description "Controls the ability of <service-account-id> to reserve resources"
+dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:/ create --description "Controls the ability to launch tasks"
+dcos security org users grant <service-account-id> dcos:mesos:master:volume:principal:<service-account-id> delete --description "Controls the ability of <service-account-id> to access volumes"
 ```
-    
+
 # Step 7 - Install a Non-Native Marathon Instance with Assigned Role
-In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned. 
+In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned.
 
 1.  Create a custom JSON config file and save as `config.json`. This file is used to install the custom non-native Marathon instance. The JSON file contents vary according to your [security mode](/1.11/security/ent/#security-modes). Replace these variables in the examples with your specific information:
 
@@ -367,7 +367,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     | `<linux-user>` | Linux user  `core` or `centos` |
 
     ### Disabled
-    
+
     ```json
     {  
       "id":"/<non-native-marathon>",
@@ -390,7 +390,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
             "network":"HOST",
             "privileged":false,
             "parameters":[  
-    
+
             ],
             "forcePullImage":false
          },
@@ -456,9 +456,9 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
       ]
     }
     ```   
-    
+
     ### Permissive
-    
+
     ```json
     {  
       "id":"/<non-native-marathon>",
@@ -481,7 +481,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
             "network":"HOST",
             "privileged":false,
             "parameters":[  
-    
+
             ],
             "forcePullImage":false
          },
@@ -547,9 +547,9 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
       ]
     }
     ```
-    
+
     ### Strict
-     
+
     ```json
     {  
       "id":"/<non-native-marathon>",
@@ -572,7 +572,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
             "network":"HOST",
             "privileged":false,
             "parameters":[  
-    
+
             ],
             "forcePullImage":false
          },
@@ -648,9 +648,11 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 # Step 8 - Grant User Access to Non-Native Marathon
 In this step, a user is granted access to the non-native Marathon instance.
 
-1. Log into the DC/OS GUI as a user with the `superuser` permission.
+1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
+
+   FFigure 1. DC/OS web interface login
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -658,53 +660,57 @@ In this step, a user is granted access to the non-native Marathon instance.
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
 
+    Figure 2. Select user for permissions
+
 1.  From the **Permissions** tab click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
 
+    Figure 3. Adding permission string
+
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
     ### Disabled
-    
+
     -   Full access
-    
+
         ```bash
         dcos:adminrouter:service:<service-name> full
         dcos:service:marathon:<service-name>:services:/ full
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
         ```
-        
+
     -  Access to an individual service or group is not supported in disabled security mode.
-    
+
     ### Permissive
-    
+
     -  **Full access**
-    
+
         ```bash
         dcos:adminrouter:service:<service-name> full
         dcos:service:marathon:<service-name>:services:/ full
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
-        ``` 
-    
+        ```
+
     -  **Access to an individual service or group**
-    
-       Specify the service or group (`<service-or-group>`) and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`. 
-    
+
+       Specify the service or group (`<service-or-group>`) and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`.
+
        ```bash
        dcos:adminrouter:service:<service-name> full
        dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
        dcos:adminrouter:ops:mesos full
        dcos:adminrouter:ops:slave full
        ```
-       
+
     ### Strict
-      
+
     -  **Full access**
-    
+
         ```bash
         dcos:adminrouter:service:<service-name> full
         dcos:service:marathon:<service-name>:services:/ full
@@ -718,11 +724,11 @@ In this step, a user is granted access to the non-native Marathon instance.
         dcos:mesos:master:framework:role:<myrole> read
         dcos:mesos:master:task:app_id:/ read
         ```  
-            
+
     -  **Access to an individual service or group**
-    
-       Specify the service or group (`<service-or-group>`), service name (`<service-name>`), role (`<myrole>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`. 
-    
+
+       Specify the service or group (`<service-or-group>`), service name (`<service-name>`), role (`<myrole>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`.
+
        ```bash
        dcos:adminrouter:service:<service-name> full
        dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
@@ -736,7 +742,7 @@ In this step, a user is granted access to the non-native Marathon instance.
        dcos:mesos:master:framework:role:<myrole> read
        dcos:mesos:master:task:app_id:/<service-or-group> read
        ```
-       
+
 
 1.  Click **ADD PERMISSIONS** and then **Close**.
 
@@ -748,11 +754,13 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 1.  Enter your username and password and click **LOG IN**.
 
     ![Log in DC/OS](/1.11/img/gui-installer-login-ee.gif)
-    
-    You are done!
-    
+
+    Figure 4. You are done!
+
     ![Marathon on Marathon](/1.11/img/mom-marathon-gui.png)
-    
+
+    Figure 5. Logged in on Marathon
+
 # Next Steps
 
 After deploying the non-native Marathon with a unique Mesos role, you may wish to use quotas, static reservations, or dynamic reservations to guarantee certain resources to the non-native Marathon instance.
@@ -762,5 +770,5 @@ After deploying the non-native Marathon with a unique Mesos role, you may wish t
 
 Please refer to the Apache Mesos documentation for more details.
 
--  [Reservations](http://mesos.apache.org/documentation/latest/reservation/) 
+-  [Reservations](http://mesos.apache.org/documentation/latest/reservation/)
 -  [Quotas](https://mesos.apache.org/documentation/latest/quota/)

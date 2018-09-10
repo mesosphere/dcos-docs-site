@@ -2,17 +2,15 @@
 layout: layout.pug
 navigationTitle:  dcos node diagnostics
 title: dcos node diagnostics
-menuWeight: 0
-excerpt:
+menuWeight: 2
+excerpt: Displaying the details of diagnostics bundles
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
     
 # Description
-View the details of diagnostics bundles.
+The `dcos node diagnostics` command allows you to view the details of diagnostics bundles.
 
 # Usage
 
@@ -22,18 +20,16 @@ dcos node diagnostics [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--cancel`   |             | Cancel a running diagnostics job. |
-| `--list`   |             |  List the available diagnostics bundles. |
-| `--json`   |             |  Print JSON-formatted data. |
-| `--status`   |             |  Print diagnostics job status. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--cancel`   |  Cancel a running diagnostics job. |
+| `--list`   |  List the available diagnostics bundles. |
+| `--json`   |   Displays JSON-formatted data. |
+| `--status`   |    Displays diagnostics job status. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
-
-<!-- # Examples -->
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

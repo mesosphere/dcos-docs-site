@@ -18,7 +18,7 @@ enterprise: false
 
 ### Updates
 - Removing configurable settings for Nifi like container path and some default configurations.
-
+- Renamed web endpoint to node endpoint.
 
 ## Version 0.1.0-1.5.0
 

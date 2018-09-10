@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 0
-excerpt:
+excerpt: Hardware and software requirements for DC/OS Enterprise
 
 enterprise: true
 ---
@@ -29,7 +29,11 @@ The cluster nodes are designated masters and agents during installation.
 Here are the master node hardware requirements.
 
 |             | Minimum   | Recommended |
-|-------------|-----------|-------------|
+|\\
+
+
+
+-------|-----------|-------------|
 | Nodes       | 1         | 3 or 5      |
 | OS          |RHEL/CentOS 7.4 |RHEL/CentOS 7.4 |
 | Processor   | 4 cores   | 4 cores     |
@@ -197,10 +201,21 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-    **Tip:** It may take a few minutes for your node to come back online after reboot.
+    **Note:** It may take a few minutes for your node to come back online after reboot.
+    
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.  
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+
+- For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
+
+- On Linux:
+    ````
+    localectl set-locale LANG=en_US.utf8
+    ````
+
+- For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
+
 
 # Next steps
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 50
-excerpt:
+excerpt: Using CQL to communicate with clients
 featureMaturity:
 enterprise: false
 ---
@@ -52,7 +52,7 @@ dcos node ssh --leader --master-proxy
 
 Then, use the `cassandra` Docker image to run `cqlsh`, passing as an argument the address of one of the Apache Cassandra nodes in the cluster:
 ```
-docker run cassandra:3.0.13 cqlsh node-0-server.cassandra.autoip.dcos.thisdcos.directory
+docker run -it cassandra:3.0.13 cqlsh node-0-server.cassandra.autoip.dcos.thisdcos.directory
 ```
 
 This will open an interactive shell from which you can issue queries and write to the cluster. To ensure that the `cqlsh` client and your cluster are using the same CQL version, be sure to use the version of the `cassandra` Docker image that corresponds to the version of Apache Cassandra being run in your cluster. The version installed by the DC/OS Apache Cassandra Service is 3.0.13.

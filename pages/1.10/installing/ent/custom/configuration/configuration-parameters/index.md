@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 600
-excerpt: Understanding the DC/OS Enterprise configuration reference
+excerpt: List of all configuration parameters for Enterprise installations
 
 enterprise: true
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 This topic provides configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/). For configuration parameters available for [DC/OS](https://dcos.io/) please refer to [Configuration Reference for DC/OS](/1.10/installing/oss/custom/configuration/configuration-parameters/).
@@ -49,7 +48,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [dcos_overlay_enable](#dcos-overlay-enable)           | Block of parameters that specifies whether to enable DC/OS virtual networks. |
 | [dns_bind_ip_blacklist](#dns-bind-ip-blacklist)       | A list of IP addresses that DC/OS DNS resolvers cannot bind to.|
-| [dns_forward_zones](#dns-forward-zones)               | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers. |
+| [dns_forward_zones](#dns-forward-zones)               | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries.  |
 | [dns_search](#dns-search)                             | A space-separated list of domains that are tried when an unqualified domain is entered.  |
 | [master_dns_bindall](#master-dns-bindall)             | Indicates whether the master DNS port is open.  |
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
@@ -129,6 +128,10 @@ This parameter sets the auth token time-to-live (TTL) for Identity and Access Ma
 ```json
 bouncer_expiration_auth_token_days: '0.5'
 ```
+
+Small expiration periods may be harmful to DC/OS components.
+We recommend that the this value is set to no less than 0.25.
+If you wish to use a lower value, contact a Mesosphere support representative for guidance.
 
 For more information, see the [security documentation](/1.10/security/ent/).
 
@@ -260,25 +263,21 @@ Indicates whether to enable DC/OS virtual networks.
 A list of IP addresses that DC/OS DNS resolvers cannot bind to.
 
 ### dns_forward_zones
-A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
+A list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
 
 A sample definition is as follows:
 
-```
+```yaml
 dns_forward_zones:
-  - "a.contoso.com"
-    - "1.1.1.1"
-      - 53
-    - "2.2.2.2"
-      - 53
-  - "b.contoso.com"
-    - "3.3.3.3"
-      - 53
-    - "4.4.4.4"
-      - 53
+a.contoso.com:
+- "1.1.1.1:53"
+- "2.2.2.2:53"
+b.contoso.com:
+- "3.3.3.3:53"
+- "4.4.4.4:53"
 ```
 
-In the above example, a DNS query to `myapp.a.contoso.com` will be directed to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be directed to `3.3.3.3:53` or `4.4.4.4:53`.
+In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded to `3.3.3.3:53` or `4.4.4.4:53`.
 
 ### dns_search
 A space-separated list of domains that are tried when an unqualified domain is entered (e.g., domain searches that do not contain &#8216;.&#8217;). The Linux implementation of `/etc/resolv.conf` restricts the maximum number of domains to 6 and the maximum number of characters the setting can have to 256. For more information, see [man /etc/resolv.conf](http://man7.org/linux/man-pages/man5/resolv.conf.5.html).
@@ -385,11 +384,12 @@ The path to the installer host logs from the SSH processes. By default this is s
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
     *  `exhibitor_address`
-       (Required) The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.10/security/ent/tls-ssl/).
+       (Required): The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.10/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive or disabled security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster.
+		   **Note:** Access to the cluster over port 80 and 8080 is insecure. 
+	   The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.11/security/ent/#security-modes). 
 
-       The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
     *  `num_masters`
-       (Required) The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
+       (Required): The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 
 **Important:**
 

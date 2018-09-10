@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  SSHing into Nodes
 title: SSHing into Nodes
 menuWeight: 0
-excerpt: Learn to set up an SSH connection to your DC/OS cluster from an outside network.
+excerpt: Setting up an SSH connection to your DC/OS cluster from an outside network.
 
 enterprise: false
 ---
@@ -20,10 +20,15 @@ If you are on the same network as your cluster or connected by using VPN, you ca
 *   An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
 
 ### <a name="unix"></a>SSH to your DC/OS cluster on Unix/Linux (macOS, Ubuntu, etc)
+**Note:** Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.
 
 1.  Change the permissions on the `.pem` file to owner read/write by using the `chmod` command.
 
-    **Important:** Your `.pem` file must be located in the `~/.ssh` directory.
+    <table class=“table” bgcolor=#858585>
+        <tr> 
+        <td align=justify style=color:white><strong>Important:</strong> Your .pem file must be located in the `~/.ssh` directory.</td> 
+        </tr> 
+    </table>
 
     ```bash
     chmod 600 <private-key>.pem
@@ -60,9 +65,11 @@ If you are on the same network as your cluster or connected by using VPN, you ca
             dcos node ssh --master-proxy --mesos-id=<mesos-id>
             ```
 
-            **Tip:** To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.11/gui/) and click **Details**.
+            To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.11/gui/) and click **Details**.
 
             ![Web interface node ID](/1.11/img/ssh-node-id.png)
+
+            Figure 1. Web interface Node ID screen
 
 
 ### <a name="windows"></a>SSH to your DC/OS cluster on Windows
@@ -83,6 +90,8 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
         ![Windows](/1.11/img/windowsputtykey.png)
 
+        Figure 2. Windows PuTTY key
+
     3.  Close PuTTYgen.
 
 2.  SSH into the cluster.
@@ -95,13 +104,19 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             ![Putty Configuration](/1.11/img/windowsputtybasic.png)
 
+            Figure 3. PuTTY configuration
+
         3.  In the **Category** pane on the left side of the PuTTY window, choose **Connection > SSH > Auth**, click **Browse**, locate and select your `.ppk` file, then click **Open**.
 
             ![Putty SSH Options](/1.11/img/windowsputtysshopt.png)
 
-        4.  Login as user "core" if you're running CoreOS. The default user on CentOS is "centos".
+            Figure 4. PutTY SSH options
+
+        4.  Login as user "core" if you are running CoreOS. The default user on CentOS is "centos".
 
             ![Windows Login](/1.11/img/windowscore.png)
+
+            Figure 5. Windows login
 
     *   **To SSH to an agent node**
 
@@ -117,6 +132,8 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
                 ![Windows Forwarding](/1.11/img/windowsforwarding.png)
 
+                Figure 6. Windows forwarding
+
         2.  Add the `.ppk` file to Pageant.
 
             1.  Open Pageant. If the Pageant window does not appear, look for the Pageant icon in the notification area in the lower right area of the screen next to the clock and double-click it to open Pageant's main window.
@@ -126,6 +143,9 @@ To install these programs, download the Windows installer <a href="http://www.ch
             3.  Locate the `.ppk` file that you created using PuTTYgen and click **Open** to add your key to Pageant.
 
                 ![Windows Pageant](/1.11/img/windowspageant.png)
+
+                Figure 7. Windows Pageant
+
 
             4.  Click the **Close** button to close the Pageant window.
 
@@ -139,6 +159,8 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
                 ![Windows Login](/1.11/img/windowscore.png)
 
+                Figure 8. Windows login
+
         4.  From the master node, SSH into the agent node.
 
             1.  From the Mesos web interface, copy the agent node hostname. You can find hostnames on the **Frameworks** (`<master-node-IPaddress>/mesos/#/frameworks`) or **Slaves** page (`<master-node-IPaddress>/mesos/#/slaves`).
@@ -150,4 +172,3 @@ To install these programs, download the Windows installer <a href="http://www.ch
  [1]: /1.11/cli/command-reference/
  [2]: #unix
  [3]: #windows
- [4]: /1.11/installing/oss/cloud/aws/
