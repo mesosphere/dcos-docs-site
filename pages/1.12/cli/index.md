@@ -54,7 +54,7 @@ In order to interact with your cluster, you first need to set up the CLI.
 $ dcos cluster setup <cluster-url>
 ```
 
-After following the login flow, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.12/cli/plugin), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
+After following the login flow, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.12/cli/plugins), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
 
 # Listing your clusters
 
