@@ -41,27 +41,21 @@ For launching backup plan, issue the below command with the requisite parameters
 
 Once this plan is executed, the backup will be uploaded to S3 compatible storage.
 
-Backup will be performed using three sidecar tasks:
+Backup will be performed using two sidecar tasks:
 
-1. `Init Task` - A separate Pod will be started at any Private Agent. An init task will be responsible to register both Minio as well as S3 compatible client.
-
-[<img src="../../img/Init_task.png" alt="Init_task" width="800"/>](../img/Init_task.png)
-
-   _Figure 1. - Register Minio and S3 client
-
-2. `synchronize-buckets` - This task is responsible to delete the buckets in the AWS S3 compatible storage which were deleted in the DC/OS Minio since the last backup.
+1. `synchronize-buckets` - This task is responsible to delete the buckets in the AWS S3 compatible storage which were deleted in the DC/OS Minio since the last backup.A separate Pod will be started at any Private Agent. An init script will be responsible to register both Minio as well as S3 compatible client.
 
 [<img src="../../img/Delete_Previous_Snapshot.png" alt="Delete_Previous_Snapshot" width="800"/>](../img/Delete_Previous_Snapshot.png)
 
    _Figure 2. - Synchronize buckets between S3 compatible storage and Minio
    
 3. `Backup Task` - The Backup task is responsible for making a backup of the data in the DC/OS Minio storage to the AWS S3 compatible storage. A backup task will run the ‘mc mirror’ command by taking ACCESS_KEY_ID and SECRET_ACCESS_KEY as parameters.
-It will create new buckets in AWS S3 compatible storage according to the current snapshot or state of Minio storage system.
+It will create new buckets in AWS S3 compatible storage according to the current snapshot or state of Minio storage system.While creating bucket in S3 compatible storage during backup task service name will attached to the prefix of actual bucket name in Minio.
 
 [<img src="../../img/Backup.png" alt="Backup" width="800"/>](../img/Backup.png)
 
    _Figure 3. - Backing Up to S3 compatible storage
    
-'backup' plan would execute all the three aforementioned tasks serially. 
+'backup' plan would execute both aforementioned tasks serially. 
 
 
