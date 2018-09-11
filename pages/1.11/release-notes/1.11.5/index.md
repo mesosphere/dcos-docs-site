@@ -19,7 +19,7 @@ The customer advisory information is available [here](https://support.mesosphere
 
 **Note:** The [support website](https://support.mesosphere.com/s/downloads) requires a [login credential](https://support.mesosphere.com/s/login/) to access the customer advisory information. 
 
-## Front End
+## GUI
 - COPS-3051/DCOS-39662 - Fix deployment state in Marathon-LB debug page.
 - COPS-3573/DCOS-39720 - Enable service endpoints on UCR.
 - DCOS-21049 - Add `dcos:secrets:list:default:/` secret permission to access DC/OS UI.
