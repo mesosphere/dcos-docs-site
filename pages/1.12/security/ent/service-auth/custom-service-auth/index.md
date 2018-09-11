@@ -142,7 +142,7 @@ For example, to authorize the [Cassandra service](/services/cassandra/cass-auth/
 
 # <a name="req-auth-tok"></a>Request an Authentication Token
 
-Generate a [service login token](/1.11/security/ent/service-auth/)), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
+Generate a [service login token](/1.11/security/ent/service-auth/), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
 
 ```bash
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem
