@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Deployment Best Practices
 title: Deployment Best Practices
 menuWeight: 45
-excerpt:
+excerpt: Using best practices 
 featureMaturity:
 enterprise: false
 ---
