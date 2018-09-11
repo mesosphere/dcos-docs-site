@@ -144,7 +144,7 @@ Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and th
 
 # <a name="req-auth-tok"></a>Request an authentication token
 
-Generate a [service login token](/1.11/security/ent/service-auth/)), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
+Generate a [service login token](/1.11/security/ent/service-auth/), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
 
 ```bash
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem
