@@ -1,12 +1,18 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Release notes for 2.3.0-3.4.12
+excerpt: Release notes for 2.4.0-3.4.13
 title: Release Notes
 menuWeight: 120
 model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
+
+# Version 2.4.0-3.4.13
+## Updates
+- The service now uses Apache ZooKeeper 3.4.13
+## Bug Fixes
+- [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
 
 # Version 2.3.0-3.4.12
 

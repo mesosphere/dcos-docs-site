@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Kafka ZooKeeper 2.3.0-3.4.12
-title: Kafka ZooKeeper 2.3.0-3.4.12
+navigationTitle: Kafka ZooKeeper 2.4.0-3.4.13
+title: Kafka ZooKeeper 2.4.0-3.4.13
 menuWeight: 5
 excerpt:
 
