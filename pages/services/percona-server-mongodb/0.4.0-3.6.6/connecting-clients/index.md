@@ -23,7 +23,7 @@ Once the service is running, you may view information about its endpoints via ei
   - View endpoints for an endpoint type: `<dcos-url>/service/percona-server-mongodb/v1/endpoints/<endpoint>`
 
 Returned endpoints will include the following:
-- `.autoip.dcos.thisdcos.directory` hostnames for each instance that will follow them if they're moved within the DC/OS cluster.
+- `.autoip.dcos.thisdcos.directory` hostnames for each instance that will follow them if they are moved within the DC/OS cluster.
 - A HA-enabled VIP hostname for accessing any of the instances (optional).
 - A direct IP address for accessing the service if `.autoip.dcos.thisdcos.directory` hostnames are not resolvable.
 - If your service is on a virtual network such as the `dcos` overlay network, then the IP will be from the subnet allocated to the host that the task is running on. It will not be the host IP. To resolve the host IP use Mesos DNS (`<task>.<service>.mesos`).
@@ -32,7 +32,7 @@ In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from 
 
 ## Connecting Clients to Endpoints
 
-1. Gather the DNS names for the *'mongo-port'* endpoint.
+1. Gather the DNS names for the **'mongo-port'** endpoint.
 ```
 $ dcos percona-server-mongodb endpoints mongo-port
     {
@@ -49,14 +49,14 @@ $ dcos percona-server-mongodb endpoints mongo-port
     }
 ```
 
-2. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool, using the *"dns"* hostname+port list from Step #1. Note that a username and password is provided in the connect string, as well as the replica set name:
+2. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool, using the **"dns"** hostname+port list from Step #1. Note that a username and password is provided in the connect string, as well as the replica set name:
 
 ```
 $ mongo mongodb://clusteradmin:clusteradminpassword@mongo-rs-0-mongod.percona-server-mongodb.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-server-mongodb.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-server-mongodb.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
 > db.serverStatus();
 ```
 
-Or for applications, most MongoDB drivers will accept *'mongodb://'* connection-string used in the example above to connect to MongoDB.
+Or for applications, most MongoDB drivers will accept **'mongodb://'** connection-string used in the example above to connect to MongoDB.
 ```
 mongodb://clusteradmin:clusteradminpassword@mongo-rs-0-mongod.percona-server-mongodb.autoip.dcos.thisdcos.directory,mongo-rs-1-mongod.percona-server-mongodb.autoip.dcos.thisdcos.directory,mongo-rs-2-mongod.percona-server-mongodb.autoip.dcos.thisdcos.directory:27017/admin?replicaSet=rs
 ```
