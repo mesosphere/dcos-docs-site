@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Getting Started
-excerpt:
+excerpt: Getting Started with Percona Server for MongoDB
 title: Getting Started
 menuWeight: 10
 model: /services/percona-server-mongodb/data.yml
