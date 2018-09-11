@@ -2,26 +2,17 @@
 
 # sed needs different args to -i depending on the flavor of the tool that is installed
 sedi () {
-    sed --version >/dev/null 2>&1 && sed -i -- "$@" || sed -i "" "$@"
+    sed --version >/dev/null 2>&1 && sed -i "$@" || sed -i "" "$@"
 }
 
 echo "------------------------------"
 echo " Merging Kubernetes"
 echo "------------------------------"
 
-# Get values for branch and directory variable
-
+# Get value for branch
 branch=$1
 if [ -z "$1" ]; then echo "Enter a branch as the first argument."; exit 1; fi
-directory=$2
-if [ -z "$2" ]; then echo "Enter a directory name as the second argument."; exit 1; fi
-
-# Create directory structure
-
-echo "Creating new directories"
-mkdir -p ./pages/services/kubernetes/$directory
-mkdir -p ./pages/services/kubernetes/$directory/img
-echo "New directories created: pages/services/kubernetes/$directory and pages/services/kubernetes/$directory/img"
+skip=$2
 
 # Move to the top level of the repo
 
@@ -36,51 +27,46 @@ git fetch dcos-kubernetes > /dev/null 2>&1
 # checkout
 git checkout dcos-kubernetes/$branch docs/package
 
-# checkout each file in the merge list from dcos-kubernetes/master
-for p in `find docs/package -type f`; do
-  echo $p
-  # markdown files only
-  if [ ${p: -3} == ".md" ]; then
-    # remove any dodgy control characters - sometimes copied in from commands
-    sedi -e 's/ *//g' $p
+# remove any user specified directories 
+if [ -n "$skip" ]; then 
+  echo "Skipping $skip"
+  for d in $(echo $skip | sedi "s/,/ /g"); do rm -rf docs/package/$d; done
+fi
 
-    # insert tag ( markdown files only )
-    awk -v n=2 '/---/ { if (++count == n) sub(/---/, "---\n\n<!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->\n"); } 1{print}' $p > tmp && mv tmp $p
-    # remove https://docs.mesosphere.com from links
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.10/");}{print}' $p > tmp && mv tmp $p
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.11/");}{print}' $p > tmp && mv tmp $p
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/latest\//,"/latest/");}{print}' $p > tmp && mv tmp $p
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/service-docs\//,"/services/");}{print}' $p > tmp && mv tmp $p
+# always remove lates/ directory it will never be copied
+rm -rf docs/package/latest
 
-    # add full path for images
-    awk -v directory="$directory" '{gsub(/\(img/,"(/services/kubernetes/"directory"/img");}{print;}' $p > tmp && mv tmp $p
-    
-    # if it's not an index file, make a directory from the filename, rename file to "index.md"
-    if [ ${p: -8} != "index.md" ]; then
-      directory_from_filename=$p
-      tmp_val=$(echo "$directory_from_filename" | sed 's/...$//')
-      directory_from_filename=$tmp_val
-      mkdir -p $directory_from_filename
-      mv $p $directory_from_filename/index.md
+# checkout each file in the merge list from dcos-kubernetes/$branch
+for d in docs/package/*/; do
+  echo $d
+  for p in `find $d -type f`; do
+    echo $p
+    # markdown files only
+    if [ ${p: -3} == ".md" ]; then
+      # remove any dodgy control characters - sometimes copied in from commands
+      sedi -e 's/ *//g' $p
+
+      # remove https://docs.mesosphere.com from links
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.10/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/1.11\//,"/1.11/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/1.12\//,"/1.12/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/latest\//,"/latest/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/service-docs\//,"/services/");}{print}' $p > tmp && mv tmp $p
+
+      # add full path for images
+      awk -v directory=$(basename $d) '{gsub(/\([.][.]\/img/,"(/services/kubernetes/"directory"/img");}{print;}' $p > tmp && mv tmp $p  
     fi
-    
-  fi
-
+  done
 done
 
 # Fix up relative links after prettifying structure above
 sedi -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
 
-cp -r docs/package/* ./pages/services/kubernetes/$directory
+cp -r docs/package/* ./pages/services/kubernetes
 
 git rm -rf docs/
 rm -rf docs/
-
-# Add version information to latest index file
-
-sedi -e "s/^navigationTitle: .*$/navigationTitle: Kubernetes $directory/g" ./pages/services/kubernetes/$directory/index.md
-sedi -e "s/^title: .*$/title: Kubernetes $directory/g" ./pages/services/kubernetes/$directory/index.md
 
 # Update sort order of index files
 

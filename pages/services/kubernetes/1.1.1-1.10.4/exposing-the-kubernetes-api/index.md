@@ -29,7 +29,7 @@ build a fully-secured setup.
 
 In order for a user to follow the examples successfully, their DC/OS cluster
 **MUST** have at least one
-[public agent](https://docs.mesosphere.com/1.11/overview/architecture/node-types/#public-agent-nodes)
+[public agent](/1.11/overview/architecture/node-types/#public-agent-nodes)
 (i.e. an agent that is on a network that allows ingress from outside the
 cluster). In the examples, `<ip-of-public-agent>` represents the IP address at
 which this public agent can be reached. The user  **MUST** also have access to
