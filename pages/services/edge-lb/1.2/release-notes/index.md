@@ -14,9 +14,8 @@ These are the release notes for Edge-LB 1.2.
 
 Released on 11 September 2018.
 
-## Noteworthy changes:
+## Notable Changes:
 
-Noteworthy change(s):
 * dcos-template: properly handle nil values for some of the Mesos Task's protobuf fields.
 * dcos-template: set maximum grpc recv. message size to 100MiB.
 * lbmgr: adjust environment passing to match the new haproxy svc launch model. This fixes AUTOCERT and SECRET env passing in the haproxy task container.
