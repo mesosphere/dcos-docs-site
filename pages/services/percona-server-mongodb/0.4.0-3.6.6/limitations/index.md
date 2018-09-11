@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Limitations
 title: Limitations
 menuWeight: 110
-excerpt:
+excerpt: Limitations in Percona Server for MongoDB
 featureMaturity:
 enterprise: false
 ---
@@ -32,44 +32,42 @@ If the returned UID is not `65534`, then the DC/OS Mongo Service can be installe
 <a name="mongodb-node-count"></a>
 ### Node Count
 
-Curently all nodes *(excluding a backup hidden-secondary node)* have 1 vote in [Replica Set Elections](https://docs.mongodb.com/manual/core/replica-set-elections/#replica-set-elections).
+Curently all nodes (excluding a backup hidden-secondary node) have one vote in [Replica Set Elections](https://docs.mongodb.com/manual/core/replica-set-elections/#replica-set-elections).
 
-To provide an odd number of votes, only a node count of 1, 3 *(default)*, 5 or 7 is supported by the service. No more than 7 nodes are supported due [to the 7-member voting limit in MongoDB](https://docs.mongodb.com/manual/reference/limits/#Number-of-Voting-Members-of-a-Replica-Set).
+To provide an odd number of votes, only a node count of 1, 3 (default), 5 or 7 is supported by the service. No more than seven nodes are supported due [to the 7-member voting limit in MongoDB](https://docs.mongodb.com/manual/reference/limits/#Number-of-Voting-Members-of-a-Replica-Set).
 
 ### Percona Server for MongoDB Version
 
 This Percona-Server-MongoDB package was designed for use with the [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) 3.6 major-release only, starting from version 3.6.6. The use of other versions is not possible.
 
-### Configuration
+### Configuration limitations
 
-Below are limitations regarding the MongoDB Configuration.
-
-The framework currently supports the [configuration file options](https://docs.mongodb.com/v3.6/reference/configuration-options/) available in MongoDB version 3.6 only!
+The framework currently supports the [configuration file options](https://docs.mongodb.com/v3.6/reference/configuration-options/) available in MongoDB version 3.6 only.
 
 #### Experimental and Deprecated Options
-For stability, configuration options marked *"experimental"* or *"deprecated"* are not configurable via the DC/OS UI.
+For stability, configuration options marked "experimental" or "deprecated" are not configurable via the DC/OS UI.
 
 #### Security
 
-For security, this framework requires [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) and [MongoDB Internal Authentication](https://docs.mongodb.com/manual/core/security-internal-authentication/) is enabled. These configuration options cannot be changed as a result.
+For security, this framework requires that [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) and [MongoDB Internal Authentication](https://docs.mongodb.com/manual/core/security-internal-authentication/) be enabled. As a result, these configuration options cannot be changed.
 
 **Your application and MongoDB database driver must use [MongoDB Authentication](https://docs.mongodb.com/manual/core/authentication/) to connect to MongoDB!**
 
 Passwords and Internal Authentication keyFile must be manually defined at service creation time.
 
 For safety, the service enforces the following:
-1. System user *(monitoring, backup, admin users)* passwords must 10-characters or longer.
+1. System user (monitoring, backup, admin users) passwords must 10 characters long or longer.
 2. The MongoDB Key must be 1023 to 1024 characters long. The following OpenSSL command is recommended to generate this:
 
     ```bash
     $ openssl rand -base64 756
     ```
 
-## Removing a Node
+## Removing a node
 
-Removing a node is not supported at this time, however scaling down the number of members is possible.
+Removing a node is not supported at this time; however, scaling down the number of members is possible.
 
-## Rack-aware Replication
+## Rack-aware replication
 
 Rack placement and awareness are not supported at this time.
 
@@ -88,7 +86,7 @@ To prevent accidental data loss from reallocation, the service does not support 
 
 ## Best-effort installation
 
-If your cluster doesn't have enough resources to deploy the service as requested, the initial deployment will not complete until either those resources are available or until you reinstall the service with corrected resource requirements. Similarly, scale-outs following initial deployment will not complete if the cluster doesn't have the needed available resources to complete the scale-out.
+If your cluster does not have enough resources to deploy the service as requested, the initial deployment will not complete until either those resources are available or you reinstall the service with corrected resource requirements. Similarly, scale-outs following initial deployment will not complete if the cluster does not have the needed available resources to complete the scale-out.
 
 ## Virtual networks
 
@@ -96,4 +94,4 @@ When the service is deployed on a virtual network, the service may not be switch
 
 ## Task Environment Variables
 
-Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is _possible_ to use these environment variables in adhoc scripts (e.g. via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
+Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is **possible** to use these environment variables in adhoc scripts (for example, via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
