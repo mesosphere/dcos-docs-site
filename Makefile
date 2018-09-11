@@ -26,6 +26,7 @@ build-redirects:
 # Build
 #
 
+## Rebuild nginx, swagger, and static content
 build-development: build-api
 	npm run dev
 
