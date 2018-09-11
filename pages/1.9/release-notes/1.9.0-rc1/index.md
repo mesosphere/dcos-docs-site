@@ -37,9 +37,9 @@ Please try out the new features and updated services. Provide any feedback throu
 
 ## DC/OS Monitoring and Operations
 
-[!experimental]
+[experimental]
 ### Remote Process Injection for Debugging
-[/!experimental]
+[/experimental]
 
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
 
@@ -49,9 +49,9 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 
 For more information, see the documentation for the `dcos task exec` command [here](/1.9/monitoring/debugging/).
 
-[!experimental]
+[experimental]
 ### Logging
-[/!experimental]
+[/experimental]
 
 Stream task and system logs to journald by setting the `mesos_container_log_sink` install-time parameter to `journald` or `journald+logrotate`. This allows you to:
 
@@ -61,9 +61,9 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 
 For more information, see the [documentation](/1.9/monitoring/logging/).
 
-[!experimental]
+[experimental]
 ### Metrics 
-[/!experimental]
+[/experimental]
 
 - Node-level HTTP API that returns metrics from task, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.
