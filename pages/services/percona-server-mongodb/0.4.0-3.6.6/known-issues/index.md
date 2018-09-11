@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Known Issues
 title: Known Issues
 menuWeight: 100
-excerpt: Known issues and limitations in Percona Server for MongoDB
+excerpt: Known issues in DC/OS
 featureMaturity:
 enterprise: false
 ---
