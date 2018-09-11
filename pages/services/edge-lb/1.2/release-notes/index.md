@@ -36,12 +36,10 @@ Universe Repo Artifacts:
 Shortlist:
 
 ```
-Gustav Paul (3):
+
       dcos-template: set maximum recv message size to 100MiB
       dcos-template/dependency: better comments
       dcos-template/dependency: use huge name instead of key
-
-Pawel Rozlach (25):
       Bump haproxy to 1.8.13 from 1.8.12
       Fix anonymous ACLs logic for predefined conditions
       Fix linting bugs
