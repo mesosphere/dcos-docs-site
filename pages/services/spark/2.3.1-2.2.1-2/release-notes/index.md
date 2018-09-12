@@ -18,15 +18,16 @@ render: mustache
 - Updated libmesos version version with critical bug fix, [MESOS-8171](https://issues.apache.org/jira/browse/MESOS-8171)
 
 ### Documentation
-- Added a [page](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/limits/) documenting results from scale testing of Spark on DC/OS.
+- Added a [page](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/limitations/#dcos-spark-limits-test-results) documenting results from scale testing of Spark on DC/OS.
+- Added Hive integration section to [Integration page](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/hdfs/#adding-hive).
 
 
 ## Version 2.3.0-2.2.1-2
 
 ### New Features
 - Added secrets support in Driver, so a secret can be disseminated to the executors. (SPARK-22131)
-- Added Kerberos ticket renewal. (SPARK-21842)
-- Added Mesos sandbox URI to Dispatcher UI. (SPARK-13041)
+- Added Kerberos ticket renewal. [SPARK-21842](https://issues.apache.org/jira/browse/SPARK-21842)
+- Added Mesos sandbox URI to Dispatcher UI. [SPARK-13041](https://issues.apache.org/jira/browse/SPARK-13041)
 - Added support for Driver<->Executor TLS with file-based secrets.
 - Added support for Driver<->Executor SASL (RPC endpoint authentication and encryption), via file-based secrets.
 - Added --executor-auth-secret as a shortcut for Driver<->Executor Spark SASL (RPC endpoint authentication and encryption) configuration.
@@ -44,10 +45,11 @@ render: mustache
 - Changed the default user to root. (Breaking change)
 
 ### Bug fixes
-- First delegation token renewal time is not 75% of renewal time. (SPARK-22583)
-- Fixed supervise mode with checkpointing. (SPARK-22145)
+- First delegation token renewal time is not 75% of renewal time. [SPARK-22583](https://issues.apache.org/jira/browse/SPARK-22583)
+- Fixed supervise mode with checkpointing. [SPARK-22145](https://issues.apache.org/jira/browse/SPARK-22145)
 - Added support for older SPARK_MESOS_KRB5_CONF_BASE64 environment variable.
 - The spark CLI has "shortcut" command-line args, that are translated into spark.config=setting configurations downstream (such as spark.executor.memory). Fixed a bug where a user sets the configuration directly and is overwritten with the default value for the shortcut argument.
+- Fixed Spark SQL failure to create a Hive table when running in a Apache Sentry-secured Environment. [SPARK-24338](https://issues.apache.org/jira/browse/SPARK-24338)
 
 ### Breaking Changes
 - Changed the default user to root, in both the Dispatcher and History Server.
