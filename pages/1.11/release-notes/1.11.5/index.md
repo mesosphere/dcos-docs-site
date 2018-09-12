@@ -16,7 +16,7 @@ DC/OS 1.11.5 was released on September 12, 2018.
 
 DC/OS 1.11.5 includes the following components:
 - Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/19d17cec3e797758e76c081efb68867d440ed4d3/CHANGELOG).
-- Marathon 1.6.544 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.6.544).
+- Marathon 1.6.544 [change log](https://github.com/dcos/dcos/pull/3289).
 - Metronome 0.4.3 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.3).
 
 # Issues Fixed in DC/OS 1.11.5
