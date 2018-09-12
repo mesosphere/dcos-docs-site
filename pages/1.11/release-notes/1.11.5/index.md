@@ -12,6 +12,13 @@ DC/OS 1.11.5 was released on September 12, 2018.
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
+# Notable Changes in DC/OS 1.11.5
+
+DC/OS 1.11.5 includes the following components:
+- Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/19d17cec3e797758e76c081efb68867d440ed4d3/CHANGELOG).
+- Marathon 1.6.544 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.6.544).
+- Metronome 0.4.3 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.3).
+
 # Issues Fixed in DC/OS 1.11.5
 
 ## Customer Advisory
@@ -28,6 +35,8 @@ The customer advisory information is available [here](https://support.mesosphere
 - DCOS-40523 - Enable empty environment variables reducer to support empty values. 
 - DCOS-40577 - Fix dashboard permissions and node tab with correct ACLs for users (non-super users and remote users).
 - DCOS_OSS-3801 - Add support for Docker parameters in Metronome jobs.
+- Update DC/OS UI for [1.11+v1.19.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.19.0/CHANGELOG.md). [oss type="inline" size="small" /]
+- Update DC/OS UI for [1.11+v1.19.0+1c67f4b5](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.15.0+3231764b...1.11+v1.19.0+1c67f4b5). [enterprise type="inline" size="small" /]
 
 ## Marathon
 - COPS-3505/MARATHON-8326 - Add `wipe=true` support for pod's instances endpoint to automatically drain and decomission agent nodes.
@@ -69,18 +78,6 @@ The customer advisory information is available [here](https://support.mesosphere
 
 ## Storage
  - DCOS-39891 - Add a new permission to `dcos_diagnostics_master` service account user during bootstrap.
-
-
-# Notable Changes in DC/OS 1.11.5
-
-- Update DC/OS UI for [1.11+v1.19.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.19.0/CHANGELOG.md). [oss type="inline" size="small" /]
-- Update DC/OS UI for [1.11+v1.19.0+1c67f4b5](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.15.0+3231764b...1.11+v1.19.0+1c67f4b5). [enterprise type="inline" size="small" /]
-
-DC/OS 1.11.5 includes the following components:
-- Apache Mesos 1.5.x [change log](https://github.com/mesosphere/mesos/blob/eacabd7/CHANGELOG).
-- Marathon 1.6.544 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.6.544).
-- Metronome 0.4.3 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.3).
-
 
 
 # About DC/OS 1.11
