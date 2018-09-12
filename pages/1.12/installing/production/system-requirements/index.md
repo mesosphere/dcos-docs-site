@@ -218,7 +218,7 @@ sudo yum install -y tar xz unzip curl ipset
 
 ### Cluster permissions (production installation)
 
-On each of your cluster nodes, follow the following instructions:
+On each of your cluster nodes, follow the below instructions:
 
 *   Make sure that SELinux is in one of the supported modes.
 
