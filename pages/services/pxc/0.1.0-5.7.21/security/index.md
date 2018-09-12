@@ -79,7 +79,7 @@ Steps to follow to configure PAM:
 2. Go to openLDAP Admin and logon with configurable usertid(cn=admin,dc=example,dc=org) and password.(image required)
 3. Go to "ou-groups", create admin, developer and user(image)
 4. Create username under user group.
-5. Create the same user in percona-pxc-mysql to login authentication successfully.
+5. Create the same user in  DC/OS percona-pxc-mysql to login authentication successfully.
 <<login image>>
 
 **Note:** <PAM> authentication can be combined with transport encryption.
