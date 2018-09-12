@@ -7,6 +7,12 @@ menuWeight: 120
 model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
+
+# Version 2.4.0-4.0.0e
+
+## Bug Fixes
+- [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
+
 # Version 2.3.0-4.0.0e
 
 ## Features
