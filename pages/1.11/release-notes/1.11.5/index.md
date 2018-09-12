@@ -47,7 +47,7 @@ The customer advisory information is available [here](https://support.mesosphere
 - COPS-3520/DCOS-39999 - Fix DC/OS OSS build failure that occurred due to segmentation violation.
 - DCOS-38600 - Remove deadlock when SSL sockets are simultaneously sending/receiving data.
 - DCOS-39707 - Fix clustering issues with `etcd`.
-- DCOS_OSS-3697 - Fix connectivity issue between bridged and overlay networks.
+- DCOS_OSS-3697 - Fix connectivity issue between bridge and overlay networks.
 - DCOS_OSS-3841 - Update CNI plugin versions to v0.7.1.
 
 ## Platform
@@ -60,7 +60,7 @@ The customer advisory information is available [here](https://support.mesosphere
 ## Security
 [/enterprise]
 - COPS-2988 - Provide access permissions with full capabilities to the user. 
-- COPS-3195 - Fix cluster authentication issues running in strict mode and issues arising from transient errors in the 'ip-detect' script.
+- COPS-3195 - Fix cluster authentication issues running in strict mode and issues arising from transient errors in the `ip-detect` script.
 - COPS-3485/DCOS_OSS-3937 - Prevent loss of ZK myid configuration file by recreating the deleted myid configuration file and restarting exhibitor 
 - DCOS-38655 - Force all login requests through Admin Router. 
 - DCOS-39259 - Add error handling for `StartTLS` in case of socket failure.
