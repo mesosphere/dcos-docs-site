@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 20
-excerpt:
+excerpt: Getting Started with Percona Server for MongoDB
 featureMaturity:
 enterprise: false
 ---
