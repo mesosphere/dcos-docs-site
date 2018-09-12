@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 130
-excerpt:
+excerpt: Understanding versioning schemes and policies
 featureMaturity:
 enterprise: false
 ---
