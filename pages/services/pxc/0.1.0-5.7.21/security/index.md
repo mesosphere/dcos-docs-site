@@ -75,7 +75,7 @@ With Transport Encryption enabled, service clients will need to be configured to
 DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and PAM(Plugable Authentication Module). PAM can not work alone without SSL. By default PAM is disabled.
 
 Steps to follow to configure PAM:
-1. install openLDAP and openLDAP admin in the same cluster from Catalogue.
+1. Install openLDAP and openLDAP admin in the same cluster from Catalogue.
 2. Go to openLDAP Admin and logon with configurable userid(cn=admin,dc=example,dc=org) and password.(image required)
 3. Go to "ou-groups", create admin, developer and user(image)
 4. Create username under user group.
