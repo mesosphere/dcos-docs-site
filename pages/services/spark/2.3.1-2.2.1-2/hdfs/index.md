@@ -27,7 +27,7 @@ Within the {{ model.techShortName }} service configuration, set `hdfs.config-url
   }
 }
 ```
-This can also be done through the web interface. If you are using the default installation of HDFS from Mesosphere, this is probably http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints.
+This can also be done through the web interface. If you are using the default installation of HDFS from Mesosphere, this is probably `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints`.
 
 <a name="adding-hdfs"></a>
 
@@ -36,7 +36,7 @@ To add the configuration files manually for a job, use `--conf {{ model.serviceN
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> It is important that these files are called "hdfs-site.xml" and "core-site.xml".</td> 
+  <td align=justify style=color:white><strong>Important:</strong> It is important that these files are named "hdfs-site.xml" and "core-site.xml".</td> 
 </tr> 
 </table>
 
@@ -48,7 +48,7 @@ To add a Hive configuration file manually for a job, use `--conf spark.mesos.uri
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> It is important that this file is called "hdfs-site.xml".</td> 
+  <td align=justify style=color:white><strong>Important:</strong> It is important that this file is named "hive-site.xml".</td> 
 </tr> 
 </table>
 
