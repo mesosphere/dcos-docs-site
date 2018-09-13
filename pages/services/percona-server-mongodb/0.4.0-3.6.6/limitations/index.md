@@ -44,6 +44,14 @@ This Percona-Server-MongoDB package was designed for use with the [Percona Serve
 
 The framework currently supports the [configuration file options](https://docs.mongodb.com/v3.6/reference/configuration-options/) available in MongoDB version 3.6 only.
 
+### Replica Set Name
+
+Changing the replica set after service startup is currently unsupported. As a workaround, the backup and restore features of this package can be used to migrate data to a new Percona-Server-MongoDB service with a different replica set name.
+
+### Storage Engine
+
+Changing the storage engine of the replica set members after service startup is currently unsupported. As a workaround, the backup and restore features of this package can be used to migrate to a new Percona-Server-MongoDB service with a different storage engine.
+
 #### Experimental and Deprecated Options
 For stability, configuration options marked "experimental" or "deprecated" are not configurable via the DC/OS UI.
 
