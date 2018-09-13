@@ -54,7 +54,6 @@ The customer advisory information is available [here](https://support.mesosphere
 - COPS-3279/COPS-3576/DCOS-37703/DCOS-39721 - Fix erroneous values in service addresses stats. Bump dcos-net.
 - COPS-3472/DCOS-38932 - Enable access to Marathon app via overlap network. 
 - COPS-3520/DCOS-39999 - Fix DC/OS OSS build failure that occurred due to segmentation violation.
-- DCOS-38600 - Remove deadlock when SSL sockets are simultaneously sending/receiving data.
 - DCOS-39707 - Fix clustering issues with `etcd`.
 - DCOS_OSS-3697 - Fix connectivity issue between bridge and overlay networks.
 - DCOS_OSS-3841 - Update CNI plugin versions to v0.7.1.
