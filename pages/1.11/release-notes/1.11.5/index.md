@@ -60,7 +60,6 @@ The customer advisory information is available [here](https://support.mesosphere
 
 ## Platform
 - COPS-3568/DCOS-39883 - Add permissions to `dcos_diagnostics_master` to read marathon state.
-- COPS-3658/DCOS-21258 - Remove `dcos-history-service`from UI. 
 - DCOS-22194 - Fix `dcos-metrics` pkgpanda build to utilize Docker. 
 - DCOS-37454 - Fix Prometheus inconsistent output with stored metrics.
 
