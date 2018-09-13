@@ -6,7 +6,7 @@ title: Quick Start
 menuWeight: 15
 ---
 
-This section gives a quick end 2 end tour on how to configure and use Couchbase Server and Couchbase Sync Gateway with DC/OS.
+This section gives a quick end to end tour on how to configure and use Couchbase Server and Couchbase Sync Gateway with DC/OS.
 
 
 # How to use Couchbase with DC/OS
@@ -126,7 +126,7 @@ Next create a file named todo.json, with the following content. This is the pouc
   "container": {
     "type": "MESOS",
     "docker": {
-      "image": "realmbgl/pdbtd",
+      "image": "mesosphere/pdbtd",
       "forcePullImage": true
     }
   },

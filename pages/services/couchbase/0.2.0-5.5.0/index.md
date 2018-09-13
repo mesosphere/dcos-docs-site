@@ -15,7 +15,7 @@ DC/OS Couchbase offers the following benefits :
 1. Based on the battle proven DC/OS framework/operator sdk that underpins all DC/OS certified frameworks
 2. Supporting Couchbase Server
 3. Supporting Couchbase Sync Gateway
-4. Automated cluster deployment, production deployments and compact development deployments
+4. Supports multiple deployment modes
 6. Automated failure recovery
 7. Automated configuration changes
 8. Automated Scaling
