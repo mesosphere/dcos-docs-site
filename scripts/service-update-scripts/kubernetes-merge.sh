@@ -32,7 +32,7 @@ git checkout tags/$version docs/package
 # remove any user specified directories 
 if [ -n "$skip" ]; then 
   echo "Skipping $skip"
-  for d in $(echo $skip | sedi "s/,/ /g"); do rm -rf docs/package/$d; done
+  for d in $(echo $skip | sed "s/,/ /g"); do rm -rf docs/package/$d; done
 fi
 
 # always remove lates/ directory it will never be copied
