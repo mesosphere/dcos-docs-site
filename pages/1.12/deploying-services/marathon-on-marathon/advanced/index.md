@@ -10,7 +10,7 @@ enterprise: true
 
 This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.12/security/ent/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/1.12/deploying-services/marathon-on-marathon/basic/).
 
-For this procedure, we are assuming that you have obtained an enterprise version of Marathon from your sales representative (<sales@mesosphere.io>). This custom tarball contains Marathon plus secrets and auth plugins. These additional plugins allow you to use secrets and fine-grained access control in your non-native Marathon folder hierarchy.
+For this procedure, we are assuming that you have obtained an enterprise version of Marathon from your sales representative (<sales@mesosphere.io>). This custom tarball contains Marathon plus plugins to support enterprise features, such as secrets and authorization. These additional plugins allow you to use secrets and fine-grained access control in your non-native Marathon folder hierarchy.
 
 **Prerequisites:**
 
@@ -235,7 +235,7 @@ Depending on your [security mode](/1.12/security/ent/#security-modes), a Maratho
 | Permissive | Optional |
 | Strict | Required |
 
-1.  Create a 2048-bit RSA private-public key pair (`${PRIVATE_KEY}` and `${PUBLIC_KEY}`) and save each value into a separate file within the current directory.
+1.  Create a 2048-bit RSA private and public key pair (`${PRIVATE_KEY}` and `${PUBLIC_KEY}`) and save each value into a separate file within the current directory.
 
     With the following command, we create a pair of private and public keys. The public key will be used to create the Marathon service account. The private key we will store in the [secret store](/1.12/security/ent/secrets/) and later passed to Marathon so it can authorize itself using this account. 
 
@@ -302,7 +302,7 @@ Grant service account `${SERVICE_ACCOUNT_ID}` permission to launch Mesos tasks t
 
 To allow executing tasks as a different Linux user, replace `nobody` with that user's Linux user ID. For example, to launch tasks as Linux user `bob`, replace `nobody` with `bob` below.
 
-Note that the `nobody` and `root` users exist on all agents by default, but if a custom `bob` user is specified it has to be manually created (using the `adduser` or a similar utility) on every agent that tasks can be executed on.
+Note that the `nobody` and `root` users exist on all agents by default; if a custom user `bob` is specified, then the user `bob` will need to be manually created on every agent on which tasks can be executed (e.g. using the Linux `adduser` or a similar utility).
 
 ```bash
 dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody"
@@ -642,11 +642,11 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
 # Known pitfalls
 
-- When launching docker containers user _nobody_ does not have enough rights to execute the command e.g. stating _nginx_ as _nobody_ will fail because _nobody_ does not have the right  to write logs to /var/log (as nginx needs). 
+- When launching docker containers, the user `nobody` may not have enough rights to successfully run. For example, starting an `nginx` Docker container as the user `nobody` will fail because `nobody` does not have write permissions to `/var/log`, which `nginx` needs.
 
-- User `nobody` has different UIDs on different systems (99 on coreos, 65534 on ubuntu). Depending on the agent's distribution you might need to modify the container image so that UIDs match! (the same goes if you use the user _bob_)
+- User `nobody` has different UIDs on different systems (99 on coreos, 65534 on ubuntu). Depending on the agent's distribution, you may need to modify the container image so that UIDs match! The same goes if you use the user `bob`.
 
-- If using custom users e.g. _bob_, this user has to exist on the agent and within the container.
+- When using custom users (e.g. `bob`), the user must exist on the agent, or in the case of using containers, within the container.
 
-- When using a new user e.g. _bob_ don't forget to give Marathon service account permissions to run tasks with this user 
+- When using a new user (e.g. `bob`), remember to give the Marathon service account permissions to run tasks as this user.
 
