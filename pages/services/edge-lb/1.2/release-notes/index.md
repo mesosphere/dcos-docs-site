@@ -10,6 +10,34 @@ enterprise: false
 
 These are the release notes for Edge-LB 1.2.
 
+# v1.2.1
+
+Released on 14 September 2018.
+
+## Notable Changes:
+
+
+Universe Repo Artifacts:
+
+- https://downloads.mesosphere.com/edgelb/v1.2.1/assets/stub-universe-edgelb.json
+- https://downloads.mesosphere.com/edgelb-pool/v1.2.1/assets/stub-universe-edgelb-pool.json
+
+Shortlist:
+
+```
+```
+
+## Known Limitations
+
+* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
+* Edge-LB does not currently support self-service configuration; all configuration must be handled centrally.
+
+## Known Issues
+
+* The steps presented in the UI to uninstall Edge-LB are incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
+* Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
+
 # v1.2.0
 
 Released on 11 September 2018.
