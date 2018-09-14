@@ -11,9 +11,28 @@
     color: inherit;
   }
   &--warning {
-    border: 1px solid #F2D98E;
+    border: 2px solid $color-dark;
     color: $color-dark;
-    background: #F2D98E;
+    background: $color-gold;
+    padding: 10px;
+  }
+  &--warning-label::before { 
+    content: "WARNING: ";
+    background-color: inherit;
+    color: inherit;
+    font-weight: bold;
+  }
+  &--note {
+    color: $color-light;
+    background: $color-purple-light;
+    padding: 10px;
+    border: 2px solid $color-dark;
+  }
+  &--important {
+    color: $color-light;
+    background: $color-grey;
+    padding: 10px;
+    border: 2px solid $color-dark;
   }
   &--error {
     border: 1px solid #E77975;
@@ -55,4 +74,7 @@
     color: #89DA71;
     background: transparent;
   }
+}
+.warning-label::before {
+  content: "WARNING: ";
 }
