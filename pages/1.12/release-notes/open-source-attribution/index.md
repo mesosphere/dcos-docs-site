@@ -7,7 +7,7 @@ excerpt: List of third party open source software provided by Mesosphere
 ---
 
 
-The below table lists the third party open source software which is provided by Mesosphere in connection with Mesosphere DC/OS.
+The table below lists the third party open source software which is provided by Mesosphere in connection with Mesosphere DC/OS.
 
 <table class="table">
 		<tr>

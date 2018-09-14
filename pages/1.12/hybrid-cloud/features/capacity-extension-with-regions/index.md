@@ -13,7 +13,6 @@ enterprise: false
 - The **local region** is the region running the Mesos master nodes.
 - A **remote region** contains only Mesos agent nodes. There is usually high latency between a remote region and the local region.
 
-<!-- could use a diagram -->
 
 ## Installation
 
@@ -33,9 +32,9 @@ enterprise: false
 
    <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work, if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
 
-1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/ent/custom/advanced/#create-a-fault-domain-detection-script).
+1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
-1. [Install DC/OS](/1.11/installing/ent/custom/advanced/).
+1. [Install DC/OS](/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
 1. Test your installation.
 
@@ -54,7 +53,8 @@ Alternatively, click the **Nodes** tab in the DC/OS GUI. The Nodes table will di
 
 # Use
 
-User-created Marathon services and pods support both zone and region awareness. The following beta versions of DC/OS data services support zone awareness: Cassandra, Elastic, HDFS, Kafka, and Spark. Consult the individual service documentation for more information about configuring zone awareness for DC/OS data services. <!-- todo: link to appropriate pages when the betas are released -->
+User-created Marathon services and pods support both zone and region awareness. The following beta versions of DC/OS data services support zone awareness: Cassandra, Elastic, HDFS, Kafka, and Spark. Consult the individual service documentation for more information about configuring zone awareness for DC/OS data services. 
+
 
 ## Marathon services and pods
 

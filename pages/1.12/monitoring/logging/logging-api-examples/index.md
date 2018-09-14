@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  Logging API Examples
 title: Logging API Examples
 menuWeight: 4
-excerpt: Understanding the Logging API
+excerpt: Examples for the Logging API
 beta: true
 enterprise: false
 ---
-
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 Here are some common usage examples for the Logging API.
 
@@ -62,8 +59,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 
 # Container Logs
 
-**Important:**
-The following example requires journald task logging, which by default is [disabled](/1.11/monitoring/logging/logging-api/#compatibility).
+**Important:** The following example requires journald task logging, which by default is [disabled](/1.11/monitoring/logging/logging-api/#compatibility).
 
 Get the last 100 journal entries from a single service container:
 

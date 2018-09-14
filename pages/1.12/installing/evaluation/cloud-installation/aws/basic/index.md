@@ -3,7 +3,7 @@ layout: layout.pug
 title: Basic 
 navigationTitle: Basic
 menuWeight: 5
-excerpt: Choose the basic installation method if you want to create a DC/OS cluster using DC/OS templates
+excerpt: Creating a DC/OS cluster using DC/OS templates
 ---
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.
@@ -17,7 +17,11 @@ These instructions provide a basic AWS CloudFormation template that creates a DC
 
 For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing/ent/cloud/aws/advanced/).
 
-**Important:** Upgrades are not supported with this installation method.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> Upgrades are not supported with this installation method.</td> 
+</tr> 
+</table>
 
 # System requirements
 
@@ -52,9 +56,15 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 3.  On the **Select Template** page, in the **Choose a template** field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from Sales.
 
-**Warning:** Do not click the **View/Edit template in Designer** link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</td> 
+</tr> 
+</table>
 
    ![Launch stack](/1.11/img/dcos-aws-step2b.png)
+
+   Figure 1. Launch stack
 
 4.  Click **Next**.
 
@@ -63,6 +73,8 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 6. Skip the Open Source users section and go to Step 6. 
 
 ![Create stack](/1.11/img/dcos-aws-step2c-ee.png)
+
+Figure 2. Create stack
 
 [oss]
 ## Open Source users 
@@ -74,24 +86,27 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
    ![Launch stack](/1.11/img/dcos-aws-step2b.png)
 
+   Figure 3. Launch stack
+
 3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), whether to enable OAuth authentication (`OAuthEnabled`), number of public agent nodes (`PublicSlaveInstanceCount`), number of private agent nodes (`SlaveInstanceCount`), and click **Next**. 
 
-    **Warning:** The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</td> 
+</tr> 
+</table>
+
 
 4. Go to Step 6 in the "All users" section.
 
 ![Create stack](/1.11/img/dcos-aws-step2c.png)
 
+Figure 4. Create stack
 
 ## All users
-6.  On the **Options** page, accept the defaults and click **Next**.
+6.  On the **Options** page, accept the defaults and click **Next**. In the Advanced section you can choose whether to rollback on failure. By default this option is set to **Yes**.
 
-  **Note:** In the Advanced section you can choose whether to rollback on failure. By default this option is set to **Yes**.
-
-7.  On the **Review** page, check the acknowledgement box and then click **Create**.
-
-    **Note:** If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
-
+7.  On the **Review** page, check the acknowledgement box and then click **Create**. If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
 
 # Monitor cluster stack launch
 
@@ -101,6 +116,11 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 *   The status changes from CREATE_IN_PROGRESS to CREATE_COMPLETE.
 
 **Troubleshooting:** A ROLLBACK_COMPLETE status means the deployment has failed. See the **Events** tab for useful information about failures.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the <strong>Events</strong> tab for useful information about failures.</td> 
+</tr> 
+</table>
 
 # <a name="launchdcos"></a>Open and log into the DC/OS GUI
 
@@ -110,9 +130,13 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
    ![Monitor stack creation](/1.11/img/dcos-stack.png)
 
+   Figure 5. Monitor stack creation
+
 3.  Paste the hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.  Your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed to the login screen.
 
    ![DC/OS GUI auth](/1.11/img/dc-os-gui-login-ee.png)
+
+   Figure 6. DC/OS web interface login screen
 
    **Note:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the [AWS CloudFormation Management](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fcloudformation%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0) page.
 

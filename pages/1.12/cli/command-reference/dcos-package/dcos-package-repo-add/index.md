@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Add a package repository to DC/OS.
+The `dcos package repo add` command allows you to add a package repository to DC/OS.
 
 # Usage
 
@@ -19,16 +19,16 @@ dcos package repo add <repo-name> <repo-url> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--index=<index>`   |             | The numerical position in the package repository list. Package repositories are searched in descending order. By default, the Universe repository first in the list. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `--index=<index>`   | The numerical position in the package repository list. Package repositories are searched in descending order. By default, the Universe repository first in the list. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<repo-name>`   |             |  Name of the package repository. For example, `Universe`. |
-| `<repo-url>`   |             |  URL of the package repository. For example, https://universe.mesosphere.com/repo. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `<repo-url>`   |   URL of the package repository. For example, https://universe.mesosphere.com/repo. |
 
 # Parent command
 

@@ -72,6 +72,8 @@ A typical AWS deployment including AWS Load Balancers is shown below:
 
 ![Security Zones](/1.11/img/security-zones.jpg)
 
+Figure 1. Security zones
+
 ## Admin Router
 
 Access to the admin zone is controlled by the Admin Router.

@@ -18,23 +18,29 @@ Deploy the file [`app-oom.json`](https://raw.githubusercontent.com/dcos-labs/dco
 $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 ```
 
-Once deployed, when we take a look at the DC/OS GUI, we see some strange results under CPU Allocation:
+Once deployed, when we take a look at the DC/OS web interface, we see some strange results under CPU Allocation:
 
 ![Pic of CPU allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-25.png)
 
-**How is it that CPU Allocation is continuing oscillating between 0 and 8 percent?** Let’s take a look at the application details in the GUI:
+Figure 1. CPU allocation display
+
+**How is it that CPU Allocation is continually oscillating between 0 and 8 percent?** Let’s take a look at the application details in the web interface:
 
 ![Pic of Task tab](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-24.png)
+
+Figure 2. Application details
 
 Based on this, **the application runs for a few seconds and then fails**.
 
 ### Resolution
 
-To get a better handle on understanding this unexpected behavior, let us start by looking at the application logs --- either in the GUI or via the CLI. You can find the application logs in the GUI by looking under 'Output' in the 'Logs' tab of the application:
+To get a better handle on understanding this unexpected behavior, let us start by looking at the application logs --- either in the web interface or via the CLI. You can find the application logs in the web interface by looking under 'Output' in the 'Logs' tab of the application:
 
 ![Pic of app logs](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-15.png)
 
-The log output “Eating Memory” is a pretty generous hint that the issue might be related to memory. Despite this, there is no direct failure message regarding memory allocation(keep in mind that *most apps are not so friendly as to log that they are eating up memory*).
+Figure 3. Application log displa y
+
+The log output “Eating Memory” is a pretty generous hint that the issue might be related to memory. Despite this, there is no direct failure message regarding memory allocation(keep in mind that **most apps are not so friendly as to log that they are eating up memory**).
 
 As suspected, this might be an application-related issue, and this application is scheduled via Marathon. So let’s check the Marathon logs using the CLI:
 
@@ -46,7 +52,7 @@ We see a log entry similar to:
 ```bash
 Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [2018-03-27 00:46:36,960] INFO  Acknowledge status update for task app-oom.4af344fa-3158-11e8-b60b-a2f459e14528: TASK_FAILED (Memory limit exceeded: Requested: 64MB Maximum Used: 64MB
 ```
-**Tip** One helpful time-saving tip can be to `grep` for 'TASK_FAILED'.
+**Note:** One helpful time-saving tip can be to `grep` for 'TASK_FAILED'.
 
 **Now we have confirmed that we exceeded the previously set container memory limit in [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6)**
 
