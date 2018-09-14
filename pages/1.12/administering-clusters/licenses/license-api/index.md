@@ -4,7 +4,7 @@ navigationTitle:  License API
 title: License API
 menuWeight: 3
 enterprise: true
-excerpt: Use the License API to manage DC/OS licenses.
+excerpt: Using the License API to manage your DC/OS license
 ---
 # Routes
 

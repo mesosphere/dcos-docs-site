@@ -11,7 +11,7 @@ enterprise: false
 
 
 # Description
-List the current queue of Marathon application deployments that are waiting.
+The `dcos marathon debug list` command allows you to display the current queue of Marathon application deployments that are waiting.
 
 # Usage
 
@@ -21,9 +21,9 @@ dcos marathon debug list [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |  Displays JSON-formatted data. |
 
 # Parent command
 
@@ -31,4 +31,3 @@ dcos marathon debug list [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

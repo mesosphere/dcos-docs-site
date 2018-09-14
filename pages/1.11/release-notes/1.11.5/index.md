@@ -35,8 +35,8 @@ The customer advisory information is available [here](https://support.mesosphere
 - DCOS-40523 - Enable empty environment variables reducer to support empty values. 
 - DCOS-40577 - Fix dashboard permissions and node tab with correct ACLs for users (non-super users and remote users).
 - DCOS_OSS-3801 - Add support for Docker parameters in Metronome jobs.
-- Update DC/OS UI for [1.11+v1.19.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.19.0/CHANGELOG.md). [oss type="inline" size="small" /]
-- Update DC/OS UI for [1.11+v1.19.0+1c67f4b5](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.15.0+3231764b...1.11+v1.19.0+1c67f4b5). [enterprise type="inline" size="small" /]
+- Update DC/OS UI for 1.11+v1.19.0. [oss type="inline" size="small" /]
+- Update DC/OS UI for 1.11+v1.19.0+1c67f4b5. [enterprise type="inline" size="small" /]
 
 ## Marathon
 - COPS-3505/MARATHON-8326 - Add `wipe=true` support for pod's instances endpoint to automatically drain and decomission agent nodes.
@@ -60,7 +60,6 @@ The customer advisory information is available [here](https://support.mesosphere
 
 ## Platform
 - COPS-3568/DCOS-39883 - Add permissions to `dcos_diagnostics_master` to read marathon state.
-- COPS-3658/DCOS-21258 - Remove `dcos-history-service`from UI. 
 - DCOS-22194 - Fix `dcos-metrics` pkgpanda build to utilize Docker. 
 - DCOS-37454 - Fix Prometheus inconsistent output with stored metrics.
 

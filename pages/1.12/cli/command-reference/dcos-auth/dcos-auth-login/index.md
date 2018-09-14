@@ -8,11 +8,9 @@ excerpt: Authenticating to DC/OS
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Authenticate to DC/OS. The [dcos cluster setup](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup) command also runs `dcos auth login`.
+
+This command allows you to authenticate to DC/OS. The [dcos cluster setup](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup) command also runs `dcos auth login`.
 
 # Usage
 
@@ -32,7 +30,7 @@ dcos auth login [OPTION]
 
 ## TLS options
 
-If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--ca-certs`, the CA certificate is downloaded from the cluster and a sha256 fingerprint of the certificate is presented to you for verification.
+If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--ca-certs`, the CA certificate is downloaded from the cluster and a `sha256` fingerprint of the certificate is presented to you for verification.
 
 # Environment variables
 

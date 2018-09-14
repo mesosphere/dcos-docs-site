@@ -5,14 +5,12 @@ title: dcos
 menuWeight: 0
 excerpt: Managing DC/OS environment variables
 
-
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 # Description
-The dcos command helps you manage DC/OS environment variables.
+
+The `dcos` command helps you manage DC/OS environment variables.
 
 # Usage
 
@@ -22,14 +20,22 @@ dcos [options] [<command>] [<args>...]
 
 # Options
 
- --version
-      Print version information
-  -v, -vv
-      Output verbosity (verbose or very verbose)
+*Table 1 - Options*
 
-
-| Name, shorthand | Default | Description |
+| Name | Description |
 |---------|-------------|-------------|
-| `--version`   |             |  Print version information. |
-| `--help, h`   |             |  Print usage. |
-|  `-v, -vv`  |             |  Output verbosity (verbose or very verbose).  |
+| `--debug`   |  Enable debug mode. |
+| `--help, h`   |  Display usage. |
+| `--log-level=<log-level>`  | Set the logging level. This setting does not affect the output sent to `stdout`.  |
+|  `--version, v`  |  Display version information.  |
+| `<log-level>` | The severity levels are shown in Table 2. |
+
+*Table 2 - `log-level` severity levels*
+
+| Name |  Description |
+|---------|-------------|
+| debug | Displays all messages.|
+|info | Displays informational, warning, error, and critical messages.|
+| warning | Displays warning, error, and critical messages. |
+| error | Displays error and critical messages. |
+| critical | Displays only critical messages to `stderr`. |

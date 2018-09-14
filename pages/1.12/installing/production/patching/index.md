@@ -19,11 +19,11 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 
 **Note:** A patching process occurs only between minor releases.
 
-**Important guidelines:**
+## Important guidelines
 
 - Review the [release notes](/1.11/release-notes/) before patching DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. If you have already patched to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
-- There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](/latest/installing/ent/custom/advanced/#create-a-configuration-file).
+- There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file).
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the patch to succeed.
 - DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the patch will fail. [enterprise type="inline" size="small" /]
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been patched. For example, a patched DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been patched. When this occurs:
@@ -35,14 +35,14 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported patch paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this patch would be supported.
-- From any current release to the next. For example, a patch from 1.9.1 to 1.9.2 would be supported.
-- From any current release to an identical release. For example, a patch from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
+- From the latest GA version of previous to the latest GA version of current. For example, if 1.10.2 is the latest and 1.11.0 is the latest, this patch would be supported.
+- From any current release to the next. For example, a patch from 1.11.1 to 1.11.2 would be supported.
+- From any current release to an identical release. For example, a patch from 1.11.0 to 1.11.0 would be supported. This is useful for making configuration changes.
 
 
 ## Modifying DC/OS configuration
 
-You _cannot_ change your cluster configuration at the same time that you are patching to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously patch a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then patch to 1.10.y Or you can patch to 1.10.y and then add more public agents by updating 1.10.y after the patch.
+You **cannot** change your cluster configuration at the same time that you are patching to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously patch a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then patch to 1.10.y Or you can patch to 1.10.y and then add more public agents by updating 1.10.y after the patch.
 
 To modify your DC/OS configuration, you must run the installer with the modified `config.yaml` and update your cluster using the new installation files. Changes to the DC/OS configuration have the same risk as patching a host. Incorrect configurations could potentially crash your hosts, or an entire cluster.
 
@@ -50,22 +50,22 @@ Only a subset of DC/OS configuration parameters can be modified. The adverse eff
 
 Here is a list of the parameters that you can modify:
 
-- [`dns_search`](/1.11/installing/ent/custom/configuration/configuration-parameters/#dns-search)
-- [`docker_remove_delay`](/1.11/installing/ent/custom/configuration/configuration-parameters/#docker-remove-delay)
-- [`gc_delay`](/1.11/installing/ent/custom/configuration/configuration-parameters/#gc-delay)
-- [`resolvers`](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers)
-- [`telemetry_enabled`](/1.11/installing/ent/custom/configuration/configuration-parameters/#telemetry-enabled)
-- [`use_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`http_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`https_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`no_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+- [`dns_search`](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-search)
+- [`docker_remove_delay`](/1.11/installing/production/advanced-configuration/configuration-reference/#docker-remove-delay)
+- [`gc_delay`](/1.11/installing/production/advanced-configuration/configuration-reference/#gc-delay)
+- [`resolvers`](/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers)
+- [`telemetry_enabled`](/1.11/installing/production/advanced-configuration/configuration-reference/#telemetry-enabled)
+- [`use_proxy`](/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`http_proxy`](/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`https_proxy`](/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`no_proxy`](/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
 
 The security mode (`security`) can be changed but has special caveats.
 
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `permissive` mode and you want to downgrade to `disabled` mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from `disabled` to `strict` mode. To increase from `disabled` to `strict` mode you must first update to `permissive` mode, and then update from `permissive` to `strict` mode.
 
-See the security [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) for information on different security modes.
+See the security [mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) for information on different security modes.
 
 # Instructions
 These steps must be performed for version patches and cluster configuration changes.
@@ -75,19 +75,18 @@ These steps must be performed for version patches and cluster configuration chan
 - Mesos, Mesos Frameworks, Marathon, Docker and all running tasks in the cluster should be stable and in a known healthy state.
 - For Mesos compatibility reasons, we recommend patching any running Marathon-on-Marathon instances to Marathon version 1.3.5 before proceeding with this DC/OS patch.
 - You must have access to copies of the config files used with the previous DC/OS version: `config.yaml` and `ip-detect`.
-- You must be using systemd 218 or newer to maintain task state.
+- You must be using `systemd` 218 or newer to maintain task state.
 - All hosts (masters and agents) must be able to communicate with all other hosts on all ports, for both TCP and UDP.
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
-- You must be familiar with the [DC/OS Installation Guide][install].
+- You must be familiar with the [DC/OS Installation Guide](/1.11/installing/production/deploying-dcos/installation/).
 - Take a snapshot of ZooKeeper prior to patching. Marathon supports rollbacks, but does not support downgrades.
-- [Take a snapshot of the IAM database](/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database) prior to patching.
+- [Take a snapshot of the IAM database](/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database) prior to patching.
 - Ensure that Marathon event subscribers are disabled before beginning the patch. Leave them disabled after completing the patch, as this feature is now deprecated.
-
-**Note: Marathon event subscribers are disabled by default; check if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.**
+- **Note:** Marathon event subscribers are disabled by default. Check to see if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.
 - Verify that all Marathon application constraints are valid before beginning the patch. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.11/administering-clusters/backup-and-restore/).
-- **Note:** This is an optional task - You can add custom [node and cluster health checks](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
+- **Optional** You can add custom [node and cluster health checks](/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
 
 ## Bootstrap Node
 
@@ -98,37 +97,36 @@ Choose your desired security mode and then follow the applicable patch instructi
 - [Patching DC/OS 1.11 in strict mode](#strict)
 
 # <a name="current-security"></a>Patching DC/OS 1.11 without changing security mode
-This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
-
+This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](//1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
     **Note:**
 
     *  You cannot change the `exhibitor_zk_backend` setting during a patch.
-    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
-1. After updating the format of the config.yaml, compare the old config.yaml and new config.yaml. Verify that there are no differences in pathways or configurations. Changing these while patching can lead to catastrophic cluster failures.
+    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.11/installing/production/advanced-configuration/configuration-reference/).
+1. After updating the format of the config.yaml, compare the old `config.yaml` and new `config.yaml`. Verify that there are no differences in pathways or configurations. Changing these while patching can lead to catastrophic cluster failures.
 1.  Modify the `ip-detect` file as desired.
 1.  Build your installer package.
 
     1.  Download the `dcos_generate_config.ee.sh` file.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
+    1.  Generate the installation files. Replace `<installed_cluster_version>` in the command below with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
         ```bash
         dcos_generate_config.ee.sh --generate-node-patch-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
-    1.  Run the [nginx][install] container to serve the installation files.
+    1.  Run the [nginx](/1.11/installing/production/deploying-dcos/installation/) container to serve the installation files.
 
-1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
+1.  Go to the DC/OS Master [procedure](/1.11/installing/production/patching/#masters) to complete your installation.
 
 # <a name="permissive"></a>Patching DC/OS 1.11 in permissive mode
-This procedure patches to DC/OS 1.11 in [permissive security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+This procedure patches to DC/OS 1.11 in [permissive security mode](1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 **Prerequisite:**
 
-- Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [disabled security mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be patched to permissive mode. If your cluster was running in permissive mode before it was patched to DC/OS 1.10, you can skip this procedure.
+- Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [disabled security mode](1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be patched to permissive mode. If your cluster was running in permissive mode before it was patched to DC/OS 1.10, you can skip this procedure.
 
-**Important:** Any [custom node or cluster health checks](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) you have configured will fail for an patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.
+**Important:** Any [custom node or cluster health checks](/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) you have configured will fail for a patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.
 
 To update a cluster from disabled security to permissive security, complete the following procedure:
 
@@ -147,9 +145,9 @@ To update a cluster from disabled security to permissive security, complete the 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="strict"></a>Patching DC/OS 1.11 in strict mode
-This procedure patches to DC/OS 1.11 in security strict [mode](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+This procedure patches to DC/OS 1.11 in security strict [mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
-If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
+If you are updating a running DC/OS cluster to run in `security: strict` mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
 
 **Prerequisites:**
 
@@ -174,7 +172,7 @@ To update a cluster from permissive security to strict security, complete the fo
 
 ## <a name="masters"></a>DC/OS Masters
 
-Proceed with patching every master node one-at-a-time in any order using the following procedure. When you complete each patch, monitor the Mesos master metrics to ensure the node has rejoined the cluster and completed reconciliation.
+Proceed with patching every master node one at a time in any order using the following procedure. When you complete each patch, monitor the Mesos master metrics to ensure the node has rejoined the cluster and completed reconciliation.
 
 1.  Download and run the node patch script:
     ```bash
@@ -252,7 +250,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-If your patch fails because of a [custom node or cluster check](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks), run these commands for more details:
+If your patch fails because of a [custom node or cluster check](/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks), run these commands for more details:
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster
@@ -276,4 +274,3 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.11 Universe are newer than those in the older versions of Universe. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve an existing state.
 
-[install]: /1.11/installing/ent/custom/advanced/

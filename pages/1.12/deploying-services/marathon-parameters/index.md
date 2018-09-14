@@ -21,7 +21,12 @@ An array of resource roles. Marathon considers only resource offers with roles i
 ### args
 An array of strings that specifies the command to run. The `args` field may be used in place of `cmd` even when using the default command executor.
 
-**Important:** You must specify either [`cmd`](#cmd) or `args` in all app definitions. It is invalid to supply both `cmd` and `args` in the same app.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> You must specify either [`cmd`](#cmd) or `args` in all app definitions. It is invalid to supply both `cmd` and `args` in the same app.</td> 
+</tr> 
+</table>
+
 
 ### backoffFactor
 The multiplicand to apply to the `backoffSeconds` value. The default value is `1.15`. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the [`maxLaunchDelaySeconds`](#maxlaunchdelayseconds) value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 3600`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 3600 seconds before repeating this cycle.
@@ -31,12 +36,16 @@ This prevents sandboxes associated with consecutively failing tasks from filling
 ### backoffSeconds
 The amount of time (in seconds) before Marathon retries launching a failed task. The default is `1`. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the `maxLaunchDelaySeconds` value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 3600`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 3600 seconds before repeating this cycle.
 
-This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos slaves. This applies also to tasks that are killed due to failing too many health checks.
+This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos agents. This applies also to tasks that are killed due to failing too many health checks.
 
 ### cmd
 The command that is executed. This value is wrapped by Mesos via `/bin/sh -c ${app.cmd}`.
 
-**Important:** You must specify either `cmd` or [`args`](#args) in all app definitions. It is invalid to supply both `cmd` and `args` in the same app.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> You must specify either [`cmd`](#cmd) or `args` in all app definitions. It is invalid to supply both `cmd` and `args` in the same app.</td> 
+</tr> 
+</table>
 
 ### constraints
 Constraint operators that control where apps can run that allow you to optimize for either fault tolerance or locality. For more information, see the [Constraints documentation](https://mesosphere.github.io/marathon/docs/constraints.html).
@@ -55,10 +64,9 @@ The container information.
   - **servicePort** The service port (e.g., `9000`).
   - **protocol** The HTTP protocol, either `tcp` or `udp`.
 
-  **Notes:**
+  ### Notes
 
-  - Port mappings are used in conjunction with `container` and `container/bridge` [networking mode](#networks) and ignored when used in conjunction with `host` networking mode.
-  - When used in conjunction with multiple `container` networks, each mapping entry that specifies a `hostPort` must also declare a `name` that identifies the network for which the mapping applies (a single `hostPort` may be mapped to only one container network, and `name` defaults to all container networks for a pod or app).
+  Port mappings are used in conjunction with `container` and `container/bridge` [networking mode](#networks) and ignored when used in conjunction with `host` networking mode. When used in conjunction with multiple `container` networks, each mapping entry that specifies a `hostPort` must also declare a `name` that identifies the network for which the mapping applies (a single `hostPort` may be mapped to only one container network, and `name` defaults to all container networks for a pod or app).
   - [`requirePorts`](#requirePorts) does not apply to `portMappings`.
   - Future versions of Marathon may fail to validate apps that declare `container.portMappings` with network modes other than `container` or `container/bridge`.
 

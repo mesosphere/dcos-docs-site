@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Deploy and manage jobs in DC/OS.
+The `dcos job` commands allow you to deploy and manage jobs in DC/OS.
 
 # Usage
 
@@ -20,26 +20,8 @@ dcos job
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--help, h`   |             |  Print usage. |
-| `--info`   |             |  Print a short description of this subcommand. |
-| `--version, v`   |             | Print version information. |
-
-# Child commands
-
-| Command | Description |
-|---------|-------------|
-| [dcos job add](/1.12/cli/command-reference/dcos-job/dcos-job-add/)   |  Add a job. |
-| [dcos job history](/1.12/cli/command-reference/dcos-job/dcos-job-history/)   | Show the job run history. |
-| [dcos job kill](/1.12/cli/command-reference/dcos-job/dcos-job-kill/)   | Kill the job. |
-| [dcos job list](/1.12/cli/command-reference/dcos-job/dcos-job-list/)   | Show all job definitions.  |
-| [dcos job remove](/1.12/cli/command-reference/dcos-job/dcos-job-remove/)   | Remove jobs.   |
-| [dcos job run](/1.12/cli/command-reference/dcos-job/dcos-job-run/)   | Run a job now. |
-| [dcos job schedule add](/1.12/cli/command-reference/dcos-job/dcos-job-schedule-add/)   |  Add a schedule to a job.  |
-| [dcos job schedule remove](/1.12/cli/command-reference/dcos-job/dcos-job-schedule-remove/)   |  Remove a job schedule.  |
-| [dcos job schedule show](/1.12/cli/command-reference/dcos-job/dcos-job-schedule-show/)   | Show a job schedule.  |
-| [dcos job schedule update](/1.12/cli/command-reference/dcos-job/dcos-job-schedule-update/)   | Update a job schedule.  |
-| [dcos job show](/1.12/cli/command-reference/dcos-job/dcos-job-show/)   | Show the job. |
-| [dcos job show runs](/1.12/cli/command-reference/dcos-job/dcos-job-show-runs/)   | Show the successful and failure status of job runs.  |
-| [dcos job update](/1.12/cli/command-reference/dcos-job/dcos-job-update/)   | Update a job.  |
+| Name, shorthand |  Description |
+|---------|--------------|
+| `--help, h`   |  Display usage. |
+| `--info`   |   Display a short description of this subcommand. |
+| `--version, v`   |  Display version information. |
