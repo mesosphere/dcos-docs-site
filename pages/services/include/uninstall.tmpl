@@ -5,17 +5,16 @@ If you are using DC/OS 1.10 or later and the installed service has a version lat
 From the DC/OS CLI, enter `dcos package uninstall --app-id=<service-name> {{ model.packageName }}`.
 
 ### Uninstall process
+<p class="message--warning"><strong>WARNING: </strong>Once the uninstall operation has begun, it cannot be cancelled because doing so can leave the service in an uncertain, half-destroyed state. Any data stored in reserved disk resources will be irretrievably lost.</p>
 
 Uninstalling the service consists of the following steps:
+
 1. The service scheduler is relaunched with the environment variable `SDK_UNINSTALL` set to "true". This puts the service into an uninstall mode.
 1. The service scheduler performs the uninstall with the following actions:
-  - All running tasks for the service are terminated.
-  - All reserved resources are unreserved by the scheduler.
-    - **Warning**: Any data stored in reserved disk resources will be irretrievably lost.
-  - Once all known resources have been unreserved, the scheduler's persistent state is deleted.
-3. The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
-
-**Note:** Once the uninstall operation has begun, it cannot be cancelled because it can leave the service in an uncertain, half-destroyed state.
+    - All running tasks for the service are terminated.
+    - All reserved resources are unreserved by the scheduler.
+    - Once all known resources have been unreserved, the scheduler's persistent state is deleted.
+1. The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
 
 ## Debugging an uninstall
 
@@ -92,8 +91,8 @@ deploy (IN_PROGRESS)
    └─ deregister (PENDING)
 ```
 
-**Note:** As it may take the operator some time to complete these actions, the service scheduler may be left in a zombie state after the uninstall is complete.
-See [Zombie service scheduler](#zombie-service-scheduler) above for instructions on how to correct this.
+<p class="message_note"><strong>NOTE: </strong>As it may take the operator some time to complete these actions, the service scheduler may be left in a zombie state after the uninstall is complete.
+See the "Zombie-service-scheduler" above for instructions on how to correct this.</p>
 
 #### Manual uninstall
 
