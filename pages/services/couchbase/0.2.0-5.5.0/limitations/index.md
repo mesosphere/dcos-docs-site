@@ -36,4 +36,5 @@ When the service is deployed on a virtual network, the service may not be switch
 Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is possible to use these environment variables in ad hoc scripts (e.g., via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
 
 ## Couchbase Specific
-- ...
+- Authorization, LDAP and PAM are not supported at this point.
+- Couchbase depends on 3rd party technologies for encryption at rest, this is currently not supported.
