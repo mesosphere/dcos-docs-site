@@ -2,26 +2,25 @@
 layout: layout.pug
 navigationTitle:  Uninstall
 title: Uninstall
-menuWeight: 40
+menuWeight: 55
 excerpt: Uninstalling DC/OS Couchbase Services
 featureMaturity:
 enterprise: false
+model: /services/couchbase/data.yml
+render: mustache
 ---
 
 ## DC/OS 1.10
 
 If you are using DC/OS 1.10:
 
-Uninstall the service from the DC/OS CLI, by entering `dcos package uninstall <package_name>`.
-For example, to uninstall the Couchbase instance named `couchbase-dev`, run:
+Uninstall the service from the DC/OS CLI with the command `dcos package uninstall <package_name>`. For example, to uninstall the {{ model.techName }} instance named `couchbase-dev`, run:
 
-```
+    ```
+    dcos package uninstall couchbase-dev
+    ```
 
-dcos package uninstall couchbase-dev
-
-```
-
-### Uninstall Flow
+### Uninstall procedure
 
 Uninstalling the service consists of the following steps. The scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in an uninstall mode.
 
@@ -31,11 +30,20 @@ The scheduler performs the uninstall with the following actions:
    1. As the task resources are offered by Mesos, they are unreserved by the scheduler.
    1. Once all known resources have been unreserved, the scheduler’s persistent state in ZooKeeper is deleted.
 
-**Warning:** Any data stored in reserved disk resources will be irretrievably lost.
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>WARNING:</strong> Any data stored in reserved disk resources will be irretrievably lost.</td> 
+</tr> 
+</table>
 
 The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
 
-**Warning** Once the uninstall operation has begun, it cannot be cancelled because it can leave the service in an uncertain, half-destroyed state.
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong> Once the uninstall operation has begun, it cannot be cancelled. Doing so may leave the service in an uncertain, half-destroyed state.</td> 
+</tr> 
+</table>
+
 
 ### Debugging an uninstall
 

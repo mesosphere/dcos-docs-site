@@ -3,9 +3,11 @@ layout: layout.pug
 navigationTitle: Couchbase
 title: Couchbase
 menuWeight: 15
-excerpt:
+excerpt: 
 featureMaturity:
 enterprise: false
+model: /services/couchbase/data.yml
+render: mustache
 ---
 
-Welcome to the documentation for DC/OS Couchbase. Choose a version to get started!
+Welcome to the documentation for DC/OS {{ model.techName }}. 
