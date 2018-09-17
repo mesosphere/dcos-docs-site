@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Edge-LB Release Notes
 title: Edge-LB Release Notes
 menuWeight: 0
-excerpt: Release notes for Edge-LB 1.2
+excerpt: Release notes for Edge-LB 1.2.1
 
 enterprise: false
 ---
 
-These are the release notes for Edge-LB 1.2.
+These are the release notes for Edge-LB 1.2.1
 
 # v1.2.1
 
