@@ -17,7 +17,7 @@ Released on September 17, 2018.
 ## Notable Changes
 
 
-Universe Repo Artifacts:
+### Universe Repo Artifacts
 
 - https://downloads.mesosphere.com/edgelb/v1.2.1/assets/stub-universe-edgelb.json
 - https://downloads.mesosphere.com/edgelb-pool/v1.2.1/assets/stub-universe-edgelb-pool.json
@@ -56,7 +56,7 @@ Released on September 11, 2018.
 - [EdgeLB on DC/OS](https://downloads.mesosphere.com/edgelb/v1.2.0/assets/stub-universe-edgelb.json).
 - [EdgeLB pool on DC/OS](https://downloads.mesosphere.com/edgelb-pool/v1.2.0/assets/stub-universe-edgelb-pool.json).
 
-#### Shortlist:
+### Shortlist
 
 ```
 
