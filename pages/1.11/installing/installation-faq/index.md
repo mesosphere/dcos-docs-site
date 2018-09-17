@@ -59,7 +59,7 @@ In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dc
     sudo /opt/mesosphere/bin/cockroach dump --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) iam > ~/iam-backup.sql
     ```
 
-## Q. How do I restore the IAM database?
+## Q. How do I restore the IAM database? [enterprise type="inline" size="small" /]
 
 - To restore the IAM database from a file `~/iam-backup.sql` run the following commands on one of the master nodes:
 
