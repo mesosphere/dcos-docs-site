@@ -12,7 +12,7 @@ render: mustache
 
 ## DC/OS 1.10
 
-If you are using DC/OS 1.10:
+If you are using DC/OS 1.10 or later:
 
 Uninstall the service from the DC/OS CLI with the command `dcos package uninstall <package_name>`. For example, to uninstall the {{ model.techName }} instance named `couchbase-dev`, run:
 
