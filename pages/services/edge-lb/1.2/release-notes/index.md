@@ -12,7 +12,7 @@ These are the release notes for Edge-LB 1.2.1
 
 # v1.2.1
 
-Released on 17 September 2018.
+Released on 17 September, 2018.
 
 ## Notable Changes:
 
