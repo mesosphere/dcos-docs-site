@@ -14,7 +14,7 @@ These are the release notes for Edge-LB 1.2.1.
 
 Released on September 17, 2018.
 
-## Notable Changes:
+## Notable Changes
 
 
 Universe Repo Artifacts:
@@ -31,30 +31,30 @@ Universe Repo Artifacts:
 
 * The steps presented in the UI to uninstall Edge-LB are incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
-* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
 
 # v1.2.0
 
 Released on September 11, 2018.
 
-## Notable Changes:
+## Notable Changes
 
-* dcos-template: properly handle nil values for some of the Mesos Task's protobuf fields.
-* dcos-template: set maximum grpc recv. message size to 100MiB.
-* lbmgr: adjust environment passing to match the new haproxy svc launch model. This fixes AUTOCERT and SECRET env passing in the haproxy task container.
-* api-swagger-spec: bump api version to match edgelb version. This change is required only for documentation accuracy purposes.
-* introduce proper versioning for edgelb-pool comos package. Now the version of the package matches the version of the edgelb package itself instead of just "stub-universe"
-* make the output of `dcos edgelb show --json` cmd. be the actual pool configuration instead of wrapping it in a config container. This enables e.g. feeding the output of `show` command directly to the `update` command
-* cleanup of the goswagger code generation code and build chain, bump of goswagger tool used for generation from v0.11 to v0.16
-* bump golang used to 1.10.3 from 1.8.3
-* fix anonymous ACLs logic for predefined conditions
-* bump haproxy to 1.8.13 from 1.8.12, changelog: http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD
-* commit of the protobuf code changes that stem from github.com/golang/protobuf/protoc-gen-go tool update
+* dcos-template: Properly handle nil values for some of the Mesos Task's protobuf fields.
+* dcos-template: Set maximum grpc recv. message size to 100MIB.
+* lbmgr: Adjust environment passing to match the new haproxy svc launch model. This fixes `AUTOCERT` and `SECRET` env passing in the haproxy task container.
+* api-swagger-spec: Bump api version to match edgelb version. This change is required only for documentation accuracy purposes.
+* Introduce proper versioning for edgelb-pool comos package. Now the version of the package matches the version of the edgelb package itself instead of just "stub-universe".
+* Make the output of `dcos edgelb show --json` cmd. be the actual pool configuration instead of wrapping it in a config container. This enables feeding the output of `show` command directly to the `update` command.
+* Cleanup of the goswagger code generation code and build chain, bump of goswagger tool used for generation from v0.11 to v0.16.
+* Bump golang used to 1.10.3 from 1.8.3.
+* Fix anonymous ACLs logic for predefined conditions.
+* Bump haproxy to 1.8.13 from 1.8.12 [changelog] (http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD)
+* Commit of the protobuf code changes that stem from github.com/golang/protobuf/protoc-gen-go tool update
 
 Universe Repo Artifacts:
 
-- https://downloads.mesosphere.com/edgelb/v1.2.0/assets/stub-universe-edgelb.json
-- https://downloads.mesosphere.com/edgelb-pool/v1.2.0/assets/stub-universe-edgelb-pool.json
+- [EdgeLB on DC/OS](https://downloads.mesosphere.com/edgelb/v1.2.0/assets/stub-universe-edgelb.json).
+- [EdgeLB pool on DC/OS](https://downloads.mesosphere.com/edgelb-pool/v1.2.0/assets/stub-universe-edgelb-pool.json).
 
 Shortlist:
 
@@ -99,4 +99,4 @@ Shortlist:
 
 * The steps presented in the UI to uninstall Edge-LB are incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
-* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
