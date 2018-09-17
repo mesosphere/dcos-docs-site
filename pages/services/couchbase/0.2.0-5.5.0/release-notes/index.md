@@ -13,13 +13,13 @@ Release notes for Couchbase.
 # Version 0.2.0-5.5.0
 
 ## New Features
-* based on Couchbase v5.5.0, Couchbase Sync Gateway v2.0.0
-* support new Couchbase service types eventing, and analytics
-* multiple deployment modes
-* virtual networking support for high density deployments
-* TLS support for Couchbase, and Couchbase Sync Gateway
-* secret option of password configurations
-* strict mode support
-* backup restore support with sync to S3 compatible restore
-* sync gateway configuration now via DC/OS cli and ui
-* automatic rebalance after adding new nodes
+* Based on Couchbase v5.5.0, Couchbase Sync Gateway v2.0.0
+* Supports new Couchbase service types - Eventing and Analytics
+* Multiple deployment modes
+* Virtual Networking support for high density deployments
+* TLS support for Couchbase and Couchbase Sync Gateway
+* Secrets option for password configurations
+* Strict mode support
+* Backup and Restore support with sync to S3 compatible store
+* Sync Gateway configuration now via DC/OS CLI and UI
+* Automatic rebalance after adding new nodes
