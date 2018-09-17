@@ -8,7 +8,7 @@ excerpt: Release notes for Edge-LB 1.2.1
 enterprise: false
 ---
 
-These are the release notes for Edge-LB 1.2.1
+These are the release notes for Edge-LB 1.2.1.
 
 # v1.2.1
 
