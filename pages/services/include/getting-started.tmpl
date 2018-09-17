@@ -16,7 +16,7 @@ All `dcos {{ model.packageName }}` CLI commands have a `--name` argument allowin
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd>
 ```
 
-**Note:** Alternatively, you can [install from the DC/OS web interface](/latest/deploying-services/install/#installing-a-service-using-the-gui). If you install {{ model.techName }} from the DC/OS web interface, the `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
+Alternatively, you can [install from the DC/OS web interface](/latest/deploying-services/install/#installing-a-service-using-the-gui). If you install {{ model.techName }} from the DC/OS web interface, the `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 ```bash
 dcos package install {{ model.packageName }} --cli
