@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Couchbase
 title: Couchbase
-menuWeight: 87
+menuWeight: 15
 excerpt:
 featureMaturity:
 enterprise: false
