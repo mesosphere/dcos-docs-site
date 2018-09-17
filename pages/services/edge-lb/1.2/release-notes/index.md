@@ -35,7 +35,7 @@ Universe Repo Artifacts:
 
 # v1.2.0
 
-Released on 11 September 2018.
+Released on September 11, 2018.
 
 ## Notable Changes:
 
