@@ -22,11 +22,6 @@ Universe Repo Artifacts:
 - https://downloads.mesosphere.com/edgelb/v1.2.1/assets/stub-universe-edgelb.json
 - https://downloads.mesosphere.com/edgelb-pool/v1.2.1/assets/stub-universe-edgelb-pool.json
 
-Shortlist:
-
-```
-```
-
 ## Known Limitations
 
 * Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
