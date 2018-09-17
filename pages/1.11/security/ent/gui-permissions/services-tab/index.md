@@ -44,74 +44,74 @@ You can grant users access to the Services tab. By default, new users have no pe
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
-    ## Disabled
+## Disabled
 
-    ### Services tab
+### Services tab
 
-    ```bash
-    dcos:adminrouter:service:marathon full
-    ```
+```bash
+dcos:adminrouter:service:marathon full
+```
 
-    ### Services tasks
+### Services tasks
 
-    ```bash
-    dcos:adminrouter:ops:mesos full
-    ```
+```bash
+dcos:adminrouter:ops:mesos full
+```
 
-    ### Task details and logs
+### Task details and logs
 
-    ```bash
-    dcos:adminrouter:ops:slave full
-    ```
+```bash
+dcos:adminrouter:ops:slave full
+```
 
-    ## Permissive
+## Permissive
 
-    ### Services tab
+### Services tab
 
-    ```
-    dcos:adminrouter:service:marathon full
-    dcos:service:marathon:marathon:services:/ full
-    ```
+```
+dcos:adminrouter:service:marathon full
+dcos:service:marathon:marathon:services:/ full
+```
 
-    ### Services tasks
+### Services tasks
 
-    ```
-    dcos:adminrouter:ops:mesos full
-    ```
+```
+dcos:adminrouter:ops:mesos full
+```
 
-    ### Task details and logs
+### Task details and logs
 
-    ```
-    dcos:adminrouter:ops:slave full
-    ```
+```
+dcos:adminrouter:ops:slave full
+```
 
-    ## Strict
+## Strict
 
-    ### Services tab
+### Services tab
 
-    ```
-    dcos:adminrouter:service:marathon full
-    dcos:service:marathon:marathon:services:/ full
-    ```
+```
+dcos:adminrouter:service:marathon full
+dcos:service:marathon:marathon:services:/ full
+```
 
-    ### Services tasks
+### Services tasks
 
-    ```
-    dcos:adminrouter:ops:mesos full
-    ```
+```
+dcos:adminrouter:ops:mesos full
+```
 
-    ### Task details and logs
+### Task details and logs
 
-    ```
-    dcos:adminrouter:ops:slave full
-    dcos:mesos:master:framework:role:slave_public read
-    dcos:mesos:master:executor:app_id read
-    dcos:mesos:master:task:app_id read
-    dcos:mesos:agent:framework:role:slave_public read
-    dcos:mesos:agent:executor:app_id read
-    dcos:mesos:agent:task:app_id read
-    dcos:mesos:agent:sandbox:app_id read
-    ```
+```
+dcos:adminrouter:ops:slave full
+dcos:mesos:master:framework:role:slave_public read
+dcos:mesos:master:executor:app_id read
+dcos:mesos:master:task:app_id read
+dcos:mesos:agent:framework:role:slave_public read
+dcos:mesos:agent:executor:app_id read
+dcos:mesos:agent:task:app_id read
+dcos:mesos:agent:sandbox:app_id read
+```
 
 # <a name="services-access-via-api"></a>Granting Access by using the API
 
