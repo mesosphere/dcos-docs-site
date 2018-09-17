@@ -38,7 +38,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -110,7 +110,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -234,7 +234,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -521,7 +521,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -602,7 +602,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -667,7 +667,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -863,7 +863,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -942,7 +942,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -1027,7 +1027,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -2010,7 +2010,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -2114,7 +2114,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -2181,7 +2181,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -2525,7 +2525,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -2586,7 +2586,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -2641,7 +2641,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
@@ -2702,7 +2702,7 @@ paths:
           Caution&#58; setting force=true will cancel the current deployment. This paramter should be used only, if the current deployment is unsuccessful!
       responses:
         200:
-          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployement is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
+          description: A deployment is started which has a unique deployment identifier. The related deployment can be fetched from the /v2/deployments endpoint. If the deployment is gone from the list of deployments, it means that it is finished. As long as the deployment runs, the effect of that change operation is visible only partially.
           schema:
             type: string
           examples:
