@@ -28,6 +28,6 @@ enterprise: true
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
-**Note:** It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to `true`.
+<p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to `true`.</p>
 
 #include /services/include/security-transport-encryption-clients.tmpl
