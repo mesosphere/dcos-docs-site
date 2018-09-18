@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Minio 0.1.0-25
+navigationTitle: Minio 0.1.0-RELEASE.2018-06-29T02-11-29Z 
 title: Minio 0.1.0-RELEASE.2018-06-29T02-11-29Z
 menuWeight: 50
 excerpt: Overview of DC/OS Minio 0.1.0-RELEASE.2018-06-29T02-11-29Z
