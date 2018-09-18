@@ -81,7 +81,7 @@ These steps must be performed for version patches and cluster configuration chan
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide](/1.11/installing/production/deploying-dcos/installation/).
 - Take a snapshot of ZooKeeper prior to patching. Marathon supports rollbacks, but does not support downgrades.
-- [Take a snapshot of the IAM database](/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database) prior to patching.
+- [Take a snapshot of the IAM database](/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to patching.
 - Ensure that Marathon event subscribers are disabled before beginning the patch. Leave them disabled after completing the patch, as this feature is now deprecated.
 - **Note:** Marathon event subscribers are disabled by default. Check to see if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.
 - Verify that all Marathon application constraints are valid before beginning the patch. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
