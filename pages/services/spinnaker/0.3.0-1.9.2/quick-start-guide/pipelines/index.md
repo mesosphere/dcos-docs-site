@@ -93,7 +93,7 @@ There is a *Manual Judgement* stage inbetween the two just to halt the pipeline 
 
 ### Creating a rolling blue green pipeline
 
-In this section we create a *rolling blue green pipeline* that will roll in a new version of our server group that we created with the *deployment* pipeline earlier. I will not cover the load balancer setup in this section, see the [edge-lb](EDGE_LB.md) document for that.
+In this section we create a *rolling blue green pipeline* that will roll in a new version of our server group that we created with the *deployment* pipeline earlier. I will not cover the load balancer setup in this section, see the [edge-lb](/services/spinnaker/0.3.0-1.9.2/quick-start-guide/edgelb/) document for that.
 
 The 1st stage *green1* is a *Deploy* stage with which we deploy the first two new instances of our new server group version. *V000* used *nginx:1.11* as image, the new one uses *nginx:1:12*.
 

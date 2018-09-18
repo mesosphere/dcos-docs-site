@@ -28,7 +28,7 @@ With transport encryption enabled, DC/OS {{ model.techName }} will automatically
 
 <table class=“table note” bgcolor=#7d58ff>
 <tr>
-  <td align=justify style=color:white><strong>NOTE:</strong>The current exception is the connections to Redis. A code change is needed in the other services in the way they use Jedis.</td>
+  <td align=justify style=color:white><strong>NOTE:</strong> The current exception is the connections to Redis which does not support TLS. A code change required in the other services in the way they use Jedis.</td>
 </tr>
 </table>
 
