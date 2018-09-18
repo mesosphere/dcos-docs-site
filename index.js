@@ -128,8 +128,7 @@ CB.use(timer('CB: Ignore'));
 //     data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
 CB.use(dataLoader({
   dataProperty: 'model',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md',
+  match: '**/*.md',
 }));
 CB.use(timer('CB: Dataloader'));
 
@@ -139,8 +138,7 @@ CB.use(timer('CB: Dataloader'));
 CB.use(includeContent({
   // Style as a C-like include statement. Must be on its own line.
   pattern: '^#include ([^ \n]+)$',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md*',
+  match: '**/*.md*',
 }));
 CB.use(timer('CB: IncludeContent'));
 
@@ -149,8 +147,7 @@ CB.use(timer('CB: IncludeContent'));
 //   render: mustache
 CB.use(inPlace({
   renderProperty: 'render',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md',
+  match: '**/*.md',
 }));
 CB.use(timer('CB: Mustache'));
 
