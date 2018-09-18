@@ -81,7 +81,7 @@ The [attached](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cl
 dcos cluster setup <cluster-url>
 ```
 
-After following the login flow, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.12/cli/plugin), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
+After following the login flow, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.12/cli/plugins), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
 
 <a name="dcos-config"></a>
 #### `DCOS_CONFIG` (DC/OS CLI 0.4.x only)
@@ -131,7 +131,20 @@ $ dcos cluster list
 
 *Note*: The * indicates that the CLI is currently attached to the cluster name. If you run the setup command again with another cluster, you will see a new item in the list.
 
+# <a name="airgapped"></a> Airgapped Clusters
+
+For airgapped customers, the automatic installation of the dcos-core-cli and dcos-enterprise-cli plugins will likely fail because of the airgap
+so the 0.7 CLI will have the core plugin for DC/OS 1.12 included to ensure that customers running the CLI from within an airgap will be able to use the CLI after setup.
+However, the dcos-enterprise-cli plugin, dcos-core-cli for other versions of DC/OS, and other CLI subcommands are not included and must be downloaded
+and brought to the computer using the CLI then installed using `dcos plugin add`.
+
+See the [CLI plugin documentation](/1.12/cli/plugins/) for more details.
+
+*Note*: This will also apply to user accounts that don't have the `dcos:adminrouter:package` permission which would prevent them from accessing Cosmos to get
+the dcos-core-cli and dcos-enterprise-cli package descriptions.
+
 <a name="dcos-log-level"></a>
+
 #### `DCOS_LOG_LEVEL`
 
 Prints log messages to `stderr` at or above the level indicated. This is equivalent to the `--log-level` command-line option. The severity levels are:
