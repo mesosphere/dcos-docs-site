@@ -17,7 +17,7 @@ Out-of-band configuration modifications are not supported. The {{ model.techName
 - If a task crashes, it will be restarted with the configuration known to the scheduler, not one modified out-of-band.
 - If a configuration update is initiated, all out-of-band modifications will be overwritten during the rolling update.
 
-## Scaling 
+## Scaling
 
 To prevent accidental data loss, the {{ model.techName }} service does not support reducing the number of pods.
 
@@ -40,3 +40,4 @@ Each service task has some number of environment variables, which are used to co
 ## {{ model.techName }} Specific
 - Authorization, LDAP and PAM are not supported at this time.
 - {{ model.techName }} depends on third party technologies for encryption at rest; this is currently not supported.
+- {{ model.techName }} XDCR (cross datacenter replication) is currently not supported.
