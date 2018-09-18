@@ -25,7 +25,7 @@ Created at Netflix, it has been battle-tested in production by hundreds of teams
 The Spinnaker service is a micro service composition, a good overview on the micro services involved can be found [here](https://www.spinnaker.io/reference/architecture/).
 
 ## Note
-The DC/OS Spinnaker service currently only works with **DC/OS Enterprise**. See also the [release notes](docs/RELEASE_NOTES.md).
+The DC/OS Spinnaker service currently only works with **DC/OS Enterprise**.
 
 # Install
 
