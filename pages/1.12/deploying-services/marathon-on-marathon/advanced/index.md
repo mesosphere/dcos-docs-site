@@ -30,7 +30,7 @@ The following table contains all the variables used in this page:
 
 | Variable | Description |
 |--------------------------|--------------------------------------------|
-| `${MY_USER_ID}` | The username that you use to login to your cluster. That's the username that you were prompted during `dcos cluster setup`. |
+| `${MY_USER_ID}` | The username that you use to log in to your cluster. That is the username that you were prompted during `dcos cluster setup`. |
 | `${AGENT_ID}` | The ID of an agent in your DC/OS cluster. You can obtain an agent ID using the `dcos node` command. |
 | `${MESOS_ROLE}` | The name of the [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) that the new Marathon instance will use. This should be a valid [Mesos role name](https://mesos.apache.org/documentation/latest/roles/#invalid-role-names), for example `"marathon_ee"`. |
 | `${SERVICE_ACCOUNT_ID}` | The name of the [Service Account](/1.12/security/ent/service-auth/) that Marathon will use to communicate with the other services in DC/OS. The name should include only lowercase alphabet, uppercase alphabet, numbers, `@`, `.`, `\`, `_`, and `-`. For example `"marathon_user_ee"` |
@@ -43,7 +43,7 @@ The following table contains all the variables used in this page:
 | `${MARATHON_IMAGE}` | The name of the Marathon image **in your private repository**, for example `private-repo/marathon-dcos-ee`. |
 | `${MARATHON_TAG}` | The Docker image tag of the Marathon version that you want to deploy. For example `v1.5.11_1.10.2` (version 0.11.0 or newer).  |
 
-**Note:** If you are working on a MacOS or Linux machine, you can pre-define all the above variables in your terminal session and just copy and paste the snippets in your terminal:
+**Note:** If you are working on a Mac OS or Linux machine, you can pre-define all the above variables in your terminal session and just copy and paste the snippets in your terminal:
 
 ```
 set -a
@@ -73,7 +73,7 @@ For the following steps, we are assuming that you have already:
     **Warning:** The name of the secret should either be in the root path (ex. `/some-secret-name`) or prefixed with the name of your app (ex. `/${MARATHON_INSTANCE_NAME}/some-secret-name`). Failing to do so, will make root Marathon unable to read the secret value and will fail to launch your custom Marathon-on-Marathon instance.
 
 # Step 2: Reserve Resources (Optional) {.tabs}
-In this step, we are going to define a [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) for our new Marathon instance, and reserve some dedicated resources for it. This step is optional, but it's recommended if you want your new marathon instance to have a minimum resource guarantee for it's tasks.
+In this step, we are going to define a [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) for our new Marathon instance, and reserve some dedicated resources for it. This step is optional, but it is recommended if you want your new Marathon instance to have a minimum resource guarantee for its tasks.
 
 **Important:** If you choose not to reserve resources, you should use `MESOS_ROLE="*"` in any further occurrence of this variable.
 
@@ -302,7 +302,7 @@ Grant service account `${SERVICE_ACCOUNT_ID}` permission to launch Mesos tasks t
 
 To allow executing tasks as a different Linux user, replace `nobody` with that user's Linux user ID. For example, to launch tasks as Linux user `bob`, replace `nobody` with `bob` below.
 
-Note that the `nobody` and `root` users exist on all agents by default; if a custom user `bob` is specified, then the user `bob` will need to be manually created on every agent on which tasks can be executed (e.g. using the Linux `adduser` or a similar utility).
+Note that the `nobody` and `root` users exist on all agents by default; if a custom user is specified (e.g. `bob`), then the user `bob` will need to be manually created on every agent on which tasks can be executed (e.g. using the Linux `adduser` or a similar utility).
 
 ```bash
 dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody"
@@ -332,7 +332,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 
     ### Permissive
 
-    Use the following JSON template if you are running a cluster in `permissive` security mode. Don't forget to **replace** all the environment variables that follow the `${VARIABLES}` format:
+    Use the following JSON template if you are running a cluster in `permissive` security mode. Do not forget to **replace** all the environment variables that follow the `${VARIABLES}` format:
 
     ```json
     {
@@ -513,7 +513,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     ```
 
 # Step 7: Grant User Access to Non-Native Marathon
-By now, your new Marathon instance is accessible only by the DC/OS Superusers. In order to give access to regular users, you need to explicitly give them access permissions, according to your cluster security mode: 
+By now, your new Marathon instance is accessible only by the DC/OS superusers. In order to give access to regular users, you need to explicitly give them access permissions, according to your cluster security mode:
 
   ## {.tabs}
 
