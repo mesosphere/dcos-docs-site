@@ -16,9 +16,7 @@ excerpt:
 * DC/OS Kubernetes `2.0.0-1.12.0-beta` requires DC/OS 1.12.
 * DC/OS Kubernetes `2.0.0-1.12.0-beta` introduces breaking changes to the way the
   package works and is deployed. Hence, it is not possible to upgrade an
-  existing installation of DC/OS Kubernetes to `2.0.0-1.12.0-beta`. Users wanting to
-  upgrade must use the included backup and restore functionality, keeping in mind that:
-  * Support for the AWS cloud-provider has been removed.
+  existing installation of DC/OS Kubernetes to `2.0.0-1.12.0-beta`.
 * DC/OS Kubernetes `2.0.0-1.12.0-beta` now requires a package-manager to be running in DC/OS. You must install the `beta-mke` package prior to installing this package.
 
 ## Improvements
