@@ -15,7 +15,7 @@ DC/OS {{ model.techName }} Service is an autonomous service that makes it easy t
 ## Benefits
 DC/OS {{ model.techName }} offers the following benefits:
 1. Based on the battle-proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks
-2. Supports {{ model.serverName }} 
+2. Supports {{ model.serverName }}
 3. Supports {{ model.syncGatewayName }}
 4. Supports multiple deployment modes
 6. Automated failure recovery
@@ -24,8 +24,7 @@ DC/OS {{ model.techName }} offers the following benefits:
 9. Persistent volumes
 10. Rack/Zone awareness
 11. Centralized monitoring
-12. Cross-datacenter replication, hybrid cloud and edge
-13. Backup and restore using AWS S3 as backing store
+12. Backup and restore using AWS S3 as backing store
 
 DC/OS {{ model.techName }}'s main features are:
 1. NoSQL document-oriented engagement database
