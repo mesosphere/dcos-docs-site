@@ -37,7 +37,7 @@ AWS_ACCESS_KEY_ID=<my_access_key_id>
 AWS_SECRET_ACCESS_KEY=<my_secret_access_key>
 AWS_REGION=us-west-2
 S3_BUCKET_NAME=backups
-dcos cassandra plan start backup-s3 -p SNAPSHOT_NAME=$SNAPSHOT_NAME -p "CASSANDRA_KEYSPACES=$CASSANDRA_KEYSPACES" -p AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -p AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -p AWS_REGION=$AWS_REGION -p S3_BUCKET_NAME=$S3_BUCKET_NAME
+dcos cassandra plan start restore-s3 -p SNAPSHOT_NAME=$SNAPSHOT_NAME -p "CASSANDRA_KEYSPACES=$CASSANDRA_KEYSPACES" -p AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -p AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -p AWS_REGION=$AWS_REGION -p S3_BUCKET_NAME=$S3_BUCKET_NAME
 ```
 
 If you're backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
@@ -82,7 +82,7 @@ AWS_ACCESS_KEY_ID=<my_access_key_id>
 AWS_SECRET_ACCESS_KEY=<my_secret_access_key>
 AWS_REGION=us-west-2
 S3_BUCKET_NAME=backups
-dcos cassandra plan start backup-s3 "SNAPSHOT_NAME=$SNAPSHOT_NAME,AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY,AWS_REGION=$AWS_REGION,S3_BUCKET_NAME=$S3_BUCKET_NAME"
+dcos cassandra plan start restore-s3 "SNAPSHOT_NAME=$SNAPSHOT_NAME,AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY,AWS_REGION=$AWS_REGION,S3_BUCKET_NAME=$S3_BUCKET_NAME"
 ```
 
 ## Restoring From Azure
