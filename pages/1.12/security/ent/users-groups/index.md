@@ -12,7 +12,7 @@ enterprise: true
 
 DC/OS Enterprise can manage two types of users:
 
-* **Local**: local user accounts exist only in DC/OS.
+* **Local**: Local user accounts exist only in DC/OS.
 
 * **External**: DC/OS stores only the user's ID or user name, along with other DC/OS-specific information, such as permissions and group membership. DC/OS never receives or stores the passwords of external users. Instead, it delegates the verification of the user's credentials to one of the following: LDAP directory, SAML, or OpenID Connect.
 

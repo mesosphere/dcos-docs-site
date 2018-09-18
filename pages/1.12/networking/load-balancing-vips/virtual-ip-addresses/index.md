@@ -50,13 +50,17 @@ VIPs follow this naming convention:
 
         ![VIP service definition](/1.11/img/vip-service-definition.png)
 
-        In the example above, clients can access the service at `my-service.marathon.l4lb.thisdcos.directory:5555`.
+        Figure 1. VIP service definition screen
+
+        In Figure 1, clients can access the service at `my-service.marathon.l4lb.thisdcos.directory:5555`.
 
     1.  Click **REVIEW & RUN** and **RUN SERVICE**.
 
 You can click on the **Networking** tab to view networking details for your service.
 
 ![VIP output](/1.11/img/vip-service-definition-output.png)
+ 
+Figure 2. Service definition output
 
 For more information on port configuration, see the [Marathon ports documentation](/1.11/deploying-services/service-ports/).
 
@@ -72,6 +76,8 @@ Follow these steps to view the VIP for Kafka.
 1.  Select your task to view details.
 
     ![](/1.11/img/vip-service-details.png)
+
+    Figure 3. VIP service details
 
 ### Via the CLI
 

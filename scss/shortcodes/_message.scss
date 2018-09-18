@@ -16,6 +16,24 @@
     background: $color-gold;
     padding: 1rem;
   }
+  &--warning-label::before { 
+    content: "WARNING: ";
+    background-color: inherit;
+    color: inherit;
+    font-weight: bold;
+  }
+  &--note {
+    color: $color-light;
+    background: $color-purple-light;
+    padding: 10px;
+    border: 2px solid $color-dark;
+  }
+  &--important {
+    color: $color-light;
+    background: $color-grey;
+    padding: 10px;
+    border: 2px solid $color-dark;
+  }
   &--error {
     border: 1px solid #E77975;
     color: $color-dark;
@@ -70,4 +88,7 @@
     color: #89DA71;
     background: transparent;
   }
+}
+.warning-label::before {
+  content: "WARNING: ";
 }

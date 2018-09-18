@@ -43,6 +43,21 @@ following:
 | kube-proxy              | 1                     | 0.1              | 512                   | -                           |
 | kubelet                 | 1                     | 3                | 3072                  | 10240                       |
 
+To enable high-availablity, create a JSON options file, or edit an existing one:
+
+```json
+{
+  "kubernetes": {
+    "high_availability": true,
+  }
+}
+```
+
+Assuming you save the file as `options.json`, install the package as follows:
+
+```shell
+dcos package install kubernetes --options=options.json
+```
 
 ## Change the Kubernetes nodes resource specification
 
@@ -319,7 +334,7 @@ the `NO_PROXY` value to the Kubernetes pod overlay subnet, `NO_PROXY=9.0.0.0/8`.
 ## When 10.100.0.0/16 is in use
 
 By default, the Kubernetes cluster will use `10.100.0.0/16` as the service CIDR.
-If this is the case, a change to the Kubernetes cluster service CIDR is required.
+If this CIDR is already in use on your network, a change to the Kubernetes cluster service CIDR is required.
 
 Create an options JSON file, or edit an existing one:
 

@@ -281,7 +281,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
-      <tr>
+    <tr>
         <td>ElasticSearch 2.1.x-5.6.y</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -374,6 +374,13 @@ B- This package combination is *beta*.
     </tr>
      <tr>
         <td>MoM (Marathon on Marathon) 1.5</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Edge-LB 1.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>

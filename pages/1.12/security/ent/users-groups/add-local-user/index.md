@@ -11,18 +11,22 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-# Adding local users by using the GUI
+# Adding local users with the web interface
 
 1. Log in as a user with the `superuser` permission.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
 
+   Figure 1. Log in as superuser
+
 1. Select **Organization > Users** and create a new user. Type in the user's full name, username, and password.
 
    ![Create user Cory](/1.11/img/service-group3.png)
 
+   Figure 2. Create new user
 
-# Adding local users by using the CLI
+
+# Adding local users with the CLI
 
 **Prerequisite:**
 - [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/)

@@ -8,21 +8,15 @@ excerpt: Logging out of DC/OS authentication
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Log out of DC/OS authentication.
+This command allows you to log out of DC/OS authentication.
 
 # Usage
 
 ```bash
-dcos auth logout [OPTION]
+dcos auth logout 
 ```
-
-# Options
-
-None.
 
 # Parent command
 

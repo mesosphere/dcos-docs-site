@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos node decommission
 excerpt: Decommissioning a DC/OS node
 title: dcos node decommission
-menuWeight: 0
+menuWeight: 1
 ---
 
 # Description
 
-Mark an agent as gone.
+The `dcos node decommission` command allows you to mark an agent as gone.
 
 # Usage
 

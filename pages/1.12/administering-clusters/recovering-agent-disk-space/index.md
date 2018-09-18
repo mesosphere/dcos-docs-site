@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Recovering Agent Disk Space
 title: Recovering Agent Disk Space
 menuWeight: 900
-excerpt: Learn to recover space on an agent node volume.
+excerpt: Recovering space on an agent node volume
 enterprise: false
 ---
 

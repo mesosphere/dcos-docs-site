@@ -25,6 +25,8 @@ If you already have the [prerequisites](#prerequisites) setup, you'll have the m
 In this tutorial, microscaling adjusts the balance between two tasks - one high priority and one background - based on the number of items in  an Azure Storage Queue.
 
 ![microscaling-queue.png](/1.11/img/microscaling-queue.png)
+ 
+ Figure 1. - Microscaling queue
 
 The demo creates four Marathon apps that run as Docker containers.
 
@@ -58,7 +60,7 @@ After the storage account has been created, navigate to Settings -> Access Keys 
 # Set up Microscaling-in-a-box
 
 * Go to the [Microscaling-in-a-box][10] site and sign up for an account if you don't have one already.
-* In Step 1, pick the Mesos / Marathon option
+* In Step 1, pick the Mesos/Marathon option
 
 ![microscaling-step-1.png](/1.11/img/microscaling-step-1.png)
 
@@ -66,6 +68,8 @@ After the storage account has been created, navigate to Settings -> Access Keys 
 * Navigate to the step 4 (Run) page and find your user ID and the default value for the queue we'll be using in the demo. You will use these as the values for environment variables `MSS_USER_ID` and `AZURE_STORAGE_QUEUE_NAME` later.
 
 ![microscaling-step-4.png](/1.11/img/microscaling-step-4.png)
+
+Figure 4. User ID and queue name
 
 # Get the microscaling scripts
 
@@ -124,7 +128,7 @@ After you've finished with the demo you should delete the Azure resources so tha
 * Find and delete the Resource Group you created for the Azure Queue.
 * If you created an ACS cluster for this demo, you'll want to delete the Resource Group for that too.
 
-# Appendix: Next Steps
+# Next Steps
 
 - Try modifying some of the configuration settings in Step 3 of Microscaling-in-a-Box before you run the demo. You'll need to stop the tasks (manually or by running `./marathon-uninstall`) and restart them again with `./marathon-install` to pick up configuration changes.
 - See the settings for each of the Marathon apps in JSON files contained within the `marathon-apps` directory.

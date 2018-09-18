@@ -14,7 +14,7 @@ enterprise: true
 
 # About the Secrets API
 
-The Secrets API allows you to manage secrets and perform some backend functions such as sealing and unsealing the Secret Store. It offers more functionality than the DC/OS GUI.
+The Secrets API allows you to manage secrets and perform some back-end functions, such as sealing and unsealing the Secret Store. It offers more functionality than the DC/OS GUI.
 
 # Request and response format
 
@@ -56,15 +56,15 @@ To get an authentication token, pass the user name and password of a `superuser`
 
 ### Via the DC/OS CLI
 
-When you log into the [DC/OS CLI](/1.11/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in curl commands (discussed in the next section).
-
-Alternatively, you can use the following command to get the authentication token value.
+When you log into the [DC/OS CLI](/1.11/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in `curl` commands (discussed in the next section). Alternatively, you can use the following command to get the authentication token value:
 
 ```bash
 dcos config show core.dcos_acs_token
 ```
 
 ## Passing an authentication token
+
+You can pass an authentication token by way of the HTTP header, or by using curl as either a string variable or a DC/OS CLI variable.
 
 ### Via the HTTP header
 
@@ -76,7 +76,7 @@ Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYX
 
 ### Via curl as a string value
 
-Using curl, for example, you would pass this value as follows.
+Using `curl`, for example, you would pass this value as follows.
 
 ```bash
 curl -H "Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg"
@@ -84,7 +84,7 @@ curl -H "Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib
 
 ### Via curl as a DC/OS CLI variable
 
-You can then reference this value in your curl commands, as shown below.
+You can then reference this value in your `curl` commands, as shown below.
 
 ```bash
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"

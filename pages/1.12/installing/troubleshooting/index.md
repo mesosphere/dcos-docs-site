@@ -8,7 +8,7 @@ excerpt: Troubleshooting DC/OS installation issues
 
 # <a name="general"></a>General troubleshooting approach
 
-* Verify that you have a valid IP detect﻿⁠⁠⁠⁠ script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
+* Verify that you have a valid IP detect script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
 
 
 ## IP detect script
@@ -19,11 +19,11 @@ You must have a valid [ip-detect](/1.11/installing/production/advanced/#create-a
   - white space
   - special or hidden characters
 
-We recommended that you use the `ip-detect` [examples](/1.11/installing/ent/custom/advanced/).
+We recommended that you use the `ip-detect` [examples](/1.11/installing/production/deploying-dcos/installation/).
 
 ## DNS resolvers
 
-You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+You must have working DNS resolvers, specified in your [config.yaml](1.11/installing/production/advanced-configuration/configuration-reference/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
   - `hostname -f` returns the FQDN
   - `hostname -s` returns the short hostname
@@ -298,9 +298,9 @@ For example, here is a snippet of the Mesos-DNS log as it converges to a success
 
 ## <a name="zookeeper-and-exhibitor"></a>ZooKeeper and Exhibitor
 
-ZooKeeper and Exhibitor start on the master nodes. The Exhibitor storage location must be configured properly for this to work. For more information, see the [exhibitor_storage_backend][1] parameter.
+ZooKeeper and Exhibitor start on the master nodes. The Exhibitor storage location must be configured properly for this to work. For more information, see the [exhibitor_storage_backend](/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter.
 
-DC/OS uses ZooKeeper, a high-performance coordination service to manage the installed DC/OS services. Exhibitor automatically configures ZooKeeper on the master nodes during your DC/OS installation. For more information, see [Configuration Parameters][5].
+DC/OS uses ZooKeeper, a high-performance coordination service to manage the installed DC/OS services. Exhibitor automatically configures ZooKeeper on the master nodes during your DC/OS installation. For more information, see [Configuration Parameters](/1.11/installing/production/advanced-configuration/configuration-reference/).
 
 * Go to the Exhibitor web interface and view status at `<master-hostname>/exhibitor`.
 
@@ -330,7 +330,7 @@ For example, here is a snippet of the Exhibitor log as it converges to a success
 
  [1]: /1.11/installing/ent/custom/configuration/configuration-parameters/#exhibitor-storage-backend
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /1.11/installing/ent/custom/configuration/configuration-parameters/#master-discovery
+ [3]: /1.11/installing/production/advanced-configuration/configuration-reference/#master-discovery
  [4]: /1.11/overview/architecture/boot-sequence/
  [5]: /1.11/installing/ent/custom/configuration/configuration-parameters/
  [6]: /1.11/administering-clusters/sshcluster/

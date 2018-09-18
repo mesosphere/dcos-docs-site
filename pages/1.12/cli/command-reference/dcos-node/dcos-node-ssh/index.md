@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Establish an SSH connection to the master or agent nodes of your DC/OS cluster.
+The `dcos node ssh` command allows you to establish an SSH connection to the master or agent nodes of your DC/OS cluster.
 
 # Usage
 

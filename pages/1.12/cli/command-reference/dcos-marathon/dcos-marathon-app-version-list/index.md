@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-List the version history of an application.
+The `dcos marathon app version list` command allows you to list the version history of an application.
 
 # Usage
 
@@ -20,15 +20,15 @@ dcos marathon app version list <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--max-count=<max-count>`   |             | Maximum number of entries to fetch and return. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--max-count=<max-count>`   | Maximum number of entries to fetch and return. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<app-id>`   |             |  The application ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<app-id>`   |   The application ID. |
 
 # Parent command
 
@@ -36,4 +36,4 @@ dcos marathon app version list <app-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->
+

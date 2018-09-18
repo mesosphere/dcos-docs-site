@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Install DC/OS cluster on Google Compute Engine using Terraform
+excerpt: Running a DC/OS cluster on Google Compute Engine using Terraform
 title: Running DC/OS on Google Compute Engine
 navigationTitle: GCE
 menuWeight: 20
@@ -15,17 +15,15 @@ The recommended way to deploy a OSS DC/OS cluster on GCE is by using [Terraform]
 
 ## Prerequisites
 - [Terraform 0.11.x](https://www.terraform.io/downloads.html)
-- Google Cloud Platform (GCP) Credentials _[configure via: `gcloud auth login`](https://cloud.google.com/sdk/downloads)_
+- Google Cloud Platform (GCP) Credentials [configured via: `gcloud auth login`](https://cloud.google.com/sdk/downloads)
 - SSH Keys
 - Existing Google Project. This is automated with Terraform using project creation as documented [here.](https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform)
 
 ## Authenticate to Google
-<!-- This section does not look right. Combines two steps which may not be correct together.  -->
-Run this command to authenticate to the Google Cloud Platform. Your credentials will be downloaded locally for Terraform to use.
+Authenticate to the Google Cloud Platform using the credentials listed in the Prerequisites. Your credentials will be downloaded locally for Terraform to use. 
 
 ```bash
 $ gcloud auth login
-$ gcloud auth application-default login
 ```
 
 ## Configure your GCP SSH Keys
@@ -178,7 +176,7 @@ terraform apply \
 
 ## Redeploy an existing master
 
-If you want to redeploy a problematic master (for example, your storage has filled up, the cluster is not responsive, etc.), you can tell Terraform to redeploy during the next cycle.
+If you want to redeploy a problematic master (for example, your storage has filled up, the cluster is not responsive), you can tell Terraform to redeploy during the next cycle.
 
 **Note:** This only applies to DC/OS clusters that have set their `dcos_master_discovery` to `master_http_loadbalancer` and not `static`.
 

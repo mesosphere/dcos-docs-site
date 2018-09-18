@@ -3,15 +3,14 @@ layout: layout.pug
 title: Running DC/OS on AWS EC2 Advanced
 navigationTitle: Advanced
 menuWeight: 10
-excerpt: Choose the advanced templates if you want to customize the AMI, VPC, or Instance Type.
+excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates
 ---
 
-Creating and extending DC/OS clusters with AWS CloudFormation templates 
 
-The advanced templates are:
+You can create and extend DC/OS clusters with AWS CloudFormation templates. The advanced templates are:
 * Highly customizable
-* Composable, for example you can deploy multiple agent pools to a single cluster
-* Complicated; More setup work is required
+* Composable; for example, you can deploy multiple agent pools to a single cluster
+* Complicated; more setup work is required
 
 The advanced AWS CloudFormation templates bring power and flexibility to creating and extending DC/OS clusters. With these templates you can choose from the complete set of DC/OS configuration options.
 
@@ -20,19 +19,23 @@ The advanced AWS CloudFormation templates bring power and flexibility to creatin
 
 The templates are used together to create a DC/OS cluster. The templates are driven by parameters that AWS CloudFormation uses to create each stack.  
 
-**Important:** Upgrades are not supported with this installation method.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> Upgrades are not supported with this installation method.</td> 
+</tr> 
+</table>
 
 ## Prerequisites
 
 ### Hardware
 
-An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance. Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to work improperly.
+You must have an AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance. Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to work improperly.
 
 ### Software
-- The `dcos_generate_config` file: 
+- The `dcos_generate_config` file:
   * Enterprise users should use the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> to access the config file. [enterprise type="inline" size="small" /]
-  * Open Source users should use the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh). [oss type="inline" size="small" /] 
-- An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the advanced templates. Contact your AWS administrator for more information. 
+  * Open Source users should use the [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh). [oss type="inline" size="small" /]
+- An Amazon Web Services account with root [IAM](https://aws.amazon.com/iam/) privileges. Advanced privileges are required to install the advanced templates. Contact your AWS administrator for more information.
 - An AWS EC2 Key Pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 Key Pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
 - The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
@@ -64,11 +67,11 @@ For more information about s3 bucket policies, see the [AWS Documentation](http:
     ```bash
     mkdir -p genconf
     ```
-2.  Create a configuration file in the `genconf` directory and save as `config.yaml`. This configuration file specifies your AWS credentials and the S3 location to store the generated artifacts. 
+2.  Create a configuration file in the `genconf` directory and save as `config.yaml`. This configuration file specifies your AWS credentials and the S3 location to store the generated artifacts.
 
 The required parameters for Enterprise and Open Source users are:
 
-[enterprise type="inline" size="small" /] 
+[enterprise type="inline" size="small" /]
 
     aws_template_storage_bucket: <your-bucket>
     aws_template_storage_bucket_path: <path-to-directory>
@@ -82,9 +85,9 @@ The required parameters for Enterprise and Open Source users are:
     zk_super_credentials: <userid>:<password>
     zk_master_credentials: <userid>:<password>
     zk_agent_credentials: <userid>:<password>
-    
 
-[oss type="inline" size="small" /] 
+
+[oss type="inline" size="small" /]
 
     aws_template_storage_bucket: <your-bucket>
     aws_template_storage_bucket_path: <path-to-directory>
@@ -103,7 +106,7 @@ For parameters descriptions and configuration examples, see the [documentation](
 sudo bash dcos_generate_config.ee.sh --aws-cloudformation
 ```
 
-[oss type="inline" size="small" /] 
+[oss type="inline" size="small" /]
 
 ```bash
 sudo bash dcos_generate_config.sh --aws-cloudformation
@@ -193,7 +196,7 @@ Use the `zen.sh` script to create the template dependencies. These dependencies 
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
 
-- On the **Select Template** page, upload the [Zen](/1.11/installing/ent/cloud/aws/advanced/template-reference/#zen) template from your workstation and click **Next**. 
+- On the **Select Template** page, upload the [Zen](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
 
 Template examples:
 
@@ -204,6 +207,8 @@ Template examples:
 2.  On the **Specify Details** page, specify these values and and click **Next**.
 
     ![AWS UI](/1.11/img/aws-advanced-1.png)
+
+     Figure 1. AWS Advanced web interface
 
     *  **Stack name** Specify the cluster name.
     *  **CustomAMI** Optional: Specify the AMI ID. For more information, see [Installing Using a Custom AMI](/1.11/installing/ent/cloud/aws/advanced/aws-ami).
@@ -220,11 +225,11 @@ Template examples:
 
 3.  On the **Options** page, accept the defaults and click **Next**.
 
-    **Note:** You can choose whether to rollback on failure. By default this option is set to **Yes**.
+    **Note:** You can choose whether to roll back on failure. By default this option is set to **Yes**.
 
 4.  On the **Review** page, check the acknowledgement box and then click **Create**.
 
-    **Note:** If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
+    **Note:** If the **Create New Stack** page is shown, either AWS is still processing your request or you are looking at a different region. Navigate to the correct region and refresh the page to see your stack.
 
 # Monitor the DC/OS cluster convergence process
 
@@ -234,6 +239,8 @@ In CloudFormation you should see that:
 
    ![AWS UI](/1.11/img/aws-advanced-2.png)
 
+   Figure 2. AWS Stack details
+
    *  Zen template: `<stack-name>`
    *  Public agents: `<stack-name>-PublicAgentStack-<stack-id>`
    *  Private agents: `<stack-name>-PrivateAgentStack-<stack-id>`
@@ -242,11 +249,15 @@ In CloudFormation you should see that:
 
 * The status changes from `CREATE_IN_PROGRESS` to `CREATE_COMPLETE`.
 
-**Caution:** A `ROLLBACK_COMPLETE` status means the deployment has failed. See the **Events** tab for useful information about failures.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the Events tab for useful information about failures.</td> 
+</tr> 
+</table>
 
 # Launch DC/OS
 
-Launch the DC/OS web interface by entering the master hostname:
+You can launch the DC/OS web interface by entering the master hostname. Follow these instructions to find our Mesos Master hostname.
 
 1.  From the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page, click to check the box next to your stack.
 
@@ -256,11 +267,19 @@ Launch the DC/OS web interface by entering the master hostname:
 
     ![Monitor stack creation](/1.11/img/dcos-aws-step3a.png)
 
+    Figure 3. Mesos master hostname
+
 1.  Click **Log In To DC/OS**.
 
-    **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.
+    <table class=“table” bgcolor=#858585>
+    <tr> 
+    <td align=justify style=color:white><strong>Important:</strong> After clicking "Log In To DC/OS", your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.</td> 
+    </tr> 
+    </table>
 
     ![UI installer success](/1.11/img/gui-installer-success-ee.gif)
+
+    Figure 4. Success screen
 
 1.  Enter the username and password of the superuser account.
 
@@ -268,9 +287,13 @@ Launch the DC/OS web interface by entering the master hostname:
 
     ![alt text](/1.11/img/ui-installer-auth2.png)
 
+    Figure 5. Sign-in screen
+
     You are done!
 
     ![UI dashboard](/1.11/img/dashboard-ee.png)
+
+    Figure 6. DC/OS dashboard
 
 # Next steps
 
@@ -278,7 +301,7 @@ Now that your advanced template DC/OS installation is up and running, you can ad
 
 ### Add more agent nodes
 
-You can add more agent nodes by creating a new stack. Use the [advanced-priv-agent.json](/1.11/installing/ent/cloud/aws/advanced/template-reference/#private-agent) or [advanced-pub-agent.json](/1.11/installing/ent/cloud/aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
+You can add more agent nodes by creating a new stack. Use the [advanced-priv-agent.json](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#private-agent) or [advanced-pub-agent.json](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
 
 Use the output values from the `zen.sh` script and your Master and Infra stacks. These new agent nodes will automatically be added to your DC/OS cluster.
 
@@ -300,16 +323,16 @@ Public agents:
 *  **PublicAgentSecurityGroup** Specify the security group ID for public agents. This group should have limited external access. You can find this value in the **Outputs** tab of the Infrastructure stack (`<stack-name>-Infrastructure-<stack-id>`).
 *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents.
 
-For all of the advanced configuration options, see the template reference [documentation](/1.11/installing/ent/cloud/aws/advanced/template-reference/).
+For all of the advanced configuration options, see the template reference [documentation](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/).
 
 
-# Limitations 
+# Limitations
 
 - Modified templates are not supported for upgrades.
 - Adding agents and task isolation is not supported.
 - You cannot expand the master node size.
-- You must be in flat network space (this is controlled by our infrastructure template). If you can not use our infrastructure template, you can hack our template at your own risk. We may change the infrastructure template and you will have to support these changes downstream.
+- You must be in a flat network space (this is controlled by our infrastructure template). If you can not use our infrastructure template, you can hack our template at your own risk. We may change the infrastructure template and you will have to support these changes downstream.
 
 
 # Template reference
-For the complete advanced configuration options, see the template reference [documentation](/1.11/installing/ent/cloud/aws/advanced/template-reference/).
+For the complete advanced configuration options, see the template reference [documentation](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/).
