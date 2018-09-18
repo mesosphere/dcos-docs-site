@@ -34,5 +34,4 @@ DC/OS {{ model.techName }}'s main features are:
 5. [N1QL](https://www.couchbase.com/products/n1ql?_bt=253510071816&_bk=n1ql&_bm=e&_bn=g&gclid=EAIaIQobChMI-b-Z6MnC3QIVjvhkCh1qRQpYEAAYASABEgKAhPD_BwE)
 6. Full text search
 7. Built-in eventing and analytics
-8. Active active global replication
-9. Enterprise grade security
+8. Enterprise grade security
