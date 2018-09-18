@@ -46,23 +46,23 @@ Out of the box the DC/OS `Spinnaker` service allows you to deliver to the `DC/OS
 
 With that we are ready to install `Spinnaker`. In the DC/OS catalog/universe select Spinnaker which will show you the following. Hit *Review&Run*.
 
-[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst01.png" alt="Couchbase Install"/>](/services/spinnaker/0.3.0-1.9.2/img/inst01.png)
+[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst01.png" alt="Spinnaker Quick Start"/>](/services/spinnaker/0.3.0-1.9.2/img/inst01.png)
 
 In the service section fill in the proxy hostname with the hostname of the public agent noted down earlier.
 
-[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst02.png" alt="Couchbase Install"/>](/services/spinnaker/0.3.0-1.9.2/img/inst02.png)
+[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst02.png" alt="Spinnaker Quick Start"/>](/services/spinnaker/0.3.0-1.9.2/img/inst02.png)
 
 If for `minio` and `DC/OS` the default credentials are use then you are ready to go hit *Review&Run*. Otherwise the next two steps show how to configure your specific credentials.
 
-[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst03.png" alt="Couchbase Install"/>](/services/spinnaker/0.3.0-1.9.2/img/inst03.png)
+[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst03.png" alt="Spinnaker Quick Start"/>](/services/spinnaker/0.3.0-1.9.2/img/inst03.png)
 
 The following dialog shows you how to configure the `minio` credentials.
 
-[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst04.png" alt="Couchbase Install"/>](/services/spinnaker/0.3.0-1.9.2/img/inst04.png)
+[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst04.png" alt="Spinnaker Quick Start"/>](/services/spinnaker/0.3.0-1.9.2/img/inst04.png)
 
 The following dialog shows you how to configure the `DC/OS` credentials.
 
-[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst05.png" alt="Couchbase Install"/>](/services/spinnaker/0.3.0-1.9.2/img/inst05.png)
+[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst05.png" alt="Spinnaker Quick Start"/>](/services/spinnaker/0.3.0-1.9.2/img/inst05.png)
 
 
 Once the service is running we launch a simple `proxy` to get access to the Spinnaker `deck` and `gate` service. Use the following [proxy.json](misc/proxy.json). For how to use edge-lb to expose these services look [here]().
@@ -128,7 +128,7 @@ For more configuration options see [spinnaker/igor](https://github.com/spinnaker
 When installing the Spinnaker service via the DC/OS console you have sections for each of the Spinnaker services where you can enter the respective yml configuration.
 
 Here the sample for the clouddriver service.
-[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst05.png" alt="Couchbase Install"/>](/services/spinnaker/0.3.0-1.9.2/img/inst05.png)
+[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst05.png" alt="Spinnaker Quick Start"/>](/services/spinnaker/0.3.0-1.9.2/img/inst05.png)
 
 ### DC/OS cli install
 The config folder that got created when we dowloade the zip earlier also provides a tool that allows us to generate an *options.json* file. Once you edited the yml templates to your needs run the tool in the config folder. The proxy hostname is typically the public agent hostname.
