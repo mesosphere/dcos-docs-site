@@ -1,4 +1,4 @@
-## DC/OS 1.10 and later, and package 2.0.0-x and later
+## DC/OS 1.10 or later, and package 2.0.0-x or later
 
 If you are using DC/OS 1.10 or later and the installed service has a version later than 2.0.0-x, then uninstalling the service is simple.
 
@@ -91,8 +91,9 @@ deploy (IN_PROGRESS)
    └─ deregister (PENDING)
 ```
 
-<p class="message_note"><strong>NOTE: </strong>As it may take the operator some time to complete these actions, the service scheduler may be left in a zombie state after the uninstall is complete.
-See the "Zombie-service-scheduler" above for instructions on how to correct this.</p>
+<p class="message--note"><strong>NOTE: </strong>As it may take the operator some time to complete these actions, the service scheduler may be left in a zombie state after the uninstall is complete.
+See the "Zombie service scheduler" section above for instructions on how to correct this.</p>
+
 
 #### Manual uninstall
 

@@ -135,7 +135,7 @@ dcos package install {{ model.packageName }} --options=<options.json>
 
 ### Get the seed node IP addresses
 
-**Note:** If your Cassandra clusters are not on the same network, you must set up a proxying layer to route traffic.
+<p class="message--note"><strong>NOTE: </strong>If your Cassandra clusters are not on the same network, you must set up a proxying layer to route traffic.</p>
 
 1. Get the list of seed node addresses for the first cluster:
 

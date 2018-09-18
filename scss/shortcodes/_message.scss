@@ -11,19 +11,34 @@
     color: inherit;
   }
   &--warning {
-    border: 1px solid #F2D98E;
+    border: 1px solid $color-dark;
     color: $color-dark;
-    background: #F2D98E;
+    background: $color-gold;
+    padding: 1rem;
   }
   &--error {
     border: 1px solid #E77975;
     color: $color-dark;
     background: #E77975;
+    padding: 1rem;
   }
   &--info {
     border: 1px solid $color-dark;
     color: $color-light;
     background: #303646;
+    padding: 1rem;
+  }
+  &--important {
+    border: 1px solid $color-dark;
+    color: $color-light;
+    background: $color-grey;
+    padding: 1rem;
+  }
+  &--note {
+    border: 1px solid $color-dark;
+    color: $color-light;
+    background: $color-purple-light;
+    padding: 1rem;
   }
   &--success {
     border: 1px solid #89DA71;
