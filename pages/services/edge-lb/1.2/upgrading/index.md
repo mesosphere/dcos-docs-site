@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Upgrading Edge-LB
-title: Upgrading Edge-LB
+navigationTitle:  Upgrading 
+title: Upgrading 
 menuWeight: 25
 excerpt: Upgrading an Edge-LB installation
 
