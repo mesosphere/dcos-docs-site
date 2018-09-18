@@ -34,6 +34,8 @@ looks like this:
 
    ![statsd_tester_time_uptime](/1.11/img/statsd_tester_time_uptime.png)
 
+   Figure 1. Statsd graph
+
 # Working with metrics in Grafana
 
 You can find the Grafana UI similarly to the Prometheus UI, by hovering your cursor over the grafana application in the 'monitoring' folder and clicking on the

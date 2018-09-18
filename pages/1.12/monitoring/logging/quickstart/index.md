@@ -8,7 +8,7 @@ beta: true
 enterprise: false
 ---
 
-Use this guide to get started with DC/OS logging.
+Use this guide to get started with DC/OS logging. Many of the commands used here are described more fully in the [CLI Command Reference](/1.11/cli/command-reference/dcos-task/).
 
 **Prerequisites:**
 
@@ -16,7 +16,7 @@ Use this guide to get started with DC/OS logging.
 - You must be logged in as as a superuser or have been granted user access to logging. For more information, see [Accessing system and component logs](/1.11/monitoring/logging/access-component-logs/) and [Accessing task logs](/1.11/monitoring/logging/access-task-logs/).
 
 # Deploy a sample app
-Deploy a sample Marathon app for use in this quick start guide.
+Deploy a sample Marathon app for use in this Quick Start Guide.
 
 1.  Create the following Marathon app definition and save as `test-log.json`.
 
@@ -36,7 +36,7 @@ Deploy a sample Marathon app for use in this quick start guide.
     dcos marathon app add test-log.json
     ```
 
-1.  Verify that the app has been successfully deployed and note task ID:
+1.  Verify that the app has been successfully deployed and note the task ID:
 
     ```bash
     dcos task test-log
@@ -51,9 +51,9 @@ Deploy a sample Marathon app for use in this quick start guide.
 
 # View the Mesos and DC/OS logs
 
-You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `dcos task log` command. In this example, a task is launched and the stderr and stdout logs from Mesos are accessed.
+You can access the Mesos `stderr` and `stdout` logs natively through the DC/OS CLI `dcos task log` command. In this example, a task is launched and the `stderr` and `stdout` logs from Mesos are accessed.
 
-1.  Run this command to view the stdout logs, where `<task_id>` is the task ID:
+1.  Run this command to view the `stdout` logs, where `<task_id>` is the task ID:
 
     ```bash
     dcos task log <task_id>
@@ -96,7 +96,7 @@ You can access the Mesos stderr and stdout logs natively through the DC/OS CLI `
 
 # View the Mesos task and system logs
 
-You can view logs from tasks or the host subsystem with the `dcos node log` command.
+You can view logs from tasks or the host subsystem with the `dcos node log` command. find more information on these commands in the [CLI Command Reference](/1.11/cli/command-reference/dcos-node/) section.
 
 1.  Run this command to view the leading Mesos master logs:
 
@@ -118,7 +118,7 @@ You can view logs from tasks or the host subsystem with the `dcos node log` comm
     dcos node log --mesos-id=<node_id> --lines 3
     ```
 
-    **Tip:** Run `dcos task` to identify which node is running your app, followed by `dcos node` to get the node ID.
+    Run `dcos task` to identify which node is running your app, followed by `dcos node` to get the node ID.
 
     The output should resemble:
 

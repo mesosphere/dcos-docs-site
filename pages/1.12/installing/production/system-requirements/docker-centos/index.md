@@ -1,16 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:  Docker on CentOS/RHEL
-title: Install Docker on CentOS/RHEL
+title: Installing Docker on CentOS/RHEL
 menuWeight: 5
-excerpt: Requirements and recommendations for installing Docker on CentOS
+excerpt: Requirements, recommendations and procedures for installing Docker CE on CentOS/RHEL
 ---
 
 # Requirements and Recommendations
 
-Before installing Docker on CentOS/RHEL, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS/RHEL-specific recommendations:
-
-* These directions cover the installation of Docker CE on CentOS/RHEL
+These directions cover the installation of Docker CE on CentOS/RHEL. Before installing Docker on CentOS/RHEL, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS/RHEL-specific recommendations:
 
 * OverlayFS is now the default in Docker CE. There is no longer a need to specify or configure the overlay driver. Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if they want.
 
@@ -18,11 +16,21 @@ Before installing Docker on CentOS/RHEL, review the general [requirements and re
 
 * Format node storage as XFS with the `ftype=1` option. As of CentOS/RHEL 7.2, [only XFS is currently supported for use as a lower layer file system][2].
 
+* For more generic Docker requirements, see [System Requirements: Docker](/1.11/installing/production/system-requirements/#docker).
+
+**Note:** In modern versions of Centos and RHEL, `ftype=1` is the default. The `xfs_info` utility can be used to verify that `ftype=1`.
+
     ```bash
     mkfs -t xfs -n ftype=1 /dev/sdc1
     ```
 
-# Installation Procedure
+# Installation
+
+Follow the Docker [CentOS-specific installation instructions](https://docs.docker.com/install/linux/docker-ce/centos/).
+
+### RHEL-only requirements
+
+You must register with the subcription-manager to enable additional repos.
 
 Follow the Docker [CentOS-specific installation instructions][3]
 
@@ -55,7 +63,7 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
     sudo yum update --exclude=docker-engine,docker-engine-selinux,centos-release* --assumeyes --tolerant
     ```
 
-1.  Un-install old versions of Docker (if present)
+1.  Un-install old versions of Docker (if present):
 
     ```bash
     sudo yum remove docker \
@@ -64,7 +72,7 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
                   docker-engine
     ```
 
-1.  Set up Docker CE repo
+1.  Set up Docker CE repository:
 
     ```bash
     sudo yum-config-manager \
@@ -72,32 +80,34 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
         https://download.docker.com/linux/centos/docker-ce.repo
     ```
 
-1.  Show versions of Docker CE. The remainder of these instructions assume that you have installed the latest version.
+1.  Show versions of Docker CE. 
 
     ```bash
     sudo yum list docker-ce --showduplicates | sort -r
     ```
 
-1.  Install Docker CE
+The remainder of these instructions assume that you have installed the latest version.
+
+6.  Install Docker CE:
 
     ```bash
     sudo yum install docker-ce
     ```
 
-1.  Start Docker
+1.  Start Docker:
 
     ```bash
     sudo systemctl start docker
     sudo systemctl enable docker
     ```
 
-1.  Test Docker with hello-world app
+1.  Test Docker with `hello-world` app:
 
     ```bash
     sudo docker run hello-world
     ```
 
-1.  Verify that Docker is using the overlay driver
+1.  Verify that Docker is using the overlay driver:
 
     ```bash
     sudo docker info | grep Storage

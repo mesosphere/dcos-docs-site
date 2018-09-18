@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Update a job schedule.
+The `dcos job schedule update` command allows you to update a job schedule.
 
 # Usage
 
@@ -24,10 +24,10 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-id>`   |             |  Specify the job ID. |
-| `<schedule-file>`   |             |  A JSON formatted job schedule file. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
+| `<schedule-file>`   |   A JSON formatted job schedule file. |
 
 # Parent command
 
@@ -35,4 +35,4 @@ None.
 |---------|-------------|
 | [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
-<!-- # Examples -->
+

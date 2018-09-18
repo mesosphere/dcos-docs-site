@@ -47,7 +47,9 @@ In this section you will set up the authentication method and parameters for you
 
 1.  When you have completed your entries, the dialog should look something like the following.
 
-   ![Simple bind parameters](/1.11/img/ldap-add-dir-auth-simple-bind.png)  
+   ![Simple bind parameters](/1.11/img/ldap-add-dir-auth-simple-bind.png) 
+
+   Figure 1. Simple bind parameters 
 
 1.  Click **Add Directory**.
 
@@ -68,6 +70,8 @@ While the simple bind connection takes place in a single step, the search/bind o
 1.  When you have completed your entries, the dialog should look something like the following.
 
    ![Search/bind parameters](/1.11/img/ldap-add-dir-auth-search-bind.png)
+
+   Figure 2. Search bind parameters
 
 1.  Click **Add Directory**.
 

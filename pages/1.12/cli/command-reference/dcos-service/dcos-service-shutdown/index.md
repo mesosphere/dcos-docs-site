@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Shut down a service.
+The `dcos service shutdown` command allows you to shut down a service.
 
 # Usage
 
@@ -24,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<service-id>`   |             | The DC/OS service ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<service-id>`   |  The DC/OS service ID. |
 
 # Parent command
 

@@ -148,7 +148,7 @@ You can assign permissions using curl commands. To assign permissions you must c
 
 # <a name="req-auth-tok"></a>Request an Authentication Token
 
-Generate a [service login token](/1.9/security/ent/service-auth/)), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
+Generate a [service login token](/1.9/security/ent/service-auth/), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
 
 ```bash
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem

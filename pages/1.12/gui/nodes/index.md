@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle:  Nodes
 title: Nodes
 menuWeight: 5
-excerpt: Using the Nodes tab
+excerpt: Using the Nodes menu
 ---
 
-The Nodes tab provides a comprehensive view of all of the nodes that are used across your cluster. You can view agent and master nodes in separate tabs.
+The Nodes menu provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
 
 ![Nodes](/1.12/img/nodes-ee-dcos-1-12.png)
 
 <p><i>Figure 1 - Agent Nodes tab</i></p>
 
-By default all of your nodes are displayed in **List** view, sorted by health. You can filter nodes by service type, health, regions, and zones. You can also sort the nodes by number of tasks or percentage of CPU, GPU, memory, or disk space allocated.
+By default, all of your nodes are displayed in **List** view, sorted by health. You can filter nodes by service type, health, regions, and zones. You can also sort the nodes by number of tasks or percentage of CPU, GPU, memory, or disk space allocated.
 
 You can switch to **Grid** view to see a "donuts" percentage visualization.
 
@@ -29,5 +29,3 @@ Clicking on the Masters tab opens the Masters Nodes view.
 <p><i>Figure 3 - Masters Nodes tab</i></p>
 
 The Masters Nodes tab shows information about the masters in the cluster. You can see the leader and non-leaders in the cluster, with their corresponding IP and port, region, version, started time, and elected time.
-
-

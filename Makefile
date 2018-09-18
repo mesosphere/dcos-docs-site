@@ -31,8 +31,8 @@ build-redirects:
 # Build
 #
 
-build-development: ## Rebuild nginx, swagger, and static content
-	build-api
+## Rebuild nginx, swagger, and static content
+build-development: build-api
 	npm run dev
 
 #
@@ -56,8 +56,7 @@ build-pdf-concat-development:
 # Build API
 #
 
-build-api:
-	build-swagger build-ngindox
+build-api: build-swagger build-ngindox
 
 build-swagger:
 	./scripts/swagger.sh ./pages ./build-swagger

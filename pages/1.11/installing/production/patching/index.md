@@ -34,12 +34,74 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 - Task history in the Mesos UI will not persist through the patch.
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
-## Supported patch paths
+## Supported patching path matrix
+ The following matrix table lists the patching paths for DC/OS 1.11.
 
-- From any current release to the next. For example, a patch from 1.9.1 to 1.9.2 would be supported.
-- From any current release to an identical release. For example, a patch from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
+**DC/OS minor versions for 1.11**
 
 
+|**Display Icon** | **Service** |
+|---------- | ------- |
+| ⚫| Supported |
+| ◯| Not Supported |
+
+<table class="table">
+    <tr>
+    <th><p style="text-align: center;"><strong>Patch From</strong></p></th>
+    <th></th>
+    <th></th>
+    <th><p style="text-align: center;"><strong>Patch To</strong></p></th>
+    <th></th>
+    <th></th>
+    </tr>
+    <tr>
+    <th></th>
+    <th><p style="text-align: center;">1.11.1</p></th>
+    <th><p style="text-align: center;">1.11.2</p></th>
+    <th><p style="text-align: center;">1.11.3</p></th>
+    <th><p style="text-align: center;">1.11.4</p></th>
+    <th><p style="text-align: center;">1.11.5</p></th>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.11.0</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.11.1</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.11.2</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+      <td><p style="text-align: center;">1.11.3</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    </tr>
+      <td><p style="text-align: center;">1.11.4</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+ </table>   
 
 ## Modifying DC/OS configuration
 

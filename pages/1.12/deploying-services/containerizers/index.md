@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
-excerpt: Using containerizers
+excerpt: Using containerizers with Docker Engine and Universal Container Runtime
 
 enterprise: false
 ---
@@ -26,9 +26,9 @@ The advantages of Universal Container Runtime (UCR) are:
 
 In summary, using the UCR instead of the Docker Engine:
 
-- Reduces service downtime.
-- Improves on the fly upgradability.
-- Increases cluster stability.
+- Reduces service downtime
+- Improves on-the-fly upgradability
+- Increases cluster stability
 
 # Container Runtime Features
 

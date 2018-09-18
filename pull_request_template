@@ -9,5 +9,5 @@
 ## Requirements
 - Test all commands and procedures.
 - Add [redirects](https://github.com/mesosphere/dcos-docs-site/wiki/Redirects).
-- Change all affected versions (e.g. 1.7, 1.8, 1.9, 1.10, 1.11).
+- Change all affected versions (e.g. 1.7, 1.8, 1.9, 1.10, 1.11, 1.12).
 - See the [contribution guidelines](https://github.com/mesosphere/dcos-docs-site/wiki/Contributing).

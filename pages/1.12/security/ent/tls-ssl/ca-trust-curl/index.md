@@ -9,11 +9,11 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-If you have not set up a proxy, you should use `--cacert dcos-ca.crt` in your curl commands in `permissive` and `strict` security modes.
+If you have not set up a proxy, you should use `--cacert dcos-ca.crt` in your `curl` commands in `permissive` and `strict` security modes.
 
 **Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/1.11/security/ent/tls-ssl/get-cert/).
 
-If you have not [set up a proxy](/1.11/security/ent/tls-ssl/haproxy-adminrouter/), you should use `--cacert dcos-ca.crt` in your curl commands in `permissive` and `strict` security modes.
+If you have not [set up a proxy](/1.11/security/ent/tls-ssl/haproxy-adminrouter/), you should use `--cacert dcos-ca.crt` in your `curl` commands in `permissive` and `strict` security modes.
 
 In the following example, we assume that the file is named `dcos-ca.crt` and located in the current directory.
 

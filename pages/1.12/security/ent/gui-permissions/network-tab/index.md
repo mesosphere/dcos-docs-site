@@ -23,17 +23,24 @@ You can grant users access to the **Networking** tab. By default, new users have
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
 
+    Figure 1. DC/OS web interface login
+
 1.  Select **Organization** and choose **Users** or **Groups**.
 
 1.  Select the name of the user or group to grant the permission to.
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
 
+    Figure 2. Select user or group to grant permissions to
+
+
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
+
+    Figure 3. Insert Permission String
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 

@@ -1,52 +1,74 @@
 ---
 layout: layout.pug
-navigationTitle:  User Management
-excerpt: Managing user access
-title: User Management
-menuWeight: 201
+navigationTitle:  User Access Management
+excerpt: Managing user access in DC/OS Open Source deployments
+title: User Access Management
+menuWeight: 10
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-Users are granted access to DC/OS by another authorized user. A default user is automatically created by the first user that logs in to the DC/OS cluster.
+Users can be granted access to DC/OS by another authorized user. A default user is automatically created by the first user who logs in to the DC/OS cluster. Users can be added from the web interface or from the CLI.
 
-To manage users:
+## Add users from the web interface
 
-1.  Launch the DC/OS web interface and login with your username (Google, GitHub, and Microsoft) and password.
+1.  Launch the DC/OS web interface and log in with your username (Google, GitHub, and Microsoft) and password.
 
-2.  Click on the **System** -> **Organization** tab and choose your action.
+2.  Click on  **Organization** in the left hand menu. From the **Users** screen, click the plus sign (**+**) in the upper right corner, and fill in the new user email address. New users are automatically sent an email notifying them of access to DC/OS.
 
-    ### Add users
+![new DC/OS user](/1.11/img/1-11-add-user-to-cluster.png)
 
-    From the **Users** tab, click **New User** and fill in the new user email address. New users are automatically sent an email notifying them of access to DC/OS.
+Figure 1. Adding a new user
 
-    **Tip:** Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.
+**Note:** Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.
 
-    ![new DC/OS user](/1.11/img/ui-add-user.gif)
+## Add users from the CLI
+You can add users to your DC/OS cluster from a terminal by using the `dcos_add_user.py` script. This script is included by default with your DC/OS installation.
 
-    ### Delete users
+**Prerequisites:**
 
-    1.  From the **Users** tab, select the user name and click **Delete**.
-    2.  Click **Delete** to confirm the action.
+- DC/OS is [installed](/1.11/installing/)
 
-    ### Switch users
+1.  [SSH](/1.11/administering-clusters/sshcluster/) to a master node and run this command, where `<email>` is the user's email:
 
-    To switch users, you must log out of the current user and then back in as the new user.
+    ```bash
+    sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>
+    ```
 
-    *   To log out of the DC/OS web interface, click on your username in the upper-left side and select **Sign Out**.
+1.  Send the URL of your DC/OS cluster (e.g. `http://<public-master-ip>/`) to the new user. The user specified by `<email>` can now login and access the cluster.
 
-        ![log out](/1.11/img/auth-enable-logout-user.gif)
+## Delete users
+1.  From the **Users** screen, select the user name and click **Delete**.
+2.  Click **Delete** to confirm the action.
 
-        You can now log in as another user.
+<img src="/1.11/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
 
-    *   To log out of the DC/OS CLI, enter the command:
+ Figure 2. Deleting a user
+
+## Switching users 
+
+To switch users, you must log out of the current user and then back in as the new user.
+
+### From the web interface
+
+1.   To log out of the DC/OS web interface, click on your username in the upper-left side and select **Sign Out**.
+
+        ![log out](/1.11/img/1-11-user-drop-down-menu.png)
+
+        Figure 3. Drop down user menu
+
+You can now log in as another user.
+
+### From the CLI
+
+1.  To log out of the DC/OS CLI, enter the command:
 
         ```bash
         dcos config unset core.dcos_acs_token
         Removed [core.dcos_acs_token]
         ```
 
-        You can now log in as another user.
+You can now log in as another user.
 
 ## Next Steps
 

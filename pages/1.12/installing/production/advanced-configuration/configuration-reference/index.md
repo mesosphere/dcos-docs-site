@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 5
-excerpt: Configuration parameters available for DC/OS
+excerpt: Configuration parameters available for DC/OS Enterprise and DC/OS Open Source
 ---
 
 # Configuration Parameters
 
-The configuration parameters for [DC/OS Enterprise](https://mesosphere.com/product/) are [here](/1.11/installing/ent/custom/configuration/configuration-parameters/). [enterprise type="inline" size="small" /]
-
-The configuration parameters for [DC/OS Open Source](https://dcos.io/) are [here](/1.11/installing/oss/custom/configuration/configuration-parameters/). [oss type="inline" size="small" /]
+This page contains the configuration parameters for both DC/OS Enterprise and DC/OS Open Source. 
 
 
 # Cluster Setup
