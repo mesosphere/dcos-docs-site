@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Uninstalling Edge-LB
-title: Uninstalling Edge-LB
+navigationTitle:  Uninstalling 
+title: Uninstalling 
 menuWeight: 20
 excerpt: Uninstalling the Edge-LB package
 
@@ -9,7 +9,8 @@ enterprise: false
 ---
 
 
-**Warning:** Do not use the GUI or CLI (Marathon) to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI.
+<p class="message--warning"><strong>WARNING: </strong>Do not use the GUI or CLI (Marathon) to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI.</p>
+
 
 1.  Deleting pools will automatically uninstall managed load balancers. Delete each pool with this command.
 

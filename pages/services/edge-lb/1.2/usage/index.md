@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB Usage
-title: Edge-LB Usage
+navigationTitle:   Usage
+title:  Usage
 menuWeight: 60
 excerpt: Common commands for Edge-LB usage
 
@@ -50,7 +50,7 @@ A change to the load balancer pool (such as adding a secret) will trigger a rela
 - Traffic is dropped. To minimize the impact, we suggest running more than one load balancer within the pool.
 - The load balancer will be relaunched on the same node (unless the node itself has failed).
 
-**Warning:** The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.
+<p class="message--warning"><strong>WARNING: </strong>The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.</p>
 
 ## Replacing a failed pod
 

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB Release Notes
-title: Edge-LB Release Notes
+navigationTitle:  Release Notes
+title: Release Notes
 menuWeight: 0
 excerpt: Release notes for Edge-LB 1.2
 
@@ -16,11 +16,7 @@ Released on September 17, 2018.
 
 ## Notable Changes
 
-
-### Universe Repo Artifacts
-
-- https://downloads.mesosphere.com/edgelb/v1.2.1/assets/stub-universe-edgelb.json
-- https://downloads.mesosphere.com/edgelb-pool/v1.2.1/assets/stub-universe-edgelb-pool.json
+- Added logging for better troubleshooting of Edge-LB
 
 ## Known Limitations
 
@@ -51,10 +47,6 @@ Released on September 11, 2018.
 * Bump `haproxy` from 1.8.12 to 1.8.13. [changelog] (http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD)
 * Commit protobuf code changes that stem from [tool update](https://github.com/golang/protobuf/tree/master/protoc-gen-go).
 
-### Universe Repo Artifacts
-
-- [EdgeLB on DC/OS](https://downloads.mesosphere.com/edgelb/v1.2.0/assets/stub-universe-edgelb.json).
-- [EdgeLB pool on DC/OS](https://downloads.mesosphere.com/edgelb-pool/v1.2.0/assets/stub-universe-edgelb-pool.json).
 
 ### Shortlist
 
