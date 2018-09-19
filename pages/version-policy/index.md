@@ -55,6 +55,12 @@ The below matrix provides guidance as to which platform components and operating
     <th><strong>DC/OS 1.9</strong></th>
     </tr>
     <tr>
+       <td>CoreOS 1800.7.0<sup>*</sup></td>
+       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
+       <td>                    </td>
+       <td>                    </td>
+    </tr>
+    <tr>
        <td>CoreOS 1688.5.3<sup>*</sup></td>
        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
        <td>                    </td>
