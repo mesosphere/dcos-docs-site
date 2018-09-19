@@ -33,6 +33,7 @@ DC/OS 1.12.0 Beta 1 includes the following new features and capabilities:
 
 ### Improved Multi-Cluster UI
 - DC/OS CLI now supports multiple clusters with different versions.
+- DC/OS CLI now automatically downloads and install the enterprise-cli plugins. [enterprise type="inline" size="small" /]
 
 ### Mesosphere Kubernetes Engine
 - High density Multi-Kubernetes leveraging enhanced containerized bin packing. 
@@ -48,7 +49,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 [enterprise]
 ### Private Package Registry
 [/enterprise]
-- Enable On Premise package distribution and management.
+- Enable On-Premise package distribution and management.
 - Enable air-gapped Virtual Private Cloud package management.
 - Simplify package artifact management.
 - Full support for NFS and S3 as storage backends for package storage.
@@ -57,6 +58,12 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 
 
 ### UX Enhancements
+- Add master table and health information in the nodes page.
+- Include base tech version in the services page.
+- Include node type (Public/Private) in the nodes page.
+- Remove the CPU/MEM/Disk graphic from the nodes page.
+- Add the Mesosphere DC/OS logo above the UI.
+- Fix 100+ bugs and performance improvements.
 
 
 ## Known Issues and Limitations
