@@ -156,7 +156,6 @@ In this step, a Marathon Service Account is created. Depending on your [security
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
-| Disabled | Optional |
 | Permissive | Optional |
 | Strict | Required |
 
@@ -173,13 +172,12 @@ In this step, a Marathon Service Account is created. Depending on your [security
     ```
 
 # Step 4 - Assign Permissions (Strict mode only)
-In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in other security modes.
+In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in permissive security mode.
 
 All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/).
 
 | Security Mode | Permissions |
 |---------------|----------------------|
-| Disabled | Not available |
 | Permissive | Not available |
 | Strict | Required |
 
@@ -224,19 +222,6 @@ In this step, a user is granted access to the non-native Marathon instance.
     Figure 3. Add permissions.
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
-
-    ### Disabled
-
-    -   Full access
-
-        ```bash
-        dcos:adminrouter:service:<service-name> full
-        dcos:service:marathon:<service-name>:services:/ full
-        dcos:adminrouter:ops:mesos full
-        dcos:adminrouter:ops:slave full
-        ```
-
-    -  Access to an individual service or group is not supported in disabled security mode.
 
     ### Permissive
 

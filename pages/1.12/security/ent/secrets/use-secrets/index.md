@@ -27,8 +27,7 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 - An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.11/security/ent/secrets/create-secrets/), you will meet this prerequisite.
 
 - [DC/OS CLI installed](/1.11/cli/install/) and the [DC/OS Enterprise CLI installed](/1.11/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  
-- If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  
 - The appropriate permissions for your [security mode](/1.11/security/ent/#security-modes).
 
   <table class="table">

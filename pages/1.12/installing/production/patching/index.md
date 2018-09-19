@@ -60,10 +60,7 @@ Here is a list of the parameters that you can modify:
     - [`https_proxy`](/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
     - [`no_proxy`](/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
 
-The security mode (`security`) can be changed but has special caveats.
-
-- You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `permissive` mode and you want to downgrade to `disabled` mode, you must reinstall the cluster and terminate all running workloads.
-- During each update, you can only increase your security by a single level. For example, you cannot update directly from `disabled` to `strict` mode. To increase from `disabled` to `strict` mode you must first update to `permissive` mode, and then update from `permissive` to `strict` mode.
+The security mode (`security`) can be changed but only to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `strict` mode and you want to downgrade to `permissive` mode, you must reinstall the cluster and terminate all running workloads.
 
 See the security [mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) for information on different security modes.
 
@@ -93,8 +90,7 @@ These steps must be performed for version patches and cluster configuration chan
 Choose your desired security mode and then follow the applicable patch instructions.
 
 - [Patching DC/OS 1.11 without changing security mode](#current-security)
-- [Patching DC/OS 1.11 in permissive mode](#permissive)
-- [Patching DC/OS 1.11 in strict mode](#strict)
+- [Patching DC/OS 1.11 to strict mode](#strict)
 
 # <a name="current-security"></a>Patching DC/OS 1.11 without changing security mode
 This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](//1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
@@ -119,39 +115,14 @@ This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the c
 
 1.  Go to the DC/OS Master [procedure](/1.11/installing/production/patching/#masters) to complete your installation.
 
-# <a name="permissive"></a>Patching DC/OS 1.11 in permissive mode
-This procedure patches to DC/OS 1.11 in [permissive security mode](1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
-
-**Prerequisite:**
-
-- Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [disabled security mode](1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be patched to permissive mode. If your cluster was running in permissive mode before it was patched to DC/OS 1.10, you can skip this procedure.
-
-**Important:** Any [custom node or cluster health checks](/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) you have configured will fail for a patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.
-
-To update a cluster from disabled security to permissive security, complete the following procedure:
-
-1.  Replace `security: disabled` with `security: permissive` in your `config.yaml`. Do not make any other changes to pathways or configurations in the `config.yaml`.
-1.  Modify the `ip-detect` file as desired.
-1.  Build your installer package.
-
-    1.  Download the `dcos_generate_config.ee.sh` file.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
-        ```bash
-        dcos_generate_config.ee.sh --generate-node-patch-script <installed_cluster_version>
-        ```
-    1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
-    1.  Run the [nginx][install] container to serve the installation files.
-
-1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
-
 # <a name="strict"></a>Patching DC/OS 1.11 in strict mode
-This procedure patches to DC/OS 1.11 in security strict [mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches DC/OS 1.11 in security strict [mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
 
 **Prerequisites:**
 
-- Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 1.11, you can skip this procedure.
+- Your cluster must be a [recently patched version of DC/OS 1.11](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 1.11, you can skip this procedure.
 - If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.11 permissive security mode before patching to strict mode. Otherwise, these tasks will be restarted when the masters are patched.
 
 To update a cluster from permissive security to strict security, complete the following procedure:

@@ -12,7 +12,7 @@ enterprise: true
 
 You can grant users access to the [**Jobs** screen](/1.11/gui/jobs/). By default, new users have no permissions.
 
-**Note:** This procedure grants full user access to the **Jobs** screen and all the jobs inside of it. If you are running in `strict` or `permissive` [security mode](/1.11/security/ent/#security-modes) and want to configure fine-grained user access, see the [documentation](/1.11/deploying-services/service-groups/).
+**Note:** This procedure grants full user access to the **Jobs** screen and all the jobs inside of it. If you want to configure fine-grained user access, see the [documentation](/1.11/deploying-services/service-groups/).
 
 # <a name="jobs-access-via-ui"></a>Granting Access using the web interface
 
@@ -44,21 +44,6 @@ You can grant users access to the [**Jobs** screen](/1.11/gui/jobs/). By default
     Figure 3. Add permission
 
 6.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
-
-## Disabled
-
-### DC/OS Jobs screen
-
-    ```
-    dcos:adminrouter:service:metronome full
-    ```
-
-### DC/OS jobs task and details
-
-    ```
-    dcos:adminrouter:ops:mesos full
-    dcos:adminrouter:ops:slave full
-    ```
 
 ## Permissive
 
@@ -105,74 +90,12 @@ You can grant users access to the [**Jobs** screen](/1.11/gui/jobs/). By default
 **Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 **Note:**
 
 - Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
-
-## Disabled
-
-### DC/OS Jobs screen
-
-1.  Create the permission.
-
-   ```bash
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:metronome  \
-   -d '{"description":"Grants access to the Jobs screen"}'
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs  \
-   -d '{"description":"Grants access to all jobs"}'
-   ```   
-
-2.  Grant the following privileges to the user `uid`.
-
-   ```bash
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:metronome/users/<uid>/full
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs/users/<uid>/full
-   ```   
-
-   **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
-
-### DC/OS jobs task and details
-
-1.  Create the permission.
-
-   ```bash
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos  \
-   -d '{"description":"Grants access to the Mesos master API/UI and task details"}'
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave  \
-   -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-   ```   
-
-2.  Grant the following privileges to the user `uid`.
-
-   ```bash
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
-   ```  
-
-**Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
 
 ## Permissive
 
