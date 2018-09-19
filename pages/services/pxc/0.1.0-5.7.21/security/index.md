@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle: Security
 title: Security
 menuWeight: 50
-excerpt: DC/OS Percona XtraDB Cluster Service encryption, authentication and authorization
+excerpt: DC/OS percona-pxc-mysql. Service encryption, authentication and authorization
 featureMaturity:
 enterprise: false
 ---
 
-# Components
+# DC/OS percona-pxc-mysql Security
 
-# DC/OS Percona XtraDB Cluster Security
-
-The DC/OS Percona XtraDB Cluster service supports Percona XtraDB Cluster’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
+The DC/OS percona-pxc-mysql service supports Percona XtraDB Cluster’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
 
 
 ## Transport Encryption and SSL Authentication
@@ -74,7 +72,15 @@ With Transport Encryption enabled, service clients will need to be configured to
 
 ## Authentication
 
-DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and PAM. PAM can not work alone without SSL. By default PAM is disabled.
+DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and PAM(Plugable Authentication Module). PAM can not work alone without SSL. By default PAM is disabled.
+
+Steps to follow to configure PAM:
+1. Install openLDAP and openLDAP admin in the same cluster from Catalogue.
+2. Go to openLDAP Admin and logon with configurable userid(cn=admin,dc=example,dc=org) and password.(image required)
+3. Go to "ou-groups", create admin, developer and user(image)
+4. Create username under user group.
+5. Create the same user in  DC/OS percona-pxc-mysql to login authentication successfully.
+<<login image>>
 
 **Note:** <PAM> authentication can be combined with transport encryption.
 
