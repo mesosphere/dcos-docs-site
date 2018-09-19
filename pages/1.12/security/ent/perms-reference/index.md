@@ -15,14 +15,14 @@ You can control DC/OS access by resource and operation. See [Permissions Managem
 
 DC/OS permissions are enforced based on your security mode.
 
-| Permission Category                                                        | Disabled   | Permissive   | Strict   |
-| -----------------------------------------------------                      | :--------: | :----------: | :------: |
-| [Admin Router permissions](#admin-router) (`dcos:adminrouter`)             | x          | x            | x        |
-| [Mesos permissions](#mesos) (`dcos:mesos`)                                 |            |              | x        |
-| [Marathon and Metronome permissions](#marathon-metronome) (`dcos:service`) |            | x            | x        |
-| [Secret store permissions](#secrets) (`dcos:secrets`)                      | x          | x            | x        |
-| [Cluster linker permissions](#cluster-linker) (`dcos:cluster:linker`)      | x          | x            | x        |
-| [Superuser permissions](#superuser) (`dcos:superuser`)                     | x          | x            | x        |
+| Permission Category                                                        | Permissive   | Strict   |
+| -----------------------------------------------------                      | :----------: | :------: |
+| [Admin Router permissions](#admin-router) (`dcos:adminrouter`)             | x            | x        |
+| [Mesos permissions](#mesos) (`dcos:mesos`)                                 |              | x        |
+| [Marathon and Metronome permissions](#marathon-metronome) (`dcos:service`) | x            | x        |
+| [Secret store permissions](#secrets) (`dcos:secrets`)                      | x            | x        |
+| [Cluster linker permissions](#cluster-linker) (`dcos:cluster:linker`)      | x            | x        |
+| [Superuser permissions](#superuser) (`dcos:superuser`)                     | x            | x        |
 
 # Permissions
 

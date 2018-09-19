@@ -47,9 +47,6 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
     Figure 3. Copy and paste permissions string.
 
-    ### Disabled
-    This mode does not offer fine-grained control.
-
     ### Permissive
 
     -  **DC/OS service access:**
@@ -98,9 +95,6 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 
 - To grant permissions to a group instead of a user, replace `users grant <uid>` with `groups grant <gid>`.
-
-### Disabled
-This mode does not offer fine-grained control.
 
 ### Permissive
 
@@ -177,9 +171,6 @@ This mode does not offer fine-grained control.
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
-    ### Disabled
-    This mode does not offer fine-grained control.
-
     ### Permissive
 
     -  **DC/OS service access:**
@@ -234,9 +225,6 @@ This mode does not offer fine-grained control.
 **Tips:**
 
 - To grant permissions to a group instead of a user, replace `users grant <uid>` with `groups grant <gid>`.
-
-### Disabled
-This mode does not offer fine-grained control.
 
 ### Permissive
 
@@ -313,9 +301,6 @@ This mode does not offer fine-grained control.
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
-    ### Disabled
-    This mode does not offer fine-grained control.
-
     ### Permissive
 
     -  **DC/OS group access:**
@@ -370,9 +355,6 @@ This mode does not offer fine-grained control.
 **Tips:**
 
 - To grant permissions to a group instead of a user, replace `users grant <uid>` with `groups grant <gid>`.
-
-### Disabled
-This mode does not offer fine-grained control.
 
 ### Permissive
 

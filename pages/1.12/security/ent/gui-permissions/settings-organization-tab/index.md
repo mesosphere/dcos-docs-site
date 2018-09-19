@@ -42,12 +42,6 @@ You can grant users access to the **Settings** and **Organization** tabs. By def
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
-    ## Disabled
-
-    ```bash
-    dcos:adminrouter:acs full
-    ```
-
     ## Permissive
 
     ```bash
@@ -67,34 +61,12 @@ You can grant users access to the **Settings** and **Organization** tabs. By def
 **Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 **Tips:**
 
 - Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
-
-## Disabled
-
-1.  Create the permission.
-
-    ```bash
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    -H 'Content-Type: application/json' \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:acs  \
-    -d '{"description":"Grants access to the contents of the Settings and Organization tabs"}'
-    ```
-
-1.  Grant the following privileges to the user `uid`.
-
-    ```bash
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:acs/users/<uid>/full
-    ```
-
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
 
 ## Permissive
 

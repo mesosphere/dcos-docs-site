@@ -14,7 +14,7 @@ This topic details how to configure authentication for custom apps and pods laun
 
 - [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 - [DC/OS Enterprise CLI 0.4.14 or later installed](/1.11/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
+- You must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 Create a 2048-bit RSA public-private key pair using the DC/OS Enterprise CLI. Save each value into a separate file within the current directory.
