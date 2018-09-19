@@ -57,7 +57,7 @@ for d in docs/package/*/; do
       awk '{gsub(/https:\/\/docs.mesosphere.com\/service-docs\//,"/services/");}{print}' $p > tmp && mv tmp $p
 
       # add full path for images
-      awk -v directory=$(basename $d) '{gsub(/\([.][.]\/img/,"(/services/kubernetes/"directory"/img");}{print;}' $p > tmp && mv tmp $p  
+      awk -v directory=$(basename $d) -v name="$name" '{gsub(/\([.][.]\/img/,"(/services/"name"/"directory"/img");}{print;}' $p > tmp && mv tmp $p  
     fi
   done
 done
