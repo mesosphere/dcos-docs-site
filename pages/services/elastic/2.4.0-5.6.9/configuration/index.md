@@ -141,13 +141,13 @@ $ dcos package install kibana
   {"type":"log","@timestamp":"2016-12-08T22:37:46Z","tags":["listening","info"],"pid":12263,"message":"Server running at http://0.0.0.0:5601"}
   ```
 
-1. If you installed X-Pack, go to
+1. If you installed X-Pack, go to the following URL:
   ```
   http://<dcos_url>/service/kibana/login
   ```
-  and log in with `elastic`/`changeme`. [More information on installing X-Pack](../elastic-x-pack/).
+  and log in with `elastic`/`changeme`. [More information on installing X-Pack](https://www.elastic.co/guide/en/x-pack/current/installing-xpack.html).
 
-  Otherwise go to
+  Otherwise, go to the following URL:
   ```
   http://<dcos_url>/service/kibana
   ```
@@ -156,7 +156,7 @@ $ dcos package install kibana
 
 - Service name: This needs to be unique for each instance of the service that is running.
 - Service user: This must be a non-root user that already exists on each agent. The default user is `nobody`.
-- The Kibana X-Pack plugin is not installed by default, but you can enable it. See the [X-Pack documentation](../elastic-x-pack/) to learn more about X-Pack in the Elastic package. This setting must match the corresponding setting in the Elastic package (i.e., if you have X-Pack enabled in Kibana, you must also have it enabled in Elastic).
+- The Kibana X-Pack plugin is not installed by default, but you can enable it. See the [X-Pack documentation](https://www.elastic.co/guide/en/x-pack/current/xpack-introduction.html) to learn more about X-Pack in the Elastic package. This setting must match the corresponding setting in the Elastic package (i.e., if you have X-Pack enabled in Kibana, you must also have it enabled in Elastic).
 - Elasticsearch credentials: If you have X-Pack enabled, Kibana will use these credentials for authorization. The default user is  `kibana`.
 - Elasticsearch URL: This is a required configuration parameter. The default value `http://coordinator.<service-dns>.l4lb.thisdcos.directory:9200` corresponds to the named VIP that exists when the Elastic package is launched with its own default configuration.
 
