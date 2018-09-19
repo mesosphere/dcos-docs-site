@@ -62,7 +62,7 @@ When you enable LDAP authentication in DataStax Enterprise, users and groups tha
       cqlsh> GRANT EXECUTE ON ALL AUTHENTICATION SCHEMES TO <role-name>;  OR
       cqlsh> GRANT EXECUTE ON (INTERNAL|LDAP) SCHEME TO <role-name>;
       ```
-    Please refer to [DataStax's documentation](http://docs.datastax.com/en/latest-dse/datastax_enterprise/sec/authLdapConfig.html) for more detailed description of each field above.
+      Please refer to [DataStax's documentation](http://docs.datastax.com/en/latest-dse/datastax_enterprise/sec/authLdapConfig.html) for more detailed description of each field above.
 
 ## OpsCenter LDAP Configuration
 Configure LDAP (Lightweight Directory Access Protocol) for users accessing OpsCenter.
