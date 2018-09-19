@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Kubernetes Version 1.3.0-1.10.8
-title: Kubernetes Version 1.3.0-1.10.8
+navigationTitle: Kubernetes 1.3.0-1.10.8
+title: Kubernetes 1.3.0-1.10.8
 menuWeight: 10
 excerpt:
 ---
