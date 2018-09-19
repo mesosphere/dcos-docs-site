@@ -115,14 +115,14 @@ This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the c
 
 1.  Go to the DC/OS Master [procedure](/1.11/installing/production/patching/#masters) to complete your installation.
 
-# <a name="strict"></a>Patching DC/OS 1.11 to strict mode
-This procedure patches to DC/OS 1.11 in security strict [mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+# <a name="strict"></a>Patching DC/OS 1.11 in strict mode
+This procedure patches DC/OS 1.11 in security strict [mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
 
 **Prerequisites:**
 
-- Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 1.11, you can skip this procedure.
+- Your cluster must be a [recently patched version of DC/OS 1.11](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 1.11, you can skip this procedure.
 - If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.11 permissive security mode before patching to strict mode. Otherwise, these tasks will be restarted when the masters are patched.
 
 To update a cluster from permissive security to strict security, complete the following procedure:
