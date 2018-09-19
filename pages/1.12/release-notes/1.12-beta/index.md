@@ -1,92 +1,67 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes for 1.12 Beta
-title: Release Notes for 1.12 Beta
+navigationTitle: Release Notes for 1.12.0 Beta 1
+title: Release Notes for 1.12.0 Beta 1
 menuWeight: 5
-excerpt: Release notes for DC/OS 1.12 Beta
+excerpt: Release notes for DC/OS 1.12.0 Beta 1
 ---
 
-DC/OS 1.12 Beta was released on September 17, 2018.
+DC/OS 1.12.0 Beta 1 was released on September 20, 2018.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/testing/1.12.0-beta1/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
+[button color="light" href="https://downloads.mesosphere.io/dcos-enterprise/testing/1.12.0-beta1/commit/9d2ee649f1ddb90728757ea24d912189aaef9a52/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
 
-# Notable Changes in DC/OS 1.12 Beta
+DC/OS 1.12.0 Beta 1 release is for testing only and not to be used in production. This release will only support new installations.
 
-DC/OS 1.12 Beta includes the following components:
-- Apache Mesos  [change log]().
-- Marathon [change log]().
-- Metronome  [change log]().
+**Note:** Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
 
 
-# Issues Fixed in DC/OS 1.12 Beta
+# About DC/OS 1.12.0 Beta 1
 
-
-## CLI 
-- DCOS-21077 - Fix `install cli` overwrite issue on `dcos` file without displaying a warning.
-
-## GUI
-- DCOS-41769 - Fix background color/shadow issue on the `copy to clipboard` icon located in the Service endpoint tab.
-
-## Marathon
-- COPS-3554/DCOS-39582 - Re-register leader watch loop on ZooKeeper reconnect.
-
-## Mesos
-- COPS-2134 - Fix a series of errors printed by Cassandra node tasks.
-- COPS-3371/DCOS-38500 - Fix health check issues for Kafka 2.0.4-1.0.0 inside /run/mesos/containers. Bump Mesos to nightly master `7ad23b8`.
-- COPS-3574/DCOS-40317 - Bump Mesos to nightly `1.5.x dd68c0b`.
-- COPS-3612/DCOS-40309 - Fix container launch failures that occurred due to Mesos-bridge running out of IPs.
-- DCOS-24245 - Fix readiness check failure in Mesos nodes.
-- DCOS-41761 - Fix SLRP to clean up plugin containers after it is removed.
-- DCOS-41804 - Add implicit authorization for `VIEW_STANDALONE_CONTAINER`.
-- DCOS-41855 - Fix denial of service vulnerability in `picojson (v1.3.0)` due to unsafe handling of deeply nested JSON structures.
-
-## Metrics
-- DCOS-41559/DCOS_OSS-4060 - Fix `null` value issue in `dcos_metrics` output.
-- DCOS-41902 - Remove DataDog plugin.
-- DCOS-41570/DCOS_OSS-4088/- DCOS_OSS-4090 - Bump the `Telegraf` package to fix 500 responses from v0 metrics API due to JSON serialization error.
-- DCOS-41747 - Ensure `statsd` socket is cleaned up before launching `Telegraf`.
-- DCOS_OSS-4044 - Fix `dcos_statsd` crash. Prevent `dcos_statsd` input from unusual behavior due to concurrent map reads/writes. 
-- DCOS_OSS-4071 - Fix metric names such that the API provided by `Telegraf` is equivalent to the API provided by `dcos-metrics`.
-- DCOS_OSS-4089 - Add `executor_id` in `Telegraf` outputs.
-
-
-## Platform
-- COPS-3658/DCOS-21258 - Remove `dcos-history-service` from UI.  
-
-
-# About DC/OS 1.12 Beta
-
-DC/OS 1.12 Beta includes many new capabilities with a focus on:
-
-
-
-
-
-
-
-Provide feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
-
+DC/OS 1.12.0 Beta 1 includes the following new features and capabilities:
 
 ## New Features and Capabilities
 
-### Platform
+[enterprise]
+### Anonymous LDAP Bind Support
+[/enterprise]
+- Complies with standardized Enterprise LDAP integration pattern without a dedicated DC/OS integration LDAP user.
 
+### Dynamic LDAP Synchronization
+- Automatically synchronize DC/OS permissions after making changes to LDAP group membership.
 
-### Networking
+### Improved Multi-Cluster UI
+- DC/OS CLI now supports multiple clusters with different versions.
 
+### Mesosphere Kubernetes Engine
+- High density Multi-Kubernetes leveraging enhanced containerized bin packing. 
+
+### Metrics
+- Adopted industry standards & Free and Open Source Software (FOSS).
+- Refactored and simplified a massively complicated codebase.
+- Out of the box enhancements.
+- Better platform to continue building out observability in the future.
 
 [enterprise]
-### Security
+### Private Package Registry
 [/enterprise]
 
 
-### Monitoring
+### Universal Installer For Cloud
 
 
-### Storage
+### UX Enhancements
 
 
-### Updated DC/OS Data Services
+## Known Issues and Limitations
+- DCOS_OSS-4088/DCOS_OSS-4090 - Bump `Telegraf` package to fix 500 responses from v0 metrics API due to JSON serialization error.
+- DCOS-40878 - Fix add and remove operations on event stream subscribers.
+- DCOS-38011 - Fix bouncer recovery from unresponsive Cockroachdb. [enterprise type="inline" size="small" /]
+- DCOS-40551 - Prevent Mesos modules from loading an empty value.
+- DCOS-40740 - Admin Router: Modify `access_log` permissions from IAM. [enterprise type="inline" size="small" /]
+- DCOS-40748 - Modify default configurations in Mesos authorizer HTTP client with reasonable duration for timeouts. [enterprise type="inline" size="small" /]
+- DCOS-9929 - Implement a validation to access secrets. [enterprise type="inline" size="small" /]
+- DCOS_OSS-4060 - Fix `null` value issue in `dcos_metrics` output.
+
 
