@@ -18,7 +18,7 @@ DC/OS services are Marathon applications that are deployed on DC/OS. DC/OS servi
 
 #  DC/OS Services
 
-You can run DC/OS services you create or install a package from the [Catalog](/1.11/gui/catalog/). Both services you create and those you install from Universe appear on the **Services** tab of the DC/OS web interface when they are running.
+You can run DC/OS services you create or install a package from the [Catalog](/1.11/gui/catalog/). Both the services you create and those you install from Universe appear on the **Services** tab of the DC/OS web interface when they are running.
 
 Services you create yourself are administered by Marathon and can be configured and run [from the DC/OS CLI](/1.11/cli/command-reference/) with `dcos marathon` subcommands (e.g. `dcos marathon app add <myapp>.json`) or via the DC/OS web interface.
 

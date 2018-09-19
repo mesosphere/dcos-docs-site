@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Kill one or more running pod instances.
+The `dcos marathon pod kill` command allows you to kill one or more running pod instances.
 
 # Usage
 
@@ -23,10 +23,10 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<instance-ids>`   |             | List of one or more pod instance IDs, separated by a space. |
-| `<pod-id>`   |             | The pod ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<instance-ids>`   |  List of one or more pod instance IDs, separated by a space. |
+| `<pod-id>`   |  The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` command.|
 
 # Parent command
 
@@ -34,4 +34,3 @@ None.
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

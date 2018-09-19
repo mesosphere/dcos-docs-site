@@ -8,22 +8,20 @@ excerpt: Tutorial - Deploying applications on Marathon using Jenkins for DC/OS
 enterprise: false
 ---
 
-This tutorial shows how to deploy applications on [Marathon][1] using Jenkins for DC/OS. We'll walk you through creating a new Jenkins job, publishing a Docker container on source code changes, and deploying those changes to Marathon based on the [application definition][3] contained in the project’s `marathon.json` file.
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+
+This tutorial shows how to deploy applications on [Marathon][1] using Jenkins for DC/OS. This tutorial will walk you through creating a new Jenkins job, publishing a Docker container on source code changes, and deploying those changes to Marathon based on the [application definition][3] contained in the project’s `marathon.json` file.
+
 
 **Prerequisite:**
 This tutorial assumes that you have a working Jenkins installation and permission to launch applications on Marathon. Jenkins for DC/OS must be installed as described on the [Jenkins Quickstart](/services/jenkins/quickstart/) page.
 
 # The Example Project
 
-The project used in this tutorial is taken from the [cd-demo][4] repository and runs a Jekyll website inside a Docker container.
+The project used in this tutorial is taken from the [cd-demo][4] repository and runs a Jekyll website inside a Docker container. The required files for this tutorial are `Dockerfile`, `conf/cd-demo-appn.json`, and the `site` directory. Copy those items to a new project and push to a new Git repository on the host of your choice. This tutorial uses [Docker Hub][6] to store the created image and requires account information to perform this task.
 
-The required files for this tutorial are `Dockerfile`, `conf/cd-demo-appn.json`, and the `site` directory. Copy those items to a new project and push to a new Git repository on the host of your choice.
-
-This tutorial uses [Docker Hub][6] to store the created image and requires account information to perform this task.
-
-# Accessing Jenkins for DC/OS
+## Accessing Jenkins for DC/OS
 
 Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/1.11/gui/).
 
@@ -31,29 +29,37 @@ Click the “Jenkins” service and then "Open Service" to access the Jenkins we
 
 ![dcos-velocity-jenkins-ui.png](/1.11/img/dcos-velocity-jenkins-ui.png)
 
-# Adding Docker Hub Credentials
+Figure 1. Jenkins web interface
 
-Jenkins stores account credentials within its Credential Store, which allows jobs to utilize credentials in a secure manner. From the main Jenkins page, click "Credentials" from the left-hand menu. From there, select "System" (also from the left-hand menu) and finally the "Global credentials (unrestricted)" link presented in the main viewing area. The left-hand menu should now have an "Add Credentials" option.
+## Adding Docker Hub Credentials
 
-Click "Add Credentials" to create a new credential for Docker Hub. The "Kind" drop-down should have the "Username with password" option selected. Fill out the rest of the information to match your Docker Hub account.
+Jenkins stores account credentials within its Credential Store, which allows jobs to use credentials in a secure manner. From the main Jenkins page, click **Credentials** from the left-hand menu. From there, select **System** (also from the left-hand menu) and finally the *Global credentials* (unrestricted) link presented in the main viewing area. The left-hand menu should now have an **Add Credentials** option.
+
+Click **Add Credentials** to create a new credential for Docker Hub. The **Kind** drop-down menu should have the "Username with password" option selected. Fill out the rest of the information to match your Docker Hub account.
 
 ![dcos-velocity-jenkins-creds-new.png](/1.11/img/dcos-velocity-jenkins-creds-new.png)
 
+Figure 2. Add Jenkins credentials
+
 # The Job
 
-We’ll create a new Jenkins job that performs several operations with Docker Hub and then either update or create a Marathon application.
+We will create a new Jenkins job that performs several operations with Docker Hub and then either update or create a Marathon application.
 
 Create a new **Freestyle** job with a name that includes only lowercase letters and hyphens. This name will be used later in the Docker image name and possibly as the Marathon application ID.
 
 ![dcos-jenkins-new-freestyle.png](/1.11/img/dcos-jenkins-new-freestyle.png)
 
-# SCM / Git
+Figure 3. Freestyle project
+
+## SCM/Git
 
 From the **Example Project** section above, fill in the Git repository URL with the newly created Git repository. This must be accessible to Jenkins and may require adding credentials to the Jenkins instance.
 
 ![dcos-jenkins-repourl.png](/1.11/img/dcos-jenkins-repourl.png)
 
-# Build Triggers
+Figure 4. Source Code Management credentials
+
+## Build Triggers
 
 Select the **Poll SCM** build trigger with a schedule of: `*/5 * * * *`. This will check the Git repository every five minutes for changes.
 
@@ -68,6 +74,8 @@ These steps can be performed by a single build step using the **Docker Build and
 
 ![dcos-velocity-jenkins-build-docker.png](/1.11/img/dcos-velocity-jenkins-build-docker.png)
 
+Figure 5. Docker "Add build step" options
+
 Fill in the following fields:
 
 * **Repository Name** with your Docker Hub username and `/${JOB_NAME}` as the suffix ("myusername/${JOB_NAME}")
@@ -76,11 +84,15 @@ Fill in the following fields:
 
 ![dcos-velocity-jenkins-build-docker-config.png](/1.11/img/dcos-velocity-jenkins-build-docker-config.png)
 
+Figure 6. Docker Build and Publish screen
+
 # Marathon Deployment
 
 Add a Marathon Deployment post-build action by selecting the **Marathon Deployment** option from the **Add post-build action** drop-down.
 
 ![dcos-jenkins-plugin-popup.png](/1.11/img/dcos-jenkins-plugin-popup.png)
+
+Figure 6. Marathon Deployment menu
 
 Fill in the following fields:
 
@@ -89,6 +101,8 @@ Fill in the following fields:
 * **Docker Image** with the image created above (`myusername/${JOB_NAME}:${GIT_COMMIT}`)
 
 ![dcos-velocity-marathon-config.png](/1.11/img/dcos-velocity-marathon-config.png)
+
+Figure 7. Post-Build Actions screen
 
 ## How It Works
 
@@ -108,6 +122,8 @@ Click **Build Now** and let the job build.
 
 ![dcos-jenkins-build-now.png](/1.11/img/dcos-jenkins-build-now.png)
 
+Figure 8. Build the job
+
 # Deployment
 
 Upon a successful run in Jenkins, the application will begin deployment on DC/OS. You can visit the DC/OS web interface to monitor progress.
@@ -116,11 +132,13 @@ When the **Status** has changed to **Running**, the deployment is complete and y
 
 ## Visit Your Site
 
-Visit port `80` on the public DC/OS agent to display a jekyll website.
+Visit port `80` on the public DC/OS agent to display a Jekyll website.
 
 ![dcos-jekyll-site1.png](/1.11/img/dcos-jekyll-site1.png)
 
-# Adding a New Post
+Figure 9. Jekyll demo
+
+## Adding a New Post
 
 The content in the `_posts` directory generates a Jekyll website. For this example project, that directory is `site/_posts`. Copy an existing post and create a new one with a more recent date in the filename. I added a post entitled "An Update".
 

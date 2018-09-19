@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  Uninstalling the CLI
 title: Uninstalling the CLI
 menuWeight: 4
-excerpt: How to uninstall the command line interface
+excerpt: Uninstalling the DC/OS command line interface
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 You can uninstall the CLI with these commands for your operating system.
 

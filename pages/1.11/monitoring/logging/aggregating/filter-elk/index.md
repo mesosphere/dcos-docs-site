@@ -8,7 +8,7 @@ excerpt: Filtering log output for specific tasks
 enterprise: false
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 The file system paths of DC/OS task logs contain information such as the agent ID, framework ID, and executor ID. You can use this information to filter the log output for specific tasks, applications, or agents.
 
 **Prerequisite**
@@ -50,19 +50,29 @@ In the screenshots below, we are using Kibana hosted by [logz.io][2], but your K
 
    ![Logstash Example](/1.11/img/logstash-framework-exists.png)
 
+   Figure 1. Logstash events
+
 1. Click the disclosure triangle next to one of these events to view the details. This will show all of the fields extracted from the task log file path:
 
    ![Logstash Example2](/1.11/img/logstash-fields.png)
+
+   Figure 2. Event details
 
 1. Search for all of the events that reference the framework ID of the event shown in the screenshot above, but that do not contain the chosen `framework` field. This will show only non-task results:
 
    ![Logstash Framework Search](/1.11/img/logstash-framework-search.png)
 
+   Figure 3. Search results
+
 # <a name="templates"></a>Template examples
 
 Here are some example query templates. Replace the template parameters `$executor1`, `$framework2`, and any others with the actual values from your cluster.
 
-**Important:** Do not change the quotation marks in these examples or the queries will not work. If you create custom queries, be careful with the placement of quotation marks.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Caution:</strong> Do not change the quotation marks in these examples or the queries will not work. If you create custom queries, be careful with the placement of quotation marks. </td> 
+</tr> 
+</table>
 
 *   Logs related to a specific executor `$executor1`, including logs for tasks run from that executor:
 

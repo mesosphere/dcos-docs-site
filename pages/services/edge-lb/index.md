@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle:  Edge-LB
 title: Edge-LB
 menuWeight: 30
-excerpt:
-
+excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
 
 enterprise: false
 ---

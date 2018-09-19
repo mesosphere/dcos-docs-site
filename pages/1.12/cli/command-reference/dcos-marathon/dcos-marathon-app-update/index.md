@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Add an application.
+The `command dcos marathon app add` allows you to add an application.
 
 # Usage
 
@@ -19,24 +19,24 @@ dcos marathon app update <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--force`   |             | Disable checks in Marathon during updates. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--force`   | Disable checks in Marathon during updates. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<app-id>`   |             |  The application ID. |
-| `<properties>`   |             |  List of one or more JSON object properties, separated by a space. The list must be formatted as `<key>=<value>`. For example, `cpus=2.0 mem=308`. If omitted, properties are read from a JSON object provided on stdin. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<app-id>`   |  The application ID.  You can view a list of the application IDs with the `dcos marathon app list` command. |
+| `<properties>`   |  List of one or more JSON object properties, separated by a space. The list must be formatted as `<key>=<value>`. For example, `cpus=2.0 mem=308`. If omitted, properties are read from a JSON object provided on stdin. |
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 
-For examples, see the [documentation](/1.11/deploying-services/update-user-service/).
+For examples, see the [documentation](/1.12/deploying-services/update-user-service/).

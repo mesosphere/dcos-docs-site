@@ -14,9 +14,7 @@ Marathon placement constraints control where services run to allow optimizing fo
 
 ## Hostname as field name
 
-Entering `@hostname` as the field name matches the agent node hostnames. See `UNIQUE operator`, below, for a usage example.
-
-All Marathon operators are supported when the field name is `@hostname`.
+Entering `@hostname` as the field name matches the agent node hostnames. All Marathon operators are supported when the field name is `@hostname`. See `UNIQUE operator`, below, for a usage example.
 
 ### Region and zone as field names
 
@@ -24,15 +22,9 @@ Use the `@region` and `@zone` field names to configure [fault domain awareness a
 
 ## Attribute as field name
 
-If `@hostname`, `@region`, or `@zone` are not specified as field names, then the field name is interpreted as a Mesos agent node attribute. A Mesos agent node attribute allows you to tag an agent node. See `mesos-slave --help` to learn how to set the attributes.
+If `@hostname`, `@region`, or `@zone` are not specified as field names, then the field name is interpreted as a Mesos agent node attribute. A Mesos agent node attribute allows you to tag an agent node. See `mesos-slave --help` to learn how to set the attributes. If the specified attribute is not defined on the agent node, most operators will refuse to run tasks on it. In fact, only the `UNLIKE` operator will (and always will) accept this offer for now, while other operators will always refuse it.
 
-If the specified attribute is not defined on the agent node, most operators will refuse to run tasks on it. In fact, only the `UNLIKE` operator will (and always will) accept this offer for now, while other operators will always refuse it.
-
-All Marathon operators are supported when the field name is an attribute.
-
-Marathon supports text, scalar, range, and set attribute values. For scalars, ranges, and sets, Marathon will perform a string comparison on the formatted values. The format matches that of the Mesos attribute formatting. For ranges and sets, the format is `[begin-end,...]` and `{item,...}` respectively. For example, you might have a range formatted as `[100-200]` and a set formatted as `{a,b,c}`.
-
-Regex is allowed for LIKE and UNLIKE operators; to match ANY value, use the string `.*`.
+All Marathon operators are supported when the field name is an attribute. Marathon supports text, scalar, range, and set attribute values. For scalars, ranges, and sets, Marathon will perform a string comparison on the formatted values. The format matches that of the Mesos attribute formatting. For ranges and sets, the format is `[begin-end,...]` and `{item,...}` respectively. For example, you might have a range formatted as `[100-200]` and a set formatted as `{a,b,c}`. Regex is allowed for LIKE and UNLIKE operators; to match ANY value, use the string `.*`.
 
 # Operators
 
@@ -109,7 +101,7 @@ Below, the field is named `hostname`, but the value is empty. This tells Maratho
 }
 ```
 
-**Note:** If the attribute in question is a scalar, it is rounded to the nearest thousandth using the half-even rounding strategy; zeroes after the decimal are dropped.
+If the attribute in question is a scalar, it is rounded to the nearest thousandth using the half-even rounding strategy; zeroes after the decimal are dropped.
 
 ## UNLIKE operator
 **Value** (required): A regular expression for the value of the attribute.

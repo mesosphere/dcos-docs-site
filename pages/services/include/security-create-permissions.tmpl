@@ -1,0 +1,89 @@
+
+# <a name="give-perms"></a>Create and Assign Permissions
+Use the following `curl` commands to rapidly provision the {{ model.techName }} service account with the required permissions.
+
+<p class="message--note"><strong>NOTE: </strong>Any forward slash ("/") in a resource must be replaced with `%252F` before it can be passed in a curl command.</p>
+
+When using the API to manage permissions, you must first create the permissions and then assign them. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation and continue to the next command.
+
+1.  Create the permission.
+
+<p class="message--important"><strong>IMPORTANT: </strong>These commands use the default {{ model.techName }} `role` value of `{{ model.packageName }}-role`. If you are running multiple instances of {{ model.techName }}, replace the instances of `{{ model.packageName }}-role` with the correct name (`<name>-role`). For example, if you have a {{ model.techName }} instance named `{{ model.packageName }}2`, you would replace each role value in the code samples to `{{ model.packageName }}2-role`.</p>
+
+## Permissive 
+
+Run these commands with your service account name (`<service-account-id>`) specified.
+
+```bash
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody \
+-d '{"description":"Allows Linux user nobody to execute tasks"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:{{ model.packageName }}-role \
+-d '{"description":"Controls the ability of {{ model.packageName }}-role to register as a framework with the Mesos master"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:role:{{ model.packageName }}-role \
+-d '{"description":"Controls the ability of {{ model.packageName }}-role to reserve resources"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:role:{{ model.packageName }}-role \
+-d '{"description":"Controls the ability of {{ model.packageName }}-role to access volumes"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:principal:<service-account-id> \
+-d '{"description":"Controls the ability of <service-account-id> to reserve resources"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:principal:<service-account-id> \
+-d '{"description":"Controls the ability of <service-account-id> to access volumes"}' \
+-H 'Content-Type: application/json'
+```
+
+## Strict
+Run these commands with your service account name (`<service-account-id>`) specified.
+
+```bash
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:{{ model.packageName }}-role \
+-d '{"description":"Controls the ability of {{ model.packageName }}-role to register as a framework with the Mesos master"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:role:{{ model.packageName }}-role \
+-d '{"description":"Controls the ability of {{ model.packageName }}-role to reserve resources"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:role:{{ model.packageName }}-role \
+-d '{"description":"Controls the ability of {{ model.packageName }}-role to access volumes"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:principal:<service-account-id> \
+-d '{"description":"Controls the ability of <service-account-id> to reserve resources"}' \
+-H 'Content-Type: application/json'
+curl -X PUT --cacert dcos-ca.crt \
+-H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:principal:<service-account-id> \
+-d '{"description":"Controls the ability of <service-account-id> to access volumes"}' \
+-H 'Content-Type: application/json'
+```
+
+1.  Grant the permissions and the allowed actions to the service account using the following commands.
+
+    <p class="message--important"><strong>IMPORTANT: </strong>These commands use the default {{ model.techName }} `role` value of `{{ model.packageName }}-role`. If you are running multiple instances of {{ model.techName }}, replace the instances of `{{ model.packageName }}-role` with the correct name (`<name>-role`). For example, if you have a {{ model.techName }} instance named `{{ model.packageName }}2`, you would replace each role value in the code samples to `{{ model.packageName }}2-role`.</p>
+
+    Run these commands with your service account name (`<service-account-id>`) specified.
+
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:{{ model.packageName }}-role/users/<service-account-id>/create
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:role:{{ model.packageName }}-role/users/<service-account-id>/create
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:role:{{ model.packageName }}-role/users/<service-account-id>/create
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody/users/<service-account-id>/create
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:reservation:principal:<service-account-id>/users/<service-account-id>/delete
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:volume:principal:<service-account-id>/users/<service-account-id>/delete
+    ```

@@ -527,7 +527,7 @@ $ dcos kafka --name=kafka plan show deploy --json
 ```
 
 ```bash
-$ curl -H "Authorization: token=$auth_token" "$dcos_url/service/kafka/v1/plan/deploy"
+$ curl -H "Authorization: token=$auth_token" "$dcos_url/service/kafka/v1/plans/deploy"
 {
     "phases": [
     {

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Replace a master node
 title: Replace a master node
 menuWeight: 800
-excerpt:
+excerpt: Replacing a master node in an existing DC/OS cluster
 
 enterprise: true
 ---
@@ -43,4 +43,4 @@ In order to confirm that the new master has joined the cluster successfully you 
 
 The procedure is identical to the verification performed following a master node upgrade.
 
-The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.11/installing/ent/upgrading/#dcos-masters) section in the upgrade documentation.
+The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.11/installing/production/upgrading/#dcos-masters) section in the upgrade documentation.

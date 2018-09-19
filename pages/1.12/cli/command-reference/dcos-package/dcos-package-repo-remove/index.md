@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Remove a package repository from DC/OS.
+The `dcos package repo remove` command allows you to remove a package repository from DC/OS.
 
 # Usage
 
@@ -20,22 +20,22 @@ dcos package repo remove <repo-name> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<repo-name>`   |             |  Name of the package repository. For example, `Universe`. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<repo-name>`   |             |  Name of the package repository. For example, `Universe`. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documentation](/1.11/administering-clusters/repo/).
+For an example, see the [documentation](/1.12/administering-clusters/repo/).

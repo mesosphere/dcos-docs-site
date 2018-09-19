@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using dcos task exec
 title: Using dcos task exec
 menuWeight: 20
-excerpt: Understanding command execution inside a task container
+excerpt: Using the dcos task exec command inside a task container
 beta: true
 enterprise: false
 ---
@@ -25,16 +25,11 @@ You can execute this command in the following modes.
 
 - `dcos task exec --interactive --tty <task-id> <command>`: streams STDOUT and STDERR from the remote terminal to your local terminal and streams STDIN from your local terminal to the remote terminal. Also puts your local terminal into raw mode; allocates a remote pseudo terminal (PTY); and streams STDOUT, STDERR, and STDIN through the remote PTY. This mode offers the maximum functionality.
 
-**Tips:**
+For more information on the `dcos task exec` commands, see the [CLI Reference section](/1.11/cli/command-reference/dcos-task/dcos-task-exec/).
+
+### Tips
 - We have included the text of the full flags above for readability, but each one can be shortened. Instead of typing `--interactive`, you can just type `-i`. Likewise, instead of typing `--tty`, you can just type `-t`.
-- If your mode streams raw bytes, you won't be able to launch programs like `vim`, because these programs require the use of control characters.
-
-<!-- Fork a Process Inside a Mesos Container, stream its output (OSS) -->
-<!-- Support Optional Stream of STDIN to Forked Process (OSS) -->
-<!-- Support Optional Pseudo-Teletype for Forked Process (OSS) -->
-<!-- Secure the Debugging API with Fine Grained Auth (Enterprise) -->
-
-For more information, see: the [Command reference](/1.11/cli/command-reference/).
+- If your mode streams raw bytes, you will not be able to launch programs like `vim`, because these programs require the use of control characters.
 
 # Quick start
 
@@ -42,7 +37,7 @@ Use this guide to get started with the `dcos task exec` debugging command.
 
 **Prerequisite:**
 
-- A container launched by using the [DC/OS Universal container runtime](/1.11/deploying-services/containerizers/).
+- A container launched by using the [DC/OS Universal container runtime](/1.11/deploying-services/containerizers/)
 
 # Pipe output from a command running inside a container
 
@@ -90,7 +85,7 @@ You can run commands inside a container by using the `dcos task exec` command. I
     ip-10-0-1-105.us-west-2.compute.internal
     ```
 
-For more information about the `dcos task exec` command, see the CLI command [reference](/1.11/cli/command-reference/).
+For more information on the `dcos task exec` commands, see the [CLI Reference section](/1.11/cli/command-reference/dcos-task/dcos-task-exec/).
 
 # Run an interactive command inside a task's container
 You can run interactive commands on machines in your cluster by using the `dcos task exec` command. In this example, the `dcos task exec` command is used to copy a simple script from your local machine to the task container on the node. The script is then administered locally by using the `dcos task exec` command.
@@ -242,5 +237,6 @@ In this example, a long running [job](/1.11/deploying-jobs/) is launched by usin
     bin   dev  home  lib64	     media  opt   root	sbin  sys  usr
     boot  etc  lib	 lost+found  mnt    proc  run	srv   tmp  var
     ```
-
- **Tip:** You can use shorthand abbreviations `-i` for `--interactive` or `-t` for `--tty`. Also, only the beginning unique characters of the `<task_id>` are required. For example, if your task ID is `exec-test_20161214195` and there are no other task IDs that begin with the letter `e`, this is valid command syntax: `dcos task exec -i -t e bash`. For more information, see the CLI command [reference](/1.11/cli/command-reference/).
+ 
+### Tip 
+You can use shorthand abbreviations `-i` for `--interactive` or `-t` for `--tty`. Also, only the beginning unique characters of the `<task_id>` are required. For example, if your task ID is `exec-test_20161214195` and there are no other task IDs that begin with the letter `e`, this is valid command syntax: `dcos task exec -i -t e bash`. For more information, see the CLI command [reference](/1.11/cli/command-reference/).

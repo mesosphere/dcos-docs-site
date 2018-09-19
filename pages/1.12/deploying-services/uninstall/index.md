@@ -8,9 +8,7 @@ excerpt: Uninstalling DC/OS services from the CLI
 enterprise: false
 ---
 
-
-
-Services can be uninstalled from the CLI. If a Universe service has any reserved resources, you also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.
+Services can be uninstalled from the CLI. If a Universe service has any reserved resources that could not be cleaned up by the normal uninstall process, you may also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.
 
 # Uninstalling Universe services
 
@@ -32,15 +30,18 @@ dcos package uninstall chronos
 
 From the DC/OS web interface you can uninstall services from the **Services** tab. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
 
-1.  Navigate to the [**Services**](/1.11/gui/services/) tab in the DC/OS web interface.
+1.  Navigate to the [**Services**](/1.12/gui/services/) tab in the DC/OS web interface.
 1.  Select your service, click the vertical ellipsis at the far right, and select **Delete**.
 
-    ![Destroy app](/1.11/img/service-delete.png)
+    ![Destroy app](/1.12/img/service-delete.png)
+    
+    Figure 1. Delete Services
+    
 1.  Copy and run the displayed command.
 
 ## Troubleshooting
 
-It's possible for an uninstall to fail with the following error message:
+It is possible for an uninstall to fail with the following error message:
 
 ```
 Incomplete uninstall of package [chronos] due to Mesos unavailability
@@ -70,23 +71,23 @@ Uninstall a user-created service with this command:
 dcos marathon app remove [--force] <app-id>
 ```
 
-For more information, see the [command reference](/1.11/cli/command-reference/#dcos-marathon).
+For more information, see the [command reference](/1.12/cli/command-reference/#dcos-marathon).
 
 ### Web interface
 
-From the DC/OS web interface you can uninstall services from the **Services**. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
+You can uninstall services from the DC/OS web interface, from the **Services** tab. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
 
 ### Services tab
 
-1.  Navigate to the [**Services**](/1.11/gui/services/) tab in the DC/OS web interface.
+1.  Navigate to the [**Services**](/1.12/gui/services/) tab in the DC/OS web interface.
 2.  Click on the **Installed** tab to see your installed services.
 3.  Hover your cursor over the name of the package you wish to uninstall and you will see a red "Uninstall" link to the right. Click this link to uninstall the package.
 
-## <a name="framework-cleaner"></a>Cleaning up ZooKeeper
+## <a name="framework-cleaner"></a>Cleaning up Resources and ZooKeeper
 
-### About Cleaning up ZooKeeper
+### About the cleanup
 
-If your service has reserved resources, you can use the framework cleaner docker image, `mesosphere/janitor`, to simplify the process of removing your service instance from ZooKeeper and destroying all the data associated with it.
+If your service has reserved resources and it did not completely clean itself up automatically, you can use the framework cleaner docker image, `mesosphere/janitor`, to simplify the process of removing your service instance from ZooKeeper and destroying all the data associated with it. **On DC/OS 1.10+ clusters, this should only be necessary in rare circumstances such as a failed uninstall.** The package's documentation may have its own additional information in an "Uninstall" section.
 
 There are two ways to run the framework cleaner script. The preferred method is via the DC/OS CLI. If the CLI is unavailable, you can also run the image as a self-deleting Marathon task.
 
@@ -94,35 +95,24 @@ There are two ways to run the framework cleaner script. The preferred method is 
 
 The script takes the following flags:
 
-* `-r`: The role of the resources to be deleted
-* `-p`: The principal of the resources to be deleted
-* `-z`: The configuration zookeeper node to be deleted
+* `-r <role>`: The role of the resources to be deleted
+* `-z <zk-node>`: The configuration zookeeper node to be deleted
 
-These are some examples of default configurations (these will vary depending on selected task name, etc):
+The command would be run as follows:
 
-* Cassandra default:
+```bash
+docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service-<service_name>
+```
 
-  ```bash
-  docker run mesosphere/janitor /janitor.py -r cassandra-role -p cassandra-principal -z dcos-service-cassandra
-  ```
+If you are using a strict-mode cluster, you must provide additional arguments providing credentials to perform the cleanup:
+* `-a <token>`: Token to be used for authentication
+* `--username <username>` and `--password <password>`: Username and password to be used for authentication
 
-* HDFS default:
+For example, the command could be run with an auth token included as follows:
 
-  ```bash
-  docker run mesosphere/janitor /janitor.py -r hdfs-role -p hdfs-principal -z dcos-service-hdfs
-  ```
-
-* Kafka default:
-
-  ```bash
-  docker run mesosphere/janitor /janitor.py -r kafka-role -p kafka-principal -z dcos-service-kafka
-  ```
-
-* Custom values:
-
-  ```bash
-  docker run mesosphere/janitor /janitor.py -r <custom_role> -p <custom_principal> -z dcos-service-<custom_service_name>
-  ```
+```bash
+docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service-<service_name> -a <content of "dcos config show core.dcos_acs_token">
+```
 
 ### Running from the DC/OS CLI
 
@@ -132,17 +122,17 @@ Connect to the leader and start the script:
 
         your-machine$ dcos node ssh --master-proxy --leader
 
-1. Run the `mesosphere/janitor` image with the role, principal, and zookeeper nodes that were configured for your service:
+1. Run the `mesosphere/janitor` image with the role and zookeeper node that were configured for your service, along with an auth token if on a strict mode cluster:
 
-        docker run mesosphere/janitor /janitor.py -r sample-role -p sample-principal -z sample-zk
+        docker run mesosphere/janitor /janitor.py -r sample-role -z sample-zk [-a auth-token]
 
 ### Running from Marathon
 
-From the DC/OS [**Services**](/1.11/gui/) tab, use the JSON editor to add the following as a Marathon task. Replace the values passed to `-r`/`-p`/`-z` according to what needs to be cleaned up.
+From the DC/OS [**Services**](/1.12/gui/) tab, use the JSON editor to add the following as a Marathon task. Replace the values passed to `-r`/`-z` according to what needs to be cleaned up.
 
     {
       "id": "janitor",
-      "cmd": "/janitor.py -r sample-role -p sample-principal -z sample",
+      "cmd": "/janitor.py -r sample-role -z dcos-service-sample",
       "cpus": 1,
       "mem": 128,
       "disk": 1,
@@ -174,39 +164,39 @@ To view the script's outcome, go to Mesos (`http://your-cluster.com/mesos`) and 
 
 ### Sample result
 
-Here's an example of the output for a successful run for a Cassandra installation:
+Here is an example of the output for a successful run for a sample installation:
 
     your-machine$ dcos node ssh --master-proxy --leader
 
-    leader-node$ docker run mesosphere/janitor /janitor.py -r cassandra_role -p cassandra_principal -z cassandra
+    leader-node$ docker run mesosphere/janitor /janitor.py -r sample_role -z dcos-service-sample
     [... docker download ...]
-    Master: http://leader.mesos:5050/master/ Exhibitor: http://leader.mesos:8181/ Role: cassandra_role Principal: cassandra_principal ZK Path: cassandra
+    Master: http://leader.mesos:5050/master/ Exhibitor: http://leader.mesos:8181/ Role: sample_role ZK Path: sample
 
     Destroying volumes...
     Mesos version: 0.28.1 => 28
-    Found 1 volume(s) for role 'cassandra_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S5, deleting...
+    Found 1 volume(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S5, deleting...
     200
-    Found 1 volume(s) for role 'cassandra_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S4, deleting...
+    Found 1 volume(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S4, deleting...
     200
     No reserved resources for any role on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S3
     No reserved resources for any role on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S2
-    Found 1 volume(s) for role 'cassandra_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S1, deleting...
+    Found 1 volume(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S1, deleting...
     200
-    No reserved resources for role 'cassandra_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S0. Known roles are: [slave_public]
+    No reserved resources for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S0. Known roles are: [slave_public]
 
     Unreserving resources...
-    Found 4 resource(s) for role 'cassandra_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S5, deleting...
+    Found 4 resource(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S5, deleting...
     200
-    Found 4 resource(s) for role 'cassandra_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S4, deleting...
+    Found 4 resource(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S4, deleting...
     200
     No reserved resources for any role on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S3
     No reserved resources for any role on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S2
-    Found 4 resource(s) for role 'cassandra_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S1, deleting...
+    Found 4 resource(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S1, deleting...
     200
-    No reserved resources for role 'cassandra_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S0. Known roles are: [slave_public]
+    No reserved resources for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S0. Known roles are: [slave_public]
 
     Deleting zk node...
-    Successfully deleted znode 'cassandra' (code=200), if znode existed.
+    Successfully deleted znode 'dcos-service-sample' (code=200), if znode existed.
     Cleanup completed successfully.
 
 If you run the script via Marathon, you will also see the following output:

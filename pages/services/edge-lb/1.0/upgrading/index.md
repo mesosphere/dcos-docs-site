@@ -47,7 +47,8 @@ Perform an Edge-LB upgrade by following this procedure.
     dcos package install --options=edgelb-options.json edgelb
     ```
 
-1. Upgrade each pool.
+
+Upgrade each pool.
 
     ```bash
     dcos edgelb update <pool-file>

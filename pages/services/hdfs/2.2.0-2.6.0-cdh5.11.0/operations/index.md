@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Managing HDFS operations
 title: Operations
 menuWeight: 30
 model: /services/hdfs/data.yml

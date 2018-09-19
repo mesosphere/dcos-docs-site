@@ -14,7 +14,7 @@ To use this procedure, you must obtain the custom non-native Marathon tarball fr
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.11/installing/oss/).
+-  DC/OS and DC/OS CLI [installed](/1.11/installing/).
 -  [DC/OS Enterprise CLI 0.4.14 or later](/1.11/cli/enterprise-cli/#ent-cli-install).
 -  Custom non-native Marathon tarball. Contact your sales representative or <sales@mesosphere.io> for access to this file.
 -  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.11/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
@@ -62,7 +62,12 @@ In this step, the custom non-native Marathon instance is pushed to the private D
 In this step, Mesos resources are reserved. Choose the procedure for either [static](#static-reservations) or [dynamic](#dynamic-reservations) reservations.
 
 ## Static Reservations
-**Warning:** This procedure kills all running tasks on your node.
+
+<table class=“table” bgcolor=#ffd000>
+<tr> 
+  <td align=justify style=color:black><strong>Warning:</strong> This procedure kills all running tasks on your node.</td> 
+</tr> 
+</table>
 
 1.  [SSH](/1.11/administering-clusters/sshcluster/) to your private agent node.
 
@@ -101,7 +106,7 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
         sudo systemctl start dcos-mesos-slave
         ```
 
-        **Tip:** You can check the status with this command:
+        You can check the status with this command:
 
         ```bash
         sudo systemctl status dcos-mesos-slave
@@ -165,7 +170,7 @@ curl -i -k \
 ```
 
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required.
+Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required.
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -186,9 +191,7 @@ In this step, a Marathon Service Account is created. Depending on your [security
     ```
 
 # Step 4 - Create Private Docker Registry Credentials for Private Agents
-In this step, the credential tarball is transferred to the local file system of each private agent using [secure copy](https://linux.die.net/man/1/scp).
-
-**Tip:** The following instructions are optimized for CoreOS masters and agents. If you are running CentOS, just replace `core` with `centos` throughout the following commands.
+In this step, the credential tarball is transferred to the local file system of each private agent using [secure copy](https://linux.die.net/man/1/scp). The following instructions are optimized for CoreOS masters and agents. If you are running CentOS, replace `core` with `centos` throughout the following commands.
 
 1. From a terminal prompt, log into your private Docker registry.
    -  If your private repository is on Docker Hub, use this command:
@@ -217,7 +220,7 @@ In this step, the credential tarball is transferred to the local file system of 
    sudo tar cvzf docker.tar.gz .docker
    ```
 
-    **Tip:** You can confirm that the operation succeeded with this command.
+    You can confirm that the operation succeeded with this command.
 
    ```bash
    tar -tvf docker.tar.gz
@@ -232,7 +235,7 @@ In this step, the credential tarball is transferred to the local file system of 
 
 1. Copy the Docker credentials file to one of your masters with the public master IP address (`<public-master-ip>`) specified.
 
-   **Tip:** You can find the public master IP address by clicking on the cluster name in the top-left corner of the DC/OS GUI.
+   You can find the public master IP address by clicking on the cluster name in the top-left corner of the DC/OS web interface.
 
    ```bash
    scp docker.tar.gz core@<public-master-ip>:~
@@ -287,9 +290,7 @@ In this step, the credential tarball is transferred to the local file system of 
    for i in $PRIVATE_AGENT_IPS; do scp -o StrictHostKeyChecking=no docker.tar.gz core@$i:~/docker.tar.gz ; done
    ```
 # Step 5 - Create a Service Account Secret
-In this step, a secret is created for the Marathon service account and stored in the Secret Store.
-
-Create a secret (`<path-to-secret-name>`) for your service account. The secret will contain the private key (`<private-key>.pem`) and the name of the service account (`<service-account-id>`).
+In this step, a secret is created for the Marathon service account and stored in the Secret Store. Create a secret (`<path-to-secret-name>`) for your service account. The secret will contain the private key (`<private-key>.pem`) and the name of the service account (`<service-account-id>`).
 
 ### Disabled
 
@@ -647,9 +648,11 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 # Step 8 - Grant User Access to Non-Native Marathon
 In this step, a user is granted access to the non-native Marathon instance.
 
-1. Log into the DC/OS GUI as a user with the `superuser` permission.
+1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
+
+   FFigure 1. DC/OS web interface login
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -657,11 +660,15 @@ In this step, a user is granted access to the non-native Marathon instance.
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
 
+    Figure 2. Select user for permissions
+
 1.  From the **Permissions** tab click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
+
+    Figure 3. Adding permission string
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
@@ -748,9 +755,11 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
     ![Log in DC/OS](/1.11/img/gui-installer-login-ee.gif)
 
-    You are done!
+    Figure 4. You are done!
 
     ![Marathon on Marathon](/1.11/img/mom-marathon-gui.png)
+
+    Figure 5. Logged in on Marathon
 
 # Next Steps
 

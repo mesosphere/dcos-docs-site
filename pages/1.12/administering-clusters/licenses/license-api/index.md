@@ -4,7 +4,7 @@ navigationTitle:  License API
 title: License API
 menuWeight: 3
 enterprise: true
-excerpt: Use the License API to manage DC/OS licenses.
+excerpt: Using the License API to manage your DC/OS license
 ---
 # Routes
 
@@ -48,7 +48,7 @@ The License API also requires authorization via the following permissions:
 
 | Resource ID | Action |
 |-------------|--------|
-| `dcos:adminrouter:ops:license` | `full` |
+| `dcos:adminrouter:licensing` | `full` |
 
 All routes can also be reached by users with the `dcos:superuser` permission.
 

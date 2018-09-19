@@ -17,4 +17,4 @@ Pods allow quick, convenient coordination between applications that need to work
 - Co-located containers.
 - Pod-level resource isolation.
 - Pod-level sandbox, ephemeral, and persistent volumes.
-- Pod-level health checks.
+- Pod-level health checks. 

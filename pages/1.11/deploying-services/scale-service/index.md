@@ -8,9 +8,6 @@ excerpt: Scaling a service using the web interface and the CLI
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 This tutorial shows how to scale a service using the web interface and the CLI.
 
 # Scale Your Service from the Web Interface
@@ -18,10 +15,18 @@ This tutorial shows how to scale a service using the web interface and the CLI.
 1. From the **Services** tab, put your cursor over the name of the service you want to scale to reveal a gear symbol.   
 1. Click the gear symbol and choose **Scale**.
    ![gear symbol](/1.11/img/gear-services.png)
+
+   Figure 1. Drop-down gear menu and options
+
 1. Enter the total number of instances you would like, then click **SCALE SERVICE**.
    ![scale](/1.11/img/scale-services.png)
+
+   Figure 2. Choose number of instances
+
 1. Click the name of your service to see your scaled service.
    ![post scale](/1.11/img/post-scale-services.png)
+
+   Figure 3. Services list
 
 # Scale Your Service from the CLI
 

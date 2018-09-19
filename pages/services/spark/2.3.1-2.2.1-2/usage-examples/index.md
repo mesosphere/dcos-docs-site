@@ -1,14 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
-title: Usage Example 
-menuWeight: 10
+navigationTitle: Usage Examples
+excerpt: Usage examples
+title: Usage Examples
+menuWeight: 16
 featureMaturity:
 
 ---
+# Default installation example
 
-1.  Perform a default installation by following the instructions in the Install and Customize section of this topic.
+1.  Perform a default installation by following the instructions in the [Install and Customize](/services/spark/2.3.1-2.2.1-2/install/) section of this topic.
 
 1.  Run a Spark job:
 
@@ -26,10 +27,10 @@ featureMaturity:
 
 Visit the Spark cluster dispatcher at `http://<dcos-url>/service/spark/` to view the status of your job. Also visit the Mesos UI at `http://<dcos-url>/mesos/` to see job logs.
 
-## Advanced
+## Advanced examples
 
-*   Run an Spark Streaming job with Kafka: Examples of Spark Streaming applications that connect to a secure Kafka cluster can be found at [spark-build][https://github.com/mesosphere/spark-build/blob/beta-2.1.1-2.2.0-2/tests/jobs/scala/src/main/scala/KafkaJobs.scala]. As mentioned in the [kerberos][https://docs.mesosphere.com/services/spark/2.1.0-2.2.0-2/kerberos/] section, Spark requires a JAAS file, the `krb5.conf`, and the keytab. An example of the JAAS file is: 
-        
+*   Run a Spark Streaming job with Kafka: Examples of Spark Streaming applications that connect to a secure Kafka cluster can be found at [spark-build](https://github.com/mesosphere/spark-build/blob/beta-2.1.1-2.2.0-2/tests/jobs/scala/src/main/scala/KafkaJobs.scala). As mentioned in the [Using Keberos-secured Kafka](/services/spark/2.3.1-2.2.1-2/kerberos/#using-kerberos-secured-kafka) section, Spark requires a JAAS file, the `krb5.conf`, and the keytab. An example of the JAAS file is:
+
         KafkaClient {
             com.sun.security.auth.module.Krb5LoginModule required
             useKeyTab=true
@@ -39,8 +40,8 @@ Visit the Spark cluster dispatcher at `http://<dcos-url>/service/spark/` to view
             serviceName="kafka"
             principal="client@LOCAL";
         };
-    
-    The corresponding `dcos spark` command would be: 
+
+    The corresponding `dcos spark` command would be:
 
         dcos spark run --submit-args="\
         --conf spark.mesos.containerizer=mesos \  # required for secrets
@@ -49,7 +50,7 @@ Visit the Spark cluster dispatcher at `http://<dcos-url>/service/spark/` to view
         --conf spark.mesos.driver.secret.filenames=kafka-client.keytab \
         --conf spark.mesos.executor.secret.names=spark/__dcos_base64___keytab \
         --conf spark.mesos.executor.secret.filenames=kafka-client.keytab \
-        --conf spark.mesos.task.labels=DCOS_SPACE:/spark \ 
+        --conf spark.mesos.task.labels=DCOS_SPACE:/spark \
         --conf spark.scheduler.minRegisteredResourcesRatio=1.0 \
         --conf spark.executorEnv.KRB5_CONFIG_BASE64=W2xpYmRlZmF1bHRzXQpkZWZhdWx0X3JlYWxtID0gTE9DQUwKCltyZWFsbXNdCiAgTE9DQUwgPSB7CiAgICBrZGMgPSBrZGMubWFyYXRob24uYXV0b2lwLmRjb3MudGhpc2Rjb3MuZGlyZWN0b3J5OjI1MDAKICB9Cg== \
         --conf spark.mesos.driverEnv.KRB5_CONFIG_BASE64=W2xpYmRlZmF1bHRzXQpkZWZhdWx0X3JlYWxtID0gTE9DQUwKCltyZWFsbXNdCiAgTE9DQUwgPSB7CiAgICBrZGMgPSBrZGMubWFyYXRob24uYXV0b2lwLmRjb3MudGhpc2Rjb3MuZGlyZWN0b3J5OjI1MDAKICB9Cg== \
@@ -57,4 +58,4 @@ Visit the Spark cluster dispatcher at `http://<dcos-url>/service/spark/` to view
 
 
 
-*Note* There are additional walkthroughs available in the `docs/walkthroughs/` directory of Mesosphere's `spark-build` [repo](https://github.com/mesosphere/spark-build/docs/walkthroughs/)
+**Note:** There are additional walkthroughs available in the `docs/walkthroughs/` directory of Mesosphere's `spark-build` [repo](https://github.com/mesosphere/spark-build/tree/master/docs/walkthroughs).

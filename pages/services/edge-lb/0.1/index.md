@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Edge-LB 0.1
 title: Edge-LB 0.1
-menuWeight: 10
-excerpt:
+menuWeight: 30
+excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
 
 enterprise: false
 ---

@@ -3,26 +3,27 @@ layout: layout.pug
 navigationTitle: Production Installation
 title: Production Installation
 menuWeight: 15
-excerpt: Installation process to create DC/OS clusters
+excerpt: Installing production-ready DC/OS 
 ---
 
-The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.11/overview/concepts/#node) documentation for more information.
 
-This method is used to install production-ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+This section describes how to install a production-ready deployment of DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+
+The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.11/overview/concepts/#node) documentation for more information.
 
 # Production Installation Process
 
  The following steps are required to install DC/OS clusters:
 
-*   Configure bootstrap node
-*   Install DC/OS on master node
-*   Install DC/OS on agent node
+1. Configure bootstrap node
+1. Install DC/OS on master node
+1. Install DC/OS on agent node
 
 ![Production Installation Process](/1.11/img/advanced-installer.png)
-Figure 1 - The production installation process
+Figure 1. The production installation process
 
 
-This installation method requires:
+This installation method requires that:
 
 *   The bootstrap node must be network accessible from the cluster nodes.
 *   The bootstrap node must have the HTTP(S) ports open from the cluster nodes.
@@ -42,7 +43,7 @@ The DC/OS installation creates the following folders:
 **Note:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
 ## Prerequisites
-Before installing DC/OS, your cluster must meet the software and hardware [requirements][1].
+Before installing DC/OS, your cluster must meet the software and hardware [requirements](/1.11/installing/production/system-requirements/).
 
 
 # <a name="configure-cluster"></a>Configure your cluster
@@ -63,7 +64,7 @@ In this step, an IP detection script is created. This script reports the IP addr
 
 **Note:**
 
-- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing/ent/custom/uninstall/).
+- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [uninstalled](/1.11/installing/production/uninstalling/).
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
 1.  Create an IP detection script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) line. You can use the examples below.
@@ -121,7 +122,7 @@ MASTER_IP=172.28.128.3
 echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
 ```
 
-        [oss type="inline" size="small" /]
+[oss type="inline" size="small" /]
 
 ```bash
 #!/usr/bin/env bash
@@ -410,7 +411,7 @@ At this point your directory structure should resemble:
 
 ![Exhibitor for ZooKeeper](/1.11/img/chef-zk-status.png)
 
-Figure 2 - Exhibitor for ZooKeeper
+Figure 2. Exhibitor for ZooKeeper
 
    When the status icons are green, you can access the DC/OS web interface.
 
@@ -422,21 +423,21 @@ Figure 2 - Exhibitor for ZooKeeper
 
 ![Login screen](/1.11/img/ui-installer-auth2.png)
 
-Figure 3 - Sign in dialogue
+Figure 3. Sign in dialogue
 
 
 You are done! The UI dashboard will now be displayed.
 
 ![UI dashboard](/1.11/img/dashboard-ee.png)
 
-Figure 4 - DC/OS UI dashboard
+Figure 4. DC/OS UI dashboard
 
 
 ### Next Steps: Enterprise and Open Source users
 
 You can find information on the next steps listed below:
 - [Assign user roles][7].
-- [System Requirements][1]
+- [System Requirements](/1.11/installing/production/system-requirements/)
 - [Public agent nodes][2]
 - [Private agent nodes][3]
 - [Install the DC/OS Command-Line Interface (CLI)][9]
@@ -445,7 +446,7 @@ You can find information on the next steps listed below:
 - [Uninstalling DC/OS][11]
 
 
-[1]: /1.11/installing/ent/custom/system-requirements/
+[1]: /1.11/installing/production/system-requirements/
 [2]: /1.11/overview/concepts/#public
 [3]: /1.11/overview/concepts/#private
 [5]: /1.11/img/ui-installer-auth2.png

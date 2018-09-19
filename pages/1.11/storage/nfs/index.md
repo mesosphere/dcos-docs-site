@@ -5,22 +5,27 @@ excerpt: Mounting a shared network drive
 title: NFS Server
 menuWeight: 1
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 
 # Overview
 
 For some stateful services, such as Jenkins, it can be convenient to mount a shared network drive to every node. A shared network drive makes it possible to launch the task on a new node if the node in use becomes unavailable.
 
-**Note:** This example uses CoreOS and systemd and has not been tested in other environments.
+<table class=“table” bgcolor=#7d58ff>
+<tr> 
+  <td align=justify style=color:white><strong>Note:</strong> This example uses CoreOS and `systemd`, and has not been tested in other environments.</td> 
+</tr> 
+</table>
+
 
 ## Notes
 
 - These instructions are CoreOS-specific.
 - This is not an HA NFS server. It runs on a single master and should only be used as a proof of concept.
-- If you have access to a pre-existing NFS or another network store, skip to <a href="#part2">part II</a>.
-
-### Part I: Configure the master with the file-share
+- If you have access to a pre-existing NFS or another network store, skip to  [Configure the agent(s) to mount the drive
+](#agents).
+### Configure the master with the file-share
 
 1. Log in to the master node using the DC/OS command line interface:
 
@@ -55,8 +60,9 @@ For some stateful services, such as Jenkins, it can be convenient to mount a sha
     sudo systemctl enable nfsd
     ```
 
-<a name="part2"></a>
-### Part II: Configure the agent(s) to mount the drive
+<a name="agents"></a>
+
+### Configure the agent(s) to mount the drive
 
 1. List nodes in the cluster:
 
@@ -85,7 +91,7 @@ For some stateful services, such as Jenkins, it can be convenient to mount a sha
     sudo mkdir /var/lib/nfs
     ```
 
-1. Create a new systemd mount unit to describe the mount. The name of the `.mount` file is the same as the path to the mount point, with the leading slash removed and other slashes converted to dash. Using `/mnt/data` as an example, the file is named `mnt-data.mount`. In addition, replace `10.0.7.181` with the IP of the NFS host. [More information can be found in the CoreOS documentation][1]:
+1. Create a new `systemd` mount unit to describe the mount. The name of the `.mount` file is the same as the path to the mount point, with the leading slash removed and other slashes converted to dash. Using `/mnt/data` as an example, the file is named `mnt-data.mount`. In addition, replace `10.0.7.181` with the IP of the NFS host. [More information can be found in the CoreOS documentation][1]:
 
     ```bash
     cat /etc/systemd/system/mnt-data.mount

@@ -25,6 +25,8 @@ You can load balance DNS requests in clusters with large numbers of agents by ad
 
 ![Mesos-DNS](/1.11/img/mesos-dns.png)
 
+Figure 1. Mesos-DNS integration
+
 As shown in the diagram, Mesos-DNS optionally integrates with your existing DNS infrastructure. Mesos-DNS replies directly to lookup requests from agent nodes for applications and services within your DC/OS cluster. If an agent node makes a DNS request for a hostname that is outside your DC/OS cluster, Mesos-DNS queries an external nameserver. External nameservers are only required if DC/OS cluster nodes must resolve hostnames for systems elsewhere on your network or on the Internet.
 
  [1]: https://github.com/mesosphere/mesos-dns

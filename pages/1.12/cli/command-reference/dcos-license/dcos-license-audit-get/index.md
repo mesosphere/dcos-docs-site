@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-Get the cluster license audit records.
+The `dcos license audit get` command allows you to view the cluster license audit records.
 
 # Usage
 
@@ -19,28 +19,26 @@ dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--output`   |             |  Store the audit records in a file. |
-| `--decrypt`   |             |  Decrypt the license audit records checksum. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--output`   |  Store the audit records in a file. |
+| `--decrypt`   |   Decrypt the license audit records checksum. |
 
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<id> `   |             |  The ID of the license. |
-| `active`   |             |  The active license. |
-| `<file_path>`    |   |  The path to a file to store the audit records. |
-
-
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<id> `   |  The ID of the license. |
+| `active`   |   The active license. |
+| `<file_path>`    |  The path to a file to store the audit records. |
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.11/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/1.12/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
 
 # Examples
-For examples, see [Licenses](/1.11/administering-clusters/licenses/).
+For examples, see [Licenses](/1.12/administering-clusters/licenses/).

@@ -1,114 +1,123 @@
 ---
 layout: layout.pug
-navigationTitle:  Docker on CentOS
-title: Install Docker on CentOS
+navigationTitle:  Docker on CentOS/RHEL
+title: Installing Docker on CentOS/RHEL
 menuWeight: 5
-excerpt: Requirements and recommendations for installing Docker on CentOS
+excerpt: Requirements, recommendations and procedures for installing Docker CE on CentOS/RHEL
 ---
 
 # Requirements and Recommendations
 
-Before installing Docker on CentOS, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS-specific recommendations:
+These directions cover the installation of Docker CE on CentOS/RHEL. Before installing Docker on CentOS/RHEL, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS/RHEL-specific recommendations:
 
-* Use the Docker `yum` repository to install Docker on CentOS. The yum repository makes it easy to upgrade and automatically manages dependency installation.
+* OverlayFS is now the default in Docker CE. There is no longer a need to specify or configure the overlay driver. Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if they want.
 
-* Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if required.
+* These instructions are specific to CentOS/RHEL 7.4. Other versions of CentOS/RHEL 7 should work but might require minor modifications to the commands.
 
-* Use CentOS 7.2 or greater. OverlayFS support was improved in 7.2 to fix <a href="https://github.com/docker/docker/issues/10294" target="_blank">a bug with XFS</a>.
+* Format node storage as XFS with the `ftype=1` option. As of CentOS/RHEL 7.2, [only XFS is currently supported for use as a lower layer file system][2].
 
-* Format node storage as XFS with the `ftype=1` option. As of CentOS 7.2, "<a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html" target="_blank">only XFS is currently supported for use as a lower layer file system</a>".
+* For more generic Docker requirements, see [System Requirements: Docker](/1.11/installing/production/system-requirements/#docker).
 
-  ```bash
-  mkfs -t xfs -n ftype=1 /dev/sdc1
-  ```
+**Note:** In modern versions of Centos and RHEL, `ftype=1` is the default. The `xfs_info` utility can be used to verify that `ftype=1`.
 
-# Installation Procedure
+    ```bash
+    mkfs -t xfs -n ftype=1 /dev/sdc1
+    ```
 
-Follow the Docker <a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank">CentOS-specific installation instructions</a>.
+# Installation
 
+Follow the Docker [CentOS-specific installation instructions](https://docs.docker.com/install/linux/docker-ce/centos/).
 
-## Example: Installing Docker with OverlayFS
+### RHEL-only requirements
+
+You must register with the subcription-manager to enable additional repos.
+
+Follow the Docker [CentOS-specific installation instructions][3]
+
+# Only applies to RHEL: register with the subcription-manager to enable additional repos
+
+1.  Subscribe the RHEL system in subscription-manager and add the repos
+
+    ```bash
+    sudo subscription-manager register --username <RHEL-SUBSCRIPTION-USERNAME> --password ******** --auto-attach
+
+    sudo subscription-manager repos --enable=rhel-7-server-rpms
+    sudo subscription-manager repos --enable=rhel-7-server-extras-rpms
+    sudo subscription-manager repos --enable=rhel-7-server-optional-rpms
+    ```
+
+# Example: Installing Docker with OverlayFS on CentOS/RedHat
 
 The following instructions demonstrate how to use Docker with OverlayFS on CentOS 7.
 
-1.  Upgrade CentOS to 7.4.
+1.  Configure OS for overlay storage
 
     ```bash
-    sudo yum upgrade --assumeyes --tolerant
-    sudo yum update --assumeyes
+    sudo echo 'overlay' >> /etc/modules-load.d/overlay.conf
+    sudo modprobe overlay
     ```
 
-1.  Verify that the kernel is at least 3.10.
-
-    ```
-    uname -r
-    3.10.0-327.10.1.el7.x86_64
-    ```
-
-1.  Enable OverlayFS.
+1.  Run yum update
 
     ```bash
-    sudo tee /etc/modules-load.d/overlay.conf <<-'EOF'
-    overlay
-    EOF
+    sudo yum update --exclude=docker-engine,docker-engine-selinux,centos-release* --assumeyes --tolerant
     ```
 
-1.  Reboot to reload kernel modules.
+1.  Un-install old versions of Docker (if present):
 
     ```bash
-    reboot
+    sudo yum remove docker \
+                  docker-common \
+                  docker-selinux \
+                  docker-engine
     ```
 
-1.  Verify that OverlayFS is enabled.
+1.  Set up Docker CE repository:
 
     ```bash
-    lsmod | grep overlay
-    overlay
+    sudo yum-config-manager \
+        --add-repo \
+        https://download.docker.com/linux/centos/docker-ce.repo
     ```
 
-1.  Configure yum to use the Docker yum repo.
+1.  Show versions of Docker CE. 
 
     ```bash
-    sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
-    [docker-ce-stable]
-    name=Docker CE Stable - $basearch
-    baseurl=https://download.docker.com/linux/centos/7/$basearch/stable
-    enabled=1
-    gpgcheck=1
-    gpgkey=https://download.docker.com/linux/centos/gpg
+    sudo yum list docker-ce --showduplicates | sort -r
     ```
 
-1.  Configure systemd to run the Docker Daemon with OverlayFS.
+The remainder of these instructions assume that you have installed the latest version.
+
+6.  Install Docker CE:
 
     ```bash
-    sudo mkdir -p /etc/systemd/system/docker.service.d && sudo tee /etc/systemd/system/docker.service.d/override.conf <<- EOF
-    [Service]
-    ExecStart=
-    ExecStart=/usr/bin/dockerd --storage-driver=overlay
-    EOF
+    sudo yum install docker-ce
     ```
 
-1.  Install the Docker engine, daemon, and service.
+1.  Start Docker:
 
     ```bash
-    sudo yum install -y docker-engine-1.13.1 docker-engine-selinux-1.13.1
     sudo systemctl start docker
     sudo systemctl enable docker
     ```
 
-When the process completes, you should see the following:
-
-    ```
-    Complete!
-    Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
-    ```
-
-1. Test that Docker is properly installed.
+1.  Test Docker with `hello-world` app:
 
     ```bash
-    sudo docker ps
+    sudo docker run hello-world
     ```
 
-See [System Requirements: Docker][1] for more generic Docker requirements.
+1.  Verify that Docker is using the overlay driver:
 
-[1]: /1.11/installing/ent/custom/system-requirements/#docker
+    ```bash
+    sudo docker info | grep Storage
+    ```
+
+To continue setting up DC/OS, [please jump to the Advanced Installer][4]
+
+For more generic Docker requirements, see [System Requirements: Docker][1].
+
+[1]: /1.12/installing/production/system-requirements/#docker
+[2]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html
+[3]: https://docs.docker.com/install/linux/docker-ce/centos/
+[4]: /1.12/installing/production/deploying-dcos/installation/

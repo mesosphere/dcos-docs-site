@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Shut Down and Decommission Nodes
 title: Shut Down and Decommission Nodes
 menuWeight: 810
-excerpt: Learn to shut down and decomission agent nodes.
+excerpt: Shutting down and decommissioning agent nodes
 
 enterprise: false
 ---

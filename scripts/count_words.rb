@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-file_names = Dir["pages/services/cassandra/2.3.0-3.0.16/**/*.md"]
+file_names = Dir["pages/#{ARGV[0]}/**/*.md"]
 puts "Number of files: #{file_names.count}"
 
 word_count = 0

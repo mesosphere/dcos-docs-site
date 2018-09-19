@@ -28,64 +28,42 @@ The cluster nodes are designated masters and agents during installation.
 
 Here are the master node hardware requirements.
 
-<table class="table">
-  <tr>
-    <th>
-      Minimum
-    </th>
+|             | Minimum   | Recommended |
+|\\
 
-    <th>
-      Recommended
-    </th>
-  </tr>
 
-  <tr>
-    <td>
-      Nodes: 1<br />OS: RHEL/CentOS 7.2<br />Processor: 4 cores<br />Memory: 32 GB RAM<br />Hard disk space: 120 GB
-    </td>
 
-    <td>
-      Nodes: 3 or 5<br />OS: RHEL/CentOS 7.2<br />Processor: 4 cores<br />Memory: 32 GB RAM<br />Hard disk space: 120 GB
-    </td>
-  </tr>
-  <tr>
-     <td colspan="2">
-      <p>There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following: <ul><li>Solid-state drive (SSD)</li><li>RAID controllers with a BBU</li><li>RAID controller cache configured in writeback mode</li></ul></p>
-      </td>
-      </tr>
-</table>
+-------|-----------|-------------|
+| Nodes       | 1         | 3 or 5      |
+| OS          |RHEL/CentOS 7.4 |RHEL/CentOS 7.4 |
+| Processor   | 4 cores   | 4 cores     |
+| Memory      | 32 GB RAM | 32 GB RAM   |
+| Hard disk   | 120 GB    | 120 GB      |
+
+There are many mixed workloads on the masters, for example Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O.
+
+We recommend the following:
+- Solid-state drive (SSD)
+- RAID controllers with a BBU
+- RAID controller cache configured in writeback mode
 
 ### Agent nodes
 
 Here are the agent node hardware requirements.
 
-<table class="table">
-  <tr>
-    <th class="tg-e3zv">
-      Minimum
-    </th>
+|             | Minimum   | Recommended |
+|-------------|-----------|-------------|
+| Nodes       | 1         | 6 or more   |
+| OS          |RHEL/CentOS 7.4 |RHEL/CentOS 7.4 |
+| Processor   | 2 cores   | 2 cores     |
+| Memory      | 16 GB RAM | 16 GB RAM   |
+| Hard disk   | 60 GB     | 60 GB       |
 
-    <th class="tg-e3zv">
-      Recommended
-    </th>
-  </tr>
+The agent nodes must also have:
 
-  <tr>
-    <td class="tg-031e">
-      Nodes: 1<br />OS: RHEL/CentOS 7.2<br />Processor: 2 cores<br />Memory: 16 GB RAM<br />Hard disk space: 60 GB
-    </td>
+- A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.9/deploying-services/containerizers/).
+- The agent's work directory, `/var/lib/mesos/slave`, should be on a separate device. This protects all the other services from a task overflowing the disk.
 
-    <td class="tg-031e">
-      Nodes: 6 or more<br />OS: RHEL/CentOS 7.2<br />Processor: 2 cores<br />Memory: 16 GB RAM<br />Hard disk space: 60 GB
-    </td>
-  </tr>
-
-  <tr>
-    <td colspan="2">
-      The agent nodes must also have: <ul><li>A <code>/var</code> directory with 10 GB or more of free space. This directory is used by the sandbox for both Docker and Mesos Containerizer.</li><li>Network Access to a public Docker repository or to an internal Docker registry.</li></ul>
-    </td>
-  </tr>
-</table>
 
 *   On RHEL 7 and CentOS 7, firewalld must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that firewalld interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 
@@ -224,6 +202,7 @@ On each of your cluster nodes, use the following command to:
     ```
 
     **Note:** It may take a few minutes for your node to come back online after reboot.
+    
 
 ### Locale requirements
 You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
