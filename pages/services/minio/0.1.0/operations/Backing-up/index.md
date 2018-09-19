@@ -41,29 +41,19 @@ For launching backup plan, issue the below command with the requisite parameters
 
 Once this plan is executed, the backup will be uploaded to S3 compatible storage.
 
-Backup will be performed using two sidecar tasks:
+Backup will be performed using below sidecar task:
 
-1. `synchronize-buckets` - This task is responsible to delete the buckets in the AWS S3 compatible storage which were deleted in the DC/OS Minio since the last backup. A separate Pod will be started at any Private Agent. An init script will be responsible to register both Minio as well as S3 compatible client.
-
-[<img src="../../img/Delete_Previous_Snapshot.png" alt="Delete_Previous_Snapshot" width="800"/>](../img/Delete_Previous_Snapshot.png)
-
-   _Figure 2. - Synchronize buckets between S3 compatible storage and Minio
-
-[<img src="../../img/Adding_Minio_Client.png" alt="Adding_Minio_Client" width="800"/>](../img/Delete_Previous_Snapshot.png) 
-
-   _Figure 3. -Adding Minio and S3 compatible client
-    
-3. `Backup Task` - The Backup task is responsible for making a backup of the data in the DC/OS Minio storage to the AWS S3 compatible storage. A backup task will run the ‘mc mirror’ command by taking ACCESS_KEY_ID and SECRET_ACCESS_KEY as parameters.
-It will create new buckets in AWS S3 compatible storage according to the current snapshot or state of Minio storage system.While creating bucket in S3 compatible storage during backup task service name will attached to the prefix of actual bucket name in Minio.
+1. `Backup Task` - The Backup task is responsible for making a backup of the data in the DC/OS Minio storage to the AWS S3 compatible storage. A backup task will run the ‘mc mirror’ command by taking ACCESS_KEY_ID and SECRET_ACCESS_KEY as parameters.
+It will create new buckets in AWS S3 compatible storage according to the current snapshot or state of Minio storage system.While creating bucket in S3 compatible storage during backup task service name will attached to the prefix of actual bucket name in Minio. An synchronize-buckets will be responsible to delete the buckets in the AWS S3 compatible storage which were deleted in the DC/OS Minio since the last backup. A separate Pod will be started at any Private Agent. An init script will be responsible to register both Minio as well as S3 compatible client.
 
 [<img src="../../img/Backup.png" alt="Backup" width="800"/>](../img/Backup.png)
 
-   _Figure 4. - Backing Up to S3 compatible storage
+   _Figure 1. - Backing Up to S3 compatible storage
 
 [<img src="../../img/Creating_Bucket_In_S3.png" alt="Creating_Bucket_In_S3" width="800"/>](../img/Backup.png)
 
-   _Figure 5. -Creation Of Bucket in S3 compatible storage
+   _Figure 2. -Creation Of Bucket in S3 compatible storage
     
-'backup' plan would execute both aforementioned tasks serially. 
+'backup' plan would execute aforementioned tasks serially. 
 
 
