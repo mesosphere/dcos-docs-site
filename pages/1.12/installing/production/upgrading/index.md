@@ -17,7 +17,7 @@ If an upgrade is performed on a supported OS with all prerequisites fulfilled, t
 - Review the [release notes](/1.12/release-notes/) before upgrading DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster.  You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
 - There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.12. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](/latest/installing/ent/custom/advanced/#create-a-configuration-file). [enterprise type="inline" size="small" /]
-- The `disabled` security mode has been removed from DC/OS Enterprise 1.12. To upgrade a `disabled` mode 1.12 cluster to 1.12, [upgrade from `disabled` to `permissive` mode](/1.12/installing/production/patching/#patching-dcos-111-in-permissive-mode) as a separate step before upgrading from 1.12 to 1.12. [enterprise type="inline" size="small" /]
+- The `disabled` security mode has been removed from DC/OS Enterprise 1.12. To upgrade a `disabled` mode 1.12 cluster to 1.13, [upgrade from `disabled` to `permissive` mode](/1.12/installing/production/patching/#patching-dcos-111-in-permissive-mode) as a separate step before upgrading from 1.12 to 1.13. [enterprise type="inline" size="small" /]
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the upgrade to succeed.
 - The Advanced installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide](/1.12/installing/oss/custom/advanced) before proceeding. 
 - DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the upgrade will fail. [enterprise type="inline" size="small" /]
@@ -187,7 +187,7 @@ To update a cluster from permissive security to strict security, complete the fo
 
 1.  After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`.  Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 
-1.  After you have converted your 1.10 `config.yaml` into the 1.12 `config.yaml` format, you can build your installer package:
+1.  After you have converted your 1.11 `config.yaml` into the 1.12 `config.yaml` format, you can build your installer package:
 
     1.  Download the file `dcos_generate_config.sh`.
     1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.9.2`.
