@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Edge-LB
-excerpt: Using Edge-LB with Server Groups
+excerpt: Using Edge-LB with server groups
 title: Edge-LB
 menuWeight: 50
 model: /services/spinnaker/data.yml
