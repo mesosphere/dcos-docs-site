@@ -11,7 +11,7 @@ This section describes each pre-configured port in your DC/OS deployment.
 
 - These ports must not be used in a firewall configuration between nodes or cluster zones.
 - For DC/OS to install and function as intended, these ports must be open and accessible upon initial installation. 
-- Therefore, network-specific security measures - from outside of the cluster as well as between internal cluster nodes and zones - for each of these ports should be evaluated and, if necessary, put in place by the network administrator before installing and implementing DC/OS. Moreover, DC/OS security modes ("disabled", "permissive", and "strict") do not affect access to these ports.
+- Therefore, network-specific security measures - from outside of the cluster as well as between internal cluster nodes and zones - for each of these ports should be evaluated and, if necessary, put in place by the network administrator before installing and implementing DC/OS. Moreover, DC/OS security modes ("permissive" or "strict") do not affect access to these ports.
 
 ## All nodes
 

@@ -18,15 +18,6 @@ You can grant users access to containers for debugging sessions.
 
 All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/). You can see more detail about the `dcos security org users` commands in the [CLI Command Reference section](1.11/cli/command-reference/dcos-security/).
 
-## Disabled
-
-Grant the following privileges to the user `uid`.
-
-```bash
- dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
- dcos security org users grant <uid> dcos:adminrouter:ops:slave full
- ```
-
 ## Permissive
 
 Grant the following privileges to the user `uid`.

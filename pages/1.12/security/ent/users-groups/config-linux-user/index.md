@@ -30,8 +30,7 @@ The following tutorial will demonstrate how ownership works in action. Before yo
 
 - The Linux user account already exists on the agent.
 - You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. 
-- If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 - You have granted permission to perform the `create` action on the `dcos:mesos:master:task:user:<linux-user-name>` resource to the `dcos_marathon` DC/OS service account user.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user.
@@ -87,7 +86,7 @@ The following procedure will walk you through a quick tutorial to demonstrate ho
 
 - The Linux user account already exists on the agent.
 - You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 - You have granted permission to perform the `create` action on the `dcos:mesos:master:task:user:<linux-user-name>` resource to the `dcos_metronome` DC/OS service account user.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user.

@@ -13,6 +13,8 @@ echo "------------------------------"
 branch=$1
 if [ -z "$1" ]; then echo "Enter a branch as the first argument."; exit 1; fi
 skip=$2
+# Package name, default to "kubernetes"
+name=${3:-kubernetes}
 
 # Move to the top level of the repo
 
@@ -30,7 +32,7 @@ git checkout dcos-kubernetes/$branch docs/package
 # remove any user specified directories 
 if [ -n "$skip" ]; then 
   echo "Skipping $skip"
-  for d in $(echo $skip | sedi "s/,/ /g"); do rm -rf docs/package/$d; done
+  for d in $(echo $skip | sed "s/,/ /g"); do rm -rf docs/package/$d; done
 fi
 
 # always remove lates/ directory it will never be copied
@@ -63,7 +65,7 @@ done
 # Fix up relative links after prettifying structure above
 sedi -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
 
-cp -r docs/package/* ./pages/services/kubernetes
+cp -r docs/package/* ./pages/services/$name
 
 git rm -rf docs/
 rm -rf docs/
@@ -71,7 +73,7 @@ rm -rf docs/
 # Update sort order of index files
 
 weight=10
-for i in $( ls -r ./pages/services/kubernetes/*/index.md ); do
+for i in $( ls -r ./pages/services/$name/*/index.md ); do
   sedi "s/^menuWeight:.*$/menuWeight: ${weight}/" $i
   weight=$(expr ${weight} + 10)
 done

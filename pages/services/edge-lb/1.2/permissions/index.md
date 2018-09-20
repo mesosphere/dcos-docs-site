@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB Permissions
-title: Edge-LB Permissions
+navigationTitle:  Permissions
+title: Permissions
 menuWeight: 50
 excerpt: Service account and user permissions required to use the Edge-LB package
 

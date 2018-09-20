@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB API Reference
-title: Edge-LB API Reference
+navigationTitle:  API Reference
+title: API Reference
 menuWeight: 80
 excerpt: Reference for all API endpoints exposed by the Edge-LB package
 

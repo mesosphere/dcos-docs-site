@@ -118,7 +118,6 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
 **Prerequisites:**
 
-- DC/OS is installed with [security mode](/1.11/security/ent/#security-modes) `permissive` or `strict`.
 - You must be logged in as a `superuser`.
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
@@ -178,12 +177,6 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
         Figure 7. Add permissions for user 'Cory'
 
     1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev/batch/job1 read,update`.
-
-        <table class=“table” bgcolor=#858585>
-        <tr> 
-        <td align=justify style=color:white><strong>Important:</strong> Your <a href="/1.11/security/ent/#security-modes">security mode</a> must be either permissive or strict.</td> 
-        </tr> 
-        </table>
 
         ```bash
         dcos:adminrouter:service:metronome full

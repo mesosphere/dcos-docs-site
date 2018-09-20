@@ -124,6 +124,11 @@ Figure 3. Code snippet window
 
 ### Prerequisites
 
+*   A system external to your DC/OS cluster onto which you will install the CLI.
+*   Network access from the external system to your DC/OS cluster.
+*   A supported command-line environment, Powershell or `cmd.exe`.
+*   Windows 10 64-bit or newer.
+
 *   A system external to your DC/OS cluster onto which you will install the CLI
 *   Network access from the external system to your DC/OS cluster
 *   A command line environment, such as Windows Powershell, which is installed by default on Windows 7 and later

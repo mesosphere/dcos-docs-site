@@ -44,14 +44,6 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 6.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
-## Disabled
-
-### All Marathon permissions
-
-    ```bash
-    dcos:adminrouter:service:marathon full
-    ```
-
 ## Permissive
 
 ### Marathon dashboard
@@ -93,37 +85,13 @@ You can grant users access to the Marathon UI. By default, new users have no per
 **Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 **Note:**
 
 - Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
 
-
-## Disabled
-
-### Marathon dashboard and launch tasks
-
-1.  Create the permission.
-
-   ```bash
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon \
-   -d '{"description":"Grants access to the Marathon UI"}'
-   ```
-
-2.  Grant the following privileges to the user `uid`.
-
-   ```bash
-   curl -X PUT \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
-   ```
-
-   **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
 
 ## Permissive
 

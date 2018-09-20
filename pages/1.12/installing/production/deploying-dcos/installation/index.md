@@ -229,7 +229,7 @@ master_list:
 - <master-private-ip-3>
 resolvers:
 - 169.254.169.253
-# Choose your security mode: permissive, strict, or disabled 
+# Choose your security mode: permissive or strict 
 security: <security-mode>
 # A custom proxy is optional. For details, see the configuration documentation.
 use_proxy: 'true'

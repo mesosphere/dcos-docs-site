@@ -15,7 +15,6 @@ DC/OS services require authentication depending on your security mode.
 
 | Security mode | Intracluster communication | External cluster communication |
 |---------------|-----------------------|----------------------------|
-| Disabled      | Optional              | Required                   |
 | Permissive    | Optional              | Required                   |
 | Strict        | Required              | Required                   |
 

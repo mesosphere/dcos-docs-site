@@ -43,19 +43,16 @@ Figure 1. Security zone typical deployment
 
 # <a name="security-modes"></a>Security Modes
 
-You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.11/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
+You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are permissive and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.11/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
 
-| Permission Category                                 | Disabled | Permissive | Strict |
-|-----------------------------------------------------|:--------:|:----------:|:------:|
-| Admin Router permissions (`dcos:adminrouter`)       |     x    |      x     |    x   |
-| Mesos permissions (`dcos:mesos`)                    |          |            |    x   |
-| Marathon and Metronome permissions (`dcos:service`) |          |      x     |    x   |
-| Secret store permissions (`dcos:secrets`)           |     x    |      x     |    x   |
+| Permission Category                                 | Permissive | Strict |
+|-----------------------------------------------------|:----------:|:------:|
+| Admin Router permissions (`dcos:adminrouter`)       |      x     |    x   |
+| Mesos permissions (`dcos:mesos`)                    |            |    x   |
+| Marathon and Metronome permissions (`dcos:service`) |      x     |    x   |
+| Secret store permissions (`dcos:secrets`)           |      x     |    x   |
 
 See the [permissions reference](/1.11/security/ent/perms-reference/) for a complete description.
-
-### Disabled
-This mode is designed to ensure smooth upgrades from earlier versions of DC/OS, but only provides minimal security features and is not intended for production environments. Disabled mode does not provide Marathon or Mesos permissions.
 
 ### Permissive
 This mode provides some of the security features, but does not include the Mesos permissions.
@@ -68,7 +65,7 @@ The security mode is set during [DC/OS installation](/1.11/installing/ent/custom
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> You can only move from "disabled" to "permissive", and from "permissive" to "strict" during an upgrade.</td> 
+  <td align=justify style=color:white><strong>Important:</strong> You can only move from "permissive" to "strict" during an upgrade.</td> 
 </tr> 
 </table>
 
@@ -123,7 +120,7 @@ Once DC/OS IAM has validated your credentials, an authentication token is return
 Service accounts provide an identity for [services](/1.11/overview/concepts/#dcos-service) to authenticate with DC/OS. Service accounts control communication between services and DC/OS components. DC/OS services may require [service accounts](/1.11/security/ent/service-auth/) depending on your security mode.
 
 ## <a name="sysd"></a>Component Authentication
-In strict and permissive [security modes](/1.11/security/ent/#security-modes), DC/OS automatically provisions DC/OS components ([systemd services on the DC/OS nodes](/1.11/overview/concepts/#systemd-service)) with service accounts during the bootstrap sequence. Service accounts are not available in disabled security mode.
+DC/OS automatically provisions DC/OS components ([systemd services on the DC/OS nodes](/1.11/overview/concepts/#systemd-service)) with service accounts during the bootstrap sequence.
 
 For example, the Mesos agents are provisioned with service accounts that they use to authenticate to the Mesos master. This ensures that only authorized agents can join the Mesos cluster, advertise resources, and get asked to launch tasks.
 
@@ -163,7 +160,6 @@ The encryption of DC/OS communications varies according to your [security mode](
 
 | Security mode | External communications*                                                                                                                                                                                    | Internode communications |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Disabled      | Only HTTP is supported. HTTP connections are not redirected to HTTPS or vice versa. HTTPS connections will be rejected because the Admin Router is not configured to serve them. If you log in to DC/OS with a password, the password will be transmitted insecurely between the user agent (for example, web browser or DC/OS CLI) and Admin Router.         | Unencrypted              |
 | Permissive    |  HTTP and HTTPS are supported. HTTP requests to the root path (for example, `http://example.com/`) are redirected to HTTPS. HTTP requests with a target different than the root path (for example,  `http://example.com/foo`) are not redirected to HTTPS. If you log in to DC/OS with a password, you can choose whether the password is transmitted insecurely or securely (requires proper certificate verification, including hostname verification on the client side). | Encryption enabled       |
 | Strict        | Only HTTPS is supported. All HTTP connections are redirected to HTTPS. If you log in to DC/OS with a password, the password is transmitted securely (requires proper certificate verification, including hostname verification on the client side). If one or more HTTP proxies or load balancers are between the user agent and Admin Router, then the secure password transmission applies to the final communication between Admin Router and the previous proxy or load balancer.  | Encryption enforced**    |
 
@@ -191,7 +187,7 @@ At a minimum, we recommend using spaces to restrict service access to secrets.
 
 One aspect of spaces involves service and job groups. You can put services and jobs into groups in any security mode. This can help users find the jobs or services that pertain to them.
 
-In `strict` and `permissive` security modes, you can use [permissions](/1.11/security/ent/perms-reference/#marathon-metronome) to restrict user's access on a per service/job or service/job group basis.
+You can use [permissions](/1.11/security/ent/perms-reference/#marathon-metronome) to restrict user's access on a per service/job or service/job group basis.
 
 To learn how to do this, see [Controlling user access to services](/1.11/deploying-services/service-groups/) and [Controlling user access to jobs](/1.11/deploying-jobs/job-groups/).
 
@@ -246,10 +242,10 @@ By default, all tasks will run inside of Mesos containers. However, a user servi
 
 The following table identifies the default Linux user in each situation.
 
-| Container type | Disabled                                                               | Permissive                                                             | Strict                                                                     |
-|----------------|------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| Mesos          | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
-| Docker         | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `nobody`.   |
+| Container type | Permissive                                                             | Strict                                                                     |
+|----------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Mesos          | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
+| Docker         | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `nobody`.   |
 
 Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/services/).
 

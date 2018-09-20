@@ -95,7 +95,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | [permissions_cache_ttl_seconds](#permissions-cache-ttl-seconds)   | [enterprise type="inline" size="small" /] The maximum number of seconds for permission changes to propagate through the entire system. |
-| [security](#security-enterprise)                               | The security mode: disabled, permissive, or strict. [enterprise type="inline" size="small" /] |
+| [security](#security-enterprise)                               | The security mode: `permissive` or `strict`. [enterprise type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
@@ -175,7 +175,6 @@ Indicates whether to allow web browsers to send the DC/OS authentication cookie 
 *   `auth_cookie_secure_flag: false` (default) Browsers will send the DC/OS authentication cookie through either an unencrypted HTTP connection or an encrypted HTTPS connection.
 *   `auth_cookie_secure_flag: true` The authentication cookie set by DC/OS will contain the [`Secure` flag](https://www.owasp.org/index.php/SecureFlag), which instructs the browser to not send the cookie over unencrypted HTTP connections. This could cause authentication to fail under the following circumstances.
 
-    - If the security mode is `disabled`
     - If the security mode is `permissive`, the URL specifies HTTP, and the URL includes a target different from the root path (for example, `http://<cluster-url>/<path>/`)
     - There are proxies in between the browser and DC/OS that terminate TLS
 
@@ -564,7 +563,6 @@ If you are running your cluster on AWS, and want DC/OS to integrate with the Ela
 ## security [enterprise type="inline" size="small" /]
 Specify a security mode other than `security: permissive` (the default). The possible values follow.
 
-- `security: disabled`
 - `security: permissive`
 - `security: strict`
 
