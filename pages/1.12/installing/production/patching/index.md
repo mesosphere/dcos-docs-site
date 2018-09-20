@@ -22,7 +22,7 @@ Example: DC/OS 1.X.A to 1.X.B (1.12.1 --> 1.12.2)
 ## Important guidelines
 
 - Review the [release notes](/1.12/release-notes/) before patching DC/OS.
-- Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. If you have already patched to DC/OS 1.12.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.12.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
+- Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
 - There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.12. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](1.12/installing/production/deploying-dcos/installation/#create-a-configuration-file).
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the patch to succeed.
 - DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the patch will fail. [enterprise type="inline" size="small" /]
@@ -36,7 +36,7 @@ Example: DC/OS 1.X.A to 1.X.B (1.12.1 --> 1.12.2)
 
 ## Supported patch paths
 - From the latest GA version of previous to the latest GA version of current. For example, if 1.10.2 is the latest and 1.12.0 is the latest, this patch would be supported.
-- From any current release to the next. For example, a patch from 1.12.1 to 1.12.2 would be supported.
+- From any current release to the next. For example, a patch from 1.12.0 to 1.12.1 would be supported.
 - From any current release to an identical release. For example, a patch from 1.12.0 to 1.12.0 would be supported. This is useful for making configuration changes.
 
 
@@ -93,7 +93,7 @@ Choose your desired security mode and then follow the applicable patch instructi
 - [Patching DC/OS 1.12 to strict mode](#strict)
 
 # <a name="current-security"></a>Patching DC/OS 1.12 without changing security mode
-This procedure patches a DC/OS 1.10 cluster to DC/OS 1.12 without changing the cluster's [security mode](//1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches a DC/OS 1.11 cluster to DC/OS 1.12 without changing the cluster's [security mode](//1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
