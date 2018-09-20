@@ -28,7 +28,9 @@ DC/OS 1.12.0 Beta 1 includes the following new features and capabilities:
 [/enterprise]
 - Complies with standardized Enterprise LDAP integration pattern without a dedicated DC/OS integration LDAP user.
 
+[enterprise]
 ### Dynamic LDAP Synchronization
+[/enterprise]
 - Automatically synchronize [LDAP user account groups](https://docs.mesosphere.com/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](https://docs.mesosphere.com/1.12/security/ent/ldap/) with accounts imported into DC/OS.
 
 ### Improved Multi-Cluster UI
@@ -47,7 +49,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Contact for DataDog plugin support.
 
 [enterprise]
-### [Package Registry](https://docs.mesosphere.com/1.12/administering-clusters/package-registry/)
+### [Private Package Registry](https://docs.mesosphere.com/1.12/administering-clusters/package-registry/)
 [/enterprise]
 - Enable On-Premise package distribution and management.
 - Enable air-gapped Virtual Private Cloud package management.
