@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start
-excerpt: Using Couchbase Server and Couchbase Sync Gateway with DC/OS
+excerpt: Using Spinnaker with DC/OS
 title: Quick Start
 menuWeight: 15
 model: /services/spinnaker/data.yml
 render: mustache
 ---
 
-This section is a quick guide on how to configure and use {{ model.serverName }} with DC/OS.
+This section is a quick guide on how to configure and use {{ model.techName }} with DC/OS.
 
 # Prerequisites
 
@@ -27,9 +27,8 @@ The Spinnaker service is a micro service composition, a good overview on the mic
 ## Note
 The DC/OS Spinnaker service currently only works with **DC/OS Enterprise**.
 
-# Install
 
-## Install with Defaults
+# Install with Defaults
 Out of the box the `DC/OS Spinnaker service` uses `minio` a s3 compatible backing store for the Spinnaker `front50` service. Use the following [minio.json](misc/minio.json) file, and run the following two commands.
 ```
 dcos package install marathon-lb --yes
@@ -72,9 +71,9 @@ dcos marathon app add proxy.json
 
 Go to the [Using Spinnaker](#using-spinnaker) section to learn how to access the Spinnaker UI, and to get an overview of the Spinnaker concepts with samples.
 
-## Custom Install
+# Custom Install
 
-### Spinnaker configuration
+## Spinnaker configuration
 
 Use the following command to download Spinnaker configuration templates to get started.
 ```
@@ -93,8 +92,30 @@ Tailor these Spinnaker yml configuration files for your specific needs. The yml 
 
 **Note:** If you follow the links to the detailed Spinnaker configuration options you will also see the configuration of Spinnaker service dependencies. Don't worry about those configurations they are all taken care of by the DC/OS Spinnaker service.
 
-#### [front50-local.yml](misc/config/front50-local.yml)
-Front50 is the Spinnaker **persistence service**. The file shows how to configure the AWS S3 (enabled=true) and GCS (enabled=false) persistence plugin.
+### front50-local.yml
+Front50 is the Spinnaker **persistence service**. The following shows how to configure the AWS S3 (enabled=true) and GCS (enabled=false) persistence plugin in `front50-local.yml`.
+
+```
+cassandra:
+  enabled: false
+
+spinnaker:
+  cassandra:
+    enabled: false
+    embedded: true
+  s3:
+    enabled: true
+    bucket: my-spinnaker-bucket
+    rootFolder: front50
+    endpoint: http://minio.marathon.l4lb.thisdcos.directory:9000
+  gcs:
+    enabled: false
+    bucket: my-spinnaker-bucket
+    bucketLocation: us
+    rootFolder: front50
+    project: mesoscon-demo
+    jsonPath: /mnt/mesos/sandbox/data/keys/gcp_key.json
+```
 
 The DC/OS Spinnaker front50 service can be configured to use secrets for AWS S3 and GCS credentials. You have to create all of them using the following commands. **The ones you are not using with empty content.**
 ```
@@ -107,30 +128,93 @@ dcos security secrets create -v <your-gcp-key> spinnaker/gcp_key
 
 For more configuration options see [spinnaker/front50](https://github.com/spinnaker/front50/blob/master/front50-web/config/front50.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/front50.yml).
 
-#### [clouddriver-local.yml](misc/config/clouddriver-local.yml)
-Clouddriver is the Spinnaker **cloud provider service**. The file shows how to configure the DC/OS provider plugin.
+### clouddriver-local.yml
+Clouddriver is the Spinnaker **cloud provider service**. The following shows how to configure the DC/OS and Kubernetes provider plugin in `clouddriver-local.yml`.
+
+```
+dockerRegistry:
+  enabled: true
+  accounts:
+  - name: my-docker-registry-account
+    address: https://index.docker.io/
+    repositories:
+      - library/nginx
+      - library/postgres
+    username: mesosphere
+
+dcos:
+  enabled: true
+  clusters:
+    - name: my-dcos
+      dcosUrl: https://leader.mesos
+      insecureSkipTlsVerify: true
+  accounts:
+    - name: my-dcos-account
+      dockerRegistries:
+        - accountName: my-docker-registry-account
+      clusters:
+        - name: my-dcos
+          uid: bootstrapuser
+          password: deleteme
+#kubernetes:
+#  enabled: true
+#  accounts:
+#    - name: my-kubernetes-account
+#      providerVersion: v2
+#      namespace:
+#        - default
+#      kubeconfigFile: ${MESOS_SANDBOX}/kubeconfig
+#      dockerRegistries:
+#        - accountName: my-docker-registry-account
+```
 
 **Note:** The configured DC/OS user needs to have superuser priveledges.
 
 For more configuration options see [spinnaker/clouddriver](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-web/config/clouddriver.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/clouddriver.yml).
 
-#### [echo-local.yml](misc/config/echo-local.yml) (optional)
-Echo is the Spinnaker **notification service**. The file shows how to configure the email notification plugin.
+### echo-local.yml (optional)
+Echo is the Spinnaker **notification service**. The following shows how to configure the email notification plugin in `echo-local.yml`.
+
+```
+mail:
+  enabled: true
+  from: <from-gmail-address>
+spring:
+  mail:
+    host: smtp.gmail.com
+    username: <from-gmail-address>
+    password: <app-password, see https://support.google.com/accounts/answer/185833?hl=en >
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+```
 
 For more configuration options see [spinnaker/echo](https://github.com/spinnaker/echo/blob/master/echo-web/config/echo.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/echo.yml).
 
-#### [igor-local.yml](misc/config/igor-local.yml) (optional)
-Igor is the Spinnaker **trigger service**. The file shows how to configure the dockerRegsitry trigger plugin.
+### igor-local.yml (optional)
+Igor is the Spinnaker **trigger service**. The following shows how to configure the dockerRegistry trigger plugin in `igor-local.yml`.
+
+```
+dockerRegistry:
+  enabled: true
+```
 
 For more configuration options see [spinnaker/igor](https://github.com/spinnaker/igor/blob/master/igor-web/config/igor.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/igor.yml).
 
-### DC/OS console install
+## DC/OS console install
 When installing the Spinnaker service via the DC/OS console you have sections for each of the Spinnaker services where you can enter the respective yml configuration.
 
 Here the sample for the clouddriver service.
 [<img src="/services/spinnaker/0.3.0-1.9.2/img/inst05.png" alt="Spinnaker Quick Start"/>](/services/spinnaker/0.3.0-1.9.2/img/inst05.png)
 
-### DC/OS cli install
+## DC/OS cli install
 The config folder that got created when we dowloade the zip earlier also provides a tool that allows us to generate an *options.json* file. Once you edited the yml templates to your needs run the tool in the config folder. The proxy hostname is typically the public agent hostname.
 ```
 ./gen-optionsjson <proxy-hostname>
@@ -141,7 +225,7 @@ Once you have the options json you can install the Spinnaker service using the D
 dcos package install --yes spinnaker --options=options.json
 ```
 
-### edge-lb
+## Edge-LB
 Instead of the simple proxy we used in the quick start you can also use edge-lb. After installing edge-lb you can create the edgelb pool configuration for Spinnaker (minio is also included) using the [spinnaker-edgelb.yml](misc/spinnaker-edgelb.yml) file.
 ```
 dcos edgelb create spinnaker-edgelb.yml
