@@ -21,7 +21,6 @@ http://events.linuxfoundation.org/sites/events/files/slides/Continuous%20Deliver
 
 A *Stage* in Spinnaker is an action that forms an atomic building block for a pipeline. You can sequence stages in a Pipeline in any order, though some stage sequences may be more common than others. Spinnaker provides a number of stages such as Deploy, Resize, Disable, Manual Judgment, and many more.
 
-![Resources](img/pipe-c02.png)
 [<img src="/services/spinnaker/0.3.0-1.9.2/img/pipe-c02.png" alt="Spinnaker Pipelines"/>](/services/spinnaker/0.3.0-1.9.2/img/pipe-c02.png)
 
 
