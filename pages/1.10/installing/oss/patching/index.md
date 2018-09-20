@@ -57,9 +57,9 @@ There are no specific instructions for patching since it occurs as a part of the
     </tr>
     <tr>
        <td><p style="text-align: center;">1.10.0</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫/p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">◯</p></td>
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
