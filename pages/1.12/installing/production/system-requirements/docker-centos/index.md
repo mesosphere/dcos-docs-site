@@ -16,7 +16,7 @@ These directions cover the installation of Docker CE on CentOS/RHEL. Before inst
 
 * Format node storage as XFS with the `ftype=1` option. As of CentOS/RHEL 7.2, [only XFS is currently supported for use as a lower layer file system][2].
 
-* For more generic Docker requirements, see [System Requirements: Docker](/1.11/installing/production/system-requirements/#docker).
+* For more generic Docker requirements, see [System Requirements: Docker](/1.12/installing/production/system-requirements/#docker).
 
 **Note:** In modern versions of Centos and RHEL, `ftype=1` is the default. The `xfs_info` utility can be used to verify that `ftype=1`.
 
