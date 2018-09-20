@@ -13,11 +13,7 @@ enterprise: true
 - The [DC/OS CLI](/1.11/cli/install/) installed.
 - The [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/) installed.
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> See the <a href="/1.11/administering-clusters/backup-and-restore/#limitations">Limitations</a> of backup and restore.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
 
 
 # Back up a cluster
