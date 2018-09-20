@@ -56,9 +56,9 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
     </tr>
     <tr>
        <td><p style="text-align: center;">1.10.0</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫/p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">◯</p></td>
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
