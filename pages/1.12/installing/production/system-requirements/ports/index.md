@@ -7,7 +7,7 @@ excerpt: Understanding configured ports for DC/OS deployment
 ---
 This section describes each pre-configured port in your DC/OS deployment. 
 
-[DC/OS components](/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed. DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
+[DC/OS components](/1.12/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed. DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
 - These ports must not be used in a firewall configuration between nodes or cluster zones.
 - For DC/OS to install and function as intended, these ports must be open and accessible upon initial installation. 
