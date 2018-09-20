@@ -3,11 +3,10 @@ layout: layout.pug
 navigationTitle:  Finding a Public Agent IP
 title: Finding a Public Agent IP
 menuWeight: 3
-excerpt: Learn to find a public agent IP address.
+excerpt: Finding a public agent IP address.
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 After you have installed DC/OS with a public agent node declared, you can navigate to the public IP address of your public agent node.

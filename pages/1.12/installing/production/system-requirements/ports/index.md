@@ -3,21 +3,21 @@ layout: layout.pug
 title: DC/OS Ports
 navigationTitle: Ports
 menuWeight: 15
-excerpt: Making sure ports are available for installation
+excerpt: Understanding configured ports for DC/OS deployment
 ---
+This section describes each pre-configured port in your DC/OS deployment. 
 
-[DC/OS components](/docs/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed. DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
+[DC/OS components](/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed. DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
-**Important:** 
 - These ports must not be used in a firewall configuration between nodes or cluster zones.
 - For DC/OS to install and function as intended, these ports must be open and accessible upon initial installation. 
-- Therefore, network-specific security measures - from outside of the cluster as well as between internal cluster nodes and zones - for each of these ports should be evaluated and, if necessary, put in place by the network administrator before installing and implementing DC/OS. Moreover, DC/OS security modes ("disabled", "permissive", and "strict") do not affect access to these ports.
+- Therefore, network-specific security measures - from outside of the cluster as well as between internal cluster nodes and zones - for each of these ports should be evaluated and, if necessary, put in place by the network administrator before installing and implementing DC/OS. Moreover, DC/OS security modes ("permissive" or "strict") do not affect access to these ports.
 
 ## All nodes
 
 ### TCP
 
-| Port | DC/OS Component | systemd Unit | Source | Destination |
+| Port | DC/OS Component | `systemd` Unit | Source | Destination |
 |---|---|---|---|---|
 | 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
@@ -68,7 +68,7 @@ excerpt: Making sure ports are available for installation
 
 ### UDP
 
-| Port | DC/OS Component | systemd Unit | Source | Destination |
+| Port | DC/OS Component | `systemd` Unit | Source | Destination |
 |---|---|---|---|---| 
 | 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master  | 
 
@@ -76,7 +76,7 @@ excerpt: Making sure ports are available for installation
 
 ### TCP
 
-| Port | DC/OS Component | systemd Unit | Source | Destination |
+| Port | DC/OS Component | `systemd` Unit | Source | Destination |
 |---|---|---|---|---|
 | 5051  | Mesos Agent | `dcos-mesos-slave.service` | agent/master | agent |
 | 61001 | Admin Router Agent (HTTP) | `dcos-adminrouter-agent` | agent/master | agent |

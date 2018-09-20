@@ -21,7 +21,7 @@ The Edge-LB API was initially released alongside DC/OS 1.10.0 and requires DC/OS
 Access to the Edge-LB API is proxied through the Admin Router on the master nodes using the following route:
 
 ```
-/services/edge-lb/
+/service/edgelb/
 ```
 
 To determine the address of your cluster, see [Cluster Access](/1.10/api/access/).

@@ -192,12 +192,12 @@ For this trust establishment to happen, one needs a [Public Key Infrastructure o
 In the past, this package supported TLS in full only when running atop DC/OS Enterprise because
 only this version provides the mechanisms needed for PKI:
 
-- [DC/OS CA](https://docs.mesosphere.com/1.11/security/ent/tls-ssl/) - a centralized certificate-authority
+- [DC/OS CA](/1.11/security/ent/tls-ssl/) - a centralized certificate-authority
   (CA) for validating and, eventually, signing certificate signing requests (CSRs).
-- [DC/OS Secrets](https://docs.mesosphere.com/1.11/security/ent/secrets/) - a centralized and secure way
+- [DC/OS Secrets](/1.11/security/ent/secrets/) - a centralized and secure way
   to distribute TLS artifacts to package components, such as the Kubernetes components, and other
   applications living in the same DC/OS cluster.
-- [DC/OS Service Accounts](https://docs.mesosphere.com/1.11/security/ent/service-auth/) - needed for
+- [DC/OS Service Accounts](/1.11/security/ent/service-auth/) - needed for
   our package and applications to authenticate against the services named above.
 
 As you may have guessed by now, Open doesn't provide such functionality. So the question is how did we
@@ -212,7 +212,7 @@ a [service account](/latest/security/service-auth/custom-service-auth/)
 with permissions to manage CA and secrets is required. It **must** be provisioned before installing
 the Kubernetes package.
 
-In order to provision such service account, first you need to install the [DC/OS Enterprise CLI](https://docs.mesosphere.com/1.11/cli/enterprise-cli/). Then, run the following:
+In order to provision such service account, first you need to install the [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/). Then, run the following:
 
 ```shell
 dcos security org service-accounts keypair private-key.pem public-key.pem

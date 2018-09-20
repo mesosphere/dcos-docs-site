@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Show the successful and failure status of job runs.
+The `dcos job show runs` command displays the successful and failure status of job runs.
 
 # Usage
 
@@ -20,17 +20,17 @@ dcos job show runs <job-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted list. |
-| `--q`   |             |  Print an array of run IDs only. |
-| `--run-id <run-id>`   |             |  The ID of a job run. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `--json`   |   Displays JSON-formatted list. |
+| `--q`   | Displays an array of run IDs only. |
+| `--run-id <run-id>`   |  The ID of a job run.   You can view the job IDs with the `dcos job list` command.|
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-id>`   |             |  Specify the job ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<job-id>`   |  Specify the job ID. |
 
 # Parent command
 

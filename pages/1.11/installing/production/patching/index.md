@@ -144,7 +144,7 @@ These steps must be performed for version patches and cluster configuration chan
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide](/1.11/installing/production/deploying-dcos/installation/).
 - Take a snapshot of ZooKeeper prior to patching. Marathon supports rollbacks, but does not support downgrades.
-- [Take a snapshot of the IAM database](/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database) prior to patching.
+- [Take a snapshot of the IAM database](/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to patching.
 - Ensure that Marathon event subscribers are disabled before beginning the patch. Leave them disabled after completing the patch, as this feature is now deprecated.
 - **Note:** Marathon event subscribers are disabled by default. Check to see if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.
 - Verify that all Marathon application constraints are valid before beginning the patch. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
@@ -260,8 +260,8 @@ Proceed with patching every master node one at a time in any order using the fol
         **Note:** If you are patching from permissive to strict mode, this URL will be `https://...`.
     1.  Wait until the `dcos-mesos-master` unit is up and running.
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
-        **Note:** If you are patching from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access.
-    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running Mesos 1.4.0.
+        **Note:** If you are patching from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
+    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/1.11/release-notes/), for example `1.5.1`.
 	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
 	    ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)

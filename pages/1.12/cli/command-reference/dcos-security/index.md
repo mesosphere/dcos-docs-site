@@ -7,7 +7,7 @@ excerpt: Managing the DC/OS Certificate Authority
 
 enterprise: true
 ---
-
+The `dcos security` command allows you to manage your DC/OS certificate authority credentials.
 
 ## dcos security cluster ca
 Manage the DC/OS Certificate Authority, including signing certs, generating CSRs, and signing information retrieval.

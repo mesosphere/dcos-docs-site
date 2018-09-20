@@ -54,4 +54,4 @@ Minuteman is a distributed layer 4 virtual IP east-west load balancer that is in
 Marathon LB is based on HAProxy, a rapid proxy and north-south load balancer. HAProxy provides proxying and load balancing for TCP and HTTP based applications, with features such as SSL support, HTTP compression, health checking, Lua scripting and more. Marathon LB subscribes to Marathon’s event bus and updates the HAProxy configuration in real time. Here are common Marathon LB use cases:
 
 - Use Marathon LB as your edge load balancer (LB).
-- Use Marathon LB as an internal LB and service discovery mechanism, with a separate HA load balancer for routing public traffic in.
+- Use Marathon LB as an internal LB and service discovery mechanism, with a separate HA load balancer for routing public traffic.

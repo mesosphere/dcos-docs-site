@@ -9,9 +9,7 @@ enterprise: false
 ---
 
 
-You can get the cluster URL by using the following methods:
-
-- Log into the DC/OS GUI and copy the scheme and domain name from the browser address bar.
+- Log into the DC/OS web interface and copy the scheme and domain name from the browser address bar.
 - Log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL.
 
 

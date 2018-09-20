@@ -12,7 +12,7 @@ enterprise: true
 
 You can grant users access to the Services tab. By default, new users have no permissions.
 
-**Tip:** This procedure grants full user access to the **Services** tab. If you are running in `strict` or `permissive` [security mode](/1.11/security/ent/#security-modes) and want to configure fine-grained user access, see the [documentation](/1.11/deploying-services/service-groups/).
+**Tip:** This procedure grants full user access to the **Services** tab. If you want to configure fine-grained user access, see the [documentation](/1.11/deploying-services/service-groups/).
 
 # <a name="services-access-via-ui"></a>Grant Access by using the GUI
 
@@ -24,11 +24,15 @@ You can grant users access to the Services tab. By default, new users have no pe
 
     ![Login](/1.11/img/gui-installer-login-ee.gif)
 
+    Figure 1. DC/OS web interface login
+
 1.  Select **Organization** and choose **Users** or **Groups**.
 
 1.  Select the name of the user or group to grant the permission to.
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
+
+    Figure 2. Select user or group to grant permissions to 
 
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
@@ -36,143 +40,72 @@ You can grant users access to the Services tab. By default, new users have no pe
 
     ![Add permission](/1.11/img/services-tab-user3.png)
 
+    Figure 3. Insert Permission String
+
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
-    ## Disabled
 
-    ### Services tab
+## Permissive
 
-    ```bash
-    dcos:adminrouter:service:marathon full
-    ```
+### Services tab
 
-    ### Services tasks
+```
+dcos:adminrouter:service:marathon full
+dcos:service:marathon:marathon:services:/ full
+```
 
-    ```bash
-    dcos:adminrouter:ops:mesos full
-    ```
+### Services tasks
 
-    ### Task details and logs
+```
+dcos:adminrouter:ops:mesos full
+```
 
-    ```bash
-    dcos:adminrouter:ops:slave full
-    ```
+### Task details and logs
 
-    ## Permissive
+```
+dcos:adminrouter:ops:slave full
+```
 
-    ### Services tab
+## Strict
 
-    ```
-    dcos:adminrouter:service:marathon full
-    dcos:service:marathon:marathon:services:/ full
-    ```
+### Services tab
 
-    ### Services tasks
+```
+dcos:adminrouter:service:marathon full
+dcos:service:marathon:marathon:services:/ full
+```
 
-    ```
-    dcos:adminrouter:ops:mesos full
-    ```
+### Services tasks
 
-    ### Task details and logs
+```
+dcos:adminrouter:ops:mesos full
+```
 
-    ```
-    dcos:adminrouter:ops:slave full
-    ```
+### Task details and logs
 
-    ## Strict
-
-    ### Services tab
-
-    ```
-    dcos:adminrouter:service:marathon full
-    dcos:service:marathon:marathon:services:/ full
-    ```
-
-    ### Services tasks
-
-    ```
-    dcos:adminrouter:ops:mesos full
-    ```
-
-    ### Task details and logs
-
-    ```
-    dcos:adminrouter:ops:slave full
-    dcos:mesos:master:framework:role:slave_public read
-    dcos:mesos:master:executor:app_id read
-    dcos:mesos:master:task:app_id read
-    dcos:mesos:agent:framework:role:slave_public read
-    dcos:mesos:agent:executor:app_id read
-    dcos:mesos:agent:task:app_id read
-    dcos:mesos:agent:sandbox:app_id read
-    ```
+```
+dcos:adminrouter:ops:slave full
+dcos:mesos:master:framework:role:slave_public read
+dcos:mesos:master:executor:app_id read
+dcos:mesos:master:task:app_id read
+dcos:mesos:agent:framework:role:slave_public read
+dcos:mesos:agent:executor:app_id read
+dcos:mesos:agent:task:app_id read
+dcos:mesos:agent:sandbox:app_id read
+```
 
 # <a name="services-access-via-api"></a>Granting Access by using the API
 
 **Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 **Tips:**
 
 - Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
 
-
-## Disabled
-
-### Grant access to DC/OS Services tab
-
-1.  Create the permission.
-
-    ```bash
-    curl -X PUT  \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    -H 'Content-Type: application/json' \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon  \
-    -d '{"description":"Grants access to the Services tab"}'
-    ```
-
-1.  Grant the following privileges to the user `uid`.
-
-    ```bash
-    curl -X PUT  \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
-    ```
-
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
-
-### Grant access to DC/OS services task details and logs
-
-1.  Create the permission.
-
-    ```bash
-    curl -X PUT  \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    -H 'Content-Type: application/json' \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos  \
-    -d '{"description":"Grants access to the Mesos master API/UI and task details"}'
-    curl -X PUT  \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    -H 'Content-Type: application/json' \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave  \
-    -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-    ```
-
-1.  Grant the following privileges to the user `uid`.
-
-    ```bash
-    curl -X PUT  \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
-    curl -X PUT  \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
-    ```   
-
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
 
 ## Permissive
 

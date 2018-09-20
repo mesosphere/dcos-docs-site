@@ -36,34 +36,61 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
 
 
 <table class="table">
-  <tr>
-    <th>&nbsp;</th>
-    <th>Pros</th>
-    <th>Cons</th>
-  </tr>
-  <tr>
-    <th>SOCKS</th>
-    <td>
-    <ul>
-        <li>Specify ports</li>
-        <li>All protocols</li>
-    </ul>
-    </td>
-    <td>
-        <ul>
+   <tr>
+      <th>&nbsp;</th>
+      <th>Pros</th>
+      <th>Cons</th>
+   </tr>
+   <tr>
+      <th>SOCKS</th>
+      <td>
+         <ul>
+            <li>Specify ports</li>
+            <li>All protocols</li>
+         </ul>
+      </td>
+      <td>
+         <ul>
             <li>Requires application configuration</li>
-        </ul>
-        </td>
+         </ul>
+      </td>
+   </tr>
+   <tr>
   </tr>
   <tr>
       <th>HTTP (transparent)</th>
       <td>
-      <ul>
-          <li>SRV as URL</li>
-          <li>No application configuration</li>
-      </ul>
+         <ul>
+            <li>SRV as URL</li>
+            <li>No application configuration</li>
+         </ul>
+      </td>
+         <ul>
+            <li>Cannot specify ports (except through SRV)</li>
+            <li>Only supports HTTP</li>
+            <li>Runs as superuser</li>
+         </ul>
+      </td>
+   </tr>
+   <tr>
+      <th>HTTP (standard)</th>
+      <td>
+         <ul>
+            <li>SRV as URL</li>
+            <li>Specify ports</li>
+         </ul>
       </td>
       <td>
+         <ul>
+            <li>Requires application configuration</li>
+            <li>Only supports HTTP/HTTPS</li>
+         </ul>
+      </td>
+   </tr>
+   <tr>
+      <th>VPN</th>
+      <td>
+         <ul>
           <ul>
               <li>Cannot specify ports (except through SRV)</li>
               <li>Only supports HTTP</li>
@@ -94,6 +121,10 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
             <li>Full and direct access to cluster</li>
             <li>Specify ports</li>
             <li>All protocols</li>
+         </ul>
+      </td>
+      <td>
+         <ul>
         </ul>
         </td>
         <td>
@@ -102,10 +133,12 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
             <li>Runs as superuser</li>
             <li><i>May</i> need to manually reconfigure DNS</li>
             <li>Relatively heavyweight</li>
+         </ul>
+      </td>
+   </tr>
         </ul>
         </td>
       </tr>
-
 </table>
 
 # Using DC/OS Tunnel

@@ -15,7 +15,7 @@ Now that we have defined a [toolset for debugging applications on DC/OS](#tools)
 
 Beyond considering any information special to your scenario, a reasonable approach to debugging an application deployment issue is to apply [our debugging tools](#tools) in the following order:
 
-- 1: [Check GUIs](#GUI-strat)
+- 1: [Check web interfaces](#GUI-strat)
 - 2: [Check Task Logs](#task-strat)
 - 3: [Check Scheduler Logs](#schedule-strat)
 - 4: [Check Agent Logs](#agent-strat)
@@ -26,25 +26,23 @@ Beyond considering any information special to your scenario, a reasonable approa
 
 <a name="GUI-strat"></a>
 
-### Step 1: Check the GUIs
+### Step 1: Check the web interfaces
 
-Start by examining the [DC/OS GUI](#dcos-ui) (or use the CLI) to [check the status](/latest/deploying-services/task-handling/) of the task. If the task has an associated [health check](/latest/deploying-services/creating-services/health-checks/), it is also a good idea to check the task’s health status.
+Start by examining the [DC/OS web interface](#dcos-ui) (or use the CLI) to [check the status](/latest/deploying-services/task-handling/) of the task. If the task has an associated [health check](/latest/deploying-services/creating-services/health-checks/), it is also a good idea to check the task’s health status.
 
-If it could be relevant, check the [Mesos GUI](/1.11/tutorials/dcos-debug/tools/#mesos-ui) or [Exhibitor/ZooKeeper GUI](/1.11/tutorials/dcos-debug/tools/#zoo-ui) for potentially relevant debugging information there.
+If it could be relevant, check the [Mesos web interface](/1.11/tutorials/dcos-debug/tools/#mesos-ui) or [Exhibitor/ZooKeeper web interface](/1.11/tutorials/dcos-debug/tools/#zoo-ui) for potentially relevant debugging information there.
 
 <a name="task-strat"></a>
 
 ### Step 2: Check the Task Logs
 
-If the GUIs cannot provide sufficient information, next check the [task logs](/1.11/tutorials/dcos-debug/tools/#task-logs) using the DC/OS GUI or the CLI. This helps a better understanding of what might have happened to the application.
-
-**Tip** If the issue is related to our app not deploying (e.g. the task status continues to wait indefinitely), try looking at the ['Debug' page](/1.10/monitoring/debugging/gui-debugging/#debugging-page). It could be helpful in getting a better understanding of the resources being offered by Mesos.
+If the web interfaces cannot provide sufficient information, next check the [task logs](/1.11/tutorials/dcos-debug/tools/#task-logs) using the DC/OS web interface or the CLI. This helps a better understanding of what might have happened to the application. If the issue is related to our app not deploying (for example, the task status continues to wait indefinitely), try looking at the ['Debug' page](/1.11/monitoring/debugging/gui-debugging/#debugging-page). It could be helpful in getting a better understanding of the resources being offered by Mesos.
 
 <a name="schedule-strat"></a>
 
 ### Step 3: Check the Scheduler Logs
 
-Next, when there is a deployment problem and the task logs do not provide enough information to fix the issue, it can be helpful to double-check the app definition. Then, after confirming the app definition, check the Marathon log or GUI to better understand how it was scheduled or why not.
+Next, when there is a deployment problem and the task logs do not provide enough information to fix the issue, it can be helpful to double-check the app definition. Then, after confirming the app definition, check the Marathon log or web interface to better understand how it was scheduled or why not.
 
 <a name="agent-strat"></a>
 

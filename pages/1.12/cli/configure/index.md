@@ -3,11 +3,10 @@ layout: layout.pug
 navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2
-excerpt: How to configure the command line interface
+excerpt: Configuring the command line interface
 
 enterprise: false
 ---
-
 
 You can access DC/OS CLI configuration with the [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) and [dcos config](/1.12/cli/command-reference/dcos-config/) command groups.
 
@@ -24,6 +23,9 @@ To set the [attached cluster](/1.12/cli/command-reference/dcos-cluster/dcos-clus
 export DCOS_CLUSTER=<cluster_name>
 ```
 
+* pip version 7.1.0 or greater.
+* The `http_proxy` and `https_proxy` environment variables are defined to use `pip`.
+
 <a name="dcos-dir"></a>
 #### `DCOS_DIR`
 
@@ -35,10 +37,12 @@ export DCOS_DIR=/home/jdoe/config
 
 1. Optionally set `DCOS_DIR` and run `dcos cluster setup` command.
 
-    ```
-    export DCOS_DIR=<path/to/config_dir> (optional, default when not set is ~/.dcos)
-    dcos cluster setup <url>
-    ```
+```bash
+export DCOS_DIR=<path/to/config_dir> # optional, default when not set is ~/.dcos
+dcos cluster setup <url>
+```
+
+* Define `no_proxy` for domains that you do not want to use the proxy for:
 
    This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. Generates a newly setup cluster [as seen here](/1.12/cli/index#setupcluster).
 

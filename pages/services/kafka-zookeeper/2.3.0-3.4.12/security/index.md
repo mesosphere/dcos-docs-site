@@ -101,7 +101,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-**Note:** It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your ZooKeeper clients will need to be reconfigured. For more information see the [Enabling Kerberos after deployement](#enabling-kerberos-after-deployment) section.
+**Note:** It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your ZooKeeper clients will need to be reconfigured. For more information see the [Enabling Kerberos after deployment](#enabling-kerberos-after-deployment) section.
 
 #### Enabling Kerberos After Deployment
 

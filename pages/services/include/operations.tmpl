@@ -31,7 +31,8 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} plan status deploy
 {{ model.operations.complete-deploy}}
 ```
 
-**Note**: Passing the --json flag to the `status` command will return a `JSON` response which has UUIDs for the phases and steps of a plan. Those UUIDs can be useful in the other plan commands.
+<p class="message--note"><strong>NOTE: </strong>Passing the "--json" flag to the "status" command will return a JSON response which has UUIDs for the phases and steps of a plan. These UUIDs can be useful in the other plan commands.</p>
+
 
 ### Operating on a plan
 
@@ -86,7 +87,8 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} force-complete <pl
 
 A deployed instance of the DC/OS {{ model.techName }} service is made up of a set of running pods. Using the pod API, it is possible to manage the lifecycle of these pods as well as investigate failures of the pods and their tasks.
 
-**Note:** Managing pod count is done via the service configuration and does not have a direct API.
+<p class="message--note"><strong>NOTE: </strong>Managing pod count is done via the service configuration and does not have a direct API.</p>
+
 
 ### List
 

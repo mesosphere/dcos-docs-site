@@ -11,7 +11,7 @@ enterprise: false
 
 
 # Description
-Run a job now.
+The `dcos job run` command allows you to run a job now.
 
 # Usage
 
@@ -25,9 +25,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-id>`   |             |  Specify the job ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<job-id>`   |   Specify the job ID. You can view the job IDs with the `dcos job list` command.|
 
 # Parent command
 
@@ -39,10 +39,9 @@ None.
 
 ## Run a job
 
-In this example, a job named `my-job` is run.
+In this example, you can run a job named `my-job`.
 
 ```bash
 dcos job run my-job
 ```
 
-**Tip:** You can view the job IDs with the `dcos job list` command.
