@@ -38,7 +38,7 @@ DC/OS 1.12.0 Beta 1 includes the following new features and capabilities:
 - DC/OS CLI now automatically downloads and install the enterprise-cli plugins. [enterprise type="inline" size="small" /]
 
 ### Mesosphere Kubernetes Engine
-- High density Multi-Kubernetes leveraging enhanced containerized bin packing. 
+- High density [multi-Kubernetes](https://docs.mesosphere.com/services/beta-kubernetes/2.0.0-1.12.0-beta/) leveraging enhanced containerized bin packing. 
 
 ### Metrics
 Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability are:
@@ -49,9 +49,9 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Contact for DataDog plugin support.
 
 [enterprise]
-### [Private Package Registry](https://docs.mesosphere.com/1.12/administering-clusters/package-registry/)
+### Private Package Registry
 [/enterprise]
-- Enable On-Premise package distribution and management.
+- Enable [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/package-registry/).
 - Enable air-gapped Virtual Private Cloud package management.
 - Simplify package artifact management.
 - Full support for NFS and S3 as storage backends for package storage.
