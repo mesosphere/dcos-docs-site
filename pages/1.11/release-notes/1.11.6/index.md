@@ -19,9 +19,9 @@ DC/OS 1.11.6 includes the following components:
 - Metronome 0.4.34[change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
 # Notable Changes in DC/OS 1.11.6
-- DCOS-22310/DCOS-40495/DCOS-41282 - Update DC/OS UI for [1.11+v1.21.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.21.0/CHANGELOG.md). [oss type="inline" size="small" /]
+- DCOS-22310/DCOS-40495/DCOS-41282 - Update DC/OS UI for [1.11+v1.23.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.23.0/CHANGELOG.md). [oss type="inline" size="small" /]
 - DCOS_OSS-4106/DCOS_OSS-4109 - Bump ZooKeeper to [3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html). [enterprise type="inline" size="small" /]
-- Update DC/OS UI for [1.11+v1.21.0+c3b509b5](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.20.0+1c67f4b5...1.11+v1.21.0+c3b509b5). [enterprise type="inline" size="small" /]
+- Update DC/OS UI for [1.11+v1.23.0+f17c3335](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.20.0+1c67f4b5...1.11+v1.23.0+f17c3335). [enterprise type="inline" size="small" /]
 
 # Issues Fixed in DC/OS 1.11.6
 
