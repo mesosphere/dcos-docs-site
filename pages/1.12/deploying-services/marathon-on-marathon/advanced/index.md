@@ -8,49 +8,48 @@ enterprise: true
 
 ---
 
-This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.12/security/ent/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/1.12/deploying-services/marathon-on-marathon/basic/).
+This topic describes how to deploy a non-native instance of Marathon (Marathon on Marathon) with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.12/security/ent/secrets/) or fine-grain ACLs. Otherwise, use the [basic procedure](/1.12/deploying-services/marathon-on-marathon/basic/).
 
-For this procedure, we are assuming that you have obtained an enterprise version of Marathon from your sales representative (<sales@mesosphere.io>). This custom tarball contains Marathon plus plugins to support enterprise features, such as secrets and authorization. These additional plugins allow you to use secrets and fine-grained access control in your non-native Marathon folder hierarchy.
+For this procedure, we are assuming that you have obtained an enterprise version of Marathon from your sales representative (<sales@mesosphere.io>). This is delivered as a Docker image file and contains Marathon plus plugins for Marathon that enable DC/OS Enterprise features such as secrets and fine-grained access control.
 
 **Prerequisites:**
 
 -  DC/OS and DC/OS CLI [installed](/1.12/installing/).
 -  [DC/OS Enterprise CLI 0.4.14 or later](/1.12/cli/enterprise-cli/#ent-cli-install).
 -  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.12/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
--  Custom non-native Marathon (version 0.11.0 or newer) image [deployed in your private Docker registry](/1.12/deploying-services/private-docker-registry#tarball-instructions). Contact your sales representative or <sales@mesosphere.io> for obtain the enterprise Marathon image file.
+-  Custom non-native Marathon image [deployed in your private Docker registry](/1.12/deploying-services/private-docker-registry#tarball-instructions). Contact your sales representative or <sales@mesosphere.io> for obtain the enterprise Marathon image file.
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 
 <a name="variables-in-example"></a>
 **Variables in this example**
 
-Throughout this page, you will be instructed to invoke commands or take actions that differ according to your setup. For the parts that differ, we are using the `${VARIABLE}` notation, that should be replaced with the appropriate value that fits in your case.
+Throughout this page, you will be instructed to invoke commands or take actions that will use cluster-specific-values. We refer to these cluster-specific-values using the `${VARIABLE}` notation; please substitute the following variables the appropriate value for your cluster.
 
 The following table contains all the variables used in this page:
 
 | Variable | Description |
 |--------------------------|--------------------------------------------|
-| `${MY_USER_ID}` | The username that you use to log in to your cluster. That is the username that you were prompted during `dcos cluster setup`. |
+| `${MY_USERNAME}` | The username that you use to log in to your cluster. That is the username that you were prompted during `dcos cluster setup`. |
 | `${AGENT_ID}` | The ID of an agent in your DC/OS cluster. You can obtain an agent ID using the `dcos node` command. |
-| `${MESOS_ROLE}` | The name of the [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) that the new Marathon instance will use. This should be a valid [Mesos role name](https://mesos.apache.org/documentation/latest/roles/#invalid-role-names), for example `"marathon_ee"`. |
-| `${SERVICE_ACCOUNT_ID}` | The name of the [Service Account](/1.12/security/ent/service-auth/) that Marathon will use to communicate with the other services in DC/OS. The name should include only lowercase alphabet, uppercase alphabet, numbers, `@`, `.`, `\`, `_`, and `-`. For example `"marathon_user_ee"` |
+| `${MESOS_ROLE}` | The name of the [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) that the new Marathon instance will use. This should be all lowercase, and be a valid [Mesos role name](https://mesos.apache.org/documentation/latest/roles/#invalid-role-names), for example `"marathon_ee"`. |
+| `${SERVICE_ACCOUNT}` | The name of the [Service Account](/1.12/security/ent/service-auth/) that Marathon will use to communicate with the other services in DC/OS. The name should include only letters, numbers, `@`, `.`, `\`, `_`, and `-`. For example `"marathon_user_ee"` |
 | `${BEGIN_PORT}` - `${END_PORT}` | A port range that will be reserved on the agent, for the custom Marathon instance. Check the output of the `dcos node --json | jq '.[] | {id, ports: .resources.ports}'` command to find out what is a valid range for your agents. |
-| `${MARATHON_INSTANCE_NAME}` | The name of your non-native instance. This should be a valid [Marathon service name](https://mesosphere.github.io/marathon/docs/application-basics.html), for example `"mom_ee"`. |
-| `${SERVICE_ACCOUNT_SECRET}` | The path of the secret in the [Secret Store](/1.12/security/ent/secrets/) that holds the private key that Marathon will use along with the `${SERVICE_ACCOUNT_ID}` account to authenticate on DC/OS. This the name **must not** contain the character `/`. For example `"marathon_user_ee_secret"` |
+| `${MARATHON_INSTANCE_NAME}` | The name of your new Marathon instance. This should be a valid [Marathon service name](https://mesosphere.github.io/marathon/docs/application-basics.html), for example `"mom_ee"`. |
+| `${SERVICE_ACCOUNT_SECRET}` | The path of the secret in the [Secret Store](/1.12/security/ent/secrets/) that holds the private key that Marathon will use along with the `${SERVICE_ACCOUNT}` account to authenticate on DC/OS. This the name **must not** contain the character `/`. For example `"marathon_user_ee_secret"` |
 | `${DOCKER_REGISTRY_SECRET}` | The path of the secret in the [Secret Store](/1.12/security/ent/secrets/) that holds the credentials for fetching the Marathon Docker image from the private registry. This the name **must not** contain the character `/`. For example `"registry_secret"`. |
-| `${PRIVATE_KEY}` | The path to the private key file (in your local file system). Feel free to pick any file name ending with `.pem`. |
-| `${PUBLIC_KEY}` | The path to the public key file (in your local file system). Feel free to pick any file name ending with `.pem` |
+| `${PRIVATE_KEY}` | The path to a PEM formatted private key file (in your local file system, existing or not), ideally suffixed with `.pem` |
+| `${PUBLIC_KEY}` | The path to a PEM formatted public key file (in your local file system, existing or not), ideally suffixed with `.pem` |
 | `${MARATHON_IMAGE}` | The name of the Marathon image **in your private repository**, for example `private-repo/marathon-dcos-ee`. |
 | `${MARATHON_TAG}` | The Docker image tag of the Marathon version that you want to deploy. For example `v1.5.11_1.10.2` (version 0.11.0 or newer).  |
 
-**Note:** If you are working on a Mac OS or Linux machine, you can pre-define all the above variables in your terminal session and just copy and paste the snippets in your terminal:
+**Note:** If you are working on a Mac OS or Linux machine, you can pre-define most of the above variables in your terminal session and just copy and paste the snippets in your terminal:
 
 ```
 set -a
-MY_USER_ID="..."
-AGENT_ID="..."
+MY_USERNAME="..."
 MESOS_ROLE="..."
-SERVICE_ACCOUNT_ID="..."
+SERVICE_ACCOUNT="..."
 BEGIN_PORT="..."
 END_PORT="..."
 MARATHON_INSTANCE_NAME="..."
@@ -67,13 +66,15 @@ MARATHON_TAG="..."
 
 For the following steps, we are assuming that you have already:
 
-1. Pushed the enterprise image of Marathon to your private registry [(Instructions)](/1.12/deploying-services/private-docker-registry#tarball-instructions), under the name `${MARATHON_IMAGE}:${MARATHON_TAG}`.
+1. Pushed the Marathon enterprise image to your private registry [(Instructions)](/1.12/deploying-services/private-docker-registry#tarball-instructions), under the name `${MARATHON_IMAGE}:${MARATHON_TAG}`.
 1. Stored your private Docker credentials in the secrets store [(Instructions)](/1.12/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise), under the name `${DOCKER_REGISTRY_SECRET}`.
 
     **Warning:** The name of the secret should either be in the root path (ex. `/some-secret-name`) or prefixed with the name of your app (ex. `/${MARATHON_INSTANCE_NAME}/some-secret-name`). Failing to do so, will make root Marathon unable to read the secret value and will fail to launch your custom Marathon-on-Marathon instance.
 
 # Step 2: Reserve Resources (Optional) {.tabs}
-In this step, we are going to define a [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) for our new Marathon instance, and reserve some dedicated resources for it. This step is optional, but it is recommended if you want your new Marathon instance to have a minimum resource guarantee for its tasks.
+Skip this step if you do not wish to set aside resources explicitly for your new Marathon instance.
+
+In this step, we are going to define a [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) for our new Marathon instance, and reserve some dedicated resources for it.
 
 **Important:** If you choose not to reserve resources, you should use `MESOS_ROLE="*"` in any further occurrence of this variable.
 
@@ -89,11 +90,10 @@ You can choose between [static](#static-reservations) reservations, [dynamic](#d
 A _static_ reservation is achieved by changing the default Mesos Role of a particular agent in order to dedicate all of its resources to the new Marathon instance.
 
 <table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> This procedure kills all running tasks on your node.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:black><strong>Warning:</strong> This procedure will kill all running tasks on your node.</td>
+</tr>
 </table>
->>>>>>> variant B
 
 1.  [SSH](/1.12/administering-clusters/sshcluster/) to your private agent node.
 
@@ -158,7 +158,7 @@ curl -i -k \
         "type": "SCALAR",
         "name": "cpus",
         "reservation": {
-          "principal": "'${MY_USER_ID}'"
+          "principal": "'${MY_USERNAME}'"
         },
         "role": "'${MESOS_ROLE}'",
         "scalar": {
@@ -169,7 +169,7 @@ curl -i -k \
         "type": "SCALAR",
         "name": "mem",
         "reservation": {
-          "principal": "'${MY_USER_ID}'"
+          "principal": "'${MY_USERNAME}'"
         },
         "role": "'${MESOS_ROLE}'",
         "scalar": {
@@ -180,7 +180,7 @@ curl -i -k \
         "type": "RANGES",
         "name": "ports",
         "reservation": {
-          "principal": "'${MY_USER_ID}'"
+          "principal": "'${MY_USERNAME}'"
         },
         "role": "'${MESOS_ROLE}'",
         "ranges": {
@@ -200,6 +200,8 @@ Since both _static_ and _dynamic_ reservations are pinned to a particular agent,
 A _Quota_ is simply a mechanism for guaranteeing that a role will receive a certain minimum amount of resources.
 
 **Warning:** You can only use `SCALAR` resources with _Quotas_. This means that if you want to reserve a port range you have to use _static_ or _dynamic Reservations_.
+
+**Warning:** If you set a guarantee quota for a resource role, other resource roles will have 0 quota. You must specify guarantee quota for all resource roles you intend to use.
 
 ```bash
 curl -i -k \
@@ -243,30 +245,30 @@ Depending on your [security mode](/1.12/security/ent/#security-modes), a Maratho
     dcos security org service-accounts keypair ${PRIVATE_KEY} ${PUBLIC_KEY}
     ```
 
-1.  Create a new service account called `${SERVICE_ACCOUNT_ID}`, with the public key specified (`${PUBLIC_KEY}`).
+1.  Create a new service account called `${SERVICE_ACCOUNT}`, using the public key we generated (`${PUBLIC_KEY}`).
 
     ```bash
-    dcos security org service-accounts create -p ${PUBLIC_KEY} -d "Marathon-on-Marathon User" ${SERVICE_ACCOUNT_ID}
+    dcos security org service-accounts create -p ${PUBLIC_KEY} -d "Marathon-on-Marathon User" ${SERVICE_ACCOUNT}
     ```
 
 
 # Step 4: Create a Service Account Secret
 In this step, a secret is created for the Marathon service account and stored in the Secret Store.
 
-  The secret created (`${SERVICE_ACCOUNT_SECRET}`) will contain the private key (`${PRIVATE_KEY}`) and the name of the service account (`${SERVICE_ACCOUNT_ID}`). This information will be used by Marathon to authenticate against DC/OS.
+  The secret created (`${SERVICE_ACCOUNT_SECRET}`) will contain the private key (`${PRIVATE_KEY}`) and the name of the service account (`${SERVICE_ACCOUNT}`). This information will be used by Marathon to authenticate against DC/OS.
 
   ## {.tabs}
 
   ### Permissive
 
   ```bash
-  dcos security secrets create-sa-secret ${PRIVATE_KEY} ${SERVICE_ACCOUNT_ID} ${SERVICE_ACCOUNT_SECRET}
+  dcos security secrets create-sa-secret ${PRIVATE_KEY} ${SERVICE_ACCOUNT} ${SERVICE_ACCOUNT_SECRET}
   ```
 
   ### Strict
 
   ```bash
-  dcos security secrets create-sa-secret --strict ${PRIVATE_KEY} ${SERVICE_ACCOUNT_ID} ${SERVICE_ACCOUNT_SECRET}
+  dcos security secrets create-sa-secret --strict ${PRIVATE_KEY} ${SERVICE_ACCOUNT} ${SERVICE_ACCOUNT_SECRET}
   ```
 
   #### Recommendations
@@ -298,20 +300,20 @@ In this step, permissions are assigned to the Marathon-on-Marathon instance. Per
 
 All CLI commands can also be executed via the [IAM API](/1.12/security/ent/iam-api).
 
-Grant service account `${SERVICE_ACCOUNT_ID}` permission to launch Mesos tasks that will execute as Linux user `nobody`.
+Grant service account `${SERVICE_ACCOUNT}` permission to launch Mesos tasks that will execute as Linux user `nobody`.
 
-To allow executing tasks as a different Linux user, replace `nobody` with that user's Linux user ID. For example, to launch tasks as Linux user `bob`, replace `nobody` with `bob` below.
+To allow executing tasks as a different Linux user, replace `nobody` with that user's Linux user name. For example, to launch tasks as Linux user `bob`, replace `nobody` with `bob` below.
 
 Note that the `nobody` and `root` users exist on all agents by default; if a custom user is specified (e.g. `bob`), then the user `bob` will need to be manually created on every agent on which tasks can be executed (e.g. using the Linux `adduser` or a similar utility).
 
 ```bash
-dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody"
-dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:framework:role:${MESOS_ROLE} create --description "Controls the ability of ${MESOS_ROLE} to register as a framework with the Mesos master"
-dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:reservation:role:${MESOS_ROLE} create --description "Controls the ability of ${MESOS_ROLE} to reserve resources"
-dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:volume:role:${MESOS_ROLE} create --description "Controls the ability of ${MESOS_ROLE} to access volumes"
-dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:reservation:principal:${SERVICE_ACCOUNT_ID} delete --description "Controls the ability of ${SERVICE_ACCOUNT_ID} to reserve resources"
-dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:task:app_id:/ create --description "Controls the ability to launch tasks"
-dcos security org users grant ${SERVICE_ACCOUNT_ID} dcos:mesos:master:volume:principal:${SERVICE_ACCOUNT_ID} delete --description "Controls the ability of ${SERVICE_ACCOUNT_ID} to access volumes"
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody"
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:framework:role:${MESOS_ROLE} create --description "Controls the ability of ${MESOS_ROLE} to register as a framework with the Mesos master"
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:reservation:role:${MESOS_ROLE} create --description "Controls the ability of ${MESOS_ROLE} to reserve resources"
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:role:${MESOS_ROLE} create --description "Controls the ability of ${MESOS_ROLE} to access volumes"
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:reservation:principal:${SERVICE_ACCOUNT} delete --description "Controls the ability of ${SERVICE_ACCOUNT} to reserve resources"
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:app_id:/ create --description "Controls the ability to launch tasks"
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:principal:${SERVICE_ACCOUNT} delete --description "Controls the ability of ${SERVICE_ACCOUNT} to access volumes"
 ```
 
 
@@ -322,10 +324,10 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 
     Make sure you replace all the `${VARIABLES}` in the JSON file with the correct values for your case.
 
-    Alternatively, if you have exposed the values for all these variables in your terminal session (as explained in the [Variables Section](#variables-in-example)) you can use the following command to automatically replace all the variables with the correct values. It will save the result file in `marathon-filled.json`:
+    Alternatively, if you have exported the variables in your terminal session (as explained in the [Variables Section](#variables-in-example)), you can use the following command to automatically replace all the substitute variables with their exported value. The resulting file will be saved as `marathon-filled.json`:
 
     ```bash
-    perl -p -e 's/\$\{(\w+)\}/(exists $ENV{$1}?$ENV{$1}:"missing variable $1")/eg' < marathon.json > marathon-filled.json
+    perl -p -e 's/\$\{(\w+)\}/(exists $ENV{$1}?$ENV{$1}:"<missing-variable-$1>")/eg' < marathon.json > marathon-filled.json
     ```
 
     ## {.tabs}
@@ -337,7 +339,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     ```json
     {
       "id":"/${MARATHON_INSTANCE_NAME}",
-      "cmd":"cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*,${MESOS_ROLE}\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name ${MARATHON_INSTANCE_NAME} --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_instances_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role ${MESOS_ROLE}  --zk zk://master.mesos:2181/universe/${MARATHON_INSTANCE_NAME} --mesos_user nobody --mesos_authentication --mesos_authentication_principal ${SERVICE_ACCOUNT_ID}",
+      "cmd":"cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*,${MESOS_ROLE}\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name ${MARATHON_INSTANCE_NAME} --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_instances_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role ${MESOS_ROLE}  --zk zk://master.mesos:2181/universe/${MARATHON_INSTANCE_NAME} --mesos_user nobody --mesos_authentication --mesos_authentication_principal ${SERVICE_ACCOUNT}",
       "user":"nobody",
       "cpus":2,
       "mem":4096,
@@ -354,7 +356,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
          "docker":{  
             "image":"${MARATHON_IMAGE}:${MARATHON_TAG}",
             "pullConfig": {
-                "secret": "docker-registry-credential"
+                "secret": "${DOCKER_REGISTRY_SECRET}"
             }
          },
          "volumes":[  
@@ -425,7 +427,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     ```json
     {  
       "id":"/${MARATHON_INSTANCE_NAME}",
-      "cmd":"cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*,${MESOS_ROLE}\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name ${MARATHON_INSTANCE_NAME} --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_instances_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role ${MESOS_ROLE}  --zk zk://master.mesos:2181/universe/${MARATHON_INSTANCE_NAME} --mesos_user nobody --mesos_authentication --mesos_authentication_principal ${SERVICE_ACCOUNT_ID}",
+      "cmd":"cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*,${MESOS_ROLE}\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name ${MARATHON_INSTANCE_NAME} --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_instances_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role ${MESOS_ROLE}  --zk zk://master.mesos:2181/universe/${MARATHON_INSTANCE_NAME} --mesos_user nobody --mesos_authentication --mesos_authentication_principal ${SERVICE_ACCOUNT}",
       "user":"nobody",
       "cpus":2,
       "mem":4096,
@@ -442,7 +444,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
          "docker":{  
             "image":"${MARATHON_IMAGE}:${MARATHON_TAG}",
             "pullConfig": {
-                "secret": "docker-registry-credential"
+                "secret": "${DOCKER_REGISTRY_SECRET}"
             }
          },
          "volumes":[  
@@ -611,7 +613,7 @@ By now, your new Marathon instance is accessible only by the DC/OS superusers. I
 # Step 8: Access the Non-Native Marathon Instance
 In this step, you log in as a authorized user to the non-native Marathon DC/OS service.
 
-1.  Launch the non-native Marathon interface at: `http://<master-public-ip>/service/${SERVICE_ACCOUNT_ID}/`.
+1.  Launch the non-native Marathon interface at: `http://<master-public-ip>/service/${SERVICE_ACCOUNT}/`.
 
 1.  Enter your username and password and click **LOG IN**.
 
