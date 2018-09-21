@@ -34,7 +34,6 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
 
 # DC/OS Tunnel Options at a Glance
 
-
 <table class="table">
    <tr>
       <th>&nbsp;</th>
@@ -56,8 +55,6 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
       </td>
    </tr>
    <tr>
-  </tr>
-  <tr>
       <th>HTTP (transparent)</th>
       <td>
          <ul>
@@ -65,6 +62,7 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
             <li>No application configuration</li>
          </ul>
       </td>
+      <td>
          <ul>
             <li>Cannot specify ports (except through SRV)</li>
             <li>Only supports HTTP</li>
@@ -91,32 +89,6 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
       <th>VPN</th>
       <td>
          <ul>
-          <ul>
-              <li>Cannot specify ports (except through SRV)</li>
-              <li>Only supports HTTP</li>
-              <li>Runs as superuser</li>
-          </ul>
-          </td>
-    </tr>
-    <tr>
-        <th>HTTP (standard)</th>
-        <td>
-        <ul>
-            <li>SRV as URL</li>
-            <li>Specify ports</li>
-        </ul>
-        </td>
-        <td>
-        <ul>
-            <li>Requires application configuration</li>
-            <li>Only supports HTTP/HTTPS</li>
-        </ul>
-        </td>
-     </tr>
-     <tr>
-        <th>VPN</th>
-        <td>
-        <ul>
             <li>No application configuration</li>
             <li>Full and direct access to cluster</li>
             <li>Specify ports</li>
@@ -125,10 +97,6 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
       </td>
       <td>
          <ul>
-        </ul>
-        </td>
-        <td>
-        <ul>
             <li>More prerequisites</li>
             <li>Runs as superuser</li>
             <li><i>May</i> need to manually reconfigure DNS</li>
@@ -136,9 +104,6 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
          </ul>
       </td>
    </tr>
-        </ul>
-        </td>
-      </tr>
 </table>
 
 # Using DC/OS Tunnel
