@@ -18,7 +18,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 *  DC/OS installation is run on a Bootstrap node comprising of one node with two cores, 16 GB RAM and 60 GB HDD. 
 *  The bootstrap node is only used during the installation and upgrade process, so there are no specific recommendations for high performance storage or separated mount points.
 
- **Note:** The bootstrap node must be separate from your cluster nodes.
+<p class="message--note"><strong>NOTE: </strong>The bootstrap node must be separate from your cluster nodes.</p>
 
 ## Cluster nodes
 
@@ -92,7 +92,8 @@ The agent nodes must also have:
 
 - The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
-    **Note:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
+    <p class="message--important"><strong>IMPORTANT: </strong>Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).</p>
+
 
 *   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.  
 -   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
@@ -217,8 +218,6 @@ To install these utilities on CentOS7 and RHEL7:
 ```bash
 sudo yum install -y tar xz unzip curl ipset
 ```
-
-
 ### Cluster permissions (production installation)
 
 On each of your cluster nodes, use the following command to:
@@ -234,7 +233,7 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-    **Note:** It may take a few minutes for your node to come back online after reboot.
+    It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
 You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
