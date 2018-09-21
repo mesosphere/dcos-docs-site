@@ -12,18 +12,21 @@ DC/OS 1.11.6 was released on September 25, 2018.
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-# Notable Changes in DC/OS 1.11.6
 
 DC/OS 1.11.6 includes the following components:
 - Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/19d17cec3e797758e76c081efb68867d440ed4d3/CHANGELOG).
-- Marathon 1.6.544 [change log](https://github.com/dcos/dcos/pull/3289).
-- Metronome 0.4.3 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.3).
+- Marathon 1.6.549 [change log](https://github.com/mesosphere/marathon/tree/aabf74302).
+- Metronome 0.4.34[change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
-- DCOS-22310/DCOS-40495/DCOS-41282 - Update DC/OS UI for [1.11+v1.21.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.21.0/CHANGELOG.md).
-- DCOS_OSS-4106/DCOS_OSS-4109 - Update to [ZooKeeper 3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html). [enterprise type="inline" size="small" /]
-
+# Notable Changes in DC/OS 1.11.6
+- DCOS-22310/DCOS-40495/DCOS-41282 - Update DC/OS UI for [1.11+v1.21.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.21.0/CHANGELOG.md). [oss type="inline" size="small" /]
+- DCOS_OSS-4106/DCOS_OSS-4109 - Bump ZooKeeper to [3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html). [enterprise type="inline" size="small" /]
+- Update DC/OS UI for [1.11+v1.21.0+c3b509b5](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.20.0+1c67f4b5...1.11+v1.21.0+c3b509b5). [enterprise type="inline" size="small" /]
 
 # Issues Fixed in DC/OS 1.11.6
+
+## CLI 
+- DCOS_OSS-3958/DCOS_OSS-3978 - Add information about `/containers`, `/quota`, `/proc`, and `ps aux www`to diagnostics bundle.
 
 ## Data Services
 - COPS-3371/DCOS-38328 - Remove health check directories for Kafka 2.0.4-1.0.0.
@@ -52,17 +55,20 @@ DC/OS 1.11.6 includes the following components:
 - COPS-3605/DCOS_OSS-3707 - Bump mesos-module to include the fix for CoreOS 1800.7.0.
 - DCOS_OSS-3697 - Fix connectivity issue between bridge and overlay networks.
 - DCOS-39707 - Fix clustering issues with `etcd`.
+- DCOS-40702 - Fix networking changes to support CoreOS v1800.7.0.
 
 ## Platform
- - DCOS-40245 - Enable the `adminrouter_auth_cache_enabled` configuration option by default.
+ - DCOS-40245 - Admin Router: Change the `adminrouter_auth_cache_enabled` configuration option default to `true`. [enterprise type="inline" size="small" /]
  - DCOS_OSS-4107 - Bump ZooKeeper to [3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html).
  
  
 [enterprise]
 ## Security
 [/enterprise]
-- DCOS-40374/DCOS-40391 - Introduce a new method called `ensure_permissions` that modifies service account permissions to match desired state.
+- DCOS-40374/DCOS-40391/DCOS-42192 - Add a new method called `ensure_permissions` that modifies service account permissions to match desired state.
 
+# Security Updates
+- DCOS_OSS-4105 - Update OpenSSL to version 1.0.2p.
 
 **Note:** 
 - New Docker version is supported on CoreOS 1800.7.0. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
