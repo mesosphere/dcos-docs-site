@@ -18,7 +18,8 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 *  DC/OS installation is run on a Bootstrap node comprising of one node with two cores, 16 GB RAM and 60 GB HDD. 
 *  The bootstrap node is only used during the installation and upgrade process, so there are no specific recommendations for high performance storage or separated mount points.
 
- **Note:** The bootstrap node must be separate from your cluster nodes.
+<p class="message--note"><strong>NOTE: </strong>The bootstrap node must be separate from your cluster nodes.</p>
+
 
 ## Cluster nodes
 
@@ -92,7 +93,8 @@ The agent nodes must also have:
 
 -   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
-    **Note:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
+    <p class="message--important"><strong>IMPORTANT: </strong>Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).</p>
+
 
 -   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.
 
@@ -186,7 +188,8 @@ timedatectl
 
 Before installing DC/OS, you **must** ensure that your bootstrap node has the following prerequisites.
 
-- **Important:** If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.12/installing/production/advanced-configuration/configuration-reference/).
+<p class="message--important"><strong>IMPORTANT: </strong>If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the <a href="/1.12/installing/production/advanced-configuration/configuration-reference/">configuration parameter documentation</a>.</p>
+
 
 - The bootstrap node must be separate from your cluster nodes.
 
@@ -250,7 +253,7 @@ On each of your cluster nodes, follow the below instructions:
     sudo sed -i 's/SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config
     ```
 
-    **Note:** Ensure that all services running on every node can be run in the chosen SELinux configuration.
+    <p class="message--note"><strong>NOTE: </strong>Ensure that all services running on every node can be run in the chosen SELinux configuration.</p>
 
 *   Add `nogroup` and `docker` groups:
 
@@ -265,7 +268,7 @@ On each of your cluster nodes, follow the below instructions:
     sudo reboot
     ```
 
-    **Note:** It may take a few minutes for your node to come back online after reboot.
+    <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for your node to come back online after reboot.</p>
 
 ### Locale requirements
 You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
