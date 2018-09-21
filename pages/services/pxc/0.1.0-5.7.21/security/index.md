@@ -76,8 +76,8 @@ DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and 
 
 Steps to follow to configure PAM:
 1. Install openLDAP and openLDAP admin in the same cluster from Catalogue.
-2. Go to openLDAP Admin and logon with configurable userid(cn=admin,dc=example,dc=org) and password.(image required)
-[<img src="/services/pxc/0.1.0-5.7.21/img/openldap_login.png" alt="Grafana Data Source"/>](/services/pxc/0.1.0-5.7.21/img/openldap_login.png)
+2. Go to openLDAP Admin and logon with configurable userid(cn=admin,dc=example,dc=org) and password.
+[<img src="/services/pxc/0.1.0-5.7.21/img/openldap_login.png" alt="My LDAP login"/>](/services/pxc/0.1.0-5.7.21/img/openldap_login.png)
 3. Go to "ou-groups", create admin, developer and user(image)
 4. Create username under user group.
 5. Create the same user in  DC/OS percona-pxc-mysql to login authentication successfully.
