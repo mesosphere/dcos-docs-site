@@ -124,7 +124,11 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
     }
     ```
 
-    If you are using Mac OSX, you will need to manually encode your `username:password` string and modify your `config.json` to match the snippet above.
+    If you are using Mac OS, you will need to manually encode your `username:password` string and modify your `config.json` to match the snippet above. Be sure to omit a trailing new-line when base64 encoding the pair:
+
+    ```bash
+    echo -n myuser@domain.com:hard-to-guess-password | base64
+    ```
 
 1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.9/security/ent/secrets/create-secrets/).
 
