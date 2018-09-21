@@ -120,6 +120,12 @@ The agent nodes must also have:
 -   All ports should be open for communication from the master nodes to the agent nodes and vice versa. [enterprise type="inline" size="small" /]
 -   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
 
+Requirements for intermediaries (e.g., reverse proxies performing SSL termination) between DC/OS users and the master nodes:
+
+- No intermediary must buffer the entire response before sending any data to the client.
+- Upon detecting that its client goes away, the intermediary should also close the corresponding upstream TCP connection (i.e., the intermediary
+should not reuse upstream HTTP connections).
+
 ### High Speed Internet Access
 
 High speed internet access is recommended for DC/OS installation. A minimum 10 MBit per second is required for DC/OS services. The installation of some DC/OS services will fail if the artifact download time exceeds the value of MESOS_EXECUTOR_REGISTRATION_TIMEOUT within the file `/opt/mesosphere/etc/mesos-slave-common`. The default value for MESOS_EXECUTOR_REGISTRATION_TIMEOUT is 10 minutes.
