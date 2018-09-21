@@ -79,8 +79,6 @@ Steps to follow to configure PAM:
 2. Go to openLDAP Admin and logon with configurable userid(cn=admin,dc=example,dc=org) and password.
 [<img src="/services/pxc/0.1.0-5.7.21/img/.png" alt="My LDAP login"/>](/services/pxc/0.1.0-5.7.21/img/openldap_login.png)
 
-[<img src="/services/pxc/0.1.0-5.7.21/img/after_log_in.png" alt="Successfully login"/>](/services/pxc/0.1.0-5.7.21/img/after_log_in.png)
-
 3. Go to "ou-groups", create admin, developer and user(image)
 4. Create username under user group.
 [<img src="/services/pxc/0.1.0-5.7.21/img/create_user.png" alt="Create User in My LDAP"/>](/services/pxc/0.1.0-5.7.21/img/create_user.png)
