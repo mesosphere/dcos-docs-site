@@ -25,11 +25,18 @@ DC/OS 1.11.6 includes the following components:
 
 # Issues Fixed in DC/OS 1.11.6
 
+## Data Services
+- COPS-3371/DCOS-38328 - Remove health check directories for Kafka 2.0.4-1.0.0.
+
 ## GUI
 - DCOS-40779 - Fix movement of form control icons in the search bar. 
 
 ## Marathon
 - DCOS-41198 - Replace `poll_marathon_for_app_deployment()` method with `wait_for_deployments_complete()` method in dcos-test-utils.
+- MARATHON-8095 - Fix  PATCH call against inactive HA node.
+- MARATHON-8381 - Add new exit codes for Marathon. 
+- MARATHON-8428 - Fix SSL readiness check with self-signed cert. Bump [Marathon on 1.11](https://github.com/mesosphere/marathon/tree/aabf74302).
+- 
 
 ## Mesos
 - COPS-3527/DCOS_OSS-3921 - Check cache when creating Mesos resources using `make_disk_resources.py`.
@@ -38,7 +45,7 @@ DC/OS 1.11.6 includes the following components:
 - DCOS-40162 - Fix container launch failures that occurred due to Mesos-bridge running out of IPs.
 
 ## Networking
-- COPS-3279/DCOS-37703/DCOS-37703/DCOS-39703 - Fix erroneous values in service addresses stats and enable metrics forwarding.
+- COPS-3279/COPS-3576/DCOS-37703/DCOS-37703/DCOS-39703 - Fix erroneous values in service addresses stats and enable metrics forwarding.
 - COPS-3472/DCOS-38932 - Enable access to Marathon app via overlap network. 
 - COPS-3540/COPS-3517/COPS-3774/DCOS-39203/DCOS-39517/DCOS-41358 - Fix delay in overlay configuration.
 - COPS-3585/COPS-3701/DCOS-38600/DCOS-42215 - Fix deadlock issue when SSL sockets simultaneously send/receive data. 
@@ -48,6 +55,8 @@ DC/OS 1.11.6 includes the following components:
 
 ## Platform
  - DCOS-40245 - Enable the `adminrouter_auth_cache_enabled` configuration option by default.
+ - DCOS_OSS-4107 - Bump ZooKeeper to [3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html).
+ 
  
 [enterprise]
 ## Security
