@@ -16,7 +16,7 @@ DC/OS 1.11.6 was released on September 25, 2018.
 DC/OS 1.11.6 includes the following components:
 - Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/19d17cec3e797758e76c081efb68867d440ed4d3/CHANGELOG).
 - Marathon 1.6.549 [change log](https://github.com/mesosphere/marathon/tree/aabf74302).
-- Metronome 0.4.34[change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
+- Metronome 0.4.34 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
 # Notable Changes in DC/OS 1.11.6
 - DCOS-22310/DCOS-40495/DCOS-41282 - Update DC/OS UI for [1.11+v1.23.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.23.0/CHANGELOG.md). [oss type="inline" size="small" /]
