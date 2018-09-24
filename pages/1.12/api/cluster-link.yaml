@@ -1,14 +1,14 @@
 swagger: "2.0"
+info:
+  title: "The purpose of this application is to provide an API to access linked cluster functionality."
+  version: "1.0.0"
+schemes: 
+  - http
+  - https
 consumes:
   - "application/json"
 produces: 
   - "application/json"
-schemes: 
-  - "http"
-  - "https"
-info:
-  title: "The purpose of this application is to provide an API to access linked cluster functionality."
-  version: 1.0.0
 tags:
   - name: "links"
 basePath: "/cluster/v1"
