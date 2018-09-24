@@ -23,7 +23,7 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
 ## Supported patching path matrix
  The following matrix table lists the patching paths for DC/OS 1.10.
 
-**DC/OS minor versions for 1.10**
+**DC/OS minor versions for DC/OS 1.10**
 
 
 |**Display Icon** | **Service** |
@@ -56,7 +56,7 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
     </tr>
     <tr>
        <td><p style="text-align: center;">1.10.0</p></td>
-       <td><p style="text-align: center;">⚫/p></td>
+       <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">◯</p></td>
        <td><p style="text-align: center;">◯</p></td>
        <td><p style="text-align: center;">⚫</p></td>

@@ -24,7 +24,7 @@ There are no specific instructions for patching since it occurs as a part of the
 ## Supported patching path matrix
  The following matrix table lists the patching paths for DC/OS 1.10.
 
-**DC/OS minor versions for 1.10**
+**DC/OS minor versions for DC/OS 1.10**
 
 
 |**Display Icon** | **Service** |
@@ -57,7 +57,7 @@ There are no specific instructions for patching since it occurs as a part of the
     </tr>
     <tr>
        <td><p style="text-align: center;">1.10.0</p></td>
-       <td><p style="text-align: center;">⚫/p></td>
+       <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">◯</p></td>
        <td><p style="text-align: center;">◯</p></td>
        <td><p style="text-align: center;">⚫</p></td>
