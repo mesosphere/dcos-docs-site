@@ -1,26 +1,22 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes for 1.12.0 Beta 1
-title: Release Notes for 1.12.0 Beta 1
-menuWeight: 10
-excerpt: Release notes for DC/OS 1.12.0 Beta 1
+navigationTitle: Release Notes for 1.12.0
+title: Release Notes for 1.12.0 
+menuWeight: 5
+excerpt: Release notes for DC/OS 1.12.0
 ---
 
-DC/OS 1.12.0 Beta 1 was released on September 20, 2018.
+DC/OS 1.12.0 was released on October 25, 2018.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/testing/1.12.0-beta1/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/testing/1.12.0/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="light" href="https://downloads.mesosphere.io/dcos-enterprise/testing/1.12.0-beta1/commit/9d2ee649f1ddb90728757ea24d912189aaef9a52/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
-
-DC/OS 1.12.0 Beta 1 release is for testing only and not to be used in production. This release will only support new installations.
-
-**Note:** Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
+[button color="light" href="https://downloads.mesosphere.io/dcos-enterprise/testing/1.12.0/commit/9d2ee649f1ddb90728757ea24d912189aaef9a52/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
 
 <p class=“message--warning”><strong>WARNING: </strong>Mesos endpoints with `.json` suffix (e.g., /mesos/state.json) are deprecated in DC/OS 1.12 and will be removed in DC/OS 1.13.</p>
 
-# About DC/OS 1.12.0 Beta 1
+# About DC/OS 1.12.0 
 
-DC/OS 1.12.0 Beta 1 includes the following new features and capabilities:
+DC/OS 1.12.0 includes the following new features and capabilities:
 
 ## New Features and Capabilities
 
@@ -80,5 +76,5 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-4088/DCOS_OSS-4090 - Bump `Telegraf` package to fix 500 responses from v0 metrics API due to JSON serialization error.
 
 
-
+**Note:** Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
 
