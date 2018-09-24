@@ -113,7 +113,7 @@ spinnaker:
     bucket: my-spinnaker-bucket
     bucketLocation: us
     rootFolder: front50
-    project: mesoscon-demo
+    project: my-project
     jsonPath: /mnt/mesos/sandbox/data/keys/gcp_key.json
 ```
 
@@ -141,6 +141,7 @@ dockerRegistry:
       - library/nginx
       - library/postgres
     username: mesosphere
+#    password: ...    
 
 dcos:
   enabled: true
@@ -156,6 +157,7 @@ dcos:
         - name: my-dcos
           uid: bootstrapuser
           password: deleteme
+
 #kubernetes:
 #  enabled: true
 #  accounts:
@@ -172,28 +174,49 @@ dcos:
 
 For more configuration options see [spinnaker/clouddriver](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-web/config/clouddriver.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/clouddriver.yml).
 
+### gate-local.yml (optional)
+Gate is the Spinnaker **api service**. The following shows how to configure OAuth2 in `gate-local.yml`.
+
+```
+#security:
+#  oauth2:
+#    client:
+#      clientId: ...
+#      clientSecret: ...
+#      userAuthorizationUri: https://github.com/login/oauth/authorize
+#      accessTokenUri: https://github.com/login/oauth/access_token
+#      scope: user:email
+#    resource:
+#      userInfoUri: https://api.github.com/user
+#    userInfoMapping:
+#      email: email
+#      firstName:
+#      lastName: name
+#      username: login
+```
+
 ### echo-local.yml (optional)
 Echo is the Spinnaker **notification service**. The following shows how to configure the email notification plugin in `echo-local.yml`.
 
 ```
 mail:
-  enabled: true
-  from: <from-gmail-address>
-spring:
-  mail:
-    host: smtp.gmail.com
-    username: <from-gmail-address>
-    password: <app-password, see https://support.google.com/accounts/answer/185833?hl=en >
-    properties:
-      mail:
-        smtp:
-          auth: true
-          ssl:
-            enable: true
-          socketFactory:
-            port: 465
-            class: javax.net.ssl.SSLSocketFactory
-            fallback: false
+  enabled: false
+#  from: <from-gmail-address>
+#spring:
+#  mail:
+#    host: smtp.gmail.com
+#    username: <from-gmail-address>
+#    password: <app-password, see https://support.google.com/accounts/answer/185833?hl=en >
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          ssl:
+#            enable: true
+#          socketFactory:
+#            port: 465
+#            class: javax.net.ssl.SSLSocketFactory
+#            fallback: false
 ```
 
 For more configuration options see [spinnaker/echo](https://github.com/spinnaker/echo/blob/master/echo-web/config/echo.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/echo.yml).
