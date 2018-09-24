@@ -65,13 +65,17 @@ done
 # Fix up relative links after prettifying structure above
 sedi -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
 
+# Remove old docs 
+rm -rf ./pages/services/$name
+mkdir -p ./pages/services/$name
+
+# Copy new docs
 cp -r docs/package/* ./pages/services/$name
 
 git rm -rf docs/
 rm -rf docs/
 
 # Update sort order of index files
-
 weight=10
 for i in $( ls -r ./pages/services/$name/*/index.md ); do
   sedi "s/^menuWeight:.*$/menuWeight: ${weight}/" $i
