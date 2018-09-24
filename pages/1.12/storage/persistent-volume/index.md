@@ -347,7 +347,7 @@ The complete JSON application definition reads as follows:
 
 ## Pod with persistent volume
 
-The following example will create a pod with two containers and one shared persistent volume. Also see [Pods](/1.11/deploying-services/pods/).
+The following example will create a pod with two containers and one shared persistent volume. Also see [Pods](/1.12/deploying-services/pods/).
 
 ```json
 {

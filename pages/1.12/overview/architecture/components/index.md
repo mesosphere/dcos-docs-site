@@ -9,7 +9,7 @@ excerpt: Understanding DC/OS components
 
 DC/OS is composed of many open source microservice components meticulously tuned and configured to work together. Mesosphere DC/OS Enterprise includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
 
-![Mesosphere DC/OS Enterprise Components](/1.11/img/dcos-components-1.11-portrait.png)
+![Mesosphere DC/OS Enterprise Components](/1.12/img/dcos-components-1.12-portrait.png)
 
 *Figure 1 - DC/OS components*
 
@@ -23,7 +23,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <a name="apache-mesos"></a>
 ## Apache Mesos
 
-Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each [DC/OS agent node](/1.11/overview/concepts/#dcos-agent-node). Mesos Agent Public is a Mesos Agent configured to run on [DC/OS public agent nodes](/1.11/overview/concepts/#public-agent-node).
+Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each [DC/OS agent node](/1.12/overview/concepts/#dcos-agent-node). Mesos Agent Public is a Mesos Agent configured to run on [DC/OS public agent nodes](/1.12/overview/concepts/#public-agent-node).
 
 ## System Service
 
@@ -80,7 +80,7 @@ The DC/OS Installer (`dcos_generate_config.ee.sh`) generates install artifacts a
 
 **See Also:**
 
-- [Documentation](/1.11/installing/oss/)
+- [Documentation](/1.12/installing/oss/)
 - [Source](https://github.com/dcos/dcos)
 
 [enterprise]
@@ -96,8 +96,8 @@ DC/OS Backup provides backup and restore of DC/OS component state (Marathon-only
 
 **See Also:**
 
-- [Documentation](/1.11/administering-clusters/backup-and-restore/)
-- [API Reference](/1.11/administering-clusters/backup-and-restore/backup-restore-api/)
+- [Documentation](/1.12/administering-clusters/backup-and-restore/)
+- [API Reference](/1.12/administering-clusters/backup-and-restore/backup-restore-api/)
 
 
 <a name="dcos-gui"></a>
@@ -111,7 +111,7 @@ N/A - The GUI is served by Admin Router.
 
 **See Also:**
 
-- [Documentation](/1.11/gui/)
+- [Documentation](/1.12/gui/)
 - [Source](https://github.com/dcos/dcos-ui)
 
 
@@ -126,7 +126,7 @@ N/A - The CLI is a user downloadable binary.
 
 **See Also:**
 
-- [Documentation](/1.11/cli/)
+- [Documentation](/1.12/cli/)
 - [Source](https://github.com/dcos/dcos-cli)
 
 # Container Orchestration
@@ -146,9 +146,9 @@ Marathon orchestrates long-lived containerized services (apps and pods).
 **See Also:**
 
 - [Website](https://mesosphere.github.io/marathon/)
-- [Documentation](/1.11/deploying-services/)
+- [Documentation](/1.12/deploying-services/)
 - [Source](https://github.com/mesosphere/marathon)
-- [API Reference](/1.11/deploying-services/marathon-api/)
+- [API Reference](/1.12/deploying-services/marathon-api/)
 
 <a name="dcos-jobs"></a>
 ## DC/OS Jobs (Metronome)
@@ -161,7 +161,7 @@ DC/OS Jobs (Metronome) orchestrates short-lived, scheduled or immediate, contain
 
 **See Also:**
 
-- [Documentation](/1.11/deploying-jobs/)
+- [Documentation](/1.12/deploying-jobs/)
 - [Source](https://github.com/dcos/metronome)
 - [API Reference](https://dcos.github.io/metronome/docs/generated/api.html)
 
@@ -240,7 +240,7 @@ DC/OS Diagnostics aggregates and exposes component health. DC/OS Diagnostics is 
 **See Also:**
 
 - [Source](https://github.com/dcos/dcos-diagnostics)
-- [API Reference](/1.11/monitoring/#system-health-http-api-endpoint)
+- [API Reference](/1.12/monitoring/#system-health-http-api-endpoint)
 
 <a name="dcos-log"></a>
 
@@ -258,7 +258,7 @@ The DC/OS Log service exposes node, component, and container (task) logs.
 **See Also:**
 
 - [Source](https://github.com/dcos/dcos-log)
-- [API Reference](/1.11/monitoring/logging/logging-api/)
+- [API Reference](/1.12/monitoring/logging/logging-api/)
 
 <a name="logrotate"></a>
 
@@ -294,13 +294,13 @@ The DC/OS Metrics service exposes node, container, and application metrics.
 **See Also:**
 
 - [Source](https://github.com/dcos/dcos-metrics)
-- [API Reference](/1.11/metrics/metrics-api/)
+- [API Reference](/1.12/metrics/metrics-api/)
 
 <a name="dcos-signal"></a>
 
 ## DC/OS Signal
 
-The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/1.11/installing/oss/opt-out/#telemetry) at installation time.
+The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/1.12/installing/oss/opt-out/#telemetry) at installation time.
 
 ### System Service
 
@@ -365,7 +365,7 @@ In a world where machines are given numbers instead of names, tasks are schedule
   <ul>
     <li><a href="http://mesosphere.github.io/mesos-dns/">Documentation</a></li>
     <li><a href="https://github.com/mesosphere/mesos-dns">Source</a></li>
-    <li><a href="/1.11/networking/mesos-dns/mesos-dns-api/">API Reference</a></li>
+    <li><a href="/1.12/networking/mesos-dns/mesos-dns-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -431,7 +431,7 @@ Mesos DNS provides domain name based service discovery within the cluster.
 
 - [Documentation](http://mesosphere.github.io/mesos-dns/)
 - [Source](https://github.com/mesosphere/mesos-dns)
-- [API Reference](/1.11/networking/mesos-dns/mesos-dns-api/)
+- [API Reference](/1.12/networking/mesos-dns/mesos-dns-api/)
 
 <a name="dns-forwarder"></a>
 
@@ -476,7 +476,7 @@ Just as machine operating systems need package management to install, upgrade, c
 
 ## DC/OS Package Manager (Cosmos)
 
-DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.11/administering-clusters/repo/), such as the [Mesosphere Universe](https://github.com/mesosphere/universe).
+DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.12/administering-clusters/repo/), such as the [Mesosphere Universe](https://github.com/mesosphere/universe).
 
 ### System Service
 
@@ -485,7 +485,7 @@ DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from [DC/OS p
 **See Also:**
 
 - [Source](https://github.com/dcos/cosmos)
-- [API Reference](/1.11/deploying-services/package-api/)
+- [API Reference](/1.12/deploying-services/package-api/)
 
 <a name="dcos-component-package-manager">DC/OS Component Package Manager (Pkgpanda)
 
@@ -500,7 +500,7 @@ DC/OS Component Package Manager (Pkgpanda) installs and manages DC/OS components
 **See Also:**
 
 - [Source](https://github.com/dcos/dcos/tree/master/pkgpanda)
-- [API Reference](/1.11/administering-clusters/component-management/)
+- [API Reference](/1.12/administering-clusters/component-management/)
 
 [enterprise]
 # IAM and Security
@@ -519,8 +519,8 @@ DC/OS Identity and Access Manager (IAM) controls access to DC/OS components and 
 
 **See Also:**
 
-- [Documentation](/1.11/security/)
-- [API Reference](/1.11/security/ent/iam-api/)
+- [Documentation](/1.12/security/)
+- [API Reference](/1.12/security/ent/iam-api/)
 
 <a name="cockroachdb"></a>
 
@@ -552,8 +552,8 @@ DC/OS Certificate Authority (CA) issues signed digital certificates for secure c
 
 **See Also:**
 
-- [Documentation](/1.11/security/ent/tls-ssl/)
-- [API Reference](/1.11/security/ent/tls-ssl/ca-api/)
+- [Documentation](/1.12/security/ent/tls-ssl/)
+- [API Reference](/1.12/security/ent/tls-ssl/ca-api/)
 
 <a name="dcos-secrets"></a>
 ## DC/OS Secrets
@@ -566,8 +566,8 @@ DC/OS Secrets provides a secure API for storing and retrieving secrets from Vaul
 
 **See Also:**
 
-- [Documentation](/1.11/security/ent/secrets/)
-- [API Reference](/1.11/security/ent/secrets/secrets-api/)
+- [Documentation](/1.12/security/ent/secrets/)
+- [API Reference](/1.12/security/ent/secrets/secrets-api/)
 
 <a name="vault"></a>
 ## Vault
@@ -617,7 +617,7 @@ To see the full list of packages managed by the DC/OS installer, see the [packag
 
 # `Systemd` Services
 
-Most DC/OS components run as [systemd services](/1.11/overview/concepts/#systemd-service) on the DC/OS nodes.
+Most DC/OS components run as [systemd services](/1.12/overview/concepts/#systemd-service) on the DC/OS nodes.
 
 To see a list of the `systemd` components running on any particular node, list the contents of the `/etc/systemd/system/dcos.target.wants/` directory or execute `systemctl | grep dcos-` to see their current status.
 

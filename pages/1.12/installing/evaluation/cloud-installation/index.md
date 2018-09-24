@@ -14,6 +14,6 @@ DC/OS CloudFormation templates are intended for reference only and are not recom
 - Updates of DC/OS on AWS CloudFormation have not been automated, validated, or documented.
 - Modified CloudFormation templates are not supported by Mesosphere, Inc.
 
-You can use the [Production Installation](/1.11/installing/production/) methods to install a fully functional cluster.
+You can use the [Production Installation](/1.12/installing/production/) methods to install a fully functional cluster.
 
 
