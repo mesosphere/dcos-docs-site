@@ -167,3 +167,5 @@ To refresh your authentication token, just repeat the process discussed in [Requ
 The credentials of DC/OS-native service accounts are private to DC/OS and must not be consumed by third-party software (such as ad-hoc scripts).
 
 **Background**: the privileges granted to DC/OS-native service accounts can change during a DC/OS upgrade procedure. That is, consumers other than DC/OS-native services can break during a DC/OS upgrade. Notably, third party software must not mutate the privileges associated with DC/OS-native service accounts (the mutations can be reverted at any point in time).
+
+There is an exception for `dcos_marathon` and `dcos_metronome` service accounts that will keep modified privileges because in the `strict` security mode, some users of DC/OS Enterprise give `dcos_marathon` and `dcos_metronome` permissions so that these services can run tasks as Unix users other than `nobody`.
