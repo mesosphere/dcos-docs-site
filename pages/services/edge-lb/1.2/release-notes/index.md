@@ -16,7 +16,11 @@ Released on September 17, 2018.
 
 ## Notable Changes
 
-- Added logging for better troubleshooting of Edge-LB
+- Added Add timestamp to log messages produced during cont. start
+- Replace manual logline prefixing with proper source code file log field
+- Migrate logging to logrus, unify logging
+- Increase log retention for edge-lb containers
+- Add extra logging about the mesos state snapshot logging for better troubleshooting of Edge-LB
 
 ## Known Limitations
 
@@ -38,7 +42,7 @@ Released on September 11, 2018.
 * dcos-template: Properly handle nil values for some of the Mesos tasks protobuf fields.
 * dcos-template: Set maximum grpc recv. message size to 100MIB.
 * lbmgr: Adjust environment passing to match the new haproxy svc launch model. This fixes `AUTOCERT` and `SECRET` env passing in the haproxy task container.
-* api-swagger-spec: Bump api version to match edgelb version. 
+* api-swagger-spec: Bump api version to match edgelb version.
 * Introduce proper versioning for edgelb-pool cosmos package to match the version of the package with the version of the edgelb package itself instead of `stub-universe`.
 * Make the output of `dcos edgelb show --json` cmd be the actual pool configuration instead of wrapping it in a configuration container. This enables feeding the output of `show` command directly to the `update` command.
 * Cleanup of the goswagger code generation code and build chain, bump of goswagger tool used for generation from v0.11 to v0.16.
