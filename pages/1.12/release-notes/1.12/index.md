@@ -1,26 +1,22 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes for 1.12.0 Beta 1
-title: Release Notes for 1.12.0 Beta 1
-menuWeight: 10
-excerpt: Release notes for DC/OS 1.12.0 Beta 1
+navigationTitle: Release Notes for 1.12.0
+title: Release Notes for 1.12.0 
+menuWeight: 5
+excerpt: Release notes for DC/OS 1.12.0
 ---
 
-DC/OS 1.12.0 Beta 1 was released on September 20, 2018.
+DC/OS 1.12.0 was released on October 25, 2018.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/testing/1.12.0-beta1/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/testing/1.12.0/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="light" href="https://downloads.mesosphere.io/dcos-enterprise/testing/1.12.0-beta1/commit/9d2ee649f1ddb90728757ea24d912189aaef9a52/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
+[button color="light" href="https://downloads.mesosphere.io/dcos-enterprise/testing/1.12.0/commit/9d2ee649f1ddb90728757ea24d912189aaef9a52/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
 
-DC/OS 1.12.0 Beta 1 release is for testing only and not to be used in production. This release will only support new installations.
+<p class=“message--warning”><strong>WARNING: </strong>Mesos endpoints with `.json` suffix (e.g., /mesos/state.json) are deprecated in DC/OS 1.12 and will be removed in DC/OS 1.13.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Provide feedback on the new features and services at <a href="https://support.mesosphere.com">support.mesosphere.com</a>.</p>
+# About DC/OS 1.12.0 
 
-<p class="message--important"><strong>IMPORTANT: </strong>Mesos endpoints with the <code>.json</code> suffix are deprecated in DC/OS 1.12 and will be removed in DC/OS 1.13.</p>
-
-# About DC/OS 1.12.0 Beta 1
-
-DC/OS 1.12.0 Beta 1 includes the following new features and capabilities:
+DC/OS 1.12.0 includes the following new features and capabilities:
 
 ## New Features and Capabilities
 
@@ -47,12 +43,12 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Simplify a complicated codebase.
 - Enable additional output formats.
 - No longer require modifications when collecting metrics via Prometheus endpoint in 1.11.
-- Exporting metrics directly to Datadog is currently not supported in DC/OS 1.12.0 Beta 1.
+- Contact for DataDog plugin support.
 
 [enterprise]
 ### Private Package Registry
 [/enterprise]
-- Enable [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/).
+- Enable [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/package-registry/).
 - Enable air-gapped Virtual Private Cloud package management.
 - Simplify package artifact management.
 - Full support for NFS and S3 as storage backends for package storage.
@@ -80,5 +76,5 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-4088/DCOS_OSS-4090 - Bump `Telegraf` package to fix 500 responses from v0 metrics API due to JSON serialization error.
 
 
-
+**Note:** Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
 
