@@ -10,15 +10,15 @@ enterprise: true
 
 # Prerequisites
 - A DC/OS Enterprise cluster.
-- The [DC/OS CLI](/1.11/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/) installed.
+- The [DC/OS CLI](/1.12/cli/install/) installed.
+- The [DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/) installed.
 
 <p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
 
 
-# Back up a cluster
+# Backing up a cluster
 
-Backups are stored on the local file system of the master node. Backup state is maintained by a service running in the cluster and backup/restore operations are initiated by hitting this service directly.
+Backups are stored on the local file system of the master node. The backup state is maintained by a service running in the cluster, and backup/restore operations are initiated by hitting this service directly.
 
 1. Create a backup and assign it a meaningful label.
    The label has the following restrictions:
@@ -46,7 +46,7 @@ Backups are stored on the local file system of the master node. Backup state is 
 
 1. Use the ID produced by `dcos backup list` to refer to your backup in subsequent commands. A backup ID will resemble `<backup-label>-ea6b49f5-79a8-4767-ae78-3f874c90e3da`.
 
-# Delete a backup
+## Deleting a backup
 
 1. Delete an unneeded backup.
 
@@ -54,7 +54,7 @@ Backups are stored on the local file system of the master node. Backup state is 
    dcos backup delete <backup-id>
    ```
 
-# Restore a cluster
+# Restoring a cluster
 
 1. List the available backups, choose the backup you want to restore to, and make a note of the backup ID.
 

@@ -15,7 +15,8 @@ You can scale your AWS cluster or change the number of agent nodes.
 
 The DC/OS AWS CloudFormation template is optimized to run DC/OS, but you might want to change the number of agent nodes based on your needs.
 
-**Note:** Scaling down your AWS cluster could result in data loss. It is recommended that you scale down one node at a time, letting the DC/OS service recover. For example, if you are running a DC/OS service and you scale down from 10 to 5 nodes, this could result in losing all the instances of your service.
+<p class="message--warning"><strong>WARNING: </strong>Scaling down your AWS cluster could result in data loss. It is recommended that you scale down one node at a time, letting the DC/OS service recover. For example, if you are running a DC/OS service and you scale down from 10 to 5 nodes, this could result in losing all the instances of your service.</p>
+
 
 To change the number of agent nodes with AWS:
 
@@ -26,9 +27,5 @@ To change the number of agent nodes with AWS:
 
 Your new machines will take a few minutes to initialize; you can watch them in the EC2 console. The DC/OS web interface will update as soon as the new nodes register.
 
-<!-- ## Upgrading
-
-See the upgrade [documentation](/1.11/installing/oss/cloud/aws/upgrading/). -->
-
- [2]: /1.11/installing/oss/cloud/aws/
+ [2]: /1.12/installing/evaluation/cloud-installation/aws/
  [3]: https://console.aws.amazon.com/cloudformation/home
