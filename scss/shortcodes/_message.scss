@@ -14,24 +14,18 @@
     color: $color-dark;
     background: $color-red-lightest;
     padding: 10px;
-    border-left: 10px solid $color-red;
-  }
-  &--warning-label::before { 
-    content: "WARNING: ";
-    background-color: inherit;
-    color: inherit;
-    font-weight: bold;
+    border-left: 12px solid $color-red;
   }
   &--note {
     color: $color-dark;
     background: $color-purple-lightest;
     padding: 10px;
-    border-left: 10px solid $color-purple-light;
+    border-left: 12px solid $color-purple-light;
   }
   &--important {
     background: $color-gold-light;
     padding: 10px;
-    border-left: 10px solid $color-gold;
+    border-left: 12px solid $color-gold;
   }
   &--error {
     border: 1px solid #E77975;
