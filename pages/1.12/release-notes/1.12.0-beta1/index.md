@@ -46,7 +46,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Simplify a complicated codebase.
 - Enable additional output formats.
 - No longer require modifications when collecting metrics via Prometheus endpoint in 1.11.
-- Contact [support.mesosphere.com](https://support.mesosphere.com) for DataDog plugin.
+- Exporting metrics directly to Datadog is currently not supported in DC/OS 1.12.0 Beta 1.
 
 [enterprise]
 ### Private Package Registry
