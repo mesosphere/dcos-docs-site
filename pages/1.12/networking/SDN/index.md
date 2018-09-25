@@ -13,6 +13,6 @@ DC/OS allows UCR and Docker containers to be launched on a wide variety of Softw
 DC/OS comes with its own native virtual networking solution, called DC/OS Overlay, which supports both the CNI and CNM standards.
 
 ## IPv6 support for Docker Containers
-In DC/OS 1.11, DC/OS overlay has built in support for creating IPv6 networks for docker containers.
+In DC/OS 1.11 and later, DC/OS overlay has built in support for creating IPv6 networks for docker containers.
 
 **Note**: IPv6 support is currently available only for Docker containers and not for UCR containers.
