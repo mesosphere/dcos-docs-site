@@ -13,7 +13,7 @@ You can update the DC/OS CLI to the latest version or downgrade to an older vers
 
 # <a name="upgrade"></a>Upgrade the CLI
 
-**Note:** If you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely [uninstall](/1.12/cli/uninstall/) the CLI. You cannot upgrade.
+<p class="message--important"><strong>IMPORTANT: </strong>If you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/1.12/cli/uninstall/">uninstall</a> the CLI. You cannot upgrade.</p>
 
 You can upgrade an existing DC/OS CLI installation to the latest build.
 
@@ -29,7 +29,7 @@ You can upgrade an existing DC/OS CLI installation to the latest build.
     curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-<dcos-version>/dcos
     ```
 
-    **Note:** The CLI must be installed on a system that is external to your DC/OS cluster.
+    <p class="message--note"><strong>NOTE: </strong>The CLI must be installed on a system that is external to your DC/OS cluster.</p>
 
 1.  Make the CLI binary executable.
 
@@ -37,7 +37,7 @@ You can upgrade an existing DC/OS CLI installation to the latest build.
     chmod +x dcos
     ```
 
-    **Note:** If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
+    <p class="message--note"><strong>NOTE: </strong>If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.</p>
 
 1.  Point the CLI to your DC/OS master node. In this example, `http://example.com` is the master node IP address.
 

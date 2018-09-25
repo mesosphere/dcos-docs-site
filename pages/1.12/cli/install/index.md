@@ -55,11 +55,7 @@ Figure 3. Code snippet window
     curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.12/dcos
     ```
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>Important:</strong> The CLI must be installed on a system that is external to your DC/OS cluster.</td>
-    </tr>
-    </table>
+    <p class="message--important"><strong>IMPORTANT: </strong>The CLI must be installed on a system that is external to your DC/OS cluster.</p>
 
 1.  Move the CLI binary to your local bin directory.
 
@@ -101,7 +97,7 @@ Figure 3. Code snippet window
     curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.12/dcos
     ```
 
-    **Note:** The CLI must be installed on a system that is external to your DC/OS cluster.
+    <p class="message--important"><strong>IMPORTANT: </strong>The CLI must be installed on a system that is external to your DC/OS cluster.</p>
 
 1.  Make the CLI binary executable.
 
@@ -114,7 +110,7 @@ Figure 3. Code snippet window
     ```bash
     dcos cluster setup http://example.com
     ```
-    **Note:** If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
+    <p class="message--note"><strong>NOTE: </strong>If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.</p>
 
     Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.12/security/).
 
