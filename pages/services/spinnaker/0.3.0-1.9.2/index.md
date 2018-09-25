@@ -23,12 +23,13 @@ DC/OS {{ model.techName }} offers the following benefits:
 5. Automated scaling
 6. High availability
 7. TLS support
-8. Rack/Zone awareness
+8. Strict mode support
+9. Rack/Zone awareness
 
 ## DC/OS {{ model.techName }}'s main features are:
-1. Delivery to DC/OS and Kubernetes
+1. Deliver containers to DC/OS and Kubernetes
 2. Delivery pipelines
-3. Persistence to S3 compatible store (Minio is configured by default) or GCS
-4. Triggers - dockerhub, github, jenkins, ...
-5. Notifications - gmail, slack, pagerduty, ...
-6. Oauth2 authentication
+3. Triggers - dockerhub, github, jenkins, ...
+4. Notifications - gmail, slack, pagerduty, ...
+5. Persistence to S3 compatible store or GCS
+6. OAuth2 authentication

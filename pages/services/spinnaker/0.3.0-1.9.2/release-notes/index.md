@@ -16,8 +16,7 @@ Release notes for {{ model.techName }}.
 
 ## New Features
 * Based on {{ model.techName }} v1.9.2
-* Supports {{ model.techName }} services clouddriver, front50, orca, deck, gate, echo, igor
+* Supports delivery of containers to Kubernetes
 * TLS support
 * Strict mode support
-* oauth2 based authentication
-* ... check whole commit list ...
+* OAuth2 based authentication support
