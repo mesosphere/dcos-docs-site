@@ -150,7 +150,7 @@ and run the following two commands:
 
 ```
 dcos package install marathon-lb --yes
-dcos marathon app add misc/minio.json
+dcos marathon app add minio.json
 ```
 
 `marathon-lb` will make the minio console accessible via the DC/OS public agent. In your browser enter the following address. The `minio` credentials are minio / minio123.

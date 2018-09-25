@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Troubleshooting tips for Couchbase on DC/OS
+excerpt: Troubleshooting tips for Spinnaker on DC/OS
 title: Troubleshooting
 menuWeight: 70
 model: /services/spinnaker/data.yml

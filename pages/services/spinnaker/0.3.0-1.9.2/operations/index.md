@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Running Couchbase operations
+excerpt: Running Spinnaker operations
 title: Operations
 menuWeight: 30
 model: /services/spinnaker/data.yml

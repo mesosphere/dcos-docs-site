@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Using native transport encryption, authentication and authorization on Couchbase
+excerpt: Using native transport encryption, authentication and authorization in Spinnaker
 title: Security
 menuWeight: 50
 model: /services/spinnaker/data.yml

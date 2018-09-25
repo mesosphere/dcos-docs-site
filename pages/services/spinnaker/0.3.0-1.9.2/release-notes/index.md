@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
-excerpt: Release Notes for version 0.2.0-5.5.0
+excerpt: Release Notes for version 0.3.0-1.9.2
 featureMaturity:
 enterprise: false
 model: /services/spinnaker/data.yml
