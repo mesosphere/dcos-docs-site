@@ -36,24 +36,25 @@ Please note that this example handles **adding** resources exclusively and can n
     Note there are no references yet for `/dcos/volume0`.
 
 3.  Stop the agent.
-    - On a [private](/1.11/overview/concepts/#private-agent-node) agent:
+    - On a [private](/1.12/overview/concepts/#private-agent-node) agent:
 
       ```bash
       sudo systemctl stop dcos-mesos-slave.service
       ```
 
-    - On a [public](/1.11/overview/concepts/#public-agent-node) agent:
+    - On a [public](/1.12/overview/concepts/#public-agent-node) agent:
 
       ```bash
       sudo systemctl stop dcos-mesos-slave-public.service
       ```
 
 4.  Clear agent state.
-    1. Remove volume mount discovery resource state with this command:
+    1. Cache volume mount discovery resource state with this command:
 
         ```bash
-        sudo rm -f /var/lib/dcos/mesos-resources
+        sudo mv -f /var/lib/dcos/mesos-resources /var/lib/dcos/mesos-resources.cache
         ```
+       DC/OS will check this file later on to generate a new resource state for the agent.
 
     1. Remove agent checkpoint state with this command:
 
@@ -178,7 +179,7 @@ Please note that this example handles **adding** resources exclusively and can n
 
 After running this service, navigate to the **Services > Volumes** tab in the web interface:
 
-![Mount disk](/1.11/img/mount-disk.png)
+![Mount disk](/1.12/img/mount-disk.png)
 
 Figure 1. Services > Volumes tab
 

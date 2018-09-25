@@ -1,5 +1,6 @@
 ~(^.*/[^.]*[^/])$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
+~/[0-9]+\.[0-9]+/release-notes/version-policy/ /version-policy/;
 /administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;
 /administration/id-and-access-mgt/ /latest/security/ent/iam-api/;
 /administration/installing/cloud/aws/ /latest/installing/oss/cloud/aws/;
@@ -233,7 +234,6 @@
 /1.11/networking/tls-ssl/ /1.11/security/ent/tls-ssl/;
 /1.11/networking/tls-ssl/get-cert/ /1.11/security/ent/tls-ssl/get-cert/;
 /1.11/networking/virtual-networks/ /1.11/networking/SDN/dcos-overlay/;
-/1.11/release-notes/version-policy/ /version-policy/;
 /1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
 /1.11/usage/managing-services/install/ /1.11/deploying-services/install/;
 /1.11/security/iam-api/ /1.11/security/ent/iam-api/;
@@ -361,7 +361,6 @@
 /1.10/security/secrets/ /1.10/security/ent/secrets/;
 /1.10/security/service-auth/custom-service-auth/ /1.10/security/ent/service-auth/custom-service-auth/;
 /1.10/security/tls-ssl/ /1.10/security/oss/tls-ssl/;
-/1.10/release-notes/version-policy/ /version-policy/;
 /1.10/usage/ /1.10/;
 /1.10/usage/cli/ /1.10/cli/;
 /1.10/usage/cli/command-reference/ /1.10/cli/command-reference/;
@@ -715,7 +714,6 @@
 /1.9/overview/roadmap/ /1.9/;
 /1.9/overview/security/security-modes/ /1.9/security/ent/#security-modes/;
 /1.9/overview/service-discovery/ /1.9/tutorials/dcos-101/service-discovery/;
-/1.9/release-notes/version-policy/ /version-policy/;
 /1.9/security/iam-api/ /1.9/security/ent/iam-api/;
 /1.9/security/perms-reference/ /1.9/security/ent/perms-reference/;
 /1.9/security/secrets/ /1.9/security/ent/secrets/;

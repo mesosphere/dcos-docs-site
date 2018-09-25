@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 3rem;
+  width: 100%;
   * {
     text-decoration: none;
   }
@@ -33,12 +34,8 @@
     border-radius: 3px;
     padding: 0.4rem 0.5rem 0.3rem 0.5rem;
     line-height: 1rem;
-    margin: 0.5em 1em 0;
+    margin: 0.5em;
     white-space: nowrap;
-    &__wrapper {
-      width: 100%;
-      padding: 1em 0;
-    }
     &--hidden {
       opacity: 0;
     }

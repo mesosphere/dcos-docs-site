@@ -56,4 +56,4 @@ To assign permissions to your account, see the [permissions reference](/1.11/sec
 
 The Cluster Link API allows you to manage cluster link operations on your DC/OS cluster.
 
-[api-explorer api='/1.11/api/cluster-link.yaml']
+[swagger api='/1.11/api/cluster-link.yaml']

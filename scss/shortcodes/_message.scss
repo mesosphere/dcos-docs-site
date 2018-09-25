@@ -11,28 +11,21 @@
     color: inherit;
   }
   &--warning {
-    border: 1px solid $color-dark;
     color: $color-dark;
-    background: $color-gold;
-    padding: 1rem;
-  }
-  &--warning-label::before { 
-    content: "WARNING: ";
-    background-color: inherit;
-    color: inherit;
-    font-weight: bold;
+    background: $color-red-lightest;
+    padding: 10px;
+    border-left: 12px solid $color-red;
   }
   &--note {
-    color: $color-light;
-    background: $color-purple-light;
+    color: $color-dark;
+    background: $color-purple-lightest;
     padding: 10px;
-    border: 2px solid $color-dark;
+    border-left: 12px solid $color-purple-light;
   }
   &--important {
-    color: $color-light;
-    background: $color-grey;
+    background: $color-gold-light;
     padding: 10px;
-    border: 2px solid $color-dark;
+    border-left: 12px solid $color-gold;
   }
   &--error {
     border: 1px solid #E77975;
@@ -44,18 +37,6 @@
     border: 1px solid $color-dark;
     color: $color-light;
     background: #303646;
-    padding: 1rem;
-  }
-  &--important {
-    border: 1px solid $color-dark;
-    color: $color-light;
-    background: $color-grey;
-    padding: 1rem;
-  }
-  &--note {
-    border: 1px solid $color-dark;
-    color: $color-light;
-    background: $color-purple-light;
     padding: 1rem;
   }
   &--success {

@@ -9,9 +9,9 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-Your cluster will become more secure as you move from `disabled` to `permissive` to `strict` [security modes](/1.11/security/ent/#security-modes). However, there are a number of settings that you can modify independently of your security mode to increase the security of your cluster.
+Your cluster will become more secure as you move from `permissive` to `strict` [security modes](/1.11/security/ent/#security-modes). However, there are a number of settings that you can modify independently of your security mode to increase the security of your cluster.
 
-- <a name="secure-flag"></a>In `permissive` and `strict` modes, set the [`auth_cookie_secure_flag`](/1.11/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) to `true`.
+- <a name="secure-flag"></a>Set the [`auth_cookie_secure_flag`](/1.11/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) to `true`.
 
 - <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-superuser), [`zk_master_credentials`](/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-master), and [`zk_agent_credentials`](/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-agent).
 

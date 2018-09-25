@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-The `dcos nod log` command displays the Mesos logs for the leading master node, agent nodes, or both.
+The `dcos node log` command displays the Mesos logs for the leading master node, agent nodes, or both.
 
 # Usage
 

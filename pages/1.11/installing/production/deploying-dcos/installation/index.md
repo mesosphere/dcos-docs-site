@@ -185,12 +185,11 @@ In the following instructions, we assume that you are using ZooKeeper for shared
 
 2. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file.
 
+    ```bash
+    sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
+    ```
 
-      ```bash
-      sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
-      ```
-
-Here is an example of a hashed password output.
+    Here is an example of a hashed password output.
 
     ```
     Extracting an image from this script and loading it into a docker daemon, can take a few minutes.

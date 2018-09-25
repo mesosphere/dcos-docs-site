@@ -85,9 +85,9 @@ You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/
 
 **Prerequisites:**
 
--  The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
--  The existing group entries must list their members by using the `member`, `uniquemember`, or `memberuid` attribute.
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
+- The existing group entries must list their members by using the `member`, `uniquemember`, or `memberuid` attribute.
+- You must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 In this example a group named `johngroup` is imported.
 
