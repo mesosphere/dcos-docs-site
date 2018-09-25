@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 120
-excerpt: Understanding DC/OS Couchbase Services package versioning
+excerpt: Understanding DC/OS Spinnaker Services package versioning
 featureMaturity:
 enterprise: false
 model: /services/spinnaker/data.yml
@@ -17,7 +17,7 @@ render: mustache
 - {{ model.techName }}: 1.9.2
 - DC/OS: 1.10 and 1.11
 
-Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of {{ model.techName }}. For example, 0.2.0-5.5.0 indicates version 0.2.0 of the DC/OS integration and version 5.5.0 of Couchbase Server.
+Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of {{ model.techName }}. For example, 0.3.0-1.9.2 indicates version 0.3.0 of the DC/OS integration and version 1.9.2 of Spinnaker.
 
 ## Version Policy
 

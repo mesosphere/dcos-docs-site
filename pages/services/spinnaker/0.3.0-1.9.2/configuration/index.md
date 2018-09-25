@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Configuring Couchbase for production and development
+excerpt: Configuring Spinnaker for production and development
 title: Configuration
 menuWeight: 20
 model: /services/spinnaker/data.yml
