@@ -39,7 +39,7 @@ DC/OS 1.11.6 includes the following components:
 - MARATHON-8095 - Fix  PATCH call against inactive HA node.
 - MARATHON-8381 - Add new exit codes for Marathon. 
 - MARATHON-8428 - Fix SSL readiness check with self-signed cert. Bump [Marathon on 1.11](https://github.com/mesosphere/marathon/tree/aabf74302).
-- 
+
 
 ## Mesos
 - COPS-3527/DCOS_OSS-3921 - Check cache when creating Mesos resources using `make_disk_resources.py`.
@@ -70,8 +70,7 @@ DC/OS 1.11.6 includes the following components:
 # Security Updates
 - DCOS_OSS-4105 - Update OpenSSL to version 1.0.2p.
 
-**Note:** 
-- New Docker version is supported on CoreOS 1800.7.0. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
+**Note:** New Docker version is supported on CoreOS 1800.7.0. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
 
 # About DC/OS 1.11
 
