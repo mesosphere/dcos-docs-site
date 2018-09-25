@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Spinnaker
 title: Spinnaker
-menuWeight: 15
+menuWeight: 100
 excerpt:
 featureMaturity:
 enterprise: false
