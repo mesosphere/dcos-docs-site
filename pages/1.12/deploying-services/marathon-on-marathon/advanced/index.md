@@ -199,19 +199,12 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
             "pullConfig": {
                 "secret": "docker-registry-credential"
             }
-         },
-         "volumes":[
-            {
-               "containerPath":"/opt/mesosphere",
-               "hostPath":"/opt/mesosphere",
-               "mode":"RO"
-            }
-         ]
+         }
       },
       "env":{
          "JVM_OPTS":"-Xms256m -Xmx2g",
          "DCOS_STRICT_SECURITY_ENABLED":"false",
-         "DCOS_SERVICE_ACCOUNT_CREDENTIAL_TOFILE":{
+         "DCOS_SERVICE_ACCOUNT_CREDENTIAL":{
             "secret":"service-credential"
          },
          "MESOS_AUTHENTICATEE":"com_mesosphere_dcos_ClassicRPCAuthenticatee",
@@ -287,24 +280,16 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
             "pullConfig": {
                 "secret": "docker-registry-credential"
             }
-         },
-         "volumes":[
-            {
-               "containerPath":"/opt/mesosphere",
-               "hostPath":"/opt/mesosphere",
-               "mode":"RO"
-            }
-         ]
+         }
       },
       "env":{
          "JVM_OPTS":"-Xms256m -Xmx2g",
          "DCOS_STRICT_SECURITY_ENABLED":"true",
-         "DCOS_SERVICE_ACCOUNT_CREDENTIAL_TOFILE":{
+         "DCOS_SERVICE_ACCOUNT_CREDENTIAL":{
             "secret":"service-credential"
          },
          "MESOS_AUTHENTICATEE":"com_mesosphere_dcos_ClassicRPCAuthenticatee",
-         "MESOS_MODULES":"file:///opt/mesosphere/etc/mesos-scheduler-modules/dcos_authenticatee_module.json",
-         "MESOS_NATIVE_JAVA_LIBRARY":"/opt/mesosphere/lib/libmesos.so",
+         "MESOS_MODULES":"{\"libraries\":[{\"file\":\"/opt/libmesos-bundle/lib/libdcos_security.so\",\"modules\":[{\"name\":\"com_mesosphere_dcos_ClassicRPCAuthenticatee\"}]}]}",
          "MESOS_VERBOSE":"true",
          "GLOG_v":"2",
          "PLUGIN_ACS_URL":"https://master.mesos",
