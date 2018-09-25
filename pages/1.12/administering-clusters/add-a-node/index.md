@@ -7,11 +7,9 @@ excerpt: Adding agent nodes to an existing DC/OS cluster
 enterprise: false
 ---
 
-
-
 Agent nodes are designated as [public](/latest/overview/concepts/#public-agent-node) or [private](/latest/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during the GUI or CLI [installation](/latest/installing/evaluation/cloud-installation/).
 
-### Prerequisites:
+## Prerequisites:
 
 *   DC/OS is installed using the [custom](/latest/installing/production/deploying-dcos/installation/) installation method.
 *   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/latest/installing/evaluation/cloud-installation/).
@@ -19,8 +17,8 @@ Agent nodes are designated as [public](/latest/overview/concepts/#public-agent-n
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
-### Install DC/OS agent nodes
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/latest/installing/oss/custom/gui/#backup).
+## Install DC/OS agent nodes
+Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/latest/installing/evaluation/cloud-installation/#backup).
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory:
 
@@ -60,7 +58,7 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```
 
-### Verify node type
+## Verify node type
 
 You can verify the node type by running these commands from the DC/OS CLI.
 
