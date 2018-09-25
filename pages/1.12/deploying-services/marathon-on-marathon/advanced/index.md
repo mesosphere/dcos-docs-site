@@ -30,7 +30,6 @@ The following table contains all the variables used in this page:
 
 | Variable | Description |
 |--------------------------|--------------------------------------------|
-| `${MY_USERNAME}` | The username that you use to log in to your cluster. That is the username that you were prompted during `dcos cluster setup`. |
 | `${MESOS_ROLE}` | The name of the [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) that the new Marathon instance will use. This should be all lowercase, and be a valid [Mesos role name](https://mesos.apache.org/documentation/latest/roles/#invalid-role-names), for example `"marathon_ee"`. |
 | `${SERVICE_ACCOUNT}` | The name of the [Service Account](/1.12/security/ent/service-auth/) that Marathon will use to communicate with the other services in DC/OS. The name should include only letters, numbers, `@`, `.`, `\`, `_`, and `-`. For example `"marathon_user_ee"` |
 | `${MARATHON_INSTANCE_NAME}` | The service name of your new Marathon instance, as launched by the root Marathon instance. This should be a valid [Marathon service name](https://mesosphere.github.io/marathon/docs/application-basics.html), for example `"mom_ee"`. |
@@ -45,7 +44,6 @@ The following table contains all the variables used in this page:
 
 ```
 set -a
-MY_USERNAME="..."
 MESOS_ROLE="..."
 SERVICE_ACCOUNT="..."
 BEGIN_PORT="..."
