@@ -33,6 +33,8 @@ For example: An upgraded DC/OS Marathon leader cannot connect to the leading Mes
 ## Supported upgrade paths
 - From the latest GA version of previous to the latest GA version of current. For example, if 1.10.8 is the latest GA version of previous and 1.11.4 is the latest GA version of current, this upgrade would be supported.
 
+**Note:** See the [version policy](https://docs.mesosphere.com/version-policy/) page to understand information about DC/OS version lifecycle and compatibility matrix.
+
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
 You _cannot_ change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then upgrade to 1.10.y. Or you can upgrade to 1.10.y and then add more public agents by updating 1.10.y after the upgrade.

@@ -55,7 +55,13 @@ The below matrix provides guidance as to which platform components and operating
     <th><strong>DC/OS 1.9</strong></th>
     </tr>
     <tr>
-       <td>CoreOS 1688.5.3<sup>*</sup></td>
+       <td>CoreOS 1800.7.0</td>
+       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
+       <td>                    </td>
+       <td>                    </td>
+    </tr>
+    <tr>
+       <td>CoreOS 1688.5.3</td>
        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
        <td>                    </td>
        <td>                    </td>
@@ -119,8 +125,9 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
 </table>
 
-<sup>*</sup> CoreOS 1688.5.3 requires DC/OS 1.11.3 or later releases.
-
+**Note:**
+- CoreOS 1688.5.3 requires DC/OS 1.11.3 or later releases.
+- CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.
 
 ## Version Compatibility Matrix
 

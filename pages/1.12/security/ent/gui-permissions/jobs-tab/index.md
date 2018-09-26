@@ -15,6 +15,7 @@ You can grant users access to the [**Jobs** screen](/1.12/gui/jobs/). By default
  <p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Jobs</strong> screen and all the jobs inside of it. If you want to configure fine-grained user access, see the <a href="/1.12/deploying-services/service-groups/">documentation</a>.</p>
 
 
+
 # <a name="jobs-access-via-ui"></a>Granting Access using the web interface
 
 **Prerequisites:**

@@ -45,6 +45,7 @@ Figure 1. Security zone typical deployment
 
 You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are permissive and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.12/installing/production/deploying-dcos/installation/) and can only be changed by performing an upgrade.
 
+
 | Permission Category                                 | Permissive | Strict |
 |-----------------------------------------------------|:----------:|:------:|
 | Admin Router permissions (`dcos:adminrouter`)       |      x     |    x   |
@@ -61,7 +62,8 @@ This mode provides some of the security features, but does not include the Mesos
 This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting your security mode
-The security mode is set during [DC/OS installation](/1.12/installing/production/deploying-dcos/installation/) and can only be changed by performing an [upgrade](/1.12/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+
+The security mode is set during [DC/OS installation](/1.12/installing/production/advanced-configuration/) and can only be changed by performing an [upgrade](/1.12/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.12/installing/production/advanced-configuration/configuration-reference/#security-and-authentication).
 
 <p class="message--important"><strong>IMPORTANT: </strong> You can only move from "permissive" to "strict" during an upgrade.</p>
 
@@ -81,6 +83,7 @@ The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introd
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
 <p class="message--important"><strong>IMPORTANT: </strong>Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/1.12/security/ent/hardening/#zk">Hardening</a> for more information.</p>
+
 
 ## <a name="user"></a>User Login
 You can log in by using the DC/OS GUI, the DC/OS CLI, or a programmatic client.
@@ -210,6 +213,7 @@ DC/OS stores Secret Store data in ZooKeeper encrypted under an unseal key using 
 
 The unseal key is encrypted under a public GPG key. Requests to the [Secrets API](/1.12/security/ent/secrets/secrets-api/) return only the encrypted unseal key. When the Secret Store becomes sealed, either manually or due to a failure, the private GPG key must be used to decrypt the unseal key and unseal the Secret Store. As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
+
 The Secret Store is available in all security modes. By default, you cannot store a secret larger than one megabyte. If you need to exceed this limit, contact Mesosphere support. We do not support alternate or additional Secret Stores at this time. You should use only the `default` Secret Store provided by Mesosphere.
 
 ## <a name="access"></a>Fine-grained Access Control of Secrets
@@ -219,6 +223,7 @@ DC/OS allows you to restrict:
 - **User access to secrets:** use [permissions](/1.12/security/ent/perms-reference/#secrets) to control which users can access what secrets and what operations they can perform.
 
 - **Application access to secrets:** use [spaces](/1.12/security/ent/#spaces) to control which applications can retrieve what secrets.
+
 
 # <a name="linux-users"></a>Linux User Accounts
 

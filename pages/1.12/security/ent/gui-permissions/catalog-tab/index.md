@@ -13,6 +13,7 @@ You can grant users access to the [**Catalog** screen](/1.12/gui/catalog/). By d
 
 <p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Catalog</strong> screen. If you want to configure fine-grained user access, see the <a href="/1.12/deploying-services/service-groups/">documentation</a>.</p>
 
+
 ## <a name="services-access-via-ui"></a>Grant Access by using the web interface
 
 **Prerequisites:**

@@ -55,6 +55,7 @@ To switch users, you must log out of the current user and then back in as the ne
 
 ![log out](/1.12/img/1-11-user-drop-down-menu.png)
 
+
 Figure 3. Drop down user menu
 
 You can now log in as another user.
@@ -63,10 +64,10 @@ You can now log in as another user.
 
 1.  To log out of the DC/OS CLI, enter the command:
 
-        ```bash
-        dcos config unset core.dcos_acs_token
-        Removed [core.dcos_acs_token]
-        ```
+```bash
+dcos config unset core.dcos_acs_token
+Removed [core.dcos_acs_token]
+```
 
 You can now log in as another user.
 

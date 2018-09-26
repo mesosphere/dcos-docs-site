@@ -69,6 +69,7 @@ This procedure will show you how to configure DC/OS to act as a SAML service pro
 
 This procedure uses the Identity and Access Management API (IAM API). For more details on the IAM API, you can visit the [IAM API documentation](/1.12/security/ent/iam-api/).
 
+
 1. Make a `GET` request to `<your-cluster-URL>/acs/api/v1/auth/saml/providers` using either your browser or curl.
 2. It will return a JSON object containing the provider IDs and descriptions of each identity provider you have configured.
 

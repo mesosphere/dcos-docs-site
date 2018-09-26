@@ -25,7 +25,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 
 Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each [DC/OS agent node](/1.12/overview/concepts/#dcos-agent-node). Mesos Agent Public is a Mesos Agent configured to run on [DC/OS public agent nodes](/1.12/overview/concepts/#public-agent-node).
 
-## System Service
+### System Service
 
 - `dcos-mesos-master.service`
 - `dcos-mesos-slave.service`
@@ -141,7 +141,7 @@ Marathon orchestrates long-lived containerized services (apps and pods).
 
 ### System Service
 
-- dcos-marathon.service
+- `dcos-marathon.service`
 
 **See Also:**
 

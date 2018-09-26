@@ -52,6 +52,7 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 
   As long as the path of the secret and the path of the group [match up properly](/1.12/security/ent/#spaces), the service will be able to access the secret value.
 
+
 The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.12/deploying-services/pods/) or to an individual service.
 
 - [Individual service](#service)
@@ -298,6 +299,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    ```
 
 <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
+
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 

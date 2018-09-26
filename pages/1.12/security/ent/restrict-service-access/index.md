@@ -17,6 +17,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 - DC/OS Enterprise is [installed](/1.12/installing/) in permissive [mode](/1.12/security/ent/#security-modes).
 
+
 ## Create users and groups
 
 1.  Create service groups from the **Services > Services > Create Group**.
@@ -121,6 +122,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 
   ![prod-a-group](/1.12/img/service-group10.png)
+
 
   Figure 9. Restricted view
 
@@ -247,6 +249,10 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 Now we will look at the **Services** tab from the superuser view.
 
 ## DC/OS web interface: Monitor user accounts 
+
+1.  Log out of the current user and then back in as a user with [superuser](/1.12/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the prod-a and prod-b-groups.
+
+
 
 1.  Log out of the current user and then back in as a user with [superuser](/1.12/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the prod-a and prod-b-groups.
 
