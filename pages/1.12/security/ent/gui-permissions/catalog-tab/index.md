@@ -11,7 +11,8 @@ enterprise: true
 
 You can grant users access to the [**Catalog** screen](/1.12/gui/catalog/). By default, new users have no permissions.
 
-**Tip:** This procedure grants full user access to the **Catalog** screen. If you want to configure fine-grained user access, see the [documentation](/1.12/deploying-services/service-groups/).
+<p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Catalog</strong> screen. If you want to configure fine-grained user access, see the <a href="/1.12/deploying-services/service-groups/">documentation</a>.</p>
+
 
 ## <a name="services-access-via-ui"></a>Grant Access by using the web interface
 
@@ -62,7 +63,7 @@ You can grant users access to the [**Catalog** screen](/1.12/gui/catalog/). By d
 - You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
 - You must [get the root cert](/1.12/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
-**Note:**
+### Notes
 
 - Service resources often include `/` characters that must be replaced with `%252F` in `curl` requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
@@ -87,7 +88,7 @@ You can grant users access to the [**Catalog** screen](/1.12/gui/catalog/). By d
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:package/users/<uid>/full
     ```
 
-    **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+    <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ## Strict
 
@@ -109,4 +110,4 @@ You can grant users access to the [**Catalog** screen](/1.12/gui/catalog/). By d
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:package/users/<uid>/full
     ```
 
-    **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+    <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>

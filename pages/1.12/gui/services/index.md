@@ -30,9 +30,7 @@ Click the service name to open the Service Instance page, which lists all tasks 
 
 <p>Figure 2. Instances panel</p>
 
-For services with a web interface, hover over the service name and click ![open service](/1.12/img/open-service.png) to view it.
-
-**Note:** You can access the Mesos web interface at `<hostname>/mesos`.
+For services with a web interface, hover over the service name and click ![open service](/1.12/img/open-service.png) to view it. You can access the Mesos web interface at `<hostname>/mesos`.
 
 # Service Status
 

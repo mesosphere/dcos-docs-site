@@ -52,7 +52,7 @@ We recommend the format for the script output be:
 
 We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
+<p class="message--important"> <strong>IMPORTANT:</strong> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
 2. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
@@ -132,4 +132,4 @@ Suppose you have a Mesos cluster that spans 3 regions: `aws-us-east1`, `aws-us-e
 
 To increase capacity, [add new agents](/1.11/administering-clusters/add-a-node/) to a remote region or regions of your cluster, and then update your services to launch instances in that region or those regions appropriately.
 
-**Note:** You cannot configure your service to run in more than one region.
+<p class="message--important"><strong>IMPORTANT: </strong>You cannot configure your service to run in more than one region.</p>

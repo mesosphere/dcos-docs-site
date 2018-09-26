@@ -8,11 +8,11 @@ excerpt: Upgrading a DC/OS cluster
 
 An upgrade is the process of moving between major releases to add new features, replace existing features with new features/functionality or performing a major configuration change. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster. 
 
-**Note:** An upgrade occurs only between major releases.
+<p class="message--important"><strong>IMPORTANT: </strong>An upgrade occurs only between major releases.</p>
 
 Example: 1.X to 1.Y (1.11 --> 1.12)
 
-If an upgrade is performed on a supported OS with all prerequisites fulfilled, then upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [DC/OS Installation Guide][install].
+If an upgrade is performed on a supported OS with all prerequisites fulfilled, then upgrade **should** preserve the state of running tasks on the cluster.  This document reuses portions of the [DC/OS Installation Guide][install].
 
 - Review the [release notes](/1.12/release-notes/) before upgrading DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster.  You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
@@ -83,7 +83,9 @@ These steps must be performed for version upgrades and cluster configuration cha
 - [Take a snapshot of the IAM database](/1.12/installing/ent/faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. [enterprise type="inline" size="small" /]
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 
-**Note:** Marathon event subscribers are disabled by default, check if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). In this case, you will need to remove that line in order to disable event subscribers. [enterprise type="inline" size="small" /]
+<p class="message--note"><strong>NOTE: </strong>Marathon event subscribers are disabled by default. Check to see if the line <code>--event_subscriber "http_callback"</code> has been added to <code>sudo vi /opt/mesosphere/bin/marathon.sh</code> on your master node(s). In such a case, you must remove that line in order to disable event subscribers.</p>
+
+[enterprise type="inline" size="small" /]
 
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.12/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
@@ -134,7 +136,7 @@ This procedure upgrades to DC/OS 1.12 in [permissive security mode](/1.12/instal
 
 - Your cluster must be [upgraded to DC/OS 1.12](#current-security) and running in [disabled security mode](/1.12/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
 
-**Note:** Any [custom node or cluster health checks](/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks) you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the health checks.
+<p class="message--note"><strong>NOTE: </strong>Any <a href="/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks">custom node or cluster health checks</a> you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the health checks.</p>
 
 To update a cluster from disabled security to permissive security, complete the following procedure:
 
@@ -221,11 +223,14 @@ Proceed with upgrading every master node one at a time in any order using the fo
 
     1.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`. Confirm that the master rejoins the ZooKeeper quorum successfully (the status indicator will turn green).
 
-        **Note:** If you are upgrading from permissive to strict mode, this URL will be `https://...`.
+        <p class="message--note"><strong>NOTE: </strong>If you are upgrading from permissive to strict mode, this URL will be "https://...".</p>
+
     1.  Wait until the `dcos-mesos-master` unit is up and running.
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
 
-        **Note:** If you are upgrading from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
+        <p class="message--note"><strong>NOTE: </strong>If you are upgrading from permissive to strict mode, this URL will be <code>curl https://...</code> and you will need a JWT for access. </p>
+        [enterprise type="inline" size="small" /]
+
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/1.12/release-notes/), for example `1.5.1`.
 	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros. [enterprise type="inline" size="small" /]
 	    ```bash

@@ -28,6 +28,7 @@ When you launch a set of tasks, DC/OS distributes them to a set of nodes in the 
 
 -  Do not firewall traffic between the nodes (allow all TCP/UDP).
 -  Do not change `ip_local_port_range`.
+
 -  You must use a supported [operating system](/1.12/installing/oss/custom/system-requirements/).
 
 #### Persistent Connections
@@ -42,7 +43,7 @@ Use Mesos health checks. Mesos health checks are surfaced to the load balancing 
 
  This ensures the HTTP status code returned is 200. It also assumes your application binds to localhost. The `${PORT0}` is set as a variable by Marathon. You should not use TCP health checks because they may provide misleading information about the liveness of a service.
 
-**Note:** Docker container command health checks are run inside the Docker container. For example, if cURL is used to check NGINX, the NGINX container must have cURL installed, or the container must mount `/opt/mesosphere` in RW mode.
+<p class="message--note"><strong>NOTE: </strong>Docker container command health checks are run inside the Docker container. For example, if cURL is used to check NGINX, the NGINX container must have cURL installed, or the container must mount `/opt/mesosphere` in RW mode.</p>
 
 ## Troubleshooting
 

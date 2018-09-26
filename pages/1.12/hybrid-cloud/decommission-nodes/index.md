@@ -7,9 +7,12 @@ excerpt: Decommissioning nodes
 enterprise: false
 ---
 
-In order to support cloud bursting by adding nodes, you need also support decomissioning nodes. Deleting a node involves two steps: telling DC/OS to mark the node as `GONE`, and stopping the corresponding Mesos slave `systemd` unit.
+In order to support cloud bursting by adding nodes, you also must support decomissioning nodes. Deleting a node involves two steps: telling DC/OS to mark the node as `GONE`, and stopping the corresponding Mesos slave `systemd` unit.
 
 If your node has gone down in an unplanned way, you only have to [Decommission the node](/1.12/administering-clusters/delete-node/#decommission-the-node/).
+
+<p class="message--warning"><strong>WARNING: </strong>You should decommission a node only if the node will never be coming back (for example, the EC2 VM is destroyed). Once a node is decommissioned, the corresponding agent ID is marked as GONE internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to <code>TASK_GONE_BY_OPERATOR</code> state.</p>
+
 
 # Shut down the node
 
@@ -32,8 +35,6 @@ If your node has gone down in an unplanned way, you only have to [Decommission t
 
 When Mesos detects that a node has stopped, it puts the node in the `UNREACHABLE` state because Mesos does not know if the node is temporarily stopped and will come back online, or if it is permanently stopped. You can explicitly tell Mesos to put a node in the `GONE` state if you know a node will not come back.
 
-Once a node is decommissioned, the corresponding agent ID is marked as `GONE` internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to `TASK_GONE_BY_OPERATOR` state.
-
 You should decommission nodes in the following situations.
 
 - You are deleting a node, especially if you are deleting multiple nodes. DC/OS is configured to only allow one node to be marked `UNREACHABLE` every 20 minutes, so if you do not explicity decommission nodes, it can take a long time for Mesos to mark your nodes as `UNREACHABLE` and allow services to reschedule tasks on another node.
@@ -55,10 +56,8 @@ dcos node decommission <mesos-agent-id>
 ```
 
 Once the node has been decommissioned (this is equivalent to using the `MARK_AGENT_GONE` Mesos API), the node will be told to perform the following tasks:
--Shut down (kill) all executors (tasks) running on the agent node
--Stop the Mesos slave process (but it will get automatically re-started by systemd)
-
-**Note:** You should decommission a node *only* if the node will never be coming back (e.g., EC2 VM destroyed). Once a node is decommissioned, the corresponding agent ID is marked as `GONE` internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to `TASK_GONE_BY_OPERATOR` state.
+- Shut down (kill) all executors (tasks) running on the agent node
+- Stop the Mesos slave process (but it will get automatically re-started by systemd)
 
 
 # Shut down the node
@@ -67,7 +66,7 @@ If the DC/OS node is still running, the Mesos slave process will continue to try
 
 1. [SSH to the agent node](/1.12/administering-clusters/sshcluster/) you wish to shut down.
 
-1. Ente the following commands to stop the node.
+1. Enter the following commands to stop the node.
 
   -  **Private agent**
 

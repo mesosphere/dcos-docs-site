@@ -197,7 +197,7 @@ The output for Entperise DC/OS should resemble:
 
 Lists in JSON format the IP addresses that correspond to a hostname. It is the equivalent of a DNS A record lookup.
 
-**Note:** The HTTP interface only resolves hostnames in the Mesos domain.
+<p class="message--note"><strong>NOTE: </strong> The HTTP interface only resolves hostnames in the Mesos domain.</p>
 
 ```bash
 curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/hosts/nginx.marathon.mesos
@@ -217,7 +217,7 @@ The output should resemble:
 
 Lists in JSON format the hostname, IP address, and ports that correspond to a hostname. It is the equivalent of a DNS SRV record lookup.
 
-**Note:** The HTTP interface only resolves service names in the Mesos domain.
+<p class="message--note"><strong>NOTE: </strong> The HTTP interface only resolves hostnames in the Mesos domain.</p>
 
 ```bash
 curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/mesos_dns/v1/services/_nginx._tcp.marathon.mesos

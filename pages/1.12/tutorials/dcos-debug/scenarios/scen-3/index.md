@@ -5,6 +5,7 @@ navigationTitle: Scenario 3
 excerpt: Tutorial - Docker Images
 menuWeight: 21
 ---
+#include /include/tutorial-disclaimer.tmpl
 
 # Scenario 3: Docker Images
 

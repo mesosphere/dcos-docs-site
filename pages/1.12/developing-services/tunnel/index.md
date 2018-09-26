@@ -7,14 +7,11 @@ excerpt: Accessing your cluster by proxy and VPN using a DC/OS tunnel
 
 enterprise: false
 ---
+<p class="message--warning"><strong>WARNING: </strong>DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production.</p>
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production. Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.</td> </tr> </table>
+<p class="message--important"><strong>IMPORTANT: </strong> Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.<p>
 
 When developing services on DC/OS, you may find it helpful to access your cluster from your local machine via SOCKS proxy, HTTP proxy, or VPN. For instance, you can work from your own development environment and immediately test against your DC/OS cluster.
-
-**Warning:** DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production.
-
-**Note:** Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.
 
 # SOCKS
 DC/OS Tunnel can run a SOCKS proxy over SSH to the cluster. SOCKS proxies work for any protocol, but your client must be configured to use the proxy, which runs on port 1080 by default.
@@ -161,7 +158,7 @@ served by `myapp` to be output output as text.
 
 1. In transparent mode, the HTTP proxy works by port forwarding. Append `.mydcos.directory` to the end of your domain when you enter commands. For instance, `http://example.com/?query=hello` becomes `http://example.com.mydcos.directory/?query=hello`. 
 
-    **Note:** In transparent mode, you cannot specify a port in a URL.
+<p class="message--note"><strong>NOTE: </strong>In transparent mode, you cannot specify a port in a URL.</p>
 
 ### Standard mode
 1. To run the HTTP proxy in standard mode, without root privileges, use the `--port` flag to configure it to use another port:

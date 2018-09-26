@@ -29,9 +29,7 @@ This is the recommended method for building your own AMI.
 
 After you have successfully built and deployed the unmodified DC/OS cloud_images AMI using the AWS CloudFormation web console:
 
-1.  Modify the DC/OS [cloud_images](https://github.com/dcos/dcos/tree/master/cloud_images) AMI scripts with your own AMI customizations.
-
-    **Note:** Your AMI must satisfy all of the DC/OS AMI prerequisites as shown in the template.
+1.  Modify the DC/OS [cloud_images](https://github.com/dcos/dcos/tree/master/cloud_images) AMI scripts with your own AMI customizations. Your AMI must satisfy all of the DC/OS AMI prerequisites as shown in the template.
 
 1.  Launch the DC/OS advanced templates using the AWS CloudFormation web console and specify your customized AMI. Verify that DC/OS starts as expected and that services can be launched on the DC/OS cluster.
 

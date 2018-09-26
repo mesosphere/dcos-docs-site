@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring services and pods to use secrets
-title: Configuring services and pods to use secrets
+navigationTitle:  Configuring services and pods
+title: Configuring services and pods
 menuWeight: 1
 excerpt: Configuring services and pods to use secrets
 
@@ -50,7 +50,8 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
   - `dcos:adminrouter:ops:mesos full`: to view **Task** panel information.
   - `dcos:adminrouter:ops:slave full`: to view the details about the task, including the logs.
 
-  As long as the path of the secret and the path of the group [match up properly](/1.12//security/ent/#spaces), the service will be able to access the secret value.
+  As long as the path of the secret and the path of the group [match up properly](/1.12/security/ent/#spaces), the service will be able to access the secret value.
+
 
 The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.12/deploying-services/pods/) or to an individual service.
 
@@ -297,7 +298,8 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.12//security/ent/#spaces) for more details about the paths.
+<p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
+
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 

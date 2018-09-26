@@ -15,7 +15,8 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 **Prerequisites:**
 
-- DC/OS Enterprise is [installed](/1.12/installing/ent/) in permissive [mode](/1.12/security/ent/#security-modes).
+- DC/OS Enterprise is [installed](/1.12/installing/) in permissive [mode](/1.12/security/ent/#security-modes).
+
 
 ## Create users and groups
 
@@ -120,15 +121,16 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 1.  Log in as Cory to the DC/OS web interface. You can see that user Cory only has access to the **Services** and **Universe** tabs. Also, Cory can only see the **prod-a** services.
 
 
-    ![prod-a-group](/1.12/img/service-group10.png)
+  ![prod-a-group](/1.12/img/service-group10.png)
 
-    Figure 9. Restricted view
 
-    **Note:** To log out of the current user, click on the cluster name in the top-left and select **Sign Out**.
+  Figure 9. Restricted view
 
-    We will deploy an NGINX service to `prod-a-group`.
+  <p class="message--note"><strong>NOTE: </strong>To log out of the current user, click on the cluster name in the top-left and select <strong>Sign Out</strong>.</p>
 
-1.  Select **Services > Services** and the click the plus sign (**+**) to deploy a service.
+  We will deploy an NGINX service to `prod-a-group`.
+
+2.  Select **Services > Services** and the click the plus sign (**+**) to deploy a service.
 
     1.  Select **JSON Configuration** and paste in the following app definition:
 
@@ -222,7 +224,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
     1.  Click **REVIEW & RUN** and then **RUN SERVICE**.
 
-1.  Repeat the previous steps for Nick. Be sure to specify `"id": "/prod-b/nginx",` for example:
+3.  Repeat the previous steps for Nick. Be sure to specify `"id": "/prod-b/nginx",` for example:
 
     ```json
     {
@@ -238,7 +240,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
     }
     ```
 
-1.  While logged in as Cory or Nick, click on the NGINX launch icon to view the confirmation message.
+4.  While logged in as Cory or Nick, click on the NGINX launch icon to view the confirmation message.
 
     ![NGINX](/1.12/img/service-group-nginx.png)
 
@@ -246,8 +248,11 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 Now we will look at the **Services** tab from the superuser view.
 
+## DC/OS web interface: Monitor user accounts 
 
-## Monitor user accounts in the DC/OS web interface as superuser
+1.  Log out of the current user and then back in as a user with [superuser](/1.12/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the prod-a and prod-b-groups.
+
+
 
 1.  Log out of the current user and then back in as a user with [superuser](/1.12/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the prod-a and prod-b-groups.
 

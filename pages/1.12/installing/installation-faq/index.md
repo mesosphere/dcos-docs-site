@@ -31,7 +31,7 @@ In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dc
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave
     ```
 
-**Note:** If Auto Scaling groups are in use, the node will be replaced automatically.
+If Auto Scaling groups are in use, the node will be replaced automatically.
 
 - For a public agent, run the following command:
 
@@ -75,17 +75,13 @@ sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --hos
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) --database=iam_new < ~/iam-backup.sql
 ```
 
-3.vWith the back up data loaded into the `iam_new` database, rename the `iam` database to `iam_old`.
-
-**Note:** After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.
+3.With the backup data loaded into the `iam_new` database, rename the `iam` database to `iam_old`. After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.
 
 ```bash
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam RENAME TO iam_old"
 ```
 
-4. Rename the `iam_new` database to `iam`.
-
-**Note:** After this command is issued, the IAM is available again. Requests to the IAM will be successful.
+4. Rename the `iam_new` database to `iam`. After this command is issued, the IAM is available again. Requests to the IAM will be successful.
 
 ```bash
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam_new RENAME TO iam"

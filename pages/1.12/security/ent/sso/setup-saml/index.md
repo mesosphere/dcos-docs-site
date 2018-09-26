@@ -11,7 +11,7 @@ enterprise: true
 
 This topic discusses what is required of Security Assertion Markup Language (SAML) IdPs in general and provides a step-by-step procedure for setting up a OneLogin IdP.
 
-# About adding a SAML identity provider
+# Adding a SAML identity provider
 
 DC/OS Enterprise requires the SAML identity provider (IdP) to:
 
@@ -50,9 +50,10 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 11. Copy the XML to a clipboard or into a text editor.
 12. Click the **Access** tab. Activate all roles you want to be able to log in to your cluster. For example: **Employee** and **Engineer**.
 
-  **Note:** Don't click **Save** at this stage; it will fail.
+  <p class="message--warning"><strong>WARNING: </strong>Don't click <strong>Save</strong>* at this stage; it will fail.</p>
 
-## Configuring DC/OS to act as a SAML service provider
+## Configuring DC/OS 
+This procedure will show you how to configure DC/OS to act as a SAML service provider. 
 
 1. Log in to the DC/OS GUI as a user in the `superuser` group or with the `dcos:superuser` permission.
 1. Open the **Settings** -> **Identity Providers** tab.
@@ -66,7 +67,8 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 
 ## Obtain the DC/OS callback URL
 
-**Tip:** This procedure uses the Identity and Access Management API (IAM API). For more details on the IAM API, you can visit the [IAM API documentation](/1.12/security/ent/iam-api/).
+This procedure uses the Identity and Access Management API (IAM API). For more details on the IAM API, you can visit the [IAM API documentation](/1.12/security/ent/iam-api/).
+
 
 1. Make a `GET` request to `<your-cluster-URL>/acs/api/v1/auth/saml/providers` using either your browser or curl.
 2. It will return a JSON object containing the provider IDs and descriptions of each identity provider you have configured.
@@ -89,7 +91,7 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 
 6. Copy this value to your clipboard or a text editor.
 
-## Provide the OneLogin identity provider with the callback URL
+## Provide the callback URL
 
 1. Click to open the **Configuration** tab in the OneLogin dashboard.
 2. Paste the callback URL obtained in the previous procedure into the following three fields: **Recipient**, **ACS (Consumer) URL Validator**, and **ACS (Consumer) URL**.
@@ -104,7 +106,7 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 3. Click on the button of the SAML provider you just configured.
 4. You should receive an "Access denied" message from DC/OS.
 
-   **Note:** This indicates that DC/OS verified your account with the third party provider and imported it into DC/OS. Since your account has no permissions by default, it returns "Access denied."
+   <p class="message--note"><strong>NOTE: </strong>This indicates that DC/OS verified your account with the third party provider and imported it into DC/OS. Since your account has no permissions by default, it returns "Access denied."</p>
 
 ## Assign permissions
 

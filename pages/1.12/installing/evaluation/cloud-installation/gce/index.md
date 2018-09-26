@@ -11,7 +11,7 @@ oss: true
 
 The recommended way to deploy a OSS DC/OS cluster on GCE is by using [Terraform](#terraform).
 
- **Disclaimer: Please note this is a [community driven project](https://github.com/dcos/terraform-dcos/tree/master/gcp) and not officially supported by Mesosphere.**
+<p class="message--warning"><strong>DISCLAIMER: </strong>Please note this is a <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">community driven project</a> and not officially supported by Mesosphere.</p>
 
 ## Prerequisites
 - [Terraform 0.11.x](https://www.terraform.io/downloads.html)
@@ -126,7 +126,7 @@ dcos_cluster_docker_credentials = <<EOF
 EOF
 gcp_ssh_pub_key_file = "INSERT_PUBLIC_KEY_PATH_HERE"
 ```
-**Note:** The YAML comment is required for the DC/OS specific YAML settings.
+<p class="message--note"><strong>NOTE: </strong>The YAML comment is required for the DC/OS specific YAML settings.</p>
 
 ## Upgrading DC/OS
 
@@ -165,7 +165,7 @@ terraform apply \
 ```
 
 ### Removing agents
-**Caution**: Always remember to save your desired state in your `desired_cluster_profile.tfvars` before removing an agent.
+<p class="message--important"><strong>IMPORTANT: </strong>Always remember to save your desired state in your <code>desired_cluster_profile.tfvars</code> before removing an agent.</p>
 
 ```bash
 terraform apply \
@@ -178,7 +178,7 @@ terraform apply \
 
 If you want to redeploy a problematic master (for example, your storage has filled up, the cluster is not responsive), you can tell Terraform to redeploy during the next cycle.
 
-**Note:** This only applies to DC/OS clusters that have set their `dcos_master_discovery` to `master_http_loadbalancer` and not `static`.
+<p class="message--note"><strong>NOTE: </strong>This only applies to DC/OS clusters that have set their <code>dcos_master_discovery</code> to <code>master_http_loadbalancer</code> and not <code>static</code>.</p>
 
 ### Master Node
 

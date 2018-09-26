@@ -119,7 +119,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 # Parameter Descriptions
 
 ## adminrouter_auth_cache_enabled [enterprise type="inline" size="small" /]
-_This option was added in DC/OS 1.12.1._
+This option was added in DC/OS 1.12.1.
 
 Controls whether the Admin Router authorization cache is enabled.
 
@@ -164,7 +164,7 @@ If not provided the default value `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES2
 
 To validate the accuracy of the provided value, use the `openssl ciphers` utility and provide your own value: `openssl ciphers <cipher-suites>`. For a list of all available ciphers see the [OpenSSL documentation](https://www.openssl.org/docs/man1.0.2/apps/ciphers.html).
 
-**Note:** Due to Java jurisdiction limitations, it is not possible to install DC/OS with only AES256 cipher suites.
+<p class="message--note"><strong>NOTE: </strong>Due to Java jurisdiction limitations, it is not possible to install DC/OS with only AES256 cipher suites.</p>
 
 ## agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.12/overview/concepts/#private-agent-node) host names.
@@ -200,7 +200,6 @@ The dictionary of Docker credentials to pass.
 - If unset, a default empty credentials file is created at `/etc/mesosphere/docker_credentials` during DC/OS install. A sysadmin can change credentials as needed. A `systemctl restart dcos-mesos-slave` or `systemctl restart dcos-mesos-slave-public` is required for changes to take effect.
 - You can also specify by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write it as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you. This stores the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS internal configuration.
 
-**Note:**
 - `cluster_docker_credentials` takes effect only when [`cluster_docker_credentials_enabled`](#cluster-docker-credentials-enabled) is set to `'true'`
 - `cluster_docker_credentials` takes effect during an upgrade only when `cluster_docker_credentials_dcos_owned` is set to `'true'`.
 
@@ -280,14 +279,12 @@ For more information, see the [security documentation](/1.12/security/ent/).
 ## dcos_overlay_enable
 Indicates whether to enable DC/OS virtual networks.
 
-**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.12/installing/ent/custom/system-requirements/).
+<p class="message--note"><strong>NOTE: </strong>Virtual networks require Docker version 1.12 or later, but if you are using Docker 1.12 or earlier then you must specify <code>dcos_overlay_enable: 'false'</code>. For more information, see the <a href="/1.12/installing/ent/custom/system-requirements">system requirements</a>.</p>
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
 
-    *  `dcos_overlay_config_attempts` Specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure a virtual network.
-
-        **Note:** The failures might be related to a malfunctioning Docker daemon.
+    *  `dcos_overlay_config_attempts` Specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure a virtual network. The failures might be related to a malfunctioning Docker daemon.
 
     *  `dcos_overlay_mtu` The maximum transmission unit (MTU) of the Virtual Ethernet (vEth) on the containers that are launched on the overlay.
 
@@ -305,7 +302,8 @@ Indicates whether to enable DC/OS virtual networks.
 
         *  `vtep_subnet` A dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be accessible from outside the agents or master.
         *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node.
-        **Note:** The last three bytes must be `00`.
+
+        <p class="message--note"><strong>NOTE: </strong>The last three bytes must be <code>00</code>.</p>
 
         *  `overlays`
             *  `name` The canonical name (see [limitations](/1.12/networking/virtual-networks/) for constraints on naming virtual networks).
@@ -361,7 +359,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
 
-    **Note:** If [master_discovery](#master-discovery) is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.
+    <p class="message--important"><strong>IMPORTANT: </strong> If master_discovery is set to <code>master_http_loadbalancer</code>, then <code>exhibitor_storage_backend</code> cannot be set to <code>static</code>.</p>
 
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
@@ -388,7 +386,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
     *  `s3_prefix`
        The S3 prefix to be used within your S3 bucket to be used by Exhibitor.
 
-       **Note:** AWS EC2 Classic is not supported.
+       <p class="message--note"><strong>NOTE: </strong>AWS EC2 Classic is not supported.</p>
 *   `exhibitor_storage_backend: azure`
     An Azure Storage Account for shared storage. The data will be stored under the container named `dcos-exhibitor`. If you specify `azure`, you must also specify these parameters:
     *  `exhibitor_azure_account_name`
@@ -450,15 +448,13 @@ The Mesos master discovery method. The available options are `static` or `master
 
        The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
 
-       **Note:** The internal load balancer must work in TCP mode, without any TLS termination.
+       <p class="message--note"><strong>NOTE: </strong> The internal load balancer must work in TCP mode, without any TLS termination.</p>
 
     *  `num_masters` (Required)
        The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 
-**Note:**
-
-* If master_discovery is set to `master_http_loadbalancer`, then [exhibitor_storage_backend](#exhibitor-storage-backend) cannot be set to `static`.
-* On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability. It is recommended to use aws_s3 for the exhibitor storage backend since we can rely on s3 to manage quorum size when the master nodes are unavailable.
+<p class="message--note"><strong>NOTE: </strong>If <code>master_discovery</code> is set to <code>master_http_loadbalancer</code>, then <code>exhibitor_storage_backend</code> cannot be set to <code>static</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability. It is recommended to use <code>aws_s3</code> for the exhibitor storage backend since we can rely on s3 to manage quorum size when the master nodes are unavailable.</p>
 
 ## master_dns_bindall
 Indicates whether the master DNS port is open. An open master DNS port listens publicly on the masters. If you are upgrading, set this parameter to `true`.
@@ -515,7 +511,7 @@ The infrastructure platform. The value is optional, free-form with no content va
 ## process_timeout
 The allowable amount of time, in seconds, for an action to begin after the process forks. This parameter is not the complete process time. The default value is 120 seconds.
 
-**Note:** For a slower network, consider changing to `process_timeout: 600`.
+<p class="message--note"><strong>NOTE: </strong>For a slower network, consider changing to <code>process_timeout: 600</code>.</p>
 
 ## public_agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.12/overview/concepts/#public-agent-node) host names.
@@ -533,7 +529,7 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
     ```
 -  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/1.12/networking/mesos-dns/).
 
-**Caution:** If you set the `resolvers` parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.
+<p class="message--warning"><strong>WARNING: </strong>If you set the <code>resolvers</code> parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.</p>
 
 ## rexray_config
 The <a href="https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/" target="_blank">REX-Ray</a> configuration for enabling external persistent volumes in Marathon. REX-Ray is a storage orchestration engine. The following is an example configuration.
@@ -597,31 +593,33 @@ Indicates whether to enable the DC/OS proxy.
 *  `use_proxy: 'false'` Do not configure DC/OS [components](/1.12/overview/architecture/components/) to use a custom proxy. This is the default value.
 *  `use_proxy: 'true'` Configure DC/OS [components](/1.12/overview/architecture/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
 
-    **Note:** The specified proxies must be resolvable from the provided list of [resolvers](#resolvers).
+    <p class="message--note"><strong>NOTE: </strong>The specified proxies must be resolvable from the provided list of <a href="#resolvers">resolvers</a>.</p>
 
     *  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` The HTTP proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.
     *  `no_proxy`: A YAML nested list (`-`) of subdomains to exclude from forwarding to the `https_proxy`. If the address matches one of these strings, or the host is within the domain of one of these strings, http(s) requests to that node are not proxied. For example, the `no_proxy` list can be a list of internal IP addresses.
 
-        **Note:** Wildcard characters (`*`) are not supported.
+        <p class="message--note"><strong>NOTE: </strong>Wildcard characters (<code>*</code>) are not supported.</p>
 
 For more information, see the [examples](/1.12/installing/ent/custom/configuration/examples/#http-proxy).
 
-**Note:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
+<p class="message--note"><strong>NOTE: </strong>You should also configure an HTTP proxy for <a href=:https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker</a>.</p>
 
 ## enable_ipv6
 * `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is the default value.
 * `enable_ipv6: 'false'`: Disables IPv6 networking in DC/OS.
 
 Currently, IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
-* Users can create IPv6 DC/OS overlay networks. **Note:** This will work only for Docker containers.
+* Users can create IPv6 DC/OS overlay networks. 
+<p class="message--note"><strong>NOTE: </strong>This will work only for Docker containers.</p>
 * Service discovery for IPv6 containers will be available.
 * Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
 
 ## dcos_l4lb_enable_ipv6
 Indicates whether layer-4 load-balancing is available for IPv6 containers.
 *  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.12/networking/load-balancing-vips) for IPv6 containers. This is the default value.
-*  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. **Note:** Layer-4 load balancing for IPv6 containers should be turned on with caution. `[DCOS_OSS-2010](https://jira.mesosphere.com/browse/DCOS_OSS-2010)
+*  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. 
+<p class="message--important"><strong>IMPORTANT: </strong>Layer-4 load balancing for IPv6 containers should be turned on with caution. <a href="https://jira.mesosphere.com/browse/DCOS_OSS-2010">DCOS_OSS-2010></a>.</p>
 
 ## dcos_ucr_default_bridge_subnet
 Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by the `mesos-bridge` CNI network. The `mesos-bridge` CNI network represents the network that is used to launch UCR containers when bridge-mode networking is selected for UCR containers.

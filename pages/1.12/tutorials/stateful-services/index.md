@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Tutorial - Running stateful services on DC/OS
 ---
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+#include /include/tutorial-disclaimer.tmpl
 
 This tutorial shows you how to install and run stateful services on DC/OS. A stateful service acts on persistent data. Simple, state**less** services run in an empty sandbox each time they are launched. In contrast, state**ful** services make use of persistent volumes that reside on agents in a cluster until explicitly destroyed.
 
@@ -25,7 +25,9 @@ Approximately 20 minutes.
 
 **Target Audience**:
 
-This tutorial is for developers who want to run stateful services on DC/OS. **Note:** The DC/OS persistent volume feature is still in beta and is not ready for production use without a data replication strategy to guard against data loss.
+This tutorial is for developers who want to run stateful services on DC/OS. 
+
+<p class="message--note"><strong>NOTE: </strong>The DC/OS persistent volume feature is still in beta and is not ready for production use without a data replication strategy to guard against data loss.</p>
 
 ## Prerequisites
 

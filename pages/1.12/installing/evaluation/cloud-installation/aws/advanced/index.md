@@ -15,15 +15,11 @@ You can create and extend DC/OS clusters with AWS CloudFormation templates. The 
 The advanced AWS CloudFormation templates bring power and flexibility to creating and extending DC/OS clusters. With these templates you can choose from the complete set of DC/OS configuration options.
 
  - Instantiate a complete DC/OS cluster on an existing VPC/Subnet combination.
- - Extend and update existing DC/OS clusters by adding more [agent](/1.8/overview/concepts/#agent) nodes.
+ - Extend and update existing DC/OS clusters by adding more [agent](/1.12/overview/concepts/#agent-node) nodes.
 
 The templates are used together to create a DC/OS cluster. The templates are driven by parameters that AWS CloudFormation uses to create each stack.  
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Upgrades are not supported with this installation method.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> Upgrades are not supported with this installation method.</p>
 
 ## Prerequisites
 
@@ -40,23 +36,22 @@ You must have an AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
 - The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 - A node that meets the bootstrap node [system requirements](/1.12/installing/ent/custom/system-requirements/).
-- An AWS S3 bucket with read-write access.
-    - The S3 bucket must have a bucket policy that allows the launched AWS instances to download the files from the s3 bucket. Here is a sample policy that allows anyone to download:
+- An AWS S3 bucket with read-write access. The S3 bucket must have a bucket policy that allows the launched AWS instances to download the files from the s3 bucket. Here is a sample policy that allows anyone to download:
 
-      ```json
-      {
-        "Version":"2012-10-17",
-        "Statement":[
-          {
-            "Sid":"AddPerm",
-            "Effect":"Allow",
-            "Principal": "*",
-            "Action":["s3:GetObject"],
-            "Resource":["arn:aws:s3:::<bucket_name>/<bucket_path>/*"]
-          }
-        ]
-      }
-      ```
+    ```json
+    {
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+        "Sid":"AddPerm",
+        "Effect":"Allow",
+        "Principal": "*",
+        "Action":["s3:GetObject"],
+        "Resource":["arn:aws:s3:::<bucket_name>/<bucket_path>/*"]
+        }
+    ]
+    }
+    ```
 
 For more information about s3 bucket policies, see the [AWS Documentation](http://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html).
 
@@ -96,7 +91,7 @@ The required parameters for Enterprise and Open Source users are:
     aws_template_storage_secret_access_key: <your-secret-access_key>
 
 
-For parameters descriptions and configuration examples, see the [documentation](/1.12/installing/ent/custom/configuration/configuration-parameters/).
+For parameters descriptions and configuration examples, see the [documentation](/1.12/installing/production/advanced-configuration/configuration-reference/).
 
 3.  Run the DC/OS installer script with the AWS argument specified. This command creates and uploads a custom build of the DC/OS artifacts and templates to the specified S3 bucket.
 
@@ -224,13 +219,11 @@ Template examples:
     *  **PublicSubnet** Specify the `Public SubnetId` output value from the `zen.sh` script. This subnet ID will be used by all public agents.
     *  **Vpc** Specify the `VpcId` output value from the `zen.sh` script. All nodes will be launched by using subnets and Internet Gateway under this VPC.
 
-3.  On the **Options** page, accept the defaults and click **Next**.
-
-    **Note:** You can choose whether to roll back on failure. By default this option is set to **Yes**.
+3.  On the **Options** page, accept the defaults and click **Next**. You can choose whether to roll back on failure. By default this option is set to **Yes**.
 
 4.  On the **Review** page, check the acknowledgement box and then click **Create**.
 
-    **Note:** If the **Create New Stack** page is shown, either AWS is still processing your request or you are looking at a different region. Navigate to the correct region and refresh the page to see your stack.
+    <p class="message--note"><strong>NOTE: </strong>If the <strong>Create New Stack</strong> page is shown, either AWS is still processing your request or you are looking at a different region. Navigate to the correct region and refresh the page to see your stack.</p>
 
 # Monitor the DC/OS cluster convergence process
 
@@ -250,11 +243,7 @@ In CloudFormation you should see that:
 
 * The status changes from `CREATE_IN_PROGRESS` to `CREATE_COMPLETE`.
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the Events tab for useful information about failures.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the Events tab for useful information about failures.</p>
 
 # Launch DC/OS
 
@@ -264,7 +253,7 @@ You can launch the DC/OS web interface by entering the master hostname. Follow t
 
 1.  Click on the **Outputs** tab and copy/paste the Mesos Master hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.
 
-    **Note:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page.
+   You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation Management</a> page.
 
     ![Monitor stack creation](/1.12/img/dcos-aws-step3a.png)
 
@@ -272,19 +261,13 @@ You can launch the DC/OS web interface by entering the master hostname. Follow t
 
 1.  Click **Log In To DC/OS**.
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>Important:</strong> After clicking "Log In To DC/OS", your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.</td> 
-    </tr> 
-    </table>
+    <p class="message--important"><strong>IMPORTANT: </strong> After clicking <strong>Log In To DC/OS</strong>, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.</p>
 
     ![UI installer success](/1.12/img/gui-installer-success-ee.gif)
 
     Figure 4. Success screen
 
-1.  Enter the username and password of the superuser account.
-
-    **Note:** The default username is `bootstrapuser` and default password is `deleteme`.
+1.  Enter the username and password of the superuser account. The default username is `bootstrapuser` and default password is `deleteme`.
 
     ![alt text](/1.12/img/ui-installer-auth2.png)
 

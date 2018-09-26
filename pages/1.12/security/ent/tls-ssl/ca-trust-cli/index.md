@@ -8,9 +8,10 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-  By default, the DC/OS CLI does not verify the signer of TLS certificates. We recommend completing the following brief procedure to ensure that the DC/OS CLI trusts only your DC/OS CA and refuses connections with other parties.
+By default, the DC/OS CLI does not verify the signer of TLS certificates. We recommend completing the following brief procedure to ensure that the DC/OS CLI trusts only your DC/OS CA and refuses connections with other parties.
 
-**Note:** This procedure should be unnecessary if you have [set up a proxy](/1.12/security/ent/tls-ssl/haproxy-adminrouter/).
+<p class="message--note"><strong>NOTE: </strong>This procedure should be unnecessary if you have <a href="/1.12/security/ent/tls-ssl/haproxy-adminrouter/">set up a proxy</a>.</p>
+
 
 By default, the DC/OS CLI does not verify the signer of TLS certificates. We recommend completing the following brief procedure to ensure that the DC/OS CLI trusts only your DC/OS CA and refuses connections with other parties.
 

@@ -20,7 +20,7 @@ Users can be granted access to DC/OS by another authorized user. A default user 
 
 Figure 1. Adding a new user
 
-**Note:** Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.
+<p class="message--note"><strong>NOTE: </strong>Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.</p>
 
 ## Add users from the CLI
 You can add users to your DC/OS cluster from a terminal by using the `dcos_add_user.py` script. This script is included by default with your DC/OS installation.
@@ -53,9 +53,10 @@ To switch users, you must log out of the current user and then back in as the ne
 
 1.   To log out of the DC/OS web interface, click on your username in the upper-left side and select **Sign Out**.
 
-        ![log out](/1.12/img/1-11-user-drop-down-menu.png)
+![log out](/1.12/img/1-11-user-drop-down-menu.png)
 
-        Figure 3. Drop down user menu
+
+Figure 3. Drop down user menu
 
 You can now log in as another user.
 
