@@ -25,8 +25,8 @@ the task definition:
 
 # Details
 
-Note: Specifying invalid values for these options will cause the task
-launch to fail.
+<p class="message--warning"><strong>WARNING: </strong>Specifying invalid values for these options will cause the task
+launch to fail.</p>
 
 ## Destination Type
 
@@ -36,7 +36,7 @@ The `CONTAINER_LOGGER_DESTINATION_TYPE` takes three possible arguments:
 * `journald`
 * `journald+logrotate`
 
-The use of `journald` options are **not** recommended due to
+The use of `journald` options is **not** recommended, due to
 [journald performance issues](https://github.com/systemd/systemd/issues/5102).
 When enabled, logs are piped directly into the node's journald, along
 with some labels like the `AGENT_ID`, `EXECUTOR_ID`, and `CONTAINER_ID`.
@@ -46,7 +46,7 @@ inside the task sandbox and create additional files for rotating these
 logs (`*.logrotate.conf` and `*.logrotate.state`).
 
 See the [Logging API](/1.12/monitoring/logging/logging-api/)
-for how to read these logs.
+for information on how to read these logs.
 
 ## Max Sizes
 
@@ -65,8 +65,8 @@ Examples:
 * `1234B`
 * `1TB`
 
-Note: The hard cap on size is 2^64 bytes.  Attempting to specify a higher
-value (i.e. 2^64 TB) will lead to undetermined results.
+<p class="message--important"><strong>IMPORTANT: </strong>The hard cap on size is 2^64 bytes.  Attempting to specify a higher
+value (for example, 2^64 TB) will lead to undetermined results.</p>
 
 ## Logrotate Options
 
