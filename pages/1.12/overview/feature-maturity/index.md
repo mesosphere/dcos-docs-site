@@ -18,7 +18,7 @@ A feature can encompass Apps, Services, Frameworks, Components or Packages that 
 
 ![Five Maturity States](/1.12/img/five_maturity_states.png)
 
-*Figure 1 -Feature maturity lifecycle*
+Figure 1. Feature maturity lifecycle
 
 <a name="beta"></a>
 ## Beta
@@ -33,7 +33,7 @@ Features that are labeled Beta are aimed at consumers who want to have early exp
 6. Beta features are not guaranteed to be promoted from Beta to GA.
 7. Feedback on beta features may be provided via non-standard channels like email, slack channels or community forums, based on testing, usage and experiences.
 
-**Note**: Any use of a Beta version or feature of Mesosphere DC/OS Enterprise is subject to the [Evaluation Terms](https://mesosphere.com/mesosphere-support-terms/), to the exclusion of all other terms.
+<p class="message--important"><strong>IMPORTANT: </strong>Any use of a Beta version or feature of Mesosphere DC/OS Enterprise is subject to the <a href="https://mesosphere.com/mesosphere-support-terms/">Evaluation Terms</a>, to the exclusion of all other terms.</p>
 
 <a name="general_availability"></a>
 ## General Availability

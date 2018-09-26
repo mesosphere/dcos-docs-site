@@ -43,7 +43,7 @@ This JSON file creates a simple job with no schedule.
     ```
 
 # <a name="create-job-schedule"></a>Creating a Job with a Schedule
-**Note:** This example JSON only works when you add the job from the DC/OS CLI or the web interface. Use the [example below](#schedule-with-api) to create a scheduled job via the API.
+<p class="message--note"><strong>NOTE: </strong>This example JSON only works when you add the job from the DC/OS CLI or the web interface. </p>
 
 1. Create a JSON file with the following contents.
     ```
@@ -101,7 +101,7 @@ This JSON file creates a simple job with no schedule.
     curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@/Users/<your-username>/<schedule-file>.json
     ```
 
-**Note:** You can associate a schedule with more than one job.
+You can associate a schedule with more than one job.
 
 # Creating a Partitioned Jobs Environment
 

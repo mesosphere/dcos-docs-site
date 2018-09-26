@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+#include /include/tutorial-disclaimer.tmpl
 
 This tutorial illustrates how labels can be defined using the DC/OS web interface and the Marathon HTTP API, and how information pertaining to applications and jobs that are running can be queried based on label value criteria.
 

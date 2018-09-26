@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Reinitializing the Secret Store with a custom GPG keypair
 title: Reinitializing the Secret Store with a custom GPG keypair
-menuWeight: -1
+menuWeight: 5
 excerpt: Using a custom GPG pair to reinitialize the Secret Store
 
 enterprise: true
@@ -13,14 +13,14 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/1.11/cli/install/)
+- [DC/OS CLI installed](/1.12/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
 - [GNU Privacy Guard (GPG) installed](http://brewformulas.org/Gnupg)
-- You must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
+- You must follow the steps in [Downloading the Root Cert](/1.12/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
 
 ## <a name="1"></a>Edit your SECRETS_BOOTSTRAP value
 
-1. [SSH into your master](/1.11/administering-clusters/sshcluster/).
+1. [SSH into your master](/1.12/administering-clusters/sshcluster/).
 
 2. Open the `dcos-secrets.env` file in your choice of editor.
 
@@ -70,7 +70,7 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 
 1. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-   **Note:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](1.11/installing/production/advanced-configuration/configuration-reference/#zk-superuser).
+  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="1.12/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
 
    ```bash
    addauth digest super:secret
@@ -133,13 +133,12 @@ You do not **have** to use GPG to generate the keypair. We provide these instruc
 
 1. Use the following command to export the public key, base64-encode it, and remove the newlines. Before executing the command, replace `<key-ID>` below with the alphanumeric ID of the public key.
 
-   **Note:** In the following line `gpg: key CCE6A37D marked as ultimately trusted`, `CCE6A37D` represents the ID of the public key.
+  <p class="message--note"><strong>NOTE: </strong>In the following line, <code>gpg: key CCE6A37D</code> is marked as <code>ultimately trusted</code>, and <code>CCE6A37D</code> represents the ID of the public key.</p>
 
    ```bash
    gpg --export <key-ID> | base64 -w 0 | tr '\n' ' '
    ```
-
-1. Copy the value returned by GPG. This is your public GPG key in a base64-encoded format.
+5. Copy the value returned by GPG. This is your public GPG key in a base64-encoded format.
 
 1. Open a new tab in your terminal prompt.
 
@@ -157,4 +156,4 @@ You do not **have** to use GPG to generate the keypair. We provide these instruc
    {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
-Congratulations! You have successfully reinitialized your Secret Store. To unseal it, refer to [Unsealing a Secret Store sealed with custom keys](/1.11/security/ent/secrets/unseal-store/#unseal-cust-keys).
+Congratulations! You have successfully reinitialized your Secret Store. To unseal it, refer to [Unsealing a Secret Store sealed with custom keys](/1.12/security/ent/secrets/unseal-store/#unseal-cust-keys).

@@ -1,17 +1,15 @@
 ---
 layout: layout.pug
-excerpt: Install DC/OS cluster using the Azure Resource Manager templates
+excerpt: Installing DC/OS cluster using the Azure Resource Manager templates
 title: Running DC/OS on Azure
 navigationTitle: Azure
 menuWeight: 10
 oss: true
 ---
 
-This page explains how to install DC/OS 1.12 using the Azure Resource Manager templates.
+This page explains how to install DC/OS 1.12 using the Azure Resource Manager templates. Upgrades are not supported with this installation method.
 
-**Note:** To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
-
-- Upgrades are not supported with this installation method.
+<p class="message--note"><strong>NOTE: </strong>To get support on Azure Marketplace-related questions, join the <a href="http://join.marketplace.azure.com">Azure Marketplace Slack community</a>.</p>
 
 # System requirements
 

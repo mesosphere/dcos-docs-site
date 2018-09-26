@@ -17,11 +17,7 @@ These instructions provide a basic AWS CloudFormation template that creates a DC
 
 For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.12/installing/ent/cloud/aws/advanced/).
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Upgrades are not supported with this installation method.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> Upgrades are not supported with this installation method.</p>
 
 # System requirements
 
@@ -56,11 +52,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 3.  On the **Select Template** page, in the **Choose a template** field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from Sales.
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>WARNING: </strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</p>
 
    ![Launch stack](/1.12/img/dcos-aws-step2b.png)
 
@@ -90,11 +82,7 @@ Figure 2. Create stack
 
 3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), whether to enable OAuth authentication (`OAuthEnabled`), number of public agent nodes (`PublicSlaveInstanceCount`), number of private agent nodes (`SlaveInstanceCount`), and click **Next**. 
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>WARNING: </strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</p>
 
 
 4. Go to Step 6 in the "All users" section.
@@ -115,12 +103,7 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 *   The cluster stack spins up over a period of 10 to 15 minutes.
 *   The status changes from CREATE_IN_PROGRESS to CREATE_COMPLETE.
 
-**Troubleshooting:** A ROLLBACK_COMPLETE status means the deployment has failed. See the **Events** tab for useful information about failures.
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the <strong>Events</strong> tab for useful information about failures.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the <strong>Events</strong> tab for useful information about failures.</p>
 
 # <a name="launchdcos"></a>Open and log into the DC/OS GUI
 
@@ -138,7 +121,7 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
    Figure 6. DC/OS web interface login screen
 
-   **Note:** You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the [AWS CloudFormation Management](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fcloudformation%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0) page.
+  You might need to resize your window to see this tab. You can find your DC/OS hostname any time from the [AWS CloudFormation Management](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fcloudformation%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0) page.
 
 4.  Enter the username and password of the superuser account. The default username is `bootstrapuser` and default password is `deleteme`. Click **LOG IN**. [enterprise type="inline" size="small" /]
 

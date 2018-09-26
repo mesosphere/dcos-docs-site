@@ -6,13 +6,7 @@ title: Tutorial - Load-Balancing
 menuWeight: 8
 ---
 
-
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> 
-</tr> 
-</table>
-Welcome to part 8 of the DC/OS 101 Tutorial.
+#include /include/tutorial-disclaimer.tmpl
 
 
 Welcome to part 8 of the DC/OS 101 Tutorial.

@@ -75,7 +75,7 @@ Other common single points of failure include:
 
 Fast failure detection comes in many forms. Services like ZooKeeper can be used to provide failure detection, such as detecting network partitions or host failures. Service health checks can also be used to detect certain types of failures. 
 
-**Note:** It is recommended that services should expose health check endpoints, which can be used by services like Marathon.
+<p class="message--note"><strong>NOTE: </strong>It is recommended that services should expose health check endpoints, which can be used by services like Marathon.</p>
 
 ## Fast Failover
 

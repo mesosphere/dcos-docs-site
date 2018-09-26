@@ -14,9 +14,9 @@ DC/OS 1.12.0 Beta 1 was released on September 20, 2018.
 
 DC/OS 1.12.0 Beta 1 release is for testing only and not to be used in production. This release will only support new installations.
 
-**Note:** Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
+<p class="message--note"><strong>NOTE: </strong>Provide feedback on the new features and services at <a href="https://support.mesosphere.com">support.mesosphere.com</a>.</p>
 
-<p class=“message--warning”><strong>WARNING: </strong>Mesos endpoints with `.json` suffix (e.g., /mesos/state.json) are deprecated in DC/OS 1.12 and will be removed in DC/OS 1.13.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Mesos endpoints with the <code>.json</code> suffix are deprecated in DC/OS 1.12 and will be removed in DC/OS 1.13.</p>
 
 # About DC/OS 1.12.0 Beta 1
 

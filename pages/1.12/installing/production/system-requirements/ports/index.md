@@ -34,7 +34,7 @@ This section describes each pre-configured port in your DC/OS deployment.
 | 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 | 64000 | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 
-**Note:** UDP port 123 is open for communication with NTP.
+<p class="message--note"><strong>NOTE: </strong>UDP port 123 is open for communication with NTP.</p>
 
 ## Master
 

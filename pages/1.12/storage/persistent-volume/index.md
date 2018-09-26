@@ -475,7 +475,7 @@ response:
 }
 ```
 
-**Note:** A running task will show `stagedAt`, `startedAt`, and `version` in addition to the information provided above.
+<p class="message--note"><strong>NOTE: </strong>A running task will show <code>stagedAt</code>, <code>startedAt</code>, and <code>version</code> in addition to the information provided above.</p>
 
 You can then
 
