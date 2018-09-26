@@ -19,7 +19,7 @@ REST API requests must be authenticated. This authentication is only applicable 
 
 If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/1.10/security/ent/iam-api/), but you will need to manually refresh the token.
 
-If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint]/1.10/security/oss/iam-api/).
+If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint](/1.10/security/oss/iam-api/).
 
 Once you have the authentication token, you can store it in an environment variable and reference it in your REST API calls:
 
