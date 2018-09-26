@@ -129,15 +129,6 @@ Figure 3. Code snippet window
 *   A supported command-line environment, Powershell or `cmd.exe`.
 *   Windows 10 64-bit or newer.
 
-*   A system external to your DC/OS cluster onto which you will install the CLI
-*   Network access from the external system to your DC/OS cluster
-*   A command line environment, such as Windows Powershell, which is installed by default on Windows 7 and later
-*   Disable any security or antivirus software before beginning the installation.
-*   Windows 10 or newer.
-
-
-1.  Run command line environment as Administrator.
-
 1.  Download the DC/OS CLI executable to your local directory ([dcos.exe](https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.12/dcos.exe)).
 
 1.  Set up the connection from the CLI to your DC/OS cluster. In this example, `http://example.com` is the master node URL.
