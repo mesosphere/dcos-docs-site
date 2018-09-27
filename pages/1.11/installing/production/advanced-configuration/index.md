@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  Advanced Configuration
-title: Advanced Configuration
+navigationTitle:  Configuration
+title: Configuration
 menuWeight: 15
-excerpt: Configuring your DC/OS using advanced configuration methods
+excerpt: Configuring your DC/OS using production configuration methods
 ---
 
-This page displays the topics for advanced configuration methods.
+This page displays the topics for production configuration methods.
 
 The DC/OS configuration parameters are specified in YAML format in a `config.yaml` file. This file is stored on your [bootstrap node](/1.11/installing/production/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
 

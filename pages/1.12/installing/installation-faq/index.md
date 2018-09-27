@@ -11,13 +11,13 @@ excerpt: Frequently asked questions about installing DC/OS
 We recommend starting with a fresh cluster to ensure all defaults are set to expected values. This prevents unexpected conditions related to mismatched versions and configurations.
 
 ## Q. What are the OS requirements of DC/OS?
-See the [system requirements](/1.11/installing/production/system-requirements/) documentation.
+See the [system requirements](/1.12/installing/production/system-requirements/) documentation.
 
 ## Q. Does DC/OS install ZooKeeper?
 DC/OS runs its own ZooKeeper supervised by Exhibitor and `systemd`.
 
 ## Q. Is it necessary to maintain a bootstrap node after the cluster is created?
-If you specify an Exhibitor storage backend type other than `exhibitor_storage_backend: static` in your cluster configuration [file](/1.11/installing/production/advanced-configuration/configuration-reference/), you must maintain the external storage for the lifetime of your cluster to facilitate leader elections. If your cluster is mission critical, you should harden your external storage by using S3 or running the bootstrap ZooKeeper as a quorum. Interruptions of service from the external storage can be tolerated, but permanent loss of state can lead to unexpected conditions.
+If you specify an Exhibitor storage backend type other than `exhibitor_storage_backend: static` in your cluster configuration [file](/1.12/installing/production/advanced-configuration/configuration-reference/), you must maintain the external storage for the lifetime of your cluster to facilitate leader elections. If your cluster is mission critical, you should harden your external storage by using S3 or running the bootstrap ZooKeeper as a quorum. Interruptions of service from the external storage can be tolerated, but permanent loss of state can lead to unexpected conditions.
 
 ## Q. How can I add Mesos attributes to nodes to use Marathon constraints?
 
@@ -31,7 +31,7 @@ In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dc
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave
     ```
 
-**Note:** If Auto Scaling groups are in use, the node will be replaced automatically.
+If Auto Scaling groups are in use, the node will be replaced automatically.
 
 - For a public agent, run the following command:
 
@@ -75,17 +75,13 @@ sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --hos
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) --database=iam_new < ~/iam-backup.sql
 ```
 
-3.vWith the back up data loaded into the `iam_new` database, rename the `iam` database to `iam_old`.
-
-**Note:** After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.
+3.With the backup data loaded into the `iam_new` database, rename the `iam` database to `iam_old`. After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.
 
 ```bash
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam RENAME TO iam_old"
 ```
 
-4. Rename the `iam_new` database to `iam`.
-
-**Note:** After this command is issued, the IAM is available again. Requests to the IAM will be successful.
+4. Rename the `iam_new` database to `iam`. After this command is issued, the IAM is available again. Requests to the IAM will be successful.
 
 ```bash
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam_new RENAME TO iam"

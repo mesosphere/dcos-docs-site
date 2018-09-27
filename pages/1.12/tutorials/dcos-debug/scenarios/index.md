@@ -5,6 +5,7 @@ title: Practice Deployment Debugging Scenarios on DC/OS
 excerpt: Tutorial - Practicing some debugging scenarios
 menuWeight: 31
 ---
+#include /include/tutorial-disclaimer.tmpl
 
 <!-- IV. Hands On Examples Section -->
 

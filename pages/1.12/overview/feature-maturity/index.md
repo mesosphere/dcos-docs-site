@@ -16,9 +16,9 @@ A Mesosphere DC/OS feature will progress through a multi-stage lifecycle.  This 
 
 A feature can encompass Apps, Services, Frameworks, Components or Packages that are part of Mesosphere DC/OS or its catalog. The five Maturity States of a Mesosphere DC/OS feature are illustrated below and progress from left to right starting with Beta and ending with Decommissioned.
 
-![Five Maturity States](/1.11/img/five_maturity_states.png)
+![Five Maturity States](/1.12/img/five_maturity_states.png)
 
-*Figure 1 -Feature maturity lifecycle*
+Figure 1. Feature maturity lifecycle
 
 <a name="beta"></a>
 ## Beta
@@ -33,7 +33,7 @@ Features that are labeled Beta are aimed at consumers who want to have early exp
 6. Beta features are not guaranteed to be promoted from Beta to GA.
 7. Feedback on beta features may be provided via non-standard channels like email, slack channels or community forums, based on testing, usage and experiences.
 
-**Note**: Any use of a Beta version or feature of Mesosphere DC/OS Enterprise is subject to the [Evaluation Terms](https://mesosphere.com/mesosphere-support-terms/), to the exclusion of all other terms.
+<p class="message--important"><strong>IMPORTANT: </strong>Any use of a Beta version or feature of Mesosphere DC/OS Enterprise is subject to the <a href="https://mesosphere.com/mesosphere-support-terms/">Evaluation Terms</a>, to the exclusion of all other terms.</p>
 
 <a name="general_availability"></a>
 ## General Availability
@@ -45,7 +45,7 @@ A feature that is Generally Available (GA) is recommended to be used by all cons
 3. API modifications will be under version control (V1, V2 etc).
 4. For customers of DC/OS Enterprise, feedback and support should go through the methods outlined in the Mesosphere Support Terms.
 5. For customers of DC/OS Open Source, feedback should go through Community channels.
-6. GA feature modifications or maturity lifecycle changes can be found in the [Release Notes](/1.11/release-notes/).
+6. GA feature modifications or maturity lifecycle changes can be found in the [Release Notes](/1.12/release-notes/).
 
 <a name="deprecated"></a>
 ## Deprecated

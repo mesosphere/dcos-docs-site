@@ -10,7 +10,7 @@ echo " Merging Kubernetes"
 echo "------------------------------"
 
 # Get values for version
-branch=$1
+version=$1
 if [ -z "$1" ]; then echo "Enter a version tag as the first argument."; exit 1; fi
 skip=$2
 # Package name, default to "kubernetes"
@@ -38,7 +38,7 @@ fi
 # always remove lates/ directory it will never be copied
 rm -rf docs/package/latest
 
-# checkout each file in the merge list from dcos-kubernetes/$branch
+# checkout each file in the merge list from tags/$version
 for d in docs/package/*/; do
   echo $d
   for p in `find $d -type f`; do

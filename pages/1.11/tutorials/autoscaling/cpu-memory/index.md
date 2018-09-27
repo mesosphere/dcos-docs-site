@@ -36,7 +36,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
 
     **Note:** Run `dcos node` to get the available node IDs.
 
-1.  Clone the [autoscale][13] GitHub repository to your node.
+1.  Clone the [autoscale Github repository](https://github.com/mesosphere/marathon-autoscale) to your node.
 
     ```bash
     git clone https://github.com/mesosphere/marathon-autoscale.git

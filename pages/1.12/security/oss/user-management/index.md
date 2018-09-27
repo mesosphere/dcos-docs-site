@@ -16,20 +16,20 @@ Users can be granted access to DC/OS by another authorized user. A default user 
 
 2.  Click on  **Organization** in the left hand menu. From the **Users** screen, click the plus sign (**+**) in the upper right corner, and fill in the new user email address. New users are automatically sent an email notifying them of access to DC/OS.
 
-![new DC/OS user](/1.11/img/1-11-add-user-to-cluster.png)
+![new DC/OS user](/1.12/img/1-11-add-user-to-cluster.png)
 
 Figure 1. Adding a new user
 
-**Note:** Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.
+<p class="message--note"><strong>NOTE: </strong>Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.</p>
 
 ## Add users from the CLI
 You can add users to your DC/OS cluster from a terminal by using the `dcos_add_user.py` script. This script is included by default with your DC/OS installation.
 
 **Prerequisites:**
 
-- DC/OS is [installed](/1.11/installing/)
+- DC/OS is [installed](/1.12/installing/)
 
-1.  [SSH](/1.11/administering-clusters/sshcluster/) to a master node and run this command, where `<email>` is the user's email:
+1.  [SSH](/1.12/administering-clusters/sshcluster/) to a master node and run this command, where `<email>` is the user's email:
 
     ```bash
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>
@@ -41,7 +41,7 @@ You can add users to your DC/OS cluster from a terminal by using the `dcos_add_u
 1.  From the **Users** screen, select the user name and click **Delete**.
 2.  Click **Delete** to confirm the action.
 
-<img src="/1.11/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
+<img src="/1.12/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
 
  Figure 2. Deleting a user
 
@@ -53,9 +53,10 @@ To switch users, you must log out of the current user and then back in as the ne
 
 1.   To log out of the DC/OS web interface, click on your username in the upper-left side and select **Sign Out**.
 
-        ![log out](/1.11/img/1-11-user-drop-down-menu.png)
+![log out](/1.12/img/1-11-user-drop-down-menu.png)
 
-        Figure 3. Drop down user menu
+
+Figure 3. Drop down user menu
 
 You can now log in as another user.
 
@@ -63,13 +64,13 @@ You can now log in as another user.
 
 1.  To log out of the DC/OS CLI, enter the command:
 
-        ```bash
-        dcos config unset core.dcos_acs_token
-        Removed [core.dcos_acs_token]
-        ```
+```bash
+dcos config unset core.dcos_acs_token
+Removed [core.dcos_acs_token]
+```
 
 You can now log in as another user.
 
 ## Next Steps
 
-For more information on security, check out [Security and Authentication](/1.11/security/oss/)
+For more information on security, check out [Security and Authentication](/1.12/security/oss/)

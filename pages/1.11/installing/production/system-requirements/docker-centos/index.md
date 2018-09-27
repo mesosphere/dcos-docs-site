@@ -50,7 +50,7 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 1.  Configure OS for overlay storage:
 
     ```bash
-    sudo echo 'overlay' >> /etc/modules-load.d/overlay.conf
+    echo 'overlay' | sudo tee -a /etc/modules-load.d/overlay.conf
     sudo modprobe overlay
     ```
 

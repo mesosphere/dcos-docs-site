@@ -13,17 +13,17 @@ excerpt: Troubleshooting DC/OS installation issues
 
 ## IP detect script
 
-You must have a valid [ip-detect](/1.11/installing/production/advanced/#create-an-ip-detection-script) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+You must have a valid [ip-detect](/1.12/installing/production/advanced/#create-an-ip-detection-script) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
   - extra lines
   - white space
   - special or hidden characters
 
-We recommended that you use the `ip-detect` [examples](/1.11/installing/production/deploying-dcos/installation/).
+We recommended that you use the `ip-detect` [examples](/1.12/installing/production/deploying-dcos/installation/).
 
 ## DNS resolvers
 
-You must have working DNS resolvers, specified in your [config.yaml](1.11/installing/production/advanced-configuration/configuration-reference/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+You must have working DNS resolvers, specified in your [config.yaml](1.12/installing/production/advanced-configuration/configuration-reference/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
   - `hostname -f` returns the FQDN
   - `hostname -s` returns the short hostname
@@ -64,7 +64,7 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 
 * Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
 
-    - [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
+    - [SSH](/1.12/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
 
     ```bash
     journalctl -flu dcos-exhibitor
@@ -80,7 +80,7 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 	    
 * Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
 
-  For example, [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command:
+  For example, [SSH](/1.12/administering-clusters/sshcluster/) to your master node and enter this command:
 
 
     curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
@@ -107,7 +107,7 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 
 
 
-**Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it does not complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
+<p class="message--note"><strong>NOTE: </strong>Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it does not complete after 10-15 minutes, you should carefully review the <code>journalctl -flu dcos-exhibitor</code> logs.</p>
 
 * Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
@@ -143,9 +143,9 @@ During DC/OS installation, each of the components will converge from a failing s
 
 ## <a name="admin-router"></a>Admin Router
 
-The Admin Router is started on the master nodes. The Admin Router provides central authentication and proxy to DC/OS services within the cluster. This allows you to administer your cluster from outside the network without VPN or a SSH tunnel. For HA, an optional load balancer can be configured in front of each master node, load balancing port 80, to provide failover and load balancing.
+ Admin Router is started on the master nodes.  Admin Router provides central authentication and proxy to DC/OS services within the cluster. This allows you to administer your cluster from outside the network without VPN or a SSH tunnel. For HA, an optional load balancer can be configured in front of each master node, load balancing port 80, to provide failover and load balancing.
 
-**Troubleshooting:**
+### Troubleshooting
 
 SSH to your master node and enter this command to view the logs from boot time:
 
@@ -166,7 +166,7 @@ DC/OS private and public agent nodes are started. Deployed apps and services are
 
 Publicly accessible applications are run in the public agent node. Public agent nodes can be configured to allow outside traffic to access your cluster. Public agents are optional and there is no minimum. This is where you would run a load balancer, providing a service from inside the cluster to the external public.
 
-**Troubleshooting:**
+### Troubleshooting
 
 * You might not be able to SSH to agent nodes, depending on your cluster network configuration. We have made this a little bit easier with the DC/OS CLI. For more information, see [SSHing to a DC/OS cluster][6].
 
@@ -197,7 +197,7 @@ For example, here is a snippet of the Mesos agent log as it converges to a succe
 
 DC/OS Marathon is started on the master nodes. The native Marathon instance is the “init system” for DC/OS. It starts and monitors applications and services.
 
-**Troubleshooting:**
+### Troubleshooting
 
 * Go to the **Services > Services** tab on the DC/OS Dashboard and view status.
 
@@ -227,7 +227,7 @@ For example, here is a snippet of the DC/OS Marathon log as it converges to a su
 
 gen_resolvconf is started. This is a service that helps the agent nodes locate the master nodes. It updates `/etc/resolv.conf` so that agents can use the Mesos-DNS service for service discovery. gen_resolvconf uses either an internal load balancer, vrrp, or a static list of masters to locate the master nodes. For more information, see the `master_discovery` [configuration parameter][3].
 
-**Troubleshooting:**
+### Troubleshooting
 
 * When gen_resolvconf is up and running, you can view `/etc/resolv.conf` contents. It should contain one or more IP addresses for the master nodes, and the optional external DNS server.
 
@@ -253,7 +253,7 @@ For example, here is a snippet of the gen_resolvconf log as it converges to a su
 
 The Mesos master process starts on the master nodes. The `mesos-master` process runs on a node in the cluster and orchestrates the running of tasks on agents by receiving resource offers from agents and offering those resources to registered services, such as Marathon or Chronos. For more information, see the [Mesos Master Configuration][2] documentation.
 
-**Troubleshooting:**
+### Troubleshooting
 
 * Go directly to the Mesos web interface and view its status at `<master-hostname>/mesos`.
 * SSH to your master node and enter this command to view the logs from boot time:
@@ -273,7 +273,7 @@ For example, here is a snippet of the Mesos master log as it converges to a succ
 
 Mesos-DNS is started on the DC/OS master nodes. Mesos-DNS provides service discovery within the cluster. Optionally, Mesos-DNS can forward unhandled requests to an external DNS server, depending on how the cluster is configured. For example, anything that does not end in `.mesos` will be forwarded to the external resolver.
 
-**Troubleshooting:**
+### Troubleshooting
 
 * SSH to your master node and enter this command to view the logs from boot time:
 
@@ -298,9 +298,9 @@ For example, here is a snippet of the Mesos-DNS log as it converges to a success
 
 ## <a name="zookeeper-and-exhibitor"></a>ZooKeeper and Exhibitor
 
-ZooKeeper and Exhibitor start on the master nodes. The Exhibitor storage location must be configured properly for this to work. For more information, see the [exhibitor_storage_backend](/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter.
+ZooKeeper and Exhibitor start on the master nodes. The Exhibitor storage location must be configured properly for this to work. For more information, see the [exhibitor_storage_backend](/1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter.
 
-DC/OS uses ZooKeeper, a high-performance coordination service to manage the installed DC/OS services. Exhibitor automatically configures ZooKeeper on the master nodes during your DC/OS installation. For more information, see [Configuration Parameters](/1.11/installing/production/advanced-configuration/configuration-reference/).
+DC/OS uses ZooKeeper, a high-performance coordination service to manage the installed DC/OS services. Exhibitor automatically configures ZooKeeper on the master nodes during your DC/OS installation. For more information, see [Configuration Parameters](/1.12/installing/production/advanced-configuration/configuration-reference/).
 
 * Go to the Exhibitor web interface and view status at `<master-hostname>/exhibitor`.
 
@@ -328,10 +328,10 @@ For example, here is a snippet of the Exhibitor log as it converges to a success
 
 
 
- [1]: /1.11/installing/ent/custom/configuration/configuration-parameters/#exhibitor-storage-backend
+ [1]: /1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /1.11/installing/production/advanced-configuration/configuration-reference/#master-discovery
- [4]: /1.11/overview/architecture/boot-sequence/
- [5]: /1.11/installing/ent/custom/configuration/configuration-parameters/
- [6]: /1.11/administering-clusters/sshcluster/
+ [3]: /1.12/installing/production/advanced-configuration/configuration-reference/
+ [4]: /1.12/overview/architecture/boot-sequence/
+ [5]: /1.12/installing/production/advanced-configuration/configuration-reference/
+ [6]: /1.12/administering-clusters/sshcluster/
 

@@ -133,7 +133,7 @@ Pods also support host volumes. A pod volume parameter can declare a `host` fiel
 }
 ```
 
-**Note:** Data does not persist if pods are restarted.
+<p class="message--note"></strong>NOTE: </strong>Data does not persist if pods are restarted.</p>
 
 ## Containerizers
 

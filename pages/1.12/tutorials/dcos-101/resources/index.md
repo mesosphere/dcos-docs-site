@@ -7,18 +7,14 @@ menuWeight: 7
 ---
 
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> 
-</tr> 
-</table>
+#include /include/tutorial-disclaimer.tmpl
 
 Welcome to part 7 of the DC/OS 101 Tutorial.
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.11/tutorials/dcos-101/cli/).
-* [app2](/1.11/tutorials/dcos-101/app2/) deployed and running in your cluster.
+* A [running DC/OS cluster](/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.12/tutorials/dcos-101/cli/).
+* [app2](/1.12/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
 # Objective
 
@@ -101,7 +97,7 @@ Note that these are applied incrementally to an existing app definition.
 
 Vertical scaling involves increasing the amount of resources like CPU or RAM allocated to an instance.
 
-**Note**: This causes a restart of the app!
+<p class="message--warning"><strong>WARNING: </strong>This causes a restart of the app!</p>
 
 * Scale up to 2 CPU's for the app2 instance:
 

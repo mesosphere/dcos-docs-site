@@ -9,7 +9,9 @@ enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+
+#include /include/tutorial-disclaimer.tmpl
+
 
 You can use a Python service, `marathon-autoscale.py`, to autoscale your Marathon application based on the utilization metrics which Mesos reports. You can run this service from within your DC/OS cluster. `marathon-autoscale.py` is intended to demonstrate what is possible when you run your services on DC/OS.
 
@@ -36,7 +38,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
 
     **Tip:** Run `dcos node` to get the available node IDs.
 
-1.  Clone the [autoscale][13] GitHub repository to your node.
+1.  Clone the [autoscale Github repository](https://github.com/mesosphere/marathon-autoscale) to your node.
 
     ```bash
     git clone https://github.com/mesosphere/marathon-autoscale.git

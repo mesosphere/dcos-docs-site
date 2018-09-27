@@ -9,15 +9,15 @@ oss: true
 
 You can create a DC/OS cluster on DigitalOcean using Terraform.
 
-The included Terraform templates are configured to run Mesosphere DC/OS on DigitalOcean. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support with droplet creation or other related issues, email support@digitalocean.com, visit the unofficial DigitalOcean IRC channel (#digitalocean on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
+The included Terraform templates are configured to run Mesosphere DC/OS on DigitalOcean. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support with droplet creation or other related issues, email <a href="mailto:support@digitalocean.com"></a>, visit the unofficial DigitalOcean IRC channel (#digitalocean on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
 
-**Disclaimer: Please note this is a [community driven project](https://github.com/dcos/terraform-dcos/tree/master/gcp) and not officially supported by Mesosphere.**
+<p class="message--warning"><strong>DISCLAIMER: </strong>Please note this is a <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">community driven project</a> and not officially supported by Mesosphere.</p>
 
-**Note:** Upgrades are not supported with this installation method.
+Upgrades are not supported with this installation method.
 
 ## Security
 
-**Note:** All nodes are Internet-facing by default after deploying via Terraform and are not secured out-of-the-box. Additional configuration will be required to put master and agent nodes into a security group.
+<p class="message--note"><strong>NOTE: </strong>All nodes are Internet-facing by default after deploying via Terraform and are not secured out-of-the-box. Additional configuration will be required to put master and agent nodes into a security group.</p>
 
 ## Environment
 
@@ -102,11 +102,11 @@ The following have default values and may be changed depending on your requireme
 
 8.  Also from that same directory, run `terraform init` and then `terraform apply` which will deploy the servers into your project at DigitalOcean, and run the DC/OS installation routine. When it completes, you will see output similar to the following, but with the IP addresses assigned to your servers:
 
-  ![terraform apply output](/1.11/img/digitalocean_terraform_output.png)
+  ![terraform apply output](/1.12/img/digitalocean_terraform_output.png)
 
   Figure 1. Terraform apply output
 
-You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel to become available on the master node. After 15 or 20 minutes, check out the [troubleshooting](1.11/installing/troubleshooting/) documentation.
+You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel to become available on the master node. After 15 or 20 minutes, check out the [troubleshooting](1.12/installing/troubleshooting/) documentation.
 
 # Launch DC/OS
 Launch the DC/OS web interface by entering the Mesos master IP address:
@@ -115,7 +115,7 @@ Launch the DC/OS web interface by entering the Mesos master IP address:
 
 2.  Install the DC/OS Command-Line Interface (CLI). You can install the CLI to administer your DC/OS cluster. You can access the documentation at any time by clicking the cluster name in the upper-left side.
 
-  ![install CLI](/1.11/img/install-cli-terminal.png)
+  ![install CLI](/1.12/img/install-cli-terminal.png)
 
   Figure 2. Installing the CLI
 

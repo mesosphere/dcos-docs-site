@@ -8,7 +8,7 @@ excerpt: Defining a DC/OS service using Marathon
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 A Marathon application typically represents a long-running service that has many instances running on multiple hosts. An application instance is called a **task**. The **application definition** describes everything needed to start and maintain the tasks. A Marathon application definition creates a DC/OS **service**.
@@ -57,7 +57,7 @@ Example:
 
 The example above executes the contents of `cmd`, downloads the resource `https://example.com/app/cool-script.sh` (via Mesos), and makes it available in the service instance's Mesos sandbox. You can verify that it has been downloaded by visiting the DC/OS web interface and clicking on an instance of `basic-1`, then on the **Files** tab. You should find `cool-script.sh` there.
 
-**Note:** The fetcher does not make dowloaded files executable by default. In the example above, `cmd` first makes the file executable.
+<p class="message--note"><strong>NOTE: </strong>The fetcher does not make dowloaded files executable by default. In the example above, <code>cmd</code> first makes the file executable.</p>
 
 As already mentioned, Marathon also knows how to handle application resources that reside in archives. Currently, Marathon (via Mesos and before executing the `cmd`) first attempts to unpack/extract resources with the following file extensions:
 

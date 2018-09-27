@@ -43,7 +43,7 @@ This JSON file creates a simple job with no schedule.
     ```
 
 # <a name="create-job-schedule"></a>Creating a Job with a Schedule
-**Note:** This example JSON only works when you add the job from the DC/OS CLI or the web interface. Use the [example below](#schedule-with-api) to create a scheduled job via the API.
+<p class="message--note"><strong>NOTE: </strong>This example JSON only works when you add the job from the DC/OS CLI or the web interface. </p>
 
 1. Create a JSON file with the following contents.
     ```
@@ -101,7 +101,7 @@ This JSON file creates a simple job with no schedule.
     curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@/Users/<your-username>/<schedule-file>.json
     ```
 
-**Note:** You can associate a schedule with more than one job.
+You can associate a schedule with more than one job.
 
 # Creating a Partitioned Jobs Environment
 
@@ -118,7 +118,6 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
 **Prerequisites:**
 
-- DC/OS is installed with [security mode](/1.11/security/ent/#security-modes) `permissive` or `strict`.
 - You must be logged in as a `superuser`.
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
@@ -178,12 +177,6 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
         Figure 7. Add permissions for user 'Cory'
 
     1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev/batch/job1 read,update`.
-
-        <table class=“table” bgcolor=#858585>
-        <tr> 
-        <td align=justify style=color:white><strong>Important:</strong> Your <a href="/1.11/security/ent/#security-modes">security mode</a> must be either permissive or strict.</td> 
-        </tr> 
-        </table>
 
         ```bash
         dcos:adminrouter:service:metronome full

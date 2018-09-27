@@ -14,6 +14,7 @@ const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const timer            = require('metalsmith-timer');
 const ignore           = require('metalsmith-ignore');
+const copy             = require('metalsmith-copy');
 
 // Local Plugins
 const reduce                  = require('./plugins/metalsmith-revision').reduce;
@@ -119,6 +120,13 @@ CB.use(timer('CB: Init'));
 CB.use(ignore(METALSMITH_SKIP_SECTIONS));
 CB.use(timer('CB: Ignore'));
 
+// CB.use(copy({
+//   pattern: '1.12/**',
+//   transform: file => file.replace(/^1\.12/, '1.12-beta'),
+//   move: true,
+// }));
+// CB.use(timer('CB: Copy'));
+
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
 //   model: path/to/my.yml (access content in my.yml as model.foo.bar)
@@ -128,8 +136,7 @@ CB.use(timer('CB: Ignore'));
 //     data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
 CB.use(dataLoader({
   dataProperty: 'model',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md',
+  match: '**/*.md',
 }));
 CB.use(timer('CB: Dataloader'));
 
@@ -139,8 +146,7 @@ CB.use(timer('CB: Dataloader'));
 CB.use(includeContent({
   // Style as a C-like include statement. Must be on its own line.
   pattern: '^#include ([^ \n]+)$',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md*',
+  match: '**/*.md*',
 }));
 CB.use(timer('CB: IncludeContent'));
 
@@ -149,8 +155,7 @@ CB.use(timer('CB: IncludeContent'));
 //   render: mustache
 CB.use(inPlace({
   renderProperty: 'render',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md',
+  match: '**/*.md',
 }));
 CB.use(timer('CB: Mustache'));
 

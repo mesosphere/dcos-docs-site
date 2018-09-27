@@ -7,14 +7,11 @@ excerpt: Accessing your cluster by proxy and VPN using a DC/OS tunnel
 
 enterprise: false
 ---
+<p class="message--warning"><strong>WARNING: </strong>DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production.</p>
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production. Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.</td> </tr> </table>
+<p class="message--important"><strong>IMPORTANT: </strong> Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.<p>
 
 When developing services on DC/OS, you may find it helpful to access your cluster from your local machine via SOCKS proxy, HTTP proxy, or VPN. For instance, you can work from your own development environment and immediately test against your DC/OS cluster.
-
-**Warning:** DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production.
-
-**Note:** Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.
 
 # SOCKS
 DC/OS Tunnel can run a SOCKS proxy over SSH to the cluster. SOCKS proxies work for any protocol, but your client must be configured to use the proxy, which runs on port 1080 by default.
@@ -38,87 +35,85 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
 
 # DC/OS Tunnel Options at a Glance
 
-
 <table class="table">
-  <tr>
-    <th>&nbsp;</th>
-    <th>Pros</th>
-    <th>Cons</th>
-  </tr>
-  <tr>
-    <th>SOCKS</th>
-    <td>
-    <ul>
-        <li>Specify ports</li>
-        <li>All protocols</li>
-    </ul>
-    </td>
-    <td>
-        <ul>
-            <li>Requires application configuration</li>
-        </ul>
-        </td>
-  </tr>
-  <tr>
-      <th>HTTP (transparent)</th>
+   <tr>
+      <th>&nbsp;</th>
+      <th>Pros</th>
+      <th>Cons</th>
+   </tr>
+   <tr>
+      <th>SOCKS</th>
       <td>
-      <ul>
-          <li>SRV as URL</li>
-          <li>No application configuration</li>
-      </ul>
+         <ul>
+            <li>Specify ports</li>
+            <li>All protocols</li>
+         </ul>
       </td>
       <td>
-          <ul>
-              <li>Cannot specify ports (except through SRV)</li>
-              <li>Only supports HTTP</li>
-              <li>Runs as superuser</li>
-          </ul>
-          </td>
-    </tr>
-    <tr>
-        <th>HTTP (standard)</th>
-        <td>
-        <ul>
+         <ul>
+            <li>Requires application configuration</li>
+         </ul>
+      </td>
+   </tr>
+   <tr>
+      <th>HTTP (transparent)</th>
+      <td>
+         <ul>
+            <li>SRV as URL</li>
+            <li>No application configuration</li>
+         </ul>
+      </td>
+      <td>
+         <ul>
+            <li>Cannot specify ports (except through SRV)</li>
+            <li>Only supports HTTP</li>
+            <li>Runs as superuser</li>
+         </ul>
+      </td>
+   </tr>
+   <tr>
+      <th>HTTP (standard)</th>
+      <td>
+         <ul>
             <li>SRV as URL</li>
             <li>Specify ports</li>
-        </ul>
-        </td>
-        <td>
-        <ul>
+         </ul>
+      </td>
+      <td>
+         <ul>
             <li>Requires application configuration</li>
             <li>Only supports HTTP/HTTPS</li>
-        </ul>
-        </td>
-     </tr>
-     <tr>
-        <th>VPN</th>
-        <td>
-        <ul>
+         </ul>
+      </td>
+   </tr>
+   <tr>
+      <th>VPN</th>
+      <td>
+         <ul>
             <li>No application configuration</li>
             <li>Full and direct access to cluster</li>
             <li>Specify ports</li>
             <li>All protocols</li>
-        </ul>
-        </td>
-        <td>
-        <ul>
+         </ul>
+      </td>
+      <td>
+         <ul>
             <li>More prerequisites</li>
             <li>Runs as superuser</li>
             <li><i>May</i> need to manually reconfigure DNS</li>
             <li>Relatively heavyweight</li>
-        </ul>
-        </td>
-      </tr>
-
+         </ul>
+      </td>
+   </tr>
 </table>
 
 # Using DC/OS Tunnel
 
 ## Prerequisites
 * Only Linux and macOS are currently supported.
-* The [DC/OS CLI](/1.11/cli/install/).
+* The [DC/OS CLI](/1.12/cli/install/).
 * The DC/OS Tunnel package. Run `dcos package install tunnel-cli --cli`.
-* [SSH access](/1.11/administering-clusters/sshcluster/) (key authentication only).
+* [SSH access](/1.12/administering-clusters/sshcluster/) (key authentication only).
 * [The OpenVPN client](https://openvpn.net/index.php/open-source/downloads.html) for VPN functionality.
 
 ## Example Application
@@ -163,7 +158,7 @@ served by `myapp` to be output output as text.
 
 1. In transparent mode, the HTTP proxy works by port forwarding. Append `.mydcos.directory` to the end of your domain when you enter commands. For instance, `http://example.com/?query=hello` becomes `http://example.com.mydcos.directory/?query=hello`. 
 
-    **Note:** In transparent mode, you cannot specify a port in a URL.
+<p class="message--note"><strong>NOTE: </strong>In transparent mode, you cannot specify a port in a URL.</p>
 
 ### Standard mode
 1. To run the HTTP proxy in standard mode, without root privileges, use the `--port` flag to configure it to use another port:
@@ -188,7 +183,7 @@ The `<service-name>` is the entry in the **ID** field of a service you create fr
 To name a port from the DC/OS web interface, go to the **Services > Services** tab, click the name of your service, and then click **Edit**. Enter a name for your port on the **Networking** tab.
 
 #### Add a Named Port in a Marathon Application Definition
-Alternatively, you can add `name` to the `portMappings` or `portDefinitions` field of a Marathon application definition. Whether you use `portMappings` or `portDefinitions` depends on whether you are using `BRIDGE` or `HOST` networking. [Learn more about networking and ports in Marathon](/1.11/deploying-services/service-ports/).
+Alternatively, you can add `name` to the `portMappings` or `portDefinitions` field of a Marathon application definition. Whether you use `portMappings` or `portDefinitions` depends on whether you are using `BRIDGE` or `HOST` networking. [Learn more about networking and ports in Marathon](/1.12/deploying-services/service-ports/).
 
 ```json
 "portMappings": [

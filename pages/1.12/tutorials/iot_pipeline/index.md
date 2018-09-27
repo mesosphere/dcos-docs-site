@@ -7,7 +7,7 @@ excerpt: Tutorial - Building a complete load-balanced data pipeline on DC/OS
 
 ---
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+#include /include/tutorial-disclaimer.tmpl
 
 This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes!
 
@@ -45,9 +45,6 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 ## Prerequisites
 
 *  [DC/OS](/1.11/installing/) or [DC/OS Enterprise](/1.11/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
-
-   If you are running this tutorial using a DC/OS Enterprise cluster, you will want to make sure [security mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is set to permissive or strict. DC/OS installs in permissive security mode by default.
-
 *  [DC/OS CLI](/1.11/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:
