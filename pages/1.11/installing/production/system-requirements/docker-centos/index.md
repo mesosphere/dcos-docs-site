@@ -51,7 +51,7 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 
     ```bash
     echo 'overlay' | sudo tee -a /etc/modules-load.d/overlay.conf
-    {{sudo modprobe overlay}}
+    sudo modprobe overlay
     ```
 
 1.  Run `yum` update:
