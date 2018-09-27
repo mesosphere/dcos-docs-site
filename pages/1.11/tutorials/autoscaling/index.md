@@ -9,6 +9,6 @@ excerpt: Autoscaling resources based on usage
 #include /include/tutorial-disclaimer.tmpl
 
 
-You can use autoscaling to automatically increase or decrease computing resources based on usage so that you're using only the resources you need. Here are some tutorials to show you how to implement autoscaling for your services.
+You can use autoscaling to automatically increase or decrease computing resources based on usage so that you are using only the resources you need. Here are some tutorials to show you how to implement autoscaling for your services.
 
-<p class="message--important"><strong>IMPORTANT: </strong>Autoscaling works <strong>only</strong> for DC/OS Open Source or for DC/OS Enterprise in security mode "disabled".</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Autoscaling works <strong>only</strong> for DC/OS Open Source or for DC/OS Enterprise in security modes other than "disabled".</p>
