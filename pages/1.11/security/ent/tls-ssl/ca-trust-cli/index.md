@@ -1,23 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Configuring the DC/OS CLI to trust your
-  DC/OS CA
+navigationTitle:  Establishing trust in your CLI
+title: Establishing trust in your CLI
 menuWeight: 300
-excerpt: >
-  By default, the DC/OS CLI does not
-  verify the signer of TLS certificates.
-  We recommend completing the following
-  brief procedure to ensure that the DC/OS
-  CLI trusts only your DC/OS CA and
-  refuses connections with other parties.
+excerpt: Establishing trust in your CLI
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-
-<!-- Note from editor: This is a 'hidden' page, so do not add a navigationTitle value other than a blank or a > character. -->
+  By default, the DC/OS CLI does not verify the signer of TLS certificates. We recommend completing the following brief procedure to ensure that the DC/OS CLI trusts only your DC/OS CA and refuses connections with other parties.
 
 **Note:** This procedure should be unnecessary if you have [set up a proxy](/1.11/security/ent/tls-ssl/haproxy-adminrouter/).
 

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Uninstalling Kafka
 title: Uninstall
 menuWeight: 60
 model: /services/kafka/data.yml

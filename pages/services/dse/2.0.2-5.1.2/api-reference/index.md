@@ -17,9 +17,9 @@ The DC/OS DataStax Enterprise (DSE) Service implements a REST API that may be ac
 # REST API Authentication
 REST API requests must be authenticated. This authentication is only applicable for interacting with the DSE REST API directly. You do not need the token to access the DSE nodes themselves.
 
-If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/1.10/security/ent/iam-api/), but you will need to manually refresh the token.
+If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/latest/security/ent/service-auth/custom-service-auth/#using-the-dcos-enterprise-cli/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/latest/security/ent/iam-api/#obtaining-an-authentication-token/), but you will need to manually refresh the token.
 
-If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint]/1.10/security/oss/iam-api/).
+If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint](/latest/security/oss/managing-authentication/iam-api/#passing-your-authentication-token-to-dcos-endpoints).
 
 Once you have the authentication token, you can store it in an environment variable and reference it in your REST API calls:
 

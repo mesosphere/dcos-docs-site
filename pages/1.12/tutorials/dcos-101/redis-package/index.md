@@ -6,13 +6,15 @@ title: Tutorial - Installing the First Package
 menuWeight: 2
 ---
 
+
+#include /include/tutorial-disclaimer.tmpl
+
 Welcome to part 2 of the DC/OS 101 Tutorial.
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
 # Prerequisites
 By now, you should have a running DC/OS cluster and the DC/OS CLI installed and configured. If that isn't the case, please follow the [first](/1.11/tutorials/dcos-101/cli/) part of this tutorial.
-The next stage of this tutorial uses [jq](https://stedolan.github.io/jq/), a command line json processor to simplify some of the commands. Follow the instructions [here](https://stedolan.github.io/jq/download/) to install jq for your operating system.
+The next stage of this tutorial uses [jq](https://stedolan.github.io/jq/), a command line JSON processor to simplify some of the commands. Follow the instructions [here](https://stedolan.github.io/jq/download/) to install JQ for your operating system.
 
 # Objective
 By the end of this session you will have installed your first service - [Redis](https://redislabs.com/) - from the DC/OS Universe repository. Redis is a key-value store, which you will use for persisting data in this tutorial.
@@ -71,7 +73,7 @@ By the end of this session you will have installed your first service - [Redis](
         ```
 
 # Outcome
-  You have just successfully installed your first service from the Universe repository and verified it is running.
+  You have just successfully installed your first service from the Universe repository and verified it is running!
 
 # Deep Dive
   [Universe](https://github.com/mesosphere/universe) is a package repository made available for DC/OS Clusters.

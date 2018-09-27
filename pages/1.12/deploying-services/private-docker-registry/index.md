@@ -19,10 +19,10 @@ To supply credentials to pull from a private Docker registry, create an archive 
 1. Log in to the private registry manually. Login creates a `.docker` folder and a `.docker/config.json` file in your home directory.
 
     ```bash
-      docker login some.docker.host.com
-      Username: foo
-      Password:
-      Email: foo@bar.com
+    docker login some.docker.host.com
+    Username: foo
+    Password:
+    Email: foo@bar.com
     ```
 
 1. Compress the `.docker` folder and its contents.
@@ -46,7 +46,9 @@ To supply credentials to pull from a private Docker registry, create an archive 
     cp docker.tar.gz /etc/
     ```
 
-    **Important:** The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like [Amazon S3](http://aws.amazon.com/s3/). Consider the security implications of your chosen approach carefully.
+
+<p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</p> 
+
 
 ## Step 2: Add URI path to service definition
 
@@ -89,7 +91,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
 
 Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/1.11/security/ent/secrets/), and then reference that secret in your service definition.
 
-**Note:** This functionality is available only with the [Universal Containerizer Runtime](/1.11/deploying-services/containerizers/ucr/). If you need to use the Docker Engine, follow the [URI instructions](#uri-instructions) above.
+<p class="message--important"><strong>IMPORTANT: </strong>This functionality is available only with the <a href="/1.11/deploying-services/containerizers/ucr/">Universal Container Runtime</a>). If you need to use the Docker Engine, follow the URI instructions above.</p>
 
 ## Step 1: Create a credentials file
 
@@ -122,11 +124,11 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
     }
     ```
 
-    **Note:** If you are using Mac OSX, you will need to manually encode your `username:password` string and modify your `config.json` to match the snippet above.
+    If you are using Mac OSX, you will need to manually encode your `username:password` string and modify your `config.json` to match the snippet above.
 
 1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.9/security/ent/secrets/create-secrets/).
 
-   **Note:** As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.
+   <p class="message--note"><strong>NOTE: </strong>As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.</p>
 
    ```bash
    dcos security secrets create --value-file=config.json <path/to/secret>
@@ -144,7 +146,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
 1. Add a location for the secret in the `secrets` parameter and a reference to the secret in the `docker.pullConfig` parameter.
 
-   **Note:** This functionality is _only_ supported with the Universal Container Runtime: `container.type` must be `MESOS`.
+   <p class="message--important"><strong>IMPORTANT: </strong>This functionality is <strong>only</strong> supported with the Universal Container Runtime: <code>container.type</code> must be <code>MESOS</code>.</p>
 
    ```json
    {
@@ -182,7 +184,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
 1. Add a location for the secret in the `secrets` parameter and a reference to the secret in the `containers.image.pullConfig` parameter.
 
-   **Note:** This functionality is only supported if `image.kind` is set to `DOCKER`.
+   <p class="message--important"><strong>IMPORTANT: </strong>This functionality is only supported if <code>image.kind</code> is set to <code>DOCKER</code>.</p>
 
    ```json
    {

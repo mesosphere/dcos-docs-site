@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-List the cluster licenses.
+The `dcos license list` command will display all the cluster licenses.
 
 # Usage
 
@@ -19,23 +19,23 @@ dcos license list --output <file_path>
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--output`   |             |  Store the license in a file. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--output`   |   Store the license in a file. |
 
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<file_path>`    |   |  The path to a file to store the license. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<file_path>`    |  The path to a file to store the license. |
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.11/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/1.12/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
 
 # Examples
-For examples, see [Licenses](/1.11/administering-clusters/licenses/).
+For examples, see [Licenses](/1.12/administering-clusters/licenses/).

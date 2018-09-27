@@ -13,8 +13,8 @@ After you have configured a directory service or an identity provider, you can a
 
 # Prerequisites
 
-- An external [LDAP directory](/1.11/security/ent/ldap/).
-- An [OpenID Connect or SAML provider](/1.11/security/ent/sso/).
+- An external [LDAP directory](/1.12/security/ent/ldap/).
+- An [OpenID Connect or SAML provider](/1.12/security/ent/sso/).
 
 # Adding external users via logon attempt
 By default, users have no DC/OS permissions. Any attempts to access DC/OS without permissions will fail. However, if you have successfully configured an LDAP directory or an identity provider and the user provides valid credentials, the logon attempt will cause the user's account to be added to DC/OS.
@@ -23,7 +23,7 @@ By default, users have no DC/OS permissions. Any attempts to access DC/OS withou
 
 Because you will need the user account in DC/OS before you can add any permissions, you may find it easiest to ask each of the users to try to log on to DC/OS. Though their attempts will fail, this will serve to populate DC/OS with their accounts.
 
-# Importing external LDAP users individually from the GUI
+# Importing external LDAP users individually from the web interface
 
 To import an external user:
 
@@ -62,11 +62,13 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 6. When completed, your dialog should look something like the following.
 
-   ![LDAP Group Import Configuration](/1.11/img/ldap-group-import.png)
+   ![LDAP Group Import Configuration](/1.12/img/1-11-ldap-group-import.png)
+
+   Figure 1. LDAP group import configuration
 
 7. Click **ADD DIRECTORY**.
 
-## Importing LDAP groups using the GUI
+## Importing LDAP groups using the web interface
 
 1. In the **Organization** -> **Groups** tab, click the **+** icon in the top right and select **Import LDAP Group**.
 
@@ -79,17 +81,17 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 ## Importing LDAP groups using the API
 
-You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/1.11/security/ent/iam-api/) endpoint.
+You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/1.12/security/ent/iam-api/) endpoint.
 
 **Prerequisites:**
 
--  The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
--  The existing group entries must list their members by using the `member`, `uniquemember`, or `memberuid` attribute.
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
+- The existing group entries must list their members by using the `member`, `uniquemember`, or `memberuid` attribute.
+- You must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 In this example a group named `johngroup` is imported.
 
-1.  Log into the CLI to ensure that you can reference the cluster URL as shown in the following code samples.
+1.  Log in to the CLI to ensure that you can reference the cluster URL as shown in the following code samples.
 
 1.  Initiate import with this command:
 

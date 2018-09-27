@@ -3,21 +3,30 @@ layout: layout.pug
 title: DC/OS Ports
 navigationTitle: Ports
 menuWeight: 15
-excerpt: Making sure ports are available for installation
+excerpt: Understanding configured ports for DC/OS deployment
 ---
+This section describes each pre-configured port in your DC/OS deployment. 
 
-[DC/OS components](/docs/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed. DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
+[DC/OS components](/1.12/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
-**Important:** 
-- These ports must not be used in a firewall configuration between nodes or cluster zones.
-- For DC/OS to install and function as intended, these ports must be open and accessible upon initial installation. 
-- Therefore, network-specific security measures - from outside of the cluster as well as between internal cluster nodes and zones - for each of these ports should be evaluated and, if necessary, put in place by the network administrator before installing and implementing DC/OS. Moreover, DC/OS security modes ("disabled", "permissive", and "strict") do not affect access to these ports.
+- For DC/OS to install and function as intended, these ports must be accessible upon initial installation.
+- The ports must be open between the indicated source and destination nodes, including over cluster zones.
+- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [securing your cluster](/1.12/administering-clusters/securing-your-cluster/). Use these mechanisms to:
+	- block connection requests on all ports from external machines to master nodes except TCP ports 80 and 443.
+	- block connection requests on all ports from external machines to private agent nodes.
+	- block connection requests on all ports from external machines to public agent ports except [advertised port ranges](#agent).
+
+You may want to open port 22 to external machines to allow administrative tasks using Secure Shell (`ssh`).
+Although DC/OS components do not currently support private network selection, you can configure
+`ssh` to be accessible to a private management network using the [`ListenAddress`](https://man.openbsd.org/sshd_config#ListenAddress) directive.
+
+DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
 ## All nodes
 
 ### TCP
 
-| Port | DC/OS Component | systemd Unit | Source | Destination |
+| Port | DC/OS Component | `systemd` Unit | Source | Destination |
 |---|---|---|---|---|
 | 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
@@ -34,7 +43,7 @@ excerpt: Making sure ports are available for installation
 | 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 | 64000 | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 
-**Note:** UDP port 123 is open for communication with NTP.
+<p class="message--note"><strong>NOTE: </strong>UDP port 123 is open for communication with NTP.</p>
 
 ## Master
 
@@ -68,7 +77,7 @@ excerpt: Making sure ports are available for installation
 
 ### UDP
 
-| Port | DC/OS Component | systemd Unit | Source | Destination |
+| Port | DC/OS Component | `systemd` Unit | Source | Destination |
 |---|---|---|---|---| 
 | 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master  | 
 
@@ -76,7 +85,7 @@ excerpt: Making sure ports are available for installation
 
 ### TCP
 
-| Port | DC/OS Component | systemd Unit | Source | Destination |
+| Port | DC/OS Component | `systemd` Unit | Source | Destination |
 |---|---|---|---|---|
 | 5051  | Mesos Agent | `dcos-mesos-slave.service` | agent/master | agent |
 | 61001 | Admin Router Agent (HTTP) | `dcos-adminrouter-agent` | agent/master | agent |

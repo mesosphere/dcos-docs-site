@@ -13,36 +13,38 @@ You can create and administer jobs in the DC/OS web interface, from the DC/OS CL
 
 # DC/OS Web interface
 
-**Note:** The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the [dcos job](/1.11/cli/command-reference/dcos-job/) commands or the Jobs [API](#jobs-api).
+<p class="message--note"><strong>NOTE: </strong>The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the <a href="/1.12/cli/command-reference/dcos-job">dcos job</a> commands or the <a href="/1.12/deploying-jobs/quickstart/#jobs-api">Jobs API</a>.</p>
 
 ## Add a job
 
 From the DC/OS web interface, click the **Jobs** tab, then the **Create a Job** button. Fill in the following fields, or toggle to JSON mode to edit the JSON directly.
 
-![Create JOB UI](/1.11/img/create-job.png)
+![Create JOB UI](/1.12/img/create-job.png)
+
+Figure 1. New job menu
 
 ### **General** Tab
-* **ID** - The ID of your job.
-* **Description** - A description of your job.
-* **CPUs** - The amount of CPU your job requires.
-* **Mem** - The amount of memory, in MiB, your job requires.
-* **Disk space** - The amount of disk space, in MiB, your job requires.
+* **ID** - The ID of your job
+* **Description** - A description of your job
+* **CPUs** - The amount of CPU your job requires
+* **Mem** - The amount of memory, in MB, your job requires
+* **Disk space** - The amount of disk space, in MB, your job requires
 * **Command** - The command your job will execute. Leave this blank if you will use a Docker image.
 
 ### **Schedule** Tab
 Check the **Run on a Schedule** to reveal the following fields.
 * **Cron Schedule** - Specify the schedule in cron format. Use [this crontab generator](http://crontab.guru) for help.
-* **Time Zone** - Enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), e.g. America/New_York.
+* **Time Zone** - Enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), for example, America/New_York.
 * **Starting Deadline** - This is the time, in seconds, to start the job if it misses scheduled time for any reason. Missed jobs executions will be counted as failed ones.
 
 ### **Docker Container** Tab
 * **Image** - Enter the Docker image you will use to specify the action of your job, if you are using one.
 
 ### **Labels**
-**Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/1.11/tutorials/task-labels/).
+**Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/1.12/tutorials/task-labels/).
 
 ## Job Groups
-You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.11/deploying-jobs/job-groups) to implement fine-grained user access.
+You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.12/deploying-jobs/job-groups) to implement fine-grained user access.
 
 ## Modify, view, or remove a job
 
@@ -54,7 +56,7 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
 
 ## Add a job
 
-1. Create a job file in JSON format. The `id` parameter is the job ID. You will use this ID later to manage your job.
+1. Create a job file in JSON format. The `id` parameter is the job ID. You will use this ID later to manage your job. You can assign only one schedule to a job.
 
     ```json
     {
@@ -76,16 +78,12 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
         ]
     }
     ```
-
-   **Note:** You can assign only one schedule to a job.
-
-1. Add the job:
+  
+1. Add the job. You can choose any name for your job file.
     ```bash
     dcos job add <myjob>.json
     ```
-
-    **Note:** You can choose any name for your job file.
-
+  
 1. Go to the **Jobs** tab of the DC/OS web interface to verify that you have added your job, or verify from the CLI:
     ```bash
     dcos job list
@@ -195,7 +193,7 @@ dcos task log --completed <job-run-id>
 
 You can also create and administer jobs via the API. [View the full API here](http://dcos.github.io/metronome/docs/generated/api.html).
 
-**Note:** The DC/OS CLI and web interface support a combined JSON format (accessed via the `/v0` endpoint) that allows you to specify a schedule in the job descriptor. To schedule a job via the API, use two calls: one to add an unscheduled job and another to associate a `<schedule-file>.json` with the job.
+<p class="message--important"><strong>IMPORTANT: </strong>The DC/OS CLI and web interface support a combined JSON format (accessed via the <code>/v0</code> endpoint) that allows you to specify a schedule in the job descriptor. To schedule a job via the API, use two calls: one to add an unscheduled job, and another to associate a <code><schedule-file>.json</code> with the job.</p>
 
 ## Add a job
 

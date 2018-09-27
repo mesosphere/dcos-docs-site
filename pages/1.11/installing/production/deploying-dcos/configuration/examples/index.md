@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Common example configurations for DC/OS Enterprise
 ---
 
-This page provides several common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS Open Source](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
+This page provides several common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS Open Source](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample `config.yaml` to indicate DC/OS product type.
 
 - `# DC/OS Open Source only` - Applies to DC/OS only. [oss type="inline" size="small" /]
 - `# DC/OS Enterprise only` - Applies to DC/OS Enterprise only. [enterprise type="inline" size="small" /]
@@ -41,7 +41,6 @@ package_storage_uri: <permanent-path-to-files>
 ca_certificate: <path-to-certificate>
 ca_certificate_key: <path-to-private-key>
 ca_certificate_chain: <path-to-certificate-chain>
-customer_key: <customer-key>
 custom_checks:
   cluster_checks:
     custom-check-1:
@@ -158,7 +157,6 @@ agent_list:
 - <agent-private-ip-5>
 bootstrap_url: 'file:///opt/dcos_install_tmp'
 # DC/OS Enterprise only
-customer_key: <customer-key>
 cluster_name: '<cluster-name>'
 log_directory: /genconf/logs
 master_discovery: static
@@ -224,7 +222,6 @@ agent_list:
 bootstrap_url: file:///tmp/dcos
 cluster_name: zk-example
 # DC/OS Enterprise only
-customer_key: <customer-key>
 exhibitor_storage_backend: zookeeper
 exhibitor_zk_hosts: 10.0.0.1:2181, 10.0.0.2:2181, 10.0.0.3:2181
 exhibitor_zk_path: /zk-example

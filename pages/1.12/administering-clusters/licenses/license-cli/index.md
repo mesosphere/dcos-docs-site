@@ -4,13 +4,13 @@ navigationTitle:  License CLI
 title: License CLI
 menuWeight: 0
 enterprise: true
-excerpt: Use the command line interface to manage your DC/OS license.
+excerpt: Using the command line interface to manage your DC/OS license
 ---
 
 # Prerequisites
 - A DC/OS Enterprise cluster.
-- The [DC/OS CLI](/1.11/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/) installed.
+- The [DC/OS CLI](/1.12/cli/install/) installed.
+- The [DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/) installed.
 
 
 # List licenses
@@ -51,4 +51,4 @@ You can specify an optional path where to store the audit data. Takes an optiona
 dcos license status [--terms] [--breaches]
 ```
 
-Print license terms and breaches. Optional flags can be used to filter the information.
+Displays license terms and breaches. Optional flags can be used to filter the information.

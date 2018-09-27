@@ -13,6 +13,8 @@ const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const timer            = require('metalsmith-timer');
+const ignore           = require('metalsmith-ignore');
+const copy             = require('metalsmith-copy');
 
 // Local Plugins
 const reduce                  = require('./plugins/metalsmith-revision').reduce;
@@ -29,6 +31,10 @@ const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-r
 // Configs
 const shortcodesConfig = require('./shortcodes');
 
+function splitCommasOrEmptyArray(val) {
+  return (val && val.length > 0) ? val.split(',') : [];
+}
+
 // Environment Variables
 const GIT_BRANCH = process.env.GIT_BRANCH;
 const ALGOLIA_UPDATE = process.env.ALGOLIA_UPDATE;
@@ -37,14 +43,9 @@ const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
-const ALGOLIA_SKIP_SECTIONS = (
-  process.env.ALGOLIA_SKIP_SECTIONS &&
-  process.env.ALGOLIA_SKIP_SECTIONS.length > 0
-) ? (
-    process.env.ALGOLIA_SKIP_SECTIONS.split(',')
-  ) : (
-    []
-  );
+const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN;
+const ALGOLIA_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.ALGOLIA_SKIP_SECTIONS);
+const METALSMITH_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.METALSMITH_SKIP_SECTIONS);
 
 //
 // Errors
@@ -116,6 +117,16 @@ const CB = branch();
 // Start timer
 CB.use(timer('CB: Init'));
 
+CB.use(ignore(METALSMITH_SKIP_SECTIONS));
+CB.use(timer('CB: Ignore'));
+
+// CB.use(copy({
+//   pattern: '1.12/**',
+//   transform: file => file.replace(/^1\.12/, '1.12-beta'),
+//   move: true,
+// }));
+// CB.use(timer('CB: Copy'));
+
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
 //   model: path/to/my.yml (access content in my.yml as model.foo.bar)
@@ -125,8 +136,7 @@ CB.use(timer('CB: Init'));
 //     data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
 CB.use(dataLoader({
   dataProperty: 'model',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md',
+  match: '**/*.md',
 }));
 CB.use(timer('CB: Dataloader'));
 
@@ -136,8 +146,7 @@ CB.use(timer('CB: Dataloader'));
 CB.use(includeContent({
   // Style as a C-like include statement. Must be on its own line.
   pattern: '^#include ([^ \n]+)$',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md*',
+  match: '**/*.md*',
 }));
 CB.use(timer('CB: IncludeContent'));
 
@@ -146,8 +155,7 @@ CB.use(timer('CB: IncludeContent'));
 //   render: mustache
 CB.use(inPlace({
   renderProperty: 'render',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md',
+  match: '**/*.md',
 }));
 CB.use(timer('CB: Mustache'));
 
@@ -229,7 +237,7 @@ CB.use(permalinks());
 CB.use(timer('CB: Permalinks'));
 
 // Layouts
-if (!process.env.RENDER_PATH_PATTERN) {
+if (!RENDER_PATH_PATTERN) {
   // Default: Render all pages.
   CB.use(layouts({
     engine: 'pug',
@@ -240,7 +248,7 @@ if (!process.env.RENDER_PATH_PATTERN) {
   // For example, 'services/beta-cassandra/latest/**'
   CB.use(layouts({
     engine: 'pug',
-    pattern: process.env.RENDER_PATH_PATTERN,
+    pattern: RENDER_PATH_PATTERN,
     cache: true,
   }));
 }
@@ -258,8 +266,8 @@ if (process.env.NODE_ENV === 'development') {
 
 // The expected pattern format doesn't work with regex
 let pathPatternRegex;
-if (process.env.RENDER_PATH_PATTERN) {
-  pathPatternRegex = process.env.RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
+if (RENDER_PATH_PATTERN) {
+  pathPatternRegex = RENDER_PATH_PATTERN.split('/').slice(0, -1).join("\/");
 }
 
 // Search Indexing
@@ -281,10 +289,12 @@ if (ALGOLIA_UPDATE === 'true') {
 // during the rebuild. We must include everything at this point or the
 // templates will not be accessible. Need changes to fix this.
 
-if (process.env.NODE_ENV === 'development') {
+// Can only watch with a RENDER_PATH_PATTERN because there are too many
+// files without it.
+if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
   CB.use(watch({
     paths: {
-      'pages/**/*': '**/*.{md,tmpl}',
+      [`pages/${RENDER_PATH_PATTERN}/*`]: '**/*.{md,tmpl}',
       'layouts/**/*': '**/*.pug',
     },
   }));
@@ -317,7 +327,9 @@ const AB = branch();
 AB.use(timer('AB: Init'));
 
 // Watch
-if (process.env.NODE_ENV === 'development') {
+// Can only watch with a RENDER_PATH_PATTERN because there are too many
+// files without it.
+if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
   AB.use(watch({
     paths: {
       'js/**/*': '**/*.js',

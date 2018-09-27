@@ -30,14 +30,14 @@ In the example, the cryptographic cluster ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra
     };
     ```
 
-1.  Replace the master IP (`<Master-IP>`) with a semicolon separated list of your own master IPs.
+1.  Replace the master IP (`<Master-IP>`) with a semicolon-separated list of your own master IPs.
 
 1.  Replace the example cryptographic cluster ID with your own.
 
 
 
 ## Making a zone
-Now, you can create the zone that you'd like to alias to this. You can also skip this step and [use an existing zone](#existing).
+Now you can create the zone that you would like to alias to this. You can also skip this step and [use an existing zone](#existing).
 
 1.  Create a zone entry in the `named.conf` file. For this example, `contoso.com` is used:
 

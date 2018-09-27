@@ -3,11 +3,10 @@ layout: layout.pug
 navigationTitle:  Deploying a Local Universe
 title: Deploying a Local Universe
 menuWeight: 1000
-excerpt: Learn to install and run DC/OS services on a local Universe datacenter
+excerpt: Installing and running DC/OS services on a local Universe datacenter
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe).
 
@@ -281,10 +280,6 @@ interface.
     sudo make DCOS_VERSION=1.10 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
     ```
 
-4.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages][5], except step 27. Replace the command in step 27 with the following.
-
-    ```bash
-    dcos package repo add local-universe http://master.mesos:8082/repo
-    ```
+4.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages][5].
 
  [5]: #certified

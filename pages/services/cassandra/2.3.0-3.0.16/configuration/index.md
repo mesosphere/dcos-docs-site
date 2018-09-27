@@ -8,9 +8,12 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
+
 #include /services/include/configuration-install-with-options.tmpl
+#include /services/include/configuration-create-json-file.tmpl
 #include /services/include/configuration-service-settings.tmpl
 #include /services/include/configuration-regions.tmpl
+
 
 ## Cassandra Node Settings
 
@@ -132,7 +135,7 @@ dcos package install {{ model.packageName }} --options=<options.json>
 
 ### Get the seed node IP addresses
 
-**Note:** If your Cassandra clusters are not on the same network, you must set up a proxying layer to route traffic.
+<p class="message--note"><strong>NOTE: </strong>If your Cassandra clusters are not on the same network, you must set up a proxying layer to route traffic.</p>
 
 1. Get the list of seed node addresses for the first cluster:
 

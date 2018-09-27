@@ -5,7 +5,8 @@ title: Release Notes
 menuWeight: 145
 excerpt:
 featureMaturity:
-
+model: /services/spark/data.yml
+render: mustache
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

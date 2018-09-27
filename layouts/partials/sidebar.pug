@@ -7,6 +7,7 @@
 - var semverService = /^(v|)[0-9](.*)/
 - var dropdown = []
 
+
 // Service Docs
 if paths[0] === 'services' && paths[1]
   - items = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
@@ -26,6 +27,7 @@ if semver.test(paths[0])
   - dropdown = hierarchy.children.filter(item => semver.test(item.id))
   - items = hierarchy.findByPath('/' + paths[0])
   - versionTitle = paths[0]
+  - if (versionTitle === '1.12') versionTitle = '1.12-beta'; // This is why we can't have nice things
 
 - dropdown = dropdown.filter(item => item.menuWeight != -1)
 
@@ -90,7 +92,8 @@ mixin renderSidebarFooter()
       a(href='https://mesosphere.com/privacy/') Privacy Policy
     a(class='sidebar__footer-copyright', href='https://mesosphere.com/')!= copyright
 
-section(class='sidebar')
-  +renderSidebarHeader()
-  +renderSidebarNav()
-  +renderSidebarFooter()
+div(class='layout__sidebar layout__drawer')
+  section(class='sidebar')
+    +renderSidebarHeader()
+    +renderSidebarNav()
+    +renderSidebarFooter()

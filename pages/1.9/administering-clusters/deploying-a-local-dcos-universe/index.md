@@ -273,11 +273,7 @@ interface.
     sudo make DCOS_VERSION=1.9 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
     ```
 
-4.  Perform all of the steps as described in [Installing the default Universe packages][5] section, except step 27. Replace the command in step 27 with the following.
-
-    ```bash
-    dcos package repo add local-universe http://master.mesos:8082/repo
-    ```
+4.  Perform all of the steps as described in [Installing the default Universe packages][5].
 
  [1]: https://downloads.mesosphere.com/universe/public/local-universe.tar.gz
  [2]: https://raw.githubusercontent.com/mesosphere/universe/version-3.x/local/dcos-local-universe-http.service

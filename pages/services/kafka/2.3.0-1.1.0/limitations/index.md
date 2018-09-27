@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Known limitations for the DC/OS Apache Kafka service
 title: Limitations
 menuWeight: 100
 model: /services/kafka/data.yml
@@ -14,25 +14,25 @@ render: mustache
 
 ## Log Retention Bytes
 
-The "disk" configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated "disk" configuration. See the Configuration section for instructions for customizing these values.
+The `disk` configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated `disk` configuration. See the [Configuration](/services/kafka/2.3.0-1.1.0/configuration/) section for instructions on customizing these values.
 
 ## Security
 
-### Kafka CLI
+### {{ model.techShortName }} CLI
 
-When any security functions are enabled, the Kafka service CLI sub-command `topic` will not function. While the service CLI convenience functions will not work, the tooling bundled with [Apache Kafka](https://cwiki.apache.org/confluence/display/KAFKA/System+Tools) and other tools that support the enabled security modes will of course work.
+When any security functions are enabled, the {{ model.techShortName }} service CLI sub-command `topic` will not function. While the service CLI convenience functions will not work, the tooling bundled with [{{ model.techName }}](https://cwiki.apache.org/confluence/display/KAFKA/System+Tools) and other tools that support the enabled security modes will work.
 
 
 ### Kerberos
 
-When Kerberos is enabled, the broker VIP is disabled as Kerberized clients will not be able to use it. This is because each Kafka broker uses a specific Kerberos principal and cannot accept connections from a single unified principal which the VIP would require.
+When Kerberos is enabled, the broker VIP is disabled, as Kerberized clients will not be able to use it. This is because each {{ model.techShortName }} broker uses a specific Kerberos principal and cannot accept connections from a single unified principal which the VIP would require.
 
 ### Toggling Kerberos
 
-Kerberos authentication can be toggled (enabled / disabled), but this triggers a rolling restart of the cluster. Clients configured with the old security settings will lose connectivity during and after this process. It is recommended that backups are made and downtime is scheduled.
+Kerberos authentication can be toggled (enabled/disabled), but this triggers a rolling restart of the cluster. Clients configured with the old security settings will lose connectivity during and after this process. We recommend that you back up your files and schedule downtime. 
 
 ### Toggling Transport Encryption
 
-Transport encryption using TLS can be toggled (enabled / disabled), but will trigger a rolling restart of the cluster. As each broker restarts, a client may lose connectivity based on its security settings and the value of the `service.security.transport_encryption.allow_plaintext` configuration option. It is recommended that backups are made and downtime is scheduled.
+Transport encryption using TLS can be toggled (enabled/disabled), but this triggers a rolling restart of the cluster. As each broker restarts, a client may lose connectivity based on its security settings and the value of the `service.security.transport_encryption.allow_plaintext` configuration option. We recommend that you back up your files and schedule downtime.
 
-In order to enable TLS, a service account and corresponding secret is required. Since it is not possible to change the service account used by a service, it is recommended that the service is deployed with an explicit service account to allow for TLS to be enabled at a later stage.
+To enable TLS, a service account and corresponding secret is required. Since it is not possible to change the service account used by a service, we recommend that the service be deployed with an explicit service account, to allow for TLS to be enabled at a later stage.

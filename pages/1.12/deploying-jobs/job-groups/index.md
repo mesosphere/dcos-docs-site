@@ -15,11 +15,13 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 - A [user account](/1.11/security/ent/users-groups/) to assign permissions to.
 
-# <a name="job-group-access-via-ui"></a>Via the DC/OS GUI
+# <a name="job-group-access-via-ui"></a>Via the DC/OS web interface
 
-1. Log into the DC/OS GUI as a user with the `superuser` permission.
+1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
+
+   Figure 1. DC/OS web interface login
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -27,31 +29,17 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
 
+    Figure 2. Choose user or group to add permissions to
+
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
 
+    Figure 3. Add permissions
+
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
-
-    ### Disabled
-
-    -  **DC/OS jobs access:**
-
-       Specify your job group (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
-
-       ```bash
-       dcos:adminrouter:service:metronome full
-       dcos:service:metronome:metronome:jobs:<job-group>/<job-name> <action>
-       ```
-
-    -  **DC/OS service tasks and logs:**
-
-       ```bash
-       dcos:adminrouter:ops:mesos full
-       dcos:adminrouter:ops:slave full
-       ```
 
     ### Permissive
 
@@ -108,9 +96,6 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 **Tips:**
 
 - To grant permissions to a group instead of a user, replace `users grant <user-name>` with `groups grant <gid>`.
-
-### Disabled
-This mode does not offer fine-grained control.
 
 ### Permissive
 

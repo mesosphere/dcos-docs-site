@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.1
 title: Release Notes for 1.11.1
-menuWeight: 15
+menuWeight: 30
 excerpt: Release notes for DC/OS 1.11.1
 ---
 
@@ -49,7 +49,7 @@ DC/OS 1.11.1 was released on April 18, 2018.
 
 # <a name="notable-changes"></a>Notable Changes in DC/OS 1.11.1
 
-- Updated to [Mesos 1.5.1-dev](https://github.com/mesosphere/mesos/blob/b2eeb11ede805a7830cd6fb796d0b21a647aba04/CHANGELOG).
+- Updated to [Mesos 1.5.1-b0a33cb](https://github.com/apache/mesos/blob/b0a33cb/CHANGELOG).
 - Updated to [Marathon 1.6.352](https://github.com/mesosphere/marathon/releases).
 - Updated to [Metronome 0.4.1](https://github.com/dcos/metronome/releases/tag/v0.4.1).
 - DCOS-16431 - Introduced a new DC/OS configuration variable `adminrouter_auth_cache_enabled` for controlling Admin Router's permission cache. [enterprise type="inline" size="small" /]
@@ -88,7 +88,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`. Please read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
-- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/#dns-forward-zones) to understand its usage.
+- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
 
 [enterprise]
 ### Security

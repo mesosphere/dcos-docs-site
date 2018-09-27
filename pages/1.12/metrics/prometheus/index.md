@@ -6,11 +6,11 @@ excerpt: Monitoring your workload with Prometheus and Grafana self-hosted instan
 enterprise: false
 ---
 
-DC/OS 1.11 exports Prometheus metrics by default. There is no need to install a metrics plugin, as in DC/OS 1.9 and 1.10. This guide details how to run a self-hosted Prometheus instance to monitor your workload, and a self-hosted Grafana instance for powerful dashboards and visualizations.
+DC/OS 1.12 exports Prometheus metrics by default. There is no need to install a metrics plugin, as in DC/OS 1.9 and 1.10. This guide details how to run a self-hosted Prometheus instance to monitor your workload, and a self-hosted Grafana instance for powerful dashboards and visualizations.
 
 **Prerequisite:**
 
-- You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
 # Run a Prometheus server on DC/OS
 
@@ -29,10 +29,12 @@ There are many ways to run a Prometheus server. This is the simplest way to get 
 
 You can find the Prometheus UI by hovering your cursor over the prometheus application in the 'monitoring' folder and clicking on the link that appears. This
 Prometheus service is configured to discover all the agents and masters in your cluster and pull metrics from them. Running the statsd-emitter test application
-described in the [quickstart](/1.11/metrics/quickstart) documentation will allow you to query for `statsd_tester_time_uptime`, which should yield a graph that
+described in the [quickstart](/1.12/metrics/quickstart) documentation will allow you to query for `statsd_tester_time_uptime`, which should yield a graph that
 looks like this:
 
-   ![statsd_tester_time_uptime](/1.11/img/statsd_tester_time_uptime.png)
+   ![statsd_tester_time_uptime](/1.12/img/statsd_tester_time_uptime.png)
+
+   Figure 1. Statsd graph
 
 # Working with metrics in Grafana
 

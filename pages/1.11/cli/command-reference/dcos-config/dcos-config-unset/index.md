@@ -8,27 +8,22 @@ excerpt: Removing a property from the configuration file
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-the dcos config unset command will remove a property from the configuration file.
+The `dcos config unset` command allows you to remove a property from the configuration file.
 
 # Usage
 
 ```bash
-dcos config unset <name> [OPTION]
+dcos config unset <name>
 ```
 
-# Options
-
-None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<name>`   |             |  The name of the property. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<name>`   |  The name of the property. |
 
 # Parent command
 

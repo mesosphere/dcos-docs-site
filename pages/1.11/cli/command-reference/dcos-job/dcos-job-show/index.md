@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Show the job definition.
+The `dcos job show` command displays a job definition.
 
 # Usage
 
@@ -24,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-id>`   |             |  Specify the job ID. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `<job-id>`   |   Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
 
 # Parent command
 

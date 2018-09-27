@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 5
-excerpt: Configuration parameters available for DC/OS
+excerpt: Configuration parameters available for DC/OS Enterprise and DC/OS Open Source
 ---
 
 # Configuration Parameters
 
-The configuration parameters for [DC/OS Enterprise](https://mesosphere.com/product/) are [here](/1.11/installing/ent/custom/configuration/configuration-parameters/). [enterprise type="inline" size="small" /]
-
-The configuration parameters for [DC/OS Open Source](https://dcos.io/) are [here](/1.11/installing/oss/custom/configuration/configuration-parameters/). [oss type="inline" size="small" /]
+This page contains the configuration parameters for both DC/OS Enterprise and DC/OS Open Source. 
 
 
 # Cluster Setup
@@ -91,7 +89,6 @@ The configuration parameters for [DC/OS Open Source](https://dcos.io/) are [here
 | [adminrouter_tls_cipher_suite](#adminrouter-tls-cipher-suite)    | Override the default TLS cipher suite in Admin Router. |
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. [enterprise type="inline" size="small" /] |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | Sets the auth token time-to-live (TTL) for Identity and Access Management. [enterprise type="inline" size="small" /]|
-| [customer_key](#customer-key-enterprise)                       | Required - The DC/OS Enterprise customer key. [enterprise type="inline" size="small" /] |
 | ca_certificate_path                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
@@ -169,6 +166,8 @@ To validate the accuracy of the provided value, use the `openssl ciphers` utilit
 ## agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.11/overview/concepts/#private-agent-node) host names.
 
+**Note:** The agent_list is not required for the production installer.
+
 ## auth_cookie_secure_flag [enterprise type="inline" size="small" /]
 Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. Because the DC/OS authentication cookie allows access to the DC/OS cluster, it should be sent over an encrypted connection.
 
@@ -188,6 +187,10 @@ This parameter sets the auth token time-to-live (TTL) for Identity and Access Ma
 ```json
 bouncer_expiration_auth_token_days: '0.5'
 ```
+
+Small expiration periods may be harmful to DC/OS components.
+We recommend that the this value is set to no less than 0.25.
+If you wish to use a lower value, contact a Mesosphere support representative for guidance.
 
 For more information, see the [security](/1.11/security/ent/) documentation.
 
@@ -232,19 +235,6 @@ The dictionary of packaging configuration to pass to the [DC/OS package manager]
   Where to permanently store DC/OS packages. The value must be a file URL, for example, `file:///var/lib/dcos/cosmos/packages`.
 * `staged_package_storage_uri`
    Where to temporarily store DC/OS packages while they are being added. The value must be a file URL, for example, `file:///var/lib/dcos/cosmos/staged-packages`.
-
-## customer_key (Required) [enterprise type="inline" size="small" /] 
-The DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact.
-
-This key is a 128-bit hyphen-delimited hexadecimal identifier used to distinguish an individual cluster. The customer key serves as the Universally Unique Identifier (UUID) for a given installation.
-
-Customer keys look like this:
-
-```
-ab1c23de-45f6-7g8h-9012-i345j6k7lm8n
-```
-
-For more information, see the [security documentation](/1.11/security/ent/).
 
 ## custom_checks
 Custom installation checks that are added to the default check configuration process. The configuration is used by the [DC/OS Diagnostics component](/1.11/overview/architecture/components/#dcos-diagnostics) to perform installation and upgrade checks. These custom checks are run alongside the default pre- and post-flight checks during installation and upgrade.
@@ -403,6 +393,9 @@ Indicates whether to enable GPU support in DC/OS.
 
 For more information, see the [GPU documentation](/1.11/deploying-services/gpu/).
 
+## fault_domain_enabled
+By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, so no changes to your config.yaml are required to use this feature.
+
 ## gc_delay
 The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.
 
@@ -429,7 +422,11 @@ The path to the installer host logs from the SSH processes. By default, this is 
 The Mesos master discovery method. The available options are `static` or `master_http_loadbalancer`.
 
 *  `master_discovery: static`
-   Specifies that Mesos agents are used to discover the masters by giving each agent a static list of master IPs. The masters must not change IP addresses, and if a master is replaced, the new master must take the old master's IP address. If you specify `static`, you must also specify this parameter:
+   Specifies that Mesos agents are used to discover the masters by giving each agent a static list of master IPs. The masters must not change IP addresses, and if a master is replaced, the new master must take the old master's IP address.
+
+   **Note:** In AWS it is not possible to set a local IP address, thus master_discovery:static can not be utilized. 
+   
+   If you specify `static`, you must also specify this parameter:
 
     *  `master_list`
        A YAML nested list (`-`) of static master IP addresses.
@@ -437,9 +434,9 @@ The Mesos master discovery method. The available options are `static` or `master
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
     *  `exhibitor_address` (Required) 
-       The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/security/ent/tls-ssl/).
-
-       The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
+       The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.11/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive or disabled security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster. 
+         **Note:** Access to the cluster over port 80 and 8080 is insecure.
+       The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.11/security/ent/#security-modes). 
 
        **Note:** The internal load balancer must work in TCP mode, without any TLS termination.
        
@@ -508,6 +505,8 @@ The allowable amount of time, in seconds, for an action to begin after the proce
 ## public_agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.
 
+**Note:** The public_agent_list is not required for the production installer.
+
 ## resolvers
 A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can specify a maximum of 3 resolvers. Set this parameter to the most authoritative nameservers that you have.
 
@@ -555,16 +554,24 @@ Specify a security mode other than `security: permissive` (the default). The pos
 - `security: permissive`
 - `security: strict`
 
+**Note:** The disabled security mode is the same as OS security mode. 
+
 Refer to the [security modes](/1.11/security/ent/#security-modes) section for a detailed discussion of each parameter.
 
 ## ssh_key_path
 The path that the installer uses to log into the target nodes. By default this is set to `/genconf/ssh_key`. This parameter should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
 
+**Note:** The ssh_key_path is not required for the production installer.
+
 ## ssh_port
 The port to SSH to, for example `22`.
 
+**Note:** The ssh_port is not required for the production installer.
+
 ## ssh_user
 The SSH username, for example `centos`.
+
+**Note:** The ssh_user is not required for the production installer.
 
 ## superuser_password_hash (Required) [enterprise type="inline" size="small" /]
 The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.11/security/ent/).

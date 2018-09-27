@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Development
 title: Development
 menuWeight: 5
-excerpt: Installing DC/OS on a laptop for development and testing
+excerpt: Installing DC/OS for development and testing
 ---
 
 The following tools automate the local installation of DC/OS for development and testing:

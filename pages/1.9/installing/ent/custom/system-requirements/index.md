@@ -55,7 +55,7 @@ The table below shows the agent node hardware requirements.
 |             | Minimum   | Recommended |
 |-------------|-----------|-------------|
 | Nodes       | 1         | 6 or more   |
-| Processor   | 2 cores   | 2 cores     |
+| Processor   | 4 cores   | 4 cores     |
 | Memory      | 16 GB RAM | 16 GB RAM   |
 | Hard disk   | 60 GB     | 60 GB       |
 

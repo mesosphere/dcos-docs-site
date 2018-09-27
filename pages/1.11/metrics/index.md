@@ -15,13 +15,13 @@ The [metrics component](/1.11/overview/architecture/components/#dcos-metrics) pr
 ## Overview
 DC/OS provides these types of metrics:
 
-* **Host:** metrics about the specific node which is part of the DC/OS cluster.
-* **Container:** metrics about cgroup allocations from tasks running in the DC/OS [Universal Container Runtime](/1.11/deploying-services/containerizers/ucr/) or [Docker Engine](/1.11/deploying-services/containerizers/docker-containerizer/) runtime.
-* **Application:** metrics about a specific application running inside the Universal Container Runtime.
+* **Host:** - Metrics about the specific node which is part of the DC/OS cluster.
+* **Container:** - Metrics about cgroup allocations from tasks running in the DC/OS [Universal Container Runtime](/1.11/deploying-services/containerizers/ucr/) or [Docker Engine](/1.11/deploying-services/containerizers/docker-containerizer/) runtime.
+* **Application:** - Metrics about a specific application running inside the Universal Container Runtime.
 
 The [Metrics API](/1.11/metrics/metrics-api/) exposes these areas.
 
-The DC/OS metrics component produces Prometheus metrics on port 61091, obviating the need to run the Prometheus plugin supported for previous versions of DC/OS.
+The DC/OS metrics component produces Prometheus metrics on port 61091, eliminating the need to run the Prometheus plugin supported by previous versions of DC/OS.
 
 All three metrics layers are aggregated by a collector which is shipped as part of the DC/OS distribution. This enables metrics to run on every host in the cluster. It is the main entry point to the metrics ecosystem, aggregating metrics sent to it by the Mesos Metrics module, or gathering host and container level metrics on the machine on which it runs.
 

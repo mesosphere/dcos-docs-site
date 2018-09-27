@@ -37,7 +37,7 @@ VIPs follow this naming convention:
 
 ## Creating a VIP
 
-1.  From the DC/OS [GUI](/1.11/gui/), click on the **Services** tab, then on **RUN A SERVICE**.
+1.  From the DC/OS [GUI](/1.12/gui/), click on the **Services** tab, then on **RUN A SERVICE**.
     1.  From the **Networking** tab, select  **NETWORK TYPE** > **Virtual Network: dcos**.
     2.  Expand **ADD SERVICE ENDPOINT** and provide responses for:
 
@@ -48,17 +48,21 @@ VIPs follow this naming convention:
 
         As you fill in these fields, the service addresses that Marathon sets up will appear at the bottom of the screen. You can assign multiple VIPs to your app by clicking **ADD SERVICE ENDPOINT**.
 
-        ![VIP service definition](/1.11/img/vip-service-definition.png)
+        ![VIP service definition](/1.12/img/vip-service-definition.png)
 
-        In the example above, clients can access the service at `my-service.marathon.l4lb.thisdcos.directory:5555`.
+        Figure 1. VIP service definition screen
+
+        In Figure 1, clients can access the service at `my-service.marathon.l4lb.thisdcos.directory:5555`.
 
     1.  Click **REVIEW & RUN** and **RUN SERVICE**.
 
 You can click on the **Networking** tab to view networking details for your service.
 
-![VIP output](/1.11/img/vip-service-definition-output.png)
+![VIP output](/1.12/img/vip-service-definition-output.png)
+ 
+Figure 2. Service definition output
 
-For more information on port configuration, see the [Marathon ports documentation](/1.11/deploying-services/service-ports/).
+For more information on port configuration, see the [Marathon ports documentation](/1.12/deploying-services/service-ports/).
 
 ## Using VIPs with DC/OS Services
 
@@ -71,7 +75,9 @@ Follow these steps to view the VIP for Kafka.
 1.  Click **Networking** > **Networks** and select **dcos**.
 1.  Select your task to view details.
 
-    ![](/1.11/img/vip-service-details.png)
+    ![Service details](/1.12/img/vip-service-details.png)
+
+    Figure 3. VIP service details
 
 ### Via the CLI
 
@@ -106,4 +112,4 @@ You can use this VIP to address any one of the Kafka brokers in the cluster.
 
 This behavior is often experienced with applications that have long lived connections, such as databases (for example, PostgreSQL). To fix, try turning on keepalives. The keepalive can be an application specific mechanism like a heartbeat, or something in the protocol like a TCP keepalive. A keepalive is required because a load balancer cannot differentiate between idle or dead connections as no packets are sent in either case. The default timeout depends on the kernel configuration, but is usually 5 minutes.
 
- [1]: /1.11/deploying-services/service-ports/
+ [1]: /1.12/deploying-services/service-ports/

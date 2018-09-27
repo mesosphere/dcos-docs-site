@@ -12,6 +12,7 @@ ARG algolia_private_key
 ARG algolia_index
 ARG algolia_clear_index
 ARG algolia_skip_sections
+ARG metalsmith_skip_sections
 
 RUN apt-get update -qq
 RUN apt-get install -y build-essential
@@ -33,7 +34,14 @@ ALGOLIA_PRIVATE_KEY=$algolia_private_key \
 ALGOLIA_INDEX=$algolia_index \
 ALGOLIA_CLEAR_INDEX=$algolia_clear_index \
 ALGOLIA_SKIP_SECTIONS=$algolia_skip_sections \
+METALSMITH_SKIP_SECTIONS=$metalsmith_skip_sections \
 npm run build
+
+# Add google site verifications
+# Google expects a very specific file format and metalsmith defaultly alters
+# it. This is temporary until a more permenant solution is made.
+
+RUN echo "google-site-verification: google48ddb4a5390a503f.html" > /src/build/google48ddb4a5390a503f.html
 
 #
 # Nginx

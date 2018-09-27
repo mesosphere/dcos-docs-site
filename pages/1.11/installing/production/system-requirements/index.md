@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 5
-
-excerpt: Hardware and software requirements for DC/OS Enterprise deployments
+enterprise: false
+excerpt: Hardware and software requirements for DC/OS  deployments
 
 render: mustache  
 ---
@@ -18,7 +18,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 *  DC/OS installation is run on a Bootstrap node comprising of one node with two cores, 16 GB RAM and 60 GB HDD. 
 *  The bootstrap node is only used during the installation and upgrade process, so there are no specific recommendations for high performance storage or separated mount points.
 
- **Note:** The bootstrap node must be separate from your cluster nodes.
+<p class="message--note"><strong>NOTE: </strong>The bootstrap node must be separate from your cluster nodes.</p>
 
 ## Cluster nodes
 
@@ -40,8 +40,7 @@ The table below shows the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: https://docs.mesosphere.com/1.10/overview/high-availability/
-
+[0]: /1.11/overview/high-availability/
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
@@ -77,27 +76,33 @@ The table below shows the agent node hardware requirements.
 The agent nodes must also have:
 
 - A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.11/deploying-services/containerizers/).
-- Network Access to a public Docker repository or to an internal Docker registry.
 
-*   On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
+- Network Access to a public Docker repository or to an internal Docker registry.
+-   On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
     ```
 
-*   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
+- Disable DNSmasq (DC/OS requires access to port 53):
 
-    **Note:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
+    ```bash
+    sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
+    ```
 
-*   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.
+- The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
-*   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
+    <p class="message--important"><strong>IMPORTANT: </strong>Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).</p>
+
+
+*   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.  
+-   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
 
     | Directory Path | Description |
     |:-------------- | :---------- |
     | _/var/lib/mesos/_ | Most of the I/O from the Agent nodes will be directed at this directory. Also, The disk space that Apache Mesos advertises in its UI is the sum of the space advertised by filesystem(s) underpinning _/var/lib/mesos_ |
 
-*  Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes.
+-  Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes.
 
    | Directory path | Description |
    |:-------------- |:----------- |
@@ -108,13 +113,19 @@ The agent nodes must also have:
 
 ### <a name="port-and-protocol"></a>Port and Protocol Configuration
 
-*   Secure shell (SSH) must be enabled on all nodes.
-*   Internet Control Message Protocol (ICMP) must be enabled on all nodes.
-*   All hostnames (FQDN and short hostnames) must be resolvable in DNS; both forward and reverse lookups must succeed. [enterprise type="inline" size="small" /]
-*   Each node is network accessible from the bootstrap node.
-*   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
-*   All ports should be open for communication from the master nodes to the agent nodes and vice versa. [enterprise type="inline" size="small" /]
-*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
+-   Secure shell (SSH) must be enabled on all nodes.
+-   Internet Control Message Protocol (ICMP) must be enabled on all nodes.
+-   All hostnames (FQDN and short hostnames) must be resolvable in DNS; both forward and reverse lookups must succeed. [enterprise type="inline" size="small" /]
+-   Each node is network accessible from the bootstrap node.
+-   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
+-   All ports should be open for communication from the master nodes to the agent nodes and vice versa. [enterprise type="inline" size="small" /]
+-   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
+
+Requirements for intermediaries (e.g., reverse proxies performing SSL termination) between DC/OS users and the master nodes:
+
+- No intermediary must buffer the entire response before sending any data to the client.
+- Upon detecting that its client goes away, the intermediary should also close the corresponding upstream TCP connection (i.e., the intermediary
+should not reuse upstream HTTP connections).
 
 ### High Speed Internet Access
 
@@ -122,7 +133,9 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 # Software Prerequisites
 
-Refer to [install_prereqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) script for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.[enterprise type="inline" size="small" /]
+* Refer to [install_prereqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) script for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.[enterprise type="inline" size="small" /]
+
+* When using OverlayFS over XFS, the XFS volume should be created with the -n ftype=1 flag. Please see the [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.2_release_notes/technology-preview-file_systems) and [Mesos](http://mesos.apache.org/documentation/latest/container-image/#provisioner-backends) documentation for more details.
 
 ## All Nodes
 
@@ -132,27 +145,26 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 **Recommendations**
 
-* Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
+- Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
 
-* Prefer `OverlayFS` or `devicemapper` in `direct-lvm` mode when choosing a production storage driver. For more information, see Docker's <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">Select a Storage Driver</a>.
+- Choose `OverlayFS` or `devicemapper` in `direct-lvm` mode when choosing a production storage driver. For more information, see Docker's <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">Select a Storage Driver</a>.
 
-* Manage Docker on CentOS with `systemd`. The `systemd` handles will start Docker and helps to restart Dcoker, when it crashes.
+- Manage Docker on CentOS with `systemd`. The `systemd` handles will start Docker and helps to restart Dcoker, when it crashes.
 
-* Run Docker commands as the root user (with `sudo`) or as a user in the <a href="https://docs.docker.com/engine/installation/linux/centos/#create-a-docker-group" target="_blank">docker user group</a>.
+- Run Docker commands as the root user (with `sudo`) or as a user in the <a href="https://docs.docker.com/engine/installation/linux/centos/#create-a-docker-group" target="_blank">docker user group</a>.
 
 **Distribution-Specific Installation**
 
 Each Linux distribution requires Docker to be installed in a specific way:
 
-*   **CentOS** - [Install Docker from Docker's yum repository][1].
-*   **RHEL** - Install Docker by using a subscription channel. For more information, see <a href="https://access.redhat.com/articles/881893" target="_blank">Docker Formatted Container Images on Red Hat Systems</a>. <!-- curl -sSL https://get.docker.com | sudo sh -->
-*   **CoreOS** - Comes with Docker pre-installed and pre-configured.
+-   **CentOS/RHEL** - [Install Docker from Docker's yum repository][1].
+-   **CoreOS** - Comes with Docker pre-installed and pre-configured.
 
-For more more information, see Docker's <a href="http://docs.docker.com/engine/installation/" target="_blank">distribution-specific installation instructions</a>.
+For more more information, see Docker's <a href="https://docs.docker.com/install/" target="_blank">distribution-specific installation instructions</a>.
 
 ### Disable sudo password prompts
 
-To disable the sudo passowrd prompt you must add the following line to your `/etc/sudoers` file.
+To disable the sudo password prompt you must add the following line to your `/etc/sudoers` file.
 
 ```bash
 %wheel ALL=(ALL) NOPASSWD: ALL
@@ -172,12 +184,11 @@ timedatectl
 
 ## Bootstrap node
 
-Before installing DC/OS, you must ensure that your bootstrap node has the following prerequisites.
+Before installing DC/OS, you **must** ensure that your bootstrap node has the following prerequisites.
 
-**Important:**
+- If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.11/installing/production/advanced-configuration/configuration-reference/).
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
-* The bootstrap node must be separate from your cluster nodes.
+- The bootstrap node must be separate from your cluster nodes.
 
 ### <a name="setup-file"></a>DC/OS Configuration file
 
@@ -207,8 +218,6 @@ To install these utilities on CentOS7 and RHEL7:
 ```bash
 sudo yum install -y tar xz unzip curl ipset
 ```
-
-
 ### Cluster permissions (production installation)
 
 On each of your cluster nodes, use the following command to:
@@ -224,7 +233,7 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-    **Note:** It may take a few minutes for your node to come back online after reboot.
+    It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
 You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
@@ -240,9 +249,7 @@ localectl set-locale LANG=en_US.utf8
 
 # Next steps
 - [Install Docker from Docker’s yum repository][1]
-- [DC/OS Installation Guide][2]
+- [DC/OS Installation Guide](/1.11/installing/production/deploying-dcos/installation/)
 
+[1]: /1.11/installing/production/system-requirements/docker-centos/
 
-[1]: /1.11/installing/ent/custom/system-requirements/install-docker-centos/
-
-[2]: /1.11/installing/ent/custom/advanced/

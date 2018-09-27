@@ -4,7 +4,7 @@ navigationTitle:  License API
 title: License API
 menuWeight: 3
 enterprise: true
-excerpt: Use the License API to manage DC/OS licenses.
+excerpt: Using the License API to manage your DC/OS license
 ---
 # Routes
 
@@ -14,7 +14,7 @@ Access to the License API is proxied through the Admin Router on each master nod
 /licensing/v1
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/1.11/api/access/).
+To determine the URL of your cluster, see [Cluster Access](/1.12/api/access/).
 
 # Format
 
@@ -42,21 +42,21 @@ Content-Type: application/x-tar
 
 All License API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.12/security/ent/iam-api/#passing-an-authentication-token).
 
 The License API also requires authorization via the following permissions:
 
 | Resource ID | Action |
 |-------------|--------|
-| `dcos:adminrouter:ops:license` | `full` |
+| `dcos:adminrouter:licensing` | `full` |
 
 All routes can also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.11/security/ent/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/1.12/security/ent/perms-reference/).
 
 
 # API reference
 
 The License API allows you to manage license operations on your DC/OS cluster.
 
-[swagger api='/1.11/api/dcos-licensing-component-spec.yaml']
+[swagger api='/1.12/api/dcos-licensing-component-spec.yaml']

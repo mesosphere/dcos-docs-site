@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Component Management
 title: Component Management
 menuWeight: 5
-excerpt: Installation and management of DC/OS component services
+excerpt: Installing and managing DC/OS component services
 
 enterprise: false
 ---
@@ -26,12 +26,12 @@ Component packages built by the package builder are distributed as part of the D
 
 ## Component health
 
-Component health is monitored by the DC/OS Diagnostics component. For more information about component monitoring, see [Monitoring](/1.11/monitoring/).
+Component health is monitored by the DC/OS Diagnostics component. For more information about component monitoring, see [Monitoring](/1.12/monitoring/).
 
 
 ## Component logs
 
-Component logs are sent to journald and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/1.11/monitoring/logging/).
+Component logs are sent to journald and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/1.12/monitoring/logging/).
 
 
 ## Routes
@@ -41,4 +41,4 @@ The component management API is exposed through Admin Router and Admin Router Ag
 
 ## Resources
 
-[swagger api='/1.11/api/pkgpanda.yaml']
+[swagger api='/1.12/api/pkgpanda.yaml']

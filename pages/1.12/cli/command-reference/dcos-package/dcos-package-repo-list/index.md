@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Print the package repository sources. Possible sources include a local file, HTTPS, and Git.
+The `dcos package repo list` command displays the package repository sources. Possible sources include a local file, HTTPS, and Git.
 
 # Usage
 
@@ -20,16 +20,16 @@ dcos package repo list [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  JSON-formatted data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |   JSON-formatted data. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documentation](/1.11/administering-clusters/repo/).
+For an example, see the [documentation](/1.12/administering-clusters/repo/).

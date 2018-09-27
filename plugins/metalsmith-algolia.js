@@ -92,6 +92,32 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       const promises = [];
       const objects = [];
 
+      const transformations = {
+        '&nbsp;': ' ',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&amp;': '&',
+        '&quot;': '"',
+        '&apos;': '\'',
+        '&cent;': '¢',
+        '&pound;': '£',
+        '&yen;': '¥',
+        '&euro;': '€',
+        '&copy;': '©',
+        '&reg;': '®',
+      };
+
+      const transform = (content) => {
+        let replacedContent = content;
+        Object.keys(transformations).forEach((htmlEntity) => {
+          const replacement = transformations[htmlEntity];
+          const htmlEntRegex = new RegExp(htmlEntity, 'g');
+          replacedContent = replacedContent.replace(htmlEntRegex, replacement);
+        });
+
+        return replacedContent;
+      };
+
       // Loop through metalsmith object
       Object.keys(files).forEach((file) => {
         if (inExcludedSection(file, options.skipSections, options.renderPathPattern)) {
@@ -103,8 +129,9 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         const postParts = convertStringToArray(postContent, 9000);
         postParts.forEach((value, _index) => {
           const record = getSharedAttributes(fileData, hierarchy, semverMap);
+          if (!record) return;
           record.objectID = `${file}-${index.indexName}`;
-          record.content = value;
+          record.content = transform(value);
           objects.push(record);
         });
       });
@@ -118,7 +145,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
                 console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
                 reject(err);
               } else {
-                console.log(`Algolia: Updating "${object.objectID}"`);
+                // console.log(`Algolia: Updating "${object.objectID}"`);
               }
               resolve();
             });
@@ -159,7 +186,10 @@ const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
 
 // Build a sorted map that ranks semver
 const buildSemverMap = (files, skipSections, renderPathPattern) => {
-  const versions = [];
+
+  const services = {
+    dcos: [],
+  };
 
   const cleanVersion = (version) => {
     if (semverRegex().test(version)) {
@@ -179,27 +209,34 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
     const pathParts = file.split('/');
     if (inExcludedSection(file, skipSections, renderPathPattern)) {
       continue;
-    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2]) && versions.indexOf(pathParts[2]) === -1) {
-      versions.push(pathParts[2]);
-    } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && versions.indexOf(pathParts[0]) === -1) {
-      versions.push(pathParts[0]);
+    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2])) {
+      if (!services[pathParts[1]]) {
+        services[pathParts[1]] = [];
+      }
+      const serviceVersions = services[pathParts[1]];
+      if (serviceVersions.indexOf(pathParts[2]) === -1) {
+        serviceVersions.push(pathParts[2]);
+      }
+    } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && services.dcos.indexOf(pathParts[0]) === -1) {
+      services.dcos.push(pathParts[0]);
     }
   }
 
-  // Sort
-  let versionsSorted = versions.map(cleanVersion);
-  versionsSorted = semverSort.desc(versionsSorted);
-
-  // Map
   const map = {};
+  Object.keys(services).forEach((service) => {
+    const serviceVersions = services[service];
+    const versionsCleaned = serviceVersions.map(cleanVersion);
+    const versionsSorted = semverSort.desc(versionsCleaned);
 
-  versions.forEach((version) => {
-    const cv = cleanVersion(version);
-    const weight = versionsSorted.indexOf(cv);
-    map[version] = {
-      version: cv,
-      weight,
-    };
+    serviceVersions.forEach((version) => {
+      const cv = cleanVersion(version);
+      const weight = versionsSorted.indexOf(cv);
+
+      map[version] = {
+        version: cv,
+        weight,
+      };
+    });
   });
 
   return map;
@@ -211,9 +248,9 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
   const record = {};
 
   if (pathParts[0] === 'test') {
-    return record;
+    return null;
   } else if (pathParts[0] === '404') {
-    return record;
+    return null;
   } else if (pathParts[0] === 'services') {
     let product;
     record.section = 'Service Docs';
@@ -246,6 +283,8 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
       record.versionNumber = pathParts[0];
       record.versionWeight = semverMap[pathParts[0]].weight;
     }
+  } else {
+    return null;
   }
 
   let type = '';
@@ -255,6 +294,15 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
   record.title = fileData.title;
   record.path = fileData.path;
   record.type = type;
+
+  if (!record.title) {
+    console.error(`Warning: ${record.path} has no title and will not be indexed.`);
+    return null;
+  }
+  if (!record.product) {
+    console.error(`Warning: ${record.path} has no product and will not be indexed.`);
+    return null;
+  }
 
   // Excerpt
   if (fileData.excerpt) {
@@ -286,7 +334,7 @@ const sanitize = (buffer) => {
     allowedTags: [],
     allowedAttributes: [],
     selfClosing: [],
-    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'pre'],
+    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'nav'],
   });
   parsedString = trim(parsedString);
   return parsedString;

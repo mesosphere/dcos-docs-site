@@ -9,8 +9,8 @@ enterprise: false
 
 
 ### Prerequisites
-- DC/OS [installed](/1.11/installing/oss/)
-- DC/OS CLI [installed](/1.11/cli/install/)
+- DC/OS [installed](/1.12/installing/)
+- DC/OS CLI [installed](/1.12/cli/install/)
 
 # Launching a pod from the DC/OS CLI
 
@@ -31,7 +31,7 @@ enterprise: false
     }
     ```
 
-    **Note:** The pod ID (the `id` parameter in the pod specification above) is used for all interaction with the pod once it is created.
+    <p class="message--note"><strong>NOTE: </strong>The pod ID (the <code>id</code> parameter in the pod specification above) is used for all interaction with the pod once it is created.</p>
 
 1.  Launch the pod on DC/OS with the following DC/OS CLI command:
 
@@ -45,7 +45,7 @@ enterprise: false
     dcos marathon pod show simplepod
     ```
 
-# Launching a pod from the DC/OS UI
+# Launching a pod from the DC/OS web interface
 
 You can also launch a pod from the [**Services**](/1.11/gui/) tab of the DC/OS web interface. Select **Services -> Services -> RUN A SERVICE -> Multi-container (Pod)**, then toggle to JSON mode and paste in the application definition supplied above.
 
@@ -53,4 +53,6 @@ If you already have other services running, go to **Services -> Services**, then
 
 After you launch your pod, you’ll see your new pod on the **Services** tab of the DC/OS web interface. Click the pod to see information about the status of the containers in your pod.
 
-![Pods UI](/1.11/img/pods-service-dashboard.png)
+![Pods UI](/1.12/img/pods-service-dashboard.png)
+
+Figure 1. Services > Pods

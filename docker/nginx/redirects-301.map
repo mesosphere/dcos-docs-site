@@ -1,5 +1,6 @@
 ~(^.*/[^.]*[^/])$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
+~/[0-9]+\.[0-9]+/release-notes/version-policy/ /version-policy/;
 /administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;
 /administration/id-and-access-mgt/ /latest/security/ent/iam-api/;
 /administration/installing/cloud/aws/ /latest/installing/oss/cloud/aws/;
@@ -29,6 +30,7 @@
 /getting-started/ /latest/overview/;
 /getting-started/release-notes/cm3/ /latest/release-notes/;
 /getting-started/dcosarchitecture/ /latest/overview/architecture/;
+/getting-started/datacenter/install/ /latest/installing/;
 /img/hdfs-service-gui.gif /services/beta-hdfs/2.1.1-2.6.0-cdh5.11.0-beta/img/hdfs-service-gui.gif;
 /img/hdfs-service-gui.png /services/hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui.png;
 /img/hdfs-service-gui2.gif /services/beta-hdfs/2.1.1-2.6.0-cdh5.11.0-beta/img/hdfs-service-gui2.gif;
@@ -189,6 +191,7 @@
 /1.11/installing/ent/custom/uninstall/ /1.11/installing/production/uninstall/;
 /1.11/installing/ent/faq/ /1.11/installing/installation-faq/;
 ~/1.11/installing/ent/high-availability/(.*)$ /1.11/installing/production/advanced-configuration/configuring-zones-and-regions/$1;
+~/1.11/installing/high-availability/(.*)$ /1.11/installing/production/advanced-configuration/configuring-zones-and-regions/$1;
 /1.11/installing/ent/local/ /1.11/installing/development/;
 /1.11/installing/ent/opt-out/ /1.11/installing/production/deploying-dcos/opt-out/;
 /1.11/installing/ent/patching/ /1.11/installing/production/patching/;
@@ -198,26 +201,28 @@
 /1.11/installing/evaluation/cloud-installation/aws/advanced/aws-ami/ /1.11/installing/production/system-requirements/aws-ami/;
 /1.11/installing/oss/ /1.11/installing/;
 ~/1.11/installing/oss/cloud/(.*)$ /1.11/installing/evaluation/cloud-installation/$1;
+/1.11/installing/oss/custom/ /1.11/installing/production/deploying-dcos/installation/;
 /1.11/installing/oss/custom/advanced/ /1.11/installing/production/deploying-dcos/installation/;
-/1.11/installing/oss/custom/cli/ /1.11/installing/cloud-installation/;
+/1.11/installing/oss/custom/cli/ /1.11/installing/evaluation/cloud-installation/;
 /1.11/installing/oss/custom/configuration/ /1.11/production/deploying-dcos/configuration/;
 /1.11/installing/oss/custom/configuration/configuration-parameters/ /1.11/installing/production/advanced-configuration/configuration-reference/; 
 /1.11/installing/oss/custom/configuration/examples/ /1.11/installing/production/deploying-dcos/configuration/examples/;
 /1.11/installing/oss/custom/configure-proxy/ /1.11/installing/production/deploying-dcos/configure-proxy/;
-/1.11/installing/oss/custom/gui/ /1.11/installing/cloud-installation/;
+/1.11/installing/oss/custom/gui/ /1.11/installing/evaluation/cloud-installation/;
 /1.11/installing/oss/custom/node-cluster-health-check/ /1.11/installing/production/deploying-dcos/node-cluster-health-check/;
 ~/1.11/installing/oss/custom/system-requirements/ /1.11/installing/production/system-requirements/;
 /1.11/installing/oss/custom/system-requirements/install-docker-centos/ /1.11/installing/production/system-requirements/docker-centos/;
 /1.11/installing/oss/custom/system-requirements/install-docker-RHEL/ /1.11/installing/production/system-requirements/docker-RHEL/; 
 /1.11/installing/oss/custom/uninstall/ /1.11/installing/production/uninstall/;
 /1.11/installing/oss/faq/ /1.11/installing/installation-faq/;
-~/1.11/installing/oss/high-availability/(.*)$ /1.11/installing/production/advanced-configuration/configuring-zones-and-regions/$1;
+~/1.11/installing/oss/high-availability/(.*)$ /1.11/installing/production/advanced-configuration/configuring-zones-regions/$1;
 /1.11/installing/oss/local/ /1.11/installing/development/;
 /1.11/installing/oss/opt-out/ /1.11/installing/production/deploying-dcos/opt-out/;
 /1.11/installing/oss/patching/ /1.11/installing/production/patching/;
 /1.11/installing/oss/ports/ /1.11/installing/production/system-requirements/ports/;
 /1.11/installing/oss/troubleshooting/ /1.11/installing/troubleshooting/;
 /1.11/installing/oss/upgrading/ /1.11/installing/production/upgrading/;
+/1.11/installing/production/advanced-configuration/configuring-zones-and-regions/ /1.11/installing/production/advanced-configuration/configuring-zones-regions/;
 /1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
 /1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
@@ -229,7 +234,6 @@
 /1.11/networking/tls-ssl/ /1.11/security/ent/tls-ssl/;
 /1.11/networking/tls-ssl/get-cert/ /1.11/security/ent/tls-ssl/get-cert/;
 /1.11/networking/virtual-networks/ /1.11/networking/SDN/dcos-overlay/;
-/1.11/release-notes/version-policy/ /version-policy/;
 /1.10/administration/access-node/(.*)$ /1.10/administering-clusters/$1;
 /1.11/usage/managing-services/install/ /1.11/deploying-services/install/;
 /1.11/security/iam-api/ /1.11/security/ent/iam-api/;
@@ -357,7 +361,6 @@
 /1.10/security/secrets/ /1.10/security/ent/secrets/;
 /1.10/security/service-auth/custom-service-auth/ /1.10/security/ent/service-auth/custom-service-auth/;
 /1.10/security/tls-ssl/ /1.10/security/oss/tls-ssl/;
-/1.10/release-notes/version-policy/ /version-policy/;
 /1.10/usage/ /1.10/;
 /1.10/usage/cli/ /1.10/cli/;
 /1.10/usage/cli/command-reference/ /1.10/cli/command-reference/;
@@ -686,6 +689,7 @@
 /1.9/administration/overlay-networks/isolation/ /1.9/administration/virtual-networks/isolation/;
 /1.9/administration/release-notes/ /1.9/release-notes/;
 /1.9/administration/remove-agent/ /1.9/remove-agent/;
+/1.9/administration/secrets/ /1.9/security/ent/secrets/create-secrets/;
 /1.9/administration/securing-your-cluster/ /1.9/administering-clusters/securing-your-cluster/;
 /1.9/administration/storage/ /1.9/storage/;
 /1.9/administration/storage/mount-disk-resources/ /1.9/storage/mount-disk-resources/;
@@ -710,7 +714,6 @@
 /1.9/overview/roadmap/ /1.9/;
 /1.9/overview/security/security-modes/ /1.9/security/ent/#security-modes/;
 /1.9/overview/service-discovery/ /1.9/tutorials/dcos-101/service-discovery/;
-/1.9/release-notes/version-policy/ /version-policy/;
 /1.9/security/iam-api/ /1.9/security/ent/iam-api/;
 /1.9/security/perms-reference/ /1.9/security/ent/perms-reference/;
 /1.9/security/secrets/ /1.9/security/ent/secrets/;

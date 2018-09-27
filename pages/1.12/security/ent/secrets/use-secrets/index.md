@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring services and pods to use secrets
-title: Configuring services and pods to use secrets
+navigationTitle:  Configuring services and pods
+title: Configuring services and pods
 menuWeight: 1
-excerpt:
+excerpt: Configuring services and pods to use secrets
 
 enterprise: true
 ---
@@ -14,9 +14,7 @@ Your service definition can reference secrets as environment variables or as a f
 
 ## File-based secrets
 
-You can reference the secret as a file for increased security from other processes, or if your service needs to read secrets from files mounted in the container.
-
-Referencing a file-based secret can be particularly useful for:
+You can reference the secret as a file for increased security from other processes, or if your service needs to read secrets from files mounted in the container. Referencing a file-based secret can be particularly useful for:
 
 - Kerberos keytabs or other credential files.
 - SSL certificates.
@@ -26,13 +24,11 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 
 ### Prerequisites
 
-- An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.11/security/ent/secrets/create-secrets/), you will meet this prerequisite.
+- An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.12/security/ent/secrets/create-secrets/), you will meet this prerequisite.
 
-- [DC/OS CLI installed](/1.11/cli/install/) and the [DC/OS Enterprise CLI installed](/1.11/cli/enterprise-cli/#ent-cli-install).
-
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
-
-- The appropriate permissions for your [security mode](/1.11/security/ent/#security-modes).
+- [DC/OS CLI installed](/1.12/cli/install/) and the [DC/OS Enterprise CLI installed](/1.12/cli/enterprise-cli/#ent-cli-install).
+- You must [get the root cert](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  
+- The appropriate permissions for your [security mode](/1.12/security/ent/#security-modes).
 
   <table class="table">
     <tr>
@@ -54,9 +50,10 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
   - `dcos:adminrouter:ops:mesos full`: to view **Task** panel information.
   - `dcos:adminrouter:ops:slave full`: to view the details about the task, including the logs.
 
-  As long as the path of the secret and the path of the group [match up properly](/1.11//security/ent/#spaces), the service will be able to access the secret value.
+  As long as the path of the secret and the path of the group [match up properly](/1.12/security/ent/#spaces), the service will be able to access the secret value.
 
-The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.11/deploying-services/pods/) or to an individual service.
+
+The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.12/deploying-services/pods/) or to an individual service.
 
 - [Individual service](#service)
 - [Pod](#pod)
@@ -65,19 +62,21 @@ The procedure differs depending on whether or not you want to make the secret av
 
 The procedure varies by interface. Refer to the section that corresponds to your desired interface.
 
-- [GUI](#deploying-the-service-via-the-web-interface)
+- [web interface](#deploying-the-service-via-the-web-interface)
 
 - [Marathon API](#deploying-the-service-via-marathon-app-definition)
 
-## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the GUI
+## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the web interface
 
-1. Log into the GUI as a user with the necessary permissions as discussed in the [previous section](#service).
+1. Log into the web interface as a user with the necessary permissions as discussed in the [previous section](#service).
 
 1. Click the **Services** tab.
 
 1. Click the **+** icon in the top right.
 
-    ![Add a Service](/1.11/img/add-service.png)
+    ![Add a Service](/1.12/img/add-service.png)
+
+    Figure 1. Running a service
 
 1. Click the **JSON Editor** toggle.
 
@@ -130,7 +129,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
    In the example above, the secret will have the filename `path` and will be available in the task's sandbox (`$MESOS_SANDBOX/path`).
 
-   Because the service and the secret paths match, the service will be able to access the secret. See [Spaces](/1.11/security/ent/#spaces) for more details about the paths.
+   Because the service and the secret paths match, the service will be able to access the secret. See [Spaces](/1.12/security/ent/#spaces) for more details about the paths.
 
 1. Click **REVIEW & RUN**.
 
@@ -193,7 +192,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   Because the service group and the secret paths match, the service will be able to access the secret. See [Spaces](/1.11/security/ent/#spaces) for more details about the paths.
+   Because the service group and the secret paths match, the service will be able to access the secret. See [Spaces](/1.12/security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `myservice.json`.
 
@@ -209,7 +208,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
    ```
 
-1. Open the DC/OS GUI.
+1. Open the DC/OS web interface.
 
 1. Click the group name of your service, i.e., **developer**.
 
@@ -299,7 +298,8 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.11//security/ent/#spaces) for more details about the paths.
+<p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
+
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 
@@ -309,7 +309,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    dcos marathon pod add mypod.json
    ```
 
-1. Open the DC/OS GUI.
+1. Open the DC/OS web interface.
 
 1. Click the group name of your service, i.e., **developer**.
 

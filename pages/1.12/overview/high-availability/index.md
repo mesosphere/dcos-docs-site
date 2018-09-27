@@ -9,13 +9,9 @@ enterprise: false
 ---
 
 
-This section discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
-
 # Leader/Follower Architecture
 
-A common pattern in HA systems is the leader/follower concept. This is also sometimes referred to as: master/slave, primary/replica, or some combination thereof. This architecture is used when you have one authoritative process, with N standby processes. In some systems, the standby processes might also be capable of serving requests or performing other operations. For example, when running a database like MySQL with a master and replica, the replica is able to serve read-only requests, but it cannot accept writes; only the master will accept writes.
-
-In DC/OS, a number of components follow the leader/follower pattern. We will discuss some of them  and how they work.
+A common pattern in high availability (HA) systems is the leader/follower concept. This is also sometimes referred to as: master/slave, primary/replica, or some combination thereof. This architecture is used when you have one authoritative process, with N standby processes. In some systems, the standby processes might also be capable of serving requests or performing other operations. For example, when running a database like MySQL with a master and replica, the replica is able to serve read-only requests, but it cannot accept writes; only the master will accept writes. In DC/OS, a number of components follow the leader/follower pattern. We will discuss some of them  and how they work.
 
 #### Mesos
 
@@ -32,10 +28,10 @@ Several services in DC/OS use ZooKeeper to provide consistency. ZooKeeper can be
 # Fault Domain Isolation
 Fault domain isolation is an important part of building HA systems. To correctly handle failure scenarios, systems must be distributed across fault domains to survive outages. There are different types of fault domains, a few examples of which are:
 
- * Physical domains: this includes machine, rack, datacenter, region, and availability zone.
- * Network domains: machines within the same network may be subject to network partitions. For example, a shared network switch may fail or have invalid configuration.
+-  Physical domains: this includes machine, rack, datacenter, region, and availability zone.
+-  Network domains: machines within the same network may be subject to network partitions. For example, a shared network switch may fail or have invalid configuration.
 
-With DC/OS, you can distribute masters across racks for HA. Agents can be distributed across regions, and it is recommended that you tag agents with attributes to describe their location. Synchronous services like ZooKeeper should also remain within the same region to reduce network latency. For more information, see the Configuring High Availability [documentation](/1.11/installing/oss/high-availability/).
+With DC/OS, you can distribute masters across racks for HA. Agents can be distributed across regions, and it is recommended that you tag agents with attributes to describe their location. Synchronous services like ZooKeeper should also remain within the same region to reduce network latency. For more information, see [Configuring High Availability](/1.12/installing/oss/high-availability/).
 
 Applications which require HA should be distributed across fault domains. Marathon can  accomplish this by using the [`UNIQUE`  and `GROUP_BY` constraints operator](https://mesosphere.github.io/marathon/docs/constraints.html).
 
@@ -55,14 +51,14 @@ Other common single points of failure include:
 
 # Fast Failure Detection
 
-Fast failure detection comes in many forms. Services like ZooKeeper can be used to provide failure detection, such as detecting network partitions or host failures. Service health checks can also be used to detect certain types of failures. As a matter of best practice, services *should* expose health check endpoints, which can be used by services like Marathon.
+Fast failure detection comes in many forms. Services like ZooKeeper can be used to provide failure detection, such as detecting network partitions or host failures. Service health checks can also be used to detect certain types of failures. As a matter of best practice, services should expose health check endpoints, which can be used by services like Marathon.
 
 # Fast Failover
 
 When failures do occur, failover [should be as fast as possible](https://en.wikipedia.org/wiki/Fail-fast). Fast failover can be achieved by:
 
- * Using an HA load balancer like [Marathon-LB](/1.11/networking/marathon-lb/), or the internal [Layer 4 load balancer](/1.11/networking/load-balancing-vips/).
+ * Using an HA load balancer like [Marathon-LB](/1.12/networking/marathon-lb/), or the internal [Layer 4 load balancer](/1.12/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
- * Following REST best-practices when building services: in particular, avoiding storing client state on the server between requests.
+ * Following REST best practices when building services: in particular, avoiding storing client state on the server between requests.
 
 A number of DC/OS services follow the fail-fast pattern in the event of errors. Specifically, both Mesos and Marathon will shut down in the case of unrecoverable conditions such as losing leadership.
