@@ -172,6 +172,9 @@ curl -i -k \
 # Step 3 - Create a Marathon Service Account
 Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required.
 
+
+
+
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
 | Disabled | Optional |
@@ -321,7 +324,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
    Alternatively, if you have [jq 1.5 or later](https://stedolan.github.io/jq/download) installed, you can use this command:
 
    ```bash
-   dcos security secrets get /momee-serv-group/momee-serv-group-service/<secret-name> --json | jq -r .value | jq
+   dcos security secrets get <path-to-secret> --json | jq -r .value | jq
    ```
 
 -  Delete the private key file from your file system to prevent bad actors from using the private key to authenticate to DC/OS.
@@ -358,7 +361,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
 
     | Variable | Description |
     |--------------------------|--------------------------------------------|
-    | `<non-native-marathon>` | Non-native Marathon framework name |
+    | `<marathon-user-ee>` | Non-native Marathon framework name |
     | `<service-account-id>` | Non-native Marathon service account |
     | `<secret-name>` | Secret  |
     | `<myrole>` | Mesos role |
@@ -366,280 +369,242 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     | `<your-tag>` | Docker tag |
     | `<linux-user>` | Linux user  `core` or `centos` |
 
-    ### Disabled
+### Security Mode - Disabled
 
-    ```json
-    {  
-      "id":"/<non-native-marathon>",
-      "cmd":"cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*,<myrole>\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name <non-native-marathon> --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_tasks_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role <myrole>  --zk zk://master.mesos:2181/universe/<non-native-marathon> --mesos_user nobody --mesos_authentication --mesos_authentication_principal <service-account-id>",
-      "user":"nobody",
-      "cpus":2,
-      "mem":4096,
-      "disk":0,
-      "instances":1,
-      "constraints":[  
-         [  
-            "hostname",
-            "UNIQUE"
-         ]
-      ],
-      "container":{  
-         "type":"DOCKER",
-         "docker":{  
-            "image":"<your-repo>/marathon-dcos-ee:<your-tag>",
-            "network":"HOST",
-            "privileged":false,
-            "parameters":[  
-
-            ],
-            "forcePullImage":false
-         },
-         "volumes":[  
-            {  
-               "containerPath":"/opt/mesosphere",
-               "hostPath":"/opt/mesosphere",
-               "mode":"RO"
-            }
-         ]
+```json
+{
+  "id": "/marathon-user-ee",
+  "cmd": "cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name marathon-user-ee --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_instances_per_offer 1 --mesos_leader_ui_url /mesos --zk zk://master.mesos:2181/universe/marathon-user-ee",
+  "cpus": 2,
+  "mem": 2048,
+  "disk": 0,
+  "instances": 1,
+  "constraints": [
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "container": {
+    "type": "MESOS",
+    "docker": {
+      "image": "mesosphere/marathon-dcos-ee:__FILL_IN_VERSION_HERE__",
+      "pullConfig": {
+        "secret": "config-json"
       },
-      "env":{  
-         "JVM_OPTS":"-Xms256m -Xmx2g",
-         "DCOS_STRICT_SECURITY_ENABLED":"false",
-         "DCOS_SERVICE_ACCOUNT_CREDENTIAL_TOFILE":{  
-            "secret":"service-credential"
-         },
-         "MESOS_AUTHENTICATEE":"com_mesosphere_dcos_ClassicRPCAuthenticatee",
-         "MESOS_MODULES":"file:///opt/mesosphere/etc/mesos-scheduler-modules/dcos_authenticatee_module.json",
-         "MESOS_NATIVE_JAVA_LIBRARY":"/opt/mesosphere/lib/libmesos.so",
-         "MESOS_VERBOSE":"true",
-         "GLOG_v":"2",
-         "PLUGIN_ACS_URL":"http://master.mesos",
-         "PLUGIN_AUTHN_MODE":"dcos/jwt+anonymous",
-         "PLUGIN_FRAMEWORK_TYPE":"marathon"
-      },
-      "healthChecks":[  
-         {  
-            "path":"/ping",
-            "protocol":"HTTP",
-            "portIndex":0,
-            "gracePeriodSeconds":1800,
-            "intervalSeconds":10,
-            "timeoutSeconds":5,
-            "maxConsecutiveFailures":3,
-            "ignoreHttp1xx":false
-         }
-      ],
-      "secrets":{  
-         "service-credential":{  
-            "source":"<path-to-secret-name>"
-         }
-      },
-      "labels":{  
-         "DCOS_SERVICE_NAME":"<non-native-marathon>",
-         "DCOS_SERVICE_PORT_INDEX":"0",
-         "DCOS_SERVICE_SCHEME":"http"
-      },
-      "portDefinitions":[  
-         {  
-            "port":0,
-            "name":"http"
-         },
-         {  
-            "port":0,
-            "name":"libprocess"
-         }
-      ],
-      "fetch":[  
-         {  
-            "uri":"file:///home/<linux-user>/docker.tar.gz"
-         }
-      ]
+      "privileged": false,
+      "forcePullImage": false
+    },
+    "volumes": []
+  },
+  "env": {
+    "JVM_OPTS": "-Xms256m -Xmx2g",
+    "PLUGIN_ACS_URL": "http://master.mesos",
+    "PLUGIN_AUTHN_MODE": "disabled",
+    "PLUGIN_FRAMEWORK_TYPE": "marathon"
+  },
+  "labels": {
+    "DCOS_SERVICE_SCHEME": "http",
+    "DCOS_SERVICE_NAME": "marathon-user-ee",
+    "DCOS_SERVICE_PORT_INDEX": "0"
+  },
+  "healthChecks": [
+    {
+      "path": "/ping",
+      "protocol": "HTTP",
+      "portIndex": 0,
+      "gracePeriodSeconds": 1800,
+      "intervalSeconds": 10,
+      "timeoutSeconds": 5,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
     }
-    ```   
-
-    ### Permissive
-
-    ```json
-    {  
-      "id":"/<non-native-marathon>",
-      "cmd":"cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*,<myrole>\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name <non-native-marathon> --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_tasks_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role <myrole>  --zk zk://master.mesos:2181/universe/<non-native-marathon> --mesos_user nobody --mesos_authentication --mesos_authentication_principal <service-account-id>",
-      "user":"nobody",
-      "cpus":2,
-      "mem":4096,
-      "disk":0,
-      "instances":1,
-      "constraints":[  
-         [  
-            "hostname",
-            "UNIQUE"
-         ]
-      ],
-      "container":{  
-         "type":"DOCKER",
-         "docker":{  
-            "image":"<your-repo>/marathon-dcos-ee:<your-tag>",
-            "network":"HOST",
-            "privileged":false,
-            "parameters":[  
-
-            ],
-            "forcePullImage":false
-         },
-         "volumes":[  
-            {  
-               "containerPath":"/opt/mesosphere",
-               "hostPath":"/opt/mesosphere",
-               "mode":"RO"
-            }
-         ]
-      },
-      "env":{  
-         "JVM_OPTS":"-Xms256m -Xmx2g",
-         "DCOS_STRICT_SECURITY_ENABLED":"false",
-         "DCOS_SERVICE_ACCOUNT_CREDENTIAL_TOFILE":{  
-            "secret":"service-credential"
-         },
-         "MESOS_AUTHENTICATEE":"com_mesosphere_dcos_ClassicRPCAuthenticatee",
-         "MESOS_MODULES":"file:///opt/mesosphere/etc/mesos-scheduler-modules/dcos_authenticatee_module.json",
-         "MESOS_NATIVE_JAVA_LIBRARY":"/opt/mesosphere/lib/libmesos.so",
-         "MESOS_VERBOSE":"true",
-         "GLOG_v":"2",
-         "PLUGIN_ACS_URL":"http://master.mesos",
-         "PLUGIN_AUTHN_MODE":"dcos/jwt+anonymous",
-         "PLUGIN_FRAMEWORK_TYPE":"marathon"
-      },
-      "healthChecks":[  
-         {  
-            "path":"/ping",
-            "protocol":"HTTP",
-            "portIndex":0,
-            "gracePeriodSeconds":1800,
-            "intervalSeconds":10,
-            "timeoutSeconds":5,
-            "maxConsecutiveFailures":3,
-            "ignoreHttp1xx":false
-         }
-      ],
-      "secrets":{  
-         "service-credential":{  
-            "source":"<path-to-secret-name>"
-         }
-      },
-      "labels":{  
-         "DCOS_SERVICE_NAME":"<non-native-marathon>",
-         "DCOS_SERVICE_PORT_INDEX":"0",
-         "DCOS_SERVICE_SCHEME":"http"
-      },
-      "portDefinitions":[  
-         {  
-            "port":0,
-            "name":"http"
-         },
-         {  
-            "port":0,
-            "name":"libprocess"
-         }
-      ],
-      "fetch":[  
-         {  
-            "uri":"file:///home/<linux-user>/docker.tar.gz"
-         }
-      ]
+  ],
+  "secrets": {
+    "config-json": {
+      "source": "docker-credentials"
     }
-    ```
-
-    ### Strict
-
-    ```json
-    {  
-      "id":"/<non-native-marathon>",
-      "cmd":"cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*,<myrole>\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name <non-native-marathon> --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_tasks_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role <myrole>  --zk zk://master.mesos:2181/universe/<non-native-marathon> --mesos_user nobody --mesos_authentication --mesos_authentication_principal <service-account-id>",
-      "user":"nobody",
-      "cpus":2,
-      "mem":4096,
-      "disk":0,
-      "instances":1,
-      "constraints":[  
-         [  
-            "hostname",
-            "UNIQUE"
-         ]
-      ],
-      "container":{  
-         "type":"DOCKER",
-         "docker":{  
-            "image":"<your-repo>/marathon-dcos-ee:<your-tag>",
-            "network":"HOST",
-            "privileged":false,
-            "parameters":[  
-
-            ],
-            "forcePullImage":false
-         },
-         "volumes":[  
-            {  
-               "containerPath":"/opt/mesosphere",
-               "hostPath":"/opt/mesosphere",
-               "mode":"RO"
-            }
-         ]
-      },
-      "env":{  
-         "JVM_OPTS":"-Xms256m -Xmx2g",
-         "DCOS_STRICT_SECURITY_ENABLED":"true",
-         "DCOS_SERVICE_ACCOUNT_CREDENTIAL_TOFILE":{  
-            "secret":"service-credential"
-         },
-         "MESOS_AUTHENTICATEE":"com_mesosphere_dcos_ClassicRPCAuthenticatee",
-         "MESOS_MODULES":"file:///opt/mesosphere/etc/mesos-scheduler-modules/dcos_authenticatee_module.json",
-         "MESOS_NATIVE_JAVA_LIBRARY":"/opt/mesosphere/lib/libmesos.so",
-         "MESOS_VERBOSE":"true",
-         "GLOG_v":"2",
-         "PLUGIN_ACS_URL":"https://master.mesos",
-         "PLUGIN_AUTHN_MODE":"dcos/jwt",
-         "PLUGIN_FRAMEWORK_TYPE":"marathon"
-      },
-      "healthChecks":[  
-         {  
-            "path":"/",
-            "protocol":"HTTP",
-            "portIndex":0,
-            "gracePeriodSeconds":1800,
-            "intervalSeconds":10,
-            "timeoutSeconds":5,
-            "maxConsecutiveFailures":3,
-            "ignoreHttp1xx":false
-         }
-      ],
-      "secrets":{  
-         "service-credential":{  
-            "source":"<path-to-secret-name>"
-         }
-      },
-      "labels":{  
-         "DCOS_SERVICE_NAME":"<non-native-marathon>",
-         "DCOS_SERVICE_PORT_INDEX":"0",
-         "DCOS_SERVICE_SCHEME":"http"
-      },
-      "portDefinitions":[  
-         {  
-            "port":0,
-            "name":"http"
-         },
-         {  
-            "port":0,
-            "name":"libprocess"
-         }
-      ],
-      "fetch":[  
-         {  
-            "uri":"file:///home/<linux-user>/docker.tar.gz"
-         }
-      ]
+  },
+  "portDefinitions": [
+    {
+      "port": 0,
+      "name": "http"
+    },
+    {
+      "port": 0,
+      "name": "libprocess"
     }
-    ```
+  ]
+}
+````   
+### Security Mode - Permissive
 
-1.  Deploy the Marathon instance.
+```json
+{
+  "id": "/marathon-user-ee",
+  "cmd": "cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name marathon-user-ee --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_instances_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role marathon-user-ee  --zk zk://master.mesos:2181/universe/marathon-user-ee-1-5 --mesos_authentication --mesos_authentication_principal marathon_user_ee",
+  "cpus": 2,
+  "mem": 2048,
+  "disk": 0,
+  "instances": 1,
+  "constraints": [
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "container": {
+    "type": "MESOS",
+    "docker": {
+      "image": "mesosphere/marathon-dcos-ee:__FILL_IN_VERSION_HERE__",
+      "pullConfig": {
+        "secret": "config-json"
+      },
+      "privileged": false,
+      "forcePullImage": false
+    },
+    "volumes": []
+  },
+  "env": {
+    "JVM_OPTS": "-Xms256m -Xmx2g",
+    "DCOS_STRICT_SECURITY_ENABLED": "false",
+    "DCOS_SERVICE_ACCOUNT_CREDENTIAL": {
+      "secret": "service-account"
+    },
+    "MESOS_AUTHENTICATEE": "com_mesosphere_dcos_ClassicRPCAuthenticatee",
+    "MESOS_MODULES": "{\"libraries\":[{\"file\":\"/opt/libmesos-bundle/lib/libdcos_security.so\",\"modules\":[{\"name\":\"com_mesosphere_dcos_ClassicRPCAuthenticatee\"}]}]}",
+    "LIBPROCESS_SSL_ENABLED": "false",
+    "LIBPROCESS_SSL_SUPPORT_DOWNGRADE": "true",
+    "LIBPROCESS_SSL_REQUIRE_CERT": "false",
+    "LIBPROCESS_SSL_VERIFY_CERT": "false",
+    "PLUGIN_ACS_URL": "http://master.mesos",
+    "PLUGIN_AUTHN_MODE": "dcos/jwt+anonymous",
+    "PLUGIN_FRAMEWORK_TYPE": "marathon"
+  },
+  "labels": {
+      "DCOS_SERVICE_SCHEME": "http",
+      "DCOS_SERVICE_NAME": "marathon-user-ee",
+      "DCOS_SERVICE_PORT_INDEX": "0"
+  },
+  "healthChecks": [
+    {
+      "path": "/ping",
+      "protocol": "HTTP",
+      "portIndex": 0,
+      "gracePeriodSeconds": 1800,
+      "intervalSeconds": 10,
+      "timeoutSeconds": 5,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
+  "secrets": {
+    "service-account": {
+      "source": "service-credentials"
+    },
+    "config-json": {
+      "source": "docker-credentials"
+    }
+  },
+  "portDefinitions": [
+    {
+      "name": "http",
+      "port": 0
+    },
+    {
+      "name": "libprocess",
+      "port": 0
+    }
+  ],
+  "requirePorts": false,
+  "networks": []
+}
+````
+
+### Security Mode - Strict
+
+```json
+{
+  "id": "/marathon-user-ee",
+  "cmd": "cd $MESOS_SANDBOX && LIBPROCESS_PORT=$PORT1 && /marathon/bin/start --default_accepted_resource_roles \"*\" --enable_features \"vips,task_killing,external_volumes,secrets,gpu_resources\" --framework_name marathon-user-ee --hostname $LIBPROCESS_IP --http_port $PORT0 --master zk://master.mesos:2181/mesos --max_instances_per_offer 1 --mesos_leader_ui_url /mesos --mesos_role marathon-user-ee  --zk zk://master.mesos:2181/universe/marathon-user-ee --mesos_authentication --mesos_authentication_principal marathon_user_ee",
+  "cpus": 2,
+  "mem": 2048,
+  "disk": 0,
+  "instances": 1,
+  "user": "root",
+  "constraints": [
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "container": {
+    "type": "MESOS",
+    "docker": {
+      "image": "mesosphere/marathon-dcos-ee:__FILL_IN_VERSION_HERE__",
+      "pullConfig": {
+        "secret": "config-json"
+      },
+      "privileged": false,
+      "forcePullImage": false
+    },
+    "volumes": []
+  },
+  "env": {
+    "JVM_OPTS": "-Xms256m -Xmx2g",
+    "DCOS_STRICT_SECURITY_ENABLED": "true",
+    "DCOS_SERVICE_ACCOUNT_CREDENTIAL": {
+      "secret": "service-account"
+    },
+    "MESOS_AUTHENTICATEE": "com_mesosphere_dcos_ClassicRPCAuthenticatee",
+    "MESOS_MODULES": "{\"libraries\":[{\"file\":\"/opt/libmesos-bundle/lib/libdcos_security.so\",\"modules\":[{\"name\":\"com_mesosphere_dcos_ClassicRPCAuthenticatee\"}]}]}",
+    "LIBPROCESS_SSL_ENABLED": "true",
+    "LIBPROCESS_SSL_SUPPORT_DOWNGRADE": "false",
+    "LIBPROCESS_SSL_REQUIRE_CERT": "false",
+    "LIBPROCESS_SSL_VERIFY_CERT": "false",
+    "PLUGIN_ACS_URL": "https://master.mesos",
+    "PLUGIN_AUTHN_MODE": "dcos/jwt",
+    "PLUGIN_FRAMEWORK_TYPE": "marathon"
+  },
+  "labels": {
+    "DCOS_SERVICE_SCHEME": "http",
+    "DCOS_SERVICE_NAME": "marathon-user-ee",
+    "DCOS_SERVICE_PORT_INDEX": "0"
+  },
+  "healthChecks": [
+    {
+      "path": "/ping",
+      "protocol": "HTTP",
+      "portIndex": 0,
+      "gracePeriodSeconds": 1800,
+      "intervalSeconds": 10,
+      "timeoutSeconds": 5,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
+  "secrets": {
+    "service-account": {
+      "source": "service-credentials"
+    },
+    "config-json": {
+      "source": "docker-credentials"
+    }
+  },
+  "portDefinitions": [
+    {
+      "port": 0,
+      "name": "http"
+    },
+    {
+      "port": 0,
+      "name": "libprocess"
+    }
+  ]
+}
+```
+
+2.  Deploy the Marathon instance.
 
     ```bash
     dcos marathon app add config.json
