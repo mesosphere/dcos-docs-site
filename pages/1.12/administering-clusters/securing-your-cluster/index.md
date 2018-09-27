@@ -29,6 +29,8 @@ Use these mechanisms to:
 - block connection requests on all ports from external machines to private agent nodes.
 - block connection requests on all ports from external machines to public agent ports except [advertised port ranges](/1.12/installing/production/system-requirements/ports/#agent).
 
+For connections between cluster nodes, refer to [DC/OS Ports](/1.12/installing/production/system-requirements/ports/).
+
 You may want to open port 22 to external machines to allow administrative tasks using Secure Shell (`ssh`).
 Although DC/OS components do not currently support private network selection, you can configure
 `ssh` to be accessible to a private management network using the [`ListenAddress`](https://man.openbsd.org/sshd_config#ListenAddress) directive.

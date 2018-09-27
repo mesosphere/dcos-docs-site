@@ -11,7 +11,7 @@ enterprise: false
 
 - For DC/OS to install and function as intended, these ports must be accessible upon initial installation.
 - The ports must be open between the indicated source and destination nodes, including over cluster zones.
-- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [securing your cluster](/1.10/administering-clusters/securing-your-cluster/#security-zones). Use these mechanisms to:
+- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [securing your cluster](/1.10/administering-clusters/securing-your-cluster/). Use these mechanisms to:
 	- block connection requests on all ports from external machines to master nodes except TCP ports 80 and 443.
 	- block connection requests on all ports from external machines to private agent nodes.
 	- block connection requests on all ports from external machines to public agent ports except [advertised port ranges](#agent).
