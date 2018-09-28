@@ -11,14 +11,7 @@ This section describes each pre-configured port in your DC/OS deployment.
 
 - For DC/OS to install and function as intended, these ports must be accessible upon initial installation.
 - The ports must be open between the indicated source and destination nodes, including over cluster zones.
-- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [securing your cluster](/1.11/administering-clusters/securing-your-cluster/). Use these mechanisms to:
-	- block connection requests on all ports from external machines to master nodes except TCP ports 80 and 443.
-	- block connection requests on all ports from external machines to private agent nodes.
-	- block connection requests on all ports from external machines to public agent ports except [advertised port ranges](#agent).
-
-You may want to open port 22 to external machines to allow administrative tasks using Secure Shell (`ssh`).
-Although DC/OS components do not currently support private network selection, you can configure
-`ssh` to be accessible to a private management network using the [`ListenAddress`](https://man.openbsd.org/sshd_config#ListenAddress) directive.
+- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [network security](/1.11/administering-clusters/securing-your-cluster/#network-security).
 
 DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
