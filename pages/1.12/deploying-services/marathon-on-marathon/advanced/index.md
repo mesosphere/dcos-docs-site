@@ -206,8 +206,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
             "secret":"service-credential"
          },
          "MESOS_AUTHENTICATEE":"com_mesosphere_dcos_ClassicRPCAuthenticatee",
-         "MESOS_MODULES":"file:///opt/mesosphere/etc/mesos-scheduler-modules/dcos_authenticatee_module.json",
-         "MESOS_NATIVE_JAVA_LIBRARY":"/opt/mesosphere/lib/libmesos.so",
+         "MESOS_MODULES":"{\"libraries\":[{\"file\":\"/opt/libmesos-bundle/lib/libdcos_security.so\",\"modules\":[{\"name\":\"com_mesosphere_dcos_ClassicRPCAuthenticatee\"}]}]}",
          "MESOS_VERBOSE":"true",
          "GLOG_v":"2",
          "PLUGIN_ACS_URL":"http://master.mesos",
