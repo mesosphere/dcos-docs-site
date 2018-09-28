@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This document is intended for a developer creating new DC/OS CLI commands.
+This page is intended for a developer creating new DC/OS CLI commands.
 
 See also the [Universe Getting Started][1].
 

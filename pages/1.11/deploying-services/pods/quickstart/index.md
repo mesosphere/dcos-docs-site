@@ -3,15 +3,13 @@ layout: layout.pug
 navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
-excerpt:
+excerpt: Launching a pod from the CLI or web interface
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 ### Prerequisites
-- DC/OS [installed](/1.11/installing/oss/)
+- DC/OS [installed](/1.11/installing/)
 - DC/OS CLI [installed](/1.11/cli/install/)
 
 # Launching a pod from the DC/OS CLI
@@ -47,7 +45,7 @@ enterprise: false
     dcos marathon pod show simplepod
     ```
 
-# Launching a pod from the DC/OS UI
+# Launching a pod from the DC/OS web interface
 
 You can also launch a pod from the [**Services**](/1.11/gui/) tab of the DC/OS web interface. Select **Services -> Services -> RUN A SERVICE -> Multi-container (Pod)**, then toggle to JSON mode and paste in the application definition supplied above.
 
@@ -56,3 +54,5 @@ If you already have other services running, go to **Services -> Services**, then
 After you launch your pod, you’ll see your new pod on the **Services** tab of the DC/OS web interface. Click the pod to see information about the status of the containers in your pod.
 
 ![Pods UI](/1.11/img/pods-service-dashboard.png)
+
+Figure 1. Services > Pods

@@ -1,5 +1,6 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>dcos-docs-site</ShortName>
+<<<<<<< HEAD
   <Description>description</Description>
 
   <Url type="text/html" method="get" template="https://docs.mesosphere.com?={searchTerms}"/>
@@ -10,4 +11,14 @@
   <InputEncoding>UTF-8</InputEncoding>
   <Image height="32" width="32" type="image/png">linkToImage</Image>
 
+=======
+  <Description>Search docs site</Description>
+  <Url type="text/html" template="https://docs.mesosphere.com/search/?s={searchTerms}" method="GET"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.mesosphere.com/assets/opensearch.xml"/>
+  <LongName>DC/OS Docs Site</LongName>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image height="32" width="32" type="image/png">https://docs.mesosphere.com/assets/favicon.ico</Image>
+  <moz:SearchForm>https://docs.mesosphere.com</moz:SearchForm>
+>>>>>>> staging
 </OpenSearchDescription>

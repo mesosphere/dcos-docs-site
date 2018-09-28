@@ -1,8 +1,8 @@
 ---
-layout: layout.pug
-title: Index
+layout: 404.pug
+title: Page not found
 navigationTitle: 404
 menuWeight: -1
 ---
 
-<h2>404</h2>
+We couldn't find the page you're looking for.

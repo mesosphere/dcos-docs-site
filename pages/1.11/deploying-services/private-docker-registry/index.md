@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Using a Private Docker Registry
 title: Using a Private Docker Registry
 menuWeight: 4
-excerpt:
+excerpt: Creating an archive for a private Docker registry
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In DC/OS Enterprise, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
@@ -21,10 +19,10 @@ To supply credentials to pull from a private Docker registry, create an archive 
 1. Log in to the private registry manually. Login creates a `.docker` folder and a `.docker/config.json` file in your home directory.
 
     ```bash
-      docker login some.docker.host.com
-      Username: foo
-      Password:
-      Email: foo@bar.com
+    docker login some.docker.host.com
+    Username: foo
+    Password:
+    Email: foo@bar.com
     ```
 
 1. Compress the `.docker` folder and its contents.
@@ -48,7 +46,12 @@ To supply credentials to pull from a private Docker registry, create an archive 
     cp docker.tar.gz /etc/
     ```
 
-    **Important:** The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like [Amazon S3](http://aws.amazon.com/s3/). Consider the security implications of your chosen approach carefully.
+
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</td> 
+</tr> 
+</table>
 
 ## Step 2: Add URI path to service definition
 
@@ -146,7 +149,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
 1. Add a location for the secret in the `secrets` parameter and a reference to the secret in the `docker.pullConfig` parameter.
 
-   **Note:** This functionality is _only_ supported with the Universal Container Runtime: `container.type` must be `MESOS`.
+   **Note:** This functionality is **only** supported with the Universal Container Runtime: `container.type` must be `MESOS`.
 
    ```json
    {

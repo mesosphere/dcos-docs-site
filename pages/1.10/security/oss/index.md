@@ -5,6 +5,9 @@ title: DC/OS Open Source Security
 menuWeight: 80
 oss: true
 ---
+
+Ensure the network is setup according to the information for [securing your cluster](/1.10/administering-clusters/securing-your-cluster/).
+
 You can enable authentication in your datacenter with DC/OS [oauth](https://github.com/dcos/dcos-oauth). Authentication is managed through the DC/OS web interface. The Admin Router enforces access control.
 
 Out of the box DC/OS has an OpenID Connect 1.0 endpoint at [dcos.auth0.com](https://dcos.auth0.com/.well-known/openid-configuration) (in cooperation with [Auth0](https://auth0.com/)) with connections to Google, GitHub, and Microsoft to provide basic authentication for DC/OS installations. DC/OS automatically adds the first user that logs in to the DC/OS cluster.

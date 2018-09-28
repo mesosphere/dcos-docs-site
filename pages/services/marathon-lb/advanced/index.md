@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Marathon-LB Reference
 title: Marathon-LB Reference
-menuWeight: 300
+menuWeight: 4
 excerpt:
 
 enterprise: false
@@ -31,16 +31,20 @@ Marathon-LB has a templating feature for specifying custom HAProxy configuration
 
 ### Global Template
 
+**Note:** The HAPROXY_HEAD section of the template changed in Marathon-LB version 1.12: `daemon` was removed and `stats socket /var/run/haproxy/socket expose-fd listeners` was added to the global section. Ensure that these changes have been made to your custom HAPROXY_HEAD before upgrading to version 1.12.
+
 To specify a global template:
 
 1.  On your local machine, create a file called `HAPROXY_HEAD` in a directory called `templates` with the contents below:
 
         global
-          daemon
           log /dev/log local0
           log /dev/log local1 notice
           maxconn 4096
           tune.ssl.default-dh-param 2048
+          stats socket /var/run/haproxy/socket expose-fd listeners
+          server-state-file global
+          server-state-base /var/state/haproxy/
         defaults
           log global
           retries 3
@@ -53,11 +57,16 @@ To specify a global template:
           bind 0.0.0.0:9090
           balance mode http
           stats enable monitor-uri /_haproxy_health_check
-    In the code above, the following items have changed from the default: `maxconn`, `timeout client`, and `timeout server`.
 
-2.  Tar or zip the file. [Here’s a handy script you can use to do this][1].
+In the code above, the following items have changed from the default: `maxconn`, `timeout client`, and `timeout server`.
 
-    Take the file you created (`templates.tgz` if you use the script), and make it available from an HTTP server. If you’d like to use the sample one, use this URI: <https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz>
+**Note:** The current full default HAPROXY_HEAD can be found here:  
+
+[https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head](https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head).
+
+2.  Tar or zip the file. [Here is a handy script you can use to do this][1].
+
+Take the file you created (`templates.tgz` if you use the script), and make it available from an HTTP server. If you would like to use the sample one, use this URI: <https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz>
 
 3.  Augment the Marathon-LB config by saving the following JSON in a file called `options.json`:
 
@@ -71,9 +80,9 @@ To specify a global template:
 
         dcos package install --options=options.json marathon-lb
 
-    Your customized Marathon-LB HAProxy instance will now be running with the new template. [A full list of the templates available can be found here][2].
+Your customized Marathon-LB HAProxy instance will now be running with the new template. [A full list of the templates available can be found here][2].
 
-### Per-app Templates
+### Per-app templates
 
 To create a template for an individual app, modify the application definition. In the example below, the default template for the external NGINX application definition (`nginx-external.json`) has been modified to *disable* HTTP keep-alive. While this is an artificial example, there may be cases where you need to override certain defaults per-application.
 
@@ -145,6 +154,8 @@ For a given app, we can measure its performance in terms of requests per second 
 
 ![image04](/1.10/img/image04.png)
 
+Figure 1. Autoscaling Marathon-LB
+
 The script takes the current RPS (requests per second) and divides that number by the target RPS per app instance. The result of this fraction is the number of app instances required (or rather, the ceiling of that fraction is the instances required).
 
 ![image00](/1.10/img/image00.png)
@@ -155,11 +166,11 @@ To demonstrate autoscaling, we’re going to use 3 separate Marathon apps:
 *   **nginx** - our demo app
 *   **siege** - a tool for generating HTTP requests
 
-1.  Begin by running marathon-lb-autoscale. The JSON app definition [can be found here][7]. Save the file and launch it on Marathon:
+1.  Begin by running `marathon-lb-autoscale`. The JSON app definition [can be found here][7]. Save the file and launch it on Marathon:
 
         dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/2ca7e10b985b2ce9f8ee/raw/66cbcbe171afc95f8ef49b70034f2842bfdb0aca/marathon-lb-autoscale.json
 
-    The JSON app definition passes 2 important arguments to the tool: `--target-rps` tells marathon-lb-autoscale identifies the target RPS and `--apps` is a comma-separated list of the Marathon apps and service ports to monitor, concatenated with `_`. Each app could expose multiple service ports to the load balancer if configured to do so, and marathon-lb-autoscale will scale the app to meet the greatest common denominator for the number of required instances.
+    The JSON app definition passes 2 important arguments to the tool: `--target-rps` tells marathon-lb-autoscale identifies the target RPS and `--apps` is a comma-separated list of the Marathon apps and service ports to monitor, concatenated with `_`. Each app could expose multiple service ports to the load balancer if configured to do so, and `marathon-lb-autoscale` will scale the app to meet the greatest common denominator for the number of required instances.
 
         "args":[
           "--marathon", "http://leader.mesos:8080",
@@ -168,13 +179,13 @@ To demonstrate autoscaling, we’re going to use 3 separate Marathon apps:
           "--apps", "nginx_10000"
         ],
 
-    **Note: If you’re not already running an external Marathon-LB instance, launch it with `dcos package install Marathon-LB`.**
+    **Note:** If you’re not already running an external Marathon-LB instance, launch it with `dcos package install Marathon-LB`.
 
 2.  Launch your NGINX test instance. The JSON app definition [can be found here][8]. Save the file, and launch with:
 
         dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/84d0ab8ac057aaacba05/raw/d028fa9477d30b723b140065748e43f8fd974a84/nginx.json
 
-3.  Launch siege, a tool for generating HTTP request traffic. The JSON app definition [can be found here][9]. Save the file, and launch with:
+3.  Launch `siege`, a tool for generating HTTP request traffic. The JSON app definition [can be found here][9]. Save the file, and launch with:
 
         dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/fe3fb0c13c19a96c362e/raw/32280a39e1a8a6fe2286d746b0c07329fedcb722/siege.json
 
@@ -182,15 +193,17 @@ To demonstrate autoscaling, we’re going to use 3 separate Marathon apps:
 
     ![image02](/1.10/img/image02-800x508.png)
 
+    Figure 2. HAProxy status page
+
     Under the “Session rate” section, you can see there are currently about 54 requests per second on the NGINX fronted.
 
-4.  Scale the siege app so that we generate a large number of HTTP requests:
+4.  Scale the `siege` app so that we generate a large number of HTTP requests:
 
         dcos marathon app update /siege instances=15
 
     After a few minutes you will see that the NGINX app has been automatically scaled up to serve the increased traffic.
 
-5.  Experiment with the parameters for marathon-lb-autoscale (which are [documented here][14]). Try changing the interval, number of samples, and other values until you achieve the desired effect. The default values are fairly conservative, which may or may not meet your expectations. It’s suggested that you include a 50 percent safety factor in the target RPS. For example, if you measure your application as being able to meet SLAs at 1500 RPS with 1 CPU and 1GiB of memory, you may want to set the target RPS to 1000.
+5.  Experiment with the parameters for `marathon-lb-autoscale` (which are [documented here][14]). Try changing the interval, number of samples, and other values until you achieve the desired effect. The default values are fairly conservative, which may or may not meet your expectations. We suggest that you include a 50 percent safety factor in the target RPS. For example, if you measure your application as being able to meet SLAs at 1500 RPS with 1 CPU and 1GiB of memory, you may want to set the target RPS to 1000.
 
  [1]: https://gist.github.com/brndnmtthws/c5c613d9e90d2df771f9
  [2]: https://github.com/mesosphere/marathon-lb#templates

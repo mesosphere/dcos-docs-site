@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon app list
 title: dcos marathon app list
 menuWeight: 3
-excerpt:
+excerpt: Viewing all installed applications
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-List the installed applications.
+The `dcos marathon app list` will display a list of the installed applications.
 
 # Usage
 
@@ -22,9 +20,9 @@ dcos marathon app list [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |   Displays JSON-formatted data. |
 
 # Parent command
 
@@ -32,4 +30,4 @@ dcos marathon app list [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->
+

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Edge-LB Release Notes
 title: Edge-LB Release Notes
 menuWeight: 0
-excerpt:
+excerpt: Release notes for Edge-LB 0.1
 
 enterprise: false
 ---

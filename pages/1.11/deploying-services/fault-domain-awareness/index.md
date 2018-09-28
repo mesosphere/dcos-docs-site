@@ -1,82 +1,73 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Fault Domain Awareness and Capacity
-  Extension
+navigationTitle: Fault Domain Awareness and Capacity Extension
+title: Fault Domain Awareness and Capacity Extension
 menuWeight: 3
-excerpt:
+excerpt: Understanding fault domains
 
 enterprise: false
 ---
 
-# Overview
 
 A fault domain is a section of a network, for example, a rack in a datacenter or an entire datacenter, that is vulnerable to damage if a critical device or system fails. All instances within a fault domain share similar failure and latency characteristics. Instances in the same fault domain are all affected by failure events within the domain. Placing instances in more than one fault domain reduces the risk that a failure will affect all instances.
 
-DC/OS now supports fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
-
-DC/OS currently supports Mesos' 2-level hierarchical fault domains: zone and region.
-
+DC/OS now supports fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. DC/OS currently supports Mesos' 2-level hierarchical fault domains: zone and region.
 
 # Zone fault domains
-Zone fault domains offer a moderate degree of fault isolation because they share the same region. However, network latency between zones in the same region is moderately low (typically < 10ms).
-
-For on-premise deployments, a zone would be a physical data center rack.
-
-For public cloud deployments, a zone would be the "availability zone" concept provided by most cloud providers.
-
-If your goal is high availability, and/or your services are latency-sensitive, place your instances in a one region and balance them across zones.
+Zone fault domains offer a moderate degree of fault isolation because they share the same region. However, network latency between zones in the same region is moderately low (typically < 10ms). For on-premise deployments, a zone would be a physical data center rack. For public cloud deployments, a zone would be the "availability zone" concept provided by most cloud providers. If your goal is high availability, and/or your services are latency-sensitive, place your instances in a one region and balance them across zones.
 
 # Region fault domains
 
-Region fault domains offer the most fault isolation, though inter-region network latency is high.
-
-For on-premise deployments, a region might be a data center.
-
-For public cloud deployments, most cloud providers expose a "region" concept.
-
-You can deploy your instances in a specific region region based on the available capacity. <!-- can you say more about what you mean here? -->
+Region fault domains offer the most fault isolation, though inter-region network latency is high. For on-premise deployments, a region might be a data center. For public cloud deployments, most cloud providers expose a "region" concept. You can deploy your instances in a specific region based on the available capacity. 
 
 ## Local and remote regions
 
 - The **local region** is the region running the Mesos master nodes.
 - A **remote region** contains only Mesos agent nodes. There is usually high latency between a remote region and the local region.
 
-<!-- could use a diagram -->
-
 # Installation
 
-## Considerations
+Consider the future needs of the services in your cluster. You must define regions and zones at install time, though you can add or remove nodes from regions and zones after installation. If you need to update fault domain detect script, you must re-install DC/OS. 
 
-- Consider the future needs of the services in your cluster. You must define regions and zones at install time, though you can add or remove nodes from regions and zones after installation. If you need to update fault domain detect script, you must re-install DC/OS.
+Mesos master nodes must be in the same region because otherwise the latency between them will be too high. They should, however, be spread across zones for fault tolerance.
 
-- Mesos master nodes must be in the same region because otherwise the latency between them will be too high. They should, however, be spread across zones for fault tolerance.
-
-- You must have less than 100ms latency between regions.
+You must have less than 100ms latency between regions.
 
 ## Installation steps
 
 1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
-   We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>` We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+We recommend the format for the script output be:
 
-   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
+```json
+  {
+    "fault_domain": {
+      "region": {
+        "name": <region>,
+        "zone": <zone>
+      }
+    }
+  }
+```
 
-1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/ent/custom/advanced/#create-a-fault-domain-detection-script).
+We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
-1. [Install DC/OS](/1.11/installing/ent/custom/advanced/).
+<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
+
+2. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
+
+1. [Install DC/OS](/1.11/installing/production/deploying-dcos/installation/).
 
 1. Test your installation.
 
    From the DC/OS CLI, enter `dcos node`. You should see output similar to the following, where the region and zone of each node is listed:
 
    ```bash
-   HOSTNAME        IP                         ID                    TYPE               REGION      ZONE     
-  	10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a  
-  	10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b  
-	master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A     
-	master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b      
+   HOSTNAME        IP                         ID                    TYPE               REGION      ZONE
+  	10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a
+  	10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b
+	master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A
+	master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b
 	master.mesos.  10.0.7.111    a2ea1578-22ee-430e-aeb8-82ee1b74d88a   master (leader)  us-east-1  us-east-1c
 	```
 

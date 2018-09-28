@@ -3,15 +3,15 @@ layout: layout.pug
 navigationTitle:  Deploying a Local Universe
 title: Deploying a Local Universe
 menuWeight: 1000
-excerpt:
+excerpt: Installing and running DC/OS services on a local Universe datacenter
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+
+You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe).
 
 
-
-You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe). You can deploy a local Universe that includes all Certified packages (easiest), or a local Universe that includes selected packages (advanced).
+You can deploy a local Universe that includes all Certified packages (easiest), or a local Universe that includes selected packages (advanced).
 
 **Prerequisites:**
 
@@ -198,6 +198,8 @@ You can install and run DC/OS services on a datacenter without internet access w
     ```bash
     dcos package repo add local-universe http://master.mesos:8082/repo
     ```
+    **NOTE:** If you need help resolving `master.mesos`, refer to [Installing your own set of Universe packages](https://docs.mesosphere.com/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages).
+
 
 1.  [SSH into one of your agent nodes.](/1.11/administering-clusters/sshcluster/)
 
@@ -233,8 +235,6 @@ You can install and run DC/OS services on a datacenter without internet access w
 1.  Close the SSH session by typing `exit` or open a new terminal prompt. Repeat steps 28-30 on each agent node.
 
 1.  To verify your success, log into the DC/OS web interface and click the **Catalog** tab. You should see a list of Certified packages. Install one of the packages.
-
-
 
 ### FAQ
 
@@ -280,10 +280,6 @@ interface.
     sudo make DCOS_VERSION=1.10 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
     ```
 
-4.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages][5], except step 27. Replace the command in step 27 with the following.
-
-    ```bash
-    dcos package repo add local-universe http://master.mesos:8082/repo
-    ```
+4.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages][5].
 
  [5]: #certified

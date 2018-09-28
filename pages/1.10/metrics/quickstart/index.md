@@ -4,7 +4,6 @@ navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
 excerpt:
-preview: true
 ---
 
 
@@ -13,7 +12,6 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
 **Prerequisites:** 
 
 - You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
-- Optional: the CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
   
 1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 
@@ -22,7 +20,7 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         ```json
         {
           "id": "/test-metrics",
-          "cmd": "while true;do echo stdout;echo stderr >&2;sleep 1;done",
+          "cmd": "/opt/mesosphere/bin/statsd-emitter",
           "cpus": 0.001,
           "instances": 1,
           "mem": 128
@@ -35,25 +33,7 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         dcos marathon app add test-metrics.json
         ```
 
-1.  Obtain your DC/OS authentication token and copy for later use:
-
-    ```bash
-    dcos config show core.dcos_acs_token
-    ```
-    
-    The output should resemble:
-    
-    ```bash
-    eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIi...
-    ```
-
-1.  [SSH to the agent node](/1.10/administering-clusters/sshcluster/) that is running your app, where (`--mesos-id=<mesos-id>`) is the Mesos ID of the node running your app.
-
-    ```
-    dcos node ssh --master-proxy --mesos-id=<mesos-id>
-    ```
-    
-    **Tip:** To get the Mesos ID of the node that is running your app, run `dcos task` followed by `dcos node`. For example:
+1.   To get the Mesos ID of the node that is running your app, run `dcos task` followed by `dcos node`. For example:
     
     1.  Running `dcos task` shows that host `10.0.0.193` is running the Marathon task `test-metrics.93fffc0c-fddf-11e6-9080-f60c51db292b`.
     
@@ -73,170 +53,134 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
 
 1.  View metrics. 
 
-    -   **Metrics for all containers running on a host**
-
-        To show all containers that are deployed on the agent node, run this command from your agent node with your authentication token (`<auth-token>`) specified. 
+    -   **<a name="container-metrics"></a>Container metrics for a specific task**
         
-        ```bash
-        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
-        ```
-    
-        The output should resemble this:
-        
-        ```json
-        ["121f82df-b0a0-424c-aa4b-81626fb2e369","87b10e5e-6d2e-499e-ae30-1692980e669a"]
-        ```
-
-    -   **<a name="container-metrics"></a>Metrics for a specific container**
-        
-        To view the metrics for a specific container, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified. 
+        For an overview of the resource consumption for a specific container, run this command:
     
         ```bash
-        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers/<container-id>/app | jq
+        dcos task metrics summary <task-id>
         ```
 
         The output should resemble:
         
-        ```json
-        {
-          "datapoints": [
-            {
-              "name": "dcos.metrics.module.container_received_bytes_per_sec",
-              "value": 0,
-              "unit": "",
-              "timestamp": "2016-12-15T18:12:24Z"
-            },
-            {
-              "name": "dcos.metrics.module.container_throttled_bytes_per_sec",
-              "value": 0,
-              "unit": "",
-              "timestamp": "2016-12-15T18:12:24Z"
-            }
-          ],
-          "dimensions": {
-            "mesos_id": "",
-            "container_id": "d41ae47f-c190-4072-abe7-24d3468d40f6",
-            "executor_id": "test-metrics.e3a1fe9e-c2f1-11e6-b94b-2e2d1faf2a70",
-            "framework_id": "fd39fe4f-930a-4b89-bb3b-a392e518c9a5-0001",
-            "hostname": ""
-          }
-        }
+        ```bash
+        CPU           MEM              DISK
+        0.17 (1.35%)  0.01GiB (6.46%)  0.00GiB (0.00%)
         ```
     
-    -   **<a name="container-metrics"></a>Metrics from container-level cgroup allocations**
+    -   **<a name="task-metrics"></a>All metrics for a specific task**
  
-        To view cgroup allocations, run this command from your agent node with your authentication token (`<auth-token>`) and container ID (`<container-id>`) specified.
+        To get a detailed list of all metrics related to a task, run this command:
       
         ```bash
-        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/containers/<container-id> | jq
+        dcos task metrics details <task-id>
         ```
+        The output is a combination of container resource utilization and metrics transmitted by the workload. For example:
     
-        The output will contain a `datapoints` array that contains information about container resource allocation and utilization provided by Mesos. For example:
-    
-        ```json
-        {
-          "datapoints": [
-            {
-              "name": "cpus_system_time_secs",
-              "value": 0.68,
-              "unit": "",
-              "timestamp": "2016-12-13T23:15:19Z"
-            },
-            {
-              "name": "cpus_limit",
-              "value": 1.1,
-              "unit": "",
-              "timestamp": "2016-12-13T23:15:19Z"
-            },
-            {
-              "name": "cpus_throttled_time_secs",
-              "value": 23.12437475,
-              "unit": "",
-              "timestamp": "2016-12-13T23:15:19Z"
-            },
-            {
-              "name": "mem_total_bytes",
-              "value": 327262208,
-              "unit": "",
-              "timestamp": "2016-12-13T23:15:19Z"
-            },
-        ```
-    
-        The output will also contain an object named `dimensions` that contains metadata about the `cluster/node/app`.
-            
-        ```json
-        ...
-        "dimensions": {
-            "mesos_id": "a29070cd-2583-4c1a-969a-3e07d77ee665-S0",
-            "container_id": "6972ad7c-1701-4970-ae14-4372f76eda37",
-            "executor_id": "confluent-kafka.7aff271b-c182-11e6-a88f-22e5385a5fd7",
-            "framework_name": "marathon",
-            "framework_id": "a29070cd-2583-4c1a-969a-3e07d77ee665-0001",
-            "framework_role": "slave_public",
-            "hostname": "",
-            "labels": {
-              "DCOS_MIGRATION_API_PATH": "/v1/plan",
-              "DCOS_MIGRATION_API_VERSION": "v1",
-              "DCOS_PACKAGE_COMMAND": "eyJwaXAiOlsiaHR0cHM6Ly9kb3dubG9hZHMubWVzb3NwaGVyZS5jb20va2Fma2EvYX...
-              "DCOS_PACKAGE_FRAMEWORK_NAME": "confluent-kafka",
-              "DCOS_PACKAGE_IS_FRAMEWORK": "true",
-              "DCOS_PACKAGE_METADATA": "eyJwYWNrYWdpbmdWZXJzaW9uIjoiMy4wIi...
-              "DCOS_PACKAGE_NAME": "confluent-kafka",
-              "DCOS_PACKAGE_REGISTRY_VERSION": "3.0",
-              "DCOS_PACKAGE_RELEASE": "10",
-              "DCOS_PACKAGE_SOURCE": "https://universe.mesosphere.com/repo",
-              "DCOS_PACKAGE_VERSION": "1.1.16-3.1.1",
-              "DCOS_SERVICE_NAME": "confluent-kafka",
-              "DCOS_SERVICE_PORT_INDEX": "1",
-              "DCOS_SERVICE_SCHEME": "http",
-              "MARATHON_SINGLE_INSTANCE_APP": "true"
-            }
-          }
-        }       
-        ...
+        ```bash
+        NAME                                                   VALUE
+        cpus.limit                                             0.10
+        cpus.system.time                                       0.07
+        cpus.throttled.time                                    34.75
+        cpus.user.time                                         0.18
+        disk.limit                                             0.00GiB
+        disk.used                                              0.00GiB
+        mem.limit                                              0.16GiB
+        mem.rss                                                0.01GiB
+        mem.swap                                               0.00GiB
+        mem.total                                              0.01GiB
+        statsd_tester.time.uptime                              4469331
         ```
 
+        The CPU, disk, and memory statistics come from container data supplied by Mesos. The statsd_tester.time.uptime
+        statistic comes from the application itself. 
+   
     -   **<a name="host-metrics"></a>Host level metrics**
 
-        To view host-level metrics, run this command from your agent node with your authentication token (`<auth-token>`) specified:
+        As with task data, host-level metrics are available as a summary or a detailed table. To view host-level
+        metrics, run this command:
 
         ```bash
-        curl -H "Authorization: token=<auth-token>" http://localhost:61001/system/v1/metrics/v0/node | jq
+        dcos node metrics details <mesos-id>
         ```
         
-        The output will contain a `datapoints` array about resource allocation and utilization. For example:
+        The output will contain statistics about the available resources on the node and their utilization. For example:
         
-        ```json
-        ...
-        "datapoints": [
-            {
-              "name": "uptime",
-              "value": 23631,
-              "unit": "",
-              "timestamp": "2016-12-14T01:00:19Z"
-            },
-            {
-              "name": "processes",
-              "value": 209,
-              "unit": "",
-              "timestamp": "2016-12-14T01:00:19Z"
-            },
-            {
-              "name": "cpu.cores",
-              "value": 4,
-              "unit": "",
-              "timestamp": "2016-12-14T01:00:19Z"
-            }
-        ...    
+        ```bash
+        NAME                       VALUE      TAGS
+        cpu.cores                  4
+        cpu.idle                   99.56%
+        cpu.system                 0.09%
+        cpu.total                  0.34%
+        cpu.user                   0.25%
+        cpu.wait                   0.01%
+        filesystem.capacity.free   134.75GiB  path: /
+        filesystem.capacity.total  143.02GiB  path: /
+        filesystem.capacity.used   2.33GiB    path: /
+        filesystem.inode.free      38425263   path: /
+        filesystem.inode.total     38504832   path: /
+        filesystem.inode.used      79569      path: /
+        load.15min                 0
+        load.1min                  0
+        load.5min                  0
+        memory.buffers             0.08GiB
+        memory.cached              2.41GiB
+        memory.free                12.63GiB
+        memory.total               15.67GiB
+        process.count              175
+        swap.free                  0.00GiB
+        swap.total                 0.00GiB
+        swap.used                  0.00GiB
+        system.uptime              28627
         ```
-        
-        The output will contain an object named `dimensions` that contains metadata about the cluster and node. For example:
-        
+
+    -   **<a name="script-metrics"></a>Programmatic use of metrics**
+
+        All dcos-cli metrics commands may be run with the `--json` for use in scripts. For example:
+
+        ```bash
+        dcos node metrics summary <mesos-id> --json
+        ```
+
+        The output will show all the same data, but in JSON format, for convenient parsing:
+
         ```json
-        ...
-        "dimensions": {
-            "mesos_id": "a29070cd-2583-4c1a-969a-3e07d77ee665-S0",
-            "hostname": "10.0.2.255"
+        [
+          {
+            "name": "cpu.total",
+            "timestamp": "2018-04-09T23:46:16.834008315Z",
+            "value": 0.32,
+            "unit": "percent"
+          },
+          {
+            "name": "memory.total",
+            "timestamp": "2018-04-09T23:46:16.834650407Z",
+            "value": 16830304256,
+            "unit": "bytes"
+          },
+          {
+            "name": "memory.free",
+            "timestamp": "2018-04-09T23:46:16.834650407Z",
+            "value": 13553008640,
+            "unit": "bytes"
+          },
+          {
+            "name": "filesystem.capacity.total",
+            "timestamp": "2018-04-09T23:46:16.834373702Z",
+            "value": 153567944704,
+            "tags": {
+              "path": "/"
+            },
+            "unit": "bytes"
+          },
+          {
+            "name": "filesystem.capacity.used",
+            "timestamp": "2018-04-09T23:46:16.834373702Z",
+            "value": 2498990080,
+            "tags": {
+              "path": "/"
+            },
+            "unit": "bytes"
           }
-        ...  
+        ]
         ```

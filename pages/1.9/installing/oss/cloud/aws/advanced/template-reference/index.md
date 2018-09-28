@@ -11,7 +11,7 @@ menuWeight: 200
 
 These advanced template parameters are specified in the individual JSON files. During DC/OS installation these template files are used to generate a customized DC/OS build.
 
-#### [Zen](#zen) template
+#### Zen template
 The [Zen](/1.9/installing/oss/cloud/aws/advanced/template-reference/#zen) templates orchestrate the individual component templates to create a DC/OS cluster.
 
 #### Agent template

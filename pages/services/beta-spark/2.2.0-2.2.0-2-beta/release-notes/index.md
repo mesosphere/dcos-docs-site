@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Release Notes
 menuWeight: 140
 excerpt:
@@ -57,12 +57,12 @@ dispatcher use `dcos spark --name <dispatcher_app_id>`.
 ### Improvements
 * Upgrade to Spark 2.2.0
 * Spark driver now supports configurable failover_timeout. The default value is 0 when the configuration is not set.
-[SPARK-21456](https://issues.apache.org/jira/browse/SPARK-21456). 
+[SPARK-21456](https://issues.apache.org/jira/browse/SPARK-21456).
 
 ### Breaking change
 
 *  Spark CLI no longer supports -Dspark args.
 
-## Version 1.0.9-2.1.0-1 
+## Version 1.0.9-2.1.0-1
 
 - The history server has been removed from the "spark" package, and put into a dedicated "spark-history" package.

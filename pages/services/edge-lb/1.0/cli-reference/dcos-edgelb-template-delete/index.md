@@ -2,14 +2,16 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb template delete
 title: dcos edgelb template delete
-menuWeight: 130
-excerpt:
+menuWeight: 50
+excerpt: Revert a custom config template to defaults
 
 enterprise: false
 ---
 
 # Description
-Reverts a custom config template to the default value.
+The `dcos edgelb template delete` command reverts a custom config template to the default value.
+
+The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
 # Usage
 
@@ -21,7 +23,7 @@ dcos edgelb template delete <pool-name>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |

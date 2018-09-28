@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos task
 title: dcos task
 menuWeight: 16
-excerpt:
+excerpt: Managing DC/OS tasks
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
@@ -28,7 +26,7 @@ dcos task [OPTION]
 | `--help, h`   |             |  Print usage. |
 | `--info`   |             |  Print a short description of this subcommand. |
 | `--json`   |             |  JSON-formatted data. |
-| `--version, v`   |             | Print version information. | 
+| `--version, v`   |             | Print version information. |
 
 # Positional arguments
 
@@ -83,9 +81,3 @@ Positional Arguments:
         A full task ID, a partial task ID, or a regular expression.
 ```
 
-# Child commands
-
-| Command | Description |
-|---------|-------------|
-| [dcos task log](/1.11/cli/command-reference/dcos-task/dcos-task-log/)   | Print the task log. | 
-| [dcos task ls](/1.11/cli/command-reference/dcos-task/dcos-task-ls/)   | Print the list of files in the Mesos task sandbox. | 

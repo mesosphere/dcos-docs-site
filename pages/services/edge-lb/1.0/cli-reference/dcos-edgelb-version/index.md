@@ -2,14 +2,14 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb version
 title: dcos edgelb version
-menuWeight: 10
-excerpt:
+menuWeight: 70
+excerpt: Display the current Edge-LB version
 
 enterprise: false
 ---
 
 # Description
-Edge-LB version.
+The `dcos edgelb version` command displays the current Edge-LB version.
 
 # Usage
 
@@ -21,7 +21,7 @@ dcos edgelb [<flags>] version
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |

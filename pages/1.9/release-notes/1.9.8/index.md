@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.8
 title: Release Notes for 1.9.8
-menuWeight: 0
+menuWeight: 10
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.9.8.
+DC/OS 1.9.8 was released on March 28, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]

@@ -8,22 +8,16 @@ model: /services/elastic/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
 ## Configuration via elasticsearch.yml and/or Elastic APIs
 
 Elasticsearch provides two ways of updating settings: persistent (through `elasticsearch.yml` file) and transient (through Elastic Settings Update API). The service's Configuration Options are carried over to the tasks' elasticsearch.yml file automatically. Out-of-band configuration changes (either via Elasticsearch's Update API or externally modifying elasticsearch.yml files) will not persist in case of a restart, failure recovery, or upgrade.
 
 #include /services/include/limitations.tmpl
-
-## Node requirements
-
-The maximum number of deployable nodes is constrained by the DC/OS cluster's resources. Each Elasticsearch node has specified required resources, so nodes may not be placed if the DC/OS cluster lacks the requisite resources.
+#include /services/include/limitations-zones.tmpl
 
 ## Upgrades and configuration updates
 
 Upgrades and rolling configuration updates do not wait for a green status. During deployment and upgrades, the `serial` strategy does not wait for the Elastic service to reach green before proceeding to the next node.
-
 
 ## Security
 

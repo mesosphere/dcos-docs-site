@@ -3,20 +3,17 @@ layout: layout.pug
 navigationTitle:  Permissions Reference
 title: Permissions Reference
 menuWeight: 40
-excerpt:
+excerpt: Understanding DC/OS access and permissions references
 
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can control DC/OS access by resource and operation.
-See [Permissions Management](/1.11/security/ent/perms-management/) for details on how to control permissions.
-
-This topic provides a reference for each of the available DC/OS permissions.
-
+You can control DC/OS access by resource and operation. See [Permissions Management](/1.11/security/ent/perms-management/) for details on how to control permissions. This page provides a reference for each of the available DC/OS permissions.
 
 # Enforcement
 
-The DC/OS permissions are enforced based on your security mode.
+DC/OS permissions are enforced based on your security mode.
 
 | Permission Category                                 | Disabled | Permissive | Strict |
 |-----------------------------------------------------|:--------:|:----------:|:------:|
@@ -29,13 +26,9 @@ The DC/OS permissions are enforced based on your security mode.
 
 # Permissions
 
-The available actions are `create`, `read`, `update`, `delete`, and `full`.
-By convention, `full` indicates that the permission supports all other action identifiers.
-`full` may include actions not supported by any other action identifier.
+The available actions are `create`, `read`, `update`, `delete`, and `full`. By convention, `full` indicates that the permission supports all other action identifiers. The action `full` may include actions not supported by any other action identifier.
 
-Many resource identifiers include optional sections in square brackets that may be filled in to further narrow the granted permission.
-If optional sections are omitted the resource identifier refers to all possible values.
-For example, the resource identifier `dcos:mesos:agent:framework:role` controls view access to DC/OS services registered with any [Mesos role](/1.11/overview/concepts/#mesos-role), whereas the resource identifier `dcos:mesos:agent:framework:role:slave_public` controls view access to DC/OS services registered with the role `slave_public`.
+Many resource identifiers include optional sections in square brackets that may be filled in to further narrow the granted permission. If optional sections are omitted the resource identifier refers to all possible values. For example, the resource identifier `dcos:mesos:agent:framework:role` controls view access to DC/OS services registered with any [Mesos role](/1.11/overview/concepts/#mesos-role), whereas the resource identifier `dcos:mesos:agent:framework:role:slave_public` controls view access to DC/OS services registered with the role `slave_public`.
 
 Most HTTP requests sent to DC/OS components require authentication proof. These
 include operations launched by the DC/OS CLI, the DC/OS UI, the DC/OS API and
@@ -45,21 +38,22 @@ account users and are individually granted necessary permissions when the
 cluster is first installed.
 
 There are several components of DC/OS that perform authorization of requests,
-e.g. Admin Router, Mesos, Marathon, etc. They are called _authorizers_ in this
+for example, Admin Router, Mesos, Marathon, and so forth. They are called **authorizers** in this
 context. All the authorizers follow the DC/OS authorization procedure. A
 high-level description of the DC/OS authorization procedure follows.
 
 When a HTTP request to a protected resource is received by an authorizer, the
 authorizer inspects the `Authorization` HTTP request header to obtain the DC/OS
 authentication token. The DC/OS authentication token is validated and evaluated
-by the authorizer. Once the `uid` is extracted from the DC/OS authentication
-token the authorizer checks that the corresponding DC/OS user has been granted
+by the authorizer. After the `uid` is extracted from the DC/OS authentication
+token, the authorizer checks that the corresponding DC/OS user has been granted
 the necessary privilege to perform the requested operation. For example, the
 DC/OS user identified by `uid` must have `full` access to the protected
 resource `dcos:adminrouter:package` in order to be able to access the DC/OS
 package API through Admin Router.
 
-## <a name="admin-router"></a>Admin Router Permissions
+
+## <a name="admin-router"></a>Admin Router permissions
 
 Most HTTP requests made to a DC/OS cluster pass through Admin Router. For many
 HTTP endpoints Admin Router performs authorization itself. For example, the DC/OS
@@ -67,36 +61,38 @@ user identified by `uid` must have `full` access to the protected resource
 `dcos:adminrouter:package` in order to be able to access the DC/OS package API
 through Admin Router.
 
-|                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
+|                                                                                                                                 Resource identifier                                                                                                                               | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                         | x    |   |   |   |   |
-| `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/1.11/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                               | x    |   |   |   |   |
-| `dcos:adminrouter:ops:ca:rw`<br>Controls user access to all endpoints of the [Certificate Authority API](/1.11/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                                    | x    |   |   |   |   |
-| `dcos:adminrouter:ops:exhibitor`<br> Controls access to the Exhibitor UI and API. This permission allows users to [remove the ZooKeeper state](/1.11/deploying-services/uninstall/#framework-cleaner) after uninstalling a service.                                                | x    |   |   |   |   |
-| `dcos:adminrouter:ops:historyservice`<br>Controls access to the [History Service](/1.11/overview/architecture/components/#dcos-history). This includes access to potentially sensitive data from Mesos such as the names of all frameworks, its used resources, and the number of tasks in each status.                                                                                                                                        | x    |   |   |   |   |
+| `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/1.11/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                           | x    |   |   |   |   |
+| `dcos:adminrouter:ops:ca:rw`<br>Controls user access to all endpoints of the [Certificate Authority API](/1.11/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/1.11/cli/enterprise-cli/).                                | x    |   |   |   |   |
+| `dcos:adminrouter:ops:cockroachdb`<br> Controls access to the [CockroachDB UI](https://www.cockroachlabs.com/docs/v1.1/admin-ui-overview-dashboard.html).                                                                                                                         | x    |   |   |   |   |
+| `dcos:adminrouter:ops:exhibitor`<br> Controls access to the Exhibitor UI and API. This permission allows users to [remove the ZooKeeper state](/1.11/deploying-services/uninstall/#framework-cleaner) after uninstalling a service.                                               | x    |   |   |   |   |
+| `dcos:adminrouter:ops:historyservice`<br>Controls access to the [History Service](/1.11/overview/architecture/components/#dcos-history). This includes access to potentially sensitive data from Mesos, such as the names of all frameworks, its used resources, and the number of tasks in each status.                                                                                                                                                                                                                                                                             | x    |   |   |   |   |
 | `dcos:adminrouter:ops:mesos-dns`<br> Controls access to the [Mesos DNS API](/1.11/networking/mesos-dns/mesos-dns-api/).                                                                                                                                                           | x    |   |   |   |   |
 | `dcos:adminrouter:ops:mesos`<br> Controls access to the Mesos master UI and API.                                                                                                                                                                                                  | x    |   |   |   |   |
-| `dcos:adminrouter:ops:metadata` <br>Controls access to the [Metadata endpoint](/1.11/api/master-routes/#metadata).                                                                                                                                                                 | x    |   |   |   |   |
-| `dcos:adminrouter:ops:networking`<br> Controls access to [Network Metrics](/1.11/api/master-routes/#network-metrics) endpoint.                                                                                                                                                     | x    |   |   |   |   |
-| `dcos:adminrouter:ops:slave`<br>Controls access to the Mesos agent UI and API.                                                                                                                                                                                                    | x    |   |   |   |   |
-| `dcos:adminrouter:ops:system-health` <br>Controls access to the [System health API](/1.11/api/master-routes/#system).                                                                                                                                                              | x    |   |   |   |   |
-| `dcos:adminrouter:ops:system-logs` <br>Controls access to [System logs API](/1.11/api/master-routes/#system).                                                                                                                                                                      | x    |   |   |   |   |
-| `dcos:adminrouter:ops:system-metrics`<br> Controls access to [System metrics API](/1.11/api/master-routes/#system).                                                                                                                                                                | x    |   |   |   |   |
-| `dcos:adminrouter:licensing` <br> Controls access to the Licensing API.                                                                                                                                                                                                            | x    |   |   |   |   |
-| `dcos:adminrouter:package` <br> Controls access to the [Cosmos API](/1.11/api/master-routes/#cosmos), which provides access to the DC/OS Universe.                                                                                                                                 | x    |   |   |   |   |
-| `dcos:adminrouter:service[:<group-name>]/<service-name>`<br> Controls access the UI and API of an installed DC/OS service.                                                                                                                                                                       | x    |   |   |   |   |
+| `dcos:adminrouter:ops:metadata` <br> Controls access to the [Metadata endpoint](/1.11/api/master-routes/#metadata).                                                                                                                                                               | x    |   |   |   |   |
+| `dcos:adminrouter:ops:networking`<br> Controls access to [Network Metrics](/1.11/api/master-routes/#network-metrics) endpoint.                                                                                                                                                    | x    |   |   |   |   |
+| `dcos:adminrouter:ops:slave`<br> Controls access to the Mesos agent UI and API.                                                                                                                                                                                                   | x    |   |   |   |   |
+| `dcos:adminrouter:ops:system-health` <br> Controls access to the [System health API](/1.11/api/master-routes/#system).                                                                                                                                                            | x    |   |   |   |   |
+| `dcos:adminrouter:ops:system-logs` <br> Controls access to [System logs API](/1.11/api/master-routes/#system).                                                                                                                                                                    | x    |   |   |   |   |
+| `dcos:adminrouter:ops:system-metrics`<br> Controls access to [System metrics API](/1.11/api/master-routes/#system).                                                                                                                                                               | x    |   |   |   |   |
+| `dcos:adminrouter:licensing` <br> Controls access to the Licensing API.                                                                                                                                                                                                           | x    |   |   |   |   |
+| `dcos:adminrouter:package` <br> Controls access to the [Cosmos API](/1.11/api/master-routes/#cosmos), which provides access to the DC/OS Universe.                                                                                                                                | x    |   |   |   |   |
+| `dcos:adminrouter:secrets`<br> Controls access to [Secrets](/1.11/security/ent/secrets/) web interface and API.                                                                                                                                                                              | x    |   |   |   |   |
+| `dcos:adminrouter:service[:<group-name>]/<service-name>`<br> Controls access to the web interface and API of an installed DC/OS service.                                                                                                                                                        | x    |   |   |   |   |
 | `dcos:adminrouter:service:marathon` <br>Controls access to the native Marathon instance.                                                                                                                                                                                          | x    |   |   |   |   |
-| `dcos:adminrouter:service:metronome`<br>  Controls access to [DC/OS Jobs (Metronome)](/1.11/deploying-jobs/).                                                                                                                                                                      | x    |   |   |   |   |
+| `dcos:adminrouter:service:metronome`<br>  Controls access to [DC/OS Jobs (Metronome)](/1.11/deploying-jobs/).                                                                                                                                                                     | x    |   |   |   |   |
 
-## <a name="mesos"></a>Mesos Permissions
+## <a name="mesos"></a>Mesos permissions
 
 Many Mesos operations require authorization.
-The necessary privileges must be assigned to the DC/OS user that issues the HTTP request to Mesos.
-This is not always the same DC/OS user that is logged into the UI or CLI.
+The necessary privileges must be assigned to the DC/OS user who issues the HTTP request to Mesos.
+This is not always the same DC/OS user who is logged into the UI or CLI.
 For example, when Alice uses the UI to create a Marathon application, Marathon performs
 authorization of the HTTP request and checks that the `alice` DC/OS user has
 `create` access to the `dcos:service:marathon:marathon:services:/` resource.
-If so, it uses *its own* DC/OS user, a DC/OS service account with a `uid` of `dcos_marathon`, to authenticate an HTTP request to Mesos with instruction to launch the new Mesos tasks.
+If so, it uses **its own** DC/OS user, a DC/OS service account with a `uid` of `dcos_marathon`, to authenticate an HTTP request to Mesos with instruction to launch the new Mesos tasks.
 At that point, Mesos will perform the DC/OS authorization procedure and check that the `dcos_marathon` DC/OS user has been granted the `create` action on the `dcos:mesos:master:task:app_id` resource.
 
 Applications launched with Root Marathon can only receive offers for resources reserved for the `slave_public` or `*` [Mesos roles](/1.11/overview/concepts/#mesos-role).
@@ -130,23 +126,20 @@ Applications launched with Root Marathon can only receive offers for resources r
 | `dcos:mesos:master:volume:role[:<role-name>]`<br> Controls access to create a volume for the given [Mesos role](/1.11/overview/concepts/#mesos-role).                                                                                                                                                                    |      | x |   |   |   |
 | `dcos:mesos:master:weight:role[:<role-name>]`<br> Control access to the [weight](https://mesos.apache.org/documentation/latest/weights/) for the given [Mesos role](/1.11/overview/concepts/#mesos-role).                                                                                                                  |      |   | x | x |   |
 
-## <a name="marathon-metronome"></a>Marathon and Metronome Permissions
+## <a name="marathon-metronome"></a>Marathon and Metronome permissions
 
-Marathon and Metronome require HTTP requests to certain protected resources to
-be authorized. For example, a DC/OS user must be granted the `create` action on
-the `dcos:service:marathon:marathon:services:/dev` resource in order to create
-a new Marathon app in the `/dev` service group.
+Marathon and Metronome require that HTTP requests made to certain protected resources must be authorized. For example, a DC/OS user must be granted the `create` action on the `dcos:service:marathon:marathon:services:/dev` resource in order to create a new Marathon app in the `/dev` service group.
 
 |                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
 | `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/1.11/deploying-services/marathon-api/#/info).                                                                                                                         |      |   | x |   |   |
-| `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoint [GET /v2/events](/1.11/deploying-services/marathon-api/#/events).                                                                                                           |      |   | x |   |   |
+| `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoint [GET /v2/events](/1.11/deploying-services/marathon-api/#/events).                                                                                                           | x    |   | x |   |   |
 | `dcos:service:marathon:marathon:admin:leader` <br> Controls access to the [GET/DELETE /v2/leader](/1.11/deploying-services/marathon-api/#/leader) endpoint.                                                                                                                       | x    |   | x | x |   |
-| `dcos:service:marathon:marathon:services:/[<service-group>]` Controls access to [DC/OS services](/1.11/deploying-services) launched by the native Marathon instance.                                                                                                                | x    | x | x | x | x |
+| `dcos:service:marathon:marathon:services:/[<service-group>]` <br> Controls access to [DC/OS services](/1.11/deploying-services) launched by the native Marathon instance. <br> [POST /v2/group](/1.11/deploying-services/marathon-api/#/groups) requires the `full` action. | x    | x | x | x | x |
 | `dcos:service:metronome:metronome:jobs[:<job-group>]`<br>  Controls access to [jobs and job groups](/1.11/deploying-jobs/).                                                                                                                                                        | x    | x | x | x | x |
 
 
-## <a name="secrets"></a>Secret Store Permissions
+## <a name="secrets"></a>Secret Store permissions
 
 These permissions control access to the [Secrets API](/1.11/security/ent/secrets/secrets-api/). A Mesos framework must have
 permission granted to its DC/OS service account in order to access a given secret. If you are looking for information on how to launch
@@ -154,10 +147,10 @@ Marathon applications using secrets see [Configuring services and pods to use se
 
 |                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:secrets:default:[<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.11/security/ent/secrets/).                                                                                                                                                           | x    | x | x | x | x |
+| `dcos:secrets:default:[/<path-name>/]<secret-name>`<br> Controls access to individual [secrets](/1.11/security/ent/secrets/).                                                                                                                                                           | x    | x | x | x | x |
 | `dcos:secrets:list:default:/[<path>]`<br> Controls view access to the names of [secrets](/1.11/security/ent/secrets/).                                                                                                                                                                 |      |   | x |   |   |
 
-## <a name="cluster-linker"></a> Cluster Linker Permissions
+## <a name="cluster-linker"></a> Cluster Linker permissions
 
 A DC/OS user requires permission to link clusters.
 
@@ -167,10 +160,10 @@ A DC/OS user requires permission to link clusters.
 | `dcos:cluster:linker:*`<br> Controls access to [cluster links](/1.11/administering-clusters/multiple-clusters/cluster-links/).                                                                                                                                                                 |      |  x | x | x | x  |
 
 
-## <a name="superuser"></a>Superuser Permissions
+## <a name="superuser"></a>Superuser permissions
 
 Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has the
-concept of the `superuser`. A user with permission to perform any action on the `dcos:superuser` resource has complete, unrestricted access to any operation
+concept of the `superuser`. A user with at least one permission out of `create`, `read`, `update`, `delete` or `full` on the `dcos:superuser` resource has complete, unrestricted access to any operation
 throughout DC/OS. This is extremely powerful and this permission should be
 granted sparingly.
 

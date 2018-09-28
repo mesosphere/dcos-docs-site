@@ -1,0 +1,34 @@
+# Common values:
+
+packageName: spark
+serviceName: spark
+techName: Apache Spark
+techShortName: Spark
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: three
+  nodeDescription: three agent nodes, with eight GB of memory and 10 GB of disk space
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/spark/spark-auth/
+
+managing:
+  podType: node
+  taskType: server
+
+supportedVersions:
+  techExampleVersion: 3.0.13
+  techLink: "[Cassandra](http://cassandra.apache.org/download/)"
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    └─ node-deploy (serial strategy) (COMPLETE)
+       ├─ node-0:[server] (COMPLETE)
+       ├─ node-0:[init_system_keyspaces] (COMPLETE)
+       ├─ node-1:[server] (COMPLETE)
+       └─ node-2:[server] (COMPLETE)

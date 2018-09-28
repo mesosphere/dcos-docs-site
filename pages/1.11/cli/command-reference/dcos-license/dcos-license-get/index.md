@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos license get
 title: dcos license get
 menuWeight: 1
-excerpt:
+excerpt: Displaying the cluster licenses
 
 enterprise: true
 ---
 
 # Description
-Get the cluster licenses.
+The `dcos license get` command allows you to view the cluster licenses.
 
 # Usage
 
@@ -19,20 +19,20 @@ dcos license get [<id>|active] [--output <file_path>] [--decryption-key]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-|   |   |   |
-| `--output`   |             |  Store the license in a file. |
-| `--decryption-key`   |     |  Get the key to decrypt license audit records. |
+| Name, shorthand |  Description |
+|---------|-------------|
+|   |   |
+| `--output`   |   Store the license in a file. |
+| `--decryption-key`   |  Get the key to decrypt license audit records. |
 
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<id> `   |             |  The ID of the license. |
-| `active`   |             |  The active license. |
-| `<file_path>`    |    | The path to a file to store the license |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<id> `   |   The ID of the license. |
+| `active`   |   The active license. |
+| `<file_path>`    |  The path to a file to store the license |
 
 # Parent command
 

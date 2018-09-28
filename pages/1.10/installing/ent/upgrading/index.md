@@ -8,9 +8,12 @@ excerpt:
 enterprise: true
 ---
 
-This document provides instructions for upgrading a DC/OS cluster.
+An upgrade is the process of adding new features, replacing the existing features with new features/functionality or adding a major configuration change. You can upgrade DC/OS only if you have used the installation process to install DC/OS on your cluster.
+Example: 1.X to 1.Y (1.10 --> 1.11)
 
-If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
+**Note:** An upgrade occurs only between major releases.
+
+If an upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
 
@@ -187,10 +190,10 @@ Proceed with upgrading every master node one-at-a-time in any order using the fo
     1.  Wait until the `dcos-mesos-master` unit is up and running.
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
         **Tip:** If you are upgrading from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access.
-    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running Mesos 1.4.0.
+    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running Mesos 1.4.2.
 	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeroes. _NOTE: This is only relevant if you are upgrading from one version of v1.10.x to another. When upgrading from v1.9.x to v1.10.x it is expected that all ranges will be underreplicated until the final master is upgraded to v1.10.x._
         ```bash
-        sudo /opt/mesosphere/bin/cockroach node status --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
+        sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
         +----+------------------+--------+-------+------------------+-----------------------+--------+--------------------+------------------------+
         | id |     address      | build  |  ...  | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
         +----+------------------+--------+-------+------------------+-----------------------+--------+--------------------+------------------------+

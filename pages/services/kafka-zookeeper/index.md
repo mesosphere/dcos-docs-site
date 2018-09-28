@@ -8,4 +8,4 @@ featureMaturity:
 enterprise: false
 ---
 
-Welcome to the documentation for the DC/OS Apache Kafka ZooKeeper. Choose a version to get started!
+Welcome to the documentation for the DC/OS Kafka ZooKeeper service. Choose a version to get started!

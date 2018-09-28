@@ -1,0 +1,17 @@
+# Common values:
+
+packageName: couchbase
+serviceName: couchbase
+techName:  Couchbase
+techShortName: Couchbase
+serverName: Couchbase Server
+syncGatewayName: Couchbase Sync Gateway
+
+# Values specific to certain templates:
+
+
+# Values specific to Couchbases's own docs content:
+
+configure:
+    nodeDescription: 2 data, 1 index, 1 query, 1 fts, 1 eventing, and 1 analytics service
+
