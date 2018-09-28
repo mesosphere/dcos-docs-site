@@ -39,18 +39,21 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
     ## Permissive
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
     ## Strict
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
 ## <a name="network-access-via-api"></a>Granting Access by using the API
