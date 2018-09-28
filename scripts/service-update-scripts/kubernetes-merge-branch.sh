@@ -21,13 +21,13 @@ name=${3:-kubernetes}
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
-# pull dcos-kubernetes
-git remote rm dcos-kubernetes
-git remote add dcos-kubernetes git@github.com:mesosphere/dcos-kubernetes.git
-git fetch dcos-kubernetes > /dev/null 2>&1
+# pull dcos-kubernetes-cluster
+git remote rm dcos-kubernetes-cluster
+git remote add dcos-kubernetes-cluster git@github.com:mesosphere/dcos-kubernetes-cluster.git
+git fetch dcos-kubernetes-cluster > /dev/null 2>&1
 
 # checkout
-git checkout dcos-kubernetes/$branch docs/package
+git checkout dcos-kubernetes-cluster/$branch docs/package
 
 # remove any user specified directories 
 if [ -n "$skip" ]; then 
@@ -38,7 +38,7 @@ fi
 # always remove lates/ directory it will never be copied
 rm -rf docs/package/latest
 
-# checkout each file in the merge list from dcos-kubernetes/$branch
+# checkout each file in the merge list from dcos-kubernetes-cluster/$branch
 for d in docs/package/*/; do
   echo $d
   for p in `find $d -type f`; do
