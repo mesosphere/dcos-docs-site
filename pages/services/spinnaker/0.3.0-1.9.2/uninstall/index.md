@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 55
-excerpt: Uninstalling DC/OS Couchbase Services
+excerpt: Uninstalling DC/OS Spinnaker Services
 featureMaturity:
 enterprise: false
 model: /services/spinnaker/data.yml
