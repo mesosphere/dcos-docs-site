@@ -123,6 +123,27 @@ The below matrix provides guidance as to which platform components and operating
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
+    <tr>
+    <th><strong>CLI</strong></th>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.6.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.5.x</td>
+        <td></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.4.x</td>
+        <td></td>
+        <td></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
 </table>
 
 **Note:**
