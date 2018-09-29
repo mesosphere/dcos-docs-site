@@ -19,7 +19,7 @@ Out-of-band configuration modifications are not supported. The {{ model.techName
 
 ## Scaling
 
-To prevent accidental data loss, the {{ model.techName }} service does not support reducing the number of pods.
+To prevent accidental data loss, the {{ model.techName }} service does not support reducing the number of pods. 
 
 ## Disk changes
 

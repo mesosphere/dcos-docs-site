@@ -1,0 +1,10 @@
+---
+layout: layout.pug
+navigationTitle: Overview
+excerpt: Understanding Spinnaker services
+title: Overview
+menuWeight: 5
+model: /services/spinnaker/data.yml
+render: mustache
+---
+The following sections will give you an overview of the {{ model.techName}} service and how it works with DC/OS.

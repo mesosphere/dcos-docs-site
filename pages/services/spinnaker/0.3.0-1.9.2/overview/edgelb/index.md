@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle: Edge-LB
 excerpt: Using Edge-LB with server groups
 title: Edge-LB
-menuWeight: 50
+menuWeight: 8
 model: /services/spinnaker/data.yml
 render: mustache
 ---
 
-# Using Edge-LB with Server Groups
+Edge-LB is the load balancer that comes with DC/OS Enterprise. See the DC/OS Enterprise documentation on [how to install Edge-LB](/services/edge-lb/1.2/installing/).
 
-Edge-LB is the load balancer that comes with DC/OS Enterprise. See the DC/OS Enterprise documentation on how to install Edge-LB.
-
-Create a *config.yaml* file with the following Edge-LB configuration. This configuration works with the [rolling blue green](/services/spinnaker/0.3.0-1.9.2/quick-start-guide/pipelines/#creating-a-rolling-blue-green-pipeline) sample.
+1. Create a `config.yaml` file with the following Edge-LB configuration. This configuration works with the [rolling blue-green](/services/spinnaker/0.3.0-1.9.2/quick-start-guide/pipelines/#creating-a-rolling-blue-green-pipeline) sample.
 
 ```
 ---
@@ -39,11 +37,10 @@ pools:
               port:
                 name: web
 ```
-
-The configuration is launched with the following command.
+2. Launch the configuration with the following command:
 
 ```
 dcos edgelb config config.yaml
 ```
 
-Edge-LB will roundrobin over the instances in the server groups of the *myapp-prod* cluster.
+Edge-LB will round-robin over the instances in the server groups of the `myapp-prod` cluster.
