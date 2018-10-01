@@ -105,6 +105,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         '&euro;': '€',
         '&copy;': '©',
         '&reg;': '®',
+        '\\n': ' ',
       };
 
       const transform = (content) => {
@@ -334,10 +335,27 @@ const sanitize = (buffer) => {
     allowedTags: [],
     allowedAttributes: [],
     selfClosing: [],
-    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'nav'],
+    nonTextTags: [
+      'head',
+      'style',
+      'script',
+      'textarea',
+      'noscript',
+      'header',
+      'footer',
+      'nav',
+      'aside',
+      'section',
+    ],
   });
   parsedString = trim(parsedString);
-  return parsedString;
+  // Remove extraneous information from content
+  // Because this library doesn't have the tools necessary to do it nicely
+
+  const headerRegex = /^.*Feedback((\n|.)*)$/;
+  const content = headerRegex.exec(parsedString)[1];
+  console.log(JSON.stringify(content));
+  return content;
 };
 
 // Push content to array.
