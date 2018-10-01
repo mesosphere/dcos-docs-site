@@ -34,6 +34,7 @@ For DC/OS HDFS, these configuration files are served at `http://api.<hdfs>.marat
  "config-url": "[http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints\|http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints%5C]"
  },
 ````
+
 ### Spark Checkpointing
 
 In order to use spark with checkpointing make sure you follow the instructions [here](https://spark.apache.org/docs/latest/streaming-programming-guide.html#checkpointing) and use an hdfs directory as the checkpointing directory. For example:

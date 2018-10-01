@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: API reference for DC/OS Apache Kafka
 title: API Reference
 menuWeight: 90
 model: /services/kafka/data.yml
@@ -147,7 +147,7 @@ $ curl -X POST -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ mode
 
 ## View Topic Offsets
 
-There is an optional `--time` parameter which may be set to either "first", "last", or a timestamp in milliseconds as [described in the Kafka documentation][15].
+There is an optional `--time` parameter which may be set to either "first", "last", or a timestamp in milliseconds as [described in the {{ model.techShortName }} documentation](https://kafka.apache.org/documentation/#topicconfigs).
 
 ```bash
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} topic offsets topic1 --time=last
@@ -210,7 +210,7 @@ $ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model
 }
 ```
 
-This runs the equivalent of the following command from the machine running the Kafka Scheduler:
+This runs the equivalent of the following command from the machine running the {{ model.techShortName }} Scheduler:
 ```bash
 $ kafka-producer-perf-test.sh \
   --topic <topic> \
@@ -236,7 +236,7 @@ $ curl -X DELETE -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ mo
 }
 ```
 
-Note the warning in the output from the commands above. You can change the indicated "delete.topic.enable" configuration value as a configuration change.
+Note the warning in the output from the commands above. You can change the indicated `delete.topic.enable` configuration value as a configuration change.
 
 ## List Under Replicated Partitions
 

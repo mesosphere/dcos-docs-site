@@ -7,19 +7,15 @@ excerpt: Understanding the DC/OS component services boot sequence
 enterprise: false
 ---
 
-
-
-During installation, the DC/OS component services all start in parallel. They then initialize and become responsive in a relatively consistent sequence because of interdependencies.
-
-The DC/OS Diagnostics service monitors component service and node health. A node is marked as healthy when all its component services are healthy.
+During installation, the DC/OS component services all start in parallel. They then initialize and become responsive in a relatively consistent sequence because of interdependencies. The DC/OS Diagnostics service monitors component service and node health. A node is marked as healthy when all its component services are healthy.
 
 ## Master nodes
 
 The following is the boot sequence of DC/OS component services on each master node.
 
 1. DC/OS Diagnostics starts
-    1. Polls systemd for component status
-    1. Reports node unhealthy until all components (systemd services) are healthy
+    1. Polls `systemd` for component status
+    1. Reports node unhealthy until all components (`systemd` services) are healthy
     1. Reports cluster unhealthy until all master nodes are healthy
 1. Exhibitor starts
     1. Creates ZooKeeper configuration and launches ZooKeeper
@@ -28,7 +24,7 @@ The following is the boot sequence of DC/OS component services on each master no
     1. Discovers other Mesos Masters from ZooKeeper
     1. Elects a leading master
 1. Mesos-DNS starts
-    1. Discovers leading Mesos Master (from zk or local mesos-master?)
+    1. Discovers leading Mesos Master (from ZooKeeper or the local `mesos-master`)
     1. Polls leading Mesos Master for cluster state
 1. Networking components start
     1. Forwards DNS lookups to Mesos-DNS
@@ -54,8 +50,8 @@ The following is the boot sequence of DC/OS component services on each master no
 The following is the boot sequence of DC/OS components on each agent node.
 
 1. DC/OS Diagnostics starts
-    1. Polls systemd for component status
-    1. Reports node unhealthy until all components (systemd services) are healthy
+    1. Polls `systemd` for component status
+    1. Reports node unhealthy until all components (`systemd` services) are healthy
 1. Mesos Agent starts
     1. Discovers leading Mesos Master from ZooKeeper
     1. Registers with leading Mesos Master
@@ -73,9 +69,9 @@ The following is the boot sequence of DC/OS components on each agent node.
 
 ## Services
 
-After DC/OS installation and initialization completes, you can install DC/OS services. Services can be installed through DC/OS package management from the Mesosphere Universe or through Marathon directly.
+After DC/OS installation and initialization is complete, you can install DC/OS services. You can install the services through DC/OS package management, either from the Mesosphere Universe or through Marathon directly.
 
-The following is the boot sequence of a DC/OS service.
+The following is the boot sequence of a DC/OS service:
 
 1. Leading Mesos Master offers agent node resources to Marathon
 1. Leading Marathon schedules the service onto agent nodes with sufficient resources
@@ -85,7 +81,7 @@ The following is the boot sequence of a DC/OS service.
 
 Some DC/OS services are also schedulers that interact with DC/OS to manage tasks.
 
-The following is the boot sequence of a DC/OS scheduler service.
+The following is the boot sequence of a DC/OS scheduler service:
 
 1. Leading Mesos Master offers agent node resources to Marathon
 1. Leading Marathon schedules the service onto agent nodes with sufficient resources
@@ -94,6 +90,6 @@ The following is the boot sequence of a DC/OS scheduler service.
 1. Scheduler service registers with leading Mesos Master
 1. Leading Mesos Master starts offering agent node resources to the new scheduler service
 
-### More information 
+### More information
 
-For more information about tasks and services, see [Distributed Process Management](/1.11/overview/architecture/distributed-process-management/).
+For more information about tasks and services, see [Distributed Process Management](/1.12/overview/architecture/distributed-process-management/).

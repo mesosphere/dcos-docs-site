@@ -28,7 +28,7 @@ DC/OS Apache Spark includes:
 
 *   Utilization: DC/OS Apache Spark leverages Mesos to run Spark on the same cluster as other DC/OS services
 *   Improved efficiency
-*   Simple Management
+*   Simple management
 *   Multi-team support
 *   Interactive analytics through notebooks
 *   UI integration
@@ -37,8 +37,8 @@ DC/OS Apache Spark includes:
 # Features
 
 *   Multiversion support
-*   Run multiple Spark dispatchers
-*   Run against multiple HDFS clusters
+*   Runs multiple Spark dispatchers
+*   Runs against multiple HDFS clusters
 *   Backports of scheduling improvements
 *   Simple installation of all Spark components, including the dispatcher and the history server
 *   Integration of the dispatcher and history server

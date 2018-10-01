@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod remove
 title: dcos marathon pod remove
 menuWeight: 26
-excerpt: Removing a pod 
+excerpt: Removing a pod
 
 enterprise: false
 ---
 
 
 # Description
-Remove a pod.
+The `dcos marathon pod remove` command allows you to remove a pod.
 
 # Usage
 
@@ -20,25 +20,25 @@ dcos marathon pod remove <pod-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--force`   |             | Disable checks in Marathon during updates. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--force`   |  Disable checks in Marathon during updates. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<pod-id>`   |             | The pod ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<pod-id>`   |  The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` command.|
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 
-# Remove a Pod
+## Remove a Pod
 Remove a pod with the following command:
 ```
 dcos marathon pod remove <pod-id>

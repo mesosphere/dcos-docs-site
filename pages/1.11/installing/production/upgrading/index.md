@@ -14,8 +14,6 @@ Example: 1.X to 1.Y (1.11 --> 1.12)
 
 If an upgrade is performed on a supported OS with all prerequisites fulfilled, then upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [DC/OS Installation Guide][install].
 
-**Important:**
-
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
 - There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](/latest/installing/ent/custom/advanced/#create-a-configuration-file). [enterprise type="inline" size="small" /]
@@ -33,9 +31,9 @@ For example: An upgraded DC/OS Marathon leader cannot connect to the leading Mes
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
-- From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
-- From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
+- From the latest GA version of previous to the latest GA version of current. For example, if 1.10.8 is the latest GA version of previous and 1.11.4 is the latest GA version of current, this upgrade would be supported.
+
+**Note:** See the [version policy](https://docs.mesosphere.com/version-policy/) page to understand information about DC/OS version lifecycle and compatibility matrix.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
@@ -79,7 +77,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide][install].
 - Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
-- [Take a snapshot of the IAM database](/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database) prior to upgrading. [enterprise type="inline" size="small" /]
+- [Take a snapshot of the IAM database](/1.11/installing/ent/faq/#q-how-do-i-back-up-the-iam-database-enterprise) prior to upgrading. [enterprise type="inline" size="small" /]
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 
 **Note:** Marathon event subscribers are disabled by default, check if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). In this case, you will need to remove that line in order to disable event subscribers. [enterprise type="inline" size="small" /]
@@ -109,8 +107,6 @@ This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11 without changing the 
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 2.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
-
-    **Important:**
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
     *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
@@ -185,8 +181,6 @@ To update a cluster from permissive security to strict security, complete the fo
 
 1.  Copy and update the DC/OS 1.10 `config.yaml` and `ip-detect` files to a new, clean folder on your bootstrap node.
 
-    **Important:**
-
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
     *  The syntax of the DC/OS 1.11 `config.yaml` differs from that of previous versions. See the [documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/) for the latest information.
 
@@ -226,10 +220,10 @@ Proceed with upgrading every master node one at a time in any order using the fo
 
         **Note:** If you are upgrading from permissive to strict mode, this URL will be `https://...`.
     1.  Wait until the `dcos-mesos-master` unit is up and running.
-    1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`. [enterprise type="inline" size="small" /]
+    1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
 
         **Note:** If you are upgrading from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
-    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running Mesos 1.4.2. [enterprise type="inline" size="small" /]
+    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/1.11/release-notes/), for example `1.5.1`.
 	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros. [enterprise type="inline" size="small" /]
 	    ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
@@ -247,7 +241,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
 
 ### <a name="agents"></a>DC/OS Agents
 
-**Important:** When upgrading agent nodes, there is a five minute timeout for the agent to respond to health check pings from the mesos-masters before the agent nodes and task expire.
+Be aware that when upgrading agent nodes, there is a five minute timeout for the agent to respond to health check pings from the mesos-masters before the agent nodes and task expire.
 
 On all DC/OS agents:
 

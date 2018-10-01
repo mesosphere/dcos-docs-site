@@ -1,18 +1,15 @@
 ---
 layout: layout.pug
-excerpt: Install DC/OS cluster using the Azure Resource Manager templates
+excerpt: Installing DC/OS cluster using the Azure Resource Manager templates
 title: Running DC/OS on Azure
 navigationTitle: Azure
 menuWeight: 10
 oss: true
 ---
 
-This page explains how to install DC/OS 1.11 using the Azure Resource Manager templates.
+This page explains how to install DC/OS 1.12 using the Azure Resource Manager templates. Upgrades are not supported with this installation method.
 
-**Note:** 
-- To get support on Azure Marketplace-related questions, join the Azure Marketplace [Slack community](http://join.marketplace.azure.com).
-
-- Upgrades are not supported with this installation method.
+<p class="message--note"><strong>NOTE: </strong>To get support on Azure Marketplace-related questions, join the <a href="http://join.marketplace.azure.com">Azure Marketplace Slack community</a>.</p>
 
 # System requirements
 
@@ -22,21 +19,11 @@ To use all of the services offered in DC/OS, you should choose at least five Mes
 
 ### Production-Ready Cluster Configurations ###
 
-These recommendations are based on operation of a multiple DC/OS clusters over
-multiple years scaling
-a mix of stateful and stateless services under a live production load.
-Your service mix may perform differently, but the principles and
-lessons discussed herein still apply.
+These recommendations are based on operation of multiple DC/OS clusters over many years, scaling a mix of stateful and stateless services under a live production load. Your service mix may perform differently, but the principles and lessons discussed herein still apply.
 
 #### General Machine Configurations ####
-We recommend *disabling* swap on your VMs, which is typically the default for
-the Azure Linux images. We have found that using the
-ephemeral SSDs for swap (via WAAgent configuration)
-can conflict with the disk caching configuration of
-the `D` series of VMs. For other series of VMs, such as `L` series,
-it may be possible to use the SSDs for swap and other purposes.
-
-See the following section for particulars on disk configuration.
+We recommend disabling swap on your VMs, which is typically enabled by default for Azure Linux images. We have found that using the ephemeral SSDs for swap (via WAAgent configuration)
+can conflict with the disk caching configuration of the `D` series of VMs. For other VM series, such as the `L` series, it may be possible to use the SSDs for swap and other purposes. See the following section for particulars on disk configuration.
 
 Monitoring (such as Node Exporter with Prometheus) should be used to
 identify and alert as to when workloads are nearing Azure defined limits.
@@ -128,7 +115,7 @@ Also, to access nodes in the DC/OS cluster you will need `ssh` installed and con
 
 ## Deploying the template
 
-To install DC/OS 1.11 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
+To install DC/OS 1.12 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
 
 Some notes on the template configuration:
 
@@ -139,45 +126,61 @@ Some notes on the template configuration:
 
 ## Accessing DC/OS
 
-First, look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
+1. Look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
 
-![Deployment history](/1.11/img/dcos-azure-marketplace-step2a.png)
+![Deployment history](/1.12/img/dcos-azure-marketplace-step2a.png)
 
-Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section.
+Figure 1. Deployment history
 
-![Deployment output](/1.11/img/dcos-azure-marketplace-step2b.png)
+2. Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section.
 
-Note the value of `MASTERFQDN` you found in the `Outputs` section in the previous step, and use it in the following step. Because of security considerations, you cannot visit the DC/OS Dashboard in Azure directly by default. 
+![Deployment output](/1.12/img/dcos-azure-marketplace-step2b.png)
 
-Choose one of the following workaround solutions to visit the DC/OS Dashboard in Azure:
+Figure 2. Outputs section
+
+3. Note the value of `MASTERFQDN` you found in the `Outputs` section in Figure 2, and use it in the following step. Because of security considerations, you cannot visit the DC/OS Dashboard in Azure directly by default. 
+
+4. Choose one of the following workaround solutions to visit the DC/OS Dashboard in Azure:
 
 ### Case 1:
 
-In order to visit the the DC/OS Dashboard, we will need to access the TCP port 80 or 443 of the master node. You can add an inbound security rule and an inbound NAT rule.
+In order to visit the the DC/OS Dashboard, you will need to access TCP port 80 or 443 of the master node. You can add an inbound security rule and an inbound NAT rule.
 
-Find the network security group resource of the master node,
+1. Find the network security group resource of the master node,
 
-![Resource - Master Node Network Security Group](/1.11/img/dcos-azure-step2case1a.png)
+![Resource - Master Node Network Security Group](/1.12/img/dcos-azure-step2case1a.png)
 
-Click on the **Inbound security rules** tab on the left side.
+Figure 1. Master node network security group
 
-![Inbound Security Rules](/1.11/img/dcos-azure-step2case1b.png)
+2. Click on the **Inbound security rules** tab on the left side.
 
-Add an inbound security rule.
+![Inbound Security Rules](/1.12/img/dcos-azure-step2case1b.png)
 
-![Add Inbound Security Rules](/1.11/img/dcos-azure-step2case1c.png)
+Figure 2. Inbound security rules
 
-Find the load balancer resource of the master node.
+3. Add an inbound security rule.
 
-![Resource - Master Node Load balancer](/1.11/img/dcos-azure-step2case1d.png)
+![Add Inbound Security Rules](/1.12/img/dcos-azure-step2case1c.png)
 
-Click on the **Inbound NAT rules** tab on the left side,
+Figure 3. Adding an inbound security rule 
 
-![Inbound NAT Rules](/1.11/img/dcos-azure-step2case1e.png)
+4. Find the load balancer resource of the master node.
 
-Add an inbound NAT rule.
+![Resource - Master Node Load balancer](/1.12/img/dcos-azure-step2case1d.png)
 
-![Add Inbound NAT Rules](/1.11/img/dcos-azure-step2case1f.png)
+Figure 4. Master node load balancer
+
+5. Click on the **Inbound NAT rules** tab on the left side,
+
+![Inbound NAT Rules](/1.12/img/dcos-azure-step2case1e.png)
+
+Figure 5. Inbound NAT rules
+
+6. Add an inbound NAT rule.
+
+![Add Inbound NAT Rules](/1.12/img/dcos-azure-step2case1f.png)
+
+Figure 6. Adding an inbound NAT rule
 
  Now you can visit `http://$MASTERFQDN` and view the DC/OS Dashboard.
 
@@ -199,7 +202,9 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 Now you can visit `http://localhost:8000` on your local machine and view the DC/OS Dashboard.
 
-![DC/OS dashboard](/1.11/img/dcos-gui.png)
+![DC/OS dashboard](/1.12/img/dcos-gui.png)
+
+Figure 1. DC/OS dashboard
 
 ### Caveats
 
@@ -207,8 +212,8 @@ Some caveats about SSH access:
 
 - For connections to `http://localhost:8000` to work, the SSH command must be run on your local machine, and not inside a Virtual Machine.
 - In the example above, port `8000` is assumed to be available on your local machine.
-- The SSH commands shown only work on Mac or Linux. For Windows, use [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) with a similar port-forwarding configuration, see also [How to Use SSH with Windows on Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/).
-- If you want to learn more about SSH key generation check out this [GitHub tutorial](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+- The SSH commands shown only work on Mac or Linux. For Windows, use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) with a similar port-forwarding configuration, see also [How to Use SSH with Windows on Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- If you want to learn more about SSH key generation, see this [GitHub tutorial](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
 
 The DC/OS UI will not show the correct IP address or CLI install commands when connected by an SSH tunnel.
 
@@ -221,7 +226,7 @@ The following commands can be used to run the DC/OS CLI directly on the master n
 ssh azureuser@$MASTERFQDN
 
 # Install CLI on the master node and configure with http://localhost
-curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.11/dcos -o dcos &&
+curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.12/dcos -o dcos &&
 sudo mv dcos /usr/local/bin &&
 sudo chmod +x /usr/local/bin/dcos &&
 dcos cluster setup http://localhost &&
@@ -233,7 +238,7 @@ dcos package search
 
 ## Tear down the DC/OS cluster
 
-If you have created a new resource group in the deployment step, it is easy to tear down the cluster and release all of the resources: just delete the resource group. If you have deployed the cluster into an existing resource group, you'll need to identify all resources that belong to the DC/OS cluster and manually delete them.
+If you have created a new resource group in the deployment step, it is easy to tear down the cluster and release all of the resources: just delete the resource group. If you have deployed the cluster into an existing resource group, you will need to identify all resources that belong to the DC/OS cluster and manually delete them.
 
 ## Next steps
 
@@ -241,6 +246,6 @@ If you have created a new resource group in the deployment step, it is easy to t
 - [Install the DC/OS Command-Line Interface (CLI)][2]
 - [Scaling considerations][4]
 
-[1]: /1.11/security/ent/users-groups/
-[2]: /1.11/cli/install/
+[1]: /1.12/security/ent/users-groups/
+[2]: /1.12/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

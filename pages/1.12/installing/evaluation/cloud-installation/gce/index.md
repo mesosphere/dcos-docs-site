@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Install DC/OS cluster on Google Compute Engine using Terraform
+excerpt: Running a DC/OS cluster on Google Compute Engine using Terraform
 title: Running DC/OS on Google Compute Engine
 navigationTitle: GCE
 menuWeight: 20
@@ -11,21 +11,19 @@ oss: true
 
 The recommended way to deploy a OSS DC/OS cluster on GCE is by using [Terraform](#terraform).
 
- **Disclaimer: Please note this is a [community driven project](https://github.com/dcos/terraform-dcos/tree/master/gcp) and not officially supported by Mesosphere.**
+<p class="message--warning"><strong>DISCLAIMER: </strong>Please note this is a <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">community driven project</a> and not officially supported by Mesosphere.</p>
 
 ## Prerequisites
 - [Terraform 0.11.x](https://www.terraform.io/downloads.html)
-- Google Cloud Platform (GCP) Credentials _[configure via: `gcloud auth login`](https://cloud.google.com/sdk/downloads)_
+- Google Cloud Platform (GCP) Credentials [configured via: `gcloud auth login`](https://cloud.google.com/sdk/downloads)
 - SSH Keys
 - Existing Google Project. This is automated with Terraform using project creation as documented [here.](https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform)
 
 ## Authenticate to Google
-<!-- This section does not look right. Combines two steps which may not be correct together.  -->
-Run this command to authenticate to the Google Cloud Platform. Your credentials will be downloaded locally for Terraform to use.
+Authenticate to the Google Cloud Platform using the credentials listed in the Prerequisites. Your credentials will be downloaded locally for Terraform to use. 
 
 ```bash
 $ gcloud auth login
-$ gcloud auth application-default login
 ```
 
 ## Configure your GCP SSH Keys
@@ -128,7 +126,7 @@ dcos_cluster_docker_credentials = <<EOF
 EOF
 gcp_ssh_pub_key_file = "INSERT_PUBLIC_KEY_PATH_HERE"
 ```
-**Note:** The YAML comment is required for the DC/OS specific YAML settings.
+<p class="message--note"><strong>NOTE: </strong>The YAML comment is required for the DC/OS specific YAML settings.</p>
 
 ## Upgrading DC/OS
 
@@ -167,7 +165,7 @@ terraform apply \
 ```
 
 ### Removing agents
-**Caution**: Always remember to save your desired state in your `desired_cluster_profile.tfvars` before removing an agent.
+<p class="message--important"><strong>IMPORTANT: </strong>Always remember to save your desired state in your <code>desired_cluster_profile.tfvars</code> before removing an agent.</p>
 
 ```bash
 terraform apply \
@@ -178,9 +176,9 @@ terraform apply \
 
 ## Redeploy an existing master
 
-If you want to redeploy a problematic master (for example, your storage has filled up, the cluster is not responsive, etc.), you can tell Terraform to redeploy during the next cycle.
+If you want to redeploy a problematic master (for example, your storage has filled up, the cluster is not responsive), you can tell Terraform to redeploy during the next cycle.
 
-**Note:** This only applies to DC/OS clusters that have set their `dcos_master_discovery` to `master_http_loadbalancer` and not `static`.
+<p class="message--note"><strong>NOTE: </strong>This only applies to DC/OS clusters that have set their <code>dcos_master_discovery</code> to <code>master_http_loadbalancer</code> and not <code>static</code>.</p>
 
 ### Master Node
 

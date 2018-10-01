@@ -1,22 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Configuring browsers to trust your DC/OS
-  CA
+navigationTitle:  Establishing trust in your DC/OS CA
+title: Establishing trust in your DC/OS CA
 menuWeight: 200
-excerpt: >
-  How to configure Chrome and Firefox to
-  trust your DC/OS CA.
+excerpt: Configuring Chrome and Firefox to trust your DC/OS CA.
 beta: true
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-<!-- Note from editor: This is a 'hidden' page, so do not add a navigationTitle value other than a blank or a > character. -->
 
-# About configuring browsers to trust your DC/OS CA
 
-**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/1.11/security/ent/tls-ssl/get-cert/).
+**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/1.12/security/ent/tls-ssl/get-cert/).
 
 The procedure for adding your DC/OS CA as a trusted root certificate authority varies by operating system and browser. Refer to the section that corresponds to your browser/operating system pair.
 
@@ -28,15 +22,11 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 
 # <a name="osx-chrome"></a>Configuring Google Chrome on OS X to trust your DC/OS CA
 
-**Notes:**
+- This procedure works best with Chrome 56 or later.
 
-- Procedure works best with Chrome 56.
-
-- At any time in this procedure, you may be prompted for your password to allow modifications to your keychain. Provide your password at the prompt.
+- You may be prompted for your password to allow modifications to your keychain. Provide your password at the prompt.
 
 1. Click the magnifying glass icon in the top right of your desktop to open Spotlight Search. Type **Keychain Access** in the box.
-
-     ![Launch Keychain Access](/1.11/img/osx-chrome-launch-keychain.png)
 
 1. In the **Keychain Access** dialog, select **System**.
 
@@ -46,16 +36,13 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 
 1. Double-click the certificate in the keychain, expand the **Trust** section, and select **Always Trust** in **When using this certificate**.
 
-     ![Always Trust Certificate](/1.11/img/osx-chrome-always-trust.png)
-
 1. Close the dialog.
 
 1. Open a new Incognito Chrome window and open the DC/OS web interface. The path to the DC/OS web interface in the address bar should be marked **Secure**. You can also try visiting the public IP address of each of your masters to confirm that all show up as **Secure**.
 
-
 # <a name="win-chrome"></a>Configuring Google Chrome on Windows to trust your DC/OS CA
 
-**Note:** Procedure works best with Chrome 56 and Windows 10.
+This procedure works best with Chrome 56 or later, or Windows 10.
 
 1. Open your Chrome browser and type `chrome://settings` in the address bar.
 
@@ -81,8 +68,6 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 
 1. Click **Finish**.
 
-     ![Certificate Warning](/1.11/img/chrome-win-sec-wrning.png)
-
 1. You should check that the thumbprint matches the thumbprint of your DC/OS CA root certificate, then click **Yes**.
 
 1. Click **OK** on the confirmation message.
@@ -103,8 +88,6 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 1. Click **Import**.
 
 1. Locate and select the `dcos-ca.crt` file in the dialog and click **Open**.
-
-     ![Firefox confirmation](/1.11/img/osx-ff-confirm.png)
 
 1. We recommend clicking **View** to examine the certificate. Ideally, you should confirm that the fingerprints match those of your DC/OS CA's root certificate.
 

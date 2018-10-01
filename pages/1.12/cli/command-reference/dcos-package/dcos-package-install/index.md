@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Install a package.
+The `dcos package install` command allows you to install a package.
 
 # Usage
 
@@ -20,27 +20,27 @@ dcos package install <package-name> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--app`   |             |  Application only. |
-| `--app-id=<app-id>`   |             |  The application ID. |
-| `--cli`   |             |  Command line only. |
-| `--options=<file>`   |             | Path to a JSON file that contains customized package installation options. |
-| `--package-version=<package-version>`   |             | The package version. |
-| `--yes`   |             | Disable interactive mode and assume "yes" is the answer to all prompts. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--app`   |    Application only. |
+| `--app-id=<app-id>`   |   The application ID. |
+| `--cli`   |   Command line only. |
+| `--options=<file>`   |  Path to a JSON file that contains customized package installation options. |
+| `--package-version=<package-version>`   |  The package version. |
+| `--yes`   |  Disable interactive mode and assume "yes" is the answer to all prompts. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<package-name>`   |             |  Name of the DC/OS package. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<package-name>`   |   Name of the DC/OS package. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documentation](/1.11/deploying-services/config-universe-service/).
+For an example, see the [documentation](/1.12/deploying-services/config-universe-service/).

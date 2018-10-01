@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-Display detailed information for a specific pod.
+The `dcos marathon pod show` command allows you to view detailed information for a specific pod.
 
 # Usage
 
@@ -24,19 +24,19 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<pod-id>`   |             | The pod ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<pod-id>`   | The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` command.|
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 
-# Show Pod JSON
+## Show Pod JSON
 To see the pod definition, run the following command:
 ```
 dcos marathon pod show <pod-id>

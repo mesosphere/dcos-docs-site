@@ -96,7 +96,7 @@ This pod, named `simple-pod` has a single container, `simpletask1`. The containe
 
 The example below shows a pod, `test-pod`, with three containers, `healthtask1`, `healthtask2`, and `clienttask`. The pod makes uses shared volumes and the native DC/OS virtual networking solution.
 
-```
+```json
 {
    "id":"/test-pod",
    "labels":{
@@ -551,7 +551,7 @@ For an example of a pod that uses a persistent volume, see [Create a pod with a 
 
 ## IP-per-Pod Networking
 
-The following pod definition specifies a virtual (user) network named `dcos`. The `networks:mode:container` field creates the virtual network. The `name` field is optional. If you have installed DC/OS using [our AWS templates](/1.11/installing/oss/cloud/aws/), the default virtual network name is `dcos`. <!-- Validated by suzanne 6-23-17 -->
+The following pod definition specifies a virtual (user) network named `dcos`. The `networks:mode:container` field creates the virtual network. The `name` field is optional. If you have installed DC/OS using [our AWS templates](/1.11/installing/evaluation/cloud-installation/aws/), the default virtual network name is `dcos`. <!-- Validated by suzanne 6-23-17 -->
 
 ```json
 {

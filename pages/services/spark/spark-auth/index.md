@@ -6,6 +6,11 @@ excerpt:
 featureMaturity:
 enterprise: true
 ---
+# Versions
+
+In Spark 2.3.1-2.2.1-2 and later, these topics have been divided up among the Getting Started and Security sections. Previous versions will still need the information below.
+
+# Configuring DC/OS Access
 
 This topic describes how to configure DC/OS access for Spark. Depending on your [security mode](/1.9/security/ent/#security-modes/), Spark requires [service authentication](/1.10/security/ent/service-auth/) for access to DC/OS.
 
@@ -99,7 +104,7 @@ Use the following curl commands to rapidly provision the Spark service account w
     -H 'Content-Type: application/json'
 
     ```
-    
+
     **Troubleshooting** If these commands return a `307 Temporary Redirect` error it can be because your cluster url (`dcos config show core.dcos_url`) is not set as Hyper Text Transfer Protocol Secure (`https://`).  
 
 
@@ -145,7 +150,7 @@ dcos package install --options=config.json spark
 ```bash
 curl -X PUT -k \
 -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:root/users/dcos_marathon/create
-``` 
+```
 
 ## <a name="Run a Job"></a>Run a Job
 
@@ -157,7 +162,7 @@ dcos spark run --verbose --submit-args=" \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
 ```
 
-If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable: 
+If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable:
 
 ```bash
 dcos spark run --verbose --submit-args="\
@@ -165,4 +170,3 @@ dcos spark run --verbose --submit-args="\
 --conf spark.mesos.driverEnv.SPARK_USER=nobody \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
 ```
-

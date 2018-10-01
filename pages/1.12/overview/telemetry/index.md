@@ -3,13 +3,9 @@ layout: layout.pug
 navigationTitle:  Telemetry
 title: Telemetry
 menuWeight: 7
-
 excerpt: Understanding the telemetry reporting component
-
-
 enterprise: false
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 To continuously improve the DC/OS experience, a telemetry component is included that reports anonymous usage data to Mesosphere. This data is used to monitor the reliability of core DC/OS components, installations, user interface, and to find out which features are most popular.
@@ -18,7 +14,7 @@ To continuously improve the DC/OS experience, a telemetry component is included 
 - [User interface telemetry](#user-interface)
 
 # <a name="core"></a>Core telemetry
-The [DC/OS Signal](/1.11/overview/architecture/components/#dcos-signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
+The [DC/OS Signal](/1.12/overview/architecture/components/#dcos-signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
 
 The information reported by DC/OS Signal comes from several components: DC/OS Diagnostics, Apache Mesos, and DC/OS Package Manager (Cosmos).
 
@@ -54,9 +50,9 @@ For each category this data is collected:
 </td>
 </tr>
 <tr><td>environmentVersion</td>
-<td>This is the version of DC/OS. For example, if you are using DC/OS 1.8:
+<td>This is the version of DC/OS. For example, if you are using DC/OS 1.12:
 <pre>
-"environmentVersion": "1.8",
+"environmentVersion": "1.12",
 </pre></td></tr>
 <tr><td>provider</td>
 <td>This is the platform that DC/OS is running on. Possible values are <code>aws</code>, <code>on-prem</code>, and <code>azure</code>. For example, if you are running on AWS:
@@ -69,7 +65,7 @@ For each category this data is collected:
 "source": "cluster",
 </pre></td></tr>
 <tr><td>variant</td>
-<td>This indicates whether the cluster is DC/OS or DC/OS Enterprise. For example, if you are using DC/OS:
+<td>This indicates whether the cluster is DC/OS or DC/OS Enterprise. For example, if you are using DC/OS Open Source:
 <pre>
 "variant": "open"
 </pre>
@@ -79,14 +75,14 @@ For each category this data is collected:
 
 ## Diagnostics
 
-This information is collected from the [DC/OS Diagnostics](/1.11/overview/architecture/components/#dcos-diagnostics) component. For every systemd unit, the following information is collected, where `<UNIT_NAME>` is component name:
+This information is collected from the [DC/OS Diagnostics](/1.12/overview/architecture/components/#dcos-diagnostics) component. For every `systemd` unit, the following information is collected, where `<UNIT_NAME>` is component name:
 
 ```
 "health-unit-dcos-<UNIT_NAME>-total": 3, "health-unit-dcos-<UNIT_NAME>-unhealthy": 0,
 ```
 
 ## Mesos
-This information is collected from the [Apache Mesos](/1.11/overview/architecture/components/#apache-mesos) component.
+This information is collected from the [Apache Mesos](/1.12/overview/architecture/components/#apache-mesos) component.
 
 <table class="table">
 <tr>
@@ -119,7 +115,7 @@ This information is collected from the [Apache Mesos](/1.11/overview/architectur
 
 
 ## Package Manager
-This information is collected from the [DC/OS Package Manager (Cosmos)](/1.11/overview/architecture/components/#dcos-package-manager) component.
+This information is collected from the [DC/OS Package Manager (Cosmos)](/1.12/overview/architecture/components/#dcos-package-manager) component.
 
 <table class="table">
 <tr>
@@ -286,6 +282,6 @@ The DC/OS UI sends two types of notifications to [Segment](https://segment.com/d
 - Login information
 - The pages you have viewed while navigating the UI
 
-## Opt-Out
+## Opting Out
 
-You can also choose to opt out of the telemetry features. For more information, see the [documentation](/1.11/installing/oss/opt-out/).
+You can also choose to opt out of the telemetry features. For more information, see  [Opt-Out](/1.12/installing/oss/opt-out/).

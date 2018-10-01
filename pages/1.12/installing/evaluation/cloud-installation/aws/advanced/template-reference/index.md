@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Template Reference
+navigationTitle: Template Reference
 title: Template Reference
 menuWeight: 5
 excerpt: Advanced template parameters
@@ -8,16 +8,16 @@ excerpt: Advanced template parameters
 
 These advanced template parameters are specified in the individual JSON files. During DC/OS installation these template files are used to generate a customized DC/OS build.
 
-### Zen templates
+#### Zen templates
 The [Zen](#zen) templates orchestrate the individual component templates to create a DC/OS cluster.
 
-### Agent templates
-The [agent](#private-agent) templates create [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup.
+#### Agent templates
+The [agent](#private-agent) templates create [public](/1.12/overview/concepts/#public-agent-node) or [private](/1.12/overview/concepts/#private-agent-node) agent nodes that are then attached to a DC/OS cluster as a part of an AutoScalingGroup.
 
-### Master templates
+#### Master templates
 The [master](#master) templates create master nodes, on top of the infrastructure stack already created.
 
-### Infrastructure template
+#### Infrastructure template
 The [infrastructure](#infrastructure) template defines and creates a DC/OS specific infrastructure that works well with an existing VPC.
 
 

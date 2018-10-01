@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-Print the list of files in the Mesos task sandbox.
+The `dcos task ls` command displays a list of the files in the Mesos task sandbox.
 
 # Usage
 
@@ -19,10 +19,10 @@ dcos task ls <task> <path> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--completed`   |             | Print completed and in-progress tasks. |
-| `--long`   |             |  Print full Mesos sandbox file attributes. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--completed`   | Displays completed and in-progress tasks. |
+| `--long`   |  Displays full Mesos sandbox file attributes. |
 
 # Positional arguments
 

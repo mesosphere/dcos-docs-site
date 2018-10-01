@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1
-excerpt: Learn about monitoring a DC/OS cluster
+excerpt: Monitoring a DC/OS cluster
 
 enterprise: false
 ---
-
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 Here are some recommendations for monitoring a DC/OS cluster. You can use any monitoring tools. The endpoints listed below will help you troubleshoot when issues occur.
 
@@ -67,9 +64,7 @@ Mesos provides a number of [metrics][2] for monitoring. Here are the ones that a
 
 ### Master
 
-**These metrics should not increase over time**
-
-If these metrics increase, something is probably wrong.
+**These metrics should not increase over time** If these metrics increase, something is probably wrong.
 
 *   `master/slave_reregistrations` (counter) This metric provides the number of agent re-registrations and restarts. Use this metric along with historical data to determine deviations and spikes of when a network partition occurs. If this number drastically increases, then the cluster has experienced an outage but has reconnected.
 *   `master/slave_removals` (counter) This metric provides the number of agents removed for various reasons, including maintenance. Use this metric to determine network partitions after a large number of agents have disconnected. If this number greatly deviates from the previous number, your system administrator should be notified (PagerDuty etc).

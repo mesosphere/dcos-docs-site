@@ -8,9 +8,9 @@ excerpt: Updating a job
 enterprise: false
 ---
 
-  
+
 # Description
-Update a job.
+The `dcos job update` command allows you to update a job.
 
 # Usage
 
@@ -24,14 +24,14 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-file>`   |             |  A JSON-formatted job definition. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<job-file>`   |   A JSON-formatted job definition. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.11/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
-<!-- # Examples -->
+

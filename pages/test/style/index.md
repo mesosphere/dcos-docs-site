@@ -53,6 +53,25 @@ Test Large
 [/enterprise]
 
 ---
+## Notes and Warnings
+
+These styles are configured in /shortcodes/_message.scss.
+
+<p class="message--warning">
+This is a warning. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+</p>
+<p class="message--warning-label">
+This is a paragraph with a warning-label. I haven't figured out how to get it to display BOTH the label and the background formatting.
+</p>
+<p class="message--important">
+This is an important note. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+</p>
+<p class="message--note">
+This is a note. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+
+
+---
+## Numbering steps in a procedure
 
 1. Something
     1. Child

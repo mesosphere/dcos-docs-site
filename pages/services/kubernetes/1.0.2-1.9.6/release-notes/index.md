@@ -32,7 +32,7 @@ excerpt:
 
 ## Bug Fixes
 
-* Fix support for air-gapped clusters which use [local universe](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/).
+* Fix support for air-gapped clusters which use [local universe](/1.11/administering-clusters/deploying-a-local-dcos-universe/).
 
 ## Documentation
 

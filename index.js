@@ -13,6 +13,8 @@ const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const timer            = require('metalsmith-timer');
+const ignore           = require('metalsmith-ignore');
+const copy             = require('metalsmith-copy');
 
 // Local Plugins
 const reduce                  = require('./plugins/metalsmith-revision').reduce;
@@ -29,6 +31,10 @@ const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-r
 // Configs
 const shortcodesConfig = require('./shortcodes');
 
+function splitCommasOrEmptyArray(val) {
+  return (val && val.length > 0) ? val.split(',') : [];
+}
+
 // Environment Variables
 const GIT_BRANCH = process.env.GIT_BRANCH;
 const ALGOLIA_UPDATE = process.env.ALGOLIA_UPDATE;
@@ -38,14 +44,8 @@ const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN;
-const ALGOLIA_SKIP_SECTIONS = (
-  process.env.ALGOLIA_SKIP_SECTIONS &&
-  process.env.ALGOLIA_SKIP_SECTIONS.length > 0
-) ? (
-    process.env.ALGOLIA_SKIP_SECTIONS.split(',')
-  ) : (
-    []
-  );
+const ALGOLIA_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.ALGOLIA_SKIP_SECTIONS);
+const METALSMITH_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.METALSMITH_SKIP_SECTIONS);
 
 //
 // Errors
@@ -117,6 +117,16 @@ const CB = branch();
 // Start timer
 CB.use(timer('CB: Init'));
 
+CB.use(ignore(METALSMITH_SKIP_SECTIONS));
+CB.use(timer('CB: Ignore'));
+
+// CB.use(copy({
+//   pattern: '1.12/**',
+//   transform: file => file.replace(/^1\.12/, '1.12-beta'),
+//   move: true,
+// }));
+// CB.use(timer('CB: Copy'));
+
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
 //   model: path/to/my.yml (access content in my.yml as model.foo.bar)
@@ -126,8 +136,7 @@ CB.use(timer('CB: Init'));
 //     data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
 CB.use(dataLoader({
   dataProperty: 'model',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md',
+  match: '**/*.md',
 }));
 CB.use(timer('CB: Dataloader'));
 
@@ -137,8 +146,7 @@ CB.use(timer('CB: Dataloader'));
 CB.use(includeContent({
   // Style as a C-like include statement. Must be on its own line.
   pattern: '^#include ([^ \n]+)$',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md*',
+  match: '**/*.md*',
 }));
 CB.use(timer('CB: IncludeContent'));
 
@@ -147,8 +155,7 @@ CB.use(timer('CB: IncludeContent'));
 //   render: mustache
 CB.use(inPlace({
   renderProperty: 'render',
-  // Only enable in service pages for now.
-  match: 'services/**/*.md',
+  match: '**/*.md',
 }));
 CB.use(timer('CB: Mustache'));
 

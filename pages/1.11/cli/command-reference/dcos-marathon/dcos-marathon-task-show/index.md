@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-List a specific task.
+The `dcos marathon task show` command allows you to list a specific task.
 
 # Usage
 
@@ -24,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<task-id>`   |             |  The task ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<task-id>`   |  The task ID. You can view a list of the task IDs with the `dcos marathon task list` command. |
 
 # Parent command
 
@@ -34,4 +34,4 @@ None.
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->
+

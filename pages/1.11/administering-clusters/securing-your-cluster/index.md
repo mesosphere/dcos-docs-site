@@ -15,6 +15,26 @@ network interfaces with iptables or other firewalls, and regularly applying
 updates from the Linux distribution used with DC/OS to ensure that system
 libraries, utilities and core services like systemd and OpenSSH are secure.
 
+# Network security
+
+You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes.
+
+Depending on your cluster environment, this may include:
+- using physical or virtual subnets to isolate [DC/OS Security Zones](#security-zones);
+- using router firewalls to restrict access to ports;
+- using firewall software (e.g. `iptables`) on the nodes to restrict access to ports.
+
+Use these mechanisms to:
+- block connection requests on all ports from external machines to master nodes except TCP ports 80 and 443.
+- block connection requests on all ports from external machines to private agent nodes.
+- block connection requests on all ports from external machines to public agent ports except [advertised port ranges](/1.11/installing/production/system-requirements/ports/#agent).
+
+For connections between cluster nodes, refer to [DC/OS Ports](/1.11/installing/production/system-requirements/ports/).
+
+You may want to open port 22 to external machines to allow administrative tasks using Secure Shell (`ssh`).
+Although DC/OS components do not currently support private network selection, you can configure
+`ssh` to be accessible to a private management network using the [`ListenAddress`](https://man.openbsd.org/sshd_config#ListenAddress) directive.
+
 ## Security zones
 
 At the highest level we can distinguish three security zones in a DC/OS
@@ -72,6 +92,8 @@ A typical AWS deployment including AWS Load Balancers is shown below:
 
 ![Security Zones](/1.11/img/security-zones.jpg)
 
+Figure 1. Security zones
+
 ## Admin Router
 
 Access to the admin zone is controlled by the Admin Router.
@@ -88,4 +110,4 @@ Authenticated users are authorized to perform arbitrary actions in their
 cluster. That is, there is currently no fine-grained access control in DC/OS
 besides having access or not having access to services.
 
-See the [Security Administrator's Guide](/1.11/security/) for more information.
+See the [Security section](/1.11/security/) for more information.

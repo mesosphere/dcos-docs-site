@@ -55,7 +55,13 @@ The below matrix provides guidance as to which platform components and operating
     <th><strong>DC/OS 1.9</strong></th>
     </tr>
     <tr>
-       <td>CoreOS 1688.5.3<sup>*</sup></td>
+       <td>CoreOS 1800.7.0</td>
+       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
+       <td>                    </td>
+       <td>                    </td>
+    </tr>
+    <tr>
+       <td>CoreOS 1688.5.3</td>
        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
        <td>                    </td>
        <td>                    </td>
@@ -117,10 +123,32 @@ The below matrix provides guidance as to which platform components and operating
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
+    <tr>
+    <th><strong>CLI</strong></th>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.6.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.5.x</td>
+        <td></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.4.x</td>
+        <td></td>
+        <td></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
 </table>
 
-<sup>*</sup> CoreOS 1688.5.3 requires DC/OS 1.11.3 or later releases.
-
+**Note:**
+- CoreOS 1688.5.3 requires DC/OS 1.11.3 or later releases.
+- CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.
 
 ## Version Compatibility Matrix
 
@@ -281,7 +309,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
-      <tr>
+    <tr>
         <td>ElasticSearch 2.1.x-5.6.y</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -374,6 +402,13 @@ B- This package combination is *beta*.
     </tr>
      <tr>
         <td>MoM (Marathon on Marathon) 1.5</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Edge-LB 1.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>

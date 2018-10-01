@@ -3,21 +3,18 @@ layout: layout.pug
 navigationTitle:  Finding a Public Agent IP
 title: Finding a Public Agent IP
 menuWeight: 3
-excerpt: Learn to find a public agent IP address.
+excerpt: Finding a public agent IP address.
 enterprise: false
 ---
-
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 After you have installed DC/OS with a public agent node declared, you can navigate to the public IP address of your public agent node.
 
 **Prerequisites**
 
-- DC/OS is installed with at least 1 master and [public agent](/1.11/overview/concepts/#public-agent-node) node
-- DC/OS [CLI](/1.11/cli/) 0.4.6 or later
+- DC/OS is installed with at least one master and [public agent](/1.12/overview/concepts/#public-agent-node) node
+- DC/OS [CLI](/1.12/cli/) 0.4.6 or later
 - [jq](https://github.com/stedolan/jq/wiki/Installation)
-- [SSH](/1.11/administering-clusters/sshcluster/) configured
+- [SSH](/1.12/administering-clusters/sshcluster/) configured
 
 You can find your public agent IP by running this command from your terminal. This command SSHs to your cluster to obtain cluster information and then queries [ifconfig.co](https://ifconfig.co/) to determine your public IP address.
 

@@ -3,11 +3,11 @@ layout: layout.pug
 navigationTitle:  Managing Package Repositories
 title: Managing Package Repositories
 menuWeight: 50
-excerpt: Learn to use the web interface or CLI to manage your package repositories.
+excerpt: Using the web interface or CLI to manage your package repositories
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 DC/OS comes pre-configured with the [Mesosphere Universe](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages, but other package repositories can also be added.
 
@@ -18,7 +18,8 @@ You can use the web interface or the CLI to:
 * [Add repositories](#adding)
 * [Remove repositories](#removing)
 
-**Tip:** Before you can use the CLI, you need to [install it](/1.11/cli/install/).
+<p class="message--note"><strong>NOTE: </strong>Before you can use the CLI, you need to <a href="/1.12/cli/install">install it</a>.</p>
+
 
 ## <a name="listing"></a>Listing repositories
 

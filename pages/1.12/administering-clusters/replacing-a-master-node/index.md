@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Replace a master node
 title: Replace a master node
 menuWeight: 800
-excerpt:
+excerpt: Replacing a master node in an existing DC/OS cluster
 
 enterprise: true
 ---
@@ -13,34 +13,24 @@ enterprise: true
 
 You can replace a master node in an existing DC/OS cluster. Only one master should be replaced at a time.
 
-### Remove the existing master
+## Remove the existing master
 
-To begin, simply shut down the master node you want to replace.
+To begin, shut down the master node you want to replace.
 
-### Add the new master
+## Add the new master
 
 The procedure for adding the new master node to replace the one taken offline in the previous step is quite simple.
 
-#### `master_discovery: static`
+### `master_discovery: static`
 
-If you have configured static master discovery in your config.yaml (i.e.,
-`master_discovery: static`) then the new server must have the same internal IP
-address as the old.
+If you have configured static master discovery in your `config.yaml` (for example, `master_discovery: static`), then the new server must have the same internal IP address as the old server. Once you have verified that the new server has the same internal IP address as the old server, and the old server is completely unreachable from the cluster, you can proceed to install the new master as you would normally.
 
-Once you've double-checked that the new server has the same internal IP address
-as the old one and the old server is completely unreachable from the cluster
-you can proceed to install the new master as you would normally.
+### `master_discovery: master_http_loadbalancer`
 
-#### `master_discovery: master_http_loadbalancer`
+If you have configured dynamic master discovery in your config.yaml (for example, `master_discovery: master_http_loadbalancer`), then  install the new master as you would normally.
 
-If you have configured dynamic master discovery in your config.yaml (i.e.,
-`master_discovery: master_http_loadbalancer`) then simply install the new
-master as you would normally.
+## Confirm that the new master is healthy
 
-### Check that the new master is healthy
+To confirm that the new master has joined the cluster successfully, you must validate that the procedure was successful before proceeding. The procedure is identical to the verification performed following a master node upgrade.
 
-In order to confirm that the new master has joined the cluster successfully you must validate that the procedure was successful before proceeding.
-
-The procedure is identical to the verification performed following a master node upgrade.
-
-The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.11/installing/ent/upgrading/#dcos-masters) section in the upgrade documentation.
+The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.12/installing/production/upgrading/#dcos-masters) section in the [Upgrading documentation](/1.12/installing/production/upgrading/).

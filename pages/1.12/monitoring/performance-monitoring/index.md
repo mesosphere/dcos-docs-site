@@ -3,13 +3,10 @@ layout: layout.pug
 navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1
-excerpt: Learn about monitoring a DC/OS cluster
+excerpt: Monitoring a DC/OS cluster
 
 enterprise: false
 ---
-
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 Here are some recommendations for monitoring a DC/OS cluster. You can use any monitoring tools. The endpoints listed below will help you troubleshoot when issues occur.
 
@@ -24,42 +21,56 @@ Marathon has a timer metric that determines how long an event has taken place. T
 
 ## Marathon metrics
 
-Marathon provides a number of [metrics][1] for monitoring. Here are the ones that are particularly useful to DC/OS. You can query the metrics HTTP endpoint in your DC/OS cluster at `<Master-Public-IP>/marathon/metrics`.
+Marathon provides a number of [metrics][1] for monitoring. You can query the metrics HTTP endpoint in your DC/OS cluster at `<Master-Public-IP>/marathon/metrics`. Here are the ones that are particularly useful to DC/OS.
 
-**Lifetime metrics**
+### Important metrics
 
-*   `service.mesosphere.marathon.uptime` (gauge) This metric provides the uptime, in milliseconds, of the reporting Marathon process. Use this metric to diagnose stability problems that can cause Marathon to restart.
-*   `service.mesosphere.marathon.leaderDuration` (gauge) This metric provides the amount of time, in milliseconds, since the last leader election occurred. Use this metric to diagnose stability problems and determine the frequency of leader election.
+*   `marathon.apps.active.gauge` — the number of active apps.
+*   `marathon.deployments.active.gauge` — the number of active deployments.
+*   `marathon.deployments.counter` — the count of deployments received since the current Marathon instance became a leader.
+*   `marathon.deployments.dismissed.counter` — the count of deployments dismissed since the current Marathon instance became a leader; a deployment might be dismissed by Marathon, when there are too many concurrent deployments.
+*   `marathon.groups.active.gauge` — the number of active groups.
+*   `marathon.leadership.duration.gauge.seconds` — the duration of current leadership. This metric provides the amount of time. Use this metric to diagnose stability problems and determine the frequency of leader election.
+*   `marathon.persistence.gc.runs.counter` — the count of Marathon GC runs since it became a leader.
+*   `marathon.persistence.gc.compaction.duration.timer.seconds` — a histogram of Marathon GC compaction phase durations, and a meter for compaction durations.
+*   `marathon.persistence.gc.scan.duration.timer.seconds` — a histogram of Marathon GC scan phase durations, and a meter for scan durations.
+*   `marathon.instances.running.gauge` — the number of running instances at the moment.
+*   `marathon.instances.staged.gauge` — the number of instances staged at the moment. Instances are staged immediately after they are launched. A consistently high number of staged instances might indicate a high number of instances cannot be started quickly or are being restarted.
+*   `marathon.uptime.gauge.seconds` — uptime of the current Marathon instance. Use this metric to diagnose stability problems that can cause Marathon to restart.
 
-**Running tasks**
+#### Mesos-specific metrics
 
-*   `service.mesosphere.marathon.task.running.count` (gauge) This metric provides the number of tasks that are running.
+*   `marathon.tasks.launched.counter` — the count of Mesos tasks launched by the current Marathon instance since it became a leader.
+*   `marathon.mesos.calls.revive.counter` — the count of Mesos `revive` calls made since the current Marathon instance became a leader.
+*   `marathon.mesos.calls.suppress.counter` — the count of Mesos `suppress` calls made since the current Marathon instance became a leader.
+*   `marathon.mesos.offer-operations.launch-group.counter` — the count of `LaunchGroup` offer operations made since the current Marathon instance became a leader.
+*   `marathon.mesos.offer-operations.launch.counter` — the count of `Launch` offer operations made since the current Marathon instance became a leader.
+*   `marathon.mesos.offer-operations.reserve.counter` — the count of `Reserve` offer operations made since the current Marathon instance became a leader.
+*   `marathon.mesos.offers.declined.counter` — the count of offers declined since the current Marathon instance became a leader.
+*   `marathon.mesos.offers.incoming.counter` — the count of offers received since the current Marathon instance became a leader.
+*   `marathon.mesos.offers.used.counter` — the count of offers used since the current Marathon instance became a leader.
 
-**Staged tasks**
+#### HTTP-specific metrics
 
-*   `service.mesosphere.marathon.task.staged.count` (gauge) This metric provides the number of tasks that are staged. Tasks are staged immediately after they are launched. A consistently high number of staged tasks indicates a high number of tasks are being stopped and restarted. This can be caused by either:
+*   `marathon.http.event-streams.responses.size.counter.bytes` — the size of data sent to clients over event streams since the current Marathon instance became a leader.
+*   `marathon.http.requests.size.counter.bytes` — the total size of all requests since the current Marathon instance became a leader.
+*   `marathon.http.requests.size.gzipped.counter.bytes` — the total size of all gzipped requests since the current Marathon instance became
+  a leader.
+*   `marathon.http.responses.size.counter.bytes` — the total size of all responses since the current Marathon instance became a leader.
+*   `marathon.http.responses.size.gzipped.counter.bytes` — the total size of all gzipped responses since the current Marathon instance became a leader.
+*   `marathon.http.requests.active.gauge` — the number of active requests.
+*   `marathon.http.responses.1xx.rate` — the rate of `1xx` responses.
+*   `marathon.http.responses.2xx.rate` — the rate of `2xx` responses.
+*   `marathon.http.responses.3xx.rate` — the rate of `3xx` responses.
+*   `marathon.http.responses.4xx.rate` — the rate of `4xx` responses.
+*   `marathon.http.responses.5xx.rate` — the rate of `5xx` responses.
+*   `marathon.http.requests.duration.timer.seconds` — a histogram of request durations, and a meter for request durations.
+*   `marathon.http.requests.get.duration.timer.seconds` — the same but for `GET` requests only.
+*   `marathon.http.requests.post.duration.timer.seconds` — the same but for `POST` requests only.
+*   `marathon.http.requests.put.duration.timer.seconds` — the same but for `PUT` requests only.
+*   `marathon.http.requests.delete.duration.timer.seconds` — the same but for `DELETE` requests only.
 
-    *   A high number of app updates or manual restarts.
-    *   Apps with stability problems that are automatically restarted frequently.
-
-**Task update status**
-
-*   `service.mesosphere.marathon.core.task.update.impl.ThrottlingTaskStatusUpdateProcessor.queued` (gauge) This metric provides the number of queued status updates.
-*   `service.mesosphere.marathon.core.task.update.impl.ThrottlingTaskStatusUpdateProcessor.processing` (gauge) This metric provides the number of status updates that are currently in process.
-*   `service.mesosphere.marathon.core.task.update.impl.TaskStatusUpdateProcessorImpl.publishFuture` (timer) This metric calculates how long it takes Marathon to process status updates.
-
-**App and group count**
-
-*   `service.mesosphere.marathon.app.count` (gauge) This metric provides the number of apps that are defined. The number of apps defined affects the performance of Marathon: the more apps that are defined, the lower the Marathon performance.
-*   `service.mesosphere.marathon.group.count` (gauge) This metric provides the number of groups that are defined. The number groups that are defined affects the performance of Marathon: the more groups that are defined, the lower the Marathon performance.
-
-**Communication between Marathon and Mesos**
-
-If healthy, these metrics should always be increasing.
-
-*   `service.mesosphere.marathon.core.launcher.impl.OfferProcessorImpl.incomingOffers` This metric provides the number of offers that Mesos is receiving from Marathon.
-*   `service.mesosphere.marathon.MarathonScheduler.resourceOffers` This [Dropwizard](http://metrics.dropwizard.io/3.1.0/manual/core/) metric measures the number of resource offers that Marathon receives from Mesos.
-*   `service.mesosphere.marathon.MarathonScheduler.statusUpdate` This [Dropwizard](http://metrics.dropwizard.io/3.1.0/manual/core/) metric measures the number of status updates that Marathon receives from Mesos.
+For further details on Marathon metrics please refer to its [documentation][1].
 
 ## Mesos metrics
 
@@ -67,9 +78,7 @@ Mesos provides a number of [metrics][2] for monitoring. Here are the ones that a
 
 ### Master
 
-**These metrics should not increase over time**
-
-If these metrics increase, something is probably wrong.
+**These metrics should not increase over time** If these metrics increase, something is probably wrong.
 
 *   `master/slave_reregistrations` (counter) This metric provides the number of agent re-registrations and restarts. Use this metric along with historical data to determine deviations and spikes of when a network partition occurs. If this number drastically increases, then the cluster has experienced an outage but has reconnected.
 *   `master/slave_removals` (counter) This metric provides the number of agents removed for various reasons, including maintenance. Use this metric to determine network partitions after a large number of agents have disconnected. If this number greatly deviates from the previous number, your system administrator should be notified (PagerDuty etc).
@@ -133,4 +142,4 @@ See the Apache Mesos [documentation](http://mesos.apache.org/documentation/lates
 
  [1]: https://mesosphere.github.io/marathon/docs/metrics.html
  [2]: http://mesos.apache.org/documentation/latest/monitoring/
- [3]: /1.11/deploying-services/marathon-api/#/apps
+ [3]: /1.12/deploying-services/marathon-api/#/apps

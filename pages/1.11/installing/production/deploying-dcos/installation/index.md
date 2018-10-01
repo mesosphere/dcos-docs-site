@@ -3,26 +3,27 @@ layout: layout.pug
 navigationTitle: Production Installation
 title: Production Installation
 menuWeight: 15
-excerpt: Installation process to create DC/OS clusters
+excerpt: Installing production-ready DC/OS 
 ---
 
-The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.11/overview/concepts/#node) documentation for more information.
 
-This method is used to install production-ready DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+This section describes how to install a production-ready deployment of DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+
+The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.11/overview/concepts/#node) documentation for more information.
 
 # Production Installation Process
 
  The following steps are required to install DC/OS clusters:
 
-*   Configure bootstrap node
-*   Install DC/OS on master node
-*   Install DC/OS on agent node
+1. Configure bootstrap node
+1. Install DC/OS on master node
+1. Install DC/OS on agent node
 
 ![Production Installation Process](/1.11/img/advanced-installer.png)
-Figure 1 - The production installation process
+Figure 1. The production installation process
 
 
-This installation method requires:
+This installation method requires that:
 
 *   The bootstrap node must be network accessible from the cluster nodes.
 *   The bootstrap node must have the HTTP(S) ports open from the cluster nodes.
@@ -42,7 +43,7 @@ The DC/OS installation creates the following folders:
 **Note:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
 ## Prerequisites
-Before installing DC/OS, your cluster must meet the software and hardware [requirements][1].
+Before installing DC/OS, your cluster must meet the software and hardware [requirements](/1.11/installing/production/system-requirements/).
 
 
 # <a name="configure-cluster"></a>Configure your cluster
@@ -63,7 +64,7 @@ In this step, an IP detection script is created. This script reports the IP addr
 
 **Note:**
 
-- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing/ent/custom/uninstall/).
+- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [uninstalled](/1.11/installing/production/uninstalling/).
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
 1.  Create an IP detection script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) line. You can use the examples below.
@@ -121,7 +122,7 @@ MASTER_IP=172.28.128.3
 echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
 ```
 
-        [oss type="inline" size="small" /]
+[oss type="inline" size="small" /]
 
 ```bash
 #!/usr/bin/env bash
@@ -147,6 +148,12 @@ BEGIN { ec = 1 }
     echo $INTERFACE_IP
 ```
 
+    
+   *   #### Test the scripts
+       
+       Test the scripts on the nodes to be installed before continuing. If the ethernet interface differs between nodes (eth0 vs eth1) it is recommended to test the script on nodes with different interfaces.
+
+
 [enterprise]
 # Create a fault domain detection script
 [/enterprise]
@@ -156,12 +163,13 @@ By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-service
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
 
-   We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>`. We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+   We require the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>`. We provide [fault domain detect scripts for AWS, Azure, and GCP](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes, azure nodes, and GCP nodes you would combine the three into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+
 
    <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Caution:</b> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</td> </tr> </table>
 
 
-2. Add your newly created `fault-domain-detect` script to the `/genconf` directory of your bootstrap node.
+2. Add your newly created `fault-domain-detect` script to the `./genconf` directory of your bootstrap node.
 
 
 # Create a configuration file
@@ -177,12 +185,11 @@ In the following instructions, we assume that you are using ZooKeeper for shared
 
 2. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file.
 
+    ```bash
+    sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
+    ```
 
-      ```bash
-      sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
-      ```
-
-Here is an example of a hashed password output.
+    Here is an example of a hashed password output.
 
     ```
     Extracting an image from this script and loading it into a docker daemon, can take a few minutes.
@@ -192,6 +199,11 @@ Here is an example of a hashed password output.
     00:42:11 root:: Hashed password for 'password' key:
     $6$rounds=656000$v55tdnlMGNoSEgYH$1JAznj58MR.Bft2wd05KviSUUfZe45nsYsjlEl84w34pp48A9U2GoKzlycm3g6MBmg4cQW9k7iY4tpZdkWy9t1
     ```
+
+ *  #### Test the scripts
+    
+    Test the scripts on one node in each environment. For example, if doing a hybrid Enterprise DC/OS deployment, test the script at least on a node in each region/data center.
+
 
 ## Create the configuration 
 1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. 
@@ -207,6 +219,11 @@ If your servers are installed with a domain name in your `/etc/resolv.conf`, add
 - If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers `8.8.8.8` and `8.8.4.4` with your local DNS servers.
 - If you specify `master_discovery: static`, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, `genconf/ip-detect-public`). This script is then referenced in `ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
 - In AWS, or any other environment where you can not control a node's IP address, master_discovery needs to be set to use master_http_load_balancer, and a load balancer needs to be set up.
+- Use the following DNS IPs for internal purpose:
+   * AWS Private DNS Resolver: 169.254.169.253
+   * GCP Private DNS Resolver: 169.254.169.254
+   * Azure Private DNS Resolver: 168.63.129.16
+
 
 [enterprise]
 ## Enterprise template
@@ -410,7 +427,7 @@ At this point your directory structure should resemble:
 
 ![Exhibitor for ZooKeeper](/1.11/img/chef-zk-status.png)
 
-Figure 2 - Exhibitor for ZooKeeper
+Figure 2. Exhibitor for ZooKeeper
 
    When the status icons are green, you can access the DC/OS web interface.
 
@@ -422,21 +439,21 @@ Figure 2 - Exhibitor for ZooKeeper
 
 ![Login screen](/1.11/img/ui-installer-auth2.png)
 
-Figure 3 - Sign in dialogue
+Figure 3. Sign in dialogue
 
 
 You are done! The UI dashboard will now be displayed.
 
 ![UI dashboard](/1.11/img/dashboard-ee.png)
 
-Figure 4 - DC/OS UI dashboard
+Figure 4. DC/OS UI dashboard
 
 
 ### Next Steps: Enterprise and Open Source users
 
 You can find information on the next steps listed below:
 - [Assign user roles][7].
-- [System Requirements][1]
+- [System Requirements](/1.11/installing/production/system-requirements/)
 - [Public agent nodes][2]
 - [Private agent nodes][3]
 - [Install the DC/OS Command-Line Interface (CLI)][9]
@@ -445,7 +462,7 @@ You can find information on the next steps listed below:
 - [Uninstalling DC/OS][11]
 
 
-[1]: /1.11/installing/ent/custom/system-requirements/
+[1]: /1.11/installing/production/system-requirements/
 [2]: /1.11/overview/concepts/#public
 [3]: /1.11/overview/concepts/#private
 [5]: /1.11/img/ui-installer-auth2.png

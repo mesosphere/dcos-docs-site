@@ -3,22 +3,22 @@ layout: layout.pug
 navigationTitle:  Cluster Links
 title: Cluster Links
 menuWeight: 3
-excerpt: Manage links between clusters.
+excerpt: Managing links between clusters
 enterprise: true
 ---
 
-A cluster link is a _**unidirectional**_ relationship between a cluster and another cluster.
+A cluster link is a **unidirectional** relationship between a cluster and another cluster.
 
-You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) and [dcos cluster unlink](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) commands and the [cluster link API](/1.11/administering-clusters/multiple-clusters/cluster-link-api). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
+You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-link) and [dcos cluster unlink](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-unlink) commands and the [cluster link API](/1.12/administering-clusters/multiple-clusters/cluster-link-api). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
 
-You must be logged in as a superuser or have the appropriate cluster link [permission](/1.11/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
+You must be logged in as a superuser or have the appropriate cluster link [permission](/1.12/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
 
 
 # Enable access to cluster links using SSO
 
 As superuser:
 
-1. Configure an [OpenID IDP](/1.11/security/ent/sso/setup-openid/).
+1. Configure an [OpenID IDP](/1.12/security/ent/sso/setup-openid/).
     1. Ensure both cluster URLs are provided in **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Dev console.
     1. Give the OIDC name such as "google-idp".
     1. Ensure both clusters use the same `Client-Id` and `Client-Secret` when configuring OIDC.
@@ -54,7 +54,7 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 # Viewing linked clusters
 
-To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, it status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.11/administering-clusters/multiple-clusters/cluster-connections).
+To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, it status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.12/administering-clusters/multiple-clusters/cluster-connections).
 
 # Remove a link to a cluster
 
@@ -82,15 +82,21 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
 1.  At the top-left corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/1.11/img/open-cluster-popup.png)
+    ![open cluster popup](/1.12/img/open-cluster-popup.png)
+
+    Figure 1. Open cluster menu
 
 1.  Select **Switch Cluster**.
 
-    ![swi cluster](/1.11/img/switch-cluster.png)
+    ![swi cluster](/1.12/img/switch-cluster.png)
+
+    Figure 2. Switch clusters
 
 1. Click the name of the cluster to switch to.
 
-    ![swi linked cluster](/1.11/img/switch-linked-cluster.png)
+    ![swi linked cluster](/1.12/img/switch-linked-cluster.png)
+
+    Figure 3. Switching to linked cluster
 
 If you are logged in as a superuser you can also switch to a linked cluster in the Linked Clusters tab.
 
@@ -98,7 +104,9 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
 
 1. At the far right of the cluster to switch to, click the vertical ellipsis and select **Switch**.
 
-   ![swi linked cluster2](/1.11/img/switch-linked-cluster2.png)
+   ![swi linked cluster2](/1.12/img/switch-linked-cluster2.png)
+
+   Figure 4. Switching to linked clusters
 
 
 # Linking and switching cluster examples
@@ -128,8 +136,8 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
     dcos cluster attach cluster-a
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
-     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.11-dev   https://cluster-b.us-west-2.elb.amazonaws.com
-    cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.11-dev  https://cluster-a.us-west-2.elb.amazonaws.com
+     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+    cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
 1. Link to cluster `cluster-b` from cluster `cluster-a`.
@@ -147,13 +155,11 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
     (1-2):
     ```
 
-1. Choose Google IDP (2).
+1. Choose Google IDP (2). If the cluster links successfully, there will be no response.
 
     ```
     (1-2): 2
     ```
-
-    **Note:** If the cluster links successfully there is _no_ response.
 
 1. Attach to cluster `cluster-b`.
 
@@ -187,8 +193,8 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
     ```
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
-    cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.11-dev   https://cluster-b.us-west-2.elb.amazonaws.com
-     cluster-a  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.11-dev  https://cluster-a.us-west-2.elb.amazonaws.com
+    cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+     cluster-a  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
 
@@ -201,11 +207,15 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
 1. Log in to DC/OS UI of cluster `cluster-a` as an external user using Google credentials.
 
-   ![google login](/1.11/img/google-login.png)
+   ![google login](/1.12/img/google-login.png)
+
+   Figure 5. Google login
 
 1. From the top left corner, click the down arrow next to the cluster name.
 
-   ![swi cluster](/1.11/img/switch-cluster.png)
+   ![swi cluster](/1.12/img/switch-cluster.png)
+
+   Figure 6. Switch cluster
 
 1. Click **Switch Cluster**. In the Linked Clusters pane, select cluster `cluster-b`. Cluster `cluster-b`’s UI displays.
 
@@ -239,8 +249,8 @@ You can easily switch to a linked cluster that has been set up with the Google O
     ```
     dcos cluster list
           NAME                    CLUSTER ID                  STATUS     VERSION                                         URL
-     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  UNCONFIGURED  1.11-dev   https://cluster-b.us-west-2.elb.amazonaws.com
-    cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5   AVAILABLE    1.11-dev  https://cluster-a.us-west-2.elb.amazonaws.com
+     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  UNCONFIGURED  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+    cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5   AVAILABLE    1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
 1. Attach to UNCONFIGURED cluster.
@@ -258,6 +268,6 @@ You can easily switch to a linked cluster that has been set up with the Google O
     ```
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
-    cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.11-dev   https://cluster-b.us-west-2.elb.amazonaws.com
-     cluster-a  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.11-dev  https://cluster-a.us-west-2.elb.amazonaws.com
+    cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+     cluster-a  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```

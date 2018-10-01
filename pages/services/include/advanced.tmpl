@@ -1,6 +1,6 @@
 # Advanced
 
-Advanced concerns of the DC/OS {{ model.techName }} service.
+Advanced features of the DC/OS {{ model.techName }} service.
 
 ## Components
 
@@ -20,7 +20,7 @@ The following components work together to deploy and maintain the DC/OS {{ model
 
 - Marathon
 
-  Marathon is the "init system" of a DC/OS cluster. Marathon launches tasks in the cluster and keeps them running. From the perspective of Mesos, Marathon is itself another Scheduler running its own tasks. Marathon is more general than the DC/OS {{ model.techName }} scheduler and mainly focuses on tasks that do not require managing a local persistent state. The DC/OS {{ model.techName}} service relies on Marathon to run the Scheduler and to provide it with a configuration via environment variables. The Scheduler, however, maintains the service tasks without any direct involvement by Marathon.
+  Marathon is the "init system" of a DC/OS cluster. Marathon launches tasks in the cluster and keeps them running. From the perspective of Mesos, Marathon is itself another Scheduler running its own tasks. Marathon is less specialized than the DC/OS {{ model.techName }} scheduler and mainly focuses on tasks that do not require managing a local persistent state. The DC/OS {{ model.techName}} service relies on Marathon to run the Scheduler and to provide it with a configuration via environment variables. The Scheduler, however, maintains the service tasks without any direct involvement by Marathon.
 
 - Packaging
 
@@ -32,8 +32,8 @@ For further discussion of DC/OS components, see the [architecture documentation]
 
 Internally, the DC/OS {{ model.techName }} service treats "Deployment" as moving from one state to another state. By this definition, "Deployment" applies to many scenarios:
 
-- When the {{ model.packageName }} package is first installed, deployment is moving from a null configuration to a deployed configuration.
-- When the deployed configuration is changed by updating the service, deployment is moving from an initial running configuration to a new proposed configuration.
+- When the {{ model.techShortName }} package is first installed, deployment moves from a null configuration to a deployed configuration.
+- When the deployed configuration is changed by updating the service, deployment moves from an initial running configuration to a new proposed configuration.
 
 In this section, we will describe how these scenarios are handled by the Scheduler.
 
@@ -51,11 +51,11 @@ This is the process for deploying a new instance of the service:
 
 1. Marathon launches the {{ model.packageName }} package's scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
 
-1. {{ model.packageName }} packages's scheduler is launched. From this point onwards, the Scheduler handles deployment.
+1. The {{ model.packageName }} packages's scheduler is launched. From this point onwards, the Scheduler handles deployment.
 
 #### Steps handled by the Scheduler
 
-{{ model.packageName }}'s `main()` function is run like any other Java application. The Scheduler starts with the following state:
+{{ model.techName }}'s `main()` function is run like any other Java application. The Scheduler starts with the following state:
 
 - A `svc.yml` template that represents the service configuration.
 - Environment variables provided by Marathon, to be applied onto the `svc.yml` template.
@@ -121,11 +121,13 @@ This is the process for uninstalling the DC/OS {{ model.techName }} service.
 
 #### Steps handled by the Scheduler
 
+<p class="message--warning"><strong>WARNING: </strong>Any data stored in reserved disk resources will be irretrievably lost.</p>
+
 When started in uninstall mode, the Scheduler performs the following actions:
 - All running service tasks are killed.
 - Any Mesos resource reservations are unreserved.
-  - **Warning**: Any data stored in reserved disk resources will be irretrievably lost.
 - The pre-existing state in ZooKeeper is deleted. The znode `dcos-service-<svc-name>` will be left behind. This is due to the structure of the ACLs on the root (`/`) of the DC/OS ZooKeeper.
+
 
 ## Offer Cycle
 
@@ -200,12 +202,13 @@ Agent 3: X B
 
 Configuring `ROOT` vs `MOUNT` volumes may depend on the service. Some services will support customizing this setting when it is relevant, while others may assume one or the other.
 
+[enterprise]
 ## Secrets
+[/enterprise]
 
 Enterprise DC/OS provides a secrets store to enable access to sensitive data such as database passwords, private keys, and API tokens. DC/OS manages secure transportation of secret data, access control and authorization, and secure storage of secret content.
 
-**Note:** Secrets are available only in Enterprise DC/OS 1.10 and later versions. [Learn more about the secrets store](/1.11/security/ent/secrets/).
-
+Secrets are available only in Enterprise DC/OS 1.10 and later versions. [Learn more about the secrets store](/1.11/security/ent/secrets/).
 
 ### Authorization for Secrets
 
@@ -229,8 +232,11 @@ The path of a secret defines which service IDs can have access to it. You can th
 | `secret-svc/instance1/Secret_Path2`  | `/secret-svc/instance1/someDir/dev3`| Yes                        |
 
 
-
-**Note:** Absolute paths (paths with a leading slash) to secrets are not supported. The file path for a secret must be relative to the sandbox.
+<table class=“table note” bgcolor=#7d58ff>
+<tr> 
+  <td align=justify style=color:white><strong>Note:</strong> Absolute paths (paths with a leading slash) to secrets are not supported. The file path for a secret must be relative to the sandbox.</td> 
+</tr> 
+</table>
 
 ### Binary Secrets
 
@@ -264,19 +270,29 @@ Now that the file is encoded it can be stored as a secret.
 $ dcos security secrets create --value-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
 ```
 
-**Note:** The secret name **must** be prefixed with `__dcos_base64__`.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> The secret name <strong>must</strong> be prefixed with "__dcos_base64__".</td> 
+</tr> 
+</table>
+
 
 When the `some/path/__dcos_base64__mysecret` secret is [referenced in your service definition](https://mesosphere.github.io/dcos-commons/developer-guide.html), its base64-decoded contents will be made available as a [temporary file](http://mesos.apache.org/documentation/latest/secrets/#file-based-secrets) in your service task containers.
 
-**Note:** Make sure to only refer to binary secrets as files, since holding binary content in environment variables is discouraged.
+<table class=“table note” bgcolor=#7d58ff>
+<tr> 
+  <td align=justify style=color:white><strong>Note:</strong> Make sure to only refer to binary secrets as files, since holding binary content in environment variables is discouraged.</td> 
+</tr> 
+</table>
 
 
 ## Service Scheduler Metrics
 The service scheduler records a number of metrics that can be used to diagnose issues with the scheduler and monitor the performance of the scheduler. The metrics can be consumed via DC/OS metrics, or pulled directly from the service scheduler.
 
+### JSON
+
 A JSON representation of the metrics is available at the `/v1/metrics` endpoint of the service scheduler.
 
-####### JSON
 
 ```json
 {
@@ -334,9 +350,10 @@ A JSON representation of the metrics is available at the `/v1/metrics` endpoint 
 }
 ```
 
+### Prometheus
+
 A Prometheus representation of the metrics is available at the `/v1/metrics/prometheus` endpoint of the service scheduler.
 
-####### Prometheus
 ```
 # HELP declines_long Generated from Dropwizard metric import (metric=declines.long, type=com.codahale.metrics.Counter)
 # TYPE declines_long gauge

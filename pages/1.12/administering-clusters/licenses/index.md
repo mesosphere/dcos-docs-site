@@ -4,12 +4,10 @@ navigationTitle:  Licenses
 title: Licenses
 menuWeight: 1100
 enterprise: true
-excerpt: Administer your cluster in conformance with your license requirements.
+excerpt: Administering your cluster in conformance with your license requirements
 ---
 
-The DC/OS licensing component allows you to administer your cluster in conformance with your license requirements.
-
-DC/OS licensing tracks the state of a cluster license, collects information to check if any licensing terms have been breached, and supports operations for updating the license when a contract is extended or changed.
+The DC/OS licensing component allows you to administer your cluster in conformance with your license requirements. DC/OS licensing tracks the state of a cluster license, collects information to check if any licensing terms have been breached, and supports operations for updating the license when a contract is extended or changed.
 
 A cluster license file contains all of the information to determine if the terms of a contract agreement has been breached. It also contains the set of keys necessary to encrypt and decrypt a checksum of the audit data collected by the DC/OS licensing component. The license text contains:
 
@@ -22,7 +20,7 @@ A cluster license file contains all of the information to determine if the terms
 
 # Configuring the cluster license
 
-You specify the license file when you configure a cluster installation. To configure a cluster license, specify the license text received in email sent by your Authorized Support Contact in a file you create at `genconf/license.txt` [before running the installer](/1.11/installing/ent/custom/advanced/#license).
+You specify the license file when you configure a cluster installation. To configure a cluster license, specify the license text received in email sent by your Authorized Support Contact in a file you create at `genconf/license.txt` [before running the installer](1.12/installing/production/deploying-dcos/installation/#license).
 
 The DC/OS licensing component will launch successfully only if the information in the license is legitimate. Once the DC/OS licensing component launches, the deployment of the DC/OS components is resumed and validated. If the license is missing or invalid, the deployment will fail.
 

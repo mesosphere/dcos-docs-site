@@ -8,7 +8,8 @@ menuWeight: 2
 
 This tutorial walks you through setting up a microscaling demonstration from [Microscaling Systems][2] on a DC/OS cluster.
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
+
+#include /include/tutorial-disclaimer.tmpl
 
 [Microscaling][1] adjusts the balance of tasks running within your compute cluster.
 This allows your infrastructure to automatically reallocate
@@ -25,6 +26,8 @@ If you already have the [prerequisites](#prerequisites) setup, you'll have the m
 In this tutorial, microscaling adjusts the balance between two tasks - one high priority and one background - based on the number of items in  an Azure Storage Queue.
 
 ![microscaling-queue.png](/1.11/img/microscaling-queue.png)
+ 
+ Figure 1. - Microscaling queue
 
 The demo creates four Marathon apps that run as Docker containers.
 
@@ -58,7 +61,7 @@ After the storage account has been created, navigate to Settings -> Access Keys 
 # Set up Microscaling-in-a-box
 
 * Go to the [Microscaling-in-a-box][10] site and sign up for an account if you don't have one already.
-* In Step 1, pick the Mesos / Marathon option
+* In Step 1, pick the Mesos/Marathon option
 
 ![microscaling-step-1.png](/1.11/img/microscaling-step-1.png)
 
@@ -66,6 +69,8 @@ After the storage account has been created, navigate to Settings -> Access Keys 
 * Navigate to the step 4 (Run) page and find your user ID and the default value for the queue we'll be using in the demo. You will use these as the values for environment variables `MSS_USER_ID` and `AZURE_STORAGE_QUEUE_NAME` later.
 
 ![microscaling-step-4.png](/1.11/img/microscaling-step-4.png)
+
+Figure 4. User ID and queue name
 
 # Get the microscaling scripts
 
@@ -124,7 +129,7 @@ After you've finished with the demo you should delete the Azure resources so tha
 * Find and delete the Resource Group you created for the Azure Queue.
 * If you created an ACS cluster for this demo, you'll want to delete the Resource Group for that too.
 
-# Appendix: Next Steps
+# Next Steps
 
 - Try modifying some of the configuration settings in Step 3 of Microscaling-in-a-Box before you run the demo. You'll need to stop the tasks (manually or by running `./marathon-uninstall`) and restart them again with `./marathon-install` to pick up configuration changes.
 - See the settings for each of the Marathon apps in JSON files contained within the `marathon-apps` directory.

@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  Overriding the default Linux user
 title: Overriding the default Linux user
 menuWeight: 31
-excerpt: Learn how to override the default Linux user of your tasks and sandboxes.
+excerpt: Overriding the default Linux user 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-# About overriding the default Linux user
-
-The default Linux user of a service or job can vary according to the security mode and the container type. See [Linux users](/1.11/security/ent/#linux-users) for more information.
+The default Linux user of a service or job can vary according to the security mode and the container type. See [Linux users](/1.12/security/ent/#linux-users) for more information.
 
 The procedure for overriding the default Linux user varies by the type of service or job.
 
@@ -20,19 +18,19 @@ The procedure for overriding the default Linux user varies by the type of servic
 
 # <a name="universe"></a>Overriding the default Linux user of a Universe service
 
-Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.11/security/ent/service-auth/). Refer to the section that pertains to the service of interest for step-by-step instructions. The procedures also include how to configure the service to use encryption and service accounts.
+Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.12/security/ent/service-auth/). Refer to the section that pertains to the service of interest for step-by-step instructions. The procedures also include how to configure the service to use encryption and service accounts.
 
-Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Universe service is launched with. See [Mesos Permissions](https://docs.mesosphere.com/1.11/security/ent/perms-reference/#mesos-permissions) for more information.
+Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Universe service is launched with. See [Mesos Permissions](https://docs.mesosphere.com/1.12/security/ent/perms-reference/#mesos-permissions) for more information.
 
 # <a name="marathon-app-def"></a>Overriding the default Linux user via Marathon app definition
 
-Marathon app definitions provide a `"user"` key which you can use to override the default Linux user. **Tip:** Reference the [Marathon documentation](/1.11/deploying-services/creating-services/) for more details on writing Marathon services.
+Marathon app definitions provide a `"user"` key which you can use to override the default Linux user. **Tip:** Reference the [Marathon documentation](/1.12/deploying-services/creating-services/) for more details on writing Marathon services.
 
-The following procedure will walk you through a quick tutorial to demonstrate how the ownership works in action. Before you begin, make sure that:
+The following tutorial will demonstrate how ownership works in action. Before you begin, make sure that:
 
 - The Linux user account already exists on the agent.
-- You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You have installed and are logged into the [DC/OS CLI](/1.12/cli/).
+- You must follow the steps in [Downloading the Root Cert](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 - You have granted permission to perform the `create` action on the `dcos:mesos:master:task:user:<linux-user-name>` resource to the `dcos_marathon` DC/OS service account user.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user.
@@ -45,20 +43,20 @@ Once you have met these prerequisites, complete the following steps to override 
     "cmd": "whoami && tee file && sleep 1000",
     "user": "<your-test-user-account>",
     "uris": [
-        "/1.11/img/logos/mesosphere.svg"
+        "/1.12/img/logos/mesosphere.svg"
     ]
   }
   ```
-  **Important:** Don't forget to replace `<your-test-user-account>` with the name of a Linux user that exists on the agent and differs from the default.
+<p class="message--important"><strong>IMPORTANT: </strong> Do not forget to replace "your-test-user-account" with the name of a Linux user who exists on the agent and differs from the default.</p>
 
-1. Deploy the service using the [Marathon API](/1.11/deploying-services/marathon-api/).
+1. Deploy the service using the [Marathon API](/1.12/deploying-services/marathon-api/).
 
   ```bash
 curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
   ```
 
 
-1. Check the **Services** tab of the DC/OS GUI to confirm that your app has successfully been created.
+1. Check the **Services** tab of the DC/OS web interface to confirm that your app has successfully been created.
 
 1. Click your service and then click the **Configuration** tab.
 
@@ -78,13 +76,14 @@ curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/mara
 
 Metronome job definitions provide a `"user"` key which you can use to override the default Linux user.
 
-**Tip:** Refer to the [Jobs documentation](/1.11/deploying-jobs/quickstart/) for more information about creating and deploying jobs.
+<p class="message--note"><strong>NOTE: </strong>Refer to the <a href="/1.12/deploying-jobs/quickstart/">Jobs documentation</a> for more information about creating and deploying jobs.</p>
+
 
 The following procedure will walk you through a quick tutorial to demonstrate how the ownership works in action. Before you begin, make sure that:
 
 - The Linux user account already exists on the agent.
-- You have installed and are logged into the [DC/OS CLI](/1.11/cli/).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You have installed and are logged into the [DC/OS CLI](/1.12/cli/).
+- You must follow the steps in [Downloading the Root Cert](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 - You have granted permission to perform the `create` action on the `dcos:mesos:master:task:user:<linux-user-name>` resource to the `dcos_metronome` DC/OS service account user.
 
 Once you have met these prerequisites, complete the following steps to override the default Linux user.
@@ -98,7 +97,7 @@ Once you have met these prerequisites, complete the following steps to override 
   "run": {
     "artifacts": [
       {
-        "uri": "/1.11/img/logos/mesosphere.svg"
+        "uri": "/1.12/img/logos/mesosphere.svg"
       }
     ],
     "cmd": "whoami && printf 'iamme' | tee file && sleep 1000",
@@ -109,15 +108,15 @@ Once you have met these prerequisites, complete the following steps to override 
   }
 }
   ```
-  **Important:** Don't forget to replace `<your-test-user-account>` with the name of a Linux user that exists on the agent and differs from the default. The Linux user `nobody` will exist if you have not already provisioned a user.
+  <p class="message--important"><strong>IMPORTANT: </strong>Do not forget to replace "your-test-user-account" with the name of a Linux user that exists on the agent and differs from the default. The Linux user <code>nobody</code> will exist if you have not already provisioned a user.</p>
 
-1. Deploy the job using the [Metronome REST API](https://dcos.github.io/metronome/docs/generated/api.html).
+2. Deploy the job using the [Metronome REST API](https://dcos.github.io/metronome/docs/generated/api.html).
 
    ```bash
    curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d @myjob.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
    ```
 
-1. Check the **Jobs** tab of the DC/OS GUI to confirm that your job has successfully deployed.
+1. Check the **Jobs** tab of the DC/OS web interface to confirm that your job has successfully deployed.
 
 1. Click your job and then click **Run Now**.
 
@@ -127,6 +126,6 @@ Once you have met these prerequisites, complete the following steps to override 
 
 1. Click to open the **Files** tab. Observe that all of the files have your Linux user as the **OWNER**.
 
-1. Click to open the **stdout** file.
+1. Click to open the `stdout` file.
 
 1. Scroll to the bottom and you should see the results of the `whoami` command, the name of the user your task is running under, followed by `iamme`.

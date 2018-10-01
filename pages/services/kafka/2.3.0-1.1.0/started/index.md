@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Getting started with Kafka
 title: Getting Started
 menuWeight: 10
 model: /services/kafka/data.yml

@@ -7,11 +7,7 @@ menuWeight: 25
 oss: true
 ---
 
-You can create a DC/OS cluster on Packet bare metal using Terraform.
-
-The included Terraform templates are configured to run Mesosphere DC/OS on Packet. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support, please email help@packet.net, visit the Packet IRC channel (#packethost on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
-
-**Note:** Upgrades are not supported with this installation method.
+You can create a DC/OS cluster on Packet bare metal using Terraform. The included Terraform templates are configured to run Mesosphere DC/OS on Packet. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support, please email help@packet.net, visit the Packet IRC channel (#packethost on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/). Upgrades are not supported with this installation method.
 
 ## Hardware
 
@@ -35,7 +31,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Packe
 
 ## Installing DC/OS
 
-**Note:** With this method, the network is open by default. Because of this, network security is a concern and should be addressed as soon as possible by the administrator.
+<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, network security is a concern and should be addressed as soon as possible by the administrator.</p>
 
 1.  Download and install Terraform using the instructions on the link provided in the Prerequisites section.
 
@@ -64,20 +60,20 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Packe
     - `packet_facility` - Packet facility: [ewr1|sjc1|ams1]
       ewr1 is New Jersey, ams1 is Amsterdam, sjc1 is San Jose - default sjc1
 
-    - `packet_agent_type` - Type of Packet Server to use for the DC/OS Agents: [baremetal_0|baremetal_1|baremetal_3]
-      Choose the Packet Server type to use for the DC/OS Private Agents - default baremetal_0
+    - `packet_agent_type` - Type of Packet Server to use for the DC/OS Agents: [`baremetal_0`|baremetal_1|baremetal_3]
+      Choose the Packet Server type to use for the DC/OS Private Agents - default `baremetal_0`
 
-    - `packet_master_type` - Type of Packet Server to use for the DC/OS Master: [baremetal_0|baremetal_1|baremetal_3]
-      Choose the Packet Server type to use for the DC/OS Master Nodes - default baremetal_0
+    - `packet_master_type` - Type of Packet Server to use for the DC/OS Master: [`baremetal_0`|baremetal_1|baremetal_3]
+      Choose the Packet Server type to use for the DC/OS Master Nodes - default `baremetal_0`
 
-    - `packet_boot_type` - Type of Packet Server to use for the DC/OS Boot Node: [baremetal_0|baremetal_1|baremetal_3]
-      Choose the Packet Server type to use for the DC/OS Boot Server - default baremetal_0
+    - `packet_boot_type` - Type of Packet Server to use for the DC/OS Boot Node: [`baremetal_0`|baremetal_1|baremetal_3]
+      Choose the Packet Server type to use for the DC/OS Boot Server - default `baremetal_0`
 
-    - `dcos_cluster_name` - the name of your DC/OS cluster - defaults to packet-dcos
+    - `dcos_cluster_name` - the name of your DC/OS cluster - defaults to `packet-dcos`
 
-    - `dcos_agent_count` - Number of private agents to deploy - defaults to  4
+    - `dcos_agent_count` - Number of private agents to deploy - defaults to four
 
-    - `dcos_public_agent_count` - Number of public agents to deploy - defaults to 1
+    - `dcos_public_agent_count` - Number of public agents to deploy - defaults to one
 
     - `dcos_init_pubkey` - The path to your ssh public key created in step 4 - defaults to ./packet-key.pub
 
@@ -85,18 +81,22 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Packe
 
 5.  Also from that same directory, run `terraform apply` which will deploy the servers into your project at Packet, and run the DC/OS installation routine. When it completes, you will see output similar to the following, but with the IP addresses assigned to your servers:
 
-    ![terraform apply output](/1.11/img/packet_terraform_output.png)
+    ![terraform apply output](/1.12/img/packet_terraform_output.png)
 
-You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, see the [troubleshooting](/1.11/installing/oss/troubleshooting/) documentation.
+    Figure 1. "Terraform apply" output
+
+You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, see the [troubleshooting](/1.12/installing/troubleshooting/) documentation.
 
 # Launch DC/OS
 Launch the DC/OS web interface by entering the Mesos master IP address:
 
-1.  Cut/paste the link provided by after running terraform apply, or by running terraform output from the same directory, into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.
+1.  Cut and paste the link provided by running `terraform apply`, or by running terraform output from the same directory, into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.
 
 2.  Install the DC/OS Command-Line Interface (CLI). You can install the CLI to administer your DC/OS cluster. You can access the documentation at any time by clicking the cluster name in the upper-left side.
 
-    ![install CLI](/1.11/img/install-cli-terminal.png)
+    ![install CLI](/1.12/img/install-cli-terminal.png)
+
+    Figure 2. Install DC/OS CLI screen
 
 ## Next steps
 

@@ -12,6 +12,7 @@ package-lock.json
 .tmp
 .revision
 .byebug_history
+secrets.sh
 
 # files used by CI
 .site-image
