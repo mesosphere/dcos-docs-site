@@ -130,7 +130,7 @@ Create a secret (`dcos-edgelb/edge-lb-secret`) with your service account (`edge-
 ```bash
 dcos security secrets create-sa-secret --strict edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
 ```
-If you are installing Edge-LB on a cluster with security mode disabled, remove the `--strict` parameter:
+If you are installing Edge-LB on a cluster in security mode **disabled**, remove the `--strict` parameter:
 
 ```bash
 dcos security secrets create-sa-secret edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
