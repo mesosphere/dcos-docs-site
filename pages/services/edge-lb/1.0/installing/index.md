@@ -128,8 +128,14 @@ Create a secret (`dcos-edgelb/edge-lb-secret`) with your service account (`edge-
 <p class="message--important"><strong>IMPORTANT: </strong>If you store your secret in a path that matches the service name (for example, service name and path are both <code>edge-lb</code>), then only the service named <code>edge-lb</code> can access it.</p>
 
 ```bash
+dcos security secrets create-sa-secret --strict edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
+```
+If you are installing Edge-LB on a cluster with security mode disabled, remove the `--strict` parameter:
+
+```bash
 dcos security secrets create-sa-secret edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
 ```
+
 
 List the secrets with this command.
 
