@@ -352,10 +352,14 @@ const sanitize = (buffer) => {
   // Remove extraneous information from content
   // Because this library doesn't have the tools necessary to do it nicely
 
-  const headerRegex = /^.*Feedback((\n|.)*)$/;
-  const content = headerRegex.exec(parsedString)[1];
-  console.log(JSON.stringify(content));
-  return content;
+  // Remove all content up to and including the action buttons
+  // Some pages don't have action buttons.
+  // For those pages, have the first capture group take nothing
+  const headerRegex = /^(.*SharePrintContributeDiscussFeedback|)((\n|.)*)?/;
+  const capturedContent = headerRegex.exec(parsedString);
+  // Only take the second capture group
+  const filteredContent = capturedContent[2];
+  return filteredContent;
 };
 
 // Push content to array.
