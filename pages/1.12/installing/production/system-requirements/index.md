@@ -95,9 +95,6 @@ The agent nodes must also have:
 
     <p class="message--important"><strong>IMPORTANT: </strong>Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).</p>
 
-
--   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.
-
 -   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
 
     | Directory Path | Description |
