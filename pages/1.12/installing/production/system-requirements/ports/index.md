@@ -56,6 +56,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 8123  | Mesos DNS | `dcos-mesos-dns.service` | localhost | localhost |
 | 8181  | Exhibitor and ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
 | 8200  | Vault | `dcos-vault.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
+| 8201  | Vault HA | `dcos-vault.service` | master| master [enterprise type="inline" size="small" /] |
 | 8443  | Marathon SSL | `dcos-marathon.service` | agent/master | master |
 | 8888  | DC/OS Certificate Authority | `dcos-ca.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
 | 9090 | DC/OS Jobs (Metronome) | `dcos-metronome.service`| agent/master | master |
@@ -64,6 +65,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 15055 | DC/OS History | `dcos-history-service.service` | localhost| localhost(master) |
 | 15101 | Marathon libprocess | `dcos-marathon.service` | master | agent/master |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`| master | agent/master |
+| 26257 | CockroachDB | `dcos-cockroach.service` | master | master [enterprise type="inline" size="small" /] |
 | 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master | 
 | 61430 | DC/OS Net | `dcos-net.service` | agent/master | master [enterprise type="inline" size="small" /]|
 | Ephemeral | DC/OS Component Package Manager (Pkgpanda) | `dcos-pkgpanda-api.service` | None | None |
