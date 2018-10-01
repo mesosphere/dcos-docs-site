@@ -359,7 +359,9 @@ const sanitize = (buffer) => {
   const capturedContent = headerRegex.exec(parsedString);
   // Only take the second capture group
   const filteredContent = capturedContent[2];
-  return filteredContent;
+  // Change this to throw error once DSE Known Issues files are confirmed for removal
+  // There should be no blank pages
+  return filteredContent || '';
 };
 
 // Push content to array.
