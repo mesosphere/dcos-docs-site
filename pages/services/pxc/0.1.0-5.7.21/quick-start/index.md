@@ -1,9 +1,12 @@
 ---
-post_title: Quick Start
-menu_order: 40
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: Quick Start
+excerpt: Configuring Percona XtraDB Cluster - Quick Start
+title: Quick Start
+menuWeight: 15
 ---
+
+# How to use Prometheus with DC/OS
 
 # Prerequisite
 
