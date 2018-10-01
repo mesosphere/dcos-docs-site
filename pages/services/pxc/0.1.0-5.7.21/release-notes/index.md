@@ -1,8 +1,14 @@
 ---
-post_title: Release Notes
-menu_order: 120
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Release Notes
+title: Release Notes
+menuWeight: 130
+excerpt: Release Notes for version 0.1.1-2.3.2
+featureMaturity:
+enterprise: false
 ---
+
+Release notes for Percona XtraDB Cluster.
 
 ## Version 5.7.21-29.26
 
