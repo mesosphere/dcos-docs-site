@@ -6,7 +6,7 @@ title: Quick Start
 menuWeight: 15
 ---
 
-# How to use Prometheus with DC/OS
+# How to use Percona XtraDB Cluster with DC/OS
 
 # Prerequisite
 
