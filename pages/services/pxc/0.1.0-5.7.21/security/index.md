@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Security
+navigationTitle:
+excerpt:
 title: Security
 menuWeight: 50
-excerpt: DC/OS percona-pxc-mysql. Service encryption, authentication and authorization
-featureMaturity:
-enterprise: false
+model: /services/kafka/data.yml
+render: mustache
 ---
 
 # DC/OS percona-pxc-mysql Security
