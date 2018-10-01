@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Supported-versions
-title: Uninstalling
+title: Supported-versions
 menuWeight: 40
 excerpt: Supported versions of DC/OS Percona XtraDB Cluster Service
 featureMaturity:
