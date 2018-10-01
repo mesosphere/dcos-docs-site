@@ -37,7 +37,7 @@ Any of the following methods can be used to install DC/OS:
 - [Provision DC/OS on Google Cloud Platform (GCE)](/1.12/installing/evaluation/cloud-installation/gce/): Install your DC/OS cluster on Google Compute Engine (GCE) by using installation scripts. Upgrades are not supported with this installation method.
 - [Provision DC/OS on Packet bare metal](/1.12/installing/evaluation/cloud-installation/packet/): A bare metal environment is a computer system or network in which a virtual machine is installed directly on hardware rather than within the host operating system (OS). Install your DC/OS cluster on Packet bare metal using Terraform templates that are configured to run Mesosphere DC/OS on Packet.
  
- **Note:** The recommended way to install production-ready DC/OS that can be upgraded in-place is to use the [production installation](/1.12/installing/production/) method.
+ <p class="message--important"><strong>IMPORTANT: </strong> The recommended way to install production-ready DC/OS that can be upgraded in place is to use the <a href="/1.12/installing/production/deploying-dcos/installation/">production installation</a> method.</p>
 
 ### On-Premise Installation
 The [on-premise installation](/1.12/installing/evaluation/on-premise-installation/) methods are described in the [DC/OS labs repo](https://github.com/dcos-labs). The different types of on-premise installation methods are:

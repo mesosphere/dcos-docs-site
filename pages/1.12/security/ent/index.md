@@ -43,7 +43,8 @@ Figure 1. Security zone typical deployment
 
 # <a name="security-modes"></a>Security Modes
 
-You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are permissive and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.12/installing/production/advanced-configuration/) and can only be changed by performing an upgrade.
+You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are permissive and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.12/installing/production/deploying-dcos/installation/) and can only be changed by performing an upgrade.
+
 
 | Permission Category                                 | Permissive | Strict |
 |-----------------------------------------------------|:----------:|:------:|
@@ -61,13 +62,10 @@ This mode provides some of the security features, but does not include the Mesos
 This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting your security mode
+
 The security mode is set during [DC/OS installation](/1.12/installing/production/advanced-configuration/) and can only be changed by performing an [upgrade](/1.12/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.12/installing/production/advanced-configuration/configuration-reference/#security-and-authentication).
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> You can only move from "permissive" to "strict" during an upgrade.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> You can only move from "permissive" to "strict" during an upgrade.</p>
 
 ## <a name="discover"></a>Discovering your security mode
 You can use either of the following methods to determine the security mode of an existing cluster.
@@ -80,15 +78,12 @@ You can use either of the following methods to determine the security mode of an
 # <a name="authentication"></a>Authentication
 All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/1.12/security/ent/service-auth/).
 
-The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.12//installing/production/advanced-configuration/configuration-reference/#bouncer-expiration-auth-token-days-enterprise/).
+The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.12/installing/production/advanced-configuration/configuration-reference/#bouncer-expiration-auth-token-days-enterprise).
 
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/1.12/security/ent/hardening/#zk">Hardening</a> for more information.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong>Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/1.12/security/ent/hardening/#zk">Hardening</a> for more information.</p>
+
 
 ## <a name="user"></a>User Login
 You can log in by using the DC/OS GUI, the DC/OS CLI, or a programmatic client.
@@ -96,7 +91,7 @@ You can log in by using the DC/OS GUI, the DC/OS CLI, or a programmatic client.
 - If you have configured an LDAP directory server, DC/OS will pass your credentials to the LDAP directory server for verification.
 - If you have configured a SAML or an OpenID Connect identity provider (IdP), you will pass your credentials directly to the IdP.
 
-**Tip:** If you are logging in with the DC/OS GUI, SAML and OpenID Connect providers, they may discover the necessary login details in a browser cookie. In this case, you will not need to pass your credentials.
+<p class="message--note"><strong>NOTE: </strong>If you are logging in with the DC/OS GUI, SAML and OpenID Connect providers, they may discover the necessary login details in a browser cookie. In this case, you will not need to pass your credentials.</p>
 
 The following diagram details the sequence.
 
@@ -126,11 +121,7 @@ For example, the Mesos agents are provisioned with service accounts that they us
 
 You can view the `systemd` service accounts from the **Organization -> Service Accounts** tab of the DC/OS GUI. These service accounts are prefixed with `dcos_`.
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> Modifying the permissions of any of the automatically provisioned service accounts may cause the service to fail.</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>WARNING: </strong> Modifying the permissions of any of the automatically provisioned service accounts may cause the service to fail.</p>
 
 
 # <a name="authorization"></a>Authorization
@@ -145,7 +136,7 @@ Figure 3. Authorization sequence
 
 The `OPT` sequence in the diagram illustrates how permission enforcement varies by security mode.
 
-- The Admin Router and the Secret Store enforce their permissions in all security modes.
+- Admin Router and the Secret Store enforce their permissions in all security modes.
 
 - Metronome and Marathon enforce their permissions in `permissive` and `strict` modes. However, the enforcement in `permissive` mode only occurs if the requestor presents an authentication token, which is optional in `permissive` mode. If an in-cluster requestor does not present an authentication token, Metronome and Marathon will act as if the request was made by a user with the `dcos:superuser` permission.
 - The Mesos masters and agents enforce their permissions only in `strict` security mode.
@@ -204,7 +195,7 @@ Secret paths work in conjunction with service groups to control access. However,
 | `group/hdfs/secret` | `/group/spark/service`   | No                         |
 | `hdfs/secret`       | `/hdfs`                  | Yes                        |
 
-**Note:**
+### Notes
 
 - If only a single service requires access to a secret, store the secret in a path that matches the name of the service (for example, `hdfs/secret`). This prevents it from being accessed by other services.
 - Service groups begin with `/`, while secret paths do not.
@@ -222,7 +213,6 @@ DC/OS stores Secret Store data in ZooKeeper encrypted under an unseal key using 
 
 The unseal key is encrypted under a public GPG key. Requests to the [Secrets API](/1.12/security/ent/secrets/secrets-api/) return only the encrypted unseal key. When the Secret Store becomes sealed, either manually or due to a failure, the private GPG key must be used to decrypt the unseal key and unseal the Secret Store. As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
-<!-- If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.12/security/ent/secrets/custom-key/). -->
 
 The Secret Store is available in all security modes. By default, you cannot store a secret larger than one megabyte. If you need to exceed this limit, contact Mesosphere support. We do not support alternate or additional Secret Stores at this time. You should use only the `default` Secret Store provided by Mesosphere.
 
@@ -232,7 +222,8 @@ DC/OS allows you to restrict:
 
 - **User access to secrets:** use [permissions](/1.12/security/ent/perms-reference/#secrets) to control which users can access what secrets and what operations they can perform.
 
-- **Application access to secrets:** use [spaces](/1.12//security/ent/#spaces) to control which applications can retrieve what secrets.
+- **Application access to secrets:** use [spaces](/1.12/security/ent/#spaces) to control which applications can retrieve what secrets.
+
 
 # <a name="linux-users"></a>Linux User Accounts
 
@@ -249,6 +240,8 @@ The following table identifies the default Linux user in each situation.
 
 Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/services/).
 
-**Note:** If the fetched file is compressed, the individual files inside will retain the permissions and ownership assigned when the file was compressed and are unaffected by any other configurations or settings.
+<p class="message--note"><strong>NOTE: </strong>If the fetched file is compressed, the individual files inside will retain the permissions and ownership assigned when the file was compressed and are unaffected by any other configurations or settings.
+</p>
+
 
 See [Overriding the default Linux user](/1.12/security/ent/users-groups/config-linux-user/).

@@ -9,9 +9,9 @@ excerpt: Understanding DC/OS components
 
 DC/OS is composed of many open source microservice components meticulously tuned and configured to work together. Mesosphere DC/OS Enterprise includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
 
-![Mesosphere DC/OS Enterprise Components](/1.12/img/dcos-components-1.12-portrait.png)
+![Mesosphere DC/OS Enterprise Components](/1.11/img/dcos-components-1.11-portrait.png)
 
-*Figure 1 - DC/OS components*
+Figure 1 - DC/OS components
 
 From the top, DC/OS is an inclusive container platform that handles container orchestration, package management, and security. From the bottom, DC/OS is an operating system built on top of [Apache Mesos](http://mesos.apache.org/) that handles cluster management and software defined networking, while simplifying logging and metrics collection.
 
@@ -25,7 +25,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 
 Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each [DC/OS agent node](/1.12/overview/concepts/#dcos-agent-node). Mesos Agent Public is a Mesos Agent configured to run on [DC/OS public agent nodes](/1.12/overview/concepts/#public-agent-node).
 
-## System Service
+### System Service
 
 - `dcos-mesos-master.service`
 - `dcos-mesos-slave.service`
@@ -141,7 +141,7 @@ Marathon orchestrates long-lived containerized services (apps and pods).
 
 ### System Service
 
-- dcos-marathon.service
+- `dcos-marathon.service`
 
 **See Also:**
 
@@ -528,7 +528,7 @@ DC/OS Identity and Access Manager (IAM) controls access to DC/OS components and 
 
 CockroachDB is a distributed SQL database built on a transactional and strongly consistent key-value store.
 
-**Note:** CockroachDB is currently only used by <a href="#dcos-iam">DC/OS Identity and Access Manager</a>.
+<p class="message--note"><strong>NOTE: </strong> CockroachDB is currently only used by <a href="#dcos-iam">DC/OS Identity and Access Manager</a>.</p>
 
 ### System Service
 

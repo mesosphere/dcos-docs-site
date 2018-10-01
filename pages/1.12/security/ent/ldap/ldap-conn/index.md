@@ -30,7 +30,7 @@ In this section, you will will specify the address, protocol and certificates to
 
     * Select **Attempt StartTLS, proceed unencrypted if it fails** to attempt to upgrade the connection to TLS via [StartTLS](https://tools.ietf.org/html/rfc2830) and continue the connection unencrypted if the upgrade to TLS fail.
 
-    **Note:** We recommend either **Use SSL/TLS for all connections** or **Attempt StartTLS, abort if it fails** to ensure either SSL/TLS or StartTLS encryption; otherwise the password is sent in the clear.
+   <p class="message--note"><strong>NOTE: </strong>We recommend either <strong>Use SSL/TLS for all connections</strong> or <strong>Attempt StartTLS, abort if it fails</strong> to ensure either SSL/TLS or StartTLS encryption; otherwise the password is sent in the clear.</p>
 
 1. If the LDAP directory server requires DC/OS to present a [client certificate](https://tools.ietf.org/html/rfc5246#section-7.4.6), paste it into the **Client certificate and private key (Optional)** field. The value should look similar to the following.
 

@@ -21,13 +21,13 @@ name=${3:-kubernetes}
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
-# pull dcos-kubernetes
-git remote rm dcos-kubernetes
-git remote add dcos-kubernetes git@github.com:mesosphere/dcos-kubernetes.git
-git fetch dcos-kubernetes > /dev/null 2>&1
+# pull dcos-kubernetes-cluster
+git remote rm dcos-kubernetes-cluster
+git remote add dcos-kubernetes-cluster git@github.com:mesosphere/dcos-kubernetes-cluster.git
+git fetch dcos-kubernetes-cluster > /dev/null 2>&1
 
 # checkout
-git checkout dcos-kubernetes/$branch docs/package
+git checkout dcos-kubernetes-cluster/$branch docs/package
 
 # remove any user specified directories 
 if [ -n "$skip" ]; then 
@@ -38,7 +38,7 @@ fi
 # always remove lates/ directory it will never be copied
 rm -rf docs/package/latest
 
-# checkout each file in the merge list from dcos-kubernetes/$branch
+# checkout each file in the merge list from dcos-kubernetes-cluster/$branch
 for d in docs/package/*/; do
   echo $d
   for p in `find $d -type f`; do
@@ -57,7 +57,7 @@ for d in docs/package/*/; do
       awk '{gsub(/https:\/\/docs.mesosphere.com\/service-docs\//,"/services/");}{print}' $p > tmp && mv tmp $p
 
       # add full path for images
-      awk -v directory=$(basename $d) '{gsub(/\([.][.]\/img/,"(/services/kubernetes/"directory"/img");}{print;}' $p > tmp && mv tmp $p  
+      awk -v directory=$(basename $d) -v name="$name" '{gsub(/\([.][.]\/img/,"(/services/"name"/"directory"/img");}{print;}' $p > tmp && mv tmp $p  
     fi
   done
 done
@@ -65,13 +65,17 @@ done
 # Fix up relative links after prettifying structure above
 sedi -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
 
+# Remove old docs 
+rm -rf ./pages/services/$name
+mkdir -p ./pages/services/$name
+
+# Copy new docs
 cp -r docs/package/* ./pages/services/$name
 
 git rm -rf docs/
 rm -rf docs/
 
 # Update sort order of index files
-
 weight=10
 for i in $( ls -r ./pages/services/$name/*/index.md ); do
   sedi "s/^menuWeight:.*$/menuWeight: ${weight}/" $i

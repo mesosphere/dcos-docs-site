@@ -6,14 +6,14 @@ title: Tutorial - Deploying First Application
 menuWeight: 3
 ---
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
+#include /include/tutorial-disclaimer.tmpl
 
 Welcome to part 3 of the DC/OS 101 Tutorial
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.11/tutorials/dcos-101/cli/).
-* [Redis](/1.11/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
+* A [running DC/OS cluster](/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.12/tutorials/dcos-101/cli/).
+* [Redis](/1.12/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
 
 
 # Objective

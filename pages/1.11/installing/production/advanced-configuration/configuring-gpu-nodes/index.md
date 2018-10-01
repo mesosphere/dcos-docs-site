@@ -19,7 +19,8 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 ## Custom DC/OS Installation with GPUs
 
 1.  Install the [NVIDIA Management Library (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml) on each node of your cluster that has GPUs. The minimum required NVIDIA driver version is 340.29. For detailed installation instructions, see the [Mesos GPU support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
-1.  Install DC/OS using the [custom advanced installation instructions](/1.11/installing/production/deploying-dcos/installation/). Here are the GPU-specific configuration parameters:
+
+1.  Install DC/OS using the [production installation instructions](/1.11/installing/production/deploying-dcos/installation/). Here are the GPU-specific configuration parameters:
 
     -  **`enable_gpu_isolation`**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`.
     -  **`gpus_are_scarce`**: Indicates whether to treat GPUs as a scarce resource in the cluster. By default, this is set to `gpus_are_scarce: 'true'`, which means DC/OS reserves GPU nodes exclusively for services that are configured to consume GPU resources. It's important to note that this setting will influence which agent nodes a GPU-aware framework will be deployed on DC/OS. This setting does not influence the individual tasks which the frameworks might launch while the framework is running. It is possible for a framework to schedule a non-GPU task on an agent node where GPU's are present.

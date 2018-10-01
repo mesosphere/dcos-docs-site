@@ -7,9 +7,7 @@ menuWeight: 25
 oss: true
 ---
 
-You can create a DC/OS cluster on Packet bare metal using Terraform. The included Terraform templates are configured to run Mesosphere DC/OS on Packet. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support, please email help@packet.net, visit the Packet IRC channel (#packethost on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
-
-**Note:** Upgrades are not supported with this installation method.
+You can create a DC/OS cluster on Packet bare metal using Terraform. The included Terraform templates are configured to run Mesosphere DC/OS on Packet. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support, please email help@packet.net, visit the Packet IRC channel (#packethost on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/). Upgrades are not supported with this installation method.
 
 ## Hardware
 
@@ -33,7 +31,7 @@ You can create a DC/OS cluster on Packet bare metal using Terraform. The include
 
 ## Installing DC/OS
 
-**Note:** With this method, the network is open by default. Because of this, network security is a concern and should be addressed as soon as possible by the administrator.
+<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, network security is a concern and should be addressed as soon as possible by the administrator.</p>
 
 1.  Download and install Terraform using the instructions on the link provided in the Prerequisites section.
 

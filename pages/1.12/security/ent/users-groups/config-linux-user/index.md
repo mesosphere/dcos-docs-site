@@ -47,11 +47,7 @@ Once you have met these prerequisites, complete the following steps to override 
     ]
   }
   ```
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Do not forget to replace "your-test-user-account" with the name of a Linux user who exists on the agent and differs from the default.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> Do not forget to replace "your-test-user-account" with the name of a Linux user who exists on the agent and differs from the default.</p>
 
 1. Deploy the service using the [Marathon API](/1.12/deploying-services/marathon-api/).
 
@@ -80,7 +76,8 @@ curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/mara
 
 Metronome job definitions provide a `"user"` key which you can use to override the default Linux user.
 
-**Note:** Refer to the [Jobs documentation](/1.12/deploying-jobs/quickstart/) for more information about creating and deploying jobs.
+<p class="message--note"><strong>NOTE: </strong>Refer to the <a href="/1.12/deploying-jobs/quickstart/">Jobs documentation</a> for more information about creating and deploying jobs.</p>
+
 
 The following procedure will walk you through a quick tutorial to demonstrate how the ownership works in action. Before you begin, make sure that:
 
@@ -111,7 +108,7 @@ Once you have met these prerequisites, complete the following steps to override 
   }
 }
   ```
-    **Important:** Do not forget to replace `<your-test-user-account>` with the name of a Linux user that exists on the agent and differs from the default. The Linux user `nobody` will exist if you have not already provisioned a user.
+  <p class="message--important"><strong>IMPORTANT: </strong>Do not forget to replace "your-test-user-account" with the name of a Linux user that exists on the agent and differs from the default. The Linux user <code>nobody</code> will exist if you have not already provisioned a user.</p>
 
 2. Deploy the job using the [Metronome REST API](https://dcos.github.io/metronome/docs/generated/api.html).
 
@@ -129,6 +126,6 @@ Once you have met these prerequisites, complete the following steps to override 
 
 1. Click to open the **Files** tab. Observe that all of the files have your Linux user as the **OWNER**.
 
-1. Click to open the **stdout** file.
+1. Click to open the `stdout` file.
 
 1. Scroll to the bottom and you should see the results of the `whoami` command, the name of the user your task is running under, followed by `iamme`.

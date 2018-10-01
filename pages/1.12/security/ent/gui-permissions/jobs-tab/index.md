@@ -12,7 +12,9 @@ enterprise: true
 
 You can grant users access to the [**Jobs** screen](/1.12/gui/jobs/). By default, new users have no permissions.
 
-**Note:** This procedure grants full user access to the **Jobs** screen and all the jobs inside of it. If you want to configure fine-grained user access, see the [documentation](/1.12/deploying-services/service-groups/).
+ <p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Jobs</strong> screen and all the jobs inside of it. If you want to configure fine-grained user access, see the <a href="/1.12/deploying-services/service-groups/">documentation</a>.</p>
+
+
 
 # <a name="jobs-access-via-ui"></a>Granting Access using the web interface
 
@@ -92,7 +94,7 @@ You can grant users access to the [**Jobs** screen](/1.12/gui/jobs/). By default
 - You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
 - You must [get the root cert](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
-**Note:**
+### Notes
 
 - Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
@@ -123,7 +125,8 @@ You can grant users access to the [**Jobs** screen](/1.12/gui/jobs/). By default
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs/users/<uid>/full
    ```   
 
-**Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+    <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+
 
 ### DC/OS jobs task and details
 
@@ -149,7 +152,8 @@ You can grant users access to the [**Jobs** screen](/1.12/gui/jobs/). By default
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
    ```  
 
-**Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+    <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+
 
 ## Strict
 
@@ -177,7 +181,8 @@ You can grant users access to the [**Jobs** screen](/1.12/gui/jobs/). By default
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs/users/<uid>/full
    ```
 
-**Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+    <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+
 
 ### DC/OS jobs task and details
 
@@ -245,4 +250,5 @@ You can grant users access to the [**Jobs** screen](/1.12/gui/jobs/). By default
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:sandbox:app_id/users/<uid>/read       
    ```   
 
-**Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+

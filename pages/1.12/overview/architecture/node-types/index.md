@@ -13,12 +13,13 @@ We recommend that you use different types of nodes set up in different networks 
 
 ![DC/OS Node Types](/1.12/img/dcos-node-types.png)
 
-*Figure 1 - DC/OS node types*
+Figure 1 - DC/OS node types
 
 Protect your cluster from the outside with firewall settings specific for the node type.
 
-**Note:** You must have the internal communication between the different nodes as open as possible:
-- Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
+<p class="message--note"><strong>NOTE: </strong>The internal communication between the different nodes must be as open as possible.</p>
+
+- Each node must have unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 - All ports should be open for communication from the master nodes to the agent nodes and vice versa.
 - Setting firewall rules between the nodes of any types is not recommended.
 

@@ -17,7 +17,7 @@ A patching process includes the following:
 
 Example: DC/OS 1.X.A to 1.X.B (1.12.1 --> 1.12.2)
 
-**Note:** A patching process occurs only between minor releases.
+<p class="message--note"><strong>NOTE: </strong>A patching process occurs only between minor releases.</p>
 
 ## Important guidelines
 
@@ -80,7 +80,9 @@ These steps must be performed for version patches and cluster configuration chan
 - Take a snapshot of ZooKeeper prior to patching. Marathon supports rollbacks, but does not support downgrades.
 - [Take a snapshot of the IAM database](/1.12/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to patching.
 - Ensure that Marathon event subscribers are disabled before beginning the patch. Leave them disabled after completing the patch, as this feature is now deprecated.
-- **Note:** Marathon event subscribers are disabled by default. Check to see if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.
+
+    <p class="message--note"><strong>NOTE: </strong>Marathon event subscribers are disabled by default. Check to see if the line <code>--event_subscriber "http_callback"</code> has been added to <code>sudo vi /opt/mesosphere/bin/marathon.sh</code> on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.</p>
+
 - Verify that all Marathon application constraints are valid before beginning the patch. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.12/administering-clusters/backup-and-restore/).
 - **Optional** You can add custom [node and cluster health checks](/1.12/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
@@ -97,10 +99,8 @@ This procedure patches a DC/OS 1.11 cluster to DC/OS 1.12 without changing the c
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
-    **Note:**
+    <p class="message--note"><strong>NOTE: </strong>You cannot change the <code>exhibitor_zk_backend</code> setting during a patch. The syntax of the <code>config.yaml</code> may be different from the earlier version. For a detailed description of the current <code>config.yaml</code> syntax and parameters, see the <a href="/1.12/installing/production/advanced-configuration/configuration-reference/">documentation</a>.</p>
 
-    *  You cannot change the `exhibitor_zk_backend` setting during a patch.
-    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.12/installing/production/advanced-configuration/configuration-reference/).
 1. After updating the format of the config.yaml, compare the old `config.yaml` and new `config.yaml`. Verify that there are no differences in pathways or configurations. Changing these while patching can lead to catastrophic cluster failures.
 1.  Modify the `ip-detect` file as desired.
 1.  Build your installer package.
@@ -161,10 +161,14 @@ Proceed with patching every master node one at a time in any order using the fol
 
     1.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`. Confirm that the master rejoins the ZooKeeper quorum successfully (the status indicator will turn green).
 
-        **Note:** If you are patching from permissive to strict mode, this URL will be `https://...`.
+        <p class="message--note"><strong>NOTE: </strong>If you are patching from permissive to strict mode, this URL will be "https://...".</p>
+
     1.  Wait until the `dcos-mesos-master` unit is up and running.
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
-        **Note:** If you are patching from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
+
+        <p class="message--note"><strong>NOTE: </strong>If you are patching from permissive to strict mode, this URL will be "curl https://..." and you will need a JWT for access. </p>
+        [enterprise type="inline" size="small" /]
+
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/1.12/release-notes/), for example `1.5.1`.
 	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
 	    ```bash
@@ -183,7 +187,8 @@ Proceed with patching every master node one at a time in any order using the fol
 
 ## <a name="agents"></a>DC/OS Agents
 
-**Note:** When patching agent nodes, there is a five minute timeout for the agent to respond to health check pings from the mesos-masters before the agent nodes and task expires.
+<p class="message--note"><strong>NOTE: </strong>When patching agent nodes, there is a five minute timeout for the agent to respond to health check pings from the mesos-masters before the agent nodes and task expires.</p>
+
 On all DC/OS agents:
 
 1.  Navigate to the `/opt/mesosphere/lib` directory and delete this library file. Deleting this file will prevent conflicts.
@@ -241,7 +246,7 @@ sudo journalctl -u dcos-mesos-master
 sudo journalctl -u dcos-mesos-slave
 ```
 
-## Notes:
+## Notes
 
-- Packages available in the DC/OS 1.12 Universe are newer than those in the older versions of Universe. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve an existing state.
+Packages available in the DC/OS 1.12 Universe are newer than those in the older versions of Universe. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve an existing state.
 

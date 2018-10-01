@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Reinitializing the Secret Store with a custom GPG keypair
 title: Reinitializing the Secret Store with a custom GPG keypair
-menuWeight: -1
+menuWeight: 5
 excerpt: Using a custom GPG pair to reinitialize the Secret Store
 
 enterprise: true
@@ -70,7 +70,8 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 
 1. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-   **Note:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](1.12/installing/production/advanced-configuration/configuration-reference/#zk-superuser).
+  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="1.12/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
+
 
    ```bash
    addauth digest super:secret
@@ -133,13 +134,12 @@ You do not **have** to use GPG to generate the keypair. We provide these instruc
 
 1. Use the following command to export the public key, base64-encode it, and remove the newlines. Before executing the command, replace `<key-ID>` below with the alphanumeric ID of the public key.
 
-   **Note:** In the following line `gpg: key CCE6A37D marked as ultimately trusted`, `CCE6A37D` represents the ID of the public key.
+  <p class="message--note"><strong>NOTE: </strong>In the following line, <code>gpg: key CCE6A37D</code> is marked as <code>ultimately trusted</code>, and <code>CCE6A37D</code> represents the ID of the public key.</p>
 
    ```bash
    gpg --export <key-ID> | base64 -w 0 | tr '\n' ' '
    ```
-
-1. Copy the value returned by GPG. This is your public GPG key in a base64-encoded format.
+5. Copy the value returned by GPG. This is your public GPG key in a base64-encoded format.
 
 1. Open a new tab in your terminal prompt.
 

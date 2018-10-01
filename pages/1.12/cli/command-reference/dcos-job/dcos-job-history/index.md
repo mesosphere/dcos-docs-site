@@ -71,4 +71,5 @@ In this example, a job history is shown.
     20170217231831HkXNK  2017-02-17T23:18:31.651+0000  2017-02-17T23:18:33.843+0000
     ```
 
-    **Note:** Be sure to specify the `--json` option to view the JSON app definition (for example, `dcos job history my-scheduled-job`).
+    <p class="message--important"><strong>IMPORTANT: </strong>Be sure to specify the <code>--json</code> option to view the JSON app definition (for example, <code>dcos job history my-scheduled-job</code>).</p>
+

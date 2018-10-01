@@ -26,7 +26,7 @@ Before describing the software architecture we describe the packet flow that wil
 
 ![Agent configuration for containers running on `MesosContainerizer` and Docker once the VxLAN has been configured.](/1.12/img/overlay-fig-1.png)
 
-*Figure 1 - Agent configuration for containers running on `MesosContainerizer` and Docker once the VxLAN has been configured*
+Figure 1 - Agent configuration  
 
 We can explain the operation of the overlay with an example. Figure 1 shows a two-agent DC/OS cluster. To get the DC/OS overlay to work we need to allocate a subnet large enough to address the containers running on the overlay. The address space selected should be non-overlapping from the host network, to prevent any misconfiguration when setting up the overlay. In Figure 1, the host network is 10.0.0.0/8 and the address space chosen for the overlay is 9.0.0.0/8.
 
@@ -125,9 +125,9 @@ docker network create \
 <virtual network name>
 ```
 
-**Note:** The assumption for `DockerContainerizer` to work with the DC/OS overlay is that the host is running Docker v1.12 or greater.
+<p class="message--note"><strong>NOTE: </strong>The assumption for <code>DockerContainerizer</code> to work with the DC/OS overlay is that the host is running Docker v1.12 or greater.</p>
 
-**Note:** The default `<overlay MTU>` = 1420 bytes.
+<p class="message--note"><strong>NOTE: </strong>The default <code><overlay MTU></code> = 1420 bytes.</p>
 
 ### Virtual Network Service: Overlay Orchestration
 

@@ -87,7 +87,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
 - You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
 - You must [get the root cert](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
-**Note:**
+### Notes
 
 - Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
@@ -114,7 +114,8 @@ You can grant users access to the Marathon UI. By default, new users have no per
    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
    ```
 
-   **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+  <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+
 
 ### Launch tasks
 
@@ -137,7 +138,8 @@ You can grant users access to the Marathon UI. By default, new users have no per
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/full
    ```
 
-   **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+  <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+
 
 
 ### Task details and logs
@@ -163,7 +165,8 @@ To view task details and logs, you must grant access to the [Mesos UI](/1.12/sec
    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
    ```
 
-   **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+
 
 ### Launch tasks
 
@@ -185,7 +188,8 @@ To view task details and logs, you must grant access to the [Mesos UI](/1.12/sec
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/full
    ```
 
-   **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+
 
 ### Task details and logs
 To view task details and logs, you must grant access to the [Mesos UI](/1.12/security/ent/gui-permissions/mesos-ui/).

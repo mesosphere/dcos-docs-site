@@ -57,7 +57,8 @@ Secrets should include paths, unless you want to allow all services to access it
 
 This procedure describes how to create a secret called `my-secret` inside the `developer` path.
 
-**Note:** You must follow the steps in [Obtaining the DC/OS CA bundle](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+<p class="message--note"><strong>NOTE: </strong>You must follow the steps in <a href="/1.12/security/ent/tls-ssl/get-cert/">Obtaining the DC/OS CA bundle</a> before issuing the curl commands in this section.</p>
+
 
 1. Use `dcos auth login` log in to the CLI.
 
@@ -85,7 +86,7 @@ This procedure describes how to use a file to create a secret called `my-secret`
 
 The contents of the file (referred to below as `my-secret.txt`) can be any text value.
 
-**Note:** As of DC/OS 1.10, you can only upload a secret as a file from the DC/OS CLI. The maximum file size for a secret is approximately one MiB, subtracting approximately one KB for the secret store metadata.
+<p class="message--note"><strong>NOTE: </strong>As of DC/OS 1.10, you can only upload a secret as a file from the DC/OS CLI. The maximum file size for a secret is approximately one MiB, subtracting approximately one KB for the secret store metadata.</p>
 
 1. Use `dcos auth login` to log into the CLI. You can find more information about this command in the [CLI Reference](/1.12/cli/command-reference/dcos-auth/dcos-auth-login/).
 
@@ -95,4 +96,4 @@ The contents of the file (referred to below as `my-secret.txt`) can be any text 
   dcos security secrets create -f my-secret.txt developer/my-secret
   ```
 
-   **Important:** The maximum file size for a secret is approximately one MB, subtracting approximately one KB for the secret store metadata.
+  <p class="message--important"><strong>IMPORTANT: </strong>The maximum file size for a secret is approximately one MB, subtracting approximately one KB for the secret store metadata.

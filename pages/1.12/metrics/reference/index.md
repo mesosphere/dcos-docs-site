@@ -49,7 +49,7 @@ These metrics are automatically collected by DC/OS.
 | filesystem.inode.total    | Total inodes in bytes. |
 | filesystem.inode.used    | Inodes used in bytes.  |
 
-**Note:** The tag `path` is automatically populated based on the mount path of the local filesystem (e.g., `/`, `/boot`, etc).
+<p class="message--note"><strong>NOTE: </strong>The tag <code>path</code> is automatically populated based on the mount path of the local filesystem (for example, <code>/</code>, <code>/boot</code>, etc).</p>
 
 ### Network interface metrics
 
@@ -64,14 +64,13 @@ These metrics are automatically collected by DC/OS.
 | network.out.errors    | Number of uploaded bytes in error.  |
 | network.out.packets    | Number of packets uploaded. |
 
-**Note:** The tag `interface` is automatically populated based on the type of the network interface (e.g., `spartan`, `d-dcos`, `minuteman`, etc).
+<p class="message--note"><strong>NOTE: </strong>The tag <code>interface</code> is automatically populated based on the type of the network interface (for example, <code>spartan</code>, <code>d-dcos</code>, <code>minuteman</code>, etc).</p>
 
 # Container
 
 The following per-container resource utilization metrics are collected.
 
 ### CPU usage metrics
-   <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -88,7 +87,6 @@ The following per-container resource utilization metrics are collected.
 | disk.used    | Hard capacity used in bytes.  |
 
 ### Memory metrics
-   <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -96,7 +94,6 @@ The following per-container resource utilization metrics are collected.
 | mem.total    | Total memory of a process in RAM (as opposed to in swap). |   
 
 ### Network metrics
-   <!-- http://mesos.apache.org/documentation/latest/port-mapping-isolator -->
 
 | Metric            | Description                  |
 |-------------------|------------------------------|

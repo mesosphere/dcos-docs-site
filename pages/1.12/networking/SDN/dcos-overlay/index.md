@@ -12,7 +12,7 @@ enterprise: false
 
 DC/OS Overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS and is enabled by default. DC/OS Overlay can run multiple virtual network instances in a given DC/OS cluster. Starting with DC/OS 1.11, DC/OS Overlay has support for creating IPv6 networks. 
 
-**Note:** IPv6 support is available only for Docker containers.
+<p class="message--note"><strong>NOTE: </strong>IPv6 support is available only for Docker containers.</p>
 
 Features provided by DC/OS Overlay are:
 * Both Mesos and Docker containers can communicate from within a single node and between nodes on a cluster.
@@ -48,7 +48,7 @@ The bits reserved for ContainerID (6 in this example) are then subdivided into t
 
 While the above example is specifically for an IPv4 virtual network, the same logic can be applied to the IPv6 virtual network `dcos6` as well. The only difference is that currently IPv6 is supported only for Docker containers. 
 
-**Note:** Trying to launch a UCR container on` *dcos6*`, will result in a container launch failure.
+<p class="message--warning"><strong>WARNING: </strong>Trying to launch a UCR container on <code> dcos6</code>, will result in a container launch failure.</p>
 
 You can modify the default virtual network configuration and can add more virtual networks if needed. Currently, you can only add or delete a virtual network at install time. 
 
@@ -292,7 +292,7 @@ To delete a virtual network, uninstall DC/OS, then delete the overlay replicated
 
 DC/OS Overlay uses a replicated log to persist the virtual network state across Mesos master reboots and to recover overlay state when a new Mesos master is elected. The overlay replicated log is stored at `/var/lib/dcos/mesos/master/overlay_replicated_log`. The overlay replicated log is **not** removed when DC/OS is uninstalled from the cluster, so you need to delete this log manually before reinstalling DC/OS. Otherwise, the Mesos master will try to reconcile the existing overlay replicated log during startup and will fail if it finds a virtual network that was not configured.
 
-**Note:** The overlay replicated log is different from the [master's replicated log](http://mesos.apache.org/documentation/latest/replicated-log-internals/), which is stored at /var/lib/mesos/master/replicated_log. Removing the overlay replicated log will have no effect on the master's recovery semantics.
+<p class="message--note"><strong>NOTE: </strong>The overlay replicated log is different from the <a href="http://mesos.apache.org/documentation/latest/replicated-log-internals/"> master's replicated log</a>, which is stored at <code>/var/lib/mesos/master/replicated_log</code>. Removing the overlay replicated log will have no effect on the master's recovery semantics.</p>
 
 ## iptables
 The virtual networks install IPMASQ rules to allow containers to talk outside the virtual network. When you delete or replace virtual networks, you must remove the rules associated with the previous virtual networks. To remove the IPMASQ rules associated with each overlay, remove the IPMASQ rule from the POSTROUTING change of the NAT table that corresponds to the virtual networks subnet. Remove these rules on each agent node.

@@ -40,7 +40,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 bash ./zen.sh <stack-name>
 ```
 
-   **Note:** You must run the `zen.sh` script before performing the next steps.
+   <p class="message--important"><strong>IMPORTANT: </strong>You must run the <code>zen.sh</code> script before performing the next steps.</p>
 
 2. Follow the instructions [here](/1.12/installing/evaluation/cloud-installation/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 
@@ -56,10 +56,8 @@ bash ./zen.sh <stack-name>
    - **PrivateAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (For example, `g2.2xlarge`).
    - **PublicAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (For example, `g2.2xlarge`).
 
-4. On the **Options** page, accept the defaults and click **Next**.
-
-   **Note:** You can choose whether to roll back on failure. By default this option is set to **Yes**.
+4. On the **Options** page, accept the defaults and click **Next**. You can choose whether to roll back on failure. By default this option is set to **Yes**.
 
 5. On the **Review** page, check the acknowledgement box, then click **Create**.
 
-   **Note:** If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
+   <p class="message--note"><strong>NOTE: </strong>If the <strong>Create New Stack</strong> page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.</p>

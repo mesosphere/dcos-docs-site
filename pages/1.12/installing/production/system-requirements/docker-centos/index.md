@@ -18,7 +18,8 @@ These directions cover the installation of Docker CE on CentOS/RHEL. Before inst
 
 * For more generic Docker requirements, see [System Requirements: Docker](/1.12/installing/production/system-requirements/#docker).
 
-**Note:** In modern versions of Centos and RHEL, `ftype=1` is the default. The `xfs_info` utility can be used to verify that `ftype=1`.
+<p class="message--note"><strong>NOTE: </strong> In modern versions of Centos and RHEL, <code>ftype=1</code> is the default. The <code>xfs_info</code> utility can be used to verify that <code>ftype=1</code>.</p>
+
 
     ```bash
     mkfs -t xfs -n ftype=1 /dev/sdc1
@@ -34,7 +35,7 @@ You must register with the subcription-manager to enable additional repos.
 
 Follow the Docker [CentOS-specific installation instructions][3]
 
-# Only applies to RHEL: register with the subcription-manager to enable additional repos
+### RHEL Only: subcription-manager
 
 1.  Subscribe the RHEL system in subscription-manager and add the repos
 

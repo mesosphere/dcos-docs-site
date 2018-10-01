@@ -25,7 +25,7 @@ You can configure uni-directional links from a cluster to one or more clusters. 
 dcos cluster link <dcos-url-a>
 ```
 
-**Note:** If the cluster links successfully there is no output to the console.
+If the cluster links successfully there is no output to the console.
 
 # Positional arguments
 

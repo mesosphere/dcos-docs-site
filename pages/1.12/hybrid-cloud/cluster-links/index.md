@@ -162,7 +162,7 @@ If you are superuse, you can also switch to a linked cluster in the Linked Clust
     (1-2): 2
     ```
 
-    **Note:** If the cluster links successfully there is _no_ response.
+ If the cluster links successfully there is no response.
 
 1. Attach to cluster `cluster-b`.
 

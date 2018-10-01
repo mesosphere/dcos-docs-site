@@ -52,11 +52,11 @@ We see a log entry similar to:
 ```bash
 Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [2018-03-27 00:46:36,960] INFO  Acknowledge status update for task app-oom.4af344fa-3158-11e8-b60b-a2f459e14528: TASK_FAILED (Memory limit exceeded: Requested: 64MB Maximum Used: 64MB
 ```
-**Note:** One helpful time-saving tip can be to `grep` for 'TASK_FAILED'.
+<p class="message--note"><strong>NOTE: </strong> One helpful time-saving tip can be to <code>grep</code> for </code>TASK_FAILED</code>.</p>
 
 **Now we have confirmed that we exceeded the previously set container memory limit in [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6)**
 
-If you’ve been paying close attention you might shout now “wait a sec” because you noticed that the memory limit we set in the app definition is 32 MB, but the error message mentions 64MB. DC/OS automatically reserves some overhead memory for the [executor](/1.11/overview/architecture/task-types/#executors) which in this case is 32 MB.
+If you’ve been paying close attention you might shout now “wait a sec” because you noticed that the memory limit we set in the app definition is 32 MB, but the error message mentions 64MB. DC/OS automatically reserves some overhead memory for the [executor](/1.12/overview/architecture/task-types/#executors) which in this case is 32 MB.
 
 Please note that OOM `kill` is performed by the Linux kernel itself, hence we can also check the kernel logs directly:
 
