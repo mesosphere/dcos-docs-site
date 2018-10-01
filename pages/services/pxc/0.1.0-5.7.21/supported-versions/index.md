@@ -1,15 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  Supported-versions
-title: Supported-versions
-menuWeight: 40
-excerpt: Supported versions of DC/OS Percona XtraDB Cluster Service
+navigationTitle:  Supported Versions
+title: Supported Versions
+menuWeight: 120
+excerpt: Understanding DC/OS Prometheus Services package versioning
 featureMaturity:
 enterprise: false
 ---
-
-# Supported Versions
-
 
 ## Supported Versions
 
