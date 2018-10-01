@@ -42,18 +42,28 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
     Figure 3. Insert Permission String
 
+    ## Disabled
+
+    ```bash
+    dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
+    ```
+
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.12/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
+
 
     ## Permissive
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
     ## Strict
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
 ## <a name="network-access-via-api"></a>Granting Access by using the API
