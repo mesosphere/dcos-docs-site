@@ -35,7 +35,7 @@ the `kubernetes.authorization_mode` configuration property to `RBAC`.
 
 This is done when installing the package, either via the UI:
 
-![alt text](/services/kubernetes/2.0.0-1.12.0-beta/img/authorization-mode.png "Authorization Mode")
+![alt text](/services/beta-kubernetes/2.0.0-1.12.0-beta/img/authorization-mode.png "Authorization Mode")
 
 Or, alternatively, via the CLI, with custom options:
 

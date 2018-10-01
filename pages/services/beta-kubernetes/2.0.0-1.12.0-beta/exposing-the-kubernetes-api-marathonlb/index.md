@@ -38,7 +38,7 @@ which this public agent can be reached. The user  **MUST** also have access to
 this DC/OS public agent over SSH from their workstation. In the end, the user
 will end up with a setup similar to the following:
 
-![Exposing the Kubernetes API using HAProxy](/services/kubernetes/2.0.0-1.12.0-beta/img/haproxy.png "Exposing the Kubernetes API using HAProxy")
+![Exposing the Kubernetes API using HAProxy](/services/beta-kubernetes/2.0.0-1.12.0-beta/img/haproxy.png "Exposing the Kubernetes API using HAProxy")
 
 <a name="example-1"></a>
 ## Example 1: Using HAProxy and a self-signed certificate
