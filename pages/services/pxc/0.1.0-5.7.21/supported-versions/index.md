@@ -1,8 +1,11 @@
 ---
-post_title: Supported Versions
-menu_order: 110
-post_excerpt: ""
-enterprise: 'no'
+layout: layout.pug
+navigationTitle:  Supported-versions
+title: Uninstalling
+menuWeight: 40
+excerpt: Supported versions of DC/OS Percona XtraDB Cluster Service
+featureMaturity:
+enterprise: false
 ---
 
 # Supported Versions
