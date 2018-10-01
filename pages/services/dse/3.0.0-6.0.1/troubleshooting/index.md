@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Troubleshooting
+excerpt: Troubleshooting DC/OS DataStax Enterprise service
 title: Troubleshooting
 menuWeight: 70
 model: /services/dse/data.yml

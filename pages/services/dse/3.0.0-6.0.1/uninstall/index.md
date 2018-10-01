@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Uninstall
+excerpt: Uninstalling DC/OS DataStax Enterprise service
 title: Uninstall
 menuWeight: 60
 model: /services/dse/data.yml

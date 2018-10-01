@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: NodeSync Options
 title: NodeSync
 menuWeight: 20
-excerpt: Configurating NodeSync for DSE 6.0.2
+excerpt: Configuring NodeSync for DSE 6.0.2
 featureMaturity:
 enterprise: true
 model: /services/dse/data.yml
@@ -52,7 +52,7 @@ Verify the status of the NodeSync service:
     nodetool nodesyncservice status
 ```
 
-The output should indicate not running.
+The output should indicate "not running".
 
 ```
     The NodeSync service is not running
@@ -82,5 +82,5 @@ The `rate_in_kb` sets the per node rate of the local NodeSync service. It contro
 ```
     nodetool nodesyncservice getrate
 ```
-  Tip: The configured rate is different from the effective rate, which can be found in the NodeSync Service metrics.
+  <p class="message--note"><strong>NOTE: </strong>The configured rate is different from the effective rate, which can be found in the NodeSync Service metrics.</p>
 

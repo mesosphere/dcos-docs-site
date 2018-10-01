@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: AlwaysOnSQL Options
-excerpt:
+excerpt: Configuring AlwaysOn SQL
 title: AlwaysOnSQL Options
 menuWeight: 20
 model: /services/dse/data.yml
@@ -42,11 +42,11 @@ For more information about these options, refer to the detailed documentation [h
 
 ## Enabling AlwaysOn SQL
 
-Set enabled to true in the AlwaysOn SQL options in `dse` configuration section.
+Set `enabled` to `true` in the AlwaysOn SQL options in the `dse` configuration section.
 
 ### Starting and stopping AlwaysOn SQL
 
- If you have enabled AlwaysOn SQL, it will start when the cluster is started. You only need to explicitly start the server if it has been stopped, for example for a configuration change.
+ If you have enabled AlwaysOn SQL, it will start when the cluster is started. You only need to explicitly start the server if it has been stopped; for example, for a configuration change.
  
  To start AlwaysOn SQL service:
 

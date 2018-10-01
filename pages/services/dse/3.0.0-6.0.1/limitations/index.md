@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Known limitations for the DC/OS DataStax Enterprise service
 title: Limitations
 menuWeight: 100
 model: /services/dse/data.yml
@@ -12,8 +12,8 @@ render: mustache
 #include /services/include/limitations-zones.tmpl
 
 ## Service Limits
-- Multiple DSE Instances on a host is not supported in production.
-- A single OpsCenter cannot manage multiple DSE clusters, but can manage multiple DCs in the same cluster.
+- Multiple {{ model.techShortName }} instances on a host is not supported in production.
+- A single {{ model.techOpsName }} cannot manage multiple {{ model.techShortName }} clusters, but can manage multiple DCs in the same cluster.
 
 ## Automatic failed node recovery
 
@@ -23,4 +23,4 @@ Nodes are not automatically replaced by the service in the event a system goes d
 
 ## Rack-aware replication
 
-Rack awareness within the DC/OS DSE Service is not currently supported, but is planned to be supported with a future release of DC/OS.
+Rack awareness within the DC/OS {{ model.techShortName }} Service is not currently supported, but is planned to be supported with a future release of DC/OS.

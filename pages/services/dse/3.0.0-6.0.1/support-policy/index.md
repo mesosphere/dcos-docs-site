@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Support Policy
 title: Support Policy
 menuWeight: 110
-excerpt:
+excerpt: DC/OS DataStax Enterprise support policy
 model: /services/dse/data.yml
 render: mustache
 ---
@@ -11,8 +11,8 @@ render: mustache
 #include /services/include/support-policy.tmpl
 
 
-## Contacting DataStax Technical Support
-To start a support case for issues related to DataStax, please email support@datastax.com.
+## Contacting {{ model.techMidName }} Technical Support
+To start a support case for issues related to {{ model.techMidName }}, please email support@datastax.com.
 
 ## Contacting Mesosphere Technical Support
-To start a support case for issues related to DC/OS or the integration of DSE with DC/OS, please email support@mesosphere.com.
+To start a support case for issues related to DC/OS or the integration of {{ model.techShortName }} with DC/OS, please email support@mesosphere.com.

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Release Notes
+excerpt: Release notes for DC/OS DataStax Enterprise
 title: Release Notes
 menuWeight: 120
 model: /services/dse/data.yml
@@ -11,16 +11,16 @@ render: mustache
 # Version 3.0.0-6.0.2
 
 ## New Features
-- Added AlwaysOn SQL service, a HA (highly available) Spark SQL Thrift server.
-- Improved NodeSync usability with secure environments.
-- New Thread per core (TPC) and asynchronous architecture provides up to 2x more throughput for read and write operations.
+- Added AlwaysOn SQL service, a highly available (HA) Spark SQL Thrift server
+- Improved NodeSync usability with secure environments
+- New thread per core (TPC) and asynchronous architecture provides up to 2x more throughput for read and write operations
 - Enhanced Spark SQL support allows you to execute Spark queries using a variation of the SQL language
-- Storage engine optimizations that provide up to half the latency of open source Cassandra and include optimized compaction.
-- Improved security for Spark JobServer.
-- Updated DataStax OpsCenter to 6.5.2.
+- Storage engine optimizations that provide up to half the latency of open source Cassandra and include optimized compaction
+- Improved security for Spark JobServer
+- Updated {{ model.techMidName }} {{ model.techOpsName }} to 6.5.2
 
 ## Updates
-- Some graph and gremlin_server properties in earlier versions of DSE are no longer required for DSE 6.0. For more information about these properties refer [here](https://docs.datastax.com/en/dse/6.0/dse-admin/datastax_enterprise/releaseNotes/RNdse.html#changesTxt602)
+- Some graph and gremlin_server properties in earlier versions of {{ model.techShortName }} are no longer required for {{ model.techShortName }} 6.0. For more information about these properties refer [here](https://docs.datastax.com/en/dse/6.0/dse-admin/datastax_enterprise/releaseNotes/RNdse.html#changesTxt602)
 - Updated Cassandra version to 3.11 which removed support for the deprecated Thrift interface (rpc_port, start_rpc, etc).
 - Updated TinkerPop version 3.3.3 with additional production-certified changes.
 - Updated Apache Solr™ to version 6.0.1.1.2321 which includes Solr security upgrades bundle.
@@ -41,13 +41,13 @@ render: mustache
 ## New Features
 
 - Ability to pause a service pod for debugging and recovery purposes. ([#1989](https://github.com/mesosphere/dcos-commons/pull/1989))
-- Support for starting/stopping Cassandra for PIT backup/restore support via OpsCenter.
+- Support for starting/stopping Cassandra for PIT backup/restore support via {{ model.techOpsName }}.
 - Support for the automated provisioning of TLS artifacts to secure service communication.
 
 ## Updates
 
 - Upgraded JRE to 1.8u162. ([#2135](https://github.com/mesosphere/dcos-commons/pull/2135))
-- Marks all DSE tasks as non-essential: the DSE agent and DSE node may now fail independently (without the entire pod failing).
+- Marks all {{ model.techShortName }} tasks as non-essential: the {{ model.techShortName }} agent and {{ model.techShortName }} node may now fail independently (without the entire pod failing).
 - Major Improvements to the stability and performance of service orchestration
 - The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
 
@@ -60,12 +60,12 @@ render: mustache
 
 ## Bug Fixes
 
-- Permission denied error when attempting to create a backup in OpsCenter
+- Permission denied error when attempting to create a backup in {{ model.techOpsName }}
 
 ## Improvements
 
-- Exposed additional OpsCenter agent options to the DSE DC/OS service
-- Exposed commitlog_archiving.properties file and associated options to the DSE DC/OS service
+- Exposed additional {{ model.techOpsName }} agent options to the {{ model.techShortName }} DC/OS service
+- Exposed `commitlog_archiving.properties` file and associated options to the {{ model.techShortName }} DC/OS service
 
 ## Breaking Changes
 
@@ -73,7 +73,7 @@ render: mustache
 
 ## Upgrade Steps
 
-- Follow the upgrade steps in the [DCOS DSE service guide](https://docs.mesosphere.com/services/dse/2.0.4-5.1.2/managing/#upgrading-or-downgrading-a-service).
+- Follow the upgrade steps in the [DCOS {{ model.techShortName }} service guide](https://docs.mesosphere.com/services/dse/2.0.4-5.1.2/managing/#upgrading-or-downgrading-a-service).
 
 
 # Version 2.0.3-5.1.2
@@ -86,7 +86,7 @@ render: mustache
 ## Improvements
 
 - Upgraded to the latest stable release of the dcos-commons SDK.
-- Better support for configuring/using DSE Unified Authentication. See the [authentication documentation](https://docs.mesosphere.com/services/dse/2.0.3-5.1.2/dse-authentication).
+- Better support for configuring/using {{ model.techShortName }} Unified Authentication. See the [authentication documentation](https://docs.mesosphere.com/services/dse/2.0.3-5.1.2/dse-authentication).
 
 ## Breaking Changes
 
@@ -154,13 +154,13 @@ render: mustache
 # Version 2.0.0-5.1.2
 
 ## Improvements
-- Based on the latest stable release of the dcos-commons SDK, which provides numerous benefits:
-  -Integration with DC/OS features such as virtual networking and integration with DC/OS access controls.
-  - Orchestrated software and configuration updates, enforcement of version upgrade paths, and ability to pause/resume updates.
-  - Placement constraints for pods.
-  - Uniform user experience across a variety of services.
-- Upgrade to version 5.1.2 of DataStax Enterprise.
-- Upgrade to version 6.1.2 of DataStax Enterprise Opscenter.
+- Based on the latest stable release of the `dcos-commons` SDK, which provides numerous benefits:
+  -Integration with DC/OS features such as virtual networking and integration with DC/OS access controls
+  - Orchestrated software and configuration updates, enforcement of version upgrade paths, and ability to pause/resume updates
+  - Placement constraints for pods
+  - Uniform user experience across a variety of services
+- Upgrade to version 5.1.2 of {{ model.techName }}
+- Upgrade to version 6.1.2 of {{ model.techName }} {{ model.techOpsName }}
 
 ## Breaking Changes
-- This is a major release available for DC/OS 1.9 or higher. You cannot upgrade to version 2.0.0-5.1.2 from any previous versions of the  package. This is due to the separation of the core DSE nodes from Opscenter.
+- This is a major release available for DC/OS 1.9 or higher. You cannot upgrade to version 2.0.0-5.1.2 from any previous versions of the package. This is due to the separation of the core {{ model.techShortName }} nodes from {{ model.techOpsName }}.

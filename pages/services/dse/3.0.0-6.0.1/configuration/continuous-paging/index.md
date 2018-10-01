@@ -10,7 +10,7 @@ model: /services/dse/data.yml
 render: mustache
 ---
 
-# Continuous Paging Configuration template
+# Continuous Paging configuration template
 
 Options to tune continuous paging that pushes pages, when requested, continuously to the client:
 
@@ -22,7 +22,7 @@ Options to tune continuous paging that pushes pages, when requested, continuousl
 
 **Guidance**
 
-   - Because memtables and SSTables are used by the continuous paging query, you can define the maximum period of time during which memtables cannot be flushed and compacted SSTables cannot be deleted.
+   - Because `memtables` and `SSTables` are used by the continuous paging query, you can define the maximum period of time during which `memtables` cannot be flushed and compacted `SSTables` cannot be deleted.
    
    - If fewer threads exist than sessions, a session cannot execute until another one is swapped out.
    
@@ -61,11 +61,13 @@ continuous_paging:
    
 ### max_local_query_time_ms
     
-   The maximum time for a local continuous query to run. When this threshold is exceeded, the session is swapped out and rescheduled. Swapping and rescheduling ensures the release of resources that prevent the memtables from flushing and ensures fairness when max_threads < max_concurrent_sessions. Adjust when high write workloads exist on tables that have continuous paging requests.
+   The maximum time for a local continuous query to run. When this threshold is exceeded, the session is swapped out and rescheduled. Swapping and rescheduling ensures the release of resources that prevent the memtables from flushing and ensures fairness when `max_threads` < `max_concurrent_sessions`. Adjust when high write workloads exist on tables that have continuous paging requests.
 
    Default value is 5000.
 
-### Below are the options that are added new as per the DataStax Enterprise version 6.0.2
+# New options for 6.0.2
+
+Below are the options that are added new as per the {{ model.techMidName }} Enterprise version 6.0.2
 
 ### client_timeout_sec
 
@@ -75,7 +77,7 @@ continuous_paging:
    
 ### cancel_timeout_sec
    
-   How long to wait before checking if a paused session can be resumed. Continuous paging sessions are paused because of backpressure or when the client has not request more pages with backpressure updates.
+   How long to wait before checking if a paused session can be resumed. Continuous paging sessions are paused because of backpressure or when the client has not requested more pages with backpressure updates.
 
    Default value is 5.
    
