@@ -19,13 +19,13 @@ This section is a simple overview of material described in greater detail in the
 
 "Coarse-grained" mode is so-called because each {{ model.techShortName }} **executor** is represented by a single Mesos task. As a result, executors have a constant size throughout their lifetime.
 
-*   **Executor memory**: `{{ model.packageName }}.executor.memory`
-*   **Executor CPUs**: `{{ model.packageName }}.executor.cores`, or all the cores in the offer.
-*   **Number of Executors**: `{{ model.packageName }}.cores.max` / `{{ model.packageName }}.executor.cores`. Executors are brought up until
-    `{{ model.packageName }}.cores.max` is reached. Executors survive for duration of the job.
+*   **Executor memory**: `spark.executor.memory`
+*   **Executor CPUs**: `spark.executor.cores`, or all the cores in the offer.
+*   **Number of Executors**: `spark.cores.max` / `spark.executor.cores`. Executors are brought up until
+    `spark.cores.max` is reached. Executors survive for duration of the job.
 *   **Executors per agent**: Multiple
 
-<p class="message--important"><strong>IMPORTANT: </strong>We highly recommend you set <code>{{ model.packageName }}.cores.max</code>. If you do not, your {{ model.techShortName }} job may consume all available resources in your cluster, resulting in unhappy peers.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>We highly recommend you set <code>spark.cores.max</code>. If you do not, your {{ model.techShortName }} job may consume all available resources in your cluster, resulting in unhappy peers.</p>
 
 # Quota for Drivers and Executors
 
@@ -43,43 +43,43 @@ Quota for the Drivers allows the operator of the cluster to ensure that only a g
 
 1. SSH to the Mesos master and set the Quota for a role (`dispatcher` in this example):
 
-```bash
-$ cat dispatcher-quota.json
-{
- "role": "dispatcher",
- "guarantee": [
-   {
-     "name": "cpus",
-     "type": "SCALAR",
-     "scalar": { "value": 5.0 }
-   },
-   {
-     "name": "mem",
-     "type": "SCALAR",
-     "scalar": { "value": 5120.0 }
-   }
- ]
-}
-$ curl -d @dispatcher-quota.json -X POST http://<master>:5050/quota
-```
-
-2. Install the {{ model.techShortName }} service with the following options (at a minimum):
-
-```bash
-$ cat options.json
-{
-    "service": {
-        "role": "dispatcher"
+    ```bash
+    $ cat dispatcher-quota.json
+    {
+    "role": "dispatcher",
+    "guarantee": [
+      {
+        "name": "cpus",
+        "type": "SCALAR",
+        "scalar": { "value": 5.0 }
+      },
+      {
+        "name": "mem",
+        "type": "SCALAR",
+        "scalar": { "value": 5120.0 }
+      }
+    ]
     }
-}
-$ dcos package install {{ model.packageName }} --options=options.json
-```
+    $ curl -d @dispatcher-quota.json -X POST http://<master>:5050/quota
+    ```
+
+1. Install the {{ model.techShortName }} service with the following options (at a minimum):
+
+    ```bash
+    $ cat options.json
+    {
+        "service": {
+            "role": "dispatcher"
+        }
+    }
+    $ dcos package install spark --options=options.json
+    ```
 
 ## Best practices for the Executors
-        
+
 It is recommended to allocate Quota for {{ model.techShortName }} job executors.  Allocating Quota for the {{ model.techShortName }} executors provides:
-- A guarantee that {{ model.techShortName }} jobs will receive the requested amount of resources.
-- Additional assurance that even misconfigured (e.g. greedy Driver with unset `{{ model.packageName }}.cores.max`) {{ model.techShortName }} jobs do not consume too many resources impacting other tenants on the cluster.
+* A guarantee that {{ model.techShortName }} jobs will receive the requested amount of resources.
+* Additional assurance that even misconfigured (e.g. greedy Driver with unset `spark.cores.max`) {{ model.techShortName }} jobs do not consume too many resources impacting other tenants on the cluster.
 
 The drawback to allocating Quota to the Executors is that Quota resources cannot be used by other frameworks in the cluster.
 
@@ -111,13 +111,13 @@ $ curl -d @executor-quota.json -X POST http://<master>:5050/quota
 When {{ model.techShortName }} jobs are submitted they must indicate the role for which the Quota has been set in order to consume resources from this quota, for example:
 
 ```bash
-$ dcos {{ model.packageName }} run --verbose --name={{ model.packageName }} --submit-args="\
+$ dcos spark run --verbose --name=spark --submit-args="\
 --driver-cores=1 \
 --driver-memory=1024M \
---conf {{ model.packageName }}.cores.max=8 \
---conf {{ model.packageName }}.mesos.role=executor \
---class org.apache.{{ model.packageName }}.examples.SparkPi \
-http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.0.1.jar 3000"
+--conf spark.cores.max=8 \
+--conf spark.mesos.role=executor \
+--class org.apache.spark.examples.SparkPi \
+http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
 ```
 
 <p class="message--important"><strong>IMPORTANT: Special consideration for streaming and long-running {{ model.techShortName }} jobs</strong>: To prevent a single long-running or streaming {{ model.techShortName }} job from consuming the entire Quota, the max CPUs for that {{ model.techShortName }} job should be set to roughly one “job’s worth” of the Quota’s resources. This ensures that the {{ model.techShortName }} job will get sufficient resources to make progress, and setting the max CPUs ensures it will not starve other {{ model.techShortName }} jobs of resources as well as predictable offer suppression semantics.
@@ -125,102 +125,101 @@ http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageN
 ## Permissions when using Quota with Strict mode 
 
 Strict mode clusters (see [security modes](/1.12/security/ent/#security-modes)) require extra
-permissions to be set in order to use Quota. Follow the instructions in [installing](https://github.com/mesosphere/{{ model.packageName }}-build/blob/master/docs/install.md) and add the additional permissions for the roles you intend to use, as detailed below. 
+permissions to be set in order to use Quota. Follow the instructions in [installing](https://github.com/mesosphere/spark-build/blob/master/docs/install.md) and add the additional permissions for the roles you intend to use, as detailed below. 
 
 Following the example above they would be set as follows:
 
-1.    First set Quota for the Dispatcher's role (`dispatcher`)
+1. First set Quota for the Dispatcher's role (`dispatcher`):
 
-  ```bash
-  $ cat dispatcher-quota.json
-  {
-    "role": "dispatcher",
-    "guarantee": [
-      {
-        "name": "cpus",
-        "type": "SCALAR",
-        "scalar": { "value": 5.0 }
-      },
-      {
-        "name": "mem",
-        "type": "SCALAR",
-        "scalar": { "value": 5120.0 }
-      }
-    ]
-  }
-  ```
+    ```bash
+    $ cat dispatcher-quota.json
+    {
+      "role": "dispatcher",
+      "guarantee": [
+        {
+          "name": "cpus",
+          "type": "SCALAR",
+          "scalar": { "value": 5.0 }
+        },
+        {
+          "name": "mem",
+          "type": "SCALAR",
+          "scalar": { "value": 5120.0 }
+        }
+      ]
+    }
+    ```
 
-  If you have downloaded the CA certificate,`dcos-ca.crt` to your local machine via the `https://<dcos_url>/ca/dcos-ca.crt` endpoint, set the Quota **from your local machine**:
-    
-  ```bash
-  curl -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/mesos/quota -d @dispatcher-quota.json -H 'Content-Type: application/json'
-  ```
+    If you have downloaded the CA certificate,`dcos-ca.crt` to your local machine via the `https://<dcos_url>/ca/dcos-ca.crt` endpoint, set the Quota **from your local machine**:
 
-2. Optionally, set Quota for the Executors also; this is the same as above:
+    ```bash
+    curl -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/mesos/quota -d @dispatcher-quota.json -H 'Content-Type: application/json'
+    ```
 
-  ```bash
-  $ cat executor-quota.json
-  {
-    "role": "executor",
-    "guarantee": [
-      {
-        "name": "cpus",
-        "type": "SCALAR",
-        "scalar": { "value": 100.0 }
-      },
-      {
-        "name": "mem",
-        "type": "SCALAR",
-        "scalar": { "value": 409600.0 }
-      }
-    ]
-  }
-  ```
+1. Optionally, set Quota for the Executors also; this is the same as above:
 
-3. If you have not already done so, set the Quota from your local machine, again assuming you have `dcos-ca.crt` locally:
+    ```bash
+    $ cat executor-quota.json
+    {
+      "role": "executor",
+      "guarantee": [
+        {
+          "name": "cpus",
+          "type": "SCALAR",
+          "scalar": { "value": 100.0 }
+        },
+        {
+          "name": "mem",
+          "type": "SCALAR",
+          "scalar": { "value": 409600.0 }
+        }
+      ]
+    }
+    ```
 
-  ```bash
-  curl -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/mesos/quota -d @executor-quota.json -H 'Content-Type: application/json'
-  ```
+1. If you have not already done so, set the Quota from your local machine, again assuming you have `dcos-ca.crt` locally:
 
-4. Install {{ model.techShortName }} with these minimal configurations:
+    ```bash
+    curl -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/mesos/quota -d @executor-quota.json -H 'Content-Type: application/json'
+    ```
 
-  ```bash
-  { 
-      "service": {
-              "service_account": "{{ model.packageName }}-principal",
-              "role": "dispatcher",
-              "user": "root",
-              "service_account_secret": "{{ model.packageName }}/{{ model.packageName }}-secret"
-      }
-  }
-  ```
+1. Install {{ model.techShortName }} with these minimal configurations:
 
-5. Now you are ready to run a {{ model.techShortName }} job using the principal you set and the roles:
+    ```bash
+    { 
+        "service": {
+                "service_account": "spark-principal",
+                "role": "dispatcher",
+                "user": "root",
+                "service_account_secret": "spark/spark-secret"
+        }
+    }
+    ```
+1. Now you are ready to run a {{ model.techShortName }} job using the principal you set and the roles:
 
-  ```bash
-  dcos {{ model.packageName }} run --verbose --submit-args=" \
-  --conf {{ model.packageName }}.mesos.principal={{ model.packageName }}-principal \
-  --conf {{ model.packageName }}.mesos.role=executor \
-  --conf {{ model.packageName }}.mesos.containerizer=mesos \
-  --class org.apache.{{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.0.1.jar 100"
-  ```
+    ```bash
+    dcos spark run --verbose --submit-args=" \
+    --conf spark.mesos.principal=spark-principal \
+    --conf spark.mesos.role=executor \
+    --conf spark.mesos.containerizer=mesos \
+    --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
+    ```
 
-# Setting `{{ model.packageName }}.cores.max`
+# Setting `spark.cores.max`
 
 To improve {{ model.techShortName }} job execution reliability, set the maximum number of cores consumed by any given job.  This avoids any particular {{ model.techShortName }} job consuming too many resources in a cluster. It is highly recommended that each {{ model.techShortName }} job be
 submitted with a limitation on the maximum number of cores (CPUs) it can consume. This is especially important for long-running and streaming {{ model.techShortName }} jobs. 
 
   ```bash
-  $ dcos {{ model.packageName }} run --verbose --name={{ model.packageName }} --submit-args="\
+  $ dcos spark run --verbose --name=spark --submit-args="\
   --driver-cores=1 \
   --driver-memory=1024M \
-  --conf {{ model.packageName }}.cores.max=8 \ #<< Very important!
-  --class org.apache.{{ model.packageName }}.examples.SparkPi \
-  http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.0.1.jar 3000"
+  --conf spark.cores.max=8 \ #<< Very important!
+  --class org.apache.spark.examples.SparkPi \
+  http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
   ```
 
-When running multiple concurrent {{ model.techShortName }} jobs, consider setting {{ model.packageName }}.cores.max between `<total_executor_quota>/<max_concurrent_jobs>` and `<total_executor_quota>`, depending on your workload characteristics and goals.
+When running multiple concurrent {{ model.techShortName }} jobs, consider setting spark.cores.max between `<total_executor_quota>/<max_concurrent_jobs>` and `<total_executor_quota>`, depending on your workload characteristics and goals.
 
 # Fine-grained mode
 
@@ -229,10 +228,10 @@ When running multiple concurrent {{ model.techShortName }} jobs, consider settin
 In "fine-grained" mode, each {{ model.techShortName }} **task** is represented by a single Mesos task. When a {{ model.techShortName }} task finishes, the resources represented by its Mesos task are relinquished. Fine-grained mode enables finer-grained resource allocation at
 the cost of task startup latency.
 
-*   **Executor memory**: `{{ model.packageName }}.executor.memory`
-*   **Executor CPUs**: Increases and decreases as tasks start and terminate.
-*   **Number of Executors**: Increases and decreases as tasks start and terminate.
-*   **Executors per agent**: At most 1
+* **Executor memory**: `spark.executor.memory`
+* **Executor CPUs**: Increases and decreases as tasks start and terminate.
+* **Number of Executors**: Increases and decreases as tasks start and terminate.
+* **Executors per agent**: At most 1
 
 # Properties
 
@@ -247,29 +246,29 @@ configuration page][1] and the [{{ model.techShortName }} on Mesos configuration
 </tr>
 	
 <tr>
-<td>{{ model.packageName }}.mesos.coarse</td>
+<td>spark.mesos.coarse</td>
 <td>true</td>
 <td>Described above.</td>
 </tr>
 
 <tr>
-<td>{{ model.packageName }}.executor.memory</td>
+<td>spark.executor.memory</td>
 <td>1g</td>
 <td>Executor memory allocation.</td>
 </tr>
 
 <tr>
-<td>{{ model.packageName }}.executor.cores</td>
+<td>spark.executor.cores</td>
 <td>All available cores in the offer</td>
 <td>Coarse-grained mode only. DC/OS {{ model.techName }} >= 1.6.1. Executor CPU allocation.</td>
 </tr>
 
 <tr>
-<td>{{ model.packageName }}.cores.max</td>
+<td>spark.cores.max</td>
 <td>unlimited</td>
 <td>Maximum total number of cores to allocate.</td>
 </tr>
 </table>
 
-[1]: http://{{ model.packageName }}.apache.org/docs/latest/configuration.html
-[2]: http://{{ model.packageName }}.apache.org/docs/latest/running-on-mesos.html
+[1]: http://spark.apache.org/docs/latest/configuration.html
+[2]: http://spark.apache.org/docs/latest/running-on-mesos.html

@@ -10,13 +10,12 @@ model: /services/spark/data.yml
 
 # Dispatcher
 
-*   The Mesos cluster dispatcher is responsible for queuing, tracking, and supervising drivers. Potential problems may
+* The Mesos cluster dispatcher is responsible for queuing, tracking, and supervising drivers. Potential problems may
     arise if the dispatcher does not receive the resources offers you expect from Mesos, or if driver submission is
     failing. To debug this class of issue, visit the Mesos UI at `http://<dcos-url>/mesos/` and navigate to the sandbox
     for the dispatcher.
 
-*   Spark has an internal mechanism for detecting the IP of the host. We use this method by default, but sometimes it
-    fails, returning errors like these:
+* Spark has an internal mechanism for detecting the IP of the host. We use this method by default, but sometimes it fails, returning errors like these:
 
     ```
     ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[main,5,main]
