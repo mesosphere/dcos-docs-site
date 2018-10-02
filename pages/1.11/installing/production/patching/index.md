@@ -6,8 +6,6 @@ menuWeight: 20
 excerpt: Understanding cluster patches
 ---
 
-# Patching live clusters with no downtime
-
 A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a patch.
 
 A patching process includes the following:
@@ -15,9 +13,12 @@ A patching process includes the following:
 - Does not impact workloads which is an essential piece of patching live clusters with no downtime
 - Helps users to understand the minor changes impacting the functionality of DC/OS
 
-Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
+<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 1.11.1 --> 1.11.2</p>
 
-**Note:** A patching process occurs only between minor releases.
+- To update to a newer major or minor version (e.g. 1.10 to 1.11), refer to the instructions for [upgrading](/1.11/installing/production/upgrading/).
+
+If patching is performed on a supported OS with all prerequisites fulfilled, then the patch **should** preserve the state of running tasks on the cluster.
+
 
 ## Important guidelines
 

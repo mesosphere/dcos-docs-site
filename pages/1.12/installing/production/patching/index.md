@@ -6,8 +6,6 @@ menuWeight: 20
 excerpt: Understanding cluster patches
 ---
 
-# Patching live clusters with no downtime
-
 A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a patch.
 
 A patching process includes the following:
@@ -15,17 +13,19 @@ A patching process includes the following:
 - Does not impact workloads which is an essential piece of patching live clusters with no downtime
 - Helps users to understand the minor changes impacting the functionality of DC/OS
 
-Example: DC/OS 1.X.A to 1.X.B (1.12.1 --> 1.12.2)
+<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 1.12.1 --> 1.12.2</p>
 
-<p class="message--note"><strong>NOTE: </strong>A patching process occurs only between minor releases.</p>
+- To update to a newer major or minor version (e.g. 1.11 to 1.12), refer to the instructions for [upgrading](/1.12/installing/production/upgrading/).
+
+If patching is performed on a supported OS with all prerequisites fulfilled, then the patch **should** preserve the state of running tasks on the cluster.
+
 
 ## Important guidelines
 
 - Review the [release notes](/1.12/release-notes/) before patching DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
-- There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.12. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](1.12/installing/production/deploying-dcos/installation/#create-a-configuration-file).
-- If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the patch to succeed.
-- DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the patch will fail. [enterprise type="inline" size="small" /]
+- If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file.
+- The DC/OS Enterprise license key must reside in a `genconf/license.txt` file. [enterprise type="inline" size="small" /]
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been patched. For example, a patched DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been patched. When this occurs:
 
     - The DC/OS GUI may not provide an accurate list of services.
@@ -35,7 +35,6 @@ Example: DC/OS 1.X.A to 1.X.B (1.12.1 --> 1.12.2)
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported patch paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.10.2 is the latest and 1.12.0 is the latest, this patch would be supported.
 - From any current release to the next. For example, a patch from 1.12.0 to 1.12.1 would be supported.
 - From any current release to an identical release. For example, a patch from 1.12.0 to 1.12.0 would be supported. This is useful for making configuration changes.
 
@@ -73,7 +72,7 @@ These steps must be performed for version patches and cluster configuration chan
 - For Mesos compatibility reasons, we recommend patching any running Marathon-on-Marathon instances to Marathon version 1.3.5 before proceeding with this DC/OS patch.
 - You must have access to copies of the config files used with the previous DC/OS version: `config.yaml` and `ip-detect`.
 - You must be using `systemd` 218 or newer to maintain task state.
-- All hosts (masters and agents) must be able to communicate with all other hosts on all ports, for both TCP and UDP.
+- All hosts (masters and agents) must be able to communicate with all other hosts as described at [network security](/1.12/administering-clusters/securing-your-cluster/#network-security).
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide](/1.12/installing/production/deploying-dcos/installation/).
@@ -92,10 +91,10 @@ These steps must be performed for version patches and cluster configuration chan
 Choose your desired security mode and then follow the applicable patch instructions.
 
 - [Patching DC/OS 1.12 without changing security mode](#current-security)
-- [Patching DC/OS 1.12 to strict mode](#strict)
+- [Patching to DC/OS 1.12 in strict security mode](#strict)
 
 # <a name="current-security"></a>Patching DC/OS 1.12 without changing security mode
-This procedure patches a DC/OS 1.11 cluster to DC/OS 1.12 without changing the cluster's [security mode](//1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](//1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
@@ -115,10 +114,12 @@ This procedure patches a DC/OS 1.11 cluster to DC/OS 1.12 without changing the c
 
 1.  Go to the DC/OS Master [procedure](/1.12/installing/production/patching/#masters) to complete your installation.
 
-# <a name="strict"></a>Patching DC/OS 1.12 in strict mode
-This procedure patches DC/OS 1.12 in security strict [mode](/1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+# <a name="strict"></a>Patching to DC/OS 1.12 in strict mode
+This procedure patches to DC/OS 1.12 in strict [security mode](/1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
-If you are updating a running DC/OS cluster to run in `security: strict` mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
+If you are updating a running DC/OS cluster to run in `strict` security mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
+
+As permissive mode allows some insecure behavior, a cluster may have been compromised before it is upgraded to strict security mode. To obtain the full security benefits of strict security mode, we recommend that you re-install the operating system on each node and install a new cluster.
 
 **Prerequisites:**
 
