@@ -65,8 +65,8 @@ and truststores are server.jks.base64 and trust.jks.base64, respectively, then u
 commands to add them to the secret store: 
 
 ```bash
-dcos security secrets create /__dcos_base64__keystore --value-file server.jks.base64
-dcos security secrets create /__dcos_base64__truststore --value-file trust.jks.base64
+dcos security secrets create /__dcos_base64__keystore --file server.jks.base64
+dcos security secrets create /__dcos_base64__truststore --file trust.jks.base64
 ```
 
 You must add the following configurations to your `dcos spark run ` command.

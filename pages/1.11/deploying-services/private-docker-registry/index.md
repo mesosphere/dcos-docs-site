@@ -134,13 +134,13 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
    <p class="message--note"><strong>NOTE: </strong>As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.</p>
 
    ```bash
-   dcos security secrets create --value-file=config.json <path/to/secret>
+   dcos security secrets create --file=config.json <path/to/secret>
    ```
 
    If you plan to follow the example below, enter the following command to add the secret:
 
    ```bash
-   dcos security secrets create --value-file=config.json mesos-docker/pullConfig
+   dcos security secrets create --file=config.json mesos-docker/pullConfig
    ```
 
 ## Step 2: Add the secret to your service or pod definition
