@@ -135,8 +135,6 @@ If you are installing Edge-LB on a cluster in security mode **disabled**, remove
 ```bash
 dcos security secrets create-sa-secret edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
 ```
-
-
 List the secrets with this command.
 
 ```bash
