@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
+navigationTitle: Upgrade
+excerpt: Upgrading from one version to another
 title: Upgrade
 menuWeight: 130
 
