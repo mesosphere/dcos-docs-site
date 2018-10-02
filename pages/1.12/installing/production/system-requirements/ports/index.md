@@ -46,7 +46,6 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 |---|---|---|---|---|
 | 80    | Admin Router Master (HTTP) | `dcos-adminrouter.service` |public IP| master |
 | 443   | Admin Router Master (HTTPS) | `dcos-adminrouter.service`|public IP| master |
-| 1337  | DC/OS Secrets |  `dcos-secrets.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
 | 2181  | ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
 | 3888  | Exhibitor, or ZooKeeper and Exhibitor | `dcos-exhibitor.service` | agent/master | master |
 | 5050  | Mesos Master | `dcos-mesos-master.service` | agent/master | master |

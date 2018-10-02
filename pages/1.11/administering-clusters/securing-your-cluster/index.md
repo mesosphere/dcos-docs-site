@@ -21,7 +21,7 @@ You must use appropriate network mechanisms to prevent unauthorized access to cl
 
 Depending on your cluster environment, this may include:
 - using physical or virtual subnets to isolate [DC/OS Security Zones](#security-zones);
-- using router firewalls to restrict access to ports;
+- using router firewalls or security groups to restrict access to ports;
 - using firewall software (e.g. `iptables`) on the nodes to restrict access to ports.
 
 Use these mechanisms to provide the following connectivity:
