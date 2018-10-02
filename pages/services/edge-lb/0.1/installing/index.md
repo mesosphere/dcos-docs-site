@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Installing Edge-LB
 title: Installing Edge-LB
 menuWeight: 10
-excerpt:
+excerpt: Configuring and installing Edge-LB
 
 enterprise: false
 ---
@@ -20,9 +20,21 @@ Configure a service account and install the Edge-LB package using the instructio
 - Currently, Edge-LB works only with DC/OS Enterprise in permissive [security mode](/latest/security/ent/#security-modes). It does not work with strict or disabled.
 
 # Add Edge-LB package repositories
-The Edge-LB package is composed of two components: the Edge-LB API server and the Edge-LB pools. You must install universe repos for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB. The Edge-LB API server is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers. An Edge-LB pool can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
+The Edge-LB package comprises two components: 
 
-Download the artifacts for each of the repos from the [Mesosphere support page](https://support.mesosphere.com/hc/en-us/articles/213198586).
+- The **Edge-LB API server** is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers. 
+
+- An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer. 
+
+You must install universe repos for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB. 
+
+## Obtain artifacts
+
+If your cluster already has connectivity, you can obtain the artifacts directly. 
+
+If you do not have a cluster with connectivity, you will then need a service account to download the artifacts for each of the repos from the [Mesosphere support page](https://support.mesosphere.com/hc/en-us/articles/213198586). Note that you will get a "page not found" message if you attempt to download the artifacts without a service account.
+
+## Add them to the package repository
 
 Once you have the links to the artifacts for the Edge-LB API server and Edge-LB pool repos, use the following command to add them to the universe package repository:
 
@@ -33,17 +45,64 @@ dcos package repo add --index=0 edgelb-pool-aws \
   https://<AWS S3 bucket>/stub-universe-edgelb-pool.json
 ```
 
+[enterprise]
+## <a name="build"></a>Deploying a local Universe containing Edge-LB
+[/enterprise]
+
+If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified).
+
+**Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+
+1.  Clone the Universe repository:
+
+    ```bash
+    git clone https://github.com/mesosphere/universe.git --branch version-3.x
+    ```
+
+2.  Build the `universe-base` image:
+
+    ```bash
+    cd universe/docker/local-universe/
+    sudo make base
+    ```
+
+3. Obtain the Edge-LB stub universe JSON files from the support downloads site. Note that there are two files required:
+- `stub-universe-edgelb.json`
+- `stub-universe-edgelb-pool.json`
+
+4. To add the JSON definitions to the universe, use the `add-stub-universe.sh` script.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.  
+
+```bash
+bash add-stub-universe.sh -j stub-universe-edgelb.json
+```
+```bash
+bash add-stub-universe.sh -j stub-universe-edgelb-pool.json
+```
+
+5. From there, they can be merged into the primary `universe/repo/packages` directory:
+
+```bash
+cp -rpv stub-repo/packages/* ../../repo/packages
+```
+
+6. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
+
+    ```bash
+    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.0.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
+    ```
+
+7.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
+
+
 # Create a service account
-The Edge-LB API server needs to be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
+The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
 
 [Service accounts](/latest/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 
 Follow the steps below to create a service account, a principal associated with the service account, assign permissions to this principle, and associate a secret store with this service account. The secret store is used by Edge-LB to retrieve and install TLS certificates on the Edge-LB pools in order to enable TLS for all HTTP traffic between client and service backends.
 
 ## <a name="create-a-keypair"></a>Create a key pair
-In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI.
-
-Create a public-private key pair and save each value into a separate file within the current directory.
+In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI. Create a public-private key pair and save each value into a separate file within the current directory.
 
 ```bash
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
@@ -86,9 +145,7 @@ dcos security secrets list /
 
 ## <a name="give-perms"></a>Create and Assign Permissions
 
-Use the following CLI commands to provision the Edge-LB service account with the required permissions.
-
-All CLI commands can also be executed via the [IAM API](/latest/security/ent/iam-api/).
+Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/latest/security/ent/iam-api/).
 
 1.  Grant the permissions and the allowed actions to the service account using the following commands. The commands below allow your Edge-LB service to manage DC/OS packages, Marathon tasks, Edge-LB pools and tasks.
 
