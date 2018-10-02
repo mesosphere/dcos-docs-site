@@ -36,7 +36,7 @@ You can create a DC/OS cluster on Packet bare metal using Terraform. The include
 
 ## Installing DC/OS
 
-**Note:** With this method, the network is open by default. Because of this, network security is a concern and should be addressed as soon as possible by the administrator.
+<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, <a href="/1.11/administering-clusters/securing-your-cluster/#network-security">network security</a> is a concern and should be addressed as soon as possible by the administrator.</p>
 
 1.  Download and install Terraform using the instructions on the link provided in the Prerequisites section.
 

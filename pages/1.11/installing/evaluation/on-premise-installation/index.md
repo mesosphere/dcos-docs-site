@@ -6,7 +6,7 @@ navigationTitle: On-Premise Installation
 menuWeight: 10
 ---
 
-
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure that your on-premises cluster is protected by appropriate <a href="/1.11/administering-clusters/securing-your-cluster/#network-security">network security</a> mechanisms.</p>
 
 You can install a DC/OS cluster on your own premises using the following methods:
 

@@ -17,7 +17,7 @@ Upgrades are not supported with this installation method.
 
 ## Security
 
-<p class="message--note"><strong>NOTE: </strong>All nodes are Internet-facing by default after deploying via Terraform and are not secured out-of-the-box. Additional configuration will be required to put master and agent nodes into a security group.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, <a href="/1.12/administering-clusters/securing-your-cluster/#network-security">network security</a> is a concern and should be addressed as soon as possible by the administrator.</p>
 
 ## Environment
 

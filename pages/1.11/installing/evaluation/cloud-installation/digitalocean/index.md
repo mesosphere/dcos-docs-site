@@ -17,7 +17,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
 ## Security
 
-**Note:** All nodes are Internet-facing by default after deploying via Terraform and are not secured out-of-the-box. Additional configuration will be required to put master and agent nodes into a security group.
+<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, <a href="/1.11/administering-clusters/securing-your-cluster/#network-security">network security</a> is a concern and should be addressed as soon as possible by the administrator.</p>
 
 ## Environment
 
