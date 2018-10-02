@@ -4,7 +4,6 @@
   title: Reinitializing the Secret Store with a custom GPG keypair
   menuWeight: 1
   excerpt: Reinitializing the Secret Store with a custom GPG keypair
-
   enterprise: true
 ---
 

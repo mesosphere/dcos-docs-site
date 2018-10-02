@@ -1,13 +1,12 @@
-Installing the DC/OS Universe package is easy;---
+---
 layout: layout.pug
 navigationTitle: Container Networking Interface (CNI)
 title: Container Networking Interface (CNI) Support
 menuWeight: 100
-excerpt:
+excerpt: Installing and using CNI
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->
-
 
 ## Container Networking Interface (CNI) Support
 

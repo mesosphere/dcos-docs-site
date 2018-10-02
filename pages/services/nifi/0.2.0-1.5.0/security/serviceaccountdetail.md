@@ -1,3 +1,13 @@
+---
+layout: layout.pug
+navigationTitle: Security Account Detail
+title: Security Account Detail
+menuWeight: 51
+excerpt: DC/OS NiFi Service security account details
+featureMaturity:
+enterprise: false
+---
+
 # Configuring DC/OS Access for NiFi
 
 This topic describes how to configure DC/OS access for NiFi.Depending on your security mode, Nifi requires service authentication for access to DC/OS.
