@@ -330,90 +330,18 @@ The DC/OS History service caches and exposes the historical system state to faci
 
 In a world where machines are given numbers instead of names, tasks are scheduled automatically, dependencies are declaratively defined, and services run in distributed sets, network administration also needs to be elevated from plugging in cables to configuring software-defined networks. To accomplish this, DC/OS includes a fleet of networking components for routing, proxying, name resolution, virtual IPs, load balancing, and distributed reconfiguration.
 
-<div data-role="collapsible">
-<h2 id="admin-router">Admin Router</h2>
-<div>
-<p><strong>Description:</strong> Admin Router exposes a unified control plane proxy for components and services using <a href="https://www.nginx.com/">NGINX</a>. Admin Router Agent proxies node-specific health, logs, metrics, and package management internal endpoints.</p>
-<p>
-  <strong>System Service(s):</strong>
-  <ul>
-    <li><code class="nowrap">dcos-adminrouter.service</code></li>
-    <li><code class="nowrap">dcos-adminrouter-agent.service</code></li>
-  </ul>
-</p>
-<p>
-  <strong>See Also:</strong>
-  <ul>
-    <li><a href="https://github.com/dcos/adminrouter">Source</a></li>
-  </ul>
-</p>
-</div>
-</div>
+<a name="admin-router"></a>
 
-<div data-role="collapsible">
-<h2 id="mesos-dns">Mesos DNS</h2>
-<div>
-<p><strong>Description:</strong> Mesos DNS provides domain name based service discovery within the cluster.</p>
-<p>
-  <strong>System Service(s):</strong>
-  <ul>
-    <li><code class="nowrap">dcos-mesos-dns.service</code></li>
-  </ul>
-</p>
-<p>
-  <strong>See Also:</strong>
-  <ul>
-    <li><a href="http://mesosphere.github.io/mesos-dns/">Documentation</a></li>
-    <li><a href="https://github.com/mesosphere/mesos-dns">Source</a></li>
-    <li><a href="/1.12/networking/mesos-dns/mesos-dns-api/">API Reference</a></li>
-  </ul>
-</p>
-</div>
-</div>
+## Admin Router
 
-<div data-role="collapsible">
-<h2 id="dns-forwarder">DC/OS Net</h2>
-<div>
-<p><strong>Description:</strong> <em>dcos-net</em> is an Erlang VM that hosts the following networking applications:
-    <li><em>dcos-dns</em>: A distributed DNS-based service discovery.</li>
-    <li><em>dcos-overlay</em>: An SDN solution for UCR and Docker containers.</li>
-    <li><em>dcos-l4lb</em>: A distributed layer-4 load-balancer.</li>
-</p>
-<p>
-  <strong>System Service(s):</strong>
-  <ul>
-    <li><code class="nowrap">dcos-net.service</code></li>
-    <li><code class="nowrap">dcos-net-watchdog.service</code></li>
-  </ul>
-</p>
-<p>
-  <strong>See Also:</strong>
-  <ul>
-    <li><a href="https://github.com/dcos/dcos-net">Source</a></li>
-  </ul>
-</p>
-</div>
-</div>
+Admin Router exposes a unified control plane proxy for components and services using [NGINX](https://www.nginx.com/). Admin Router Agent provides proxies for node-specific health, logs, metrics, and package management internal endpoints.
 
-<div data-role="collapsible">
-<h2 id="generate-resolv.conf">Generate resolv.conf</h2>
-<div>
-<p><strong>Description:</strong> Generate resolv.conf configures network name resolution by updating <code class="nowrap">/etc/resolv.conf</code> to facilitate DC/OS's software defined networking.</p>
-<p>
-  <strong>System Service(s):</strong>
-  <ul>
-    <li><code class="nowrap">dcos-gen-resolvconf.service</code></li>
-    <li><code class="nowrap">dcos-gen-resolvconf.timer</code></li>
-  </ul>
-</p>
-<p>
-  <strong>See Also:</strong>
-  <ul>
-    <li><a href="https://github.com/dcos/dcos/blob/master/packages/dcos-net/extra/gen_resolvconf.py">Source</a></li>
-  </ul>
-</p>
-</div>
-</div>
+### System Service
+
+- `dcos-adminrouter.service`
+- `dcos-adminrouter-agent.service`
+
+**See Also:**
 
 - [Source](https://github.com/dcos/adminrouter)
 
