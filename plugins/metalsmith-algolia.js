@@ -126,7 +126,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         }
         if (extname(file) !== '.html') return;
         const fileData = files[file];
-        const postContent = sanitize(fileData.contents);
+        const postContent = sanitize(fileData.contents, file);
         const postParts = convertStringToArray(postContent, 9000);
         postParts.forEach((value, _index) => {
           const record = getSharedAttributes(fileData, hierarchy, semverMap);
@@ -328,8 +328,9 @@ const trim = string => string.replace(/^\s+|\s+$/g, '');
  * Removes all contained <pre></pre> tags.
  * Removes all tags and replaces with whitespace.
  * @param {Buffer} buffer
+ * @param {String} file
  */
-const sanitize = (buffer) => {
+const sanitize = (buffer, file) => {
   const string = buffer.toString();
   let parsedString = sanitizeHtml(string, {
     allowedTags: [],
@@ -359,9 +360,12 @@ const sanitize = (buffer) => {
   const capturedContent = headerRegex.exec(parsedString);
   // Only take the second capture group
   const filteredContent = capturedContent[2];
-  // Change this to throw error once DSE Known Issues files are confirmed for removal
+
+  if (filteredContent) return filteredContent;
+
   // There should be no blank pages
-  return filteredContent || '';
+  console.error(`Warning: file ${file} has no content.`);
+  return '';
 };
 
 // Push content to array.
