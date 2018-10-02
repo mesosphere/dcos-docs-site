@@ -20,19 +20,26 @@ To configure a service account and install the Edge-LB package, use the instruct
 - Currently, Edge-LB works only with DC/OS Enterprise in permissive mode on DC/OS 1.10, and permissive or strict mode on DC/OS 1.11 [security mode](/latest/security/ent/#security-modes). 
 
 # Add Edge-LB package repositories
-The Edge-LB package comprises two components:
-- Edge-LB API server
-- Edge-LB pools
 
-In order to install Edge-LB, you must install universe repositories for the Edge-LB API server and the Edge-LB pool. The Edge-LB API server is a RESTful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers. An Edge-LB pool can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
+The Edge-LB package comprises two components: 
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
-1. Download the artifacts for each of the repos from the [Mesosphere support page](https://support.mesosphere.com/hc/en-us/articles/213198586).
+- An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer. 
 
 <p class="message--note"><strong>NOTE: </strong>You must have a service account to do this.</p>
 
-2. Once you have the links to the artifacts for the Edge-LB API server and Edge-LB pool repositories, use the following command to add them to the universe package repository:
+<p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
+
+## Obtain artifacts
+
+If your cluster already has connectivity, you can obtain the artifacts directly. 
+
+If you do not have a cluster with connectivity, you will then need a service account to download the artifacts for each of the repos from the [Mesosphere support page](https://support.mesosphere.com/hc/en-us/articles/213198586). Note that you will get a "page not found" message if you attempt to download the artifacts without a service account.
+
+## Add them to the package repository
+
+Once you have the links to the artifacts for the Edge-LB API server and Edge-LB pool repositories, use the following command to add them to the universe package repository:
 
 ```bash
 dcos package repo add --index=0 edgelb  https://<insert download link>/stub-universe-edgelb.json
@@ -107,7 +114,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-**Note:** You can use the [DC/OS Secret Store](/latest/security/ent/secrets/) to secure the key pair.
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/latest/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 ## Create the principal
 From a terminal prompt, create a new service account (`edge-lb-principal`) containing the public key (`edge-lb-public-key.pem`).
@@ -116,7 +123,7 @@ From a terminal prompt, create a new service account (`edge-lb-principal`) conta
 dcos security org service-accounts create -p edge-lb-public-key.pem -d "Edge-LB service account" edge-lb-principal
 ```
 
-**Note:** Verify your new service account using the following command.
+Verify your new service account using the following command.
 
 ```bash
 dcos security org service-accounts show edge-lb-principal
@@ -181,7 +188,7 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:user:root
 dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id full
 ```
 
-Additionally, this permission needs to be granted **for each Edge-LB pool created**:
+<p class="message--note"><strong>NOTE: </strong>Additionally, this permission needs to be granted <strong>for each Edge-LB pool created</strong>.</p>
 
 ```bash
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
