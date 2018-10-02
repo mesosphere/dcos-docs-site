@@ -221,7 +221,7 @@ submitted with a limitation on the maximum number of cores (CPUs) it can consume
 
 When running multiple concurrent {{ model.techShortName }} jobs, consider setting spark.cores.max between `<total_executor_quota>/<max_concurrent_jobs>` and `<total_executor_quota>`, depending on your workload characteristics and goals.
 
-# Fine-grained mode
+# Fine-grained mode (deprecated)
 
 <p class="message--note"><strong>NOTE: </strong>Fine-grained mode has been deprecated and does not have all of the features of coarse-grained mode.</p>
 
