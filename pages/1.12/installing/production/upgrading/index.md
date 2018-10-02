@@ -6,67 +6,41 @@ menuWeight: 25
 excerpt: Upgrading a DC/OS cluster
 ---
 
-An upgrade is the process of moving between major releases to add new features, replace existing features with new features/functionality or performing a major configuration change. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster. 
+An upgrade is the process of moving between major releases to add new features or to replace existing features with new features/functionality. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster.
 
-<p class="message--important"><strong>IMPORTANT: </strong>An upgrade occurs only between major releases.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 1.11 --> 1.12</p>
 
-Example: 1.X to 1.Y (1.11 --> 1.12)
+- To update to a newer maintenance version (e.g. 1.11.6 to 1.11.8), refer to the instructions for [patching](/1.12/installing/production/patching/).
+- To modify the cluster configuration, refer to the instructions for [patching](/1.12/installing/production/patching/).
+- The `disabled` security mode has been removed from DC/OS Enterprise 1.12. To upgrade a `disabled` mode 1.11 cluster to 1.12, first [patch the 1.11 cluster from disabled to permissive mode](/1.11/installing/production/patching/#patching-dcos-111-in-permissive-mode) as a separate step before upgrading from 1.11 to 1.12. [enterprise type="inline" size="small" /]
 
-If an upgrade is performed on a supported OS with all prerequisites fulfilled, then upgrade **should** preserve the state of running tasks on the cluster.  This document reuses portions of the [DC/OS Installation Guide][install].
+If upgrading is performed on a supported OS with all prerequisites fulfilled, then the upgrade **should** preserve the state of running tasks on the cluster.
 
+## Important guidelines
+
+- The Production installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/1.12/installing/production/deploying-dcos/) before proceeding. 
 - Review the [release notes](/1.12/release-notes/) before upgrading DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster.  You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
-- There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.12. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](/latest/installing/ent/custom/advanced/#create-a-configuration-file). [enterprise type="inline" size="small" /]
-- The `disabled` security mode has been removed from DC/OS Enterprise 1.12. To upgrade a `disabled` mode 1.12 cluster to 1.13, [upgrade from `disabled` to `permissive` mode](/1.12/installing/production/patching/#patching-dcos-111-in-permissive-mode) as a separate step before upgrading from 1.12 to 1.13. [enterprise type="inline" size="small" /]
-- If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the upgrade to succeed.
-- The Advanced installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide](/1.12/installing/oss/custom/advanced) before proceeding. 
-- DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the upgrade will fail. [enterprise type="inline" size="small" /]
+- If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file.
+- The DC/OS Enterprise license key must reside in a `genconf/license.txt` file. [enterprise type="inline" size="small" /]
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. 
   When this occurs: 
    * The DC/OS GUI may not provide an accurate list of services.
    * For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
-
-For example: An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. 
-
-- An upgraded DC/OS Marathon leader cannot connect to a non-secure (not upgraded) leading Mesos master. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
+- An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
-- From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
-- From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
+- From the latest GA version of previous to the latest GA version of current. For example, if 1.11.8 is the latest GA version of previous and 1.12.4 is the latest GA version of current, this upgrade would be supported.
 
 **Note:** See the [version policy](https://docs.mesosphere.com/version-policy/) page to understand information about DC/OS version lifecycle and compatibility matrix.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
-You _cannot_ change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then upgrade to 1.10.y. Or you can upgrade to 1.10.y and then add more public agents by updating 1.10.y after the upgrade.
-
-To modify your DC/OS configuration, you must run the installer with the modified `config.yaml` and update your cluster using the new installation files. Changes to the DC/OS configuration have the same risk as upgrading a host. Incorrect configurations could potentially crash your hosts, or an entire cluster.
-
-Only a subset of DC/OS configuration parameters can be modified. The adverse effects on any software that is running on top of DC/OS is outside of the scope of this document. Contact Mesosphere Support for more information.
-
-Here is a list of the parameters that you can modify:
-
-- [`dns_search`](/1.12/installing/ent/custom/configuration/configuration-parameters/#dns-search)
-- [`docker_remove_delay`](/1.12/installing/ent/custom/configuration/configuration-parameters/#docker-remove-delay)
-- [`gc_delay`](/1.12/installing/ent/custom/configuration/configuration-parameters/#gc-delay)
-- [`resolvers`](/1.12/installing/ent/custom/configuration/configuration-parameters/#resolvers)
-- [`telemetry_enabled`](/1.12/installing/ent/custom/configuration/configuration-parameters/#telemetry-enabled)
-- [`use_proxy`](/1.12/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`http_proxy`](/1.12/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`https_proxy`](/1.12/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`no_proxy`](/1.12/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-
-The security mode (`security`) can be changed but has special caveats. [enterprise type="inline" size="small" /]
-
-- You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `strict` mode and you want to downgrade to `permissive` mode, you must reinstall the cluster and terminate all running workloads. [enterprise type="inline" size="small" /]
-- During each update, you can only increase your security by a single level. For example, you cannot update directly from `disabled` to `strict` mode. To increase from `disabled` to `strict` mode you must first update to `permissive` mode, and then update from `permissive` to `strict` mode. [enterprise type="inline" size="small" /]
-
-See the security [mode](/1.12/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) for information on different security modes. [enterprise type="inline" size="small" /]
+You _cannot_ change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.10 to 1.11 and add more public agents. You can add more public agents with a patch to 1.11, and then upgrade to 1.12. Or you can upgrade to 1.12 and then add more public agents by [patching 1.12](/1.12/installing/production/patching/) after the upgrade.
 
 # Instructions
-These steps must be performed for version upgrades and cluster configuration changes.
+These steps must be performed for version upgrades.
 
 ## Prerequisites
 - Enterprise users: DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
@@ -75,7 +49,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - For Mesos compatibility reasons, we recommend upgrading any running Marathon-on-Marathon instances to Marathon version 1.3.5 before proceeding with this DC/OS upgrade.
 - You must have access to copies of the config files used with the previous DC/OS version: `config.yaml` and `ip-detect`.
 - You must be using systemd 218 or newer to maintain task state.
-- All hosts (masters and agents) must be able to communicate with all other hosts on all ports, for both TCP and UDP.
+- All hosts (masters and agents) must be able to communicate with all other hosts as described at [network security](/1.12/administering-clusters/securing-your-cluster/#network-security).
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide][install].
@@ -101,14 +75,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 ### Enterprise users 
 [/enterprise]
 
-Choose your desired security mode and then follow the applicable upgrade instructions.
-
-- [Upgrading DC/OS 1.12 without changing security mode](#current-security)
-- [Upgrading DC/OS 1.12 in permissive mode](#permissive)
-- [Upgrading DC/OS 1.12 in strict mode](#strict)
-
-#### <a name="current-security"></a>Upgrading DC/OS 1.12 without changing security mode 
-This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.12 without changing the cluster's [security mode](/1.12/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+This procedure upgrades a DC/OS 1.11 cluster to DC/OS 1.12.
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 2.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -120,7 +87,7 @@ This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.12 without changing the 
 5.  Build your installer package.
 
     1.  Download the `dcos_generate_config.ee.sh` file.
-    2.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`.
+    2.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.11.6`.
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -129,56 +96,6 @@ This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.12 without changing the 
 
 6.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
-#### <a name="permissive"></a>Upgrading DC/OS 1.12 in permissive mode 
-This procedure upgrades to DC/OS 1.12 in [permissive security mode](/1.12/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
-
-**Prerequisite:**
-
-- Your cluster must be [upgraded to DC/OS 1.12](#current-security) and running in [disabled security mode](/1.12/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
-
-<p class="message--note"><strong>NOTE: </strong>Any <a href="/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks">custom node or cluster health checks</a> you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the health checks.</p>
-
-To update a cluster from disabled security to permissive security, complete the following procedure:
-
-1.  Replace `security: disabled` with `security: permissive` in your `config.yaml`. Do not make any other changes to pathways or configurations in the `config.yaml`.
-2.  Modify the `ip-detect` file as desired.
-3.  Build your installer package.
-
-    1.  Download the `dcos_generate_config.ee.sh` file.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`.
-        ```bash
-        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
-        ```
-    1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the [nginx][install] container to serve the installation files.
-
-4.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
-
-#### <a name="strict"></a>Upgrading DC/OS 1.12 in strict mode 
-This procedure upgrades to DC/OS 1.12 in security strict [mode](/1.12/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
-
-If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
-
-**Prerequisites:**
-
-- Your cluster must be [upgraded to DC/OS 1.12](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was upgraded to DC/OS 1.12, you can skip this procedure.
-- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.12 permissive security mode before upgrading to strict mode. Otherwise, these tasks will be restarted when the masters are upgraded.
-
-To update a cluster from permissive security to strict security, complete the following procedure:
-
-1.  Replace `security: permissive` with `security: strict` in your `config.yaml`. Do not make any other changes to pathways or configurations in the `config.yaml`.
-2.  Modify the `ip-detect` file as desired.
-3.  Build your installer package.
-
-    1.  Download the `dcos_generate_config.ee.sh` file.
-    2.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`.
-        ```bash
-        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
-        ```
-    3.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    4.  Run the [nginx][install] container to serve the installation files.
-
-4.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 [oss]
 ### Open Source users
