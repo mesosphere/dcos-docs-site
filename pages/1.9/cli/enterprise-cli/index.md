@@ -472,7 +472,7 @@ Options:
         Secrets backend to use.
     -v, --value <value>
         Value of the secret.
-    -f, --value-file <filename>  
+    -f, --file <filename>  
         Use file as value of the secret.
     -h, --help         
         Show this message and exit.
@@ -532,7 +532,7 @@ Options:
         Secrets backend to use
     -v, --value <value>           
         Value of the secret
-    -f, --value-file <filename>  
+    -f, --file <filename>  
         Use the file as value of the secret.
     -h, --help                 
         Show this message and exit.   
