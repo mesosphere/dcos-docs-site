@@ -3,12 +3,9 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 145
-excerpt:
+excerpt: Release notes for DC/OS Apache Spark 2.4.0-2.2.1-3
 featureMaturity:
-
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 ## Version Spark and Spark History 2.4.0-2.2.1-3
 
@@ -30,8 +27,6 @@ featureMaturity:
 
 ### Breaking Changes
 - VIP endpoints for the dispatcher are no longer `spark-dispatcher:<port>` and are now `dispatcher.{{service.name}}:<port>`
-
-
 
 ## Version Spark and Spark History 2.3.1-2.2.1-2
 

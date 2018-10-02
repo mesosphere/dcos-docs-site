@@ -1,17 +1,19 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
+navigationTitle: Uninstalling Spark
+excerpt: Uninstalling DC/OS Apache Spark
 title: Uninstall
 menuWeight: 60
 featureMaturity:
-
+render: mustache
+model: /services/spark/data.yml
 ---
+To  uninstall DC/OS {{ model.techName }}, run the following command:
 
-    dcos package uninstall --app-id=<app-id> spark
 
-The Spark dispatcher persists state in ZooKeeper, so to fully
-uninstall the Spark DC/OS package, you must go to
-`http://<dcos-url>/exhibitor`, click on `Explorer`, and delete the
-znode corresponding to your instance of Spark. By default this is
-`spark_mesos_Dispatcher`.
+    dcos package uninstall --app-id=<app-id> {{ model.packageName }}
+
+The {{ model.techShortName }} dispatcher persists state in ZooKeeper, so to fully uninstall the DC/OS {{ model.techName }} package, you must 
+1. Navigate to `http://<dcos-url>/exhibitor`. 
+1. Click on `Explorer`. 
+1. Delete the znode corresponding to your instance of {{ model.techShortName }}. By default this is   `{{ model.packageName }}_mesos_Dispatcher`.

@@ -2,28 +2,29 @@
 layout: layout.pug
 title: Spark 2.4.0-2.2.1-3
 navigationTitle: Spark 2.4.0-2.2.1-3
-menuWeight:
-excerpt:
+menuWeight: 1
+excerpt: Documentation for DC/OS Apache Spark 2.4.0-2.2.1-3
+model: /services/spark/data.yml
+render: mustache
 featureMaturity:
-
 ---
 
-Welcome to the documentation for the DC/OS Apache Spark. For more information about new and changed features, see the [release notes](https://github.com/mesosphere/spark-build/releases/).
+Welcome to the documentation for the DC/OS {{ model.techName }}. For more information about new and changed features, see the [release notes](/services/spark/2.4.0-2.2.1-3/release-notes/).
 
-Apache Spark is a fast and general-purpose cluster computing system for big data. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including Spark SQL for SQL and DataFrames, MLlib for machine learning, GraphX for graph processing, and Spark Streaming for stream processing. For more information, see the [Apache Spark documentation][1].
+{{ model.techName }} is a fast and general-purpose cluster computing system for big data. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including {{ model.techShortName }} SQL for SQL and DataFrames, MLlib for machine learning, GraphX for graph processing, and {{ model.techShortName }} Streaming for stream processing. For more information, see the [{{ model.techName }} documentation][1].
 
-DC/OS Apache Spark consists of [Apache Spark with a few custom commits][17] along with [DC/OS-specific packaging][18].
+DC/OS {{ model.techName }} consists of [{{ model.techName }} with a few custom commits][17] along with [DC/OS-specific packaging][18].
 
-DC/OS Apache Spark includes:
+DC/OS {{ model.techName }} includes:
 
 *   [Mesos Cluster Dispatcher][2]
-*   [Spark History Server][3]
-*   DC/OS Apache Spark CLI
-*   Interactive Spark shell
+*   [{{ model.techShortName }} History Server][3]
+*   DC/OS {{ model.techName }} CLI
+*   Interactive {{ model.techShortName }} shell
 
 # Benefits
 
-*   Utilization: DC/OS Apache Spark leverages Mesos to run Spark on the same cluster as other DC/OS services
+*   Utilization: DC/OS {{ model.techName }} leverages Mesos to run {{ model.techShortName }} on the same cluster as other DC/OS services
 *   Improved efficiency
 *   Simple Management
 *   Multi-team support
@@ -34,10 +35,10 @@ DC/OS Apache Spark includes:
 # Features
 
 *   Multiversion support
-*   Run multiple Spark dispatchers
+*   Run multiple {{ model.techShortName }} dispatchers
 *   Run against multiple HDFS clusters
 *   Backports of scheduling improvements
-*   Simple installation of all Spark components, including the dispatcher and the history server
+*   Simple installation of all {{ model.techShortName }} components, including the dispatcher and the history server
 *   Integration of the dispatcher and history server
 *   Zeppelin integration
 *   Kerberos and SSL support

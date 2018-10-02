@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
+navigationTitle: Troubleshooting
+excerpt: Troubleshooting DC/OS Apache Spark
 title: Troubleshooting
 menuWeight: 125
-
+render: mustache
+model: /services/spark/data.yml
 ---
 
 # Dispatcher

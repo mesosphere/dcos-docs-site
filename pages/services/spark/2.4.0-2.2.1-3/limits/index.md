@@ -1,17 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle: Limits
-excerpt:
-title: Limits
+navigationTitle: Tested Limits
+excerpt: Mesosphere has scale-tested Spark on DC/OS
+title: Tested Limits
 menuWeight: 140
 featureMaturity:
-
+render: mustache
+model: /services/spark/data.yml
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
-
-# DC/OS Spark Limits
-Mesosphere has scale-tested Spark on DC/OS by running a CPU-bound Monte Carlo application on the following hardware:
+# DC/OS {{ model.techShortName }} Limits
+Mesosphere has scale-tested {{ model.techShortName }} on DC/OS by running a CPU-bound Monte Carlo application on the following hardware:
 
 ## Cluster characteristics
 - 2560 cores total

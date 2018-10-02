@@ -1,18 +1,22 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
+navigationTitle: Upgrade
+excerpt: Upgrading DC/OS Apache Spark
 title: Upgrade
 menuWeight: 50
 featureMaturity:
-
+render: mustache
+model: /services/spark/data.yml
 ---
+The only way currently to upgrade your version of DC/OS {{ model.techName }} is to first uninstall it, then re-install it. 
 
-1.  Go to the **Universe** > **Installed** page of the DC/OS GUI. Hover over your Spark Service to see the **Uninstall** button, then select it. Alternatively, enter the following from the DC/OS CLI:
+1.  Go to the **Universe** > **Installed** page of the DC/OS web interface. Hover over your {{ model.techShortName }} Service to see the **Uninstall** button, then select it. 
 
-        dcos package uninstall spark
+Alternatively, enter the following from the DC/OS CLI:
 
-1.  Verify that you no longer see your Spark service on the **Services** page.
-1.  Reinstall Spark.
+        dcos package uninstall {{ model.packageName }}
 
-        dcos package install spark
+2.  Verify that you no longer see your {{ model.techShortName }} service on the **Services** page.
+3.  Reinstall {{ model.techShortName }}.
+
+        dcos package install {{ model.packageName }}
