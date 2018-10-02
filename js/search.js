@@ -108,27 +108,17 @@ if (searchForm) {
       templates: {
         empty: '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>',
         item: (data) => {
-          let title = data.title;
-          let description = data.excerpt;
-
-          if (data._highlightResult.title) {
-            title = data._highlightResult.title.value;
-          }
-          if (data._highlightResult.excerpt) {
-            description = data._highlightResult.excerpt.value;
-          }
-          if (data._snippetResult.excerpt && data._snippetResult.excerpt.matchLevel === 'full') {
-            description = data._snippetResult.excerpt.value;
-          } else if(data._snippetResult.content && data._snippetResult.content.matchLevel === 'full') {
-            description = data._snippetResult.content.value;
-          }
+          const title = data._highlightResult.title.value;
+          const excerpt = data._snippetResult.excerpt.value;
+          const content = data._snippetResult.content.value;
 
           return `
             <li class="search__results-item">
               <h4 class="search__title">
                 <a href="/${data.path}" class="search__link">${title}</a>
               </h4>
-              <p class="search__description">${description}</p>
+              <p class="search__description">${excerpt}</p>
+              <p class="search__description">${content}</p>
               <div class="search__meta">
                 <span class="search__meta-product">
                   ${data.product}

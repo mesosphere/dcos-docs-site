@@ -105,6 +105,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         '&euro;': '€',
         '&copy;': '©',
         '&reg;': '®',
+        '\\n': ' ',
       };
 
       const transform = (content) => {
@@ -334,10 +335,33 @@ const sanitize = (buffer) => {
     allowedTags: [],
     allowedAttributes: [],
     selfClosing: [],
-    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'nav'],
+    nonTextTags: [
+      'head',
+      'style',
+      'script',
+      'textarea',
+      'noscript',
+      'header',
+      'footer',
+      'nav',
+      'aside',
+      'section',
+    ],
   });
   parsedString = trim(parsedString);
-  return parsedString;
+  // Remove extraneous information from content
+  // Because this library doesn't have the tools necessary to do it nicely
+
+  // Remove all content up to and including the action buttons
+  // Some pages don't have action buttons.
+  // For those pages, have the first capture group take nothing
+  const headerRegex = /^(.*SharePrintContributeDiscussFeedback|)((\n|.)*)?/;
+  const capturedContent = headerRegex.exec(parsedString);
+  // Only take the second capture group
+  const filteredContent = capturedContent[2];
+  // Change this to throw error once DSE Known Issues files are confirmed for removal
+  // There should be no blank pages
+  return filteredContent || '';
 };
 
 // Push content to array.
