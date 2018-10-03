@@ -6,13 +6,13 @@ title: Quick Start
 menuWeight: 15
 ---
 
-## How to use Percona XtraDB Cluster with DC/OS
+# How to use Percona XtraDB Cluster with DC/OS
 
-# Prerequisite
+## Prerequisite
 
 - DC/OS should be installed on your cluster.
 
-# Steps
+## Steps
 
 If you are using open source DC/OS, install percona-pxc-mysql on the cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
@@ -137,6 +137,68 @@ Once the install command is triggered, the service will deploy with a default co
     dcos percona-pxc-mysql update status [<flags>]
     --json  Show raw JSON response instead of user-friendly tree
     ```               
+
+# External Client Access(Proxysql and EdgeLB configuration)
+
+Proxysql is auto configured by the service with some defaults as in the configuration. To install EdgeLB using the following steps:
+
+```shell
+dcos package repo add --index=0 edgelb-aws \
+https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb/stub-universe-edgelb.json
+
+dcos package repo add --index=0 edgelb-pool-aws \
+https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-pool/stub-universe-edgelb-pool.json
+
+dcos package install edgelb --yes
+
+dcos package install edgelb --cli
+
+dcos edgelb create pxc-edgelb.json
+```
+In the below pxc-edgelb.json file, need to update the proxysql-client-endpoint accordingly:
+
+```shell
+{
+        "apiVersion": "V2",
+        "name": "pxc",
+        "count": 1,
+        "haproxy": {
+                "frontends": [{
+                                "bindPort": 3306,
+                                "protocol": "TCP",
+                                "linkBackend": {
+                                        "defaultBackend": "pxc"
+                                }
+                        }
+
+                ],
+                "backends": [{
+                        "name": "pxc",
+                        "protocol": "TCP",
+                        "services": [{
+                                "endpoint": {
+                                        "type": "ADDRESS",
+                                        "address": "<proxysql-client-endpoint>",
+                                        "port": 3306
+                                }
+                        }]
+                }]
+        }
+}
+```
+Need to run the following command from any host machine running docker:
+```shell
+docker run --name mysql-cli -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
+```
+After this we need to get into the container by running a bash into this as follows:
+```shell
+sudo docker exec -ti mysql-cli bash
+```
+Then we need to note down the Public slave security group IP for the DC/OS cluster on which DC/OS is running. We then will need to use the IP in the following command:
+```shell
+mysql -u<application_user_name> -p<application_user_passwd> -h<public_slave_securitygrpIP> -P3306
+```
+This will connect to the PXC cluster. Now start using the cluster by creating a db and tables into it.
 
 
 # How to see Metrices with Prometheus and Garafana with DC/OS
