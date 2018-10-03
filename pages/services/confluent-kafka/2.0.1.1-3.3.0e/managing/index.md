@@ -13,7 +13,7 @@ enterprise: false
 # Updating Configuration
 You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying DC/OS Confluent Kafka Service itself.
 
-After making a change, the scheduler will be restarted and will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `_NODEPOD_-0`, then `_NODEPOD_-1`, and so on.
+After making a change, the scheduler will be restarted and will automatically deploy any detected changes to the service, one node at a time.
 
 Nodes are configured with a "readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
@@ -31,13 +31,13 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 + Enterprise DC/OS 1.10 or newer
 + Service with a version greater than 2.0.0-x
-+ [The DC/OS CLI](/1.10/cli/install/)installed and available
++ [The DC/OS CLI](/1.10/cli/install/) installed and available 
 + The service's subcommand available and installed on your local machine
-  + You can install just the subcommand CLI by running `dcos package install --cli beta-confluent-kafka`.
+  + You can install just the subcommand CLI by running `dcos package install --cli confluent-kafka`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
-    dcos package uninstall --cli beta-confluent-kafka
-    dcos package install --cli beta-confluent-kafka
+    dcos package uninstall --cli confluent-kafka
+    dcos package install --cli confluent-kafka
     ```
 
 ### Preparing configuration
@@ -45,7 +45,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
-$ dcos beta-confluent-kafka describe > options.json
+$ dcos confluent-kafka describe > options.json
 ```
 
 Make any configuration changes to this `options.json` file.
@@ -64,7 +64,7 @@ First, we'll fetch the default application's environment, current application's 
 
 1. Set the service name that you're using, for example:
     ```bash
-    $ SERVICE_NAME=beta-confluent-kafka
+    $ SERVICE_NAME=confluent-kafka
     ```
 
 1. Get the version of the package that is currently installed:
@@ -106,7 +106,7 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
 ```bash
-$ dcos beta-confluent-kafka update start --options=options.json
+$ dcos confluent-kafka update start --options=options.json
 ```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
@@ -128,7 +128,7 @@ To make configuration changes via scheduler environment updates, perform the fol
 1. The Scheduler process will be restarted with the new configuration and will validate any detected changes.
 1. If the detected changes pass validation, the relaunched Scheduler will deploy the changes by sequentially relaunching affected tasks as described above.
 
-To see a full listing of available options, run `dcos package describe --config beta-confluent-kafka` in the CLI, or browse the Beta Confluent Kafka install dialog in the DC/OS web interface.
+To see a full listing of available options, run `dcos package describe --config confluent-kafka` in the CLI, or browse the Beta Confluent Kafka install dialog in the DC/OS web interface.
 
 # Add a Broker
 
@@ -151,7 +151,7 @@ Increase the `BROKER_COUNT` value via the DC/OS web interface as in any other co
 
 1.  Install the latest version of Beta Confluent Kafka:
 
-        $ dcos package install beta-confluent-kafka -—options=options.json
+        $ dcos package install confluent-kafka -—options=options.json
 
 # Graceful Shutdown
 ## Extend the Kill Grace Period
@@ -198,25 +198,25 @@ The `update package-versions` command allows you to view the versions of a servi
 
 For example, run:
 ```bash
-$ dcos beta-confluent-kafka update package-versions
+$ dcos confluent-kafka update package-versions
 ```
 
 ## Upgrading or downgrading a service
 
 1. Before updating the service itself, update its CLI subcommand to the new version:
 	 ```bash
-	 $ dcos package uninstall --cli beta-confluent-kafka
-	 $ dcos package install --cli beta-confluent-kafka --package-version="1.1.6-5.0.7"
+	 $ dcos package uninstall --cli confluent-kafka
+	 $ dcos package install --cli confluent-kafka --package-version="1.1.6-5.0.7"
 	 ```
 1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS Confluent Kafka Service to version `1.1.6-5.0.7`:
 	 ```bash
-	 $ dcos beta-confluent-kafka update start --package-version="1.1.6-5.0.7"
+	 $ dcos confluent-kafka update start --package-version="1.1.6-5.0.7"
 	 ```
 
 If you are missing mandatory configuration parameters, the `update` command will return an error. To supply missing values, you can also provide an `options.json` file (see [Updating configuration](#updating-configuration)):
 
 ```bash
-$ dcos beta-kafka update start --options=options.json --package-version="1.1.6-5.0.7"
+$ dcos kafka update start --options=options.json --package-version="1.1.6-5.0.7"
 ```
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
@@ -236,7 +236,7 @@ Once the Scheduler has been restarted, it will begin a new deployment plan as in
 You can query the status of the update as follows:
 
 ```bash
-$ dcos beta-confluent-kafka update status
+$ dcos confluent-kafka update status
 ```
 
 If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS GUI to check the status of the restart.
@@ -246,7 +246,7 @@ If the Scheduler is still restarting, DC/OS will not be able to route to it and 
 To pause an ongoing update, issue a pause command:
 
 ```bash
-$ dcos beta-confluent-kafka update pause
+$ dcos confluent-kafka update pause
 ```
 
 You will receive an error message if the plan has already completed or has been paused. Once completed, the plan will enter the `WAITING` state.
@@ -256,7 +256,7 @@ You will receive an error message if the plan has already completed or has been 
 If a plan is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the plan:
 
 ```bash
-$ dcos beta-confluent-kafka update resume
+$ dcos confluent-kafka update resume
 ```
 
 You will receive an error message if you attempt to `resume` a plan that is already in progress or has already completed.
@@ -266,7 +266,7 @@ You will receive an error message if you attempt to `resume` a plan that is alre
 In order to manually "complete" a step (such that the Scheduler stops attempting to launch a task), you can issue a `force-complete` command. This will instruct to Scheduler to mark a specific step within a phase as complete. You need to specify both the phase and the step, for example:
 
 ```bash
-$ dcos beta-confluent-kafka update force-complete service-phase service-0:[node]
+$ dcos confluent-kafka update force-complete service-phase service-0:[node]
 ```
 
 ## Force Restart
@@ -275,17 +275,17 @@ Similar to force complete, you can also force a restart. This can either be done
 
 To restart the entire plan:
 ```bash
-$ dcos beta-confluent-kafka update force-restart
+$ dcos confluent-kafka update force-restart
 ```
 
 Or for all steps in a single phase:
 ```bash
-$ dcos bbeta-confluent-kafka update force-restart service-phase
+$ dcos bconfluent-kafka update force-restart service-phase
 ```
 
 Or for a specific step within a specific phase:
 ```bash
-$ dcos beta-confluent-kafka update force-restart service-phase service-0:[node]
+$ dcos confluent-kafka update force-restart service-phase service-0:[node]
 ```
 
 <!-- END DUPLICATE BLOCK -->

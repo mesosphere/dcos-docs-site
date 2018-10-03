@@ -14,7 +14,7 @@ DC/OS includes a service packaging specification and a [repository](/1.10/admini
 
 # <a name="universe"></a>Universe package repository
 
-The DC/OS Universe contains all of the services that are installable on DC/OS. For more information on DC/OS Universe, see the [GitHub Universe repository](https://github.com/mesosphere/universe).
+The DC/OS Universe contains all of the services that are installable on DC/OS. For more information on DC/OS Universe, see the [GitHub Universe repository](https://github.com/mesosphere/universe). Our general recommendation is to use the DC/OS CLI rather than the DC/OS web interface throughout the process of creating a package for the Universe.
 
 # DC/OS service structure
 

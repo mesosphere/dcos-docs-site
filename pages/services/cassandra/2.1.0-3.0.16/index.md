@@ -8,8 +8,6 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
 DC/OS Apache Cassandra is an automated service that makes it easy to deploy and manage Apache Cassandra on [DC/OS](https://mesosphere.com/product/). Apache Cassandra is a distributed NoSQL database offering high availability, fault tolerance and scalability across data centers.
 
 For more information on Apache Cassandra, see the Apache Cassandra [documentation](http://cassandra.apache.org/doc/latest/).

@@ -1,8 +1,8 @@
 # Common values:
 
-packageName: kafka
-serviceName: kafka
-techName: Confluent
+packageName: confluent-kafka
+serviceName: confluent-kafka
+techName: Confluent Kafka
 techShortName: Kafka
 
 # Values specific to certain templates:
@@ -21,7 +21,8 @@ supportedVersions:
   techLink: "[Confluent Kafka](https://www.confluent.io/)"
 
 security:
-  plaintext: ", \"allow_plaintext\": <true|false default false>"
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
 
 kerberos:
   spn: example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory
@@ -34,3 +35,12 @@ kafka:
   zookeeperPackageName: confluent-zookeeper
   zookeeperServiceName: confluent-zookeeper
   zookeeperTechName: Confluent Zookeeper
+
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    └─ broker (serial strategy) (COMPLETE)
+       ├─ kafka-0:[broker] (COMPLETE)
+       ├─ kafka-1:[broker] (COMPLETE)
+       └─ kafka-2:[broker] (COMPLETE)

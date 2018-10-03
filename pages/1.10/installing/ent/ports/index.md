@@ -9,9 +9,11 @@ enterprise: false
 
 [DC/OS components](/docs/1.10/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
-DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
+- For DC/OS to install and function as intended, these ports must be accessible upon initial installation.
+- The ports must be open between the indicated source and destination nodes, including over cluster zones.
+- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [network security](/1.10/administering-clusters/securing-your-cluster/#network-security).
 
-**Important:** These ports must not be used in a firewall configuration between nodes or cluster zones.
+DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
 ## All nodes
 
@@ -56,6 +58,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 8123  | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master |
 | 8181  | Exhibitor and ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
 | 8200  | Vault | `dcos-vault.service` [enterprise type="inline" size="small" /] | localhost| localhost(master) |
+| 8201  | Vault HA | `dcos-vault.service` | master| master |
 | 8443  | Marathon SSL | `dcos-marathon.service` | agent/master | master |
 | 8888  | DC/OS Certificate Authority | `dcos-ca.service` [enterprise type="inline" size="small" /] | localhost| localhost(master) |
 | 9090 | DC/OS Jobs (Metronome) | `dcos-metronome.service`| agent/master | master |
@@ -64,6 +67,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 15055 | DC/OS History | `dcos-history-service.service` | localhost| localhost(master) |
 | 15101 | Marathon libprocess | `dcos-marathon.service` | master | agent/master |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`| master | agent/master |
+| 26257 | CockroachDB | `dcos-cockroach.service` | master | master |
 | 62500 | DC/OS Network Metrics | `dcos-networking_api.service` [enterprise type="inline" size="small" /] | master | master |
 | Ephemeral | DC/OS Component Package Manager (Pkgpanda) | `dcos-pkgpanda-api.service` | None | None |
 

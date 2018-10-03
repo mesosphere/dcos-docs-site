@@ -39,7 +39,7 @@ More details are available [`here`](https://docs.projectcalico.org/v2.0/getting-
 
 ### Advance Installation of Calico on DC/OS
 
-Using DC/OS Universe package is easy, however, there are times when you might want
+Installing the DC/OS Universe package is easy; however, there are times when you might want
 to install Calico on your own. For instance, if you want to try a newer version
 of Calico than what is available as part of DC/OS Universe package. However, it
 is pretty involved and easily qualifies as advance installation procedure.

@@ -156,8 +156,11 @@ Create an `options.json` file with the IP addresses of the first cluster (`cassa
 ```json
 {
   "service": {
-    "remote_seeds": "10.0.1.236:9042,10.0.0.119:9042"
+    "remote_seeds": "10.0.1.236,10.0.0.119"
   }
+}
+{
+  {}
 }
 ```
 

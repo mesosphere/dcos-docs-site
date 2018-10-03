@@ -9,9 +9,11 @@ enterprise: false
 
 [DC/OS components](/docs/1.10/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
-DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
+- For DC/OS to install and function as intended, these ports must be accessible upon initial installation.
+- The ports must be open between the indicated source and destination nodes, including over cluster zones.
+- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [network security](/1.10/administering-clusters/securing-your-cluster/#network-security).
 
-**Important:** These ports must not be used in a firewall configuration between nodes or cluster zones.
+DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
 ## All nodes
 

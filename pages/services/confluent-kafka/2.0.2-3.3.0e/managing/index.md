@@ -31,7 +31,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 + Enterprise DC/OS 1.10 or newer
 + Service with a version greater than 2.0.0-x
-+ [The DC/OS CLI](/1.10/cli/install/)installed and available
++ [The DC/OS CLI](/1.10/cli/install/) installed and available 
 + The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli kafka`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
@@ -64,7 +64,7 @@ First, we'll fetch the default application's environment, current application's 
 
 1. Set the service name that you're using, for example:
     ```bash
-    $ SERVICE_NAME=beta-confluent-kafka
+    $ SERVICE_NAME=confluent-kafka
     ```
 
 1. Get the version of the package that is currently installed:

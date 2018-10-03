@@ -8,10 +8,8 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
-
 #include /services/include/limitations.tmpl
+#include /services/include/limitations-zones.tmpl
 
 ## Backup/Restore
 

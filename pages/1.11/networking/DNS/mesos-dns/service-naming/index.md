@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Service Naming
 title: Service Naming
 menuWeight: 0
-excerpt:
+excerpt: Understanding Mesos-DNS service naming conventions
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 Mesos-DNS defines the DNS top-level domain `.mesos` for Mesos tasks that are running on DC/OS. Tasks and services are discovered by looking up A and, optionally, SRV records within this Mesos domain.
@@ -21,9 +21,7 @@ Mesos-DNS defines the DNS top-level domain `.mesos` for Mesos tasks that are run
 
 # <a name="a-records"></a>A Records
 
-An A record associates a hostname to an IP address.
-
-When a task is launched by a DC/OS service, Mesos-DNS generates an A record for a hostname in the format `<task>.<service>.mesos` that provides one of the following:
+An A record associates a hostname to an IP address. When a task is launched by a DC/OS service, Mesos-DNS generates an A record for a hostname in the format `<task>.<service>.mesos` that provides one of the following:
 
 *   The IP address of the [agent node][1] that is running the task
 *   The IP address of the task's network container (provided by a Mesos containerizer)
@@ -68,9 +66,7 @@ For example, a query of the A records for `search.marathon.slave.mesos` shows th
 
 An SRV record specifies the hostname and port of a service.
 
-For a task named `mytask` launched by a service named `myservice`, Mesos-DNS generates an SRV record `_mytask._protocol.myservice.mesos`, where `protocol` is `udp` or `tcp`.
-
-For example, other Mesos tasks can discover a task named `search` launched by the `marathon` service with a query for `_search._tcp.marathon.mesos`:
+For a task named `mytask` launched by a service named `myservice`, Mesos-DNS generates an SRV record `_mytask._protocol.myservice.mesos`, where `protocol` is `udp` or `tcp`. For example, other Mesos tasks can discover a task named `search` launched by the `marathon` service with a query for `_search._tcp.marathon.mesos`:
 
     dig _search._tcp.marathon.mesos SRV
 
@@ -86,173 +82,119 @@ For example, other Mesos tasks can discover a task named `search` launched by th
     ;; ANSWER SECTION:
     _search._tcp.marathon.mesos.    60 IN SRV 0 0 31302 10.254.132.41.
 
-Mesos-DNS supports the use of a task's DiscoveryInfo for SRV record generation.
-
-On a DC/OS cluster, ports are offered by agent nodes in the same way as other resources such as CPU and memory. If DiscoveryInfo is not available, Mesos-DNS uses the ports that were allocated for the task.
+Mesos-DNS supports the use of a task's DiscoveryInfo for SRV record generation. On a DC/OS cluster, ports are offered by agent nodes in the same way as other resources such as CPU and memory. If DiscoveryInfo is not available, Mesos-DNS uses the ports that were allocated for the task.
 
 The following table shows the rules that govern SRV generation:
 
 <table class="table">
-  <thead>
-    <tr>
-      <th>
-        Service
-      </th>
 
-      <th>
-        Container IP Known
-      </th>
+<thead>
 
-      <th>
-        DiscoveryInfo Provided
-      </th>
+<tr>
 
-      <th>
-        Target Host
-      </th>
+<th>Service</th>
 
-      <th>
-        Target Port
-      </th>
+<th>Container IP Known</th>
 
-      <th>
-        A Record Target IP
-      </th>
-    </tr>
-  </thead>
+<th>DiscoveryInfo Provided</th>
 
-  <tbody>
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<th>Target Host</th>
 
-      <td>
-        No
-      </td>
+<th>Target Port</th>
 
-      <td>
-        No
-      </td>
+<th>A Record Target IP</th>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+</tr>
 
-      <td>
-        Host Port
-      </td>
+</thead>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<tbody>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<tr>
 
-      <td>
-        Yes
-      </td>
+<td>_mytask._protocol.myservice.mesos</td>
 
-      <td>
-        No
-      </td>
+<td>No</td>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+<td>No</td>
 
-      <td>
-        Host Port
-      </td>
+<td>mytask.myservice.slave.mesos</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<td>Host Port</td>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        No
-      </td>
+</tr>
 
-      <td>
-        Yes
-      </td>
+<tr>
 
-      <td>
-        mytask.myservice.mesos
-      </td>
+<td>_mytask._protocol.myservice.mesos</td>
 
-      <td>
-        DiscoveryInfo Port
-      </td>
+<td>Yes</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
+<td>No</td>
 
-    <tr>
-      <td>
-        _mytask._protocol.myservice.mesos
-      </td>
+<td>mytask.myservice.slave.mesos</td>
 
-      <td>
-        Yes
-      </td>
+<td>Host Port</td>
 
-      <td>
-        Yes
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        mytask.myservice.mesos
-      </td>
+</tr>
 
-      <td>
-        DiscoveryInfo Port
-      </td>
+<tr>
 
-      <td>
-        Container IP
-      </td>
-    </tr>
+<td>_mytask._protocol.myservice.mesos</td>
 
-    <tr>
-      <td>
-        mytask.protocol.myservice.slave.mesos
-      </td>
+<td>No</td>
 
-      <td>
-        N/A
-      </td>
+<td>Yes</td>
 
-      <td>
-        N/A
-      </td>
+<td>mytask.myservice.mesos</td>
 
-      <td>
-        mytask.myservice.slave.mesos
-      </td>
+<td>DiscoveryInfo Port</td>
 
-      <td>
-        Host Port
-      </td>
+<td>Agent IP</td>
 
-      <td>
-        Agent IP
-      </td>
-    </tr>
-  </tbody>
+</tr>
+
+<tr>
+
+<td>_mytask._protocol.myservice.mesos</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>mytask.myservice.mesos</td>
+
+<td>DiscoveryInfo Port</td>
+
+<td>Container IP</td>
+
+</tr>
+
+<tr>
+
+<td>mytask.protocol.myservice.slave.mesos</td>
+
+<td>N/A</td>
+
+<td>N/A</td>
+
+<td>mytask.myservice.slave.mesos</td>
+
+<td>Host Port</td>
+
+<td>Agent IP</td>
+
+</tr>
+
+</tbody>
+
 </table>
+
+Table 1. SRV generation rules
 
 # <a name="other-records"></a>Other Records
 
@@ -263,17 +205,17 @@ Mesos-DNS generates a few special records:
 *   For every known DC/OS master: A records (`master.mesos`)
 *   For every known DC/OS agent: A records (`slave.mesos`) and SRV records (`_slave._tcp.mesos`)
 
-**Important:** To query the leading master node, always query `leader.mesos`, not `master.mesos`. See [this FAQ entry][2] for more information.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/1.11/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</td> 
+</tr> 
+</table>
 
-There is a delay between the election of a new master and the update of leader/master records in Mesos-DNS.
-
-Mesos-DNS also supports requests for SOA and NS records for the Mesos domain. DNS requests for records of other types in the Mesos domain will return `NXDOMAIN`. Mesos-DNS does not support PTR records needed for reverse lookups.
-
-Mesos-DNS also generates A records for itself that list all the IP addresses that Mesos-DNS will answer lookup requests on. The hostname for these A records is `ns1.mesos`.
+There is a delay between the election of a new master and the update of leader/master records in Mesos-DNS. Mesos-DNS also supports requests for SOA and NS records for the Mesos domain. DNS requests for records of other types in the Mesos domain will return `NXDOMAIN`. Mesos-DNS does not support PTR records needed for reverse lookups. Mesos-DNS also generates A records for itself that list all the IP addresses that Mesos-DNS will answer lookup requests on. The hostname for these A records is `ns1.mesos`.
 
 # <a name="naming-conventions"></a>Task and Service Naming Conventions
 
-Mesos-DNS follows [RFC 952][3] for name formatting. All fields used to construct hostnames for A records and service names for SRV records must be 24 characters or shorter and can include letters of the alphabet (A-Z), numbers (0-9), and a dash (-). Names are not case sensitive. If the task name does not comply with these constraints, Mesos-DNS will shorten the name to 24 characters, remove all invalid characters, and replace periods (.) with a dash (-).
+Mesos-DNS follows [RFC 1123][3] for name formatting. All fields used to construct hostnames for A records and service names for SRV records must be 63 characters or shorter and can include letters of the alphabet (A-Z), numbers (0-9), and a dash (-). Names are not case sensitive. If the task name does not comply with these constraints, Mesos-DNS will shorten the name to 24 characters, remove all invalid characters, and replace periods (.) with a dash (-). For Mesos DNS names, enforcement of [RFC 952][4] is optional.
 
 Note that there is a difference in the rules for service names and task names. For service names, periods (.) are allowed, but all other rules apply. For example, a task named `apiserver.myservice` launched by service `marathon.prod` will have A records associated with the name `apiserver-myservice.marathon.prod.mesos` and SRV records associated with the name `_apiserver-myservice._tcp.marathon.prod.mesos`.
 
@@ -283,13 +225,13 @@ If you are using Marathon groups, the Mesos-DNS hostname is created from the app
 
 If a service launches multiple tasks with the same name, the DNS lookup will return multiple records, one per task. Mesos-DNS randomly shuffles the order of records to provide rudimentary load balancing between these tasks.
 
-**Caution:** It is possible to have a name collision if *different* services launch tasks that have the same hostname. If different services launch tasks with identical Mesos-DNS hostnames, or if Mesos-DNS truncates app IDs to create identical Mesos-DNS hostnames, applications will communicate with the wrong agent nodes and fail unpredictably.
+**Caution:** It is possible to have a name collision if different services launch tasks that have the same hostname. If different services launch tasks with identical Mesos-DNS hostnames, or if Mesos-DNS truncates app IDs to create identical Mesos-DNS hostnames, applications will communicate with the wrong agent nodes and fail unpredictably.
 
 # <a name="dns-naming"></a>Discovering the DNS names for a service
 
 You can get a comprehensive list of the apps running on your DC/OS cluster nodes.
 
-**Prerequisites:** [DC/OS and DC/OS CLI](/1.11/installing/oss/) are installed.
+**Prerequisites:** [DC/OS and DC/OS CLI](/1.11/installing/) are installed.
 
 1.  SSH into your node. For example, use this CLI command to SSH to your master:
 
@@ -415,4 +357,5 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
 
  [1]: /1.11/overview/concepts/
  [2]: ../troubleshooting/#leader
- [3]: https://tools.ietf.org/html/rfc952
+ [3]: https://tools.ietf.org/html/rfc1123
+ [4]: https://tools.ietf.org/html/rfc952

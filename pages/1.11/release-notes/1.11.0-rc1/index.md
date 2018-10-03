@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0 Release Candidate 1
 title: Release Notes for 1.11.0 RC 1
-menuWeight: 10
-excerpt:
+menuWeight: 45
+excerpt: Release notes for DC/OS 1.11.0 release candidate 1
 ---
 
 These are the release notes for DC/OS 1.11.0 Release Candidate 1.
@@ -82,7 +82,7 @@ Please try out the new features and updated data services. Provide any feedback 
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrades from 1.10 to 1.11 are _not supported_ in 1.11.0 Release Candidate 1.
-- DCOS-19047 - The `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11.0. 
+- DCOS-19047 - The `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11.0. [enterprise type="inline" size="small" /]
 
 
 # <a name="fixed-issues"></a>Improvements and Major Issues Fixed in 1.11.0 Release Candidate 1
@@ -93,4 +93,5 @@ Please try out the new features and updated data services. Provide any feedback 
 - DCOS_OSS-1658 - Add `--verbose` flag to upgrade script that prints all status and error messages to the console to enable upgrade debugging.
 - DCOS_OSS-1733 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists.
 - DCOS_OSS-2130 - `systemd-networkd` must be enabled for DC/OS networking to work with CoreOS.
- 
+
+**Note:** The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).

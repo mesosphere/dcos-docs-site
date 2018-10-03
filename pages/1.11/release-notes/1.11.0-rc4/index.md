@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0 Release Candidate 4
 title: Release Notes for 1.11.0 RC 4
-menuWeight: 5
-excerpt:
+menuWeight: 40
+excerpt: Release notes DC/OS 1.11.0 Release Candidate 4
 ---
 
 These are the release notes for DC/OS 1.11.0 Release Candidate 4.
@@ -112,3 +112,5 @@ Please try out the new features and updated data services. Provide any feedback 
 - METRONOME-194 - Support FORBID concurrency policy.
 - Updated marathon to 1.6.322 (https://github.com/dcos/dcos/pull/2473 | https://github.com/mesosphere/dcos-enterprise/pull/2278)
 - Updated Mesos to 1.5.x 9840ae1 (https://github.com/dcos/dcos/pull/2472 | https://github.com/mesosphere/dcos-enterprise/pull/2263)
+
+**Note:** The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).
