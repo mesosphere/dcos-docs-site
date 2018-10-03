@@ -42,14 +42,11 @@ The table below shows the master node hardware requirements:
 | Hard disk   | 120 GB    | 120 GB      |
 &ast; For business critical deployments, three master nodes are required rather than one master node.
 
-There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
-
-[0]: https://docs.mesosphere.com/1.10/overview/high-availability/
+There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation](https://docs.mesosphere.com/1.10/overview/high-availability/).
 
 Examples of mixed workloads on the masters are: Mesos replicated log and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O.
 
 Thus, the following hardware is recommended:
-
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
 - RAID controller cache configured in writeback mode
@@ -203,10 +200,7 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-
     **Note:** It may take a few minutes for your node to come back online after reboot.
-
-   
 
 ### Locale requirements
 
