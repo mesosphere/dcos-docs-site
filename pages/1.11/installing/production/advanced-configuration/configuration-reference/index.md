@@ -401,7 +401,6 @@ By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-service
 By default, `fault_domain_enabled: True` for enterprise users.[enterprise type="inline" size="small" /]
 
 
-
 ## gc_delay
 The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.
 
@@ -421,7 +420,7 @@ set -o nounset -o errexit
 curl -fsSL https://ipinfo.io/ip
 ```
 
-## license_key_contents
+## license_key_contents [enterprise type="inline" size="small" /]
 A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. This parameter is used when an user wants to directly specify the license in the config.yaml. 
 Example: `license_key_contents: xyz`.
 
