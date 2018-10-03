@@ -66,9 +66,9 @@ Install the DC/OS percona-pxc-mysql Service, including the following options in 
 
 
 
-## Transport encryption for clients(TBD)
+## Transport encryption for clients
 
-With Transport Encryption enabled, service clients will need to be configured to use [the DC/OS CA bundle](https://docs.mesosphere.com/latest/security/ent/tls-ssl/get-cert/) to verify the connections they make to the service. Consult your client’s documentation for trusting a CA and configure your client appropriately.
+With SSL enable the Transport Encryption will be enabled automatically in SSL mode.
 
 ## Authentication
 
@@ -87,7 +87,3 @@ Steps to follow to configure PAM:
 
 
 **Note:** <PAM> authentication can be combined with transport encryption.
-
-## CA based authentication between nodes
-
-DC/OS percona-pxc-mysql Service requires certificated based authentication between nodes.
