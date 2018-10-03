@@ -52,7 +52,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 [enterprise]
 ### Private Package Registry
 [/enterprise]
-- Enable [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/package-registry/).
+- Enable [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/).
 - Enable air-gapped Virtual Private Cloud package management.
 - Simplify package artifact management.
 - Full support for NFS and S3 as storage backends for package storage.
