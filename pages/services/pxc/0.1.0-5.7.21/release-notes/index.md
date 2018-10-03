@@ -26,7 +26,8 @@ Based on the latest stable release of the dcos-commons SDK (Version 0.42.0), thi
     - Orchestrated software and configuration update, ability to add new nodes, increase memory and CPU. Installation on DCOS Cluster provides the ability to restart and replace nodes.
     - Placement constraints for pods.
     - Uniform user experience across all Pxc cluster nodes.
-    - Graceful shutdown for nodes
+    - SSL Authentication and Data at Rest encryption
+    - PAM with OpenLDAP Authentication
     - Foldered Installation
 
 ### Bug Fixes
