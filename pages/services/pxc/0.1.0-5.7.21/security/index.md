@@ -83,7 +83,10 @@ Steps to follow to configure PAM:
 4. Create username under user group.
 [<img src="/services/pxc/0.1.0-5.7.21/img/create_user.png" alt="Create User in My LDAP"/>](/services/pxc/0.1.0-5.7.21/img/create_user.png)
 
-5. Create the same user in  DC/OS percona-pxc-mysql to login authentication successfully.
+5. Create the same user in  DC/OS percona-pxc-mysql to login authentication successfully. As shown below,
+ ```shell
+"mysql -uroot -proot -e \"CREATE USER slodh@'%' IDENTIFIED WITH auth_pam;GRANT ALL PRIVILEGES ON users.* TO slodh@'%';FLUSH PRIVILEGES\""
+```
 
 
 **Note:** <PAM> authentication can be combined with transport encryption.
