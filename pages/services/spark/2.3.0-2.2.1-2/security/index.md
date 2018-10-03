@@ -48,7 +48,7 @@ RFC 4648 prior to being stored as secrets.
 To create a secret called `mysecret` with the binary contents of `kerb5.keytab` run:
 
 ```bash
-$ dcos security secrets create --file kerb5.keytab mysecret
+$ dcos security secrets create --text-file kerb5.keytab mysecret
 ```
 
 #### DC/OS 1.10 or lower
@@ -168,8 +168,8 @@ are server.jks and trust.jks, respectively, then use the following commands to a
 store: 
 
 ```bash
-dcos security secrets create /spark/keystore --file server.jks
-dcos security secrets create /spark/truststore --file trust.jks
+dcos security secrets create /spark/keystore --text-file server.jks
+dcos security secrets create /spark/truststore --text-file trust.jks
 ```
 
 You must add the following configurations to your `dcos spark run ` command.
