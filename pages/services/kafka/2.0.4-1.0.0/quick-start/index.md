@@ -14,7 +14,7 @@ enterprise: false
 1. Install a Kafka cluster. If you are using open source DC/OS, install a Kafka cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for more information.
 
    ```bash
-   dcos package install beta-kafka
+   dcos package install kafka
    ```
 
    Alternatively, you can install Kafka from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/).
@@ -23,18 +23,18 @@ enterprise: false
 
 1. Create a new topic.
 
-        ```bash
-        $ dcos beta-kafka topic create topic1
-        ```
+    ```bash
+    $ dcos kafka topic create topic1
+    ```
 
 
 1. Find Zookeeper and broker endpoint information.
 
-        ```bash
-        $ dcos beta-kafka endpoints zookeeper
+    ```bash
+        $ dcos kafka endpoints zookeeper
         master.mesos:2181/dcos-service-kafka
 
-        $ dcos beta-kafka endpoints broker
+        $ dcos kafka endpoints broker
         {
           "address": [
             "10.0.3.226:1000",
@@ -48,11 +48,11 @@ enterprise: false
           ],
           "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
         }
-        ```
+    ```
 
 1. Produce and consume data.
 
-        ```bash
+    ```bash
         # Create marathon app defintion
         $ cat <<'EOF' >> kafkaclient.json
         {
@@ -79,9 +79,9 @@ enterprise: false
         # Consume events from topic1
         $ dcos task exec kafka-client bash -c "export JAVA_HOME=/opt/jdk1.8.0_144/jre/; /opt/kafka_2.12-0.11.0.0/bin/kafka-console-consumer.sh --zookeeper master.mesos:2181/dcos-service-kafka --topic topic1 --from-beginning"
         Hello, World.
-        ```
+    ```
 
 
 See also [Connecting clients][1].
 
- [1]: https://docs.mesosphere.com/services/kafka/connecting-clients/
+ [1]: /services/kafka/2.0.4-1.0.0/connecting-clients/

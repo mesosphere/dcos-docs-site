@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Beta DSE 2.1.0-5.1.2-beta
 title: Beta DSE 2.1.0-5.1.2-beta
-menuWeight: 10
+menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false

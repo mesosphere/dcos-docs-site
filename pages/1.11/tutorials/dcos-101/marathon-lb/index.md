@@ -1,14 +1,20 @@
 ---
 layout: layout.pug
-excerpt:
-title: Exposing Apps Publicly
+excerpt: Part 6 - Exposing Apps Publicly
+title: Tutorial -  Exposing Apps Publicly
 navigationTitle: Exposing Apps Publicly
 menuWeight: 6
 ---
 
-Welcome to part 6 of the DC/OS 101 Tutorial
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> 
+</tr> 
+</table>
+
+Welcome to part 6 of the DC/OS 101 Tutorial.
+
 
 # Prerequisites
 * A [running DC/OS cluster](/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.11/tutorials/dcos-101/cli/).
@@ -19,14 +25,14 @@ Welcome to part 6 of the DC/OS 101 Tutorial
 In this section you will make app2 available from outside the cluster by running it on a public agent node with Marathon-LB.
 
 # Steps
-DC/OS has two different node types: 
+DC/OS has two different node types:
 
 1. Private agent nodes
-1. Public agent nodes 
+1. Public agent nodes
 
 Private agent nodes are usually only accessible inside the cluster, while public agent nodes allow for ingress access from outside the cluster.
 
-By default, Marathon starts applications and services on private agent nodes, which cannot be accessed from the outside the cluster. To expose an app to the outside you usually use a load balancer running on one of the public nodes. 
+By default, Marathon starts applications and services on private agent nodes, which cannot be accessed from the outside the cluster. To expose an app to the outside you usually use a load balancer running on one of the public nodes.
 
 You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](/1.11/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HA-Proxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
 
@@ -42,7 +48,7 @@ You will revisit the topic of load balancing and the different choices for load 
     1. Check the total number of keys using app1: `dcos task log app1`
     2. Check redis directly
        *  [SSH](/1.11/administering-clusters/sshcluster/) into node where redis is running:
-            
+
            ```bash
            dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
            ```
@@ -52,4 +58,4 @@ You will revisit the topic of load balancing and the different choices for load 
        * Check the value is there: `get <newkey>`.
 
 # Outcome
-Congratulations! You've used Marathon-LB to expose your application to the public and added a new key to Redis using the web frontend.
+Congratulations! You have used Marathon-LB to expose your application to the public and added a new key to Redis using the web frontend.

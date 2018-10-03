@@ -10,6 +10,28 @@ menuWeight: 120
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
+## Version 2.1.2-2.6.0-cdh5.11.0-beta
+
+## NOTICE
+
+This is a beta release of the DC/OS HDFS service. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
+
+### Improvements
+- Update the ordering of `service` settings to be consistent with other data service
+- Make the readiness check of a name node more robust w.r.t. startup times
+- Add logging to journal node readiness check 
+- Kerberos settings
+  - Ensure all settings are empty by default
+  - Add an option to toggle Kerberos debug output
+- Moved scheduler health-checks from HTTP to [Mesos-level health checks](https://mesosphere.github.io/marathon/docs/health-checks.html#mesos-level-health-checks).
+- Bump JRE to 1.8u162.
+- Improvements to the pod pause feature.
+- Improve handling of unexpected task statuses.
+
+### Bug Fixes
+- Add support for shared HDFS sandboxes
+- Fix support for non-`LOCAL` Kerberos realms
+
 ## Version 2.0.4-2.6.0-cdh5.11.0
 
 ### Bug Fixes

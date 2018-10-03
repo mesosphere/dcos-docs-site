@@ -23,8 +23,15 @@ To configure `hdfs.config-url` to be a URL that serves your `hdfs-site.xml` and 
 
 For more information, see [Inheriting Hadoop Cluster Configuration][8].
 
-For DC/OS HDFS, these configuration files are served at `http://<hdfs.framework-name>.marathon.mesos:<port>/v1/endpoints`, where `<hdfs.framework-name>` is a configuration variable set in the HDFS package, and `<port>` is the port of its marathon app.
+For DC/OS HDFS, these configuration files are served at `http://api.<hdfs>.marathon.l4lb.thisdcos.directory/v1/endpoints` where `<hdfs>` is the name of the HDFS package configured at installation.
 
+**Example:**
+
+````
+"hdfs": \{
+ "config-url": "[http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints\|http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints%5C]"
+ },
+````
 ### Spark Checkpointing
 
 In order to use spark with checkpointing make sure you follow the instructions [here](https://spark.apache.org/docs/latest/streaming-programming-guide.html#checkpointing) and use an hdfs directory as the checkpointing directory. For example:

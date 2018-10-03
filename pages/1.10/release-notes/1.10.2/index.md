@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.2
 title: Release Notes for 1.10.2
-menuWeight: 20
+menuWeight: 25
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.10.2.
+DC/OS 1.10.2 was released on November 30, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.2/dcos_generate_config.sh?_ga=2.35647400.804658989.1513010878-1207888710.1504116514"]Download DC/OS Open Source[/button]
 
@@ -65,7 +65,7 @@ These are the release notes for DC/OS 1.10.2.
 
 # About DC/OS 1.10
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on: 
+DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
@@ -75,7 +75,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Rolling configuration update and upgrade support via the CLI. [enterprise type="inline" size="small" /]
   - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
-  
+
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
 ### Contents
@@ -98,8 +98,8 @@ Please try out the new features and updated data services. Provide any feedback 
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
-  
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1.9/).
+
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
 ## Security

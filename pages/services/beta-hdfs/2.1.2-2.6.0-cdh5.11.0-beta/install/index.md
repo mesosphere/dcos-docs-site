@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
+navigationTitle:
+excerpt: Installing and customizing HDFS from CLI or web interface
 title: Install and Customize
 menuWeight: 20
 
@@ -19,7 +19,7 @@ HDFS is available in the Universe and can be installed by using either the web i
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - A minimum of five agent nodes with eight GiB of memory and ten GiB of disk available on each agent.
-- Each agent node must have these ports available: 8480, 8485, 9000, 9001, 9002, 9005, and 9006, and 9007.
+- Each agent node must have these ports available: 8019, 8480, 8485, 9000, 9001, 9002, 9003, 9005, and 9006.
 
 # Installation
 
@@ -128,7 +128,7 @@ Steps:
 Placement constraints can be applied to zones by referring to the `@zone` key. For example, one could spread pods across a minimum of 3 different zones by specifying the constraint `[["@zone", "GROUP_BY", "3"]]`.
 
 <!--
-When the region awareness feature is enabled (currently in beta), the `@region` key can also be referenced for defining placement constraints. Any placement constraints that do not reference the `@region` key are constrained to the local region.
+When the region awareness feature is enabled, the `@region` key can also be referenced for defining placement constraints. Any placement constraints that do not reference the `@region` key are constrained to the local region.
 -->
 ## Example
 
@@ -275,7 +275,7 @@ $ curl -v -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X P
 ```
 
 ## Virtual networks
-HDFS supports deployment on virtual networks on DC/OS (including the `dcos` overlay network), allowing each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+HDFS supports deployment on [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {
@@ -283,7 +283,7 @@ HDFS supports deployment on virtual networks on DC/OS (including the `dcos` over
     }
 }
 ```
-As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on a virtual network, it cannot be updated to use the host network.
+Once the service is deployed on a virtual network, it cannot be updated to use the host network.
 
 ## TLS
 
@@ -305,6 +305,12 @@ Sample JSON options file named `hdfs-tls.json`:
 ```
 
 For more information about TLS in the SDK see [the TLS documentation](https://mesosphere.github.io/dcos-commons/developer-guide.html#tls).
+
+### Clients
+
+Clients connecting to HDFS over a TLS connection must connect to an HTTPS specific port. Each node type (`journal`, `name` and `data`) can be configured with different port numbers for TLS connections.
+
+Clients can connect only over the TLS version 1.2.
 
 <!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
 ## Placement Constraints
@@ -329,11 +335,7 @@ When the region awareness feature is enabled (currently in beta), the `@region` 
 
 <!-- end duplicate block -->
 
-### Clients
 
-Clients connecting to HDFS over a TLS connection must connect to an HTTPS specific port. Each node type (`journal`, `name` and `data`) can be configured with different port numbers for TLS connections.
-
-Clients can connect only over the TLS version 1.2.
 
 # Changing Configuration at Runtime
 
@@ -349,10 +351,10 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
-+ Service with a version greater than 2.0.0-x.
-+ [The DC/OS CLI](/latest/cli/install/) installed and available.
-+ The service's subcommand available and installed on your local machine.
++ Enterprise DC/OS 1.10 or newer
++ Service with a version greater than 2.0.0-x
++ [The DC/OS CLI](/latest/cli/install/)installed and available
++ The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli beta-hdfs`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
@@ -362,7 +364,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
 $ dcos beta-hdfs describe > options.json
@@ -370,7 +372,7 @@ $ dcos beta-hdfs describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
 
 **Note:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
@@ -381,38 +383,45 @@ If the `options.json` from when the service was last installed or updated is not
 First, we'll fetch the default application's environment, current application's environment, and the actual template that maps config values to the environment:
 
 1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
+
 1. Set the service name that you're using, for example:
-```bash
-$ SERVICE_NAME=beta-hdfs
-```
+	```bash
+	$ SERVICE_NAME=beta-hdfs
+	```
+
 1. Get the version of the package that is currently installed:
-```bash
-$ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
-```
+	```bash
+	$ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
+	```
+
 1. Then fetch and save the environment variables that have been set for the service:
-```bash
-$ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
-```
+	```bash
+	$ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
+	```
+
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
-```bash
-$ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
-```
+	```bash
+	$ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
+	```
+
 1. We'll also get the entire application template:
-```bash
-$ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
-```
+	```bash
+	$ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
+	```
 
 Now that you have these files, we'll attempt to recreate the `options.json`.
 
 1. Use JQ and `diff` to compare the two:
-```bash
-$ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
-```
+	```bash
+	$ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
+	```
+
 1. Now compare these values to the values contained in the `env` section in application template:
-```bash
-$ less marathon.json.mustache
-```
-1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
+	```bash
+	$ less marathon.json.mustache
+	```
+
+1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](https://docs.mesosphere.com/services/ops-guide/common-operations/#initial-service-configuration).
 
 ### Starting the update
 
@@ -431,19 +440,25 @@ See [Advanced update actions](#advanced-update-actions) for commands you can use
 If you do not have Enterprise DC/OS 1.10 or later, the CLI commands above are not available. For Open Source DC/OS of any version, or Enterprise DC/OS 1.9 and earlier, you can perform changes from the DC/OS GUI.
 
 <!-- END DUPLICATE BLOCK -->
-These are the general steps to follow:
+These are the general steps to follow: 
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the HDFS service to be updated.
 
-	![HFDS in DC/OS GUI](/img/hdfs-service-gui.png)
+	![HDFS IN DC/OS GUI](/services/img/hdfs-service-gui.png "HDFS in DC/OS GUI")
+
+	Figure 1. - HDFS service in DC/OS web interface
 
 1.  Within the HDFS instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
-	![Edit tab](/img/hdfs-service-gui2.png)
+	![Edit tab](/services/img/hdfs-service-gui2.png "Edit tab")
+
+	Figure 2. - Edit tab
 
 1.  Click the **Environment** tab and make your updates. For example, to increase the number of nodes, edit the value for `DATA_COUNT`.
 
-	![Edit environment](/img/hdfs-service-gui3.png)
+	![Edit environment](/services/img/hdfs-service-gui3.png "Edit environment")
+
+	Figure 3. - Environment tab
 
 1. Click **REVIEW & RUN** to apply any changes and cleanly reload the HDFS scheduler. The HDFS cluster itself will persist across the change.
 

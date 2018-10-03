@@ -36,6 +36,8 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 62053 | DNS Forwarder (Spartan) | `dcos-spartan.service` |
 | 64000 | Navstar | `dcos-navstar.service` |
 
+**Note:** UDP port 123 is open for communication with NTP.
+
 ## Master
 
 ### TCP
@@ -87,4 +89,3 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 5052-8079 | Default advertised port ranges (for Marathon health checks) | |
 | 8082-8180 | Default advertised port ranges (for Marathon health checks) | |
 | 8182-32000 | Default advertised port ranges (for Marathon health checks) | |
-

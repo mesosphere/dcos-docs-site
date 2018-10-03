@@ -4,6 +4,7 @@ navigationTitle:  License CLI
 title: License CLI
 menuWeight: 0
 enterprise: true
+excerpt: Using the command line interface to manage your DC/OS license
 ---
 
 # Prerequisites
@@ -15,7 +16,7 @@ enterprise: true
 # List licenses
 
 ```
-dcos license list [--output <file-path>]
+dcos license list
 ```
 
 # Renew a license
@@ -23,7 +24,7 @@ dcos license list [--output <file-path>]
 At every update of license terms, you pass a new license to the DC/OS Licensing component.
 
 ```
-dcos license renew --filename <file-path>
+dcos license renew <file-path>
 ```
 
 # Get a license
@@ -31,7 +32,7 @@ dcos license renew --filename <file-path>
 To retrieve licenses, run
 
 ```
-dcos license get [<id>|active] [--output <file-path>] [--decryption-key]
+dcos license get [--decryption-key] [<id>|active]
 ```
 
 You can specify an optional path where to store the license. Returns the active license by default. Takes an optional identifier to retrieve a specific license. The `--decryption-key` flag returns the license audit data entry checksum decryption key.
@@ -39,10 +40,10 @@ You can specify an optional path where to store the license. Returns the active 
 # Get license audit data
 
 ```
-dcos license audit get [<id>|active] [--output <file-path>] [--decrypt]
+dcos license audit get [<id>|active]
 ```
 
-You can specify an optional path where to store the audit data. Takes an optional identifier to retrieve the data generated for a specific license and can return a completely decrypted response with the `--decrypt` flag. If you return the audit data without decrypting, you can use the `dcos license get --decryption-key` command to retrieve the decryption key and manually decrypt the data.
+You can specify an optional path where to store the audit data. Takes an optional identifier to retrieve the data generated for a specific license. If you want to decrypt the audit data, you can use the `dcos license get --decryption-key` command to retrieve the decryption key.
 
 # Get license status
 

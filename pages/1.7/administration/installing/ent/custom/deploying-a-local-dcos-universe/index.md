@@ -104,10 +104,7 @@ To install your own set of packages you must build a customized local Universe D
         
         sudo make local-universe
 
-5.  Perform steps from 2 to 7 of [Installing the default Universe packages][5] section exept of the 6th one. Run the following command instead:
-
-        dcos package repo add local-universe-1.7 http://master.mesos:8082/repo-1.7
-        dcos package repo add local-universe http://master.mesos:8082/repo
+5.  Perform steps from 2 to 7 of [Installing the default Universe packages][5] section.
 
  [1]: https://downloads.mesosphere.com/universe/public/local-universe.tar.gz
  [2]: https://raw.githubusercontent.com/mesosphere/universe/version-3.x/docker/local-universe/dcos-local-universe-http.service

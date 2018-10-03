@@ -4,7 +4,7 @@ navigationTitle:  Universal Container Runtime (UCR)
 title: Universal Container Runtime (UCR)
 menuWeight: 10
 excerpt:
-preview: true
+preview: false
 enterprise: false
 ---
 
@@ -83,8 +83,9 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 **Important:** If you leave the `args` field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the `args` field. If you do not, your service will fail to deploy.
 
 # Limitations
-- The UCR is a <a href="/1.10/overview/feature-maturity/">preview</a>feature in DC/OS 1.10.
-- The UCR does not support the following: runtime privileges, Docker options, private registries with container authentication.
+1. The UCR does not support the following: runtime privileges, Docker options, private registries with container authentication.
+2. Image garbage collection is not supported and requires the Docker disk file cleaned up at all agent nodes.
+3. Image Pull Secrets for Accessing Private Registry requires base64-encoded credentials: [ https://docs.mesosphere.com/1.10/deploying-services/private-docker-registry]( https://docs.mesosphere.com/1.10/deploying-services/private-docker-registry).
 
 # Further Reading
-- [View the Mesos docs for the UCR](http://mesos.apache.org/documentation/latest/container-image/).
+- [View the Mesos docs for UCR](http://mesos.apache.org/documentation/latest/container-image/).

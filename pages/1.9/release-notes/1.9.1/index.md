@@ -2,12 +2,15 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.1
 title: Release Notes for 1.9.1
-menuWeight: 50
+menuWeight: 45
 excerpt:
 ---
 
-DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
+DC/OS 1.9.1 was released on July 11, 2017.
 
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
+DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
@@ -22,7 +25,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 # <a name="breaking"></a>Breaking Changes
 
 The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
- 
+
 # <a name="whats-new"></a>What's New
 
 ### Apache Mesos 1.2.1 and Marathon 1.4.5 integrated
@@ -37,7 +40,7 @@ Added support for pods, GPUs, and made significant scalability improvements.
 #### Pods
 [/preview]
 
-Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). 
+Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
 
 [preview]
 #### GPU
@@ -46,7 +49,7 @@ Multiple co-located containers per instance, scheduled on the same host. For mor
 - Leverage GPUs to run novel algorithms.  
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.
 - Allocate GPUs on a per container basis, including isolation guarantees
-   
+
 For more information, see the [documentation](/1.9/deploying-services/gpu/).   
 
 ## DC/OS Monitoring and Operations
@@ -170,7 +173,7 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
   Starting new HTTPS connection (1): s3.amazonaws.com
   aws_template_storage_region_name: Unable to determine region location of s3 bucket testbucket: An error occurred (InvalidAccessKeyId) when calling the GetBucketLocation operation: The AWS Access Key Id you provided does not exist in our records.
   ```
-  
+
 - Marathon-7133 - Marathon application history is lost after Marathon restart.
 
 # <a name="fixed-issues"></a>Issues Fixed since 1.9.0

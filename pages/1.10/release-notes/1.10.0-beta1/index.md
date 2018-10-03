@@ -2,31 +2,26 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.0 Beta 1
 title: Release Notes for 1.10.0 Beta 1
-menuWeight: 60
+menuWeight: 50
 excerpt:
 ---
+These are the release notes for DC/OS 1.10.0 Beta 1.
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/cc50fd59477f90c1881aa5ad02a81d174d3e42ed/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-<h3>This beta release is for testing only and not to be used in production. It will only support new installations.</h3>
-<h3>DC/OS 1.10 Beta 1 has a number of limitations that will be resolved at GA time:</h3>
+This beta release is for testing only and not to be used in production. It will only support new installations. 
 
-<ul>
-<li>Upgrades from 1.9 are not supported.</li>
-<li>DC/OS 1.10 requires CLI version 0.5.3.
-  <ul>
-  <li><a href="/1.10/cli/uninstall/">Uninstall the existing CLI</a>.</li>
-  <li>Install version 0.5.3 using the <strong>Install CLI</strong> instructions in the dropdown in the upper left hand corner of the 1.10 DC/OS GUI.</li>
-  </ul>
-<strong>Note:</strong> CLI version 0.5.3 is not compatible with DC/OS 1.9.</li>
-<li>If you cannot access Marathon and you see <code>the trustAnchors parameter must be non-empty</code> in the logs, restart Marathon. Restart Marathon by entering the following command on the master node with the leading Marathon master: <code>sudo systemctl restart dcos-marathon.service</code>.</li>
-</ul>
+DC/OS 1.10 Beta 1 has a number of limitations that will be resolved at GA time.
+- Upgrades from 1.9 are not supported.
+- DC/OS 1.10 requires CLI version 0.5.3.
+  - [Uninstall the existing CLI](/1.10/cli/uninstall/)
+- Install version 0.5.3 using the *Install CLI* instructions in the dropdown in the upper left hand corner of the 1.10 DC/OS GUI.
+*Note:* CLI version 0.5.3 is not compatible with DC/OS 1.9.
+If you cannot access Marathon and you see <code>the trustAnchors parameter must be non-empty</code> in the logs, restart Marathon. Restart Marathon by entering the following command on the master node with the leading Marathon master: <code>sudo systemctl restart dcos-marathon.service</code>.</li>
 
-Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
-</td> </tr> </table>
+Please try out the new features and updated data services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
 
-DC/OS 1.10 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
-
+DC/OS 1.10 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Core DC/OS Service Continuity - System resilience, IAM Scalability & simplified upgrades.
 - Robust Security - Custom CA & File-Based Secrets Support. [enterprise type="inline" size="small" /]
 - Enterprise-Ready Networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
@@ -57,12 +52,12 @@ DC/OS 1.10 includes many new capabilities for Operators and expands the collecti
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1.9/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
 ## Security
 [/ enterprise]
-  
+
 - Custom CA certificate support.
   Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 

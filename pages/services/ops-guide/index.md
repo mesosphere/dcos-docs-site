@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Operations Guide for SDK-based Services
 title: SDK Ops Guide
-menuWeight: 95
+menuWeight: -1
 excerpt:
 ---
 

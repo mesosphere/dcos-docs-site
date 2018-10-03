@@ -6,6 +6,10 @@ menuWeight: 30
 excerpt:
 ---
 
+DC/OS 1.10.1 was released on November 1, 2017.
+
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
 # Major Issues Fixed in DC/OS 1.10.1
 
 - COPS-974 - Master node fails to start after configuration change. This was was due to tmp mountpoints being marked as noexec. Bug fixed.
@@ -39,7 +43,7 @@ excerpt:
 
 # About DC/OS 1.10
 
-DDC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on: 
+DDC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
@@ -49,7 +53,7 @@ DDC/OS 1.10.0 includes many new capabilities for Operators and expands the colle
   - Rolling configuration update and upgrade support via the CLI. [enterprise type="inline" size="small" /]
   - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
-  
+
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
 ### Contents
@@ -73,7 +77,7 @@ Please try out the new features and updated data services. Provide any feedback 
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1.9/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
 ## Security
@@ -177,7 +181,6 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 # <a name="known-issues"></a>Known Issues and Limitations
 - Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
-- Marathon-LB does not work with secrets. [enterprise type="inline" size="small" /]
 - CORE-1125 - Docker image pull config is re-used.
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
 - INFINITY-1809 - [Data Svc] DC/OS Service Update / Config Update / Maintenance. [enterprise type="inline" size="small" /]

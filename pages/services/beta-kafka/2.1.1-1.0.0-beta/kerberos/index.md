@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Kerberos
 menuWeight: 22
@@ -26,7 +26,7 @@ kafka/kafka-2-broker.kafka.autoip.dcos.thisdcos.directory@LOCAL
 
 Once the principals have been created, a keytab file must be generated and uploaded to the DC/OS secret store as a base-64-encoded value. Assuming the keytab for **all** the Kafka principals has been created as a file `keytab`, this can be added to the secret store as follows (note that the DC/OS Enterprise CLI needs to be installed to gain access to the `security` command):
 ```bash
-$ base64 -w keytab > keytab.base64
+$ base64 -w 0 keytab > keytab.base64
 $ dcos security secrets create  __dcos_base64__keytab --value-file keytab.base64
 ```
 

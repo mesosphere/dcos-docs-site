@@ -68,7 +68,7 @@ do
 
 cp -r docs/* ./pages/services/beta-spark/$directory
 
-done <scripts/service-update-scripts/merge-lists/spark-build-merge-list.txt
+done <scripts/service-update-scripts/merge-lists/beta-spark-build-merge-list.txt
 
 git rm -rf docs
 rm -rf docs

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Kerberos
 menuWeight: 61
@@ -29,13 +29,13 @@ zookeeper/{{AGENT-0-HOSTNAME}}@LOCAL
 zookeeper/{{AGENT-1-HOSTNAME}}@LOCAL
 zookeeper/{{AGENT-2-HOSTNAME}}@LOCAL
 ```
-Adding principals for additional hosts will make the service more resilient to resource limitations and node failures. Once the desired number of principals have been added, [placement constraints](#service-settings) are used to ensure that the nodes of the ensemble are run on the desired hosts.
+Adding principals for additional hosts will make the service more resilient to resource limitations and node failures. Once the desired number of principals have been added, [placement constraints](/services/kafka-zookeeper/2.1.2-3.4.11/service-settings/) are used to ensure that the nodes of the ensemble are run on the desired hosts.
 
 ## Create the keytab secret
 
 Once the principals have been created, a keytab file must be generated and uploaded to the DC/OS secret store as a base-64-encoded value. Assuming the keytab for **all** the ZooKeeper principals has been created as a file `keytab`, this can be added to the secret store as follows (note that the DC/OS Enterprise CLI needs to be installed to gain access to the `security` command):
 ```bash
-$ base64 -w keytab > keytab.base64
+$ base64 -w 0 keytab > keytab.base64
 $ dcos security secrets create  __dcos_base64__keytab --value-file keytab.base64
 ```
 

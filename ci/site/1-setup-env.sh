@@ -8,7 +8,8 @@
 set -o errexit -o nounset -o pipefail
 
 echo "Installing curl..."
-apk add --update curl
+apk update
+apk add --upgrade curl libcurl
 
 echo "Installing jq..."
 apk add --update jq

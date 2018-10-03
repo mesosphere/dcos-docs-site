@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Install and Customize
 menuWeight: 20
@@ -219,7 +219,7 @@ $ curl -v -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X P
 
 
 ## Virtual networks
-HDFS supports deployment on virtual networks on DC/OS (including the `dcos` overlay network), allowing each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+HDFS supports deployment on [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {
@@ -227,7 +227,7 @@ HDFS supports deployment on virtual networks on DC/OS (including the `dcos` over
     }
 }
 ```
-As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on a virtual network, it cannot be updated to use the host network.
+Once the service is deployed on a virtual network, it cannot be updated to use the host network.
 
 # Changing Configuration at Runtime
 

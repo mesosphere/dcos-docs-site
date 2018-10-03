@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.6
 title: Release Notes for 1.9.6
-menuWeight: 0
+menuWeight: 20
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.9.6.
+DC/OS 1.9.6 was released on December 20, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.6/dcos_generate_config.sh?_ga=2.211838548.1503707629.1513767857-296736326.1513634629"]Download DC/OS Open Source[/button]
 
@@ -70,7 +70,7 @@ Added support for pods, GPUs, and made significant scalability improvements.
 Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
 
 [preview]
-#### GPU 
+#### GPU
 [/preview]
 - Leverage GPUs to run novel algorithms.
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.

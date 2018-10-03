@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos marathon deployment rollback
 title: dcos marathon deployment rollback
 menuWeight: 15
-excerpt:
+excerpt: Removing a deployed application
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Remove a deployed application.
+The `dcos marathon deployment rollback` command allows you to remove a deployed application.
 
 # Usage
 
@@ -26,9 +23,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<deployment-id>`   |             |  The deployment ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<deployment-id>`   |  The deployment ID. You can view a list of the application IDs with the `dcos marathon deployment list` command. |
 
 # Parent command
 
@@ -36,4 +33,3 @@ None.
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

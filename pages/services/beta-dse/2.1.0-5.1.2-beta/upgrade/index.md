@@ -1,15 +1,9 @@
 ---
-post_title: Upgrade
-menu_order: 130
-enterprise: 'no'
----
-
----
 layout: layout.pug
 navigationTitle:  Upgrade
 title: Upgrade
 menuWeight: 130
-excerpt:
+excerpt: Upgrading from one version to another
 featureMaturity:
 enterprise: false
 ---

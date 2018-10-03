@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon group add
 title: dcos marathon group add
 menuWeight: 17
-excerpt:
+excerpt: Adding a Marathon group
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Add a group.
+The `dcos marathon group add` command allows you to add a Marathon group.
 
 # Usage
 
@@ -26,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<group-resource>`   |             |  Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from stdin. For a detailed description see the [documentation](/1.11/deploying-services/marathon-api/). |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description see the [documentation](/1.11/deploying-services/marathon-api/). |
 
 # Parent command
 
@@ -36,4 +34,3 @@ None.
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-1. Install DC/OS on your cluster. See [the documentation](/1.10/installing/) for instructions.
+1. Install DC/OS on your cluster. See [the documentation](/1.11/installing/) for instructions.
 1. If you are using open source DC/OS, install DC/OS Apache Cassandra with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for more information.
     ```
     dcos package install cassandra
@@ -20,9 +20,8 @@ You can also install DC/OS Apache Cassandra from [the DC/OS web interface](/late
 1. The service will now deploy with a default configuration. You can monitor its deployment via the Services UI in the DC/OS Dashboard.
 1. Connect a client to the DC/OS Apache Cassandra service.
     ```
-    dcos cassandra endpoints
+    dcos cassandra endpoint node
     ["node"]
-    dcos cassandra endpoints node
     {
       "address": [
         "10.0.1.125:9042",
@@ -40,7 +39,7 @@ You can also install DC/OS Apache Cassandra from [the DC/OS web interface](/late
 1. Write some data to your cluster:
 ```
 dcos node ssh --master-proxy --leader
-core@ip-10-0-6-153 ~ docker run -it cassandra:3.0.13 cqlsh node-0-server.cassandra.autoip.dcos.thisdcos.directory
+core@ip-10-0-6-153 ~ docker run -it cassandra:3.0.14 cqlsh node-0-server.cassandra.autoip.dcos.thisdcos.directory
 > CREATE KEYSPACE space1 WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
 > USE space1;
 > CREATE TABLE testtable1 (key varchar, value varchar, PRIMARY KEY(key));

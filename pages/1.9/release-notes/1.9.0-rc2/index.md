@@ -2,23 +2,26 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.0 RC2
 title: Release Notes for 1.9.0 RC2
-menuWeight: 90
+menuWeight: 65
 excerpt:
 ---
+These are the release notes for DC/OS 1.9.0 Release Candidate 2.
 
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/7f1ce42734aa54053291f403d71e3cb378bd13f3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
-
+DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services. <!-- NEED A LINK -->
 
+Please try out the new features and updated services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
+
 ### Contents
 - [What's New](#whats-new)
 - [Known Issues and Limitations](#known-issues)
 - [Issues Fixed since 1.9.0-rc1](#fixed-issues)
- 
+
 # <a name="whats-new"></a>What's New
 
 ### Apache Mesos 1.2 and Marathon 1.4 integrated
@@ -28,13 +31,15 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 
 ## Container Orchestration
 
-- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [maturity-badge status='preview']
-- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [maturity-badge status='preview']
+- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [preview type="inline" size="small" /]
+- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [preview type="inline" size="small" /]
 - Significant scalability improvements.
 
 ## DC/OS Monitoring and Operations
 
-### Remote Process Injection for Debugging [maturity-badge status='experimental']
+[experimental]
+### Remote Process Injection for Debugging
+[/experimental]
 
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
 
@@ -44,7 +49,9 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 
 For more information, see the documentation for the `dcos task exec` command [here](/1.9/monitoring/debugging/).
 
-### Logging [maturity-badge status='experimental']
+[experimental]
+### Logging 
+[/experimental]
 
 Stream task and system logs to journald by setting the `mesos_container_log_sink` install-time parameter to `journald` or `journald+logrotate`. This allows you to:
 
@@ -54,7 +61,9 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 
 For more information, see the [documentation](/1.9/monitoring/logging/).
 
-### Metrics [maturity-badge status='experimental']
+[experimental]
+### Metrics 
+[/experimental]
 
 - Node-level HTTP API that returns metrics from tasks, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.

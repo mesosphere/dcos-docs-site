@@ -2,16 +2,20 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.0 RC3
 title: Release Notes for 1.9.0 RC3
-menuWeight: 80
+menuWeight: 60
 excerpt:
 ---
+These are the release notes for DC/OS 1.9.0 Release Candidate 3.
 
-DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
+[button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/e5b5e6e336763ba9c8ed2d8266c798873e501cb2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
+DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.
 - New data and developer services. <!-- NEED A LINK -->
+
+Please try out the new features and updated services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
 
 ### Contents
 - [Breaking Changes](#breaking)
@@ -22,7 +26,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 # <a name="breaking"></a>Breaking Changes
 
 The DC/OS Identity and Access Management (IAM) SAML Service Provider implementation no longer accepts transient subject NameIDs.
- 
+
 # <a name="whats-new"></a>What's New
 
 ### Apache Mesos 1.2 and Marathon 1.4 integrated
@@ -32,13 +36,15 @@ The DC/OS Identity and Access Management (IAM) SAML Service Provider implementat
 
 ## Container Orchestration
 
-- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [maturity-badge status='preview']
-- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [maturity-badge status='preview']
+- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [preview type="inline" size="small" /]
+- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [preview type="inline" size="small" /]
 - Significant scalability improvements.
 
 ## DC/OS Monitoring and Operations
 
-### Remote Process Injection for Debugging [maturity-badge status='preview']
+[preview]
+### Remote Process Injection for Debugging
+[/preview]
 
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
 
@@ -48,7 +54,9 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 
 For more information, see the documentation for the `dcos task exec` command [here](/1.9/monitoring/debugging/).
 
-### Logging [maturity-badge status='preview']
+[preview]
+### Logging 
+[/preview]
 
 Stream task and system logs to journald by setting the `mesos_container_log_sink` install-time parameter to `journald` or `journald+logrotate`. This allows you to:
 
@@ -58,7 +66,9 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 
 For more information, see the [documentation](/1.9/monitoring/logging/).
 
-### Metrics [maturity-badge status='preview']
+[preview]
+### Metrics 
+[/preview]
 
 - Node-level HTTP API that returns metrics from tasks, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.
@@ -141,7 +151,7 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
 - DCOS-14005 - Marathon-LB does not support pods.
 - DCOS-14021 - [Task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
 - DCOS-14047 - Marathon is killed during upgrades.
-- DCOS-14433 - The [Universal container runtime](/1.9/deploying-services/containerizers/) does not support Azure cloud with Ubuntu. 
+- DCOS-14433 - The [Universal container runtime](/1.9/deploying-services/containerizers/) does not support Azure cloud with Ubuntu.
 - DCOS-OSS-743 - If you are using Docker 1.13 on CentOS 7.3, the custom CLI installation method fails while installing prerequisites (`--install-prereqs`).
 - MARATHON-1713 - Volumes do not persist.
 - Marathon-7133 - Marathon application history is lost after Marathon restart.

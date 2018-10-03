@@ -27,12 +27,11 @@ Services UI in the DC/OS Dashboard.
 1. Connect a client to the DC/OS Apache Cassandra service.
 
    ```
-   dcos beta-cassandra endpoints
+   dcos beta-cassandra --name=cassandra endpoint native-client
    [
      "native-client"
    ]
 
-   dcos beta-cassandra endpoints native-client
    {
      "address": [
        "10.0.1.125:9042",
@@ -54,7 +53,7 @@ of addressed nodes are down:
 
    ```bash
    $ dcos node ssh --master-proxy --leader
-   $ docker run -it cassandra:3.0.14 cqlsh node-0-server.cassandra.autoip.dcos.thisdcos.directory
+   $ docker run -it cassandra:3.0.15 cqlsh node-0-server.cassandra.autoip.dcos.thisdcos.directory
    node-0-server.cassandra.autoip.dcos.thisdcos.directory:9042
    > CREATE KEYSPACE space1 WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
    > USE space1;

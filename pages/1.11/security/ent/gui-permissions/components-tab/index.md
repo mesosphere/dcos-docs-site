@@ -1,23 +1,28 @@
 ---
 layout: layout.pug
-navigationTitle:  Granting Access to the Components Tab
-title: Granting Access to the Components Tab
+navigationTitle:  Granting Access to the Components Screen
+title: Granting Access to the Components Screen
 menuWeight: 60
-excerpt:
+excerpt: Granting access to the Components screen
 
 enterprise: true
 ---
-You can grant users access to the **Components** tab. By default, new users have no permissions.
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-## <a name="network-access-via-ui"></a>Grant Access by using the GUI
+You can grant users access to the [**Components** screen](/1.11/gui/components/). By default, new users have no permissions.
 
-**Prerequisites:** 
+## <a name="network-access-via-ui"></a>Grant Access by using the web interface
+
+**Prerequisites:**
 
 - A DC/OS user account without the `dcos:superuser` [permission](/1.11/security/ent/users-groups/).
 
-1. Log into the DC/OS GUI as a user with the `superuser` permission.
+1. Log in to the DC/OS web interface as a user with the `superuser` permission.
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
+
+    Figure 1. DC/OS web interface login
+
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -25,51 +30,55 @@ You can grant users access to the **Components** tab. By default, new users have
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
 
-1.  From the **Permissions** tab, click **ADD PERMISSION**.
+    Figure 2. Select user or group to grant permissions to
+
+1.  From the **Permissions** screen, click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/1.11/img/services-tab-user3.png)
+    
+    Figure 3. Insert Permission String 
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
     ## Disabled
-    
+
     ### Components Tab
-    
+
     ```
     dcos:adminrouter:ops:historyservice full
     dcos:adminrouter:ops:system-health full
     ```
-       
+
     ## Permissive
-    
+
     ### Components Tab
-    
+
     ```
     dcos:adminrouter:ops:historyservice full
     dcos:adminrouter:ops:system-health full
     ```
-       
+
     ## Strict
 
-    ### Components Tab 
-    
+    ### Components Tab
+
     ```
     dcos:adminrouter:ops:historyservice full
     dcos:adminrouter:ops:system-health full
     ```
-   
+
 ## <a name="network-access-via-api"></a>Granting Access by using the API
 
-**Prerequisites:** 
+**Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
-**Tips:** 
+**Note:**
 
-- Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
+- Service resources often include `/` characters that must be replaced with `%252F` in `curl` requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
 
 ## Disabled
@@ -81,12 +90,12 @@ You can grant users access to the **Components** tab. By default, new users have
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     -H 'Content-Type: application/json' \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice \
-    -d '{"description":"Grants access to the contents of the Components tab"}'
+    -d '{"description":"Grants access to the contents of the Components screen"}'
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     -H 'Content-Type: application/json' \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health \
-    -d '{"description":"Grants access to the Components tab"}'
+    -d '{"description":"Grants access to the Components screen"}'
     ```
 
 1.  Grant the following privileges to the user `uid`.
@@ -97,8 +106,8 @@ You can grant users access to the **Components** tab. By default, new users have
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
-    
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`. 
+
+    **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
 
 ## Permissive
 
@@ -109,12 +118,12 @@ You can grant users access to the **Components** tab. By default, new users have
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     -H 'Content-Type: application/json' \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice \
-    -d '{"description":"Grants access to the contents of the Components tab"}'
+    -d '{"description":"Grants access to the contents of the Components screen"}'
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     -H 'Content-Type: application/json' \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health \
-    -d '{"description":"Grants access to the Components tab"}'
+    -d '{"description":"Grants access to the Components screen"}'
     ```
 
 1.  Grant the following privileges to the user `uid`.
@@ -125,8 +134,8 @@ You can grant users access to the **Components** tab. By default, new users have
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
-    
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+
+    **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
 
 ## Strict
 
@@ -137,12 +146,12 @@ You can grant users access to the **Components** tab. By default, new users have
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     -H 'Content-Type: application/json' \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice \
-    -d '{"description":"Grants access to the contents of the Components tab"}'
+    -d '{"description":"Grants access to the contents of the Components screen"}'
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     -H 'Content-Type: application/json' \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health \
-    -d '{"description":"Grants access to the Components tab"}'
+    -d '{"description":"Grants access to the Components screen"}'
     ```
 
 1.  Grant the following privileges to the user `uid`.
@@ -153,5 +162,5 @@ You can grant users access to the **Components** tab. By default, new users have
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
-    
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`. 
+
+    **Note:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.

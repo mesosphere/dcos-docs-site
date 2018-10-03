@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Elastic 2.1.0-5.6.2
 title: Elastic 2.1.0-5.6.2
-menuWeight: 20
+menuWeight: 80
 excerpt:
 featureMaturity:
 enterprise: false
