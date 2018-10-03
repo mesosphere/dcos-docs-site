@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Percona-Mongo
-title: Percona-Mongo
+navigationTitle: Percona-Server-MongoDB
+title: Percona-Server-MongoDB
 menuWeight: 85
 excerpt:
 featureMaturity:
@@ -19,7 +19,7 @@ This DC/OS service installs and configures a [MongoDB Replica Set](https://docs.
 
 # Benefits
 
-DC/OS Percona-Mongo offers the following benefits of a semi-managed service:
+DC/OS Percona-Server-MongoDB offers the following benefits of a semi-managed service:
 
 *   Easy installation
 *   Multiple MongoDB Replica Sets within a single DC/OS cluster
@@ -30,7 +30,7 @@ DC/OS Percona-Mongo offers the following benefits of a semi-managed service:
 
 # Features
 
-DC/OS Percona-Mongo provides the following features:
+DC/OS Percona-Server-MongoDB provides the following features:
 
 *   Single-command installation for rapid provisioning
 *   Multiple MongoDB Replica Sets within a single DC/OS cluster
