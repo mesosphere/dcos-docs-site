@@ -265,7 +265,7 @@ Install Grafana from the service catalog as well. It can be used as a graphing t
 dcos package install --yes grafana
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/services/prometheus/0.1.1-2.3.2/img/prom_install.png)
+[<img src="/services/pxc/0.1.0-5.7.21/img/prom_install.png" alt="Prometheus Install"/>](/services/pxc/0.1.0-5.7.21/img/prom_install.png)
 
 
 The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. Append any new config to the end.
@@ -370,7 +370,7 @@ Promtheus UI:
 http://<public-agent-ip>:9092
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png)
+[<img src="/services/pxc/0.1.0-5.7.21/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/services/pxc/0.1.0-5.7.21/img/prom_dashboard.png)
 
 
 This is the console view within the `Graph` tab.
@@ -393,7 +393,7 @@ As another example, enter the following expression to graph the per-second rate 
 
 `rate(prometheus_tsdb_head_chunks_created_total[1m])`
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png" alt="Prometheus Graphing"/>](/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png)
+[<img src="/services/pxc/0.1.0-5.7.21/img/prom_graphing.png" alt="Prometheus Graphing"/>](/services/pxc/0.1.0-5.7.21/img/prom_graphing.png)
 
 ## Using Grafana with Prometheus
 
@@ -403,14 +403,14 @@ http://<public-agent-ip>:9094
 
 Credentials: admin / admin
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_login.png" alt="Grafana Logging"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_login.png)
+[<img src="/services/pxc/0.1.0-5.7.21/img/grafana_login.png" alt="Grafana Logging"/>](/services/pxc/0.1.0-5.7.21/img/grafana_login.png)
 
 which takes you to the Grafana console.
 
 
 You can add Prometheus as a data source:
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png)
+[<img src="/services/pxc/0.1.0-5.7.21/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/pxc/0.1.0-5.7.21/img/grafana_datasource.png)
 
 
 Save and Test. Now you are ready to use Prometheus as a data source in Grafana.
@@ -419,108 +419,4 @@ To create a graph, select your `Prometheus` datasource, and enter any Prometheus
 
 The following shows an example Prometheus graph configuration:
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png)
-
-## Alertmanager
-
-The Alertmanager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.
-
-Alertmanager UI:
-```
-http://<public-agent-ip>:9093
-```
-
-[<img src="/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png" alt="AlertManager Dashboard"/>](/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png)
-
-
-### Alertmanager with Webhook
-The default configuration for Alertmanager (these configurations can be changed) in the framework is configured with a Webhook receiver:
-
-```
-route:
- group_by: [cluster]
- receiver: webh
- group_interval: 1m
-
-receivers:
-- name: webh
-  webhook_configs:
-  - url: http://webhook.marathon.l4lb.thisdcos.directory:1234
-```
-
-Default rule defined in the framework:
-
-```
-groups:
-- name: cpurule
-  rules:
-  - alert: highcpu
-    expr: cpu_total > 2
-    annotations:
-      DESCRIPTION: 'it happened yeah'
-      SUMMARY: 'it happened'
-```
-
-Next, run the following config as a Marathon app:
-
-```
-{
-    "container": {
-        "docker": {
-            "image": "python:latest"
-        },
-        "type": "MESOS"
-    },
-    "mem": 1024,
-    "portDefinitions": [
-        {
-            "labels": {
-                "VIP_0": "webhook:1234"
-            },
-            "protocol": "tcp",
-            "name": "web",
-            "port": 1234
-        }
-    ],
-    "cmd": "env | sort\n\ncat > function.py << EOF\n\nimport sys\nimport cgi\nimport json\nimport pipes\nfrom BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer\n\n\nclass MyHandler(BaseHTTPRequestHandler):\n   def do_POST(self):\n       self.send_response(200)\n       self.end_headers()\n       #data = json.loads(self.rfile.read(int(self.headers['Content-Length'])))\n       data = self.rfile.read(int(self.headers['Content-Length']))\n       self.log_message('%s', data)\n\n\nhttpd = HTTPServer(('0.0.0.0', $PORT_WEB), MyHandler)\nhttpd.serve_forever()\nEOF\n\npython2 function.py\n",
-    "networks": [
-        {
-            "mode": "host"
-        }
-    ],
-    "cpus": 0.1,
-    "id": "webhook"
-}
-```
-
-
-Check the logs for this app. The Alertmanager will send HTTP POST requests in the following json format:
-
-```
-{
-  "receiver": "webh",
-  "status": "firing",
-  "alerts": [
-    {
-      "status": "firing",
-      "labels": {
-        "alertname": "highcpu",
-        "cluster_id": "4c7ab85b-ce28-4bdd-8a2d-87c71d02759e",
-        "hostname": "10.0.1.16",
-        "instance": "10.0.1.16:61091",
-        "job": "dcos-metrics",
-        "mesos_id": "29bac9b2-cbdb-4093-a907-6c4904a1360a-S5"
-      },
-      "annotations": {
-        "DESCRIPTION": "it happened yeah",
-        "SUMMARY": "it happened"
-      },
-      "startsAt": "2018-07-12T17:32:56.030479955Z",
-      "endsAt": "0001-01-01T00:00:00Z",
-      "generatorURL": "http://ip-10-0-1-16.us-west-2.compute.internal:1025/graph?g0.expr=cpu_total+%3E+2&g0.tab=1"
-    },
-...
-...
-...
-}
-```
+[<img src="/services/pxc/0.1.0-5.7.21/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/pxc/0.1.0-5.7.21/img/grafana_prom.png)
