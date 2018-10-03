@@ -9,7 +9,7 @@ enterprise: true
 ---
 You can grant users access to the **Secrets** tab. By default, new users have no permissions.
 
-**Tip:** This procedure grants full user access to the **Secrets** tab. If you are running in `strict` or `permissive` [security mode](/1.10/security/ent/#security-modes) and want to configure fine-grained user access, see the [documentation](/1.10/security/ent/secrets/use-secrets/).
+**Note:** This procedure grants full user access to the **Secrets** tab. If you are running in `strict` or `permissive` [security mode](/1.10/security/ent/#security-modes) and want to configure fine-grained user access, see the [documentation](/1.10/security/ent/secrets/use-secrets/).
 
 ## <a name="network-access-via-ui"></a>Grant Access by using the GUI
 
@@ -39,18 +39,21 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
     ## Permissive
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
     ## Strict
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
 ## <a name="network-access-via-api"></a>Granting Access by using the API
@@ -60,7 +63,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 - You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
 - If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
-**Tips:**
+**Note:**
 
 - Service resources often include `/` characters that must be replaced with `%252F` in curl requests, as shown in the examples below.
 - When using the API to manage permissions, you must create the permission before granting it. If the permission already exists, the API will return an informative message and you can continue to assign the permission.
@@ -85,7 +88,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:secrets/users/<user-name>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`.
+    **Note:** To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`.
 
 ## Permissive
 
@@ -107,7 +110,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:secrets/users/<user-name>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`.
+    **Note:** To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`.
 
 ## Strict
 
@@ -129,4 +132,4 @@ You can grant users access to the **Secrets** tab. By default, new users have no
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:secrets/users/<user-name>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`.
+    **Note:** To grant this permission to a group instead of a user, replace `/users/<user-name>` with `/groups/<group-name>`.

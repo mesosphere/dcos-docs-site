@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This document discusses the high availability features in DC/OS and best practices for building highly available applications on DC/OS.
+This page discusses the high availability features in DC/OS and best practices for building highly available applications on DC/OS.
 
 # Leader/Follower Architecture
 

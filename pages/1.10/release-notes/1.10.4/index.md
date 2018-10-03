@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.10.4
 title: Release Notes for 1.10.4
-menuWeight: 5
+menuWeight: 15
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.10.4.
+DC/OS 1.10.4 was released on January 16, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -120,7 +120,7 @@ Please try out the new features and updated data services. Provide any feedback 
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
   
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1.9/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
 ## Security

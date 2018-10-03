@@ -2,17 +2,14 @@
 layout: layout.pug
 navigationTitle:  dcos cluster rename
 title: dcos cluster rename
-menuWeight: 5
-excerpt:
+menuWeight: 6
+excerpt: Renaming a cluster
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Rename a cluster.
+The `dcos cluster rename` command allows you to rename a cluster.
 
 # Usage
 
@@ -22,10 +19,10 @@ dcos cluster rename <name> <new-name>
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<name>`   |             | Name of connected cluster. |
-| `<new-name>`   |             | New name of connected cluster. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<name>`   |  Name of connected cluster. |
+| `<new-name>`   |  New name of connected cluster. |
 
 # Parent command
 

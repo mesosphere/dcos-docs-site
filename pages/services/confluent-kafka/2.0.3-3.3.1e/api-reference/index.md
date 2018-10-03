@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: API Reference
 menuWeight: 70
 excerpt:
@@ -30,11 +30,11 @@ The `curl` examples in this document assume that an auth token has been stored i
 
 If you are using Enterprise DC/OS, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/#get-dcos-cert) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](/1.9/networking/tls-ssl/), do not use the `--ca-cert` flag.
 
-For ongoing maintenance of the Kafka cluster itself, the Kafka service exposes an HTTP API whose structure is designed to roughly match the tools provided by the Kafka distribution, such as `bin/beta-confluent-kafka-topics.sh`.
+For ongoing maintenance of the Kafka cluster itself, the Kafka service exposes an HTTP API whose structure is designed to roughly match the tools provided by the Kafka distribution, such as `bin/confluent-kafka-topics.sh`.
 
 The examples here provide equivalent commands using both the [DC/OS CLI](https://github.com/mesosphere/dcos-cli) (with the `kafka` CLI module installed) and `curl`. These examples assume a service named `kafka` (the default), and the `curl` examples assume a DC/OS cluster path of `<dcos_url>`. Replace these with appropriate values as needed.
 
-The `dcos beta-confluent-kafka` CLI commands have a `--name` argument, allowing the user to specify which Kafka instance to query. The value defaults to `confluent-kafka`, so it's technically redundant to specify `--name=confluent-kafka` in these examples.
+The `dcos confluent-kafka` CLI commands have a `--name` argument, allowing the user to specify which Kafka instance to query. The value defaults to `confluent-kafka`, so it's technically redundant to specify `--name=confluent-kafka` in these examples.
 
 # Connection Information
 
@@ -79,7 +79,7 @@ The same information can be retrieved through the DC/OS CLI:
 
 ## List All Brokers
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka broker list
+    $ dcos confluent-kafka --name=confluent-kafka broker list
     {
         "brokers": [
             "0",
@@ -102,7 +102,7 @@ The same information can be retrieved through the DC/OS CLI:
 
 ## View a Single Broker
 
-    $ dcos beta-confluent-kafka --name="confluent-kafka" broker get <id>
+    $ dcos confluent-kafka --name="confluent-kafka" broker get <id>
 
     {
       "listener_security_protocol_map": {
@@ -128,7 +128,7 @@ These operations mirror what is available with `bin/kafka-topics.sh`.
 
 ## List Topics
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic list
+    $ dcos confluent-kafka --name=confluent-kafka topic list
     [
         "topic1",
         "topic0"
@@ -146,7 +146,7 @@ These operations mirror what is available with `bin/kafka-topics.sh`.
 
 ## Describe Topic
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic describe topic1
+    $ dcos confluent-kafka --name=confluent-kafka topic describe topic1
     {
         "partitions": [
             {
@@ -242,7 +242,7 @@ These operations mirror what is available with `bin/kafka-topics.sh`.
 
 ## Create Topic
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic create topic1 --partitions=3 --replication=3
+    $ dcos confluent-kafka --name=confluent-kafka topic create topic1 --partitions=3 --replication=3
     {
         "message": "Output: Created topic "topic1".n"
     }
@@ -260,7 +260,7 @@ These operations mirror what is available with `bin/kafka-topics.sh`.
 
 There is an optional `--time` parameter which may be set to either "first", "last", or a timestamp in milliseconds as [described in the Kafka documentation][15].
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic offsets topic1 --time=last
+    $ dcos confluent-kafka --name=confluent-kafka topic offsets topic1 --time=last
     [
         {
             "2": "334"
@@ -292,7 +292,7 @@ There is an optional `--time` parameter which may be set to either "first", "las
 
 ## Alter Topic Partition Count
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic partitions topic1 2
+    $ dcos confluent-kafka --name=confluent-kafka topic partitions topic1 2
     {
         "message": "Output: WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affectednAdding partitions succeeded!n"
     }
@@ -308,7 +308,7 @@ There is an optional `--time` parameter which may be set to either "first", "las
 
 ## Run Producer Test on Topic
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic producer_test topic1 10
+    $ dcos confluent-kafka --name=confluent-kafka topic producer_test topic1 10
 
     {
         "message": "10 records sent, 70.422535 records/sec (0.07 MB/sec), 24.20 ms avg latency, 133.00 ms max latency, 13 ms 50th, 133 ms 95th, 133 ms 99th, 133 ms 99.9th.n"
@@ -335,7 +335,7 @@ Runs the equivalent of the following command from the machine running the Kafka 
 
 ## Delete Topic
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic delete topic1
+    $ dcos confluent-kafka --name=confluent-kafka topic delete topic1
 
     {
         "message": "Topic topic1 is marked for deletion.nNote: This will have no impact if delete.topic.enable is not set to true.n"
@@ -354,7 +354,7 @@ Note the warning in the output from the commands above. You can change the indic
 
 ## List Under Replicated Partitions
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic under_replicated_partitions
+    $ dcos confluent-kafka --name=confluent-kafka topic under_replicated_partitions
 
     {
         "message": ""
@@ -371,7 +371,7 @@ Note the warning in the output from the commands above. You can change the indic
 
 ## List Unavailable Partitions
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka topic unavailable_partitions
+    $ dcos confluent-kafka --name=confluent-kafka topic unavailable_partitions
 
     {
         "message": ""
@@ -401,7 +401,7 @@ These operations relate to viewing the service's configuration history.
 
 ## List Configuration IDs
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka config list
+    $ dcos confluent-kafka --name=confluent-kafka config list
 
     [
         "319ebe89-42e2-40e2-9169-8568e2421023",
@@ -422,7 +422,7 @@ These operations relate to viewing the service's configuration history.
 
 This configuration shows a default per-broker memory allocation of 2048 (configured via the `BROKER_MEM` parameter):
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka config show 319ebe89-42e2-40e2-9169-8568e2421023
+    $ dcos confluent-kafka --name=confluent-kafka config show 319ebe89-42e2-40e2-9169-8568e2421023
 
 Since the configuration resource is output for several CLI and API usages, a single reference version of this resource
 is provided in Appendix A.
@@ -438,7 +438,7 @@ The CLI output for viewing a specific configuration matches the API output.
 
 The target configuration, meanwhile, shows an increase of configured per-broker memory from 2048 to 4096 (again, configured as `BROKER_MEM`):
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka config target
+    $ dcos confluent-kafka --name=confluent-kafka config target
 
 Since the configuration resource is output for several CLI and API usages, a single reference version of this resource
 is provided in Appendix A.
@@ -456,7 +456,7 @@ These options relate to viewing and controlling rollouts and configuration updat
 
 Displays all Phases and Steps in the service Plan. If a rollout is currently in progress, this returns a 503 HTTP code with response content otherwise unchanged.
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka plan
+    $ dcos confluent-kafka --name=confluent-kafka plan
     GET /service/confluent-kafka/v1/plan HTTP/1.1
 
     {
@@ -560,13 +560,13 @@ These operations are only applicable when `PHASE_STRATEGY` is set to `STAGE`, th
 
 ### Continue
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka plan continue
+    $ dcos confluent-kafka --name=confluent-kafka plan continue
     $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/confluent-kafka/v1/plan/continue"
 
 
 ### Interrupt
 
-    $ dcos beta-confluent-kafka --name=confluent-kafka plan interrupt
+    $ dcos confluent-kafka --name=confluent-kafka plan interrupt
     $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/confluent-kafka/v1/plan/interrupt"
 
 

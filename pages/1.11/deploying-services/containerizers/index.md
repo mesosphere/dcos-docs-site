@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
-excerpt:
+excerpt: Using containerizers with Docker Engine and Universal Container Runtime
 
 enterprise: false
 ---
@@ -16,19 +16,19 @@ A containerizer provides a containerization and resource isolation abstraction a
 - [Universal Container Runtime](/1.11/deploying-services/containerizers/ucr/).
 - [Docker Engine](/1.11/deploying-services/containerizers/docker-containerizer/).
 
-The Universal Container Runtime (UCR) has the following advantages:
+The advantages of Universal Container Runtime (UCR) are:
 
 * Removes your dependency on the Docker Engine. If the Docker Engine is not responsive, restarting the Engine causes all containers on the host to stop. In addition, Docker must be installed on each of your agent nodes and you must upgrade Docker on the agent nodes each time a new version of Docker is released.
 * Is more stable and allows deployment at scale.
 * Offers features not available in the Docker Engine, such as GPU and CNI support.
-* Allows you to take advantage of continuing innovation within both the Mesos and DC/OS, including features such as IP per container, strict container isolation, and more. Refer to the [features matrix](#container-runtime-features) for details.
+* Allows you to take advantage of continuing innovation within both the Mesos and DC/OS, including features such as IP per container, strict container isolation, and more. Refer to the [features matrix](#container-runtime-features) for  additional information.
 * Supports container image garbage collection automatically or manually.
 
 In summary, using the UCR instead of the Docker Engine:
 
-- Reduces service downtime.
-- Improves on the fly upgradability.
-- Increases cluster stability.
+- Reduces service downtime
+- Improves on-the-fly upgradability
+- Increases cluster stability
 
 # Container Runtime Features
 
@@ -47,6 +47,7 @@ The tables below enumerate the features available with each of the supported con
 | **Docker Options**                      | No          | Yes       |          |
 | **Force Pull**                          | Yes         | Yes       |          |
 | **Secrets**                             | Yes         | Yes       | DC/OS Enterprise only |
+| **File-based Secrets**                  | Yes         | NO        | DC/OS Enterprise only |
 | **Debugging with exec**                 | Yes         | No        | CLI only |
 | **All Security Modes**                  | Yes         | Yes       | DC/OS Enterprise only |
 

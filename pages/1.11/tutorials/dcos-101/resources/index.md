@@ -1,14 +1,20 @@
 ---
 layout: layout.pug
-excerpt:
-title: Understanding Resources
+excerpt: Part 7 - Understanding Resources
+title: Tutorial - Understanding Resources
 navigationTitle: Understanding Resources
 menuWeight: 7
 ---
 
-Welcome to part 7 of the DC/OS 101 Tutorial
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> 
+</tr> 
+</table>
+
+Welcome to part 7 of the DC/OS 101 Tutorial.
+
 
 # Prerequisites
 * A [running DC/OS cluster](/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.11/tutorials/dcos-101/cli/).
@@ -42,7 +48,7 @@ Resource management and resource isolation between tasks are core functions of a
 * The `cpus`, `mem`, `disk`, and `gpus` parameters above specify the allocated resources and therefore define the maximum amount of resources a task can use. This number is not necessarily the same as the amount of resources a task actually uses. That number is usually lower.
 
 * You will notice that the id assigned in the app definitions for both [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) and [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) is prefixed by `/dcos-101/`. This defines the [application group](https://mesosphere.github.io/marathon/docs/application-groups.html) that the apps belong to. Application groups allow configuration and dependencies to be applied to a group of applications at the same time.
-  
+
 ## Scaling Applications
 
 When you need more resources for your app, you can scale in two dimensions - horizontally and vertically.
@@ -51,59 +57,59 @@ When you need more resources for your app, you can scale in two dimensions - hor
 
 Horizontal scaling involves increasing the number of instances of an application. You can scale the instance count in two ways:
 
-1. Scale an entire app group by a factor. 
+1. Scale an entire app group by a factor.
 1. Directly set number of instances for an app.
 
-**Scale dcos-101 application group:** 
+**Scale dcos-101 application group:**
 
 Since both appl and app2 share the same app group, we can scale them together.
 
-* Scale up by a factor of 2: 
+* Scale up by a factor of 2:
 
 `dcos marathon group scale dcos-101 2`
 * Check that both app1 and app2 have scaled up:
-  
+
 `dcos marathon app list`
 * Scale down again:
 
 `dcos marathon group scale dcos-101 0.5`
 * Check that both app1 and app2 have scaled down:
-     
+
 `dcos marathon app list`
 
 **Set instance count for app2 directly:**
 
 This is useful is you want to scale a single app independently
-  
-* Scale app2 to 3 instances: 
 
-`dcos marathon app update /dcos-101/app2 instances=3` 
-       
+* Scale app2 to 3 instances:
+
+`dcos marathon app update /dcos-101/app2 instances=3`
+
 Note that these are applied incrementally to an existing app definition.
-* Check that app2 has scaled: 
+* Check that app2 has scaled:
 
 `dcos marathon app list`
-* Rescale app2 to 1 instance: 
+* Rescale app2 to 1 instance:
 
 `dcos marathon app update /dcos-101/app2 instances=1`
-* Check that app2 has scaled: 
+* Check that app2 has scaled:
 
 `dcos marathon app list`
 
-  
+
 ### Scale vertically by increasing allocated resources
 
 Vertical scaling involves increasing the amount of resources like CPU or RAM allocated to an instance.
- 
+
 **Note**: This causes a restart of the app!
 
-* Scale up to 2 CPU's for the app2 instance: 
-     
+* Scale up to 2 CPU's for the app2 instance:
+
 `dcos marathon app update /dcos-101/app2 cpus=2`
 * Check that app2 has scaled:
 
 `dcos marathon app list`
-* Scale back down to 1 CPU for the app2 instance: 
+* Scale back down to 1 CPU for the app2 instance:
 
 `dcos marathon app update /dcos-101/app2 cpus=1`
 
@@ -112,20 +118,20 @@ Vertical scaling involves increasing the amount of resources like CPU or RAM all
 ## Too few resources in the cluster
 
 To simulate this:
-  
+
 * Increase app2 instances to 100
 
-`dcos marathon app update /dcos-101/app2 instances=100` 
+`dcos marathon app update /dcos-101/app2 instances=100`
 
 You may have to increase this number if you have a large cluster.
 * Use `dcos marathon app list` to check that the `scale` deployment is stuck.
 * `dcos marathon deployment list`
 
 The problem here is that there no matching resources available. For example, there might be resources left for the public-slave role, but not for the default role.
-   
-Solution: 
-    
-* Add nodes or scale the app to a level at which resources are available. 
+
+Solution:
+
+* Add nodes or scale the app to a level at which resources are available.
 
 `dcos marathon app update /dcos-101/app2 --force instances=1`
 
@@ -145,7 +151,7 @@ To simulate this:
 
 The problem here is that there are no resource offers large enough to match the request.
 
-Solution: 
+Solution:
 
 * Provision larger nodes or scale the app down to a level where it fits onto the free resources on a single node:
 
@@ -164,7 +170,7 @@ To simulate this:
 `dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/oomApp/oomApp.json`
 
 * You will see it restarting over and over again...
-  
+
 Check the Marathon log. Potentially you will see the Out of Memory error here, but unfortunately not always - since the kernel is killing the app, this may not always be visible to DC/OS.
 
 * SSH to an agent where the app has been running:
@@ -180,15 +186,15 @@ Here you see something like:
     Memory cgroup out of memory: Kill process 10106 (oomApp) score 925 or sacrifice child; Killed process 10390 (oomApp) total-vm:3744760kB, anon-rss:60816kB, file-rss:1240kB, shmem-rss:0kB`
 ```
 
-Solution: 
+Solution:
 
 There are two potential reasons for your application using too much memory:
 
 1. Your app uses too much memory by accident e.g. a memory leak in the code.
-1. You have allocated too little memory for it. 
+1. You have allocated too little memory for it.
 
 So, check your app for correct behavior and/or increase the allocated memory.
-  
+
 * Remove the app:
 
 `dcos marathon app remove /dcoc-101/oom-app`

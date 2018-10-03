@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  dcos package update
 title: dcos package update
 menuWeight: 8
-excerpt:
+excerpt: (Deprecated) Installing and managing DC/OS software packages
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description

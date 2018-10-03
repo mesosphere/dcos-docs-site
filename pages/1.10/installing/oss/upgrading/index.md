@@ -3,12 +3,15 @@ layout: layout.pug
 navigationTitle:  Upgrading
 excerpt:
 title: Upgrading
-menuWeight: 3.1
+menuWeight: 4
 ---
 
-## Summary
+An upgrade is the process of adding new features, replacing the existing features with new features/functionality or adding a major configuration change. You can upgrade DC/OS only if you have used the installation process to install DC/OS on your cluster.
+Example: 1.X to 1.Y (1.10 --> 1.11)
 
-This document provides instructions for upgrading a DC/OS cluster from version 1.9 to 1.10. If this upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
+**Note:** An upgrade occurs only between major releases.
+
+If an upgrade is performed on a supported OS with all prerequisites fulfilled, this upgrade _should_ preserve the state of running tasks on the cluster.  This document reuses portions of the [Advanced DC/OS Installation Guide][advanced-install].
 
 **Important:**
 
@@ -90,7 +93,7 @@ Proceed with upgrading every master node one-at-a-time in any order using the fo
 1.  Validate the upgrade:
 
     - Monitor the Exhibitor UI to confirm that the Master rejoins the ZooKeeper quorum successfully (the status indicator will turn green).  The Exhibitor UI is available at `http://<dcos_master>:8181/`.
-    - Verify that `http://<dcos_master>/mesos` indicates that the upgraded master is running Mesos 1.4.0.
+    - Verify that `http://<dcos_master>/mesos` indicates that the upgraded master is running Mesos 1.4.2.
 
 ### DC/OS Agents
 

@@ -2,10 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.3
 title: Release Notes for 1.9.3
-menuWeight: 30
+menuWeight: 35
 excerpt:
 ---
-These are the release notes for DC/OS 1.9.3.
+
+DC/OS 1.9.3 was released on September 1, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -27,9 +28,9 @@ The DC/OS Identity and Access Management (IAM) SAML Service Provider implementat
 
 # <a name="whats-new"></a>What's New
 
-### Apache Mesos 1.2.1 and Marathon 1.4.5 integrated
+### Apache Mesos 1.2.1 and Marathon 1.4.7 integrated
 
-- Marathon 1.4.5 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.4.5).
+- Marathon 1.4.7 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.4.7).
 - Apache Mesos 1.2.1 [CHANGELOG](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.2.1-rc1/CHANGELOG).
 
 ## Container Orchestration

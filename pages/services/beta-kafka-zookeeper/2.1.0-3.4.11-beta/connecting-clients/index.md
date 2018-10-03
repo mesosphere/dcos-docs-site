@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Connecting Clients
 menuWeight: 40
-excerpt:
+excerpt: Using service discovery to connect clients
 featureMaturity:
 enterprise: false
 ---
@@ -16,7 +16,7 @@ enterprise: false
 One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Because they can be deployed anywhere in the cluster, clients need a way to find the service. This is where service discovery comes in.
 
 <a name="discovering-endpoints"></a>
-## Discovering Endpoints
+## Discovering endpoints
 
 Once the service is running, you may view information about its endpoints via either of the following methods:
 
@@ -27,7 +27,7 @@ Once the service is running, you may view information about its endpoints via ei
   - List endpoint types: `<dcos-url>/service/kafka-zookeeper/v1/endpoints`
   - View endpoints for an endpoint type: `<dcos-url>/service/kafka-zookeeper/v1/endpoints/<endpoint>`
 
-Zookeeper returns the following endpoint:
+ZooKeeper returns the following endpoint:
 
 - `clientport`
 

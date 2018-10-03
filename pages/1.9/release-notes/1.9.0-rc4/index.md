@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.0 RC4
 title: Release Notes for 1.9.0 RC4
-menuWeight: 70
+menuWeight: 55
 excerpt:
 ---
 
@@ -37,13 +37,15 @@ The DC/OS Identity and Access Management (IAM) SAML Service Provider implementat
 
 ## Container Orchestration
 
-- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [maturity-badge status='preview']
-- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [maturity-badge status='preview']
+- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [preview type="inline" size="small" /]
+- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [preview type="inline" size="small" /]
 - Significant scalability improvements.
 
 ## DC/OS Monitoring and Operations
 
-### Remote Process Injection for Debugging [maturity-badge status='preview']
+[preview]
+### Remote Process Injection for Debugging 
+[/preview]
 
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
 
@@ -65,7 +67,9 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 
 For more information, see the [documentation](/1.9/monitoring/logging/).
 
-### Metrics [maturity-badge status='preview']
+[preview]
+### Metrics 
+[/preview]
 
 - Node-level HTTP API that returns metrics from tasks, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.

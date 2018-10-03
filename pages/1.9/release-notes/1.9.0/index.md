@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.0
 title: Release Notes for 1.9.0
-menuWeight: 60
+menuWeight: 50
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.9.0.
+DC/OS 1.9.0 was released on March 28, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/commit/0ce03387884523f02624d3fb56c7fbe2e06e181b/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 

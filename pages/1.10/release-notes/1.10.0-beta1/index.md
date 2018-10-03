@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.0 Beta 1
 title: Release Notes for 1.10.0 Beta 1
-menuWeight: 60
+menuWeight: 50
 excerpt:
 ---
 These are the release notes for DC/OS 1.10.0 Beta 1.
@@ -52,7 +52,7 @@ DC/OS 1.10 includes many new capabilities and expands the collection of data and
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1.9/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
 ## Security

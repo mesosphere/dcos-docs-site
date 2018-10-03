@@ -3,16 +3,15 @@ layout: layout.pug
 navigationTitle:  dcos node diagnostics download
 title: dcos node diagnostics download
 menuWeight: 3
-excerpt:
+excerpt: Downloading the diagnostics bundle
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
+
 # Description
-View the details of diagnostics bundles.
+The `dcos node diagnostics download` command allows you to download the diagnostics bundle to a specific location.
 
 # Usage
 
@@ -28,15 +27,14 @@ dcos node diagnostics download <bundle> [OPTION]
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<bundle>`   |             |  The bundle filename. For example, `bundle-2017-02-01T00:33:48-110930856.zip`. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<bundle>`   |  The bundle filename. For example, `bundle-2017-02-01T00:33:48-110930856.zip`. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/1.11/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
-<!-- # Examples -->
 

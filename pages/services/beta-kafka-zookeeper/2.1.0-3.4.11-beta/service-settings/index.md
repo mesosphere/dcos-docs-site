@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Node Settings
 menuWeight: 60
-excerpt:
+excerpt: Customizing the resources allocated to each node
 featureMaturity:
 enterprise: false
 ---
@@ -73,7 +73,7 @@ Change this value by modifying the following JSON.
 
 # Heap Size
 
-It is extremely important to carefully define the Java heap size. Heap size is important to prevent swapping, which can seriously degrade ZooKeeper performance. Heap size should always be less than the memory allocated to a task. For more information, consult the [ZooKeeper Administrator's Guide](https://zookeeper.apache.org/doc/trunk/zookeeperAdmin.html#sc_zkMulitServerSetup).
+It is extremely important to define the Java heap size carefully. Heap size is important to prevent swapping, which can seriously degrade ZooKeeper performance. Heap size should always be less than the memory allocated to a task. For more information, consult the [ZooKeeper Administrator's Guide](https://zookeeper.apache.org/doc/trunk/zookeeperAdmin.html#sc_zkMulitServerSetup).
 
 Change this value by modifying the following JSON.
 
@@ -184,7 +184,7 @@ To configure the `dataLogDir` disk type, modify the following JSON.
 }
 ```
 
-<!-- 
+<!--
 - _In the DC/OS CLI options.json_: _`log_disk_type`_: string (default: _`ROOT`_)
 - _DC/OS web interface_: _`ZOOKEEPER_LOG_TYPE`_: string
 -->

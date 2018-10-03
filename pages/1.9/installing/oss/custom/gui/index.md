@@ -11,7 +11,7 @@ The automated GUI installer provides a simple graphical interface that guides yo
 
 This installation method uses a bootstrap node to administer the DC/OS installation across your cluster. The bootstrap node uses an SSH key to connect to each node in your cluster to automate the DC/OS installation.
 
-**Important:** Upgrades are not supported with this installation method.
+**Note:** Upgrades are not supported with this installation method.
 
 The DC/OS installation creates these folders:
 
@@ -90,45 +90,45 @@ The DC/OS installation creates these folders:
 
     ![preflight](/1.9/img/dcos-gui-preflight.png)
 
-    ### Deployment Settings
+### Deployment Settings
 
-    #### Master Private IP List
+#### Master Private IP List
     Specify a comma-separated list of your internal static master IP addresses.
 
-    #### Agent Private IP List
+#### Agent Private IP List
     Specify a comma-separated list of your internal static [private agent](/1.9/overview/concepts/#private-agent-node) private IP addresses.
 
-    #### Agent Public IP List
+#### Agent Public IP List
     Specify a comma-separated list of your internal static [public agent](/1.9/overview/concepts/#public-agent-node) private IP addresses.
 
-    #### Master Public IP
+#### Master Public IP
     Specify a publicly accessible proxy IP address to one of your master nodes. If you don't have a proxy or already have access to the network where you are deploying this cluster, you can use one of the master IP's that you specified in the master list. This proxy IP address is used to access the DC/OS web interface on the master node after DC/OS is installed.
 
-    #### SSH Username
+#### SSH Username
     Specify the SSH username, for example `centos`.
 
-    #### SSH Listening Port
+#### SSH Listening Port
     Specify the port to SSH to, for example `22`.
 
-    #### Private SSH Key
+#### Private SSH Key
     Specify the private SSH key with access to your master IPs.
 
     ### DC/OS Environment Settings
 
-    #### Upstream DNS Servers
+#### Upstream DNS Servers
     Specify a comma-separated list of DNS resolvers for your DC/OS cluster nodes. Set this parameter to the most authoritative nameservers that you have. If you want to resolve internal hostnames, set it to a nameserver that can resolve them. If you have no internal hostnames to resolve, you can set this to a public nameserver like Google or AWS. In the example above, the <a href="https://developers.google.com/speed/public-dns/docs/using" target="_blank">Google Public DNS IP addresses (IPv4)</a> are specified: `8.8.8.8` and `8.8.4.4`. If Google DNS is not available in your country, you can replace the Google DNS servers with your local DNS servers.
 
     *Caution:* If you set this parameter incorrectly you will have to reinstall DC/OS. For more information about service discovery, see the [documentation][3].
 
-    #### IP Detect Script
+#### IP Detect Script
     Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced install [documentation](/1.9/installing/oss/custom/advanced/#ip-detect-script).
 
-    *Important:* The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
+    **Note:** The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
 
-    #### Send Anonymous Telemetry
+#### Send Anonymous Telemetry
     Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/1.9/overview/telemetry/).
 
-    #### Enable Authentication
+#### Enable Authentication
     Indicate whether to enable authentication for your DC/OS cluster. For more information, see the [documentation](/1.9/security/).
 
 5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the scripted installer [prerequisites][3]. This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
@@ -150,8 +150,8 @@ The DC/OS installation creates these folders:
 
     ![postflight](/1.9/img/ui-installer-post-flight.png)
 
-    **Tips:** 
-    
+    **Tips:**
+
     *  If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
     *  You can click **Download Logs** to view your logs locally.
     *  If this takes longer than about 10 minutes, you've probably misconfigured your cluster. Go checkout the [troubleshooting documentation][9].
@@ -164,7 +164,7 @@ The DC/OS installation creates these folders:
 
     ![DC/OS dashboard](/1.9/img/dcos-gui.png)
 
-# <a name="backup"></a>(Optional) Backup your DC/OS installer files
+# <a name="backup"></a>(Optional) Back up your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.
 
 1.  From your bootstrap node, navigate to the `genconf/serve` directory and package the contents as `dcos-install.tar`:

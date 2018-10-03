@@ -22,7 +22,7 @@ Having a single artifact allows us to make some assumptions and guarantees.
 
 ## Design Goals
 
-Before we jump into how everything works, let’s make the design goals explicit. It is important to understand the constraints you’re working with to get to the end architecture and design.
+Before we jump into how everything works, let’s make the design goals explicit. It's important to understand the constraints you’re working with to get to the end architecture and design.
 
 - Dependencies on the host OS should be minimized. This enables DC/OS to run in as many environments as possible.
 - The host OS should be fully customizable. Everyone has a different set of tools that they are currently using. Those tools should work without any changes or porting. This is particularly important when it comes to hardware specific things like kernel modules.

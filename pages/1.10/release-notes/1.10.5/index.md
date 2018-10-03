@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.5
 title: Release Notes for 1.10.5
-menuWeight: 0
+menuWeight: 10
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.10.5.
+DC/OS 1.10.5 was released on February 22, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -30,7 +30,8 @@ These are the release notes for DC/OS 1.10.5.
 # Notable Changes in DC/OS 1.10.5
 
 - Updated to Marathon 1.5.6 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.6)).
-- Updated to Mesos 1.4.1 ([changelog](https://github.com/apache/mesos/blob/1.4.x/CHANGELOG)).
+- Updated to Mesos 1.4.2-92d988c ([changelog](https://github.com/apache/mesos/blob/92d988c/CHANGELOG)).
+- DCOS_OSS-2128 - Bumped Mesos package to 1.4.x version.
 
 # Issues Fixed in DC/OS 1.10.4
 
@@ -108,7 +109,7 @@ These are the release notes for DC/OS 1.10.5.
 
 # About DC/OS 1.10
 
-DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on: 
+DC/OS 1.10.0 includes many new capabilities for Operators and expands the collection of Data & Developer Services with a focus on:
 
 - Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
 - Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
@@ -118,7 +119,7 @@ DC/OS 1.10.0 includes many new capabilities for Operators and expands the collec
   - Rolling configuration update and upgrade support via the CLI. [enterprise type="inline" size="small" /]
   - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
-  
+
 Please try out the new features and updated data services. Provide any feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
 ### Contents
@@ -141,8 +142,8 @@ Please try out the new features and updated data services. Provide any feedback 
   DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
-  
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1.9/).
+
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
 ## Security

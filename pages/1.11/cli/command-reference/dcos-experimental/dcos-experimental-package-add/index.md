@@ -1,18 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos experimental
-title: dcos experimental
-menuWeight: 0
-excerpt:
+navigationTitle:  dcos experimental package add
+title: dcos experimental package add
+menuWeight: 1
+excerpt: Adding a DC/OS package to DC/OS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
-Add a DC/OS package to DC/OS.
+The `dcos experimental package add` command allows you to add a DC/OS package to DC/OS.
 
 # Usage
 
@@ -22,12 +20,12 @@ dcos experimental package add [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--dcos-package=<dcos-package>`   |             | Path to a DC/OS package. |
-| `--json`   |             |  JSON-formatted data. |
-| `--package-name=<package-name>`   |             | Name of the DC/OS package. |
-| `--package-version=<package-version>`   |             | The package version. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `--dcos-package=<dcos-package>`   |  Path to a DC/OS package. |
+| `--json`   | Specifies  JSON-formatted data. |
+| `--package-name=<package-name>`   |  Name of the DC/OS package. |
+| `--package-version=<package-version>`   | The package version. |
 
 # Parent command
 

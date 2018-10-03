@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon group list
 title: dcos marathon group list
 menuWeight: 18
-excerpt:
+excerpt: Displaying the list of groups
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Print the list of groups.
+The `dcos marathon group list` command allows you to view the list of groups.
 
 # Usage
 
@@ -22,9 +20,9 @@ dcos marathon group list [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |  Displays JSON-formatted data. |
 
 # Parent command
 
@@ -32,4 +30,3 @@ dcos marathon group list [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

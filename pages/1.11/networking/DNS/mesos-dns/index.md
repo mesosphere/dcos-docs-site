@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
-excerpt:
+excerpt: Understanding Mesos DNS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 [Mesos-DNS][1] provides service discovery within DC/OS clusters. It is fully integrated into DC/OS and allows applications and services on the cluster to find each other through the [domain name system (DNS)][2], similar to how services discover each other throughout the Internet.
@@ -24,6 +24,8 @@ If the Mesos-DNS process fails, `systemd` automatically restarts it. Mesos-DNS t
 You can load balance DNS requests in clusters with large numbers of agents by adding additional master nodes; no additional configuration is necessary.
 
 ![Mesos-DNS](/1.11/img/mesos-dns.png)
+
+Figure 1. Mesos-DNS integration
 
 As shown in the diagram, Mesos-DNS optionally integrates with your existing DNS infrastructure. Mesos-DNS replies directly to lookup requests from agent nodes for applications and services within your DC/OS cluster. If an agent node makes a DNS request for a hostname that is outside your DC/OS cluster, Mesos-DNS queries an external nameserver. External nameservers are only required if DC/OS cluster nodes must resolve hostnames for systems elsewhere on your network or on the Internet.
 

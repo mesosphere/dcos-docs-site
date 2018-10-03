@@ -8,17 +8,15 @@ model: /services/hdfs/data.yml
 render: mustache
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
-
-
 #include /services/include/limitations.tmpl
+#include /services/include/limitations-zones.tmpl
 
-## Zones
+## Security
 
-DC/OS Zones allow the service to implement rack-awareness. When the service is deployed with some zone configuration (or lack thereof), it cannot be upgraded/downgraded to another zone configuration.
+### Toggling Kerberos
 
-<!-- TBD? ## Security
+Kerberos authentication cannot be toggled (enabled / disabled). In order to enable or disable Kerberos, the service must be uninstalled and reinstalled with the desired configuration.
 
-### Transport Encryption
+### Toggling Transport Encryption
 
-### Kerberos -->
+Transport Encryption (TLS) cannot toggled (enabled / disabled). In order to enable or disable TLS, the service must be uninstalled and reinstalled with the desired configuration.

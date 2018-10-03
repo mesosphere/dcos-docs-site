@@ -2,10 +2,15 @@
 layout: layout.pug
 title: Configuring DC/OS Access for HDFS
 menuWeight: 550
-excerpt:
+excerpt: Configuring DC/OS Access for HDFS in 2.1.0-2.6.0-cdh5.11.0 and earlier
 featureMaturity:
 enterprise: true
 ---
+
+# Versions
+In HDFS 2.2.0-2.6.0-fdh5.11.0 and later, these topics have been divided up among the Getting Started and Security sections. Earlier versions will still need the information below.
+
+# Configure DC/OS access for HDFS
 
 This topic describes how to configure DC/OS access for HDFS. Depending on your [security mode](/1.9/security/ent/#security-modes/), HDFS requires [service authentication](/1.10/security/ent/service-auth/) for access to DC/OS.
 
@@ -15,7 +20,7 @@ This topic describes how to configure DC/OS access for HDFS. Depending on your [
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in permissive mode and do not specify a service account, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.10/security/ent/perms-reference/#superuser).
+If you install a service in permissive mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](/1.11/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
 

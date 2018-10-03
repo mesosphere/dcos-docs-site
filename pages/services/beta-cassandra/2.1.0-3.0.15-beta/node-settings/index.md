@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Node Settings
 menuWeight: 27
-excerpt:
+excerpt: Customize your node resource settings
 featureMaturity:
 enterprise: false
 ---
@@ -85,6 +85,9 @@ To configure the disk type:
 *   **In DC/OS CLI options.json**: `disk_type`: string (default: `ROOT`)
 *   **DC/OS web interface**: `CASSANDRA_DISK_TYPE`: `string`
 
+#include /services/include/node-disk-type-warning.tmpl
+
+
 ## Disk Scheduler
 
 It is [recommended](http://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html#recommendedSettings__optimizing-ssds) that you pre-configure your storage hosts to use the deadline IO scheduler in production environments.
@@ -102,7 +105,7 @@ Cassandra's "rack"-based fault domain support may be enabled by specifying a pla
 
 # Virtual networks
 
-Cassandra supports deployment on virtual networks on DC/OS (including the `dcos` overlay network) allowing each node to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+Cassandra supports deployment on [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network) allowing each node to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {

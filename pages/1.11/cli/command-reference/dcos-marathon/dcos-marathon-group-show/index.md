@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon group show
 title: dcos marathon group show
 menuWeight: 21
-excerpt:
+excerpt: Display a list of groups
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Print a detailed list of groups.
+The `dcos marathon group show` command displays a detailed list of groups.
 
 # Usage
 
@@ -22,15 +20,15 @@ dcos marathon group show <group-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--group-version=<group-version>`   |             |  The group version to use for the command. It can be specified as an absolute or relative value. Absolute values must be in ISO8601 date format. Relative values must be specified as a negative integer and they represent the version from the currently deployed group definition. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--group-version=<group-version>`   |   The group version to use for the command. It can be specified as an absolute or relative value. Absolute values must be in ISO8601 date format. Relative values must be specified as a negative integer and they represent the version from the currently deployed group definition. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<group-id>`   |             |  The group ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<group-id>`   |  The group ID. You can view a list of the group IDs with the `dcos marathon group list` command.|
 
 # Parent command
 
@@ -38,4 +36,3 @@ dcos marathon group show <group-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

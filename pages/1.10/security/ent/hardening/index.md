@@ -20,6 +20,8 @@ Your cluster will become more secure as you move from `disabled` to `permissive`
 
 However, there are a number of settings that you can modify independent of your security mode to increase the security of your cluster.
 
+- Ensure the network is setup according to the information for [securing your cluster](/1.10/administering-clusters/securing-your-cluster/).
+
 - <a name="secure-flag"></a>In `permissive` and `strict` modes, set the [`auth_cookie_secure_flag`](/1.10/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) to `true`.
 
 - <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-superuser), [`zk_master_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-master), and [`zk_agent_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-agent).

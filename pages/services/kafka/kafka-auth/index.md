@@ -5,9 +5,16 @@ menuWeight: 660
 excerpt:
 featureMaturity:
 enterprise: true
+model: /services/kafka/data.yml
+render: mustache
 ---
+# Versions
 
-This topic describes how to configure DC/OS access for Kafka. Depending on your [security mode](/1.9/security/ent/#security-modes/), Kafka requires [service authentication](/1.10/security/ent/service-auth/) for access to DC/OS.
+In Kafka 2.3.0-1.1.0 and later, these topics have been divided up among the Getting Started and Security sections. Previous versions will still need the information below.
+
+# Configuring DC/OS Access
+
+This topic describes how to configure DC/OS access for Kafka. Depending on your [security mode](/latest/security/ent/#security-modes/), Kafka requires [service authentication](/latest/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -15,13 +22,13 @@ This topic describes how to configure DC/OS access for Kafka. Depending on your 
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in disabled mode, it will use the default `dcos_anonymous` account to authenticate. The `dcos_anonymous` account has the [superuser permission](/1.10/security/ent/perms-reference/#superuser).
+If you install a service in permissive mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](/latest/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
+- [DC/OS CLI installed](/latest/cli/install/) and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14 or later installed](/1.9/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.9/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- If your [security mode](/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/latest/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 In this step, a 2048-bit RSA public-private key pair is created uses the Enterprise DC/OS CLI.
@@ -32,7 +39,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.10/security/ent/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/latest/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 
@@ -167,7 +174,7 @@ Specify the service account (`<service-account-id>`) and secret path (`kafka/<se
 {
   "service": {
     "service_account": "<service-account-id>",
-    "service_account_name": "kafka/<secret-name>"
+    "service_account_secret": "kafka/<secret-name>"
   }
 }
 ```

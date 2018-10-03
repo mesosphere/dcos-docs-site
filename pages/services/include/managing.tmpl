@@ -18,10 +18,10 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
-+ Service with a version greater than 2.0.0-x.
-+ [The DC/OS CLI](/latest/cli/install/) installed and available.
-+ The service's subcommand available and installed on your local machine.
++ Enterprise DC/OS 1.10 or later
++ Service with a version greater than 2.0.0-x
++ [The DC/OS CLI](/latest/cli/install/)installed and available
++ The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli {{ model.packageName }}`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
@@ -31,7 +31,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service, including any default values that were applied during installation. For example:
+If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service, including any default values that were applied during installation. For example:
 
 ```bash
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} describe > options.json
@@ -39,45 +39,51 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} describe > options
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when installing the service.
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when installing the service.
 
-**Note:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
+<p class="message--note"><strong>NOTE: </strong>You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating options.json" section below for information on recovering these values.</p>
+
 
 #### Recreating `options.json` (optional)
 
 If the `options.json` from when the service was last installed or updated is not available, you will need to manually recreate it using the following steps.
 
-First, we'll fetch the default application's environment, current application's environment, and the actual template that maps config values to the environment:
+First, we will fetch the default application's environment, current application's environment, and the actual template that maps config values to the environment:
 
 1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
+
 1. Get the version of the package that is currently installed:
-```bash
-$ PACKAGE_VERSION=$(dcos package list | grep {{ model.packageName }} | awk '{print $2}')
-```
+    ```bash
+    $ PACKAGE_VERSION=$(dcos package list | grep {{ model.packageName }} | awk '{print $2}')
+    ```
+
 1. Then fetch and save the environment variables that have been set for the service:
-```bash
-$ dcos marathon app show {{ model.serviceName }} | jq .env > current_env.json
-```
+    ```bash
+    $ dcos marathon app show {{ model.serviceName }} | jq .env > current_env.json
+    ```
+
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
-```bash
-$ dcos package describe --package-version=$PACKAGE_VERSION --render --app {{ model.serviceName }} | jq .env > default_env.json
-```
+    ```bash
+    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app {{ model.serviceName }} | jq .env > default_env.json
+    ```
+
 1. We'll also get the entire application template:
-```bash
-$ dcos package describe {{ model.serviceName }} --app > marathon.json.mustache
-```
+    ```bash
+    $ dcos package describe {{ model.serviceName }} --app > marathon.json.mustache
+    ```
 
 With these files, `options.json` can be recreated.
 
 1. Use `jq` and `diff` to compare the two:
-```bash
-$ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
-```
+    ```bash
+    $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
+    ```
 
 1. Now compare these values to the values contained in the `env` section in application template:
-```bash
-$ less marathon.json.mustache
-```
+    ```bash
+    $ less marathon.json.mustache
+    ```
+
 1. Use the variable names (e.g. `{{=<% %>=}}{{service.name}}<%={{ }}=%>`) to create a new `options.json` file as described in Initial service configuration.
 
 ### Starting the update
