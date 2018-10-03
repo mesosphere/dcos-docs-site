@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle:  Disaster Recovery
 title: Disaster Recovery
 menuWeight: 80
-excerpt:
+excerpt: Backing up and restoring your Cassandra service
 featureMaturity:
 enterprise: false
 ---
+<p class="message--warning"><strong>WARNING: </strong>The limitation described in the <a href="/services/cassandra/2.0.3-3.0.14/limitations/#service-user">Service user section</a> of the Limitations topic is crucial for the data backup procedure described below. Be sure to review that section before proceeding with any backup or restore operations.</p>
 
 # Backup
 
