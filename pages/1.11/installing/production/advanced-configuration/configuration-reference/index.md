@@ -397,6 +397,10 @@ For more information, see the [GPU documentation](/1.11/deploying-services/gpu/)
 
 ## fault_domain_enabled
 By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, so no changes to your config.yaml are required to use this feature.
+**Note:** 
+By default, `fault_domain_enabled: True` for enterprise users.[enterprise type="inline" size="small" /]
+
+
 
 ## gc_delay
 The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.
@@ -416,6 +420,10 @@ set -o nounset -o errexit
 
 curl -fsSL https://ipinfo.io/ip
 ```
+
+## license_key_contents
+A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. This parameter is used when an user wants to directly specify the license in the config.yaml. 
+Example: `license_key_contents: xyz`.
 
 ## log_directory
 The path to the installer host logs from the SSH processes. By default, this is set to `/genconf/logs`. In most cases this should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
