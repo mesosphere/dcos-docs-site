@@ -40,10 +40,14 @@ Each service task has some number of environment variables, which are used to co
 
 The “disk” configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated “disk” configuration. See the Configuring section for instructions for customizing these values.
 
-## Legacy user support
+## OpenID Connect and Apache Knox
 
-Legacy authorized users files are not supported.
+OpenID Connect and Apache Knox are not supported.
 
-## LDAP integration, OpenID Connect and Apache Knox
+## Non-Root user based installation not supported
 
-LDAP integration, OpenID Connect and Apache Knox are not supported.
+## Dependency on external Zookeeper
+
+## Supports manual Restore processs
+
+
