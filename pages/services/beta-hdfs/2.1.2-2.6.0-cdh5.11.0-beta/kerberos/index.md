@@ -63,7 +63,7 @@ hdfs/name-0-node.myfolderhdfs.autoip.dcos.thisdcos.directory@LOCAL
 Once the principals have been created, a keytab file must be generated and uploaded to the DC/OS secret store as a base-64-encoded value. Assuming the keytab for **all** the HDFS principals has been created as a file `keytab`, this can be added to the secret store as follows (note that the DC/OS Enterprise CLI needs to be installed to gain access to the `security` command):
 ```bash
 $ base64 -w0 keytab > keytab.base64
-$ dcos security secrets create  __dcos_base64__keytab --file keytab.base64
+$ dcos security secrets create  __dcos_base64__keytab --text-file keytab.base64
 ```
 
 The name of the secret created (`__dcos_base64__keytab`) can be changed, as long as the `__dcos__base64__` prefix is maintained.
@@ -130,7 +130,7 @@ Here it is assumed that the domain `example.com` exists and that the domain user
 The generated file `hdfs.keytab` can now be base64-encoded and added to the DC/OS secret store as above:
 ```bash
 $ base64 -w0 hdfs.keytab > keytab.base64
-$ dcos security secrets create  __dcos_base64__ad_keytab --file keytab.base64
+$ dcos security secrets create  __dcos_base64__ad_keytab --text-file keytab.base64
 ```
 
 Kerberized Apache HDFS can then be deployed using the following configuration options:

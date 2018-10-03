@@ -544,7 +544,7 @@ Usage: dcos security secrets create [OPTIONS] PATH
 Options:
   -s, --store-id TEXT        Secrets backend to use.
   -v, --value TEXT           Value of the secret.
-  -f, --file FILENAME  Treat contents of the file as value of the secret.
+  -f, --file FILENAME        Treat contents of the file as value of the secret.
                              The contents are assumed to be text encoded via
                              UTF-8.
   -h, --help                 Show this message and exit.
@@ -613,7 +613,7 @@ Usage: dcos security secrets update [OPTIONS] PATH
 Options:
   -s, --store-id TEXT        Secrets backend to use.
   -v, --value TEXT           Value of the secret.
-  -f, --file FILENAME  Treat contents of the file as value of the secret.
+  -f, --file FILENAME        Treat contents of the file as value of the secret.
                              The contents are assumed to be text encoded via
                              UTF-8.
   -h, --help                 Show this message and exit.
