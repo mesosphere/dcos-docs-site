@@ -29,6 +29,7 @@ Based on the latest stable release of the dcos-commons SDK (Version 0.42.0), thi
     - SSL Authentication and Data at Rest encryption
     - PAM with OpenLDAP Authentication
     - Foldered Installation
+    - Backup to and Restore from All S3 compatible support
 
 ### Bug Fixes
 
@@ -44,11 +45,6 @@ Released first version of Service Guide with following topics:
     - Uninstall
     - Quick Start
     - Connecting Clients
-    - Managing
     - Diagnostic Tools
-    - API Reference
-    - Troubleshooting
-    - Limitations
     - Supported Versions
-    - Release Notes
-    - Upgrade
+    - Release Notes    
