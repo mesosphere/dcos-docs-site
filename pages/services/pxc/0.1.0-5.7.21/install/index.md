@@ -1,8 +1,11 @@
 ---
-post_title: Install and Customize
-menu_order: 20
-enterprise: 'no'
+layout: layout.pug
+navigationTitle: Install and Customize
+excerpt: Install and Customize
+title: Install and Customize
+menuWeight: 15
 ---
+
 
  DCOS percona-pxc-mysql is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
 
@@ -151,7 +154,7 @@ DC/OS Percona XtraDB Cluster supports deployment on virtual networks on DC/OS, a
 Note: Once the service is deployed on a virtual network, it cannot be updated to use the host network.
 
 
-## Minimal Installation (TBD)
+## Minimal Installation
 
 For development purposes, you may wish to install Percona XtraDB Cluster on a local DC/OS cluster. For this, you can use dcos-docker or dcos-vagrant.
 To start a minimal cluster with a single broker, create a JSON options file named sample-pxc-minimal.json:
@@ -159,7 +162,7 @@ To start a minimal cluster with a single broker, create a JSON options file name
    ```shell
    {
        "node": {
-       "count": 1,
+       "count": 3,
        "mem": 512,
        "cpu": 0.5
        }
@@ -171,76 +174,6 @@ The command below creates a cluster using sample-percona-pxc-mysql-minimal.json:
    ```shell
    dcos package install percona-pxc-mysql --options=sample-percona-pxc-mysql-minimal.json
    ```
-## Example custom installation (TBD)
-
-Customize the defaults by creating a JSON file. Then, pass it to dcos package install using the --options parameter.
-
-Sample JSON options file named sample-pxc-custom.json:
-
-   ```shell
-   {
-       "service": {
-           "type": "object",
-           "title": "DC/OS Apache percona-pxc-mysql Service Scheduler Configuration",
-           "description": "DC/OS Apache percona-pxc-mysql Service Scheduler Configuration",
-       },
-       "node": {
-           "count": 10
-       },
-       "ldap": {
-           "type": "object",
-           "id": "https://pxc.apache.org/docs/pxc-docs/html/administration-guide.html#ldap_login_identity_provider",
-           "title": "LDAP Configuration",
-           "description": "LDAP Configuration",
-           "properties": {
-               "authentication_strategy": {
-               "enum": [
-                   "ANONYMOUS",
-                   "SIMPLE",
-                   "LDAPS",
-                   "START_TLS"
-                   ],
-           "title": "Authentication Strategy [ANONYMOUS, SIMPLE, LDAPS, START_TLS]",
-           "description": "How the connection to the LDAP server is authenticated",
-           "default": "START_TLS"
-       }
-   }
-   ```
-The command below creates a cluster using sample-pxc.json:
-   ```shell
-   dcos package install percona-pxc-mysql --options=sample-percona-pxc-mysql-custom.json
-   ```
-**Recommendation:** Store your custom configuration in source control.
-
-Alternatively, you can perform a custom installation from the DC/OS web interface. Choose ADVANCED INSTALLATION at install time.
-
-## Integration with DC/OS access controls (TBD)
-
-In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, staging/percona-pxc-mysql and production/percona-pxc-mysql.
-
-Steps:
-
-  1. In the DC/OS GUI, create a group, then add a user to the group. Or, just create a user. Click Organization > Groups > + or Organization > Users > +. If you create a group, you must also create a user and add them to the group.
-
-  2. Give the user permissions for the folder where you will install your service. In this example, we are creating a user called developer, who will have access to the /testing folder.
-
-  3. Select the group or user you created. Select ADD PERMISSION and then toggle to INSERT PERMISSION STRING. Add each of the following permissions to your user or group, and then click ADD PERMISSIONS.
-
-   ```shell
-   dcos:adminrouter:service:marathon full
-   dcos:service:marathon:marathon:services:/testing full
-   dcos:adminrouter:ops:mesos full
-   dcos:adminrouter:ops:slave full
-   ```
-  4. Install your service into a folder called test. Go to Catalog, then search for percona-pxc-mysql.
-
-  5. Click CONFIGURE and change the service name to /testing/percona-pxc-mysql, then deploy.
-     The slashes in your service name are interpreted as folders. You are deploying pxc in the /testing folder. Any user with access to the /testing folder will have access to the service.
-
-Important:
-
-  a. Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders.
-  b. DC/OS 1.9 and earlier does not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.
 
 ## Interacting with your foldered service
 
@@ -280,7 +213,7 @@ Likewise this file can be referenced to update a percona-pxc-mysql service.
    dcos percona-pxc-mysql update start --options=options.json
    ```
 
-## Regions and Zones (TBD)
+## Regions and Zones
 
 Placement constraints can be applied to zones by referring to the @zone key. For example, one could spread pods across a minimum of 3 different zones by specifying the constraint:
 
