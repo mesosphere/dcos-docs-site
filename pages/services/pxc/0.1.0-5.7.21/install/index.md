@@ -234,4 +234,4 @@ Suppose we have a Mesos cluster with three zones. For balanced placement across 
 Instances will all be evenly divided between those three zones.
 
 ## Secured Installation
-  Please refer Security Guide for secured installation of [pxc](./security.md)
+  Please refer Security Guide for secured installation of [pxc](../security)
