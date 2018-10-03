@@ -11,6 +11,7 @@ menuWeight: 15
 ## Prerequisite
 
 - DC/OS should be installed on your cluster.
+- kafka-zookeeper is installed in the cluster from category.
 
 ## Steps
 
