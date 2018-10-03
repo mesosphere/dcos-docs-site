@@ -82,53 +82,17 @@ Once the install command is triggered, the service will deploy with a default co
     dcos percona-pxc-mysql pod list
     ```   
     
-11. Display the status for tasks in one pod or all pods  
-  
-    ```shell 
-    dcos percona-pxc-mysql pod status [<flags> <pod>]
-    --json  Show raw JSON response instead of user-friendly tree
-    ```        
-    
-12. Display the full state information for tasks in a pod
-
-    ```shell 
-    dcos percona-pxc-mysql pod info <pod>
-    ```      
-
-13. Restarts a given pod without moving it to a new agent
+11. Restarts a given pod without moving it to a new agent
 
     ```shell 
     dcos percona-pxc-mysql pod restart <pod>
     ```      
-14. Destroys a given pod and moves it to a new agent  
+12. Destroys a given pod and moves it to a new agent  
  
     ```shell 
     dcos percona-pxc-mysql pod replace <pod>
     ```      
-    
-15. Display the Mesos framework ID
-
-    ```shell 
-    dcos percona-pxc-mysql state framework_id
-    ```  
-16. List names of all custom properties
-  
-    ```shell 
-    dcos percona-pxc-mysql state properties
-    ```  
- 
-17. Display the content of a specified property
- 
-    ```shell 
-    dcos percona-pxc-mysql state property <name>
-    ```   
-    
-18. Refresh the state cache, used for debugging     
-
-    ```shell 
-    dcos percona-pxc-mysql state refresh_cache
-    ```     
-19. Launches an update operation
+13. Launches an update operation
  
     ```shell 
     dcos percona-pxc-mysql update start [<flags>]
@@ -138,41 +102,42 @@ Once the install command is triggered, the service will deploy with a default co
     --replace          Replace the existing configuration in whole. Otherwise, the existing configuration and options are merged.
     ```     
 
-20. Force complete a specific step in the provided phase
+14. Force complete a specific step in the provided phase
   
     ```shell 
     dcos percona-pxc-mysql update force-complete <phase> <step>
     ```         
 
-21. Restart update plan, or specific step in the provided phase
+15. Restart update plan, or specific step in the provided phase
 
     ```shell 
     dcos percona-pxc-mysql update force-restart [<phase> [<step>]]
     ``` 
 
-22. View a list of available package versions to downgrade or upgrade to
+16. View a list of available package versions to downgrade or upgrade to
     
     ```shell 
     dcos percona-pxc-mysql update package-versions
     ```     
     
-23. Pause update plan
+17. Pause update plan
 
     ```shell 
     dcos percona-pxc-mysql update pause
     ```  
-23. Resume update plan
+18. Resume update plan
 
     ```shell 
     dcos percona-pxc-mysql update resume
     ```  
     
-24. View status of a running update   
+19. View status of a running update   
   
     ```shell 
     dcos percona-pxc-mysql update status [<flags>]
     --json  Show raw JSON response instead of user-friendly tree
     ```               
+
 
 # How to see Metrices with Prometheus and Garafana with DC/OS
 
